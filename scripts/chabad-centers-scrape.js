@@ -72,9 +72,14 @@
         await sleep(3000 * attempt);
         continue;
       }
-      const ct = res.headers.get('content-type') || '';
-      if (res.ok && /json/.test(ct)) return res.json();
-      if (res.status === 403 || res.status === 429 || (res.ok && !/json/.test(ct))) {
+      // The API answers with content-type "application/vnd.japi", so parse rather than sniff the header;
+      // a Cloudflare challenge comes back as HTML and fails to parse.
+      let parsed;
+      if (res.ok) {
+        try { parsed = JSON.parse(await res.text()); } catch (e) { parsed = undefined; }
+        if (parsed !== undefined) return parsed;
+      }
+      if (res.status === 403 || res.status === 429 || res.ok) {
         console.warn(`[chabad] blocked (${res.status}) — waiting ${15 * attempt}s. If chabad.org shows a "verify you are human" check in another tab, complete it.`);
         await sleep(15000 * attempt);
         continue;

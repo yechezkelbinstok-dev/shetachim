@@ -13,7 +13,8 @@
 // Progress lives in window.__chabad. Run saveChabad() at any time to download
 // what has been collected so far; stopChabad() ends the run early.
 (async () => {
-  const API = '/api/v2/chabadorg/centers/locations';
+  const VERSION = 'v3';
+  const API = 'https://www.chabad.org/api/v2/chabadorg/centers/locations';
   const Q = 'format=jsonapi&lang=en';
   const CONCURRENCY = 3;
   const DELAY_MS = 150; // per worker, between requests
@@ -34,6 +35,12 @@
   });
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   const log = (...a) => console.log('%c[chabad]', 'color:#c60;font-weight:bold', ...a);
+
+  console.log(`%c[chabad] collector ${VERSION} starting on ${location.host}`, 'color:#c60;font-weight:bold;font-size:14px');
+  if (location.host !== 'www.chabad.org') {
+    console.error('[chabad] run this in the Console of a www.chabad.org tab (e.g. chabad.org/jewish-centers), not this page.');
+    return;
+  }
 
   window.stopChabad = () => { S.stopped = true; log('stopping after in-flight requests…'); };
   window.saveChabad = (final = false) => {
@@ -62,30 +69,37 @@
   };
 
   // Returns parsed JSON, or null for "no such location".
+  let reportedBadBody = false;
   async function getJSON(url) {
-    for (let attempt = 1; attempt <= 8; attempt++) {
+    for (let attempt = 1; attempt <= 6; attempt++) {
       let res;
       S.stats.requests++;
       try {
         res = await fetch(url, { headers: { accept: 'application/vnd.api+json' }, credentials: 'same-origin' });
       } catch (e) {
+        console.warn(`[chabad] network error on ${url}: ${e.message} — retrying`);
         await sleep(3000 * attempt);
         continue;
       }
-      // The API answers with content-type "application/vnd.japi", so parse rather than sniff the header;
-      // a Cloudflare challenge comes back as HTML and fails to parse.
-      let parsed;
+      // The API answers with content-type "application/vnd.japi", so parse rather than sniff the header.
+      const ct = res.headers.get('content-type') || '(none)';
+      const body = await res.text();
       if (res.ok) {
-        try { parsed = JSON.parse(await res.text()); } catch (e) { parsed = undefined; }
-        if (parsed !== undefined) return parsed;
+        if (!body.trim()) return null; // empty = no such location
+        try { return JSON.parse(body); } catch (e) { /* fall through */ }
       }
-      if (res.status === 403 || res.status === 429 || res.ok) {
+      if (res.status === 404 || res.status === 400) return null;
+      if (!reportedBadBody) {
+        reportedBadBody = true;
+        console.warn(`[chabad] unexpected response — status ${res.status}, content-type ${ct}, url ${url}\nfirst 300 chars:\n${body.slice(0, 300)}`);
+      }
+      if (res.status === 403 || res.status === 429) {
         console.warn(`[chabad] blocked (${res.status}) — waiting ${15 * attempt}s. If chabad.org shows a "verify you are human" check in another tab, complete it.`);
         await sleep(15000 * attempt);
         continue;
       }
-      if (res.status >= 500 && attempt < 3) { await sleep(2000); continue; }
-      return null; // 404/400/persistent 5xx: treat as empty
+      if (attempt < 2) { await sleep(1500); continue; }
+      break; // 5xx or unparseable 200: give up on this url
     }
     S.errors.push(url);
     return null;
@@ -164,6 +178,10 @@
   const count = (j) => (j && j.data && j.data.relationships && j.data.relationships.centers.data.length) || 0;
   const baseN = count(await getJSON(probeUrl('')));
   log(`Brooklyn default: ${baseN} centers`);
+  if (!baseN) {
+    console.error('[chabad] the first request (Brooklyn) returned no centers, so stopping here. Please screenshot the Console and send it.');
+    return;
+  }
   for (const p of ['quantity=1000', 'limit=1000', 'page[size]=1000', 'page[limit]=1000', 'pageSize=1000', 'count=1000', 'take=1000', 'max=1000']) {
     const n = count(await getJSON(probeUrl(p)));
     log(`  probe ${p}: ${n}`);

@@ -1,0 +1,330 @@
+{
+ "data": {
+  "id": "440133",
+  "type": "center",
+  "attributes": {
+   "is-full-record": true,
+   "mailing-address": null,
+   "phone-number": {
+    "number": "416-546-9770",
+    "extension": null
+   },
+   "title": "Chabad of Downtown Toronto - Chabad House - Toronto, ON Canada",
+   "native-title": null,
+   "url": "www.jewishdt.com",
+   "donate-url": "www.Jewishdt.com/donate",
+   "contact-id": 435259,
+   "primary-mosad-contact-aid": 425105,
+   "gmt-offset": -4,
+   "photos": [],
+   "news": [],
+   "description": "Chabad of Downtown Toronto - 15A Clarence Square Toronto ON M5V 1H1 Canada - Rabbi Mendel Chaikin",
+   "coordinates": {
+    "latitude": 43.6448372,
+    "longitude": -79.3934109
+   },
+   "location-is-approximate": false,
+   "address": {
+    "address-line1": "15A Clarence Square",
+    "address-line2": null,
+    "city": "Toronto",
+    "state": "ON",
+    "country": "Canada",
+    "zip-code": "M5V 1H1",
+    "address-explanation": ""
+   },
+   "native-address": null,
+   "city": "Toronto",
+   "mosad-aid": 440133,
+   "mosad-id": 7095,
+   "name": "Chabad of Downtown Toronto",
+   "native-name": "",
+   "static-url": "Toronto/Synagogue/Chabad-of-Downtown-Toronto"
+  },
+  "relationships": {
+   "parent": {
+    "data": null
+   },
+   "campuses": {
+    "data": []
+   },
+   "departments": {
+    "data": []
+   },
+   "personnel": {
+    "data": [
+     {
+      "id": "425105",
+      "type": "person"
+     },
+     {
+      "id": "425106",
+      "type": "person"
+     }
+    ]
+   },
+   "services": {
+    "data": [
+     {
+      "id": "7171",
+      "type": "service-type"
+     },
+     {
+      "id": "7155",
+      "type": "service-type"
+     },
+     {
+      "id": "7159",
+      "type": "service-type"
+     },
+     {
+      "id": "7453",
+      "type": "service-type"
+     },
+     {
+      "id": "7459",
+      "type": "service-type"
+     },
+     {
+      "id": "7461",
+      "type": "service-type"
+     },
+     {
+      "id": "7463",
+      "type": "service-type"
+     },
+     {
+      "id": "7757",
+      "type": "service-type"
+     },
+     {
+      "id": "7760",
+      "type": "service-type"
+     },
+     {
+      "id": "7763",
+      "type": "service-type"
+     },
+     {
+      "id": "7764",
+      "type": "service-type"
+     },
+     {
+      "id": "7767",
+      "type": "service-type"
+     },
+     {
+      "id": "7771",
+      "type": "service-type"
+     },
+     {
+      "id": "7772",
+      "type": "service-type"
+     },
+     {
+      "id": "7773",
+      "type": "service-type"
+     },
+     {
+      "id": "7774",
+      "type": "service-type"
+     },
+     {
+      "id": "7780",
+      "type": "service-type"
+     },
+     {
+      "id": "9358",
+      "type": "service-type"
+     },
+     {
+      "id": "10084",
+      "type": "service-type"
+     },
+     {
+      "id": "11699",
+      "type": "service-type"
+     }
+    ]
+   },
+   "center-type": {
+    "data": {
+     "id": "7171",
+     "type": "service-type"
+    }
+   }
+  }
+ },
+ "included": [
+  {
+   "id": "425105",
+   "type": "person",
+   "attributes": {
+    "shliach-aid": 425105,
+    "email-pk": 443255,
+    "contact-id": 435259,
+    "title": "Rabbi",
+    "first-name": "Mendel",
+    "last-name": "Chaikin",
+    "position": "Co-director",
+    "is-director": true,
+    "is-deceased": false
+   }
+  },
+  {
+   "id": "425106",
+   "type": "person",
+   "attributes": {
+    "shliach-aid": 425106,
+    "email-pk": 1442258,
+    "contact-id": 387391,
+    "title": "Mrs.",
+    "first-name": "Chanie",
+    "last-name": "Chaikin",
+    "position": "Co-director",
+    "is-director": false,
+    "is-deceased": false
+   }
+  },
+  {
+   "id": "7171",
+   "type": "service-type",
+   "attributes": {
+    "name": "Chabad House"
+   }
+  },
+  {
+   "id": "7155",
+   "type": "service-type",
+   "attributes": {
+    "name": "Adult Education"
+   }
+  },
+  {
+   "id": "7159",
+   "type": "service-type",
+   "attributes": {
+    "name": "Synagogue"
+   }
+  },
+  {
+   "id": "7453",
+   "type": "service-type",
+   "attributes": {
+    "name": "Holiday Awareness Programs"
+   }
+  },
+  {
+   "id": "7459",
+   "type": "service-type",
+   "attributes": {
+    "name": "Communal Lectures"
+   }
+  },
+  {
+   "id": "7461",
+   "type": "service-type",
+   "attributes": {
+    "name": "Mezuzah and Tefillin Checking"
+   }
+  },
+  {
+   "id": "7463",
+   "type": "service-type",
+   "attributes": {
+    "name": "One-on-One Study"
+   }
+  },
+  {
+   "id": "7757",
+   "type": "service-type",
+   "attributes": {
+    "name": "Kitchen Koshering"
+   }
+  },
+  {
+   "id": "7760",
+   "type": "service-type",
+   "attributes": {
+    "name": "Circumcision"
+   }
+  },
+  {
+   "id": "7763",
+   "type": "service-type",
+   "attributes": {
+    "name": "Hospital Visitation"
+   }
+  },
+  {
+   "id": "7764",
+   "type": "service-type",
+   "attributes": {
+    "name": "Prison Visitation"
+   }
+  },
+  {
+   "id": "7767",
+   "type": "service-type",
+   "attributes": {
+    "name": "Prison Chaplaincy"
+   }
+  },
+  {
+   "id": "7771",
+   "type": "service-type",
+   "attributes": {
+    "name": "Regular Classes"
+   }
+  },
+  {
+   "id": "7772",
+   "type": "service-type",
+   "attributes": {
+    "name": "Seniors Visitation"
+   }
+  },
+  {
+   "id": "7773",
+   "type": "service-type",
+   "attributes": {
+    "name": "Marriage Prep"
+   }
+  },
+  {
+   "id": "7774",
+   "type": "service-type",
+   "attributes": {
+    "name": "Funeral Services"
+   }
+  },
+  {
+   "id": "7780",
+   "type": "service-type",
+   "attributes": {
+    "name": "Women's Group"
+   }
+  },
+  {
+   "id": "9358",
+   "type": "service-type",
+   "attributes": {
+    "name": "Mezuzah Loans/Service"
+   }
+  },
+  {
+   "id": "10084",
+   "type": "service-type",
+   "attributes": {
+    "name": "Shabbat/Holiday Hospitality"
+   }
+  },
+  {
+   "id": "11699",
+   "type": "service-type",
+   "attributes": {
+    "name": "Weddings"
+   }
+  }
+ ]
+}

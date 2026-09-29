@@ -1,0 +1,141 @@
+{
+ "data": {
+  "id": "2104854",
+  "type": "center",
+  "attributes": {
+   "is-full-record": true,
+   "mailing-address": {
+    "address-line1": "157 Falkirk Street",
+    "address-line2": "",
+    "city": "Toronto",
+    "state": "ON",
+    "country": "Canada",
+    "zip-code": "M5M 4K4",
+    "address-explanation": null
+   },
+   "phone-number": {
+    "number": "416-546-8770",
+    "extension": null
+   },
+   "title": "Gan Shalom Day Camp - Day Camp - Toronto, ON Canada",
+   "native-title": null,
+   "url": "www.ganshalom.ca/camp",
+   "donate-url": "www.familyshul.ca/donate",
+   "contact-id": 412710,
+   "primary-mosad-contact-aid": 392191,
+   "gmt-offset": -4,
+   "photos": [],
+   "news": [],
+   "description": "Gan Shalom Day Camp - 95 Falkirk Street Toronto ON M5M 4K1 Canada - Mrs. Chana S. Gansburg",
+   "coordinates": {
+    "latitude": 43.7275391,
+    "longitude": -79.4272269
+   },
+   "location-is-approximate": false,
+   "address": {
+    "address-line1": "95 Falkirk Street",
+    "address-line2": "",
+    "city": "Toronto",
+    "state": "ON",
+    "country": "Canada",
+    "zip-code": "M5M 4K1",
+    "address-explanation": "Ledbury Park School"
+   },
+   "native-address": null,
+   "city": "Toronto",
+   "mosad-aid": 2104854,
+   "mosad-id": 9424,
+   "name": "Gan Shalom Day Camp",
+   "native-name": null,
+   "static-url": "Toronto/Day-Camp/Gan-Shalom-Day-Camp"
+  },
+  "relationships": {
+   "parent": {
+    "data": {
+     "id": "438211",
+     "type": "center"
+    }
+   },
+   "campuses": {
+    "data": []
+   },
+   "departments": {
+    "data": []
+   },
+   "personnel": {
+    "data": [
+     {
+      "id": "392191",
+      "type": "person"
+     }
+    ]
+   },
+   "services": {
+    "data": [
+     {
+      "id": "7168",
+      "type": "service-type"
+     }
+    ]
+   },
+   "center-type": {
+    "data": {
+     "id": "7168",
+     "type": "service-type"
+    }
+   }
+  }
+ },
+ "included": [
+  {
+   "id": "438211",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "city": "Toronto",
+    "mosad-aid": 438211,
+    "mosad-id": 0,
+    "name": "Ledbury Jewish Centre",
+    "native-name": null,
+    "static-url": "Toronto/Synagogue/Ledbury-Jewish-Centre"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "392191",
+   "type": "person",
+   "attributes": {
+    "shliach-aid": 392191,
+    "email-pk": 677792,
+    "contact-id": 412710,
+    "title": "Mrs.",
+    "first-name": "Chana S.",
+    "last-name": "Gansburg",
+    "position": "Director",
+    "is-director": true,
+    "is-deceased": false
+   }
+  },
+  {
+   "id": "7168",
+   "type": "service-type",
+   "attributes": {
+    "name": "Day Camp"
+   }
+  },
+  {
+   "id": "7171",
+   "type": "service-type",
+   "attributes": {
+    "name": "Chabad House"
+   }
+  }
+ ]
+}

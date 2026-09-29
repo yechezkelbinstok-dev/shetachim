@@ -1,0 +1,2180 @@
+{
+ "data": {
+  "id": "1-540#Toronto",
+  "type": "location",
+  "attributes": {
+   "location-type": 1,
+   "city": "Toronto",
+   "state": "Ontario",
+   "zip-code": null,
+   "country": "Canada",
+   "coordinates": {
+    "latitude": 43.65,
+    "longitude": -79.36666666666666
+   },
+   "title": "Chabad Centers in Toronto, Ontario Canada",
+   "static-url": "Toronto-Ontario-Canada",
+   "description": "A directory of Chabad-Lubavitch centers in Toronto, Ontario Canada. These centers offer Torah classes, synagogue services, and assistance with Jewish education and practice.",
+   "distances": {
+    "438211": 0.0,
+    "440133": 0.0,
+    "533758": 0.0,
+    "549656": 0.0,
+    "118383": 0.0,
+    "4031052": 0.0,
+    "3828697": 0.0,
+    "117798": 0.0,
+    "6990612": 0.0,
+    "6796533": 0.0,
+    "4480419": 0.0,
+    "2104854": 0.0,
+    "2567221": 0.0,
+    "2991533": 0.0,
+    "2991535": 0.0,
+    "118407": 0.0,
+    "735367": 0.0,
+    "735370": 0.0,
+    "2488604": 0.0,
+    "702897": 0.0,
+    "326603": 0.0,
+    "347106": 0.0,
+    "118938": 0.0,
+    "118649": 0.0,
+    "449787": 8.30258694535565,
+    "5567381": 8.67070705255847,
+    "559417": 10.327031884999345,
+    "117797": 11.09331318513071,
+    "439219": 11.202614044927376,
+    "3108509": 11.623229499801436,
+    "559427": 11.640788784879406,
+    "117796": 11.756636238744386,
+    "117795": 12.002400943110153,
+    "117951": 12.119097285845596,
+    "559415": 12.129234913302756,
+    "118329": 12.72702101738948,
+    "608335": 13.601376369474968,
+    "174317": 13.757825224425266,
+    "118898": 13.757825224425266,
+    "7083267": 15.195074555985258,
+    "6990607": 15.261197160474385,
+    "713289": 15.865098289845436,
+    "118663": 16.74523559986216,
+    "118374": 16.83482614470803,
+    "118781": 17.1863670925729,
+    "4585801": 17.744238780529475,
+    "282401": 20.216673305197336,
+    "7107123": 20.8860151717135,
+    "1082813": 28.47425388897803,
+    "3585579": 29.063499742645615
+   }
+  },
+  "relationships": {
+   "centers": {
+    "data": [
+     {
+      "id": "438211",
+      "type": "center"
+     },
+     {
+      "id": "440133",
+      "type": "center"
+     },
+     {
+      "id": "533758",
+      "type": "center"
+     },
+     {
+      "id": "549656",
+      "type": "center"
+     },
+     {
+      "id": "118383",
+      "type": "center"
+     },
+     {
+      "id": "4031052",
+      "type": "center"
+     },
+     {
+      "id": "3828697",
+      "type": "center"
+     },
+     {
+      "id": "117798",
+      "type": "center"
+     },
+     {
+      "id": "6990612",
+      "type": "center"
+     },
+     {
+      "id": "6796533",
+      "type": "center"
+     },
+     {
+      "id": "4480419",
+      "type": "center"
+     },
+     {
+      "id": "2104854",
+      "type": "center"
+     },
+     {
+      "id": "2567221",
+      "type": "center"
+     },
+     {
+      "id": "2991533",
+      "type": "center"
+     },
+     {
+      "id": "2991535",
+      "type": "center"
+     },
+     {
+      "id": "118407",
+      "type": "center"
+     },
+     {
+      "id": "735367",
+      "type": "center"
+     },
+     {
+      "id": "735370",
+      "type": "center"
+     },
+     {
+      "id": "2488604",
+      "type": "center"
+     },
+     {
+      "id": "702897",
+      "type": "center"
+     },
+     {
+      "id": "326603",
+      "type": "center"
+     },
+     {
+      "id": "347106",
+      "type": "center"
+     },
+     {
+      "id": "118938",
+      "type": "center"
+     },
+     {
+      "id": "118649",
+      "type": "center"
+     },
+     {
+      "id": "449787",
+      "type": "center"
+     },
+     {
+      "id": "5567381",
+      "type": "center"
+     },
+     {
+      "id": "559417",
+      "type": "center"
+     },
+     {
+      "id": "117797",
+      "type": "center"
+     },
+     {
+      "id": "439219",
+      "type": "center"
+     },
+     {
+      "id": "3108509",
+      "type": "center"
+     },
+     {
+      "id": "559427",
+      "type": "center"
+     },
+     {
+      "id": "117796",
+      "type": "center"
+     },
+     {
+      "id": "117795",
+      "type": "center"
+     },
+     {
+      "id": "117951",
+      "type": "center"
+     },
+     {
+      "id": "559415",
+      "type": "center"
+     },
+     {
+      "id": "118329",
+      "type": "center"
+     },
+     {
+      "id": "608335",
+      "type": "center"
+     },
+     {
+      "id": "174317",
+      "type": "center"
+     },
+     {
+      "id": "118898",
+      "type": "center"
+     },
+     {
+      "id": "7083267",
+      "type": "center"
+     },
+     {
+      "id": "6990607",
+      "type": "center"
+     },
+     {
+      "id": "713289",
+      "type": "center"
+     },
+     {
+      "id": "118663",
+      "type": "center"
+     },
+     {
+      "id": "118374",
+      "type": "center"
+     },
+     {
+      "id": "118781",
+      "type": "center"
+     },
+     {
+      "id": "4585801",
+      "type": "center"
+     },
+     {
+      "id": "282401",
+      "type": "center"
+     },
+     {
+      "id": "7107123",
+      "type": "center"
+     },
+     {
+      "id": "1082813",
+      "type": "center"
+     },
+     {
+      "id": "3585579",
+      "type": "center"
+     }
+    ]
+   }
+  }
+ },
+ "included": [
+  {
+   "id": "438211",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7310099,
+     "longitude": -79.4279276
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "157 Falkirk Street",
+     "address-line2": "",
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M5M 4K4",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 438211,
+    "mosad-id": 0,
+    "name": "Ledbury Jewish Centre",
+    "native-name": null,
+    "static-url": "Toronto/Synagogue/Ledbury-Jewish-Centre"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "440133",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.6448372,
+     "longitude": -79.3934109
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "15A Clarence Square",
+     "address-line2": null,
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M5V 1H1",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 440133,
+    "mosad-id": 0,
+    "name": "Chabad of Downtown Toronto",
+    "native-name": null,
+    "static-url": "Toronto/Synagogue/Chabad-of-Downtown-Toronto"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "533758",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.671334,
+     "longitude": -79.2929776
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "2273 Queen Street E",
+     "address-line2": null,
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M4E 1G5",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 533758,
+    "mosad-id": 0,
+    "name": "Chabad-Lubavitch of Danforth Beaches",
+    "native-name": null,
+    "static-url": "Toronto/Synagogue/Chabad-Lubavitch-of-Danforth-Beaches"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "549656",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7392007,
+     "longitude": -79.381654
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "2437 Bayview Avenue",
+     "address-line2": null,
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M2L 1A5",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 549656,
+    "mosad-id": 0,
+    "name": "Chabad on Bayview",
+    "native-name": null,
+    "static-url": "Toronto/Synagogue/Chabad-on-Bayview"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "118383",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.6794881,
+     "longitude": -79.4170561
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "1344 Bathurst Street",
+     "address-line2": null,
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M5R 3H7",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 118383,
+    "mosad-id": 0,
+    "name": "Chabad of Midtown Toronto",
+    "native-name": null,
+    "static-url": "Toronto/Synagogue/Chabad-of-Midtown-Toronto"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7737",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "4031052",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7218677,
+     "longitude": -79.4310048
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "3174 Bathurst Street",
+     "address-line2": "",
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M6A 2B1",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 4031052,
+    "mosad-id": 0,
+    "name": "JRCC Bathurst & Lawrence",
+    "native-name": null,
+    "static-url": "Toronto/Synagogue/JRCC-Bathurst-Lawrence"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7742",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "3828697",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7010555,
+     "longitude": -79.3973392
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "2026 Yonge Street",
+     "address-line2": null,
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M4S 1Z9",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 3828697,
+    "mosad-id": 0,
+    "name": "Chabad Lubavitch on the East Side",
+    "native-name": null,
+    "static-url": "Toronto/Synagogue/Chabad-Lubavitch-on-the-East-Side"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "117798",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7863025,
+     "longitude": -79.4456766
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "5987 Bathurst Street",
+     "address-line2": "Unit 3",
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M2R 1Z3",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 117798,
+    "mosad-id": 0,
+    "name": "Jewish Russian Community Centre of Ontario",
+    "native-name": null,
+    "static-url": "Toronto/Synagogue/Jewish-Russian-Community-Centre-of-Ontario"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7742",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "6990612",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7813008,
+     "longitude": -79.4164206
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "5700 Yonge St",
+     "address-line2": null,
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M2M 4K2",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 6990612,
+    "mosad-id": 0,
+    "name": "JRCC Willowdale",
+    "native-name": null,
+    "static-url": "Toronto/Synagogue/JRCC-Willowdale"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7742",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "6796533",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.6791154,
+     "longitude": -79.4385044
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "1036 St Clair Ave W",
+     "address-line2": "",
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": " M6E 1A4",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 6796533,
+    "mosad-id": 0,
+    "name": "Kosh & Chai",
+    "native-name": null,
+    "static-url": "Toronto/Kosh-Chai"
+   },
+   "relationships": {
+    "center-type": {
+     "data": null
+    }
+   }
+  },
+  {
+   "id": "4480419",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.728927,
+     "longitude": -79.411883
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "245 Fairlawn Avenue",
+     "address-line2": "",
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M5M 1T2",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 4480419,
+    "mosad-id": 0,
+    "name": "Aleph Champ Hebrew School - John Wanless",
+    "native-name": null,
+    "static-url": "Toronto/Hebrew-School/Aleph-Champ-Hebrew-School-John-Wanless"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7174",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "2104854",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7275391,
+     "longitude": -79.4272269
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "95 Falkirk Street",
+     "address-line2": "",
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M5M 4K1",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 2104854,
+    "mosad-id": 0,
+    "name": "Gan Shalom Day Camp",
+    "native-name": null,
+    "static-url": "Toronto/Day-Camp/Gan-Shalom-Day-Camp"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7168",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "2567221",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7188639,
+     "longitude": -79.429266
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "3055 Bathurst Street",
+     "address-line2": null,
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M6B 3B7",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 2567221,
+    "mosad-id": 0,
+    "name": "Yeshivas Lubavitch Toronto",
+    "native-name": null,
+    "static-url": "Toronto/Yeshivas-Lubavitch-Toronto"
+   },
+   "relationships": {
+    "center-type": {
+     "data": null
+    }
+   }
+  },
+  {
+   "id": "2991533",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7094553,
+     "longitude": -79.412772
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "391 St Clements Avenue",
+     "address-line2": "",
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M5N 1M2",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 2991533,
+    "mosad-id": 0,
+    "name": "Aleph Champ Hebrew School - Allenby",
+    "native-name": null,
+    "static-url": "Toronto/Hebrew-School/Aleph-Champ-Hebrew-School-Allenby"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7174",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "2991535",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.741381,
+     "longitude": -79.4300512
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "139 Armour Blvd.",
+     "address-line2": "",
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M3H 1M1",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 2991535,
+    "mosad-id": 0,
+    "name": "Aleph Champ Hebrew School - Summit Heights",
+    "native-name": null,
+    "static-url": "Toronto/Hebrew-School/Aleph-Champ-Hebrew-School-Summit-Heights"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7174",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "118407",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7188478,
+     "longitude": -79.4292729
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "3055 Bathurst Street",
+     "address-line2": null,
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M6B 3B7",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 118407,
+    "mosad-id": 0,
+    "name": "Mesivta Lubavitch Toronto",
+    "native-name": null,
+    "static-url": "Toronto/Yeshivah-KetanahMesivtah/Mesivta-Lubavitch-Toronto"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7193",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "735367",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7270438,
+     "longitude": -79.4308513
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "90 Marmion Avenue",
+     "address-line2": "",
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M5M 1Y3",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 735367,
+    "mosad-id": 0,
+    "name": "The Jewish Learning Institute",
+    "native-name": null,
+    "static-url": "Toronto/Adult-Education/The-Jewish-Learning-Institute"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7155",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "735370",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7270438,
+     "longitude": -79.4308513
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "90 Marmion Avenue",
+     "address-line2": "",
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M5M 1Y3",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 735370,
+    "mosad-id": 0,
+    "name": "The Jewish Women's Circle",
+    "native-name": null,
+    "static-url": "Toronto/Womens-Group/The-Jewish-Womens-Circle"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7780",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "2488604",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7025705,
+     "longitude": -79.4330891
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "70 Ridge Hill Drive",
+     "address-line2": "",
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M6C 2J6",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 2488604,
+    "mosad-id": 0,
+    "name": "Aleph Champ Hebrew School - West Prep",
+    "native-name": null,
+    "static-url": "Toronto/Hebrew-School/Aleph-Champ-Hebrew-School-West-Prep"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7174",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "702897",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7275391,
+     "longitude": -79.4272269
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "95 Falkirk Street",
+     "address-line2": null,
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M5M 4K1",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 702897,
+    "mosad-id": 0,
+    "name": "Aleph Champ Hebrew School - Ledbury Park",
+    "native-name": null,
+    "static-url": "Toronto/Hebrew-School/Aleph-Champ-Hebrew-School-Ledbury-Park"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7174",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "326603",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7311027,
+     "longitude": -79.4330326
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "3600 Bathurst Street",
+     "address-line2": null,
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M6A 2C9",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 326603,
+    "mosad-id": 0,
+    "name": "Bais Chomesh Girls High School",
+    "native-name": null,
+    "static-url": "Toronto/High-School-Girls/Bais-Chomesh-Girls-High-School"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7719",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "347106",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.781649,
+     "longitude": -79.4727646
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "6-20 Magnetic Drive",
+     "address-line2": "",
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M3J 2C4",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 347106,
+    "mosad-id": 0,
+    "name": "The Interactive Jewish Education Centre",
+    "native-name": null,
+    "static-url": "Toronto/Childrens-Club/The-Interactive-Jewish-Education-Centre"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7190",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "118938",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7834537,
+     "longitude": -79.4461026
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "5950 Bathurst Street",
+     "address-line2": "Suite 110",
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M2R 1Y9",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 118938,
+    "mosad-id": 0,
+    "name": "JRCC Preschool & Daycare",
+    "native-name": null,
+    "static-url": "Toronto/Preschool/JRCC-Preschool-Daycare"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7180",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "118649",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7607122,
+     "longitude": -79.4774294
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "4375 Chesswood Drive",
+     "address-line2": null,
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M3J 2C2",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 118649,
+    "mosad-id": 0,
+    "name": "Bais Chaya Mushka School",
+    "native-name": null,
+    "static-url": "Toronto/Day-School/Bais-Chaya-Mushka-School"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7179",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "449787",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7560063,
+     "longitude": -79.440413
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "4400 Bathurst St",
+     "address-line2": null,
+     "city": "North York",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M3H 3R8",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "North York",
+    "mosad-aid": 449787,
+    "mosad-id": 0,
+    "name": "Uptown Chabad Lubavitch",
+    "native-name": null,
+    "static-url": "North-York/Synagogue/Uptown-Chabad-Lubavitch"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "5567381",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.6549533,
+     "longitude": -79.5301374
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "",
+     "address-line2": "",
+     "city": "Etobicoke",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Etobicoke",
+    "mosad-aid": 5567381,
+    "mosad-id": 0,
+    "name": "Chabad of Etobicoke",
+    "native-name": null,
+    "static-url": "Etobicoke/Synagogue/Chabad-of-Etobicoke"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "559417",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7856442,
+     "longitude": -79.4484634
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "18 Rockford Road",
+     "address-line2": null,
+     "city": "North York",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M2R 3V9",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "North York",
+    "mosad-aid": 559417,
+    "mosad-id": 0,
+    "name": "JRCC @ Rockford",
+    "native-name": null,
+    "static-url": "North-York/Synagogue/JRCC-Rockford"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7742",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "117797",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7987889,
+     "longitude": -79.4452719
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "770 Chabad Gate",
+     "address-line2": null,
+     "city": "Thornhill",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L4J 3V9",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Thornhill",
+    "mosad-aid": 117797,
+    "mosad-id": 0,
+    "name": "Chabad Lubavitch Of Southern Ontario",
+    "native-name": null,
+    "static-url": "Thornhill/Synagogue/Chabad-Lubavitch-Of-Southern-Ontario"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7737",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "439219",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7996596,
+     "longitude": -79.4479355
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "6 Milner Gate",
+     "address-line2": null,
+     "city": "Thornhill",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L4J 2N4",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Thornhill",
+    "mosad-aid": 439219,
+    "mosad-id": 0,
+    "name": "Rohr Chabad Jewish Student Centre at York University",
+    "native-name": null,
+    "static-url": "Thornhill/Campus-Chabad-House/Rohr-Chabad-Jewish-Student-Centre-at-York-University"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7157",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "3108509",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.8060526,
+     "longitude": -79.4485224
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "7555 Bathurst Street",
+     "address-line2": null,
+     "city": "Thornhill",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L4J 2K3",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Thornhill",
+    "mosad-aid": 3108509,
+    "mosad-id": 0,
+    "name": "Ohr Temimim",
+    "native-name": null,
+    "static-url": "Thornhill/Ohr-Temimim"
+   },
+   "relationships": {
+    "center-type": {
+     "data": null
+    }
+   }
+  },
+  {
+   "id": "559427",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.81261,
+     "longitude": -79.4240586
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "7608 Yonge Street",
+     "address-line2": "Unit 3",
+     "city": "Thornhill",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L4J 0J5",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Thornhill",
+    "mosad-aid": 559427,
+    "mosad-id": 0,
+    "name": "JRCC East Thornhill",
+    "native-name": null,
+    "static-url": "Thornhill/Synagogue/JRCC-East-Thornhill"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7742",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "117796",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.8111284,
+     "longitude": -79.4378994
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "148 Thornridge Drive",
+     "address-line2": "",
+     "city": "Thornhill",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L4J 1E3",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Thornhill",
+    "mosad-aid": 117796,
+    "mosad-id": 0,
+    "name": "Shmuel Zahavy Cheder Chabad",
+    "native-name": null,
+    "static-url": "Thornhill/Day-School/Shmuel-Zahavy-Cheder-Chabad"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7179",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "117795",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.8224083,
+     "longitude": -79.3941919
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "83 Green Lane",
+     "address-line2": null,
+     "city": "Thornhill",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L3T 6K6",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Thornhill",
+    "mosad-aid": 117795,
+    "mosad-id": 0,
+    "name": "Chabad Lubavitch of Markham",
+    "native-name": null,
+    "static-url": "Thornhill/Synagogue/Chabad-Lubavitch-of-Markham"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "117951",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.8129852,
+     "longitude": -79.4511175
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "7770 Bathurst Street",
+     "address-line2": null,
+     "city": "Vaughan",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L4J 0H6",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Vaughan",
+    "mosad-aid": 117951,
+    "mosad-id": 0,
+    "name": "Beth Chabad Israeli Community",
+    "native-name": null,
+    "static-url": "Vaughan/Israeli-Center/Beth-Chabad-Israeli-Community"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7747",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "559415",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.8092923,
+     "longitude": -79.4628045
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "1136 Centre Street ",
+     "address-line2": "Unit 2",
+     "city": "Thornhill",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L4J 3M8",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Thornhill",
+    "mosad-aid": 559415,
+    "mosad-id": 0,
+    "name": "JRCC West Thornhill",
+    "native-name": null,
+    "static-url": "Thornhill/Synagogue/JRCC-West-Thornhill"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7742",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "118329",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.8221589,
+     "longitude": -79.4520072
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "8001 Bathurst Street",
+     "address-line2": "",
+     "city": "Thornhill",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L4J 8L5",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Thornhill",
+    "mosad-aid": 118329,
+    "mosad-id": 0,
+    "name": "Chabad Flamingo",
+    "native-name": null,
+    "static-url": "Thornhill/Synagogue/Chabad-Flamingo"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7159",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "608335",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.8345079,
+     "longitude": -79.4560612
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "8700 Bathurst Street ",
+     "address-line2": "Unit 5",
+     "city": "Thornhill",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L4J 9J8",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Thornhill",
+    "mosad-aid": 608335,
+    "mosad-id": 0,
+    "name": "Jewish Youth Network",
+    "native-name": null,
+    "static-url": "Thornhill/Youth-Center/Jewish-Youth-Network"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "13336",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "174317",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.8367193,
+     "longitude": -79.4567762
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "8808 Bathurst Street",
+     "address-line2": "",
+     "city": "Thornhill",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L4J 8A7",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Thornhill",
+    "mosad-aid": 174317,
+    "mosad-id": 0,
+    "name": "Chabad Russian Center of Thornhill Woods",
+    "native-name": null,
+    "static-url": "Thornhill/Synagogue/Chabad-Russian-Center-of-Thornhill-Woods"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7737",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "118898",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.8367193,
+     "longitude": -79.4567762
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "8808 Bathurst Street",
+     "address-line2": null,
+     "city": "Thornhill",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L4J 2N2",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Thornhill",
+    "mosad-aid": 118898,
+    "mosad-id": 0,
+    "name": "Bais Chaya Mushka",
+    "native-name": null,
+    "static-url": "Thornhill/Day-School/Bais-Chaya-Mushka"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7179",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "7083267",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.8546289,
+     "longitude": -79.4716421
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "360 Thomas Cook Ave",
+     "address-line2": "",
+     "city": "Maple",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L6A 4M1",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Maple",
+    "mosad-aid": 7083267,
+    "mosad-id": 0,
+    "name": "JRCC Maple Hebrew School",
+    "native-name": null,
+    "static-url": "Maple/Hebrew-School/JRCC-Maple-Hebrew-School"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7174",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "6990607",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.8587859,
+     "longitude": -79.4605576
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "9699 Bathurst St",
+     "address-line2": null,
+     "city": "Richmond Hill",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L4C 3X4",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Richmond Hill",
+    "mosad-aid": 6990607,
+    "mosad-id": 0,
+    "name": "JRCC S Richmond Hill & Maple",
+    "native-name": null,
+    "static-url": "Richmond-Hill/Synagogue/JRCC-S-Richmond-Hill-Maple"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7742",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "713289",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.8595714,
+     "longitude": -79.4889315
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "9960 Dufferin Street",
+     "address-line2": "#13",
+     "city": "Maple",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L6A 4K5",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Maple",
+    "mosad-aid": 713289,
+    "mosad-id": 0,
+    "name": "Chabad of Maple",
+    "native-name": null,
+    "static-url": "Maple/Synagogue/Chabad-of-Maple"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "118663",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.5461981,
+     "longitude": -79.6521622
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "1552 Dundas Street W",
+     "address-line2": null,
+     "city": "Mississauga",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L5C 1E4",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Mississauga",
+    "mosad-aid": 118663,
+    "mosad-id": 0,
+    "name": "Chabad Jewish Discovery Centre",
+    "native-name": null,
+    "static-url": "Mississauga/Synagogue/Chabad-Jewish-Discovery-Centre"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "118374",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.8810542,
+     "longitude": -79.4673994
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "10500 Bathurst Street",
+     "address-line2": null,
+     "city": "Maple",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L6A 0H2",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Maple",
+    "mosad-aid": 118374,
+    "mosad-id": 0,
+    "name": "Chabad Romano Centre",
+    "native-name": null,
+    "static-url": "Maple/Synagogue/Chabad-Romano-Centre"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "118781",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.8889243,
+     "longitude": -79.4567638
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "112 Stave Crescent",
+     "address-line2": "",
+     "city": "Richmond Hill",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L4C 9J2",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Richmond Hill",
+    "mosad-aid": 118781,
+    "mosad-id": 0,
+    "name": "Hebrew School",
+    "native-name": null,
+    "static-url": "Richmond-Hill/Hebrew-School/Hebrew-School"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7174",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "4585801",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.8656794,
+     "longitude": -79.548373
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "",
+     "address-line2": "",
+     "city": "Woodbridge",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Woodbridge",
+    "mosad-aid": 4585801,
+    "mosad-id": 0,
+    "name": "Chabad Jewish Centre of Woodbridge",
+    "native-name": null,
+    "static-url": "Woodbridge/Synagogue/Chabad-Jewish-Centre-of-Woodbridge"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "282401",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.9350561,
+     "longitude": -79.452567
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "12611 Yonge Street",
+     "address-line2": null,
+     "city": "Richmond Hill",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L4E 1A4",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Richmond Hill",
+    "mosad-aid": 282401,
+    "mosad-id": 0,
+    "name": "Chabad Lubavitch of Aurora",
+    "native-name": null,
+    "static-url": "Richmond-Hill/Synagogue/Chabad-Lubavitch-of-Aurora"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "7107123",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.9426552,
+     "longitude": -79.4652092
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "294 King Road",
+     "address-line2": null,
+     "city": "Richmond Hill",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L4E 1H3",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Richmond Hill",
+    "mosad-aid": 7107123,
+    "mosad-id": 0,
+    "name": "Chabad of King Township",
+    "native-name": null,
+    "static-url": "Richmond-Hill/Chabad-of-King-Township"
+   },
+   "relationships": {
+    "center-type": {
+     "data": null
+    }
+   }
+  },
+  {
+   "id": "1082813",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.8829711,
+     "longitude": -78.9235203
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "1121 Dundas Street East",
+     "address-line2": "",
+     "city": "Whitby",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L1N 2K4",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Whitby",
+    "mosad-aid": 1082813,
+    "mosad-id": 0,
+    "name": "Chabad of Durham Region",
+    "native-name": null,
+    "static-url": "Whitby/Synagogue/Chabad-of-Durham-Region"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "3585579",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 44.059457,
+     "longitude": -79.4920583
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "344 Woodspring Avenue",
+     "address-line2": null,
+     "city": "Newmarket",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "L3X 3B8",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Newmarket",
+    "mosad-aid": 3585579,
+    "mosad-id": 0,
+    "name": "Chabad Newmarket",
+    "native-name": null,
+    "static-url": "Newmarket/Synagogue/Chabad-Newmarket"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "7171",
+   "type": "service-type",
+   "attributes": {
+    "name": "Chabad House"
+   }
+  },
+  {
+   "id": "7737",
+   "type": "service-type",
+   "attributes": {
+    "name": "Jewish Community Center"
+   }
+  },
+  {
+   "id": "7742",
+   "type": "service-type",
+   "attributes": {
+    "name": "Russian Jewry Center"
+   }
+  },
+  {
+   "id": "7174",
+   "type": "service-type",
+   "attributes": {
+    "name": "Hebrew School"
+   }
+  },
+  {
+   "id": "7168",
+   "type": "service-type",
+   "attributes": {
+    "name": "Day Camp"
+   }
+  },
+  {
+   "id": "7193",
+   "type": "service-type",
+   "attributes": {
+    "name": "Yeshivah Ketanah/Mesivtah"
+   }
+  },
+  {
+   "id": "7155",
+   "type": "service-type",
+   "attributes": {
+    "name": "Adult Education"
+   }
+  },
+  {
+   "id": "7780",
+   "type": "service-type",
+   "attributes": {
+    "name": "Women's Group"
+   }
+  },
+  {
+   "id": "7719",
+   "type": "service-type",
+   "attributes": {
+    "name": "High School - Girls"
+   }
+  },
+  {
+   "id": "7190",
+   "type": "service-type",
+   "attributes": {
+    "name": "Children's Club"
+   }
+  },
+  {
+   "id": "7180",
+   "type": "service-type",
+   "attributes": {
+    "name": "Preschool"
+   }
+  },
+  {
+   "id": "7179",
+   "type": "service-type",
+   "attributes": {
+    "name": "Day School"
+   }
+  },
+  {
+   "id": "7157",
+   "type": "service-type",
+   "attributes": {
+    "name": "Campus Chabad House"
+   }
+  },
+  {
+   "id": "7747",
+   "type": "service-type",
+   "attributes": {
+    "name": "Israeli Center"
+   }
+  },
+  {
+   "id": "7159",
+   "type": "service-type",
+   "attributes": {
+    "name": "Synagogue"
+   }
+  },
+  {
+   "id": "13336",
+   "type": "service-type",
+   "attributes": {
+    "name": "Youth Center"
+   }
+  }
+ ]
+}

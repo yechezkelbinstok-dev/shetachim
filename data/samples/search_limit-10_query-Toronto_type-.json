@@ -1,0 +1,663 @@
+{
+ "data": {
+  "id": "Toronto-10",
+  "type": "search",
+  "attributes": {
+   "title": "Chabad Centers - Results for Toronto",
+   "description": "A directory of Chabad-Lubavitch centers in Toronto. These centers offer Torah classes, synagogue services, and assistance with Jewish education and practice.",
+   "query": {
+    "query": "Toronto",
+    "quantity": 10
+   },
+   "advanced-query": {
+    "shliach-name": null,
+    "center-types": null,
+    "center-type-ids": null
+   },
+   "distances": {}
+  },
+  "relationships": {
+   "locations": {
+    "data": [
+     {
+      "id": "1-540#Toronto",
+      "type": "location"
+     },
+     {
+      "id": "2-66777#Toronto",
+      "type": "location"
+     },
+     {
+      "id": "2-43964#Toronto",
+      "type": "location"
+     },
+     {
+      "id": "2-57268#Toronto",
+      "type": "location"
+     },
+     {
+      "id": "2-62707#ringfield)",
+      "type": "location"
+     },
+     {
+      "id": "2-52777#Wheatland)",
+      "type": "location"
+     },
+     {
+      "id": "2-57268# (Toronto)",
+      "type": "location"
+     }
+    ]
+   },
+   "centers": {
+    "data": [
+     {
+      "id": "118649",
+      "type": "center"
+     },
+     {
+      "id": "326603",
+      "type": "center"
+     },
+     {
+      "id": "3828697",
+      "type": "center"
+     },
+     {
+      "id": "440133",
+      "type": "center"
+     },
+     {
+      "id": "118383",
+      "type": "center"
+     },
+     {
+      "id": "549656",
+      "type": "center"
+     },
+     {
+      "id": "533758",
+      "type": "center"
+     },
+     {
+      "id": "117798",
+      "type": "center"
+     },
+     {
+      "id": "6990612",
+      "type": "center"
+     },
+     {
+      "id": "438211",
+      "type": "center"
+     }
+    ]
+   }
+  }
+ },
+ "included": [
+  {
+   "id": "1-540#Toronto",
+   "type": "location",
+   "attributes": {
+    "location-type": 1,
+    "city": "Toronto",
+    "state": "Ontario",
+    "zip-code": null,
+    "country": "Canada",
+    "coordinates": {
+     "latitude": 43.65,
+     "longitude": -79.36666666666666
+    },
+    "title": "Chabad Centers in Toronto, Ontario Canada",
+    "static-url": "Toronto-Ontario-Canada",
+    "description": "A directory of Chabad-Lubavitch centers in Toronto, Ontario Canada. These centers offer Torah classes, synagogue services, and assistance with Jewish education and practice.",
+    "distances": null
+   },
+   "relationships": {
+    "centers": {
+     "data": []
+    }
+   }
+  },
+  {
+   "id": "2-66777#Toronto",
+   "type": "location",
+   "attributes": {
+    "location-type": 2,
+    "city": "Toronto",
+    "state": "Kansas",
+    "zip-code": "66777",
+    "country": "USA",
+    "coordinates": {
+     "latitude": 37.7953,
+     "longitude": -95.9368
+    },
+    "title": "Chabad Centers in Toronto, Kansas USA",
+    "static-url": "Toronto-Kansas-USA",
+    "description": "A directory of Chabad-Lubavitch centers in Toronto, Kansas USA. These centers offer Torah classes, synagogue services, and assistance with Jewish education and practice.",
+    "distances": null
+   },
+   "relationships": {
+    "centers": {
+     "data": []
+    }
+   }
+  },
+  {
+   "id": "2-43964#Toronto",
+   "type": "location",
+   "attributes": {
+    "location-type": 2,
+    "city": "Toronto",
+    "state": "Ohio",
+    "zip-code": "43964",
+    "country": "USA",
+    "coordinates": {
+     "latitude": 40.4733,
+     "longitude": -80.6325
+    },
+    "title": "Chabad Centers in Toronto, Ohio USA",
+    "static-url": "Toronto-Ohio-USA",
+    "description": "A directory of Chabad-Lubavitch centers in Toronto, Ohio USA. These centers offer Torah classes, synagogue services, and assistance with Jewish education and practice.",
+    "distances": null
+   },
+   "relationships": {
+    "centers": {
+     "data": []
+    }
+   }
+  },
+  {
+   "id": "2-57268#Toronto",
+   "type": "location",
+   "attributes": {
+    "location-type": 2,
+    "city": "Toronto",
+    "state": "South Dakota",
+    "zip-code": "57268",
+    "country": "USA",
+    "coordinates": {
+     "latitude": 44.5730202,
+     "longitude": -96.6425536
+    },
+    "title": "Chabad Centers in Toronto, South Dakota USA",
+    "static-url": "Toronto-South-Dakota-USA",
+    "description": "A directory of Chabad-Lubavitch centers in Toronto, South Dakota USA. These centers offer Torah classes, synagogue services, and assistance with Jewish education and practice.",
+    "distances": null
+   },
+   "relationships": {
+    "centers": {
+     "data": []
+    }
+   }
+  },
+  {
+   "id": "2-62707#ringfield)",
+   "type": "location",
+   "attributes": {
+    "location-type": 2,
+    "city": "Toronto (Springfield)",
+    "state": "Illinois",
+    "zip-code": "62707",
+    "country": "USA",
+    "coordinates": {
+     "latitude": 39.8676825,
+     "longitude": -89.6534029
+    },
+    "title": "Chabad Centers in Toronto (Springfield), Illinois USA",
+    "static-url": "Toronto-Springfield-Illinois-USA",
+    "description": "A directory of Chabad-Lubavitch centers in Toronto (Springfield), Illinois USA. These centers offer Torah classes, synagogue services, and assistance with Jewish education and practice.",
+    "distances": null
+   },
+   "relationships": {
+    "centers": {
+     "data": []
+    }
+   }
+  },
+  {
+   "id": "2-52777#Wheatland)",
+   "type": "location",
+   "attributes": {
+    "location-type": 2,
+    "city": "Toronto (Wheatland)",
+    "state": "Iowa",
+    "zip-code": "52777",
+    "country": "USA",
+    "coordinates": {
+     "latitude": 41.8259,
+     "longitude": -90.8402
+    },
+    "title": "Chabad Centers in Toronto (Wheatland), Iowa USA",
+    "static-url": "Toronto-Wheatland-Iowa-USA",
+    "description": "A directory of Chabad-Lubavitch centers in Toronto (Wheatland), Iowa USA. These centers offer Torah classes, synagogue services, and assistance with Jewish education and practice.",
+    "distances": null
+   },
+   "relationships": {
+    "centers": {
+     "data": []
+    }
+   }
+  },
+  {
+   "id": "2-57268# (Toronto)",
+   "type": "location",
+   "attributes": {
+    "location-type": 2,
+    "city": "Johnsonville (Toronto)",
+    "state": "South Dakota",
+    "zip-code": "57268",
+    "country": "USA",
+    "coordinates": {
+     "latitude": 44.5730202,
+     "longitude": -96.6425536
+    },
+    "title": "Chabad Centers in Johnsonville (Toronto), South Dakota USA",
+    "static-url": "Johnsonville-Toronto-South-Dakota-USA",
+    "description": "A directory of Chabad-Lubavitch centers in Johnsonville (Toronto), South Dakota USA. These centers offer Torah classes, synagogue services, and assistance with Jewish education and practice.",
+    "distances": null
+   },
+   "relationships": {
+    "centers": {
+     "data": []
+    }
+   }
+  },
+  {
+   "id": "118649",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7607122,
+     "longitude": -79.4774294
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "4375 Chesswood Drive",
+     "address-line2": null,
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M3J 2C2",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 118649,
+    "mosad-id": 0,
+    "name": "Bais Chaya Mushka School",
+    "native-name": null,
+    "static-url": "Toronto/Day-School/Bais-Chaya-Mushka-School"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7179",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "326603",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7311027,
+     "longitude": -79.4330326
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "3600 Bathurst Street",
+     "address-line2": null,
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M6A 2C9",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 326603,
+    "mosad-id": 0,
+    "name": "Bais Chomesh Girls High School",
+    "native-name": null,
+    "static-url": "Toronto/High-School-Girls/Bais-Chomesh-Girls-High-School"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7719",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "3828697",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7010555,
+     "longitude": -79.3973392
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "2026 Yonge Street",
+     "address-line2": null,
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M4S 1Z9",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 3828697,
+    "mosad-id": 0,
+    "name": "Chabad Lubavitch on the East Side",
+    "native-name": null,
+    "static-url": "Toronto/Synagogue/Chabad-Lubavitch-on-the-East-Side"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "440133",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.6448372,
+     "longitude": -79.3934109
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "15A Clarence Square",
+     "address-line2": null,
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M5V 1H1",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 440133,
+    "mosad-id": 0,
+    "name": "Chabad of Downtown Toronto",
+    "native-name": null,
+    "static-url": "Toronto/Synagogue/Chabad-of-Downtown-Toronto"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "118383",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.6794881,
+     "longitude": -79.4170561
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "1344 Bathurst Street",
+     "address-line2": null,
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M5R 3H7",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 118383,
+    "mosad-id": 0,
+    "name": "Chabad of Midtown Toronto",
+    "native-name": null,
+    "static-url": "Toronto/Synagogue/Chabad-of-Midtown-Toronto"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7737",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "549656",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7392007,
+     "longitude": -79.381654
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "2437 Bayview Avenue",
+     "address-line2": null,
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M2L 1A5",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 549656,
+    "mosad-id": 0,
+    "name": "Chabad on Bayview",
+    "native-name": null,
+    "static-url": "Toronto/Synagogue/Chabad-on-Bayview"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "533758",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.671334,
+     "longitude": -79.2929776
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "2273 Queen Street E",
+     "address-line2": null,
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M4E 1G5",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 533758,
+    "mosad-id": 0,
+    "name": "Chabad-Lubavitch of Danforth Beaches",
+    "native-name": null,
+    "static-url": "Toronto/Synagogue/Chabad-Lubavitch-of-Danforth-Beaches"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "117798",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7863025,
+     "longitude": -79.4456766
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "5987 Bathurst Street",
+     "address-line2": "Unit 3",
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M2R 1Z3",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 117798,
+    "mosad-id": 0,
+    "name": "Jewish Russian Community Centre of Ontario",
+    "native-name": null,
+    "static-url": "Toronto/Synagogue/Jewish-Russian-Community-Centre-of-Ontario"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7742",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "6990612",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7813008,
+     "longitude": -79.4164206
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "5700 Yonge St",
+     "address-line2": null,
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M2M 4K2",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 6990612,
+    "mosad-id": 0,
+    "name": "JRCC Willowdale",
+    "native-name": null,
+    "static-url": "Toronto/Synagogue/JRCC-Willowdale"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7742",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "438211",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 43.7310099,
+     "longitude": -79.4279276
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "157 Falkirk Street",
+     "address-line2": "",
+     "city": "Toronto",
+     "state": "ON",
+     "country": "Canada",
+     "zip-code": "M5M 4K4",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Toronto",
+    "mosad-aid": 438211,
+    "mosad-id": 0,
+    "name": "Ledbury Jewish Centre",
+    "native-name": null,
+    "static-url": "Toronto/Synagogue/Ledbury-Jewish-Centre"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "7179",
+   "type": "service-type",
+   "attributes": {
+    "name": "Day School"
+   }
+  },
+  {
+   "id": "7719",
+   "type": "service-type",
+   "attributes": {
+    "name": "High School - Girls"
+   }
+  },
+  {
+   "id": "7171",
+   "type": "service-type",
+   "attributes": {
+    "name": "Chabad House"
+   }
+  },
+  {
+   "id": "7737",
+   "type": "service-type",
+   "attributes": {
+    "name": "Jewish Community Center"
+   }
+  },
+  {
+   "id": "7742",
+   "type": "service-type",
+   "attributes": {
+    "name": "Russian Jewry Center"
+   }
+  }
+ ]
+}

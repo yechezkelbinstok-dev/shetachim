@@ -1,0 +1,87 @@
+{
+ "data": {
+  "id": "Brooklyn, NY-100",
+  "type": "search",
+  "attributes": {
+   "title": "Chabad Centers - Results for Brooklyn, NY",
+   "description": "A directory of Chabad-Lubavitch centers in Brooklyn, NY. These centers offer Torah classes, synagogue services, and assistance with Jewish education and practice.",
+   "query": {
+    "query": "Brooklyn, NY",
+    "quantity": 100
+   },
+   "advanced-query": {
+    "shliach-name": null,
+    "center-types": null,
+    "center-type-ids": null
+   },
+   "distances": {}
+  },
+  "relationships": {
+   "locations": {
+    "data": [
+     {
+      "id": "1-84#Brooklyn",
+      "type": "location"
+     },
+     {
+      "id": "2-11252#(Brooklyn)",
+      "type": "location"
+     }
+    ]
+   },
+   "centers": {
+    "data": []
+   }
+  }
+ },
+ "included": [
+  {
+   "id": "1-84#Brooklyn",
+   "type": "location",
+   "attributes": {
+    "location-type": 1,
+    "city": "Brooklyn",
+    "state": "NY",
+    "zip-code": null,
+    "country": "USA",
+    "coordinates": {
+     "latitude": 40.63333333333333,
+     "longitude": -73.93333333333334
+    },
+    "title": "Chabad Centers in Brooklyn, NY USA",
+    "static-url": "Brooklyn-NY-USA",
+    "description": "A directory of Chabad-Lubavitch centers in Brooklyn, NY USA. These centers offer Torah classes, synagogue services, and assistance with Jewish education and practice.",
+    "distances": null
+   },
+   "relationships": {
+    "centers": {
+     "data": []
+    }
+   }
+  },
+  {
+   "id": "2-11252#(Brooklyn)",
+   "type": "location",
+   "attributes": {
+    "location-type": 2,
+    "city": "Fort Hamilton (Brooklyn)",
+    "state": "NY",
+    "zip-code": "11252",
+    "country": "USA",
+    "coordinates": {
+     "latitude": 40.6111989,
+     "longitude": -74.0278089
+    },
+    "title": "Chabad Centers in Fort Hamilton (Brooklyn), NY USA",
+    "static-url": "Fort-Hamilton-Brooklyn-NY-USA",
+    "description": "A directory of Chabad-Lubavitch centers in Fort Hamilton (Brooklyn), NY USA. These centers offer Torah classes, synagogue services, and assistance with Jewish education and practice.",
+    "distances": null
+   },
+   "relationships": {
+    "centers": {
+     "data": []
+    }
+   }
+  }
+ ]
+}

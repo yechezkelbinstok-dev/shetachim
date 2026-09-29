@@ -1,0 +1,2122 @@
+{
+ "data": {
+  "id": "1-84#Brooklyn",
+  "type": "location",
+  "attributes": {
+   "location-type": 1,
+   "city": "Brooklyn",
+   "state": "New York",
+   "zip-code": null,
+   "country": "USA",
+   "coordinates": {
+    "latitude": 40.63333333333333,
+    "longitude": -73.93333333333334
+   },
+   "title": "Chabad Centers in Brooklyn, New York USA",
+   "static-url": "Brooklyn-New-York-USA",
+   "description": "A directory of Chabad-Lubavitch centers in Brooklyn, New York USA. These centers offer Torah classes, synagogue services, and assistance with Jewish education and practice.",
+   "distances": {
+    "117678": 0.0,
+    "117679": 0.0,
+    "117680": 0.0,
+    "117671": 0.0,
+    "117674": 0.0,
+    "117676": 0.0,
+    "117665": 0.0,
+    "117668": 0.0,
+    "117669": 0.0,
+    "117911": 0.0,
+    "117983": 0.0,
+    "118267": 0.0,
+    "118272": 0.0,
+    "1114832": 0.0,
+    "6762711": 0.0,
+    "6995078": 0.0,
+    "6165402": 0.0,
+    "5838552": 0.0,
+    "1341865": 0.0,
+    "7105371": 0.0,
+    "7144239": 0.0,
+    "7167732": 0.0,
+    "119921": 0.0,
+    "119923": 0.0,
+    "118501": 0.0,
+    "118558": 0.0,
+    "118573": 0.0,
+    "160169": 0.0,
+    "212289": 0.0,
+    "262258": 0.0,
+    "273334": 0.0,
+    "328486": 0.0,
+    "7295252": 0.0,
+    "475066": 0.0,
+    "792964": 0.0,
+    "766703": 0.0,
+    "118340": 0.0,
+    "118391": 0.0,
+    "1441397": 0.0,
+    "1567261": 0.0,
+    "2121036": 0.0,
+    "2698274": 0.0,
+    "3196458": 0.0,
+    "5300608": 0.0,
+    "4568477": 0.0,
+    "2760734": 0.0,
+    "2880856": 0.0,
+    "3211263": 0.0,
+    "477762": 0.0,
+    "118366": 0.0
+   }
+  },
+  "relationships": {
+   "centers": {
+    "data": [
+     {
+      "id": "117678",
+      "type": "center"
+     },
+     {
+      "id": "117679",
+      "type": "center"
+     },
+     {
+      "id": "117680",
+      "type": "center"
+     },
+     {
+      "id": "117671",
+      "type": "center"
+     },
+     {
+      "id": "117674",
+      "type": "center"
+     },
+     {
+      "id": "117676",
+      "type": "center"
+     },
+     {
+      "id": "117665",
+      "type": "center"
+     },
+     {
+      "id": "117668",
+      "type": "center"
+     },
+     {
+      "id": "117669",
+      "type": "center"
+     },
+     {
+      "id": "117911",
+      "type": "center"
+     },
+     {
+      "id": "117983",
+      "type": "center"
+     },
+     {
+      "id": "118267",
+      "type": "center"
+     },
+     {
+      "id": "118272",
+      "type": "center"
+     },
+     {
+      "id": "1114832",
+      "type": "center"
+     },
+     {
+      "id": "6762711",
+      "type": "center"
+     },
+     {
+      "id": "6995078",
+      "type": "center"
+     },
+     {
+      "id": "6165402",
+      "type": "center"
+     },
+     {
+      "id": "5838552",
+      "type": "center"
+     },
+     {
+      "id": "1341865",
+      "type": "center"
+     },
+     {
+      "id": "7105371",
+      "type": "center"
+     },
+     {
+      "id": "7144239",
+      "type": "center"
+     },
+     {
+      "id": "7167732",
+      "type": "center"
+     },
+     {
+      "id": "119921",
+      "type": "center"
+     },
+     {
+      "id": "119923",
+      "type": "center"
+     },
+     {
+      "id": "118501",
+      "type": "center"
+     },
+     {
+      "id": "118558",
+      "type": "center"
+     },
+     {
+      "id": "118573",
+      "type": "center"
+     },
+     {
+      "id": "160169",
+      "type": "center"
+     },
+     {
+      "id": "212289",
+      "type": "center"
+     },
+     {
+      "id": "262258",
+      "type": "center"
+     },
+     {
+      "id": "273334",
+      "type": "center"
+     },
+     {
+      "id": "328486",
+      "type": "center"
+     },
+     {
+      "id": "7295252",
+      "type": "center"
+     },
+     {
+      "id": "475066",
+      "type": "center"
+     },
+     {
+      "id": "792964",
+      "type": "center"
+     },
+     {
+      "id": "766703",
+      "type": "center"
+     },
+     {
+      "id": "118340",
+      "type": "center"
+     },
+     {
+      "id": "118391",
+      "type": "center"
+     },
+     {
+      "id": "1441397",
+      "type": "center"
+     },
+     {
+      "id": "1567261",
+      "type": "center"
+     },
+     {
+      "id": "2121036",
+      "type": "center"
+     },
+     {
+      "id": "2698274",
+      "type": "center"
+     },
+     {
+      "id": "3196458",
+      "type": "center"
+     },
+     {
+      "id": "5300608",
+      "type": "center"
+     },
+     {
+      "id": "4568477",
+      "type": "center"
+     },
+     {
+      "id": "2760734",
+      "type": "center"
+     },
+     {
+      "id": "2880856",
+      "type": "center"
+     },
+     {
+      "id": "3211263",
+      "type": "center"
+     },
+     {
+      "id": "477762",
+      "type": "center"
+     },
+     {
+      "id": "118366",
+      "type": "center"
+     }
+    ]
+   }
+  }
+ },
+ "included": [
+  {
+   "id": "117678",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6689823,
+     "longitude": -73.9428424
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "770 Eastern Parkway",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11213",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 117678,
+    "mosad-id": 0,
+    "name": "Chabad Lubavitch Headquarters",
+    "native-name": null,
+    "static-url": "Brooklyn/Social-Services/Chabad-Lubavitch-Headquarters"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7192",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "117679",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6105829,
+     "longitude": -73.9511211
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "1681 East 22nd St",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11229",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 117679,
+    "mosad-id": 0,
+    "name": "Chabad-House of Flatbush",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-House-of-Flatbush"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "117680",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.5778834,
+     "longitude": -73.967564
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "2997 Ocean Parkway",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11235",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 117680,
+    "mosad-id": 0,
+    "name": "Chabad Lubavitch of West Brighton",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-Lubavitch-of-West-Brighton"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7742",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "117671",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6679746,
+     "longitude": -73.9431868
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "1383 President Street",
+     "address-line2": "",
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11213",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 117671,
+    "mosad-id": 0,
+    "name": "F.R.E.E. HQ - Friends of Refugees of Eastern Europe",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/FREE-HQ-Friends-of-Refugees-of-Eastern-Europe"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7742",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "117674",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.668877,
+     "longitude": -73.9410446
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "824 Eastern Parkway",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11213",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 117674,
+    "mosad-id": 0,
+    "name": "National Committee for Furtherance of Jewish Education",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/National-Committee-for-Furtherance-of-Jewish-Education"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7737",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "117676",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6688575,
+     "longitude": -73.9419522
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "792 Eastern Parkway",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11213",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 117676,
+    "mosad-id": 0,
+    "name": "Tzivos Hashem",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Tzivos-Hashem"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7737",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "117665",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6940636,
+     "longitude": -73.9936237
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "117 Remsen Street",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11201",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 117665,
+    "mosad-id": 0,
+    "name": "Chabad of Brooklyn Heights",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-of-Brooklyn-Heights"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "117668",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.5760229,
+     "longitude": -74.0056268
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "3801 Nautilus Avenue",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11224",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 117668,
+    "mosad-id": 0,
+    "name": "Chabad of Sea-Gate",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-of-Sea-Gate"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "117669",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6689746,
+     "longitude": -73.9428239
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "770 Eastern Parkway",
+     "address-line2": "",
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11213",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 117669,
+    "mosad-id": 0,
+    "name": "Lubavitch Youth Organization Headquarters",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Lubavitch-Youth-Organization-Headquarters"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "117911",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.590158,
+     "longitude": -73.956052
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "1315 Avenue Y",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11235",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 117911,
+    "mosad-id": 0,
+    "name": "Chabad of Sheepshead Bay",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-of-Sheepshead-Bay"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "117983",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6337201,
+     "longitude": -73.9715852
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "605 Ocean Parkway",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11218",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 117983,
+    "mosad-id": 0,
+    "name": "Chabad Lubavitch of Kensington",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-Lubavitch-of-Kensington"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7737",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "118267",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6689746,
+     "longitude": -73.9428239
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "770 Eastern Parkway",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11213",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 118267,
+    "mosad-id": 0,
+    "name": "Agudas Chassidei Chabad",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Agudas-Chassidei-Chabad"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "118272",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6685144,
+     "longitude": -73.9737968
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "70 Prospect Park West ",
+     "address-line2": "Suite 1C",
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11215",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 118272,
+    "mosad-id": 0,
+    "name": "Chabad of Park Slope",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-of-Park-Slope"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7159",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "1114832",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6928976,
+     "longitude": -73.966604
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "191 Washington Ave",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11205",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 1114832,
+    "mosad-id": 0,
+    "name": "Chabad-Lubavitch of Clinton Hill",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-Lubavitch-of-Clinton-Hill"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "6762711",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6686736,
+     "longitude": -73.9420567
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "305 Kingston",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11213",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 6762711,
+    "mosad-id": 0,
+    "name": "Living Chassidus",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Living-Chassidus"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "6995078",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6608577,
+     "longitude": -73.9581868
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "132 Lincoln Rd",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11225",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 6995078,
+    "mosad-id": 0,
+    "name": "Chabad of Prospect Lefferts Gardens",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-of-Prospect-Lefferts-Gardens"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "6165402",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.5891058,
+     "longitude": -73.9268071
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "25 Bartlet Place",
+     "address-line2": "Apt 2",
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 6165402,
+    "mosad-id": 0,
+    "name": "Chabad of Gerritsen Beach",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-of-Gerritsen-Beach"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "5838552",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6880866,
+     "longitude": -73.9869761
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "84 Hoyt Street",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11201",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 5838552,
+    "mosad-id": 0,
+    "name": "Chabad Downtown Brooklyn",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-Downtown-Brooklyn"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "1341865",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6806381,
+     "longitude": -73.9675111
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "569 Vanderbilt Avenue ",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11238-3013",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 1341865,
+    "mosad-id": 0,
+    "name": "Chabad Jewish Center Prospect Heights West",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-Jewish-Center-Prospect-Heights-West"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "7105371",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.5766191,
+     "longitude": -73.9634385
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "3100 Brighton 4th Street ",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11235",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 7105371,
+    "mosad-id": 0,
+    "name": "Chabad Oceanview Jewish Center",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-Oceanview-Jewish-Center"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7737",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "7144239",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.5751489,
+     "longitude": -73.9616706
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "3152 Brighton 6th Street",
+     "address-line2": "Suite # 401",
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11235",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 7144239,
+    "mosad-id": 0,
+    "name": "Oceanview Chabad House",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Oceanview-Chabad-House"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "7167732",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6218519,
+     "longitude": -73.9849232
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "1863 59th Street",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11204",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 7167732,
+    "mosad-id": 0,
+    "name": "Neiros Lehuir",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Neiros-Lehuir"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "119921",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6673054,
+     "longitude": -73.9411554
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "1444 President Street",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11213",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 119921,
+    "mosad-id": 0,
+    "name": "Lubavitch Youth Mitzvah Tank",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Lubavitch-Youth-Mitzvah-Tank"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "119923",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6686736,
+     "longitude": -73.9420567
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "305 Kingston Avenue",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11213",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 119923,
+    "mosad-id": 0,
+    "name": "Lubavitch Youth Organization",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Lubavitch-Youth-Organization"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "118501",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6350338,
+     "longitude": -74.0239416
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "373 Bay Ridge Avenue",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11220",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 118501,
+    "mosad-id": 0,
+    "name": "Chabad of Bay Ridge",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-of-Bay-Ridge"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "118558",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.5941972,
+     "longitude": -73.981772
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "",
+     "address-line2": "",
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 118558,
+    "mosad-id": 0,
+    "name": "Chabad Lubavitch of Manhattan Beach",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-Lubavitch-of-Manhattan-Beach"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7742",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "118573",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.617792,
+     "longitude": -73.9417346
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "3315 Avenue N",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11234",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 118573,
+    "mosad-id": 0,
+    "name": "Mayan Yisroel",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Mayan-Yisroel"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7159",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "160169",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.5766237,
+     "longitude": -73.9634294
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "3100 Brighton 4th Street",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11235",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 160169,
+    "mosad-id": 0,
+    "name": "F.R.E.E. Brit Milah (Circumcision) Center ",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/FREE-Brit-Milah-Circumcision-Center"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7742",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "212289",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.7167239,
+     "longitude": -73.9593562
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "132 North 5th Street ",
+     "address-line2": "#2C",
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11249-3259",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 212289,
+    "mosad-id": 0,
+    "name": "Chabad of North Brooklyn",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-of-North-Brooklyn"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "262258",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.5941972,
+     "longitude": -73.981772
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "",
+     "address-line2": "",
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 262258,
+    "mosad-id": 0,
+    "name": "Chabad of Kings Highway",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-of-Kings-Highway"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "273334",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.581003,
+     "longitude": -73.9624787
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "2901 - 2915 Brighton 6th Street",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11235",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 273334,
+    "mosad-id": 0,
+    "name": "F.R.E.E. of Brighton Beach - The Jewish Russian Community Center",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/FREE-of-Brighton-Beach-The-Jewish-Russian-Community-Center"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7742",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "328486",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.7038361,
+     "longitude": -73.985083
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "205 Plymouth Street",
+     "address-line2": "1st Floor",
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11201-1123",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 328486,
+    "mosad-id": 0,
+    "name": "Chabad of Dumbo",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-of-Dumbo"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "7295252",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6781701,
+     "longitude": -73.9835164
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "650 Sackett St",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11217",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 7295252,
+    "mosad-id": 0,
+    "name": "IYYUN / CHABAD ",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/IYYUN-CHABAD"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "475066",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.7049915,
+     "longitude": -73.9287447
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "1087 Flushing Avenue",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11237-1805",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 475066,
+    "mosad-id": 0,
+    "name": "Chabad of Bushwick",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-of-Bushwick"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "792964",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6730443,
+     "longitude": -73.9565982
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "664 Sterling Place",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11216-3804",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 792964,
+    "mosad-id": 0,
+    "name": "Chabad Prospect Heights East",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-Prospect-Heights-East"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7737",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "766703",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6242404,
+     "longitude": -73.9599984
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "1043 E 16th Street",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11230-4403",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 766703,
+    "mosad-id": 0,
+    "name": "Chabad-Lubavitch of Midwood",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-Lubavitch-of-Midwood"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "118340",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6376465,
+     "longitude": -73.981829
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "3905 15th Avenue",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11218-4409",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 118340,
+    "mosad-id": 0,
+    "name": "Chabad Lubavitch of Boro Park",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-Lubavitch-of-Boro-Park"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "118391",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6026111,
+     "longitude": -73.9898439
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "8224 23rd Avenue",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11214",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 118391,
+    "mosad-id": 0,
+    "name": "Chabad of Bensonhurst",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-of-Bensonhurst"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "1441397",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6256443,
+     "longitude": -73.9592873
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "1703 Avenue J",
+     "address-line2": "",
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11230-3806",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 1441397,
+    "mosad-id": 0,
+    "name": "Bais Menachem Mendel",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Bais-Menachem-Mendel"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7159",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "1567261",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.667765,
+     "longitude": -73.9399775
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "1469 President Street",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11213-4458",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 1567261,
+    "mosad-id": 0,
+    "name": "Or Hachasidus Publishing",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Or-Hachasidus-Publishing"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "2121036",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6361034,
+     "longitude": -73.970786
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "716 Ditmas Avenue",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11218",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 2121036,
+    "mosad-id": 0,
+    "name": "Chabad of Ditmas Park",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-of-Ditmas-Park"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "2698274",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6523378,
+     "longitude": -73.9763284
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "1266 Prospect Avenue",
+     "address-line2": "",
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11218",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 2698274,
+    "mosad-id": 0,
+    "name": "Chabad of Windsor Terrace",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-of-Windsor-Terrace"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "3196458",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6009233,
+     "longitude": -73.977126
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "",
+     "address-line2": "",
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11223",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 3196458,
+    "mosad-id": 0,
+    "name": "Chabad of Gravesend",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-of-Gravesend"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "5300608",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6327098,
+     "longitude": -73.923502
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "",
+     "address-line2": "",
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 5300608,
+    "mosad-id": 0,
+    "name": "Mill Basin Jewish Center",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Mill-Basin-Jewish-Center"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "4568477",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.636351,
+     "longitude": -73.9689317
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "910 Ditmas Avenue",
+     "address-line2": "#1",
+     "city": "Brooklyn ",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11218",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn ",
+    "mosad-aid": 4568477,
+    "mosad-id": 0,
+    "name": "CTeen Program",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/CTeen-Program"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "2760734",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6463592,
+     "longitude": -73.890259
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "10576 Flatlands 1st Street",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11236",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 2760734,
+    "mosad-id": 0,
+    "name": "Chabad of Canarsie and Starrett City",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-of-Canarsie-and-Starrett-City"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "2880856",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.7317894,
+     "longitude": -73.9587095
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "46 India Street",
+     "address-line2": "",
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11222",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 2880856,
+    "mosad-id": 0,
+    "name": "Chabad of Greenpoint",
+    "native-name": null,
+    "static-url": "Brooklyn/Synagogue/Chabad-of-Greenpoint"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7171",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "3211263",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6945863,
+     "longitude": -73.9942802
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "128 Montague Street",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11201",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 3211263,
+    "mosad-id": 0,
+    "name": "Chabad Colleges Downtown Brooklyn",
+    "native-name": null,
+    "static-url": "Brooklyn/Campus-Chabad-House/Chabad-Colleges-Downtown-Brooklyn"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7157",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "477762",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.6285158,
+     "longitude": -73.9447994
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11210",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 477762,
+    "mosad-id": 0,
+    "name": "Chabad at Brooklyn College",
+    "native-name": null,
+    "static-url": "Brooklyn/Campus-Chabad-House/Chabad-at-Brooklyn-College"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7157",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "118366",
+   "type": "center",
+   "attributes": {
+    "is-full-record": false,
+    "coordinates": {
+     "latitude": 40.5882272,
+     "longitude": -73.966782
+    },
+    "location-is-approximate": false,
+    "address": {
+     "address-line1": "33 Manhattan Court",
+     "address-line2": null,
+     "city": "Brooklyn",
+     "state": "NY",
+     "country": "USA",
+     "zip-code": "11223",
+     "address-explanation": null
+    },
+    "native-address": null,
+    "city": "Brooklyn",
+    "mosad-aid": 118366,
+    "mosad-id": 0,
+    "name": "Chabad Lubavitch of Kingsborough College",
+    "native-name": null,
+    "static-url": "Brooklyn/Campus-Chabad-House/Chabad-Lubavitch-of-Kingsborough-College"
+   },
+   "relationships": {
+    "center-type": {
+     "data": {
+      "id": "7157",
+      "type": "service-type"
+     }
+    }
+   }
+  },
+  {
+   "id": "7192",
+   "type": "service-type",
+   "attributes": {
+    "name": "Social Services"
+   }
+  },
+  {
+   "id": "7171",
+   "type": "service-type",
+   "attributes": {
+    "name": "Chabad House"
+   }
+  },
+  {
+   "id": "7742",
+   "type": "service-type",
+   "attributes": {
+    "name": "Russian Jewry Center"
+   }
+  },
+  {
+   "id": "7737",
+   "type": "service-type",
+   "attributes": {
+    "name": "Jewish Community Center"
+   }
+  },
+  {
+   "id": "7159",
+   "type": "service-type",
+   "attributes": {
+    "name": "Synagogue"
+   }
+  },
+  {
+   "id": "7157",
+   "type": "service-type",
+   "attributes": {
+    "name": "Campus Chabad House"
+   }
+  }
+ ]
+}

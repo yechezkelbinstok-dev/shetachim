@@ -5,6 +5,32 @@ what the owner wants, what exists, what's still open, and the mistakes to avoid.
 The latest work is on branch `claude/bold-albattani-aqfnj9`, which the live site is served from.
 More detail is in `docs/PLAN.md`.
 
+## RIGHT NOW (mid-task, pick this up first)
+
+The owner sent the full world shetach list (`data/shetachim.json` now has 165 entries: the original
+57 US/CA ones plus 108 world ones, from `/root/.claude/uploads/.../af7bbfc9-global_chabad_shetach_list.txt`
+if it's still around — otherwise ask the owner to resend it). Just pushed, **untested**:
+1. World country geometry (GADM, via the same mirror as Canada — see "Drawing" below) is wired into
+   the build for every whole-country shetach in the list.
+2. Region view buttons were added (World, Europe, Caucasus & Central Asia, Asia, Middle East, Africa,
+   Oceania, Latin America & Caribbean) in `web/index.html`'s `VIEWS` — added under time pressure, right
+   before hitting a usage limit, so **test these first**: desktop + phone, each region view, physical
+   map too. The owner reported still seeing only US/Canada right after the push — that was GitHub Pages
+   deploy lag (wait ~1-2 min and hard-refresh), not a bug, but confirm.
+3. 19 shetachim still need finer-than-a-country splits the list calls for and have **empty territory**
+   (blank on the map) until done: `crimea`; all 9 Australia ones (`new-south-wales`, `victoria`,
+   `brisbane`, `gold-coast`, `rara`, `south-australia`, `western-australia`, `tasmania`, `act`); all 9
+   Mexico ones (`baja-california`, `sinaloa`, `nayarit`, `jalisco`, `bajio`, `nuevo-leon`,
+   `central-mexico`, `chiapas`, `mexican-caribbean`). Brisbane/Gold Coast/RARA need Australian urban-area
+   or LGA boundaries — GADM's Australia ADM2 (local government areas) probably has Gold Coast and
+   Brisbane's LGA, but "ABS Significant Urban Area" for Brisbane spans several LGAs, so that one may
+   need approximating from several ADM2 units, or another source entirely.
+4. No capitals, no cities, for any world shetach — the list didn't include capital data (don't invent
+   it; ask the owner), and city-matching (GeoNames) is scoped to US/CA only (`UNIT_ISO` in
+   `scripts/build-data.mjs`) — building that out for the world is unstarted.
+5. Cabo Verde (CPV) has no GADM boundary in the mirror used — it's claimed by `central-africa` but
+   won't be drawn; a warning prints at build time, harmless, just a gap in Central Africa's shape.
+
 ## The goal (owner's words, summarized)
 
 An interactive custom map of Chabad **shetachim** (the territory under a head shliach),

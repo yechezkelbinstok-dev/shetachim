@@ -43,8 +43,9 @@ geometry. Built, and checked in headless Chromium on desktop (political map, lig
   - **Israel = one area**: Israel, Judea and Samaria (the West Bank) and the Golan Heights, as the list says. GADM's
     Israel file already includes the Golan and East Jerusalem is in the Judea and Samaria region; the build takes that
     region from its GADM file and makes it **part of Israel itself** (state `ISR`, name Israel, no line between them in
-    any border mode). Gaza isn't in the list, so it isn't drawn. **The owner is emphatic: never write, display, code
-    or name "Palestine"/its codes anywhere in this project — front end, data, code, comments, commit messages.** The
+    any border mode). Gaza isn't in the list, so it isn't drawn. **The owner is emphatic: Judea and Samaria is Israel — never
+    give it any other country's name or ISO code anywhere in this project (front end, data, code, comments, commit
+    messages).** The
     one unavoidable trace is the upstream GADM file URL the build downloads (`ISRAEL_EXTRA` in the build); it's cached
     locally as `gadm-hi-ISR-judea-samaria.json`. Centers there are tagged Israel. (The owner also got angry when an
     update message seemed to say only "Golan and East Jerusalem" — be precise and complete when describing Israel.)
@@ -153,8 +154,8 @@ The owner got very angry at the first version. The lessons:
    doesn't say "New York City · Tzach" the way a normal capital's does (`capitalHTML` in `web/index.html`
    passes `withHead: false` to `shetachLine` for it) — keep that distinction if the card is reworked.
 
-10. **Never "Palestine"** (or its ISO codes) anywhere in the project, not even in code, data, comments or commit
-    messages. Israel is one area: Israel, Judea and Samaria (the West Bank) and the Golan Heights, no line between
+10. **Judea and Samaria is Israel**: never any other country name or ISO code for it anywhere in the project, not
+    even in code, data, comments or commit messages. Israel is one area: Israel, Judea and Samaria (the West Bank) and the Golan Heights, no line between
     them. The owner reacted very strongly to seeing it even as an internal code.
 11. When describing progress, be complete and exact (e.g. "Israel, Judea and Samaria and the Golan", not a partial
     list that sounds like something was left out). The owner reads quick status lines and reacts to omissions.

@@ -10,8 +10,8 @@
 //   data/shetachim.json                 the shetachim: name, head shliach, territory
 // Out:
 //   web/data/shetachim.json             checked copy of data/shetachim.json
-//   web/data/geo.json                   TopoJSON, one object `areas`: kind 'unit' = US states, DC and
-//                                       Canadian provinces; kind 'context' = nearby countries, drawn faintly
+//   web/data/geo.json                   TopoJSON, one object `areas`: the US states, DC and Canadian
+//                                       provinces (minus the areas listed in shetachim.json `notShown`)
 //   web/data/centers.geojson            one point per location (centers at the same spot merged)
 //   web/data/centers.private.geojson    the private extras, same format (gitignored)
 //   data/report.md                      counts and data problems worth a look
@@ -32,15 +32,13 @@ const SOURCES = {
   admin1: `${NE}/ne_10m_admin_1_states_provinces.geojson`, // tagging: states/provinces
   admin1Lakes: `${NE}/ne_10m_admin_1_states_provinces_lakes.geojson`, // drawing: Great Lakes cut out
   countries: `${NE}/ne_10m_admin_0_countries.geojson`, // tagging: countries
-  countriesLakes: `${NE}/ne_10m_admin_0_countries_lakes.geojson`, // drawing
   counties: 'https://www2.census.gov/geo/tiger/GENZ2023/shp/cb_2023_us_county_500k.zip', // tagging: US counties
 };
 
 const MERGE_METERS = 25; // centers closer than this are one dot (same building / campus)
 const COAST_KM = 25; // a point just offshore is given to the nearest area within this distance
 const UNIT_COUNTRIES = ['USA', 'CAN'];
-const CONTEXT_BBOX = [-180, 5, -10, 85]; // countries drawn around North America
-const FAR_NORTH = ['CA-NU', 'CA-NT', 'CA-YT', 'US-AK']; // huge coastlines, few centers: simplified harder
+const ROUGH = ['US-AK']; // drawn small in an inset, so simplified harder
 
 // ---------- downloads ----------
 
@@ -225,42 +223,25 @@ function suspectReason(dot) {
 
 // ---------- geometry for the map ----------
 
-async function buildGeo() {
+async function buildGeo(notShown) {
   const admin1 = await cached('admin1Lakes');
-  const countries = await cached('countriesLakes');
-  const [x0, y0, x1, y1] = CONTEXT_BBOX;
-  const units = path.join(CACHE, 'units.geojson');
-  const context = path.join(CACHE, 'context.geojson');
   const unitFilter = UNIT_COUNTRIES.map((c) => `adm0_a3 == '${c}'`).join(' || ');
+  const hidden = JSON.stringify(notShown).replace(/"/g, "'");
+  const rough = JSON.stringify(ROUGH).replace(/"/g, "'");
   await mapshaper.runCommands(
-    `-i "${admin1}" -filter "${unitFilter}" ` +
-    `-each "kind = 'unit', id = iso_3166_2, country = adm0_a3 == 'USA' ? 'US' : 'CA', abbr = postal" ` +
-    `-filter-fields kind,id,name,country,abbr -o "${units}" format=geojson`,
-  );
-  const notUnits = UNIT_COUNTRIES.map((c) => `ADM0_A3 != '${c}'`).join(' && ');
-  await mapshaper.runCommands(
-    `-i "${countries}" -filter "(${notUnits}) && (CONTINENT == 'North America' || ADM0_A3 == 'RUS')" ` +
-    `-clip bbox=${x0},${y0},${x1},${y1} ` +
-    `-each "kind = 'context', id = ISO_A2_EH, country = ISO_A2_EH, name = NAME" ` +
-    `-filter-fields kind,id,name,country -o "${context}" format=geojson`,
-  );
-  // One layer and one topology, so shared borders (US-Mexico etc.) line up exactly.
-  const farNorth = JSON.stringify(FAR_NORTH).replace(/"/g, "'");
-  await mapshaper.runCommands(
-    `-i "${units}" "${context}" combine-files ` +
-    `-merge-layers force name=areas ` +
-    `-simplify variable interval="${farNorth}.includes(id) ? 4000 : 600" keep-shapes ` +
+    `-i "${admin1}" -filter "(${unitFilter}) && !${hidden}.includes(iso_3166_2)" ` +
+    `-each "id = iso_3166_2, country = adm0_a3 == 'USA' ? 'US' : 'CA', abbr = postal" ` +
+    `-filter-fields id,name,country,abbr -rename-layers areas ` +
+    `-simplify variable interval="${rough}.includes(id) ? 2500 : 500" keep-shapes ` +
     `-filter-islands min-area=40km2 remove-empty ` +
     `-o "${path.join(OUT, 'geo.json')}" format=topojson quantization=100000`,
   );
 }
 
 // Every territory code must be a real area, and no area may be in two shetachim.
-function checkShetachim() {
-  const file = at('data', 'shetachim.json');
-  const data = readJSON(file);
+function checkShetachim(data) {
   const topo = readJSON(path.join(OUT, 'geo.json'));
-  const units = new Set(topo.objects.areas.geometries.filter((g) => g.properties.kind === 'unit').map((g) => g.properties.id));
+  const units = new Set(topo.objects.areas.geometries.map((g) => g.properties.id));
   const owner = new Map();
   const problems = [];
   for (const s of data.shetachim) {
@@ -272,8 +253,9 @@ function checkShetachim() {
     }
   }
   if (problems.length) throw new Error(`data/shetachim.json:\n  ${problems.join('\n  ')}`);
-  fs.copyFileSync(file, path.join(OUT, 'shetachim.json'));
-  console.log(`${data.shetachim.length} shetachim covering ${owner.size} of ${units.size} states/provinces`);
+  fs.copyFileSync(at('data', 'shetachim.json'), path.join(OUT, 'shetachim.json'));
+  console.log(`${data.shetachim.length} shetachim entered, covering ${owner.size} of ${units.size} states/provinces; ` +
+    `the rest are one shetach each`);
 }
 
 // ---------- main ----------
@@ -339,8 +321,9 @@ async function main() {
   else fs.rmSync(path.join(OUT, 'centers.private.geojson'), { force: true });
 
   console.log('building map geometry…');
-  await buildGeo();
-  checkShetachim();
+  const shetachData = readJSON(at('data', 'shetachim.json'));
+  await buildGeo(shetachData.notShown || []);
+  checkShetachim(shetachData);
 
   fs.writeFileSync(at('data', 'report.md'), report(publicCenters, dots, privateDots));
   console.log(`done: ${publicCenters.length} centers -> ${dots.length} dots` + (privateDots.length ? ` (+${privateDots.length} private)` : ''));

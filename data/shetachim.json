@@ -1,5 +1,6 @@
 {
-  "about": "One entry per shetach. territory lists whole states/provinces by ISO code (US-CA, CA-ON, ...). Split states will list counties (see docs/PLAN.md). lastName is optional: it defaults to the last word of headShliach.",
+  "about": "Every state and province is its own shetach unless an entry below claims it. An entry merges areas into one shetach (territory = ISO codes: US-CA, CA-ON, ...); splits by county come later (see docs/PLAN.md). Leave headShliach empty if unknown. lastName is optional: it defaults to the last word of headShliach. notShown = areas left off the map entirely.",
+  "notShown": ["CA-YT", "CA-NT", "CA-NU"],
   "shetachim": [
     {
       "id": "west-coast",

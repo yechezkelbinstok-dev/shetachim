@@ -3,17 +3,23 @@
 A custom political-style map where the "countries" are Chabad shetachim (the area under a
 head shliach), not states or countries. Starting with the US and Canada, then the world.
 
+The map shows shetachim and nothing else: no neighbouring countries, no areas outside any
+shetach. A shetach is usually one state, so every state and province starts as its own
+shetach, drawn and labelled like any other; entries in `data/shetachim.json` merge or split
+them. Choosing a country (USA, Canada) shows only that country.
+
 ## What the finished map does
 
 | Feature | Status |
 |---|---|
 | Borders drawn by shetach; several states or countries under one head shliach show as one area | Prototype (whole states) |
+| Show only the USA, only Canada, or both, filling the screen | Prototype |
 | Toggle to regular state/province/country borders | Prototype |
 | Both at once, with either set drawn lighter (swappable) | Prototype |
 | A faint dot for every Chabad center; listings at one address merged into one dot | Prototype |
 | Label each shetach by head shliach, last name only, or shetach name, or no labels | Prototype |
 | Zoom and pan (mouse, trackpad, pinch) | Prototype |
-| Jump to one region so it fills the screen (US & Canada, Lower 48, Canada, Northeast) | Prototype |
+| Alaska and Hawaii in corner boxes | Prototype |
 | Hover or tap a dot for the centers there, with links to chabad.org | Prototype |
 | States split between shetachim (by county) | Next: needs county geometry, see below |
 | Puerto Rico / USVI and other insets | Later |
@@ -41,8 +47,9 @@ head shliach), not states or countries. Starting with the US and Canada, then th
 
 ### Boundaries (done for the prototype)
 
-- Drawing: Natural Earth 1:10m states/provinces (Great Lakes cut out) and countries, simplified
-  with mapshaper into one TopoJSON (`web/data/geo.json`) so shared borders line up exactly.
+- Drawing: Natural Earth 1:10m states and provinces (Great Lakes cut out), simplified with
+  mapshaper into one TopoJSON (`web/data/geo.json`). Only the US and Canada are included, minus
+  the areas in `notShown` (Yukon, Northwest Territories, Nunavut).
 - Tagging: Natural Earth 1:10m full detail plus Census 1:500k counties.
 - Next: for split states, draw the US from Census counties (and Canada from StatCan census
   divisions if a province is split). Shetach borders inside a state then follow county lines.
@@ -51,12 +58,14 @@ head shliach), not states or countries. Starting with the US and Canada, then th
 
 ### Shetachim (needed from you)
 
-`data/shetachim.json`, one entry per shetach:
+`data/shetachim.json`: `notShown` lists areas left off the map, and `shetachim` has one
+entry per shetach that isn't simply one state (a merge), or whose head shliach is known:
 
 ```json
 { "id": "west-coast", "name": "West Coast", "headShliach": "Shlomo Cunin", "territory": ["US-CA", "US-NV"] }
 ```
 
+- Any state or province not in an entry is its own shetach, named after the state.
 - `territory` uses ISO codes for whole states and provinces (`US-CA`, `CA-ON`, `US-DC`).
 - Split states will list counties by FIPS code, plus a "rest of the state" entry: one
   shetach takes the named counties and the other takes, say, `rest:US-XX`.
@@ -71,12 +80,12 @@ shows the result to check.
 
 Open questions:
 
-1. Areas with no head shliach (shluchim reporting straight to Merkos): leave them gray, or
-   give them one shared "Merkos" colour?
-2. Co-heads, or a shetach whose head shliach has passed away: show two names, the
+1. Co-heads, or a shetach whose head shliach has passed away: show two names, the
    successor, or the shetach name only?
-3. DC, Puerto Rico and the US Virgin Islands: which shetach, and should PR/USVI get insets?
-4. Canadian territories (Yukon, NWT, Nunavut) and Atlantic provinces: whose shetach?
+2. DC: its own shetach or part of a neighbour's? Puerto Rico and the US Virgin Islands: show
+   them (in corner boxes) and under which shetach?
+3. New Brunswick and Prince Edward Island have no listed centers: part of a neighbouring
+   shetach, or left off like the territories?
 
 ## World version
 

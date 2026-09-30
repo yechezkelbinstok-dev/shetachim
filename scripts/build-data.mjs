@@ -98,24 +98,25 @@ const ISRAEL_EXTRA = { url: `${GADM}/Admin1/gadm36_PSE_1.json`, cache: 'gadm-hi-
 // The same file's other region, Gaza, isn't in any shetach: it's only land outside the map, under its own name.
 const GAZA = { region: 'Gaza', code: 'GAZA', name: 'Gaza' };
 // Countries a shetach list divides by state, like the US and Canada: each state is its own area (MX-JAL), with
-// ISO 3166-2 codes; name, abbreviation. GADM's own codes (HASC) aren't ISO, so this is by hand.
+// ISO 3166-2 codes; name, short form (none for Mexico's states except CDMX: their official abbreviations, like
+// "Sin.", read badly as map labels). GADM's own codes (HASC) aren't ISO, so this is by hand.
 const WORLD_STATES = {
   MEX: {
     prefix: 'MX',
     name: 'Mexico',
     states: {
-      Aguascalientes: ['AGU', 'Aguascalientes', 'Ags.'], 'Baja California': ['BCN', 'Baja California', 'B.C.'],
-      'Baja California Sur': ['BCS', 'Baja California Sur', 'B.C.S.'], Campeche: ['CAM', 'Campeche', 'Camp.'],
-      Chiapas: ['CHP', 'Chiapas', 'Chis.'], Chihuahua: ['CHH', 'Chihuahua', 'Chih.'], Coahuila: ['COA', 'Coahuila', 'Coah.'],
-      Colima: ['COL', 'Colima', 'Col.'], 'Distrito Federal': ['CMX', 'Mexico City', 'CDMX'], Durango: ['DUR', 'Durango', 'Dgo.'],
-      Guanajuato: ['GUA', 'Guanajuato', 'Gto.'], Guerrero: ['GRO', 'Guerrero', 'Gro.'], Hidalgo: ['HID', 'Hidalgo', 'Hgo.'],
-      Jalisco: ['JAL', 'Jalisco', 'Jal.'], 'México': ['MEX', 'State of Mexico', 'Méx.'], 'Michoacán': ['MIC', 'Michoacán', 'Mich.'],
-      Morelos: ['MOR', 'Morelos', 'Mor.'], Nayarit: ['NAY', 'Nayarit', 'Nay.'], 'Nuevo León': ['NLE', 'Nuevo León', 'N.L.'],
-      Oaxaca: ['OAX', 'Oaxaca', 'Oax.'], Puebla: ['PUE', 'Puebla', 'Pue.'], 'Querétaro': ['QUE', 'Querétaro', 'Qro.'],
-      'Quintana Roo': ['ROO', 'Quintana Roo', 'Q.R.'], 'San Luis Potosí': ['SLP', 'San Luis Potosí', 'S.L.P.'],
-      Sinaloa: ['SIN', 'Sinaloa', 'Sin.'], Sonora: ['SON', 'Sonora', 'Son.'], Tabasco: ['TAB', 'Tabasco', 'Tab.'],
-      Tamaulipas: ['TAM', 'Tamaulipas', 'Tamps.'], Tlaxcala: ['TLA', 'Tlaxcala', 'Tlax.'], Veracruz: ['VER', 'Veracruz', 'Ver.'],
-      'Yucatán': ['YUC', 'Yucatán', 'Yuc.'], Zacatecas: ['ZAC', 'Zacatecas', 'Zac.'],
+      Aguascalientes: ['AGU', 'Aguascalientes', ''], 'Baja California': ['BCN', 'Baja California', ''],
+      'Baja California Sur': ['BCS', 'Baja California Sur', ''], Campeche: ['CAM', 'Campeche', ''],
+      Chiapas: ['CHP', 'Chiapas', ''], Chihuahua: ['CHH', 'Chihuahua', ''], Coahuila: ['COA', 'Coahuila', ''],
+      Colima: ['COL', 'Colima', ''], 'Distrito Federal': ['CMX', 'Mexico City', 'CDMX'], Durango: ['DUR', 'Durango', ''],
+      Guanajuato: ['GUA', 'Guanajuato', ''], Guerrero: ['GRO', 'Guerrero', ''], Hidalgo: ['HID', 'Hidalgo', ''],
+      Jalisco: ['JAL', 'Jalisco', ''], 'México': ['MEX', 'State of Mexico', ''], 'Michoacán': ['MIC', 'Michoacán', ''],
+      Morelos: ['MOR', 'Morelos', ''], Nayarit: ['NAY', 'Nayarit', ''], 'Nuevo León': ['NLE', 'Nuevo León', ''],
+      Oaxaca: ['OAX', 'Oaxaca', ''], Puebla: ['PUE', 'Puebla', ''], 'Querétaro': ['QUE', 'Querétaro', ''],
+      'Quintana Roo': ['ROO', 'Quintana Roo', ''], 'San Luis Potosí': ['SLP', 'San Luis Potosí', ''],
+      Sinaloa: ['SIN', 'Sinaloa', ''], Sonora: ['SON', 'Sonora', ''], Tabasco: ['TAB', 'Tabasco', ''],
+      Tamaulipas: ['TAM', 'Tamaulipas', ''], Tlaxcala: ['TLA', 'Tlaxcala', ''], Veracruz: ['VER', 'Veracruz', ''],
+      'Yucatán': ['YUC', 'Yucatán', ''], Zacatecas: ['ZAC', 'Zacatecas', ''],
     },
   },
   AUS: {
@@ -124,14 +125,15 @@ const WORLD_STATES = {
     // Ashmore and Cartier and the Coral Sea Islands (reefs) are left off; Jervis Bay is drawn, blank until claimed.
     skip: ['Ashmore and Cartier Islands', 'Coral Sea Islands Territory'],
     states: {
-      'New South Wales': ['NSW', 'New South Wales', 'NSW'], Victoria: ['VIC', 'Victoria', 'Vic.'], Queensland: ['QLD', 'Queensland', 'Qld'],
+      'New South Wales': ['NSW', 'New South Wales', 'NSW'], Victoria: ['VIC', 'Victoria', 'Vic'], Queensland: ['QLD', 'Queensland', 'Qld'],
       'South Australia': ['SA', 'South Australia', 'SA'], 'Western Australia': ['WA', 'Western Australia', 'WA'],
-      Tasmania: ['TAS', 'Tasmania', 'Tas.'], 'Australian Capital Territory': ['ACT', 'Australian Capital Territory', 'ACT'],
+      Tasmania: ['TAS', 'Tasmania', 'Tas'], 'Australian Capital Territory': ['ACT', 'Australian Capital Territory', 'ACT'],
       'Northern Territory': ['NT', 'Northern Territory', 'NT'], 'Jervis Bay Territory': ['JBT', 'Jervis Bay Territory', 'JBT'],
     },
   },
 };
 const WORLD_PREFIX = new Map(Object.entries(WORLD_STATES).map(([iso3, w]) => [w.prefix, iso3]));
+const STATE_INFO = new Map(Object.values(WORLD_STATES).flatMap((w) => Object.values(w.states).map(([code, name, abbr]) => [`${w.prefix}-${code}`, { name, abbr }])));
 // Boundary shapes a shetach can claim inside a state ({ "state": "AU-QLD", "shape": "brisbane-sua" }): data/shapes/<name>.geojson.
 const SHAPES = path.join(ROOT, 'data', 'shapes');
 // A sliver left between a shape and the state's own (differently drawn) coast or border goes to the shape beside it.
@@ -739,6 +741,7 @@ async function worldLand(data, levels) {
     const p = f.properties;
     if (GADM_NAME_FIX[p.state]) p.name = GADM_NAME_FIX[p.state];
     if (p.state === p.country) p.abbr = COUNTRY_SHORT[p.state] || '';
+    if (STATE_INFO.has(p.state)) Object.assign(p, STATE_INFO.get(p.state)); // names and short forms as they are now, not as cached
   }
   return features;
 }
@@ -1004,7 +1007,7 @@ async function main() {
   for (const s of shetachData.shetachim) {
     if (!s.territory.length) continue; // not drawn yet, so no label to worry about
     const states = s.territory.every((t) => typeof t === 'string' && t.includes('-'));
-    if (s.short === undefined && states) s.short = s.territory.map((t) => abbrOf.get(t)).join('-');
+    if (s.short === undefined && states && s.territory.every((t) => abbrOf.get(t))) s.short = s.territory.map((t) => abbrOf.get(t)).join('-');
     else if (s.short === undefined && s.territory.length === 1 && COUNTRY_SHORT[s.territory[0]]) s.short = COUNTRY_SHORT[s.territory[0]];
     if (!s.short && s.territory.some((t) => typeof t !== 'string')) warnings.push(`${s.id}: no short label (needed for a shetach that is part of a state)`);
   }

@@ -1227,14 +1227,14 @@
    "name": "United Kingdom",
    "short": "UK",
    "headShliach": "Hanholo of Chabad Lubavitch UK",
+   "headTitle": "Leadership",
    "capital": {
     "centerId": "117824",
     "name": "Chabad Lubavitch UK Hdqts.",
     "city": "London",
     "lat": 51.57216,
     "lon": -0.07323
-   },
-   "headTitle": "Leadership"
+   }
   },
   {
    "id": "crimea",
@@ -1600,7 +1600,7 @@
   {
    "id": "victoria",
    "name": "Victoria",
-   "short": "Vic.",
+   "short": "Vic",
    "headShliach": "Disputed — Chaim Tzvi Groner; Yoselle Gutnick; Hendel Serebryanski",
    "capital": {
     "centerId": "117782",
@@ -1641,14 +1641,14 @@
    "name": "RARA",
    "short": "RARA",
    "headShliach": "Chabad of RARA",
+   "headTitle": "Leadership",
    "capital": {
     "centerId": "252052",
     "name": "Chabad of Rural and Regional Australia",
     "city": "Caulfield North",
     "lat": -37.86901,
     "lon": 145.00988
-   },
-   "headTitle": "Leadership"
+   }
   },
   {
    "id": "south-australia",
@@ -1679,7 +1679,7 @@
   {
    "id": "tasmania",
    "name": "Tasmania",
-   "short": "Tas.",
+   "short": "Tas",
    "headShliach": "Yossi Gordon",
    "capital": {
     "centerId": "120143",
@@ -1737,7 +1737,6 @@
   {
    "id": "sinaloa",
    "name": "Sinaloa",
-   "short": "Sin.",
    "headShliach": "Chaim Raitport",
    "capital": {
     "name": "Chabad of Mazatlán",
@@ -1749,7 +1748,6 @@
   {
    "id": "nayarit",
    "name": "Nayarit",
-   "short": "Nay.",
    "headShliach": "Shneur Hecht",
    "capital": {
     "centerId": "3424139",

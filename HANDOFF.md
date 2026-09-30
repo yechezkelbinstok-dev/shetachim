@@ -4,14 +4,47 @@ Read this first when picking the project up in a new Claude session or account. 
 what the owner wants, what exists, what's still open, and the mistakes to avoid.
 More detail is in `docs/PLAN.md`.
 
-**Branches (read first).** The live site is served from `claude/bold-albattani-aqfnj9`. The world work below was
-done in a second account's session on branch **`ccr-1f9385a8-jca1nj`**, which starts from that branch's tip
-(`b0c5612`) — so bringing it live is a plain fast-forward: `git fetch origin ccr-1f9385a8-jca1nj &&
-git checkout claude/bold-albattani-aqfnj9 && git merge --ff-only origin/ccr-1f9385a8-jca1nj && git push`.
-Do that first (after the checks below), then keep working on the live branch. The owner switches between two
-Claude accounts when usage limits run out; whichever session picks this up, work from the newest of the two branches.
+**Branches (read first).** The live site is served from `claude/bold-albattani-aqfnj9`. Always push there
+(a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
+between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
-## RIGHT NOW (mid-task, pick this up first)
+## LATEST (Sept 30, second round) — read before "RIGHT NOW" below
+
+Done in this round:
+- **Lag fixed.** The political map is drawn on a `<canvas>`, not SVG: every arc is projected once per view with a
+  Visvalingam weight per point (`weights()` in `web/index.html`), and each zoom level draws only the points it can
+  show (`levelFor`, `minWeight`), only for what's on screen (per-polygon boxes; borders in grid cells). Names,
+  cities, stars and the Alaska/Hawaii boxes stay SVG. Measured in headless Chromium at phone size, World view:
+  zoom frames 363 ms → 33 ms; with 4× CPU slowdown 1,170 ms → ~160 ms (the rest there is the test browser's
+  software compositing). View switch 8.6 s → 3.9 s (4× slowdown).
+- **Physical map on static vector tiles.** The build writes `web/tiles/{z}/{x}/{y}.pbf` (zooms 0–6, ~3,200 files, 8 MB;
+  `writeTiles()`), layers `land` (merged by country, `c` = country or '' for land never shown) and `lines` (every edge
+  with both sides' countries `ca`/`cb`, same state `ss`, same shetach `sh`). The page just sets MapLibre filters per
+  view (`dataGL()`). This replaced the old world-with-holes fade polygon, which was slow and broke on phones (blank
+  land, blue wedges). Every GADM country is now built (unclaimed ones marked `outside`, `GADM_ALL` in the build) so the
+  fade meets the shetachim exactly; Gaza is outside land named "Gaza". Place names in English/Latin letters.
+- **Borders snapped together**: `cleanLand()` runs mapshaper `-clean gap-fill-area=20km2` on all land before the union.
+  India–Nepal had ~1,500 km of slivers/double lines (the "horrendous" border), US–Mexico too; now 0. **Never add
+  `snap-interval`**: tested at 30 m–200 m, it moved whole counties/countries (Texas→Chihuahua, Nepal→India, Finland
+  vanished). Still open: a few seams that open onto the sea at one end aren't "gaps" to -clean (Tijuana/San Diego
+  coast, Belgium–France coast; `scratchpad` scan listed them) — small, but worth a targeted fix.
+- **Labels** (`placeLabels`): aim at the centre of mass of the part of the shetach on screen (so Baja California's
+  label crosses the Gulf, the Caribbean's the Caribbean Sea), may cross water but must stay inside the hull around its
+  land and off other shetachim; nearest spot wins, land preferred over water, then two lines, then short form, then
+  85% size. Recomputed after every pan/zoom.
+- Defaults: **World view, Physical map** (falls back to Political if it can't load).
+- Data: flagship centers for 100 of 108 world shetachim from the owner's `data/world-flagship-centers.txt` (not in
+  chabad.org's data, so no star: Crimea, Sri Lanka, Belize, Honduras, Bolivia, New Zealand, Panama (Beth El), Qatar
+  ("no fixed public center"); Jaipur, Manila, Mazatlán, Yerevan, El Tunco are placed at the city). Liechtenstein is in
+  Switzerland. Louisiana-Mississippi renamed "Louisiana". No ISO codes as labels anywhere (`COUNTRY_SHORT`: UK, UAE,
+  DRC…; a country without a familiar short form has none). UAE: the three-city listing is fixed to Dubai (Al Marsa St,
+  the flagship) plus a separate Abu Dhabi dot (`fixes` and `extra-abu-dhabi` in `data/extra-centers.json`).
+  UK and RARA cards say "Leadership:" (`headTitle`), and area cards no longer say "Shetach" above the name.
+
+Next: targeted fix for the sea-mouth seams; test physical map labels/cards on the real site (tiles can't be fetched
+from the sandbox, the test uses MapLibre's demo style); update the Claude artifact preview if still used.
+
+## RIGHT NOW (earlier round — mostly done, kept for detail)
 
 The owner sent the full world shetach list: it's now in the repo at **`data/global-shetach-list.txt`** (the
 owner's own file, verbatim — the source of truth for every world shetach; the 57 US/Canada ones came earlier).

@@ -2,7 +2,7 @@
   "about": [
     "One entry per shetach. territory lists what it covers: a US state or Canadian province (US-TX, CA-ON), a Mexican or Australian state (MX-JAL, AU-NSW), or a whole country (ISO 3166-1 alpha-3: FRA, DEU; ISR is all of Israel, including Judea and Samaria (the West Bank) and the Golan Heights); the part of a US state east and/or west of a longitude ({ \"state\": \"US-PA\", \"westOf\": -78.13 }); counties by 5-digit FIPS ({ \"counties\": [...] }); towns ({ \"state\": \"US-MA\", \"towns\": [...] }); census tracts ({ \"state\": \"US-MA\", \"tracts\": [...] }); regions of a country by their GADM name ({ \"country\": \"GRC\", \"level\": 2, \"regions\": [\"Central Macedonia\"] }; level 1 unless given); or a boundary shape from data/shapes/ inside a state ({ \"state\": \"AU-QLD\", \"shape\": \"brisbane-sua\" }).",
     "Where claims overlap, the more specific one wins: tracts, then towns and shapes, then counties and regions, then longitude lines, then whole states and countries. Anything no shetach claims is left blank.",
-    "short: the label used where the name doesn't fit; by default the state and province abbreviations joined (KS-MO). capital: the chabad.org center id of the shetach's headquarters (the number in its chabad.org link), or lat and lon; \"world\": true marks 770. lastName is optional; it defaults to the last word of headShliach. notShown: areas left off the map entirely."
+    "short: the label used where the name doesn't fit; by default the state and province abbreviations joined (KS-MO). capital: the chabad.org center id of the shetach's headquarters (the number in its chabad.org link), or lat and lon; \"world\": true marks 770. headTitle: what the card calls the head (\"Head shliach\" unless given, e.g. \"Leadership\"). lastName is optional; it defaults to the last word of headShliach. notShown: areas left off the map entirely."
   ],
   "notShown": [
     "CA-YT",
@@ -311,8 +311,7 @@
     },
     {
       "id": "louisiana-mississippi",
-      "name": "Louisiana-Mississippi",
-      "short": "Louisiana",
+      "name": "Louisiana",
       "headShliach": "Zelig Rivkin",
       "territory": [
         "US-LA",
@@ -758,7 +757,10 @@
       "headShliach": "Kuty Kalmenson",
       "territory": [
         "AND"
-      ]
+      ],
+      "capital": {
+        "centerId": "6518150"
+      }
     },
     {
       "id": "austria",
@@ -766,7 +768,10 @@
       "headShliach": "Yaakov Yitzchak Biderman",
       "territory": [
         "AUT"
-      ]
+      ],
+      "capital": {
+        "centerId": "117785"
+      }
     },
     {
       "id": "belarus",
@@ -774,7 +779,10 @@
       "headShliach": "Shneur Deitch",
       "territory": [
         "BLR"
-      ]
+      ],
+      "capital": {
+        "centerId": "117882"
+      }
     },
     {
       "id": "belgium",
@@ -784,7 +792,10 @@
       "territory": [
         "BEL",
         "LUX"
-      ]
+      ],
+      "capital": {
+        "centerId": "117756"
+      }
     },
     {
       "id": "bulgaria",
@@ -792,7 +803,10 @@
       "headShliach": "Yosef Salamon",
       "territory": [
         "BGR"
-      ]
+      ],
+      "capital": {
+        "centerId": "118478"
+      }
     },
     {
       "id": "croatia",
@@ -800,7 +814,10 @@
       "headShliach": "Pinny Zaklas",
       "territory": [
         "HRV"
-      ]
+      ],
+      "capital": {
+        "centerId": "279285"
+      }
     },
     {
       "id": "cyprus",
@@ -808,7 +825,10 @@
       "headShliach": "Aryeh Zeev Raskin",
       "territory": [
         "CYP"
-      ]
+      ],
+      "capital": {
+        "centerId": "118616"
+      }
     },
     {
       "id": "northern-cyprus",
@@ -816,7 +836,10 @@
       "headShliach": "Chaim Hillel Azimov",
       "territory": [
         "XNC"
-      ]
+      ],
+      "capital": {
+        "centerId": "648321"
+      }
     },
     {
       "id": "czech-republic",
@@ -824,7 +847,10 @@
       "headShliach": "Manis Barash",
       "territory": [
         "CZE"
-      ]
+      ],
+      "capital": {
+        "centerId": "118213"
+      }
     },
     {
       "id": "denmark",
@@ -832,7 +858,10 @@
       "headShliach": "Yitzi Lowenthal",
       "territory": [
         "DNK"
-      ]
+      ],
+      "capital": {
+        "centerId": "118216"
+      }
     },
     {
       "id": "estonia",
@@ -840,7 +869,10 @@
       "headShliach": "Shmuel Kot",
       "territory": [
         "EST"
-      ]
+      ],
+      "capital": {
+        "centerId": "118417"
+      }
     },
     {
       "id": "finland",
@@ -848,7 +880,10 @@
       "headShliach": "Benyamin Wolff",
       "territory": [
         "FIN"
-      ]
+      ],
+      "capital": {
+        "centerId": "118639"
+      }
     },
     {
       "id": "france",
@@ -856,7 +891,10 @@
       "headShliach": "Mendy Azimov",
       "territory": [
         "FRA"
-      ]
+      ],
+      "capital": {
+        "centerId": "330228"
+      }
     },
     {
       "id": "germany",
@@ -864,7 +902,10 @@
       "headShliach": "Yisroel Diskin",
       "territory": [
         "DEU"
-      ]
+      ],
+      "capital": {
+        "centerId": "117853"
+      }
     },
     {
       "id": "greece",
@@ -872,7 +913,10 @@
       "headShliach": "Mendel Hendel",
       "territory": [
         "GRC"
-      ]
+      ],
+      "capital": {
+        "centerId": "118477"
+      }
     },
     {
       "id": "lower-balkans",
@@ -892,7 +936,10 @@
             "East Macedonia and Thrace"
           ]
         }
-      ]
+      ],
+      "capital": {
+        "centerId": "792557"
+      }
     },
     {
       "id": "hungary",
@@ -900,7 +947,10 @@
       "headShliach": "Baruch Oberlander",
       "territory": [
         "HUN"
-      ]
+      ],
+      "capital": {
+        "centerId": "117858"
+      }
     },
     {
       "id": "iceland",
@@ -908,7 +958,10 @@
       "headShliach": "Avraham Feldman",
       "territory": [
         "ISL"
-      ]
+      ],
+      "capital": {
+        "centerId": "3849544"
+      }
     },
     {
       "id": "ireland",
@@ -916,7 +969,10 @@
       "headShliach": "Zalman Lent",
       "territory": [
         "IRL"
-      ]
+      ],
+      "capital": {
+        "centerId": "118401"
+      }
     },
     {
       "id": "italy",
@@ -927,7 +983,10 @@
         "ITA",
         "SMR",
         "VAT"
-      ]
+      ],
+      "capital": {
+        "centerId": "117862"
+      }
     },
     {
       "id": "slovenia",
@@ -943,7 +1002,10 @@
           ]
         }
       ],
-      "short": "Slovenia"
+      "short": "Slovenia",
+      "capital": {
+        "centerId": "118457"
+      }
     },
     {
       "id": "latvia",
@@ -951,7 +1013,10 @@
       "headShliach": "Mordechai Glazman",
       "territory": [
         "LVA"
-      ]
+      ],
+      "capital": {
+        "centerId": "117907"
+      }
     },
     {
       "id": "lithuania",
@@ -959,7 +1024,10 @@
       "headShliach": "Sholom Ber Krinsky",
       "territory": [
         "LTU"
-      ]
+      ],
+      "capital": {
+        "centerId": "117978"
+      }
     },
     {
       "id": "malta",
@@ -967,7 +1035,10 @@
       "headShliach": "Chaim Segal",
       "territory": [
         "MLT"
-      ]
+      ],
+      "capital": {
+        "centerId": "2015539"
+      }
     },
     {
       "id": "moldova",
@@ -975,7 +1046,10 @@
       "headShliach": "Zushe Abelsky",
       "territory": [
         "MDA"
-      ]
+      ],
+      "capital": {
+        "centerId": "117940"
+      }
     },
     {
       "id": "monaco",
@@ -983,7 +1057,10 @@
       "headShliach": "Tanhoum Matusof",
       "territory": [
         "MCO"
-      ]
+      ],
+      "capital": {
+        "centerId": "1949364"
+      }
     },
     {
       "id": "montenegro",
@@ -991,7 +1068,10 @@
       "headShliach": "Ari Edelkopf",
       "territory": [
         "MNE"
-      ]
+      ],
+      "capital": {
+        "centerId": "3829725"
+      }
     },
     {
       "id": "netherlands",
@@ -999,7 +1079,10 @@
       "headShliach": "Binyomin Jacobs",
       "territory": [
         "NLD"
-      ]
+      ],
+      "capital": {
+        "centerId": "117854"
+      }
     },
     {
       "id": "norway",
@@ -1007,7 +1090,10 @@
       "headShliach": "Shaul Wilhelm",
       "territory": [
         "NOR"
-      ]
+      ],
+      "capital": {
+        "centerId": "118650"
+      }
     },
     {
       "id": "poland",
@@ -1015,7 +1101,10 @@
       "headShliach": "Sholom Ber Stambler",
       "territory": [
         "POL"
-      ]
+      ],
+      "capital": {
+        "centerId": "331526"
+      }
     },
     {
       "id": "portugal",
@@ -1023,7 +1112,10 @@
       "headShliach": "Eli Rosenfeld",
       "territory": [
         "PRT"
-      ]
+      ],
+      "capital": {
+        "centerId": "1332828"
+      }
     },
     {
       "id": "romania",
@@ -1031,7 +1123,10 @@
       "headShliach": "Naftali Deutsch",
       "territory": [
         "ROU"
-      ]
+      ],
+      "capital": {
+        "centerId": "118397"
+      }
     },
     {
       "id": "russia",
@@ -1041,7 +1136,10 @@
       "territory": [
         "RUS",
         "MNG"
-      ]
+      ],
+      "capital": {
+        "centerId": "249438"
+      }
     },
     {
       "id": "serbia",
@@ -1049,7 +1147,10 @@
       "headShliach": "Yehoshua Kaminetzky",
       "territory": [
         "SRB"
-      ]
+      ],
+      "capital": {
+        "centerId": "660981"
+      }
     },
     {
       "id": "slovakia",
@@ -1057,7 +1158,10 @@
       "headShliach": "Baruch Myers",
       "territory": [
         "SVK"
-      ]
+      ],
+      "capital": {
+        "centerId": "117972"
+      }
     },
     {
       "id": "spain",
@@ -1065,7 +1169,10 @@
       "headShliach": "Shneur Zalman Goldstein",
       "territory": [
         "ESP"
-      ]
+      ],
+      "capital": {
+        "centerId": "117874"
+      }
     },
     {
       "id": "sweden",
@@ -1073,15 +1180,22 @@
       "headShliach": "Alexander Namdar",
       "territory": [
         "SWE"
-      ]
+      ],
+      "capital": {
+        "centerId": "117875"
+      }
     },
     {
       "id": "switzerland",
       "name": "Switzerland",
       "headShliach": "Mendel Rosenfeld",
       "territory": [
-        "CHE"
-      ]
+        "CHE",
+        "LIE"
+      ],
+      "capital": {
+        "centerId": "117900"
+      }
     },
     {
       "id": "ukraine",
@@ -1089,15 +1203,22 @@
       "headShliach": "Meir Stambler",
       "territory": [
         "UKR"
-      ]
+      ],
+      "capital": {
+        "centerId": "249574"
+      }
     },
     {
       "id": "united-kingdom",
       "name": "United Kingdom",
       "headShliach": "Hanholo of Chabad Lubavitch UK",
+      "headTitle": "Leadership",
       "territory": [
         "GBR"
-      ]
+      ],
+      "capital": {
+        "centerId": "117824"
+      }
     },
     {
       "id": "crimea",
@@ -1120,7 +1241,13 @@
       "headShliach": "Gershon Meir Burshtein",
       "territory": [
         "ARM"
-      ]
+      ],
+      "capital": {
+        "name": "Jewish Community of Yerevan",
+        "city": "Yerevan",
+        "lat": 40.18111,
+        "lon": 44.51361
+      }
     },
     {
       "id": "azerbaijan",
@@ -1128,7 +1255,10 @@
       "headShliach": "Shneor Segal",
       "territory": [
         "AZE"
-      ]
+      ],
+      "capital": {
+        "centerId": "118599"
+      }
     },
     {
       "id": "georgia-country",
@@ -1136,7 +1266,10 @@
       "headShliach": "Meir Kozlovsky",
       "territory": [
         "GEO"
-      ]
+      ],
+      "capital": {
+        "centerId": "237922"
+      }
     },
     {
       "id": "kazakhstan",
@@ -1144,7 +1277,10 @@
       "headShliach": "Yeshaya Elazar Cohen",
       "territory": [
         "KAZ"
-      ]
+      ],
+      "capital": {
+        "centerId": "4936718"
+      }
     },
     {
       "id": "kyrgyzstan",
@@ -1152,7 +1288,10 @@
       "headShliach": "Arye Raichman",
       "territory": [
         "KGZ"
-      ]
+      ],
+      "capital": {
+        "centerId": "249363"
+      }
     },
     {
       "id": "uzbekistan",
@@ -1162,7 +1301,10 @@
       "territory": [
         "UZB",
         "TJK"
-      ]
+      ],
+      "capital": {
+        "centerId": "6656076"
+      }
     },
     {
       "id": "india",
@@ -1170,7 +1312,13 @@
       "headShliach": "Betzalel Kupchik",
       "territory": [
         "IND"
-      ]
+      ],
+      "capital": {
+        "name": "Chabad House Jaipur",
+        "city": "Jaipur",
+        "lat": 26.91962,
+        "lon": 75.78781
+      }
     },
     {
       "id": "nepal",
@@ -1178,7 +1326,10 @@
       "headShliach": "Chezky Lifshitz",
       "territory": [
         "NPL"
-      ]
+      ],
+      "capital": {
+        "centerId": "118561"
+      }
     },
     {
       "id": "sri-lanka",
@@ -1197,7 +1348,10 @@
         "CHN",
         "HKG",
         "MAC"
-      ]
+      ],
+      "capital": {
+        "centerId": "117857"
+      }
     },
     {
       "id": "japan",
@@ -1205,7 +1359,10 @@
       "headShliach": "Mendi Sudakevich",
       "territory": [
         "JPN"
-      ]
+      ],
+      "capital": {
+        "centerId": "118403"
+      }
     },
     {
       "id": "south-korea",
@@ -1213,7 +1370,10 @@
       "headShliach": "Osher Litzman",
       "territory": [
         "KOR"
-      ]
+      ],
+      "capital": {
+        "centerId": "665144"
+      }
     },
     {
       "id": "taiwan",
@@ -1221,7 +1381,10 @@
       "headShliach": "Shlomi Tabib",
       "territory": [
         "TWN"
-      ]
+      ],
+      "capital": {
+        "centerId": "2850083"
+      }
     },
     {
       "id": "thailand",
@@ -1232,7 +1395,10 @@
         "THA",
         "LAO",
         "MMR"
-      ]
+      ],
+      "capital": {
+        "centerId": "117964"
+      }
     },
     {
       "id": "cambodia",
@@ -1240,7 +1406,10 @@
       "headShliach": "Bentzion Butman",
       "territory": [
         "KHM"
-      ]
+      ],
+      "capital": {
+        "centerId": "992232"
+      }
     },
     {
       "id": "vietnam",
@@ -1248,7 +1417,10 @@
       "headShliach": "Menachem Hartman",
       "territory": [
         "VNM"
-      ]
+      ],
+      "capital": {
+        "centerId": "420832"
+      }
     },
     {
       "id": "philippines",
@@ -1256,7 +1428,13 @@
       "headShliach": "Yossi Levy",
       "territory": [
         "PHL"
-      ]
+      ],
+      "capital": {
+        "name": "Chabad of Manila Philippines",
+        "city": "Manila",
+        "lat": 14.6042,
+        "lon": 120.9822
+      }
     },
     {
       "id": "singapore",
@@ -1267,7 +1445,10 @@
         "SGP",
         "MYS",
         "IDN"
-      ]
+      ],
+      "capital": {
+        "centerId": "118003"
+      }
     },
     {
       "id": "israel",
@@ -1276,7 +1457,10 @@
       "territory": [
         "ISR"
       ],
-      "short": "Israel"
+      "short": "Israel",
+      "capital": {
+        "centerId": "118095"
+      }
     },
     {
       "id": "turkey",
@@ -1284,7 +1468,11 @@
       "headShliach": "Mendy Chitrik",
       "territory": [
         "TUR"
-      ]
+      ],
+      "capital": {
+        "centerId": "extra-istanbul-nisantasi",
+        "name": "Chabad of Istanbul"
+      }
     },
     {
       "id": "united-arab-emirates",
@@ -1292,7 +1480,10 @@
       "headShliach": "Levi Duchman",
       "territory": [
         "ARE"
-      ]
+      ],
+      "capital": {
+        "centerId": "4920073"
+      }
     },
     {
       "id": "qatar",
@@ -1308,7 +1499,11 @@
       "headShliach": "Peretz Garelik",
       "territory": [
         "SAU"
-      ]
+      ],
+      "capital": {
+        "centerId": "extra-riyadh",
+        "name": "Jewish KSA"
+      }
     },
     {
       "id": "morocco",
@@ -1316,7 +1511,10 @@
       "headShliach": "Levi Banon",
       "territory": [
         "MAR"
-      ]
+      ],
+      "capital": {
+        "centerId": "117865"
+      }
     },
     {
       "id": "tunisia",
@@ -1324,7 +1522,10 @@
       "headShliach": "Pinson family",
       "territory": [
         "TUN"
-      ]
+      ],
+      "capital": {
+        "centerId": "117877"
+      }
     },
     {
       "id": "central-africa",
@@ -1378,7 +1579,10 @@
         "UGA",
         "ZMB",
         "ZWE"
-      ]
+      ],
+      "capital": {
+        "centerId": "117894"
+      }
     },
     {
       "id": "south-africa",
@@ -1386,7 +1590,10 @@
       "headShliach": "Mendel Lipskar",
       "territory": [
         "ZAF"
-      ]
+      ],
+      "capital": {
+        "centerId": "117872"
+      }
     },
     {
       "id": "mauritius",
@@ -1394,7 +1601,10 @@
       "headShliach": "Laima Barber",
       "territory": [
         "MUS"
-      ]
+      ],
+      "capital": {
+        "centerId": "3460324"
+      }
     },
     {
       "id": "reunion",
@@ -1402,7 +1612,10 @@
       "headShliach": "Menahem Mendel Sibony",
       "territory": [
         "REU"
-      ]
+      ],
+      "capital": {
+        "centerId": "4379754"
+      }
     },
     {
       "id": "new-south-wales",
@@ -1410,7 +1623,10 @@
       "headShliach": "Pinchus Feldman",
       "territory": [
         "AU-NSW"
-      ]
+      ],
+      "capital": {
+        "centerId": "117752"
+      }
     },
     {
       "id": "victoria",
@@ -1418,7 +1634,10 @@
       "headShliach": "Disputed — Chaim Tzvi Groner; Yoselle Gutnick; Hendel Serebryanski",
       "territory": [
         "AU-VIC"
-      ]
+      ],
+      "capital": {
+        "centerId": "117782"
+      }
     },
     {
       "id": "brisbane",
@@ -1430,7 +1649,10 @@
           "shape": "brisbane-sua"
         }
       ],
-      "short": "Bris."
+      "short": "Bris.",
+      "capital": {
+        "centerId": "118204"
+      }
     },
     {
       "id": "gold-coast",
@@ -1442,17 +1664,24 @@
           "shape": "gold-coast-lga"
         }
       ],
-      "short": "G. Coast"
+      "short": "G. Coast",
+      "capital": {
+        "centerId": "118291"
+      }
     },
     {
       "id": "rara",
       "name": "RARA",
       "headShliach": "Chabad of RARA",
+      "headTitle": "Leadership",
       "territory": [
         "AU-NT",
         "AU-QLD"
       ],
-      "short": "RARA"
+      "short": "RARA",
+      "capital": {
+        "centerId": "252052"
+      }
     },
     {
       "id": "south-australia",
@@ -1460,7 +1689,10 @@
       "headShliach": "Yossi Engel",
       "territory": [
         "AU-SA"
-      ]
+      ],
+      "capital": {
+        "centerId": "118614"
+      }
     },
     {
       "id": "western-australia",
@@ -1468,7 +1700,10 @@
       "headShliach": "Shalom White",
       "territory": [
         "AU-WA"
-      ]
+      ],
+      "capital": {
+        "centerId": "273337"
+      }
     },
     {
       "id": "tasmania",
@@ -1476,7 +1711,10 @@
       "headShliach": "Yossi Gordon",
       "territory": [
         "AU-TAS"
-      ]
+      ],
+      "capital": {
+        "centerId": "120143"
+      }
     },
     {
       "id": "act",
@@ -1484,7 +1722,10 @@
       "headShliach": "Shmueli Feldman",
       "territory": [
         "AU-ACT"
-      ]
+      ],
+      "capital": {
+        "centerId": "904396"
+      }
     },
     {
       "id": "new-zealand",
@@ -1500,7 +1741,10 @@
       "headShliach": "Menachem Sabbach",
       "territory": [
         "NCL"
-      ]
+      ],
+      "capital": {
+        "centerId": "3252539"
+      }
     },
     {
       "id": "baja-california",
@@ -1511,7 +1755,10 @@
         "MX-BCS",
         "MX-SON"
       ],
-      "short": "Baja"
+      "short": "Baja",
+      "capital": {
+        "centerId": "334161"
+      }
     },
     {
       "id": "sinaloa",
@@ -1519,7 +1766,13 @@
       "headShliach": "Chaim Raitport",
       "territory": [
         "MX-SIN"
-      ]
+      ],
+      "capital": {
+        "name": "Chabad of Mazatlán",
+        "city": "Mazatlán",
+        "lat": 23.2329,
+        "lon": -106.4062
+      }
     },
     {
       "id": "nayarit",
@@ -1527,7 +1780,10 @@
       "headShliach": "Shneur Hecht",
       "territory": [
         "MX-NAY"
-      ]
+      ],
+      "capital": {
+        "centerId": "3424139"
+      }
     },
     {
       "id": "jalisco",
@@ -1537,7 +1793,10 @@
         "MX-JAL",
         "MX-COL"
       ],
-      "short": "Jalisco"
+      "short": "Jalisco",
+      "capital": {
+        "centerId": "7011671"
+      }
     },
     {
       "id": "bajio",
@@ -1551,7 +1810,10 @@
         "MX-SLP",
         "MX-ZAC"
       ],
-      "short": "Bajío"
+      "short": "Bajío",
+      "capital": {
+        "centerId": "4251108"
+      }
     },
     {
       "id": "nuevo-leon",
@@ -1564,7 +1826,10 @@
         "MX-NLE",
         "MX-TAM"
       ],
-      "short": "N. León"
+      "short": "N. León",
+      "capital": {
+        "centerId": "7338776"
+      }
     },
     {
       "id": "central-mexico",
@@ -1581,7 +1846,10 @@
         "MX-OAX",
         "MX-VER"
       ],
-      "short": "C. Mexico"
+      "short": "C. Mexico",
+      "capital": {
+        "centerId": "6342563"
+      }
     },
     {
       "id": "chiapas",
@@ -1591,7 +1859,10 @@
         "MX-CHP",
         "MX-TAB"
       ],
-      "short": "Chiapas"
+      "short": "Chiapas",
+      "capital": {
+        "centerId": "7022006"
+      }
     },
     {
       "id": "mexican-caribbean",
@@ -1602,7 +1873,10 @@
         "MX-ROO",
         "MX-YUC"
       ],
-      "short": "Mex. Carib."
+      "short": "Mex. Carib.",
+      "capital": {
+        "centerId": "503725"
+      }
     },
     {
       "id": "belize",
@@ -1618,7 +1892,10 @@
       "headShliach": "Shalom Pelman",
       "territory": [
         "GTM"
-      ]
+      ],
+      "capital": {
+        "centerId": "118392"
+      }
     },
     {
       "id": "el-salvador",
@@ -1626,7 +1903,13 @@
       "headShliach": "Yudi Brod",
       "territory": [
         "SLV"
-      ]
+      ],
+      "capital": {
+        "name": "Chabad House El Tunco",
+        "city": "El Tunco",
+        "lat": 13.493,
+        "lon": -89.383
+      }
     },
     {
       "id": "honduras",
@@ -1642,7 +1925,10 @@
       "headShliach": "David Atar",
       "territory": [
         "NIC"
-      ]
+      ],
+      "capital": {
+        "centerId": "5544455"
+      }
     },
     {
       "id": "costa-rica",
@@ -1650,7 +1936,10 @@
       "headShliach": "Hershel Spalter",
       "territory": [
         "CRI"
-      ]
+      ],
+      "capital": {
+        "centerId": "117814"
+      }
     },
     {
       "id": "panama",
@@ -1666,7 +1955,10 @@
       "headShliach": "Tzvi Grunblatt",
       "territory": [
         "ARG"
-      ]
+      ],
+      "capital": {
+        "centerId": "117745"
+      }
     },
     {
       "id": "bolivia",
@@ -1682,7 +1974,10 @@
       "headShliach": "Shabsi Alpern",
       "territory": [
         "BRA"
-      ]
+      ],
+      "capital": {
+        "centerId": "117772"
+      }
     },
     {
       "id": "chile",
@@ -1690,7 +1985,10 @@
       "headShliach": "Menashe Perman",
       "territory": [
         "CHL"
-      ]
+      ],
+      "capital": {
+        "centerId": "117811"
+      }
     },
     {
       "id": "colombia",
@@ -1698,7 +1996,10 @@
       "headShliach": "Yehoshua Rosenfeld",
       "territory": [
         "COL"
-      ]
+      ],
+      "capital": {
+        "centerId": "117813"
+      }
     },
     {
       "id": "ecuador",
@@ -1706,7 +2007,10 @@
       "headShliach": "Mendy Fried",
       "territory": [
         "ECU"
-      ]
+      ],
+      "capital": {
+        "centerId": "4211957"
+      }
     },
     {
       "id": "paraguay",
@@ -1714,7 +2018,10 @@
       "headShliach": "Levi Feigelstock",
       "territory": [
         "PRY"
-      ]
+      ],
+      "capital": {
+        "centerId": "117866"
+      }
     },
     {
       "id": "peru",
@@ -1722,7 +2029,10 @@
       "headShliach": "Sara Blumenfeld",
       "territory": [
         "PER"
-      ]
+      ],
+      "capital": {
+        "centerId": "117867"
+      }
     },
     {
       "id": "uruguay",
@@ -1730,7 +2040,10 @@
       "headShliach": "Eliezer Shemtov",
       "territory": [
         "URY"
-      ]
+      ],
+      "capital": {
+        "centerId": "117878"
+      }
     },
     {
       "id": "venezuela",
@@ -1738,7 +2051,10 @@
       "headShliach": "Moshe Perman",
       "territory": [
         "VEN"
-      ]
+      ],
+      "capital": {
+        "centerId": "117879"
+      }
     },
     {
       "id": "caribbean",
@@ -1776,7 +2092,10 @@
         "VIR",
         "BMU",
         "GUY"
-      ]
+      ],
+      "capital": {
+        "centerId": "118318"
+      }
     }
   ]
 }

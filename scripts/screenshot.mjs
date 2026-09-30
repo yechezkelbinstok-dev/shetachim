@@ -48,10 +48,10 @@ for (const spec of specs) {
   await page.goto('https://site.test/web/index.html');
   await page.waitForFunction(() => document.querySelector('#st-dots').textContent !== '–');
   await page.evaluate(([v]) => document.querySelector(`.seg[data-name="view"] [data-value="${v}"]`).click(), [view]);
-  if (base === 'physical') {
-    await page.evaluate(() => document.querySelector('.seg[data-name="base"] [data-value="physical"]').click());
-    await page.waitForTimeout(6000);
-  }
+  // The page opens on the physical map; wait for it (or its fallback), then pick the one wanted.
+  await page.waitForFunction(() => document.querySelector('#app').classList.contains('physical') || !document.querySelector('#base-msg').hidden, null, { timeout: 30000 }).catch(() => {});
+  await page.evaluate((b) => document.querySelector(`.seg[data-name="base"] [data-value="${b}"]`).click(), base);
+  await page.waitForTimeout(base === 'physical' ? 6000 : 500);
   for (const c of (extra || '').split(',').filter(Boolean)) {
     const [name, value] = c.split('=');
     if (name === 'check') await page.evaluate((id) => document.querySelector(id).click(), `#${value}`);

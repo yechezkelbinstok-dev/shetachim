@@ -58,36 +58,19 @@ html, body { height: 100%; margin: 0; }
 [hidden] { display: none !important; }
 body { background: var(--bg); color: var(--ink); font: 15px/1.4 var(--font-ui); overflow: hidden; }
 #app { position: relative; height: 100%; overflow: hidden; }
-#basemap, #map { position: absolute; inset: 0; width: 100%; height: 100%; }
+#basemap, #map, #canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+#canvas { pointer-events: none; }
 #map { display: block; touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; }
 #map:active { cursor: grabbing; }
 .physical #map { pointer-events: none; }
 #app:not(.physical) #basemap { visibility: hidden; }
-.physical .l-root, .physical .l-insets { display: none; }
+.physical #canvas, .physical .l-insets { display: none; }
 button, input { font: inherit; color: inherit; }
 button:focus-visible, input:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-/* ---- map ---- */
-.fill { fill: var(--fill); stroke: var(--fill); stroke-width: .5; vector-effect: non-scaling-stroke; transition: fill-opacity .25s; }
-.fill.blank { fill: none; stroke: none; }
-.ln { fill: none; stroke: var(--map-ink); vector-effect: non-scaling-stroke; stroke-linejoin: round; stroke-linecap: round; transition: opacity .25s; pointer-events: none; }
-.b-coast { stroke-width: 1.1; }
-.b-shetach { stroke-width: 1.3; }
-.b-regular { stroke-width: 1; }
-.b-country { stroke-width: 1.8; }
-.hit { fill: transparent; }
-.hover-ring { fill: none; stroke: var(--map-accent); stroke-width: 2.5; vector-effect: non-scaling-stroke; pointer-events: none; }
+/* ---- map ---- (areas, borders and dots are drawn on #canvas; names, cities, capitals and the Alaska/Hawaii boxes in #map) */
 .dot { fill: var(--map-dot); fill-opacity: .42; pointer-events: none; }
-.dot-hover { fill: none; stroke: var(--map-accent); stroke-width: 2; vector-effect: non-scaling-stroke; pointer-events: none; }
-
-/* which fills and lines each border mode shows */
-.borders-regular .l-fill-s, .borders-shetach .l-fill-u, .borders-both .l-fill-u { display: none; }
-.borders-shetach .b-regular, .borders-shetach .b-country, .borders-regular .b-shetach { opacity: 0; }
-.borders-both .b-regular { stroke-dasharray: 2 3; }
-.borders-both.lighter-regular .b-regular, .borders-both.lighter-regular .b-country { opacity: .35; }
-.borders-both.lighter-shetach .b-shetach { opacity: .3; }
-.borders-both.lighter-shetach .l-fill-s .fill { fill-opacity: .55; }
-.no-dots .dot, .no-dots .dot-hover { display: none; }
+.no-dots .dot { display: none; }
 
 .lab { paint-order: stroke; stroke: var(--map-halo); stroke-opacity: .7; stroke-linejoin: round; text-anchor: middle; dominant-baseline: central; pointer-events: none;
   font-family: var(--font-map); font-weight: 700; letter-spacing: .05em; fill: var(--map-ink); }
@@ -107,9 +90,7 @@ button:focus-visible, input:focus-visible, a:focus-visible, summary:focus-visibl
 .inset-frame { fill: none; stroke: var(--panel-line); }
 .inset-land { fill: var(--fill); stroke: var(--map-ink); stroke-width: 1; }
 .borders-regular .inset-land { fill: var(--fill-u); }
-.plain .fill, .plain .inset-land { fill: var(--plain); }
-.plain .fill { stroke: var(--plain); }
-.plain .fill.blank { fill: none; stroke: none; }
+.plain .inset-land { fill: var(--plain); }
 .inset-caption { font: 700 11px var(--font-map); letter-spacing: .06em; fill: var(--map-ink); }
 .inset-caption.lab-missing { fill: var(--map-missing); font-weight: 500; }
 
@@ -223,20 +204,21 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   #card, #card.pinned { left: 16px !important; right: 16px; top: auto !important; bottom: calc(var(--sheet, 64px) + 12px); width: auto; max-height: 45%; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .fill, .ln, .l-insets, .seg button { transition: none; }
+  .l-insets, .seg button { transition: none; }
 }
 </style>
 </head>
 <body>
 <div id="app">
   <div id="basemap"></div>
+  <canvas id="canvas" aria-hidden="true"></canvas>
   <svg id="map" role="img" aria-label="Map of Chabad shetachim and centers"></svg>
 
   <aside id="panel" class="collapsed" aria-label="Map options">
     <header class="p-head">
       <div>
         <h1>Shetachim</h1>
-        <p class="sub" id="view-name">United States &amp; Canada</p>
+        <p class="sub" id="view-name">World</p>
       </div>
       <div class="p-actions">
         <button id="theme-toggle" type="button"></button>
@@ -253,12 +235,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
       <fieldset class="ctl">
         <legend>Show</legend>
         <div class="seg" data-name="view">
-          <button type="button" data-value="na" aria-pressed="true">US &amp; Canada</button>
-          <button type="button" data-value="us" aria-pressed="false">USA</button>
-          <button type="button" data-value="ca" aria-pressed="false">Canada</button>
-        </div>
-        <div class="seg" data-name="view">
-          <button type="button" data-value="world" aria-pressed="false">World</button>
+          <button type="button" data-value="world" aria-pressed="true">World</button>
           <button type="button" data-value="europe" aria-pressed="false">Europe</button>
           <button type="button" data-value="fsu" aria-pressed="false">FSU</button>
           <button type="button" data-value="israel" aria-pressed="false">Israel</button>
@@ -268,12 +245,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
           <button type="button" data-value="oceania" aria-pressed="false">Oceania</button>
           <button type="button" data-value="latam" aria-pressed="false">Latin America</button>
         </div>
+        <div class="seg" data-name="view">
+          <button type="button" data-value="na" aria-pressed="false">US &amp; Canada</button>
+          <button type="button" data-value="us" aria-pressed="false">USA</button>
+          <button type="button" data-value="ca" aria-pressed="false">Canada</button>
+        </div>
       </fieldset>
       <fieldset class="ctl">
         <legend>Map</legend>
         <div class="seg" data-name="base">
-          <button type="button" data-value="political" aria-pressed="true">Political</button>
-          <button type="button" data-value="physical" aria-pressed="false">Physical</button>
+          <button type="button" data-value="physical" aria-pressed="true">Physical</button>
+          <button type="button" data-value="political" aria-pressed="false">Political</button>
         </div>
         <p id="base-msg" class="note" role="status" hidden></p>
       </fieldset>
@@ -333,7 +315,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   const phone = () => window.matchMedia('(max-width: 760px)').matches;
   const coarse = () => window.matchMedia('(pointer: coarse)').matches;
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const state = { view: 'na', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, cities: true, capitals: true };
+  const state = { view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, cities: true, capitals: true };
   if (!phone()) $('#panel').classList.remove('collapsed');
 
   // ---------- data ----------
@@ -406,8 +388,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
       color.set(k, best);
       used[best]++;
     });
-    return (k) => `var(--c${color.get(k) + 1})`;
+    return (k) => color.get(k);
   }
+  const cssColor = (i) => `var(--c${i + 1})`;
   const shetachColor = colorize((g) => g.properties.shetach || null);
   const stateColor = colorize((g) => g.properties.state);
 
@@ -415,7 +398,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   // Each view shows only its own countries (ISO alpha-3 outside the US and Canada) and fills the screen with them.
   // lon: the middle longitude, so a region crossing the 180° line (Russia's far east, New Zealand's Chatham
   // Islands) stays in one piece; wrap: the physical map repeats the world sideways there.
-  const EUROPE = ['AND', 'AUT', 'BLR', 'BEL', 'LUX', 'BGR', 'HRV', 'CYP', 'XNC', 'CZE', 'DNK', 'EST', 'FIN', 'FRA', 'DEU', 'GRC', 'ALB', 'BIH', 'XKO', 'MKD', 'HUN', 'ISL', 'IRL', 'ITA', 'SMR', 'VAT', 'SVN', 'LVA', 'LTU', 'MLT', 'MDA', 'MCO', 'MNE', 'NLD', 'NOR', 'POL', 'PRT', 'ROU', 'SRB', 'SVK', 'ESP', 'SWE', 'CHE', 'UKR', 'GBR'];
+  const EUROPE = ['AND', 'AUT', 'BLR', 'BEL', 'LUX', 'BGR', 'HRV', 'CYP', 'XNC', 'CZE', 'DNK', 'EST', 'FIN', 'FRA', 'DEU', 'GRC', 'ALB', 'BIH', 'XKO', 'MKD', 'HUN', 'ISL', 'IRL', 'ITA', 'SMR', 'VAT', 'SVN', 'LVA', 'LTU', 'MLT', 'MDA', 'MCO', 'LIE', 'MNE', 'NLD', 'NOR', 'POL', 'PRT', 'ROU', 'SRB', 'SVK', 'ESP', 'SWE', 'CHE', 'UKR', 'GBR'];
   const FSU = ['RUS', 'MNG', 'UKR', 'BLR', 'MDA', 'EST', 'LVA', 'LTU', 'ARM', 'AZE', 'GEO', 'KAZ', 'KGZ', 'UZB', 'TJK'];
   const ASIA = ['IND', 'NPL', 'LKA', 'CHN', 'HKG', 'MAC', 'JPN', 'KOR', 'TWN', 'THA', 'LAO', 'MMR', 'KHM', 'VNM', 'PHL', 'SGP', 'MYS', 'IDN'];
   const MIDEAST = ['ISR', 'TUR', 'ARE', 'QAT', 'SAU'];
@@ -447,13 +430,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
 
   // ---------- svg ----------
   const svg = d3.select('#map');
-  const root = svg.append('g').attr('class', 'l-root');
-  const gFillS = root.append('g').attr('class', 'l-fill-s');
-  const gFillU = root.append('g').attr('class', 'l-fill-u');
-  const gLines = root.append('g');
-  const gHit = root.append('g');
-  const gDots = root.append('g');
-  const gHover = root.append('g');
+  const canvas = $('#canvas'), ctx = canvas.getContext('2d');
+  let DPR = 1;
   const gLabels = svg.append('g'); // screen space: text stays crisp at any zoom
   const gMarks = svg.append('g'); // cities and capitals, also screen space
   const gInsets = svg.append('g').attr('class', 'l-insets');
@@ -473,33 +451,138 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     return phone() ? { l: 16, t: 16, r: 16, b: r.height + 12 } : { l: r.right + 16, t: 16, r: 64, b: 16 };
   }
 
-  // Polygons crossing the 180° line come split along it; that cut isn't a coast or a border, so it's not drawn.
-  const dropSeams = (mls) => {
-    const out = [];
-    for (const line of mls.coordinates) {
-      let run = [line[0]];
-      for (let i = 1; i < line.length; i++) {
-        if (Math.abs(line[i][0]) > 179.99 && Math.abs(line[i - 1][0]) > 179.99) { if (run.length > 1) out.push(run); run = [line[i]]; } else run.push(line[i]);
-      }
-      if (run.length > 1) out.push(run);
+  // ---------- geometry ----------
+  // The topology's arcs as [lon, lat, lon, lat, …]. Long straight stretches get extra points, so they bend with
+  // the projection like everything else.
+  const arcLL = (() => {
+    const [kx, ky] = topo.transform.scale, [dx, dy] = topo.transform.translate;
+    return topo.arcs.map((arc) => {
+      const out = [];
+      let x = 0, y = 0, px = 0, py = 0;
+      arc.forEach(([ax, ay], i) => {
+        x += ax; y += ay;
+        const lon = x * kx + dx, lat = y * ky + dy;
+        if (i) {
+          const n = Math.ceil(Math.max(Math.abs(lon - px), Math.abs(lat - py)) / 0.5);
+          for (let j = 1; j < n; j++) out.push(px + ((lon - px) * j) / n, py + ((lat - py) * j) / n);
+        }
+        out.push(lon, lat);
+        px = lon; py = lat;
+      });
+      return out;
+    });
+  })();
+  // Polygons crossing the 180° line come split along it; that cut isn't a coast or a border, so it's never drawn.
+  const onSeam = (i) => { const a = arcLL[i]; for (let j = 0; j < a.length; j += 2) if (Math.abs(a[j]) < 179.99) return false; return true; };
+  const arcsOf = (g, out = new Set()) => { const walk = (a) => (Array.isArray(a) ? a.forEach(walk) : out.add(a < 0 ? ~a : a)); walk(g.arcs || []); return out; };
+
+  // Visvalingam weights: each point's weight is the area (map pixels², zoom 1) of the triangle it makes with its
+  // neighbours as the line is simplified; a zoom level draws only the points big enough to see at that zoom.
+  function weights(xy) {
+    const n = xy.length / 2, w = new Float32Array(n).fill(Infinity);
+    if (n < 3) return w;
+    const prev = new Int32Array(n), next = new Int32Array(n), val = new Float64Array(n), at = new Int32Array(n).fill(-1), heap = [];
+    for (let i = 0; i < n; i++) { prev[i] = i - 1; next[i] = i + 1; }
+    const tri = (i) => { const a = prev[i], b = next[i]; return Math.abs((xy[2 * a] - xy[2 * i]) * (xy[2 * b + 1] - xy[2 * i + 1]) - (xy[2 * b] - xy[2 * i]) * (xy[2 * a + 1] - xy[2 * i + 1])) / 2; };
+    const swap = (i, j) => { const a = heap[i], b = heap[j]; heap[i] = b; heap[j] = a; at[b] = i; at[a] = j; };
+    const up = (i) => { while (i > 0) { const p = (i - 1) >> 1; if (val[heap[p]] <= val[heap[i]]) break; swap(i, p); i = p; } };
+    const down = (i) => { for (;;) { const l = 2 * i + 1, r = l + 1; let m = i; if (l < heap.length && val[heap[l]] < val[heap[m]]) m = l; if (r < heap.length && val[heap[r]] < val[heap[m]]) m = r; if (m === i) break; swap(i, m); i = m; } };
+    const set = (i, v) => { val[i] = v; up(at[i]); down(at[i]); };
+    for (let i = 1; i < n - 1; i++) { val[i] = tri(i); at[i] = heap.length; heap.push(i); up(heap.length - 1); }
+    let max = 0;
+    while (heap.length) {
+      const i = heap[0], last = heap.pop();
+      if (heap.length) { heap[0] = last; at[last] = 0; down(0); }
+      at[i] = -1;
+      max = Math.max(max, val[i]);
+      w[i] = max;
+      const p = prev[i], q = next[i];
+      next[p] = q; prev[q] = p;
+      if (p > 0) set(p, tri(p));
+      if (q < n - 1) set(q, tri(q));
     }
-    return { type: 'MultiLineString', coordinates: out };
-  };
-  const meshes = (main) => {
-    const m = (filter) => dropSeams(topojson.mesh(topo, collection(main), filter));
-    const key = (g) => g.properties.shetach || '';
-    return [
-      ['regular', m((a, b) => a.properties.state !== b.properties.state && a.properties.country === b.properties.country)],
-      ['country', m((a, b) => a.properties.country !== b.properties.country)],
-      ['shetach', m((a, b) => a !== b && key(a) !== key(b))],
-      ['coast', m((a, b) => a === b)],
-    ];
-  };
+    return w;
+  }
+
+  // An area to fill or outline: its polygons as rings of arcs, each polygon with its box (map pixels, zoom 1) and a
+  // Path2D per zoom level, made when first needed.
+  function drawable(ma) {
+    const polys = (ma.type === 'Polygon' ? [ma.arcs] : ma.type === 'MultiPolygon' ? ma.arcs : []).map((rings) => {
+      let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+      for (const a of rings[0]) {
+        const xy = V.xy[a < 0 ? ~a : a];
+        for (let j = 0; j < xy.length; j += 2) { if (xy[j] < x0) x0 = xy[j]; if (xy[j] > x1) x1 = xy[j]; if (xy[j + 1] < y0) y0 = xy[j + 1]; if (xy[j + 1] > y1) y1 = xy[j + 1]; }
+      }
+      return { rings, box: [x0, y0, x1, y1], paths: [] };
+    });
+    return { polys };
+  }
+  // A polygon's rings as points (map pixels, zoom 1), for labels and hit tests.
+  function ringsOf(poly) {
+    return poly.rings.map((ring) => {
+      const pts = [];
+      ring.forEach((a, k) => {
+        const rev = a < 0, xy = V.xy[rev ? ~a : a], n = xy.length / 2;
+        for (let s = k ? 1 : 0; s < n; s++) { const j = rev ? n - 1 - s : s; pts.push([xy[2 * j], xy[2 * j + 1]]); }
+      });
+      return pts;
+    });
+  }
+  const LEVELS = 8;
+  const levelFor = (k) => clamp(Math.ceil(Math.log2(k) - 1e-9), 0, LEVELS - 1);
+  const minWeight = (L) => 0.25 / 4 ** L; // screen pixels² a point's triangle must cover to be drawn (at 2^L)
+  function traceArcs(path, arcs, L, close) {
+    const t = minWeight(L);
+    let first = true;
+    for (const a of arcs) {
+      const rev = a < 0, i = rev ? ~a : a, xy = V.xy[i], w = V.w[i], n = w.length;
+      for (let s = first ? 0 : 1; s < n; s++) {
+        const j = rev ? n - 1 - s : s;
+        if (w[j] < t) continue;
+        if (first) { path.moveTo(xy[2 * j], xy[2 * j + 1]); first = false; } else path.lineTo(xy[2 * j], xy[2 * j + 1]);
+      }
+    }
+    if (close) path.closePath();
+  }
+  function polyPath(poly, L) {
+    if (!poly.paths[L]) { const p = new Path2D(); for (const ring of poly.rings) traceArcs(p, ring, L, true); poly.paths[L] = p; }
+    return poly.paths[L];
+  }
+
+  // Borders by kind, in cells of a grid over the map, so only the cells on screen are drawn.
+  const GRID = 12;
+  function meshCells(main, filter) {
+    const mesh = topojson.meshArcs(topo, collection(main), filter);
+    const [bx0, by0, bx1, by1] = V.extent, cw = (bx1 - bx0) / GRID || 1, ch = (by1 - by0) / GRID || 1;
+    const cells = new Map();
+    for (const line of mesh.arcs) {
+      for (const a of line) {
+        const i = a < 0 ? ~a : a;
+        if (onSeam(i)) continue;
+        const xy = V.xy[i];
+        let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+        for (let j = 0; j < xy.length; j += 2) { if (xy[j] < x0) x0 = xy[j]; if (xy[j] > x1) x1 = xy[j]; if (xy[j + 1] < y0) y0 = xy[j + 1]; if (xy[j + 1] > y1) y1 = xy[j + 1]; }
+        const key = clamp(Math.floor(((x0 + x1) / 2 - bx0) / cw), 0, GRID - 1) * GRID + clamp(Math.floor(((y0 + y1) / 2 - by0) / ch), 0, GRID - 1);
+        let c = cells.get(key);
+        if (!c) cells.set(key, (c = { arcs: [], box: [Infinity, Infinity, -Infinity, -Infinity], paths: [] }));
+        c.arcs.push(i);
+        c.box = [Math.min(c.box[0], x0), Math.min(c.box[1], y0), Math.max(c.box[2], x1), Math.max(c.box[3], y1)];
+      }
+    }
+    return [...cells.values()];
+  }
+  function cellPath(cell, L) {
+    if (!cell.paths[L]) { const p = new Path2D(); for (const i of cell.arcs) traceArcs(p, [i], L, false); cell.paths[L] = p; }
+    return cell.paths[L];
+  }
 
   // opts.focus: {ll, k} to keep looking at the same place (switching maps); opts.keep: leave the physical map's camera alone.
   function layout(opts = {}) {
     W = svg.node().clientWidth;
     H = svg.node().clientHeight;
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(W * DPR);
+    canvas.height = Math.round(H * DPR);
     document.documentElement.style.setProperty('--sheet', `${$('#panel').getBoundingClientRect().height}px`);
     const view = VIEWS[state.view];
     const physical = state.base === 'physical';
@@ -507,10 +590,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     const insetStates = physical ? [] : view.insets; // the physical map has Alaska and Hawaii in their real place
     const main = shown.filter((g) => !insetStates.includes(g.properties.state));
     const framed = shown.filter((g) => !view.insets.includes(g.properties.state)); // both maps frame the same area
-    const regions = [...d3.group(main.filter(shetachOf), shetachOf)].map(([s, gs]) => ({ s, geo: topojson.merge(topo, gs) }));
-    const blanks = [...d3.group(main.filter((g) => !shetachOf(g)), (g) => g.properties.state)].map(([st, gs]) => ({ st, geo: topojson.merge(topo, gs) }));
-    const states = [...d3.group(main, (g) => g.properties.state)].map(([st, gs]) => ({ st, p: gs[0].properties, geo: topojson.merge(topo, gs) }));
-    V = { view, physical, shown, main, regions, blanks, states, index: {}, insetPieces: shown.filter((g) => insetStates.includes(g.properties.state)) };
+    V = { view, physical, shown, main, index: {}, insetPieces: shown.filter((g) => insetStates.includes(g.properties.state)) };
 
     const p = insets();
     // frame: a lon/lat box to fill the screen with instead of every island (Europe without the Azores and Canaries)
@@ -519,23 +599,42 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     geoPath = d3.geoPath(projection);
     if (physical) V.zFit = Math.log2((2 * Math.PI * projection.scale()) / 512); // MapLibre zoom of the framed view
 
-    if (physical) {
-      for (const g of [gFillS, gFillU, gLines, gHit, gDots, gHover]) g.selectAll('*').remove();
-    } else {
-      gFillS.selectAll('path').data([...regions, ...blanks]).join('path').attr('class', (r) => (r.s ? 'fill' : 'fill blank'))
-        .style('--fill', (r) => (r.s ? shetachColor(r.s.id) : null)).attr('d', (r) => geoPath(r.geo));
-      gFillU.selectAll('path').data(states).join('path').attr('class', 'fill')
-        .style('--fill', (r) => stateColor(r.st)).attr('d', (r) => geoPath(r.geo));
-      gLines.selectAll('path').data(meshes(main)).join('path').attr('class', ([c]) => `ln b-${c}`).attr('d', ([, g]) => geoPath(g));
-      gHit.selectAll('path').data(main.map((g) => topojson.feature(topo, g))).join('path').attr('class', 'hit').attr('d', geoPath);
+    // Every arc the view draws, projected once (map pixels at zoom 1), with its points' weights.
+    V.xy = []; V.w = [];
+    let ex0 = Infinity, ey0 = Infinity, ex1 = -Infinity, ey1 = -Infinity;
+    const viewArcs = new Set();
+    for (const g of main) arcsOf(g, viewArcs);
+    for (const i of viewArcs) {
+      const ll = arcLL[i], xy = new Float32Array(ll.length);
+      for (let j = 0; j < ll.length; j += 2) {
+        const q = projection([ll[j], ll[j + 1]]);
+        xy[j] = q[0]; xy[j + 1] = q[1];
+        if (q[0] < ex0) ex0 = q[0]; if (q[0] > ex1) ex1 = q[0]; if (q[1] < ey0) ey0 = q[1]; if (q[1] > ey1) ey1 = q[1];
+      }
+      V.xy[i] = xy;
+      if (!physical) V.w[i] = weights(xy);
+    }
+    V.extent = [ex0, ey0, ex1, ey1];
+
+    // Shetachim, the blank parts of states, and states (for States borders): each merged, with its polygons.
+    const area = (gs, extra) => { const ma = topojson.mergeArcs(topo, gs); const d = drawable(ma); return { ...extra, g: gs[0], ma, ...d, polysXY: d.polys.map(ringsOf) }; };
+    V.regions = [...d3.group(main.filter(shetachOf), shetachOf)].map(([s, gs]) => area(gs, { s, color: shetachColor(s.id) }));
+    V.blanks = [...d3.group(main.filter((g) => !shetachOf(g)), (g) => g.properties.state)].map(([st, gs]) => area(gs, { st }));
+    V.states = [...d3.group(main, (g) => g.properties.state)].map(([st, gs]) => area(gs, { st, p: gs[0].properties, color: stateColor(st) }));
+    if (!physical) {
+      const key = (g) => g.properties.shetach || '';
+      V.mesh = {
+        coast: meshCells(main, (a, b) => a === b),
+        regular: meshCells(main, (a, b) => a.properties.state !== b.properties.state && a.properties.country === b.properties.country),
+        country: meshCells(main, (a, b) => a.properties.country !== b.properties.country),
+        shetach: meshCells(main, (a, b) => a !== b && key(a) !== key(b)),
+      };
     }
 
     const mainIds = new Set(main.map((g) => g.properties.id));
-    if (physical) V.hitAreas = main.map((g) => { const f = topojson.feature(topo, g); return { g, f, box: d3.geoBounds(f) }; });
     V.dots = dots.filter((d) => mainIds.has(d.piece));
     for (const d of V.dots) [d.x, d.y] = projection([d.lon, d.lat]);
     tree = d3.quadtree(V.dots, (d) => d.x, (d) => d.y);
-    if (!physical) gDots.selectAll('circle').data(V.dots).join('circle').attr('class', 'dot').attr('cx', (d) => d.x).attr('cy', (d) => d.y);
     V.caps = capitals.filter((c) => mainIds.has(c.piece));
     V.cities = cities.filter((c) => mainIds.has(c.piece));
     for (const c of [...V.caps, ...V.cities]) [c.x, c.y] = projection([c.lon, c.lat]);
@@ -546,15 +645,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     const a = projection([lon0, lat0]), b = projection([lon0, lat0 + 1]);
     V.pxPerKm = Math.hypot(b[0] - a[0], b[1] - a[1]) / 111.2; // at zoom 1
 
-    for (const r of [...regions, ...blanks, ...states]) r.polys = projectedPolygons(r.geo);
-    for (const r of [...regions, ...states]) r.anchor = anchorFor(r.polys);
+    for (const r of [...V.regions, ...V.states]) r.anchor = anchorFor(r.polysXY);
     drawInsets(p);
 
     const shownIds = new Set(shown.map((g) => g.properties.id));
     const viewDots = dots.filter((d) => shownIds.has(d.piece));
     $('#view-name').textContent = view.name;
     const regular = view.world ? 'Countries' : 'States';
-    document.querySelectorAll('[data-name="borders"] [data-value="regular"], [data-name="lighter"] [data-value="regular"]').forEach((b) => { b.textContent = regular; });
+    document.querySelectorAll('[data-name="borders"] [data-value="regular"], [data-name="lighter"] [data-value="regular"]').forEach((btn) => { btn.textContent = regular; });
     $('#st-shetachim').textContent = fmt(new Set(shown.map((g) => g.properties.shetach).filter(Boolean)).size);
     $('#st-centers').textContent = fmt(d3.sum(viewDots, (d) => d.centers.length));
     $('#st-dots').textContent = fmt(viewDots.length);
@@ -571,6 +669,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
       zoom.translateExtent([[-W * 0.5, -H * 0.5], [W * 1.5, H * 1.5]]);
       svg.call(zoom.transform, zoom.constrain()(start, [[0, 0], [W, H]], zoom.translateExtent()));
     }
+    requestDraw();
   }
 
   // Where the middle of the screen is, and how far in from the framed view: survives switching maps.
@@ -599,7 +698,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
       const group = gInsets.append('g');
       group.append('rect').attr('class', 'inset-frame').attr('x', x).attr('y', y).attr('width', w).attr('height', h).attr('rx', 6);
       group.append('path').datum(feature).attr('class', 'inset-land')
-        .style('--fill', s ? shetachColor(s.id) : 'none').style('--fill-u', stateColor(g.properties.state)).attr('d', d3.geoPath(proj));
+        .style('--fill', s ? cssColor(shetachColor(s.id)) : 'none').style('--fill-u', cssColor(stateColor(g.properties.state))).attr('d', d3.geoPath(proj));
       box.caption = group.append('text').attr('class', 'inset-caption').attr('x', x + 8).attr('y', y + 13);
       group.selectAll('circle').data(box.dots).join('circle').attr('class', 'dot')
         .attr('cx', (d) => proj([d.lon, d.lat])[0]).attr('cy', (d) => proj([d.lon, d.lat])[1])
@@ -653,12 +752,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     return (inside ? 1 : -1) * Math.sqrt(min);
   }
 
-  // Each polygon of a geometry as rings of map pixels (zoom 1).
-  function projectedPolygons(geometry) {
-    const polys = geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.type === 'MultiPolygon' ? geometry.coordinates : [];
-    return polys.map((poly) => poly.map((ring) => ring.map((c) => projection(c)))).filter((rings) => rings.every((ring) => ring.every(Boolean)));
-  }
-
   // Where an area's label looks for room first: the middle of each of its bigger polygons, biggest first.
   // The biggest polygon's area sets the label's size. bbox covers every polygon (even small ones), so
   // placeLabels can tell when the whole area doesn't fit on screen and needs recentring on what does.
@@ -674,10 +767,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   // The edges of the labelled areas filed by height, so where a horizontal line crosses them is quick to find.
   function edgeIndex(areas) {
     let y0 = Infinity, y1 = -Infinity;
-    for (const r of areas) for (const rings of r.polys) for (const pt of rings[0]) { y0 = Math.min(y0, pt[1]); y1 = Math.max(y1, pt[1]); }
+    for (const r of areas) for (const rings of r.polysXY) for (const pt of rings[0]) { y0 = Math.min(y0, pt[1]); y1 = Math.max(y1, pt[1]); }
     const n = Math.max(1, Math.ceil((y1 - y0) / 2)), step = (y1 - y0) / n || 1, bands = Array.from({ length: n }, () => []);
     areas.forEach((r, id) => {
-      for (const rings of r.polys) for (const ring of rings) for (let i = 1; i < ring.length; i++) {
+      for (const rings of r.polysXY) for (const ring of rings) for (let i = 1; i < ring.length; i++) {
         const a = ring[i - 1], b = ring[i];
         if (a[1] === b[1]) continue;
         const lo = Math.max(0, Math.floor((Math.min(a[1], b[1]) - y0) / step)), hi = Math.min(n - 1, Math.floor((Math.max(a[1], b[1]) - y0) / step));
@@ -728,22 +821,21 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
 
   const MARK_FONT = 12.5;
   const LINE = 1.2; // line height of two-line labels, in font sizes
-  const SHIFTS = [0, 0.5, -0.5, 1, -1, 1.5, -1.5, 2, -2]; // how far a label may move up or down, in lines
   function buildLabels() {
     labels = [];
     if (state.labels !== 'off') {
-      if (state.borders === 'regular') V.states.forEach((r, id) => { if (r.anchor) labels.push({ text: r.p.name, short: r.p.abbr, missing: false, a: r.anchor, id }); });
-      else V.regions.forEach((r, id) => { if (r.anchor) labels.push({ ...shetachLabel(r.s), a: r.anchor, id }); });
+      if (state.borders === 'regular') V.states.forEach((r, id) => { if (r.anchor) labels.push({ text: r.p.name, short: r.p.abbr, missing: false, a: r.anchor, id, r }); });
+      else V.regions.forEach((r, id) => { if (r.anchor) labels.push({ ...shetachLabel(r.s), a: r.anchor, id, r }); });
     }
     const family = getComputedStyle(document.documentElement).getPropertyValue('--font-map');
     for (const L of labels) {
       L.size = clamp(Math.sqrt(L.a.area) / 10, 10, 20);
       measure.font = `${L.missing ? 500 : 700} ${L.size}px ${family}`;
       const width = (t) => measure.measureText(t).width + 0.05 * L.size * t.length;
-      const options = [[[L.text], 0], [twoLines(L.text), 0.75], [L.short && L.short !== L.text ? [L.short] : null, 2.5]]
-        .filter(([lines]) => lines).map(([lines, cost]) => ({ lines, cost, w: d3.max(lines, width) }));
-      // Near the middle first; a second line or the short form only when the text doesn't fit nearby.
-      L.tries = options.flatMap((o) => SHIFTS.map((shift) => ({ o, shift, cost: o.cost + Math.abs(shift) }))).sort((a, b) => a.cost - b.cost);
+      // The name on one line; on two lines, or the short form, only when that doesn't fit near the middle.
+      // A little smaller (85%) where that's what it takes to fit, at a cost.
+      L.opts = [[[L.text], 0], [twoLines(L.text), 0.8], [L.short && L.short !== L.text ? [L.short] : null, 2.5]]
+        .filter(([lines]) => lines).flatMap(([lines, cost]) => [1, 0.85].map((s) => ({ lines, s, cost: cost + (s < 1 ? 0.7 : 0), w: d3.max(lines, width) * s })));
     }
     labels.sort((a, b) => b.a.area - a.a.area);
     for (const box of insetBoxes) {
@@ -779,88 +871,121 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     });
   }
 
-  // Room for a w×h label of area me on the row at screen height sy, starting from screen x ax: x is centred on
-  // the stretch of me there (the part on screen); anywhere from lo to hi is 2px clear of every other area; ok(x)
-  // says whether the label is almost all on me there (it may hang over water a little). null: no room.
-  const ROWS = [-0.42, -0.21, 0.21, 0.42]; // besides the middle, in label heights
-  function fit(ix, me, ax, sy, w, h) {
-    const k = T.k, sx = (x) => T.x + x * k, mapY = (y) => (y - T.y) / k;
-    const mid = crossings(ix, mapY(sy));
-    const own = mid.get(me) || [];
-    let s = null;
-    for (let i = 0; i + 1 < own.length; i += 2) if (sx(own[i]) <= ax && ax <= sx(own[i + 1])) s = [Math.max(sx(own[i]), 4), Math.min(sx(own[i + 1]), W - 4)];
-    if (!s || s[1] <= s[0]) return null;
-    const xr = (s[0] + s[1]) / 2;
-    let lo = 4, hi = W - 4;
-    const rows = [mid, ...ROWS.map((t) => crossings(ix, mapY(sy + t * h)))];
-    for (const row of rows) {
-      for (const [id, xs] of row) {
-        if (id === me) continue;
+  // How much of a w×h label centred at screen (cx, cy) lies on its own area me (0-1), checked along five rows through
+  // the label; null if it comes within 2px of any other area. Water is fine: a label may cross a gulf or a strait
+  // between two parts of its own shetach.
+  const ROWS = [0, -0.42, 0.42, -0.21, 0.21]; // in label heights
+  function ownShare(ix, me, cx, cy, w, h) {
+    const k = T.k, x0 = cx - w / 2, x1 = cx + w / 2;
+    let on = 0;
+    for (const t of ROWS) {
+      for (const [id, xs] of crossings(ix, (cy + t * h - T.y) / k)) {
         for (let i = 0; i + 1 < xs.length; i += 2) {
-          const a = sx(xs[i]), b = sx(xs[i + 1]);
-          if (b <= xr) lo = Math.max(lo, b + 2);
-          else if (a >= xr) hi = Math.min(hi, a - 2);
-          else return null;
+          const a = T.x + xs[i] * k, b = T.x + xs[i + 1] * k;
+          if (id === me) on += Math.max(0, Math.min(x1, b) - Math.max(x0, a));
+          else if (a < x1 + 2 && b > x0 - 2) return null;
         }
       }
     }
-    if (hi - lo < w) return null;
-    const mine = rows.map((row) => (row.get(me) || []).map(sx));
-    const ok = (x) => {
-      if (x - w / 2 < lo - 0.01 || x + w / 2 > hi + 0.01) return false;
-      let on = 0;
-      for (const xs of mine) for (let i = 0; i + 1 < xs.length; i += 2) on += Math.max(0, Math.min(x + w / 2, xs[i + 1]) - Math.max(x - w / 2, xs[i]));
-      return on >= 0.85 * w * rows.length;
-    };
-    return { x: clamp(xr, lo + w / 2, hi - w / 2), ok };
+    return on / (w * ROWS.length);
   }
 
-  // When an area's middles are all off screen (zoomed in), a point on its widest stretch across the visible map.
-  function visiblePoint(ix, me, p) {
-    let best = null;
-    for (const t of [0.5, 0.3, 0.7, 0.15, 0.85]) {
-      const sy = p.t + (H - p.t - p.b) * t, xs = crossings(ix, (sy - T.y) / T.k).get(me) || [];
-      for (let i = 0; i + 1 < xs.length; i += 2) {
-        const a = Math.max(p.l, T.x + xs[i] * T.k), b = Math.min(W - p.r, T.x + xs[i + 1] * T.k);
-        if (b - a > (best ? best.w : 0)) best = { w: b - a, at: [(a + b) / 2, sy] };
+  // A ring clipped to a box (Sutherland–Hodgman; the box is convex, the ring needn't be).
+  function clipRing(ring, [bx0, by0, bx1, by1]) {
+    const sides = [
+      [(q) => q[0] >= bx0, (a, b) => [bx0, a[1] + ((bx0 - a[0]) * (b[1] - a[1])) / (b[0] - a[0])]],
+      [(q) => q[0] <= bx1, (a, b) => [bx1, a[1] + ((bx1 - a[0]) * (b[1] - a[1])) / (b[0] - a[0])]],
+      [(q) => q[1] >= by0, (a, b) => [a[0] + ((by0 - a[1]) * (b[0] - a[0])) / (b[1] - a[1]), by0]],
+      [(q) => q[1] <= by1, (a, b) => [a[0] + ((by1 - a[1]) * (b[0] - a[0])) / (b[1] - a[1]), by1]],
+    ];
+    let pts = ring;
+    for (const [inside, cut] of sides) {
+      const out = [];
+      for (let i = 0; i < pts.length; i++) {
+        const a = pts[i], b = pts[(i + 1) % pts.length], ai = inside(a), bi = inside(b);
+        if (ai) out.push(a);
+        if (ai !== bi) out.push(cut(a, b));
       }
+      pts = out;
+      if (pts.length < 3) return [];
     }
-    return best && best.at;
+    return pts;
   }
 
-  // Each area's label, biggest areas first: the full text on one line, else on two, else the short form,
-  // wherever it fits near the middle of the area (up or down a little to clear a star or another label).
+  // The part of an area on screen: its land's centre of mass (in a gulf, for land wrapped around one), the middle of
+  // its biggest piece of land (the point farthest from its edges, the screen's edge counting as one), and the convex
+  // hull around it all, which a label mustn't leave. Map pixels; tiny outlying islands don't stretch the hull.
+  function visiblePart(polys, box) {
+    const parts = [];
+    for (const rings of polys) {
+      const outer = box ? clipRing(rings[0], box) : rings[0];
+      if (outer.length < 3) continue;
+      const holes = rings.slice(1).map((r) => (box ? clipRing(r, box) : r)).filter((r) => r.length >= 3);
+      const area = Math.abs(d3.polygonArea(outer)) - d3.sum(holes, (h) => Math.abs(d3.polygonArea(h)));
+      if (area > 0) parts.push({ rings: [outer, ...holes], area, c: d3.polygonCentroid(outer) });
+    }
+    if (!parts.length) return null;
+    parts.sort((a, b) => b.area - a.area);
+    const total = d3.sum(parts, (q) => q.area);
+    const big = parts.filter((q) => q.area >= total * 0.01);
+    return {
+      centre: [d3.sum(big, (q) => q.c[0] * q.area) / d3.sum(big, (q) => q.area), d3.sum(big, (q) => q.c[1] * q.area) / d3.sum(big, (q) => q.area)],
+      middle: polylabel(parts[0].rings, 0.5 / T.k),
+      hull: d3.polygonHull(big.flatMap((q) => q.rings[0])) || parts[0].rings[0],
+    };
+  }
+
+  // Each area's label, biggest areas first, as near as it fits to the centre of what's on screen of the area: inside
+  // the hull around its land, clear of every other area, star and label. Nearer is better; so is sitting on land
+  // rather than water; the name on two lines or the short form cost as much as moving a few letters' height away.
   // Then the stars and cities, biggest first, wherever they fit.
   function placeLabels() {
     const k = T.k, f = fontScale(k), stars = starsNow(), covered = coveredRects(), p = insets(), ix = labelIndex();
     const boxes = [], blocked = [...stars.map((st) => st.box), ...covered];
-    const inView = ([x, y]) => x >= p.l && x <= W - p.r && y >= p.t && y <= H - p.b;
+    const view = [(p.l - T.x) / k, (p.t - T.y) / k, (W - p.r - T.x) / k, (H - p.b - T.y) / k]; // map pixels
+    const hits = (b, list) => list.some((o) => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]);
     for (const L of labels) {
       L.show = null;
-      const onScreen = L.a.points.map((pt) => T.apply(pt)).filter(inView);
-      // When the area's whole extent doesn't fit on screen (zoomed into part of it), its natural middle
-      // may still be on screen but off to one side of what's actually visible — centre on that instead.
-      const [bx0, by0, bx1, by1] = L.a.bbox, [sx0, sy0] = T.apply([bx0, by0]), [sx1, sy1] = T.apply([bx1, by1]);
-      const fits = sx0 >= p.l - 1 && sx1 <= W - p.r + 1 && sy0 >= p.t - 1 && sy1 <= H - p.b + 1;
-      const starts = fits ? onScreen : [];
-      if (!starts.length) { const v = visiblePoint(ix, L.id, p); if (v) starts.push(v); else starts.push(...onScreen); }
-      search: for (const [ax, ay] of starts) {
-        for (const { o, shift } of L.tries) {
-          const size = L.size * f, w = o.w * f, h = o.lines.length * LINE * size, sy = ay + shift * LINE * size;
-          if (sy - h / 2 - 2 < 0 || sy + h / 2 + 2 > H) continue;
-          const room = fit(ix, L.id, ax, sy, w, h);
-          if (!room || !room.ok(room.x)) continue;
-          // Centred if that's clear, else just beside whatever is in the way (a star, another label).
-          const boxAt = (x) => [x - w / 2 - 3, sy - h / 2 - 2, x + w / 2 + 3, sy + h / 2 + 2];
-          const inWay = [...boxes, ...blocked].filter((b) => overlaps(boxAt(room.x), [b]));
-          const xs = [room.x, ...inWay.flatMap((b) => [b[0] - w / 2 - 3.5, b[2] + w / 2 + 3.5])].sort((a, b) => Math.abs(a - room.x) - Math.abs(b - room.x));
-          const x = xs.find((x) => room.ok(x) && !overlaps(boxAt(x), boxes) && !overlaps(boxAt(x), blocked));
-          if (x === undefined) continue;
-          Object.assign(L, { show: o, mx: (x - T.x) / k, my: (sy - T.y) / k });
-          boxes.push(boxAt(x));
-          break search;
+      const [bx0, by0, bx1, by1] = L.a.bbox;
+      if (bx1 < view[0] || bx0 > view[2] || by1 < view[1] || by0 > view[3]) continue;
+      const whole = bx0 >= view[0] && bx1 <= view[2] && by0 >= view[1] && by1 <= view[3];
+      if (whole && !L.r.whole) L.r.whole = visiblePart(L.r.polysXY, null);
+      const part = whole ? L.r.whole : visiblePart(L.r.polysXY, view);
+      if (!part) continue;
+      const hull = part.hull.map((pt) => T.apply(pt)), [cx, cy] = T.apply(part.centre), size = L.size * f;
+      const hx0 = d3.min(hull, (q) => q[0]), hx1 = d3.max(hull, (q) => q[0]), hy0 = d3.min(hull, (q) => q[1]), hy1 = d3.max(hull, (q) => q[1]);
+      const cands = [];
+      for (const [ax, ay] of [[cx, cy], T.apply(part.middle)]) {
+        for (const o of L.opts) {
+          const w = o.w * f, h = o.lines.length * LINE * size * o.s;
+          if (w > (hx1 - hx0) * 1.02 || h > (hy1 - hy0) * 1.02) continue;
+          // a grid over the whole hull, finest near the middle's scale of the label itself
+          const stepX = Math.max(3, w / 6, (hx1 - hx0) / 24), stepY = Math.max(3, h / 4, (hy1 - hy0) / 24);
+          for (let i = -24; i <= 24; i++) {
+            for (let j = -24; j <= 24; j++) {
+              const x = ax + i * stepX, y = ay + j * stepY;
+              if (x - w / 2 < hx0 || x + w / 2 > hx1 || y - h / 2 < hy0 || y + h / 2 > hy1) continue;
+              cands.push({ o, w, h, x, y, cost: o.cost + Math.hypot(x - cx, (y - cy) * 1.4) / (size * 3) });
+            }
+          }
         }
       }
+      cands.sort((a, b) => a.cost - b.cost);
+      let best = null;
+      for (const c of cands) {
+        if (best && c.cost >= best.cost) break;
+        const box = [c.x - c.w / 2 - 3, c.y - c.h / 2 - 2, c.x + c.w / 2 + 3, c.y + c.h / 2 + 2];
+        if (box[0] < 0 || box[1] < 0 || box[2] > W || box[3] > H || hits(box, boxes) || hits(box, blocked)) continue;
+        const inHull = [[box[0], box[1]], [box[2], box[1]], [box[0], box[3]], [box[2], box[3]]].every((q) => d3.polygonContains(hull, q));
+        if (!inHull) continue;
+        const share = ownShare(ix, L.id, c.x, c.y, c.w, c.h);
+        if (share === null) continue;
+        const cost = c.cost + 0.5 * (1 - share); // on land beats over water, other things equal
+        if (!best || cost < best.cost) best = { ...c, box, cost };
+      }
+      if (!best) continue;
+      Object.assign(L, { show: best.o, mx: (best.x - T.x) / k, my: (best.y - T.y) / k });
+      boxes.push(best.box);
     }
     gLabels.selectAll('text').data(labels.filter((L) => L.show)).join('text')
       .attr('class', (L) => (L.missing ? 'lab lab-missing' : 'lab'))
@@ -926,8 +1051,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     gLabels.selectAll('text').each(function (L) {
       const [sx, sy] = T.apply([L.mx, L.my]);
       this.setAttribute('transform', `translate(${sx},${sy})`);
-      this.style.fontSize = `${L.size * f}px`;
-      this.style.strokeWidth = `${Math.max(2, L.size * f * 0.2)}px`;
+      this.style.fontSize = `${L.size * f * L.show.s}px`;
+      this.style.strokeWidth = `${Math.max(2, L.size * f * L.show.s * 0.2)}px`;
     });
     gMarks.selectAll('g').each(function (m) {
       const at = m.anchor || m.c;
@@ -936,10 +1061,98 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     });
   }
 
-  // ---------- dots ----------
+  // ---------- drawing (political map) ----------
   const dotBase = (d) => 1.9 + 0.55 * Math.log2(d.centers.length);
-  const dotRadius = (d, k) => (dotBase(d) * Math.pow(k, 0.35)) / k;
-  const sizeDots = () => gDots.selectAll('circle').attr('r', (d) => dotRadius(d, T.k));
+  const dotRadius = (d, k) => dotBase(d) * Math.pow(k, 0.35); // screen pixels
+  let pal = null, hover = null, drawQueued = 0;
+  function readPalette() {
+    const css = getComputedStyle($('#map'));
+    const v = (name) => css.getPropertyValue(name).trim();
+    pal = { c: d3.range(8).map((i) => v(`--c${i + 1}`)), plain: v('--plain'), ink: v('--map-ink'), dot: v('--map-dot'), accent: v('--map-accent') };
+  }
+  function requestDraw() { if (!drawQueued) drawQueued = requestAnimationFrame(draw); }
+  function draw() {
+    drawQueued = 0;
+    if (!V || V.physical) return;
+    if (!pal) readPalette();
+    const k = T.k, L = levelFor(k);
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.setTransform(DPR * k, 0, 0, DPR * k, DPR * T.x, DPR * T.y);
+    const vx0 = -T.x / k, vy0 = -T.y / k, vx1 = (W - T.x) / k, vy1 = (H - T.y) / k;
+    const seen = (b) => b[2] >= vx0 && b[0] <= vx1 && b[3] >= vy0 && b[1] <= vy1;
+
+    // fills: shetachim (blank parts of states stay unfilled), or states with States borders
+    ctx.globalAlpha = state.borders === 'both' && state.lighter === 'shetach' ? 0.55 : 1;
+    for (const r of state.borders === 'regular' ? V.states : V.regions) {
+      ctx.fillStyle = state.color === 'plain' ? pal.plain : pal.c[r.color];
+      for (const poly of r.polys) if (seen(poly.box)) ctx.fill(polyPath(poly, L), 'evenodd');
+    }
+    // borders
+    const both = state.borders === 'both', lightR = both && state.lighter === 'regular', lightS = both && state.lighter === 'shetach';
+    ctx.strokeStyle = pal.ink;
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round';
+    for (const [kind, width, on, alpha, dash] of [
+      ['coast', 1.1, true, 1],
+      ['regular', 1, state.borders !== 'shetach', lightR ? 0.35 : 1, both ? [2, 3] : null],
+      ['country', 1.8, state.borders !== 'shetach', lightR ? 0.35 : 1],
+      ['shetach', 1.3, state.borders !== 'regular', lightS ? 0.3 : 1],
+    ]) {
+      if (!on) continue;
+      ctx.globalAlpha = alpha;
+      ctx.lineWidth = width / k;
+      ctx.setLineDash(dash ? dash.map((d) => d / k) : []);
+      for (const cell of V.mesh[kind]) if (seen(cell.box)) ctx.stroke(cellPath(cell, L));
+    }
+    ctx.setLineDash([]);
+    // the outline of the area a card is about
+    if (hover && hover.area) {
+      ctx.globalAlpha = 1;
+      ctx.strokeStyle = pal.accent;
+      ctx.lineWidth = 2.5 / k;
+      for (const poly of hover.area.polys) if (seen(poly.box)) ctx.stroke(polyPath(poly, L));
+    }
+    // dots, in screen pixels
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    if (state.dots) {
+      const f = Math.pow(k, 0.35);
+      ctx.globalAlpha = 0.42;
+      ctx.fillStyle = pal.dot;
+      ctx.beginPath();
+      for (const d of V.dots) {
+        const x = T.x + d.x * k, y = T.y + d.y * k, r = dotBase(d) * f;
+        if (x < -r || y < -r || x > W + r || y > H + r) continue;
+        ctx.moveTo(x + r, y);
+        ctx.arc(x, y, r, 0, 2 * Math.PI);
+      }
+      ctx.fill();
+      if (hover && hover.dot) {
+        ctx.globalAlpha = 1;
+        ctx.strokeStyle = pal.accent;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.arc(T.x + hover.dot.x * k, T.y + hover.dot.y * k, dotRadius(hover.dot, k) + 2.5, 0, 2 * Math.PI);
+        ctx.stroke();
+      }
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  // Which area a point (map pixels, zoom 1) is in — a state with States borders, else a shetach or the blank part
+  // of a state — as one of its pieces (all a card needs).
+  function pieceAtMap(x, y) {
+    for (const r of state.borders === 'regular' ? V.states : [...V.regions, ...V.blanks]) {
+      for (let i = 0; i < r.polys.length; i++) {
+        const b = r.polys[i].box;
+        if (x < b[0] || x > b[2] || y < b[1] || y > b[3]) continue;
+        let inside = false;
+        for (const ring of r.polysXY[i]) if (d3.polygonContains(ring, [x, y])) inside = !inside;
+        if (inside) return r.g;
+      }
+    }
+    return null;
+  }
 
   // ---------- zoom (political map) ----------
   let frame = 0;
@@ -947,8 +1160,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     .on('start', (e) => { if (e.sourceEvent && !pinned) hideCard(); })
     .on('zoom', (e) => {
       T = e.transform;
-      root.attr('transform', T);
-      if (!frame) frame = requestAnimationFrame(() => { frame = 0; sizeDots(); moveLabels(); gInsets.classed('away', T.k > 1.3); });
+      requestDraw();
+      if (!frame) frame = requestAnimationFrame(() => { frame = 0; moveLabels(); gInsets.classed('away', T.k > 1.3); });
     })
     .on('end', placeLabels);
   svg.call(zoom);
@@ -1050,16 +1263,23 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     const lastRoad = layers.map((l) => l.type === 'line' && l['source-layer'] === 'transportation').lastIndexOf(true);
     const lineBefore = (layers.find((l, i) => i > lastRoad && l.type === 'symbol') || {}).id;
     const waterBefore = (layers.find((l) => ['water', 'waterway'].includes(l['source-layer'])) || {}).id;
-    // No simplification on the fade: simplified, its holes break in some tiles and cover shetachim.
-    for (const id of ['st-fade', 'st-hover-area']) mapgl.addSource(id, { type: 'geojson', data: EMPTY, tolerance: 0 });
-    for (const id of ['st-lines', 'st-dots', 'st-hover-dot']) mapgl.addSource(id, { type: 'geojson', data: EMPTY });
-    mapgl.addLayer({ id: 'st-fade-land', type: 'fill', source: 'st-fade', paint: { 'fill-color': FADE, 'fill-opacity': 0.72 } }, waterBefore);
-    mapgl.addLayer({ id: 'st-line-casing', type: 'line', source: 'st-lines', filter: ['==', ['get', 'kind'], 'shetach'], layout: { 'line-join': 'round' },
+    // Borders and the land to fade come as ready-made tiles (the build's web/tiles/): each zoom's tiles are already
+    // simplified for it and only the ones on screen load, so a phone never handles the whole world at once.
+    mapgl.addSource('st', { type: 'vector', tiles: [`${new URL('.', location.href).href}tiles/{z}/{x}/{y}.pbf`], minzoom: 0, maxzoom: 6 });
+    mapgl.addSource('st-hover-area', { type: 'geojson', data: EMPTY });
+    for (const id of ['st-dots', 'st-hover-dot']) mapgl.addSource(id, { type: 'geojson', data: EMPTY });
+    mapgl.addLayer({ id: 'st-fade-land', type: 'fill', source: 'st', 'source-layer': 'land', paint: { 'fill-color': FADE, 'fill-opacity': 0.72, 'fill-antialias': false } }, waterBefore);
+    mapgl.addLayer({ id: 'st-line-casing', type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' },
       paint: { 'line-color': '#ffffff', 'line-width': 4.5, 'line-opacity': 0.5 } }, lineBefore);
     for (const kind of ['coast', 'regular', 'country', 'shetach']) {
-      mapgl.addLayer({ id: `st-line-${kind}`, type: 'line', source: 'st-lines', filter: ['==', ['get', 'kind'], kind], layout: { 'line-join': 'round' } }, lineBefore);
+      mapgl.addLayer({ id: `st-line-${kind}`, type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, lineBefore);
     }
-    mapgl.addLayer({ id: 'st-fade-top', type: 'fill', source: 'st-fade', paint: { 'fill-color': FADE, 'fill-opacity': 0.3 } });
+    mapgl.addLayer({ id: 'st-fade-top', type: 'fill', source: 'st', 'source-layer': 'land', paint: { 'fill-color': FADE, 'fill-opacity': 0.3, 'fill-antialias': false } });
+    // Place names in English (Latin letters) rather than each country's own script.
+    const latin = ['coalesce', ['get', 'name:en'], ['get', 'name_en'], ['get', 'name:latin'], ['get', 'name']];
+    for (const l of layers) {
+      if (l.type === 'symbol' && l.layout && /"name/.test(JSON.stringify(l.layout['text-field'] || ''))) mapgl.setLayoutProperty(l.id, 'text-field', latin);
+    }
     mapgl.addLayer({ id: 'st-hover-area', type: 'line', source: 'st-hover-area', paint: { 'line-width': 2.5 } });
     mapgl.addLayer({ id: 'st-dots', type: 'circle', source: 'st-dots' });
     mapgl.addLayer({ id: 'st-hover-dot', type: 'circle', source: 'st-hover-dot', paint: { 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-width': 2 } });
@@ -1080,22 +1300,25 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
 
   const feature = (geometry, properties = {}) => ({ type: 'Feature', geometry, properties });
 
-  // The world with holes where the shown shetachim are (islands in their lakes are already uncovered).
-  function fadeGeometry(shown) {
-    const outers = topojson.merge(topo, shown).coordinates.map((poly) => poly[0]);
-    const area = (r) => Math.abs(d3.polygonArea(r));
-    const holes = outers.filter((r) => !outers.some((o) => o !== r && area(o) > area(r) && d3.polygonContains(o, r[0])));
-    const world = [[-180, -85.06], [180, -85.06], [180, 85.06], [-180, 85.06], [-180, -85.06]];
-    const sign = Math.sign(d3.polygonArea(world));
-    return { type: 'Polygon', coordinates: [world, ...holes.map((r) => (Math.sign(d3.polygonArea(r)) === sign ? [...r].reverse() : r))] };
-  }
-
+  // Which tiles' land and borders the view uses: land outside its countries is faded (c is '' for land that's never
+  // shown); a border is drawn by kind when both sides are in the view, and as an outline where only one side is.
   function dataGL() {
     if (!glReady()) return;
     const set = (id, data) => mapgl.getSource(id).setData(data);
     const fc = (features) => ({ type: 'FeatureCollection', features });
-    set('st-lines', fc(meshes(V.main).map(([kind, g]) => feature(g, { kind }))));
-    set('st-fade', feature(fadeGeometry(V.shown)));
+    const list = ['literal', V.view.countries];
+    const a = ['in', ['get', 'ca'], list], b = ['all', ['has', 'cb'], ['in', ['get', 'cb'], list]];
+    const filters = {
+      coast: ['any', ['all', a, ['!', b]], ['all', b, ['!', a]]],
+      regular: ['all', a, b, ['==', ['get', 'ss'], 0], ['==', ['get', 'ca'], ['get', 'cb']]],
+      country: ['all', a, b, ['!=', ['get', 'ca'], ['get', 'cb']]],
+      shetach: ['all', a, b, ['==', ['get', 'sh'], 0]],
+    };
+    for (const [kind, f] of Object.entries(filters)) mapgl.setFilter(`st-line-${kind}`, f);
+    mapgl.setFilter('st-line-casing', filters.shetach);
+    const faded = ['!', ['in', ['get', 'c'], list]];
+    mapgl.setFilter('st-fade-land', faded);
+    mapgl.setFilter('st-fade-top', faded);
     set('st-dots', fc(V.dots.map((d) => feature({ type: 'Point', coordinates: [d.lon, d.lat] }, { r: dotBase(d) }))));
     set('st-hover-area', EMPTY);
     set('st-hover-dot', EMPTY);
@@ -1157,7 +1380,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
 
   async function setBase(value) {
     const msg = $('#base-msg');
-    if (value === state.base) return;
+    if (value === state.base) { if (msg.className === 'note') msg.hidden = true; return; }
     if (value === 'physical') {
       msg.hidden = false;
       msg.className = 'note';
@@ -1171,7 +1394,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
         return;
       }
       // switched back while it loaded, or a second click already finished the switch
-      if (state.base === 'physical' || !$('.seg[data-name="base"] [data-value="physical"]').matches('[aria-pressed="true"]')) return;
+      if (state.base === 'physical' || !$('.seg[data-name="base"] [data-value="physical"]').matches('[aria-pressed="true"]')) { msg.hidden = true; return; }
     }
     msg.hidden = true;
     const focus = focusNow();
@@ -1208,14 +1431,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     }
     const city = near(marks.filter((m) => m.kind === 'city' && !m.anchor));
     if (city) return { city: city.c };
-    if (V.physical) {
-      const [x, y] = projection.invert(T.invert([mx, my]));
-      const inBox = ([[x0, y0], [x1, y1]]) => y >= y0 && y <= y1 && (x0 <= x1 ? x >= x0 && x <= x1 : x >= x0 || x <= x1);
-      const a = V.hitAreas.find((a) => inBox(a.box) && d3.geoContains(a.f, [x, y]));
-      return a ? { piece: a.g.properties } : null;
-    }
-    const d = target && d3.select(target).datum();
-    return d && d.properties && pieceById.has(d.properties.id) ? { piece: d.properties } : null;
+    const [x, y] = T.invert([mx, my]);
+    const g = pieceAtMap(x, y);
+    return g ? { piece: g.properties } : null;
   }
   function pick(event) {
     const [mx, my] = d3.pointer(event, svg.node());
@@ -1223,7 +1441,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   }
 
   const count = (n) => `${fmt(n)} ${n === 1 ? 'center' : 'centers'}`;
-  const chabadLink = (c) => (c && c.slug ? `<a href="https://www.chabad.org/jewish-centers/${esc(c.id)}/${esc(c.slug)}" target="_blank" rel="noopener">Open on chabad.org</a>` : '');
+  const chabadLink = (c) => (c && c.slug ? `<a href="https://www.chabad.org/jewish-centers/${esc(c.pageId || c.id)}/${esc(c.slug)}" target="_blank" rel="noopener">Open on chabad.org</a>` : '');
   // withHead: false just names the shetach whose territory this is, without implying its head shliach
   // runs the place — used for 770, which sits in New York City's territory but isn't Tzach's to run.
   function shetachLine(pieceId, withHead = true) {
@@ -1290,8 +1508,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     }
     const states = s.states.size > 1 ? `<p>${esc([...s.states].map((st) => stateName.get(st)).sort().join(', '))}</p>` : '';
     const capital = s.capital ? `<p>Capital: ${esc(s.capital.name)}${s.capital.city ? `, ${esc(s.capital.city)}` : ''}</p>` : '';
-    return `<span class="kicker">Shetach</span><h2>${esc(s.name)}</h2>
-      <p>Head shliach: ${esc(s.headShliach)}</p>${states}${capital}
+    return `<h2>${esc(s.name)}</h2>
+      <p>${esc(s.headTitle || 'Head shliach')}: ${esc(s.headShliach)}</p>${states}${capital}
       <div class="foot"><span class="meta">${count(centersInShetach(s))}</span>${zoomBtn}</div>`;
   }
 
@@ -1319,29 +1537,26 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     highlight(null);
   }
 
-  // The outline an area's card is about: its state, its shetach, or the blank part of its state.
-  function areaGeometry(pieceId) {
+  // The area a card is about: its state, its shetach, or the blank part of its state.
+  function areaOf(pieceId) {
     const g = pieceById.get(pieceId), s = shetachOf(g);
-    if (state.borders === 'regular') return (V.states.find((r) => r.st === g.properties.state) || {}).geo;
-    if (s) return (V.regions.find((r) => r.s === s) || {}).geo;
-    return (V.blanks.find((r) => r.st === g.properties.state) || {}).geo;
+    if (state.borders === 'regular') return V.states.find((r) => r.st === g.properties.state);
+    if (s) return V.regions.find((r) => r.s === s);
+    return V.blanks.find((r) => r.st === g.properties.state);
   }
+  const boxOf = (r) => r.polys.reduce(([a, b, c, d], { box }) => [Math.min(a, box[0]), Math.min(b, box[1]), Math.max(c, box[2]), Math.max(d, box[3])], [Infinity, Infinity, -Infinity, -Infinity]);
   function highlight(hit) {
     const dot = hit && (hit.dot || (hit.capital && dotOfCenter.get(hit.capital.centerId)));
     const onMain = (id) => V.main.some((g) => g.properties.id === id);
-    const area = hit && hit.piece && onMain(hit.piece.id) ? areaGeometry(hit.piece.id) : null;
+    const area = hit && hit.piece && onMain(hit.piece.id) ? areaOf(hit.piece.id) : null;
     if (V.physical) {
       if (!glReady()) return;
       mapgl.getSource('st-hover-dot').setData(dot && state.dots && onMain(dot.piece) ? feature({ type: 'Point', coordinates: [dot.lon, dot.lat] }, { r: dotBase(dot) }) : EMPTY);
-      mapgl.getSource('st-hover-area').setData(area ? feature(area) : EMPTY);
+      mapgl.getSource('st-hover-area').setData(area ? feature(topojson.feature(topo, area.ma).geometry) : EMPTY);
       return;
     }
-    gHover.selectAll('*').remove();
-    if (dot && dot.x !== undefined && onMain(dot.piece)) {
-      gHover.append('circle').attr('class', 'dot-hover').attr('cx', dot.x).attr('cy', dot.y).attr('r', dotRadius(dot, T.k) + 2.5 / T.k);
-    } else if (area) {
-      gHover.append('path').attr('class', 'hover-ring').attr('d', geoPath(area));
-    }
+    hover = dot && dot.x !== undefined && onMain(dot.piece) ? { dot } : area ? { area } : null;
+    requestDraw();
   }
 
   svg.on('pointermove', (e) => {
@@ -1362,9 +1577,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     if (e.target.closest('.close')) { hideCard(); return; }
     const z = e.target.closest('.zoomto');
     if (z) {
-      const geom = areaGeometry(z.dataset.piece);
+      const area = areaOf(z.dataset.piece);
       hideCard();
-      if (geom) zoomToBounds(geoPath.bounds(geom));
+      if (area) { const [x0, y0, x1, y1] = boxOf(area); zoomToBounds([[x0, y0], [x1, y1]]); }
     }
   });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideCard(); });
@@ -1380,9 +1595,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     gInsets.attr('class', `l-insets${T.k > 1.3 ? ' away' : ''}`);
     $('#lighter-row').hidden = state.borders !== 'both';
     if (V.physical) styleGL();
+    readPalette();
+    requestDraw();
     buildLabels();
     placeLabels();
-    sizeDots();
     if (pinned) showCard(pinned, lastPoint, true);
   }
   document.querySelectorAll('.seg').forEach((seg) => seg.addEventListener('click', (e) => {
@@ -1413,8 +1629,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     document.documentElement.dataset.theme = next;
     try { localStorage.setItem('shetachim-theme', next); } catch (e) { /* not remembered, still switched */ }
     showThemeButton();
+    readPalette();
+    requestDraw();
   });
-  darkQuery.addEventListener('change', showThemeButton);
+  darkQuery.addEventListener('change', () => { showThemeButton(); readPalette(); requestDraw(); });
   showThemeButton();
 
   $('#panel-toggle').addEventListener('click', () => {
@@ -1431,6 +1649,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   await Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise((r) => setTimeout(r, 1500))]);
   layout();
   apply();
+  // The physical map is the default; the political map shows first and stays if the physical one can't load.
+  setBase('physical');
 })();
 </script>
 </body>

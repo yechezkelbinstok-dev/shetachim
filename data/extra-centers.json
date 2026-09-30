@@ -1,5 +1,5 @@
 {
-  "about": "Centers that exist but are not listed on chabad.org. precision: 'exact' = real location, 'area' = rough spot in the right neighbourhood, 'city' = city centre (address unknown). note is shown on the dot's card.",
+  "about": "Centers that exist but are not listed on chabad.org. precision: 'exact' = real location, 'area' = rough spot in the right neighbourhood, 'city' = city centre (address unknown). note is shown on the dot's card. fixes: corrections to chabad.org's own listings, by center id (city, lat, lon).",
   "centers": [
     {
       "id": "extra-riyadh",
@@ -18,6 +18,24 @@
       "lon": 28.9921,
       "precision": "area",
       "note": "In Nişantaşı, near the American Hospital; the dot is a rough spot"
+    },
+    {
+      "id": "extra-abu-dhabi",
+      "name": "Chabad of United Arab Emirates",
+      "city": "Abu Dhabi",
+      "lat": 24.4667,
+      "lon": 54.3667,
+      "precision": "city",
+      "pageId": "4920073",
+      "slug": "Abu-Dhabi-Dubai-Ras-Al-Khaimah/Synagogue/Chabad-of-United-Arab-Emirates"
     }
-  ]
+  ],
+  "fixes": {
+    "4920073": {
+      "city": "Dubai",
+      "lat": 25.08,
+      "lon": 55.142,
+      "why": "listed for three cities at Dubai's city point; the center is on Al Marsa St, Dubai Marina (Abu Dhabi has its own dot)"
+    }
+  }
 }

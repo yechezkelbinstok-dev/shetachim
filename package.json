@@ -8,7 +8,9 @@
   "devDependencies": {
     "all-the-cities": "^3.1.0",
     "d3-geo": "^3.1.1",
+    "geojson-vt": "^3.2.1",
     "mapshaper": "^0.6.102",
-    "topojson-client": "^3.1.0"
+    "topojson-client": "^3.1.0",
+    "vt-pbf": "^3.1.3"
   }
 }

@@ -358,8 +358,8 @@
   },
   {
    "id": "louisiana-mississippi",
-   "name": "Louisiana-Mississippi",
-   "short": "Louisiana",
+   "name": "Louisiana",
+   "short": "LA-MS",
    "headShliach": "Zelig Rivkin",
    "capital": {
     "centerId": "117623",
@@ -750,242 +750,491 @@
   {
    "id": "andorra",
    "name": "Andorra",
-   "short": "AND",
-   "headShliach": "Kuty Kalmenson"
+   "headShliach": "Kuty Kalmenson",
+   "capital": {
+    "centerId": "6518150",
+    "name": "Chabad of Andorra",
+    "city": "Andorra la Vella",
+    "lat": 42.50632,
+    "lon": 1.52184
+   }
   },
   {
    "id": "austria",
    "name": "Austria",
-   "short": "AUT",
-   "headShliach": "Yaakov Yitzchak Biderman"
+   "headShliach": "Yaakov Yitzchak Biderman",
+   "capital": {
+    "centerId": "117785",
+    "name": "Agudas Chasidei Chabad Austria - Headquarters",
+    "city": "Vienna",
+    "lat": 48.22837,
+    "lon": 16.37935
+   }
   },
   {
    "id": "belarus",
    "name": "Belarus",
-   "short": "BLR",
-   "headShliach": "Shneur Deitch"
+   "headShliach": "Shneur Deitch",
+   "capital": {
+    "centerId": "117882",
+    "name": "Chabad Lubavitch of Minsk",
+    "city": "Minsk",
+    "lat": 53.92279,
+    "lon": 27.55947
+   }
   },
   {
    "id": "belgium",
    "name": "Belgium",
    "short": "Belgium",
-   "headShliach": "Shabtai Slavaticki"
+   "headShliach": "Shabtai Slavaticki",
+   "capital": {
+    "centerId": "117756",
+    "name": "Chabad Lubavitch of Antwerp",
+    "city": "Antwerp",
+    "lat": 51.20873,
+    "lon": 4.42187
+   }
   },
   {
    "id": "bulgaria",
    "name": "Bulgaria",
-   "short": "BGR",
-   "headShliach": "Yosef Salamon"
+   "headShliach": "Yosef Salamon",
+   "capital": {
+    "centerId": "118478",
+    "name": "The Rohr Chabad Jewish Community Center",
+    "city": "Sofia",
+    "lat": 42.70009,
+    "lon": 23.3369
+   }
   },
   {
    "id": "croatia",
    "name": "Croatia",
-   "short": "HRV",
-   "headShliach": "Pinny Zaklas"
+   "headShliach": "Pinny Zaklas",
+   "capital": {
+    "centerId": "279285",
+    "name": "Chabad of Croatia",
+    "city": "Zagreb",
+    "lat": 45.81349,
+    "lon": 15.96543
+   }
   },
   {
    "id": "cyprus",
    "name": "Cyprus",
-   "short": "CYP",
-   "headShliach": "Aryeh Zeev Raskin"
+   "headShliach": "Aryeh Zeev Raskin",
+   "capital": {
+    "centerId": "118616",
+    "name": "Chabad - CJCC - Cyprus Jewish Community Centres",
+    "city": "Larnaca",
+    "lat": 34.91261,
+    "lon": 33.6327
+   }
   },
   {
    "id": "northern-cyprus",
    "name": "Northern Cyprus",
-   "short": "XNC",
-   "headShliach": "Chaim Hillel Azimov"
+   "short": "N. Cyprus",
+   "headShliach": "Chaim Hillel Azimov",
+   "capital": {
+    "centerId": "648321",
+    "name": "Chabad-Lubavitch of North Cyprus",
+    "city": "karaoglanoglu",
+    "lat": 35.3392,
+    "lon": 33.27283
+   }
   },
   {
    "id": "czech-republic",
    "name": "Czech Republic",
-   "short": "CZE",
-   "headShliach": "Manis Barash"
+   "short": "Czechia",
+   "headShliach": "Manis Barash",
+   "capital": {
+    "centerId": "118213",
+    "name": "Chabad of Prague",
+    "city": "Praha 1",
+    "lat": 50.09232,
+    "lon": 14.42119
+   }
   },
   {
    "id": "denmark",
    "name": "Denmark",
-   "short": "DNK",
-   "headShliach": "Yitzi Lowenthal"
+   "headShliach": "Yitzi Lowenthal",
+   "capital": {
+    "centerId": "118216",
+    "name": "Chabad of Denmark",
+    "city": "Copenhagen",
+    "lat": 55.68933,
+    "lon": 12.57234
+   }
   },
   {
    "id": "estonia",
    "name": "Estonia",
-   "short": "EST",
-   "headShliach": "Shmuel Kot"
+   "headShliach": "Shmuel Kot",
+   "capital": {
+    "centerId": "118417",
+    "name": "Estonian Jewish Center",
+    "city": "Tallinn",
+    "lat": 59.43866,
+    "lon": 24.76595
+   }
   },
   {
    "id": "finland",
    "name": "Finland",
-   "short": "FIN",
-   "headShliach": "Benyamin Wolff"
+   "headShliach": "Benyamin Wolff",
+   "capital": {
+    "centerId": "118639",
+    "name": "Lubavitch of Finland",
+    "city": "Helsinki",
+    "lat": 60.16944,
+    "lon": 24.95729
+   }
   },
   {
    "id": "france",
    "name": "France",
-   "short": "FRA",
-   "headShliach": "Mendy Azimov"
+   "headShliach": "Mendy Azimov",
+   "capital": {
+    "centerId": "330228",
+    "name": "Beit Loubavitch Centre Siège",
+    "city": "Paris",
+    "lat": 48.87695,
+    "lon": 2.34342
+   }
   },
   {
    "id": "germany",
    "name": "Germany",
-   "short": "DEU",
-   "headShliach": "Yisroel Diskin"
+   "headShliach": "Yisroel Diskin",
+   "capital": {
+    "centerId": "117853",
+    "name": "Chabad Lubawitsch Munich",
+    "city": "Munich",
+    "lat": 48.14052,
+    "lon": 11.68187
+   }
   },
   {
    "id": "greece",
    "name": "Greece",
-   "short": "GRC",
-   "headShliach": "Mendel Hendel"
+   "headShliach": "Mendel Hendel",
+   "capital": {
+    "centerId": "118477",
+    "name": "Chabad Lubavitch of Athens Greece",
+    "city": "Athens",
+    "lat": 37.97791,
+    "lon": 23.72399
+   }
   },
   {
    "id": "lower-balkans",
    "name": "Lower Balkans",
    "short": "Balkans",
-   "headShliach": "Yoel Kaplan"
+   "headShliach": "Yoel Kaplan",
+   "capital": {
+    "centerId": "792557",
+    "name": "Chabad Lubavitch of Thessaloniki",
+    "city": "Thessaloniki",
+    "lat": 40.63631,
+    "lon": 22.93606
+   }
   },
   {
    "id": "hungary",
    "name": "Hungary",
-   "short": "HUN",
-   "headShliach": "Baruch Oberlander"
+   "headShliach": "Baruch Oberlander",
+   "capital": {
+    "centerId": "117858",
+    "name": "Lubavitch of Hungary",
+    "city": "Budapest",
+    "lat": 47.49569,
+    "lon": 19.05838
+   }
   },
   {
    "id": "iceland",
    "name": "Iceland",
-   "short": "ISL",
-   "headShliach": "Avraham Feldman"
+   "headShliach": "Avraham Feldman",
+   "capital": {
+    "centerId": "3849544",
+    "name": "Chabad of Iceland",
+    "city": "Reykjavik",
+    "lat": 64.14663,
+    "lon": -21.92915
+   }
   },
   {
    "id": "ireland",
    "name": "Ireland",
-   "short": "IRL",
-   "headShliach": "Zalman Lent"
+   "headShliach": "Zalman Lent",
+   "capital": {
+    "centerId": "118401",
+    "name": "Chabad Lubavitch of Ireland",
+    "city": "Dublin",
+    "lat": 53.31916,
+    "lon": -6.26486
+   }
   },
   {
    "id": "italy",
    "name": "Italy",
    "short": "Italy",
-   "headShliach": "Avraham Chazan"
+   "headShliach": "Avraham Chazan",
+   "capital": {
+    "centerId": "117862",
+    "name": "Merkos L'inyonei Chinuch - 770",
+    "city": "Milan",
+    "lat": 45.47149,
+    "lon": 9.20999
+   }
   },
   {
    "id": "slovenia",
    "name": "Slovenia",
    "short": "Slovenia",
-   "headShliach": "Ariel Haddad"
+   "headShliach": "Ariel Haddad",
+   "capital": {
+    "centerId": "118457",
+    "name": "Chabad of Trieste and Slovenjia",
+    "city": "Trieste",
+    "lat": 45.64919,
+    "lon": 13.77427
+   }
   },
   {
    "id": "latvia",
    "name": "Latvia",
-   "short": "LVA",
-   "headShliach": "Mordechai Glazman"
+   "headShliach": "Mordechai Glazman",
+   "capital": {
+    "centerId": "117907",
+    "name": "Chabad of Latvia",
+    "city": "Riga",
+    "lat": 56.95939,
+    "lon": 24.11183
+   }
   },
   {
    "id": "lithuania",
    "name": "Lithuania",
-   "short": "LTU",
-   "headShliach": "Sholom Ber Krinsky"
+   "headShliach": "Sholom Ber Krinsky",
+   "capital": {
+    "centerId": "117978",
+    "name": "Chabad Lubavitch of Lithuania",
+    "city": "Vilnius",
+    "lat": 54.6778,
+    "lon": 25.29147
+   }
   },
   {
    "id": "malta",
    "name": "Malta",
-   "short": "MLT",
-   "headShliach": "Chaim Segal"
+   "headShliach": "Chaim Segal",
+   "capital": {
+    "centerId": "2015539",
+    "name": "Chabad of Malta",
+    "city": "Sliema",
+    "lat": 35.91007,
+    "lon": 14.49793
+   }
   },
   {
    "id": "moldova",
    "name": "Moldova",
-   "short": "MDA",
-   "headShliach": "Zushe Abelsky"
+   "headShliach": "Zushe Abelsky",
+   "capital": {
+    "centerId": "117940",
+    "name": "Chabad Lubavitch of Moldova",
+    "city": "Kishinev",
+    "lat": 47.02301,
+    "lon": 28.84242
+   }
   },
   {
    "id": "monaco",
    "name": "Monaco",
-   "short": "MCO",
-   "headShliach": "Tanhoum Matusof"
+   "headShliach": "Tanhoum Matusof",
+   "capital": {
+    "centerId": "1949364",
+    "name": "Chabad Lubavitch of Monaco",
+    "city": "Monte Carlo",
+    "lat": 43.74013,
+    "lon": 7.42288
+   }
   },
   {
    "id": "montenegro",
    "name": "Montenegro",
-   "short": "MNE",
-   "headShliach": "Ari Edelkopf"
+   "headShliach": "Ari Edelkopf",
+   "capital": {
+    "centerId": "3829725",
+    "name": "Lubavitch of Montenegro",
+    "city": "Podgorica",
+    "lat": 42.43042,
+    "lon": 19.25936
+   }
   },
   {
    "id": "netherlands",
    "name": "Netherlands",
-   "short": "NLD",
-   "headShliach": "Binyomin Jacobs"
+   "headShliach": "Binyomin Jacobs",
+   "capital": {
+    "centerId": "117854",
+    "name": "Lubavitch of the Netherlands",
+    "city": "Amersfoort",
+    "lat": 52.15548,
+    "lon": 5.41351
+   }
   },
   {
    "id": "norway",
    "name": "Norway",
-   "short": "NOR",
-   "headShliach": "Shaul Wilhelm"
+   "headShliach": "Shaul Wilhelm",
+   "capital": {
+    "centerId": "118650",
+    "name": "Lubavitch of Norway",
+    "city": "Oslo",
+    "lat": 59.91217,
+    "lon": 10.73127
+   }
   },
   {
    "id": "poland",
    "name": "Poland",
-   "short": "POL",
-   "headShliach": "Sholom Ber Stambler"
+   "headShliach": "Sholom Ber Stambler",
+   "capital": {
+    "centerId": "331526",
+    "name": "Chabad Lubavitch of Poland",
+    "city": "Warsaw",
+    "lat": 52.2548,
+    "lon": 20.98504
+   }
   },
   {
    "id": "portugal",
    "name": "Portugal",
-   "short": "PRT",
-   "headShliach": "Eli Rosenfeld"
+   "headShliach": "Eli Rosenfeld",
+   "capital": {
+    "centerId": "1332828",
+    "name": "Chabad Lubavitch of Portugal",
+    "city": "Cascais",
+    "lat": 38.69976,
+    "lon": -9.44312
+   }
   },
   {
    "id": "romania",
    "name": "Romania",
-   "short": "ROU",
-   "headShliach": "Naftali Deutsch"
+   "headShliach": "Naftali Deutsch",
+   "capital": {
+    "centerId": "118397",
+    "name": "Chabad Lyubavitsh of Romania",
+    "city": "Bucharest",
+    "lat": 44.44442,
+    "lon": 26.09727
+   }
   },
   {
    "id": "russia",
    "name": "Russia",
    "short": "Russia",
-   "headShliach": "Berel Lazar"
+   "headShliach": "Berel Lazar",
+   "capital": {
+    "centerId": "249438",
+    "name": "Marina Roscha Synagogue and Jewish Community Center",
+    "city": "Moscow",
+    "lat": 55.60571,
+    "lon": 37.71715
+   }
   },
   {
    "id": "serbia",
    "name": "Serbia",
-   "short": "SRB",
-   "headShliach": "Yehoshua Kaminetzky"
+   "headShliach": "Yehoshua Kaminetzky",
+   "capital": {
+    "centerId": "660981",
+    "name": "Chabad-Lubavitch of Serbia",
+    "city": "Belgrade",
+    "lat": 44.80289,
+    "lon": 20.45728
+   }
   },
   {
    "id": "slovakia",
    "name": "Slovakia",
-   "short": "SVK",
-   "headShliach": "Baruch Myers"
+   "headShliach": "Baruch Myers",
+   "capital": {
+    "centerId": "117972",
+    "name": "Chabad of Slovakia",
+    "city": "Bratislava",
+    "lat": 48.16327,
+    "lon": 17.13938
+   }
   },
   {
    "id": "spain",
    "name": "Spain",
-   "short": "ESP",
-   "headShliach": "Shneur Zalman Goldstein"
+   "headShliach": "Shneur Zalman Goldstein",
+   "capital": {
+    "centerId": "117874",
+    "name": "Chabad of Madrid",
+    "city": "Madrid",
+    "lat": 40.41673,
+    "lon": -3.70329
+   }
   },
   {
    "id": "sweden",
    "name": "Sweden",
-   "short": "SWE",
-   "headShliach": "Alexander Namdar"
+   "headShliach": "Alexander Namdar",
+   "capital": {
+    "centerId": "117875",
+    "name": "Chabad Lubavitch Sweden",
+    "city": "Gothenburg",
+    "lat": 57.69238,
+    "lon": 11.96053
+   }
   },
   {
    "id": "switzerland",
    "name": "Switzerland",
-   "short": "CHE",
-   "headShliach": "Mendel Rosenfeld"
+   "headShliach": "Mendel Rosenfeld",
+   "capital": {
+    "centerId": "117900",
+    "name": "Chabad Lubavitch Switzerland",
+    "city": "Zurich",
+    "lat": 47.36077,
+    "lon": 8.52212
+   }
   },
   {
    "id": "ukraine",
    "name": "Ukraine",
-   "short": "UKR",
-   "headShliach": "Meir Stambler"
+   "headShliach": "Meir Stambler",
+   "capital": {
+    "centerId": "249574",
+    "name": "Federation of Jewish Communities of Ukraine",
+    "city": "Dnepropetrovsk",
+    "lat": 48.46472,
+    "lon": 35.04618
+   }
   },
   {
    "id": "united-kingdom",
    "name": "United Kingdom",
-   "short": "GBR",
-   "headShliach": "Hanholo of Chabad Lubavitch UK"
+   "short": "UK",
+   "headShliach": "Hanholo of Chabad Lubavitch UK",
+   "capital": {
+    "centerId": "117824",
+    "name": "Chabad Lubavitch UK Hdqts.",
+    "city": "London",
+    "lat": 51.57216,
+    "lon": -0.07323
+   },
+   "headTitle": "Leadership"
   },
   {
    "id": "crimea",
@@ -996,404 +1245,786 @@
   {
    "id": "armenia",
    "name": "Armenia",
-   "short": "ARM",
-   "headShliach": "Gershon Meir Burshtein"
+   "headShliach": "Gershon Meir Burshtein",
+   "capital": {
+    "name": "Jewish Community of Yerevan",
+    "city": "Yerevan",
+    "lat": 40.18111,
+    "lon": 44.51361
+   }
   },
   {
    "id": "azerbaijan",
    "name": "Azerbaijan",
-   "short": "AZE",
-   "headShliach": "Shneor Segal"
+   "headShliach": "Shneor Segal",
+   "capital": {
+    "centerId": "118599",
+    "name": "Jewish Community of Baku",
+    "city": "Baku",
+    "lat": 40.37571,
+    "lon": 49.83814
+   }
   },
   {
    "id": "georgia-country",
    "name": "Georgia",
-   "short": "GEO",
-   "headShliach": "Meir Kozlovsky"
+   "headShliach": "Meir Kozlovsky",
+   "capital": {
+    "centerId": "237922",
+    "name": "Chabad Lubavitch of Georgia",
+    "city": "Tbilisi",
+    "lat": 41.69307,
+    "lon": 44.80446
+   }
   },
   {
    "id": "kazakhstan",
    "name": "Kazakhstan",
-   "short": "KAZ",
-   "headShliach": "Yeshaya Elazar Cohen"
+   "headShliach": "Yeshaya Elazar Cohen",
+   "capital": {
+    "centerId": "4936718",
+    "name": "Jewish Center Chabad Lubavitch",
+    "city": "Almaty",
+    "lat": 43.2629,
+    "lon": 76.90038
+   }
   },
   {
    "id": "kyrgyzstan",
    "name": "Kyrgyzstan",
-   "short": "KGZ",
-   "headShliach": "Arye Raichman"
+   "headShliach": "Arye Raichman",
+   "capital": {
+    "centerId": "249363",
+    "name": "Jewish Community of Bishkek",
+    "city": "Bishkek",
+    "lat": 42.87462,
+    "lon": 74.56976
+   }
   },
   {
    "id": "uzbekistan",
    "name": "Uzbekistan",
    "short": "Uzbekistan",
-   "headShliach": "Chaim Moshe Mordechai Shaikevitz"
+   "headShliach": "Chaim Moshe Mordechai Shaikevitz",
+   "capital": {
+    "centerId": "6656076",
+    "name": "Beis Menachem Tashkent",
+    "city": "Tashkent",
+    "lat": 41.29822,
+    "lon": 69.23852
+   }
   },
   {
    "id": "india",
    "name": "India",
-   "short": "IND",
-   "headShliach": "Betzalel Kupchik"
+   "headShliach": "Betzalel Kupchik",
+   "capital": {
+    "name": "Chabad House Jaipur",
+    "city": "Jaipur",
+    "lat": 26.91962,
+    "lon": 75.78781
+   }
   },
   {
    "id": "nepal",
    "name": "Nepal",
-   "short": "NPL",
-   "headShliach": "Chezky Lifshitz"
+   "headShliach": "Chezky Lifshitz",
+   "capital": {
+    "centerId": "118561",
+    "name": "Chabad House of Kathmandu",
+    "city": "Thamel",
+    "lat": 27.71433,
+    "lon": 85.31237
+   }
   },
   {
    "id": "sri-lanka",
    "name": "Sri Lanka",
-   "short": "LKA",
+   "short": "Sri Lanka",
    "headShliach": "Mendy Crombie"
   },
   {
    "id": "china",
    "name": "China",
    "short": "China",
-   "headShliach": "Mordechai Avtzon"
+   "headShliach": "Mordechai Avtzon",
+   "capital": {
+    "centerId": "117857",
+    "name": "Chabad of Hong Kong",
+    "city": "Hong Kong",
+    "lat": 22.27605,
+    "lon": 114.15655
+   }
   },
   {
    "id": "japan",
    "name": "Japan",
-   "short": "JPN",
-   "headShliach": "Mendi Sudakevich"
+   "headShliach": "Mendi Sudakevich",
+   "capital": {
+    "centerId": "118403",
+    "name": "Chabad Lubavitch Tokyo-Japan",
+    "city": "Tokyo",
+    "lat": 35.6409,
+    "lon": 139.73762
+   }
   },
   {
    "id": "south-korea",
    "name": "South Korea",
-   "short": "KOR",
-   "headShliach": "Osher Litzman"
+   "short": "S. Korea",
+   "headShliach": "Osher Litzman",
+   "capital": {
+    "centerId": "665144",
+    "name": "The Chabad Jewish Community of Korea",
+    "city": "Seoul",
+    "lat": 37.52834,
+    "lon": 126.99392
+   }
   },
   {
    "id": "taiwan",
    "name": "Taiwan",
-   "short": "TWN",
-   "headShliach": "Shlomi Tabib"
+   "headShliach": "Shlomi Tabib",
+   "capital": {
+    "centerId": "2850083",
+    "name": "Chabad Taipei",
+    "city": "Taipei City",
+    "lat": 25.03717,
+    "lon": 121.53616
+   }
   },
   {
    "id": "thailand",
    "name": "Thailand",
    "short": "Thailand",
-   "headShliach": "Yosef Chaim Kantor"
+   "headShliach": "Yosef Chaim Kantor",
+   "capital": {
+    "centerId": "117964",
+    "name": "Jewish Community of Thailand",
+    "city": "Bangkok",
+    "lat": 13.72623,
+    "lon": 100.5641
+   }
   },
   {
    "id": "cambodia",
    "name": "Cambodia",
-   "short": "KHM",
-   "headShliach": "Bentzion Butman"
+   "headShliach": "Bentzion Butman",
+   "capital": {
+    "centerId": "992232",
+    "name": "Chabad Cambodia",
+    "city": "Phnom Penh",
+    "lat": 11.56057,
+    "lon": 104.9343
+   }
   },
   {
    "id": "vietnam",
    "name": "Vietnam",
-   "short": "VNM",
-   "headShliach": "Menachem Hartman"
+   "headShliach": "Menachem Hartman",
+   "capital": {
+    "centerId": "420832",
+    "name": "Chabad of Vietnam",
+    "city": "Ho Chi Minh City",
+    "lat": 10.78849,
+    "lon": 106.69956
+   }
   },
   {
    "id": "philippines",
    "name": "Philippines",
-   "short": "PHL",
-   "headShliach": "Yossi Levy"
+   "headShliach": "Yossi Levy",
+   "capital": {
+    "name": "Chabad of Manila Philippines",
+    "city": "Manila",
+    "lat": 14.6042,
+    "lon": 120.9822
+   }
   },
   {
    "id": "singapore",
    "name": "Singapore",
    "short": "Singapore",
-   "headShliach": "Mordechai Abergel"
+   "headShliach": "Mordechai Abergel",
+   "capital": {
+    "centerId": "118003",
+    "name": "Chabad-Lubavitch Representatives in Singapore (operating under the auspices of the Jewish Welfare Board)",
+    "city": "Singapore",
+    "lat": 1.29812,
+    "lon": 103.85052
+   }
   },
   {
    "id": "israel",
    "name": "Israel",
    "short": "Israel",
-   "headShliach": "Yosef Yitzchak Aharonov"
+   "headShliach": "Yosef Yitzchak Aharonov",
+   "capital": {
+    "centerId": "118095",
+    "name": "Tzerei Agudat Chabad H.Q. Israel",
+    "city": "Kfar Chabad",
+    "lat": 31.98706,
+    "lon": 34.85152
+   }
   },
   {
    "id": "turkey",
    "name": "Turkey",
-   "short": "TUR",
-   "headShliach": "Mendy Chitrik"
+   "headShliach": "Mendy Chitrik",
+   "capital": {
+    "centerId": "extra-istanbul-nisantasi",
+    "name": "Chabad of Istanbul",
+    "city": "Istanbul",
+    "lat": 41.0512,
+    "lon": 28.9921
+   }
   },
   {
    "id": "united-arab-emirates",
    "name": "United Arab Emirates",
-   "short": "ARE",
-   "headShliach": "Levi Duchman"
+   "short": "UAE",
+   "headShliach": "Levi Duchman",
+   "capital": {
+    "centerId": "4920073",
+    "name": "Chabad of United Arab Emirates",
+    "city": "Dubai",
+    "lat": 25.08,
+    "lon": 55.142
+   }
   },
   {
    "id": "qatar",
    "name": "Qatar",
-   "short": "QAT",
    "headShliach": "Eli Chitrik"
   },
   {
    "id": "saudi-arabia",
    "name": "Saudi Arabia",
-   "short": "SAU",
-   "headShliach": "Peretz Garelik"
+   "short": "Saudi",
+   "headShliach": "Peretz Garelik",
+   "capital": {
+    "centerId": "extra-riyadh",
+    "name": "Jewish KSA",
+    "city": "Riyadh",
+    "lat": 24.68773,
+    "lon": 46.72185
+   }
   },
   {
    "id": "morocco",
    "name": "Morocco",
-   "short": "MAR",
-   "headShliach": "Levi Banon"
+   "headShliach": "Levi Banon",
+   "capital": {
+    "centerId": "117865",
+    "name": "Chabad Lubavitch au Maroc",
+    "city": "Casablanca",
+    "lat": 33.59704,
+    "lon": -7.62987
+   }
   },
   {
    "id": "tunisia",
    "name": "Tunisia",
-   "short": "TUN",
-   "headShliach": "Pinson family"
+   "headShliach": "Pinson family",
+   "capital": {
+    "centerId": "117877",
+    "name": "Chabad Lubavitch of Tunisia",
+    "city": "Tunis",
+    "lat": 36.81617,
+    "lon": 10.17993
+   }
   },
   {
    "id": "central-africa",
    "name": "Central Africa",
    "short": "C. Africa",
-   "headShliach": "Shlomo Bentolila"
+   "headShliach": "Shlomo Bentolila",
+   "capital": {
+    "centerId": "117894",
+    "name": "Chabad-Lubavitch of Central Africa",
+    "city": "Kinshasa",
+    "lat": -4.30325,
+    "lon": 15.31053
+   }
   },
   {
    "id": "south-africa",
    "name": "South Africa",
-   "short": "ZAF",
-   "headShliach": "Mendel Lipskar"
+   "short": "S. Africa",
+   "headShliach": "Mendel Lipskar",
+   "capital": {
+    "centerId": "117872",
+    "name": "Lubavitch Foundation of Southern Africa",
+    "city": "Orchards",
+    "lat": -26.15457,
+    "lon": 28.08523
+   }
   },
   {
    "id": "mauritius",
    "name": "Mauritius",
-   "short": "MUS",
-   "headShliach": "Laima Barber"
+   "headShliach": "Laima Barber",
+   "capital": {
+    "centerId": "3460324",
+    "name": "Chabad Mauritius",
+    "city": "Grand-Baie",
+    "lat": -20.00892,
+    "lon": 57.58164
+   }
   },
   {
    "id": "reunion",
    "name": "Réunion",
-   "short": "REU",
-   "headShliach": "Menahem Mendel Sibony"
+   "headShliach": "Menahem Mendel Sibony",
+   "capital": {
+    "centerId": "4379754",
+    "name": "Chabad La Réunion",
+    "city": "Saint-Denis",
+    "lat": -20.87402,
+    "lon": 55.449
+   }
   },
   {
    "id": "new-south-wales",
    "name": "New South Wales",
    "short": "NSW",
-   "headShliach": "Pinchus Feldman"
+   "headShliach": "Pinchus Feldman",
+   "capital": {
+    "centerId": "117752",
+    "name": "Yeshiva Centre - Chabad NSW HQ",
+    "city": "Bondi Beach",
+    "lat": -33.89182,
+    "lon": 151.25942
+   }
   },
   {
    "id": "victoria",
    "name": "Victoria",
    "short": "Vic.",
-   "headShliach": "Disputed — Chaim Tzvi Groner; Yoselle Gutnick; Hendel Serebryanski"
+   "headShliach": "Disputed — Chaim Tzvi Groner; Yoselle Gutnick; Hendel Serebryanski",
+   "capital": {
+    "centerId": "117782",
+    "name": "Yeshivah Centre - Lubavitch",
+    "city": "East St. Kilda",
+    "lat": -37.86862,
+    "lon": 145.00022
+   }
   },
   {
    "id": "brisbane",
    "name": "Brisbane",
    "short": "Bris.",
-   "headShliach": "Levi Jaffe"
+   "headShliach": "Levi Jaffe",
+   "capital": {
+    "centerId": "118204",
+    "name": "Chabad Brisbane",
+    "city": "Brisbane",
+    "lat": -27.50705,
+    "lon": 153.10308
+   }
   },
   {
    "id": "gold-coast",
    "name": "Gold Coast",
    "short": "G. Coast",
-   "headShliach": "Nir Gurevitch"
+   "headShliach": "Nir Gurevitch",
+   "capital": {
+    "centerId": "118291",
+    "name": "Chabad Gold Coast",
+    "city": "Surfers Paradise",
+    "lat": -28.01126,
+    "lon": 153.42065
+   }
   },
   {
    "id": "rara",
    "name": "RARA",
    "short": "RARA",
-   "headShliach": "Chabad of RARA"
+   "headShliach": "Chabad of RARA",
+   "capital": {
+    "centerId": "252052",
+    "name": "Chabad of Rural and Regional Australia",
+    "city": "Caulfield North",
+    "lat": -37.86901,
+    "lon": 145.00988
+   },
+   "headTitle": "Leadership"
   },
   {
    "id": "south-australia",
    "name": "South Australia",
    "short": "SA",
-   "headShliach": "Yossi Engel"
+   "headShliach": "Yossi Engel",
+   "capital": {
+    "centerId": "118614",
+    "name": "Chabad of South Australia",
+    "city": "Adelaide",
+    "lat": -34.91627,
+    "lon": 138.55885
+   }
   },
   {
    "id": "western-australia",
    "name": "Western Australia",
    "short": "WA",
-   "headShliach": "Shalom White"
+   "headShliach": "Shalom White",
+   "capital": {
+    "centerId": "273337",
+    "name": "Chabad of Western Australia",
+    "city": "Perth",
+    "lat": -31.8775,
+    "lon": 115.8935
+   }
   },
   {
    "id": "tasmania",
    "name": "Tasmania",
    "short": "Tas.",
-   "headShliach": "Yossi Gordon"
+   "headShliach": "Yossi Gordon",
+   "capital": {
+    "centerId": "120143",
+    "name": "Hobart Chabad Jewish Centre and Mikveh",
+    "city": "Hobart",
+    "lat": -42.90042,
+    "lon": 147.31884
+   }
   },
   {
    "id": "act",
    "name": "ACT",
    "short": "ACT",
-   "headShliach": "Shmueli Feldman"
+   "headShliach": "Shmueli Feldman",
+   "capital": {
+    "centerId": "904396",
+    "name": "Chabad Australian Capital Territory",
+    "city": "Canberra",
+    "lat": -35.21349,
+    "lon": 149.09386
+   }
   },
   {
    "id": "new-zealand",
    "name": "New Zealand",
-   "short": "NZL",
+   "short": "NZ",
    "headShliach": "Menachem Mendel Goldstein"
   },
   {
    "id": "new-caledonia",
    "name": "New Caledonia",
-   "short": "NCL",
-   "headShliach": "Menachem Sabbach"
+   "short": "N. Caledonia",
+   "headShliach": "Menachem Sabbach",
+   "capital": {
+    "centerId": "3252539",
+    "name": "Chabad New Caledonia",
+    "city": "Nouméa",
+    "lat": -22.27541,
+    "lon": 166.45167
+   }
   },
   {
    "id": "baja-california",
    "name": "Baja California",
    "short": "Baja",
-   "headShliach": "Mendel Polichenco"
+   "headShliach": "Mendel Polichenco",
+   "capital": {
+    "centerId": "334161",
+    "name": "Chabad Baja California",
+    "city": "Tijuana",
+    "lat": 32.5332,
+    "lon": -117.01928
+   }
   },
   {
    "id": "sinaloa",
    "name": "Sinaloa",
    "short": "Sin.",
-   "headShliach": "Chaim Raitport"
+   "headShliach": "Chaim Raitport",
+   "capital": {
+    "name": "Chabad of Mazatlán",
+    "city": "Mazatlán",
+    "lat": 23.2329,
+    "lon": -106.4062
+   }
   },
   {
    "id": "nayarit",
    "name": "Nayarit",
    "short": "Nay.",
-   "headShliach": "Shneur Hecht"
+   "headShliach": "Shneur Hecht",
+   "capital": {
+    "centerId": "3424139",
+    "name": "Chabad of Puerto Vallarta",
+    "city": "Puerto Vallarta",
+    "lat": 20.67394,
+    "lon": -105.22751
+   }
   },
   {
    "id": "jalisco",
    "name": "Jalisco",
    "short": "Jalisco",
-   "headShliach": "Avraham Srugo"
+   "headShliach": "Avraham Srugo",
+   "capital": {
+    "centerId": "7011671",
+    "name": "Chabad of Guadalajara",
+    "city": "Guadalajara",
+    "lat": 20.68637,
+    "lon": -103.39075
+   }
   },
   {
    "id": "bajio",
    "name": "Bajío",
    "short": "Bajío",
-   "headShliach": "Daniel Huebner"
+   "headShliach": "Daniel Huebner",
+   "capital": {
+    "centerId": "4251108",
+    "name": "Chabad of SMA",
+    "city": "S Miguel de Allende",
+    "lat": 20.91982,
+    "lon": -100.74908
+   }
   },
   {
    "id": "nuevo-leon",
    "name": "Nuevo León",
    "short": "N. León",
-   "headShliach": "Zalmy Srugo"
+   "headShliach": "Zalmy Srugo",
+   "capital": {
+    "centerId": "7338776",
+    "name": "Jabad Monterrey",
+    "city": "Monterrey",
+    "lat": 25.69277,
+    "lon": -100.35223
+   }
   },
   {
    "id": "central-mexico",
    "name": "Central Mexico",
    "short": "C. Mexico",
-   "headShliach": "Yosef Mayzlesh"
+   "headShliach": "Yosef Mayzlesh",
+   "capital": {
+    "centerId": "6342563",
+    "name": "Chabad of Bosques",
+    "city": "Estado de Mexico",
+    "lat": 19.41571,
+    "lon": -99.24262
+   }
   },
   {
    "id": "chiapas",
    "name": "Chiapas",
    "short": "Chiapas",
-   "headShliach": "Oren Raz"
+   "headShliach": "Oren Raz",
+   "capital": {
+    "centerId": "7022006",
+    "name": "Chabad Of Chiapas",
+    "city": "S. Cristobal de las casas",
+    "lat": 16.73605,
+    "lon": -92.63998
+   }
   },
   {
    "id": "mexican-caribbean",
    "name": "Mexican Caribbean",
    "short": "Mex. Carib.",
-   "headShliach": "Mendel Druk"
+   "headShliach": "Mendel Druk",
+   "capital": {
+    "centerId": "503725",
+    "name": "Chabad Jewish Center of Cancun",
+    "city": "Cancun",
+    "lat": 21.10238,
+    "lon": -86.76535
+   }
   },
   {
    "id": "belize",
    "name": "Belize",
-   "short": "BLZ",
    "headShliach": "Mendel Belhamou"
   },
   {
    "id": "guatemala",
    "name": "Guatemala",
-   "short": "GTM",
-   "headShliach": "Shalom Pelman"
+   "headShliach": "Shalom Pelman",
+   "capital": {
+    "centerId": "118392",
+    "name": "Chabad Lubavitch Guatemala",
+    "city": "Guatemala City",
+    "lat": 14.63422,
+    "lon": -90.51142
+   }
   },
   {
    "id": "el-salvador",
    "name": "El Salvador",
-   "short": "SLV",
-   "headShliach": "Yudi Brod"
+   "short": "El Salvador",
+   "headShliach": "Yudi Brod",
+   "capital": {
+    "name": "Chabad House El Tunco",
+    "city": "El Tunco",
+    "lat": 13.493,
+    "lon": -89.383
+   }
   },
   {
    "id": "honduras",
    "name": "Honduras",
-   "short": "HND",
    "headShliach": "Naftali Reichman"
   },
   {
    "id": "nicaragua",
    "name": "Nicaragua",
-   "short": "NIC",
-   "headShliach": "David Atar"
+   "headShliach": "David Atar",
+   "capital": {
+    "centerId": "5544455",
+    "name": "Chabad Nicaragua",
+    "city": "San Juan del Sur",
+    "lat": 11.25453,
+    "lon": -85.86467
+   }
   },
   {
    "id": "costa-rica",
    "name": "Costa Rica",
-   "short": "CRI",
-   "headShliach": "Hershel Spalter"
+   "headShliach": "Hershel Spalter",
+   "capital": {
+    "centerId": "117814",
+    "name": "Jabad Lubavitch de Costa Rica",
+    "city": "Escazú",
+    "lat": 9.93396,
+    "lon": -84.12977
+   }
   },
   {
    "id": "panama",
    "name": "Panama",
-   "short": "PAN",
    "headShliach": "Ari Laine"
   },
   {
    "id": "argentina",
    "name": "Argentina",
-   "short": "ARG",
-   "headShliach": "Tzvi Grunblatt"
+   "headShliach": "Tzvi Grunblatt",
+   "capital": {
+    "centerId": "117745",
+    "name": "Chabad Lubavitch Argentina HQ",
+    "city": "Capital Federal",
+    "lat": -34.5961,
+    "lon": -58.41007
+   }
   },
   {
    "id": "bolivia",
    "name": "Bolivia",
-   "short": "BOL",
    "headShliach": "Itzik Kupchik"
   },
   {
    "id": "brazil",
    "name": "Brazil",
-   "short": "BRA",
-   "headShliach": "Shabsi Alpern"
+   "headShliach": "Shabsi Alpern",
+   "capital": {
+    "centerId": "117772",
+    "name": "Beit Chabad do Brasil - Hdqts.",
+    "city": "S. Paulo",
+    "lat": -23.56196,
+    "lon": -46.67176
+   }
   },
   {
    "id": "chile",
    "name": "Chile",
-   "short": "CHL",
-   "headShliach": "Menashe Perman"
+   "headShliach": "Menashe Perman",
+   "capital": {
+    "centerId": "117811",
+    "name": "Jabad Lubavitch de Chile",
+    "city": "Santiago",
+    "lat": -33.3574,
+    "lon": -70.52048
+   }
   },
   {
    "id": "colombia",
    "name": "Colombia",
-   "short": "COL",
-   "headShliach": "Yehoshua Rosenfeld"
+   "headShliach": "Yehoshua Rosenfeld",
+   "capital": {
+    "centerId": "117813",
+    "name": "Casa Lubavitch-Bogota",
+    "city": "Bogotá",
+    "lat": 4.67663,
+    "lon": -74.04449
+   }
   },
   {
    "id": "ecuador",
    "name": "Ecuador",
-   "short": "ECU",
-   "headShliach": "Mendy Fried"
+   "headShliach": "Mendy Fried",
+   "capital": {
+    "centerId": "4211957",
+    "name": "Jabad Lubavitch Guayaquil",
+    "city": "Guayaquil",
+    "lat": -2.17473,
+    "lon": -79.90542
+   }
   },
   {
    "id": "paraguay",
    "name": "Paraguay",
-   "short": "PRY",
-   "headShliach": "Levi Feigelstock"
+   "headShliach": "Levi Feigelstock",
+   "capital": {
+    "centerId": "117866",
+    "name": "Chabad of Paraguay",
+    "city": "Asuncion",
+    "lat": -25.29007,
+    "lon": -57.61338
+   }
   },
   {
    "id": "peru",
    "name": "Peru",
-   "short": "PER",
-   "headShliach": "Sara Blumenfeld"
+   "headShliach": "Sara Blumenfeld",
+   "capital": {
+    "centerId": "117867",
+    "name": "Chabad Lubavitch de Peru",
+    "city": "Lima",
+    "lat": -12.09781,
+    "lon": -77.05532
+   }
   },
   {
    "id": "uruguay",
    "name": "Uruguay",
-   "short": "URY",
-   "headShliach": "Eliezer Shemtov"
+   "headShliach": "Eliezer Shemtov",
+   "capital": {
+    "centerId": "117878",
+    "name": "Beit Jabad Uruguay",
+    "city": "Montevideo",
+    "lat": -34.90878,
+    "lon": -56.1499
+   }
   },
   {
    "id": "venezuela",
    "name": "Venezuela",
-   "short": "VEN",
-   "headShliach": "Moshe Perman"
+   "headShliach": "Moshe Perman",
+   "capital": {
+    "centerId": "117879",
+    "name": "Hogar Jabad Lubavitch",
+    "city": "San Bernardino",
+    "lat": 10.5162,
+    "lon": -66.89765
+   }
   },
   {
    "id": "caribbean",
    "name": "Caribbean",
    "short": "Caribbean",
-   "headShliach": "Mendel Zarchi"
+   "headShliach": "Mendel Zarchi",
+   "capital": {
+    "centerId": "118318",
+    "name": "Chabad Jewish Center of Puerto Rico",
+    "city": "Carolina",
+    "lat": 18.44401,
+    "lon": -66.01576
+   }
   }
  ]
 }

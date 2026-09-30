@@ -27,6 +27,9 @@ import { createHash } from 'node:crypto';
 import mapshaper from 'mapshaper';
 import { geoArea } from 'd3-geo';
 import geonames from 'all-the-cities';
+import { merge as mergeTopo } from 'topojson-client';
+import geojsonvt from 'geojson-vt';
+import vtpbf from 'vt-pbf';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CACHE = path.join(ROOT, '.cache');
@@ -65,14 +68,35 @@ const GADM_NAME_FIX = {
   MCO: 'Monaco', SWZ: 'Eswatini', MKD: 'North Macedonia', CPV: 'Cabo Verde', REU: 'Réunion', MAC: 'Macau', VIR: 'U.S. Virgin Islands',
   COD: 'DR Congo', COG: 'Republic of the Congo', BLM: 'Saint Barthélemy', MAF: 'Saint Martin',
 };
+// A country's short label, where its name is long and there's a real, familiar short form. Nowhere is an ISO code
+// used as a label: a country without one here simply has no short form (its name shows where it fits).
+const COUNTRY_SHORT = {
+  GBR: 'UK', ARE: 'UAE', COD: 'DRC', COG: 'Congo', CAF: 'CAR', BIH: 'Bosnia', CZE: 'Czechia', DOM: 'Dom. Rep.', TTO: 'Trinidad',
+  VCT: 'St. Vincent', KNA: 'St. Kitts', ATG: 'Antigua', STP: 'São Tomé', BES: 'Bonaire', TCA: 'Turks & Caicos', VGB: 'BVI', VIR: 'USVI',
+  GNQ: 'Eq. Guinea', ZAF: 'S. Africa', KOR: 'S. Korea', SSD: 'S. Sudan', SAU: 'Saudi', NZL: 'NZ', MKD: 'N. Macedonia', XNC: 'N. Cyprus',
+  BFA: 'Burkina', CYM: 'Cayman', BLM: 'St. Barth', MAF: 'St. Martin', LCA: 'St. Lucia', SXM: 'St. Maarten', VAT: 'Vatican',
+  NCL: 'N. Caledonia', PRI: 'PR', CIV: 'Ivory Coast', SLE: 'S. Leone', GNB: 'G.-Bissau', LKA: 'Sri Lanka', SLV: 'El Salvador',
+};
 // The mirror's whole-country Russia is one ring (no islands, no Kaliningrad), so Russia is put together from its
 // regions instead; the mirror has no Cabo Verde at all, so it's Natural Earth's (islands only, no shared border).
+// Every country in the mirror. The ones no shetach claims are still built (marked \`outside\`): the physical map
+// fades them out, and having them in the same topology means that fade meets the shetachim's borders exactly.
+const GADM_ALL = ('ABW AFG AGO AIA ALB AND ARE ARG ARM ASM ATA ATF ATG AUS AUT AZE BDI BEL BEN BES BFA BGD BGR BHR BHS BIH BLM BLR BLZ BMU ' +
+  'BOL BRA BRB BRN BTN BVT BWA CAF CHE CHL CHN CIV CMR COD COG COK COL COM CRI CUB CUW CXR CYM CYP CZE DEU DJI DMA DNK DOM DZA ECU ' +
+  'EGY ERI ESH ESP EST ETH FIN FJI FLK FRA FRO FSM GAB GBR GEO GGY GHA GIN GLP GMB GNB GNQ GRC GRD GRL GTM GUF GUM GUY HKG HND HRV HTI HUN ' +
+  'IDN IMN IND IOT IRL IRN IRQ ISL ISR ITA JAM JEY JOR JPN KAZ KEN KGZ KHM KIR KNA KOR KWT LAO LBN LBR LBY LCA LIE LKA LSO LTU LUX LVA ' +
+  'MAC MAF MAR MCO MDA MDG MDV MEX MHL MKD MLI MLT MMR MNE MNG MNP MOZ MRT MSR MTQ MUS MWI MYS MYT NAM NCL NER NFK NGA NIC NIU NLD NOR ' +
+  'NPL NRU NZL OMN PAK PAN PCN PER PHL PLW PNG POL PRI PRK PRT PRY PYF QAT REU ROU RUS RWA SAU SDN SEN SGP SGS SHN SLB SLE SLV SMR SOM SPM ' +
+  'SRB SSD STP SUR SVK SVN SWE SWZ SXM SYC SYR TCA TCD TGO THA TJK TKM TLS TON TTO TUN TUR TUV TWN TZA UGA UKR URY UZB VAT VCT VEN VGB ' +
+  'VIR VNM VUT WLF WSM XCL XKO XNC YEM ZAF ZMB ZWE').split(' ');
 const FROM_LEVEL1 = ['RUS'];
 const FROM_NATURAL_EARTH = ['CPV'];
 // Israel, as the shetach list has it: GADM's Israel (which already includes the Golan Heights) together with
 // Judea and Samaria, which GADM files as a region of a separate country code — only that region is taken, and
 // it becomes part of Israel itself (same area, same name, no border between them).
 const ISRAEL_EXTRA = { url: `${GADM}/Admin1/gadm36_PSE_1.json`, cache: 'gadm-hi-ISR-judea-samaria.json', region: 'West Bank' };
+// The same file's other region, Gaza, isn't in any shetach: it's only land outside the map, under its own name.
+const GAZA = { region: 'Gaza', code: 'GAZA', name: 'Gaza' };
 // Countries a shetach list divides by state, like the US and Canada: each state is its own area (MX-JAL), with
 // ISO 3166-2 codes; name, abbreviation. GADM's own codes (HASC) aren't ISO, so this is by hand.
 const WORLD_STATES = {
@@ -241,6 +265,8 @@ function normalize(raw, extra = false) {
     approx: !!raw['location-is-approximate'] || undefined,
     unlisted: extra || undefined,
     note: raw.note || undefined,
+    pageId: raw.pageId || undefined, // an unlisted dot that shares a chabad.org page with a listed one
+    ...(extra && raw.slug ? { slug: raw.slug } : {}),
   };
 }
 
@@ -489,11 +515,12 @@ async function buildGeo(data) {
   const usMeta = new Map(ne.features
     .filter((f) => f.properties.adm0_a3 === 'USA' && !notShown.includes(f.properties.iso_3166_2))
     .map((f) => [f.properties.iso_3166_2, { name: f.properties.name, abbr: f.properties.postal }]));
+  // Areas left off the map (Yukon, NWT, Nunavut) are still built, as land outside it, for the physical map's fade.
   const caAreas = readJSON(await cached('caProvinces')).features
-    .filter((f) => CA_PROVINCES[f.properties.NAME_1] && !notShown.includes(`CA-${CA_PROVINCES[f.properties.NAME_1]}`))
+    .filter((f) => CA_PROVINCES[f.properties.NAME_1])
     .map((f) => {
-      const abbr = CA_PROVINCES[f.properties.NAME_1];
-      return featureOf(f.geometry, { state: `CA-${abbr}`, name: f.properties.NAME_1, abbr, country: 'CA' });
+      const abbr = CA_PROVINCES[f.properties.NAME_1], state = `CA-${abbr}`;
+      return featureOf(f.geometry, { state, name: f.properties.NAME_1, abbr, country: 'CA', ...(notShown.includes(state) ? { outside: true } : {}) });
     });
 
   const counties = readJSON(await countiesGeoJSON());
@@ -578,7 +605,7 @@ async function buildGeo(data) {
       .map((f) => featureOf(f.geometry, { [`${P}shape`]: name }))));
   }
   if (problems.length) throw new Error(`data/shetachim.json:\n  ${problems.join('\n  ')}`);
-  layers.land = collectionOf(land);
+  layers.land = await cleanLand(land);
 
   // One mosaic of everything, so every piece shares its edges exactly with its neighbours. Every point on the
   // map is covered by some real county, province, state or country polygon above, so a mosaic piece always has
@@ -610,24 +637,27 @@ async function buildGeo(data) {
   if (absorbed) console.log(`${absorbed} slivers along shape edges given to the shape beside them`);
   for (const f of mosaic) {
     const p = f.properties;
-    f.properties = { piece: `${p.state}:${p.shetach ?? 'none'}`, state: p.state, name: p.name, abbr: p.abbr, country: p.country, shetach: p.shetach };
+    f.properties = { piece: `${p.state}:${p.shetach ?? 'none'}`, state: p.state, name: p.name, abbr: p.abbr, country: p.country, shetach: p.shetach, outside: !!p.outside };
   }
 
   // Small islands are dropped to keep the page light, except from areas that are small altogether (Bermuda, the
   // Caribbean islands, Monaco…), which would otherwise vanish.
   const rough = JSON.stringify(ROUGH).replace(/"/g, "'");
   const out = await mapshaper.applyCommands(
-    '-i mosaic.json -dissolve piece copy-fields=state,name,abbr,country,shetach -rename-fields id=piece -rename-layers areas ' +
+    '-i mosaic.json -dissolve piece copy-fields=state,name,abbr,country,shetach,outside -rename-fields id=piece -rename-layers areas ' +
     '-o pieces.json format=geojson ' +
     `-simplify variable interval="${rough}.includes(state) ? 2500 : country === 'US' ? 400 : 800" keep-shapes ` +
     `-each "size = this.area < 2e9 ? 'small' : 'big'" -split size ` +
     '-filter-islands min-area=40km2 remove-empty target=big ' +
-    '-merge-layers target=big,small force name=areas -filter-fields id,state,name,abbr,country,shetach ' +
+    '-merge-layers target=big,small force name=areas -filter-fields id,state,name,abbr,country,shetach,outside ' +
+    '-o world.json format=topojson quantization=100000 ' +
+    '-filter "!outside" -filter-fields id,state,name,abbr,country,shetach ' +
     '-o geo.json format=topojson quantization=100000',
     { 'mosaic.json': collectionOf(mosaic) },
   );
   fs.writeFileSync(path.join(OUT, 'geo.json'), out['geo.json']);
-  const pieces = JSON.parse(out['pieces.json']).features;
+  writeTiles(JSON.parse(out['world.json']));
+  const pieces = JSON.parse(out['pieces.json']).features.filter((f) => !f.properties.outside);
   const byStateCount = count(pieces, (f) => f.properties.state);
   const split = byStateCount.filter(([, n]) => n > 1).map(([state]) => state);
   console.log(`${data.shetachim.length} shetachim; split areas: ${split.join(', ') || 'none'} (${pieces.filter((f) => split.includes(f.properties.state)).length} pieces); ` +
@@ -646,7 +676,8 @@ async function worldLand(data, levels) {
     if (!m) whole.add(t);
     else if (WORLD_PREFIX.has(m[1])) divided.add(WORLD_PREFIX.get(m[1]));
   }
-  const spec = JSON.stringify({ v: 2, whole: [...whole].sort(), divided: [...divided].sort(), levels: [...levels].sort() });
+  const outside = GADM_ALL.filter((c) => !whole.has(c) && !divided.has(c));
+  const spec = JSON.stringify({ v: 3, whole: [...whole].sort(), divided: [...divided].sort(), levels: [...levels].sort(), outside });
   const file = path.join(CACHE, `world-${createHash('sha1').update(spec).digest('hex').slice(0, 10)}.json`);
   if (!fs.existsSync(file)) {
     const dir = fs.mkdtempSync(path.join(CACHE, 'world-')), files = [], missing = [];
@@ -678,6 +709,14 @@ async function worldLand(data, levels) {
       }
       if (features.length) write(code, features); else missing.push(code);
     }
+    for (const code of outside) {
+      let gj;
+      try { gj = readJSON(await gadmFile(code, FROM_LEVEL1.includes(code) ? 1 : 0)); } catch { console.log(`  (outside: no file for ${code})`); continue; }
+      const name = GADM_NAME_FIX[code] || gj.features[0]?.properties.NAME_0 || gj.features[0]?.properties.Name || code;
+      write(`outside-${code}`, gj.features.map((f) => featureOf(f.geometry, { state: code, name, abbr: code, country: code, outside: true })));
+    }
+    const gaza = readJSON(await download(ISRAEL_EXTRA.url, ISRAEL_EXTRA.cache)).features.filter((f) => f.properties.NAME_1 === GAZA.region);
+    write('outside-gaza', gaza.map((f) => featureOf(f.geometry, { state: GAZA.code, name: GAZA.name, abbr: GAZA.code, country: GAZA.code, outside: true })));
     for (const iso3 of divided) {
       console.log(`world: ${iso3} states`);
       const { prefix: pre, states, skip = [] } = WORLD_STATES[iso3];
@@ -696,8 +735,78 @@ async function worldLand(data, levels) {
     fs.rmSync(dir, { recursive: true });
   }
   const features = readJSON(file).features;
-  for (const f of features) if (GADM_NAME_FIX[f.properties.state]) f.properties.name = GADM_NAME_FIX[f.properties.state];
+  for (const f of features) {
+    const p = f.properties;
+    if (GADM_NAME_FIX[p.state]) p.name = GADM_NAME_FIX[p.state];
+    if (p.state === p.country) p.abbr = COUNTRY_SHORT[p.state] || '';
+  }
   return features;
+}
+
+// Neighbouring areas from different sources (Census counties next to GADM's Mexico and Canada) or digitised
+// separately (GADM's India and Nepal) don't meet exactly: along a shared border they leave thin gaps and overlaps,
+// which draw as a doubled, broken line. -clean fills the gaps and settles the overlaps, so every border is one
+// shared line. Real water between areas is never filled: it's open to the sea, or far bigger than the threshold.
+async function cleanLand(features) {
+  console.log('snapping neighbouring areas together…');
+  if (process.env.DUMP_LAND) fs.writeFileSync(process.env.DUMP_LAND, JSON.stringify(collectionOf(features)));
+  const out = await mapshaper.applyCommands('-i land.json -clean gap-fill-area=20km2 -o land.json format=geojson', { 'land.json': collectionOf(features) });
+  return JSON.parse(out['land.json']);
+}
+
+// The physical map's own data as static vector tiles (web/tiles/{z}/{x}/{y}.pbf, zooms 0-6; the map scales the
+// zoom-6 tiles up past that), so a phone only ever loads and draws the part it's looking at, already simplified
+// for that zoom. Two layers:
+//   land   every area, merged by country; c = its country, or '' for land outside the map (the page fades
+//          whatever isn't in the view)
+//   lines  every edge between two areas (or an area and the sea), with both sides' countries (ca, cb), and
+//          whether the two share a state (ss) and a shetach (sh); the page picks the edges its view needs.
+const TILES = path.join(OUT, '..', 'tiles');
+const TILE_ZOOM = 6;
+function writeTiles(topo) {
+  const geoms = topo.objects.areas.geometries;
+  const { scale: [kx, ky], translate: [dx, dy] } = topo.transform;
+  const arcs = topo.arcs.map((arc) => { let x = 0, y = 0; return arc.map(([a, b]) => [(x += a) * kx + dx, (y += b) * ky + dy]); });
+  const sides = arcs.map(() => []);
+  const visit = (rings, gi) => { for (const ring of rings) for (const a of ring) sides[a < 0 ? ~a : a].push(gi); };
+  geoms.forEach((g, gi) => { if (g.type === 'Polygon') visit(g.arcs, gi); else if (g.type === 'MultiPolygon') for (const poly of g.arcs) visit(poly, gi); });
+  const code = (p) => (p.outside ? '' : p.country);
+  const lines = [];
+  arcs.forEach((coords, i) => {
+    const [a, b] = sides[i].map((gi) => geoms[gi].properties);
+    if (!a || (b && code(a) === '' && code(b) === '')) return;
+    if (!b && coords.every(([x]) => Math.abs(x) > 179.99)) return; // the cut along 180°, not a coast
+    const props = b ? { ca: code(a), cb: code(b), ss: a.state === b.state ? 1 : 0, sh: (a.shetach || '') === (b.shetach || '') ? 1 : 0 } : { ca: code(a) };
+    lines.push(featureOf({ type: 'LineString', coordinates: coords }, props));
+  });
+  const byCode = new Map();
+  for (const g of geoms) {
+    if (!g.type) continue;
+    const c = code(g.properties);
+    if (!byCode.has(c)) byCode.set(c, []);
+    byCode.get(c).push(g);
+  }
+  const land = [...byCode].map(([c, gs]) => featureOf(mergeTopo(topo, gs), { c }));
+  const opts = { maxZoom: TILE_ZOOM, indexMaxZoom: TILE_ZOOM, indexMaxPoints: 0, tolerance: 1.5, extent: 8192, buffer: 128 };
+  const index = { land: geojsonvt(collectionOf(land), opts), lines: geojsonvt(collectionOf(lines), opts) };
+  fs.rmSync(TILES, { recursive: true, force: true });
+  const coords = new Map();
+  for (const ix of Object.values(index)) for (const { z, x, y } of ix.tileCoords) coords.set(`${z}/${x}/${y}`, [z, x, y]);
+  let n = 0, bytes = 0;
+  for (const [key, [z, x, y]] of coords) {
+    const layers = {};
+    for (const [name, ix] of Object.entries(index)) {
+      const t = ix.getTile(z, x, y);
+      if (t && t.features.length) layers[name] = t;
+    }
+    if (!Object.keys(layers).length) continue;
+    const buf = Buffer.from(vtpbf.fromGeojsonVt(layers, { version: 2, extent: opts.extent }));
+    fs.mkdirSync(path.join(TILES, String(z), String(x)), { recursive: true });
+    fs.writeFileSync(path.join(TILES, `${key}.pbf`), buf);
+    n++;
+    bytes += buf.length;
+  }
+  console.log(`tiles: ${n} files, ${(bytes / 1e6).toFixed(1)} MB (${lines.length} edges, ${land.length} land groups)`);
 }
 
 // Area in km² of a GeoJSON (Multi)Polygon, whichever way its rings wind.
@@ -781,10 +890,16 @@ async function main() {
   fs.mkdirSync(OUT, { recursive: true });
   const raw = readJSON(at('data', 'raw', 'chabad-centers.json')).data;
   const extrasFile = at('data', 'extra-centers.json');
-  const extras = fs.existsSync(extrasFile) ? readJSON(extrasFile).centers || [] : [];
+  const extrasData = fs.existsSync(extrasFile) ? readJSON(extrasFile) : {};
+  const extras = extrasData.centers || [];
+  const fixes = extrasData.fixes || {};
 
   const toRaw = (e) => ({ ...e, coordinates: { latitude: e.lat, longitude: e.lon }, 'location-is-approximate': e.precision !== 'exact' });
   const centers = [...raw.map((r) => normalize(r)), ...extras.map((e) => normalize(toRaw(e), true))];
+  for (const c of centers) {
+    const fix = fixes[c.id];
+    if (fix) { const { why, ...f } = fix; Object.assign(c, f, { approx: undefined }); }
+  }
   const bad = centers.filter((c) => !Number.isFinite(c.lat) || !Number.isFinite(c.lon));
   if (bad.length) console.warn(`${bad.length} centers have no coordinates and are skipped`);
 
@@ -883,16 +998,19 @@ async function main() {
 
   const pieceOf = (d) => shetachOfPiece.get(d.piece ?? d.region) ?? null;
   const warnings = checkCapitals(shetachData, dots, pieceOf);
-  // The short label: as given, else the abbreviations of its whole states and provinces joined (KS-MO).
+  // The short label: as given, else the abbreviations of its whole states and provinces joined (KS-MO). A country's
+  // name is its own label (never an ISO code like NPL); where it doesn't fit, there's no label.
   const abbrOf = new Map(pieces.map((f) => [f.properties.state, f.properties.abbr]));
   for (const s of shetachData.shetachim) {
     if (!s.territory.length) continue; // not drawn yet, so no label to worry about
-    if (s.short === undefined && s.territory.every((t) => typeof t === 'string')) s.short = s.territory.map((t) => abbrOf.get(t)).join('-');
-    if (!s.short) warnings.push(`${s.id}: no short label (needed for a shetach that is part of a state)`);
+    const states = s.territory.every((t) => typeof t === 'string' && t.includes('-'));
+    if (s.short === undefined && states) s.short = s.territory.map((t) => abbrOf.get(t)).join('-');
+    else if (s.short === undefined && s.territory.length === 1 && COUNTRY_SHORT[s.territory[0]]) s.short = COUNTRY_SHORT[s.territory[0]];
+    if (!s.short && s.territory.some((t) => typeof t !== 'string')) warnings.push(`${s.id}: no short label (needed for a shetach that is part of a state)`);
   }
   const forPage = {
     notShown: shetachData.notShown || [],
-    shetachim: shetachData.shetachim.map(({ id, name, short, headShliach, lastName, capital }) => ({ id, name, short, headShliach, lastName, capital })),
+    shetachim: shetachData.shetachim.map(({ id, name, short, headShliach, headTitle, lastName, capital }) => ({ id, name, short, headShliach, headTitle, lastName, capital })),
   };
   fs.writeFileSync(path.join(OUT, 'shetachim.json'), `${JSON.stringify(forPage, null, 1)}\n`);
 

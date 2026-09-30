@@ -23,6 +23,7 @@
   --accent-soft: #e3ebf5;
   --c1: #f0e1a2; --c2: #cce1b5; --c3: #efc7c1; --c4: #c5d9ee;
   --c5: #f3cfa9; --c6: #d8c8e5; --c7: #bcded6; --c8: #e1d8be;
+  --plain: #fcfcfa;
   --font-ui: "Alegreya Sans", "Gill Sans", "Segoe UI", system-ui, sans-serif;
   --font-map: "Alegreya Sans SC", "Gill Sans", "Segoe UI", system-ui, sans-serif;
   --shadow: 0 1px 2px rgb(20 35 45 / .08), 0 6px 20px rgb(20 35 45 / .10);
@@ -33,6 +34,7 @@
     --panel: #152025; --panel-line: #2b3a41; --muted: #9baab0; --missing: #7d8c93; --accent: #93b8ec; --accent-soft: #22344a;
     --c1: #5a5026; --c2: #394e30; --c3: #5c3a36; --c4: #2e435f;
     --c5: #5c4228; --c6: #473957; --c7: #294c45; --c8: #494434;
+    --plain: #223036;
     --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 8px 24px rgb(0 0 0 / .35);
     color-scheme: dark;
   }
@@ -42,6 +44,7 @@
   --panel: #152025; --panel-line: #2b3a41; --muted: #9baab0; --missing: #7d8c93; --accent: #93b8ec; --accent-soft: #22344a;
   --c1: #5a5026; --c2: #394e30; --c3: #5c3a36; --c4: #2e435f;
   --c5: #5c4228; --c6: #473957; --c7: #294c45; --c8: #494434;
+  --plain: #223036;
   --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 8px 24px rgb(0 0 0 / .35);
   color-scheme: dark;
 }
@@ -85,6 +88,8 @@ button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid 
 .inset-frame { fill: none; stroke: var(--panel-line); }
 .inset-land { fill: var(--fill); stroke: var(--ink); stroke-width: 1; }
 .borders-regular .inset-land { fill: var(--fill-u); }
+.plain .fill, .plain .inset-land { fill: var(--plain); }
+.plain .fill { stroke: var(--plain); }
 .inset-caption { font: 700 11px var(--font-map); letter-spacing: .06em; fill: var(--ink); }
 .inset-caption.lab-missing { fill: var(--missing); font-weight: 500; }
 
@@ -206,6 +211,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
         </div>
       </fieldset>
       <fieldset class="ctl">
+        <legend>Colors</legend>
+        <div class="seg" data-name="color">
+          <button type="button" data-value="colorful" aria-pressed="true">Colorful</button>
+          <button type="button" data-value="plain" aria-pressed="false">Plain</button>
+        </div>
+      </fieldset>
+      <fieldset class="ctl">
         <legend>Labels</legend>
         <div class="seg" data-name="labels">
           <button type="button" data-value="name" aria-pressed="true">Shetach name</button>
@@ -240,7 +252,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
   const phone = () => window.matchMedia('(max-width: 760px)').matches;
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const state = { view: 'na', borders: 'shetach', lighter: 'regular', labels: 'name', dots: true };
+  const state = { view: 'na', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true };
   if (!phone()) $('#panel').classList.remove('collapsed');
 
   // ---------- data ----------
@@ -690,7 +702,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     document.querySelectorAll(`.seg[data-name="${name}"] button`).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.value === value)));
   }
   function apply() {
-    svg.attr('class', `borders-${state.borders} lighter-${state.lighter}${state.dots ? '' : ' no-dots'}`);
+    svg.attr('class', `borders-${state.borders} lighter-${state.lighter}${state.color === 'plain' ? ' plain' : ''}${state.dots ? '' : ' no-dots'}`);
     gInsets.attr('class', `l-insets${T.k > 1.3 ? ' away' : ''}`);
     $('#lighter-row').hidden = state.borders !== 'both';
     buildLabels();

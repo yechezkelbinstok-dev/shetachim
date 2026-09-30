@@ -8,6 +8,7 @@
   {
    "id": "west-coast",
    "name": "West Coast",
+   "short": "CA-NV",
    "headShliach": "Shlomo Cunin",
    "capital": {
     "centerId": "117555",
@@ -20,6 +21,7 @@
   {
    "id": "alaska",
    "name": "Alaska",
+   "short": "AK",
    "headShliach": "Yosef Greenberg",
    "capital": {
     "centerId": "117927",
@@ -32,6 +34,7 @@
   {
    "id": "washington",
    "name": "Washington",
+   "short": "WA",
    "headShliach": "Sholom Ber Levitin",
    "capital": {
     "centerId": "117737",
@@ -44,6 +47,7 @@
   {
    "id": "oregon",
    "name": "Oregon",
+   "short": "OR",
    "headShliach": "Moshe Wilhelm",
    "capital": {
     "centerId": "118188",
@@ -56,6 +60,7 @@
   {
    "id": "hawaii",
    "name": "Hawaii",
+   "short": "HI",
    "headShliach": "Itchel Krasnjansky",
    "capital": {
     "centerId": "117608",
@@ -68,6 +73,7 @@
   {
    "id": "idaho",
    "name": "Idaho",
+   "short": "ID",
    "headShliach": "Mendel Lifshitz",
    "capital": {
     "centerId": "118662",
@@ -80,6 +86,7 @@
   {
    "id": "montana",
    "name": "Montana",
+   "short": "MT",
    "headShliach": "Chaim Bruk",
    "capital": {
     "centerId": "486805",
@@ -92,6 +99,7 @@
   {
    "id": "wyoming",
    "name": "Wyoming",
+   "short": "WY",
    "headShliach": "Zalman Mendelsohn",
    "capital": {
     "centerId": "672689",
@@ -104,6 +112,7 @@
   {
    "id": "utah",
    "name": "Utah",
+   "short": "UT",
    "headShliach": "Benny Zippel",
    "capital": {
     "centerId": "117910",
@@ -116,6 +125,7 @@
   {
    "id": "colorado",
    "name": "Colorado",
+   "short": "CO",
    "headShliach": "Mendel Popack",
    "capital": {
     "centerId": "5964928",
@@ -128,6 +138,7 @@
   {
    "id": "arizona",
    "name": "Arizona",
+   "short": "AZ",
    "headShliach": "Zalman Levertov",
    "capital": {
     "centerId": "117539",
@@ -140,6 +151,7 @@
   {
    "id": "new-mexico",
    "name": "New Mexico",
+   "short": "NM",
    "headShliach": "Chaim Shmukler",
    "capital": {
     "centerId": "117962",
@@ -152,6 +164,7 @@
   {
    "id": "north-dakota",
    "name": "North Dakota",
+   "short": "ND",
    "headShliach": "Yonah Grossman",
    "capital": {
     "centerId": "2027612",
@@ -164,6 +177,7 @@
   {
    "id": "south-dakota",
    "name": "South Dakota",
+   "short": "SD",
    "headShliach": "Mendel Alperowitz",
    "capital": {
     "centerId": "3451535",
@@ -176,6 +190,7 @@
   {
    "id": "nebraska",
    "name": "Nebraska",
+   "short": "NE",
    "headShliach": "Mendel Katzman",
    "capital": {
     "centerId": "117651",
@@ -188,6 +203,7 @@
   {
    "id": "minnesota",
    "name": "Minnesota",
+   "short": "MN",
    "headShliach": "Moshe Feller",
    "capital": {
     "centerId": "117647",
@@ -200,6 +216,7 @@
   {
    "id": "iowa",
    "name": "Iowa",
+   "short": "IA",
    "headShliach": "Yossi Jacobson",
    "capital": {
     "centerId": "117609",
@@ -212,6 +229,7 @@
   {
    "id": "kansas-missouri",
    "name": "Kansas-Missouri",
+   "short": "KS-MO",
    "headShliach": "Sholom Wineberg",
    "capital": {
     "centerId": "117620",
@@ -224,6 +242,7 @@
   {
    "id": "wisconsin",
    "name": "Wisconsin",
+   "short": "WI",
    "headShliach": "Yisroel Shmotkin",
    "capital": {
     "centerId": "117740",
@@ -236,6 +255,7 @@
   {
    "id": "illinois",
    "name": "Illinois",
+   "short": "IL",
    "headShliach": "Meir Moscowitz",
    "capital": {
     "centerId": "117610",
@@ -248,6 +268,7 @@
   {
    "id": "michigan",
    "name": "Michigan",
+   "short": "MI",
    "headShliach": "Berel Shemtov",
    "capital": {
     "centerId": "117640",
@@ -260,6 +281,7 @@
   {
    "id": "indiana",
    "name": "Indiana",
+   "short": "IN",
    "headShliach": "Avrohom Grossbaum",
    "capital": {
     "centerId": "117619",
@@ -272,6 +294,7 @@
   {
    "id": "kentucky",
    "name": "Kentucky",
+   "short": "KY",
    "headShliach": "Avrohom Litvin",
    "capital": {
     "centerId": "117621",
@@ -284,6 +307,7 @@
   {
    "id": "tennessee",
    "name": "Tennessee",
+   "short": "TN",
    "headShliach": "Levi Klein",
    "capital": {
     "centerId": "117977",
@@ -296,6 +320,7 @@
   {
    "id": "oklahoma",
    "name": "Oklahoma",
+   "short": "OK",
    "headShliach": "Yehuda Weg",
    "capital": {
     "centerId": "117712",
@@ -308,6 +333,7 @@
   {
    "id": "arkansas",
    "name": "Arkansas",
+   "short": "AR",
    "headShliach": "Pinchus Ciment",
    "capital": {
     "centerId": "117902",
@@ -320,6 +346,7 @@
   {
    "id": "texas",
    "name": "Texas",
+   "short": "TX",
    "headShliach": "Shimon Lazaroff",
    "capital": {
     "centerId": "117731",
@@ -332,6 +359,7 @@
   {
    "id": "louisiana-mississippi",
    "name": "Louisiana-Mississippi",
+   "short": "LA-MS",
    "headShliach": "Zelig Rivkin",
    "capital": {
     "centerId": "117623",
@@ -344,6 +372,7 @@
   {
    "id": "alabama",
    "name": "Alabama",
+   "short": "AL",
    "headShliach": "Yossi Posner",
    "capital": {
     "centerId": "117538",
@@ -356,6 +385,7 @@
   {
    "id": "georgia",
    "name": "Georgia",
+   "short": "GA",
    "headShliach": "Yossi New",
    "capital": {
     "centerId": "117607",
@@ -368,6 +398,7 @@
   {
    "id": "florida",
    "name": "Florida",
+   "short": "FL",
    "headShliach": "Benjy Korf",
    "capital": {
     "centerId": "117598",
@@ -380,6 +411,7 @@
   {
    "id": "the-carolinas",
    "name": "The Carolinas",
+   "short": "NC-SC",
    "headShliach": "Yossi Groner",
    "capital": {
     "centerId": "117649",
@@ -392,6 +424,7 @@
   {
    "id": "the-virginias",
    "name": "The Virginias",
+   "short": "VA-WV",
    "headShliach": "Yossel Kranz",
    "capital": {
     "centerId": "117734",
@@ -404,6 +437,7 @@
   {
    "id": "western-pennsylvania",
    "name": "Western Pennsylvania",
+   "short": "W. PA",
    "headShliach": "Yisroel Rosenfeld",
    "capital": {
     "centerId": "117721",
@@ -416,6 +450,7 @@
   {
    "id": "pennsylvania",
    "name": "Pennsylvania",
+   "short": "PA",
    "headShliach": "Avremel Shemtov",
    "capital": {
     "centerId": "117715",
@@ -428,6 +463,7 @@
   {
    "id": "new-jersey",
    "name": "New Jersey",
+   "short": "NJ",
    "headShliach": "Mendy Herson",
    "capital": {
     "centerId": "117657",
@@ -440,6 +476,7 @@
   {
    "id": "maryland",
    "name": "Maryland",
+   "short": "MD",
    "headShliach": "Shmuel Kaplan",
    "capital": {
     "centerId": "117634",
@@ -452,6 +489,7 @@
   {
    "id": "washington-dc",
    "name": "Washington DC",
+   "short": "DC",
    "headShliach": "Levi Shemtov",
    "capital": {
     "centerId": "117966",
@@ -464,6 +502,7 @@
   {
    "id": "delaware",
    "name": "Delaware",
+   "short": "DE",
    "headShliach": "Chuni Vogel",
    "capital": {
     "centerId": "117586",
@@ -476,6 +515,7 @@
   {
    "id": "new-york-city",
    "name": "New York City",
+   "short": "NYC",
    "headShliach": "Tzach",
    "capital": {
     "centerId": "117678",
@@ -489,6 +529,7 @@
   {
    "id": "long-island",
    "name": "Long Island",
+   "short": "LI",
    "headShliach": "Tuvia Teldon",
    "capital": {
     "centerId": "117681",
@@ -501,6 +542,7 @@
   {
    "id": "maine",
    "name": "Maine",
+   "short": "ME",
    "headShliach": "Moshe Wilansky",
    "capital": {
     "centerId": "117638",
@@ -513,6 +555,7 @@
   {
    "id": "new-hampshire",
    "name": "New Hampshire",
+   "short": "NH",
    "headShliach": "Levi Krinsky",
    "capital": {
     "centerId": "117652",
@@ -525,6 +568,7 @@
   {
    "id": "vermont",
    "name": "Vermont",
+   "short": "VT",
    "headShliach": "Yitzchok Raskin",
    "capital": {
     "centerId": "117736",
@@ -537,6 +581,7 @@
   {
    "id": "central-massachusetts",
    "name": "Central Massachusetts",
+   "short": "C. MA",
    "headShliach": "Mendel Fogelman",
    "capital": {
     "centerId": "117633",
@@ -549,6 +594,7 @@
   {
    "id": "western-and-southern-new-england",
    "name": "Western and Southern New England",
+   "short": "CT-W. MA",
    "headShliach": "Yisroel Deren",
    "capital": {
     "centerId": "2948789",
@@ -561,6 +607,7 @@
   {
    "id": "eastern-massachusetts",
    "name": "Eastern Massachusetts",
+   "short": "E. MA",
    "headShliach": "Chaim Prus",
    "capital": {
     "centerId": "1591836",
@@ -572,7 +619,8 @@
   },
   {
    "id": "north-shore-of-massachusetts",
-   "name": "North Shore of Massachusetts",
+   "name": "North Shore",
+   "short": "N. Shore",
    "headShliach": "Yossi Lipsker",
    "capital": {
     "centerId": "117908",
@@ -585,6 +633,7 @@
   {
    "id": "cape-cod-and-the-islands",
    "name": "Cape Cod and the Islands",
+   "short": "Cape Cod",
    "headShliach": "Kuti Alperowitz",
    "capital": {
     "centerId": "118178",
@@ -597,6 +646,7 @@
   {
    "id": "rhode-island",
    "name": "Rhode Island",
+   "short": "RI",
    "headShliach": "Yehoshua Laufer",
    "capital": {
     "centerId": "117723",
@@ -609,6 +659,7 @@
   {
    "id": "british-columbia",
    "name": "British Columbia",
+   "short": "BC",
    "headShliach": "Yitzchok Wineberg",
    "capital": {
     "centerId": "117788",
@@ -621,6 +672,7 @@
   {
    "id": "alberta",
    "name": "Alberta",
+   "short": "AB",
    "headShliach": "Menachem Matusof",
    "capital": {
     "centerId": "117787",
@@ -633,6 +685,7 @@
   {
    "id": "manitoba-saskatchewan",
    "name": "Manitoba-Saskatchewan",
+   "short": "MB-SK",
    "headShliach": "Avrohom Altein",
    "capital": {
     "centerId": "117789",
@@ -645,6 +698,7 @@
   {
    "id": "ontario",
    "name": "Ontario",
+   "short": "ON",
    "headShliach": "Zalman Grossbaum",
    "capital": {
     "centerId": "117797",
@@ -657,6 +711,7 @@
   {
    "id": "quebec",
    "name": "Quebec",
+   "short": "QC",
    "headShliach": "Berel Mochkin",
    "capital": {
     "centerId": "117801",
@@ -669,6 +724,7 @@
   {
    "id": "maritimes",
    "name": "Maritimes",
+   "short": "NS-NB-PE",
    "headShliach": "Mendel Feldman",
    "capital": {
     "centerId": "117790",
@@ -681,6 +737,7 @@
   {
    "id": "newfoundland-and-labrador",
    "name": "Newfoundland and Labrador",
+   "short": "NL",
    "headShliach": "Chanan Chernitsky",
    "capital": {
     "centerId": "3610901",

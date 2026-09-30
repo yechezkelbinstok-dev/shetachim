@@ -66,8 +66,11 @@ The owner got very angry at the first version. The lessons:
     and the map's city names are hidden while our cities are on. The map's colors on the
     physical map are always the light ones. Switching modes keeps the place you were looking at.
   - Borders: Shetachim / States / Both (+ Lighter swap); Colors: Colorful / Plain (political only)
-  - Labels: Shetach name (default) / Head shliach / Last name / Off. A shetach that is exactly one
-    state falls back to the state's abbreviation where its name doesn't fit.
+  - Labels: Shetach name (default) / Head shliach / Last name / Off. Each label is centred inside its
+    shetach and never reaches into another one (it may hang over water a little). Where the text doesn't
+    fit on one line it tries two, then the shetach's short form (`short` in the data; by default its
+    states' abbreviations joined, like KS-MO or MB-SK), else no label. Labels slide sideways past a
+    capital's star, and when zoomed in past a shetach's middle the label moves into the part on screen.
   - Checkboxes: Chabad centers, Cities with shluchim, Shetach capitals (all on by default)
   - Cities: a ring and a name, biggest first, only where there's room; a zoom-dependent cutoff
     (`CITY_DENSITY`) keeps small towns for when you zoom in. A city right at a capital's star uses
@@ -94,7 +97,7 @@ The owner got very angry at the first version. The lessons:
     get the piece they're in.
   - Cities: matched to GeoNames (npm `all-the-cities`); 1,001 cities, 81 unmatched (see report).
   - Capitals are checked: the center must exist; a capital outside its shetach is a warning in
-    `data/report.md` ("Capitals to check"). All 57 are inside their shetachim now.
+    `data/report.md` ("To check"). All 57 are inside their shetachim now.
 - Live site: GitHub Pages from this branch, root folder:
   `https://yechezkelbinstok-dev.github.io/shetachim/` (root `index.html` forwards to `web/`).
 - Claude artifact preview (this account; private):

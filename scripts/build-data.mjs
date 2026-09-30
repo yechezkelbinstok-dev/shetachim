@@ -615,9 +615,15 @@ async function main() {
 
   const pieceOf = (d) => shetachOfPiece.get(d.piece ?? d.region) ?? null;
   const warnings = checkCapitals(shetachData, dots, pieceOf);
+  // The short label: as given, else the abbreviations of its whole states and provinces joined (KS-MO).
+  const abbrOf = new Map(pieces.map((f) => [f.properties.state, f.properties.abbr]));
+  for (const s of shetachData.shetachim) {
+    if (s.short === undefined && s.territory.every((t) => typeof t === 'string')) s.short = s.territory.map((t) => abbrOf.get(t)).join('-');
+    if (!s.short) warnings.push(`${s.id}: no short label (needed for a shetach that is part of a state)`);
+  }
   const forPage = {
     notShown: shetachData.notShown || [],
-    shetachim: shetachData.shetachim.map(({ id, name, headShliach, lastName, capital }) => ({ id, name, headShliach, lastName, capital })),
+    shetachim: shetachData.shetachim.map(({ id, name, short, headShliach, lastName, capital }) => ({ id, name, short, headShliach, lastName, capital })),
   };
   fs.writeFileSync(path.join(OUT, 'shetachim.json'), `${JSON.stringify(forPage, null, 1)}\n`);
 
@@ -669,10 +675,10 @@ ${table(count(perCenter, (c) => c.countryName))}
 
 ${shetachData.shetachim.length} entered. No shetach (left blank): ${pieces.filter((f) => !f.properties.shetach).map((f) => f.properties.name).join(', ') || 'none'}.
 
-| Shetach | Head shliach | Capital |
-|---|---|---|
-${shetachData.shetachim.map((s) => `| ${s.name} | ${s.headShliach || ''} | ${s.capital ? `${s.capital.name}${s.capital.city ? `, ${s.capital.city}` : ''}` : ''} |`).join('\n')}
-${warnings.length ? `\nCapitals to check:\n\n${warnings.map((w) => `- ${w}`).join('\n')}\n` : ''}
+| Shetach | Short | Head shliach | Capital |
+|---|---|---|---|
+${shetachData.shetachim.map((s) => `| ${s.name} | ${s.short || ''} | ${s.headShliach || ''} | ${s.capital ? `${s.capital.name}${s.capital.city ? `, ${s.capital.city}` : ''}` : ''} |`).join('\n')}
+${warnings.length ? `\nTo check:\n\n${warnings.map((w) => `- ${w}`).join('\n')}\n` : ''}
 ## Cities without a GeoNames match (${unmatched.length} of ${cities.length})
 
 Placed at the middle of their centers. Usually a neighbourhood or a place under 1,000 people;

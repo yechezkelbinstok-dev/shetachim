@@ -73,6 +73,8 @@ country (USA, Canada) shows only that country.
 - Anything not claimed is blank (no fill, no label). `notShown` areas are left off entirely.
 - `capital`: the center id from its chabad.org link (the build fills in the name and position),
   or `{ "name", "lat", "lon" }`; `"world": true` for 770.
+- `short`: the label where the name doesn't fit. By default the abbreviations of its whole states and
+  provinces joined (KS-MO, NS-NB-PE); a shetach with part of a state needs one (W. PA, NYC, N. Shore).
 - `lastName` is optional; it defaults to the last word of `headShliach`.
 - The build refuses unknown codes, counties, towns and tracts, and two shetachim claiming the same
   thing; a capital outside its shetach is listed in the report.

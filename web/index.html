@@ -345,8 +345,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     if (s) { s.states.add(g.properties.state); s.pieces.push(g); }
   }
   const stateName = new Map(pieces.map((g) => [g.properties.state, g.properties.name]));
-  // A shetach that is exactly one whole state can fall back to the state's abbreviation where its name has no room.
-  for (const s of shetachById.values()) s.short = s.pieces.length === 1 && s.pieces[0].properties.id === s.pieces[0].properties.state ? s.pieces[0].properties.abbr : null;
 
   const dots = centersGeo.features
     .map((f) => ({ lon: f.geometry.coordinates[0], lat: f.geometry.coordinates[1], ...f.properties, piece: f.properties.piece || f.properties.region }))
@@ -458,7 +456,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     const regions = [...d3.group(main.filter(shetachOf), shetachOf)].map(([s, gs]) => ({ s, geo: topojson.merge(topo, gs) }));
     const blanks = [...d3.group(main.filter((g) => !shetachOf(g)), (g) => g.properties.state)].map(([st, gs]) => ({ st, geo: topojson.merge(topo, gs) }));
     const states = [...d3.group(main, (g) => g.properties.state)].map(([st, gs]) => ({ st, p: gs[0].properties, geo: topojson.merge(topo, gs) }));
-    V = { view, physical, shown, main, regions, blanks, states, insetPieces: shown.filter((g) => insetStates.includes(g.properties.state)) };
+    V = { view, physical, shown, main, regions, blanks, states, index: {}, insetPieces: shown.filter((g) => insetStates.includes(g.properties.state)) };
 
     const p = insets();
     projection = (physical ? d3.geoMercator() : view.projection()).fitExtent([[p.l, p.t], [W - p.r, H - p.b]], topojson.feature(topo, collection(framed)));
@@ -492,8 +490,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     const a = projection([lon0, lat0]), b = projection([lon0, lat0 + 1]);
     V.pxPerKm = Math.hypot(b[0] - a[0], b[1] - a[1]) / 111.2; // at zoom 1
 
-    for (const r of regions) r.anchor = anchorFor(r.geo);
-    for (const r of states) r.anchor = anchorFor(r.geo);
+    for (const r of [...regions, ...blanks, ...states]) r.polys = projectedPolygons(r.geo);
+    for (const r of [...regions, ...states]) r.anchor = anchorFor(r.polys);
     drawInsets(p);
 
     const shownIds = new Set(shown.map((g) => g.properties.id));
@@ -596,50 +594,100 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     return (inside ? 1 : -1) * Math.sqrt(min);
   }
 
-  // Where a label sits and how much room its area has, in map pixels at zoom 1 (largest piece only).
-  function anchorFor(geometry) {
+  // Each polygon of a geometry as rings of map pixels (zoom 1).
+  function projectedPolygons(geometry) {
     const polys = geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.type === 'MultiPolygon' ? geometry.coordinates : [];
-    let best = null, bestArea = 0;
-    for (const poly of polys) {
-      const rings = poly.map((ring) => ring.map((c) => projection(c)));
-      if (rings[0].some((pt) => !pt)) continue;
-      const a = Math.abs(d3.polygonArea(rings[0]));
-      if (a > bestArea) { bestArea = a; best = rings; }
-    }
-    if (!best) return null;
-    const xs = best[0].map((pt) => pt[0]), ys = best[0].map((pt) => pt[1]);
-    const [x, y] = polylabel(best, 0.5);
-    return { x, y, area: bestArea, w: d3.max(xs) - d3.min(xs), h: d3.max(ys) - d3.min(ys) };
+    return polys.map((poly) => poly.map((ring) => ring.map((c) => projection(c)))).filter((rings) => rings.every((ring) => ring.every(Boolean)));
   }
 
-  // What a shetach's label says in the current mode; the second entry is a fallback for small areas.
+  // Where an area's label looks for room first: the middle of each of its bigger polygons, biggest first.
+  // The biggest polygon's area sets the label's size.
+  function anchorFor(polys) {
+    const sized = polys.map((rings) => ({ rings, area: Math.abs(d3.polygonArea(rings[0])) })).sort((a, b) => b.area - a.area);
+    if (!sized.length || !(sized[0].area > 0)) return null;
+    const points = sized.filter((q, i) => i < 4 && q.area >= sized[0].area * 0.05).map((q) => polylabel(q.rings, 0.5));
+    return { points, area: sized[0].area };
+  }
+
+  // The edges of the labelled areas filed by height, so where a horizontal line crosses them is quick to find.
+  function edgeIndex(areas) {
+    let y0 = Infinity, y1 = -Infinity;
+    for (const r of areas) for (const rings of r.polys) for (const pt of rings[0]) { y0 = Math.min(y0, pt[1]); y1 = Math.max(y1, pt[1]); }
+    const n = Math.max(1, Math.ceil((y1 - y0) / 2)), step = (y1 - y0) / n || 1, bands = Array.from({ length: n }, () => []);
+    areas.forEach((r, id) => {
+      for (const rings of r.polys) for (const ring of rings) for (let i = 1; i < ring.length; i++) {
+        const a = ring[i - 1], b = ring[i];
+        if (a[1] === b[1]) continue;
+        const lo = Math.max(0, Math.floor((Math.min(a[1], b[1]) - y0) / step)), hi = Math.min(n - 1, Math.floor((Math.max(a[1], b[1]) - y0) / step));
+        for (let k = lo; k <= hi; k++) bands[k].push(id, a[0], a[1], b[0], b[1]);
+      }
+    });
+    return { y0, step, n, bands };
+  }
+  function labelIndex() {
+    const mode = state.borders === 'regular' ? 'regular' : 'shetach';
+    return V.index[mode] || (V.index[mode] = edgeIndex(mode === 'regular' ? V.states : [...V.regions, ...V.blanks]));
+  }
+
+  // Where the line at map height y is inside each area: area → [in, out, in, out, …] (map x, in order).
+  function crossings(ix, y) {
+    const out = new Map(), k = Math.floor((y - ix.y0) / ix.step);
+    if (!(k >= 0 && k < ix.n)) return out;
+    const band = ix.bands[k];
+    for (let i = 0; i < band.length; i += 5) {
+      const ay = band[i + 2], by = band[i + 4];
+      if ((ay > y) === (by > y)) continue;
+      const id = band[i], x = band[i + 1] + ((y - ay) / (by - ay)) * (band[i + 3] - band[i + 1]);
+      const xs = out.get(id);
+      if (xs) xs.push(x); else out.set(id, [x]);
+    }
+    for (const xs of out.values()) xs.sort((a, b) => a - b);
+    return out;
+  }
+
+  // What a shetach's label says in the current mode; the short form is for where it has no room.
   function shetachLabel(s) {
-    if (state.labels === 'name') return { texts: [s.name, s.short], missing: false };
+    if (state.labels === 'name') return { text: s.name, short: s.short, missing: false };
     const person = state.labels === 'last' ? s.lastName : s.headShliach;
-    return person ? { texts: [person], missing: false } : { texts: [s.name, s.short], missing: true };
+    return person ? { text: person, missing: false } : { text: s.name, short: s.short, missing: true };
+  }
+
+  // A name on two lines, split at the space or hyphen that makes the lines most even.
+  function twoLines(text) {
+    let best = null;
+    for (let i = 1; i < text.length - 1; i++) {
+      if (text[i] !== ' ' && text[i] !== '-') continue;
+      const lines = [text.slice(0, text[i] === '-' ? i + 1 : i), text.slice(i + 1)];
+      const worst = Math.max(lines[0].length, lines[1].length);
+      if (!best || worst <= best.worst) best = { worst, lines };
+    }
+    return best && best.lines;
   }
 
   const MARK_FONT = 12.5;
+  const LINE = 1.2; // line height of two-line labels, in font sizes
+  const SHIFTS = [0, 0.5, -0.5, 1, -1, 1.5, -1.5, 2, -2]; // how far a label may move up or down, in lines
   function buildLabels() {
     labels = [];
     if (state.labels !== 'off') {
-      if (state.borders === 'regular') {
-        for (const r of V.states) if (r.anchor) labels.push({ texts: [r.p.name, r.p.abbr], missing: false, a: r.anchor });
-      } else {
-        for (const r of V.regions) if (r.anchor) labels.push({ ...shetachLabel(r.s), a: r.anchor });
-      }
+      if (state.borders === 'regular') V.states.forEach((r, id) => { if (r.anchor) labels.push({ text: r.p.name, short: r.p.abbr, missing: false, a: r.anchor, id }); });
+      else V.regions.forEach((r, id) => { if (r.anchor) labels.push({ ...shetachLabel(r.s), a: r.anchor, id }); });
     }
     const family = getComputedStyle(document.documentElement).getPropertyValue('--font-map');
     for (const L of labels) {
       L.size = clamp(Math.sqrt(L.a.area) / 10, 10, 20);
       measure.font = `${L.missing ? 500 : 700} ${L.size}px ${family}`;
-      L.widths = L.texts.map((t) => (t ? measure.measureText(t).width + 0.05 * L.size * t.length : 0));
+      const width = (t) => measure.measureText(t).width + 0.05 * L.size * t.length;
+      const options = [[[L.text], 0], [twoLines(L.text), 0.75], [L.short && L.short !== L.text ? [L.short] : null, 2.5]]
+        .filter(([lines]) => lines).map(([lines, cost]) => ({ lines, cost, w: d3.max(lines, width) }));
+      // Near the middle first; a second line or the short form only when the text doesn't fit nearby.
+      L.tries = options.flatMap((o) => SHIFTS.map((shift) => ({ o, shift, cost: o.cost + Math.abs(shift) }))).sort((a, b) => a.cost - b.cost);
     }
     labels.sort((a, b) => b.a.area - a.a.area);
     for (const box of insetBoxes) {
       const g = box.piece, s = shetachOf(g);
-      const L = state.labels === 'off' ? null : state.borders === 'regular' || !s ? { texts: [g.properties.name], missing: false } : shetachLabel(s);
-      box.caption.text(L ? L.texts[0] : '').classed('lab-missing', !!(L && L.missing));
+      const L = state.labels === 'off' ? null : state.borders === 'regular' || !s ? { text: g.properties.name, missing: false } : shetachLabel(s);
+      box.caption.text(L ? L.text : '').classed('lab-missing', !!(L && L.missing));
     }
   }
 
@@ -660,42 +708,105 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     return out;
   }
 
-  // Show the longest text that fits its area on screen without hitting a bigger area's label or a star
-  // (moved up or down a line to clear a star). Then the stars and cities, biggest first, wherever they fit.
-  function placeLabels() {
-    const k = T.k, f = fontScale(k), boxes = [], stars = starsNow(), starBoxes = stars.map((st) => st.box);
-    for (const L of labels) {
-      L.show = -1;
-      const [sx, sy] = T.apply([L.a.x, L.a.y]);
-      for (let i = 0; i < L.texts.length && L.show < 0; i++) {
-        if (!L.texts[i]) continue;
-        const w = L.widths[i] * f, h = L.size * f;
-        if (!(w <= L.a.w * k * (i === 0 ? 1.3 : 1.8) && h <= L.a.h * k * 1.2)) continue;
-        for (const shift of [0, 1, -1]) {
-          const y = sy + shift * h;
-          const box = [sx - w / 2 - 3, y - h / 2 - 2, sx + w / 2 + 3, y + h / 2 + 2];
-          const onScreen = box[2] > 0 && box[0] < W && box[3] > 0 && box[1] < H;
-          if (onScreen && !overlaps(box, boxes) && !overlaps(box, starBoxes)) {
-            L.show = i;
-            L.shift = shift;
-            boxes.push(box);
-            break;
-          }
-        }
-      }
-    }
-    gLabels.selectAll('text').data(labels.filter((L) => L.show >= 0)).join('text')
-      .attr('class', (L) => (L.missing ? 'lab lab-missing' : 'lab')).text((L) => L.texts[L.show]);
-    placeMarks(boxes, stars);
-    moveLabels();
-  }
-
-  function placeMarks(boxes, stars) {
+  // The panel and zoom buttons, in map-screen coordinates: nothing is placed under them.
+  function coveredRects() {
     const app = $('#app').getBoundingClientRect();
-    const covered = [...document.querySelectorAll('#panel, #zoomctl')].map((el) => {
+    return [...document.querySelectorAll('#panel, #zoomctl')].map((el) => {
       const r = el.getBoundingClientRect();
       return [r.left - app.left, r.top - app.top, r.right - app.left, r.bottom - app.top];
     });
+  }
+
+  // Room for a w×h label of area me on the row at screen height sy, starting from screen x ax: x is centred on
+  // the stretch of me there (the part on screen); anywhere from lo to hi is 2px clear of every other area; ok(x)
+  // says whether the label is almost all on me there (it may hang over water a little). null: no room.
+  const ROWS = [-0.42, -0.21, 0.21, 0.42]; // besides the middle, in label heights
+  function fit(ix, me, ax, sy, w, h) {
+    const k = T.k, sx = (x) => T.x + x * k, mapY = (y) => (y - T.y) / k;
+    const mid = crossings(ix, mapY(sy));
+    const own = mid.get(me) || [];
+    let s = null;
+    for (let i = 0; i + 1 < own.length; i += 2) if (sx(own[i]) <= ax && ax <= sx(own[i + 1])) s = [Math.max(sx(own[i]), 4), Math.min(sx(own[i + 1]), W - 4)];
+    if (!s || s[1] <= s[0]) return null;
+    const xr = (s[0] + s[1]) / 2;
+    let lo = 4, hi = W - 4;
+    const rows = [mid, ...ROWS.map((t) => crossings(ix, mapY(sy + t * h)))];
+    for (const row of rows) {
+      for (const [id, xs] of row) {
+        if (id === me) continue;
+        for (let i = 0; i + 1 < xs.length; i += 2) {
+          const a = sx(xs[i]), b = sx(xs[i + 1]);
+          if (b <= xr) lo = Math.max(lo, b + 2);
+          else if (a >= xr) hi = Math.min(hi, a - 2);
+          else return null;
+        }
+      }
+    }
+    if (hi - lo < w) return null;
+    const mine = rows.map((row) => (row.get(me) || []).map(sx));
+    const ok = (x) => {
+      if (x - w / 2 < lo - 0.01 || x + w / 2 > hi + 0.01) return false;
+      let on = 0;
+      for (const xs of mine) for (let i = 0; i + 1 < xs.length; i += 2) on += Math.max(0, Math.min(x + w / 2, xs[i + 1]) - Math.max(x - w / 2, xs[i]));
+      return on >= 0.85 * w * rows.length;
+    };
+    return { x: clamp(xr, lo + w / 2, hi - w / 2), ok };
+  }
+
+  // When an area's middles are all off screen (zoomed in), a point on its widest stretch across the visible map.
+  function visiblePoint(ix, me, p) {
+    let best = null;
+    for (const t of [0.5, 0.3, 0.7, 0.15, 0.85]) {
+      const sy = p.t + (H - p.t - p.b) * t, xs = crossings(ix, (sy - T.y) / T.k).get(me) || [];
+      for (let i = 0; i + 1 < xs.length; i += 2) {
+        const a = Math.max(p.l, T.x + xs[i] * T.k), b = Math.min(W - p.r, T.x + xs[i + 1] * T.k);
+        if (b - a > (best ? best.w : 0)) best = { w: b - a, at: [(a + b) / 2, sy] };
+      }
+    }
+    return best && best.at;
+  }
+
+  // Each area's label, biggest areas first: the full text on one line, else on two, else the short form,
+  // wherever it fits near the middle of the area (up or down a little to clear a star or another label).
+  // Then the stars and cities, biggest first, wherever they fit.
+  function placeLabels() {
+    const k = T.k, f = fontScale(k), stars = starsNow(), covered = coveredRects(), p = insets(), ix = labelIndex();
+    const boxes = [], blocked = [...stars.map((st) => st.box), ...covered];
+    const inView = ([x, y]) => x >= p.l && x <= W - p.r && y >= p.t && y <= H - p.b;
+    for (const L of labels) {
+      L.show = null;
+      const starts = L.a.points.map((pt) => T.apply(pt)).filter(inView);
+      if (!starts.length) { const v = visiblePoint(ix, L.id, p); if (v) starts.push(v); }
+      search: for (const [ax, ay] of starts) {
+        for (const { o, shift } of L.tries) {
+          const size = L.size * f, w = o.w * f, h = o.lines.length * LINE * size, sy = ay + shift * LINE * size;
+          if (sy - h / 2 - 2 < 0 || sy + h / 2 + 2 > H) continue;
+          const room = fit(ix, L.id, ax, sy, w, h);
+          if (!room || !room.ok(room.x)) continue;
+          // Centred if that's clear, else just beside whatever is in the way (a star, another label).
+          const boxAt = (x) => [x - w / 2 - 3, sy - h / 2 - 2, x + w / 2 + 3, sy + h / 2 + 2];
+          const inWay = [...boxes, ...blocked].filter((b) => overlaps(boxAt(room.x), [b]));
+          const xs = [room.x, ...inWay.flatMap((b) => [b[0] - w / 2 - 3.5, b[2] + w / 2 + 3.5])].sort((a, b) => Math.abs(a - room.x) - Math.abs(b - room.x));
+          const x = xs.find((x) => room.ok(x) && !overlaps(boxAt(x), boxes) && !overlaps(boxAt(x), blocked));
+          if (x === undefined) continue;
+          Object.assign(L, { show: o, mx: (x - T.x) / k, my: (sy - T.y) / k });
+          boxes.push(boxAt(x));
+          break search;
+        }
+      }
+    }
+    gLabels.selectAll('text').data(labels.filter((L) => L.show)).join('text')
+      .attr('class', (L) => (L.missing ? 'lab lab-missing' : 'lab'))
+      .each(function (L) {
+        const n = L.show.lines.length;
+        d3.select(this).selectAll('tspan').data(L.show.lines).join('tspan')
+          .attr('x', 0).attr('dy', (t, i) => `${i ? LINE : (-(n - 1) / 2) * LINE}em`).text((t) => t);
+      });
+    placeMarks(boxes, stars, covered);
+    moveLabels();
+  }
+
+  function placeMarks(boxes, stars, covered) {
     const taken = [...boxes, ...covered];
     // Right of the marker, else left, above, below; the whole label on screen and clear of everything placed so far.
     const spot = (sx, sy, gap, w) => {
@@ -746,9 +857,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   function moveLabels() {
     const f = fontScale(T.k);
     gLabels.selectAll('text').each(function (L) {
-      const [sx, sy] = T.apply([L.a.x, L.a.y]);
-      this.setAttribute('x', sx);
-      this.setAttribute('y', sy + (L.shift || 0) * L.size * f);
+      const [sx, sy] = T.apply([L.mx, L.my]);
+      this.setAttribute('transform', `translate(${sx},${sy})`);
       this.style.fontSize = `${L.size * f}px`;
       this.style.strokeWidth = `${Math.max(2, L.size * f * 0.2)}px`;
     });

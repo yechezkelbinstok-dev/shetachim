@@ -2,7 +2,7 @@
   "about": [
     "One entry per shetach. territory lists what it covers: a state or province code (US-TX, CA-ON); the part of a state east and/or west of a longitude ({ \"state\": \"US-PA\", \"westOf\": -78.13 }); counties by 5-digit FIPS ({ \"counties\": [...] }); towns ({ \"state\": \"US-MA\", \"towns\": [...] }); or census tracts ({ \"state\": \"US-MA\", \"tracts\": [...] }).",
     "Where claims overlap, the more specific one wins: tracts, then towns, then counties, then longitude lines, then whole states. Anything no shetach claims is left blank.",
-    "capital: the chabad.org center id of the shetach's headquarters (the number in its chabad.org link), or lat and lon; \"world\": true marks 770. lastName is optional; it defaults to the last word of headShliach. notShown: areas left off the map entirely."
+    "short: the label used where the name doesn't fit; by default the state and province abbreviations joined (KS-MO). capital: the chabad.org center id of the shetach's headquarters (the number in its chabad.org link), or lat and lon; \"world\": true marks 770. lastName is optional; it defaults to the last word of headShliach. notShown: areas left off the map entirely."
   ],
   "notShown": ["CA-YT", "CA-NT", "CA-NU"],
   "shetachim": [
@@ -240,6 +240,7 @@
     {
       "id": "western-pennsylvania",
       "name": "Western Pennsylvania",
+      "short": "W. PA",
       "headShliach": "Yisroel Rosenfeld",
       "territory": [
         { "state": "US-PA", "westOf": -78.13 },
@@ -253,6 +254,7 @@
     {
       "id": "pennsylvania",
       "name": "Pennsylvania",
+      "short": "PA",
       "headShliach": "Avremel Shemtov",
       "territory": [
         { "state": "US-PA", "eastOf": -78.13 }
@@ -290,6 +292,7 @@
     {
       "id": "new-york-city",
       "name": "New York City",
+      "short": "NYC",
       "headShliach": "Tzach",
       "territory": [
         {
@@ -302,6 +305,7 @@
     {
       "id": "long-island",
       "name": "Long Island",
+      "short": "LI",
       "headShliach": "Tuvia Teldon",
       "territory": [
         {
@@ -335,6 +339,7 @@
     {
       "id": "central-massachusetts",
       "name": "Central Massachusetts",
+      "short": "C. MA",
       "headShliach": "Mendel Fogelman",
       "territory": [
         { "state": "US-MA", "eastOf": -72.1574, "westOf": -71.24694 }
@@ -344,6 +349,7 @@
     {
       "id": "western-and-southern-new-england",
       "name": "Western and Southern New England",
+      "short": "CT-W. MA",
       "headShliach": "Yisroel Deren",
       "territory": [
         "US-CT",
@@ -354,6 +360,7 @@
     {
       "id": "eastern-massachusetts",
       "name": "Eastern Massachusetts",
+      "short": "E. MA",
       "headShliach": "Chaim Prus",
       "territory": [
         { "state": "US-MA", "eastOf": -71.24694 }
@@ -362,7 +369,8 @@
     },
     {
       "id": "north-shore-of-massachusetts",
-      "name": "North Shore of Massachusetts",
+      "name": "North Shore",
+      "short": "N. Shore",
       "headShliach": "Yossi Lipsker",
       "territory": [
         {
@@ -380,6 +388,7 @@
     {
       "id": "cape-cod-and-the-islands",
       "name": "Cape Cod and the Islands",
+      "short": "Cape Cod",
       "headShliach": "Kuti Alperowitz",
       "territory": [
         {

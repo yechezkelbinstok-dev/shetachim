@@ -413,7 +413,7 @@ async function buildGeo(data) {
     const cs = byState.get(state), P = `${state.replace('-', '_')}_`;
     prefix.set(state, P);
     const fips = counties.features.find((f) => `US-${f.properties.STUSPS}` === state)?.properties.GEOID.slice(0, 2);
-    const box = bboxOf(areaById.get(state), 1);
+    const box = bboxOf(areaById.get(state), 0.05);
     const has = (level) => cs.some((c) => c.level === level);
     let base;
     if ((has(LEVEL.town) || has(LEVEL.tract)) && fips) {
@@ -554,6 +554,13 @@ async function main() {
   const centers = [...raw.map((r) => normalize(r)), ...extras.map((e) => normalize(toRaw(e), true))];
   const bad = centers.filter((c) => !Number.isFinite(c.lat) || !Number.isFinite(c.lon));
   if (bad.length) console.warn(`${bad.length} centers have no coordinates and are skipped`);
+
+  // Who runs each center (scripts/chabad-personnel-scrape.js, run by hand in a browser — this
+  // sandbox can't reach chabad.org). Optional: the map works without it.
+  const personnelFile = at('data', 'raw', 'chabad-personnel.json');
+  const personnelById = fs.existsSync(personnelFile) ? new Map(Object.entries(readJSON(personnelFile).personnel || {})) : new Map();
+  for (const c of centers) { const p = personnelById.get(c.id); if (p && p.length) c.personnel = p; }
+  if (personnelById.size) console.log(`personnel: ${personnelById.size} of ${centers.length} centers`);
 
   console.log('building map geometry…');
   const shetachData = readJSON(at('data', 'shetachim.json'));

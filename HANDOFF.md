@@ -76,6 +76,17 @@ The owner got very angry at the first version. The lessons:
     (`CITY_DENSITY`) keeps small towns for when you zoom in. A city right at a capital's star uses
     the star as its marker, with the city's name beside it.
   - Capitals: a star, no label; 770 bigger. Cards on hover/tap for capitals, cities, dots and areas.
+    A capital's card says "<shetach> flagship center" (770's says "World Headquarters", with a
+    highlighted card), not "Capital of <shetach>" (read as the state's political capital for a
+    shetach named after one, like Oregon).
+  - Any center's card can show who's listed there — the first (living) person as the shliach, the
+    rest under "+more" — from `data/raw/chabad-personnel.json` (optional; the map works without it).
+    It isn't on chabad.org's bulk locator data, only on each center's own record, so it comes from
+    `scripts/chabad-personnel-scrape.js`, run by hand in a browser console (this sandbox can't reach
+    chabad.org): paste it on a chabad.org tab, it downloads `chabad-personnel.json` when done (it's
+    slow — one request per center, rate-limited by the site — and resumable if stopped partway).
+    Drop the file at `data/raw/chabad-personnel.json` and rebuild. If `chabad-centers.json` is ever
+    re-scraped, run `node scripts/gen-personnel-ids.mjs` first to refresh the id list the scraper covers.
   - Blank areas (no shetach): no fill, no label; their card shows the state.
   - If the physical map can't load (no WebGL, or the tiles are blocked, as in a Claude artifact),
     it says so in a few words and stays on Political.
@@ -114,7 +125,7 @@ The owner got very angry at the first version. The lessons:
 
 ## Notes for Claude
 - This cloud sandbox's network is limited: GitHub (`raw.githubusercontent.com`) and the npm
-  registry work; census.gov, geonames.org, cdnjs, jsdelivr, unpkg, openfreemap.org and
+  registry work; census.gov, geonames.org, chabad.org, cdnjs, jsdelivr, unpkg, openfreemap.org and
   github.io are blocked. That's why counties, towns and tracts come from the Census Bureau's
   GitHub (`uscensusbureau/citysdk`, `v2/GeoJSON/500k/2022/…`) and cities from npm.
   The owner's browser reaches all of them. The real OpenFreeMap tiles can't be seen from here.

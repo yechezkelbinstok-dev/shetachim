@@ -191,11 +191,19 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
 #card.pinned > ul:first-child > li:first-child { padding-right: 24px; }
 #card h2 { margin: 0 22px 4px 0; font: 700 16px/1.25 var(--font-ui); text-wrap: balance; }
 #card .kicker { display: block; font: 500 11px var(--font-map); letter-spacing: .1em; color: var(--muted); margin-bottom: 2px; }
+#card .kicker-world { color: var(--accent); font-weight: 700; }
+#card.world { border-color: var(--accent); box-shadow: var(--shadow), 0 0 0 1px var(--accent); }
 #card ul { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
 #card li { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
 #card li strong { font-weight: 500; }
 #card .meta, #card p { color: var(--muted); font-size: 13px; margin: 0; }
 #card .flag { font-size: 12.5px; font-style: italic; color: var(--muted); }
+#card .flag-world { color: var(--accent); font-weight: 600; font-style: normal; }
+#card .person { font-size: 13px; margin: 2px 0 0; }
+#card .personnel { margin: 2px 0 0; pointer-events: auto; }
+#card .personnel summary { cursor: pointer; font-size: 12px; color: var(--accent); list-style: none; }
+#card .personnel summary::-webkit-details-marker { display: none; }
+#card .personnel .pother { font-size: 13px; margin-top: 3px; padding-left: 10px; }
 #card a { color: var(--accent); font-size: 13px; }
 #card .foot { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--panel-line); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 10px; }
 #card .close { position: absolute; top: 6px; right: 6px; width: 26px; height: 26px; border: 0; border-radius: 6px; background: transparent; cursor: pointer; display: none; }
@@ -1164,6 +1172,22 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     return g ? esc(g.properties.name) : '';
   }
 
+  // A shetach's flagship center; 770 (world HQ) gets its own wording rather than "of New York City".
+  const capKicker = (c) => (c.world ? 'World Headquarters' : `${esc(c.s.name)} flagship center`);
+
+  // Who's listed at a center (chabad.org's own listing, when scripts/chabad-personnel-scrape.js has
+  // been run): the first one still living is shown as the shliach; anyone else goes under "+more".
+  const personName = (p) => `${[p.title, p.firstName, p.lastName].filter(Boolean).join(' ')}${p.isDeceased ? ' obm' : ''}`;
+  const personLine = (p) => `${esc(personName(p))}${p.position ? ` <span class="meta">· ${esc(p.position)}</span>` : ''}`;
+  function personnelHTML(list) {
+    if (!list || !list.length) return '';
+    const primary = list.find((p) => !p.isDeceased) || list[0];
+    const others = list.filter((p) => p !== primary);
+    const more = others.length
+      ? `<details class="personnel"><summary>+${others.length} more</summary>${others.map((p) => `<div class="pother">${personLine(p)}</div>`).join('')}</details>` : '';
+    return `<p class="person">${personLine(primary)}</p>${more}`;
+  }
+
   function dotHTML(d) {
     const n = d.centers.length;
     const items = d.centers.map((c) => {
@@ -1171,7 +1195,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
       return `<li>
         <strong>${esc(c.name)}</strong>
         <span class="meta">${esc([c.type, c.city].filter(Boolean).join(' · '))}</span>
-        ${cap ? `<span class="flag">Capital of ${esc(cap.s.name)}</span>` : ''}
+        ${personnelHTML(c.personnel)}
+        ${cap ? `<span class="flag${cap.world ? ' flag-world' : ''}">${capKicker(cap)}</span>` : ''}
         ${chabadLink(c)}
       </li>`;
     }).join('');
@@ -1180,8 +1205,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   }
 
   function capitalHTML(c) {
-    return `<span class="kicker">Capital of ${esc(c.s.name)}</span><h2>${esc(c.name)}</h2>
-      ${c.city ? `<p>${esc(c.city)}</p>` : ''}${chabadLink(c.center)}
+    return `<span class="kicker${c.world ? ' kicker-world' : ''}">${capKicker(c)}</span><h2>${esc(c.name)}</h2>
+      ${c.city ? `<p>${esc(c.city)}</p>` : ''}${personnelHTML(c.center && c.center.personnel)}${chabadLink(c.center)}
       <div class="foot"><span class="meta">${shetachLine(c.piece)}</span></div>`;
   }
 
@@ -1213,6 +1238,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
       '<button type="button" class="close" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>';
     card.hidden = false;
     card.classList.toggle('pinned', pin);
+    card.classList.toggle('world', !!(hit.capital && hit.capital.world));
     lastPoint = { clientX: event.clientX, clientY: event.clientY };
     if (!phone()) {
       const app = $('#app').getBoundingClientRect();

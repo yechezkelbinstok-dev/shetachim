@@ -15,6 +15,9 @@ Starting with the United States and Canada. **Picking this up? Read [HANDOFF.md]
 - `data/report.md`: counts per state/country, cities without a GeoNames match, and data problems found by the build.
 - `scripts/build-data.mjs`: builds `web/data/` from the above plus public boundary and city data.
 - `scripts/chabad-centers-scrape.js`: older browser-console collector for the locator API.
+- `scripts/chabad-personnel-scrape.js`: browser-console collector for who's listed at each center
+  (not in the locator API above); optional, `data/raw/chabad-personnel.json` if run.
+- `scripts/gen-personnel-ids.mjs`: refreshes the id list embedded in the personnel scraper.
 - `data/samples/`: sample chabad.org API responses, for reference.
 
 ## Build

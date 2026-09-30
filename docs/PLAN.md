@@ -44,6 +44,9 @@ country (USA, Canada) shows only that country.
 - Known chabad.org geocoding mistakes are listed in `data/report.md` (16 Israeli listings
   sitting on the country's midpoint, a few others). None are in the US or Canada.
 - Centers missing from chabad.org go in `data/extra-centers.json` (now Riyadh and Istanbul).
+- Who's listed at a center (the shliach and anyone else) isn't in chabad.org's bulk locator data,
+  only on each center's own record. `scripts/chabad-personnel-scrape.js`, run by hand in a browser,
+  collects it into `data/raw/chabad-personnel.json` (optional; the map works without it).
 
 ### Cities
 

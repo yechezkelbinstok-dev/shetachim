@@ -150,12 +150,12 @@ function bounds(projection, list) {
 }
 
 // ---------- names ----------
-// Shetach names as outlines (so the SVG looks the same everywhere, with no font needed): Inter SemiBold, capitals,
+// Names as outlines (so the SVG looks the same everywhere, with no font needed): Inter SemiBold, capitals,
 // slightly spaced. Each name gets the biggest size (up to a cap that grows with the area, so big areas read bigger)
 // at which it fits wholly inside its shetach, on one line or two, else its short form; one that doesn't fit at all
 // goes offshore with a thin leader line.
 const FONT = opentype.loadSync(path.join(ROOT, 'node_modules', '@fontsource', 'inter', 'files', 'inter-latin-600-normal.woff'));
-const TRACK = 0.07; // letter spacing, in em
+const TRACK = 0.01; // letter spacing, in em
 const LINE = 1.18; // line spacing, in em
 const CAP = 0.727; // Inter's capital height, in em
 const textWidth = (t, size) => FONT.getAdvanceWidth(t, size) + TRACK * size * (t.length - 1);
@@ -196,56 +196,74 @@ function boxInside(poly, [x0, y0, x1, y1]) {
 }
 const polyArea = (r) => Math.abs(r.reduce((s2, p, i) => { const q = r[(i + 1) % r.length]; return s2 + p[0] * q[1] - q[0] * p[1]; }, 0)) / 2;
 
+// Distance from a segment to a box (0 if they touch).
+function segBoxDist(a, b, [x0, y0, x1, y1]) {
+  const pd = ([px, py]) => Math.hypot(Math.max(x0 - px, 0, px - x1), Math.max(y0 - py, 0, py - y1));
+  const sd = (p, q, r) => { const dx = r[0] - q[0], dy = r[1] - q[1], l = dx * dx + dy * dy; const t = l ? Math.max(0, Math.min(1, ((p[0] - q[0]) * dx + (p[1] - q[1]) * dy) / l)) : 0; return Math.hypot(p[0] - q[0] - t * dx, p[1] - q[1] - t * dy); };
+  return Math.min(pd(a), pd(b), ...[[x0, y0], [x1, y0], [x1, y1], [x0, y1]].map((c) => sd(c, a, b)));
+}
+
+// Each shetach's head shliach, centred in its shetach: the biggest size (up to a cap that grows with the area) at which
+// the name fits inside, on one line or two (first name / last name), then shown a little smaller than that and placed
+// where it has the most room on every side. Too small for it (the small Northeast shetachim): offshore, in a column,
+// with a leader line.
 function labels(list, projection, { offshore = false, box = null } = {}) {
   const MIN = 22, out = [], lost = [];
   for (const [id, gs] of byShetachOf(list)) {
     const s = shetachById.get(id);
+    if (!s.headShliach) continue;
     const geo = merge(topo, gs);
     const polys = (geo.type === 'Polygon' ? [geo.coordinates] : geo.coordinates).map((poly) => poly.map((r) => r.map((p) => projection(p))));
     polys.sort((a, b) => polyArea(b[0]) - polyArea(a[0]));
-    const main = polys[0];
+    const main = polys[0].map((r) => { const k = keep(r); return k.length >= 4 ? k : r; });
+    const segs = main.flatMap((r) => r.slice(1).map((p, i) => [r[i], p]));
     const [px, py] = polylabel(main, 1);
-    const cap = Math.max(MIN, Math.min(72, Math.sqrt(polyArea(main[0])) * 0.13));
-    const name = s.name.toUpperCase(), short = s.short ? s.short.toUpperCase() : null;
-    // The biggest size each form fits at; two lines only when that's clearly bigger, the short form only when the name
-    // doesn't fit at all (never in a corner box, where the full name goes in the corner instead).
-    const fitAt = (lines) => {
-      if (!lines) return null;
-      for (let size = cap; size >= MIN; size -= 1) {
-        const w = Math.max(...lines.map((l) => textWidth(l, size))), h = (lines.length - 1) * LINE * size + CAP * size;
-        const step = Math.max(4, size / 2);
-        for (let ring = 0; ring <= 6; ring++) {
-          for (let i = -ring; i <= ring; i++) for (let j = -ring; j <= ring; j++) {
-            if (Math.max(Math.abs(i), Math.abs(j)) !== ring) continue;
-            const cx = px + i * step, cy = py + j * step;
-            if (boxInside(main, [cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2])) return { lines, size, cx, cy, h };
-          }
+    let bx0 = Infinity, by0 = Infinity, bx1 = -Infinity, by1 = -Infinity;
+    for (const [x, y] of main[0]) { bx0 = Math.min(bx0, x); bx1 = Math.max(bx1, x); by0 = Math.min(by0, y); by1 = Math.max(by1, y); }
+    const cap = Math.max(MIN, Math.min(64, Math.sqrt(polyArea(main[0])) * 0.12));
+    const name = s.headShliach.trim();
+    const words = name.split(/\s+/);
+    const forms = [[name], words.length > 1 ? [words.slice(0, -1).join(' '), words[words.length - 1]] : null].filter(Boolean);
+    const dims = (lines, size) => [Math.max(...lines.map((l) => textWidth(l, size))), (lines.length - 1) * LINE * size + CAP * size];
+    // every place (on a grid) a label of this size fits
+    const spots = (lines, size) => {
+      const [w, h] = dims(lines, size), step = Math.max(3, size / 3), res = [];
+      for (let cx = bx0 + w / 2; cx <= bx1 - w / 2; cx += step) {
+        for (let cy = by0 + h / 2; cy <= by1 - h / 2; cy += step) {
+          if (boxInside(main, [cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2])) res.push([cx, cy]);
         }
       }
-      return null;
+      return res;
     };
-    const one = fitAt([name]), two = fitAt(twoLines(name));
-    let best = two && (!one || two.size > one.size * 1.25) ? two : one;
-    if (!best && !box && short && short !== name) best = fitAt([short]);
-    if (best) out.push(best);
-    else lost.push({ name: box ? s.name : s.short || s.name, px, py });
+    const biggest = (lines) => { for (let size = cap; size >= MIN; size -= 1) if (spots(lines, size).length) return size; return 0; };
+    const sizes = forms.map(biggest);
+    let k = sizes[1] && (!sizes[0] || sizes[1] > sizes[0] * 1.25) ? 1 : 0;
+    if (!sizes[k]) { lost.push({ name, px, py }); continue; }
+    const lines = forms[k], size = Math.max(MIN, Math.round(Math.min(cap, sizes[k] * 0.85)));
+    const [w, h] = dims(lines, size);
+    let best = null;
+    for (const [cx, cy] of spots(lines, size)) {
+      const bb = [cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2];
+      const room = Math.min(...segs.map(([a, b2]) => segBoxDist(a, b2, bb)));
+      const score = room - 0.02 * Math.hypot(cx - px, cy - py);
+      if (!best || score > best.score) best = { score, cx, cy };
+    }
+    out.push({ lines, size, cx: best.cx, cy: best.cy, h });
   }
   if (box && lost.length) {
-    // too small for its own name inside a corner box (Hawaii's islands): the name in the box's top-left corner
-    for (const l of lost) out.push({ lines: [l.name.toUpperCase()], size: MIN + 4, cx: box[0] + 14 + textWidth(l.name.toUpperCase(), MIN + 4) / 2, cy: box[1] + 14 + CAP * (MIN + 4) / 2, h: CAP * (MIN + 4) });
+    // too small inside a corner box (Hawaii's islands): the name along the box's top
+    for (const l of lost) { const size = MIN + 4; out.push({ lines: [l.name], size, cx: box[0] + box[2] / 2, cy: box[1] + 16 + CAP * size / 2, h: CAP * size }); }
     lost.length = 0;
   }
   let leaders = '';
   if (offshore && lost.length) {
-    // Offshore, in a column to the east of the easternmost of them, in north-to-south order, with leader lines.
     const size = MIN + 2, gap = size * 1.9;
     const x = Math.max(...lost.map((l) => l.px)) + 150;
     lost.sort((a, b) => a.py - b.py);
     let y = -Infinity;
     for (const l of lost) {
       y = Math.max(l.py, y + gap);
-      const t = l.name.toUpperCase();
-      out.push({ lines: [t], size, cx: x + textWidth(t, size) / 2, cy: y, h: CAP * size });
+      out.push({ lines: [l.name], size, cx: x + textWidth(l.name, size) / 2, cy: y, h: CAP * size });
       leaders += `M${fmt(l.px)},${fmt(l.py)}L${fmt(x - 10)},${fmt(y)}`;
       leaders += `M${fmt(l.px + 3.5)},${fmt(l.py)}A3.5,3.5 0 1,1 ${fmt(l.px - 3.5)},${fmt(l.py)}A3.5,3.5 0 1,1 ${fmt(l.px + 3.5)},${fmt(l.py)}`;
     }

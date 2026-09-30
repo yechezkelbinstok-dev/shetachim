@@ -661,7 +661,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     if (physical) {
       mapgl.resize();
       mapgl.setRenderWorldCopies(!!view.wrap);
-      mapgl.setMinZoom(Math.max(-2, V.zFit - 1.5)); // below 0 on a phone, so the whole world fits across it
+      mapgl.setMinZoom(Math.max(-2, V.zFit - 1.5)); // MapLibre allows down to -2 (it still fills the screen height with the world)
       dataGL();
       if (!opts.keep) mapgl.jumpTo(cameraFor(start));
       syncCamera();

@@ -8,15 +8,16 @@
 //   data/extra-centers.json             centers missing from chabad.org
 //   data/shetachim.json                 the shetachim: name, head shliach, territory, capital
 // Out:
-//   web/data/shetachim.json             checked copy of data/shetachim.json, with each capital's position
-//   web/data/geo.json                   TopoJSON, one object `areas`: the US states, DC and Canadian
-//                                       provinces (minus the areas listed in shetachim.json `notShown`)
+//   web/data/shetachim.json             the shetachim for the page: names, head shluchim, capitals with positions
+//   web/data/geo.json                   TopoJSON, one object `areas`: the US states, DC and Canadian provinces
+//                                       (minus `notShown`), with split states cut into one piece per shetach;
+//                                       each piece has its state and its shetach (null where none is entered)
 //   web/data/centers.geojson            one point per location (centers at the same spot merged)
 //   web/data/cities.json                every US/Canada city with at least one center, biggest first
 //   data/report.md                      counts and data problems worth a look
 //
-// Boundary files are downloaded once into .cache/ (Natural Earth, US Census). City points and
-// populations come from GeoNames, via the all-the-cities package.
+// Boundary files are downloaded once into .cache/ (Natural Earth; US Census counties, towns and tracts).
+// City points and populations come from GeoNames, via the all-the-cities package.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -33,9 +34,11 @@ const SOURCES = {
   admin1: `${NE}/ne_10m_admin_1_states_provinces.geojson`, // tagging: states/provinces
   admin1Lakes: `${NE}/ne_10m_admin_1_states_provinces_lakes.geojson`, // drawing: Great Lakes cut out
   countries: `${NE}/ne_10m_admin_0_countries.geojson`, // tagging: countries
-  // tagging: US counties, Census 1:500k (2022), from the Census Bureau's GitHub (www2.census.gov isn't always reachable)
+  // US counties, Census 1:500k (2022), from the Census Bureau's GitHub (www2.census.gov isn't always reachable)
   counties: 'https://raw.githubusercontent.com/uscensusbureau/citysdk/master/v2/GeoJSON/500k/2022/county.json',
 };
+// the same place, by state FIPS code: county-subdivision (towns) and tract
+const CENSUS = 'https://raw.githubusercontent.com/uscensusbureau/citysdk/master/v2/GeoJSON/500k/2022';
 
 const MERGE_METERS = 25; // centers closer than this are one dot (same building / campus)
 const COAST_KM = 25; // a point just offshore is given to the nearest area within this distance
@@ -43,12 +46,12 @@ const UNIT_COUNTRIES = ['USA', 'CAN'];
 const UNIT_ISO = ['US', 'CA'];
 const CITY_KM = 60; // a GeoNames place this close with the same name is the center's city
 const ROUGH = ['US-AK']; // drawn small in an inset, so simplified harder
+const SLIVER_GRID = 0.03; // degrees: slivers along a split state's outline are handed out in squares this size
 
 // ---------- downloads ----------
 
-async function cached(name) {
-  const url = SOURCES[name];
-  const file = path.join(CACHE, path.basename(new URL(url).pathname));
+async function download(url, name) {
+  const file = path.join(CACHE, name);
   if (!fs.existsSync(file)) {
     console.log(`downloading ${url}`);
     const res = await fetch(url);
@@ -58,6 +61,8 @@ async function cached(name) {
   }
   return file;
 }
+const cached = (name) => download(SOURCES[name], path.basename(new URL(SOURCES[name]).pathname));
+const censusLayer = (kind, fips) => download(`${CENSUS}/${fips}/${kind}.json`, `${kind}-${fips}.json`);
 
 async function countiesGeoJSON() {
   const out = path.join(CACHE, 'us-counties.geojson');
@@ -313,55 +318,228 @@ function count(list, key) {
   return [...m.entries()].sort((a, b) => b[1] - a[1]);
 }
 
-// ---------- geometry for the map ----------
+// ---------- shetachim: what each one covers ----------
 
-async function buildGeo(notShown) {
-  const admin1 = await cached('admin1Lakes');
-  const unitFilter = UNIT_COUNTRIES.map((c) => `adm0_a3 == '${c}'`).join(' || ');
-  const hidden = JSON.stringify(notShown).replace(/"/g, "'");
-  const rough = JSON.stringify(ROUGH).replace(/"/g, "'");
-  await mapshaper.runCommands(
-    `-i "${admin1}" -filter "(${unitFilter}) && !${hidden}.includes(iso_3166_2)" ` +
-    `-each "id = iso_3166_2, country = adm0_a3 == 'USA' ? 'US' : 'CA', abbr = postal" ` +
-    `-filter-fields id,name,country,abbr -rename-layers areas ` +
-    `-simplify variable interval="${rough}.includes(id) ? 2500 : 500" keep-shapes ` +
-    `-filter-islands min-area=40km2 remove-empty ` +
-    `-o "${path.join(OUT, 'geo.json')}" format=topojson quantization=100000`,
-  );
+// A territory item is a state or province code, or part of a state: east and/or west of a longitude,
+// counties, towns or census tracts. Where items overlap, the more specific one wins.
+const LEVEL = { state: 0, band: 1, county: 2, town: 3, tract: 4 };
+const townKey = (s) => s.toLowerCase().replace(/ town$/, '').replace(/[^a-z]/g, '');
+
+function readClaims(data, areaIds, counties) {
+  const problems = [];
+  const stateOfFips = new Map(counties.features.map((f) => [f.properties.GEOID.slice(0, 2), `US-${f.properties.STUSPS}`]));
+  const countyIds = new Set(counties.features.map((f) => f.properties.GEOID));
+  const claims = [];
+  const onState = (s, state) => {
+    if (areaIds.has(state)) return true;
+    problems.push(`${s.id}: unknown area "${state}"`);
+    return false;
+  };
+  for (const s of data.shetachim) {
+    if (!s.id || !s.name || !Array.isArray(s.territory)) { problems.push(`${s.id || s.name || '?'}: needs id, name and territory`); continue; }
+    for (const t of s.territory) {
+      if (typeof t === 'string') {
+        if (onState(s, t)) claims.push({ shetach: s.id, state: t, level: LEVEL.state });
+      } else if (t.counties) {
+        for (const c of t.counties) {
+          if (countyIds.has(c)) claims.push({ shetach: s.id, state: stateOfFips.get(c.slice(0, 2)), level: LEVEL.county, county: c });
+          else problems.push(`${s.id}: unknown county "${c}"`);
+        }
+      } else if (t.towns && onState(s, t.state)) {
+        for (const town of t.towns) claims.push({ shetach: s.id, state: t.state, level: LEVEL.town, town: townKey(town), townName: town });
+      } else if (t.tracts && onState(s, t.state)) {
+        for (const tract of t.tracts) claims.push({ shetach: s.id, state: t.state, level: LEVEL.tract, tract });
+      } else if ((t.westOf !== undefined || t.eastOf !== undefined) && onState(s, t.state)) {
+        claims.push({ shetach: s.id, state: t.state, level: LEVEL.band, from: t.eastOf ?? -180, to: t.westOf ?? 180 });
+      } else if (!t.towns && !t.tracts) {
+        problems.push(`${s.id}: can't read territory ${JSON.stringify(t)}`);
+      }
+    }
+  }
+  // Two shetachim may not claim the same thing (overlapping longitude ranges included).
+  const seen = new Map();
+  for (const c of claims) {
+    const key = [c.state, c.level, c.county ?? c.town ?? c.tract ?? ''].join('|');
+    const other = seen.get(key);
+    if (other && other.shetach !== c.shetach) {
+      if (c.level !== LEVEL.band) problems.push(`${other.shetach} and ${c.shetach} both claim ${c.county ?? c.townName ?? c.tract ?? c.state}`);
+    }
+    if (c.level === LEVEL.band) {
+      for (const o of claims) {
+        if (o !== c && o.level === LEVEL.band && o.state === c.state && o.shetach !== c.shetach && o.from < c.to && c.from < o.to && o.shetach < c.shetach) {
+          problems.push(`${o.shetach} and ${c.shetach} both claim part of ${c.state}`);
+        }
+      }
+    }
+    seen.set(key, c);
+  }
+  return { claims, problems };
 }
 
-// Every territory code must be a real area, no area may be in two shetachim, and a capital must be
-// a known center inside its shetach (or a lat/lon). Writes the checked file with each capital's position.
-function checkShetachim(data, dots) {
-  const topo = readJSON(path.join(OUT, 'geo.json'));
-  const units = new Set(topo.objects.areas.geometries.map((g) => g.properties.id));
-  const dotOf = new Map(dots.flatMap((d) => d.centers.map((c) => [c.id, { d, c }])));
-  const owner = new Map();
-  const problems = [];
-  for (const s of data.shetachim) {
-    if (!s.id || !s.name || !Array.isArray(s.territory)) problems.push(`${s.id || s.name || '?'}: needs id, name and territory`);
-    for (const u of s.territory || []) {
-      if (!units.has(u)) problems.push(`${s.id}: unknown area "${u}"`);
-      if (owner.has(u)) problems.push(`${u} is in both ${owner.get(u)} and ${s.id}`);
-      owner.set(u, s.id);
+const featureOf = (geometry, properties) => ({ type: 'Feature', geometry, properties });
+const collectionOf = (features) => ({ type: 'FeatureCollection', features });
+const rect = ([x0, y0, x1, y1]) => ({ type: 'Polygon', coordinates: [[[x0, y0], [x1, y0], [x1, y1], [x0, y1], [x0, y0]]] });
+function bboxOf(f, pad = 0) {
+  const [{ box }] = index([f]);
+  return [box[0] - pad, box[1] - pad, box[2] + pad, box[3] + pad];
+}
+
+// The map's areas: Natural Earth states and provinces, each a single piece, except states that are split
+// between shetachim. Those are cut along the Census lines their claims use (counties, towns, tracts) and
+// along longitude lines, with the outer edge kept from Natural Earth so neighbours still meet exactly.
+// Slivers where the Census and Natural Earth coastlines differ go to the nearest piece.
+async function buildGeo(data) {
+  const notShown = data.notShown || [];
+  const ne = readJSON(await cached('admin1Lakes'));
+  const areas = ne.features
+    .filter((f) => UNIT_COUNTRIES.includes(f.properties.adm0_a3) && !notShown.includes(f.properties.iso_3166_2))
+    .map((f) => featureOf(f.geometry, {
+      id: f.properties.iso_3166_2, name: f.properties.name, abbr: f.properties.postal,
+      country: f.properties.adm0_a3 === 'USA' ? 'US' : 'CA',
+    }));
+  const areaById = new Map(areas.map((f) => [f.properties.id, f]));
+  const counties = readJSON(await countiesGeoJSON());
+  const { claims, problems } = readClaims(data, new Set(areaById.keys()), counties);
+  const byState = new Map();
+  for (const c of claims) {
+    if (!byState.has(c.state)) byState.set(c.state, []);
+    byState.get(c.state).push(c);
+  }
+  const split = [...byState].filter(([, cs]) => cs.some((c) => c.level > LEVEL.state)).map(([state]) => state);
+
+  // For each split state, layers of cells (fields prefixed per state, since the union keeps every field).
+  const layers = {}, prefix = new Map();
+  for (const state of split) {
+    const cs = byState.get(state), P = `${state.replace('-', '_')}_`;
+    prefix.set(state, P);
+    const fips = counties.features.find((f) => `US-${f.properties.STUSPS}` === state)?.properties.GEOID.slice(0, 2);
+    const box = bboxOf(areaById.get(state), 1);
+    const has = (level) => cs.some((c) => c.level === level);
+    let base;
+    if ((has(LEVEL.town) || has(LEVEL.tract)) && fips) {
+      const towns = readJSON(await censusLayer('county-subdivision', fips)).features;
+      const known = new Set(towns.map((f) => townKey(f.properties.NAME)));
+      for (const c of cs) if (c.level === LEVEL.town && !known.has(c.town)) problems.push(`${c.shetach}: no town "${c.townName}" in ${state}`);
+      base = towns.map((f) => featureOf(f.geometry, { [`${P}town`]: townKey(f.properties.NAME), [`${P}county`]: f.properties.STATEFP + f.properties.COUNTYFP }));
+    } else if (has(LEVEL.county) && fips) {
+      base = counties.features.filter((f) => f.properties.GEOID.startsWith(fips)).map((f) => featureOf(f.geometry, { [`${P}county`]: f.properties.GEOID }));
+    } else {
+      base = [featureOf(rect(box), { [`${P}all`]: 1 })];
     }
-    const cap = s.capital;
-    if (!cap) continue;
-    if (!cap.name) problems.push(`${s.id}: the capital needs a name`);
-    if (cap.centerId !== undefined) {
-      const hit = dotOf.get(String(cap.centerId));
-      if (!hit) problems.push(`${s.id}: capital centerId ${cap.centerId} isn't in the centers data`);
-      else if (!(s.territory || []).includes(hit.d.region)) problems.push(`${s.id}: capital ${cap.centerId} is in ${hit.d.region}, outside the shetach`);
-      // on the center's dot, so the star and the dot line up
-      else Object.assign(cap, { centerId: String(cap.centerId), lat: +hit.d.lat.toFixed(5), lon: +hit.d.lon.toFixed(5), city: hit.c.city });
-    } else if (!Number.isFinite(cap.lat) || !Number.isFinite(cap.lon)) {
-      problems.push(`${s.id}: the capital needs a centerId, or lat and lon`);
+    layers[`${P}base`] = collectionOf(base);
+    if (has(LEVEL.tract)) {
+      const want = new Set(cs.filter((c) => c.level === LEVEL.tract).map((c) => c.tract));
+      const tracts = readJSON(await censusLayer('tract', fips)).features.filter((f) => want.has(f.properties.GEOID));
+      for (const t of want) if (!tracts.some((f) => f.properties.GEOID === t)) problems.push(`no census tract "${t}" in ${state}`);
+      layers[`${P}tracts`] = collectionOf(tracts.map((f) => featureOf(f.geometry, { [`${P}tract`]: f.properties.GEOID })));
+    }
+    if (!base[0].properties[`${P}all`]) {
+      // Small squares along the outline, so a long sliver is shared out between the pieces it runs past.
+      const outline = areaById.get(state), g = SLIVER_GRID, squares = [];
+      const [x0, y0, x1, y1] = bboxOf(outline, g);
+      for (let x = x0; x < x1; x += g) {
+        for (let y = y0; y < y1; y += g) {
+          if (kmTo(outline, x + g / 2, y + g / 2) < 5) squares.push(featureOf(rect([x, y, x + g, y + g]), { [`${P}sq`]: squares.length }));
+        }
+      }
+      layers[`${P}grid`] = collectionOf(squares);
+    }
+    if (has(LEVEL.band)) {
+      const edges = cs.filter((c) => c.level === LEVEL.band).flatMap((c) => [c.from, c.to]).filter((x) => x > box[0] && x < box[2]);
+      const xs = [box[0], ...[...new Set(edges)].sort((a, b) => a - b), box[2]];
+      layers[`${P}bands`] = collectionOf(xs.slice(1).map((x1, i) => featureOf(rect([xs[i], box[1], x1, box[3]]), { [`${P}mid`]: (xs[i] + x1) / 2 })));
     }
   }
   if (problems.length) throw new Error(`data/shetachim.json:\n  ${problems.join('\n  ')}`);
-  fs.writeFileSync(path.join(OUT, 'shetachim.json'), `${JSON.stringify(data, null, 2)}\n`);
-  console.log(`${data.shetachim.length} shetachim entered, covering ${owner.size} of ${units.size} states/provinces; ` +
-    `the rest are one shetach each`);
+
+  // One mosaic of everything, so every piece shares its edges exactly with its neighbours.
+  const names = ['areas', ...Object.keys(layers)];
+  const input = { 'areas.json': collectionOf(areas) };
+  for (const [name, layer] of Object.entries(layers)) input[`${name}.json`] = layer;
+  const mosaic = JSON.parse((await mapshaper.applyCommands(
+    `-i ${names.map((n) => `${n}.json`).join(' ')} combine-files -union target=${names.join(',')} name=mosaic -o mosaic.json format=geojson`, input,
+  ))['mosaic.json']).features.filter((f) => f.properties.id);
+
+  const whole = new Map(claims.filter((c) => c.level === LEVEL.state).map((c) => [c.state, c.shetach]));
+  const slivers = [];
+  for (const f of mosaic) {
+    const p = f.properties, P = prefix.get(p.id);
+    if (!P) { p.shetach = whole.get(p.id) ?? null; continue; }
+    if (p[`${P}town`] == null && p[`${P}county`] == null && p[`${P}all`] == null && p[`${P}tract`] == null) { slivers.push(f); continue; }
+    let best = null;
+    for (const c of byState.get(p.id)) {
+      const hit = c.level === LEVEL.state
+        || (c.level === LEVEL.band && p[`${P}mid`] >= c.from && p[`${P}mid`] <= c.to)
+        || (c.level === LEVEL.county && p[`${P}county`] === c.county)
+        || (c.level === LEVEL.town && p[`${P}town`] === c.town)
+        || (c.level === LEVEL.tract && p[`${P}tract`] === c.tract);
+      if (hit && (!best || c.level > best.level)) best = c;
+    }
+    p.shetach = best ? best.shetach : null;
+  }
+  const resolved = index(mosaic.filter((f) => f.properties.shetach !== undefined));
+  for (const f of slivers) {
+    const ring = polygonsOf(f.geometry)[0][0];
+    const [x, y] = ring.reduce(([sx, sy], [px, py]) => [sx + px / ring.length, sy + py / ring.length], [0, 0]);
+    let best = null;
+    for (const { f: g, box } of resolved) {
+      if (g.properties.id !== f.properties.id) continue;
+      const near = Math.max(box[0] - x, x - box[2], box[1] - y, y - box[3], 0) * 80; // km, a lower bound
+      if (best && near > best.km) continue;
+      const km = contains(g, x, y) ? 0 : kmTo(g, x, y);
+      if (!best || km < best.km) best = { g, km };
+    }
+    f.properties.shetach = best ? best.g.properties.shetach : null;
+  }
+  for (const f of mosaic) {
+    const p = f.properties;
+    f.properties = {
+      piece: prefix.has(p.id) ? `${p.id}:${p.shetach ?? 'none'}` : p.id,
+      state: p.id, name: p.name, abbr: p.abbr, country: p.country, shetach: p.shetach,
+    };
+  }
+
+  const rough = JSON.stringify(ROUGH).replace(/"/g, "'");
+  const out = await mapshaper.applyCommands(
+    '-i mosaic.json -dissolve piece copy-fields=state,name,abbr,country,shetach -rename-fields id=piece -rename-layers areas ' +
+    '-o pieces.json format=geojson ' +
+    `-simplify variable interval="${rough}.includes(state) ? 2500 : 500" keep-shapes ` +
+    '-filter-islands min-area=40km2 remove-empty ' +
+    '-o geo.json format=topojson quantization=100000',
+    { 'mosaic.json': collectionOf(mosaic) },
+  );
+  fs.writeFileSync(path.join(OUT, 'geo.json'), out['geo.json']);
+  const pieces = JSON.parse(out['pieces.json']).features;
+  const splitPieces = pieces.filter((f) => split.includes(f.properties.state));
+  console.log(`${data.shetachim.length} shetachim; split states: ${split.join(', ') || 'none'} (${splitPieces.length} pieces); ` +
+    `blank: ${pieces.filter((f) => !f.properties.shetach).map((f) => f.properties.name).join(', ') || 'none'}`);
+  return { pieces, split };
+}
+
+// Capitals: a known center (or a lat/lon), placed on that center's dot. One in the wrong shetach is
+// reported, not refused, since the lists are still being checked.
+function checkCapitals(data, dots, pieceOf) {
+  const problems = [], warnings = [];
+  const dotOf = new Map(dots.flatMap((d) => d.centers.map((c) => [c.id, { d, c }])));
+  for (const s of data.shetachim) {
+    const cap = s.capital;
+    if (!cap) continue;
+    if (cap.centerId !== undefined) {
+      const hit = dotOf.get(String(cap.centerId));
+      if (!hit) { problems.push(`${s.id}: capital centerId ${cap.centerId} isn't in the centers data`); continue; }
+      Object.assign(cap, {
+        centerId: String(cap.centerId), name: cap.name || hit.c.name, city: hit.c.city,
+        lat: +hit.d.lat.toFixed(5), lon: +hit.d.lon.toFixed(5),
+      });
+      const owner = pieceOf(hit.d);
+      if (owner !== s.id) warnings.push(`${s.name}: capital ${cap.name} (${cap.centerId}) is in ${owner ?? 'an area with no shetach'}`);
+    } else if (!Number.isFinite(cap.lat) || !Number.isFinite(cap.lon) || !cap.name) {
+      problems.push(`${s.id}: the capital needs a centerId, or a name, lat and lon`);
+    }
+  }
+  if (problems.length) throw new Error(`data/shetachim.json:\n  ${problems.join('\n  ')}`);
+  for (const w of warnings) console.warn(`warning: ${w}`);
+  return warnings;
 }
 
 // ---------- main ----------
@@ -377,10 +555,25 @@ async function main() {
   const bad = centers.filter((c) => !Number.isFinite(c.lat) || !Number.isFinite(c.lon));
   if (bad.length) console.warn(`${bad.length} centers have no coordinates and are skipped`);
 
-  console.log('loading boundaries…');
+  console.log('building map geometry…');
+  const shetachData = readJSON(at('data', 'shetachim.json'));
+  const { pieces, split } = await buildGeo(shetachData);
+
+  console.log('tagging centers…');
   const countryIdx = index(readJSON(await cached('countries')).features);
   const regionIdx = index(readJSON(await cached('admin1')).features.filter((f) => UNIT_COUNTRIES.includes(f.properties.adm0_a3)));
   const countyIdx = index(readJSON(await countiesGeoJSON()).features);
+  const pieceIdx = new Map(split.map((state) => [state, index(pieces.filter((f) => f.properties.state === state))]));
+  const shetachOfPiece = new Map(pieces.map((f) => [f.properties.id, f.properties.shetach]));
+
+  // The piece of a split state a point is in (the nearest one if it's just off the coast).
+  function pieceAt(region, x, y) {
+    const idx = pieceIdx.get(region);
+    if (!idx) return undefined;
+    const hit = locate(idx, x, y);
+    if (hit) return hit.f.properties.id;
+    return idx.reduce((a, b) => (kmTo(a.f, x, y) <= kmTo(b.f, x, y) ? a : b)).f.properties.id;
+  }
 
   function tag(dot) {
     const { lon: x, lat: y } = dot;
@@ -399,6 +592,7 @@ async function main() {
       const region = locate(regionIdx, x, y);
       if (region) dot.region = region.f.properties.iso_3166_2;
     }
+    dot.piece = pieceAt(dot.region, x, y);
   }
 
   const dots = mergeIntoDots(centers.filter((c) => Number.isFinite(c.lat) && Number.isFinite(c.lon)));
@@ -409,27 +603,31 @@ async function main() {
     type: 'Feature',
     geometry: { type: 'Point', coordinates: [+d.lon.toFixed(5), +d.lat.toFixed(5)] },
     properties: {
-      country: d.country, region: d.region, county: d.county, suspect: d.suspect,
+      country: d.country, region: d.region, piece: d.piece, county: d.county, suspect: d.suspect,
       centers: d.centers.map(({ lat, lon, ...c }) => c),
     },
   });
   fs.writeFileSync(path.join(OUT, 'centers.geojson'), JSON.stringify({ type: 'FeatureCollection', features: dots.map(toFeature) }));
 
   const cities = buildCities(dots);
+  for (const c of cities) c.piece = pieceAt(c.region, c.lon, c.lat);
   fs.writeFileSync(path.join(OUT, 'cities.json'), `[\n${cities.map(({ unmatched, ...c }) => JSON.stringify(c)).join(',\n')}\n]\n`);
 
-  console.log('building map geometry…');
-  const shetachData = readJSON(at('data', 'shetachim.json'));
-  await buildGeo(shetachData.notShown || []);
-  checkShetachim(shetachData, dots);
+  const pieceOf = (d) => shetachOfPiece.get(d.piece ?? d.region) ?? null;
+  const warnings = checkCapitals(shetachData, dots, pieceOf);
+  const forPage = {
+    notShown: shetachData.notShown || [],
+    shetachim: shetachData.shetachim.map(({ id, name, headShliach, lastName, capital }) => ({ id, name, headShliach, lastName, capital })),
+  };
+  fs.writeFileSync(path.join(OUT, 'shetachim.json'), `${JSON.stringify(forPage, null, 1)}\n`);
 
-  fs.writeFileSync(at('data', 'report.md'), report(centers, dots, cities, shetachData));
+  fs.writeFileSync(at('data', 'report.md'), report(centers, dots, cities, shetachData, pieces, warnings));
   console.log(`done: ${centers.length} centers -> ${dots.length} dots, ${cities.length} cities in the US and Canada`);
 }
 
 // ---------- report ----------
 
-function report(centers, dots, cities, shetachData) {
+function report(centers, dots, cities, shetachData, pieces, warnings) {
   const perCenter = dots.flatMap((d) => d.centers.map((c) => ({ ...c, country: d.country, countryName: d.countryName, region: d.region })));
   const multi = dots.filter((d) => d.centers.length > 1);
   const na = perCenter.filter((c) => c.country === 'US' || c.country === 'CA');
@@ -467,11 +665,14 @@ ${table(count(na, (c) => c.region))}
 |---|---|
 ${table(count(perCenter, (c) => c.countryName))}
 
-## Shetach capitals
+## Shetachim
 
-${shetachData.shetachim.filter((s) => s.capital).map((s) => `- ${s.name}: ${s.capital.name}` +
-  (s.capital.centerId ? ` (center ${s.capital.centerId}, ${s.capital.city})` : '')).join('\n') || 'None entered yet.'}
+${shetachData.shetachim.length} entered. No shetach (left blank): ${pieces.filter((f) => !f.properties.shetach).map((f) => f.properties.name).join(', ') || 'none'}.
 
+| Shetach | Head shliach | Capital |
+|---|---|---|
+${shetachData.shetachim.map((s) => `| ${s.name} | ${s.headShliach || ''} | ${s.capital ? `${s.capital.name}${s.capital.city ? `, ${s.capital.city}` : ''}` : ''} |`).join('\n')}
+${warnings.length ? `\nCapitals to check:\n\n${warnings.map((w) => `- ${w}`).join('\n')}\n` : ''}
 ## Cities without a GeoNames match (${unmatched.length} of ${cities.length})
 
 Placed at the middle of their centers. Usually a neighbourhood or a place under 1,000 people;

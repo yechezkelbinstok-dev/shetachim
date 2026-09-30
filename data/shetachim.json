@@ -1,5 +1,9 @@
 {
-  "about": "Every state and province is its own shetach unless an entry below claims it. An entry merges areas into one shetach (territory = ISO codes: US-CA, CA-ON, ...); splits by county come later (see docs/PLAN.md). Leave headShliach empty if unknown. lastName is optional: it defaults to the last word of headShliach. capital is the shetach's headquarters: a name plus the chabad.org center id (the number in its chabad.org link), or lat and lon for a place that isn't listed. notShown = areas left off the map entirely.",
+  "about": [
+    "One entry per shetach. territory lists what it covers: a state or province code (US-TX, CA-ON); the part of a state east and/or west of a longitude ({ \"state\": \"US-PA\", \"westOf\": -78.13 }); counties by 5-digit FIPS ({ \"counties\": [...] }); towns ({ \"state\": \"US-MA\", \"towns\": [...] }); or census tracts ({ \"state\": \"US-MA\", \"tracts\": [...] }).",
+    "Where claims overlap, the more specific one wins: tracts, then towns, then counties, then longitude lines, then whole states. Anything no shetach claims is left blank.",
+    "capital: the chabad.org center id of the shetach's headquarters (the number in its chabad.org link), or lat and lon; \"world\": true marks 770. lastName is optional; it defaults to the last word of headShliach. notShown: areas left off the map entirely."
+  ],
   "notShown": ["CA-YT", "CA-NT", "CA-NU"],
   "shetachim": [
     {
@@ -7,7 +11,439 @@
       "name": "West Coast",
       "headShliach": "Shlomo Cunin",
       "territory": ["US-CA", "US-NV"],
-      "capital": { "name": "Chabad West Coast Headquarters", "centerId": "117555" }
+      "capital": { "centerId": "117555" }
+    },
+    {
+      "id": "alaska",
+      "name": "Alaska",
+      "headShliach": "Yosef Greenberg",
+      "territory": ["US-AK"],
+      "capital": { "centerId": "117927" }
+    },
+    {
+      "id": "washington",
+      "name": "Washington",
+      "headShliach": "Sholom Ber Levitin",
+      "territory": ["US-WA"],
+      "capital": { "centerId": "117737" }
+    },
+    {
+      "id": "oregon",
+      "name": "Oregon",
+      "headShliach": "Moshe Wilhelm",
+      "territory": ["US-OR"],
+      "capital": { "centerId": "118188" }
+    },
+    {
+      "id": "hawaii",
+      "name": "Hawaii",
+      "headShliach": "Itchel Krasnjansky",
+      "territory": ["US-HI"],
+      "capital": { "centerId": "117608" }
+    },
+    {
+      "id": "idaho",
+      "name": "Idaho",
+      "headShliach": "Mendel Lifshitz",
+      "territory": ["US-ID"],
+      "capital": { "centerId": "118662" }
+    },
+    {
+      "id": "montana",
+      "name": "Montana",
+      "headShliach": "Chaim Bruk",
+      "territory": ["US-MT"],
+      "capital": { "centerId": "486805" }
+    },
+    {
+      "id": "wyoming",
+      "name": "Wyoming",
+      "headShliach": "Zalman Mendelsohn",
+      "territory": ["US-WY"],
+      "capital": { "centerId": "672689" }
+    },
+    {
+      "id": "utah",
+      "name": "Utah",
+      "headShliach": "Benny Zippel",
+      "territory": ["US-UT"],
+      "capital": { "centerId": "117910" }
+    },
+    {
+      "id": "colorado",
+      "name": "Colorado",
+      "headShliach": "Mendel Popack",
+      "territory": ["US-CO"],
+      "capital": { "centerId": "5964928" }
+    },
+    {
+      "id": "arizona",
+      "name": "Arizona",
+      "headShliach": "Zalman Levertov",
+      "territory": ["US-AZ"],
+      "capital": { "centerId": "117539" }
+    },
+    {
+      "id": "new-mexico",
+      "name": "New Mexico",
+      "headShliach": "Chaim Shmukler",
+      "territory": ["US-NM"],
+      "capital": { "centerId": "117962" }
+    },
+    {
+      "id": "north-dakota",
+      "name": "North Dakota",
+      "headShliach": "Yonah Grossman",
+      "territory": ["US-ND"],
+      "capital": { "centerId": "2027612" }
+    },
+    {
+      "id": "south-dakota",
+      "name": "South Dakota",
+      "headShliach": "Mendel Alperowitz",
+      "territory": ["US-SD"],
+      "capital": { "centerId": "3451535" }
+    },
+    {
+      "id": "nebraska",
+      "name": "Nebraska",
+      "headShliach": "Mendel Katzman",
+      "territory": ["US-NE"],
+      "capital": { "centerId": "117651" }
+    },
+    {
+      "id": "minnesota",
+      "name": "Minnesota",
+      "headShliach": "Moshe Feller",
+      "territory": ["US-MN"],
+      "capital": { "centerId": "117647" }
+    },
+    {
+      "id": "iowa",
+      "name": "Iowa",
+      "headShliach": "Yossi Jacobson",
+      "territory": ["US-IA"],
+      "capital": { "centerId": "117609" }
+    },
+    {
+      "id": "kansas-missouri",
+      "name": "Kansas-Missouri",
+      "headShliach": "Sholom Wineberg",
+      "territory": ["US-KS", "US-MO"],
+      "capital": { "centerId": "117620" }
+    },
+    {
+      "id": "wisconsin",
+      "name": "Wisconsin",
+      "headShliach": "Yisroel Shmotkin",
+      "territory": ["US-WI"],
+      "capital": { "centerId": "117740" }
+    },
+    {
+      "id": "illinois",
+      "name": "Illinois",
+      "headShliach": "Meir Moscowitz",
+      "territory": ["US-IL"],
+      "capital": { "centerId": "117610" }
+    },
+    {
+      "id": "michigan",
+      "name": "Michigan",
+      "headShliach": "Berel Shemtov",
+      "territory": ["US-MI"],
+      "capital": { "centerId": "117640" }
+    },
+    {
+      "id": "indiana",
+      "name": "Indiana",
+      "headShliach": "Avrohom Grossbaum",
+      "territory": ["US-IN"],
+      "capital": { "centerId": "117619" }
+    },
+    {
+      "id": "kentucky",
+      "name": "Kentucky",
+      "headShliach": "Avrohom Litvin",
+      "territory": ["US-KY"],
+      "capital": { "centerId": "117621" }
+    },
+    {
+      "id": "tennessee",
+      "name": "Tennessee",
+      "headShliach": "Levi Klein",
+      "territory": ["US-TN"],
+      "capital": { "centerId": "117977" }
+    },
+    {
+      "id": "oklahoma",
+      "name": "Oklahoma",
+      "headShliach": "Yehuda Weg",
+      "territory": ["US-OK"],
+      "capital": { "centerId": "117712" }
+    },
+    {
+      "id": "arkansas",
+      "name": "Arkansas",
+      "headShliach": "Pinchus Ciment",
+      "territory": ["US-AR"],
+      "capital": { "centerId": "117902" }
+    },
+    {
+      "id": "texas",
+      "name": "Texas",
+      "headShliach": "Shimon Lazaroff",
+      "territory": ["US-TX"],
+      "capital": { "centerId": "117731" }
+    },
+    {
+      "id": "louisiana-mississippi",
+      "name": "Louisiana-Mississippi",
+      "headShliach": "Zelig Rivkin",
+      "territory": ["US-LA", "US-MS"],
+      "capital": { "centerId": "117623" }
+    },
+    {
+      "id": "alabama",
+      "name": "Alabama",
+      "headShliach": "Yossi Posner",
+      "territory": ["US-AL"],
+      "capital": { "centerId": "117538" }
+    },
+    {
+      "id": "georgia",
+      "name": "Georgia",
+      "headShliach": "Yossi New",
+      "territory": ["US-GA"],
+      "capital": { "centerId": "117607" }
+    },
+    {
+      "id": "florida",
+      "name": "Florida",
+      "headShliach": "Benjy Korf",
+      "territory": ["US-FL"],
+      "capital": { "centerId": "117598" }
+    },
+    {
+      "id": "the-carolinas",
+      "name": "The Carolinas",
+      "headShliach": "Yossi Groner",
+      "territory": ["US-NC", "US-SC"],
+      "capital": { "centerId": "117649" }
+    },
+    {
+      "id": "the-virginias",
+      "name": "The Virginias",
+      "headShliach": "Yossel Kranz",
+      "territory": ["US-VA", "US-WV"],
+      "capital": { "centerId": "117734" }
+    },
+    {
+      "id": "western-pennsylvania",
+      "name": "Western Pennsylvania",
+      "headShliach": "Yisroel Rosenfeld",
+      "territory": [
+        { "state": "US-PA", "westOf": -78.13 },
+        {
+          "counties": ["54061"],
+          "name": "Morgantown area (Monongalia County)"
+        }
+      ],
+      "capital": { "centerId": "117721" }
+    },
+    {
+      "id": "pennsylvania",
+      "name": "Pennsylvania",
+      "headShliach": "Avremel Shemtov",
+      "territory": [
+        { "state": "US-PA", "eastOf": -78.13 }
+      ],
+      "capital": { "centerId": "117715" }
+    },
+    {
+      "id": "new-jersey",
+      "name": "New Jersey",
+      "headShliach": "Mendy Herson",
+      "territory": ["US-NJ"],
+      "capital": { "centerId": "117657" }
+    },
+    {
+      "id": "maryland",
+      "name": "Maryland",
+      "headShliach": "Shmuel Kaplan",
+      "territory": ["US-MD"],
+      "capital": { "centerId": "117634" }
+    },
+    {
+      "id": "washington-dc",
+      "name": "Washington DC",
+      "headShliach": "Levi Shemtov",
+      "territory": ["US-DC"],
+      "capital": { "centerId": "117966" }
+    },
+    {
+      "id": "delaware",
+      "name": "Delaware",
+      "headShliach": "Chuni Vogel",
+      "territory": ["US-DE"],
+      "capital": { "centerId": "117586" }
+    },
+    {
+      "id": "new-york-city",
+      "name": "New York City",
+      "headShliach": "Tzach",
+      "territory": [
+        {
+          "counties": ["36005", "36047", "36061", "36081", "36085", "36119"],
+          "name": "Bronx, Brooklyn, Manhattan, Queens, Staten Island and Westchester"
+        }
+      ],
+      "capital": { "centerId": "117678", "world": true }
+    },
+    {
+      "id": "long-island",
+      "name": "Long Island",
+      "headShliach": "Tuvia Teldon",
+      "territory": [
+        {
+          "counties": ["36059", "36103"],
+          "name": "Nassau and Suffolk counties"
+        }
+      ],
+      "capital": { "centerId": "117681" }
+    },
+    {
+      "id": "maine",
+      "name": "Maine",
+      "headShliach": "Moshe Wilansky",
+      "territory": ["US-ME"],
+      "capital": { "centerId": "117638" }
+    },
+    {
+      "id": "new-hampshire",
+      "name": "New Hampshire",
+      "headShliach": "Levi Krinsky",
+      "territory": ["US-NH"],
+      "capital": { "centerId": "117652" }
+    },
+    {
+      "id": "vermont",
+      "name": "Vermont",
+      "headShliach": "Yitzchok Raskin",
+      "territory": ["US-VT"],
+      "capital": { "centerId": "117736" }
+    },
+    {
+      "id": "central-massachusetts",
+      "name": "Central Massachusetts",
+      "headShliach": "Mendel Fogelman",
+      "territory": [
+        { "state": "US-MA", "eastOf": -72.1574, "westOf": -71.24694 }
+      ],
+      "capital": { "centerId": "117633" }
+    },
+    {
+      "id": "western-and-southern-new-england",
+      "name": "Western and Southern New England",
+      "headShliach": "Yisroel Deren",
+      "territory": [
+        "US-CT",
+        { "state": "US-MA", "westOf": -72.1574 }
+      ],
+      "capital": { "centerId": "2948789" }
+    },
+    {
+      "id": "eastern-massachusetts",
+      "name": "Eastern Massachusetts",
+      "headShliach": "Chaim Prus",
+      "territory": [
+        { "state": "US-MA", "eastOf": -71.24694 }
+      ],
+      "capital": { "centerId": "1591836" }
+    },
+    {
+      "id": "north-shore-of-massachusetts",
+      "name": "North Shore of Massachusetts",
+      "headShliach": "Yossi Lipsker",
+      "territory": [
+        {
+          "state": "US-MA",
+          "towns": ["Beverly", "Chelsea", "Danvers", "Essex", "Everett", "Gloucester", "Hamilton", "Ipswich", "Lynn", "Lynnfield", "Malden", "Manchester-by-the-Sea", "Marblehead", "Melrose", "Nahant", "Peabody", "Reading", "Revere", "Rockport", "Salem", "Saugus", "Stoneham", "Swampscott", "Topsfield", "Wakefield", "Wenham", "Winthrop"]
+        },
+        {
+          "state": "US-MA",
+          "name": "East Boston",
+          "tracts": ["25025050101", "25025050200", "25025050300", "25025050400", "25025050500", "25025050600", "25025050700", "25025050901", "25025051000", "25025051101", "25025051200", "25025981300", "25025981600"]
+        }
+      ],
+      "capital": { "centerId": "117908" }
+    },
+    {
+      "id": "cape-cod-and-the-islands",
+      "name": "Cape Cod and the Islands",
+      "headShliach": "Kuti Alperowitz",
+      "territory": [
+        {
+          "counties": ["25001", "25007", "25019"],
+          "name": "Barnstable, Dukes and Nantucket counties"
+        }
+      ],
+      "capital": { "centerId": "118178" }
+    },
+    {
+      "id": "rhode-island",
+      "name": "Rhode Island",
+      "headShliach": "Yehoshua Laufer",
+      "territory": ["US-RI"],
+      "capital": { "centerId": "117723" }
+    },
+    {
+      "id": "british-columbia",
+      "name": "British Columbia",
+      "headShliach": "Yitzchok Wineberg",
+      "territory": ["CA-BC"],
+      "capital": { "centerId": "117788" }
+    },
+    {
+      "id": "alberta",
+      "name": "Alberta",
+      "headShliach": "Menachem Matusof",
+      "territory": ["CA-AB"],
+      "capital": { "centerId": "117787" }
+    },
+    {
+      "id": "manitoba-saskatchewan",
+      "name": "Manitoba-Saskatchewan",
+      "headShliach": "Avrohom Altein",
+      "territory": ["CA-MB", "CA-SK"],
+      "capital": { "centerId": "117789" }
+    },
+    {
+      "id": "ontario",
+      "name": "Ontario",
+      "headShliach": "Zalman Grossbaum",
+      "territory": ["CA-ON"],
+      "capital": { "centerId": "117797" }
+    },
+    {
+      "id": "quebec",
+      "name": "Quebec",
+      "headShliach": "Berel Mochkin",
+      "territory": ["CA-QC"],
+      "capital": { "centerId": "117801" }
+    },
+    {
+      "id": "maritimes",
+      "name": "Maritimes",
+      "headShliach": "Mendel Feldman",
+      "territory": ["CA-NS", "CA-NB", "CA-PE"],
+      "capital": { "centerId": "117790" }
+    },
+    {
+      "id": "newfoundland-and-labrador",
+      "name": "Newfoundland and Labrador",
+      "headShliach": "Chanan Chernitsky",
+      "territory": ["CA-NL"],
+      "capital": { "centerId": "3610901" }
     }
   ]
 }

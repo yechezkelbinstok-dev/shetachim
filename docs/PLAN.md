@@ -4,118 +4,108 @@ A custom political-style map where the "countries" are Chabad shetachim (the are
 head shliach), not states or countries. Starting with the US and Canada, then the world.
 
 The map shows shetachim and nothing else: no neighbouring countries, no areas outside any
-shetach. A shetach is usually one state, so every state and province starts as its own
-shetach, drawn and labelled like any other; entries in `data/shetachim.json` merge or split
-them. Choosing a country (USA, Canada) shows only that country.
+shetach. A shetach can be one state or province, several of them, or parts of states cut along
+county, town or longitude lines. Anything no shetach covers yet is left blank. Choosing a
+country (USA, Canada) shows only that country.
 
 ## What the finished map does
 
 | Feature | Status |
 |---|---|
-| Borders drawn by shetach; several states or countries under one head shliach show as one area | Prototype (whole states) |
-| Show only the USA, only Canada, or both, filling the screen | Prototype |
-| Toggle to regular state/province/country borders | Prototype |
-| Both at once, with either set drawn lighter (swappable) | Prototype |
-| A faint dot for every Chabad center; listings at one address merged into one dot | Prototype |
-| Label each shetach by head shliach, last name only, or shetach name, or no labels | Prototype |
-| Zoom and pan (mouse, trackpad, pinch) | Prototype |
-| Alaska and Hawaii in corner boxes | Prototype |
-| Hover or tap a dot for the centers there, with links to chabad.org | Prototype |
-| Cities that have shluchim (on/off), more appearing as you zoom in | Prototype |
-| A capital for each shetach (its headquarters), drawn with a star | Prototype (West Coast only; the rest from you) |
-| Street map underneath ("Google Maps style"), with everything outside the shetachim faded | Prototype (needs the live site: GitHub Pages) |
-| States split between shetachim (by county) | Next: needs county geometry, see below |
+| Borders drawn by shetach, including merged states and split states | Done (57 shetachim entered) |
+| Show only the USA, only Canada, or both, filling the screen | Done |
+| Toggle to regular state/province/country borders | Done |
+| Both at once, with either set drawn lighter (swappable) | Done |
+| A faint dot for every Chabad center; listings at one address merged into one dot | Done |
+| Label each shetach by head shliach, last name only, or shetach name, or no labels | Done |
+| Zoom and pan (mouse, trackpad, pinch) | Done |
+| Alaska and Hawaii in corner boxes | Done |
+| Hover or tap a dot for the centers there, with links to chabad.org | Done |
+| Cities that have shluchim (on/off), more appearing as you zoom in | Done |
+| A capital for each shetach, drawn as a star (770 bigger) | Done |
+| Physical map ("like Google Maps": land cover, relief, roads) with shetach borders | Done (needs the live site) |
+| Ohio and the rest of New York | Blank until the owner sends them |
 | Puerto Rico / USVI and other insets | Later |
 | The rest of the world, with continent views | Later |
 
 ## Data
 
-### Centers (done)
+### Centers
 
 - `data/raw/chabad-centers.json`: the chabad.org locator export, 4,220 listings, collected
   Sept 2026. Every center in the earlier sample API captures is in it.
 - The export has name, city, coordinates, type and page URL, but no state or country.
   `scripts/build-data.mjs` works those out from the coordinates (Natural Earth countries and
-  provinces, US Census counties), so each dot knows its country, state/province and county.
+  provinces, US Census counties), so each dot knows its country, state/province and county, and
+  in a split state the piece it's in.
 - Merging: listings at the same point, or within 25 m of each other (same building or campus),
   become one dot. 4,222 listings (with the 2 added by hand) become 3,599 dots; in the US and
   Canada, 1,967 become 1,763.
-- 544 listings have no exact address on chabad.org and sit at their city's centre point.
-  The dot card says so.
 - Known chabad.org geocoding mistakes are listed in `data/report.md` (16 Israeli listings
   sitting on the country's midpoint, a few others). None are in the US or Canada.
-- Centers missing from chabad.org go in `data/extra-centers.json` (now Riyadh and Istanbul),
-  with `precision` (`exact`, `area` or `city`) and a `note` shown on the dot's card.
+- Centers missing from chabad.org go in `data/extra-centers.json` (now Riyadh and Istanbul).
 
-### Cities (done)
+### Cities
 
 - Every US/Canada city with at least one center: 1,001. The build matches each to GeoNames
   (npm `all-the-cities`: places over 1,000 people) by name, in the same state, within 60 km, for
   its real point and population. chabad.org writes Saint/San/Santa/Sainte/South as `S.`; the
   build tries each. 81 have no match (neighbourhoods such as Tarzana or Thornhill, tiny places)
   and sit at the middle of their centers; `data/report.md` lists them.
-- The map labels the biggest first and only where there's room, so more appear as you zoom in.
 
-### Capitals
+### Shetachim
 
-- `capital` in `data/shetachim.json`: `{ "name": ..., "centerId": ... }` (the number in the
-  center's chabad.org link) or `{ "name": ..., "lat": ..., "lon": ... }`. The build checks the
-  center exists and is inside the shetach.
-- West Coast: Chabad West Coast Headquarters (center 117555, Los Angeles). The rest: from you.
-
-### Boundaries (done for the prototype)
-
-- Drawing: Natural Earth 1:10m states and provinces (Great Lakes cut out), simplified with
-  mapshaper into one TopoJSON (`web/data/geo.json`). Only the US and Canada are included, minus
-  the areas in `notShown` (Yukon, Northwest Territories, Nunavut).
-- Tagging: Natural Earth 1:10m full detail plus Census 1:500k counties (2022).
-- Next: for split states, draw the US from Census counties (and Canada from StatCan census
-  divisions if a province is split). Shetach borders inside a state then follow county lines.
-  Snap the US-Canada seam with mapshaper so the two sources meet cleanly. Add a more detailed
-  level for close zoom (city scale) if 1:10m looks coarse there.
-
-### Shetachim (needed from you)
-
-`data/shetachim.json`: `notShown` lists areas left off the map, and `shetachim` has one
-entry per shetach that isn't simply one state (a merge), or whose head shliach is known:
+`data/shetachim.json`: one entry per shetach.
 
 ```json
-{ "id": "west-coast", "name": "West Coast", "headShliach": "Shlomo Cunin", "territory": ["US-CA", "US-NV"],
-  "capital": { "name": "Chabad West Coast Headquarters", "centerId": "117555" } }
+{ "id": "western-pennsylvania", "name": "Western Pennsylvania", "headShliach": "Yisroel Rosenfeld",
+  "territory": [{ "state": "US-PA", "westOf": -78.13 }, { "counties": ["54061"] }],
+  "capital": { "centerId": "117721" } }
 ```
 
-- Any state or province not in an entry is its own shetach, named after the state.
-- `territory` uses ISO codes for whole states and provinces (`US-CA`, `CA-ON`, `US-DC`).
-- Split states will list counties by FIPS code, plus a "rest of the state" entry: one
-  shetach takes the named counties and the other takes, say, `rest:US-XX`.
-- A split that doesn't follow county lines (part of a county) gets a hand-drawn boundary.
+- `territory` items: a state or province code (`US-CA`, `CA-ON`, `US-DC`); part of a state east
+  and/or west of a longitude (`{ "state": "US-MA", "eastOf": -72.1574, "westOf": -71.24694 }`);
+  counties by 5-digit FIPS (`{ "counties": [...] }`); towns (`{ "state": "US-MA", "towns": [...] }`,
+  Census county subdivisions); census tracts (`{ "state": "US-MA", "tracts": [...] }`, used for
+  East Boston). Where items overlap, the more specific one wins: tracts, towns, counties,
+  longitude lines, whole states. So "The Virginias" takes all of West Virginia, and Western
+  Pennsylvania's Monongalia County claim cuts out the Morgantown area.
+- Anything not claimed is blank (no fill, no label). `notShown` areas are left off entirely.
+- `capital`: the center id from its chabad.org link (the build fills in the name and position),
+  or `{ "name", "lat", "lon" }`; `"world": true` for 770.
 - `lastName` is optional; it defaults to the last word of `headShliach`.
-- The build refuses unknown codes and areas claimed by two shetachim.
+- The build refuses unknown codes, counties, towns and tracts, and two shetachim claiming the same
+  thing; a capital outside its shetach is listed in the report.
 
-Easiest way to send it: plain text, one line per shetach, such as
+Easiest way to send changes: plain text, one line per shetach, such as
 "State(s): head shliach, shetach name, capital", and for a split state which part goes where
-(counties, cities, or a rough line). Claude turns that into this file and the county lists, and the map
-shows the result to check.
+(counties, towns, or a line). Claude turns that into this file, and the map shows the result.
 
 Open questions:
 
-1. Co-heads, or a shetach whose head shliach has passed away: show two names, the
+1. Ohio and New York outside NYC and Long Island: which shetachim?
+2. Co-heads, or a shetach whose head shliach has passed away: show two names, the
    successor, or the shetach name only?
-2. DC: its own shetach or part of a neighbour's? Puerto Rico and the US Virgin Islands: show
-   them (in corner boxes) and under which shetach?
-3. New Brunswick and Prince Edward Island have no listed centers: part of a neighbouring
-   shetach, or left off like the territories?
+3. Puerto Rico and the US Virgin Islands: show them (in corner boxes) and under which shetach?
 
-## Street map
+### Boundaries
 
-- MapLibre GL 4.7.1 (from cdnjs, loaded the first time "Street map" is picked) with OpenFreeMap
-  vector tiles: free, no key; attribution is shown in the corner. `liberty` in light mode,
-  `dark` in dark mode.
-- Our fills go under the streets and buildings and fade toward street level; our borders go
-  over the streets; a fade covers everything outside the shown shetachim. Names, cities and
-  capitals are the same SVG as on the political map.
+- Drawing: Natural Earth 1:10m states and provinces (Great Lakes cut out), in one TopoJSON
+  (`web/data/geo.json`). Split states are cut with Census 2022 1:500k counties, towns and tracts
+  and with longitude lines, keeping Natural Earth's outer edges (see HANDOFF.md for how).
+- Tagging: Natural Earth 1:10m full detail plus Census 1:500k counties (2022).
+- Maybe later: a more detailed level for close zoom (city scale) if 1:10m looks coarse there.
+
+## Physical map
+
+- MapLibre GL 4.7.1 (from cdnjs, loaded the first time "Physical" is picked) with OpenFreeMap
+  vector tiles (free, no key; attribution in the corner), the `liberty` style in both themes.
+- Natural colours are made stronger: the Natural Earth II relief raster (greens, desert tans,
+  ice) at full strength out to state level, fading out by zoom 12; greener woods and grass.
+- No political fills. The map's own borders and state/country names are hidden; our borders sit
+  over the roads with a white casing; land outside the shown shetachim is faded (seas stay blue).
 - It needs a real web host (GitHub Pages): a Claude artifact blocks the tiles, and the page then
-  says so and stays on the political map.
+  stays on the political map.
 
 ## World version
 
@@ -135,6 +125,5 @@ npm run build        # rebuilds web/data/ and data/report.md
 python3 -m http.server   # then open http://localhost:8000/web/
 ```
 
-The page is static (D3 + TopoJSON from cdnjs; MapLibre for the street map), so the repo can be
-hosted as-is on GitHub Pages: Settings → Pages → Deploy from a branch → `/ (root)`. The root
-`index.html` forwards to `web/`.
+The page is static, so the repo is hosted as-is on GitHub Pages (from this branch, root folder).
+The root `index.html` forwards to `web/`.

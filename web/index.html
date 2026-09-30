@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@500;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
 <style>
-/* Layout: full-bleed map of the shetachim alone on a plain ground (or over a street map); options card top-left (bottom sheet on phones); zoom buttons bottom-right. */
+/* Layout: full-bleed map of the shetachim alone on a plain ground (or on a physical map); options card top-left (bottom sheet on phones); zoom buttons bottom-right. */
 :root {
   --bg: #f1f3f0;
   --ink: #1e2b32;
@@ -25,6 +25,8 @@
   --c1: #f0e1a2; --c2: #cce1b5; --c3: #efc7c1; --c4: #c5d9ee;
   --c5: #f3cfa9; --c6: #d8c8e5; --c7: #bcded6; --c8: #e1d8be;
   --plain: #fcfcfa;
+  /* what the map draws with: the theme's colors, except on the physical map, which is always light */
+  --map-ink: var(--ink); --map-halo: var(--halo); --map-dot: var(--dot); --map-accent: var(--accent); --map-missing: var(--missing);
   --font-ui: "Alegreya Sans", "Gill Sans", "Segoe UI", system-ui, sans-serif;
   --font-map: "Alegreya Sans SC", "Gill Sans", "Segoe UI", system-ui, sans-serif;
   --shadow: 0 1px 2px rgb(20 35 45 / .08), 0 6px 20px rgb(20 35 45 / .10);
@@ -49,6 +51,7 @@
   --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 8px 24px rgb(0 0 0 / .35);
   color-scheme: dark;
 }
+.physical #map { --map-ink: #1e2b32; --map-halo: #ffffff; --map-dot: #163e74; --map-accent: #1d4f8f; --map-missing: #6b7780; }
 
 html, body { height: 100%; margin: 0; }
 [hidden] { display: none !important; }
@@ -57,23 +60,24 @@ body { background: var(--bg); color: var(--ink); font: 15px/1.4 var(--font-ui); 
 #basemap, #map { position: absolute; inset: 0; width: 100%; height: 100%; }
 #map { display: block; touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; }
 #map:active { cursor: grabbing; }
-.street #map { pointer-events: none; }
-#app:not(.street) #basemap { visibility: hidden; }
-.street .l-root, .street .l-insets { display: none; }
+.physical #map { pointer-events: none; }
+#app:not(.physical) #basemap { visibility: hidden; }
+.physical .l-root, .physical .l-insets { display: none; }
 button, input { font: inherit; color: inherit; }
 button:focus-visible, input:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* ---- map ---- */
 .fill { fill: var(--fill); stroke: var(--fill); stroke-width: .5; vector-effect: non-scaling-stroke; transition: fill-opacity .25s; }
-.ln { fill: none; stroke: var(--ink); vector-effect: non-scaling-stroke; stroke-linejoin: round; stroke-linecap: round; transition: opacity .25s; pointer-events: none; }
+.fill.blank { fill: none; stroke: none; }
+.ln { fill: none; stroke: var(--map-ink); vector-effect: non-scaling-stroke; stroke-linejoin: round; stroke-linecap: round; transition: opacity .25s; pointer-events: none; }
 .b-coast { stroke-width: 1.1; }
 .b-shetach { stroke-width: 1.3; }
 .b-regular { stroke-width: 1; }
 .b-country { stroke-width: 1.8; }
 .hit { fill: transparent; }
-.hover-ring { fill: none; stroke: var(--accent); stroke-width: 2.5; vector-effect: non-scaling-stroke; pointer-events: none; }
-.dot { fill: var(--dot); fill-opacity: .42; pointer-events: none; }
-.dot-hover { fill: none; stroke: var(--accent); stroke-width: 2; vector-effect: non-scaling-stroke; pointer-events: none; }
+.hover-ring { fill: none; stroke: var(--map-accent); stroke-width: 2.5; vector-effect: non-scaling-stroke; pointer-events: none; }
+.dot { fill: var(--map-dot); fill-opacity: .42; pointer-events: none; }
+.dot-hover { fill: none; stroke: var(--map-accent); stroke-width: 2; vector-effect: non-scaling-stroke; pointer-events: none; }
 
 /* which fills and lines each border mode shows */
 .borders-regular .l-fill-s, .borders-shetach .l-fill-u, .borders-both .l-fill-u { display: none; }
@@ -84,31 +88,31 @@ button:focus-visible, input:focus-visible, a:focus-visible, summary:focus-visibl
 .borders-both.lighter-shetach .l-fill-s .fill { fill-opacity: .55; }
 .no-dots .dot, .no-dots .dot-hover { display: none; }
 
-.lab { paint-order: stroke; stroke: var(--halo); stroke-opacity: .7; stroke-linejoin: round; text-anchor: middle; dominant-baseline: central; pointer-events: none;
-  font-family: var(--font-map); font-weight: 700; letter-spacing: .05em; fill: var(--ink); }
-.lab-missing { fill: var(--missing); font-weight: 500; }
-.street .lab { stroke-opacity: .9; }
+.lab { paint-order: stroke; stroke: var(--map-halo); stroke-opacity: .7; stroke-linejoin: round; text-anchor: middle; dominant-baseline: central; pointer-events: none;
+  font-family: var(--font-map); font-weight: 700; letter-spacing: .05em; fill: var(--map-ink); }
+.lab-missing { fill: var(--map-missing); font-weight: 500; }
+.physical .lab { stroke-opacity: .9; }
 
 /* cities with shluchim and shetach capitals: drawn in screen space, over everything else */
 .mk { pointer-events: none; }
-.mk-city { fill: var(--halo); stroke: var(--ink); stroke-width: 1.4; }
-.mk-cap { fill: var(--ink); stroke: var(--halo); stroke-width: 1.3; stroke-linejoin: round; paint-order: stroke; }
-.mk-lab { font: 500 12.5px var(--font-ui); fill: var(--ink); dominant-baseline: central;
-  paint-order: stroke; stroke: var(--halo); stroke-width: 3px; stroke-opacity: .8; stroke-linejoin: round; }
-.mk-lab-cap { font-weight: 700; }
-.street .mk-lab { stroke-opacity: .95; }
+.mk-city { fill: var(--map-halo); stroke: var(--map-ink); stroke-width: 1.4; }
+.mk-cap { fill: var(--map-ink); stroke: var(--map-halo); stroke-width: 1.3; stroke-linejoin: round; paint-order: stroke; }
+.mk-lab { font: 500 12.5px var(--font-ui); fill: var(--map-ink); dominant-baseline: central;
+  paint-order: stroke; stroke: var(--map-halo); stroke-width: 3px; stroke-opacity: .8; stroke-linejoin: round; }
+.physical .mk-lab { stroke-opacity: .95; }
 
 .l-insets { transition: opacity .25s; }
 .l-insets.away { opacity: 0; pointer-events: none; }
 .inset-frame { fill: none; stroke: var(--panel-line); }
-.inset-land { fill: var(--fill); stroke: var(--ink); stroke-width: 1; }
+.inset-land { fill: var(--fill); stroke: var(--map-ink); stroke-width: 1; }
 .borders-regular .inset-land { fill: var(--fill-u); }
 .plain .fill, .plain .inset-land { fill: var(--plain); }
 .plain .fill { stroke: var(--plain); }
-.inset-caption { font: 700 11px var(--font-map); letter-spacing: .06em; fill: var(--ink); }
-.inset-caption.lab-missing { fill: var(--missing); font-weight: 500; }
+.plain .fill.blank { fill: none; stroke: none; }
+.inset-caption { font: 700 11px var(--font-map); letter-spacing: .06em; fill: var(--map-ink); }
+.inset-caption.lab-missing { fill: var(--map-missing); font-weight: 500; }
 
-/* ---- street map (MapLibre): only the rules this page uses ---- */
+/* ---- physical map (MapLibre): only the rules this page uses ---- */
 .maplibregl-map { position: absolute; overflow: hidden; -webkit-tap-highlight-color: transparent; font: 12px/18px var(--font-ui); }
 .maplibregl-canvas { position: absolute; left: 0; top: 0; }
 .maplibregl-canvas-container.maplibregl-interactive { cursor: grab; }
@@ -163,8 +167,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
 .legend-ring { display: inline-block; width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid var(--ink); background: var(--halo); }
 .legend-star { width: 12px; height: 12px; fill: var(--ink); }
 .note { margin: 0; font-size: 13px; color: var(--muted); }
-.note strong { color: var(--ink); font-weight: 500; }
-.note a { color: var(--accent); }
 .error { margin: 0; color: var(--ink); background: var(--accent-soft); border-radius: 8px; padding: 8px 10px; font-size: 14px; }
 
 /* ---- zoom buttons ---- */
@@ -244,9 +246,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
         <legend>Map</legend>
         <div class="seg" data-name="base">
           <button type="button" data-value="political" aria-pressed="true">Political</button>
-          <button type="button" data-value="street" aria-pressed="false">Street map</button>
+          <button type="button" data-value="physical" aria-pressed="false">Physical</button>
         </div>
-        <p id="street-msg" class="note" role="status" hidden></p>
+        <p id="base-msg" class="note" role="status" hidden></p>
       </fieldset>
       <fieldset class="ctl">
         <legend>Borders</legend>
@@ -261,7 +263,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
           <button type="button" data-value="shetach" aria-pressed="false">Shetachim</button>
         </div>
       </fieldset>
-      <fieldset class="ctl">
+      <fieldset class="ctl" id="colors-ctl">
         <legend>Colors</legend>
         <div class="seg" data-name="color">
           <button type="button" data-value="colorful" aria-pressed="true">Colorful</button>
@@ -280,9 +282,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
         <label class="check" for="show-cities"><input type="checkbox" id="show-cities" checked> <span class="legend-ring" aria-hidden="true"></span> Cities with shluchim</label>
         <label class="check" for="show-capitals"><input type="checkbox" id="show-capitals" checked> <svg class="legend-star" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path id="star-shape"/></svg> Shetach capitals</label>
       </fieldset>
-      <p class="note">Each state and province is its own shetach until it's merged or split. <strong>Merged so far:</strong> West Coast (California and Nevada). Head shliach names in gray aren't entered yet.</p>
-      <p class="note">One dot per address: listings at the same spot are merged. Tap a dot to see them. More city names appear as you zoom in.</p>
-      <p class="note">Centers from chabad.org. City locations from GeoNames.</p>
     </div>
   </aside>
 
@@ -323,45 +322,42 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   }
   const cityFile = await get('data/cities.json').catch(() => []);
 
+  // Pieces: whole states and provinces, and the parts of states split between shetachim. Each knows its
+  // state and its shetach (none where no shetach is entered yet).
   const notShown = new Set(shetachFile.notShown || []);
-  const units = topo.objects.areas.geometries.filter((g) => !notShown.has(g.properties.id));
-  const unitById = new Map(units.map((g) => [g.properties.id, g]));
+  const pieces = topo.objects.areas.geometries.filter((g) => !notShown.has(g.properties.state));
+  const pieceById = new Map(pieces.map((g) => [g.properties.id, g]));
   const collection = (geometries) => ({ type: 'GeometryCollection', geometries });
-
-  // Every state/province belongs to exactly one shetach: an entered one, or its own.
-  const shetachOfUnit = new Map();
-  for (const s of shetachFile.shetachim) {
-    const entry = { ...s, entered: true, territory: s.territory.filter((id) => unitById.has(id)) };
-    for (const id of entry.territory) shetachOfUnit.set(id, entry);
+  const shetachById = new Map(shetachFile.shetachim.map((s) => [s.id, {
+    ...s, lastName: s.lastName || (s.headShliach ? s.headShliach.trim().split(/\s+/).pop() : ''), states: new Set(), pieces: [],
+  }]));
+  const shetachOf = (g) => shetachById.get(g.properties.shetach) || null;
+  for (const g of pieces) {
+    const s = shetachOf(g);
+    if (s) { s.states.add(g.properties.state); s.pieces.push(g); }
   }
-  for (const g of units) {
-    const p = g.properties;
-    if (!shetachOfUnit.has(p.id)) shetachOfUnit.set(p.id, { id: p.id, name: p.name, abbr: p.abbr, headShliach: '', territory: [p.id], entered: false });
-  }
-  const shetachim = [...new Set(shetachOfUnit.values())];
-  for (const s of shetachim) s.lastName = s.lastName || (s.headShliach ? s.headShliach.trim().split(/\s+/).pop() : '');
-  const shetachOf = (g) => shetachOfUnit.get(g.properties.id);
+  const stateName = new Map(pieces.map((g) => [g.properties.state, g.properties.name]));
+  // A shetach that is exactly one whole state can fall back to the state's abbreviation where its name has no room.
+  for (const s of shetachById.values()) s.short = s.pieces.length === 1 && s.pieces[0].properties.id === s.pieces[0].properties.state ? s.pieces[0].properties.abbr : null;
 
   const dots = centersGeo.features
-    .map((f) => ({ lon: f.geometry.coordinates[0], lat: f.geometry.coordinates[1], ...f.properties }))
-    .filter((d) => d.region && unitById.has(d.region));
+    .map((f) => ({ lon: f.geometry.coordinates[0], lat: f.geometry.coordinates[1], ...f.properties, piece: f.properties.piece || f.properties.region }))
+    .filter((d) => pieceById.has(d.piece));
   const centersIn = new Map();
-  for (const d of dots) centersIn.set(d.region, (centersIn.get(d.region) || 0) + d.centers.length);
-  const centersInShetach = (s) => d3.sum(s.territory, (id) => centersIn.get(id) || 0);
+  for (const d of dots) centersIn.set(d.piece, (centersIn.get(d.piece) || 0) + d.centers.length);
+  const centersInShetach = (s) => d3.sum(s.pieces, (g) => centersIn.get(g.properties.id) || 0);
+  const centersInState = (st) => d3.sum(pieces, (g) => (g.properties.state === st ? centersIn.get(g.properties.id) || 0 : 0));
   const dotOfCenter = new Map(dots.flatMap((d) => d.centers.map((c) => [c.id, d])));
 
-  // A capital is a star at the shetach's headquarters (the build worked out where it is).
-  const capitals = shetachim.filter((s) => s.capital && Number.isFinite(s.capital.lat)).map((s) => {
+  // A capital is a star at the shetach's headquarters (the build worked out where it is); 770 gets a bigger one.
+  const capitals = [...shetachById.values()].filter((s) => s.capital && Number.isFinite(s.capital.lat)).map((s) => {
     const dot = dotOfCenter.get(s.capital.centerId);
-    return {
-      s, ...s.capital, texts: [s.capital.name, s.capital.city].filter(Boolean), // the city name if the full name has no room
-      region: dot ? dot.region : s.territory[0], center: dot && dot.centers.find((c) => c.id === s.capital.centerId),
-    };
+    return { s, ...s.capital, piece: dot ? dot.piece : s.pieces[0] && s.pieces[0].properties.id, center: dot && dot.centers.find((c) => c.id === s.capital.centerId) };
   });
   const capitalOfCenter = new Map(capitals.filter((c) => c.centerId).map((c) => [c.centerId, c]));
   // Bigger cities are labelled first and from further out. A city with many centers counts as big even when
   // GeoNames doesn't know it (Thornhill), so weigh each center as 5,000 people.
-  const cities = cityFile.filter((c) => unitById.has(c.region))
+  const cities = cityFile.map((c) => ({ ...c, piece: c.piece || c.region })).filter((c) => pieceById.has(c.piece))
     .map((c) => ({ ...c, texts: [c.name], weight: Math.max(c.pop, c.centers * 5000) }))
     .sort((a, b) => b.weight - a.weight);
   const CITY_DENSITY = 2500; // a city is a candidate once weight >= CITY_DENSITY / (screen pixels per km)²
@@ -370,10 +366,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   function colorize(keyOf) {
     const adj = new Map();
     const touch = (k) => adj.get(k) || adj.set(k, new Set()).get(k);
-    topojson.neighbors(units).forEach((list, i) => {
-      const a = keyOf(units[i]);
+    topojson.neighbors(pieces).forEach((list, i) => {
+      const a = keyOf(pieces[i]);
+      if (a == null) return;
       touch(a);
-      for (const j of list) { const b = keyOf(units[j]); if (a !== b) { touch(a).add(b); touch(b).add(a); } }
+      for (const j of list) { const b = keyOf(pieces[j]); if (b != null && a !== b) { touch(a).add(b); touch(b).add(a); } }
     });
     const color = new Map(), used = new Array(8).fill(0);
     [...adj.keys()].sort((a, b) => adj.get(b).size - adj.get(a).size || (a < b ? -1 : 1)).forEach((k) => {
@@ -384,11 +381,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
       color.set(k, best);
       used[best]++;
     });
-    return (k) => color.get(k) + 1; // 1-8, the --c1…--c8 palette
+    return (k) => `var(--c${color.get(k) + 1})`;
   }
-  const shetachColor = colorize((g) => shetachOf(g).id);
-  const unitColor = colorize((g) => g.properties.id);
-  const cssColor = (i) => `var(--c${i})`;
+  const shetachColor = colorize((g) => g.properties.shetach || null);
+  const stateColor = colorize((g) => g.properties.state);
 
   // ---------- views ----------
   const VIEWS = {
@@ -415,9 +411,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   const gInsets = svg.append('g').attr('class', 'l-insets');
 
   const STAR = d3.symbol(d3.symbolStar, 55)(); // about 14px across
+  const WORLD_STAR = d3.symbol(d3.symbolStar, 150)(); // 770: about 23px across
   $('#star-shape').setAttribute('d', STAR);
 
-  // T maps projected points to the screen. On the political map it's the d3 zoom; on the street map it
+  // T maps projected points to the screen. On the political map it's the d3 zoom; on the physical map it
   // follows the MapLibre camera, with the same projection-at-zoom-1 coordinates, so labels work the same.
   let W = 0, H = 0, T = d3.zoomIdentity, V = null, labels = [], tree = null, insetBoxes = [], marks = [];
   let projection = null, geoPath = null;
@@ -430,75 +427,76 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
 
   const meshes = (main) => {
     const m = (filter) => topojson.mesh(topo, collection(main), filter);
+    const key = (g) => g.properties.shetach || '';
     return [
-      ['regular', m((a, b) => a !== b && a.properties.country === b.properties.country)],
+      ['regular', m((a, b) => a.properties.state !== b.properties.state && a.properties.country === b.properties.country)],
       ['country', m((a, b) => a.properties.country !== b.properties.country)],
-      ['shetach', m((a, b) => a !== b && shetachOf(a) !== shetachOf(b))],
+      ['shetach', m((a, b) => a !== b && key(a) !== key(b))],
       ['coast', m((a, b) => a === b)],
     ];
   };
 
-  // opts.focus: {ll, k} to keep looking at the same place (switching maps); opts.keep: leave the street camera alone.
+  // opts.focus: {ll, k} to keep looking at the same place (switching maps); opts.keep: leave the physical map's camera alone.
   function layout(opts = {}) {
     W = svg.node().clientWidth;
     H = svg.node().clientHeight;
     document.documentElement.style.setProperty('--sheet', `${$('#panel').getBoundingClientRect().height}px`);
     const view = VIEWS[state.view];
-    const street = state.base === 'street';
-    const shown = units.filter((g) => view.countries.includes(g.properties.country));
-    const insetIds = street ? [] : view.insets; // the street map has Alaska and Hawaii in their real place
-    const main = shown.filter((g) => !insetIds.includes(g.properties.id));
-    const framed = shown.filter((g) => !view.insets.includes(g.properties.id)); // both maps frame the same area
-    const regions = [...d3.group(main, shetachOf)].map(([s, gs]) => ({ s, geo: topojson.merge(topo, gs) }));
-    V = { view, street, shown, main, regions, insetUnits: shown.filter((g) => insetIds.includes(g.properties.id)) };
+    const physical = state.base === 'physical';
+    const shown = pieces.filter((g) => view.countries.includes(g.properties.country));
+    const insetStates = physical ? [] : view.insets; // the physical map has Alaska and Hawaii in their real place
+    const main = shown.filter((g) => !insetStates.includes(g.properties.state));
+    const framed = shown.filter((g) => !view.insets.includes(g.properties.state)); // both maps frame the same area
+    const regions = [...d3.group(main.filter(shetachOf), shetachOf)].map(([s, gs]) => ({ s, geo: topojson.merge(topo, gs) }));
+    const blanks = [...d3.group(main.filter((g) => !shetachOf(g)), (g) => g.properties.state)].map(([st, gs]) => ({ st, geo: topojson.merge(topo, gs) }));
+    const states = [...d3.group(main, (g) => g.properties.state)].map(([st, gs]) => ({ st, p: gs[0].properties, geo: topojson.merge(topo, gs) }));
+    V = { view, physical, shown, main, regions, blanks, states, insetPieces: shown.filter((g) => insetStates.includes(g.properties.state)) };
 
     const p = insets();
-    projection = (street ? d3.geoMercator() : view.projection()).fitExtent([[p.l, p.t], [W - p.r, H - p.b]], topojson.feature(topo, collection(framed)));
+    projection = (physical ? d3.geoMercator() : view.projection()).fitExtent([[p.l, p.t], [W - p.r, H - p.b]], topojson.feature(topo, collection(framed)));
     geoPath = d3.geoPath(projection);
-    if (street) V.zFit = Math.log2((2 * Math.PI * projection.scale()) / 512); // MapLibre zoom of the framed view
+    if (physical) V.zFit = Math.log2((2 * Math.PI * projection.scale()) / 512); // MapLibre zoom of the framed view
 
-    if (street) {
+    if (physical) {
       for (const g of [gFillS, gFillU, gLines, gHit, gDots, gHover]) g.selectAll('*').remove();
     } else {
-      gFillS.selectAll('path').data(regions).join('path').attr('class', 'fill')
-        .style('--fill', (r) => cssColor(shetachColor(r.s.id))).attr('d', (r) => geoPath(r.geo));
-      gFillU.selectAll('path').data(main).join('path').attr('class', 'fill')
-        .style('--fill', (g) => cssColor(unitColor(g.properties.id))).attr('d', (g) => geoPath(topojson.feature(topo, g)));
+      gFillS.selectAll('path').data([...regions, ...blanks]).join('path').attr('class', (r) => (r.s ? 'fill' : 'fill blank'))
+        .style('--fill', (r) => (r.s ? shetachColor(r.s.id) : null)).attr('d', (r) => geoPath(r.geo));
+      gFillU.selectAll('path').data(states).join('path').attr('class', 'fill')
+        .style('--fill', (r) => stateColor(r.st)).attr('d', (r) => geoPath(r.geo));
       gLines.selectAll('path').data(meshes(main)).join('path').attr('class', ([c]) => `ln b-${c}`).attr('d', ([, g]) => geoPath(g));
       gHit.selectAll('path').data(main.map((g) => topojson.feature(topo, g))).join('path').attr('class', 'hit').attr('d', geoPath);
     }
 
     const mainIds = new Set(main.map((g) => g.properties.id));
-    if (street) V.hitAreas = main.map((g) => { const f = topojson.feature(topo, g); return { g, f, box: d3.geoBounds(f) }; });
-    V.dots = dots.filter((d) => mainIds.has(d.region));
+    if (physical) V.hitAreas = main.map((g) => { const f = topojson.feature(topo, g); return { g, f, box: d3.geoBounds(f) }; });
+    V.dots = dots.filter((d) => mainIds.has(d.piece));
     for (const d of V.dots) [d.x, d.y] = projection([d.lon, d.lat]);
     tree = d3.quadtree(V.dots, (d) => d.x, (d) => d.y);
-    if (!street) gDots.selectAll('circle').data(V.dots).join('circle').attr('class', 'dot').attr('cx', (d) => d.x).attr('cy', (d) => d.y);
-    V.caps = capitals.filter((c) => mainIds.has(c.region));
-    V.cities = cities.filter((c) => mainIds.has(c.region));
+    if (!physical) gDots.selectAll('circle').data(V.dots).join('circle').attr('class', 'dot').attr('cx', (d) => d.x).attr('cy', (d) => d.y);
+    V.caps = capitals.filter((c) => mainIds.has(c.piece));
+    V.cities = cities.filter((c) => mainIds.has(c.piece));
     for (const c of [...V.caps, ...V.cities]) [c.x, c.y] = projection([c.lon, c.lat]);
     const ui = getComputedStyle(document.documentElement).getPropertyValue('--font-ui');
-    for (const [list, weight] of [[V.caps, 700], [V.cities, 500]]) {
-      measure.font = `${weight} ${MARK_FONT}px ${ui}`;
-      for (const c of list) if (!c.widths) c.widths = c.texts.map((t) => measure.measureText(t).width);
-    }
+    measure.font = `500 ${MARK_FONT}px ${ui}`;
+    for (const c of V.cities) if (!c.widths) c.widths = c.texts.map((t) => measure.measureText(t).width);
     const [lon0, lat0] = projection.invert([W / 2, H / 2]);
     const a = projection([lon0, lat0]), b = projection([lon0, lat0 + 1]);
     V.pxPerKm = Math.hypot(b[0] - a[0], b[1] - a[1]) / 111.2; // at zoom 1
 
     for (const r of regions) r.anchor = anchorFor(r.geo);
-    for (const g of main) g.anchor = anchorFor(topojson.feature(topo, g).geometry);
+    for (const r of states) r.anchor = anchorFor(r.geo);
     drawInsets(p);
 
     const shownIds = new Set(shown.map((g) => g.properties.id));
-    const viewDots = dots.filter((d) => shownIds.has(d.region));
+    const viewDots = dots.filter((d) => shownIds.has(d.piece));
     $('#view-name').textContent = view.name;
-    $('#st-shetachim').textContent = fmt(new Set(shown.map(shetachOf)).size);
+    $('#st-shetachim').textContent = fmt(new Set(shown.map((g) => g.properties.shetach).filter(Boolean)).size);
     $('#st-centers').textContent = fmt(d3.sum(viewDots, (d) => d.centers.length));
     $('#st-dots').textContent = fmt(viewDots.length);
 
     const start = opts.focus ? transformFor(opts.focus) : d3.zoomIdentity;
-    if (street) {
+    if (physical) {
       mapgl.resize();
       mapgl.setMinZoom(Math.max(0, V.zFit - 1.5));
       dataGL();
@@ -517,7 +515,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   function transformFor({ ll, k }) {
     const pt = ll && projection(ll);
     if (!pt || !pt.every(Number.isFinite)) return d3.zoomIdentity;
-    if (!V.street) k = clamp(k, 1, 60);
+    if (!V.physical) k = clamp(k, 1, 60);
     return d3.zoomIdentity.translate(W / 2 - k * pt[0], H / 2 - k * pt[1]).scale(k);
   }
 
@@ -526,17 +524,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     gInsets.selectAll('*').remove();
     insetBoxes = [];
     let x = p.l;
-    for (const g of V.insetUnits) {
-      const spec = INSETS[g.properties.id];
+    for (const g of V.insetPieces) {
+      const spec = INSETS[g.properties.state];
       const w = clamp((W - p.l - p.r) * spec.share, 80, 260), h = w * spec.aspect, y = H - p.b - h;
       const feature = topojson.feature(topo, g);
       const proj = spec.projection().fitExtent([[x + 6, y + 18], [x + w - 6, y + h - 6]], feature);
-      const box = { unit: g, x, y, w, h, proj, dots: dots.filter((d) => d.region === g.properties.id) };
+      const box = { piece: g, x, y, w, h, proj, dots: dots.filter((d) => d.piece === g.properties.id) };
       const s = shetachOf(g);
       const group = gInsets.append('g');
       group.append('rect').attr('class', 'inset-frame').attr('x', x).attr('y', y).attr('width', w).attr('height', h).attr('rx', 6);
       group.append('path').datum(feature).attr('class', 'inset-land')
-        .style('--fill', cssColor(shetachColor(s.id))).style('--fill-u', cssColor(unitColor(g.properties.id))).attr('d', d3.geoPath(proj));
+        .style('--fill', s ? shetachColor(s.id) : 'none').style('--fill-u', stateColor(g.properties.state)).attr('d', d3.geoPath(proj));
       box.caption = group.append('text').attr('class', 'inset-caption').attr('x', x + 8).attr('y', y + 13);
       group.selectAll('circle').data(box.dots).join('circle').attr('class', 'dot')
         .attr('cx', (d) => proj([d.lon, d.lat])[0]).attr('cy', (d) => proj([d.lon, d.lat])[1])
@@ -608,10 +606,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
 
   // What a shetach's label says in the current mode; the second entry is a fallback for small areas.
   function shetachLabel(s) {
-    const short = s.entered ? null : s.abbr;
-    if (state.labels === 'name') return { texts: [s.name, short], missing: false };
+    if (state.labels === 'name') return { texts: [s.name, s.short], missing: false };
     const person = state.labels === 'last' ? s.lastName : s.headShliach;
-    return person ? { texts: [person], missing: false } : { texts: [s.name, short], missing: true };
+    return person ? { texts: [person], missing: false } : { texts: [s.name, s.short], missing: true };
   }
 
   const MARK_FONT = 12.5;
@@ -619,13 +616,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     labels = [];
     if (state.labels !== 'off') {
       if (state.borders === 'regular') {
-        for (const g of V.main) if (g.anchor) labels.push({ texts: [g.properties.name, g.properties.abbr], missing: false, a: g.anchor });
+        for (const r of V.states) if (r.anchor) labels.push({ texts: [r.p.name, r.p.abbr], missing: false, a: r.anchor });
       } else {
         for (const r of V.regions) if (r.anchor) labels.push({ ...shetachLabel(r.s), a: r.anchor });
       }
     }
-    const css = getComputedStyle(document.documentElement);
-    const family = css.getPropertyValue('--font-map');
+    const family = getComputedStyle(document.documentElement).getPropertyValue('--font-map');
     for (const L of labels) {
       L.size = clamp(Math.sqrt(L.a.area) / 10, 10, 20);
       measure.font = `${L.missing ? 500 : 700} ${L.size}px ${family}`;
@@ -633,8 +629,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     }
     labels.sort((a, b) => b.a.area - a.a.area);
     for (const box of insetBoxes) {
-      const g = box.unit;
-      const L = state.labels === 'off' ? null : state.borders === 'regular' ? { texts: [g.properties.name], missing: false } : shetachLabel(shetachOf(g));
+      const g = box.piece, s = shetachOf(g);
+      const L = state.labels === 'off' ? null : state.borders === 'regular' || !s ? { texts: [g.properties.name], missing: false } : shetachLabel(s);
       box.caption.text(L ? L.texts[0] : '').classed('lab-missing', !!(L && L.missing));
     }
   }
@@ -642,35 +638,54 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   const fontScale = (k) => clamp(Math.pow(k, 0.4), 0.8, 2.6);
   const overlaps = (box, boxes) => boxes.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1]);
 
-  // Show the longest text that fits its area on screen without hitting a bigger area's label.
-  // Then capitals (star always, name if there's room) and cities, biggest first, wherever they still fit.
+  // Capital stars on screen now. They shrink when the whole map is small (a phone, zoomed out).
+  const STAR_FULL = 0.19; // screen pixels per km at which stars are full size (a desktop's whole-map view)
+  function starsNow() {
+    if (!state.capitals) return [];
+    const f = clamp((V.pxPerKm * T.k) / STAR_FULL, 0.55, 1), out = [];
+    for (const c of V.caps) {
+      const [sx, sy] = T.apply([c.x, c.y]);
+      if (sx < -12 || sx > W + 12 || sy < -12 || sy > H + 12) continue;
+      const r = (c.world ? 11 : 7) * f;
+      out.push({ kind: 'cap', c, f, r, sx, sy, box: [sx - r, sy - r, sx + r, sy + r] });
+    }
+    return out;
+  }
+
+  // Show the longest text that fits its area on screen without hitting a bigger area's label or a star
+  // (moved up or down a line to clear a star). Then the stars and cities, biggest first, wherever they fit.
   function placeLabels() {
-    const k = T.k, f = fontScale(k), boxes = [];
+    const k = T.k, f = fontScale(k), boxes = [], stars = starsNow(), starBoxes = stars.map((st) => st.box);
     for (const L of labels) {
       L.show = -1;
       const [sx, sy] = T.apply([L.a.x, L.a.y]);
-      for (let i = 0; i < L.texts.length; i++) {
+      for (let i = 0; i < L.texts.length && L.show < 0; i++) {
         if (!L.texts[i]) continue;
         const w = L.widths[i] * f, h = L.size * f;
-        const fits = w <= L.a.w * k * (i === 0 ? 1.3 : 1.8) && h <= L.a.h * k * 1.2;
-        const onScreen = sx + w / 2 > 0 && sx - w / 2 < W && sy + h / 2 > 0 && sy - h / 2 < H;
-        const box = [sx - w / 2 - 3, sy - h / 2 - 2, sx + w / 2 + 3, sy + h / 2 + 2];
-        if (fits && onScreen && !overlaps(box, boxes)) {
-          L.show = i;
-          boxes.push(box);
-          break;
+        if (!(w <= L.a.w * k * (i === 0 ? 1.3 : 1.8) && h <= L.a.h * k * 1.2)) continue;
+        for (const shift of [0, 1, -1]) {
+          const y = sy + shift * h;
+          const box = [sx - w / 2 - 3, y - h / 2 - 2, sx + w / 2 + 3, y + h / 2 + 2];
+          const onScreen = box[2] > 0 && box[0] < W && box[3] > 0 && box[1] < H;
+          if (onScreen && !overlaps(box, boxes) && !overlaps(box, starBoxes)) {
+            L.show = i;
+            L.shift = shift;
+            boxes.push(box);
+            break;
+          }
         }
       }
     }
     gLabels.selectAll('text').data(labels.filter((L) => L.show >= 0)).join('text')
       .attr('class', (L) => (L.missing ? 'lab lab-missing' : 'lab')).text((L) => L.texts[L.show]);
-    placeMarks(boxes);
+    placeMarks(boxes, stars);
     moveLabels();
   }
 
-  function placeMarks(boxes) {
+  function placeMarks(boxes, stars) {
+    const app = $('#app').getBoundingClientRect();
     const covered = [...document.querySelectorAll('#panel, #zoomctl')].map((el) => {
-      const r = el.getBoundingClientRect(), app = $('#app').getBoundingClientRect();
+      const r = el.getBoundingClientRect();
       return [r.left - app.left, r.top - app.top, r.right - app.left, r.bottom - app.top];
     });
     const taken = [...boxes, ...covered];
@@ -685,27 +700,24 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
       return null;
     };
     marks = [];
-    if (state.capitals) {
-      for (const c of V.caps) {
-        const [sx, sy] = T.apply([c.x, c.y]);
-        if (sx < -10 || sx > W + 10 || sy < -10 || sy > H + 10) continue;
-        let at = null, i = 0;
-        for (; i < c.texts.length && !at; i++) at = spot(sx, sy, 9, c.widths[i]);
-        taken.push([sx - 7, sy - 7, sx + 7, sy + 7]);
-        if (at) taken.push(at.box);
-        marks.push({ kind: 'cap', c, at, text: at && c.texts[i - 1] });
-      }
-    }
-    // a capital already labelled with its city's name stands in for that city
-    const named = new Set(marks.filter((m) => m.text && m.text === m.c.city).map((m) => `${m.c.region}|${m.c.city}`));
+    taken.push(...stars.map((st) => st.box));
     if (state.cities) {
       const px = V.pxPerKm * T.k, least = CITY_DENSITY / (px * px);
       for (const c of V.cities) {
         if (c.weight < least) break;
-        if (named.has(`${c.region}|${c.name}`)) continue;
         const [sx, sy] = T.apply([c.x, c.y]);
         if (sx < 0 || sx > W || sy < 0 || sy > H) continue;
         const ring = [sx - 4, sy - 4, sx + 4, sy + 4];
+        // A city right at a capital's star is marked by the star, with the city's name beside it.
+        const star = stars.find((st) => !st.city && overlaps(ring, [st.box]));
+        if (star) {
+          const at = spot(star.sx, star.sy, star.r + 2, c.widths[0]);
+          if (!at) continue;
+          star.city = c;
+          taken.push(at.box);
+          marks.push({ kind: 'city', c, at, text: c.texts[0], anchor: star.c });
+          continue;
+        }
         if (overlaps(ring, taken)) continue;
         const at = spot(sx, sy, 6, c.widths[0]);
         if (!at) continue;
@@ -713,15 +725,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
         marks.push({ kind: 'city', c, at, text: c.texts[0] });
       }
     }
+    marks.push(...stars); // drawn last, on top
     gMarks.selectAll('g').remove();
     for (const m of marks) {
       const g = gMarks.append('g').attr('class', 'mk').datum(m);
-      if (m.kind === 'cap') g.append('path').attr('class', 'mk-cap').attr('d', STAR);
-      else g.append('circle').attr('class', 'mk-city').attr('r', 3);
-      if (m.at) {
-        g.append('text').attr('class', m.kind === 'cap' ? 'mk-lab mk-lab-cap' : 'mk-lab')
-          .attr('x', m.at.dx).attr('y', m.at.dy).attr('text-anchor', m.at.anchor).text(m.text);
-      }
+      if (m.kind === 'cap') g.append('path').attr('class', 'mk-cap').attr('d', m.c.world ? WORLD_STAR : STAR).attr('transform', `scale(${m.f})`);
+      else if (!m.anchor) g.append('circle').attr('class', 'mk-city').attr('r', 3);
+      if (m.at) g.append('text').attr('class', 'mk-lab').attr('x', m.at.dx).attr('y', m.at.dy).attr('text-anchor', m.at.anchor).text(m.text);
     }
   }
 
@@ -730,12 +740,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     gLabels.selectAll('text').each(function (L) {
       const [sx, sy] = T.apply([L.a.x, L.a.y]);
       this.setAttribute('x', sx);
-      this.setAttribute('y', sy);
+      this.setAttribute('y', sy + (L.shift || 0) * L.size * f);
       this.style.fontSize = `${L.size * f}px`;
       this.style.strokeWidth = `${Math.max(2, L.size * f * 0.2)}px`;
     });
     gMarks.selectAll('g').each(function (m) {
-      const [sx, sy] = T.apply([m.c.x, m.c.y]);
+      const at = m.anchor || m.c;
+      const [sx, sy] = T.apply([at.x, at.y]);
       this.setAttribute('transform', `translate(${sx},${sy})`);
     });
   }
@@ -748,6 +759,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   // ---------- zoom (political map) ----------
   let frame = 0;
   const zoom = d3.zoom().scaleExtent([1, 60])
+    .on('start', (e) => { if (e.sourceEvent && !pinned) hideCard(); })
     .on('zoom', (e) => {
       T = e.transform;
       root.attr('transform', T);
@@ -758,7 +770,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
 
   // Move either map to zoom transform t.
   function setView(t, ms) {
-    if (V.street) {
+    if (V.physical) {
       const cam = cameraFor(t);
       if (ms && !still) mapgl.easeTo({ ...cam, duration: ms }); else mapgl.jumpTo(cam);
     } else {
@@ -772,23 +784,20 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     setView(d3.zoomIdentity.translate(p.l + w / 2 - (k * (x0 + x1)) / 2, p.t + h / 2 - (k * (y0 + y1)) / 2).scale(k), 750);
   }
   function zoomBy(factor) {
-    if (V.street) (factor > 1 ? mapgl.zoomIn : mapgl.zoomOut).call(mapgl, { duration: still ? 0 : 300 });
+    if (V.physical) (factor > 1 ? mapgl.zoomIn : mapgl.zoomOut).call(mapgl, { duration: still ? 0 : 300 });
     else svg.transition().duration(still ? 0 : 300).call(zoom.scaleBy, factor);
   }
   $('#zin').addEventListener('click', () => zoomBy(1.7));
   $('#zout').addEventListener('click', () => zoomBy(1 / 1.7));
   $('#zreset').addEventListener('click', () => setView(d3.zoomIdentity, 600));
 
-  // ---------- street map (MapLibre GL + OpenFreeMap tiles, loaded the first time it's picked) ----------
+  // ---------- physical map (MapLibre GL + OpenFreeMap tiles, loaded the first time it's picked) ----------
+  // A full map (land cover and relief, water, roads, places) with our borders, names, cities and dots on it.
   const GL_JS = 'https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.js';
-  const GL_STYLE = { light: 'https://tiles.openfreemap.org/styles/liberty', dark: 'https://tiles.openfreemap.org/styles/dark' };
+  const GL_STYLE = 'https://tiles.openfreemap.org/styles/liberty';
   const EMPTY = { type: 'FeatureCollection', features: [] };
-  const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-  const theme = () => {
-    const t = document.documentElement.dataset.theme;
-    return t === 'dark' || (t !== 'light' && darkQuery.matches) ? 'dark' : 'light';
-  };
-  let mapgl = null, glTheme = null, glStarting = null;
+  const FADE = '#eef0ec'; // over land outside the shown shetachim
+  let mapgl = null, glStarting = null;
 
   function loadScript(src) {
     return new Promise((resolve, reject) => {
@@ -801,37 +810,36 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   }
   const withTimeout = (promise, ms, what) => Promise.race([promise, new Promise((_, reject) => setTimeout(() => reject(new Error(what)), ms))]);
 
-  // Resolves once the street style has loaded; rejects if the library, WebGL or the tiles are unavailable.
+  // Resolves once the style has loaded; rejects if the library, WebGL or the tiles are unavailable.
   function startGL() {
     if (glStarting) return glStarting;
     glStarting = (async () => {
       if (!window.maplibregl) await withTimeout(loadScript(GL_JS), 20000, 'the map library took too long');
-      glTheme = theme();
       const m = new maplibregl.Map({
-        container: 'basemap', style: GL_STYLE[glTheme], attributionControl: false, renderWorldCopies: false,
+        container: 'basemap', style: GL_STYLE, attributionControl: false, renderWorldCopies: false,
         dragRotate: false, pitchWithRotate: false, touchPitch: false, maxZoom: 18.5, fadeDuration: 150,
       });
       mapgl = m;
       m.addControl(new maplibregl.AttributionControl({ compact: true }), 'top-right');
       m.touchZoomRotate.disableRotation();
       m.keyboard.disableRotation();
-      m.on('style.load', () => { addOverlay(); if (V && V.street) { dataGL(); styleGL(); } });
+      m.on('style.load', () => { addOverlay(); if (V && V.physical) { dataGL(); styleGL(); } });
       let styled = false;
       await withTimeout(new Promise((resolve, reject) => {
         m.once('style.load', () => { styled = true; resolve(); });
         m.on('error', (e) => { if (!styled) reject(e.error || new Error('map error')); });
-      }), 20000, 'the street map took too long');
+      }), 20000, 'the map took too long');
       mapgl.on('move', syncCamera);
-      mapgl.on('moveend', () => { if (V.street) placeLabels(); });
+      mapgl.on('moveend', () => { if (V.physical) placeLabels(); });
       mapgl.on('movestart', () => { if (!pinned) hideCard(); });
       mapgl.on('mousemove', (e) => {
-        if (!V.street || pinned || e.originalEvent.buttons) return;
+        if (!V.physical || pinned || e.originalEvent.buttons) return;
         const hit = pickAt(e.point.x, e.point.y, false);
         if (hit) showCard(hit, e.originalEvent, false); else hideCard();
       });
       mapgl.on('mouseout', () => { if (!pinned) hideCard(); });
       mapgl.on('click', (e) => {
-        if (!V.street) return;
+        if (!V.physical) return;
         const hit = pickAt(e.point.x, e.point.y, e.originalEvent.pointerType === 'touch' || coarse());
         if (!hit) { hideCard(); return; }
         pinned = hit;
@@ -848,33 +856,47 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
 
   const glReady = () => mapgl && mapgl.getSource('st-dots');
 
-  // Our layers: fills under the streets and buildings, borders over the streets but under the street map's
-  // own labels; the fade over everything outside the shown shetachim, the dots and the hover rings on top.
-  // Names, cities and capitals stay in the SVG.
+  // Our layers: borders over the streets but under the map's own labels; a fade over land outside the shown
+  // shetachim (under the water, so seas stay blue) and a lighter one over everything outside; the dots and
+  // the hover rings on top. Names, cities and capitals stay in the SVG.
   function addOverlay() {
     if (mapgl.getSource('st-dots')) return;
     const layers = mapgl.getStyle().layers;
     const lastRoad = layers.map((l) => l.type === 'line' && l['source-layer'] === 'transportation').lastIndexOf(true);
-    const fillBefore = (layers.find((l) => l.type === 'symbol' || ['transportation', 'building', 'aeroway'].includes(l['source-layer'])) || {}).id;
     const lineBefore = (layers.find((l, i) => i > lastRoad && l.type === 'symbol') || {}).id;
-    // No simplification on the polygons: simplified, the fade's holes break in some tiles and cover shetachim.
-    for (const id of ['st-fill-s', 'st-fill-u', 'st-mask', 'st-hover-area']) mapgl.addSource(id, { type: 'geojson', data: EMPTY, tolerance: 0 });
+    const waterBefore = (layers.find((l) => ['water', 'waterway'].includes(l['source-layer'])) || {}).id;
+    // No simplification on the fade: simplified, its holes break in some tiles and cover shetachim.
+    for (const id of ['st-fade', 'st-hover-area']) mapgl.addSource(id, { type: 'geojson', data: EMPTY, tolerance: 0 });
     for (const id of ['st-lines', 'st-dots', 'st-hover-dot']) mapgl.addSource(id, { type: 'geojson', data: EMPTY });
-    mapgl.addLayer({ id: 'st-fill-s', type: 'fill', source: 'st-fill-s', paint: { 'fill-antialias': false } }, fillBefore);
-    mapgl.addLayer({ id: 'st-fill-u', type: 'fill', source: 'st-fill-u', paint: { 'fill-antialias': false } }, fillBefore);
+    mapgl.addLayer({ id: 'st-fade-land', type: 'fill', source: 'st-fade', paint: { 'fill-color': FADE, 'fill-opacity': 0.72 } }, waterBefore);
+    mapgl.addLayer({ id: 'st-line-casing', type: 'line', source: 'st-lines', filter: ['==', ['get', 'kind'], 'shetach'], layout: { 'line-join': 'round' },
+      paint: { 'line-color': '#ffffff', 'line-width': 4.5, 'line-opacity': 0.5 } }, lineBefore);
     for (const kind of ['coast', 'regular', 'country', 'shetach']) {
       mapgl.addLayer({ id: `st-line-${kind}`, type: 'line', source: 'st-lines', filter: ['==', ['get', 'kind'], kind], layout: { 'line-join': 'round' } }, lineBefore);
     }
-    mapgl.addLayer({ id: 'st-mask', type: 'fill', source: 'st-mask' });
+    mapgl.addLayer({ id: 'st-fade-top', type: 'fill', source: 'st-fade', paint: { 'fill-color': FADE, 'fill-opacity': 0.3 } });
     mapgl.addLayer({ id: 'st-hover-area', type: 'line', source: 'st-hover-area', paint: { 'line-width': 2.5 } });
     mapgl.addLayer({ id: 'st-dots', type: 'circle', source: 'st-dots' });
     mapgl.addLayer({ id: 'st-hover-dot', type: 'circle', source: 'st-hover-dot', paint: { 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-width': 2 } });
+
+    // Richer natural colours: the Natural Earth relief (greens, desert tans, ice) stays strong out to the
+    // state level and fades out under the streets, and woods and grass read as green further in.
+    const set = (id, prop, value) => { if (mapgl.getLayer(id)) mapgl.setPaintProperty(id, prop, value); };
+    if (mapgl.getLayer('natural_earth')) {
+      mapgl.setLayerZoomRange('natural_earth', 0, 12);
+      set('natural_earth', 'raster-opacity', ['interpolate', ['linear'], ['zoom'], 0, 0.95, 5, 0.9, 7, 0.75, 9, 0.5, 11, 0.25, 12, 0]);
+      set('natural_earth', 'raster-saturation', 0.15);
+    }
+    set('landcover_wood', 'fill-color', 'hsl(100, 38%, 62%)');
+    set('landcover_wood', 'fill-opacity', ['interpolate', ['linear'], ['zoom'], 6, 0.35, 10, 0.6]);
+    set('landcover_grass', 'fill-opacity', 0.5);
+    set('park', 'fill-color', '#c9e2b3');
   }
 
   const feature = (geometry, properties = {}) => ({ type: 'Feature', geometry, properties });
 
   // The world with holes where the shown shetachim are (islands in their lakes are already uncovered).
-  function maskGeometry(shown) {
+  function fadeGeometry(shown) {
     const outers = topojson.merge(topo, shown).coordinates.map((poly) => poly[0]);
     const area = (r) => Math.abs(d3.polygonArea(r));
     const holes = outers.filter((r) => !outers.some((o) => o !== r && area(o) > area(r) && d3.polygonContains(o, r[0])));
@@ -887,58 +909,46 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     if (!glReady()) return;
     const set = (id, data) => mapgl.getSource(id).setData(data);
     const fc = (features) => ({ type: 'FeatureCollection', features });
-    set('st-fill-s', fc(V.regions.map((r) => feature(r.geo, { c: shetachColor(r.s.id) }))));
-    set('st-fill-u', fc(V.main.map((g) => feature(topojson.feature(topo, g).geometry, { c: unitColor(g.properties.id) }))));
     set('st-lines', fc(meshes(V.main).map(([kind, g]) => feature(g, { kind }))));
-    set('st-mask', feature(maskGeometry(V.shown)));
+    set('st-fade', feature(fadeGeometry(V.shown)));
     set('st-dots', fc(V.dots.map((d) => feature({ type: 'Point', coordinates: [d.lon, d.lat] }, { r: dotBase(d) }))));
     set('st-hover-area', EMPTY);
     set('st-hover-dot', EMPTY);
   }
 
-  // Paint and visibility for the current options and theme; mirrors the CSS rules of the political map.
+  // Paint and visibility for the current options; mirrors the CSS rules of the political map.
   function styleGL() {
     if (!glReady()) return;
-    const css = getComputedStyle(document.documentElement);
+    const css = getComputedStyle($('#map'));
     const v = (name) => css.getPropertyValue(name).trim();
     const paint = (id, prop, value) => mapgl.setPaintProperty(id, prop, value);
     const show = (id, on) => mapgl.setLayoutProperty(id, 'visibility', on ? 'visible' : 'none');
-    const palette = ['match', ['get', 'c']];
-    for (let i = 1; i <= 8; i++) palette.push(i, v(`--c${i}`));
-    palette.push(v('--plain'));
     const both = state.borders === 'both';
     const lightS = both && state.lighter === 'shetach', lightR = both && state.lighter === 'regular';
-    // strong at country scale, fainter at street level so the streets stay readable
-    const tint = (glTheme === 'dark' ? 0.5 : 0.55) * (lightS ? 0.55 : 1);
-    const fillOpacity = ['interpolate', ['linear'], ['zoom'], 6, tint, 12, tint * 0.45];
-    for (const id of ['st-fill-s', 'st-fill-u']) { paint(id, 'fill-color', palette); paint(id, 'fill-opacity', fillOpacity); }
-    show('st-fill-s', state.color === 'colorful' && state.borders !== 'regular');
-    show('st-fill-u', state.color === 'colorful' && state.borders === 'regular');
-    const ink = v('--ink');
+    const ink = v('--map-ink');
     const line = (kind, on, width, opacity) => {
       show(`st-line-${kind}`, on);
       paint(`st-line-${kind}`, 'line-color', ink);
       paint(`st-line-${kind}`, 'line-width', width);
       paint(`st-line-${kind}`, 'line-opacity', opacity);
     };
-    line('coast', true, 1, 0.5);
+    line('coast', true, 0.8, 0.35);
     line('regular', state.borders !== 'shetach', 1.2, lightR ? 0.35 : 0.8);
     line('country', state.borders !== 'shetach', 2, lightR ? 0.35 : 0.9);
-    line('shetach', state.borders !== 'regular', 2, lightS ? 0.3 : 0.95);
+    line('shetach', state.borders !== 'regular', 2, lightS ? 0.3 : 0.9);
+    show('st-line-casing', state.borders !== 'regular' && !lightS);
     paint('st-line-regular', 'line-dasharray', both ? [2, 2] : [1, 0]);
-    paint('st-mask', 'fill-color', v('--bg'));
-    paint('st-mask', 'fill-opacity', 0.75);
     // Same sizes as the political map: grows with zoom like k^0.35, and stops growing at 60x the framed view.
     const r = (dz) => ['*', ['get', 'r'], 2 ** (0.35 * dz)];
     const radius = ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], V.zFit - 2, r(-2), V.zFit + Math.log2(60), r(Math.log2(60))];
     show('st-dots', state.dots);
     paint('st-dots', 'circle-radius', radius);
-    paint('st-dots', 'circle-color', v('--dot'));
-    paint('st-dots', 'circle-opacity', glTheme === 'dark' ? 0.6 : 0.5);
+    paint('st-dots', 'circle-color', v('--map-dot'));
+    paint('st-dots', 'circle-opacity', 0.55);
     paint('st-hover-dot', 'circle-radius', radius);
-    paint('st-hover-dot', 'circle-stroke-color', v('--accent'));
-    paint('st-hover-area', 'line-color', v('--accent'));
-    // The street map's own borders and state and country names always give way to ours; its city names do
+    paint('st-hover-dot', 'circle-stroke-color', v('--map-accent'));
+    paint('st-hover-area', 'line-color', v('--map-accent'));
+    // The map's own borders and state and country names always give way to ours; its city names do
     // while our cities are on.
     for (const layer of mapgl.getStyle().layers) {
       if (layer['source-layer'] === 'boundary') show(layer.id, false);
@@ -949,7 +959,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
 
   // T from the MapLibre camera (no rotation or tilt, so it's a plain scale and shift of the projection).
   function syncCamera() {
-    if (!V || !V.street || !mapgl) return;
+    if (!V || !V.physical || !mapgl) return;
     const c = mapgl.getCenter(), k = 2 ** (mapgl.getZoom() - V.zFit);
     const [cx, cy] = projection([c.lng, c.lat]);
     T = d3.zoomIdentity.translate(W / 2 - k * cx, H / 2 - k * cy).scale(k);
@@ -960,33 +970,23 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     return { center: [lng, lat], zoom: V.zFit + Math.log2(t.k) };
   }
 
-  function onThemeChange() {
-    if (!mapgl || theme() === glTheme) return;
-    glTheme = theme();
-    mapgl.setStyle(GL_STYLE[glTheme], { diff: false }); // style.load adds our layers back
-  }
-  darkQuery.addEventListener('change', onThemeChange);
-  new MutationObserver(onThemeChange).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-
   async function setBase(value) {
-    const msg = $('#street-msg');
+    const msg = $('#base-msg');
     if (value === state.base) return;
-    if (value === 'street') {
+    if (value === 'physical') {
       msg.hidden = false;
       msg.className = 'note';
-      msg.textContent = 'Loading the street map…';
+      msg.textContent = 'Loading…';
       try {
         await startGL();
       } catch (err) {
         pressed('base', 'political');
         msg.className = 'error';
-        msg.textContent = /webgl/i.test(String(err && err.message))
-          ? "This browser can't draw the street map (it needs WebGL). The political map works as usual."
-          : "The street map couldn't load here: this page can't reach the map tiles (openfreemap.org). It works on the live website.";
+        msg.textContent = /webgl/i.test(String(err && err.message)) ? "This browser can't show the physical map." : "The physical map couldn't load.";
         return;
       }
       // switched back while it loaded, or a second click already finished the switch
-      if (state.base === 'street' || !$('.seg[data-name="base"] [data-value="street"]').matches('[aria-pressed="true"]')) return;
+      if (state.base === 'physical' || !$('.seg[data-name="base"] [data-value="physical"]').matches('[aria-pressed="true"]')) return;
     }
     msg.hidden = true;
     const focus = focusNow();
@@ -1003,33 +1003,34 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   // What's under a screen point: a capital star, a dot, a city, or an area.
   function pickAt(mx, my, touch, target) {
     const reach = touch ? 14 : 8;
-    const box = !V.street && T.k <= 1.3 && insetBoxes.find((b) => mx >= b.x && mx <= b.x + b.w && my >= b.y && my <= b.y + b.h);
+    const box = !V.physical && T.k <= 1.3 && insetBoxes.find((b) => mx >= b.x && mx <= b.x + b.w && my >= b.y && my <= b.y + b.h);
     if (box) {
       if (state.dots) {
         const near = d3.least(box.dots, (d) => { const [x, y] = box.proj([d.lon, d.lat]); return Math.hypot(x - mx, y - my); });
-        if (near) { const [x, y] = box.proj([near.lon, near.lat]); if (Math.hypot(x - mx, y - my) <= (touch ? 14 : 8)) return { dot: near }; }
+        if (near) { const [x, y] = box.proj([near.lon, near.lat]); if (Math.hypot(x - mx, y - my) <= reach) return { dot: near }; }
       }
-      return target && target.classList.contains('inset-land') ? { unit: box.unit.properties } : null;
+      return target && target.classList.contains('inset-land') ? { piece: box.piece.properties } : null;
     }
-    const near = (list) => d3.least(list.filter((m) => { const [x, y] = T.apply([m.c.x, m.c.y]); return Math.hypot(x - mx, y - my) <= reach; }),
-      (m) => { const [x, y] = T.apply([m.c.x, m.c.y]); return Math.hypot(x - mx, y - my); });
-    const cap = near(marks.filter((m) => m.kind === 'cap'));
+    const where = (m) => T.apply(m.anchor ? [m.anchor.x, m.anchor.y] : [m.c.x, m.c.y]);
+    const near = (list, extra = 0) => d3.least(list.filter((m) => { const [x, y] = where(m); return Math.hypot(x - mx, y - my) <= reach + extra; }),
+      (m) => { const [x, y] = where(m); return Math.hypot(x - mx, y - my); });
+    const cap = near(marks.filter((m) => m.kind === 'cap'), 3);
     if (cap) return { capital: cap.c };
     if (state.dots && tree) {
       const [x, y] = T.invert([mx, my]);
       const d = tree.find(x, y, reach / T.k);
       if (d) return { dot: d };
     }
-    const city = near(marks.filter((m) => m.kind === 'city'));
+    const city = near(marks.filter((m) => m.kind === 'city' && !m.anchor));
     if (city) return { city: city.c };
-    if (V.street) {
+    if (V.physical) {
       const [x, y] = projection.invert(T.invert([mx, my]));
       const inBox = ([[x0, y0], [x1, y1]]) => y >= y0 && y <= y1 && (x0 <= x1 ? x >= x0 && x <= x1 : x >= x0 || x <= x1);
       const a = V.hitAreas.find((a) => inBox(a.box) && d3.geoContains(a.f, [x, y]));
-      return a ? { unit: a.g.properties } : null;
+      return a ? { piece: a.g.properties } : null;
     }
     const d = target && d3.select(target).datum();
-    return d && d.properties && unitById.has(d.properties.id) ? { unit: d.properties } : null;
+    return d && d.properties && pieceById.has(d.properties.id) ? { piece: d.properties } : null;
   }
   function pick(event) {
     const [mx, my] = d3.pointer(event, svg.node());
@@ -1038,9 +1039,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
 
   const count = (n) => `${fmt(n)} ${n === 1 ? 'center' : 'centers'}`;
   const chabadLink = (c) => (c && c.slug ? `<a href="https://www.chabad.org/jewish-centers/${esc(c.id)}/${esc(c.slug)}" target="_blank" rel="noopener">Open on chabad.org</a>` : '');
-  function shetachLine(unitId) {
-    const s = shetachOfUnit.get(unitId);
-    return s.headShliach ? `${esc(s.name)} · ${esc(s.headShliach)}` : `${esc(s.name)} · head shliach not entered yet`;
+  function shetachLine(pieceId) {
+    const g = pieceById.get(pieceId);
+    const s = g && shetachOf(g);
+    if (s) return `${esc(s.name)} · ${esc(s.headShliach)}`;
+    return g ? esc(g.properties.name) : '';
   }
 
   function dotHTML(d) {
@@ -1050,45 +1053,45 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
       return `<li>
         <strong>${esc(c.name)}</strong>
         <span class="meta">${esc([c.type, c.city].filter(Boolean).join(' · '))}</span>
-        ${cap ? `<span class="flag">Capital of the ${esc(cap.s.name)} shetach</span>` : ''}
-        ${c.unlisted ? `<span class="flag">Not listed on chabad.org${c.note ? `. ${esc(c.note)}` : ''}</span>` : c.approx ? '<span class="flag">No exact address listed; placed at the city centre</span>' : ''}
+        ${cap ? `<span class="flag">Capital of ${esc(cap.s.name)}</span>` : ''}
         ${chabadLink(c)}
       </li>`;
     }).join('');
     const head = n > 1 ? `<span class="kicker">${n} listings at this address</span><h2>${esc(d.centers[0].city || 'Same address')}</h2>` : '';
-    return `${head}<ul>${items}</ul><div class="foot"><span class="meta">${shetachLine(d.region)}</span></div>`;
+    return `${head}<ul>${items}</ul><div class="foot"><span class="meta">${shetachLine(d.piece)}</span></div>`;
   }
 
   function capitalHTML(c) {
-    return `<span class="kicker">Capital of the ${esc(c.s.name)} shetach</span><h2>${esc(c.name)}</h2>
+    return `<span class="kicker">Capital of ${esc(c.s.name)}</span><h2>${esc(c.name)}</h2>
       ${c.city ? `<p>${esc(c.city)}</p>` : ''}${chabadLink(c.center)}
-      <div class="foot"><span class="meta">${shetachLine(c.region)}</span></div>`;
+      <div class="foot"><span class="meta">${shetachLine(c.piece)}</span></div>`;
   }
 
   function cityHTML(c) {
     const pop = c.pop ? `<p>Population ${fmt(c.pop)}</p>` : '';
     return `<span class="kicker">City</span><h2>${esc(c.name)}</h2>${pop}
-      <div class="foot"><span class="meta">${count(c.centers)} · ${shetachLine(c.region)}</span></div>`;
+      <div class="foot"><span class="meta">${count(c.centers)} · ${shetachLine(c.piece)}</span></div>`;
   }
 
-  function areaHTML(u) {
-    const s = shetachOfUnit.get(u.id);
-    const inMain = V.main.some((g) => g.properties.id === u.id);
-    const zoomBtn = inMain ? `<button type="button" class="zoomto" data-unit="${esc(u.id)}">Zoom in</button>` : '';
-    if (state.borders === 'regular') {
-      const part = s.entered ? `<p>Part of the ${esc(s.name)} shetach${s.headShliach ? ` (${esc(s.headShliach)})` : ''}</p>` : '';
-      return `<span class="kicker">${u.country === 'US' ? 'State' : 'Province'}</span><h2>${esc(u.name)}</h2>${part}
-        <div class="foot"><span class="meta">${count(centersIn.get(u.id) || 0)}</span>${zoomBtn}</div>`;
+  function areaHTML(p) {
+    const g = pieceById.get(p.id), s = shetachOf(g);
+    const inMain = V.main.includes(g);
+    const zoomBtn = inMain ? `<button type="button" class="zoomto" data-piece="${esc(p.id)}">Zoom in</button>` : '';
+    if (state.borders === 'regular' || !s) {
+      const inState = [...new Set(pieces.filter((x) => x.properties.state === p.state).map(shetachOf).filter(Boolean))];
+      const part = state.borders === 'regular' && inState.length ? `<p>${esc(inState.map((x) => x.name).join(', '))}</p>` : '';
+      return `<span class="kicker">${p.country === 'US' ? 'State' : 'Province'}</span><h2>${esc(p.name)}</h2>${part}
+        <div class="foot"><span class="meta">${count(centersInState(p.state))}</span>${zoomBtn}</div>`;
     }
-    const states = s.territory.length > 1 ? `<p>${esc(s.territory.map((id) => unitById.get(id).properties.name).join(', '))}</p>` : '';
+    const states = s.states.size > 1 ? `<p>${esc([...s.states].map((st) => stateName.get(st)).sort().join(', '))}</p>` : '';
     const capital = s.capital ? `<p>Capital: ${esc(s.capital.name)}${s.capital.city ? `, ${esc(s.capital.city)}` : ''}</p>` : '';
     return `<span class="kicker">Shetach</span><h2>${esc(s.name)}</h2>
-      <p>Head shliach: ${s.headShliach ? esc(s.headShliach) : 'not entered yet'}</p>${states}${capital}
+      <p>Head shliach: ${esc(s.headShliach)}</p>${states}${capital}
       <div class="foot"><span class="meta">${count(centersInShetach(s))}</span>${zoomBtn}</div>`;
   }
 
   function showCard(hit, event, pin) {
-    card.innerHTML = (hit.dot ? dotHTML(hit.dot) : hit.capital ? capitalHTML(hit.capital) : hit.city ? cityHTML(hit.city) : areaHTML(hit.unit)) +
+    card.innerHTML = (hit.dot ? dotHTML(hit.dot) : hit.capital ? capitalHTML(hit.capital) : hit.city ? cityHTML(hit.city) : areaHTML(hit.piece)) +
       '<button type="button" class="close" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>';
     card.hidden = false;
     card.classList.toggle('pinned', pin);
@@ -1110,25 +1113,28 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     highlight(null);
   }
 
-  function areaGeometry(unitId) {
-    const g = unitById.get(unitId);
-    if (state.borders === 'regular') return topojson.feature(topo, g).geometry;
-    return V.regions.find((r) => r.s === shetachOf(g)).geo;
+  // The outline an area's card is about: its state, its shetach, or the blank part of its state.
+  function areaGeometry(pieceId) {
+    const g = pieceById.get(pieceId), s = shetachOf(g);
+    if (state.borders === 'regular') return (V.states.find((r) => r.st === g.properties.state) || {}).geo;
+    if (s) return (V.regions.find((r) => r.s === s) || {}).geo;
+    return (V.blanks.find((r) => r.st === g.properties.state) || {}).geo;
   }
   function highlight(hit) {
     const dot = hit && (hit.dot || (hit.capital && dotOfCenter.get(hit.capital.centerId)));
     const onMain = (id) => V.main.some((g) => g.properties.id === id);
-    if (V.street) {
+    const area = hit && hit.piece && onMain(hit.piece.id) ? areaGeometry(hit.piece.id) : null;
+    if (V.physical) {
       if (!glReady()) return;
-      mapgl.getSource('st-hover-dot').setData(dot && state.dots && onMain(dot.region) ? feature({ type: 'Point', coordinates: [dot.lon, dot.lat] }, { r: dotBase(dot) }) : EMPTY);
-      mapgl.getSource('st-hover-area').setData(hit && hit.unit && onMain(hit.unit.id) ? feature(areaGeometry(hit.unit.id)) : EMPTY);
+      mapgl.getSource('st-hover-dot').setData(dot && state.dots && onMain(dot.piece) ? feature({ type: 'Point', coordinates: [dot.lon, dot.lat] }, { r: dotBase(dot) }) : EMPTY);
+      mapgl.getSource('st-hover-area').setData(area ? feature(area) : EMPTY);
       return;
     }
     gHover.selectAll('*').remove();
-    if (dot && dot.x !== undefined && onMain(dot.region)) {
+    if (dot && dot.x !== undefined && onMain(dot.piece)) {
       gHover.append('circle').attr('class', 'dot-hover').attr('cx', dot.x).attr('cy', dot.y).attr('r', dotRadius(dot, T.k) + 2.5 / T.k);
-    } else if (hit && hit.unit && onMain(hit.unit.id)) {
-      gHover.append('path').attr('class', 'hover-ring').attr('d', geoPath(areaGeometry(hit.unit.id)));
+    } else if (area) {
+      gHover.append('path').attr('class', 'hover-ring').attr('d', geoPath(area));
     }
   }
 
@@ -1150,9 +1156,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     if (e.target.closest('.close')) { hideCard(); return; }
     const z = e.target.closest('.zoomto');
     if (z) {
-      const geom = areaGeometry(z.dataset.unit);
+      const geom = areaGeometry(z.dataset.piece);
       hideCard();
-      zoomToBounds(geoPath.bounds(geom));
+      if (geom) zoomToBounds(geoPath.bounds(geom));
     }
   });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideCard(); });
@@ -1163,10 +1169,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   }
   function apply() {
     svg.attr('class', `borders-${state.borders} lighter-${state.lighter}${state.color === 'plain' ? ' plain' : ''}${state.dots ? '' : ' no-dots'}`);
-    $('#app').classList.toggle('street', V.street);
+    $('#app').classList.toggle('physical', V.physical);
+    $('#colors-ctl').hidden = V.physical;
     gInsets.attr('class', `l-insets${T.k > 1.3 ? ' away' : ''}`);
     $('#lighter-row').hidden = state.borders !== 'both';
-    if (V.street) styleGL();
+    if (V.physical) styleGL();
     buildLabels();
     placeLabels();
     sizeDots();
@@ -1194,7 +1201,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   });
 
   let resizeTimer = 0;
-  window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { layout({ keep: V.street }); apply(); }, 150); });
+  window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { layout({ keep: V.physical }); apply(); }, 150); });
 
   await Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise((r) => setTimeout(r, 1500))]);
   layout();

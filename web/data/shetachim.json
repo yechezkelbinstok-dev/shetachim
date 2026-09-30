@@ -1,26 +1,694 @@
 {
-  "about": "Every state and province is its own shetach unless an entry below claims it. An entry merges areas into one shetach (territory = ISO codes: US-CA, CA-ON, ...); splits by county come later (see docs/PLAN.md). Leave headShliach empty if unknown. lastName is optional: it defaults to the last word of headShliach. capital is the shetach's headquarters: a name plus the chabad.org center id (the number in its chabad.org link), or lat and lon for a place that isn't listed. notShown = areas left off the map entirely.",
-  "notShown": [
-    "CA-YT",
-    "CA-NT",
-    "CA-NU"
-  ],
-  "shetachim": [
-    {
-      "id": "west-coast",
-      "name": "West Coast",
-      "headShliach": "Shlomo Cunin",
-      "territory": [
-        "US-CA",
-        "US-NV"
-      ],
-      "capital": {
-        "name": "Chabad West Coast Headquarters",
-        "centerId": "117555",
-        "lat": 34.06451,
-        "lon": -118.44847,
-        "city": "Los Angeles"
-      }
-    }
-  ]
+ "notShown": [
+  "CA-YT",
+  "CA-NT",
+  "CA-NU"
+ ],
+ "shetachim": [
+  {
+   "id": "west-coast",
+   "name": "West Coast",
+   "headShliach": "Shlomo Cunin",
+   "capital": {
+    "centerId": "117555",
+    "name": "Chabad West Coast Headquarters",
+    "city": "Los Angeles",
+    "lat": 34.06451,
+    "lon": -118.44847
+   }
+  },
+  {
+   "id": "alaska",
+   "name": "Alaska",
+   "headShliach": "Yosef Greenberg",
+   "capital": {
+    "centerId": "117927",
+    "name": "Lubavitch Jewish Center of Alaska",
+    "city": "Anchorage",
+    "lat": 61.18982,
+    "lon": -149.86103
+   }
+  },
+  {
+   "id": "washington",
+   "name": "Washington",
+   "headShliach": "Sholom Ber Levitin",
+   "capital": {
+    "centerId": "117737",
+    "name": "Regional Offices of Chabad-Lubavitch of the Pacific Northwest & Seattle",
+    "city": "Seattle",
+    "lat": 47.71901,
+    "lon": -122.29124
+   }
+  },
+  {
+   "id": "oregon",
+   "name": "Oregon",
+   "headShliach": "Moshe Wilhelm",
+   "capital": {
+    "centerId": "118188",
+    "name": "Chabad Lubavitch of Oregon",
+    "city": "Portland",
+    "lat": 45.47573,
+    "lon": -122.7027
+   }
+  },
+  {
+   "id": "hawaii",
+   "name": "Hawaii",
+   "headShliach": "Itchel Krasnjansky",
+   "capital": {
+    "centerId": "117608",
+    "name": "Chabad of Hawaii",
+    "city": "Honolulu",
+    "lat": 21.28808,
+    "lon": -157.82947
+   }
+  },
+  {
+   "id": "idaho",
+   "name": "Idaho",
+   "headShliach": "Mendel Lifshitz",
+   "capital": {
+    "centerId": "118662",
+    "name": "Chabad Lubavitch of Idaho",
+    "city": "Boise",
+    "lat": 43.58768,
+    "lon": -116.29468
+   }
+  },
+  {
+   "id": "montana",
+   "name": "Montana",
+   "headShliach": "Chaim Bruk",
+   "capital": {
+    "centerId": "486805",
+    "name": "Chabad-Lubavitch of Montana",
+    "city": "Bozeman",
+    "lat": 45.6714,
+    "lon": -111.0133
+   }
+  },
+  {
+   "id": "wyoming",
+   "name": "Wyoming",
+   "headShliach": "Zalman Mendelsohn",
+   "capital": {
+    "centerId": "672689",
+    "name": "Chabad-Lubavitch of Wyoming",
+    "city": "Jackson",
+    "lat": 43.46952,
+    "lon": -110.78917
+   }
+  },
+  {
+   "id": "utah",
+   "name": "Utah",
+   "headShliach": "Benny Zippel",
+   "capital": {
+    "centerId": "117910",
+    "name": "Chabad Lubavitch of Utah",
+    "city": "Salt Lake City",
+    "lat": 40.73198,
+    "lon": -111.85964
+   }
+  },
+  {
+   "id": "colorado",
+   "name": "Colorado",
+   "headShliach": "Mendel Popack",
+   "capital": {
+    "centerId": "5964928",
+    "name": "Chabad Lubavitch of Colorado",
+    "city": "Denver",
+    "lat": 39.70913,
+    "lon": -104.92197
+   }
+  },
+  {
+   "id": "arizona",
+   "name": "Arizona",
+   "headShliach": "Zalman Levertov",
+   "capital": {
+    "centerId": "117539",
+    "name": "Chabad Lubavitch of Arizona",
+    "city": "Phoenix",
+    "lat": 33.53917,
+    "lon": -112.03549
+   }
+  },
+  {
+   "id": "new-mexico",
+   "name": "New Mexico",
+   "headShliach": "Chaim Shmukler",
+   "capital": {
+    "centerId": "117962",
+    "name": "Chabad of New Mexico",
+    "city": "Albuquerque",
+    "lat": 35.13012,
+    "lon": -106.57722
+   }
+  },
+  {
+   "id": "north-dakota",
+   "name": "North Dakota",
+   "headShliach": "Yonah Grossman",
+   "capital": {
+    "centerId": "2027612",
+    "name": "Chabad Jewish Center of North Dakota",
+    "city": "Fargo",
+    "lat": 46.89164,
+    "lon": -96.78825
+   }
+  },
+  {
+   "id": "south-dakota",
+   "name": "South Dakota",
+   "headShliach": "Mendel Alperowitz",
+   "capital": {
+    "centerId": "3451535",
+    "name": "Chabad Jewish Center of South Dakota",
+    "city": "Sioux Falls",
+    "lat": 43.49899,
+    "lon": -96.74587
+   }
+  },
+  {
+   "id": "nebraska",
+   "name": "Nebraska",
+   "headShliach": "Mendel Katzman",
+   "capital": {
+    "centerId": "117651",
+    "name": "Chabad-Lubavitch of Nebraska",
+    "city": "Omaha",
+    "lat": 41.24068,
+    "lon": -96.10118
+   }
+  },
+  {
+   "id": "minnesota",
+   "name": "Minnesota",
+   "headShliach": "Moshe Feller",
+   "capital": {
+    "centerId": "117647",
+    "name": "Upper Midwest Merkos - Lubavitch House",
+    "city": "West S. Paul",
+    "lat": 44.89012,
+    "lon": -93.10168
+   }
+  },
+  {
+   "id": "iowa",
+   "name": "Iowa",
+   "headShliach": "Yossi Jacobson",
+   "capital": {
+    "centerId": "117609",
+    "name": "Lubavitch of Iowa",
+    "city": "Des Moines",
+    "lat": 41.59508,
+    "lon": -93.70069
+   }
+  },
+  {
+   "id": "kansas-missouri",
+   "name": "Kansas-Missouri",
+   "headShliach": "Sholom Wineberg",
+   "capital": {
+    "centerId": "117620",
+    "name": "Chabad House Center of Kansas City",
+    "city": "Overland Park",
+    "lat": 38.93945,
+    "lon": -94.65616
+   }
+  },
+  {
+   "id": "wisconsin",
+   "name": "Wisconsin",
+   "headShliach": "Yisroel Shmotkin",
+   "capital": {
+    "centerId": "117740",
+    "name": "Lubavitch of Wisconsin",
+    "city": "Milwaukee",
+    "lat": 43.07499,
+    "lon": -87.87252
+   }
+  },
+  {
+   "id": "illinois",
+   "name": "Illinois",
+   "headShliach": "Meir Moscowitz",
+   "capital": {
+    "centerId": "117610",
+    "name": "Lubavitch Chabad of Illinois",
+    "city": "Chicago",
+    "lat": 42.01922,
+    "lon": -87.70058
+   }
+  },
+  {
+   "id": "michigan",
+   "name": "Michigan",
+   "headShliach": "Berel Shemtov",
+   "capital": {
+    "centerId": "117640",
+    "name": "Chabad Lubavitch of Michigan",
+    "city": "Oak Park",
+    "lat": 42.45994,
+    "lon": -83.18833
+   }
+  },
+  {
+   "id": "indiana",
+   "name": "Indiana",
+   "headShliach": "Avrohom Grossbaum",
+   "capital": {
+    "centerId": "117619",
+    "name": "Lubavitch of Indiana - Chabad Center for Jewish Life",
+    "city": "Indianapolis",
+    "lat": 39.92872,
+    "lon": -86.20771
+   }
+  },
+  {
+   "id": "kentucky",
+   "name": "Kentucky",
+   "headShliach": "Avrohom Litvin",
+   "capital": {
+    "centerId": "117621",
+    "name": "Chabad of Kentucky",
+    "city": "Louisville",
+    "lat": 38.2255,
+    "lon": -85.64593
+   }
+  },
+  {
+   "id": "tennessee",
+   "name": "Tennessee",
+   "headShliach": "Levi Klein",
+   "capital": {
+    "centerId": "117977",
+    "name": "Chabad Lubavitch of Tennessee",
+    "city": "Memphis",
+    "lat": 35.07897,
+    "lon": -89.84142
+   }
+  },
+  {
+   "id": "oklahoma",
+   "name": "Oklahoma",
+   "headShliach": "Yehuda Weg",
+   "capital": {
+    "centerId": "117712",
+    "name": "Chabad House Lubavitch",
+    "city": "Tulsa",
+    "lat": 36.06703,
+    "lon": -95.96725
+   }
+  },
+  {
+   "id": "arkansas",
+   "name": "Arkansas",
+   "headShliach": "Pinchus Ciment",
+   "capital": {
+    "centerId": "117902",
+    "name": "Lubavitch of Arkansas",
+    "city": "Little Rock",
+    "lat": 34.79204,
+    "lon": -92.40462
+   }
+  },
+  {
+   "id": "texas",
+   "name": "Texas",
+   "headShliach": "Shimon Lazaroff",
+   "capital": {
+    "centerId": "117731",
+    "name": "Chabad Lubavitch Center Regional Hdqts.",
+    "city": "Houston",
+    "lat": 29.66133,
+    "lon": -95.50923
+   }
+  },
+  {
+   "id": "louisiana-mississippi",
+   "name": "Louisiana-Mississippi",
+   "headShliach": "Zelig Rivkin",
+   "capital": {
+    "centerId": "117623",
+    "name": "Chabad-Lubavitch of Louisiana",
+    "city": "New Orleans",
+    "lat": 29.94009,
+    "lon": -90.12296
+   }
+  },
+  {
+   "id": "alabama",
+   "name": "Alabama",
+   "headShliach": "Yossi Posner",
+   "capital": {
+    "centerId": "117538",
+    "name": "Chabad of Alabama",
+    "city": "Birmingham",
+    "lat": 33.46848,
+    "lon": -86.73954
+   }
+  },
+  {
+   "id": "georgia",
+   "name": "Georgia",
+   "headShliach": "Yossi New",
+   "capital": {
+    "centerId": "117607",
+    "name": "Chabad Lubavitch of Georgia",
+    "city": "Atlanta",
+    "lat": 33.89273,
+    "lon": -84.36682
+   }
+  },
+  {
+   "id": "florida",
+   "name": "Florida",
+   "headShliach": "Benjy Korf",
+   "capital": {
+    "centerId": "117598",
+    "name": "Merkos Lubavitch of Florida",
+    "city": "Miami Beach",
+    "lat": 25.78242,
+    "lon": -80.14142
+   }
+  },
+  {
+   "id": "the-carolinas",
+   "name": "The Carolinas",
+   "headShliach": "Yossi Groner",
+   "capital": {
+    "centerId": "117649",
+    "name": "Chabad Center for Jewish Life",
+    "city": "Charlotte",
+    "lat": 35.15092,
+    "lon": -80.77219
+   }
+  },
+  {
+   "id": "the-virginias",
+   "name": "The Virginias",
+   "headShliach": "Yossel Kranz",
+   "capital": {
+    "centerId": "117734",
+    "name": "Chabad of Virginia",
+    "city": "Richmond",
+    "lat": 37.58779,
+    "lon": -77.60152
+   }
+  },
+  {
+   "id": "western-pennsylvania",
+   "name": "Western Pennsylvania",
+   "headShliach": "Yisroel Rosenfeld",
+   "capital": {
+    "centerId": "117721",
+    "name": "Chabad Lubavitch of Western PA",
+    "city": "Pittsburgh",
+    "lat": 40.43223,
+    "lon": -79.92783
+   }
+  },
+  {
+   "id": "pennsylvania",
+   "name": "Pennsylvania",
+   "headShliach": "Avremel Shemtov",
+   "capital": {
+    "centerId": "117715",
+    "name": "Lubavitcher Center",
+    "city": "Philadelphia",
+    "lat": 40.05673,
+    "lon": -75.06133
+   }
+  },
+  {
+   "id": "new-jersey",
+   "name": "New Jersey",
+   "headShliach": "Mendy Herson",
+   "capital": {
+    "centerId": "117657",
+    "name": "Lubavitch of New Jersey Regional Hdqts.",
+    "city": "Morristown",
+    "lat": 40.80546,
+    "lon": -74.49872
+   }
+  },
+  {
+   "id": "maryland",
+   "name": "Maryland",
+   "headShliach": "Shmuel Kaplan",
+   "capital": {
+    "centerId": "117634",
+    "name": "Chabad Center and Lubavitch of Maryland",
+    "city": "Baltimore",
+    "lat": 39.37622,
+    "lon": -76.67699
+   }
+  },
+  {
+   "id": "washington-dc",
+   "name": "Washington DC",
+   "headShliach": "Levi Shemtov",
+   "capital": {
+    "centerId": "117966",
+    "name": "American Friends of Lubavitch (Chabad)",
+    "city": "Washington",
+    "lat": 38.91553,
+    "lon": -77.04699
+   }
+  },
+  {
+   "id": "delaware",
+   "name": "Delaware",
+   "headShliach": "Chuni Vogel",
+   "capital": {
+    "centerId": "117586",
+    "name": "Chabad Lubavitch of Delaware",
+    "city": "Wilmington",
+    "lat": 39.79836,
+    "lon": -75.49719
+   }
+  },
+  {
+   "id": "new-york-city",
+   "name": "New York City",
+   "headShliach": "Tzach",
+   "capital": {
+    "centerId": "117678",
+    "world": true,
+    "name": "Chabad Lubavitch Headquarters",
+    "city": "Brooklyn",
+    "lat": 40.66897,
+    "lon": -73.94282
+   }
+  },
+  {
+   "id": "long-island",
+   "name": "Long Island",
+   "headShliach": "Tuvia Teldon",
+   "capital": {
+    "centerId": "117681",
+    "name": "Lubavitch of Long Island",
+    "city": "Commack",
+    "lat": 40.83535,
+    "lon": -73.26695
+   }
+  },
+  {
+   "id": "maine",
+   "name": "Maine",
+   "headShliach": "Moshe Wilansky",
+   "capital": {
+    "centerId": "117638",
+    "name": "Chabad Lubavitch of Maine",
+    "city": "Portland",
+    "lat": 43.66433,
+    "lon": -70.30165
+   }
+  },
+  {
+   "id": "new-hampshire",
+   "name": "New Hampshire",
+   "headShliach": "Levi Krinsky",
+   "capital": {
+    "centerId": "117652",
+    "name": "Chabad of New Hampshire",
+    "city": "Manchester",
+    "lat": 43.02421,
+    "lon": -71.47038
+   }
+  },
+  {
+   "id": "vermont",
+   "name": "Vermont",
+   "headShliach": "Yitzchok Raskin",
+   "capital": {
+    "centerId": "117736",
+    "name": "Chabad of Vermont",
+    "city": "Burlington",
+    "lat": 44.47905,
+    "lon": -73.20365
+   }
+  },
+  {
+   "id": "central-massachusetts",
+   "name": "Central Massachusetts",
+   "headShliach": "Mendel Fogelman",
+   "capital": {
+    "centerId": "117633",
+    "name": "Chabad Lubavitch of Central Massachusetts",
+    "city": "Worcester",
+    "lat": 42.27184,
+    "lon": -71.82396
+   }
+  },
+  {
+   "id": "western-and-southern-new-england",
+   "name": "Western and Southern New England",
+   "headShliach": "Yisroel Deren",
+   "capital": {
+    "centerId": "2948789",
+    "name": "Chabad Lubavitch of Connecticut & Western Massachusetts",
+    "city": "Stamford",
+    "lat": 41.04112,
+    "lon": -73.54174
+   }
+  },
+  {
+   "id": "eastern-massachusetts",
+   "name": "Eastern Massachusetts",
+   "headShliach": "Chaim Prus",
+   "capital": {
+    "centerId": "1591836",
+    "name": "Chabad of Eastern Massachusetts",
+    "city": "Boston",
+    "lat": 42.34935,
+    "lon": -71.09432
+   }
+  },
+  {
+   "id": "north-shore-of-massachusetts",
+   "name": "North Shore of Massachusetts",
+   "headShliach": "Yossi Lipsker",
+   "capital": {
+    "centerId": "117908",
+    "name": "Chabad Lubavitch of the North Shore",
+    "city": "Swampscott",
+    "lat": 42.4689,
+    "lon": -70.91907
+   }
+  },
+  {
+   "id": "cape-cod-and-the-islands",
+   "name": "Cape Cod and the Islands",
+   "headShliach": "Kuti Alperowitz",
+   "capital": {
+    "centerId": "118178",
+    "name": "Chabad Lubavitch of Cape Cod",
+    "city": "Hyannis",
+    "lat": 41.65321,
+    "lon": -70.3224
+   }
+  },
+  {
+   "id": "rhode-island",
+   "name": "Rhode Island",
+   "headShliach": "Yehoshua Laufer",
+   "capital": {
+    "centerId": "117723",
+    "name": "Merkos - Chabad of Rhode Island / Chabad of Providence",
+    "city": "Providence",
+    "lat": 41.83609,
+    "lon": -71.40168
+   }
+  },
+  {
+   "id": "british-columbia",
+   "name": "British Columbia",
+   "headShliach": "Yitzchok Wineberg",
+   "capital": {
+    "centerId": "117788",
+    "name": "Chabad-Lubavitch of British Columbia",
+    "city": "Vancouver",
+    "lat": 49.23361,
+    "lon": -123.12765
+   }
+  },
+  {
+   "id": "alberta",
+   "name": "Alberta",
+   "headShliach": "Menachem Matusof",
+   "capital": {
+    "centerId": "117787",
+    "name": "Chabad Lubavitch of Alberta",
+    "city": "Calgary",
+    "lat": 50.99347,
+    "lon": -114.06125
+   }
+  },
+  {
+   "id": "manitoba-saskatchewan",
+   "name": "Manitoba-Saskatchewan",
+   "headShliach": "Avrohom Altein",
+   "capital": {
+    "centerId": "117789",
+    "name": "Chabad-Lubavitch of Winnipeg",
+    "city": "Winnipeg",
+    "lat": 49.85412,
+    "lon": -97.20307
+   }
+  },
+  {
+   "id": "ontario",
+   "name": "Ontario",
+   "headShliach": "Zalman Grossbaum",
+   "capital": {
+    "centerId": "117797",
+    "name": "Chabad Lubavitch Of Southern Ontario",
+    "city": "Thornhill",
+    "lat": 43.79879,
+    "lon": -79.44527
+   }
+  },
+  {
+   "id": "quebec",
+   "name": "Quebec",
+   "headShliach": "Berel Mochkin",
+   "capital": {
+    "centerId": "117801",
+    "name": "Chabad Lubavitch Youth Organization",
+    "city": "Montreal",
+    "lat": 45.50258,
+    "lon": -73.57742
+   }
+  },
+  {
+   "id": "maritimes",
+   "name": "Maritimes",
+   "headShliach": "Mendel Feldman",
+   "capital": {
+    "centerId": "117790",
+    "name": "Chabad-Lubavitch of the Maritimes",
+    "city": "Halifax",
+    "lat": 44.63556,
+    "lon": -63.58701
+   }
+  },
+  {
+   "id": "newfoundland-and-labrador",
+   "name": "Newfoundland and Labrador",
+   "headShliach": "Chanan Chernitsky",
+   "capital": {
+    "centerId": "3610901",
+    "name": "Chabad of Newfoundland",
+    "city": "St. John's",
+    "lat": 47.57949,
+    "lon": -52.72506
+   }
+  }
+ ]
 }

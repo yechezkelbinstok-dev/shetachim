@@ -609,12 +609,15 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   }
 
   // Where an area's label looks for room first: the middle of each of its bigger polygons, biggest first.
-  // The biggest polygon's area sets the label's size.
+  // The biggest polygon's area sets the label's size. bbox covers every polygon (even small ones), so
+  // placeLabels can tell when the whole area doesn't fit on screen and needs recentring on what does.
   function anchorFor(polys) {
     const sized = polys.map((rings) => ({ rings, area: Math.abs(d3.polygonArea(rings[0])) })).sort((a, b) => b.area - a.area);
     if (!sized.length || !(sized[0].area > 0)) return null;
     const points = sized.filter((q, i) => i < 4 && q.area >= sized[0].area * 0.05).map((q) => polylabel(q.rings, 0.5));
-    return { points, area: sized[0].area };
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    for (const poly of polys) for (const [x, y] of poly[0]) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+    return { points, area: sized[0].area, bbox: [x0, y0, x1, y1] };
   }
 
   // The edges of the labelled areas filed by height, so where a horizontal line crosses them is quick to find.
@@ -783,8 +786,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     const inView = ([x, y]) => x >= p.l && x <= W - p.r && y >= p.t && y <= H - p.b;
     for (const L of labels) {
       L.show = null;
-      const starts = L.a.points.map((pt) => T.apply(pt)).filter(inView);
-      if (!starts.length) { const v = visiblePoint(ix, L.id, p); if (v) starts.push(v); }
+      const onScreen = L.a.points.map((pt) => T.apply(pt)).filter(inView);
+      // When the area's whole extent doesn't fit on screen (zoomed into part of it), its natural middle
+      // may still be on screen but off to one side of what's actually visible — centre on that instead.
+      const [bx0, by0, bx1, by1] = L.a.bbox, [sx0, sy0] = T.apply([bx0, by0]), [sx1, sy1] = T.apply([bx1, by1]);
+      const fits = sx0 >= p.l - 1 && sx1 <= W - p.r + 1 && sy0 >= p.t - 1 && sy1 <= H - p.b + 1;
+      const starts = fits ? onScreen : [];
+      if (!starts.length) { const v = visiblePoint(ix, L.id, p); if (v) starts.push(v); else starts.push(...onScreen); }
       search: for (const [ax, ay] of starts) {
         for (const { o, shift } of L.tries) {
           const size = L.size * f, w = o.w * f, h = o.lines.length * LINE * size, sy = ay + shift * LINE * size;

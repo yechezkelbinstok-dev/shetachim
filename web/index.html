@@ -256,6 +256,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
           <button type="button" data-value="na" aria-pressed="true">US &amp; Canada</button>
           <button type="button" data-value="us" aria-pressed="false">USA</button>
           <button type="button" data-value="ca" aria-pressed="false">Canada</button>
+          <button type="button" data-value="world" aria-pressed="false">World</button>
+          <button type="button" data-value="europe" aria-pressed="false">Europe</button>
+          <button type="button" data-value="caucasus" aria-pressed="false">Caucasus &amp; Central Asia</button>
+          <button type="button" data-value="asia" aria-pressed="false">Asia</button>
+          <button type="button" data-value="mideast" aria-pressed="false">Middle East</button>
+          <button type="button" data-value="africa" aria-pressed="false">Africa</button>
+          <button type="button" data-value="oceania" aria-pressed="false">Oceania</button>
+          <button type="button" data-value="latam" aria-pressed="false">Latin America &amp; Caribbean</button>
         </div>
       </fieldset>
       <fieldset class="ctl">
@@ -401,10 +409,27 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   const stateColor = colorize((g) => g.properties.state);
 
   // ---------- views ----------
+  const EUROPE = ['AND', 'AUT', 'BLR', 'BEL', 'LUX', 'BGR', 'HRV', 'CYP', 'XNC', 'CZE', 'DNK', 'EST', 'FIN', 'FRA', 'DEU', 'GRC', 'ALB', 'BIH', 'XKO', 'MKD', 'HUN', 'ISL', 'IRL', 'ITA', 'SMR', 'VAT', 'SVN', 'LVA', 'LTU', 'MLT', 'MDA', 'MCO', 'MNE', 'NLD', 'NOR', 'POL', 'PRT', 'ROU', 'SRB', 'SVK', 'ESP', 'SWE', 'CHE', 'UKR', 'GBR'];
+  const CAUCASUS = ['ARM', 'AZE', 'GEO', 'KAZ', 'KGZ', 'UZB', 'TJK', 'RUS', 'MNG'];
+  const ASIA = ['IND', 'NPL', 'LKA', 'CHN', 'HKG', 'MAC', 'JPN', 'KOR', 'TWN', 'THA', 'LAO', 'MMR', 'KHM', 'VNM', 'PHL', 'SGP', 'MYS', 'IDN'];
+  const MIDEAST = ['ISR', 'PSE', 'TUR', 'ARE', 'QAT', 'SAU'];
+  const AFRICA = ['MAR', 'TUN', 'ZAF', 'MUS', 'REU', 'AGO', 'BEN', 'BWA', 'BFA', 'BDI', 'CPV', 'CMR', 'CAF', 'TCD', 'COM', 'COG', 'CIV', 'COD', 'DJI', 'GNQ', 'ERI', 'SWZ', 'ETH', 'GAB', 'GMB', 'GHA', 'GIN', 'GNB', 'KEN', 'LSO', 'LBR', 'MDG', 'MWI', 'MLI', 'MRT', 'MOZ', 'NAM', 'NER', 'NGA', 'RWA', 'STP', 'SEN', 'SYC', 'SLE', 'SOM', 'SSD', 'TZA', 'TGO', 'UGA', 'ZMB', 'ZWE'];
+  const OCEANIA = ['AUS', 'NZL', 'NCL'];
+  const LATAM = ['MEX', 'BLZ', 'GTM', 'SLV', 'HND', 'NIC', 'CRI', 'PAN', 'ARG', 'BOL', 'BRA', 'CHL', 'COL', 'ECU', 'PRY', 'PER', 'URY', 'VEN', 'BMU', 'GUY'];
+  const WORLD = ['US', 'CA', ...EUROPE, ...CAUCASUS, ...ASIA, ...MIDEAST, ...AFRICA, ...OCEANIA, ...LATAM];
+  const mercator = () => d3.geoMercator();
   const VIEWS = {
     na: { name: 'United States & Canada', countries: ['US', 'CA'], insets: ['US-AK', 'US-HI'], projection: () => d3.geoConicEqualArea().parallels([30, 58]).rotate([96, 0]) },
     us: { name: 'United States', countries: ['US'], insets: ['US-AK', 'US-HI'], projection: () => d3.geoConicEqualArea().parallels([29.5, 45.5]).rotate([96, 0]) },
     ca: { name: 'Canada', countries: ['CA'], insets: [], projection: () => d3.geoConicEqualArea().parallels([49, 62]).rotate([96, 0]) },
+    world: { name: 'World', countries: WORLD, insets: [], projection: () => d3.geoNaturalEarth1() },
+    europe: { name: 'Europe', countries: EUROPE, insets: [], projection: mercator },
+    caucasus: { name: 'Caucasus & Central Asia', countries: CAUCASUS, insets: [], projection: mercator },
+    asia: { name: 'Asia', countries: ASIA, insets: [], projection: mercator },
+    mideast: { name: 'Middle East', countries: MIDEAST, insets: [], projection: mercator },
+    africa: { name: 'Africa', countries: AFRICA, insets: [], projection: mercator },
+    oceania: { name: 'Oceania', countries: OCEANIA, insets: [], projection: mercator },
+    latam: { name: 'Latin America & Caribbean', countries: LATAM, insets: [], projection: mercator },
   };
   const INSETS = {
     'US-AK': { share: 0.2, aspect: 0.7, projection: () => d3.geoConicEqualArea().parallels([55, 65]).rotate([154, 0]) },

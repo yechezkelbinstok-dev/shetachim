@@ -1165,10 +1165,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
 
   const count = (n) => `${fmt(n)} ${n === 1 ? 'center' : 'centers'}`;
   const chabadLink = (c) => (c && c.slug ? `<a href="https://www.chabad.org/jewish-centers/${esc(c.id)}/${esc(c.slug)}" target="_blank" rel="noopener">Open on chabad.org</a>` : '');
-  function shetachLine(pieceId) {
+  // withHead: false just names the shetach whose territory this is, without implying its head shliach
+  // runs the place — used for 770, which sits in New York City's territory but isn't Tzach's to run.
+  function shetachLine(pieceId, withHead = true) {
     const g = pieceById.get(pieceId);
     const s = g && shetachOf(g);
-    if (s) return `${esc(s.name)} · ${esc(s.headShliach)}`;
+    if (s) return withHead ? `${esc(s.name)} · ${esc(s.headShliach)}` : esc(s.name);
     return g ? esc(g.properties.name) : '';
   }
 
@@ -1207,7 +1209,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   function capitalHTML(c) {
     return `<span class="kicker${c.world ? ' kicker-world' : ''}">${capKicker(c)}</span><h2>${esc(c.name)}</h2>
       ${c.city ? `<p>${esc(c.city)}</p>` : ''}${personnelHTML(c.center && c.center.personnel)}${chabadLink(c.center)}
-      <div class="foot"><span class="meta">${shetachLine(c.piece)}</span></div>`;
+      <div class="foot"><span class="meta">${shetachLine(c.piece, !c.world)}</span></div>`;
   }
 
   function cityHTML(c) {

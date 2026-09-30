@@ -95,11 +95,12 @@ Open questions:
 
 ### Boundaries
 
-- Drawing: Natural Earth 1:10m states and provinces (Great Lakes cut out), in one TopoJSON
-  (`web/data/geo.json`). Split states are cut with Census 2022 1:500k counties, towns and tracts
-  and with longitude lines, keeping Natural Earth's outer edges (see HANDOFF.md for how).
-- Tagging: Natural Earth 1:10m full detail plus Census 1:500k counties (2022).
-- Maybe later: a more detailed level for close zoom (city scale) if 1:10m looks coarse there.
+- Drawing: every US state from its own Census 2022 1:500k counties (Great Lakes already excluded), in
+  one TopoJSON (`web/data/geo.json`); Canada's provinces from Natural Earth 1:10m, the only source for
+  them here. A state needing more than whole counties (Massachusetts, Pennsylvania) is cut finer just
+  there (see HANDOFF.md for how, and why Natural Earth alone was too coarse for this).
+- Tagging: Natural Earth 1:10m full detail (countries, Canadian provinces) plus Census 1:500k counties.
+- Maybe later: a more detailed level for close zoom (city scale) if 1:500k looks coarse there.
 
 ## Physical map
 

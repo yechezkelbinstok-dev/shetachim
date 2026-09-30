@@ -46,7 +46,6 @@ const UNIT_COUNTRIES = ['USA', 'CAN'];
 const UNIT_ISO = ['US', 'CA'];
 const CITY_KM = 60; // a GeoNames place this close with the same name is the center's city
 const ROUGH = ['US-AK']; // drawn small in an inset, so simplified harder
-const SLIVER_GRID = 0.03; // degrees: slivers along a split state's outline are handed out in squares this size
 
 // ---------- downloads ----------
 
@@ -379,124 +378,114 @@ function readClaims(data, areaIds, counties) {
 const featureOf = (geometry, properties) => ({ type: 'Feature', geometry, properties });
 const collectionOf = (features) => ({ type: 'FeatureCollection', features });
 const rect = ([x0, y0, x1, y1]) => ({ type: 'Polygon', coordinates: [[[x0, y0], [x1, y0], [x1, y1], [x0, y1], [x0, y0]]] });
-function bboxOf(f, pad = 0) {
-  const [{ box }] = index([f]);
-  return [box[0] - pad, box[1] - pad, box[2] + pad, box[3] + pad];
-}
 
-// The map's areas: Natural Earth states and provinces, each a single piece, except states that are split
-// between shetachim. Those are cut along the Census lines their claims use (counties, towns, tracts) and
-// along longitude lines, with the outer edge kept from Natural Earth so neighbours still meet exactly.
-// Slivers where the Census and Natural Earth coastlines differ go to the nearest piece.
+// The map's areas: every US state and DC built from its own Census counties (precise, and mutually
+// consistent state to state, unlike Natural Earth's coarser world-atlas polygons — those are too coarse
+// for real detail, like the Hudson around Manhattan, even along an ordinary, unsplit state line).
+// Canadian provinces still come from Natural Earth (there's no Canadian county-equivalent layer here).
+// States with a shetach that isn't whole counties (a longitude cut, or specific towns/tracts) are cut
+// finer just where they need to be; every county elsewhere is already its own piece.
 async function buildGeo(data) {
   const notShown = data.notShown || [];
   const ne = readJSON(await cached('admin1Lakes'));
-  const areas = ne.features
-    .filter((f) => UNIT_COUNTRIES.includes(f.properties.adm0_a3) && !notShown.includes(f.properties.iso_3166_2))
+  const usMeta = new Map(ne.features
+    .filter((f) => f.properties.adm0_a3 === 'USA' && !notShown.includes(f.properties.iso_3166_2))
+    .map((f) => [f.properties.iso_3166_2, { name: f.properties.name, abbr: f.properties.postal }]));
+  const caAreas = ne.features
+    .filter((f) => f.properties.adm0_a3 === 'CAN' && !notShown.includes(f.properties.iso_3166_2))
     .map((f) => featureOf(f.geometry, {
-      id: f.properties.iso_3166_2, name: f.properties.name, abbr: f.properties.postal,
-      country: f.properties.adm0_a3 === 'USA' ? 'US' : 'CA',
+      state: f.properties.iso_3166_2, name: f.properties.name, abbr: f.properties.postal, country: 'CA',
     }));
-  const areaById = new Map(areas.map((f) => [f.properties.id, f]));
+
   const counties = readJSON(await countiesGeoJSON());
-  const { claims, problems } = readClaims(data, new Set(areaById.keys()), counties);
+  const usCounties = counties.features
+    .filter((f) => usMeta.has(`US-${f.properties.STUSPS}`))
+    .map((f) => {
+      const state = `US-${f.properties.STUSPS}`, meta = usMeta.get(state);
+      return featureOf(f.geometry, { state, county: f.properties.GEOID, name: meta.name, abbr: meta.abbr, country: 'US' });
+    });
+
+  const areaIds = new Set([...usMeta.keys(), ...caAreas.map((f) => f.properties.state)]);
+  const { claims, problems } = readClaims(data, areaIds, counties);
   const byState = new Map();
   for (const c of claims) {
     if (!byState.has(c.state)) byState.set(c.state, []);
     byState.get(c.state).push(c);
   }
-  const split = [...byState].filter(([, cs]) => cs.some((c) => c.level > LEVEL.state)).map(([state]) => state);
+  // States needing something finer than a whole county: a longitude cut (Pennsylvania) or specific towns
+  // and census tracts (Massachusetts). A plain county claim (New York City, Long Island, the West Virginia
+  // county in Western Pennsylvania) doesn't — every county is already its own piece below.
+  const finer = [...byState].filter(([, cs]) => cs.some((c) => c.level === LEVEL.band || c.level === LEVEL.town || c.level === LEVEL.tract)).map(([state]) => state);
 
-  // For each split state, layers of cells (fields prefixed per state, since the union keeps every field).
-  const layers = {}, prefix = new Map();
-  for (const state of split) {
-    const cs = byState.get(state), P = `${state.replace('-', '_')}_`;
+  // Every US county everywhere, and Canada's provinces, in one layer: the map's real, mutually consistent
+  // land (no two pieces of it can overlap or leave a gap, so no other layer needs its own state/name/county
+  // fields — only the refinements below do, kept to their own prefixed field so there's no name clash when
+  // they're combined with land in the same mosaic).
+  const land = [...caAreas, ...usCounties.filter((f) => !finer.includes(f.properties.state))];
+  const layers = {};
+  const prefix = new Map();
+  for (const state of finer) {
+    const cs = byState.get(state), P = `${state.replace('-', '_')}_`, meta = usMeta.get(state);
     prefix.set(state, P);
     const fips = counties.features.find((f) => `US-${f.properties.STUSPS}` === state)?.properties.GEOID.slice(0, 2);
-    const box = bboxOf(areaById.get(state), 0.05);
+    const stateCounties = usCounties.filter((f) => f.properties.state === state);
     const has = (level) => cs.some((c) => c.level === level);
-    let base;
-    if ((has(LEVEL.town) || has(LEVEL.tract)) && fips) {
+    if (has(LEVEL.town) || has(LEVEL.tract)) {
       const towns = readJSON(await censusLayer('county-subdivision', fips)).features;
       const known = new Set(towns.map((f) => townKey(f.properties.NAME)));
       for (const c of cs) if (c.level === LEVEL.town && !known.has(c.town)) problems.push(`${c.shetach}: no town "${c.townName}" in ${state}`);
-      base = towns.map((f) => featureOf(f.geometry, { [`${P}town`]: townKey(f.properties.NAME), [`${P}county`]: f.properties.STATEFP + f.properties.COUNTYFP }));
-    } else if (has(LEVEL.county) && fips) {
-      base = counties.features.filter((f) => f.properties.GEOID.startsWith(fips)).map((f) => featureOf(f.geometry, { [`${P}county`]: f.properties.GEOID }));
+      land.push(...towns.map((f) => featureOf(f.geometry, {
+        [`${P}town`]: townKey(f.properties.NAME), county: f.properties.STATEFP + f.properties.COUNTYFP, state, name: meta.name, abbr: meta.abbr, country: 'US',
+      })));
     } else {
-      base = [featureOf(rect(box), { [`${P}all`]: 1 })];
+      land.push(...stateCounties);
     }
-    layers[`${P}base`] = collectionOf(base);
     if (has(LEVEL.tract)) {
       const want = new Set(cs.filter((c) => c.level === LEVEL.tract).map((c) => c.tract));
       const tracts = readJSON(await censusLayer('tract', fips)).features.filter((f) => want.has(f.properties.GEOID));
       for (const t of want) if (!tracts.some((f) => f.properties.GEOID === t)) problems.push(`no census tract "${t}" in ${state}`);
       layers[`${P}tracts`] = collectionOf(tracts.map((f) => featureOf(f.geometry, { [`${P}tract`]: f.properties.GEOID })));
     }
-    if (!base[0].properties[`${P}all`]) {
-      // Small squares along the outline, so a long sliver is shared out between the pieces it runs past.
-      const outline = areaById.get(state), g = SLIVER_GRID, squares = [];
-      const [x0, y0, x1, y1] = bboxOf(outline, g);
-      for (let x = x0; x < x1; x += g) {
-        for (let y = y0; y < y1; y += g) {
-          if (kmTo(outline, x + g / 2, y + g / 2) < 5) squares.push(featureOf(rect([x, y, x + g, y + g]), { [`${P}sq`]: squares.length }));
-        }
-      }
-      layers[`${P}grid`] = collectionOf(squares);
-    }
     if (has(LEVEL.band)) {
+      // A longitude cut isn't a real boundary, so the rectangles are only ever intersected against the
+      // state's own real counties below — how far past the state they reach doesn't matter.
+      let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+      for (const { box } of index(stateCounties)) { x0 = Math.min(x0, box[0]); y0 = Math.min(y0, box[1]); x1 = Math.max(x1, box[2]); y1 = Math.max(y1, box[3]); }
+      const pad = 0.3, box = [x0 - pad, y0 - pad, x1 + pad, y1 + pad];
       const edges = cs.filter((c) => c.level === LEVEL.band).flatMap((c) => [c.from, c.to]).filter((x) => x > box[0] && x < box[2]);
       const xs = [box[0], ...[...new Set(edges)].sort((a, b) => a - b), box[2]];
       layers[`${P}bands`] = collectionOf(xs.slice(1).map((x1, i) => featureOf(rect([xs[i], box[1], x1, box[3]]), { [`${P}mid`]: (xs[i] + x1) / 2 })));
     }
   }
   if (problems.length) throw new Error(`data/shetachim.json:\n  ${problems.join('\n  ')}`);
+  layers.land = collectionOf(land);
 
-  // One mosaic of everything, so every piece shares its edges exactly with its neighbours.
-  const names = ['areas', ...Object.keys(layers)];
-  const input = { 'areas.json': collectionOf(areas) };
+  // One mosaic of everything, so every piece shares its edges exactly with its neighbours. Every point in
+  // the US and Canada is covered by some real county or province polygon above, so a mosaic piece always
+  // has a true state (and, in the US, county) to resolve against, whatever else happens to overlap it.
+  const names = Object.keys(layers);
+  const input = {};
   for (const [name, layer] of Object.entries(layers)) input[`${name}.json`] = layer;
   const mosaic = JSON.parse((await mapshaper.applyCommands(
     `-i ${names.map((n) => `${n}.json`).join(' ')} combine-files -union target=${names.join(',')} name=mosaic -o mosaic.json format=geojson`, input,
-  ))['mosaic.json']).features.filter((f) => f.properties.id);
+  ))['mosaic.json']).features.filter((f) => f.properties.state);
 
-  const whole = new Map(claims.filter((c) => c.level === LEVEL.state).map((c) => [c.state, c.shetach]));
-  const slivers = [];
   for (const f of mosaic) {
-    const p = f.properties, P = prefix.get(p.id);
-    if (!P) { p.shetach = whole.get(p.id) ?? null; continue; }
-    if (p[`${P}town`] == null && p[`${P}county`] == null && p[`${P}all`] == null && p[`${P}tract`] == null) { slivers.push(f); continue; }
+    const p = f.properties, P = prefix.get(p.state), cs = byState.get(p.state) || [];
     let best = null;
-    for (const c of byState.get(p.id)) {
+    for (const c of cs) {
       const hit = c.level === LEVEL.state
-        || (c.level === LEVEL.band && p[`${P}mid`] >= c.from && p[`${P}mid`] <= c.to)
-        || (c.level === LEVEL.county && p[`${P}county`] === c.county)
-        || (c.level === LEVEL.town && p[`${P}town`] === c.town)
-        || (c.level === LEVEL.tract && p[`${P}tract`] === c.tract);
+        || (c.level === LEVEL.county && c.county === p.county)
+        || (P && c.level === LEVEL.band && p[`${P}mid`] != null && p[`${P}mid`] >= c.from && p[`${P}mid`] <= c.to)
+        || (P && c.level === LEVEL.town && p[`${P}town`] === c.town)
+        || (P && c.level === LEVEL.tract && p[`${P}tract`] === c.tract);
       if (hit && (!best || c.level > best.level)) best = c;
     }
     p.shetach = best ? best.shetach : null;
   }
-  const resolved = index(mosaic.filter((f) => f.properties.shetach !== undefined));
-  for (const f of slivers) {
-    const ring = polygonsOf(f.geometry)[0][0];
-    const [x, y] = ring.reduce(([sx, sy], [px, py]) => [sx + px / ring.length, sy + py / ring.length], [0, 0]);
-    let best = null;
-    for (const { f: g, box } of resolved) {
-      if (g.properties.id !== f.properties.id) continue;
-      const near = Math.max(box[0] - x, x - box[2], box[1] - y, y - box[3], 0) * 80; // km, a lower bound
-      if (best && near > best.km) continue;
-      const km = contains(g, x, y) ? 0 : kmTo(g, x, y);
-      if (!best || km < best.km) best = { g, km };
-    }
-    f.properties.shetach = best ? best.g.properties.shetach : null;
-  }
   for (const f of mosaic) {
     const p = f.properties;
-    f.properties = {
-      piece: prefix.has(p.id) ? `${p.id}:${p.shetach ?? 'none'}` : p.id,
-      state: p.id, name: p.name, abbr: p.abbr, country: p.country, shetach: p.shetach,
-    };
+    f.properties = { piece: `${p.state}:${p.shetach ?? 'none'}`, state: p.state, name: p.name, abbr: p.abbr, country: p.country, shetach: p.shetach };
   }
 
   const rough = JSON.stringify(ROUGH).replace(/"/g, "'");
@@ -510,8 +499,9 @@ async function buildGeo(data) {
   );
   fs.writeFileSync(path.join(OUT, 'geo.json'), out['geo.json']);
   const pieces = JSON.parse(out['pieces.json']).features;
-  const splitPieces = pieces.filter((f) => split.includes(f.properties.state));
-  console.log(`${data.shetachim.length} shetachim; split states: ${split.join(', ') || 'none'} (${splitPieces.length} pieces); ` +
+  const byStateCount = count(pieces, (f) => f.properties.state);
+  const split = byStateCount.filter(([, n]) => n > 1).map(([state]) => state);
+  console.log(`${data.shetachim.length} shetachim; split states: ${split.join(', ') || 'none'} (${pieces.filter((f) => split.includes(f.properties.state)).length} pieces); ` +
     `blank: ${pieces.filter((f) => !f.properties.shetach).map((f) => f.properties.name).join(', ') || 'none'}`);
   return { pieces, split };
 }
@@ -570,7 +560,8 @@ async function main() {
   const countryIdx = index(readJSON(await cached('countries')).features);
   const regionIdx = index(readJSON(await cached('admin1')).features.filter((f) => UNIT_COUNTRIES.includes(f.properties.adm0_a3)));
   const countyIdx = index(readJSON(await countiesGeoJSON()).features);
-  const pieceIdx = new Map(split.map((state) => [state, index(pieces.filter((f) => f.properties.state === state))]));
+  // Every state/province, not just the split ones, in case a shetach's shape ends up needing it.
+  const pieceIdx = new Map([...new Set(pieces.map((f) => f.properties.state))].map((state) => [state, index(pieces.filter((f) => f.properties.state === state))]));
   const shetachOfPiece = new Map(pieces.map((f) => [f.properties.id, f.properties.shetach]));
 
   // The piece of a split state a point is in (the nearest one if it's just off the coast).

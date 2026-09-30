@@ -49,6 +49,15 @@ The owner got very angry at the first version. The lessons:
    many questions. When they say "do everything I asked", do all of it without checking in.
 7. The two unlisted centers are public, as the owner said: Riyadh (address unknown, city centre)
    and Istanbul (in Nişantaşı near the American Hospital, a rough spot), in `data/extra-centers.json`.
+8. **Borders need to actually be traced properly**, not approximated. An early version mixed Natural
+   Earth (coarse, ~1:10,000,000 — good enough for a world atlas, not for a real US map) with Census
+   data, padded/gridded to patch the seam; the owner caught it immediately ("this line not exactly
+   following the [Hudson]... it's been replicated across the entire thing"). Every US state now comes
+   from its own real Census counties (see "Drawing" below) — check this hasn't regressed if the
+   boundary sourcing changes again.
+9. 770 is the world HQ, not a regional flagship under whoever heads New York City's shetach. Its card
+   doesn't say "New York City · Tzach" the way a normal capital's does (`capitalHTML` in `web/index.html`
+   passes `withHead: false` to `shetachLine` for it) — keep that distinction if the card is reworked.
 
 ## Current state (all committed and pushed)
 
@@ -98,11 +107,15 @@ The owner got very angry at the first version. The lessons:
     `{state, towns}` (Census county subdivisions), `{state, tracts}` (Census tracts). The most
     specific claim wins where they overlap. Unclaimed areas are blank: now Ohio and New York
     outside NYC and Long Island.
-  - Drawing: Natural Earth 10m states/provinces. Split states (now PA, WV, NY, MA) are cut in one
-    mapshaper `-union` with Census 2022 1:500k counties/towns/tracts (from the Census Bureau's
-    GitHub) and longitude rectangles, so the outer edges stay Natural Earth's and every piece
-    shares edges with its neighbours. Slivers where Census and Natural Earth disagree are cut
-    into 0.03° squares along the outline and each square goes to the nearest piece.
+  - Drawing: every US state and DC is built from its own Census 2022 1:500k counties (from the Census
+    Bureau's GitHub), not Natural Earth — NE's states are too coarse for real detail (Manhattan's whole
+    coastline is ~19 points in NE 10m), and mixing NE with Census at a split state's edge is exactly what
+    caused it. Only Canada's provinces still come from Natural Earth (there's no Census-equivalent there).
+    A state whose shetach needs more than whole counties gets cut finer just where it does: Massachusetts
+    (towns and tracts, from the Census Bureau's GitHub) and Pennsylvania (a longitude line, on its own
+    counties). One mapshaper `-union` of everything makes every piece share its edges with its neighbours
+    exactly (all from the same source, so no gaps or slivers to patch — Census counties already tile a
+    state exactly, and states tile the country exactly).
     Output: `web/data/geo.json`, one object `areas` of pieces `{id, state, name, abbr, country, shetach}`.
   - Tagging: NE countries and provinces, Census counties; centers and cities in split states also
     get the piece they're in.

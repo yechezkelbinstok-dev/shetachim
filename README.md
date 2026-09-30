@@ -2,7 +2,7 @@
 
 An interactive map of Chabad shetachim (regions under a head shliach), with borders drawn
 by shetach rather than by country/state, plus a faint dot for every Chabad center.
-Starting with the United States and Canada. See [docs/PLAN.md](docs/PLAN.md).
+Starting with the United States and Canada. **Picking this up? Read [HANDOFF.md](HANDOFF.md) first.** Plan: [docs/PLAN.md](docs/PLAN.md).
 
 ## Layout
 

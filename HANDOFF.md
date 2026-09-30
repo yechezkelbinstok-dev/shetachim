@@ -107,16 +107,31 @@ The owner got very angry at the first version. The lessons:
     `{state, towns}` (Census county subdivisions), `{state, tracts}` (Census tracts). The most
     specific claim wins where they overlap. Unclaimed areas are blank: now Ohio and New York
     outside NYC and Long Island.
-  - Drawing: every US state and DC is built from its own Census 2022 1:500k counties (from the Census
-    Bureau's GitHub), not Natural Earth — NE's states are too coarse for real detail (Manhattan's whole
-    coastline is ~19 points in NE 10m), and mixing NE with Census at a split state's edge is exactly what
-    caused it. Only Canada's provinces still come from Natural Earth (there's no Census-equivalent there).
-    A state whose shetach needs more than whole counties gets cut finer just where it does: Massachusetts
-    (towns and tracts, from the Census Bureau's GitHub) and Pennsylvania (a longitude line, on its own
-    counties). One mapshaper `-union` of everything makes every piece share its edges with its neighbours
-    exactly (all from the same source, so no gaps or slivers to patch — Census counties already tile a
-    state exactly, and states tile the country exactly).
+  - Drawing: every US state and DC from its own Census 2022 1:500k counties (from the Census Bureau's
+    GitHub); every Canadian province from GADM (github.com/stephanietuerk/admin-boundaries, a plain-file
+    mirror — gadm.org itself, and every other boundary host tried, is blocked from this sandbox; see
+    "Notes for Claude"). Neither comes from Natural Earth any more: NE's states are far too coarse for
+    real detail (Manhattan's whole coastline was ~19 points in NE 10m; Ontario's was just as coarse along
+    the Detroit River), and mixing NE with Census at a split state's edge is exactly what caused the
+    Maryland bug. A state whose shetach needs more than whole counties is cut finer just where it does:
+    Massachusetts (towns and tracts, from the Census Bureau's GitHub) and Pennsylvania (a longitude line,
+    on its own counties). One mapshaper `-union` of everything makes every piece share its edges with its
+    neighbours exactly (both sources tile themselves with no gaps, so there's nothing to patch — but
+    Census and GADM don't necessarily agree on each other's coastline to the metre; the one place this
+    still shows is a short, real stretch of the Detroit River, US/Canada, near Belle Isle — worth a look
+    if it bothers the owner, but the two sources just draw it slightly differently there).
+    Both sources are far more detailed than the map needs everywhere, so the final `-simplify` interval
+    is tuned per country (US 400m, Canada 800m, Alaska 2500m for its inset box) to keep the page light —
+    turn these down if a spot still looks coarse; the ceiling is whatever the source itself provides.
     Output: `web/data/geo.json`, one object `areas` of pieces `{id, state, name, abbr, country, shetach}`.
+  - **The world**: GADM (via that same mirror) is the standard to reach for first when shetachim outside
+    the US/Canada get added — it covers every country, at real detail, and geoBoundaries is a fallback
+    (CC-BY, cleanly licensed for redistribution, but only reachable here as Git LFS pointers, since this
+    sandbox can't fetch LFS content, so it needs the owner's browser, or the sandbox's network policy
+    widened to reach geoboundaries.org directly). GADM's own terms allow non-commercial use but ask
+    permission before redistributing; this project's public GitHub Pages site is very likely fine (a free
+    hobby map, not resold or repackaged), but it's not public domain the way Natural Earth was — worth
+    keeping in mind if that ever matters.
   - Tagging: NE countries and provinces, Census counties; centers and cities in split states also
     get the piece they're in.
   - Cities: matched to GeoNames (npm `all-the-cities`); 1,001 cities, 81 unmatched (see report).
@@ -137,11 +152,18 @@ The owner got very angry at the first version. The lessons:
 - Data gaps: no listings in Armenia, the Philippines, Albania and a few others.
 
 ## Notes for Claude
-- This cloud sandbox's network is limited: GitHub (`raw.githubusercontent.com`) and the npm
-  registry work; census.gov, geonames.org, chabad.org, cdnjs, jsdelivr, unpkg, openfreemap.org and
-  github.io are blocked. That's why counties, towns and tracts come from the Census Bureau's
-  GitHub (`uscensusbureau/citysdk`, `v2/GeoJSON/500k/2022/…`) and cities from npm.
-  The owner's browser reaches all of them. The real OpenFreeMap tiles can't be seen from here.
+- This cloud sandbox's network is limited: GitHub (`raw.githubusercontent.com`, and anonymous
+  `git clone` of any public repo) and the npm registry work; census.gov, geonames.org, chabad.org,
+  gadm.org, geoboundaries.org, any OSM host, cdnjs, jsdelivr, unpkg, openfreemap.org and github.io
+  are blocked (checked directly, not assumed). That's why counties, towns and tracts come from the
+  Census Bureau's GitHub (`uscensusbureau/citysdk`, `v2/GeoJSON/500k/2022/…`), Canada's provinces
+  from a plain-file GADM mirror on GitHub, and cities from npm. If a source is only on GitHub via
+  Git LFS (`git-lfs.github.com` pointer files instead of real content when fetched anonymously —
+  geoBoundaries' own repo is like this), it can't be read here either. The owner's browser reaches
+  all of these; the real OpenFreeMap tiles can't be seen from here. The environment's network
+  policy (cloud environment menu → Edit, in the session's title bar) can be widened to a specific
+  host if a source is worth reaching directly next time, or the owner can download a file and hand
+  it over the way `data/raw/chabad-personnel.json` works.
 - Testing: headless Chromium is at `/opt/pw-browsers`, and the global `playwright` package is
   installed. Chromium doesn't trust the proxy CA, so serve the repo with `page.route`, answer
   cdnjs URLs from local npm copies (`npm install d3@7.9.0 topojson@3.0.2 maplibre-gl@4.7.1` in a

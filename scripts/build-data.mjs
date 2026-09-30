@@ -32,10 +32,21 @@ const at = (...p) => path.join(ROOT, ...p);
 const NE = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson';
 const SOURCES = {
   admin1: `${NE}/ne_10m_admin_1_states_provinces.geojson`, // tagging: states/provinces
-  admin1Lakes: `${NE}/ne_10m_admin_1_states_provinces_lakes.geojson`, // drawing: Great Lakes cut out
+  admin1Lakes: `${NE}/ne_10m_admin_1_states_provinces_lakes.geojson`, // US state names/abbreviations only now
   countries: `${NE}/ne_10m_admin_0_countries.geojson`, // tagging: countries
   // US counties, Census 1:500k (2022), from the Census Bureau's GitHub (www2.census.gov isn't always reachable)
   counties: 'https://raw.githubusercontent.com/uscensusbureau/citysdk/master/v2/GeoJSON/500k/2022/county.json',
+  // Canada's provinces: GADM (github.com/stephanietuerk/admin-boundaries, a plain-file mirror; GADM's own
+  // site isn't reachable here), far more detailed than Natural Earth's 1:10m for the same provinces —
+  // Natural Earth's Ontario was as coarse along the Detroit River as its US states were along the Hudson.
+  caProvinces: 'https://raw.githubusercontent.com/stephanietuerk/admin-boundaries/master/lo-res/Admin1_simp10/gadm36_CAN_1.json',
+};
+// GADM's own fields don't give a usable code (HASC has a stray CA.NF for Newfoundland and Labrador,
+// not the CA-NL everyone else here uses), so this is by hand; there are only 13.
+const CA_PROVINCES = {
+  Alberta: 'AB', 'British Columbia': 'BC', Manitoba: 'MB', 'New Brunswick': 'NB',
+  'Newfoundland and Labrador': 'NL', 'Northwest Territories': 'NT', 'Nova Scotia': 'NS', Nunavut: 'NU',
+  Ontario: 'ON', 'Prince Edward Island': 'PE', Québec: 'QC', Saskatchewan: 'SK', Yukon: 'YT',
 };
 // the same place, by state FIPS code: county-subdivision (towns) and tract
 const CENSUS = 'https://raw.githubusercontent.com/uscensusbureau/citysdk/master/v2/GeoJSON/500k/2022';
@@ -379,23 +390,23 @@ const featureOf = (geometry, properties) => ({ type: 'Feature', geometry, proper
 const collectionOf = (features) => ({ type: 'FeatureCollection', features });
 const rect = ([x0, y0, x1, y1]) => ({ type: 'Polygon', coordinates: [[[x0, y0], [x1, y0], [x1, y1], [x0, y1], [x0, y0]]] });
 
-// The map's areas: every US state and DC built from its own Census counties (precise, and mutually
-// consistent state to state, unlike Natural Earth's coarser world-atlas polygons — those are too coarse
-// for real detail, like the Hudson around Manhattan, even along an ordinary, unsplit state line).
-// Canadian provinces still come from Natural Earth (there's no Canadian county-equivalent layer here).
-// States with a shetach that isn't whole counties (a longitude cut, or specific towns/tracts) are cut
-// finer just where they need to be; every county elsewhere is already its own piece.
+// The map's areas: every US state and DC built from its own Census counties, and every Canadian province
+// from GADM — both precise, and each mutually consistent within itself, unlike Natural Earth's coarser
+// world-atlas polygons (too coarse for real detail: the Hudson around Manhattan, the Detroit River along
+// Ontario). States with a shetach that isn't whole counties (a longitude cut, or specific towns/tracts)
+// are cut finer just where they need to be; every county elsewhere is already its own piece.
 async function buildGeo(data) {
   const notShown = data.notShown || [];
   const ne = readJSON(await cached('admin1Lakes'));
   const usMeta = new Map(ne.features
     .filter((f) => f.properties.adm0_a3 === 'USA' && !notShown.includes(f.properties.iso_3166_2))
     .map((f) => [f.properties.iso_3166_2, { name: f.properties.name, abbr: f.properties.postal }]));
-  const caAreas = ne.features
-    .filter((f) => f.properties.adm0_a3 === 'CAN' && !notShown.includes(f.properties.iso_3166_2))
-    .map((f) => featureOf(f.geometry, {
-      state: f.properties.iso_3166_2, name: f.properties.name, abbr: f.properties.postal, country: 'CA',
-    }));
+  const caAreas = readJSON(await cached('caProvinces')).features
+    .filter((f) => CA_PROVINCES[f.properties.NAME_1] && !notShown.includes(`CA-${CA_PROVINCES[f.properties.NAME_1]}`))
+    .map((f) => {
+      const abbr = CA_PROVINCES[f.properties.NAME_1];
+      return featureOf(f.geometry, { state: `CA-${abbr}`, name: f.properties.NAME_1, abbr, country: 'CA' });
+    });
 
   const counties = readJSON(await countiesGeoJSON());
   const usCounties = counties.features
@@ -492,7 +503,7 @@ async function buildGeo(data) {
   const out = await mapshaper.applyCommands(
     '-i mosaic.json -dissolve piece copy-fields=state,name,abbr,country,shetach -rename-fields id=piece -rename-layers areas ' +
     '-o pieces.json format=geojson ' +
-    `-simplify variable interval="${rough}.includes(state) ? 2500 : 500" keep-shapes ` +
+    `-simplify variable interval="${rough}.includes(state) ? 2500 : country === 'CA' ? 800 : 400" keep-shapes ` +
     '-filter-islands min-area=40km2 remove-empty ' +
     '-o geo.json format=topojson quantization=100000',
     { 'mosaic.json': collectionOf(mosaic) },

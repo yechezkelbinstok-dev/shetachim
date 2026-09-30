@@ -95,12 +95,16 @@ Open questions:
 
 ### Boundaries
 
-- Drawing: every US state from its own Census 2022 1:500k counties (Great Lakes already excluded), in
-  one TopoJSON (`web/data/geo.json`); Canada's provinces from Natural Earth 1:10m, the only source for
-  them here. A state needing more than whole counties (Massachusetts, Pennsylvania) is cut finer just
-  there (see HANDOFF.md for how, and why Natural Earth alone was too coarse for this).
-- Tagging: Natural Earth 1:10m full detail (countries, Canadian provinces) plus Census 1:500k counties.
-- Maybe later: a more detailed level for close zoom (city scale) if 1:500k looks coarse there.
+- Drawing: every US state from its own Census 2022 1:500k counties, every Canadian province from GADM
+  (Great Lakes already excluded by both), in one TopoJSON (`web/data/geo.json`). Natural Earth draws
+  nothing any more — it's too coarse once you zoom past "the whole continent" (see HANDOFF.md for what
+  that looked like and why). A state needing more than whole counties (Massachusetts, Pennsylvania) is
+  cut finer just there.
+- Tagging: Natural Earth 1:10m full detail (countries — nothing finer needed there yet) plus Census
+  1:500k counties.
+- GADM is the standard to reach for when the world expands past the US/Canada; see HANDOFF.md for how
+  to reach it (and geoBoundaries) from this sandbox, and the licensing note.
+- Maybe later: a more detailed level for close zoom (city scale) if 1:500k/GADM looks coarse there.
 
 ## Physical map
 
@@ -115,7 +119,9 @@ Open questions:
 
 ## World version
 
-- Same pipeline with Natural Earth admin-1 for countries split between shetachim.
+- Same pipeline with GADM (not Natural Earth) for admin-1 detail in countries split between shetachim —
+  Natural Earth is the US Census / Canada situation, world-wide, if it's used for a border that isn't
+  a whole, unsplit country.
 - Judea and Samaria: standard world maps file 48 listings there under "Palestine". The shetach
   layer is defined by us, and the regular-borders layer can use Natural Earth's Israel
   point-of-view borders.

@@ -1,242 +1,383 @@
 {
   "about": [
-    "One entry per shetach. territory lists what it covers: a state or province code (US-TX, CA-ON); the part of a state east and/or west of a longitude ({ \"state\": \"US-PA\", \"westOf\": -78.13 }); counties by 5-digit FIPS ({ \"counties\": [...] }); towns ({ \"state\": \"US-MA\", \"towns\": [...] }); or census tracts ({ \"state\": \"US-MA\", \"tracts\": [...] }).",
+    "One entry per shetach. territory lists what it covers: a state or province code (US-TX, CA-ON); the part of a state east and/or west of a longitude ({ \"state\": \"US-PA\", \"westOf\": -78.13 }); counties by 5-digit FIPS ({ \"counties\": [...] }); towns ({ \"state\": \"US-MA\", \"towns\": [...] }); or census tracts ({ \"state\": \"US-MA\", \"tracts\": [...] }). A whole country is its ISO 3166-1 alpha-3 code (FRA, DEU) — the same as a state/province code, just for the world outside the US and Canada.",
     "Where claims overlap, the more specific one wins: tracts, then towns, then counties, then longitude lines, then whole states. Anything no shetach claims is left blank.",
     "short: the label used where the name doesn't fit; by default the state and province abbreviations joined (KS-MO). capital: the chabad.org center id of the shetach's headquarters (the number in its chabad.org link), or lat and lon; \"world\": true marks 770. lastName is optional; it defaults to the last word of headShliach. notShown: areas left off the map entirely."
   ],
-  "notShown": ["CA-YT", "CA-NT", "CA-NU"],
+  "notShown": [
+    "CA-YT",
+    "CA-NT",
+    "CA-NU"
+  ],
   "shetachim": [
     {
       "id": "west-coast",
       "name": "West Coast",
       "headShliach": "Shlomo Cunin",
-      "territory": ["US-CA", "US-NV"],
-      "capital": { "centerId": "117555" }
+      "territory": [
+        "US-CA",
+        "US-NV"
+      ],
+      "capital": {
+        "centerId": "117555"
+      }
     },
     {
       "id": "alaska",
       "name": "Alaska",
       "headShliach": "Yosef Greenberg",
-      "territory": ["US-AK"],
-      "capital": { "centerId": "117927" }
+      "territory": [
+        "US-AK"
+      ],
+      "capital": {
+        "centerId": "117927"
+      }
     },
     {
       "id": "washington",
       "name": "Washington",
       "headShliach": "Sholom Ber Levitin",
-      "territory": ["US-WA"],
-      "capital": { "centerId": "117737" }
+      "territory": [
+        "US-WA"
+      ],
+      "capital": {
+        "centerId": "117737"
+      }
     },
     {
       "id": "oregon",
       "name": "Oregon",
       "headShliach": "Moshe Wilhelm",
-      "territory": ["US-OR"],
-      "capital": { "centerId": "118188" }
+      "territory": [
+        "US-OR"
+      ],
+      "capital": {
+        "centerId": "118188"
+      }
     },
     {
       "id": "hawaii",
       "name": "Hawaii",
       "headShliach": "Itchel Krasnjansky",
-      "territory": ["US-HI"],
-      "capital": { "centerId": "117608" }
+      "territory": [
+        "US-HI"
+      ],
+      "capital": {
+        "centerId": "117608"
+      }
     },
     {
       "id": "idaho",
       "name": "Idaho",
       "headShliach": "Mendel Lifshitz",
-      "territory": ["US-ID"],
-      "capital": { "centerId": "118662" }
+      "territory": [
+        "US-ID"
+      ],
+      "capital": {
+        "centerId": "118662"
+      }
     },
     {
       "id": "montana",
       "name": "Montana",
       "headShliach": "Chaim Bruk",
-      "territory": ["US-MT"],
-      "capital": { "centerId": "486805" }
+      "territory": [
+        "US-MT"
+      ],
+      "capital": {
+        "centerId": "486805"
+      }
     },
     {
       "id": "wyoming",
       "name": "Wyoming",
       "headShliach": "Zalman Mendelsohn",
-      "territory": ["US-WY"],
-      "capital": { "centerId": "672689" }
+      "territory": [
+        "US-WY"
+      ],
+      "capital": {
+        "centerId": "672689"
+      }
     },
     {
       "id": "utah",
       "name": "Utah",
       "headShliach": "Benny Zippel",
-      "territory": ["US-UT"],
-      "capital": { "centerId": "117910" }
+      "territory": [
+        "US-UT"
+      ],
+      "capital": {
+        "centerId": "117910"
+      }
     },
     {
       "id": "colorado",
       "name": "Colorado",
       "headShliach": "Mendel Popack",
-      "territory": ["US-CO"],
-      "capital": { "centerId": "5964928" }
+      "territory": [
+        "US-CO"
+      ],
+      "capital": {
+        "centerId": "5964928"
+      }
     },
     {
       "id": "arizona",
       "name": "Arizona",
       "headShliach": "Zalman Levertov",
-      "territory": ["US-AZ"],
-      "capital": { "centerId": "117539" }
+      "territory": [
+        "US-AZ"
+      ],
+      "capital": {
+        "centerId": "117539"
+      }
     },
     {
       "id": "new-mexico",
       "name": "New Mexico",
       "headShliach": "Chaim Shmukler",
-      "territory": ["US-NM"],
-      "capital": { "centerId": "117962" }
+      "territory": [
+        "US-NM"
+      ],
+      "capital": {
+        "centerId": "117962"
+      }
     },
     {
       "id": "north-dakota",
       "name": "North Dakota",
       "headShliach": "Yonah Grossman",
-      "territory": ["US-ND"],
-      "capital": { "centerId": "2027612" }
+      "territory": [
+        "US-ND"
+      ],
+      "capital": {
+        "centerId": "2027612"
+      }
     },
     {
       "id": "south-dakota",
       "name": "South Dakota",
       "headShliach": "Mendel Alperowitz",
-      "territory": ["US-SD"],
-      "capital": { "centerId": "3451535" }
+      "territory": [
+        "US-SD"
+      ],
+      "capital": {
+        "centerId": "3451535"
+      }
     },
     {
       "id": "nebraska",
       "name": "Nebraska",
       "headShliach": "Mendel Katzman",
-      "territory": ["US-NE"],
-      "capital": { "centerId": "117651" }
+      "territory": [
+        "US-NE"
+      ],
+      "capital": {
+        "centerId": "117651"
+      }
     },
     {
       "id": "minnesota",
       "name": "Minnesota",
       "headShliach": "Moshe Feller",
-      "territory": ["US-MN"],
-      "capital": { "centerId": "117647" }
+      "territory": [
+        "US-MN"
+      ],
+      "capital": {
+        "centerId": "117647"
+      }
     },
     {
       "id": "iowa",
       "name": "Iowa",
       "headShliach": "Yossi Jacobson",
-      "territory": ["US-IA"],
-      "capital": { "centerId": "117609" }
+      "territory": [
+        "US-IA"
+      ],
+      "capital": {
+        "centerId": "117609"
+      }
     },
     {
       "id": "kansas-missouri",
       "name": "Kansas-Missouri",
       "headShliach": "Sholom Wineberg",
-      "territory": ["US-KS", "US-MO"],
-      "capital": { "centerId": "117620" }
+      "territory": [
+        "US-KS",
+        "US-MO"
+      ],
+      "capital": {
+        "centerId": "117620"
+      }
     },
     {
       "id": "wisconsin",
       "name": "Wisconsin",
       "headShliach": "Yisroel Shmotkin",
-      "territory": ["US-WI"],
-      "capital": { "centerId": "117740" }
+      "territory": [
+        "US-WI"
+      ],
+      "capital": {
+        "centerId": "117740"
+      }
     },
     {
       "id": "illinois",
       "name": "Illinois",
       "headShliach": "Meir Moscowitz",
-      "territory": ["US-IL"],
-      "capital": { "centerId": "117610" }
+      "territory": [
+        "US-IL"
+      ],
+      "capital": {
+        "centerId": "117610"
+      }
     },
     {
       "id": "michigan",
       "name": "Michigan",
       "headShliach": "Berel Shemtov",
-      "territory": ["US-MI"],
-      "capital": { "centerId": "117640" }
+      "territory": [
+        "US-MI"
+      ],
+      "capital": {
+        "centerId": "117640"
+      }
     },
     {
       "id": "indiana",
       "name": "Indiana",
       "headShliach": "Avrohom Grossbaum",
-      "territory": ["US-IN"],
-      "capital": { "centerId": "117619" }
+      "territory": [
+        "US-IN"
+      ],
+      "capital": {
+        "centerId": "117619"
+      }
     },
     {
       "id": "kentucky",
       "name": "Kentucky",
       "headShliach": "Avrohom Litvin",
-      "territory": ["US-KY"],
-      "capital": { "centerId": "117621" }
+      "territory": [
+        "US-KY"
+      ],
+      "capital": {
+        "centerId": "117621"
+      }
     },
     {
       "id": "tennessee",
       "name": "Tennessee",
       "headShliach": "Levi Klein",
-      "territory": ["US-TN"],
-      "capital": { "centerId": "117977" }
+      "territory": [
+        "US-TN"
+      ],
+      "capital": {
+        "centerId": "117977"
+      }
     },
     {
       "id": "oklahoma",
       "name": "Oklahoma",
       "headShliach": "Yehuda Weg",
-      "territory": ["US-OK"],
-      "capital": { "centerId": "117712" }
+      "territory": [
+        "US-OK"
+      ],
+      "capital": {
+        "centerId": "117712"
+      }
     },
     {
       "id": "arkansas",
       "name": "Arkansas",
       "headShliach": "Pinchus Ciment",
-      "territory": ["US-AR"],
-      "capital": { "centerId": "117902" }
+      "territory": [
+        "US-AR"
+      ],
+      "capital": {
+        "centerId": "117902"
+      }
     },
     {
       "id": "texas",
       "name": "Texas",
       "headShliach": "Shimon Lazaroff",
-      "territory": ["US-TX"],
-      "capital": { "centerId": "117731" }
+      "territory": [
+        "US-TX"
+      ],
+      "capital": {
+        "centerId": "117731"
+      }
     },
     {
       "id": "louisiana-mississippi",
       "name": "Louisiana-Mississippi",
       "short": "Louisiana",
       "headShliach": "Zelig Rivkin",
-      "territory": ["US-LA", "US-MS"],
-      "capital": { "centerId": "117623" }
+      "territory": [
+        "US-LA",
+        "US-MS"
+      ],
+      "capital": {
+        "centerId": "117623"
+      }
     },
     {
       "id": "alabama",
       "name": "Alabama",
       "headShliach": "Yossi Posner",
-      "territory": ["US-AL"],
-      "capital": { "centerId": "117538" }
+      "territory": [
+        "US-AL"
+      ],
+      "capital": {
+        "centerId": "117538"
+      }
     },
     {
       "id": "georgia",
       "name": "Georgia",
       "headShliach": "Yossi New",
-      "territory": ["US-GA"],
-      "capital": { "centerId": "117607" }
+      "territory": [
+        "US-GA"
+      ],
+      "capital": {
+        "centerId": "117607"
+      }
     },
     {
       "id": "florida",
       "name": "Florida",
       "headShliach": "Benjy Korf",
-      "territory": ["US-FL"],
-      "capital": { "centerId": "117598" }
+      "territory": [
+        "US-FL"
+      ],
+      "capital": {
+        "centerId": "117598"
+      }
     },
     {
       "id": "the-carolinas",
       "name": "The Carolinas",
       "headShliach": "Yossi Groner",
-      "territory": ["US-NC", "US-SC"],
-      "capital": { "centerId": "117649" }
+      "territory": [
+        "US-NC",
+        "US-SC"
+      ],
+      "capital": {
+        "centerId": "117649"
+      }
     },
     {
       "id": "the-virginias",
       "name": "The Virginias",
       "headShliach": "Yossel Kranz",
-      "territory": ["US-VA", "US-WV"],
-      "capital": { "centerId": "117734" }
+      "territory": [
+        "US-VA",
+        "US-WV"
+      ],
+      "capital": {
+        "centerId": "117734"
+      }
     },
     {
       "id": "western-pennsylvania",
@@ -244,13 +385,20 @@
       "short": "W. PA",
       "headShliach": "Yisroel Rosenfeld",
       "territory": [
-        { "state": "US-PA", "westOf": -78.13 },
         {
-          "counties": ["54061"],
+          "state": "US-PA",
+          "westOf": -78.13
+        },
+        {
+          "counties": [
+            "54061"
+          ],
           "name": "Morgantown area (Monongalia County)"
         }
       ],
-      "capital": { "centerId": "117721" }
+      "capital": {
+        "centerId": "117721"
+      }
     },
     {
       "id": "pennsylvania",
@@ -258,37 +406,58 @@
       "short": "PA",
       "headShliach": "Avremel Shemtov",
       "territory": [
-        { "state": "US-PA", "eastOf": -78.13 }
+        {
+          "state": "US-PA",
+          "eastOf": -78.13
+        }
       ],
-      "capital": { "centerId": "117715" }
+      "capital": {
+        "centerId": "117715"
+      }
     },
     {
       "id": "new-jersey",
       "name": "New Jersey",
       "headShliach": "Mendy Herson",
-      "territory": ["US-NJ"],
-      "capital": { "centerId": "117657" }
+      "territory": [
+        "US-NJ"
+      ],
+      "capital": {
+        "centerId": "117657"
+      }
     },
     {
       "id": "maryland",
       "name": "Maryland",
       "headShliach": "Shmuel Kaplan",
-      "territory": ["US-MD"],
-      "capital": { "centerId": "117634" }
+      "territory": [
+        "US-MD"
+      ],
+      "capital": {
+        "centerId": "117634"
+      }
     },
     {
       "id": "washington-dc",
       "name": "Washington DC",
       "headShliach": "Levi Shemtov",
-      "territory": ["US-DC"],
-      "capital": { "centerId": "117966" }
+      "territory": [
+        "US-DC"
+      ],
+      "capital": {
+        "centerId": "117966"
+      }
     },
     {
       "id": "delaware",
       "name": "Delaware",
       "headShliach": "Chuni Vogel",
-      "territory": ["US-DE"],
-      "capital": { "centerId": "117586" }
+      "territory": [
+        "US-DE"
+      ],
+      "capital": {
+        "centerId": "117586"
+      }
     },
     {
       "id": "new-york-city",
@@ -297,11 +466,21 @@
       "headShliach": "Tzach",
       "territory": [
         {
-          "counties": ["36005", "36047", "36061", "36081", "36085", "36119"],
+          "counties": [
+            "36005",
+            "36047",
+            "36061",
+            "36081",
+            "36085",
+            "36119"
+          ],
           "name": "Bronx, Brooklyn, Manhattan, Queens, Staten Island and Westchester"
         }
       ],
-      "capital": { "centerId": "117678", "world": true }
+      "capital": {
+        "centerId": "117678",
+        "world": true
+      }
     },
     {
       "id": "long-island",
@@ -310,32 +489,49 @@
       "headShliach": "Tuvia Teldon",
       "territory": [
         {
-          "counties": ["36059", "36103"],
+          "counties": [
+            "36059",
+            "36103"
+          ],
           "name": "Nassau and Suffolk counties"
         }
       ],
-      "capital": { "centerId": "117681" }
+      "capital": {
+        "centerId": "117681"
+      }
     },
     {
       "id": "maine",
       "name": "Maine",
       "headShliach": "Moshe Wilansky",
-      "territory": ["US-ME"],
-      "capital": { "centerId": "117638" }
+      "territory": [
+        "US-ME"
+      ],
+      "capital": {
+        "centerId": "117638"
+      }
     },
     {
       "id": "new-hampshire",
       "name": "New Hampshire",
       "headShliach": "Levi Krinsky",
-      "territory": ["US-NH"],
-      "capital": { "centerId": "117652" }
+      "territory": [
+        "US-NH"
+      ],
+      "capital": {
+        "centerId": "117652"
+      }
     },
     {
       "id": "vermont",
       "name": "Vermont",
       "headShliach": "Yitzchok Raskin",
-      "territory": ["US-VT"],
-      "capital": { "centerId": "117736" }
+      "territory": [
+        "US-VT"
+      ],
+      "capital": {
+        "centerId": "117736"
+      }
     },
     {
       "id": "central-massachusetts",
@@ -343,9 +539,15 @@
       "short": "C. MA",
       "headShliach": "Mendel Fogelman",
       "territory": [
-        { "state": "US-MA", "eastOf": -72.1574, "westOf": -71.24694 }
+        {
+          "state": "US-MA",
+          "eastOf": -72.1574,
+          "westOf": -71.24694
+        }
       ],
-      "capital": { "centerId": "117633" }
+      "capital": {
+        "centerId": "117633"
+      }
     },
     {
       "id": "western-and-southern-new-england",
@@ -354,9 +556,14 @@
       "headShliach": "Yisroel Deren",
       "territory": [
         "US-CT",
-        { "state": "US-MA", "westOf": -72.1574 }
+        {
+          "state": "US-MA",
+          "westOf": -72.1574
+        }
       ],
-      "capital": { "centerId": "2948789" }
+      "capital": {
+        "centerId": "2948789"
+      }
     },
     {
       "id": "eastern-massachusetts",
@@ -364,9 +571,14 @@
       "short": "E. MA",
       "headShliach": "Chaim Prus",
       "territory": [
-        { "state": "US-MA", "eastOf": -71.24694 }
+        {
+          "state": "US-MA",
+          "eastOf": -71.24694
+        }
       ],
-      "capital": { "centerId": "1591836" }
+      "capital": {
+        "centerId": "1591836"
+      }
     },
     {
       "id": "north-shore-of-massachusetts",
@@ -376,15 +588,59 @@
       "territory": [
         {
           "state": "US-MA",
-          "towns": ["Beverly", "Chelsea", "Danvers", "Essex", "Everett", "Gloucester", "Hamilton", "Ipswich", "Lynn", "Lynnfield", "Malden", "Manchester-by-the-Sea", "Marblehead", "Melrose", "Nahant", "Peabody", "Reading", "Revere", "Rockport", "Salem", "Saugus", "Stoneham", "Swampscott", "Topsfield", "Wakefield", "Wenham", "Winthrop"]
+          "towns": [
+            "Beverly",
+            "Chelsea",
+            "Danvers",
+            "Essex",
+            "Everett",
+            "Gloucester",
+            "Hamilton",
+            "Ipswich",
+            "Lynn",
+            "Lynnfield",
+            "Malden",
+            "Manchester-by-the-Sea",
+            "Marblehead",
+            "Melrose",
+            "Nahant",
+            "Peabody",
+            "Reading",
+            "Revere",
+            "Rockport",
+            "Salem",
+            "Saugus",
+            "Stoneham",
+            "Swampscott",
+            "Topsfield",
+            "Wakefield",
+            "Wenham",
+            "Winthrop"
+          ]
         },
         {
           "state": "US-MA",
           "name": "East Boston",
-          "tracts": ["25025050101", "25025050200", "25025050300", "25025050400", "25025050500", "25025050600", "25025050700", "25025050901", "25025051000", "25025051101", "25025051200", "25025981300", "25025981600"]
+          "tracts": [
+            "25025050101",
+            "25025050200",
+            "25025050300",
+            "25025050400",
+            "25025050500",
+            "25025050600",
+            "25025050700",
+            "25025050901",
+            "25025051000",
+            "25025051101",
+            "25025051200",
+            "25025981300",
+            "25025981600"
+          ]
         }
       ],
-      "capital": { "centerId": "117908" }
+      "capital": {
+        "centerId": "117908"
+      }
     },
     {
       "id": "cape-cod-and-the-islands",
@@ -393,67 +649,1006 @@
       "headShliach": "Kuti Alperowitz",
       "territory": [
         {
-          "counties": ["25001", "25007", "25019"],
+          "counties": [
+            "25001",
+            "25007",
+            "25019"
+          ],
           "name": "Barnstable, Dukes and Nantucket counties"
         }
       ],
-      "capital": { "centerId": "118178" }
+      "capital": {
+        "centerId": "118178"
+      }
     },
     {
       "id": "rhode-island",
       "name": "Rhode Island",
       "headShliach": "Yehoshua Laufer",
-      "territory": ["US-RI"],
-      "capital": { "centerId": "117723" }
+      "territory": [
+        "US-RI"
+      ],
+      "capital": {
+        "centerId": "117723"
+      }
     },
     {
       "id": "british-columbia",
       "name": "British Columbia",
       "headShliach": "Yitzchok Wineberg",
-      "territory": ["CA-BC"],
-      "capital": { "centerId": "117788" }
+      "territory": [
+        "CA-BC"
+      ],
+      "capital": {
+        "centerId": "117788"
+      }
     },
     {
       "id": "alberta",
       "name": "Alberta",
       "headShliach": "Menachem Matusof",
-      "territory": ["CA-AB"],
-      "capital": { "centerId": "117787" }
+      "territory": [
+        "CA-AB"
+      ],
+      "capital": {
+        "centerId": "117787"
+      }
     },
     {
       "id": "manitoba-saskatchewan",
       "name": "Manitoba-Saskatchewan",
       "headShliach": "Avrohom Altein",
-      "territory": ["CA-MB", "CA-SK"],
-      "capital": { "centerId": "117789" }
+      "territory": [
+        "CA-MB",
+        "CA-SK"
+      ],
+      "capital": {
+        "centerId": "117789"
+      }
     },
     {
       "id": "ontario",
       "name": "Ontario",
       "headShliach": "Zalman Grossbaum",
-      "territory": ["CA-ON"],
-      "capital": { "centerId": "117797" }
+      "territory": [
+        "CA-ON"
+      ],
+      "capital": {
+        "centerId": "117797"
+      }
     },
     {
       "id": "quebec",
       "name": "Quebec",
       "headShliach": "Berel Mochkin",
-      "territory": ["CA-QC"],
-      "capital": { "centerId": "117801" }
+      "territory": [
+        "CA-QC"
+      ],
+      "capital": {
+        "centerId": "117801"
+      }
     },
     {
       "id": "maritimes",
       "name": "Maritimes",
       "headShliach": "Mendel Feldman",
-      "territory": ["CA-NS", "CA-NB", "CA-PE"],
-      "capital": { "centerId": "117790" }
+      "territory": [
+        "CA-NS",
+        "CA-NB",
+        "CA-PE"
+      ],
+      "capital": {
+        "centerId": "117790"
+      }
     },
     {
       "id": "newfoundland-and-labrador",
       "name": "Newfoundland and Labrador",
       "headShliach": "Chanan Chernitsky",
-      "territory": ["CA-NL"],
-      "capital": { "centerId": "3610901" }
+      "territory": [
+        "CA-NL"
+      ],
+      "capital": {
+        "centerId": "3610901"
+      }
+    },
+    {
+      "id": "andorra",
+      "name": "Andorra",
+      "headShliach": "Kuty Kalmenson",
+      "territory": [
+        "AND"
+      ]
+    },
+    {
+      "id": "austria",
+      "name": "Austria",
+      "headShliach": "Yaakov Yitzchak Biderman",
+      "territory": [
+        "AUT"
+      ]
+    },
+    {
+      "id": "belarus",
+      "name": "Belarus",
+      "headShliach": "Shneur Deitch",
+      "territory": [
+        "BLR"
+      ]
+    },
+    {
+      "id": "belgium",
+      "name": "Belgium",
+      "short": "Belgium",
+      "headShliach": "Shabtai Slavaticki",
+      "territory": [
+        "BEL",
+        "LUX"
+      ]
+    },
+    {
+      "id": "bulgaria",
+      "name": "Bulgaria",
+      "headShliach": "Yosef Salamon",
+      "territory": [
+        "BGR"
+      ]
+    },
+    {
+      "id": "croatia",
+      "name": "Croatia",
+      "headShliach": "Pinny Zaklas",
+      "territory": [
+        "HRV"
+      ]
+    },
+    {
+      "id": "cyprus",
+      "name": "Cyprus",
+      "headShliach": "Aryeh Zeev Raskin",
+      "territory": [
+        "CYP"
+      ]
+    },
+    {
+      "id": "northern-cyprus",
+      "name": "Northern Cyprus",
+      "headShliach": "Chaim Hillel Azimov",
+      "territory": [
+        "XNC"
+      ]
+    },
+    {
+      "id": "czech-republic",
+      "name": "Czech Republic",
+      "headShliach": "Manis Barash",
+      "territory": [
+        "CZE"
+      ]
+    },
+    {
+      "id": "denmark",
+      "name": "Denmark",
+      "headShliach": "Yitzi Lowenthal",
+      "territory": [
+        "DNK"
+      ]
+    },
+    {
+      "id": "estonia",
+      "name": "Estonia",
+      "headShliach": "Shmuel Kot",
+      "territory": [
+        "EST"
+      ]
+    },
+    {
+      "id": "finland",
+      "name": "Finland",
+      "headShliach": "Benyamin Wolff",
+      "territory": [
+        "FIN"
+      ]
+    },
+    {
+      "id": "france",
+      "name": "France",
+      "headShliach": "Mendy Azimov",
+      "territory": [
+        "FRA"
+      ]
+    },
+    {
+      "id": "germany",
+      "name": "Germany",
+      "headShliach": "Yisroel Diskin",
+      "territory": [
+        "DEU"
+      ]
+    },
+    {
+      "id": "greece",
+      "name": "Greece",
+      "headShliach": "Mendel Hendel",
+      "territory": [
+        "GRC"
+      ]
+    },
+    {
+      "id": "lower-balkans",
+      "name": "Lower Balkans",
+      "short": "Balkans",
+      "headShliach": "Yoel Kaplan",
+      "territory": [
+        "ALB",
+        "BIH",
+        "XKO",
+        "MKD"
+      ]
+    },
+    {
+      "id": "hungary",
+      "name": "Hungary",
+      "headShliach": "Baruch Oberlander",
+      "territory": [
+        "HUN"
+      ]
+    },
+    {
+      "id": "iceland",
+      "name": "Iceland",
+      "headShliach": "Avraham Feldman",
+      "territory": [
+        "ISL"
+      ]
+    },
+    {
+      "id": "ireland",
+      "name": "Ireland",
+      "headShliach": "Zalman Lent",
+      "territory": [
+        "IRL"
+      ]
+    },
+    {
+      "id": "italy",
+      "name": "Italy",
+      "short": "Italy",
+      "headShliach": "Avraham Chazan",
+      "territory": [
+        "ITA",
+        "SMR",
+        "VAT"
+      ]
+    },
+    {
+      "id": "slovenia",
+      "name": "Slovenia",
+      "headShliach": "Ariel Haddad",
+      "territory": [
+        "SVN"
+      ]
+    },
+    {
+      "id": "latvia",
+      "name": "Latvia",
+      "headShliach": "Mordechai Glazman",
+      "territory": [
+        "LVA"
+      ]
+    },
+    {
+      "id": "lithuania",
+      "name": "Lithuania",
+      "headShliach": "Sholom Ber Krinsky",
+      "territory": [
+        "LTU"
+      ]
+    },
+    {
+      "id": "malta",
+      "name": "Malta",
+      "headShliach": "Chaim Segal",
+      "territory": [
+        "MLT"
+      ]
+    },
+    {
+      "id": "moldova",
+      "name": "Moldova",
+      "headShliach": "Zushe Abelsky",
+      "territory": [
+        "MDA"
+      ]
+    },
+    {
+      "id": "monaco",
+      "name": "Monaco",
+      "headShliach": "Tanhoum Matusof",
+      "territory": [
+        "MCO"
+      ]
+    },
+    {
+      "id": "montenegro",
+      "name": "Montenegro",
+      "headShliach": "Ari Edelkopf",
+      "territory": [
+        "MNE"
+      ]
+    },
+    {
+      "id": "netherlands",
+      "name": "Netherlands",
+      "headShliach": "Binyomin Jacobs",
+      "territory": [
+        "NLD"
+      ]
+    },
+    {
+      "id": "norway",
+      "name": "Norway",
+      "headShliach": "Shaul Wilhelm",
+      "territory": [
+        "NOR"
+      ]
+    },
+    {
+      "id": "poland",
+      "name": "Poland",
+      "headShliach": "Sholom Ber Stambler",
+      "territory": [
+        "POL"
+      ]
+    },
+    {
+      "id": "portugal",
+      "name": "Portugal",
+      "headShliach": "Eli Rosenfeld",
+      "territory": [
+        "PRT"
+      ]
+    },
+    {
+      "id": "romania",
+      "name": "Romania",
+      "headShliach": "Naftali Deutsch",
+      "territory": [
+        "ROU"
+      ]
+    },
+    {
+      "id": "russia",
+      "name": "Russia",
+      "short": "Russia",
+      "headShliach": "Berel Lazar",
+      "territory": [
+        "RUS",
+        "MNG"
+      ]
+    },
+    {
+      "id": "serbia",
+      "name": "Serbia",
+      "headShliach": "Yehoshua Kaminetzky",
+      "territory": [
+        "SRB"
+      ]
+    },
+    {
+      "id": "slovakia",
+      "name": "Slovakia",
+      "headShliach": "Baruch Myers",
+      "territory": [
+        "SVK"
+      ]
+    },
+    {
+      "id": "spain",
+      "name": "Spain",
+      "headShliach": "Shneur Zalman Goldstein",
+      "territory": [
+        "ESP"
+      ]
+    },
+    {
+      "id": "sweden",
+      "name": "Sweden",
+      "headShliach": "Alexander Namdar",
+      "territory": [
+        "SWE"
+      ]
+    },
+    {
+      "id": "switzerland",
+      "name": "Switzerland",
+      "headShliach": "Mendel Rosenfeld",
+      "territory": [
+        "CHE"
+      ]
+    },
+    {
+      "id": "ukraine",
+      "name": "Ukraine",
+      "headShliach": "Meir Stambler",
+      "territory": [
+        "UKR"
+      ]
+    },
+    {
+      "id": "united-kingdom",
+      "name": "United Kingdom",
+      "headShliach": "Hanholo of Chabad Lubavitch UK",
+      "territory": [
+        "GBR"
+      ]
+    },
+    {
+      "id": "crimea",
+      "name": "Crimea",
+      "headShliach": "Yitzchok Meyer Lipszyc",
+      "territory": []
+    },
+    {
+      "id": "armenia",
+      "name": "Armenia",
+      "headShliach": "Gershon Meir Burshtein",
+      "territory": [
+        "ARM"
+      ]
+    },
+    {
+      "id": "azerbaijan",
+      "name": "Azerbaijan",
+      "headShliach": "Shneor Segal",
+      "territory": [
+        "AZE"
+      ]
+    },
+    {
+      "id": "georgia-country",
+      "name": "Georgia",
+      "headShliach": "Meir Kozlovsky",
+      "territory": [
+        "GEO"
+      ]
+    },
+    {
+      "id": "kazakhstan",
+      "name": "Kazakhstan",
+      "headShliach": "Yeshaya Elazar Cohen",
+      "territory": [
+        "KAZ"
+      ]
+    },
+    {
+      "id": "kyrgyzstan",
+      "name": "Kyrgyzstan",
+      "headShliach": "Arye Raichman",
+      "territory": [
+        "KGZ"
+      ]
+    },
+    {
+      "id": "uzbekistan",
+      "name": "Uzbekistan",
+      "short": "Uzbekistan",
+      "headShliach": "Chaim Moshe Mordechai Shaikevitz",
+      "territory": [
+        "UZB",
+        "TJK"
+      ]
+    },
+    {
+      "id": "india",
+      "name": "India",
+      "headShliach": "Betzalel Kupchik",
+      "territory": [
+        "IND"
+      ]
+    },
+    {
+      "id": "nepal",
+      "name": "Nepal",
+      "headShliach": "Chezky Lifshitz",
+      "territory": [
+        "NPL"
+      ]
+    },
+    {
+      "id": "sri-lanka",
+      "name": "Sri Lanka",
+      "headShliach": "Mendy Crombie",
+      "territory": [
+        "LKA"
+      ]
+    },
+    {
+      "id": "china",
+      "name": "China",
+      "short": "China",
+      "headShliach": "Mordechai Avtzon",
+      "territory": [
+        "CHN",
+        "HKG",
+        "MAC"
+      ]
+    },
+    {
+      "id": "japan",
+      "name": "Japan",
+      "headShliach": "Mendi Sudakevich",
+      "territory": [
+        "JPN"
+      ]
+    },
+    {
+      "id": "south-korea",
+      "name": "South Korea",
+      "headShliach": "Osher Litzman",
+      "territory": [
+        "KOR"
+      ]
+    },
+    {
+      "id": "taiwan",
+      "name": "Taiwan",
+      "headShliach": "Shlomi Tabib",
+      "territory": [
+        "TWN"
+      ]
+    },
+    {
+      "id": "thailand",
+      "name": "Thailand",
+      "short": "Thailand",
+      "headShliach": "Yosef Chaim Kantor",
+      "territory": [
+        "THA",
+        "LAO",
+        "MMR"
+      ]
+    },
+    {
+      "id": "cambodia",
+      "name": "Cambodia",
+      "headShliach": "Bentzion Butman",
+      "territory": [
+        "KHM"
+      ]
+    },
+    {
+      "id": "vietnam",
+      "name": "Vietnam",
+      "headShliach": "Menachem Hartman",
+      "territory": [
+        "VNM"
+      ]
+    },
+    {
+      "id": "philippines",
+      "name": "Philippines",
+      "headShliach": "Yossi Levy",
+      "territory": [
+        "PHL"
+      ]
+    },
+    {
+      "id": "singapore",
+      "name": "Singapore",
+      "short": "Singapore",
+      "headShliach": "Mordechai Abergel",
+      "territory": [
+        "SGP",
+        "MYS",
+        "IDN"
+      ]
+    },
+    {
+      "id": "israel",
+      "name": "Israel",
+      "headShliach": "Yosef Yitzchak Aharonov",
+      "territory": [
+        "ISR",
+        "PSE"
+      ],
+      "short": "Israel"
+    },
+    {
+      "id": "turkey",
+      "name": "Turkey",
+      "headShliach": "Mendy Chitrik",
+      "territory": [
+        "TUR"
+      ]
+    },
+    {
+      "id": "united-arab-emirates",
+      "name": "United Arab Emirates",
+      "headShliach": "Levi Duchman",
+      "territory": [
+        "ARE"
+      ]
+    },
+    {
+      "id": "qatar",
+      "name": "Qatar",
+      "headShliach": "Eli Chitrik",
+      "territory": [
+        "QAT"
+      ]
+    },
+    {
+      "id": "saudi-arabia",
+      "name": "Saudi Arabia",
+      "headShliach": "Peretz Garelik",
+      "territory": [
+        "SAU"
+      ]
+    },
+    {
+      "id": "morocco",
+      "name": "Morocco",
+      "headShliach": "Levi Banon",
+      "territory": [
+        "MAR"
+      ]
+    },
+    {
+      "id": "tunisia",
+      "name": "Tunisia",
+      "headShliach": "Pinson family",
+      "territory": [
+        "TUN"
+      ]
+    },
+    {
+      "id": "central-africa",
+      "name": "Central Africa",
+      "short": "C. Africa",
+      "headShliach": "Shlomo Bentolila",
+      "territory": [
+        "AGO",
+        "BEN",
+        "BWA",
+        "BFA",
+        "BDI",
+        "CPV",
+        "CMR",
+        "CAF",
+        "TCD",
+        "COM",
+        "COG",
+        "CIV",
+        "COD",
+        "DJI",
+        "GNQ",
+        "ERI",
+        "SWZ",
+        "ETH",
+        "GAB",
+        "GMB",
+        "GHA",
+        "GIN",
+        "GNB",
+        "KEN",
+        "LSO",
+        "LBR",
+        "MDG",
+        "MWI",
+        "MLI",
+        "MRT",
+        "MOZ",
+        "NAM",
+        "NER",
+        "NGA",
+        "RWA",
+        "STP",
+        "SEN",
+        "SYC",
+        "SLE",
+        "SOM",
+        "SSD",
+        "TZA",
+        "TGO",
+        "UGA",
+        "ZMB",
+        "ZWE"
+      ]
+    },
+    {
+      "id": "south-africa",
+      "name": "South Africa",
+      "headShliach": "Mendel Lipskar",
+      "territory": [
+        "ZAF"
+      ]
+    },
+    {
+      "id": "mauritius",
+      "name": "Mauritius",
+      "headShliach": "Laima Barber",
+      "territory": [
+        "MUS"
+      ]
+    },
+    {
+      "id": "reunion",
+      "name": "Réunion",
+      "headShliach": "Menahem Mendel Sibony",
+      "territory": [
+        "REU"
+      ]
+    },
+    {
+      "id": "new-south-wales",
+      "name": "New South Wales",
+      "headShliach": "Pinchus Feldman",
+      "territory": []
+    },
+    {
+      "id": "victoria",
+      "name": "Victoria",
+      "headShliach": "Disputed — Chaim Tzvi Groner; Yoselle Gutnick; Hendel Serebryanski",
+      "territory": []
+    },
+    {
+      "id": "brisbane",
+      "name": "Brisbane",
+      "headShliach": "Levi Jaffe",
+      "territory": []
+    },
+    {
+      "id": "gold-coast",
+      "name": "Gold Coast",
+      "headShliach": "Nir Gurevitch",
+      "territory": []
+    },
+    {
+      "id": "rara",
+      "name": "RARA",
+      "headShliach": "Chabad of RARA",
+      "territory": []
+    },
+    {
+      "id": "south-australia",
+      "name": "South Australia",
+      "headShliach": "Yossi Engel",
+      "territory": []
+    },
+    {
+      "id": "western-australia",
+      "name": "Western Australia",
+      "headShliach": "Shalom White",
+      "territory": []
+    },
+    {
+      "id": "tasmania",
+      "name": "Tasmania",
+      "headShliach": "Yossi Gordon",
+      "territory": []
+    },
+    {
+      "id": "act",
+      "name": "ACT",
+      "headShliach": "Shmueli Feldman",
+      "territory": []
+    },
+    {
+      "id": "new-zealand",
+      "name": "New Zealand",
+      "headShliach": "Menachem Mendel Goldstein",
+      "territory": [
+        "NZL"
+      ]
+    },
+    {
+      "id": "new-caledonia",
+      "name": "New Caledonia",
+      "headShliach": "Menachem Sabbach",
+      "territory": [
+        "NCL"
+      ]
+    },
+    {
+      "id": "baja-california",
+      "name": "Baja California",
+      "headShliach": "Mendel Polichenco",
+      "territory": []
+    },
+    {
+      "id": "sinaloa",
+      "name": "Sinaloa",
+      "headShliach": "Chaim Raitport",
+      "territory": []
+    },
+    {
+      "id": "nayarit",
+      "name": "Nayarit",
+      "headShliach": "Shneur Hecht",
+      "territory": []
+    },
+    {
+      "id": "jalisco",
+      "name": "Jalisco",
+      "headShliach": "Avraham Srugo",
+      "territory": []
+    },
+    {
+      "id": "bajio",
+      "name": "Bajío",
+      "headShliach": "Daniel Huebner",
+      "territory": []
+    },
+    {
+      "id": "nuevo-leon",
+      "name": "Nuevo León",
+      "headShliach": "Zalmy Srugo",
+      "territory": []
+    },
+    {
+      "id": "central-mexico",
+      "name": "Central Mexico",
+      "headShliach": "Yosef Mayzlesh",
+      "territory": []
+    },
+    {
+      "id": "chiapas",
+      "name": "Chiapas",
+      "headShliach": "Oren Raz",
+      "territory": []
+    },
+    {
+      "id": "mexican-caribbean",
+      "name": "Mexican Caribbean",
+      "headShliach": "Mendel Druk",
+      "territory": []
+    },
+    {
+      "id": "belize",
+      "name": "Belize",
+      "headShliach": "Mendel Belhamou",
+      "territory": [
+        "BLZ"
+      ]
+    },
+    {
+      "id": "guatemala",
+      "name": "Guatemala",
+      "headShliach": "Shalom Pelman",
+      "territory": [
+        "GTM"
+      ]
+    },
+    {
+      "id": "el-salvador",
+      "name": "El Salvador",
+      "headShliach": "Yudi Brod",
+      "territory": [
+        "SLV"
+      ]
+    },
+    {
+      "id": "honduras",
+      "name": "Honduras",
+      "headShliach": "Naftali Reichman",
+      "territory": [
+        "HND"
+      ]
+    },
+    {
+      "id": "nicaragua",
+      "name": "Nicaragua",
+      "headShliach": "David Atar",
+      "territory": [
+        "NIC"
+      ]
+    },
+    {
+      "id": "costa-rica",
+      "name": "Costa Rica",
+      "headShliach": "Hershel Spalter",
+      "territory": [
+        "CRI"
+      ]
+    },
+    {
+      "id": "panama",
+      "name": "Panama",
+      "headShliach": "Ari Laine",
+      "territory": [
+        "PAN"
+      ]
+    },
+    {
+      "id": "argentina",
+      "name": "Argentina",
+      "headShliach": "Tzvi Grunblatt",
+      "territory": [
+        "ARG"
+      ]
+    },
+    {
+      "id": "bolivia",
+      "name": "Bolivia",
+      "headShliach": "Itzik Kupchik",
+      "territory": [
+        "BOL"
+      ]
+    },
+    {
+      "id": "brazil",
+      "name": "Brazil",
+      "headShliach": "Shabsi Alpern",
+      "territory": [
+        "BRA"
+      ]
+    },
+    {
+      "id": "chile",
+      "name": "Chile",
+      "headShliach": "Menashe Perman",
+      "territory": [
+        "CHL"
+      ]
+    },
+    {
+      "id": "colombia",
+      "name": "Colombia",
+      "headShliach": "Yehoshua Rosenfeld",
+      "territory": [
+        "COL"
+      ]
+    },
+    {
+      "id": "ecuador",
+      "name": "Ecuador",
+      "headShliach": "Mendy Fried",
+      "territory": [
+        "ECU"
+      ]
+    },
+    {
+      "id": "paraguay",
+      "name": "Paraguay",
+      "headShliach": "Levi Feigelstock",
+      "territory": [
+        "PRY"
+      ]
+    },
+    {
+      "id": "peru",
+      "name": "Peru",
+      "headShliach": "Sara Blumenfeld",
+      "territory": [
+        "PER"
+      ]
+    },
+    {
+      "id": "uruguay",
+      "name": "Uruguay",
+      "headShliach": "Eliezer Shemtov",
+      "territory": [
+        "URY"
+      ]
+    },
+    {
+      "id": "venezuela",
+      "name": "Venezuela",
+      "headShliach": "Moshe Perman",
+      "territory": [
+        "VEN"
+      ]
+    },
+    {
+      "id": "caribbean",
+      "name": "Caribbean",
+      "short": "Caribbean",
+      "headShliach": "Mendel Zarchi",
+      "territory": [
+        "BMU",
+        "GUY"
+      ]
     }
   ]
 }

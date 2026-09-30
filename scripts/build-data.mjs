@@ -50,6 +50,12 @@ const CA_PROVINCES = {
 };
 // the same place, by state FIPS code: county-subdivision (towns) and tract
 const CENSUS = 'https://raw.githubusercontent.com/uscensusbureau/citysdk/master/v2/GeoJSON/500k/2022';
+// Every country outside the US and Canada: the same GADM mirror as Canada's provinces, one whole-country
+// file per ISO 3166-1 alpha-3 code (gadm36_FRA_0.json, …). A few of its own name fields are wrong (Monaco's
+// says "Macao" — the shape is really Monaco, checked by its coordinates); this is the fix, by hand.
+const GADM = 'https://raw.githubusercontent.com/stephanietuerk/admin-boundaries/master/lo-res/Admin0_simp50';
+const gadmCountry = (iso3) => download(`${GADM}/gadm36_${iso3}_0.json`, `gadm-${iso3}.json`);
+const GADM_NAME_FIX = { MCO: 'Monaco' };
 
 const MERGE_METERS = 25; // centers closer than this are one dot (same building / campus)
 const COAST_KM = 25; // a point just offshore is given to the nearest area within this distance
@@ -416,7 +422,21 @@ async function buildGeo(data) {
       return featureOf(f.geometry, { state, county: f.properties.GEOID, name: meta.name, abbr: meta.abbr, country: 'US' });
     });
 
-  const areaIds = new Set([...usMeta.keys(), ...caAreas.map((f) => f.properties.state)]);
+  // Every country outside the US and Canada that some shetach actually claims (a whole country is its own
+  // "state", same as a US state or Canadian province — just with no further subdivision yet).
+  const worldCodes = [...new Set(data.shetachim.flatMap((s) => s.territory)
+    .filter((t) => typeof t === 'string' && !t.startsWith('US-') && !t.startsWith('CA-')))];
+  const worldAreas = [], noGeometry = [];
+  for (const code of worldCodes) {
+    let gj;
+    try { gj = readJSON(await gadmCountry(code)); } catch { noGeometry.push(code); continue; }
+    const p = gj.features[0].properties;
+    const name = GADM_NAME_FIX[code] || p.NAME_0 || p.Name || code;
+    worldAreas.push(featureOf(gj.features[0].geometry, { state: code, name, abbr: code, country: code }));
+  }
+  if (noGeometry.length) console.warn(`no GADM boundary for: ${noGeometry.join(', ')} (claimed but won't be drawn)`);
+
+  const areaIds = new Set([...usMeta.keys(), ...caAreas.map((f) => f.properties.state), ...worldCodes]);
   const { claims, problems } = readClaims(data, areaIds, counties);
   const byState = new Map();
   for (const c of claims) {
@@ -432,7 +452,7 @@ async function buildGeo(data) {
   // land (no two pieces of it can overlap or leave a gap, so no other layer needs its own state/name/county
   // fields — only the refinements below do, kept to their own prefixed field so there's no name clash when
   // they're combined with land in the same mosaic).
-  const land = [...caAreas, ...usCounties.filter((f) => !finer.includes(f.properties.state))];
+  const land = [...caAreas, ...worldAreas, ...usCounties.filter((f) => !finer.includes(f.properties.state))];
   const layers = {};
   const prefix = new Map();
   for (const state of finer) {
@@ -503,7 +523,7 @@ async function buildGeo(data) {
   const out = await mapshaper.applyCommands(
     '-i mosaic.json -dissolve piece copy-fields=state,name,abbr,country,shetach -rename-fields id=piece -rename-layers areas ' +
     '-o pieces.json format=geojson ' +
-    `-simplify variable interval="${rough}.includes(state) ? 2500 : country === 'CA' ? 800 : 400" keep-shapes ` +
+    `-simplify variable interval="${rough}.includes(state) ? 2500 : country === 'US' ? 400 : 800" keep-shapes ` +
     '-filter-islands min-area=40km2 remove-empty ' +
     '-o geo.json format=topojson quantization=100000',
     { 'mosaic.json': collectionOf(mosaic) },
@@ -601,6 +621,8 @@ async function main() {
       const region = locate(regionIdx, x, y);
       if (region) dot.region = region.f.properties.iso_3166_2;
     }
+    // Everywhere else, a whole country is the region (the same ISO alpha-3 the world's areas use).
+    if (!dot.region && country) dot.region = country.f.properties.ISO_A3_EH;
     dot.piece = pieceAt(dot.region, x, y);
   }
 
@@ -627,6 +649,7 @@ async function main() {
   // The short label: as given, else the abbreviations of its whole states and provinces joined (KS-MO).
   const abbrOf = new Map(pieces.map((f) => [f.properties.state, f.properties.abbr]));
   for (const s of shetachData.shetachim) {
+    if (!s.territory.length) continue; // not drawn yet, so no label to worry about
     if (s.short === undefined && s.territory.every((t) => typeof t === 'string')) s.short = s.territory.map((t) => abbrOf.get(t)).join('-');
     if (!s.short) warnings.push(`${s.id}: no short label (needed for a shetach that is part of a state)`);
   }

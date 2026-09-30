@@ -746,6 +746,635 @@
     "lat": 47.57949,
     "lon": -52.72506
    }
+  },
+  {
+   "id": "andorra",
+   "name": "Andorra",
+   "short": "AND",
+   "headShliach": "Kuty Kalmenson"
+  },
+  {
+   "id": "austria",
+   "name": "Austria",
+   "short": "AUT",
+   "headShliach": "Yaakov Yitzchak Biderman"
+  },
+  {
+   "id": "belarus",
+   "name": "Belarus",
+   "short": "BLR",
+   "headShliach": "Shneur Deitch"
+  },
+  {
+   "id": "belgium",
+   "name": "Belgium",
+   "short": "Belgium",
+   "headShliach": "Shabtai Slavaticki"
+  },
+  {
+   "id": "bulgaria",
+   "name": "Bulgaria",
+   "short": "BGR",
+   "headShliach": "Yosef Salamon"
+  },
+  {
+   "id": "croatia",
+   "name": "Croatia",
+   "short": "HRV",
+   "headShliach": "Pinny Zaklas"
+  },
+  {
+   "id": "cyprus",
+   "name": "Cyprus",
+   "short": "CYP",
+   "headShliach": "Aryeh Zeev Raskin"
+  },
+  {
+   "id": "northern-cyprus",
+   "name": "Northern Cyprus",
+   "short": "XNC",
+   "headShliach": "Chaim Hillel Azimov"
+  },
+  {
+   "id": "czech-republic",
+   "name": "Czech Republic",
+   "short": "CZE",
+   "headShliach": "Manis Barash"
+  },
+  {
+   "id": "denmark",
+   "name": "Denmark",
+   "short": "DNK",
+   "headShliach": "Yitzi Lowenthal"
+  },
+  {
+   "id": "estonia",
+   "name": "Estonia",
+   "short": "EST",
+   "headShliach": "Shmuel Kot"
+  },
+  {
+   "id": "finland",
+   "name": "Finland",
+   "short": "FIN",
+   "headShliach": "Benyamin Wolff"
+  },
+  {
+   "id": "france",
+   "name": "France",
+   "short": "FRA",
+   "headShliach": "Mendy Azimov"
+  },
+  {
+   "id": "germany",
+   "name": "Germany",
+   "short": "DEU",
+   "headShliach": "Yisroel Diskin"
+  },
+  {
+   "id": "greece",
+   "name": "Greece",
+   "short": "GRC",
+   "headShliach": "Mendel Hendel"
+  },
+  {
+   "id": "lower-balkans",
+   "name": "Lower Balkans",
+   "short": "Balkans",
+   "headShliach": "Yoel Kaplan"
+  },
+  {
+   "id": "hungary",
+   "name": "Hungary",
+   "short": "HUN",
+   "headShliach": "Baruch Oberlander"
+  },
+  {
+   "id": "iceland",
+   "name": "Iceland",
+   "short": "ISL",
+   "headShliach": "Avraham Feldman"
+  },
+  {
+   "id": "ireland",
+   "name": "Ireland",
+   "short": "IRL",
+   "headShliach": "Zalman Lent"
+  },
+  {
+   "id": "italy",
+   "name": "Italy",
+   "short": "Italy",
+   "headShliach": "Avraham Chazan"
+  },
+  {
+   "id": "slovenia",
+   "name": "Slovenia",
+   "short": "SVN",
+   "headShliach": "Ariel Haddad"
+  },
+  {
+   "id": "latvia",
+   "name": "Latvia",
+   "short": "LVA",
+   "headShliach": "Mordechai Glazman"
+  },
+  {
+   "id": "lithuania",
+   "name": "Lithuania",
+   "short": "LTU",
+   "headShliach": "Sholom Ber Krinsky"
+  },
+  {
+   "id": "malta",
+   "name": "Malta",
+   "short": "MLT",
+   "headShliach": "Chaim Segal"
+  },
+  {
+   "id": "moldova",
+   "name": "Moldova",
+   "short": "MDA",
+   "headShliach": "Zushe Abelsky"
+  },
+  {
+   "id": "monaco",
+   "name": "Monaco",
+   "short": "MCO",
+   "headShliach": "Tanhoum Matusof"
+  },
+  {
+   "id": "montenegro",
+   "name": "Montenegro",
+   "short": "MNE",
+   "headShliach": "Ari Edelkopf"
+  },
+  {
+   "id": "netherlands",
+   "name": "Netherlands",
+   "short": "NLD",
+   "headShliach": "Binyomin Jacobs"
+  },
+  {
+   "id": "norway",
+   "name": "Norway",
+   "short": "NOR",
+   "headShliach": "Shaul Wilhelm"
+  },
+  {
+   "id": "poland",
+   "name": "Poland",
+   "short": "POL",
+   "headShliach": "Sholom Ber Stambler"
+  },
+  {
+   "id": "portugal",
+   "name": "Portugal",
+   "short": "PRT",
+   "headShliach": "Eli Rosenfeld"
+  },
+  {
+   "id": "romania",
+   "name": "Romania",
+   "short": "ROU",
+   "headShliach": "Naftali Deutsch"
+  },
+  {
+   "id": "russia",
+   "name": "Russia",
+   "short": "Russia",
+   "headShliach": "Berel Lazar"
+  },
+  {
+   "id": "serbia",
+   "name": "Serbia",
+   "short": "SRB",
+   "headShliach": "Yehoshua Kaminetzky"
+  },
+  {
+   "id": "slovakia",
+   "name": "Slovakia",
+   "short": "SVK",
+   "headShliach": "Baruch Myers"
+  },
+  {
+   "id": "spain",
+   "name": "Spain",
+   "short": "ESP",
+   "headShliach": "Shneur Zalman Goldstein"
+  },
+  {
+   "id": "sweden",
+   "name": "Sweden",
+   "short": "SWE",
+   "headShliach": "Alexander Namdar"
+  },
+  {
+   "id": "switzerland",
+   "name": "Switzerland",
+   "short": "CHE",
+   "headShliach": "Mendel Rosenfeld"
+  },
+  {
+   "id": "ukraine",
+   "name": "Ukraine",
+   "short": "UKR",
+   "headShliach": "Meir Stambler"
+  },
+  {
+   "id": "united-kingdom",
+   "name": "United Kingdom",
+   "short": "GBR",
+   "headShliach": "Hanholo of Chabad Lubavitch UK"
+  },
+  {
+   "id": "crimea",
+   "name": "Crimea",
+   "headShliach": "Yitzchok Meyer Lipszyc"
+  },
+  {
+   "id": "armenia",
+   "name": "Armenia",
+   "short": "ARM",
+   "headShliach": "Gershon Meir Burshtein"
+  },
+  {
+   "id": "azerbaijan",
+   "name": "Azerbaijan",
+   "short": "AZE",
+   "headShliach": "Shneor Segal"
+  },
+  {
+   "id": "georgia-country",
+   "name": "Georgia",
+   "short": "GEO",
+   "headShliach": "Meir Kozlovsky"
+  },
+  {
+   "id": "kazakhstan",
+   "name": "Kazakhstan",
+   "short": "KAZ",
+   "headShliach": "Yeshaya Elazar Cohen"
+  },
+  {
+   "id": "kyrgyzstan",
+   "name": "Kyrgyzstan",
+   "short": "KGZ",
+   "headShliach": "Arye Raichman"
+  },
+  {
+   "id": "uzbekistan",
+   "name": "Uzbekistan",
+   "short": "Uzbekistan",
+   "headShliach": "Chaim Moshe Mordechai Shaikevitz"
+  },
+  {
+   "id": "india",
+   "name": "India",
+   "short": "IND",
+   "headShliach": "Betzalel Kupchik"
+  },
+  {
+   "id": "nepal",
+   "name": "Nepal",
+   "short": "NPL",
+   "headShliach": "Chezky Lifshitz"
+  },
+  {
+   "id": "sri-lanka",
+   "name": "Sri Lanka",
+   "short": "LKA",
+   "headShliach": "Mendy Crombie"
+  },
+  {
+   "id": "china",
+   "name": "China",
+   "short": "China",
+   "headShliach": "Mordechai Avtzon"
+  },
+  {
+   "id": "japan",
+   "name": "Japan",
+   "short": "JPN",
+   "headShliach": "Mendi Sudakevich"
+  },
+  {
+   "id": "south-korea",
+   "name": "South Korea",
+   "short": "KOR",
+   "headShliach": "Osher Litzman"
+  },
+  {
+   "id": "taiwan",
+   "name": "Taiwan",
+   "short": "TWN",
+   "headShliach": "Shlomi Tabib"
+  },
+  {
+   "id": "thailand",
+   "name": "Thailand",
+   "short": "Thailand",
+   "headShliach": "Yosef Chaim Kantor"
+  },
+  {
+   "id": "cambodia",
+   "name": "Cambodia",
+   "short": "KHM",
+   "headShliach": "Bentzion Butman"
+  },
+  {
+   "id": "vietnam",
+   "name": "Vietnam",
+   "short": "VNM",
+   "headShliach": "Menachem Hartman"
+  },
+  {
+   "id": "philippines",
+   "name": "Philippines",
+   "short": "PHL",
+   "headShliach": "Yossi Levy"
+  },
+  {
+   "id": "singapore",
+   "name": "Singapore",
+   "short": "Singapore",
+   "headShliach": "Mordechai Abergel"
+  },
+  {
+   "id": "israel",
+   "name": "Israel",
+   "short": "Israel",
+   "headShliach": "Yosef Yitzchak Aharonov"
+  },
+  {
+   "id": "turkey",
+   "name": "Turkey",
+   "short": "TUR",
+   "headShliach": "Mendy Chitrik"
+  },
+  {
+   "id": "united-arab-emirates",
+   "name": "United Arab Emirates",
+   "short": "ARE",
+   "headShliach": "Levi Duchman"
+  },
+  {
+   "id": "qatar",
+   "name": "Qatar",
+   "short": "QAT",
+   "headShliach": "Eli Chitrik"
+  },
+  {
+   "id": "saudi-arabia",
+   "name": "Saudi Arabia",
+   "short": "SAU",
+   "headShliach": "Peretz Garelik"
+  },
+  {
+   "id": "morocco",
+   "name": "Morocco",
+   "short": "MAR",
+   "headShliach": "Levi Banon"
+  },
+  {
+   "id": "tunisia",
+   "name": "Tunisia",
+   "short": "TUN",
+   "headShliach": "Pinson family"
+  },
+  {
+   "id": "central-africa",
+   "name": "Central Africa",
+   "short": "C. Africa",
+   "headShliach": "Shlomo Bentolila"
+  },
+  {
+   "id": "south-africa",
+   "name": "South Africa",
+   "short": "ZAF",
+   "headShliach": "Mendel Lipskar"
+  },
+  {
+   "id": "mauritius",
+   "name": "Mauritius",
+   "short": "MUS",
+   "headShliach": "Laima Barber"
+  },
+  {
+   "id": "reunion",
+   "name": "Réunion",
+   "short": "REU",
+   "headShliach": "Menahem Mendel Sibony"
+  },
+  {
+   "id": "new-south-wales",
+   "name": "New South Wales",
+   "headShliach": "Pinchus Feldman"
+  },
+  {
+   "id": "victoria",
+   "name": "Victoria",
+   "headShliach": "Disputed — Chaim Tzvi Groner; Yoselle Gutnick; Hendel Serebryanski"
+  },
+  {
+   "id": "brisbane",
+   "name": "Brisbane",
+   "headShliach": "Levi Jaffe"
+  },
+  {
+   "id": "gold-coast",
+   "name": "Gold Coast",
+   "headShliach": "Nir Gurevitch"
+  },
+  {
+   "id": "rara",
+   "name": "RARA",
+   "headShliach": "Chabad of RARA"
+  },
+  {
+   "id": "south-australia",
+   "name": "South Australia",
+   "headShliach": "Yossi Engel"
+  },
+  {
+   "id": "western-australia",
+   "name": "Western Australia",
+   "headShliach": "Shalom White"
+  },
+  {
+   "id": "tasmania",
+   "name": "Tasmania",
+   "headShliach": "Yossi Gordon"
+  },
+  {
+   "id": "act",
+   "name": "ACT",
+   "headShliach": "Shmueli Feldman"
+  },
+  {
+   "id": "new-zealand",
+   "name": "New Zealand",
+   "short": "NZL",
+   "headShliach": "Menachem Mendel Goldstein"
+  },
+  {
+   "id": "new-caledonia",
+   "name": "New Caledonia",
+   "short": "NCL",
+   "headShliach": "Menachem Sabbach"
+  },
+  {
+   "id": "baja-california",
+   "name": "Baja California",
+   "headShliach": "Mendel Polichenco"
+  },
+  {
+   "id": "sinaloa",
+   "name": "Sinaloa",
+   "headShliach": "Chaim Raitport"
+  },
+  {
+   "id": "nayarit",
+   "name": "Nayarit",
+   "headShliach": "Shneur Hecht"
+  },
+  {
+   "id": "jalisco",
+   "name": "Jalisco",
+   "headShliach": "Avraham Srugo"
+  },
+  {
+   "id": "bajio",
+   "name": "Bajío",
+   "headShliach": "Daniel Huebner"
+  },
+  {
+   "id": "nuevo-leon",
+   "name": "Nuevo León",
+   "headShliach": "Zalmy Srugo"
+  },
+  {
+   "id": "central-mexico",
+   "name": "Central Mexico",
+   "headShliach": "Yosef Mayzlesh"
+  },
+  {
+   "id": "chiapas",
+   "name": "Chiapas",
+   "headShliach": "Oren Raz"
+  },
+  {
+   "id": "mexican-caribbean",
+   "name": "Mexican Caribbean",
+   "headShliach": "Mendel Druk"
+  },
+  {
+   "id": "belize",
+   "name": "Belize",
+   "short": "BLZ",
+   "headShliach": "Mendel Belhamou"
+  },
+  {
+   "id": "guatemala",
+   "name": "Guatemala",
+   "short": "GTM",
+   "headShliach": "Shalom Pelman"
+  },
+  {
+   "id": "el-salvador",
+   "name": "El Salvador",
+   "short": "SLV",
+   "headShliach": "Yudi Brod"
+  },
+  {
+   "id": "honduras",
+   "name": "Honduras",
+   "short": "HND",
+   "headShliach": "Naftali Reichman"
+  },
+  {
+   "id": "nicaragua",
+   "name": "Nicaragua",
+   "short": "NIC",
+   "headShliach": "David Atar"
+  },
+  {
+   "id": "costa-rica",
+   "name": "Costa Rica",
+   "short": "CRI",
+   "headShliach": "Hershel Spalter"
+  },
+  {
+   "id": "panama",
+   "name": "Panama",
+   "short": "PAN",
+   "headShliach": "Ari Laine"
+  },
+  {
+   "id": "argentina",
+   "name": "Argentina",
+   "short": "ARG",
+   "headShliach": "Tzvi Grunblatt"
+  },
+  {
+   "id": "bolivia",
+   "name": "Bolivia",
+   "short": "BOL",
+   "headShliach": "Itzik Kupchik"
+  },
+  {
+   "id": "brazil",
+   "name": "Brazil",
+   "short": "BRA",
+   "headShliach": "Shabsi Alpern"
+  },
+  {
+   "id": "chile",
+   "name": "Chile",
+   "short": "CHL",
+   "headShliach": "Menashe Perman"
+  },
+  {
+   "id": "colombia",
+   "name": "Colombia",
+   "short": "COL",
+   "headShliach": "Yehoshua Rosenfeld"
+  },
+  {
+   "id": "ecuador",
+   "name": "Ecuador",
+   "short": "ECU",
+   "headShliach": "Mendy Fried"
+  },
+  {
+   "id": "paraguay",
+   "name": "Paraguay",
+   "short": "PRY",
+   "headShliach": "Levi Feigelstock"
+  },
+  {
+   "id": "peru",
+   "name": "Peru",
+   "short": "PER",
+   "headShliach": "Sara Blumenfeld"
+  },
+  {
+   "id": "uruguay",
+   "name": "Uruguay",
+   "short": "URY",
+   "headShliach": "Eliezer Shemtov"
+  },
+  {
+   "id": "venezuela",
+   "name": "Venezuela",
+   "short": "VEN",
+   "headShliach": "Moshe Perman"
+  },
+  {
+   "id": "caribbean",
+   "name": "Caribbean",
+   "short": "Caribbean",
+   "headShliach": "Mendel Zarchi"
   }
  ]
 }

@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node --max-old-space-size=12000 scripts/build-data.mjs"
+    "build": "node --max-old-space-size=12000 scripts/build-data.mjs",
+    "svg": "node scripts/export-svg.mjs"
   },
   "devDependencies": {
     "all-the-cities": "^3.1.0",

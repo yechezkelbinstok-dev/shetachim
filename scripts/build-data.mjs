@@ -145,6 +145,9 @@ const UNIT_COUNTRIES = ['USA', 'CAN'];
 const UNIT_ISO = ['US', 'CA'];
 const CITY_KM = 60; // a GeoNames place this close with the same name is the center's city
 const ROUGH = ['US-AK']; // drawn small in an inset, so simplified harder
+// States cut by an official boundary shape (Brisbane's SUA, the City of Gold Coast): drawn at 100 m, so the line
+// follows the official boundary closely when zoomed in, not the 800 m used for whole countries.
+const FINE = ['AU-QLD'];
 
 // ---------- downloads ----------
 
@@ -670,10 +673,11 @@ async function buildGeo(data) {
   // Small islands are dropped to keep the page light, except from areas that are small altogether (Bermuda, the
   // Caribbean islands, Monaco…), which would otherwise vanish.
   const rough = JSON.stringify(ROUGH).replace(/"/g, "'");
+  const fine = JSON.stringify(FINE).replace(/"/g, "'");
   const out = await mapshaper.applyCommands(
     '-i mosaic.json -dissolve piece copy-fields=state,name,abbr,country,shetach,outside -rename-fields id=piece -rename-layers areas ' +
     '-o pieces.json format=geojson ' +
-    `-simplify variable interval="${rough}.includes(state) ? 2500 : country === 'US' ? 400 : 800" keep-shapes ` +
+    `-simplify variable interval="${rough}.includes(state) ? 2500 : ${fine}.includes(state) ? 100 : country === 'US' ? 400 : 800" keep-shapes ` +
     `-each "size = this.area < 2e9 ? 'small' : 'big'" -split size ` +
     '-filter-islands min-area=40km2 remove-empty target=big ' +
     '-merge-layers target=big,small force name=areas -filter-fields id,state,name,abbr,country,shetach,outside ' +

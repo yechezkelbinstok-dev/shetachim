@@ -53,11 +53,24 @@ Later in the same round:
   Pieria, Pella and Imathia. GADM has no regional-unit level, so `REGIONAL_UNITS` in the build lists each unit's
   municipalities (GADM level 3); territory `{ "country": "GRC", "regionalUnits": [...] }`. A country can now be claimed
   at several GADM levels at once (finest wins).
-- **Brisbane** (owner said "far too large, use the official ABS SUA"): checked — the shape IS the ABS 2021 Brisbane SUA
-  (code 3002): it's exactly 233 whole SA2s whose official areas sum to 6,424 km² (drawn 6,449). It looks big because
-  ABS includes large fringe SA2s: Beaudesert (1,628 km², down toward the NSW border), Rosewood (675), Dayboro (407).
-  Kept as the official boundary; told the owner. Only change it if the owner confirms a different definition.
+- **Brisbane / Gold Coast** (owner: "use the ABS SUA geospatial boundary itself, do not approximate"): the old shapes
+  were ABS data simplified to 10% of their points (R package absmapsdata, `keep = 0.1`). Now exact:
+  `data/shapes/brisbane-sua.geojson` = the union of the 235 whole SA2s that make up SUA 3002 "Brisbane" (SUAs are built
+  from whole SA2s; membership read from ABS's SUA_2021 file: every SA2 is 100% in or out), from ABS's full-resolution
+  SA2_2021 boundaries (official area 6,462.4 km²; drawn 6,459); `gold-coast-lga.geojson` = ABS LGA 2022 33430 at full
+  resolution (1,333.4 km²; drawn 1,331). Source of the full-resolution ABS files: github.com/HughParsonage/ASGS
+  `inst/extdata/SA2_2021.qs` and `LGA_2022.qs` (ABS itself is blocked from the sandbox). Reading .qs needs R: conda-forge
+  is reachable, so `micromamba` (conda-forge linux-64 package, unpack the .tar.bz2) → `micromamba create -p renv -c
+  conda-forge r-base r-qs r-jsonlite`, then `qs::qread()` and write GeoJSON with jsonlite (rings need rewinding for d3).
+  Queensland is simplified at 100 m (`FINE` in the build) so the lines hold up zoomed in.
+  The official SUA really does include three large rural SA2s — Beaudesert (1,628 km², down toward the NSW border),
+  Rosewood (675), Dayboro (407) — see `docs/brisbane-sua-2021.png`; Tamborine–Canungra (between Brisbane and the Gold
+  Coast) is in neither, so it's RARA under the owner's rule. Don't shrink Brisbane unless the owner names another
+  official boundary (e.g. ABS's Urban Centre, UCL, for the built-up city only).
 - Mexican states have no short labels (no "Sin.", "Nay."); Vic/Tas without dots.
+- **SVG export**: `npm run svg` (scripts/export-svg.mjs) writes `web/shetachim-map.svg` — every shetach in its map colour,
+  shetach borders and coasts only (no names, cities, dots, stars); Natural Earth projection, 3600 px wide, lines
+  thinned to what's visible at that size (~2 MB). Live at /web/shetachim-map.svg. Rerun after every build.
 - `closeSeams()` in the build: coast points of one area within 400 m of another area's coast are moved onto it, then
   -clean again (fixes the Baja California / Baja California Sur line, Tijuana, Belgium–France).
 

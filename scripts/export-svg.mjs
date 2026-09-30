@@ -181,8 +181,7 @@ const inRing = (r, x, y) => { let c = false; for (let i = 0, j = r.length - 1; i
 const inPoly = (poly, x, y) => poly.reduce((c, r) => (inRing(r, x, y) ? !c : c), false);
 const cross = (a, b, c, d) => { const o = (p, q, r) => Math.sign((q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0])); return o(a, b, c) !== o(a, b, d) && o(c, d, a) !== o(c, d, b); };
 // Whether a box (with a little margin) lies wholly inside a polygon: its corners inside, no edge crossing it.
-function boxInside(poly, [x0, y0, x1, y1]) {
-  const m = 4;
+function boxInside(poly, [x0, y0, x1, y1], m = 4) {
   x0 -= m; y0 -= m; x1 += m; y1 += m;
   if (![[x0, y0], [x1, y0], [x1, y1], [x0, y1]].every(([x, y]) => inPoly(poly, x, y))) return false;
   const sides = [[[x0, y0], [x1, y0]], [[x1, y0], [x1, y1]], [[x1, y1], [x0, y1]], [[x0, y1], [x0, y0]]];
@@ -208,7 +207,7 @@ function segBoxDist(a, b, [x0, y0, x1, y1]) {
 // where it has the most room on every side. Too small for it (the small Northeast shetachim): offshore, in a column,
 // with a leader line.
 function labels(list, projection, { offshore = false, box = null } = {}) {
-  const MIN = 22, out = [], lost = [];
+  const MIN = 22, TINY = 6, out = [], lost = [];
   for (const [id, gs] of byShetachOf(list)) {
     const s = shetachById.get(id);
     if (!s.headShliach) continue;
@@ -217,7 +216,13 @@ function labels(list, projection, { offshore = false, box = null } = {}) {
     polys.sort((a, b) => polyArea(b[0]) - polyArea(a[0]));
     const main = polys[0].map((r) => { const k = keep(r); return k.length >= 4 ? k : r; });
     const segs = main.flatMap((r) => r.slice(1).map((p, i) => [r[i], p]));
-    const [px, py] = polylabel(main, 1);
+    // the centre to aim for: the shape's centre of area when that's inside it, else the point farthest from its edges
+    const pole = polylabel(main, 1);
+    const ring = main[0];
+    let ca = 0, cx0 = 0, cy0 = 0;
+    for (let i = 0; i < ring.length - 1; i++) { const [x1, y1] = ring[i], [x2, y2] = ring[i + 1], c = x1 * y2 - x2 * y1; ca += c; cx0 += (x1 + x2) * c; cy0 += (y1 + y2) * c; }
+    const cen = [cx0 / (3 * ca), cy0 / (3 * ca)];
+    const [px, py] = inPoly(main, cen[0], cen[1]) ? cen : pole;
     let bx0 = Infinity, by0 = Infinity, bx1 = -Infinity, by1 = -Infinity;
     for (const [x, y] of main[0]) { bx0 = Math.min(bx0, x); bx1 = Math.max(bx1, x); by0 = Math.min(by0, y); by1 = Math.max(by1, y); }
     const cap = Math.max(MIN, Math.min(64, Math.sqrt(polyArea(main[0])) * 0.12));
@@ -227,25 +232,31 @@ function labels(list, projection, { offshore = false, box = null } = {}) {
     const dims = (lines, size) => [Math.max(...lines.map((l) => textWidth(l, size))), (lines.length - 1) * LINE * size + CAP * size];
     // every place (on a grid) a label of this size fits
     const spots = (lines, size) => {
-      const [w, h] = dims(lines, size), step = Math.max(3, size / 3), res = [];
+      const [w, h] = dims(lines, size), step = Math.max(1, size / 4), res = [], m = Math.max(1.5, size * 0.15);
       for (let cx = bx0 + w / 2; cx <= bx1 - w / 2; cx += step) {
         for (let cy = by0 + h / 2; cy <= by1 - h / 2; cy += step) {
-          if (boxInside(main, [cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2])) res.push([cx, cy]);
+          if (boxInside(main, [cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2], m)) res.push([cx, cy]);
         }
       }
       return res;
     };
-    const biggest = (lines) => { for (let size = cap; size >= MIN; size -= 1) if (spots(lines, size).length) return size; return 0; };
+    // small shetachim may go down to TINY rather than out of their shetach
+    const biggest = (lines) => { for (let size = cap; size >= TINY; size -= size > 30 ? 1 : 0.5) if (spots(lines, size).length) return size; return 0; };
+    // the last name alone, only where the whole name can't fit at all
+    if (words.length > 1) forms.push([words[words.length - 1]]);
     const sizes = forms.map(biggest);
-    let k = sizes[1] && (!sizes[0] || sizes[1] > sizes[0] * 1.25) ? 1 : 0;
+    let k = sizes[1] && forms[1].length === 2 && (!sizes[0] || sizes[1] > sizes[0] * 1.25) ? 1 : 0;
+    if (!sizes[k] && sizes[1]) k = 1;
+    if (!sizes[k] && sizes[forms.length - 1]) k = forms.length - 1;
     if (!sizes[k]) { lost.push({ name, px, py }); continue; }
-    const lines = forms[k], size = Math.max(MIN, Math.round(Math.min(cap, sizes[k] * 0.85)));
+    const lines = forms[k], size = sizes[k] >= MIN ? Math.max(MIN, Math.round(Math.min(cap, sizes[k] * 0.85))) : sizes[k];
     const [w, h] = dims(lines, size);
     let best = null;
     for (const [cx, cy] of spots(lines, size)) {
       const bb = [cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2];
+      // enough room around it (up to a size's worth), then as near the centre as possible
       const room = Math.min(...segs.map(([a, b2]) => segBoxDist(a, b2, bb)));
-      const score = room - 0.02 * Math.hypot(cx - px, cy - py);
+      const score = Math.min(room, size * 1.2) - 0.35 * Math.hypot(cx - px, cy - py);
       if (!best || score > best.score) best = { score, cx, cy };
     }
     out.push({ lines, size, cx: best.cx, cy: best.cy, h });

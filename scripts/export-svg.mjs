@@ -11,7 +11,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { geoConicEqualArea, geoNaturalEarth1 } from 'd3-geo';
-import { feature, meshArcs, mergeArcs, neighbors } from 'topojson-client';
+import { feature, merge, meshArcs, mergeArcs, neighbors } from 'topojson-client';
+import opentype from 'opentype.js';
+import polylabel from 'polylabel';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const WIDTH = +(process.argv[2] || 3600);
@@ -22,7 +24,8 @@ const COLORS = ['#f0e1a2', '#cce1b5', '#efc7c1', '#c5d9ee', '#f3cfa9', '#d8c8e5'
 const INK = '#1e2b32', BG = '#f1f3f0';
 
 const topo = JSON.parse(fs.readFileSync(path.join(ROOT, 'web', 'data', 'geo.json'), 'utf8'));
-const { notShown = [] } = JSON.parse(fs.readFileSync(path.join(ROOT, 'web', 'data', 'shetachim.json'), 'utf8'));
+const { notShown = [], shetachim } = JSON.parse(fs.readFileSync(path.join(ROOT, 'web', 'data', 'shetachim.json'), 'utf8'));
+const shetachById = new Map(shetachim.map((x) => [x.id, x]));
 const pieces = topo.objects.areas.geometries.filter((g) => !notShown.includes(g.properties.state));
 const collection = { type: 'GeometryCollection', geometries: pieces };
 const key = (g) => g.properties.shetach || null;
@@ -146,6 +149,111 @@ function bounds(projection, list) {
   return [x0, y0, x1, y1];
 }
 
+// ---------- names ----------
+// Shetach names as outlines (so the SVG looks the same everywhere, with no font needed): Inter SemiBold, capitals,
+// slightly spaced. Each name gets the biggest size (up to a cap that grows with the area, so big areas read bigger)
+// at which it fits wholly inside its shetach, on one line or two, else its short form; one that doesn't fit at all
+// goes offshore with a thin leader line.
+const FONT = opentype.loadSync(path.join(ROOT, 'node_modules', '@fontsource', 'inter', 'files', 'inter-latin-600-normal.woff'));
+const TRACK = 0.07; // letter spacing, in em
+const LINE = 1.18; // line spacing, in em
+const CAP = 0.727; // Inter's capital height, in em
+const textWidth = (t, size) => FONT.getAdvanceWidth(t, size) + TRACK * size * (t.length - 1);
+function textPath(t, cx, baseline, size) {
+  let x = cx - textWidth(t, size) / 2, d = '';
+  for (const ch of t) {
+    d += FONT.getPath(ch, x, baseline, size).toPathData(1);
+    x += FONT.getAdvanceWidth(ch, size) + TRACK * size;
+  }
+  return d;
+}
+function twoLines(t) {
+  let best = null;
+  for (let i = 1; i < t.length - 1; i++) {
+    if (t[i] !== ' ' && t[i] !== '-') continue;
+    const lines = [t.slice(0, t[i] === '-' ? i + 1 : i), t.slice(i + 1)];
+    const worst = Math.max(...lines.map((l) => l.length));
+    if (!best || worst < best.worst) best = { worst, lines };
+  }
+  return best && best.lines;
+}
+const inRing = (r, x, y) => { let c = false; for (let i = 0, j = r.length - 1; i < r.length; j = i++) { const [xi, yi] = r[i], [xj, yj] = r[j]; if ((yi > y) !== (yj > y) && x < ((xj - xi) * (y - yi)) / (yj - yi) + xi) c = !c; } return c; };
+const inPoly = (poly, x, y) => poly.reduce((c, r) => (inRing(r, x, y) ? !c : c), false);
+const cross = (a, b, c, d) => { const o = (p, q, r) => Math.sign((q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0])); return o(a, b, c) !== o(a, b, d) && o(c, d, a) !== o(c, d, b); };
+// Whether a box (with a little margin) lies wholly inside a polygon: its corners inside, no edge crossing it.
+function boxInside(poly, [x0, y0, x1, y1]) {
+  const m = 4;
+  x0 -= m; y0 -= m; x1 += m; y1 += m;
+  if (![[x0, y0], [x1, y0], [x1, y1], [x0, y1]].every(([x, y]) => inPoly(poly, x, y))) return false;
+  const sides = [[[x0, y0], [x1, y0]], [[x1, y0], [x1, y1]], [[x1, y1], [x0, y1]], [[x0, y1], [x0, y0]]];
+  for (const r of poly) for (let i = 1; i < r.length; i++) {
+    const a = r[i - 1], b = r[i];
+    if (a[0] > x0 && a[0] < x1 && a[1] > y0 && a[1] < y1) return false;
+    if (Math.max(a[0], b[0]) < x0 || Math.min(a[0], b[0]) > x1 || Math.max(a[1], b[1]) < y0 || Math.min(a[1], b[1]) > y1) continue;
+    for (const [c, d] of sides) if (cross(a, b, c, d)) return false;
+  }
+  return true;
+}
+const polyArea = (r) => Math.abs(r.reduce((s2, p, i) => { const q = r[(i + 1) % r.length]; return s2 + p[0] * q[1] - q[0] * p[1]; }, 0)) / 2;
+
+function labels(list, projection, { offshore = false, box = null } = {}) {
+  const MIN = 22, out = [], lost = [];
+  for (const [id, gs] of byShetachOf(list)) {
+    const s = shetachById.get(id);
+    const geo = merge(topo, gs);
+    const polys = (geo.type === 'Polygon' ? [geo.coordinates] : geo.coordinates).map((poly) => poly.map((r) => r.map((p) => projection(p))));
+    polys.sort((a, b) => polyArea(b[0]) - polyArea(a[0]));
+    const main = polys[0];
+    const [px, py] = polylabel(main, 1);
+    const cap = Math.max(MIN, Math.min(72, Math.sqrt(polyArea(main[0])) * 0.13));
+    const name = s.name.toUpperCase(), short = s.short ? s.short.toUpperCase() : null;
+    // The biggest size each form fits at; two lines only when that's clearly bigger, the short form only when the name
+    // doesn't fit at all (never in a corner box, where the full name goes in the corner instead).
+    const fitAt = (lines) => {
+      if (!lines) return null;
+      for (let size = cap; size >= MIN; size -= 1) {
+        const w = Math.max(...lines.map((l) => textWidth(l, size))), h = (lines.length - 1) * LINE * size + CAP * size;
+        const step = Math.max(4, size / 2);
+        for (let ring = 0; ring <= 6; ring++) {
+          for (let i = -ring; i <= ring; i++) for (let j = -ring; j <= ring; j++) {
+            if (Math.max(Math.abs(i), Math.abs(j)) !== ring) continue;
+            const cx = px + i * step, cy = py + j * step;
+            if (boxInside(main, [cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2])) return { lines, size, cx, cy, h };
+          }
+        }
+      }
+      return null;
+    };
+    const one = fitAt([name]), two = fitAt(twoLines(name));
+    let best = two && (!one || two.size > one.size * 1.25) ? two : one;
+    if (!best && !box && short && short !== name) best = fitAt([short]);
+    if (best) out.push(best);
+    else lost.push({ name: box ? s.name : s.short || s.name, px, py });
+  }
+  if (box && lost.length) {
+    // too small for its own name inside a corner box (Hawaii's islands): the name in the box's top-left corner
+    for (const l of lost) out.push({ lines: [l.name.toUpperCase()], size: MIN + 4, cx: box[0] + 14 + textWidth(l.name.toUpperCase(), MIN + 4) / 2, cy: box[1] + 14 + CAP * (MIN + 4) / 2, h: CAP * (MIN + 4) });
+    lost.length = 0;
+  }
+  let leaders = '';
+  if (offshore && lost.length) {
+    // Offshore, in a column to the east of the easternmost of them, in north-to-south order, with leader lines.
+    const size = MIN + 2, gap = size * 1.9;
+    const x = Math.max(...lost.map((l) => l.px)) + 150;
+    lost.sort((a, b) => a.py - b.py);
+    let y = -Infinity;
+    for (const l of lost) {
+      y = Math.max(l.py, y + gap);
+      const t = l.name.toUpperCase();
+      out.push({ lines: [t], size, cx: x + textWidth(t, size) / 2, cy: y, h: CAP * size });
+      leaders += `M${fmt(l.px)},${fmt(l.py)}L${fmt(x - 10)},${fmt(y)}`;
+      leaders += `M${fmt(l.px + 3.5)},${fmt(l.py)}A3.5,3.5 0 1,1 ${fmt(l.px - 3.5)},${fmt(l.py)}A3.5,3.5 0 1,1 ${fmt(l.px + 3.5)},${fmt(l.py)}`;
+    }
+  }
+  const text = out.map(({ lines, size, cx, cy, h }) => lines.map((l, k) => textPath(l, cx, cy - h / 2 + CAP * size + k * LINE * size, size)).join('')).join('');
+  return `<g fill="${INK}">${leaders ? `<path d="${leaders}" fill="none" stroke="${INK}" stroke-width="1.4"/>` : ''}<path d="${text}"/></g>`;
+}
+
 const MAPS = {
   world: { file: 'shetachim-map.svg', title: 'Chabad shetachim', countries: null, projection: () => geoNaturalEarth1() },
   na: {
@@ -157,6 +265,7 @@ const MAPS = {
     ],
   },
 };
+MAPS['na-names'] = { ...MAPS.na, file: 'shetachim-us-canada-names.svg', labels: true };
 
 for (const [name, m] of Object.entries(MAPS)) {
   if (process.argv[3] && process.argv[3] !== name) continue;
@@ -168,6 +277,8 @@ for (const [name, m] of Object.entries(MAPS)) {
   proj.translate([proj.translate()[0] + PAD - bx0, proj.translate()[1] + PAD - by0]);
   const height = Math.ceil(by1 - by0 + 2 * PAD);
   let body = draw(main, proj);
+  const labelled = [];
+  if (m.labels) labelled.push(labels(main, proj, { offshore: true }));
   // Alaska and Hawaii in boxes along the bottom left, as on the site.
   let x = PAD;
   for (const inset of m.insets || []) {
@@ -175,6 +286,7 @@ for (const [name, m] of Object.entries(MAPS)) {
     const w = (WIDTH - 2 * PAD) * inset.share, h = w * inset.aspect, y = height - PAD - h;
     const p = fitted(inset.projection(), list, [x + 10, y + 10, w - 20, h - 20]);
     body += `\n<rect x="${fmt(x)}" y="${fmt(y)}" width="${fmt(w)}" height="${fmt(h)}" rx="8" fill="${BG}" stroke="#d2d9dc" stroke-width="1.5"/>\n${draw(list, p)}`;
+    if (m.labels) labelled.push(labels(list, p, { box: [x, y, w, h] }));
     x += w + 16;
   }
   const svg = `<?xml version="1.0" encoding="UTF-8"?>
@@ -182,6 +294,7 @@ for (const [name, m] of Object.entries(MAPS)) {
 <title>${m.title}</title>
 <rect width="100%" height="100%" fill="${BG}"/>
 ${body}
+${labelled.join('\n')}
 </svg>
 `;
   const out = path.join(ROOT, 'web', m.file);

@@ -21,6 +21,9 @@ them. Choosing a country (USA, Canada) shows only that country.
 | Zoom and pan (mouse, trackpad, pinch) | Prototype |
 | Alaska and Hawaii in corner boxes | Prototype |
 | Hover or tap a dot for the centers there, with links to chabad.org | Prototype |
+| Cities that have shluchim (on/off), more appearing as you zoom in | Prototype |
+| A capital for each shetach (its headquarters), drawn with a star | Prototype (West Coast only; the rest from you) |
+| Street map underneath ("Google Maps style"), with everything outside the shetachim faded | Prototype (needs the live site: GitHub Pages) |
 | States split between shetachim (by county) | Next: needs county geometry, see below |
 | Puerto Rico / USVI and other insets | Later |
 | The rest of the world, with continent views | Later |
@@ -35,22 +38,37 @@ them. Choosing a country (USA, Canada) shows only that country.
   `scripts/build-data.mjs` works those out from the coordinates (Natural Earth countries and
   provinces, US Census counties), so each dot knows its country, state/province and county.
 - Merging: listings at the same point, or within 25 m of each other (same building or campus),
-  become one dot. 4,220 listings become 3,597 dots; in the US and Canada, 1,967 become 1,763.
+  become one dot. 4,222 listings (with the 2 added by hand) become 3,599 dots; in the US and
+  Canada, 1,967 become 1,763.
 - 544 listings have no exact address on chabad.org and sit at their city's centre point.
   The dot card says so.
 - Known chabad.org geocoding mistakes are listed in `data/report.md` (16 Israeli listings
   sitting on the country's midpoint, a few others). None are in the US or Canada.
-- Centers missing from chabad.org go in `data/extra-centers.json`. The repo is public, so any
-  that should stay quiet go in `data/extra-centers.private.json` instead, which git ignores.
-  The build writes those to `web/data/centers.private.geojson` (also ignored) and the page
-  loads it when present. Private entries are placed at city level only.
+- Centers missing from chabad.org go in `data/extra-centers.json` (now Riyadh and Istanbul),
+  with `precision` (`exact`, `area` or `city`) and a `note` shown on the dot's card.
+
+### Cities (done)
+
+- Every US/Canada city with at least one center: 1,001. The build matches each to GeoNames
+  (npm `all-the-cities`: places over 1,000 people) by name, in the same state, within 60 km, for
+  its real point and population. chabad.org writes Saint/San/Santa/Sainte/South as `S.`; the
+  build tries each. 81 have no match (neighbourhoods such as Tarzana or Thornhill, tiny places)
+  and sit at the middle of their centers; `data/report.md` lists them.
+- The map labels the biggest first and only where there's room, so more appear as you zoom in.
+
+### Capitals
+
+- `capital` in `data/shetachim.json`: `{ "name": ..., "centerId": ... }` (the number in the
+  center's chabad.org link) or `{ "name": ..., "lat": ..., "lon": ... }`. The build checks the
+  center exists and is inside the shetach.
+- West Coast: Chabad West Coast Headquarters (center 117555, Los Angeles). The rest: from you.
 
 ### Boundaries (done for the prototype)
 
 - Drawing: Natural Earth 1:10m states and provinces (Great Lakes cut out), simplified with
   mapshaper into one TopoJSON (`web/data/geo.json`). Only the US and Canada are included, minus
   the areas in `notShown` (Yukon, Northwest Territories, Nunavut).
-- Tagging: Natural Earth 1:10m full detail plus Census 1:500k counties.
+- Tagging: Natural Earth 1:10m full detail plus Census 1:500k counties (2022).
 - Next: for split states, draw the US from Census counties (and Canada from StatCan census
   divisions if a province is split). Shetach borders inside a state then follow county lines.
   Snap the US-Canada seam with mapshaper so the two sources meet cleanly. Add a more detailed
@@ -62,7 +80,8 @@ them. Choosing a country (USA, Canada) shows only that country.
 entry per shetach that isn't simply one state (a merge), or whose head shliach is known:
 
 ```json
-{ "id": "west-coast", "name": "West Coast", "headShliach": "Shlomo Cunin", "territory": ["US-CA", "US-NV"] }
+{ "id": "west-coast", "name": "West Coast", "headShliach": "Shlomo Cunin", "territory": ["US-CA", "US-NV"],
+  "capital": { "name": "Chabad West Coast Headquarters", "centerId": "117555" } }
 ```
 
 - Any state or province not in an entry is its own shetach, named after the state.
@@ -74,8 +93,8 @@ entry per shetach that isn't simply one state (a merge), or whose head shliach i
 - The build refuses unknown codes and areas claimed by two shetachim.
 
 Easiest way to send it: plain text, one line per shetach, such as
-"State(s): head shliach, shetach name", and for a split state which part goes where (counties,
-cities, or a rough line). Claude turns that into this file and the county lists, and the map
+"State(s): head shliach, shetach name, capital", and for a split state which part goes where
+(counties, cities, or a rough line). Claude turns that into this file and the county lists, and the map
 shows the result to check.
 
 Open questions:
@@ -86,6 +105,17 @@ Open questions:
    them (in corner boxes) and under which shetach?
 3. New Brunswick and Prince Edward Island have no listed centers: part of a neighbouring
    shetach, or left off like the territories?
+
+## Street map
+
+- MapLibre GL 4.7.1 (from cdnjs, loaded the first time "Street map" is picked) with OpenFreeMap
+  vector tiles: free, no key; attribution is shown in the corner. `liberty` in light mode,
+  `dark` in dark mode.
+- Our fills go under the streets and buildings and fade toward street level; our borders go
+  over the streets; a fade covers everything outside the shown shetachim. Names, cities and
+  capitals are the same SVG as on the political map.
+- It needs a real web host (GitHub Pages): a Claude artifact blocks the tiles, and the page then
+  says so and stays on the political map.
 
 ## World version
 
@@ -102,8 +132,9 @@ Open questions:
 ```
 npm install
 npm run build        # rebuilds web/data/ and data/report.md
-cd web && python3 -m http.server   # then open http://localhost:8000
+python3 -m http.server   # then open http://localhost:8000/web/
 ```
 
-The page is static (D3 + TopoJSON from cdnjs), so `web/` can be hosted as-is, e.g. on
-GitHub Pages.
+The page is static (D3 + TopoJSON from cdnjs; MapLibre for the street map), so the repo can be
+hosted as-is on GitHub Pages: Settings → Pages → Deploy from a branch → `/ (root)`. The root
+`index.html` forwards to `web/`.

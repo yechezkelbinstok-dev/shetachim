@@ -5,22 +5,23 @@
 //
 // In:
 //   data/raw/chabad-centers.json        chabad.org centers export ({ data: [...] })
-//   data/extra-centers.json             centers missing from chabad.org (safe to publish)
-//   data/extra-centers.private.json     same format, kept out of git (optional)
-//   data/shetachim.json                 the shetachim: name, head shliach, territory
+//   data/extra-centers.json             centers missing from chabad.org
+//   data/shetachim.json                 the shetachim: name, head shliach, territory, capital
 // Out:
-//   web/data/shetachim.json             checked copy of data/shetachim.json
+//   web/data/shetachim.json             checked copy of data/shetachim.json, with each capital's position
 //   web/data/geo.json                   TopoJSON, one object `areas`: the US states, DC and Canadian
 //                                       provinces (minus the areas listed in shetachim.json `notShown`)
 //   web/data/centers.geojson            one point per location (centers at the same spot merged)
-//   web/data/centers.private.geojson    the private extras, same format (gitignored)
+//   web/data/cities.json                every US/Canada city with at least one center, biggest first
 //   data/report.md                      counts and data problems worth a look
 //
-// Boundary files are downloaded once into .cache/ (Natural Earth, US Census).
+// Boundary files are downloaded once into .cache/ (Natural Earth, US Census). City points and
+// populations come from GeoNames, via the all-the-cities package.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import mapshaper from 'mapshaper';
+import geonames from 'all-the-cities';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CACHE = path.join(ROOT, '.cache');
@@ -32,12 +33,15 @@ const SOURCES = {
   admin1: `${NE}/ne_10m_admin_1_states_provinces.geojson`, // tagging: states/provinces
   admin1Lakes: `${NE}/ne_10m_admin_1_states_provinces_lakes.geojson`, // drawing: Great Lakes cut out
   countries: `${NE}/ne_10m_admin_0_countries.geojson`, // tagging: countries
-  counties: 'https://www2.census.gov/geo/tiger/GENZ2023/shp/cb_2023_us_county_500k.zip', // tagging: US counties
+  // tagging: US counties, Census 1:500k (2022), from the Census Bureau's GitHub (www2.census.gov isn't always reachable)
+  counties: 'https://raw.githubusercontent.com/uscensusbureau/citysdk/master/v2/GeoJSON/500k/2022/county.json',
 };
 
 const MERGE_METERS = 25; // centers closer than this are one dot (same building / campus)
 const COAST_KM = 25; // a point just offshore is given to the nearest area within this distance
 const UNIT_COUNTRIES = ['USA', 'CAN'];
+const UNIT_ISO = ['US', 'CA'];
+const CITY_KM = 60; // a GeoNames place this close with the same name is the center's city
 const ROUGH = ['US-AK']; // drawn small in an inset, so simplified harder
 
 // ---------- downloads ----------
@@ -58,8 +62,8 @@ async function cached(name) {
 async function countiesGeoJSON() {
   const out = path.join(CACHE, 'us-counties.geojson');
   if (!fs.existsSync(out)) {
-    const zip = await cached('counties');
-    await mapshaper.runCommands(`-i "${zip}" -filter-fields GEOID,NAME,STUSPS -o "${out}" format=geojson`);
+    const src = await cached('counties');
+    await mapshaper.runCommands(`-i "${src}" -filter-fields GEOID,NAME,STUSPS -o "${out}" format=geojson`);
   }
   return out;
 }
@@ -159,7 +163,7 @@ function normalize(raw, extra = false) {
     lon: c.longitude,
     approx: !!raw['location-is-approximate'] || undefined,
     unlisted: extra || undefined,
-    note: raw.note,
+    note: raw.note || undefined,
   };
 }
 
@@ -221,6 +225,94 @@ function suspectReason(dot) {
   return n >= 3 ? `centers from ${n} different cities share this point` : null;
 }
 
+// ---------- cities with shluchim ----------
+
+// chabad.org writes Saint, San, Santa, Sainte and South all as "S." (S. Diego, S. Euclid, Rancho S. Fe).
+// GeoNames spells St., Mt. and Ft. out, and accents are dropped on both sides.
+const SPELLED = { st: 'saint', ste: 'sainte', mt: 'mount', ft: 'fort' };
+const S_WORDS = ['saint', 'san', 'santa', 'sainte', 'south'];
+const words = (s) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/['’]/g, '').toLowerCase()
+  .split(/[^a-z]+/).filter(Boolean).map((w) => SPELLED[w] || w);
+const placeKey = (s) => words(s).join('');
+
+// Ways GeoNames might spell a chabad.org city name: exact spellings first, then looser variants.
+function spellings(name) {
+  let keys = [[]];
+  for (const w of words(name)) keys = keys.flatMap((k) => (w === 's' ? S_WORDS : [w]).map((x) => [...k, x]));
+  keys = keys.map((k) => k.join(''));
+  // New York City, The Bronx, Washington, D.C., West Bloomfield Township, Hallandale Beach; Quebec City is Québec
+  const loose = keys.flatMap((k) => [`${k}city`, `the${k}`, `${k}dc`, `${k}township`, `${k}beach`, ...(k.endsWith('city') ? [k.slice(0, -4)] : [])]);
+  return [keys, loose];
+}
+
+// GeoNames admin1 codes: US states use postal codes, Canadian provinces use numbers.
+const CA_ADMIN1 = { '01': 'AB', '02': 'BC', '03': 'MB', '04': 'NB', '05': 'NL', '07': 'NS', '08': 'ON', '09': 'PE', '10': 'QC', '11': 'SK', '12': 'YT', '13': 'NT', '14': 'NU' };
+const regionOf = (g) => `${g.country}-${g.country === 'CA' ? CA_ADMIN1[g.adminCode] : g.adminCode}`;
+
+// One entry per city that has a center: at the GeoNames point for that name in the same state or
+// province (nearest within CITY_KM), else at the middle of its centers. Biggest cities first, so
+// the map labels them first.
+function buildCities(dots) {
+  const places = new Map();
+  for (const g of geonames) {
+    if (!UNIT_ISO.includes(g.country)) continue;
+    const key = placeKey(g.name);
+    if (!places.has(key)) places.set(key, []);
+    places.get(key).push(g);
+  }
+  const groups = new Map();
+  for (const d of dots) {
+    if (!UNIT_ISO.includes(d.country) || !d.region) continue;
+    for (const c of d.centers) {
+      if (!c.city) continue;
+      const key = `${d.region}|${placeKey(c.city)}`;
+      if (!groups.has(key)) groups.set(key, { region: d.region, country: d.country, names: [], at: [] });
+      groups.get(key).names.push(c.city);
+      groups.get(key).at.push(d);
+    }
+  }
+  const median = (xs) => {
+    const s = [...xs].sort((a, b) => a - b), m = s.length >> 1;
+    return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2;
+  };
+  function match(g, mid) {
+    const tiers = g.names.map(spellings);
+    for (const tier of [0, 1]) {
+      let best = null;
+      for (const key of new Set(tiers.flatMap((t) => t[tier]))) {
+        for (const p of places.get(key) || []) {
+          if (regionOf(p) !== g.region) continue;
+          const km = metersBetween(mid, { lat: p.loc.coordinates[1], lon: p.loc.coordinates[0] }) / 1000;
+          if (km <= CITY_KM && (!best || km < best.km)) best = { p, km };
+        }
+      }
+      if (best) return best.p;
+    }
+    return null;
+  }
+  const cities = [], byPlace = new Map(); // one city for "S. Diego" and "San Diego" listings
+  for (const g of groups.values()) {
+    const mid = { lat: median(g.at.map((d) => d.lat)), lon: median(g.at.map((d) => d.lon)) };
+    const p = match(g, mid);
+    if (p && byPlace.has(p.cityId)) { byPlace.get(p.cityId).centers += g.names.length; continue; }
+    const [lon, lat] = p ? p.loc.coordinates : [mid.lon, mid.lat];
+    const city = {
+      name: p ? p.name.replace(/ Township$| \(.*\)$/, '') : count(g.names, (n) => n)[0][0],
+      region: g.region, country: g.country, lat: +lat.toFixed(5), lon: +lon.toFixed(5),
+      pop: p ? p.population : 0, centers: g.names.length, unmatched: p ? undefined : true,
+    };
+    if (p) byPlace.set(p.cityId, city);
+    cities.push(city);
+  }
+  return cities.sort((a, b) => b.pop - a.pop || b.centers - a.centers || (a.name < b.name ? -1 : 1));
+}
+
+function count(list, key) {
+  const m = new Map();
+  for (const x of list) m.set(key(x), (m.get(key(x)) || 0) + 1);
+  return [...m.entries()].sort((a, b) => b[1] - a[1]);
+}
+
 // ---------- geometry for the map ----------
 
 async function buildGeo(notShown) {
@@ -238,10 +330,12 @@ async function buildGeo(notShown) {
   );
 }
 
-// Every territory code must be a real area, and no area may be in two shetachim.
-function checkShetachim(data) {
+// Every territory code must be a real area, no area may be in two shetachim, and a capital must be
+// a known center inside its shetach (or a lat/lon). Writes the checked file with each capital's position.
+function checkShetachim(data, dots) {
   const topo = readJSON(path.join(OUT, 'geo.json'));
   const units = new Set(topo.objects.areas.geometries.map((g) => g.properties.id));
+  const dotOf = new Map(dots.flatMap((d) => d.centers.map((c) => [c.id, { d, c }])));
   const owner = new Map();
   const problems = [];
   for (const s of data.shetachim) {
@@ -251,9 +345,21 @@ function checkShetachim(data) {
       if (owner.has(u)) problems.push(`${u} is in both ${owner.get(u)} and ${s.id}`);
       owner.set(u, s.id);
     }
+    const cap = s.capital;
+    if (!cap) continue;
+    if (!cap.name) problems.push(`${s.id}: the capital needs a name`);
+    if (cap.centerId !== undefined) {
+      const hit = dotOf.get(String(cap.centerId));
+      if (!hit) problems.push(`${s.id}: capital centerId ${cap.centerId} isn't in the centers data`);
+      else if (!(s.territory || []).includes(hit.d.region)) problems.push(`${s.id}: capital ${cap.centerId} is in ${hit.d.region}, outside the shetach`);
+      // on the center's dot, so the star and the dot line up
+      else Object.assign(cap, { centerId: String(cap.centerId), lat: +hit.d.lat.toFixed(5), lon: +hit.d.lon.toFixed(5), city: hit.c.city });
+    } else if (!Number.isFinite(cap.lat) || !Number.isFinite(cap.lon)) {
+      problems.push(`${s.id}: the capital needs a centerId, or lat and lon`);
+    }
   }
   if (problems.length) throw new Error(`data/shetachim.json:\n  ${problems.join('\n  ')}`);
-  fs.copyFileSync(at('data', 'shetachim.json'), path.join(OUT, 'shetachim.json'));
+  fs.writeFileSync(path.join(OUT, 'shetachim.json'), `${JSON.stringify(data, null, 2)}\n`);
   console.log(`${data.shetachim.length} shetachim entered, covering ${owner.size} of ${units.size} states/provinces; ` +
     `the rest are one shetach each`);
 }
@@ -264,14 +370,11 @@ async function main() {
   fs.mkdirSync(OUT, { recursive: true });
   const raw = readJSON(at('data', 'raw', 'chabad-centers.json')).data;
   const extrasFile = at('data', 'extra-centers.json');
-  const privateFile = at('data', 'extra-centers.private.json');
   const extras = fs.existsSync(extrasFile) ? readJSON(extrasFile).centers || [] : [];
-  const privates = fs.existsSync(privateFile) ? readJSON(privateFile).centers || [] : [];
 
   const toRaw = (e) => ({ ...e, coordinates: { latitude: e.lat, longitude: e.lon }, 'location-is-approximate': e.precision !== 'exact' });
-  const publicCenters = [...raw.map((r) => normalize(r)), ...extras.map((e) => normalize(toRaw(e), true))];
-  const privateCenters = privates.map((e) => normalize(toRaw(e), true));
-  const bad = publicCenters.filter((c) => !Number.isFinite(c.lat) || !Number.isFinite(c.lon));
+  const centers = [...raw.map((r) => normalize(r)), ...extras.map((e) => normalize(toRaw(e), true))];
+  const bad = centers.filter((c) => !Number.isFinite(c.lat) || !Number.isFinite(c.lon));
   if (bad.length) console.warn(`${bad.length} centers have no coordinates and are skipped`);
 
   console.log('loading boundaries…');
@@ -298,14 +401,9 @@ async function main() {
     }
   }
 
-  const build = (centers) => {
-    const dots = mergeIntoDots(centers.filter((c) => Number.isFinite(c.lat) && Number.isFinite(c.lon)));
-    dots.forEach(tag);
-    for (const d of dots) d.suspect = suspectReason(d) || undefined;
-    return dots;
-  };
-  const dots = build(publicCenters);
-  const privateDots = build(privateCenters);
+  const dots = mergeIntoDots(centers.filter((c) => Number.isFinite(c.lat) && Number.isFinite(c.lon)));
+  dots.forEach(tag);
+  for (const d of dots) d.suspect = suspectReason(d) || undefined;
 
   const toFeature = (d) => ({
     type: 'Feature',
@@ -315,28 +413,23 @@ async function main() {
       centers: d.centers.map(({ lat, lon, ...c }) => c),
     },
   });
-  const write = (file, list) => fs.writeFileSync(path.join(OUT, file), JSON.stringify({ type: 'FeatureCollection', features: list.map(toFeature) }));
-  write('centers.geojson', dots);
-  if (privateDots.length) write('centers.private.geojson', privateDots);
-  else fs.rmSync(path.join(OUT, 'centers.private.geojson'), { force: true });
+  fs.writeFileSync(path.join(OUT, 'centers.geojson'), JSON.stringify({ type: 'FeatureCollection', features: dots.map(toFeature) }));
+
+  const cities = buildCities(dots);
+  fs.writeFileSync(path.join(OUT, 'cities.json'), `[\n${cities.map(({ unmatched, ...c }) => JSON.stringify(c)).join(',\n')}\n]\n`);
 
   console.log('building map geometry…');
   const shetachData = readJSON(at('data', 'shetachim.json'));
   await buildGeo(shetachData.notShown || []);
-  checkShetachim(shetachData);
+  checkShetachim(shetachData, dots);
 
-  fs.writeFileSync(at('data', 'report.md'), report(publicCenters, dots, privateDots));
-  console.log(`done: ${publicCenters.length} centers -> ${dots.length} dots` + (privateDots.length ? ` (+${privateDots.length} private)` : ''));
+  fs.writeFileSync(at('data', 'report.md'), report(centers, dots, cities, shetachData));
+  console.log(`done: ${centers.length} centers -> ${dots.length} dots, ${cities.length} cities in the US and Canada`);
 }
 
 // ---------- report ----------
 
-function report(centers, dots, privateDots) {
-  const count = (list, key) => {
-    const m = new Map();
-    for (const x of list) m.set(key(x), (m.get(key(x)) || 0) + 1);
-    return [...m.entries()].sort((a, b) => b[1] - a[1]);
-  };
+function report(centers, dots, cities, shetachData) {
   const perCenter = dots.flatMap((d) => d.centers.map((c) => ({ ...c, country: d.country, countryName: d.countryName, region: d.region })));
   const multi = dots.filter((d) => d.centers.length > 1);
   const na = perCenter.filter((c) => c.country === 'US' || c.country === 'CA');
@@ -344,6 +437,7 @@ function report(centers, dots, privateDots) {
   const untagged = dots.filter((d) => !d.country);
   const suspects = dots.filter((d) => d.suspect);
   const mixed = dots.filter((d) => !d.suspect && citiesAt(d).length === 2);
+  const unmatched = cities.filter((c) => c.unmatched);
   const where = (d) => `- ${d.lat.toFixed(4)}, ${d.lon.toFixed(4)} (${d.countryName}): ` +
     count(d.centers, (c) => c.city).map(([city, n]) => `${city} ×${n}`).join(', ');
   const table = (rows) => rows.map(([k, v]) => `| ${k ?? '(none)'} | ${v} |`).join('\n');
@@ -358,8 +452,7 @@ Generated by \`scripts/build-data.mjs\` from \`data/raw/chabad-centers.json\`.
   - ${multi.length} dots hold more than one center (${multi.reduce((s, d) => s + d.centers.length, 0)} centers)
 - Centers whose chabad.org location is only approximate (city centre): ${centers.filter((c) => c.approx && !c.unlisted).length}
 - Countries: ${new Set(perCenter.map((c) => c.country).filter(Boolean)).size}
-- US + Canada: **${na.length}** centers, ${naDots.length} dots
-- Private extras (not in git): ${privateDots.reduce((s, d) => s + d.centers.length, 0)}
+- US + Canada: **${na.length}** centers, ${naDots.length} dots, ${cities.length} cities
 - Dots not inside any country: ${untagged.length}
 
 ## US states and Canadian provinces
@@ -373,6 +466,18 @@ ${table(count(na, (c) => c.region))}
 | Country | Centers |
 |---|---|
 ${table(count(perCenter, (c) => c.countryName))}
+
+## Shetach capitals
+
+${shetachData.shetachim.filter((s) => s.capital).map((s) => `- ${s.name}: ${s.capital.name}` +
+  (s.capital.centerId ? ` (center ${s.capital.centerId}, ${s.capital.city})` : '')).join('\n') || 'None entered yet.'}
+
+## Cities without a GeoNames match (${unmatched.length} of ${cities.length})
+
+Placed at the middle of their centers. Usually a neighbourhood or a place under 1,000 people;
+a misspelling on chabad.org shows up here too.
+
+${unmatched.map((c) => `- ${c.name} (${c.region}): ${c.centers} ${c.centers === 1 ? 'center' : 'centers'}`).join('\n')}
 
 ## Probably misplaced by chabad.org (${suspects.length} dots)
 

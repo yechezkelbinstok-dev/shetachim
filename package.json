@@ -6,6 +6,7 @@
     "build": "node scripts/build-data.mjs"
   },
   "devDependencies": {
+    "all-the-cities": "^3.1.0",
     "d3-geo": "^3.1.1",
     "mapshaper": "^0.6.102",
     "topojson-client": "^3.1.0"

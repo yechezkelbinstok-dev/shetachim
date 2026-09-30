@@ -1,12 +1,26 @@
 {
-  "about": "Every state and province is its own shetach unless an entry below claims it. An entry merges areas into one shetach (territory = ISO codes: US-CA, CA-ON, ...); splits by county come later (see docs/PLAN.md). Leave headShliach empty if unknown. lastName is optional: it defaults to the last word of headShliach. notShown = areas left off the map entirely.",
-  "notShown": ["CA-YT", "CA-NT", "CA-NU"],
+  "about": "Every state and province is its own shetach unless an entry below claims it. An entry merges areas into one shetach (territory = ISO codes: US-CA, CA-ON, ...); splits by county come later (see docs/PLAN.md). Leave headShliach empty if unknown. lastName is optional: it defaults to the last word of headShliach. capital is the shetach's headquarters: a name plus the chabad.org center id (the number in its chabad.org link), or lat and lon for a place that isn't listed. notShown = areas left off the map entirely.",
+  "notShown": [
+    "CA-YT",
+    "CA-NT",
+    "CA-NU"
+  ],
   "shetachim": [
     {
       "id": "west-coast",
       "name": "West Coast",
       "headShliach": "Shlomo Cunin",
-      "territory": ["US-CA", "US-NV"]
+      "territory": [
+        "US-CA",
+        "US-NV"
+      ],
+      "capital": {
+        "name": "Chabad West Coast Headquarters",
+        "centerId": "117555",
+        "lat": 34.06451,
+        "lon": -118.44847,
+        "city": "Los Angeles"
+      }
     }
   ]
 }

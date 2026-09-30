@@ -1,4 +1,23 @@
 {
-  "about": "Centers that exist but are not listed on chabad.org. Same format in data/extra-centers.private.json, which stays out of git (for centers that should not be public). precision: 'city' = dot at the city centre, 'exact' = real location.",
-  "centers": []
+  "about": "Centers that exist but are not listed on chabad.org. precision: 'exact' = real location, 'area' = rough spot in the right neighbourhood, 'city' = city centre (address unknown). note is shown on the dot's card.",
+  "centers": [
+    {
+      "id": "extra-riyadh",
+      "name": "Chabad center",
+      "city": "Riyadh",
+      "lat": 24.68773,
+      "lon": 46.72185,
+      "precision": "city",
+      "note": "Address not known; placed at the city centre"
+    },
+    {
+      "id": "extra-istanbul-nisantasi",
+      "name": "Chabad center",
+      "city": "Istanbul",
+      "lat": 41.0512,
+      "lon": 28.9921,
+      "precision": "area",
+      "note": "In Nişantaşı, near the American Hospital; the dot is a rough spot"
+    }
+  ]
 }

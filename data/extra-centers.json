@@ -1,0 +1,4 @@
+{
+  "about": "Centers that exist but are not listed on chabad.org. Same format in data/extra-centers.private.json, which stays out of git (for centers that should not be public). precision: 'city' = dot at the city centre, 'exact' = real location.",
+  "centers": []
+}

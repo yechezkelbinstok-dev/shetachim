@@ -1,0 +1,11 @@
+{
+  "about": "One entry per shetach. territory lists whole states/provinces by ISO code (US-CA, CA-ON, ...). Split states will list counties (see docs/PLAN.md). lastName is optional: it defaults to the last word of headShliach.",
+  "shetachim": [
+    {
+      "id": "west-coast",
+      "name": "West Coast",
+      "headShliach": "Shlomo Cunin",
+      "territory": ["US-CA", "US-NV"]
+    }
+  ]
+}

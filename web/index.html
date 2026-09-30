@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- page head -->
+<title>Shetachim Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@500;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+<style>
+/* Layout: full-bleed map; a floating options card top-left (a bottom sheet on phones); zoom buttons bottom-right. */
+:root {
+  --water: #d8e3e7;
+  --land: #f2f3ef;
+  --land-context: #e2e7e5;
+  --ink: #1f2e37;
+  --line: #7f8e95;
+  --line-faint: #b5c1c5;
+  --halo: #f2f3ef;
+  --dot: #163e74;
+  --panel: #fbfcfb;
+  --panel-line: #d0d8dc;
+  --muted: #5a6970;
+  --accent: #1d4f8f;
+  --accent-soft: #e3ebf5;
+  --s1: #e6c2b6; --s2: #c8d9ba; --s3: #ead7a2; --s4: #c2cfe7;
+  --s5: #d8c4e1; --s6: #b8dbd2; --s7: #eec8a1; --s8: #d4cfb3;
+  --font-ui: "Alegreya Sans", "Gill Sans", "Segoe UI", system-ui, sans-serif;
+  --font-map: "Alegreya Sans SC", "Gill Sans", "Segoe UI", system-ui, sans-serif;
+  --shadow: 0 1px 2px rgb(20 35 45 / .08), 0 6px 20px rgb(20 35 45 / .10);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --water: #0d161b; --land: #1d282d; --land-context: #151f23; --ink: #e6edf0;
+    --line: #71828a; --line-faint: #3a4a51; --halo: #1d282d; --dot: #f1cf78;
+    --panel: #152025; --panel-line: #2b3a41; --muted: #9baab0; --accent: #93b8ec; --accent-soft: #22344a;
+    --s1: #5d3f37; --s2: #3b4d33; --s3: #5a4c25; --s4: #324161;
+    --s5: #4a3757; --s6: #2a4f47; --s7: #5e4028; --s8: #494532;
+    --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 8px 24px rgb(0 0 0 / .35);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --water: #0d161b; --land: #1d282d; --land-context: #151f23; --ink: #e6edf0;
+  --line: #71828a; --line-faint: #3a4a51; --halo: #1d282d; --dot: #f1cf78;
+  --panel: #152025; --panel-line: #2b3a41; --muted: #9baab0; --accent: #93b8ec; --accent-soft: #22344a;
+  --s1: #5d3f37; --s2: #3b4d33; --s3: #5a4c25; --s4: #324161;
+  --s5: #4a3757; --s6: #2a4f47; --s7: #5e4028; --s8: #494532;
+  --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 8px 24px rgb(0 0 0 / .35);
+  color-scheme: dark;
+}
+
+html, body { height: 100%; margin: 0; }
+[hidden] { display: none !important; }
+body { background: var(--water); color: var(--ink); font: 15px/1.4 var(--font-ui); overflow: hidden; }
+#app { position: relative; height: 100%; overflow: hidden; }
+#map { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; }
+#map:active { cursor: grabbing; }
+button, input { font: inherit; color: inherit; }
+button:focus-visible, input:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ---- map layers ---- */
+.ctx { fill: var(--land-context); }
+.ctx-lines { fill: none; stroke: var(--line-faint); stroke-width: .7; }
+.fill { fill: var(--land); transition: fill .25s, fill-opacity .25s; }
+.fill-assigned { fill: var(--fill); }
+.ln { fill: none; vector-effect: non-scaling-stroke; stroke-linejoin: round; stroke-linecap: round; transition: opacity .25s; pointer-events: none; }
+.ctx-lines { vector-effect: non-scaling-stroke; }
+.b-coast { stroke: var(--ink); stroke-opacity: .5; stroke-width: .9; }
+.b-regular { stroke: var(--line); stroke-width: .8; }
+.b-country { stroke: var(--line); stroke-width: 1.5; }
+.b-shetach { stroke: var(--ink); stroke-width: 1.7; }
+.b-pending { stroke: var(--line); stroke-width: .8; stroke-dasharray: 1.5 3; }
+.hit { fill: transparent; }
+.hover-ring { fill: none; stroke: var(--accent); stroke-width: 2.2; vector-effect: non-scaling-stroke; pointer-events: none; }
+.dot { fill: var(--dot); fill-opacity: .42; pointer-events: none; }
+.dot-hover { fill: none; stroke: var(--accent); stroke-width: 2; vector-effect: non-scaling-stroke; pointer-events: none; }
+
+.borders-shetach .b-regular, .borders-shetach .b-country { opacity: 0; }
+.borders-regular .b-shetach, .borders-regular .b-pending { opacity: 0; }
+.borders-regular .fill-assigned { fill: var(--land); }
+.borders-both.lighter-regular .b-regular, .borders-both.lighter-regular .b-country { opacity: .4; }
+.borders-both.lighter-shetach .b-shetach { opacity: .3; }
+.borders-both.lighter-shetach .b-pending { opacity: .4; }
+.borders-both.lighter-shetach .fill-assigned { fill-opacity: .5; }
+.no-dots .dot, .no-dots .dot-hover { display: none; }
+
+.lab { paint-order: stroke; stroke: var(--halo); stroke-opacity: .75; stroke-linejoin: round; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+.lab-shetach { font-family: var(--font-map); font-weight: 700; letter-spacing: .06em; fill: var(--ink); }
+.lab-unit { font-family: var(--font-map); font-weight: 500; letter-spacing: .1em; fill: var(--muted); }
+.lab-abbr { font-family: var(--font-map); font-weight: 500; letter-spacing: .08em; fill: var(--muted); opacity: .75; }
+
+.l-inset { transition: opacity .25s; }
+.l-inset.away { opacity: 0; pointer-events: none; }
+.inset-frame { fill: var(--water); stroke: var(--panel-line); }
+.inset-title { font: 500 11px var(--font-map); letter-spacing: .1em; fill: var(--muted); }
+.inset-land { stroke: var(--ink); stroke-opacity: .5; stroke-width: .8; }
+.inset-hit { fill: transparent; stroke: transparent; stroke-width: 10; cursor: pointer; }
+
+/* ---- options panel ---- */
+#panel {
+  position: absolute; top: 16px; left: 16px; width: 290px; max-height: calc(100% - 32px); overflow: auto;
+  background: var(--panel); border: 1px solid var(--panel-line); border-radius: 12px; box-shadow: var(--shadow);
+  display: flex; flex-direction: column;
+}
+.p-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 14px 16px 10px; }
+.p-head h1 { margin: 0; font: 700 22px/1.1 var(--font-map); letter-spacing: .05em; text-wrap: balance; }
+.p-head .sub { margin: 3px 0 0; color: var(--muted); font-size: 13px; }
+#panel-toggle { display: none; }
+#panel-body { display: flex; flex-direction: column; gap: 14px; padding: 0 16px 16px; }
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 0; padding: 10px 0; border-block: 1px solid var(--panel-line); }
+.stats div { min-width: 0; }
+.stats dt { font: 500 10.5px var(--font-map); letter-spacing: .08em; color: var(--muted); }
+.stats dd { margin: 2px 0 0; font-size: 19px; font-weight: 700; font-variant-numeric: tabular-nums; }
+fieldset.ctl { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-map); letter-spacing: .1em; color: var(--muted); }
+.seg { display: flex; flex-wrap: wrap; gap: 4px; }
+.seg button {
+  border: 1px solid var(--panel-line); background: transparent; border-radius: 999px; padding: 4px 11px; cursor: pointer;
+  font-size: 13.5px; line-height: 1.3; transition: background .15s, border-color .15s;
+}
+.seg button:hover { border-color: var(--accent); }
+.seg button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--panel); }
+.seg-label { align-self: center; font-size: 13px; color: var(--muted); margin-right: 2px; }
+.check { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }
+.check input { accent-color: var(--accent); width: 16px; height: 16px; margin: 0; }
+.legend-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--dot); opacity: .55; }
+.note { margin: 0; font-size: 13px; color: var(--muted); }
+.note strong { color: var(--ink); font-weight: 500; }
+.error { margin: 0; color: var(--ink); background: var(--accent-soft); border-radius: 8px; padding: 8px 10px; font-size: 14px; }
+
+/* ---- zoom buttons ---- */
+#zoomctl { position: absolute; right: 16px; bottom: 16px; display: flex; flex-direction: column; background: var(--panel); border: 1px solid var(--panel-line); border-radius: 10px; box-shadow: var(--shadow); overflow: hidden; }
+#zoomctl button { width: 38px; height: 38px; border: 0; background: transparent; cursor: pointer; display: grid; place-items: center; }
+#zoomctl button + button { border-top: 1px solid var(--panel-line); }
+#zoomctl button:hover { background: var(--accent-soft); }
+#zoomctl svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; }
+
+/* ---- info card ---- */
+#card {
+  position: absolute; z-index: 5; width: 300px; max-width: calc(100% - 32px); max-height: 60%; overflow: auto;
+  background: var(--panel); border: 1px solid var(--panel-line); border-radius: 10px; box-shadow: var(--shadow);
+  padding: 10px 12px; font-size: 14px; pointer-events: none;
+}
+#card.pinned { pointer-events: auto; }
+#card.pinned > ul:first-child > li:first-child { padding-right: 24px; }
+#card h2 { margin: 0 22px 4px 0; font: 700 16px/1.25 var(--font-ui); text-wrap: balance; }
+#card .kicker { display: block; font: 500 11px var(--font-map); letter-spacing: .1em; color: var(--muted); margin-bottom: 2px; }
+#card ul { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+#card li { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+#card li strong { font-weight: 500; }
+#card .meta, #card p { color: var(--muted); font-size: 13px; margin: 0; }
+#card .flag { font-size: 12.5px; font-style: italic; color: var(--muted); }
+#card a { color: var(--accent); font-size: 13px; }
+#card .foot { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--panel-line); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 10px; }
+#card .close { position: absolute; top: 6px; right: 6px; width: 26px; height: 26px; border: 0; border-radius: 6px; background: transparent; cursor: pointer; display: none; }
+#card.pinned .close { display: grid; place-items: center; }
+#card .close:hover { background: var(--accent-soft); }
+#card .zoomto { border: 1px solid var(--panel-line); background: transparent; border-radius: 999px; padding: 2px 10px; font-size: 13px; cursor: pointer; }
+#card .zoomto:hover { border-color: var(--accent); }
+
+/* ---- phones: the options become a bottom sheet ---- */
+@media (max-width: 760px) {
+  #panel { top: auto; left: 0; right: 0; bottom: 0; width: auto; max-height: 70%; border-radius: 14px 14px 0 0; border-bottom: 0; padding-bottom: env(safe-area-inset-bottom, 0px); }
+  .p-head { align-items: center; padding: 10px 16px; }
+  .p-head h1 { font-size: 19px; }
+  #panel-toggle { display: block; border: 1px solid var(--panel-line); background: transparent; border-radius: 999px; padding: 5px 14px; cursor: pointer; font-size: 14px; }
+  #panel.collapsed #panel-body { display: none; }
+  #zoomctl { bottom: calc(var(--sheet, 64px) + 12px); }
+  #card, #card.pinned { left: 16px !important; right: 16px; top: auto !important; bottom: calc(var(--sheet, 64px) + 12px); width: auto; max-height: 45%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .fill, .ln, .l-inset, .seg button { transition: none; }
+}
+</style>
+</head>
+<body>
+<div id="app">
+  <svg id="map" role="img" aria-label="Map of Chabad shetachim and centers in the United States and Canada"></svg>
+
+  <aside id="panel" class="collapsed" aria-label="Map options">
+    <header class="p-head">
+      <div>
+        <h1>Shetachim</h1>
+        <p class="sub">United States &amp; Canada · prototype</p>
+      </div>
+      <button id="panel-toggle" type="button" aria-expanded="false" aria-controls="panel-body">Options</button>
+    </header>
+    <div id="panel-body">
+      <p id="load-error" class="error" hidden></p>
+      <dl class="stats">
+        <div><dt>Centers</dt><dd id="st-centers">–</dd></div>
+        <div><dt>Dots</dt><dd id="st-dots">–</dd></div>
+        <div><dt>Shetachim</dt><dd id="st-shetachim">–</dd></div>
+      </dl>
+      <fieldset class="ctl">
+        <legend>Borders</legend>
+        <div class="seg" data-name="borders">
+          <button type="button" data-value="shetach" aria-pressed="true">Shetachim</button>
+          <button type="button" data-value="regular" aria-pressed="false">Regular</button>
+          <button type="button" data-value="both" aria-pressed="false">Both</button>
+        </div>
+        <div class="seg" data-name="lighter" id="lighter-row" hidden>
+          <span class="seg-label">Lighter:</span>
+          <button type="button" data-value="regular" aria-pressed="true">Regular</button>
+          <button type="button" data-value="shetach" aria-pressed="false">Shetachim</button>
+        </div>
+      </fieldset>
+      <fieldset class="ctl">
+        <legend>Labels</legend>
+        <div class="seg" data-name="labels">
+          <button type="button" data-value="full" aria-pressed="true">Head shliach</button>
+          <button type="button" data-value="last" aria-pressed="false">Last name</button>
+          <button type="button" data-value="name" aria-pressed="false">Shetach name</button>
+          <button type="button" data-value="off" aria-pressed="false">Off</button>
+        </div>
+      </fieldset>
+      <fieldset class="ctl">
+        <legend>View</legend>
+        <div class="seg" data-name="view">
+          <button type="button" data-value="all" aria-pressed="true">US &amp; Canada</button>
+          <button type="button" data-value="us48" aria-pressed="false">Lower 48</button>
+          <button type="button" data-value="canada" aria-pressed="false">Canada</button>
+          <button type="button" data-value="northeast" aria-pressed="false">Northeast</button>
+        </div>
+        <label class="check" for="show-dots"><input type="checkbox" id="show-dots" checked> <span class="legend-dot" aria-hidden="true"></span> Chabad centers</label>
+      </fieldset>
+      <p class="note">One dot per address: listings at the same spot (a shul and its school, say) are merged. Tap a dot for the list.</p>
+      <p class="note"><strong>Only one shetach is entered so far:</strong> West Coast (California and Nevada, Shlomo Cunin), from your message. Gray areas are waiting for data.</p>
+    </div>
+  </aside>
+
+  <div id="zoomctl" role="group" aria-label="Zoom">
+    <button id="zin" type="button" aria-label="Zoom in"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg></button>
+    <button id="zout" type="button" aria-label="Zoom out"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/></svg></button>
+    <button id="zreset" type="button" aria-label="Show all"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10"/></svg></button>
+  </div>
+
+  <div id="card" hidden></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script>
+(async function () {
+  'use strict';
+  const $ = (s) => document.querySelector(s);
+  const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const fmt = d3.format(',');
+  const phone = () => window.matchMedia('(max-width: 760px)').matches;
+  const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const state = { borders: 'shetach', lighter: 'regular', labels: 'full', dots: true };
+  if (!phone()) $('#panel').classList.remove('collapsed');
+
+  // ---------- data ----------
+  const get = (url) => fetch(url).then((r) => { if (!r.ok) throw new Error(`${url} (${r.status})`); return r.json(); });
+  let topo, centersGeo, shetachFile;
+  try {
+    [topo, centersGeo, shetachFile] = await Promise.all([get('data/geo.json'), get('data/centers.geojson'), get('data/shetachim.json')]);
+  } catch (err) {
+    $('#panel').classList.remove('collapsed');
+    $('#load-error').hidden = false;
+    $('#load-error').textContent = `The map data didn't load (${err.message}). Reload the page to try again.`;
+    return;
+  }
+  const privateGeo = await get('data/centers.private.geojson').catch(() => null); // gitignored extras, optional
+
+  const INSET = 'US-HI';
+  const all = topo.objects.areas.geometries;
+  const units = all.filter((g) => g.properties.kind === 'unit');
+  const context = all.filter((g) => g.properties.kind === 'context');
+  const mainUnits = units.filter((g) => g.properties.id !== INSET);
+  const unitById = new Map(units.map((g) => [g.properties.id, g]));
+  const collection = (geometries) => ({ type: 'GeometryCollection', geometries });
+
+  const shetachim = shetachFile.shetachim.map((s) => ({
+    ...s, lastName: s.lastName || String(s.headShliach || '').trim().split(/\s+/).pop() || '',
+  }));
+  const shetachOf = new Map();
+  for (const s of shetachim) for (const id of s.territory) shetachOf.set(id, s);
+  const assigned = (g) => shetachOf.has(g.properties.id);
+  const keyOf = (g) => (assigned(g) ? 'shetach:' + shetachOf.get(g.properties.id).id : g.properties.id);
+
+  const dots = [...centersGeo.features, ...(privateGeo ? privateGeo.features : [])]
+    .map((f) => ({ lon: f.geometry.coordinates[0], lat: f.geometry.coordinates[1], ...f.properties }));
+  const centersIn = new Map();
+  for (const d of dots) if (d.region) centersIn.set(d.region, (centersIn.get(d.region) || 0) + d.centers.length);
+  const shown = new Set(['US', 'CA', ...context.map((g) => g.properties.id)]);
+  shown.delete('RU'); // only its far-east tip is drawn
+  const mapDots = dots.filter((d) => shown.has(d.country) && d.region !== INSET);
+  const insetDots = dots.filter((d) => d.region === INSET);
+
+  // A region is what gets one fill and one label: a whole shetach, or a state not assigned yet.
+  function makeRegion(key, gs, shetach) {
+    const main = gs.filter((g) => g.properties.id !== INSET);
+    return {
+      key, shetach, units: gs.map((g) => g.properties),
+      main: main.length ? topojson.merge(topo, main) : null,
+      count: d3.sum(gs, (g) => centersIn.get(g.properties.id) || 0),
+    };
+  }
+  const regions = [
+    ...shetachim.map((s) => makeRegion('shetach:' + s.id, units.filter((g) => shetachOf.get(g.properties.id) === s), s)),
+    ...units.filter((g) => !assigned(g)).map((g) => makeRegion(g.properties.id, [g], null)),
+  ];
+  const regionByKey = new Map(regions.map((r) => [r.key, r]));
+  const regionOfUnit = (id) => regionByKey.get(keyOf(unitById.get(id)));
+
+  // Neighbouring shetachim get different colours.
+  const adjacent = new Map(regions.map((r) => [r.key, new Set()]));
+  topojson.neighbors(units).forEach((list, i) => list.forEach((j) => {
+    const a = keyOf(units[i]), b = keyOf(units[j]);
+    if (a !== b) { adjacent.get(a).add(b); adjacent.get(b).add(a); }
+  }));
+  const colorOf = new Map();
+  regions.filter((r) => r.shetach).sort((a, b) => adjacent.get(b.key).size - adjacent.get(a.key).size).forEach((r) => {
+    const used = new Set([...adjacent.get(r.key)].map((k) => colorOf.get(k)));
+    let c = 0;
+    while (used.has(c)) c++;
+    colorOf.set(r.key, c % 8);
+  });
+
+  const naDots = dots.filter((d) => d.country === 'US' || d.country === 'CA');
+  $('#st-centers').textContent = fmt(d3.sum(naDots, (d) => d.centers.length));
+  $('#st-dots').textContent = fmt(naDots.length);
+  $('#st-shetachim').textContent = fmt(shetachim.length);
+
+  // ---------- projection ----------
+  const projection = d3.geoConicEqualArea().parallels([20, 60]).rotate([96, 0]).center([0, 40]);
+  const geoPath = d3.geoPath(projection);
+  const multi = (coordinates) => ({ type: 'MultiPoint', coordinates });
+  const HOME = multi([[-167, 65.5], [-156.5, 71.3], [-125, 70], [-95, 71.5], [-64, 70], [-52.6, 47.5], [-67, 44.5], [-80.2, 25], [-97.2, 25.8], [-117.1, 32.5], [-124.6, 40.4], [-165, 54.5]]);
+  const BAND = multi([[-125, 49], [-124.6, 40.4], [-123, 54], [-60, 52], [-52.6, 47.5], [-80.2, 25], [-97.2, 25.8], [-117.1, 32.5]]); // where the centers are
+  const VIEWS = {
+    all: null,
+    us48: multi([[-124.7, 48.4], [-95, 49], [-67, 47.4], [-80.1, 25.2], [-97.4, 25.9], [-117.1, 32.5]]),
+    canada: multi([[-141, 60], [-139.5, 69.6], [-95, 69.5], [-64, 60.3], [-52.6, 47.5], [-66, 43.4], [-82.5, 41.7], [-123.2, 48.3]]),
+    northeast: multi([[-80.5, 39.7], [-79.8, 43.3], [-71.5, 45], [-67, 47.4], [-69.9, 41.2], [-75.1, 38.8]]),
+  };
+
+  const meshes = {
+    coast: topojson.mesh(topo, collection(mainUnits), (a, b) => a === b),
+    regular: topojson.mesh(topo, collection(mainUnits), (a, b) => a !== b),
+    country: topojson.mesh(topo, collection(mainUnits), (a, b) => a.properties.country !== b.properties.country),
+    shetach: topojson.mesh(topo, collection(mainUnits), (a, b) => keyOf(a) !== keyOf(b) && (assigned(a) || assigned(b))),
+    pending: topojson.mesh(topo, collection(mainUnits), (a, b) => a !== b && !assigned(a) && !assigned(b)),
+    context: topojson.mesh(topo, collection(context)),
+  };
+  const contextFeatures = context.map((g) => topojson.feature(topo, g));
+  const mainUnitFeatures = mainUnits.map((g) => topojson.feature(topo, g));
+
+  // ---------- svg ----------
+  const svg = d3.select('#map');
+  const root = svg.append('g');
+  const gContext = root.append('g');
+  const gFill = root.append('g');
+  const gLines = root.append('g');
+  const gHit = root.append('g');
+  const gDots = root.append('g');
+  const gHover = root.append('g');
+  const gLabels = svg.append('g'); // screen space, so text stays crisp and readable at any zoom
+  const gInset = svg.append('g').attr('class', 'l-inset');
+
+  let W = 0, H = 0, T = d3.zoomIdentity, tree = null, labels = [];
+  const measure = document.createElement('canvas').getContext('2d');
+
+  function insets() {
+    const r = $('#panel').getBoundingClientRect();
+    return phone() ? { l: 16, t: 16, r: 16, b: r.height + 12 } : { l: r.right + 16, t: 16, r: 64, b: 16 };
+  }
+
+  function layout() {
+    W = svg.node().clientWidth;
+    H = svg.node().clientHeight;
+    document.documentElement.style.setProperty('--sheet', `${$('#panel').getBoundingClientRect().height}px`);
+    const p = insets();
+    projection.fitExtent([[p.l, p.t], [W - p.r, H - p.b]], HOME);
+
+    gContext.selectAll('path.ctx').data(contextFeatures).join('path').attr('class', 'ctx').attr('d', geoPath);
+    gContext.selectAll('path.ctx-lines').data([meshes.context]).join('path').attr('class', 'ctx-lines').attr('d', geoPath);
+
+    gFill.selectAll('path').data(regions.filter((r) => r.main)).join('path')
+      .attr('class', (r) => (r.shetach ? 'fill fill-assigned' : 'fill'))
+      .style('--fill', (r) => (r.shetach ? `var(--s${colorOf.get(r.key) + 1})` : null))
+      .attr('d', (r) => geoPath(r.main));
+
+    const lineLayers = [['b-pending', meshes.pending], ['b-regular', meshes.regular], ['b-country', meshes.country], ['b-shetach', meshes.shetach], ['b-coast', meshes.coast]];
+    gLines.selectAll('path').data(lineLayers).join('path').attr('class', ([c]) => `ln ${c}`).attr('d', ([, m]) => geoPath(m));
+
+    gHit.selectAll('path').data(mainUnitFeatures).join('path').attr('class', 'hit').attr('d', geoPath);
+
+    for (const d of mapDots) [d.x, d.y] = projection([d.lon, d.lat]) || [NaN, NaN];
+    const placedDots = mapDots.filter((d) => Number.isFinite(d.x));
+    tree = d3.quadtree(placedDots, (d) => d.x, (d) => d.y);
+    gDots.selectAll('circle').data(placedDots).join('circle').attr('class', 'dot').attr('cx', (d) => d.x).attr('cy', (d) => d.y);
+
+    buildLabelAnchors();
+    drawInset(p);
+    zoom.translateExtent([[-W, -H], [2 * W, 2 * H]]);
+    svg.call(zoom.transform, d3.zoomIdentity);
+    pressed('view', 'all');
+    // On a tall screen the whole continent is tiny, so start on the populated band.
+    if (W - p.l - p.r < H - p.t - p.b) zoomToBounds(geoPath.bounds(BAND), false);
+  }
+
+  // ---------- labels ----------
+  function projectedPolygons(geometry) {
+    const polys = geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.type === 'MultiPolygon' ? geometry.coordinates : [];
+    return polys.map((poly) => poly.map((ring) => ring.map((c) => projection(c))));
+  }
+
+  // Pole of inaccessibility: the point inside a polygon farthest from its edges (after mapbox/polylabel).
+  function polylabel(rings, precision) {
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    for (const [x, y] of rings[0]) { x0 = Math.min(x0, x); y0 = Math.min(y0, y); x1 = Math.max(x1, x); y1 = Math.max(y1, y); }
+    const size = Math.min(x1 - x0, y1 - y0);
+    if (!(size > 0)) return [x0, y0];
+    const cell = (x, y, h) => { const d = signedDistance(x, y, rings); return { x, y, h, d, max: d + h * Math.SQRT2 }; };
+    const queue = [];
+    for (let x = x0; x < x1; x += size) for (let y = y0; y < y1; y += size) queue.push(cell(x + size / 2, y + size / 2, size / 2));
+    const c = d3.polygonCentroid(rings[0]);
+    let best = cell(c[0], c[1], 0);
+    const mid = cell((x0 + x1) / 2, (y0 + y1) / 2, 0);
+    if (mid.d > best.d) best = mid;
+    while (queue.length) {
+      let bi = 0;
+      for (let i = 1; i < queue.length; i++) if (queue[i].max > queue[bi].max) bi = i;
+      const q = queue[bi];
+      queue[bi] = queue[queue.length - 1];
+      queue.pop();
+      if (q.d > best.d) best = q;
+      if (q.max - best.d <= precision) continue;
+      const h = q.h / 2;
+      queue.push(cell(q.x - h, q.y - h, h), cell(q.x + h, q.y - h, h), cell(q.x - h, q.y + h, h), cell(q.x + h, q.y + h, h));
+    }
+    return [best.x, best.y];
+  }
+  function signedDistance(px, py, rings) {
+    let inside = false, min = Infinity;
+    for (const ring of rings) {
+      for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+        const a = ring[i], b = ring[j];
+        if ((a[1] > py) !== (b[1] > py) && px < ((b[0] - a[0]) * (py - a[1])) / (b[1] - a[1]) + a[0]) inside = !inside;
+        let x = b[0], y = b[1], dx = a[0] - x, dy = a[1] - y;
+        if (dx || dy) {
+          const t = ((px - x) * dx + (py - y) * dy) / (dx * dx + dy * dy);
+          if (t > 1) { x = a[0]; y = a[1]; } else if (t > 0) { x += dx * t; y += dy * t; }
+        }
+        min = Math.min(min, (px - x) ** 2 + (py - y) ** 2);
+      }
+    }
+    return (inside ? 1 : -1) * Math.sqrt(min);
+  }
+
+  // Where each label sits and how much room its area has, in map pixels at zoom 1.
+  function anchorFor(geometry) {
+    let best = null, bestArea = 0;
+    for (const poly of projectedPolygons(geometry)) {
+      if (poly[0].some((p) => !p)) continue;
+      const a = Math.abs(d3.polygonArea(poly[0]));
+      if (a > bestArea) { bestArea = a; best = poly; }
+    }
+    if (!best) return null;
+    const xs = best[0].map((p) => p[0]), ys = best[0].map((p) => p[1]);
+    const [x, y] = polylabel(best, 0.5);
+    return { x, y, area: bestArea, w: d3.max(xs) - d3.min(xs), h: d3.max(ys) - d3.min(ys) };
+  }
+  function buildLabelAnchors() {
+    for (const r of regions) r.anchor = r.main ? anchorFor(r.main) : null;
+    for (const g of mainUnits) g.anchor = anchorFor(topojson.feature(topo, g).geometry);
+  }
+
+  const shetachText = (s) => (state.labels === 'last' ? s.lastName : state.labels === 'name' ? s.name : s.headShliach);
+  const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+
+  function buildLabels() {
+    labels = [];
+    if (state.labels === 'off') return;
+    if (state.borders === 'regular') {
+      for (const g of mainUnits) {
+        if (!g.anchor) continue;
+        labels.push({ text: g.properties.name, cls: 'lab lab-unit', size: clamp(Math.sqrt(g.anchor.area) / 12, 9, 15), spacing: 0.1, weight: 500, a: g.anchor, fit: 1.05, rank: 1 });
+      }
+    } else {
+      for (const r of regions) {
+        if (!r.anchor) continue;
+        if (r.shetach) labels.push({ text: shetachText(r.shetach), cls: 'lab lab-shetach', size: clamp(Math.sqrt(r.anchor.area) / 9, 11, 22), spacing: 0.06, weight: 700, a: r.anchor, fit: 2.2, rank: 0 });
+        else labels.push({ text: r.units[0].abbr, cls: 'lab lab-abbr', size: 10, spacing: 0.08, weight: 500, a: r.anchor, fit: 1.6, rank: 2 });
+      }
+    }
+    for (const L of labels) {
+      measure.font = `${L.weight} ${L.size}px ${getComputedStyle(document.documentElement).getPropertyValue('--font-map')}`;
+      L.width = measure.measureText(L.text).width + L.spacing * L.size * L.text.length;
+    }
+    labels.sort((a, b) => a.rank - b.rank || b.a.area - a.a.area);
+  }
+
+  const fontScale = (k) => Math.min(Math.pow(k, 0.4), 2.6);
+
+  // Show a label only when its area is big enough on screen and it doesn't collide with a bigger one.
+  function placeLabels() {
+    const k = T.k, f = fontScale(k), boxes = [];
+    for (const L of labels) {
+      const [sx, sy] = T.apply([L.a.x, L.a.y]);
+      const w = L.width * f, h = L.size * f;
+      const fits = w <= L.a.w * k * L.fit && h <= L.a.h * k * 1.2;
+      const onScreen = sx + w / 2 > 0 && sx - w / 2 < W && sy + h / 2 > 0 && sy - h / 2 < H;
+      const box = [sx - w / 2 - 3, sy - h / 2 - 2, sx + w / 2 + 3, sy + h / 2 + 2];
+      L.show = fits && onScreen && !boxes.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1]);
+      if (L.show) boxes.push(box);
+    }
+    gLabels.selectAll('text').data(labels.filter((L) => L.show), (L) => L.cls + L.text).join('text').attr('class', (L) => L.cls).text((L) => L.text);
+    moveLabels();
+  }
+  function moveLabels() {
+    const f = fontScale(T.k);
+    gLabels.selectAll('text').each(function (L) {
+      const [sx, sy] = T.apply([L.a.x, L.a.y]);
+      this.setAttribute('x', sx);
+      this.setAttribute('y', sy);
+      this.style.fontSize = `${L.size * f}px`;
+      this.style.strokeWidth = `${Math.max(2, L.size * f * 0.22)}px`;
+    });
+  }
+
+  // ---------- dots ----------
+  const dotRadius = (d, k) => ((1.9 + 0.55 * Math.log2(d.centers.length)) * Math.pow(k, 0.35)) / k;
+  function sizeDots() {
+    const k = T.k;
+    gDots.selectAll('circle').attr('r', (d) => dotRadius(d, k));
+  }
+
+  // ---------- Hawaii inset ----------
+  let insetProjection = null;
+  function drawInset(p) {
+    gInset.selectAll('*').remove();
+    const hi = unitById.get(INSET);
+    if (!hi) return;
+    const feature = topojson.feature(topo, hi);
+    const w = Math.min(180, (W - p.l - p.r) * 0.3), h = w * 0.6;
+    const x = p.l, y = H - p.b - h;
+    insetProjection = d3.geoConicEqualArea().rotate([157, 0]).center([0, 20.4]).parallels([8, 18])
+      .fitExtent([[x + 10, y + 18], [x + w - 10, y + h - 8]], feature);
+    const path = d3.geoPath(insetProjection);
+    const region = regionOfUnit(INSET);
+    gInset.append('rect').attr('class', 'inset-frame').attr('x', x).attr('y', y).attr('width', w).attr('height', h).attr('rx', 6);
+    gInset.append('text').attr('class', 'inset-title').attr('x', x + 8).attr('y', y + 14).text('Hawaii');
+    gInset.append('path').datum(feature).attr('class', region.shetach ? 'fill fill-assigned inset-land' : 'fill inset-land')
+      .style('--fill', region.shetach ? `var(--s${colorOf.get(region.key) + 1})` : null).attr('d', path);
+    gInset.append('path').datum(feature).attr('class', 'inset-hit').attr('d', path);
+    gInset.selectAll('circle').data(insetDots).join('circle').attr('class', 'dot')
+      .attr('cx', (d) => insetProjection([d.lon, d.lat])[0]).attr('cy', (d) => insetProjection([d.lon, d.lat])[1])
+      .attr('r', (d) => 2.4 + 0.6 * Math.log2(d.centers.length));
+  }
+
+  // ---------- zoom ----------
+  let frame = 0;
+  const zoom = d3.zoom().scaleExtent([1, 80])
+    .on('zoom', (e) => {
+      T = e.transform;
+      root.attr('transform', T);
+      if (!frame) frame = requestAnimationFrame(() => { frame = 0; sizeDots(); moveLabels(); gInset.classed('away', T.k > 1.35); });
+    })
+    .on('end', placeLabels);
+  svg.call(zoom);
+
+  function zoomToBounds([[x0, y0], [x1, y1]], animate = true) {
+    const p = insets();
+    const w = W - p.l - p.r, h = H - p.b - p.t;
+    const k = clamp(0.94 / Math.max((x1 - x0) / w, (y1 - y0) / h), 1, 80);
+    const t = d3.zoomIdentity.translate(p.l + w / 2 - (k * (x0 + x1)) / 2, p.t + h / 2 - (k * (y0 + y1)) / 2).scale(k);
+    (animate && !still ? svg.transition().duration(750) : svg).call(zoom.transform, t);
+  }
+  function setView(v, animate = true) {
+    state.view = v;
+    pressed('view', v);
+    if (!VIEWS[v]) (animate && !still ? svg.transition().duration(750) : svg).call(zoom.transform, d3.zoomIdentity);
+    else zoomToBounds(geoPath.bounds(VIEWS[v]), animate);
+  }
+
+  $('#zin').addEventListener('click', () => svg.transition().duration(still ? 0 : 300).call(zoom.scaleBy, 1.7));
+  $('#zout').addEventListener('click', () => svg.transition().duration(still ? 0 : 300).call(zoom.scaleBy, 1 / 1.7));
+  $('#zreset').addEventListener('click', () => setView('all'));
+
+  // ---------- hover and tap ----------
+  const card = $('#card');
+  let pinned = null, lastPoint = { clientX: 0, clientY: 0 };
+
+  function pick(event) {
+    const target = event.target;
+    const [mx, my] = d3.pointer(event, svg.node());
+    if (target.closest && target.closest('.l-inset')) {
+      const near = state.dots && d3.least(insetDots, (d) => {
+        const [x, y] = insetProjection([d.lon, d.lat]);
+        return Math.hypot(x - mx, y - my);
+      });
+      if (near) {
+        const [x, y] = insetProjection([near.lon, near.lat]);
+        if (Math.hypot(x - mx, y - my) <= (event.pointerType === 'touch' ? 14 : 8)) return { dot: near, inset: true };
+      }
+      const d = d3.select(target).datum();
+      return d && d.properties ? { unit: d.properties } : null;
+    }
+    if (state.dots && tree) {
+      const [x, y] = T.invert([mx, my]);
+      const d = tree.find(x, y, (event.pointerType === 'touch' ? 14 : 8) / T.k);
+      if (d) return { dot: d };
+    }
+    const d = d3.select(target).datum();
+    if (d && d.properties && d.properties.kind === 'unit') return { unit: d.properties };
+    return null;
+  }
+
+  function regionLine(unitId) {
+    const r = regionOfUnit(unitId);
+    const u = unitById.get(unitId).properties;
+    if (r && r.shetach) return `${esc(r.shetach.name)} · ${esc(r.shetach.headShliach)}`;
+    return `${esc(u.name)} · shetach not entered yet`;
+  }
+
+  function dotHTML(d) {
+    const n = d.centers.length;
+    const items = d.centers.map((c) => `<li>
+        <strong>${esc(c.name)}</strong>
+        <span class="meta">${esc([c.type, c.city].filter(Boolean).join(' · '))}</span>
+        ${c.unlisted ? '<span class="flag">Not listed on chabad.org; placed at the city centre</span>' : c.approx ? '<span class="flag">No exact address listed; placed at the city centre</span>' : ''}
+        ${c.slug ? `<a href="https://www.chabad.org/jewish-centers/${esc(c.id)}/${esc(c.slug)}" target="_blank" rel="noopener">Open on chabad.org</a>` : ''}
+      </li>`).join('');
+    const head = n > 1 ? `<span class="kicker">${n} listings at this address</span><h2>${esc(d.centers[0].city || 'Same address')}</h2>` : '';
+    const foot = d.region && unitById.has(d.region) ? `<div class="foot"><span class="meta">${regionLine(d.region)}</span></div>` : '';
+    return `${head}<ul>${items}</ul>${foot}`;
+  }
+
+  function unitHTML(u) {
+    const r = regionOfUnit(u.id);
+    const count = (n) => `${fmt(n)} ${n === 1 ? 'center' : 'centers'}`;
+    const zoomBtn = `<button type="button" class="zoomto" data-unit="${esc(u.id)}">Zoom to ${state.borders === 'regular' || !r.shetach ? esc(u.name) : 'shetach'}</button>`;
+    if (state.borders === 'regular' || !r.shetach) {
+      const sub = r.shetach ? `Shetach: ${esc(r.shetach.name)} (${esc(r.shetach.headShliach)})` : 'Shetach not entered yet';
+      return `<span class="kicker">${u.country === 'US' ? 'State' : 'Province'}</span><h2>${esc(u.name)}</h2><p>${sub}</p>
+        <div class="foot"><span class="meta">${count(centersIn.get(u.id) || 0)}</span>${zoomBtn}</div>`;
+    }
+    const s = r.shetach;
+    return `<span class="kicker">Shetach</span><h2>${esc(s.name)}</h2><p>Head shliach: ${esc(s.headShliach)}</p>
+      <p>${esc(r.units.map((x) => x.name).join(', '))}</p>
+      <div class="foot"><span class="meta">${count(r.count)}</span>${zoomBtn}</div>`;
+  }
+
+  function showCard(hit, event, pin) {
+    card.innerHTML = (hit.dot ? dotHTML(hit.dot) : unitHTML(hit.unit)) +
+      '<button type="button" class="close" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>';
+    card.hidden = false;
+    card.classList.toggle('pinned', pin);
+    lastPoint = { clientX: event.clientX, clientY: event.clientY };
+    if (!phone()) {
+      const box = $('#app').getBoundingClientRect();
+      const cw = card.offsetWidth, ch = card.offsetHeight;
+      let x = event.clientX - box.left + 14, y = event.clientY - box.top + 14;
+      if (x + cw > W - 8) x = event.clientX - box.left - cw - 14;
+      if (y + ch > H - 8) y = Math.max(8, H - ch - 8);
+      card.style.left = `${Math.max(8, x)}px`;
+      card.style.top = `${y}px`;
+    }
+    highlight(hit);
+  }
+  function hideCard() {
+    card.hidden = true;
+    pinned = null;
+    highlight(null);
+  }
+
+  function highlight(hit) {
+    gHover.selectAll('*').remove();
+    if (!hit) return;
+    if (hit.dot && !hit.inset) {
+      gHover.append('circle').attr('class', 'dot-hover').attr('cx', hit.dot.x).attr('cy', hit.dot.y).attr('r', dotRadius(hit.dot, T.k) + 2.5 / T.k);
+    } else if (hit.unit && hit.unit.id !== INSET) {
+      const r = regionOfUnit(hit.unit.id);
+      const geom = state.borders === 'regular' || !r.shetach ? topojson.feature(topo, unitById.get(hit.unit.id)) : r.main;
+      gHover.append('path').attr('class', 'hover-ring').attr('d', geoPath(geom));
+    }
+  }
+
+  svg.on('pointermove', (e) => {
+    if (pinned || e.pointerType === 'touch' || e.buttons) return;
+    const hit = pick(e);
+    if (hit) showCard(hit, e, false);
+    else hideCard();
+  });
+  svg.on('pointerleave', () => { if (!pinned) hideCard(); });
+  svg.on('click', (e) => {
+    if (e.defaultPrevented) return; // end of a drag
+    const hit = pick(e);
+    if (!hit) { hideCard(); return; }
+    pinned = hit;
+    showCard(hit, e, true);
+  });
+  card.addEventListener('click', (e) => {
+    if (e.target.closest('.close')) { hideCard(); return; }
+    const z = e.target.closest('.zoomto');
+    if (z) {
+      const u = unitById.get(z.dataset.unit).properties;
+      const r = regionOfUnit(u.id);
+      const geom = state.borders === 'regular' || !r.shetach ? topojson.feature(topo, unitById.get(u.id)) : r.main;
+      hideCard();
+      if (geom && u.id !== INSET) zoomToBounds(geoPath.bounds(geom));
+    }
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideCard(); });
+
+  // ---------- options ----------
+  function pressed(name, value) {
+    document.querySelectorAll(`.seg[data-name="${name}"] button`).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.value === value)));
+  }
+  function apply() {
+    svg.attr('class', `borders-${state.borders} lighter-${state.lighter}${state.dots ? '' : ' no-dots'}`);
+    $('#lighter-row').hidden = state.borders !== 'both';
+    buildLabels();
+    placeLabels();
+    if (pinned) showCard(pinned, lastPoint, true);
+  }
+  document.querySelectorAll('.seg').forEach((seg) => seg.addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    const name = seg.dataset.name;
+    if (name === 'view') { setView(b.dataset.value); return; }
+    state[name] = b.dataset.value;
+    pressed(name, b.dataset.value);
+    apply();
+  }));
+  $('#show-dots').addEventListener('change', (e) => { state.dots = e.target.checked; apply(); });
+  $('#panel-toggle').addEventListener('click', () => {
+    const panel = $('#panel');
+    const open = panel.classList.toggle('collapsed') === false;
+    $('#panel-toggle').setAttribute('aria-expanded', String(open));
+    $('#panel-toggle').textContent = open ? 'Close' : 'Options';
+    document.documentElement.style.setProperty('--sheet', `${panel.getBoundingClientRect().height}px`);
+  });
+
+  let resizeTimer = 0;
+  window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { layout(); apply(); }, 150); });
+
+  await Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise((r) => setTimeout(r, 1500))]);
+  layout();
+  apply();
+  sizeDots();
+})();
+</script>
+</body>
+</html>

@@ -424,17 +424,35 @@ function count(list, key) {
 // overlap, the more specific one wins.
 const LEVEL = { state: 0, band: 1, county: 2, region: 2, town: 3, shape: 3, tract: 4 };
 const townKey = (s) => s.toLowerCase().replace(/ town$/, '').replace(/[^a-z]/g, '');
+const d3range = (n) => Array.from({ length: n }, (_, i) => i);
 const regionKey = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z]/g, '');
 
-// Which countries have region claims, and at which GADM level (needed before any geometry is loaded).
+// Greece's regional units, which GADM doesn't have as a level: each as its GADM level-3 municipalities (Kallikratis).
+// Only Central Macedonia's so far, the ones a shetach list divides.
+const REGIONAL_UNITS = {
+  GRC: {
+    Thessaloniki: ['Thessaloniki', 'Kalamaria', 'Neapoli-Sykies', 'Pavlos Melas', 'Kordelio-Evosmos', 'Ampelokipoi-Menemeni',
+      'Pylaia-Chortiatis', 'Delta', 'Thermaikos', 'Thermi', 'Oraiokastro', 'Chalkidona', 'Langadas', 'Volvi'],
+    Chalkidiki: ['Polygyros', 'Kassandra', 'Sithonia', 'Nea Propontida', 'Aristotelis'],
+    Kilkis: ['Kilkis', 'Paionia'],
+    Serres: ['Serres', 'Amphipolis', 'Visaltia', 'Nea Zichni', 'Sintiki', 'Irakleia', 'Emmanouil Pappas'],
+    Pella: ['Edessa', 'Almopia', 'Pella', 'Skydra'],
+    Pieria: ['Katerini', 'Dio-Olympos', 'Pydna-Kolindros'],
+    Imathia: ['Veria', 'Naousa', 'Alexandria'],
+  },
+};
+const UNIT_LEVEL = 3;
+
+// Which countries have region claims, and the finest GADM level any of them needs (needed before any geometry is
+// loaded). A country can be claimed at several levels at once (a whole region, some municipalities, one level-1
+// area): its areas are loaded at the finest, and each knows its name at every level above.
 function regionLevels(data) {
   const levels = new Map(), problems = [];
   for (const s of data.shetachim) {
     for (const t of s.territory || []) {
       if (typeof t !== 'object' || !t.country) continue;
-      const level = t.level ?? 1;
-      if (levels.has(t.country) && levels.get(t.country) !== level) problems.push(`${s.id}: ${t.country} regions are claimed at two GADM levels`);
-      levels.set(t.country, level);
+      const level = t.regionalUnits ? UNIT_LEVEL : t.level ?? 1;
+      levels.set(t.country, Math.max(levels.get(t.country) ?? 0, level));
     }
   }
   return { levels, problems };
@@ -461,12 +479,17 @@ function readClaims(data, areaIds, counties, regionNames) {
           if (countyIds.has(c)) add(s, 'county', stateOfFips.get(c.slice(0, 2)), { county: c });
           else problems.push(`${s.id}: unknown county "${c}"`);
         }
-      } else if (t.country && t.regions) {
+      } else if (t.country && (t.regions || t.regionalUnits)) {
         if (!onState(s, t.country)) continue;
-        const known = regionNames.get(t.country) || new Set();
-        for (const r of t.regions) {
-          if (known.has(regionKey(r))) add(s, 'region', t.country, { region: regionKey(r), regionName: r });
-          else problems.push(`${s.id}: no region "${r}" in ${t.country}`);
+        const units = REGIONAL_UNITS[t.country] || {};
+        for (const u of t.regionalUnits || []) if (!units[u]) problems.push(`${s.id}: no regional unit "${u}" in ${t.country} (REGIONAL_UNITS in the build)`);
+        const level = t.regionalUnits ? UNIT_LEVEL : t.level ?? 1;
+        const names = t.regionalUnits ? t.regionalUnits.flatMap((u) => units[u] || []) : t.regions;
+        const known = regionNames.get(`${t.country}|${level}`) || new Set();
+        for (const r of names) {
+          // more specific (finer) levels win over coarser ones, like counties over whole states
+          if (known.has(regionKey(r))) claims.push({ shetach: s.id, kind: 'region', level: LEVEL.region + level / 10, regionLevel: level, state: t.country, region: regionKey(r), regionName: r });
+          else problems.push(`${s.id}: no level-${level} region "${r}" in ${t.country}`);
         }
       } else if (t.shape && onState(s, t.state)) {
         if (fs.existsSync(path.join(SHAPES, `${t.shape}.geojson`))) add(s, 'shape', t.state, { shape: t.shape });
@@ -485,7 +508,7 @@ function readClaims(data, areaIds, counties, regionNames) {
   // Two shetachim may not claim the same thing (overlapping longitude ranges included).
   const seen = new Map();
   for (const c of claims) {
-    const key = [c.state, c.kind, c.county ?? c.town ?? c.tract ?? c.region ?? c.shape ?? ''].join('|');
+    const key = [c.state, c.kind, c.regionLevel ?? '', c.county ?? c.town ?? c.tract ?? c.region ?? c.shape ?? ''].join('|');
     const other = seen.get(key);
     if (other && other.shetach !== c.shetach && c.kind !== 'band') {
       problems.push(`${other.shetach} and ${c.shetach} both claim ${c.county ?? c.townName ?? c.tract ?? c.regionName ?? c.shape ?? c.state}`);
@@ -537,11 +560,13 @@ async function buildGeo(data) {
   // divided by state (Mexico, Australia), and the regions of countries split by region (Greece, Italy, Ukraine).
   const { levels, problems: levelProblems } = regionLevels(data);
   const worldAreas = await worldLand(data, levels);
-  const regionNames = new Map();
+  const regionNames = new Map(); // "GRC|2" -> the level-2 region names there
   for (const f of worldAreas) {
-    if (!f.properties.region) continue;
-    if (!regionNames.has(f.properties.state)) regionNames.set(f.properties.state, new Set());
-    regionNames.get(f.properties.state).add(f.properties.region);
+    for (let level = 1; f.properties[`region${level}`]; level++) {
+      const key = `${f.properties.state}|${level}`;
+      if (!regionNames.has(key)) regionNames.set(key, new Set());
+      regionNames.get(key).add(f.properties[`region${level}`]);
+    }
   }
 
   const areaIds = new Set([...usMeta.keys(), ...caAreas.map((f) => f.properties.state), ...worldAreas.map((f) => f.properties.state)]);
@@ -625,7 +650,7 @@ async function buildGeo(data) {
     for (const c of cs) {
       const hit = c.kind === 'state'
         || (c.kind === 'county' && c.county === p.county)
-        || (c.kind === 'region' && c.region === p.region)
+        || (c.kind === 'region' && c.region === p[`region${c.regionLevel}`])
         || (P && c.kind === 'band' && p[`${P}mid`] != null && p[`${P}mid`] >= c.from && p[`${P}mid`] <= c.to)
         || (P && c.kind === 'town' && p[`${P}town`] === c.town)
         || (P && c.kind === 'shape' && p[`${P}shape`] === c.shape)
@@ -679,7 +704,7 @@ async function worldLand(data, levels) {
     else if (WORLD_PREFIX.has(m[1])) divided.add(WORLD_PREFIX.get(m[1]));
   }
   const outside = GADM_ALL.filter((c) => !whole.has(c) && !divided.has(c));
-  const spec = JSON.stringify({ v: 3, whole: [...whole].sort(), divided: [...divided].sort(), levels: [...levels].sort(), outside });
+  const spec = JSON.stringify({ v: 4, whole: [...whole].sort(), divided: [...divided].sort(), levels: [...levels].sort(), outside });
   const file = path.join(CACHE, `world-${createHash('sha1').update(spec).digest('hex').slice(0, 10)}.json`);
   if (!fs.existsSync(file)) {
     const dir = fs.mkdtempSync(path.join(CACHE, 'world-')), files = [], missing = [];
@@ -701,7 +726,7 @@ async function worldLand(data, levels) {
         try { gj = readJSON(await gadmFile(code, level)); } catch { missing.push(code); continue; }
         features = gj.features.map((f) => featureOf(f.geometry, {
           ...props(f.properties.NAME_0 || f.properties.Name),
-          ...(levels.has(code) ? { region: regionKey(f.properties[`NAME_${level}`]), regionName: f.properties[`NAME_${level}`] } : {}),
+          ...(levels.has(code) ? Object.fromEntries(d3range(level).map((i) => [`region${i + 1}`, regionKey(f.properties[`NAME_${i + 1}`] || '')])) : {}),
         }));
         if (code === 'ISR') {
           const extra = readJSON(await download(ISRAEL_EXTRA.url, ISRAEL_EXTRA.cache)).features.filter((f) => f.properties.NAME_1 === ISRAEL_EXTRA.region);
@@ -753,9 +778,89 @@ async function worldLand(data, levels) {
 async function cleanLand(features) {
   console.log('snapping neighbouring areas together…');
   if (process.env.DUMP_LAND) fs.writeFileSync(process.env.DUMP_LAND, JSON.stringify(collectionOf(features)));
-  const out = await mapshaper.applyCommands('-i land.json -clean gap-fill-area=20km2 -o land.json format=geojson', { 'land.json': collectionOf(features) });
-  return JSON.parse(out['land.json']);
+  const clean = async (list) => JSON.parse((await mapshaper.applyCommands('-i land.json -clean gap-fill-area=20km2 -o land.json format=geojson', { 'land.json': collectionOf(list) }))['land.json']);
+  const once = await clean(features);
+  return closeSeams(once.features) ? clean(once.features) : once;
 }
+
+// A gap -clean can't fill: two areas whose coasts run side by side a few metres apart, with the thin strip between
+// them open to the sea at an end (the Baja California / Baja California Sur line across the whole peninsula, the
+// US-Mexico border at Tijuana, Belgium-France at the coast). Each such stretch of one area's coast is moved onto the
+// other's (its points onto the nearest point of the other's coast, within SEAM_M); the -clean after it fills what's
+// left between them. Only coast points move — never a point on a border the area already shares — and never on
+// small islands, so nothing else changes.
+const SEAM_M = 400;
+function closeSeams(features) {
+  const segKey = (a, b) => (a[0] < b[0] || (a[0] === b[0] && a[1] < b[1]) ? `${a}|${b}` : `${b}|${a}`);
+  const uses = new Map();
+  const rings = [];
+  features.forEach((f, fi) => {
+    for (const poly of polygonsOf(f.geometry)) for (const ring of poly) {
+      rings.push({ fi, ring });
+      for (let j = 1; j < ring.length; j++) { const k = segKey(ring[j - 1], ring[j]); uses.set(k, (uses.get(k) || 0) + 1); }
+    }
+  });
+  const coast = (a, b) => uses.get(segKey(a, b)) === 1;
+  // coast segments in a grid of about SEAM_M
+  const G = SEAM_M / 111320, grid = new Map(), cell = (x, y) => Math.floor(x / G) * 1e6 + Math.floor(y / G);
+  for (const { fi, ring } of rings) {
+    for (let j = 1; j < ring.length; j++) {
+      const a = ring[j - 1], b = ring[j];
+      if (!coast(a, b)) continue;
+      const x0 = Math.floor(Math.min(a[0], b[0]) / G), x1 = Math.floor(Math.max(a[0], b[0]) / G);
+      const y0 = Math.floor(Math.min(a[1], b[1]) / G), y1 = Math.floor(Math.max(a[1], b[1]) / G);
+      if ((x1 - x0 + 1) * (y1 - y0 + 1) > 400) continue; // a long straight stretch; its ends are points anyway
+      for (let gx = x0; gx <= x1; gx++) for (let gy = y0; gy <= y1; gy++) {
+        const k = gx * 1e6 + gy;
+        if (!grid.has(k)) grid.set(k, []);
+        grid.get(k).push(fi, a, b);
+      }
+    }
+  }
+  const nearest = (fi, [x, y]) => {
+    const kx = Math.cos((y * Math.PI) / 180) * 111320, ky = 110574;
+    let best = null, bd = SEAM_M;
+    const cx = Math.floor(x / G), cy = Math.floor(y / G);
+    for (let gx = cx - 1; gx <= cx + 1; gx++) for (let gy = cy - 1; gy <= cy + 1; gy++) {
+      const list = grid.get(gx * 1e6 + gy);
+      if (!list) continue;
+      for (let i = 0; i < list.length; i += 3) {
+        if (list[i] <= fi) continue; // each pair moves one way only: the lower-numbered area onto the higher
+        const a = list[i + 1], b = list[i + 2];
+        const ax = (a[0] - x) * kx, ay = (a[1] - y) * ky, bx = (b[0] - x) * kx, by = (b[1] - y) * ky;
+        const dx = bx - ax, dy = by - ay, t = dx || dy ? clampNum(-(ax * dx + ay * dy) / (dx * dx + dy * dy), 0, 1) : 0;
+        const d = Math.hypot(ax + t * dx, ay + t * dy);
+        if (d < bd) { bd = d; best = { to: [a[0] + t * (b[0] - a[0]), a[1] + t * (b[1] - a[1])], other: list[i] }; }
+      }
+    }
+    return best;
+  };
+  let moved = 0;
+  const pairs = new Map();
+  for (const { fi, ring } of rings) {
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    for (const [x, y] of ring) { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); }
+    if ((x1 - x0) * Math.cos((y0 * Math.PI) / 180) < 0.05 && y1 - y0 < 0.05) continue; // small island: leave it be
+    const n = ring.length - 1, moves = [];
+    for (let j = 0; j < n; j++) {
+      const prev = ring[(j - 1 + n) % n], p = ring[j], next = ring[j + 1];
+      if (!coast(prev, p) || !coast(p, next)) continue;
+      const hit = nearest(fi, p);
+      if (hit) moves.push([j, hit]);
+    }
+    for (const [j, hit] of moves) {
+      ring[j] = hit.to;
+      if (j === 0) ring[n] = hit.to;
+      moved++;
+      const key = [features[fi].properties.state, features[hit.other].properties.state].sort().join(' / ');
+      pairs.set(key, (pairs.get(key) || 0) + 1);
+    }
+  }
+  const top = [...pairs].sort((a, b) => b[1] - a[1]).slice(0, 12).map(([k, n]) => `${k} (${n})`).join(', ');
+  console.log(`seams closed: ${moved} coast points moved onto a neighbour's coast${top ? `; most along ${top}` : ''}`);
+  return moved;
+}
+const clampNum = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
 
 // The physical map's own data as static vector tiles (web/tiles/{z}/{x}/{y}.pbf, zooms 0-6; the map scales the
 // zoom-6 tiles up past that), so a phone only ever loads and draws the part it's looking at, already simplified

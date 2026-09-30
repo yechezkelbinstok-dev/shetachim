@@ -402,7 +402,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   const FSU = ['RUS', 'MNG', 'UKR', 'BLR', 'MDA', 'EST', 'LVA', 'LTU', 'ARM', 'AZE', 'GEO', 'KAZ', 'KGZ', 'UZB', 'TJK'];
   const ASIA = ['IND', 'NPL', 'LKA', 'CHN', 'HKG', 'MAC', 'JPN', 'KOR', 'TWN', 'THA', 'LAO', 'MMR', 'KHM', 'VNM', 'PHL', 'SGP', 'MYS', 'IDN'];
   const MIDEAST = ['ISR', 'TUR', 'ARE', 'QAT', 'SAU'];
-  const AFRICA = ['MAR', 'TUN', 'ZAF', 'MUS', 'REU', 'AGO', 'BEN', 'BWA', 'BFA', 'BDI', 'CPV', 'CMR', 'CAF', 'TCD', 'COM', 'COG', 'CIV', 'COD', 'DJI', 'GNQ', 'ERI', 'SWZ', 'ETH', 'GAB', 'GMB', 'GHA', 'GIN', 'GNB', 'KEN', 'LSO', 'LBR', 'MDG', 'MWI', 'MLI', 'MRT', 'MOZ', 'NAM', 'NER', 'NGA', 'RWA', 'STP', 'SEN', 'SYC', 'SLE', 'SOM', 'SSD', 'TZA', 'TGO', 'UGA', 'ZMB', 'ZWE'];
+  const AFRICA = ['MAR', 'TUN', 'ZAF', 'MUS', 'REU', 'AGO', 'BEN', 'BFA', 'CMR', 'COG', 'CIV', 'COD', 'GNQ', 'ERI', 'ETH', 'GAB', 'GHA', 'GIN', 'KEN', 'LBR', 'MLI', 'NAM', 'NER', 'NGA', 'RWA', 'SEN', 'SLE', 'TZA', 'UGA', 'ZMB', 'ZWE'];
   const OCEANIA = ['AUS', 'NZL', 'NCL'];
   const CARIBBEAN = ['AIA', 'ATG', 'ABW', 'BHS', 'BRB', 'BES', 'VGB', 'CYM', 'CUB', 'CUW', 'DMA', 'DOM', 'GRD', 'GLP', 'HTI', 'JAM', 'MTQ', 'MSR', 'PRI', 'BLM', 'KNA', 'LCA', 'MAF', 'VCT', 'SXM', 'TTO', 'TCA', 'VIR', 'BMU'];
   const LATAM = ['MEX', 'BLZ', 'GTM', 'SLV', 'HND', 'NIC', 'CRI', 'PAN', 'ARG', 'BOL', 'BRA', 'CHL', 'COL', 'ECU', 'PRY', 'PER', 'URY', 'VEN', 'GUY', ...CARIBBEAN];
@@ -661,7 +661,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     if (physical) {
       mapgl.resize();
       mapgl.setRenderWorldCopies(!!view.wrap);
-      mapgl.setMinZoom(Math.max(0, V.zFit - 1.5));
+      mapgl.setMinZoom(Math.max(-2, V.zFit - 1.5)); // below 0 on a phone, so the whole world fits across it
       dataGL();
       if (!opts.keep) mapgl.jumpTo(cameraFor(start));
       syncCamera();

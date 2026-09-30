@@ -41,7 +41,27 @@ Done in this round:
   the flagship) plus a separate Abu Dhabi dot (`fixes` and `extra-abu-dhabi` in `data/extra-centers.json`).
   UK and RARA cards say "Leadership:" (`headTitle`), and area cards no longer say "Shetach" above the name.
 
-Next: targeted fix for the sea-mouth seams; test physical map labels/cards on the real site (tiles can't be fetched
+Later in the same round:
+- **Central Africa** (owner, Sept 30): exactly Angola, Benin, Burkina Faso, Cameroon, Republic of the Congo, Côte d'Ivoire,
+  DR Congo, Equatorial Guinea, Eritrea, Ethiopia, Gabon, Ghana, Guinea, Kenya, Liberia, Mali, Namibia, Niger, Nigeria,
+  Rwanda, Senegal, Sierra Leone, Tanzania, Uganda, Zambia, Zimbabwe. Botswana, Burundi, Cabo Verde, CAR, Chad, Comoros,
+  Djibouti, Eswatini, Gambia, Guinea-Bissau, Lesotho, Madagascar, Malawi, Mauritania, Mozambique, São Tomé, Seychelles,
+  Somalia, South Sudan and Togo are in no shetach now (blank, faded on the physical map). `data/global-shetach-list.txt`
+  updated to match.
+- **Greece / Lower Balkans** (owner): Central Macedonia split by regional unit — Lower Balkans (Kaplan) gets
+  Thessaloniki, Kilkis, Serres, Chalkidiki and Mount Athos (plus East Macedonia and Thrace as before); Greece keeps
+  Pieria, Pella and Imathia. GADM has no regional-unit level, so `REGIONAL_UNITS` in the build lists each unit's
+  municipalities (GADM level 3); territory `{ "country": "GRC", "regionalUnits": [...] }`. A country can now be claimed
+  at several GADM levels at once (finest wins).
+- **Brisbane** (owner said "far too large, use the official ABS SUA"): checked — the shape IS the ABS 2021 Brisbane SUA
+  (code 3002): it's exactly 233 whole SA2s whose official areas sum to 6,424 km² (drawn 6,449). It looks big because
+  ABS includes large fringe SA2s: Beaudesert (1,628 km², down toward the NSW border), Rosewood (675), Dayboro (407).
+  Kept as the official boundary; told the owner. Only change it if the owner confirms a different definition.
+- Mexican states have no short labels (no "Sin.", "Nay."); Vic/Tas without dots.
+- `closeSeams()` in the build: coast points of one area within 400 m of another area's coast are moved onto it, then
+  -clean again (fixes the Baja California / Baja California Sur line, Tijuana, Belgium–France).
+
+Next: test physical map labels/cards on the real site (tiles can't be fetched
 from the sandbox, the test uses MapLibre's demo style); update the Claude artifact preview if still used.
 
 ## RIGHT NOW (earlier round — mostly done, kept for detail)

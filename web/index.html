@@ -6,6 +6,7 @@
 <!-- page head -->
 <title>Shetachim Map</title>
 <link rel="icon" href="data:,">
+<script>try { const t = localStorage.getItem('shetachim-theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:wght@500;700&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&display=swap">
@@ -146,6 +147,10 @@ button:focus-visible, input:focus-visible, a:focus-visible, summary:focus-visibl
 .p-head h1 { margin: 0; font: 700 22px/1.1 var(--font-map); letter-spacing: .05em; text-wrap: balance; }
 .p-head .sub { margin: 3px 0 0; color: var(--muted); font-size: 13px; }
 #panel-toggle { display: none; }
+.p-actions { display: flex; align-items: center; gap: 8px; flex: none; }
+#theme-toggle { width: 34px; height: 34px; padding: 0; border: 1px solid var(--panel-line); background: transparent; border-radius: 999px; cursor: pointer; display: grid; place-items: center; }
+#theme-toggle:hover { border-color: var(--accent); }
+#theme-toggle svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 #panel-body { display: flex; flex-direction: column; gap: 14px; padding: 0 16px 16px; }
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 0; padding: 10px 0; border-block: 1px solid var(--panel-line); }
 .stats div { min-width: 0; }
@@ -225,7 +230,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
         <h1>Shetachim</h1>
         <p class="sub" id="view-name">United States &amp; Canada</p>
       </div>
-      <button id="panel-toggle" type="button" aria-expanded="false" aria-controls="panel-body">Options</button>
+      <div class="p-actions">
+        <button id="theme-toggle" type="button"></button>
+        <button id="panel-toggle" type="button" aria-expanded="false" aria-controls="panel-body">Options</button>
+      </div>
     </header>
     <div id="panel-body">
       <p id="load-error" class="error" hidden></p>
@@ -1192,6 +1200,25 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   for (const [id, key] of [['#show-dots', 'dots'], ['#show-cities', 'cities'], ['#show-capitals', 'capitals']]) {
     $(id).addEventListener('change', (e) => { state[key] = e.target.checked; apply(); });
   }
+  // Light or dark, whichever the device uses until one is picked here; the pick is remembered.
+  const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  const theme = () => document.documentElement.dataset.theme || (darkQuery.matches ? 'dark' : 'light');
+  const SUN = '<svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.6"/><path d="M10 1.8v2.1M10 16.1v2.1M1.8 10h2.1M16.1 10h2.1M4.2 4.2l1.5 1.5M14.3 14.3l1.5 1.5M4.2 15.8l1.5-1.5M14.3 5.7l1.5-1.5"/></svg>';
+  const MOON = '<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16.6 12.6A7 7 0 0 1 7.4 3.4a7 7 0 1 0 9.2 9.2z"/></svg>';
+  function showThemeButton() {
+    const dark = theme() === 'dark';
+    $('#theme-toggle').innerHTML = dark ? SUN : MOON;
+    $('#theme-toggle').setAttribute('aria-label', dark ? 'Light mode' : 'Dark mode');
+  }
+  $('#theme-toggle').addEventListener('click', () => {
+    const next = theme() === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem('shetachim-theme', next); } catch (e) { /* not remembered, still switched */ }
+    showThemeButton();
+  });
+  darkQuery.addEventListener('change', showThemeButton);
+  showThemeButton();
+
   $('#panel-toggle').addEventListener('click', () => {
     const panel = $('#panel');
     const open = panel.classList.toggle('collapsed') === false;

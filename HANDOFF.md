@@ -54,7 +54,9 @@ The owner got very angry at the first version. The lessons:
 
 - `web/index.html`: the map, a static page (D3 v7 + TopoJSON from cdnjs; MapLibre GL 4.7.1 from
   cdnjs, loaded only when Physical is picked). It loads `web/data/*`. Features:
-  - US & Canada / USA / Canada views; zoom buttons; light and dark themes; phone layout (bottom sheet)
+  - US & Canada / USA / Canada views; zoom buttons; phone layout (bottom sheet)
+  - Light and dark themes: the device's by default; the sun/moon button next to Options switches
+    and remembers the choice (localStorage `shetachim-theme`, applied by a tiny script in the head).
   - Map: **Political** (our own drawing, conic projection, Alaska and Hawaii in corner boxes) or
     **Physical** (OpenFreeMap `liberty` tiles in both themes, with Natural Earth II relief made
     stronger out to state level and greener woods; Web Mercator; Alaska and Hawaii in place).

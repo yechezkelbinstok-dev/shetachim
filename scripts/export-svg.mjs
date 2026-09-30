@@ -2,14 +2,15 @@
 // coasts, nothing else (no names, cities, centers or capitals). Reads web/data/geo.json and
 // web/data/shetachim.json (run `npm run build` first); writes web/shetachim-map.svg.
 //
-//   node scripts/export-svg.mjs [width]
+//   node scripts/export-svg.mjs [width] [world|na]   (both maps unless one is named)
+// Writes web/shetachim-map.svg (world) and web/shetachim-us-canada.svg (Alaska and Hawaii in boxes).
 //
 // Lines keep only the points that can be seen at the SVG's own size (Visvalingam, on the topology's shared arcs, so
 // neighbours still share their borders exactly), which keeps the file light enough for a phone.
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { geoNaturalEarth1 } from 'd3-geo';
+import { geoConicEqualArea, geoNaturalEarth1 } from 'd3-geo';
 import { feature, meshArcs, mergeArcs, neighbors } from 'topojson-client';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -62,16 +63,6 @@ const arcLL = topo.arcs.map((arc) => {
   });
   return out;
 });
-const projection = geoNaturalEarth1().fitWidth(WIDTH - 2 * PAD, feature(topo, collection));
-let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
-const arcXY = arcLL.map((pts) => pts.map((p) => {
-  const q = projection(p);
-  if (q[0] < x0) x0 = q[0]; if (q[0] > x1) x1 = q[0]; if (q[1] < y0) y0 = q[1]; if (q[1] > y1) y1 = q[1];
-  return q;
-}));
-for (const pts of arcXY) for (const q of pts) { q[0] += PAD - x0; q[1] += PAD - y0; }
-const height = Math.ceil(y1 - y0 + 2 * PAD);
-
 // Visvalingam: each point's weight is the area of the triangle it makes with its neighbours as the line is simplified.
 function keep(pts) {
   const n = pts.length, w = new Float64Array(n).fill(Infinity);
@@ -95,50 +86,105 @@ function keep(pts) {
   }
   return pts.filter((_, i) => w[i] >= MIN_AREA);
 }
-const kept = arcXY.map(keep);
 const fmt = (v) => +v.toFixed(1);
-const arcPoints = (a) => (a < 0 ? [...kept[~a]].reverse() : kept[a]);
-
-// A polygon ring or a line, from its arcs, as path data (points closer than 0.1 px to the last one are skipped).
-function trace(arcs, close) {
-  let d = '', last = null;
-  arcs.forEach((a, k) => {
-    const pts = arcPoints(a);
-    for (let s = k ? 1 : 0; s < pts.length; s++) {
-      const x = fmt(pts[s][0]), y = fmt(pts[s][1]);
-      if (last && last[0] === x && last[1] === y) continue;
-      d += `${last ? 'L' : 'M'}${x},${y}`;
-      last = [x, y];
-    }
-  });
-  return close && d ? `${d}Z` : d;
-}
-const polygonsPath = (ma) => (ma.type === 'Polygon' ? [ma.arcs] : ma.arcs).flatMap((rings) => rings.map((ring) => trace(ring, true))).join('');
 // The cut GADM leaves along 180° isn't a coast or a border, so it isn't drawn.
 const onSeam = (i) => arcLL[i].every(([lon]) => Math.abs(lon) > 179.99);
-const linesPath = (filter) => meshArcs(topo, collection, filter).arcs
-  .flatMap((line) => line.filter((a) => !onSeam(a < 0 ? ~a : a)).map((a) => trace([a], false))).join('');
+const byShetachOf = (list) => {
+  const m = new Map();
+  for (const g of list) if (key(g)) (m.get(key(g)) || m.set(key(g), []).get(key(g))).push(g);
+  return m;
+};
 
-const byShetach = new Map();
-for (const g of pieces) if (key(g)) (byShetach.get(key(g)) || byShetach.set(key(g), []).get(key(g))).push(g);
-const fills = [...byShetach].sort(([a], [b]) => (a < b ? -1 : 1))
-  .map(([id, gs]) => `<path id="${id}" fill="${COLORS[color.get(id)]}" d="${polygonsPath(mergeArcs(topo, gs))}"/>`);
-const borders = linesPath((a, b) => a !== b && (key(a) || '') !== (key(b) || ''));
-const coast = linesPath((a, b) => a === b);
-
-const svg = `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}">
-<title>Chabad shetachim</title>
-<rect width="100%" height="100%" fill="${BG}"/>
-<g stroke="none" fill-rule="evenodd">
+// The fills and lines of some pieces under a projection (already placed on the page), as SVG.
+function draw(list, projection) {
+  const coll = { type: 'GeometryCollection', geometries: list };
+  const kept = new Map();
+  const arcPoints = (a) => {
+    const i = a < 0 ? ~a : a;
+    if (!kept.has(i)) kept.set(i, keep(arcLL[i].map((p) => projection(p))));
+    return a < 0 ? [...kept.get(i)].reverse() : kept.get(i);
+  };
+  // A polygon ring or a line, from its arcs, as path data (points closer than 0.1 px to the last one are skipped).
+  const trace = (arcs, close) => {
+    let d = '', last = null;
+    arcs.forEach((a, k) => {
+      const pts = arcPoints(a);
+      for (let s = k ? 1 : 0; s < pts.length; s++) {
+        const x = fmt(pts[s][0]), y = fmt(pts[s][1]);
+        if (last && last[0] === x && last[1] === y) continue;
+        d += `${last ? 'L' : 'M'}${x},${y}`;
+        last = [x, y];
+      }
+    });
+    return close && d ? `${d}Z` : d;
+  };
+  const polygonsPath = (ma) => (ma.type === 'Polygon' ? [ma.arcs] : ma.arcs).flatMap((rings) => rings.map((ring) => trace(ring, true))).join('');
+  const linesPath = (filter) => meshArcs(topo, coll, filter).arcs
+    .flatMap((line) => line.filter((a) => !onSeam(a < 0 ? ~a : a)).map((a) => trace([a], false))).join('');
+  const fills = [...byShetachOf(list)].sort(([a], [b]) => (a < b ? -1 : 1))
+    .map(([id, gs]) => `<path id="${id}" fill="${COLORS[color.get(id)]}" d="${polygonsPath(mergeArcs(topo, gs))}"/>`);
+  return `<g stroke="none" fill-rule="evenodd">
 ${fills.join('\n')}
 </g>
 <g fill="none" stroke="${INK}" stroke-linejoin="round" stroke-linecap="round">
-<path stroke-width="0.8" d="${coast}"/>
-<path stroke-width="1.2" d="${borders}"/>
-</g>
+<path stroke-width="0.8" d="${linesPath((a, b) => a === b)}"/>
+<path stroke-width="1.2" d="${linesPath((a, b) => a !== b && (key(a) || '') !== (key(b) || ''))}"/>
+</g>`;
+}
+
+// Fit a projection to some pieces in a box [x, y, w, h] (keeping its aspect), returning it and the height used.
+function fitted(projection, list, [x, y, w, h]) {
+  const f = feature(topo, { type: 'GeometryCollection', geometries: list });
+  return h ? projection.fitExtent([[x, y], [x + w, y + h]], f) : projection.fitWidth(w, f);
+}
+function bounds(projection, list) {
+  let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+  const arcs = new Set();
+  const walk = (a) => (Array.isArray(a) ? a.forEach(walk) : arcs.add(a < 0 ? ~a : a));
+  for (const g of list) walk(g.arcs || []);
+  for (const i of arcs) for (const p of arcLL[i]) { const [x, y] = projection(p); x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); }
+  return [x0, y0, x1, y1];
+}
+
+const MAPS = {
+  world: { file: 'shetachim-map.svg', title: 'Chabad shetachim', countries: null, projection: () => geoNaturalEarth1() },
+  na: {
+    file: 'shetachim-us-canada.svg', title: 'Chabad shetachim: United States and Canada', countries: ['US', 'CA'],
+    projection: () => geoConicEqualArea().parallels([30, 58]).rotate([96, 0]),
+    insets: [
+      { state: 'US-AK', share: 0.2, aspect: 0.7, projection: () => geoConicEqualArea().parallels([55, 65]).rotate([154, 0]) },
+      { state: 'US-HI', share: 0.09, aspect: 0.62, projection: () => geoConicEqualArea().parallels([8, 18]).rotate([157, 0]) },
+    ],
+  },
+};
+
+for (const [name, m] of Object.entries(MAPS)) {
+  if (process.argv[3] && process.argv[3] !== name) continue;
+  const shown = m.countries ? pieces.filter((g) => m.countries.includes(g.properties.country)) : pieces;
+  const insetStates = (m.insets || []).map((i) => i.state);
+  const main = shown.filter((g) => !insetStates.includes(g.properties.state));
+  const proj = fitted(m.projection(), main, [0, 0, WIDTH - 2 * PAD]);
+  const [bx0, by0, , by1] = bounds(proj, main);
+  proj.translate([proj.translate()[0] + PAD - bx0, proj.translate()[1] + PAD - by0]);
+  const height = Math.ceil(by1 - by0 + 2 * PAD);
+  let body = draw(main, proj);
+  // Alaska and Hawaii in boxes along the bottom left, as on the site.
+  let x = PAD;
+  for (const inset of m.insets || []) {
+    const list = shown.filter((g) => g.properties.state === inset.state);
+    const w = (WIDTH - 2 * PAD) * inset.share, h = w * inset.aspect, y = height - PAD - h;
+    const p = fitted(inset.projection(), list, [x + 10, y + 10, w - 20, h - 20]);
+    body += `\n<rect x="${fmt(x)}" y="${fmt(y)}" width="${fmt(w)}" height="${fmt(h)}" rx="8" fill="${BG}" stroke="#d2d9dc" stroke-width="1.5"/>\n${draw(list, p)}`;
+    x += w + 16;
+  }
+  const svg = `<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}">
+<title>${m.title}</title>
+<rect width="100%" height="100%" fill="${BG}"/>
+${body}
 </svg>
 `;
-const out = path.join(ROOT, 'web', 'shetachim-map.svg');
-fs.writeFileSync(out, svg);
-console.log(`${path.relative(ROOT, out)}: ${WIDTH}×${height}, ${byShetach.size} shetachim, ${(svg.length / 1e6).toFixed(1)} MB`);
+  const out = path.join(ROOT, 'web', m.file);
+  fs.writeFileSync(out, svg);
+  console.log(`${path.relative(ROOT, out)}: ${WIDTH}×${height}, ${byShetachOf(shown).size} shetachim, ${(svg.length / 1e6).toFixed(1)} MB`);
+}

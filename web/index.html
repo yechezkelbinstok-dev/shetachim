@@ -256,14 +256,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
           <button type="button" data-value="na" aria-pressed="true">US &amp; Canada</button>
           <button type="button" data-value="us" aria-pressed="false">USA</button>
           <button type="button" data-value="ca" aria-pressed="false">Canada</button>
+        </div>
+        <div class="seg" data-name="view">
           <button type="button" data-value="world" aria-pressed="false">World</button>
           <button type="button" data-value="europe" aria-pressed="false">Europe</button>
-          <button type="button" data-value="caucasus" aria-pressed="false">Caucasus &amp; Central Asia</button>
-          <button type="button" data-value="asia" aria-pressed="false">Asia</button>
+          <button type="button" data-value="fsu" aria-pressed="false">FSU</button>
+          <button type="button" data-value="israel" aria-pressed="false">Israel</button>
           <button type="button" data-value="mideast" aria-pressed="false">Middle East</button>
+          <button type="button" data-value="asia" aria-pressed="false">Asia</button>
           <button type="button" data-value="africa" aria-pressed="false">Africa</button>
           <button type="button" data-value="oceania" aria-pressed="false">Oceania</button>
-          <button type="button" data-value="latam" aria-pressed="false">Latin America &amp; Caribbean</button>
+          <button type="button" data-value="latam" aria-pressed="false">Latin America</button>
         </div>
       </fieldset>
       <fieldset class="ctl">
@@ -409,28 +412,34 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
   const stateColor = colorize((g) => g.properties.state);
 
   // ---------- views ----------
+  // Each view shows only its own countries (ISO alpha-3 outside the US and Canada) and fills the screen with them.
+  // lon: the middle longitude, so a region crossing the 180° line (Russia's far east, New Zealand's Chatham
+  // Islands) stays in one piece; wrap: the physical map repeats the world sideways there.
   const EUROPE = ['AND', 'AUT', 'BLR', 'BEL', 'LUX', 'BGR', 'HRV', 'CYP', 'XNC', 'CZE', 'DNK', 'EST', 'FIN', 'FRA', 'DEU', 'GRC', 'ALB', 'BIH', 'XKO', 'MKD', 'HUN', 'ISL', 'IRL', 'ITA', 'SMR', 'VAT', 'SVN', 'LVA', 'LTU', 'MLT', 'MDA', 'MCO', 'MNE', 'NLD', 'NOR', 'POL', 'PRT', 'ROU', 'SRB', 'SVK', 'ESP', 'SWE', 'CHE', 'UKR', 'GBR'];
-  const CAUCASUS = ['ARM', 'AZE', 'GEO', 'KAZ', 'KGZ', 'UZB', 'TJK', 'RUS', 'MNG'];
+  const FSU = ['RUS', 'MNG', 'UKR', 'BLR', 'MDA', 'EST', 'LVA', 'LTU', 'ARM', 'AZE', 'GEO', 'KAZ', 'KGZ', 'UZB', 'TJK'];
   const ASIA = ['IND', 'NPL', 'LKA', 'CHN', 'HKG', 'MAC', 'JPN', 'KOR', 'TWN', 'THA', 'LAO', 'MMR', 'KHM', 'VNM', 'PHL', 'SGP', 'MYS', 'IDN'];
-  const MIDEAST = ['ISR', 'PSE', 'TUR', 'ARE', 'QAT', 'SAU'];
+  const MIDEAST = ['ISR', 'TUR', 'ARE', 'QAT', 'SAU'];
   const AFRICA = ['MAR', 'TUN', 'ZAF', 'MUS', 'REU', 'AGO', 'BEN', 'BWA', 'BFA', 'BDI', 'CPV', 'CMR', 'CAF', 'TCD', 'COM', 'COG', 'CIV', 'COD', 'DJI', 'GNQ', 'ERI', 'SWZ', 'ETH', 'GAB', 'GMB', 'GHA', 'GIN', 'GNB', 'KEN', 'LSO', 'LBR', 'MDG', 'MWI', 'MLI', 'MRT', 'MOZ', 'NAM', 'NER', 'NGA', 'RWA', 'STP', 'SEN', 'SYC', 'SLE', 'SOM', 'SSD', 'TZA', 'TGO', 'UGA', 'ZMB', 'ZWE'];
   const OCEANIA = ['AUS', 'NZL', 'NCL'];
-  const LATAM = ['MEX', 'BLZ', 'GTM', 'SLV', 'HND', 'NIC', 'CRI', 'PAN', 'ARG', 'BOL', 'BRA', 'CHL', 'COL', 'ECU', 'PRY', 'PER', 'URY', 'VEN', 'BMU', 'GUY'];
-  const WORLD = ['US', 'CA', ...EUROPE, ...CAUCASUS, ...ASIA, ...MIDEAST, ...AFRICA, ...OCEANIA, ...LATAM];
+  const CARIBBEAN = ['AIA', 'ATG', 'ABW', 'BHS', 'BRB', 'BES', 'VGB', 'CYM', 'CUB', 'CUW', 'DMA', 'DOM', 'GRD', 'GLP', 'HTI', 'JAM', 'MTQ', 'MSR', 'PRI', 'BLM', 'KNA', 'LCA', 'MAF', 'VCT', 'SXM', 'TTO', 'TCA', 'VIR', 'BMU'];
+  const LATAM = ['MEX', 'BLZ', 'GTM', 'SLV', 'HND', 'NIC', 'CRI', 'PAN', 'ARG', 'BOL', 'BRA', 'CHL', 'COL', 'ECU', 'PRY', 'PER', 'URY', 'VEN', 'GUY', ...CARIBBEAN];
+  const WORLD = [...new Set(['US', 'CA', ...EUROPE, ...FSU, ...ASIA, ...MIDEAST, ...AFRICA, ...OCEANIA, ...LATAM])];
   const mercator = () => d3.geoMercator();
   const VIEWS = {
     na: { name: 'United States & Canada', countries: ['US', 'CA'], insets: ['US-AK', 'US-HI'], projection: () => d3.geoConicEqualArea().parallels([30, 58]).rotate([96, 0]) },
     us: { name: 'United States', countries: ['US'], insets: ['US-AK', 'US-HI'], projection: () => d3.geoConicEqualArea().parallels([29.5, 45.5]).rotate([96, 0]) },
     ca: { name: 'Canada', countries: ['CA'], insets: [], projection: () => d3.geoConicEqualArea().parallels([49, 62]).rotate([96, 0]) },
-    world: { name: 'World', countries: WORLD, insets: [], projection: () => d3.geoNaturalEarth1() },
-    europe: { name: 'Europe', countries: EUROPE, insets: [], projection: mercator },
-    caucasus: { name: 'Caucasus & Central Asia', countries: CAUCASUS, insets: [], projection: mercator },
-    asia: { name: 'Asia', countries: ASIA, insets: [], projection: mercator },
-    mideast: { name: 'Middle East', countries: MIDEAST, insets: [], projection: mercator },
-    africa: { name: 'Africa', countries: AFRICA, insets: [], projection: mercator },
-    oceania: { name: 'Oceania', countries: OCEANIA, insets: [], projection: mercator },
-    latam: { name: 'Latin America & Caribbean', countries: LATAM, insets: [], projection: mercator },
+    world: { name: 'World', countries: WORLD, projection: () => d3.geoNaturalEarth1() },
+    europe: { name: 'Europe', countries: EUROPE, lon: 12, frame: [[-24.5, 34.5], [44.5, 71.2]], projection: () => d3.geoConicEqualArea().parallels([40, 62]).rotate([-12, 0]) },
+    fsu: { name: 'Former Soviet Union', countries: FSU, lon: 95, wrap: true, projection: () => d3.geoConicEqualArea().parallels([45, 65]).rotate([-95, 0]) },
+    israel: { name: 'Israel', countries: ['ISR'], projection: mercator },
+    mideast: { name: 'Middle East', countries: MIDEAST, projection: mercator },
+    asia: { name: 'Asia', countries: ASIA, lon: 105, projection: () => d3.geoMercator().rotate([-105, 0]) },
+    africa: { name: 'Africa', countries: AFRICA, lon: 17, projection: () => d3.geoAzimuthalEqualArea().rotate([-17, 5]) },
+    oceania: { name: 'Oceania', countries: OCEANIA, lon: 150, wrap: true, projection: () => d3.geoConicEqualArea().parallels([-18, -40]).rotate([-150, 0]) },
+    latam: { name: 'Latin America & Caribbean', countries: LATAM, lon: -80, projection: () => d3.geoAzimuthalEqualArea().rotate([80, 10]) },
   };
+  for (const v of Object.values(VIEWS)) { v.insets = v.insets || []; v.world = !['na', 'us', 'ca'].some((k) => VIEWS[k] === v); }
   const INSETS = {
     'US-AK': { share: 0.2, aspect: 0.7, projection: () => d3.geoConicEqualArea().parallels([55, 65]).rotate([154, 0]) },
     'US-HI': { share: 0.13, aspect: 0.62, projection: () => d3.geoConicEqualArea().parallels([8, 18]).rotate([157, 0]) },
@@ -464,8 +473,20 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     return phone() ? { l: 16, t: 16, r: 16, b: r.height + 12 } : { l: r.right + 16, t: 16, r: 64, b: 16 };
   }
 
+  // Polygons crossing the 180° line come split along it; that cut isn't a coast or a border, so it's not drawn.
+  const dropSeams = (mls) => {
+    const out = [];
+    for (const line of mls.coordinates) {
+      let run = [line[0]];
+      for (let i = 1; i < line.length; i++) {
+        if (Math.abs(line[i][0]) > 179.99 && Math.abs(line[i - 1][0]) > 179.99) { if (run.length > 1) out.push(run); run = [line[i]]; } else run.push(line[i]);
+      }
+      if (run.length > 1) out.push(run);
+    }
+    return { type: 'MultiLineString', coordinates: out };
+  };
   const meshes = (main) => {
-    const m = (filter) => topojson.mesh(topo, collection(main), filter);
+    const m = (filter) => dropSeams(topojson.mesh(topo, collection(main), filter));
     const key = (g) => g.properties.shetach || '';
     return [
       ['regular', m((a, b) => a.properties.state !== b.properties.state && a.properties.country === b.properties.country)],
@@ -492,7 +513,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     V = { view, physical, shown, main, regions, blanks, states, index: {}, insetPieces: shown.filter((g) => insetStates.includes(g.properties.state)) };
 
     const p = insets();
-    projection = (physical ? d3.geoMercator() : view.projection()).fitExtent([[p.l, p.t], [W - p.r, H - p.b]], topojson.feature(topo, collection(framed)));
+    // frame: a lon/lat box to fill the screen with instead of every island (Europe without the Azores and Canaries)
+    const target = view.frame ? d3.geoGraticule().extent(view.frame).outline() : topojson.feature(topo, collection(framed));
+    projection = (physical ? d3.geoMercator().rotate([-(view.lon || 0), 0]) : view.projection()).fitExtent([[p.l, p.t], [W - p.r, H - p.b]], target);
     geoPath = d3.geoPath(projection);
     if (physical) V.zFit = Math.log2((2 * Math.PI * projection.scale()) / 512); // MapLibre zoom of the framed view
 
@@ -530,6 +553,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     const shownIds = new Set(shown.map((g) => g.properties.id));
     const viewDots = dots.filter((d) => shownIds.has(d.piece));
     $('#view-name').textContent = view.name;
+    const regular = view.world ? 'Countries' : 'States';
+    document.querySelectorAll('[data-name="borders"] [data-value="regular"], [data-name="lighter"] [data-value="regular"]').forEach((b) => { b.textContent = regular; });
     $('#st-shetachim').textContent = fmt(new Set(shown.map((g) => g.properties.shetach).filter(Boolean)).size);
     $('#st-centers').textContent = fmt(d3.sum(viewDots, (d) => d.centers.length));
     $('#st-dots').textContent = fmt(viewDots.length);
@@ -537,6 +562,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     const start = opts.focus ? transformFor(opts.focus) : d3.zoomIdentity;
     if (physical) {
       mapgl.resize();
+      mapgl.setRenderWorldCopies(!!view.wrap);
       mapgl.setMinZoom(Math.max(0, V.zFit - 1.5));
       dataGL();
       if (!opts.keep) mapgl.jumpTo(cameraFor(start));
@@ -1251,6 +1277,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
       <div class="foot"><span class="meta">${count(c.centers)} · ${shetachLine(c.piece)}</span></div>`;
   }
 
+  const areaKind = (p) => (p.country === 'CA' ? 'Province' : p.state.includes('-') ? 'State' : 'Country');
   function areaHTML(p) {
     const g = pieceById.get(p.id), s = shetachOf(g);
     const inMain = V.main.includes(g);
@@ -1258,7 +1285,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     if (state.borders === 'regular' || !s) {
       const inState = [...new Set(pieces.filter((x) => x.properties.state === p.state).map(shetachOf).filter(Boolean))];
       const part = state.borders === 'regular' && inState.length ? `<p>${esc(inState.map((x) => x.name).join(', '))}</p>` : '';
-      return `<span class="kicker">${p.country === 'US' ? 'State' : 'Province'}</span><h2>${esc(p.name)}</h2>${part}
+      return `<span class="kicker">${areaKind(p)}</span><h2>${esc(p.name)}</h2>${part}
         <div class="foot"><span class="meta">${count(centersInState(p.state))}</span>${zoomBtn}</div>`;
     }
     const states = s.states.size > 1 ? `<p>${esc([...s.states].map((st) => stateName.get(st)).sort().join(', '))}</p>` : '';

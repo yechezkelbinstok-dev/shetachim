@@ -1,7 +1,7 @@
 {
   "about": [
-    "One entry per shetach. territory lists what it covers: a state or province code (US-TX, CA-ON); the part of a state east and/or west of a longitude ({ \"state\": \"US-PA\", \"westOf\": -78.13 }); counties by 5-digit FIPS ({ \"counties\": [...] }); towns ({ \"state\": \"US-MA\", \"towns\": [...] }); or census tracts ({ \"state\": \"US-MA\", \"tracts\": [...] }). A whole country is its ISO 3166-1 alpha-3 code (FRA, DEU) — the same as a state/province code, just for the world outside the US and Canada.",
-    "Where claims overlap, the more specific one wins: tracts, then towns, then counties, then longitude lines, then whole states. Anything no shetach claims is left blank.",
+    "One entry per shetach. territory lists what it covers: a US state or Canadian province (US-TX, CA-ON), a Mexican or Australian state (MX-JAL, AU-NSW), or a whole country (ISO 3166-1 alpha-3: FRA, DEU; ISR is all of Israel, including Judea and Samaria (the West Bank) and the Golan Heights); the part of a US state east and/or west of a longitude ({ \"state\": \"US-PA\", \"westOf\": -78.13 }); counties by 5-digit FIPS ({ \"counties\": [...] }); towns ({ \"state\": \"US-MA\", \"towns\": [...] }); census tracts ({ \"state\": \"US-MA\", \"tracts\": [...] }); regions of a country by their GADM name ({ \"country\": \"GRC\", \"level\": 2, \"regions\": [\"Central Macedonia\"] }; level 1 unless given); or a boundary shape from data/shapes/ inside a state ({ \"state\": \"AU-QLD\", \"shape\": \"brisbane-sua\" }).",
+    "Where claims overlap, the more specific one wins: tracts, then towns and shapes, then counties and regions, then longitude lines, then whole states and countries. Anything no shetach claims is left blank.",
     "short: the label used where the name doesn't fit; by default the state and province abbreviations joined (KS-MO). capital: the chabad.org center id of the shetach's headquarters (the number in its chabad.org link), or lat and lon; \"world\": true marks 770. lastName is optional; it defaults to the last word of headShliach. notShown: areas left off the map entirely."
   ],
   "notShown": [
@@ -883,7 +883,15 @@
         "ALB",
         "BIH",
         "XKO",
-        "MKD"
+        "MKD",
+        {
+          "country": "GRC",
+          "level": 2,
+          "regions": [
+            "Central Macedonia",
+            "East Macedonia and Thrace"
+          ]
+        }
       ]
     },
     {
@@ -926,8 +934,16 @@
       "name": "Slovenia",
       "headShliach": "Ariel Haddad",
       "territory": [
-        "SVN"
-      ]
+        "SVN",
+        {
+          "country": "ITA",
+          "level": 2,
+          "regions": [
+            "Trieste"
+          ]
+        }
+      ],
+      "short": "Slovenia"
     },
     {
       "id": "latvia",
@@ -1087,7 +1103,16 @@
       "id": "crimea",
       "name": "Crimea",
       "headShliach": "Yitzchok Meyer Lipszyc",
-      "territory": []
+      "territory": [
+        {
+          "country": "UKR",
+          "regions": [
+            "Crimea",
+            "Sevastopol'"
+          ]
+        }
+      ],
+      "short": "Crimea"
     },
     {
       "id": "armenia",
@@ -1249,8 +1274,7 @@
       "name": "Israel",
       "headShliach": "Yosef Yitzchak Aharonov",
       "territory": [
-        "ISR",
-        "PSE"
+        "ISR"
       ],
       "short": "Israel"
     },
@@ -1384,55 +1408,83 @@
       "id": "new-south-wales",
       "name": "New South Wales",
       "headShliach": "Pinchus Feldman",
-      "territory": []
+      "territory": [
+        "AU-NSW"
+      ]
     },
     {
       "id": "victoria",
       "name": "Victoria",
       "headShliach": "Disputed — Chaim Tzvi Groner; Yoselle Gutnick; Hendel Serebryanski",
-      "territory": []
+      "territory": [
+        "AU-VIC"
+      ]
     },
     {
       "id": "brisbane",
       "name": "Brisbane",
       "headShliach": "Levi Jaffe",
-      "territory": []
+      "territory": [
+        {
+          "state": "AU-QLD",
+          "shape": "brisbane-sua"
+        }
+      ],
+      "short": "Bris."
     },
     {
       "id": "gold-coast",
       "name": "Gold Coast",
       "headShliach": "Nir Gurevitch",
-      "territory": []
+      "territory": [
+        {
+          "state": "AU-QLD",
+          "shape": "gold-coast-lga"
+        }
+      ],
+      "short": "G. Coast"
     },
     {
       "id": "rara",
       "name": "RARA",
       "headShliach": "Chabad of RARA",
-      "territory": []
+      "territory": [
+        "AU-NT",
+        "AU-QLD"
+      ],
+      "short": "RARA"
     },
     {
       "id": "south-australia",
       "name": "South Australia",
       "headShliach": "Yossi Engel",
-      "territory": []
+      "territory": [
+        "AU-SA"
+      ]
     },
     {
       "id": "western-australia",
       "name": "Western Australia",
       "headShliach": "Shalom White",
-      "territory": []
+      "territory": [
+        "AU-WA"
+      ]
     },
     {
       "id": "tasmania",
       "name": "Tasmania",
       "headShliach": "Yossi Gordon",
-      "territory": []
+      "territory": [
+        "AU-TAS"
+      ]
     },
     {
       "id": "act",
       "name": "ACT",
       "headShliach": "Shmueli Feldman",
-      "territory": []
+      "territory": [
+        "AU-ACT"
+      ]
     },
     {
       "id": "new-zealand",
@@ -1454,55 +1506,103 @@
       "id": "baja-california",
       "name": "Baja California",
       "headShliach": "Mendel Polichenco",
-      "territory": []
+      "territory": [
+        "MX-BCN",
+        "MX-BCS",
+        "MX-SON"
+      ],
+      "short": "Baja"
     },
     {
       "id": "sinaloa",
       "name": "Sinaloa",
       "headShliach": "Chaim Raitport",
-      "territory": []
+      "territory": [
+        "MX-SIN"
+      ]
     },
     {
       "id": "nayarit",
       "name": "Nayarit",
       "headShliach": "Shneur Hecht",
-      "territory": []
+      "territory": [
+        "MX-NAY"
+      ]
     },
     {
       "id": "jalisco",
       "name": "Jalisco",
       "headShliach": "Avraham Srugo",
-      "territory": []
+      "territory": [
+        "MX-JAL",
+        "MX-COL"
+      ],
+      "short": "Jalisco"
     },
     {
       "id": "bajio",
       "name": "Bajío",
       "headShliach": "Daniel Huebner",
-      "territory": []
+      "territory": [
+        "MX-AGU",
+        "MX-GUA",
+        "MX-MIC",
+        "MX-QUE",
+        "MX-SLP",
+        "MX-ZAC"
+      ],
+      "short": "Bajío"
     },
     {
       "id": "nuevo-leon",
       "name": "Nuevo León",
       "headShliach": "Zalmy Srugo",
-      "territory": []
+      "territory": [
+        "MX-CHH",
+        "MX-COA",
+        "MX-DUR",
+        "MX-NLE",
+        "MX-TAM"
+      ],
+      "short": "N. León"
     },
     {
       "id": "central-mexico",
       "name": "Central Mexico",
       "headShliach": "Yosef Mayzlesh",
-      "territory": []
+      "territory": [
+        "MX-CMX",
+        "MX-MEX",
+        "MX-GRO",
+        "MX-HID",
+        "MX-MOR",
+        "MX-PUE",
+        "MX-TLA",
+        "MX-OAX",
+        "MX-VER"
+      ],
+      "short": "C. Mexico"
     },
     {
       "id": "chiapas",
       "name": "Chiapas",
       "headShliach": "Oren Raz",
-      "territory": []
+      "territory": [
+        "MX-CHP",
+        "MX-TAB"
+      ],
+      "short": "Chiapas"
     },
     {
       "id": "mexican-caribbean",
       "name": "Mexican Caribbean",
       "headShliach": "Mendel Druk",
-      "territory": []
+      "territory": [
+        "MX-CAM",
+        "MX-ROO",
+        "MX-YUC"
+      ],
+      "short": "Mex. Carib."
     },
     {
       "id": "belize",
@@ -1646,6 +1746,34 @@
       "short": "Caribbean",
       "headShliach": "Mendel Zarchi",
       "territory": [
+        "AIA",
+        "ATG",
+        "ABW",
+        "BHS",
+        "BRB",
+        "BES",
+        "VGB",
+        "CYM",
+        "CUB",
+        "CUW",
+        "DMA",
+        "DOM",
+        "GRD",
+        "GLP",
+        "HTI",
+        "JAM",
+        "MTQ",
+        "MSR",
+        "PRI",
+        "BLM",
+        "KNA",
+        "LCA",
+        "MAF",
+        "VCT",
+        "SXM",
+        "TTO",
+        "TCA",
+        "VIR",
         "BMU",
         "GUY"
       ]

@@ -2,34 +2,102 @@
 
 Read this first when picking the project up in a new Claude session or account. It covers
 what the owner wants, what exists, what's still open, and the mistakes to avoid.
-The latest work is on branch `claude/bold-albattani-aqfnj9`, which the live site is served from.
 More detail is in `docs/PLAN.md`.
+
+**Branches (read first).** The live site is served from `claude/bold-albattani-aqfnj9`. The world work below was
+done in a second account's session on branch **`ccr-1f9385a8-jca1nj`**, which starts from that branch's tip
+(`b0c5612`) — so bringing it live is a plain fast-forward: `git fetch origin ccr-1f9385a8-jca1nj &&
+git checkout claude/bold-albattani-aqfnj9 && git merge --ff-only origin/ccr-1f9385a8-jca1nj && git push`.
+Do that first (after the checks below), then keep working on the live branch. The owner switches between two
+Claude accounts when usage limits run out; whichever session picks this up, work from the newest of the two branches.
 
 ## RIGHT NOW (mid-task, pick this up first)
 
-The owner sent the full world shetach list (`data/shetachim.json` now has 165 entries: the original
-57 US/CA ones plus 108 world ones, from `/root/.claude/uploads/.../af7bbfc9-global_chabad_shetach_list.txt`
-if it's still around — otherwise ask the owner to resend it). Just pushed, **untested**:
-1. World country geometry (GADM, via the same mirror as Canada — see "Drawing" below) is wired into
-   the build for every whole-country shetach in the list.
-2. Region view buttons were added (World, Europe, Caucasus & Central Asia, Asia, Middle East, Africa,
-   Oceania, Latin America & Caribbean) in `web/index.html`'s `VIEWS` — added under time pressure, right
-   before hitting a usage limit, so **test these first**: desktop + phone, each region view, physical
-   map too. The owner reported still seeing only US/Canada right after the push — that was GitHub Pages
-   deploy lag (wait ~1-2 min and hard-refresh), not a bug, but confirm.
-3. 19 shetachim still need finer-than-a-country splits the list calls for and have **empty territory**
-   (blank on the map) until done: `crimea`; all 9 Australia ones (`new-south-wales`, `victoria`,
-   `brisbane`, `gold-coast`, `rara`, `south-australia`, `western-australia`, `tasmania`, `act`); all 9
-   Mexico ones (`baja-california`, `sinaloa`, `nayarit`, `jalisco`, `bajio`, `nuevo-leon`,
-   `central-mexico`, `chiapas`, `mexican-caribbean`). Brisbane/Gold Coast/RARA need Australian urban-area
-   or LGA boundaries — GADM's Australia ADM2 (local government areas) probably has Gold Coast and
-   Brisbane's LGA, but "ABS Significant Urban Area" for Brisbane spans several LGAs, so that one may
-   need approximating from several ADM2 units, or another source entirely.
-4. No capitals, no cities, for any world shetach — the list didn't include capital data (don't invent
-   it; ask the owner), and city-matching (GeoNames) is scoped to US/CA only (`UNIT_ISO` in
-   `scripts/build-data.mjs`) — building that out for the world is unstarted.
-5. Cabo Verde (CPV) has no GADM boundary in the mirror used — it's claimed by `central-africa` but
-   won't be drawn; a warning prints at build time, harmless, just a gap in Central Africa's shape.
+The owner sent the full world shetach list: it's now in the repo at **`data/global-shetach-list.txt`** (the
+owner's own file, verbatim — the source of truth for every world shetach; the 57 US/Canada ones came earlier).
+All 108 world shetachim are entered in `data/shetachim.json` **with exactly the territory the list gives**
+(checked entry by entry against the file: names, head shluchim, territories), and every one of them now has
+geometry. Built, and checked in headless Chromium on desktop (political map, light theme) in every view.
+
+### Done in this round (all committed and pushed on `ccr-1f9385a8-jca1nj`)
+- **Territory, as the list says** (previously 19 shetachim were blank and the Caribbean was only Bermuda + Guyana):
+  - Mexico by state: Mexican states are their own areas, like US states (`MX-JAL`, ISO 3166-2 codes; table
+    `WORLD_STATES` in the build). Baja California = BCN+BCS+SON; Jalisco = JAL+COL; Bajío = AGU, GUA, MIC, QUE,
+    SLP, ZAC; Nuevo León = CHH, COA, DUR, NLE, TAM; Central Mexico = CMX, MEX, GRO, HID, MOR, PUE, TLA, OAX, VER;
+    Chiapas = CHP+TAB; Mexican Caribbean = CAM, ROO, YUC; Sinaloa, Nayarit single states.
+  - Australia by state (`AU-NSW`, …). **Brisbane** = the ABS Significant Urban Area 2021 (SUA 3002) and **Gold Coast**
+    = the City of Gold Coast LGA (2022), both real ABS boundaries in `data/shapes/*.geojson` (from the R package
+    `absmapsdata` on GitHub, CC BY 4.0 — ABS's own hosts are blocked from the sandbox; see "Notes for Claude").
+    **RARA** = Northern Territory + the rest of Queensland. A new territory form `{ "state": "AU-QLD", "shape":
+    "brisbane-sua" }` cuts a shape out of a state; only the line through the state comes from the shape, the coast and
+    state borders stay GADM's, and the thin slivers where the two sources draw the coast differently are handed to the
+    shape (`absorbSlivers`, 605 of them). Gold Coast comes out at 1,334 km², the official figure.
+    Jervis Bay Territory isn't in the list, so it's drawn blank (a small blank bit of the NSW coast). Ashmore/Cartier
+    and the Coral Sea Islands (reefs) are left off.
+  - Greece / Lower Balkans: Central Macedonia and East Macedonia & Thrace go to Lower Balkans (new territory form
+    `{ "country": "GRC", "level": 2, "regions": [...] }`, GADM region names). Mount Athos is its own GADM region,
+    not part of Central Macedonia, so as the list is written it stays with Greece (a small Greece piece at the tip of
+    Chalkidiki) — worth a question to the owner if it looks odd.
+  - Italy / Slovenia: the Trieste panhandle = the Province of Trieste (GADM ITA level 2 "Trieste") → Slovenia.
+  - Ukraine / Crimea: Crimea and Sevastopol (GADM UKR level 1) → Crimea.
+  - **Israel = one area**: Israel, Judea and Samaria (the West Bank) and the Golan Heights, as the list says. GADM's
+    Israel file already includes the Golan and East Jerusalem is in the Judea and Samaria region; the build takes that
+    region from its GADM file and makes it **part of Israel itself** (state `ISR`, name Israel, no line between them in
+    any border mode). Gaza isn't in the list, so it isn't drawn. **The owner is emphatic: never write, display, code
+    or name "Palestine"/its codes anywhere in this project — front end, data, code, comments, commit messages.** The
+    one unavoidable trace is the upstream GADM file URL the build downloads (`ISRAEL_EXTRA` in the build); it's cached
+    locally as `gadm-hi-ISR-judea-samaria.json`. Centers there are tagged Israel. (The owner also got angry when an
+    update message seemed to say only "Golan and East Jerusalem" — be precise and complete when describing Israel.)
+  - Caribbean = the Caribbean region (every island country and territory: AIA ATG ABW BHS BRB BES VGB CYM CUB CUW DMA
+    DOM GRD GLP HTI JAM MTQ MSR PRI BLM KNA LCA MAF VCT SXM TTO TCA VIR) + Bermuda + Guyana. Puerto Rico and the US
+    Virgin Islands are in it (Mendel Zarchi is Puerto Rico's head shliach) — that settles the old open question.
+- **World geometry rebuilt properly** (build `worldLand()`):
+  - GADM **hi-res** (unsimplified) files from the same GitHub mirror, not the lo-res ones the last session used: the
+    lo-res files were each simplified on their own, so neighbouring countries' borders didn't meet (gaps/overlaps
+    along every border). Hi-res GADM countries share borders point for point; verified (France–Germany, Mexico–
+    Guatemala, Russia–Kazakhstan, Texas–Tamaulipas… all share edges in the final topology).
+  - All world land is simplified together once (100 m, topology kept) and cached in `.cache/world-<hash>.json`
+    (~5 min first time, ~350 MB of downloads; the build now runs with `--max-old-space-size=12000`).
+  - **Russia was broken** in the mirror's whole-country file (one ring, 12k points: no islands, no Kaliningrad) — now
+    built from its level-1 regions (`FROM_LEVEL1`). **Cabo Verde** has no GADM file in the mirror — it comes from
+    Natural Earth (islands, no shared border, so no seam).
+  - Small territories (Bermuda, the small Caribbean islands, Monaco, Vatican…) are no longer deleted by the
+    small-island filter (it now only runs on areas over 2,000 km²).
+  - Names fixed where GADM's are old or missing (`GADM_NAME_FIX`: Eswatini, North Macedonia, Réunion, Macau, U.S.
+    Virgin Islands…; some hi-res files keep the name in `Name` not `NAME_0`).
+  - Sanity-checked areas: Russia+Mongolia 18.4M km², Israel 28,054, Greece 98,085, Crimea 27,053, ACT 2,354, etc.
+  - India's and China's files already include the parts of Kashmir, Arunachal Pradesh and Aksai Chin each administers.
+- **Centers and cities worldwide**: outside the US/Canada, a center is tagged by the map's own areas (the area it's in,
+  else the nearest area of the same country within 25 km), so Mexican/Australian states, Crimea and Israel are right.
+  Cities with shluchim now cover the whole map: 1,944 (was 1,001, US/Canada only), GeoNames-matched by name within
+  60 km. 4,222 centers → 3,599 dots; the World view shows 4,221 of them (one is in a country no shetach covers).
+- **Page** (`web/index.html`):
+  - View buttons in two rows: US & Canada / USA / Canada, then World / Europe / FSU / Israel / Middle East / Asia /
+    Africa / Oceania / Latin America. "Caucasus & Central Asia" became **FSU** (Former Soviet Union: RUS+MNG, UKR,
+    BLR, MDA, Baltics, Caucasus, Central Asia); **Israel** view added.
+  - Proper projections per region (conic equal-area for Europe, FSU, Oceania; azimuthal equal-area for Africa and
+    Latin America; Mercator for Asia, Middle East, Israel; Natural Earth for World). `lon` rotates a view so a region
+    crossing the 180° line (Russia's far east, NZ's Chatham Islands) stays in one piece; `dropSeams` hides the cut
+    GADM leaves along 180°. Europe is framed on the mainland (`frame` box), not the Azores/Canaries.
+  - Borders button says "Countries" in world views, "States" in US/Canada views. Area cards say Country / State /
+    Province correctly.
+
+### Not yet done / untested — do these next
+1. **Test** (the owner interrupted here): phone (390×844) in every view, dark theme, and **the physical map in the
+   world views** — in particular FSU and Oceania, which use a rotated Mercator for MapLibre plus
+   `setRenderWorldCopies(true)` (`wrap: true`). That code path is untested. Also re-check Europe after the `frame` change
+   (untested) and the US/Canada views again on phone. Use `scripts/screenshot.mjs` (see "Notes for Claude").
+   Note: the view buttons sometimes look blank in screenshots — that's the button's colour transition caught mid-way
+   while the map renders (checked: the pressed state is right). Not a bug.
+2. **Merge into the live branch** (fast-forward, above), push, and tell the owner to hard-refresh after ~1–2 min.
+3. Update the Claude artifact preview (instructions under "Current state"), if still used.
+4. **Capitals for world shetachim**: the list has none. Don't invent them; ask the owner (or propose candidates for the
+   owner to confirm). Same for all 108.
+5. Nice-to-haves seen in the screenshots: the Caribbean shetach gets no label at Latin America zoom (its biggest
+   polygon is Guyana and "Caribbean" doesn't fit); Mexican shetachim smaller than Baja/Nuevo León/Central Mexico
+   get labels only when zoomed in. Short labels for whole countries default to the ISO code (ARG, ZAF) — fine
+   for now, maybe nicer names later.
+6. `docs/PLAN.md`'s feature table still says "The rest of the world … Later" — update it.
 
 ## The goal (owner's words, summarized)
 
@@ -84,6 +152,14 @@ The owner got very angry at the first version. The lessons:
 9. 770 is the world HQ, not a regional flagship under whoever heads New York City's shetach. Its card
    doesn't say "New York City · Tzach" the way a normal capital's does (`capitalHTML` in `web/index.html`
    passes `withHead: false` to `shetachLine` for it) — keep that distinction if the card is reworked.
+
+10. **Never "Palestine"** (or its ISO codes) anywhere in the project, not even in code, data, comments or commit
+    messages. Israel is one area: Israel, Judea and Samaria (the West Bank) and the Golan Heights, no line between
+    them. The owner reacted very strongly to seeing it even as an internal code.
+11. When describing progress, be complete and exact (e.g. "Israel, Judea and Samaria and the Golan", not a partial
+    list that sounds like something was left out). The owner reads quick status lines and reacts to omissions.
+12. The world list is the owner's data (`data/global-shetach-list.txt`): enter it literally. Where the literal reading
+    is odd (Mount Athos, Jervis Bay), follow it and mention it; don't silently "fix" it.
 
 ## Current state (all committed and pushed)
 
@@ -163,7 +239,8 @@ The owner got very angry at the first version. The lessons:
   - Cities: matched to GeoNames (npm `all-the-cities`); 1,001 cities, 81 unmatched (see report).
   - Capitals are checked: the center must exist; a capital outside its shetach is a warning in
     `data/report.md` ("To check"). All 57 are inside their shetachim now.
-- Live site: GitHub Pages from this branch, root folder:
+- World: see "RIGHT NOW" above for everything outside the US and Canada (territory forms, sources, views).
+- Live site: GitHub Pages from `claude/bold-albattani-aqfnj9`, root folder:
   `https://yechezkelbinstok-dev.github.io/shetachim/` (root `index.html` forwards to `web/`).
 - Claude artifact preview (this account; private):
   https://claude.ai/artifact/E8pHqPjx5yGrxqogbi7G1s. The physical map can't load there. The artifact
@@ -174,10 +251,30 @@ The owner got very angry at the first version. The lessons:
 ## Open questions for the owner
 - Ohio and the rest of New York: which shetachim, when the owner has them.
 - Anything in the current list that turns out wrong (it came from another AI).
-- DC, Puerto Rico and the US Virgin Islands; co-head or deceased head shliach display.
+- DC; co-head or deceased head shliach display (Victoria's entry lists three names as "Disputed — …"; UK's is
+  "Hanholo of Chabad Lubavitch UK"; Tunisia's "Pinson family" — shown as given for now).
+- Capitals (flagship centers) for all 108 world shetachim.
+- Mount Athos (stays Greece under the literal list) and Jervis Bay (blank) — confirm.
 - Data gaps: no listings in Armenia, the Philippines, Albania and a few others.
 
 ## Notes for Claude
+- World boundaries: GADM **hi-res** from `github.com/stephanietuerk/admin-boundaries` (`hi-res/Admin{0,1,2}/gadm36_<ISO3>_<level>.json`;
+  the lo-res ones are each simplified separately, so borders don't meet — don't use them for the world). Missing from the mirror:
+  Cabo Verde (Natural Earth used), Svalbard, GADM's disputed Z01–Z09 areas, and hi-res AUS level 2 (too big for GitHub).
+  Russia's whole-country file there is broken (built from level 1 instead). Check a new country's area against Natural
+  Earth before trusting it (a quick script: sum spherical area, compare; France/Norway/Morocco/Somalia differ for known
+  coverage reasons).
+- Australian Bureau of Statistics boundaries (SUA, LGA, SA2…): abs.gov.au and abc.net.au are blocked here, but the R
+  package `wfmackey/absmapsdata` on GitHub has them as `.rda` files (`data/sua2021.rda`, `data/lga2022.rda`, …), and
+  PyPI works: `python3 -m venv v && v/bin/pip install rdata`, then `rdata.conversion.convert(rdata.parser.parse_file(f))`
+  gives a pandas frame whose `geometry` column holds the rings (see git history of `data/shapes/` for the export).
+  Its geometries are pre-simplified (~300 m), fine as a cut line through a state.
+- GitHub search (API) is blocked in these sessions; anonymous `git clone --filter=blob:none --no-checkout` of a known public
+  repo works for listing files (`git ls-tree -r --name-only HEAD`; don't use `-l`, it fetches every blob).
+- Screenshot testing: `npm install --prefix .cache/testlib d3@7.9.0 topojson@3.0.2 maplibre-gl@4.7.1`, then
+  `node scripts/screenshot.mjs <outdir> world:political:desktop:light fsu:physical:phone:dark …` (spec =
+  view:base:device:theme[:extra clicks like labels=last,borders=both]); prints each view's stats line and any page errors
+  ("Failed to load resource" lines are the blocked web fonts — expected). Look at the PNGs with the Read tool.
 - This cloud sandbox's network is limited: GitHub (`raw.githubusercontent.com`, and anonymous
   `git clone` of any public repo) and the npm registry work; census.gov, geonames.org, chabad.org,
   gadm.org, geoboundaries.org, any OSM host, cdnjs, jsdelivr, unpkg, openfreemap.org and github.io

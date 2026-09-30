@@ -122,9 +122,8 @@ Open questions:
 - Same pipeline with GADM (not Natural Earth) for admin-1 detail in countries split between shetachim —
   Natural Earth is the US Census / Canada situation, world-wide, if it's used for a border that isn't
   a whole, unsplit country.
-- Judea and Samaria: standard world maps file 48 listings there under "Palestine". The shetach
-  layer is defined by us, and the regular-borders layer can use Natural Earth's Israel
-  point-of-view borders.
+- Israel is one area: Israel, Judea and Samaria (the West Bank) and the Golan Heights, with no line
+  between them in any border mode. Centers there are all tagged as Israel.
 - Continent views get their own projections (Europe, Israel, FSU, Latin America, Oceania,
   Africa, Asia) so each fills the screen.
 - Label density is the main design work there (Europe, Israel).

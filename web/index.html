@@ -627,7 +627,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
     // Shetachim, the blank parts of states, and states (for States borders): each merged, with its polygons.
     const area = (gs, extra) => { const ma = topojson.mergeArcs(topo, gs); const d = drawable(ma); return { ...extra, g: gs[0], ma, ...d, polysXY: d.polys.map(ringsOf) }; };
-    V.regions = [...d3.group(main.filter(shetachOf), shetachOf)].map(([s, gs]) => area(gs, { s, color: shetachColor(s.id) }));
+    V.regions = [...d3.group(main.filter(shetachOf), shetachOf)].map(([s, gs]) => {
+      const r = area(gs, { s, color: shetachColor(s.id) });
+      // labelState: the part of the shetach its name belongs on (Alberta, not the territories' narrow strip north of it)
+      const core = s.labelState && gs.filter((g) => g.properties.state === s.labelState);
+      if (core && core.length && core.length < gs.length) r.coreXY = area(core, {}).polysXY;
+      return r;
+    });
     V.blanks = [...d3.group(main.filter((g) => !shetachOf(g)), (g) => g.properties.state)].map(([st, gs]) => area(gs, { st }));
     V.states = [...d3.group(main, (g) => g.properties.state)].map(([st, gs]) => area(gs, { st, p: gs[0].properties, color: stateColor(st) }));
     if (!physical) {
@@ -736,6 +742,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const polys = r.polysXY.map((rings) => ({ rings, area: Math.abs(d3.polygonArea(rings[0])), c: d3.polygonCentroid(rings[0]) }));
     const max = d3.max(polys, (q) => q.area);
     const big = polys.filter((q) => q.area >= max * 0.1);
+    if (r.coreXY) return [{ polys: r.polysXY, a: r.anchor, core: r.coreXY }];
     if (big.length < 2) return [{ polys: r.polysXY, a: r.anchor }];
     const ownerAt = (x, y) => {
       for (const [other, xs] of crossings(ix, y)) for (let i = 0; i + 1 < xs.length; i += 2) if (x >= xs[i] && x <= xs[i + 1]) return other;
@@ -1140,6 +1147,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const cl = L.cl || L.r, polys = L.cl ? L.cl.polys : L.r.polysXY;
       if (whole && !cl.whole) cl.whole = visiblePart(polys, null);
       const part = whole ? cl.whole : visiblePart(polys, view);
+      if (part && L.cl && L.cl.core) {
+        // the name is centred on the shetach's main part while that's in view (more than a few hundred px² of it)
+        const core = visiblePart(L.cl.core, view);
+        if (core && core.area * k * k > 500) { part.centre = core.centre; part.area = Math.max(core.area, part.area * 0.5); }
+      }
       if (part) todo.push({ L, part });
     }
     todo.sort((a, b) => b.part.area - a.part.area); // the biggest on screen choose first

@@ -157,7 +157,9 @@ function bounds(projection, list) {
 // ---------- names ----------
 // The shetachim whose name may sit over the sea around their islands or coast on the world poster (the owner's picks:
 // Indonesia's archipelago, the Philippines, Qatar); every other name stays on land or goes beside the map.
-const SEA_NAMES = ['singapore', 'philippines', 'qatar'];
+// 'open': the name big over the open sea at the shetach's labelAt, touching no land at all (the Caribbean: Mendel
+// Zarchi's name over the Caribbean Sea, not on Guyana, its biggest piece of land).
+const SEA_NAMES = { singapore: 'islands', philippines: 'islands', qatar: 'islands', caribbean: 'open' };
 // Names as outlines (so the SVG looks the same everywhere, with no font needed): Inter SemiBold, capitals,
 // slightly spaced. Each name gets the biggest size (up to a cap that grows with the area, so big areas read bigger)
 // at which it fits wholly inside its shetach, on one line or two, else its short form; one that doesn't fit at all
@@ -338,7 +340,7 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
   // there: its box either centred within the hull of a shetach of scattered islands (land under half its hull), or
   // straddling the coast (at least 15% of the box its own land, some of it under the name's middle third). Nearest the
   // middle of the shetach's land. Returns null when nothing is bigger than `floor`.
-  const overSea = (id, polys, forms, floor, onlySpread) => {
+  const overSea = (id, polys, forms, floor, onlySpread, open = null) => {
     const me = rast.ids.get(id);
     const rings = polys.map((q) => q[0]);
     const areas = rings.map(polyArea), landA = areas.reduce((t, a) => t + a, 0);
@@ -350,8 +352,10 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
     let tx = 0, ty = 0;
     rings.forEach((r, i) => { const c = polylabel([r], 1); tx += c[0] * areas[i]; ty += c[1] * areas[i]; });
     tx /= landA; ty /= landA;
-    // as big as the land would make it; scattered islands, as big as land and sea between them together would
-    const cap = Math.min(maxSize, Math.max(16, 0.12 * Math.sqrt(spread ? Math.sqrt(landA * hullA) : landA)));
+    if (open) [tx, ty] = open;
+    // as big as the land would make it; scattered islands, as big as land and sea between them together would; over
+    // open sea, as big as the sea there allows
+    const cap = open ? maxSize : Math.min(maxSize, Math.max(16, 0.12 * Math.sqrt(spread ? Math.sqrt(landA * hullA) : landA)));
     if (cap < floor) return null;
     let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
     for (const r of rings) for (const [x, y] of r) { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); }
@@ -364,7 +368,7 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
     for (let y = 0; y < wh; y++) {
       for (let x = 0; x < ww; x++) {
         const i = (gy0 + y) * seaGW + gx0 + x, o = rast.owner[i], k = (y + 1) * (ww + 1) + x + 1;
-        bad[k] = ((o && o !== me) || taken[i] ? 1 : 0) + bad[k - 1] + bad[k - ww - 1] - bad[k - ww - 2];
+        bad[k] = ((o && (open || o !== me)) || taken[i] ? 1 : 0) + bad[k - 1] + bad[k - ww - 1] - bad[k - ww - 2];
         own[k] = (o === me ? 1 : 0) + own[k - 1] + own[k - ww - 1] - own[k - ww - 2];
       }
     }
@@ -386,7 +390,8 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
             if (sum(bad, cx - w / 2 - pad, cy - h / 2 - pad, cx + w / 2 + pad, cy + h / 2 + pad)) continue;
             const mine = sum(own, cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2) * SC * SC;
             const straddle = mine >= 0.15 * w * h && sum(own, cx - w / 6, cy - h / 2, cx + w / 6, cy + h / 2) > 0;
-            if (!straddle && !(spread && inRing(hull, cx, cy))) continue;
+            if (!open && !straddle && !(spread && inRing(hull, cx, cy))) continue;
+            if (open && d > 250) continue; // right by the spot (the middle of the Caribbean Sea), shrinking to fit there
             best = { lines, size, cx, cy, h, d, pad, w };
           }
         }
@@ -543,10 +548,12 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
     };
     let chosen = choose(TINY);
     // only the few the owner picked (SEA_NAMES): elsewhere a name over the sea looks wrong
-    if (sea && !core.length && SEA_NAMES.includes(id)) {
+    if (sea && !core.length && SEA_NAMES[id]) {
       // over the sea: a name that fits nowhere inside, or only in small type (under 9 px); or a scattered shetach's
-      // (Indonesia's, the Philippines') when that reads clearly bigger (40%+) than on one of its islands
-      const wet = overSea(id, polys, forms, Math.max(9, chosen ? chosen.size * 1.4 : 0), false);
+      // (Indonesia's, the Philippines') when that reads clearly bigger (40%+) than on one of its islands; an 'open' one
+      // always, over open water at its labelAt
+      const open = SEA_NAMES[id] === 'open' && s.labelAt ? projection(s.labelAt) : null;
+      const wet = overSea(id, polys, forms, open ? 12 : Math.max(9, chosen ? chosen.size * 1.4 : 0), false, open);
       if (wet) {
         console.log(`  over the sea: ${s.headShliach} at ${wet.size} px${chosen ? ` (inside: ${chosen.size})` : ''}`);
         takeSea(wet);

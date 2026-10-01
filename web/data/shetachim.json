@@ -260,7 +260,14 @@
     "NE Ohio",
     "NE OH"
    ],
-   "headShliach": "Alevsky family"
+   "headShliach": "Alevsky family",
+   "capital": {
+    "centerId": "117708",
+    "name": "Chabad of Cleveland",
+    "city": "Cleveland",
+    "lat": 41.49162,
+    "lon": -81.51632
+   }
   },
   {
    "id": "central-ohio",
@@ -269,16 +276,30 @@
     "C. Ohio",
     "C. OH"
    ],
-   "headShliach": "Areyah Kaltmann"
+   "headShliach": "Areyah Kaltmann",
+   "capital": {
+    "centerId": "117950",
+    "name": "Chabad of Columbus",
+    "city": "New Albany",
+    "lat": 40.08184,
+    "lon": -82.82389
+   }
   },
   {
-   "id": "western-ohio",
-   "name": "Western Ohio",
+   "id": "southern-ohio",
+   "name": "Southern Ohio",
    "short": [
-    "W. Ohio",
-    "W. OH"
+    "S. Ohio",
+    "S. OH"
    ],
-   "headShliach": "Sholom Ber Kalmanson"
+   "headShliach": "Sholom Ber Kalmanson",
+   "capital": {
+    "centerId": "extra-chabad-southern-ohio",
+    "name": "Chabad of Southern Ohio",
+    "city": "Amberley Village",
+    "lat": 39.20176,
+    "lon": -84.44424
+   }
   },
   {
    "id": "indiana",

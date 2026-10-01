@@ -24,7 +24,7 @@ country (USA, Canada) shows only that country.
 | Cities that have shluchim (on/off), more appearing as you zoom in | Done |
 | A capital for each shetach, drawn as a star (770 bigger) | Done |
 | Physical map ("like Google Maps": land cover, relief, roads) with shetach borders | Done (needs the live site) |
-| Ohio and the rest of New York | Done (Ohio: Northeast, Central, Western; Toledo area in Michigan) |
+| Ohio and the rest of New York | Done (Ohio: Northeast, Central, Southern; Toledo area in Michigan) |
 | Puerto Rico / USVI and other insets | Later |
 | The rest of the world, with continent views | Later |
 

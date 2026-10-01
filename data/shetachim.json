@@ -252,7 +252,10 @@
           "shape": "ohio-northeast",
           "name": "Cleveland, Akron, Youngstown, Canton, east to the Ohio River (Athens, Marietta)"
         }
-      ]
+      ],
+      "capital": {
+        "centerId": "117708"
+      }
     },
     {
       "id": "central-ohio",
@@ -268,23 +271,29 @@
           "shape": "ohio-central",
           "name": "Columbus, south to the Ohio River (Portsmouth, Ironton)"
         }
-      ]
+      ],
+      "capital": {
+        "centerId": "117950"
+      }
     },
     {
-      "id": "western-ohio",
-      "name": "Western Ohio",
+      "id": "southern-ohio",
+      "name": "Southern Ohio",
       "short": [
-        "W. Ohio",
-        "W. OH"
+        "S. Ohio",
+        "S. OH"
       ],
       "headShliach": "Sholom Ber Kalmanson",
       "territory": [
         {
           "state": "US-OH",
-          "shape": "ohio-western",
+          "shape": "ohio-southern",
           "name": "Cincinnati, Dayton, Springfield, Lima"
         }
-      ]
+      ],
+      "capital": {
+        "centerId": "extra-chabad-southern-ohio"
+      }
     },
     {
       "id": "indiana",

@@ -128,17 +128,22 @@ Later in the same round:
 
 - **Ohio** (owner, Oct 1; done by the session on the other account, branch `ccr-1f9385a8-jca1nj`): four regions
   from the owner's own map (`data/ohio-regions-v2.geojson`, kept verbatim; picture: estimated curved borders, not
-  county lines). Split into shapes `data/shapes/ohio-{toledo,northeast,central,western}.geojson`, claimed as
+  county lines). Split into shapes `data/shapes/ohio-{toledo,northeast,central,southern}.geojson`, claimed as
   `{ "state": "US-OH", "shape": … }`: **Northeast Ohio** (`northeast-ohio`, "Alevsky family"; Cleveland, Akron,
   Youngstown, Canton, east and south to Athens and Marietta), **Central Ohio** (`central-ohio`, Areyah Kaltmann;
-  Columbus, south to Portsmouth/Ironton), **Western Ohio** (`western-ohio`, Sholom Ber Kalmanson; Cincinnati,
+  Columbus, south to Portsmouth/Ironton), **Southern Ohio** (`southern-ohio`, Sholom Ber Kalmanson; Cincinnati,
   Dayton, Springfield, Lima), and the **Toledo area joins Michigan** (Berel Shemtov) as part of the `michigan`
   shetach. The owner let us pick "Northeast" over "Northeastern". The four shapes tile Ohio exactly (union is one
   piece plus the Lake Erie islands; within 0.4% of Census Ohio); only their lines through Ohio are used, Ohio's own
   border and shore stay Census. Two Lake Erie islets the shapes don't cover (Rattlesnake, West Sister) go to the
   nearest region (`ISLAND_KM` = 25 in `absorbSlivers`; only for unclaimed islands in a state cut by shapes).
-  Ohio's 40 centers: NE 27, Western 6, Central 4, Toledo/Michigan 3. No capitals yet (owner hasn't given them).
-  The image's legend said "Cincinnati / Southern Ohio"; the owner named it **Western Ohio**.
+  Ohio's centers: NE 27, Southern 7 (with the office below), Central 4, Toledo/Michigan 3. First called "Western Ohio";
+  the owner renamed it **Southern Ohio** the same day. Capitals (owner): Chabad of Cleveland (117708), Chabad of
+  Columbus (117950, listed in New Albany), and **Chabad of Southern Ohio's office, 7380 Laurel Oak Lane, Amberley
+  Village** — not on chabad.org, so it's in `data/extra-centers.json` (`extra-chabad-southern-ohio`), placed from
+  Overture Maps' address data (39.20176, -84.44424). Geocoders are blocked here, but Overture's public S3 bucket
+  (`overturemaps-us-west-2`, `theme=addresses`) is reachable: read parquet footers over HTTP range requests and fetch
+  only the row groups whose bbox stats cover the spot (pyarrow in a venv; ~1 minute).
 
 Next: test physical map labels/cards on the real site (tiles can't be fetched
 from the sandbox, the test uses MapLibre's demo style); update the Claude artifact preview if still used.
@@ -380,7 +385,6 @@ The owner got very angry at the first version. The lessons:
   supporting files under `data/`.
 
 ## Open questions for the owner
-- Capitals (flagship centers) for Northeast, Central and Western Ohio.
 - Anything in the current list that turns out wrong (it came from another AI).
 - DC; co-head or deceased head shliach display (Victoria's entry lists three names as "Disputed — …"; UK's is
   "Hanholo of Chabad Lubavitch UK"; Tunisia's "Pinson family" — shown as given for now).

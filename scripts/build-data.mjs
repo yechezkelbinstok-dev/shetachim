@@ -1121,7 +1121,8 @@ async function main() {
 
   const pieceOf = (d) => shetachOfPiece.get(d.piece ?? d.region) ?? null;
   const warnings = checkCapitals(shetachData, dots, pieceOf);
-  // The short label: as given, else a single whole state's or province's abbreviation (TX). A country's
+  // The short label (one, or a list from longest to shortest): as given, else a single whole state's or province's
+  // abbreviation (TX). A country's
   // name is its own label (never an ISO code like NPL); where it doesn't fit, there's no label.
   const abbrOf = new Map(pieces.map((f) => [f.properties.state, f.properties.abbr]));
   for (const s of shetachData.shetachim) {
@@ -1133,6 +1134,9 @@ async function main() {
     if (s.short === undefined && states && s.territory.length > 1) warnings.push(`${s.id}: no short label (give one: state codes aren't joined)`);
     else if (s.short === undefined && s.territory.length === 1 && COUNTRY_SHORT[s.territory[0]]) s.short = COUNTRY_SHORT[s.territory[0]];
     if (!s.short && s.territory.some((t) => typeof t !== 'string')) warnings.push(`${s.id}: no short label (needed for a shetach that is part of a state)`);
+    // Several short forms, longest first, step down as the shetach gets smaller on screen (The Carolinas → Carolinas → Car.).
+    const shorts = [].concat(s.short || []);
+    if (shorts.some((t, i) => t.length >= (i ? shorts[i - 1] : s.name).length)) warnings.push(`${s.id}: short forms should get shorter (${[s.name, ...shorts].join(' → ')})`);
   }
   const forPage = {
     notShown: shetachData.notShown || [],

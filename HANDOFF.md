@@ -87,12 +87,17 @@ Later in the same round:
 - **Upper Midwest** (owner, Oct 1): North and South Dakota joined Minnesota under Moshe Feller; the shetach is now
   "Upper Midwest" (id `upper-midwest`, territory US-MN, US-ND, US-SD). The North Dakota (Yonah Grossman) and South
   Dakota (Mendel Alperowitz) shetachim are gone.
-- **Short labels** (owner, Oct 1: "I hate your double abbreviations"): state codes are never joined any more. Only
-  Kansas-Missouri (KS-MO) and Manitoba-Saskatchewan (MB-SK) keep them, by the owner's choice. The rest are given in
-  the data: West Coast "WC", Upper Midwest "U. Midwest", Louisiana "LA", The Carolinas "Carolinas", Virginia "VA",
-  Western and Southern New England "W. & S. NE", Maritimes (no short form). A single whole state still defaults to its
-  own code (TX); the build warns if a multi-state shetach has no short form. "The Virginias" is now **Virginia**
-  (id `virginia`; still VA + WV).
+- **Short labels** (owner, Oct 1): every shetach has short forms, a list from longest to shortest (`short` in
+  `data/shetachim.json`: `["Carolinas", "Car."]`), so something fits when zoomed out; the page tries the name, then
+  two lines, then each short form, shrinking to 85%/70% (short forms also 55%, never under 7px); a full-size short
+  form beats the name at 70%, so neighbours stay similar sizes. State codes are never joined except KS-MO and MB-SK
+  (owner's choice). Countries use atlas-style abbreviations (Neth., Switz., Bulg.; never ISO codes). A single whole
+  state defaults to its own code (TX); the build warns if a form isn't shorter than the one before it.
+  Renamed: "The Virginias" → **Virginia** (VA), "Western and Southern New England" → **Connecticut** (CT; territory
+  unchanged: Connecticut plus its western Massachusetts counties).
+- **Font**: Inter everywhere (map labels 700, letter-spacing .01em; panel headings uppercase small labels), from
+  Google Fonts; replaced Alegreya Sans (SC), which the owner disliked. `scripts/screenshot.mjs` serves Inter from
+  `node_modules/@fontsource/inter` since Google Fonts is blocked in the sandbox.
 - **Split shetachim get a label per piece** (`labelClusters` in the page): when other land keeps a shetach's big
   pieces apart (Lower Balkans: Bosnia, and Albania–Kosovo–North Macedonia–northern Greece, with Montenegro and Serbia
   between), each piece (from a tenth of the biggest) gets the name, so neither is left blank and both read as one

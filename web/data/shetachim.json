@@ -177,7 +177,10 @@
   {
    "id": "upper-midwest",
    "name": "Upper Midwest",
-   "short": "U. Midwest",
+   "short": [
+    "U. Midwest",
+    "UMW"
+   ],
    "headShliach": "Moshe Feller",
    "capital": {
     "centerId": "117647",
@@ -242,6 +245,7 @@
   {
    "id": "michigan",
    "name": "Michigan",
+   "short": "MI",
    "headShliach": "Berel Shemtov",
    "capital": {
     "centerId": "117640",
@@ -384,7 +388,10 @@
   {
    "id": "the-carolinas",
    "name": "The Carolinas",
-   "short": "Carolinas",
+   "short": [
+    "Carolinas",
+    "Car."
+   ],
    "headShliach": "Yossi Groner",
    "capital": {
     "centerId": "117649",
@@ -515,13 +522,19 @@
   {
    "id": "upstate-new-york",
    "name": "Upstate New York",
-   "short": "Upstate NY",
+   "short": [
+    "Upstate NY",
+    "UNY"
+   ],
    "headShliach": "Nosson Gurary"
   },
   {
    "id": "eastern-new-york",
    "name": "Eastern New York",
-   "short": "E. NY",
+   "short": [
+    "E. NY",
+    "ENY"
+   ],
    "headShliach": "Yisroel Rubin"
   },
   {
@@ -577,9 +590,9 @@
    }
   },
   {
-   "id": "western-and-southern-new-england",
-   "name": "Western and Southern New England",
-   "short": "W. & S. NE",
+   "id": "connecticut",
+   "name": "Connecticut",
+   "short": "CT",
    "headShliach": "Yisroel Deren",
    "capital": {
     "centerId": "2948789",
@@ -605,7 +618,10 @@
   {
    "id": "north-shore-of-massachusetts",
    "name": "North Shore",
-   "short": "N. Shore",
+   "short": [
+    "N. Shore",
+    "NS"
+   ],
    "headShliach": "Yossi Lipsker",
    "capital": {
     "centerId": "117908",
@@ -618,7 +634,10 @@
   {
    "id": "cape-cod-and-the-islands",
    "name": "Cape Cod and the Islands",
-   "short": "Cape Cod",
+   "short": [
+    "Cape Cod",
+    "CC"
+   ],
    "headShliach": "Kuti Alperowitz",
    "capital": {
     "centerId": "118178",
@@ -709,7 +728,7 @@
   {
    "id": "maritimes",
    "name": "Maritimes",
-   "short": "Maritimes",
+   "short": "Mar.",
    "headShliach": "Mendel Feldman",
    "capital": {
     "centerId": "117790",
@@ -735,6 +754,7 @@
   {
    "id": "andorra",
    "name": "Andorra",
+   "short": "And.",
    "headShliach": "Kuty Kalmenson",
    "capital": {
     "centerId": "6518150",
@@ -747,6 +767,7 @@
   {
    "id": "austria",
    "name": "Austria",
+   "short": "Aus.",
    "headShliach": "Yaakov Yitzchak Biderman",
    "capital": {
     "centerId": "117785",
@@ -759,6 +780,7 @@
   {
    "id": "belarus",
    "name": "Belarus",
+   "short": "Bela.",
    "headShliach": "Shneur Deitch",
    "capital": {
     "centerId": "117882",
@@ -771,7 +793,7 @@
   {
    "id": "belgium",
    "name": "Belgium",
-   "short": "Belgium",
+   "short": "Belg.",
    "headShliach": "Shabtai Slavaticki",
    "capital": {
     "centerId": "117756",
@@ -784,6 +806,7 @@
   {
    "id": "bulgaria",
    "name": "Bulgaria",
+   "short": "Bulg.",
    "headShliach": "Yosef Salamon",
    "capital": {
     "centerId": "118478",
@@ -796,6 +819,7 @@
   {
    "id": "croatia",
    "name": "Croatia",
+   "short": "Cro.",
    "headShliach": "Pinny Zaklas",
    "capital": {
     "centerId": "279285",
@@ -808,6 +832,7 @@
   {
    "id": "cyprus",
    "name": "Cyprus",
+   "short": "Cyp.",
    "headShliach": "Aryeh Zeev Raskin",
    "capital": {
     "centerId": "118616",
@@ -820,7 +845,10 @@
   {
    "id": "northern-cyprus",
    "name": "Northern Cyprus",
-   "short": "N. Cyprus",
+   "short": [
+    "N. Cyprus",
+    "N. Cyp."
+   ],
    "headShliach": "Chaim Hillel Azimov",
    "capital": {
     "centerId": "648321",
@@ -833,7 +861,10 @@
   {
    "id": "czech-republic",
    "name": "Czech Republic",
-   "short": "Czechia",
+   "short": [
+    "Czechia",
+    "Cz."
+   ],
    "headShliach": "Manis Barash",
    "capital": {
     "centerId": "118213",
@@ -846,6 +877,7 @@
   {
    "id": "denmark",
    "name": "Denmark",
+   "short": "Den.",
    "headShliach": "Yitzi Lowenthal",
    "capital": {
     "centerId": "118216",
@@ -858,6 +890,7 @@
   {
    "id": "estonia",
    "name": "Estonia",
+   "short": "Est.",
    "headShliach": "Shmuel Kot",
    "capital": {
     "centerId": "118417",
@@ -870,6 +903,7 @@
   {
    "id": "finland",
    "name": "Finland",
+   "short": "Fin.",
    "headShliach": "Benyamin Wolff",
    "capital": {
     "centerId": "118639",
@@ -882,6 +916,7 @@
   {
    "id": "france",
    "name": "France",
+   "short": "Fr.",
    "headShliach": "Mendy Azimov",
    "capital": {
     "centerId": "330228",
@@ -894,6 +929,7 @@
   {
    "id": "germany",
    "name": "Germany",
+   "short": "Ger.",
    "headShliach": "Yisroel Diskin",
    "capital": {
     "centerId": "117853",
@@ -906,6 +942,7 @@
   {
    "id": "greece",
    "name": "Greece",
+   "short": "Gr.",
    "headShliach": "Mendel Hendel",
    "capital": {
     "centerId": "118477",
@@ -918,7 +955,10 @@
   {
    "id": "lower-balkans",
    "name": "Lower Balkans",
-   "short": "Balkans",
+   "short": [
+    "Balkans",
+    "Balk."
+   ],
    "headShliach": "Yoel Kaplan",
    "capital": {
     "centerId": "792557",
@@ -931,6 +971,7 @@
   {
    "id": "hungary",
    "name": "Hungary",
+   "short": "Hung.",
    "headShliach": "Baruch Oberlander",
    "capital": {
     "centerId": "117858",
@@ -943,6 +984,7 @@
   {
    "id": "iceland",
    "name": "Iceland",
+   "short": "Ice.",
    "headShliach": "Avraham Feldman",
    "capital": {
     "centerId": "3849544",
@@ -955,6 +997,7 @@
   {
    "id": "ireland",
    "name": "Ireland",
+   "short": "Ire.",
    "headShliach": "Zalman Lent",
    "capital": {
     "centerId": "118401",
@@ -967,7 +1010,7 @@
   {
    "id": "italy",
    "name": "Italy",
-   "short": "Italy",
+   "short": "It.",
    "headShliach": "Avraham Chazan",
    "capital": {
     "centerId": "117862",
@@ -980,7 +1023,7 @@
   {
    "id": "slovenia",
    "name": "Slovenia",
-   "short": "Slovenia",
+   "short": "Slov.",
    "headShliach": "Ariel Haddad",
    "capital": {
     "centerId": "118457",
@@ -993,6 +1036,7 @@
   {
    "id": "latvia",
    "name": "Latvia",
+   "short": "Lat.",
    "headShliach": "Mordechai Glazman",
    "capital": {
     "centerId": "117907",
@@ -1005,6 +1049,7 @@
   {
    "id": "lithuania",
    "name": "Lithuania",
+   "short": "Lith.",
    "headShliach": "Sholom Ber Krinsky",
    "capital": {
     "centerId": "117978",
@@ -1017,6 +1062,7 @@
   {
    "id": "malta",
    "name": "Malta",
+   "short": "Mal.",
    "headShliach": "Chaim Segal",
    "capital": {
     "centerId": "2015539",
@@ -1029,6 +1075,7 @@
   {
    "id": "moldova",
    "name": "Moldova",
+   "short": "Mold.",
    "headShliach": "Zushe Abelsky",
    "capital": {
     "centerId": "117940",
@@ -1041,6 +1088,7 @@
   {
    "id": "monaco",
    "name": "Monaco",
+   "short": "Mon.",
    "headShliach": "Tanhoum Matusof",
    "capital": {
     "centerId": "1949364",
@@ -1053,6 +1101,7 @@
   {
    "id": "montenegro",
    "name": "Montenegro",
+   "short": "Mont.",
    "headShliach": "Ari Edelkopf",
    "capital": {
     "centerId": "3829725",
@@ -1065,6 +1114,7 @@
   {
    "id": "netherlands",
    "name": "Netherlands",
+   "short": "Neth.",
    "headShliach": "Binyomin Jacobs",
    "capital": {
     "centerId": "117854",
@@ -1077,6 +1127,7 @@
   {
    "id": "norway",
    "name": "Norway",
+   "short": "Nor.",
    "headShliach": "Shaul Wilhelm",
    "capital": {
     "centerId": "118650",
@@ -1089,6 +1140,7 @@
   {
    "id": "poland",
    "name": "Poland",
+   "short": "Pol.",
    "headShliach": "Sholom Ber Stambler",
    "capital": {
     "centerId": "331526",
@@ -1101,6 +1153,7 @@
   {
    "id": "portugal",
    "name": "Portugal",
+   "short": "Port.",
    "headShliach": "Eli Rosenfeld",
    "capital": {
     "centerId": "1332828",
@@ -1113,6 +1166,7 @@
   {
    "id": "romania",
    "name": "Romania",
+   "short": "Rom.",
    "headShliach": "Naftali Deutsch",
    "capital": {
     "centerId": "118397",
@@ -1125,7 +1179,7 @@
   {
    "id": "russia",
    "name": "Russia",
-   "short": "Russia",
+   "short": "Rus.",
    "headShliach": "Berel Lazar",
    "capital": {
     "centerId": "249438",
@@ -1138,6 +1192,7 @@
   {
    "id": "serbia",
    "name": "Serbia",
+   "short": "Serb.",
    "headShliach": "Yehoshua Kaminetzky",
    "capital": {
     "centerId": "660981",
@@ -1150,6 +1205,7 @@
   {
    "id": "slovakia",
    "name": "Slovakia",
+   "short": "Slvk.",
    "headShliach": "Baruch Myers",
    "capital": {
     "centerId": "117972",
@@ -1162,6 +1218,7 @@
   {
    "id": "spain",
    "name": "Spain",
+   "short": "Sp.",
    "headShliach": "Shneur Zalman Goldstein",
    "capital": {
     "centerId": "117874",
@@ -1174,6 +1231,7 @@
   {
    "id": "sweden",
    "name": "Sweden",
+   "short": "Swe.",
    "headShliach": "Alexander Namdar",
    "capital": {
     "centerId": "117875",
@@ -1186,6 +1244,7 @@
   {
    "id": "switzerland",
    "name": "Switzerland",
+   "short": "Switz.",
    "headShliach": "Mendel Rosenfeld",
    "capital": {
     "centerId": "117900",
@@ -1198,6 +1257,7 @@
   {
    "id": "ukraine",
    "name": "Ukraine",
+   "short": "Ukr.",
    "headShliach": "Meir Stambler",
    "capital": {
     "centerId": "249574",
@@ -1224,12 +1284,13 @@
   {
    "id": "crimea",
    "name": "Crimea",
-   "short": "Crimea",
+   "short": "Crim.",
    "headShliach": "Yitzchok Meyer Lipszyc"
   },
   {
    "id": "armenia",
    "name": "Armenia",
+   "short": "Arm.",
    "headShliach": "Gershon Meir Burshtein",
    "capital": {
     "name": "Jewish Community of Yerevan",
@@ -1241,6 +1302,7 @@
   {
    "id": "azerbaijan",
    "name": "Azerbaijan",
+   "short": "Azer.",
    "headShliach": "Shneor Segal",
    "capital": {
     "centerId": "118599",
@@ -1253,6 +1315,7 @@
   {
    "id": "georgia-country",
    "name": "Georgia",
+   "short": "Geo.",
    "headShliach": "Meir Kozlovsky",
    "capital": {
     "centerId": "237922",
@@ -1265,6 +1328,7 @@
   {
    "id": "kazakhstan",
    "name": "Kazakhstan",
+   "short": "Kaz.",
    "headShliach": "Yeshaya Elazar Cohen",
    "capital": {
     "centerId": "4936718",
@@ -1277,6 +1341,7 @@
   {
    "id": "kyrgyzstan",
    "name": "Kyrgyzstan",
+   "short": "Kyrg.",
    "headShliach": "Arye Raichman",
    "capital": {
     "centerId": "249363",
@@ -1289,7 +1354,7 @@
   {
    "id": "uzbekistan",
    "name": "Uzbekistan",
-   "short": "Uzbekistan",
+   "short": "Uzb.",
    "headShliach": "Chaim Moshe Mordechai Shaikevitz",
    "capital": {
     "centerId": "6656076",
@@ -1325,7 +1390,7 @@
   {
    "id": "sri-lanka",
    "name": "Sri Lanka",
-   "short": "Sri Lanka",
+   "short": "Sri L.",
    "headShliach": "Mendy Crombie"
   },
   {
@@ -1356,7 +1421,10 @@
   {
    "id": "south-korea",
    "name": "South Korea",
-   "short": "S. Korea",
+   "short": [
+    "S. Korea",
+    "S. Kor."
+   ],
    "headShliach": "Osher Litzman",
    "capital": {
     "centerId": "665144",
@@ -1369,6 +1437,7 @@
   {
    "id": "taiwan",
    "name": "Taiwan",
+   "short": "Tai.",
    "headShliach": "Shlomi Tabib",
    "capital": {
     "centerId": "2850083",
@@ -1381,7 +1450,7 @@
   {
    "id": "thailand",
    "name": "Thailand",
-   "short": "Thailand",
+   "short": "Thai.",
    "headShliach": "Yosef Chaim Kantor",
    "capital": {
     "centerId": "117964",
@@ -1394,6 +1463,7 @@
   {
    "id": "cambodia",
    "name": "Cambodia",
+   "short": "Camb.",
    "headShliach": "Bentzion Butman",
    "capital": {
     "centerId": "992232",
@@ -1406,6 +1476,7 @@
   {
    "id": "vietnam",
    "name": "Vietnam",
+   "short": "Viet.",
    "headShliach": "Menachem Hartman",
    "capital": {
     "centerId": "420832",
@@ -1418,6 +1489,7 @@
   {
    "id": "philippines",
    "name": "Philippines",
+   "short": "Phil.",
    "headShliach": "Yossi Levy",
    "capital": {
     "name": "Chabad of Manila Philippines",
@@ -1429,7 +1501,7 @@
   {
    "id": "singapore",
    "name": "Singapore",
-   "short": "Singapore",
+   "short": "Sing.",
    "headShliach": "Mordechai Abergel",
    "capital": {
     "centerId": "118003",
@@ -1442,7 +1514,7 @@
   {
    "id": "israel",
    "name": "Israel",
-   "short": "Israel",
+   "short": "Isr.",
    "headShliach": "Yosef Yitzchak Aharonov",
    "capital": {
     "centerId": "118095",
@@ -1455,6 +1527,7 @@
   {
    "id": "turkey",
    "name": "Turkey",
+   "short": "Tur.",
    "headShliach": "Mendy Chitrik",
    "capital": {
     "centerId": "extra-istanbul-nisantasi",
@@ -1498,6 +1571,7 @@
   {
    "id": "morocco",
    "name": "Morocco",
+   "short": "Mor.",
    "headShliach": "Levi Banon",
    "capital": {
     "centerId": "117865",
@@ -1510,6 +1584,7 @@
   {
    "id": "tunisia",
    "name": "Tunisia",
+   "short": "Tun.",
    "headShliach": "Pinson family",
    "capital": {
     "centerId": "117877",
@@ -1522,7 +1597,10 @@
   {
    "id": "central-africa",
    "name": "Central Africa",
-   "short": "C. Africa",
+   "short": [
+    "C. Africa",
+    "C. Afr."
+   ],
    "headShliach": "Shlomo Bentolila",
    "capital": {
     "centerId": "117894",
@@ -1535,7 +1613,10 @@
   {
    "id": "south-africa",
    "name": "South Africa",
-   "short": "S. Africa",
+   "short": [
+    "S. Africa",
+    "S. Afr."
+   ],
    "headShliach": "Mendel Lipskar",
    "capital": {
     "centerId": "117872",
@@ -1548,6 +1629,7 @@
   {
    "id": "mauritius",
    "name": "Mauritius",
+   "short": "Maur.",
    "headShliach": "Laima Barber",
    "capital": {
     "centerId": "3460324",
@@ -1560,6 +1642,7 @@
   {
    "id": "reunion",
    "name": "Réunion",
+   "short": "Réun.",
    "headShliach": "Menahem Mendel Sibony",
    "capital": {
     "centerId": "4379754",
@@ -1611,7 +1694,10 @@
   {
    "id": "gold-coast",
    "name": "Gold Coast",
-   "short": "G. Coast",
+   "short": [
+    "G. Coast",
+    "GC"
+   ],
    "headShliach": "Nir Gurevitch",
    "capital": {
     "centerId": "118291",
@@ -1696,7 +1782,10 @@
   {
    "id": "new-caledonia",
    "name": "New Caledonia",
-   "short": "N. Caledonia",
+   "short": [
+    "N. Caledonia",
+    "N. Cal."
+   ],
    "headShliach": "Menachem Sabbach",
    "capital": {
     "centerId": "3252539",
@@ -1722,6 +1811,7 @@
   {
    "id": "sinaloa",
    "name": "Sinaloa",
+   "short": "Sin.",
    "headShliach": "Chaim Raitport",
    "capital": {
     "name": "Chabad of Mazatlán",
@@ -1733,6 +1823,7 @@
   {
    "id": "nayarit",
    "name": "Nayarit",
+   "short": "Nay.",
    "headShliach": "Shneur Hecht",
    "capital": {
     "centerId": "3424139",
@@ -1745,7 +1836,7 @@
   {
    "id": "jalisco",
    "name": "Jalisco",
-   "short": "Jalisco",
+   "short": "Jal.",
    "headShliach": "Avraham Srugo",
    "capital": {
     "centerId": "7011671",
@@ -1784,7 +1875,10 @@
   {
    "id": "central-mexico",
    "name": "Central Mexico",
-   "short": "C. Mexico",
+   "short": [
+    "C. Mexico",
+    "C. Mex."
+   ],
    "headShliach": "Yosef Mayzlesh",
    "capital": {
     "centerId": "6342563",
@@ -1797,7 +1891,7 @@
   {
    "id": "chiapas",
    "name": "Chiapas",
-   "short": "Chiapas",
+   "short": "Chis.",
    "headShliach": "Oren Raz",
    "capital": {
     "centerId": "7022006",
@@ -1823,11 +1917,13 @@
   {
    "id": "belize",
    "name": "Belize",
+   "short": "Bel.",
    "headShliach": "Mendel Belhamou"
   },
   {
    "id": "guatemala",
    "name": "Guatemala",
+   "short": "Guat.",
    "headShliach": "Shalom Pelman",
    "capital": {
     "centerId": "118392",
@@ -1840,7 +1936,7 @@
   {
    "id": "el-salvador",
    "name": "El Salvador",
-   "short": "El Salvador",
+   "short": "El Salv.",
    "headShliach": "Yudi Brod",
    "capital": {
     "name": "Chabad House El Tunco",
@@ -1852,11 +1948,13 @@
   {
    "id": "honduras",
    "name": "Honduras",
+   "short": "Hond.",
    "headShliach": "Naftali Reichman"
   },
   {
    "id": "nicaragua",
    "name": "Nicaragua",
+   "short": "Nic.",
    "headShliach": "David Atar",
    "capital": {
     "centerId": "5544455",
@@ -1869,6 +1967,10 @@
   {
    "id": "costa-rica",
    "name": "Costa Rica",
+   "short": [
+    "C. Rica",
+    "C.R."
+   ],
    "headShliach": "Hershel Spalter",
    "capital": {
     "centerId": "117814",
@@ -1881,11 +1983,13 @@
   {
    "id": "panama",
    "name": "Panama",
+   "short": "Pan.",
    "headShliach": "Ari Laine"
   },
   {
    "id": "argentina",
    "name": "Argentina",
+   "short": "Arg.",
    "headShliach": "Tzvi Grunblatt",
    "capital": {
     "centerId": "117745",
@@ -1898,11 +2002,13 @@
   {
    "id": "bolivia",
    "name": "Bolivia",
+   "short": "Bol.",
    "headShliach": "Itzik Kupchik"
   },
   {
    "id": "brazil",
    "name": "Brazil",
+   "short": "Braz.",
    "headShliach": "Shabsi Alpern",
    "capital": {
     "centerId": "117772",
@@ -1927,6 +2033,7 @@
   {
    "id": "colombia",
    "name": "Colombia",
+   "short": "Col.",
    "headShliach": "Yehoshua Rosenfeld",
    "capital": {
     "centerId": "117813",
@@ -1939,6 +2046,7 @@
   {
    "id": "ecuador",
    "name": "Ecuador",
+   "short": "Ecua.",
    "headShliach": "Mendy Fried",
    "capital": {
     "centerId": "4211957",
@@ -1951,6 +2059,7 @@
   {
    "id": "paraguay",
    "name": "Paraguay",
+   "short": "Para.",
    "headShliach": "Levi Feigelstock",
    "capital": {
     "centerId": "117866",
@@ -1975,6 +2084,7 @@
   {
    "id": "uruguay",
    "name": "Uruguay",
+   "short": "Uru.",
    "headShliach": "Eliezer Shemtov",
    "capital": {
     "centerId": "117878",
@@ -1987,6 +2097,7 @@
   {
    "id": "venezuela",
    "name": "Venezuela",
+   "short": "Ven.",
    "headShliach": "Moshe Perman",
    "capital": {
     "centerId": "117879",
@@ -1999,7 +2110,7 @@
   {
    "id": "caribbean",
    "name": "Caribbean",
-   "short": "Caribbean",
+   "short": "Carib.",
    "headShliach": "Mendel Zarchi",
    "capital": {
     "centerId": "118318",

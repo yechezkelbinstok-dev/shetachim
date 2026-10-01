@@ -35,6 +35,16 @@ for (const spec of specs) {
       const f = map[path.basename(url.pathname)];
       return f ? route.fulfill({ status: 200, contentType: 'text/javascript', body: fs.readFileSync(path.join(LIB, f)) }) : route.abort();
     }
+    // Google Fonts isn't reachable from the sandbox: serve the page's font (Inter) from the local @fontsource copy.
+    if (url.host === 'fonts.googleapis.com') {
+      const css = [400, 500, 600, 700].map((w) => `@font-face{font-family:Inter;font-weight:${w};src:url(https://fonts.gstatic.com/inter-${w}.woff2) format('woff2')}`).join('');
+      return route.fulfill({ status: 200, contentType: 'text/css', body: css });
+    }
+    if (url.host === 'fonts.gstatic.com') {
+      const w = /inter-(\d+)/.exec(url.pathname)?.[1];
+      const file = w && path.join(REPO, 'node_modules', '@fontsource', 'inter', 'files', `inter-latin-${w}-normal.woff2`);
+      return file && fs.existsSync(file) ? route.fulfill({ status: 200, contentType: 'font/woff2', body: fs.readFileSync(file) }) : route.abort();
+    }
     if (url.host === 'tiles.openfreemap.org' && url.pathname.startsWith('/styles/')) {
       const style = await (await fetch(`${DEMO}/style.json`)).json();
       return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(style) });

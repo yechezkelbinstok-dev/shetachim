@@ -2,7 +2,7 @@
   "about": [
     "One entry per shetach. territory lists what it covers: a US state or Canadian province (US-TX, CA-ON), a Mexican or Australian state (MX-JAL, AU-NSW), or a whole country (ISO 3166-1 alpha-3: FRA, DEU; ISR is all of Israel, including Judea and Samaria (the West Bank) and the Golan Heights); the part of a US state east and/or west of a longitude ({ \"state\": \"US-PA\", \"westOf\": -78.13 }); counties by 5-digit FIPS ({ \"counties\": [...] }); towns ({ \"state\": \"US-MA\", \"towns\": [...] }); census tracts ({ \"state\": \"US-MA\", \"tracts\": [...] }); regions of a country by their GADM name ({ \"country\": \"GRC\", \"level\": 2, \"regions\": [\"Central Macedonia\"] }; level 1 unless given; claims at several levels can be combined, the finer winning), or regional units of a country GADM has no level for ({ \"country\": \"GRC\", \"regionalUnits\": [\"Thessaloniki\"] }, as their municipalities, REGIONAL_UNITS in the build); or a boundary shape from data/shapes/ inside a state ({ \"state\": \"AU-QLD\", \"shape\": \"brisbane-metro\" }).",
     "Where claims overlap, the more specific one wins: tracts, then towns and shapes, then counties and regions, then longitude lines, then whole states and countries. Anything no shetach claims is left blank.",
-    "short: the label used where the name doesn't fit; by default the state and province abbreviations joined (KS-MO). capital: the chabad.org center id of the shetach's headquarters (the number in its chabad.org link), or lat and lon; \"world\": true marks 770. headTitle: what the card calls the head (\"Head shliach\" unless given, e.g. \"Leadership\"). lastName is optional; it defaults to the last word of headShliach. notShown: areas left off the map entirely."
+    "short: the label used where the name doesn't fit, or a list of them from longest to shortest, used as the shetach gets smaller on screen ([\"Carolinas\", \"Car.\"]); a single whole state defaults to its own abbreviation (TX), and state codes are never joined unless given (KS-MO). capital: the chabad.org center id of the shetach's headquarters (the number in its chabad.org link), or lat and lon; \"world\": true marks 770. headTitle: what the card calls the head (\"Head shliach\" unless given, e.g. \"Leadership\"). lastName is optional; it defaults to the last word of headShliach. notShown: areas left off the map entirely."
   ],
   "notShown": [
     "CA-YT",
@@ -158,7 +158,10 @@
     {
       "id": "upper-midwest",
       "name": "Upper Midwest",
-      "short": "U. Midwest",
+      "short": [
+        "U. Midwest",
+        "UMW"
+      ],
       "headShliach": "Moshe Feller",
       "territory": [
         "US-MN",
@@ -218,6 +221,7 @@
     {
       "id": "michigan",
       "name": "Michigan",
+      "short": "MI",
       "headShliach": "Berel Shemtov",
       "territory": [
         "US-MI",
@@ -346,7 +350,10 @@
     {
       "id": "the-carolinas",
       "name": "The Carolinas",
-      "short": "Carolinas",
+      "short": [
+        "Carolinas",
+        "Car."
+      ],
       "headShliach": "Yossi Groner",
       "territory": [
         "US-NC",
@@ -494,7 +501,10 @@
     {
       "id": "upstate-new-york",
       "name": "Upstate New York",
-      "short": "Upstate NY",
+      "short": [
+        "Upstate NY",
+        "UNY"
+      ],
       "headShliach": "Nosson Gurary",
       "territory": [
         {
@@ -538,7 +548,10 @@
     {
       "id": "eastern-new-york",
       "name": "Eastern New York",
-      "short": "E. NY",
+      "short": [
+        "E. NY",
+        "ENY"
+      ],
       "headShliach": "Yisroel Rubin",
       "territory": [
         {
@@ -620,9 +633,9 @@
       }
     },
     {
-      "id": "western-and-southern-new-england",
-      "name": "Western and Southern New England",
-      "short": "W. & S. NE",
+      "id": "connecticut",
+      "name": "Connecticut",
+      "short": "CT",
       "headShliach": "Yisroel Deren",
       "territory": [
         "US-CT",
@@ -653,7 +666,10 @@
     {
       "id": "north-shore-of-massachusetts",
       "name": "North Shore",
-      "short": "N. Shore",
+      "short": [
+        "N. Shore",
+        "NS"
+      ],
       "headShliach": "Yossi Lipsker",
       "territory": [
         {
@@ -715,7 +731,10 @@
     {
       "id": "cape-cod-and-the-islands",
       "name": "Cape Cod and the Islands",
-      "short": "Cape Cod",
+      "short": [
+        "Cape Cod",
+        "CC"
+      ],
       "headShliach": "Kuti Alperowitz",
       "territory": [
         {
@@ -802,7 +821,7 @@
     {
       "id": "maritimes",
       "name": "Maritimes",
-      "short": "Maritimes",
+      "short": "Mar.",
       "headShliach": "Mendel Feldman",
       "territory": [
         "CA-NS",
@@ -827,6 +846,7 @@
     {
       "id": "andorra",
       "name": "Andorra",
+      "short": "And.",
       "headShliach": "Kuty Kalmenson",
       "territory": [
         "AND"
@@ -838,6 +858,7 @@
     {
       "id": "austria",
       "name": "Austria",
+      "short": "Aus.",
       "headShliach": "Yaakov Yitzchak Biderman",
       "territory": [
         "AUT"
@@ -849,6 +870,7 @@
     {
       "id": "belarus",
       "name": "Belarus",
+      "short": "Bela.",
       "headShliach": "Shneur Deitch",
       "territory": [
         "BLR"
@@ -860,7 +882,7 @@
     {
       "id": "belgium",
       "name": "Belgium",
-      "short": "Belgium",
+      "short": "Belg.",
       "headShliach": "Shabtai Slavaticki",
       "territory": [
         "BEL",
@@ -873,6 +895,7 @@
     {
       "id": "bulgaria",
       "name": "Bulgaria",
+      "short": "Bulg.",
       "headShliach": "Yosef Salamon",
       "territory": [
         "BGR"
@@ -884,6 +907,7 @@
     {
       "id": "croatia",
       "name": "Croatia",
+      "short": "Cro.",
       "headShliach": "Pinny Zaklas",
       "territory": [
         "HRV"
@@ -895,6 +919,7 @@
     {
       "id": "cyprus",
       "name": "Cyprus",
+      "short": "Cyp.",
       "headShliach": "Aryeh Zeev Raskin",
       "territory": [
         "CYP"
@@ -906,6 +931,10 @@
     {
       "id": "northern-cyprus",
       "name": "Northern Cyprus",
+      "short": [
+        "N. Cyprus",
+        "N. Cyp."
+      ],
       "headShliach": "Chaim Hillel Azimov",
       "territory": [
         "XNC"
@@ -917,6 +946,10 @@
     {
       "id": "czech-republic",
       "name": "Czech Republic",
+      "short": [
+        "Czechia",
+        "Cz."
+      ],
       "headShliach": "Manis Barash",
       "territory": [
         "CZE"
@@ -928,6 +961,7 @@
     {
       "id": "denmark",
       "name": "Denmark",
+      "short": "Den.",
       "headShliach": "Yitzi Lowenthal",
       "territory": [
         "DNK"
@@ -939,6 +973,7 @@
     {
       "id": "estonia",
       "name": "Estonia",
+      "short": "Est.",
       "headShliach": "Shmuel Kot",
       "territory": [
         "EST"
@@ -950,6 +985,7 @@
     {
       "id": "finland",
       "name": "Finland",
+      "short": "Fin.",
       "headShliach": "Benyamin Wolff",
       "territory": [
         "FIN"
@@ -961,6 +997,7 @@
     {
       "id": "france",
       "name": "France",
+      "short": "Fr.",
       "headShliach": "Mendy Azimov",
       "territory": [
         "FRA"
@@ -972,6 +1009,7 @@
     {
       "id": "germany",
       "name": "Germany",
+      "short": "Ger.",
       "headShliach": "Yisroel Diskin",
       "territory": [
         "DEU"
@@ -983,6 +1021,7 @@
     {
       "id": "greece",
       "name": "Greece",
+      "short": "Gr.",
       "headShliach": "Mendel Hendel",
       "territory": [
         "GRC"
@@ -994,7 +1033,10 @@
     {
       "id": "lower-balkans",
       "name": "Lower Balkans",
-      "short": "Balkans",
+      "short": [
+        "Balkans",
+        "Balk."
+      ],
       "headShliach": "Yoel Kaplan",
       "territory": [
         "ALB",
@@ -1031,6 +1073,7 @@
     {
       "id": "hungary",
       "name": "Hungary",
+      "short": "Hung.",
       "headShliach": "Baruch Oberlander",
       "territory": [
         "HUN"
@@ -1042,6 +1085,7 @@
     {
       "id": "iceland",
       "name": "Iceland",
+      "short": "Ice.",
       "headShliach": "Avraham Feldman",
       "territory": [
         "ISL"
@@ -1053,6 +1097,7 @@
     {
       "id": "ireland",
       "name": "Ireland",
+      "short": "Ire.",
       "headShliach": "Zalman Lent",
       "territory": [
         "IRL"
@@ -1064,7 +1109,7 @@
     {
       "id": "italy",
       "name": "Italy",
-      "short": "Italy",
+      "short": "It.",
       "headShliach": "Avraham Chazan",
       "territory": [
         "ITA",
@@ -1078,6 +1123,7 @@
     {
       "id": "slovenia",
       "name": "Slovenia",
+      "short": "Slov.",
       "headShliach": "Ariel Haddad",
       "territory": [
         "SVN",
@@ -1089,7 +1135,6 @@
           ]
         }
       ],
-      "short": "Slovenia",
       "capital": {
         "centerId": "118457"
       }
@@ -1097,6 +1142,7 @@
     {
       "id": "latvia",
       "name": "Latvia",
+      "short": "Lat.",
       "headShliach": "Mordechai Glazman",
       "territory": [
         "LVA"
@@ -1108,6 +1154,7 @@
     {
       "id": "lithuania",
       "name": "Lithuania",
+      "short": "Lith.",
       "headShliach": "Sholom Ber Krinsky",
       "territory": [
         "LTU"
@@ -1119,6 +1166,7 @@
     {
       "id": "malta",
       "name": "Malta",
+      "short": "Mal.",
       "headShliach": "Chaim Segal",
       "territory": [
         "MLT"
@@ -1130,6 +1178,7 @@
     {
       "id": "moldova",
       "name": "Moldova",
+      "short": "Mold.",
       "headShliach": "Zushe Abelsky",
       "territory": [
         "MDA"
@@ -1141,6 +1190,7 @@
     {
       "id": "monaco",
       "name": "Monaco",
+      "short": "Mon.",
       "headShliach": "Tanhoum Matusof",
       "territory": [
         "MCO"
@@ -1152,6 +1202,7 @@
     {
       "id": "montenegro",
       "name": "Montenegro",
+      "short": "Mont.",
       "headShliach": "Ari Edelkopf",
       "territory": [
         "MNE"
@@ -1163,6 +1214,7 @@
     {
       "id": "netherlands",
       "name": "Netherlands",
+      "short": "Neth.",
       "headShliach": "Binyomin Jacobs",
       "territory": [
         "NLD"
@@ -1174,6 +1226,7 @@
     {
       "id": "norway",
       "name": "Norway",
+      "short": "Nor.",
       "headShliach": "Shaul Wilhelm",
       "territory": [
         "NOR"
@@ -1185,6 +1238,7 @@
     {
       "id": "poland",
       "name": "Poland",
+      "short": "Pol.",
       "headShliach": "Sholom Ber Stambler",
       "territory": [
         "POL"
@@ -1196,6 +1250,7 @@
     {
       "id": "portugal",
       "name": "Portugal",
+      "short": "Port.",
       "headShliach": "Eli Rosenfeld",
       "territory": [
         "PRT"
@@ -1207,6 +1262,7 @@
     {
       "id": "romania",
       "name": "Romania",
+      "short": "Rom.",
       "headShliach": "Naftali Deutsch",
       "territory": [
         "ROU"
@@ -1218,7 +1274,7 @@
     {
       "id": "russia",
       "name": "Russia",
-      "short": "Russia",
+      "short": "Rus.",
       "headShliach": "Berel Lazar",
       "territory": [
         "RUS",
@@ -1231,6 +1287,7 @@
     {
       "id": "serbia",
       "name": "Serbia",
+      "short": "Serb.",
       "headShliach": "Yehoshua Kaminetzky",
       "territory": [
         "SRB"
@@ -1242,6 +1299,7 @@
     {
       "id": "slovakia",
       "name": "Slovakia",
+      "short": "Slvk.",
       "headShliach": "Baruch Myers",
       "territory": [
         "SVK"
@@ -1253,6 +1311,7 @@
     {
       "id": "spain",
       "name": "Spain",
+      "short": "Sp.",
       "headShliach": "Shneur Zalman Goldstein",
       "territory": [
         "ESP"
@@ -1264,6 +1323,7 @@
     {
       "id": "sweden",
       "name": "Sweden",
+      "short": "Swe.",
       "headShliach": "Alexander Namdar",
       "territory": [
         "SWE"
@@ -1275,6 +1335,7 @@
     {
       "id": "switzerland",
       "name": "Switzerland",
+      "short": "Switz.",
       "headShliach": "Mendel Rosenfeld",
       "territory": [
         "CHE",
@@ -1287,6 +1348,7 @@
     {
       "id": "ukraine",
       "name": "Ukraine",
+      "short": "Ukr.",
       "headShliach": "Meir Stambler",
       "territory": [
         "UKR"
@@ -1298,6 +1360,7 @@
     {
       "id": "united-kingdom",
       "name": "United Kingdom",
+      "short": "UK",
       "headShliach": "Hanholo of Chabad Lubavitch UK",
       "headTitle": "Leadership",
       "territory": [
@@ -1310,6 +1373,7 @@
     {
       "id": "crimea",
       "name": "Crimea",
+      "short": "Crim.",
       "headShliach": "Yitzchok Meyer Lipszyc",
       "territory": [
         {
@@ -1319,12 +1383,12 @@
             "Sevastopol'"
           ]
         }
-      ],
-      "short": "Crimea"
+      ]
     },
     {
       "id": "armenia",
       "name": "Armenia",
+      "short": "Arm.",
       "headShliach": "Gershon Meir Burshtein",
       "territory": [
         "ARM"
@@ -1339,6 +1403,7 @@
     {
       "id": "azerbaijan",
       "name": "Azerbaijan",
+      "short": "Azer.",
       "headShliach": "Shneor Segal",
       "territory": [
         "AZE"
@@ -1350,6 +1415,7 @@
     {
       "id": "georgia-country",
       "name": "Georgia",
+      "short": "Geo.",
       "headShliach": "Meir Kozlovsky",
       "territory": [
         "GEO"
@@ -1361,6 +1427,7 @@
     {
       "id": "kazakhstan",
       "name": "Kazakhstan",
+      "short": "Kaz.",
       "headShliach": "Yeshaya Elazar Cohen",
       "territory": [
         "KAZ"
@@ -1372,6 +1439,7 @@
     {
       "id": "kyrgyzstan",
       "name": "Kyrgyzstan",
+      "short": "Kyrg.",
       "headShliach": "Arye Raichman",
       "territory": [
         "KGZ"
@@ -1383,7 +1451,7 @@
     {
       "id": "uzbekistan",
       "name": "Uzbekistan",
-      "short": "Uzbekistan",
+      "short": "Uzb.",
       "headShliach": "Chaim Moshe Mordechai Shaikevitz",
       "territory": [
         "UZB",
@@ -1421,6 +1489,7 @@
     {
       "id": "sri-lanka",
       "name": "Sri Lanka",
+      "short": "Sri L.",
       "headShliach": "Mendy Crombie",
       "territory": [
         "LKA"
@@ -1454,6 +1523,10 @@
     {
       "id": "south-korea",
       "name": "South Korea",
+      "short": [
+        "S. Korea",
+        "S. Kor."
+      ],
       "headShliach": "Osher Litzman",
       "territory": [
         "KOR"
@@ -1465,6 +1538,7 @@
     {
       "id": "taiwan",
       "name": "Taiwan",
+      "short": "Tai.",
       "headShliach": "Shlomi Tabib",
       "territory": [
         "TWN"
@@ -1476,7 +1550,7 @@
     {
       "id": "thailand",
       "name": "Thailand",
-      "short": "Thailand",
+      "short": "Thai.",
       "headShliach": "Yosef Chaim Kantor",
       "territory": [
         "THA",
@@ -1490,6 +1564,7 @@
     {
       "id": "cambodia",
       "name": "Cambodia",
+      "short": "Camb.",
       "headShliach": "Bentzion Butman",
       "territory": [
         "KHM"
@@ -1501,6 +1576,7 @@
     {
       "id": "vietnam",
       "name": "Vietnam",
+      "short": "Viet.",
       "headShliach": "Menachem Hartman",
       "territory": [
         "VNM"
@@ -1512,6 +1588,7 @@
     {
       "id": "philippines",
       "name": "Philippines",
+      "short": "Phil.",
       "headShliach": "Yossi Levy",
       "territory": [
         "PHL"
@@ -1526,7 +1603,7 @@
     {
       "id": "singapore",
       "name": "Singapore",
-      "short": "Singapore",
+      "short": "Sing.",
       "headShliach": "Mordechai Abergel",
       "territory": [
         "SGP",
@@ -1540,11 +1617,11 @@
     {
       "id": "israel",
       "name": "Israel",
+      "short": "Isr.",
       "headShliach": "Yosef Yitzchak Aharonov",
       "territory": [
         "ISR"
       ],
-      "short": "Israel",
       "capital": {
         "centerId": "118095"
       }
@@ -1552,6 +1629,7 @@
     {
       "id": "turkey",
       "name": "Turkey",
+      "short": "Tur.",
       "headShliach": "Mendy Chitrik",
       "territory": [
         "TUR"
@@ -1564,6 +1642,7 @@
     {
       "id": "united-arab-emirates",
       "name": "United Arab Emirates",
+      "short": "UAE",
       "headShliach": "Levi Duchman",
       "territory": [
         "ARE"
@@ -1583,6 +1662,7 @@
     {
       "id": "saudi-arabia",
       "name": "Saudi Arabia",
+      "short": "Saudi",
       "headShliach": "Peretz Garelik",
       "territory": [
         "SAU"
@@ -1595,6 +1675,7 @@
     {
       "id": "morocco",
       "name": "Morocco",
+      "short": "Mor.",
       "headShliach": "Levi Banon",
       "territory": [
         "MAR"
@@ -1606,6 +1687,7 @@
     {
       "id": "tunisia",
       "name": "Tunisia",
+      "short": "Tun.",
       "headShliach": "Pinson family",
       "territory": [
         "TUN"
@@ -1617,7 +1699,10 @@
     {
       "id": "central-africa",
       "name": "Central Africa",
-      "short": "C. Africa",
+      "short": [
+        "C. Africa",
+        "C. Afr."
+      ],
       "headShliach": "Shlomo Bentolila",
       "territory": [
         "AGO",
@@ -1654,6 +1739,10 @@
     {
       "id": "south-africa",
       "name": "South Africa",
+      "short": [
+        "S. Africa",
+        "S. Afr."
+      ],
       "headShliach": "Mendel Lipskar",
       "territory": [
         "ZAF"
@@ -1665,6 +1754,7 @@
     {
       "id": "mauritius",
       "name": "Mauritius",
+      "short": "Maur.",
       "headShliach": "Laima Barber",
       "territory": [
         "MUS"
@@ -1676,6 +1766,7 @@
     {
       "id": "reunion",
       "name": "Réunion",
+      "short": "Réun.",
       "headShliach": "Menahem Mendel Sibony",
       "territory": [
         "REU"
@@ -1709,6 +1800,7 @@
     {
       "id": "brisbane",
       "name": "Brisbane",
+      "short": "Bris.",
       "headShliach": "Levi Jaffe",
       "territory": [
         {
@@ -1717,7 +1809,6 @@
           "name": "The five metropolitan councils: City of Brisbane, Ipswich, Logan, Moreton Bay, Redland"
         }
       ],
-      "short": "Bris.",
       "capital": {
         "centerId": "118204"
       }
@@ -1725,6 +1816,10 @@
     {
       "id": "gold-coast",
       "name": "Gold Coast",
+      "short": [
+        "G. Coast",
+        "GC"
+      ],
       "headShliach": "Nir Gurevitch",
       "territory": [
         {
@@ -1732,7 +1827,6 @@
           "shape": "gold-coast-lga"
         }
       ],
-      "short": "G. Coast",
       "capital": {
         "centerId": "118291"
       }
@@ -1806,6 +1900,10 @@
     {
       "id": "new-caledonia",
       "name": "New Caledonia",
+      "short": [
+        "N. Caledonia",
+        "N. Cal."
+      ],
       "headShliach": "Menachem Sabbach",
       "territory": [
         "NCL"
@@ -1817,13 +1915,13 @@
     {
       "id": "baja-california",
       "name": "Baja California",
+      "short": "Baja",
       "headShliach": "Mendel Polichenco",
       "territory": [
         "MX-BCN",
         "MX-BCS",
         "MX-SON"
       ],
-      "short": "Baja",
       "capital": {
         "centerId": "334161"
       }
@@ -1831,6 +1929,7 @@
     {
       "id": "sinaloa",
       "name": "Sinaloa",
+      "short": "Sin.",
       "headShliach": "Chaim Raitport",
       "territory": [
         "MX-SIN"
@@ -1845,6 +1944,7 @@
     {
       "id": "nayarit",
       "name": "Nayarit",
+      "short": "Nay.",
       "headShliach": "Shneur Hecht",
       "territory": [
         "MX-NAY"
@@ -1856,12 +1956,12 @@
     {
       "id": "jalisco",
       "name": "Jalisco",
+      "short": "Jal.",
       "headShliach": "Avraham Srugo",
       "territory": [
         "MX-JAL",
         "MX-COL"
       ],
-      "short": "Jalisco",
       "capital": {
         "centerId": "7011671"
       }
@@ -1886,6 +1986,7 @@
     {
       "id": "nuevo-leon",
       "name": "Nuevo León",
+      "short": "N. León",
       "headShliach": "Zalmy Srugo",
       "territory": [
         "MX-CHH",
@@ -1894,7 +1995,6 @@
         "MX-NLE",
         "MX-TAM"
       ],
-      "short": "N. León",
       "capital": {
         "centerId": "7338776"
       }
@@ -1902,6 +2002,10 @@
     {
       "id": "central-mexico",
       "name": "Central Mexico",
+      "short": [
+        "C. Mexico",
+        "C. Mex."
+      ],
       "headShliach": "Yosef Mayzlesh",
       "territory": [
         "MX-CMX",
@@ -1914,7 +2018,6 @@
         "MX-OAX",
         "MX-VER"
       ],
-      "short": "C. Mexico",
       "capital": {
         "centerId": "6342563"
       }
@@ -1922,12 +2025,12 @@
     {
       "id": "chiapas",
       "name": "Chiapas",
+      "short": "Chis.",
       "headShliach": "Oren Raz",
       "territory": [
         "MX-CHP",
         "MX-TAB"
       ],
-      "short": "Chiapas",
       "capital": {
         "centerId": "7022006"
       }
@@ -1935,13 +2038,13 @@
     {
       "id": "mexican-caribbean",
       "name": "Mexican Caribbean",
+      "short": "Mex. Carib.",
       "headShliach": "Mendel Druk",
       "territory": [
         "MX-CAM",
         "MX-ROO",
         "MX-YUC"
       ],
-      "short": "Mex. Carib.",
       "capital": {
         "centerId": "503725"
       }
@@ -1949,6 +2052,7 @@
     {
       "id": "belize",
       "name": "Belize",
+      "short": "Bel.",
       "headShliach": "Mendel Belhamou",
       "territory": [
         "BLZ"
@@ -1957,6 +2061,7 @@
     {
       "id": "guatemala",
       "name": "Guatemala",
+      "short": "Guat.",
       "headShliach": "Shalom Pelman",
       "territory": [
         "GTM"
@@ -1968,6 +2073,7 @@
     {
       "id": "el-salvador",
       "name": "El Salvador",
+      "short": "El Salv.",
       "headShliach": "Yudi Brod",
       "territory": [
         "SLV"
@@ -1982,6 +2088,7 @@
     {
       "id": "honduras",
       "name": "Honduras",
+      "short": "Hond.",
       "headShliach": "Naftali Reichman",
       "territory": [
         "HND"
@@ -1990,6 +2097,7 @@
     {
       "id": "nicaragua",
       "name": "Nicaragua",
+      "short": "Nic.",
       "headShliach": "David Atar",
       "territory": [
         "NIC"
@@ -2001,6 +2109,10 @@
     {
       "id": "costa-rica",
       "name": "Costa Rica",
+      "short": [
+        "C. Rica",
+        "C.R."
+      ],
       "headShliach": "Hershel Spalter",
       "territory": [
         "CRI"
@@ -2012,6 +2124,7 @@
     {
       "id": "panama",
       "name": "Panama",
+      "short": "Pan.",
       "headShliach": "Ari Laine",
       "territory": [
         "PAN"
@@ -2020,6 +2133,7 @@
     {
       "id": "argentina",
       "name": "Argentina",
+      "short": "Arg.",
       "headShliach": "Tzvi Grunblatt",
       "territory": [
         "ARG"
@@ -2031,6 +2145,7 @@
     {
       "id": "bolivia",
       "name": "Bolivia",
+      "short": "Bol.",
       "headShliach": "Itzik Kupchik",
       "territory": [
         "BOL"
@@ -2039,6 +2154,7 @@
     {
       "id": "brazil",
       "name": "Brazil",
+      "short": "Braz.",
       "headShliach": "Shabsi Alpern",
       "territory": [
         "BRA"
@@ -2061,6 +2177,7 @@
     {
       "id": "colombia",
       "name": "Colombia",
+      "short": "Col.",
       "headShliach": "Yehoshua Rosenfeld",
       "territory": [
         "COL"
@@ -2072,6 +2189,7 @@
     {
       "id": "ecuador",
       "name": "Ecuador",
+      "short": "Ecua.",
       "headShliach": "Mendy Fried",
       "territory": [
         "ECU"
@@ -2083,6 +2201,7 @@
     {
       "id": "paraguay",
       "name": "Paraguay",
+      "short": "Para.",
       "headShliach": "Levi Feigelstock",
       "territory": [
         "PRY"
@@ -2105,6 +2224,7 @@
     {
       "id": "uruguay",
       "name": "Uruguay",
+      "short": "Uru.",
       "headShliach": "Eliezer Shemtov",
       "territory": [
         "URY"
@@ -2116,6 +2236,7 @@
     {
       "id": "venezuela",
       "name": "Venezuela",
+      "short": "Ven.",
       "headShliach": "Moshe Perman",
       "territory": [
         "VEN"
@@ -2127,7 +2248,7 @@
     {
       "id": "caribbean",
       "name": "Caribbean",
-      "short": "Caribbean",
+      "short": "Carib.",
       "headShliach": "Mendel Zarchi",
       "territory": [
         "AIA",

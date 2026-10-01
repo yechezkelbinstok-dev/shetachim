@@ -163,6 +163,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #more[open] > summary::after { content: '▴'; }
 .more-body { display: flex; flex-direction: column; gap: 14px; padding-top: 10px; }
 .more-body .checks { display: flex; flex-direction: column; gap: 7px; }
+.downloads { font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none; }
+.downloads:hover { text-decoration: underline; }
 .note { margin: 0; font-size: 13px; color: var(--muted); }
 .error { margin: 0; color: var(--ink); background: var(--accent-soft); border-radius: 8px; padding: 8px 10px; font-size: 14px; }
 
@@ -317,6 +319,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         </fieldset>
         </div>
       </details>
+      <a id="downloads" class="downloads" href="download.html">Download maps (SVG, PNG)</a>
     </div>
   </aside>
 
@@ -379,7 +382,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'More options': 'אפשרויות נוספות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים',
     Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד',
     'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
-    'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
+    'Download maps (SVG, PNG)': 'הורדת מפות (SVG, PNG)', 'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
     'Loading…': 'טוען…', "This browser can't show the physical map.": 'הדפדפן הזה לא יכול להציג את המפה הפיזית.', "The physical map couldn't load.": 'המפה הפיזית לא נטענה.',
     'Open on chabad.org': 'לעמוד ב-chabad.org', 'World Headquarters': 'המטה העולמי', 'Same address': 'אותה כתובת', City: 'עיר', Population: 'אוכלוסייה',
     Province: 'פרובינציה', State: 'מדינה', Country: 'ארץ', Capital: 'בירה', Leadership: 'הנהלה',
@@ -446,6 +449,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     walk(document.body);
     for (const el of document.querySelectorAll('[aria-label],[title]')) walk(el);
   }
+  if (HE) $('#downloads').href = 'download.html?lang=he';
   $('#lang-toggle').textContent = HE ? 'EN' : 'עב';
   $('#lang-toggle').lang = HE ? 'en' : 'he';
   $('#lang-toggle').title = HE ? 'English' : 'עברית';

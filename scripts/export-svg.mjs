@@ -355,7 +355,7 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
     if (open) [tx, ty] = open;
     // as big as the land would make it; scattered islands, as big as land and sea between them together would; over
     // open sea, as big as the sea there allows
-    const cap = open ? maxSize : Math.min(maxSize, Math.max(16, 0.12 * Math.sqrt(spread ? Math.sqrt(landA * hullA) : landA)));
+    const cap = open ? maxSize : Math.min(maxSize, Math.max(16, (spread ? 0.2 : 0.12) * Math.sqrt(spread ? Math.sqrt(landA * hullA) : landA)));
     if (cap < floor) return null;
     let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
     for (const r of rings) for (const [x, y] of r) { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); }

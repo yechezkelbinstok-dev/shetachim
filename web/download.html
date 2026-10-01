@@ -5,38 +5,45 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Chabad Shetachim Map – Downloads</title>
 <style>
-  body { margin: 0; padding: 24px 16px; background: #f1f3f0; color: #1e2b32; font: 17px/1.4 system-ui, sans-serif; }
-  a.btn { display: block; max-width: 360px; margin: 0 0 14px; padding: 14px 18px; border-radius: 10px; background: #1d4f8f; color: #fff; text-decoration: none; text-align: center; font-weight: 600; }
-  h2 { margin: 28px 0 12px; font-size: 20px; }
-  img { display: block; width: 100%; max-width: 900px; margin-top: 18px; border: 1px solid #d2d9dc; }
+  body { margin: 0; padding: 24px 16px 48px; background: #f1f3f0; color: #1e2b32; font: 17px/1.4 system-ui, sans-serif; }
+  main { max-width: 900px; margin: 0 auto; }
+  h1 { margin: 0 0 6px; font-size: 24px; }
+  .back { color: #1d4f8f; font-weight: 600; text-decoration: none; }
+  .back:hover { text-decoration: underline; }
+  h2 { margin: 34px 0 12px; font-size: 20px; }
+  .row { display: flex; flex-wrap: wrap; gap: 10px; }
+  a.btn { flex: 1 1 160px; padding: 12px 14px; border-radius: 10px; background: #1d4f8f; color: #fff; text-decoration: none; text-align: center; font-weight: 600; }
+  a.btn.view { background: #fff; color: #1d4f8f; border: 1.5px solid #1d4f8f; }
+  img { display: block; width: 100%; margin-top: 14px; border: 1px solid #d2d9dc; background: #fff; }
 </style>
 </head>
 <body>
-<h2>World</h2>
-<a class="btn" href="shetachim-map.svg" download="shetachim-map.svg">Download SVG</a>
-<a class="btn" href="shetachim-map.png" download="shetachim-map.png">Download PNG</a>
-<img src="shetachim-map.png" alt="Map of all shetachim">
-<h2>World, with head shluchim</h2>
-<a class="btn" href="shetachim-map-names.svg" download="shetachim-map-names.svg">Download SVG</a>
-<a class="btn" href="shetachim-map-names.png" download="shetachim-map-names.png">Download PNG</a>
-<img src="shetachim-map-names.png" alt="Map of all shetachim with head shluchim">
-<h2>US &amp; Canada</h2>
-<a class="btn" href="shetachim-us-canada.svg" download="shetachim-us-canada.svg">Download SVG</a>
-<a class="btn" href="shetachim-us-canada.png" download="shetachim-us-canada.png">Download PNG</a>
-<img src="shetachim-us-canada.png" alt="Map of the US and Canada shetachim">
-<h2>US &amp; Canada, with head shluchim</h2>
-<a class="btn" href="shetachim-us-canada-names.svg" download="shetachim-us-canada-names.svg">Download SVG</a>
-<a class="btn" href="shetachim-us-canada-names.png" download="shetachim-us-canada-names.png">Download PNG</a>
-<img src="shetachim-us-canada-names.png" alt="Map of the US and Canada shetachim with names">
-<section dir="rtl" lang="he">
-<h2>עולם, עם השלוחים הראשיים</h2>
-<a class="btn" href="shetachim-map-names-he.svg" download="shetachim-map-names-he.svg">הורדת SVG</a>
-<a class="btn" href="shetachim-map-names-he.png" download="shetachim-map-names-he.png">הורדת PNG</a>
-<img src="shetachim-map-names-he.png" alt="מפת כל שטחי חב״ד עם השלוחים הראשיים">
-<h2>ארה״ב וקנדה, עם השלוחים הראשיים</h2>
-<a class="btn" href="shetachim-us-canada-names-he.svg" download="shetachim-us-canada-names-he.svg">הורדת SVG</a>
-<a class="btn" href="shetachim-us-canada-names-he.png" download="shetachim-us-canada-names-he.png">הורדת PNG</a>
-<img src="shetachim-us-canada-names-he.png" alt="מפת שטחי חב״ד בארה״ב ובקנדה עם השלוחים הראשיים">
-</section>
+<main id="page"></main>
+<script>
+// Every map, with buttons to open it (view) and to save it (download), as SVG and as PNG. ?lang=he: in Hebrew.
+const HE = new URLSearchParams(location.search).get('lang') === 'he';
+if (HE) { document.documentElement.lang = 'he'; document.documentElement.dir = 'rtl'; document.title = 'מפת שטחי חב״ד – הורדות'; }
+const T = HE
+  ? { title: 'הורדת מפות', back: '→ חזרה למפה', viewSvg: 'צפייה ב־<bdi>SVG</bdi>', viewPng: 'צפייה ב־<bdi>PNG</bdi>', getSvg: 'הורדת SVG', getPng: 'הורדת PNG' }
+  : { title: 'Download maps', back: '← Back to the map', viewSvg: 'View SVG', viewPng: 'View PNG', getSvg: 'Download SVG', getPng: 'Download PNG' };
+const MAPS = [
+  ['shetachim-map-names', 'World, with head shluchim', 'עולם, עם השלוחים הראשיים'],
+  ['shetachim-map-names-he', 'World, with head shluchim (Hebrew)', 'עולם, עם השלוחים הראשיים (עברית)'],
+  ['shetachim-us-canada-names', 'US & Canada, with head shluchim', 'ארה״ב וקנדה, עם השלוחים הראשיים'],
+  ['shetachim-us-canada-names-he', 'US & Canada, with head shluchim (Hebrew)', 'ארה״ב וקנדה, עם השלוחים הראשיים (עברית)'],
+  ['shetachim-map', 'World', 'עולם'],
+  ['shetachim-us-canada', 'US & Canada', 'ארה״ב וקנדה'],
+];
+// in Hebrew, the Hebrew maps first
+if (HE) MAPS.sort((a, b) => b[0].endsWith('-he') - a[0].endsWith('-he'));
+const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+document.getElementById('page').innerHTML = `<a class="back" href="./${HE ? '?lang=he' : ''}">${T.back}</a><h1>${T.title}</h1>`
+  + MAPS.map(([f, en, he]) => `<h2>${esc(HE ? he : en)}</h2><div class="row">
+    <a class="btn view" href="${f}.svg" target="_blank" rel="noopener">${T.viewSvg}</a>
+    <a class="btn view" href="${f}.png" target="_blank" rel="noopener">${T.viewPng}</a>
+    <a class="btn" href="${f}.svg" download="${f}.svg">${T.getSvg}</a>
+    <a class="btn" href="${f}.png" download="${f}.png">${T.getPng}</a></div>
+    <a href="${f}.png" target="_blank" rel="noopener"><img src="${f}.png" alt="${esc(HE ? he : en)}" loading="lazy"></a>`).join('');
+</script>
 </body>
 </html>

@@ -85,9 +85,9 @@ button:focus-visible, input:focus-visible, a:focus-visible, summary:focus-visibl
   paint-order: stroke; stroke: var(--map-halo); stroke-width: 3px; stroke-opacity: .8; stroke-linejoin: round; }
 .physical .mk-lab { stroke-opacity: .95; }
 
-.l-insets { transition: opacity .25s; }
-.l-insets.away { opacity: 0; pointer-events: none; }
-.inset-frame { fill: none; stroke: var(--panel-line); }
+.l-insets { transition: transform .25s; }
+.l-insets.away { transform: scale(.6); } /* zoomed in: the boxes shrink into their corner, never vanish */
+.inset-frame { fill: var(--bg); fill-opacity: .94; stroke: var(--panel-line); } /* solid enough that the map doesn't show through when zoomed in */
 .inset-land { fill: var(--fill); stroke: var(--map-ink); stroke-width: 1; }
 .borders-regular .inset-land { fill: var(--fill-u); }
 .plain .inset-land { fill: var(--plain); }
@@ -462,13 +462,16 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
   // T maps projected points to the screen. On the political map it's the d3 zoom; on the physical map it
   // follows the MapLibre camera, with the same projection-at-zoom-1 coordinates, so labels work the same.
-  let W = 0, H = 0, T = d3.zoomIdentity, V = null, labels = [], tree = null, insetBoxes = [], marks = [];
+  let W = 0, H = 0, T = d3.zoomIdentity, V = null, labels = [], tree = null, insetBoxes = [], insetOrigin = [0, 0], marks = [];
   let projection = null, geoPath = null;
   const measure = document.createElement('canvas').getContext('2d');
 
   function insets() {
-    const r = $('#panel').getBoundingClientRect();
-    return phone() ? { l: 16, t: 16, r: 16, b: r.height + 12 } : { l: r.right + 16, t: 16, r: 64, b: 16 };
+    const panel = $('#panel'), r = panel.getBoundingClientRect();
+    // On a phone the map is framed above the bar the options sheet closes to (not the open sheet, which just covers it),
+    // so opening the sheet never moves the map; the Alaska and Hawaii boxes sit just above that bar.
+    const bar = $('#panel .p-head').getBoundingClientRect().height + (parseFloat(getComputedStyle(panel).paddingBottom) || 0) + 1;
+    return phone() ? { l: 16, t: 16, r: 16, b: bar + 12 } : { l: r.right + 16, t: 16, r: 64, b: 16 };
   }
 
   // ---------- geometry ----------
@@ -615,9 +618,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     V = { view, physical, shown, main, index: {}, insetPieces: shown.filter((g) => insetStates.includes(g.properties.state)) };
 
     const p = insets();
+    // On a phone the boxes get their own strip under the map (a desktop's continent leaves room beside the panel).
+    const pFit = { ...p };
+    if (phone() && V.insetPieces.length) pFit.b += Math.max(...V.insetPieces.map((g) => { const sp = INSETS[g.properties.state]; return clamp((W - p.l - p.r) * sp.share, 80, 260) * sp.aspect; })) + 10;
     // frame: a lon/lat box to fill the screen with instead of every island (Europe without the Azores and Canaries)
     const target = view.frame ? d3.geoGraticule().extent(view.frame).outline() : topojson.feature(topo, collection(framed));
-    projection = (physical ? d3.geoMercator().rotate([-(view.lon || 0), 0]) : view.projection()).fitExtent([[p.l, p.t], [W - p.r, H - p.b]], target);
+    projection = (physical ? d3.geoMercator().rotate([-(view.lon || 0), 0]) : view.projection()).fitExtent([[pFit.l, pFit.t], [W - pFit.r, H - pFit.b]], target);
     geoPath = d3.geoPath(projection);
     if (physical) V.zFit = Math.log2((2 * Math.PI * projection.scale()) / 512); // MapLibre zoom of the framed view
 
@@ -734,6 +740,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       insetBoxes.push(box);
       x += w + 10;
     }
+    insetOrigin = [p.l, H - p.b];
+    gInsets.style('transform-origin', `${insetOrigin[0]}px ${insetOrigin[1]}px`);
   }
 
   // ---------- labels ----------
@@ -895,12 +903,19 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
 
   // The panel and zoom buttons, in map-screen coordinates: nothing is placed under them.
+  // An Alaska/Hawaii box as it is now on screen (it shrinks toward its corner when zoomed in).
+  function insetRect(b) {
+    const sc = T.k > 1.3 ? 0.6 : 1, [ox, oy] = insetOrigin;
+    return [ox + (b.x - ox) * sc, oy + (b.y - oy) * sc, ox + (b.x + b.w - ox) * sc, oy + (b.y + b.h - oy) * sc];
+  }
   function coveredRects() {
     const app = $('#app').getBoundingClientRect();
-    return [...document.querySelectorAll('#panel, #zoomctl')].map((el) => {
+    const rects = [...document.querySelectorAll('#panel, #zoomctl')].map((el) => {
       const r = el.getBoundingClientRect();
       return [r.left - app.left, r.top - app.top, r.right - app.left, r.bottom - app.top];
     });
+    if (!V.physical) for (const b of insetBoxes) rects.push(insetRect(b));
+    return rects;
   }
 
   // How much of a w×h label centred at screen (cx, cy) lies on its own area me (0-1), checked along five rows through
@@ -1350,6 +1365,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       T = e.transform;
       requestDraw();
       if (!frame) frame = requestAnimationFrame(() => { frame = 0; moveLabels(); gInsets.classed('away', T.k > 1.3); });
+    // (the boxes' size changes with the zoom, so the names around them are placed again when it ends)
     })
     .on('end', () => { if (!V.physical) placeLabels(); });
   svg.call(zoom);
@@ -1604,7 +1620,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // What's under a screen point: a capital star, a dot, a city, or an area.
   function pickAt(mx, my, touch, target) {
     const reach = touch ? 14 : 8;
-    const box = !V.physical && T.k <= 1.3 && insetBoxes.find((b) => mx >= b.x && mx <= b.x + b.w && my >= b.y && my <= b.y + b.h);
+    const box = !V.physical && insetBoxes.find((b) => { const [x0, y0, x1, y1] = insetRect(b); return mx >= x0 && mx <= x1 && my >= y0 && my <= y1; });
     if (box) {
       if (state.dots) {
         const near = d3.least(box.dots, (d) => { const [x, y] = box.proj([d.lon, d.lat]); return Math.hypot(x - mx, y - my); });
@@ -1839,6 +1855,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     $('#panel-toggle').setAttribute('aria-expanded', String(open));
     $('#panel-toggle').textContent = open ? 'Close' : 'Options';
     document.documentElement.style.setProperty('--sheet', `${panel.getBoundingClientRect().height}px`);
+    placeLabels(); // names keep clear of the sheet
   });
 
   let resizeTimer = 0;

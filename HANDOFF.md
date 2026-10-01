@@ -98,6 +98,7 @@ Later in the same round:
   `notShown`). New panel option **Alaska: In a box / In place** (political map, views with Alaska; default box; the physical
   map is always in place). The page is titled **Chabad Shetachim** (was plain "Shetachim").
 - Alberta's name is centred on Alberta proper (`labelState: "CA-AB"` in the data), not the territories' strip, while Alberta is on screen (>500 px²).
+- Alaska/Hawaii boxes (political map): on a phone the map is framed above the *closed* bar plus a strip for the boxes (opening the sheet never moves the map; names re-place around it); the boxes shrink to 60% when zoomed in, never vanish, have a solid background, and names/cities keep clear of them.
 - Panel: Show, Map, Borders, Labels up front; **More options** (a collapsed `<details id="more">`) holds the Chabad centers / cities / capitals checkboxes, Alaska, Colors. New rarely-used options go there.
 - **Upper Midwest** (owner, Oct 1): North and South Dakota joined Minnesota under Moshe Feller; the shetach is now
   "Upper Midwest" (id `upper-midwest`, territory US-MN, US-ND, US-SD). The North Dakota (Yonah Grossman) and South

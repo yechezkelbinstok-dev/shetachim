@@ -1119,7 +1119,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // the land's centre. (Ecuador and the Galápagos aren't that: the mainland is nearly all of it.)
     const spread = hullArea > 0 && total / hullArea < 0.35 && parts[0].area < total * 0.6;
     return {
-      area: spread ? Math.max(total, hullArea * 0.3) : total,
+      area: spread ? Math.max(total, hullArea * 0.6) : total,
       centre: spread ? d3.polygonCentroid(hull)
         : [d3.sum(big, (q) => q.c[0] * q.area) / d3.sum(big, (q) => q.area), d3.sum(big, (q) => q.c[1] * q.area) / d3.sum(big, (q) => q.area)],
       hull,

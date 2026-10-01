@@ -32,7 +32,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
 - **Cyprus includes the British Sovereign Base Areas** (Akrotiri, Dhekelia): Natural Earth shapes (`CYPRUS_EXTRA` in
   the build; GADM has none), merged into Cyprus itself.
 
-## World names SVG (Oct 1, in progress on the other account's branch `ccr-1f9385a8-jca1nj` until pushed)
+## World names SVG (Oct 1, done; on the download page)
 `web/shetachim-map-names.svg` (+ .png): the whole world at poster size (10,800 px wide, Natural Earth projection), every
 shetach coloured with its head shliach's name; land no shetach covers is one plain grey swath with no borders inside
 it (from `data/world-all.json`, which the build now writes); Antarctica left off. Names (scripts/export-svg.mjs):

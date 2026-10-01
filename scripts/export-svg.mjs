@@ -228,6 +228,16 @@ function segBoxDist(a, b, [x0, y0, x1, y1]) {
 // the map with a leader line. Leadership entries and families ("Hanholo of Chabad Lubavitch UK", "Pinson family") are
 // never shortened; a list of several names ("Disputed — A; B; C") goes one name per line. offshore: the form used
 // beside the map.
+// Words into n lines, as even in length as possible (the longest line as short as it can be).
+function evenLines(words, n) {
+  let best = null;
+  const go = (from, left, acc) => {
+    if (left === 1) { const lines = [...acc, words.slice(from).join(' ')]; const worst = Math.max(...lines.map((l) => l.length)); if (!best || worst < best.worst) best = { worst, lines }; return; }
+    for (let i = from + 1; i <= words.length - left + 1; i++) go(i, left - 1, [...acc, words.slice(from, i).join(' ')]);
+  };
+  go(0, n, []);
+  return best.lines;
+}
 function nameForms(s) {
   const name = s.headShliach.trim();
   if (/;/.test(name)) {
@@ -238,8 +248,14 @@ function nameForms(s) {
   const personal = !s.headTitle && words.length > 1 && !/\b(family|of)\b/i.test(name);
   const first = words[0], last = words[words.length - 1];
   const full = [[name]];
-  if (words.length > 1) full.push([words.slice(0, -1).join(' '), last]);
-  if (personal && words.length > 2) full.push([`${first} ${last}`], [first, last]);
+  if (personal) {
+    if (words.length > 1) full.push([words.slice(0, -1).join(' '), last]);
+    if (words.length > 2) full.push([`${first} ${last}`], [first, last]);
+  } else if (words.length > 1) {
+    // a family or a leadership name: broken into the most even two lines, and three for a long one
+    full.push(evenLines(words, 2));
+    if (words.length > 3) full.push(evenLines(words, 3));
+  }
   return { full, offshore: personal && words.length > 2 ? `${first} ${last}` : name };
 }
 
@@ -337,13 +353,14 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
     // The fullest form that is within 25% of the biggest any form reaches (so a shorter one is used only where it reads
     // clearly bigger).
     // Each form placed (biggest well-centred size), then the fullest one whose quality — its size, less for sitting
-    // off-centre — is within 25% of the best any form reaches (so "Benjy / Korf" on two lines in the middle of Florida's
+    // off-centre — is within 15% of the best any form reaches (so "Benjy / Korf" on two lines in the middle of Florida's
     // peninsula beats one line along the panhandle).
     const choose = (floor) => {
       const placed = forms.full.map((l) => { const fit = biggest(l, floor); return fit ? place({ lines: l, fit }) : null; });
       const top = Math.max(0, ...placed.map((q) => (q ? q.quality : 0)));
+      if (process.env.WHY === s.headShliach) console.log('    placed:', placed.map((q, i) => (q ? `${forms.full[i].join('/')} size ${q.size} quality ${q.quality.toFixed(1)}` : `${forms.full[i].join('/')} -`)).join(' | '));
       if (!top) return null;
-      const { quality, ...label } = placed.find((q) => q && q.quality >= top / 1.25);
+      const { quality, ...label } = placed.find((q) => q && q.quality >= top / 1.15);
       return label;
     };
     // How far off-centre a name is in the land it sits on: at its middle, the stretch of the shetach above-to-below and
@@ -382,7 +399,9 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
         if (best.off <= 0.2) { pick = here; break; }
       }
       const { off, ...label } = pick;
-      return { ...label, quality: label.size * Math.max(0.05, 1 - off) };
+      // size first; sitting off-centre costs at most 30% (a slanted or thin shape — New Zealand, Delaware — can't hold a
+      // name dead centre, and a bigger name there still reads better)
+      return { ...label, quality: label.size * (1 - 0.3 * Math.min(off, 1)) };
     };
     const chosen = choose(TINY);
     if (process.env.WHY === s.headShliach) console.log(`    pole room ${polylabel(main, 0.5).distance.toFixed(1)} px; ${s.headShliach}: main polygon ${Math.round(bx1 - bx0)}×${Math.round(by1 - by0)} px, ${polys.length} polygons, area ${Math.round(polyArea(main[0]))} px², ring ${main[0].length} pts; forms`, forms.full.map((l) => `${l.join('/')}=${biggest(l, TINY)}`).join(' '));

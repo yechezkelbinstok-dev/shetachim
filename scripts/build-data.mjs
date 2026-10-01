@@ -16,6 +16,7 @@
 //                                       piece has its state (or country) and its shetach (null where none is entered)
 //   web/data/centers.geojson            one point per location (centers at the same spot merged)
 //   web/data/cities.json                every city on the map with at least one center, biggest first
+//   data/world-all.json                 like geo.json, plus every country no shetach covers (outside: true), for the SVG export
 //   data/report.md                      counts and data problems worth a look
 //
 // Boundary files are downloaded once into .cache/ (Natural Earth; US Census counties, towns and tracts; GADM).
@@ -700,6 +701,8 @@ async function buildGeo(data) {
     { 'mosaic.json': collectionOf(mosaic) },
   );
   fs.writeFileSync(path.join(OUT, 'geo.json'), out['geo.json']);
+  // The whole world, land no shetach covers included (marked outside), for the world names SVG (scripts/export-svg.mjs).
+  fs.writeFileSync(at('data', 'world-all.json'), out['world.json']);
   writeTiles(JSON.parse(out['world.json']));
   const pieces = JSON.parse(out['pieces.json']).features.filter((f) => !f.properties.outside);
   const byStateCount = count(pieces, (f) => f.properties.state);
@@ -1156,7 +1159,7 @@ async function main() {
   }
   const forPage = {
     notShown: shetachData.notShown || [],
-    shetachim: shetachData.shetachim.map(({ id, name, short, headShliach, headTitle, lastName, capital, labelState }) => ({ id, name, short, headShliach, headTitle, lastName, capital, labelState })),
+    shetachim: shetachData.shetachim.map(({ id, name, short, headShliach, headTitle, lastName, capital, labelState, labelAt }) => ({ id, name, short, headShliach, headTitle, lastName, capital, labelState, labelAt })),
   };
   fs.writeFileSync(path.join(OUT, 'shetachim.json'), `${JSON.stringify(forPage, null, 1)}\n`);
 

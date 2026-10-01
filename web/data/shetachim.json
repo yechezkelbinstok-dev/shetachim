@@ -261,14 +261,14 @@
     "NE OH"
    ],
    "headShliach": "Alevsky family",
+   "lastName": "Alevsky",
    "capital": {
     "centerId": "117708",
     "name": "Chabad of Cleveland",
     "city": "Cleveland",
     "lat": 41.49162,
     "lon": -81.51632
-   },
-   "lastName": "Alevsky"
+   }
   },
   {
    "id": "central-ohio",
@@ -1638,14 +1638,14 @@
    "name": "Tunisia",
    "short": "Tun.",
    "headShliach": "Pinson family",
+   "lastName": "Pinson",
    "capital": {
     "centerId": "117877",
     "name": "Chabad Lubavitch of Tunisia",
     "city": "Tunis",
     "lat": 36.81617,
     "lon": 10.17993
-   },
-   "lastName": "Pinson"
+   }
   },
   {
    "id": "central-africa",
@@ -2126,14 +2126,14 @@
    "id": "peru",
    "name": "Peru",
    "headShliach": "Blumenfeld family",
+   "lastName": "Blumenfeld",
    "capital": {
     "centerId": "117867",
     "name": "Chabad Lubavitch de Peru",
     "city": "Lima",
     "lat": -12.09781,
     "lon": -77.05532
-   },
-   "lastName": "Blumenfeld"
+   }
   },
   {
    "id": "uruguay",

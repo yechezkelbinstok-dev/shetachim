@@ -500,6 +500,85 @@
       }
     },
     {
+      "id": "upstate-new-york",
+      "name": "Upstate New York",
+      "short": "Upstate NY",
+      "headShliach": "Nosson Gurary",
+      "territory": [
+        {
+          "counties": [
+            "36003",
+            "36007",
+            "36009",
+            "36011",
+            "36013",
+            "36015",
+            "36017",
+            "36023",
+            "36029",
+            "36037",
+            "36043",
+            "36045",
+            "36049",
+            "36051",
+            "36053",
+            "36055",
+            "36063",
+            "36065",
+            "36067",
+            "36069",
+            "36073",
+            "36075",
+            "36097",
+            "36099",
+            "36101",
+            "36089",
+            "36107",
+            "36109",
+            "36117",
+            "36121",
+            "36123"
+          ],
+          "name": "Allegany, Broome, Cattaraugus, Cayuga, Chautauqua, Chemung, Chenango, Cortland, Erie, Genesee, Herkimer, Jefferson, Lewis, Livingston, Madison, Monroe, Niagara, Oneida, Onondaga, Ontario, Orleans, Oswego, Schuyler, Seneca, Steuben, St. Lawrence, Tioga, Tompkins, Wayne, Wyoming, Yates"
+        }
+      ]
+    },
+    {
+      "id": "eastern-new-york",
+      "name": "Eastern New York",
+      "short": "E. NY",
+      "headShliach": "Yisroel Rubin",
+      "territory": [
+        {
+          "counties": [
+            "36001",
+            "36019",
+            "36021",
+            "36025",
+            "36027",
+            "36031",
+            "36033",
+            "36035",
+            "36039",
+            "36041",
+            "36057",
+            "36071",
+            "36077",
+            "36079",
+            "36083",
+            "36091",
+            "36093",
+            "36095",
+            "36105",
+            "36111",
+            "36113",
+            "36115"
+          ],
+          "name": "Albany, Clinton, Columbia, Delaware, Dutchess, Essex, Franklin, Fulton, Greene, Hamilton, Montgomery, Orange, Otsego, Putnam, Rensselaer, Saratoga, Schenectady, Schoharie, Sullivan, Ulster, Warren, Washington"
+        }
+      ]
+    },
+    {
       "id": "maine",
       "name": "Maine",
       "headShliach": "Moshe Wilansky",

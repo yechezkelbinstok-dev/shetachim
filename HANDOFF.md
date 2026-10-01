@@ -316,7 +316,7 @@ The owner got very angry at the first version. The lessons:
   supporting files under `data/`.
 
 ## Open questions for the owner
-- Ohio and the rest of New York: which shetachim, when the owner has them.
+- Ohio: which shetachim, when the owner has it. New York is decided (Upstate: Gurary, Eastern: Rubin) except Rockland County, which is in neither list — blank until the owner places it.
 - Anything in the current list that turns out wrong (it came from another AI).
 - DC; co-head or deceased head shliach display (Victoria's entry lists three names as "Disputed — …"; UK's is
   "Hanholo of Chabad Lubavitch UK"; Tunisia's "Pinson family" — shown as given for now).

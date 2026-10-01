@@ -94,7 +94,7 @@ Later in the same round:
   as a maritime line (the owner circled them as not fitting the new borders). The political map and SVGs still
   outline the water's colour there, like the rest of Ontario's lake water.
 - **Alberta** now also takes the Northwest Territories and Yukon south of 63°N (name stays "Alberta"; shape
-  `data/shapes/north-to-63.geojson` cuts both territories; what's north of 63° is drawn blank, Nunavut is left off the map,
+  `data/shapes/north-to-63.geojson` cuts both territories; what is north of 63° is left off the map like Nunavut (`notShownWhenBlank`),
   `notShown`). New panel option **Alaska: In a box / In place** (political map, views with Alaska; default box; the physical
   map is always in place). The page is titled **Chabad Shetachim** (was plain "Shetachim").
 - **Upper Midwest** (owner, Oct 1): North and South Dakota joined Minnesota under Moshe Feller; the shetach is now

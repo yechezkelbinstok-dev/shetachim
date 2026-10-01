@@ -674,10 +674,11 @@ async function buildGeo(data) {
   const absorbed = absorbSlivers(mosaic.filter((f) => shapeStates.includes(f.properties.state)));
   if (absorbed) console.log(`${absorbed} slivers along shape edges given to the shape beside them`);
   const pieceOf = (p) => `${p.state}:${p.shetach ?? 'none'}`;
+  const leaveOff = data.notShownWhenBlank || []; // states whose unclaimed part is left off the map, like notShown ones (the territories north of 63°N)
   const lakePieces = new Set(mosaic.filter((f) => f.properties.lake).map((f) => pieceOf(f.properties)));
   for (const f of mosaic) {
     const p = f.properties, piece = pieceOf(p);
-    f.properties = { piece, state: p.state, name: p.name, abbr: p.abbr, country: p.country, shetach: p.shetach, outside: !!p.outside, lake: lakePieces.has(piece) };
+    f.properties = { piece, state: p.state, name: p.name, abbr: p.abbr, country: p.country, shetach: p.shetach, outside: !!p.outside || (!p.shetach && leaveOff.includes(p.state)), lake: lakePieces.has(piece) };
   }
 
   // Small islands are dropped to keep the page light, except from areas that are small altogether (Bermuda, the

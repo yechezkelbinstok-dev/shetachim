@@ -2855,7 +2855,6 @@
   {
    "id": "victoria",
    "name": "Victoria",
-   "short": "Vic",
    "headShliach": "Disputed — Chaim Tzvi Groner; Yoselle Gutnick; Hendel Serebryanski",
    "capital": {
     "centerId": "117782",
@@ -2890,7 +2889,8 @@
      "lat": -37.87215,
      "lon": 144.99912
     }
-   ]
+   ],
+   "labelState": "AU-VIC"
   },
   {
    "id": "brisbane",
@@ -2911,31 +2911,6 @@
      "city": "Brisbane",
      "lat": -27.50705,
      "lon": 153.10308
-    }
-   ]
-  },
-  {
-   "id": "gold-coast",
-   "name": "Gold Coast",
-   "short": [
-    "G. Coast",
-    "GC"
-   ],
-   "headShliach": "Nir Gurevitch",
-   "capital": {
-    "centerId": "118291",
-    "name": "Chabad Gold Coast",
-    "city": "Surfers Paradise",
-    "lat": -28.01126,
-    "lon": 153.42065
-   },
-   "capitals": [
-    {
-     "centerId": "118291",
-     "name": "Chabad Gold Coast",
-     "city": "Surfers Paradise",
-     "lat": -28.01126,
-     "lon": 153.42065
     }
    ]
   },

@@ -29,6 +29,12 @@ between two Claude accounts when usage limits run out; whichever session picks t
 - **West Virginia** is entirely in **Western Pennsylvania** (Yisroel Rosenfeld) — the owner briefly kept 8 eastern
   counties with Virginia, then reversed it. Its name centres on Pennsylvania (`labelCentre: "US-PA"`, softer than
   Alberta's `labelState`: aims at that state's part but may run a little into West Virginia).
+- **The Gold Coast is an exclave of Victoria (Melbourne)** (Oct 1, the owner's call): the City of Gold Coast
+  (`gold-coast-lga`) is part of the Victoria shetach; the separate Gold Coast shetach (Nir Gurevitch) is gone.
+  Victoria (disputed) has a capital per claimant: Groner — Yeshivah Centre; Gutnick — Chabad House of Caulfield;
+  Serebryanski — Merkos L'inyonei Chinuch (`capital` is a list with `for`). "Disputed" is set in italics.
+- **Puerto Vallarta** and the coast south of it (Cabo Corrientes, Tomatlán without its inland finger) are in the Nayarit
+  shetach (`data/shapes/jalisco-costa-norte.geojson`); Guadalajara keeps the rest of Jalisco.
 - **Cyprus includes the British Sovereign Base Areas** (Akrotiri, Dhekelia): Natural Earth shapes (`CYPRUS_EXTRA` in
   the build; GADM has none), merged into Cyprus itself.
 

@@ -558,7 +558,8 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
     if (!chosen) {
       // Beside the map if there's a good spot near it; else inside after all, as small as it takes (down to 5 px).
       const small = TINY > 5 ? choose(5) : null;
-      lost.push({ name: forms.offshore, px, py, inside: small });
+      // last: the name inside after all, however small, only if no spot beside the map can be found (never dropped)
+      lost.push({ name: forms.offshore, px, py, inside: small, last: small || choose(1.5) });
       continue;
     }
     out.push(chosen);
@@ -723,7 +724,7 @@ function placeAside(lost, out, list, projection, { size, cell = 3, reach = 900, 
           if (l.inside) { out.push(l.inside); continue; }
           // over water if it can be (not a long line across a neighbour), else the least other land crossed
           const found = search(l, l.w, far, Math.round(maxCross / cell)) || search(l, l.w, far, Infinity) || search(l, l.w, far, Infinity, false);
-          if (!found) { fail(l.name, 5000); continue; }
+          if (!found) { fail(l.name, 5000); if (l.last) out.push(l.last); continue; }
           out.push({ lines: [l.name], size, cx: found.cx, cy: found.cy, h });
           mark([found.cx - l.w / 2 - gap, found.cy - h / 2 - gap, found.cx + l.w / 2 + gap, found.cy + h / 2 + gap]);
           lineCells([l.px, l.py], found.end, (gx, gy) => { if (gx >= 0 && gy >= 0 && gx < gw && gy < gh && grid[gy * gw + gx] !== 2) grid[gy * gw + gx] = 3; });
@@ -750,7 +751,7 @@ function placeAside(lost, out, list, projection, { size, cell = 3, reach = 900, 
           }
         }
         const at = side.sort((a, b) => a.dist - b.dist)[0];
-        if (!at) { for (const l of g) fail(l.name, 5000); continue; }
+        if (!at) { for (const l of g) { fail(l.name, 5000); if (l.last) out.push(l.last); } continue; }
         const { y0 } = at;
         // rows in the order the leaders arrive, seen from the column, so no two cross
         const ax = at.dir > 0 ? at.x : at.x + colW, cyMid = y0 + colH / 2;

@@ -1953,8 +1953,14 @@
       "name": "Victoria",
       "headShliach": "Disputed — Chaim Tzvi Groner; Yoselle Gutnick; Hendel Serebryanski",
       "territory": [
-        "AU-VIC"
+        "AU-VIC",
+        {
+          "state": "AU-QLD",
+          "shape": "gold-coast-lga",
+          "name": "The City of Gold Coast: an exclave of the Victoria (Melbourne) shetach"
+        }
       ],
+      "labelState": "AU-VIC",
       "capital": [
         {
           "centerId": "117782",
@@ -1984,24 +1990,6 @@
       ],
       "capital": {
         "centerId": "118204"
-      }
-    },
-    {
-      "id": "gold-coast",
-      "name": "Gold Coast",
-      "short": [
-        "G. Coast",
-        "GC"
-      ],
-      "headShliach": "Nir Gurevitch",
-      "territory": [
-        {
-          "state": "AU-QLD",
-          "shape": "gold-coast-lga"
-        }
-      ],
-      "capital": {
-        "centerId": "118291"
       }
     },
     {

@@ -35,9 +35,9 @@ between two Claude accounts when usage limits run out; whichever session picks t
   Serebryanski — Merkos L'inyonei Chinuch (`capital` is a list with `for`). "Disputed" is set in italics.
 - **"Land with no shetach"** (More options checkbox, off by default): the political map draws land no shetach covers
   (`web/data/outside.json`, written by the build) and the land outside the current view in plain grey (`--empty`).
-- **India has no head shliach** (`noCentralLeadership: true`): its card says "No centralized leadership" (אין הנהגה
-  מרכזית); in the head-shliach label modes and on the name SVGs India gets no name (still coloured, named in
-  shetach-name mode). Israel's name on the world poster goes beside the map with a short leader (`ASIDE_NAMES`);
+- **India is in the Thailand shetach** (Yosef Chaim Kantor; joined through Myanmar; `labelCentre: "THA"` keeps the name
+  on Thailand). (Briefly it was its own shetach with "No centralized leadership" — `noCentralLeadership: true` still
+  works for any shetach without a head: no head name on the map, that line on its card.) Israel's name on the world poster goes beside the map with a short leader (`ASIDE_NAMES`);
   Hawaii's runs across its islands (`SEA_NAMES` 'chain'). The US & Canada names maps use short leaders to the nearest
   water (`aside`, only the Boston/Cape Cod knot stacked), not one column far out in the Atlantic.
 - **North Queensland** (Ari Rubin; capital Chabad of Northern Queensland, Cairns): Mackay and north, Mount Isa,

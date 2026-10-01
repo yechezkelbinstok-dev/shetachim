@@ -2351,15 +2351,6 @@
    ]
   },
   {
-   "id": "india",
-   "name": "India",
-   "noCentralLeadership": true,
-   "labelAt": [
-    78.9,
-    22.6
-   ]
-  },
-  {
    "id": "nepal",
    "name": "Nepal",
    "headShliach": "Chezky Lifshitz",
@@ -2496,7 +2487,8 @@
      "lat": 13.72623,
      "lon": 100.5641
     }
-   ]
+   ],
+   "labelCentre": "THA"
   },
   {
    "id": "cambodia",

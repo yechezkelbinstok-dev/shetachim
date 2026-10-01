@@ -33,6 +33,8 @@ between two Claude accounts when usage limits run out; whichever session picks t
   (`gold-coast-lga`) is part of the Victoria shetach; the separate Gold Coast shetach (Nir Gurevitch) is gone.
   Victoria (disputed) has a capital per claimant: Groner — Yeshivah Centre; Gutnick — Chabad House of Caulfield;
   Serebryanski — Merkos L'inyonei Chinuch (`capital` is a list with `for`). "Disputed" is set in italics.
+- **"Land with no shetach"** (More options checkbox, off by default): the political map draws land no shetach covers
+  (`web/data/outside.json`, written by the build) and the land outside the current view in plain grey (`--empty`).
 - **India has no head shliach** (`noCentralLeadership: true`): its card says "No centralized leadership" (אין הנהגה
   מרכזית); in the head-shliach label modes and on the name SVGs India gets no name (still coloured, named in
   shetach-name mode). Israel's name on the world poster goes beside the map with a short leader (`ASIDE_NAMES`);

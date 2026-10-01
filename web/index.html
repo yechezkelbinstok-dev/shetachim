@@ -28,6 +28,7 @@ try { const q = new URLSearchParams(location.search).get('lang'); if (q) localSt
   --c1: #f0e1a2; --c2: #cce1b5; --c3: #efc7c1; --c4: #c5d9ee;
   --c5: #f3cfa9; --c6: #d8c8e5; --c7: #bcded6; --c8: #e1d8be;
   --plain: #fcfcfa;
+  --empty: #dcdfdb; /* land with no shetach, when shown */
   /* what the map draws with: the theme's colors, except on the physical map, which is always light */
   --map-ink: var(--ink); --map-halo: var(--halo); --map-dot: var(--dot); --map-accent: var(--accent); --map-missing: var(--missing);
   --font-ui: "Inter", "Heebo", "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -41,6 +42,8 @@ try { const q = new URLSearchParams(location.search).get('lang'); if (q) localSt
     --c1: #5a5026; --c2: #394e30; --c3: #5c3a36; --c4: #2e435f;
     --c5: #5c4228; --c6: #473957; --c7: #294c45; --c8: #494434;
     --plain: #223036;
+  --empty: #2f383c;
+    --empty: #2f383c;
     --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 8px 24px rgb(0 0 0 / .35);
     color-scheme: dark;
   }
@@ -163,6 +166,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #more[open] > summary::after { content: '▴'; }
 .more-body { display: flex; flex-direction: column; gap: 14px; padding-top: 10px; }
 .more-body .checks { display: flex; flex-direction: column; gap: 7px; }
+.legend-empty { display: inline-block; width: 12px; height: 10px; border-radius: 2px; background: var(--empty); border: 1px solid var(--map-ink); opacity: .7; }
 .downloads { font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none; }
 .downloads:hover { text-decoration: underline; }
 .note { margin: 0; font-size: 13px; color: var(--muted); }
@@ -302,6 +306,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           <label class="check" for="show-dots"><input type="checkbox" id="show-dots" checked> <span class="legend-dot" aria-hidden="true"></span> Chabad centers</label>
           <label class="check" for="show-cities"><input type="checkbox" id="show-cities" checked> <span class="legend-ring" aria-hidden="true"></span> Cities with shluchim</label>
           <label class="check" for="show-capitals"><input type="checkbox" id="show-capitals" checked> <svg class="legend-star" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path id="star-shape"/></svg> Shetach capitals</label>
+          <label class="check" for="show-empty"><input type="checkbox" id="show-empty"> <span class="legend-empty" aria-hidden="true"></span> Land with no shetach</label>
           </div>
         <fieldset class="ctl" id="alaska-ctl" hidden>
           <legend>Alaska</legend>
@@ -345,7 +350,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const phone = () => window.matchMedia('(max-width: 760px)').matches;
   const coarse = () => window.matchMedia('(pointer: coarse)').matches;
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const state = { alaska: 'box', view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, cities: true, capitals: true };
+  const state = { empty: false, alaska: 'box', view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, cities: true, capitals: true };
   if (!phone()) $('#panel').classList.remove('collapsed');
 
   // ---------- data ----------
@@ -379,7 +384,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'Latin America & Caribbean': 'אמריקה הלטינית והאיים הקריביים',
     Map: 'מפה', Physical: 'פיזית', Political: 'מדינית', Borders: 'גבולות', States: 'מדינות', Countries: 'ארצות', Both: 'שניהם',
     'Lighter:': 'בהיר יותר:', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', 'Last name': 'שם משפחה', Off: 'ללא',
-    'More options': 'אפשרויות נוספות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים',
+    'More options': 'אפשרויות נוספות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Land with no shetach': 'אזורים ללא שטח',
     Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד',
     'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
     'Download maps (SVG, PNG)': 'הורדת מפות (SVG, PNG)', 'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
@@ -1401,7 +1406,28 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function readPalette() {
     const css = getComputedStyle($('#map'));
     const v = (name) => css.getPropertyValue(name).trim();
-    pal = { c: d3.range(8).map((i) => v(`--c${i + 1}`)), plain: v('--plain'), ink: v('--map-ink'), dot: v('--map-dot'), accent: v('--map-accent') };
+    pal = { c: d3.range(8).map((i) => v(`--c${i + 1}`)), plain: v('--plain'), empty: v('--empty'), ink: v('--map-ink'), dot: v('--map-dot'), accent: v('--map-accent') };
+  }
+  // Land no shetach covers (data/outside.json, loaded the first time it's asked for), as paths for the view: only the
+  // countries near what the view shows, so a conic projection isn't asked to draw the far side of the world.
+  let emptyGeo = null, emptyLoading = false;
+  function emptyPaths() {
+    if (!emptyGeo) {
+      if (!emptyLoading) { emptyLoading = true; get('data/outside.json').then((t) => { emptyGeo = topojson.feature(t, t.objects[Object.keys(t.objects)[0]]).features; requestDraw(); }).catch(() => {}); }
+      return [];
+    }
+    if (V.emptyPaths) return V.emptyPaths;
+    const ll = [];
+    for (let i = 0; i <= 4; i++) for (let j = 0; j <= 4; j++) { const q = projection.invert([(W * i) / 4, (H * j) / 4]); if (q && isFinite(q[0]) && isFinite(q[1])) ll.push(q); }
+    const lon0 = d3.min(ll, (q) => q[0]) - 25, lon1 = d3.max(ll, (q) => q[0]) + 25, lat0 = d3.min(ll, (q) => q[1]) - 15, lat1 = d3.max(ll, (q) => q[1]) + 15;
+    const near = (f) => { const [[a, b], [c, d]] = d3.geoBounds(f); return a > c || (c >= lon0 && a <= lon1 && d >= lat0 && b <= lat1); };
+    // and the shetachim outside this view (Canada and Mexico around the US), one shape per country, so the grey reads as
+    // the land around the view rather than holes in it
+    const inView = new Set(V.main), boxed = new Set(V.insetPieces), byCountry = new Map();
+    for (const g of pieces) if (!inView.has(g) && !boxed.has(g)) (byCountry.get(g.properties.country) || byCountry.set(g.properties.country, []).get(g.properties.country)).push(g);
+    const others = [...byCountry.values()].map((gs) => ({ type: 'Feature', geometry: topojson.merge(topo, gs) }));
+    V.emptyPaths = [...emptyGeo, ...others].filter(near).map((f) => new Path2D(geoPath(f) || ''));
+    return V.emptyPaths;
   }
   function requestDraw() { if (!drawQueued) drawQueued = requestAnimationFrame(draw); }
   function draw() {
@@ -1415,6 +1441,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const vx0 = -T.x / k, vy0 = -T.y / k, vx1 = (W - T.x) / k, vy1 = (H - T.y) / k;
     const seen = (b) => b[2] >= vx0 && b[0] <= vx1 && b[3] >= vy0 && b[1] <= vy1;
 
+    // land with no shetach (the option): plain, under everything, its coasts and borders faint
+    if (state.empty) {
+      const paths = emptyPaths();
+      ctx.globalAlpha = 1;
+      ctx.fillStyle = pal.empty;
+      for (const p2 of paths) ctx.fill(p2, 'evenodd');
+      ctx.strokeStyle = pal.ink;
+      ctx.globalAlpha = 0.35;
+      ctx.lineWidth = 0.8 / k;
+      for (const p2 of paths) ctx.stroke(p2);
+    }
     // fills: shetachim (blank parts of states stay unfilled), or states with States borders
     ctx.globalAlpha = state.borders === 'both' && state.lighter === 'shetach' ? 0.55 : 1;
     for (const r of state.borders === 'regular' ? V.states : V.regions) {
@@ -1954,6 +1991,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (name === 'view' || name === 'alaska') { hideCard(); layout(); }
     apply();
   }));
+  $('#show-empty').addEventListener('change', (e) => { state.empty = e.target.checked; requestDraw(); });
   for (const [id, key] of [['#show-dots', 'dots'], ['#show-cities', 'cities'], ['#show-capitals', 'capitals']]) {
     $(id).addEventListener('change', (e) => { state[key] = e.target.checked; apply(); });
   }

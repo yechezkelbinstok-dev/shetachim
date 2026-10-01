@@ -8,6 +8,40 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## OWNER'S STANDING RULES (Oct 1) — never undo these
+- **Head shliach names are never shortened to the last name alone** — not on the live map, not in the SVGs. Only the
+  full name (one line or two), or, for someone with middle names, first + last name ("Yosef Yitzchak Aharonov" →
+  "Yosef Aharonov") until zoomed in; where neither fits, no name. Families and leadership entries ("Alevsky family",
+  "Hanholo of Chabad Lubavitch UK") are never shortened. (`shetachLabel`/`firstAndLast` in the page; `nameForms` in
+  scripts/export-svg.mjs.) The separate "Last name" label mode stays as an explicit choice.
+- **Alberta's name sits on Alberta itself** in every label mode (`labelState: "CA-AB"`: the page keeps the name within
+  that state's part while it's on screen — it used to only aim there, and the two-line head-shliach name drifted up
+  into the territories' strip). The Alberta shetach's territories part ends at **110°W** (the Alberta–Saskatchewan
+  line carried up to 63°N; `data/shapes/north-to-63.geojson`); the NWT east of it is in no shetach and left off.
+- **Judea and Samaria is Israel** (see below); Peru is the **Blumenfeld family** (Tunisia: Pinson family, Northeast
+  Ohio: Alevsky family; each has `lastName` so Last-name mode shows the surname, not "family").
+- Ohio: Northeast Ohio (Alevsky family), Central Ohio (Areyah Kaltmann), **Southern** Ohio (Sholom Ber Kalmanson; not
+  "Western"), the Toledo area in Michigan. Capitals: Chabad of Cleveland, Chabad of Columbus, and Chabad of Southern
+  Ohio's office (7380 Laurel Oak Lane, Amberley Village; hand-added in `data/extra-centers.json`).
+- Before changing anything on the live map, check what the other account last did (`git log` on
+  `claude/bold-albattani-aqfnj9`, and this file) and keep it.
+
+## World names SVG (Oct 1, in progress on the other account's branch `ccr-1f9385a8-jca1nj` until pushed)
+`web/shetachim-map-names.svg` (+ .png): the whole world at poster size (10,800 px wide, Natural Earth projection), every
+shetach coloured with its head shliach's name; land no shetach covers is one plain grey swath with no borders inside
+it (from `data/world-all.json`, which the build now writes); Antarctica left off. Names (scripts/export-svg.mjs):
+- centred in their shetach both ways (`offCentre`: midway between the borders above/below and either side, plus near
+  the shetach's middle), shrinking up to a third to get there; Virginia was the example (it had sat on the southern
+  border). `labelAt` [lon, lat] in data/shetachim.json overrides the middle (India: mainland India, not pulled toward
+  the northeast past Bangladesh). Same code for the US & Canada names SVG.
+- too small inside at 12 px: a short leader to nearby open water (no crossing other names/leaders, ≤25 px over other
+  countries' land); else inside at a readable 8 px+; else crowded clusters (5+ close together: the US Northeast) in one
+  ordered column offshore; lone ones at the nearest spot with the least crossing.
+- Lower Balkans (Yoel Kaplan): one name with a leader from each of its two parts (Bosnia; Albania–northern Greece) —
+  `split`: big parts that other land keeps apart (shortest gap mostly someone else's land).
+- `ONLY=id,id WHY="Name" node scripts/export-svg.mjs 3600 world-names` renders just some shetachim and says why spots
+  were refused — a full render takes ~10–15 min. `node scripts/svg-png.mjs [file.svg]` makes the PNGs (Chromium).
+
 ## LATEST (Sept 30 – Oct 1) — read before "RIGHT NOW" below
 
 Done in this round:

@@ -382,7 +382,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
     'Loading…': 'טוען…', "This browser can't show the physical map.": 'הדפדפן הזה לא יכול להציג את המפה הפיזית.', "The physical map couldn't load.": 'המפה הפיזית לא נטענה.',
     'Open on chabad.org': 'לעמוד ב-chabad.org', 'World Headquarters': 'המטה העולמי', 'Same address': 'אותה כתובת', City: 'עיר', Population: 'אוכלוסייה',
-    Province: 'פרובינציה', State: 'מדינה', Country: 'ארץ', 'Capital:': 'בירה:', Leadership: 'הנהלה',
+    Province: 'פרובינציה', State: 'מדינה', Country: 'ארץ', Capital: 'בירה', Leadership: 'הנהלה',
     // center types (chabad.org's)
     'Chabad House': 'בית חב״ד', 'High School - Girls': 'תיכון לבנות', 'Vocational School': 'בית ספר מקצועי', Preschool: 'גן ילדים', 'Hebrew School': 'תלמוד תורה',
     'Yeshivah Ketanah/Mesivtah': 'ישיבה קטנה', 'Day School': 'בית ספר', 'Yeshivah for Beginners - Men': 'ישיבה למתחילים', Kollel: 'כולל', 'Social Services': 'שירותי רווחה',
@@ -400,6 +400,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'Kosher Store': 'חנות כשרה',
   };
   const tr = (t) => (HE && HE_TEXT[t]) || t;
+  // a disputed shetach's head: "Disputed — A; B; C", the word "Disputed" set in italics
+  const DISPUTED = /^(Disputed|במחלוקת)(.*)$/;
   if (HE) {
     const he = await get('data/he.json').catch(() => null);
     if (he) {
@@ -407,11 +409,16 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         const h = he.shetachim[s.id];
         if (!h) continue;
         // first and last name only, for someone with middle names: as in English, by the English name's word count
-        const words = (s.headShliach || '').trim().split(/\s+/);
+        const englishHead = s.headShliach || '';
+        const words = englishHead.trim().split(/\s+/);
         const personal = !s.headTitle && words.length > 2 && !/[;—]|\b(family|of)\b/i.test(s.headShliach);
         Object.assign(s, { name: h.name, short: h.short, headShliach: h.headShliach, lastName: h.lastName, headTitle: h.headTitle || (s.headTitle && tr(s.headTitle)),
           firstLast: personal ? `${h.headShliach.split(/\s+/)[0]} ${h.lastName}` : null });
-        if (s.capital) s.capital = { ...s.capital, city: he.cities[s.capital.city] || s.capital.city };
+        // a disputed shetach's capitals name their claimant: the same place in the Hebrew list of names
+        const names = (list) => list.replace(/^.*?—\s*/, '').split(/;\s*/);
+        const en = names(englishHead), hn = names(h.headShliach);
+        s.capitals = (s.capitals || []).map((c) => ({ ...c, city: he.cities[c.city] || c.city, for: c.for && (hn[en.indexOf(c.for)] || c.for) }));
+        if (s.capital) s.capital = s.capitals[0];
       }
       for (const g of topo.objects.areas.geometries) { const n = he.areas[g.properties.state]; if (n) { g.properties.name = n; g.properties.abbr = ''; } }
       for (const c of cityFile) c.name = he.cities[c.name] || c.name;
@@ -423,8 +430,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       // a capital's name: its center's Hebrew name, where it has one
       const byId = new Map(centersGeo.features.flatMap((f) => f.properties.centers.map((c) => [c.id, c])));
       for (const s of shetachFile.shetachim) {
-        const c = s.capital && byId.get(s.capital.centerId);
-        if (c && /[\u0590-\u05ff]/.test(c.name)) s.capital.name = c.name;
+        for (const cap of s.capitals || []) {
+          const c = byId.get(cap.centerId);
+          if (c && /[\u0590-\u05ff]/.test(c.name)) cap.name = c.name;
+        }
       }
     }
     // the page's own words: every text and label in the panel and the buttons
@@ -475,10 +484,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const dotOfCenter = new Map(dots.flatMap((d) => d.centers.map((c) => [c.id, d])));
 
   // A capital is a star at the shetach's headquarters (the build worked out where it is); 770 gets a bigger one.
-  const capitals = [...shetachById.values()].filter((s) => s.capital && Number.isFinite(s.capital.lat)).map((s) => {
-    const dot = dotOfCenter.get(s.capital.centerId);
-    return { s, ...s.capital, piece: dot ? dot.piece : s.pieces[0] && s.pieces[0].properties.id, center: dot && dot.centers.find((c) => c.id === s.capital.centerId) };
-  });
+  // (a disputed shetach has one per claimant: Victoria)
+  const capitals = [...shetachById.values()].flatMap((s) => (s.capitals || (s.capital ? [s.capital] : [])).filter((cap) => Number.isFinite(cap.lat)).map((cap) => {
+    const dot = dotOfCenter.get(cap.centerId);
+    return { s, ...cap, piece: dot ? dot.piece : s.pieces[0] && s.pieces[0].properties.id, center: dot && dot.centers.find((c) => c.id === cap.centerId) };
+  }));
   const capitalOfCenter = new Map(capitals.filter((c) => c.centerId).map((c) => [c.centerId, c]));
   // Bigger cities are labelled first and from further out. A city with many centers counts as big even when
   // GeoNames doesn't know it (Thornhill), so weigh each center as 5,000 people.
@@ -1305,7 +1315,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       .each(function (L) {
         const n = L.show.lines.length;
         d3.select(this).selectAll('tspan').data(L.show.lines).join('tspan')
-          .attr('x', 0).attr('dy', (t, i) => `${i ? LINE : (-(n - 1) / 2) * LINE}em`).text((t) => t);
+          .attr('x', 0).attr('dy', (t, i) => `${i ? LINE : (-(n - 1) / 2) * LINE}em`)
+          .each(function (t) { // "Disputed" in italics, the names upright
+            const m = DISPUTED.exec(t), el = d3.select(this).text(m ? null : t);
+            if (m) { el.append('tspan').attr('font-style', 'italic').text(m[1]); el.append('tspan').text(m[2]); }
+          });
       });
     placeMarks(boxes, stars, covered);
     moveLabels();
@@ -1760,6 +1774,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return pickAt(mx, my, event.pointerType === 'touch', event.target);
   }
 
+  const headHTML = (t) => { const m = DISPUTED.exec(t || ''); return m ? `<em>${esc(m[1])}</em>${esc(m[2])}` : esc(t); };
   const count = (n) => (HE ? (n === 1 ? 'מוסד אחד' : `${fmt(n)} מוסדות`) : `${fmt(n)} ${n === 1 ? 'center' : 'centers'}`);
   const chabadLink = (c) => (c && c.slug ? `<a href="https://www.chabad.org/jewish-centers/${esc(c.pageId || c.id)}/${esc(c.slug)}" target="_blank" rel="noopener">${tr('Open on chabad.org')}</a>` : '');
   // withHead: false just names the shetach whose territory this is, without implying its head shliach
@@ -1767,12 +1782,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function shetachLine(pieceId, withHead = true) {
     const g = pieceById.get(pieceId);
     const s = g && shetachOf(g);
-    if (s) return withHead ? `${esc(s.name)} · ${esc(s.headShliach)}` : esc(s.name);
+    if (s) return withHead ? `${esc(s.name)} · ${headHTML(s.headShliach)}` : esc(s.name);
     return g ? esc(g.properties.name) : '';
   }
 
   // A shetach's flagship center; 770 (world HQ) gets its own wording rather than "of New York City".
-  const capKicker = (c) => (c.world ? tr('World Headquarters') : HE ? `המוסד המרכזי של ${esc(c.s.name)}` : `${esc(c.s.name)} flagship center`);
+  const capKicker = (c) => (c.world ? tr('World Headquarters') : (HE ? `המוסד המרכזי של ${esc(c.s.name)}` : `${esc(c.s.name)} flagship center`) + (c.for ? ` · ${esc(c.for)}` : ''));
 
   // Who's listed at a center (chabad.org's own listing, when scripts/chabad-personnel-scrape.js has
   // been run): the first one still living is shown as the shliach; anyone else goes under "+more".
@@ -1826,9 +1841,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       return `<span class="kicker">${areaKind(p)}</span><h2>${esc(p.name)}</h2>${part}
         <div class="foot"><span class="meta">${count(centersInState(p.state))}</span>${zoomBtn}</div>`;
     }
-    const capital = s.capital ? `<p>${tr('Capital:')} ${esc(s.capital.name)}${s.capital.city ? `, ${esc(s.capital.city)}` : ''}</p>` : '';
+    const caps = s.capitals || (s.capital ? [s.capital] : []);
+    // "Capital: …", or for a disputed shetach "Capital (Chaim Tzvi Groner): …", one per claimant
+    const capital = caps.map((c) => `<p>${tr('Capital')}${c.for ? ` (${esc(c.for)})` : ''}: ${esc(c.name)}${c.city ? `, ${esc(c.city)}` : ''}</p>`).join('');
     return `<h2>${esc(s.name)}</h2>
-      <p>${esc(s.headTitle || tr('Head shliach'))}: ${esc(s.headShliach)}</p>${capital}
+      <p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>${capital}
       <div class="foot"><span class="meta">${count(centersInShetach(s))}</span>${zoomBtn}</div>`;
   }
 

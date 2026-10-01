@@ -1955,9 +1955,16 @@
       "territory": [
         "AU-VIC"
       ],
-      "capital": {
-        "centerId": "117782"
-      }
+      "capital": [
+        {
+          "centerId": "117782",
+          "for": "Chaim Tzvi Groner"
+        },
+        {
+          "centerId": "117755",
+          "for": "Hendel Serebryanski"
+        }
+      ]
     },
     {
       "id": "brisbane",

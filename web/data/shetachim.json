@@ -14,7 +14,16 @@
     "city": "Los Angeles",
     "lat": 34.06451,
     "lon": -118.44847
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117555",
+     "name": "Chabad West Coast Headquarters",
+     "city": "Los Angeles",
+     "lat": 34.06451,
+     "lon": -118.44847
+    }
+   ]
   },
   {
    "id": "alaska",
@@ -27,7 +36,16 @@
     "city": "Anchorage",
     "lat": 61.18982,
     "lon": -149.86103
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117927",
+     "name": "Lubavitch Jewish Center of Alaska",
+     "city": "Anchorage",
+     "lat": 61.18982,
+     "lon": -149.86103
+    }
+   ]
   },
   {
    "id": "washington",
@@ -40,7 +58,16 @@
     "city": "Seattle",
     "lat": 47.71901,
     "lon": -122.29124
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117737",
+     "name": "Regional Offices of Chabad-Lubavitch of the Pacific Northwest & Seattle",
+     "city": "Seattle",
+     "lat": 47.71901,
+     "lon": -122.29124
+    }
+   ]
   },
   {
    "id": "oregon",
@@ -53,7 +80,16 @@
     "city": "Portland",
     "lat": 45.47573,
     "lon": -122.7027
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118188",
+     "name": "Chabad Lubavitch of Oregon",
+     "city": "Portland",
+     "lat": 45.47573,
+     "lon": -122.7027
+    }
+   ]
   },
   {
    "id": "hawaii",
@@ -66,7 +102,16 @@
     "city": "Honolulu",
     "lat": 21.28808,
     "lon": -157.82947
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117608",
+     "name": "Chabad of Hawaii",
+     "city": "Honolulu",
+     "lat": 21.28808,
+     "lon": -157.82947
+    }
+   ]
   },
   {
    "id": "idaho",
@@ -79,7 +124,16 @@
     "city": "Boise",
     "lat": 43.58768,
     "lon": -116.29468
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118662",
+     "name": "Chabad Lubavitch of Idaho",
+     "city": "Boise",
+     "lat": 43.58768,
+     "lon": -116.29468
+    }
+   ]
   },
   {
    "id": "montana",
@@ -92,7 +146,16 @@
     "city": "Bozeman",
     "lat": 45.6714,
     "lon": -111.0133
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "486805",
+     "name": "Chabad-Lubavitch of Montana",
+     "city": "Bozeman",
+     "lat": 45.6714,
+     "lon": -111.0133
+    }
+   ]
   },
   {
    "id": "wyoming",
@@ -105,7 +168,16 @@
     "city": "Jackson",
     "lat": 43.46952,
     "lon": -110.78917
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "672689",
+     "name": "Chabad-Lubavitch of Wyoming",
+     "city": "Jackson",
+     "lat": 43.46952,
+     "lon": -110.78917
+    }
+   ]
   },
   {
    "id": "utah",
@@ -118,7 +190,16 @@
     "city": "Salt Lake City",
     "lat": 40.73198,
     "lon": -111.85964
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117910",
+     "name": "Chabad Lubavitch of Utah",
+     "city": "Salt Lake City",
+     "lat": 40.73198,
+     "lon": -111.85964
+    }
+   ]
   },
   {
    "id": "colorado",
@@ -131,7 +212,16 @@
     "city": "Denver",
     "lat": 39.70913,
     "lon": -104.92197
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "5964928",
+     "name": "Chabad Lubavitch of Colorado",
+     "city": "Denver",
+     "lat": 39.70913,
+     "lon": -104.92197
+    }
+   ]
   },
   {
    "id": "arizona",
@@ -144,7 +234,16 @@
     "city": "Phoenix",
     "lat": 33.53917,
     "lon": -112.03549
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117539",
+     "name": "Chabad Lubavitch of Arizona",
+     "city": "Phoenix",
+     "lat": 33.53917,
+     "lon": -112.03549
+    }
+   ]
   },
   {
    "id": "new-mexico",
@@ -157,7 +256,16 @@
     "city": "Albuquerque",
     "lat": 35.13012,
     "lon": -106.57722
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117962",
+     "name": "Chabad of New Mexico",
+     "city": "Albuquerque",
+     "lat": 35.13012,
+     "lon": -106.57722
+    }
+   ]
   },
   {
    "id": "nebraska",
@@ -170,7 +278,16 @@
     "city": "Omaha",
     "lat": 41.24068,
     "lon": -96.10118
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117651",
+     "name": "Chabad-Lubavitch of Nebraska",
+     "city": "Omaha",
+     "lat": 41.24068,
+     "lon": -96.10118
+    }
+   ]
   },
   {
    "id": "upper-midwest",
@@ -186,7 +303,16 @@
     "city": "West S. Paul",
     "lat": 44.89012,
     "lon": -93.10168
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117647",
+     "name": "Upper Midwest Merkos - Lubavitch House",
+     "city": "West S. Paul",
+     "lat": 44.89012,
+     "lon": -93.10168
+    }
+   ]
   },
   {
    "id": "iowa",
@@ -199,7 +325,16 @@
     "city": "Des Moines",
     "lat": 41.59508,
     "lon": -93.70069
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117609",
+     "name": "Lubavitch of Iowa",
+     "city": "Des Moines",
+     "lat": 41.59508,
+     "lon": -93.70069
+    }
+   ]
   },
   {
    "id": "kansas-missouri",
@@ -212,7 +347,16 @@
     "city": "Overland Park",
     "lat": 38.93945,
     "lon": -94.65616
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117620",
+     "name": "Chabad House Center of Kansas City",
+     "city": "Overland Park",
+     "lat": 38.93945,
+     "lon": -94.65616
+    }
+   ]
   },
   {
    "id": "wisconsin",
@@ -225,7 +369,16 @@
     "city": "Milwaukee",
     "lat": 43.07499,
     "lon": -87.87252
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117740",
+     "name": "Lubavitch of Wisconsin",
+     "city": "Milwaukee",
+     "lat": 43.07499,
+     "lon": -87.87252
+    }
+   ]
   },
   {
    "id": "illinois",
@@ -238,7 +391,16 @@
     "city": "Chicago",
     "lat": 42.01922,
     "lon": -87.70058
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117610",
+     "name": "Lubavitch Chabad of Illinois",
+     "city": "Chicago",
+     "lat": 42.01922,
+     "lon": -87.70058
+    }
+   ]
   },
   {
    "id": "michigan",
@@ -251,7 +413,16 @@
     "city": "Oak Park",
     "lat": 42.45994,
     "lon": -83.18833
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117640",
+     "name": "Chabad Lubavitch of Michigan",
+     "city": "Oak Park",
+     "lat": 42.45994,
+     "lon": -83.18833
+    }
+   ]
   },
   {
    "id": "northeast-ohio",
@@ -268,7 +439,16 @@
     "city": "Cleveland",
     "lat": 41.49162,
     "lon": -81.51632
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117708",
+     "name": "Chabad of Cleveland",
+     "city": "Cleveland",
+     "lat": 41.49162,
+     "lon": -81.51632
+    }
+   ]
   },
   {
    "id": "central-ohio",
@@ -284,7 +464,16 @@
     "city": "New Albany",
     "lat": 40.08184,
     "lon": -82.82389
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117950",
+     "name": "Chabad of Columbus",
+     "city": "New Albany",
+     "lat": 40.08184,
+     "lon": -82.82389
+    }
+   ]
   },
   {
    "id": "southern-ohio",
@@ -300,7 +489,16 @@
     "city": "Amberley Village",
     "lat": 39.20176,
     "lon": -84.44424
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "extra-chabad-southern-ohio",
+     "name": "Chabad of Southern Ohio",
+     "city": "Amberley Village",
+     "lat": 39.20176,
+     "lon": -84.44424
+    }
+   ]
   },
   {
    "id": "indiana",
@@ -313,7 +511,16 @@
     "city": "Indianapolis",
     "lat": 39.92872,
     "lon": -86.20771
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117619",
+     "name": "Lubavitch of Indiana - Chabad Center for Jewish Life",
+     "city": "Indianapolis",
+     "lat": 39.92872,
+     "lon": -86.20771
+    }
+   ]
   },
   {
    "id": "kentucky",
@@ -326,7 +533,16 @@
     "city": "Louisville",
     "lat": 38.2255,
     "lon": -85.64593
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117621",
+     "name": "Chabad of Kentucky",
+     "city": "Louisville",
+     "lat": 38.2255,
+     "lon": -85.64593
+    }
+   ]
   },
   {
    "id": "tennessee",
@@ -339,7 +555,16 @@
     "city": "Memphis",
     "lat": 35.07897,
     "lon": -89.84142
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117977",
+     "name": "Chabad Lubavitch of Tennessee",
+     "city": "Memphis",
+     "lat": 35.07897,
+     "lon": -89.84142
+    }
+   ]
   },
   {
    "id": "oklahoma",
@@ -352,7 +577,16 @@
     "city": "Tulsa",
     "lat": 36.06703,
     "lon": -95.96725
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117712",
+     "name": "Chabad House Lubavitch",
+     "city": "Tulsa",
+     "lat": 36.06703,
+     "lon": -95.96725
+    }
+   ]
   },
   {
    "id": "arkansas",
@@ -365,7 +599,16 @@
     "city": "Little Rock",
     "lat": 34.79204,
     "lon": -92.40462
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117902",
+     "name": "Lubavitch of Arkansas",
+     "city": "Little Rock",
+     "lat": 34.79204,
+     "lon": -92.40462
+    }
+   ]
   },
   {
    "id": "texas",
@@ -378,7 +621,16 @@
     "city": "Houston",
     "lat": 29.66133,
     "lon": -95.50923
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117731",
+     "name": "Chabad Lubavitch Center Regional Hdqts.",
+     "city": "Houston",
+     "lat": 29.66133,
+     "lon": -95.50923
+    }
+   ]
   },
   {
    "id": "louisiana-mississippi",
@@ -391,7 +643,16 @@
     "city": "New Orleans",
     "lat": 29.94009,
     "lon": -90.12296
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117623",
+     "name": "Chabad-Lubavitch of Louisiana",
+     "city": "New Orleans",
+     "lat": 29.94009,
+     "lon": -90.12296
+    }
+   ]
   },
   {
    "id": "alabama",
@@ -404,7 +665,16 @@
     "city": "Birmingham",
     "lat": 33.46848,
     "lon": -86.73954
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117538",
+     "name": "Chabad of Alabama",
+     "city": "Birmingham",
+     "lat": 33.46848,
+     "lon": -86.73954
+    }
+   ]
   },
   {
    "id": "georgia",
@@ -417,7 +687,16 @@
     "city": "Atlanta",
     "lat": 33.89273,
     "lon": -84.36682
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117607",
+     "name": "Chabad Lubavitch of Georgia",
+     "city": "Atlanta",
+     "lat": 33.89273,
+     "lon": -84.36682
+    }
+   ]
   },
   {
    "id": "florida",
@@ -430,7 +709,16 @@
     "city": "Miami Beach",
     "lat": 25.78242,
     "lon": -80.14142
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117598",
+     "name": "Merkos Lubavitch of Florida",
+     "city": "Miami Beach",
+     "lat": 25.78242,
+     "lon": -80.14142
+    }
+   ]
   },
   {
    "id": "the-carolinas",
@@ -446,7 +734,16 @@
     "city": "Charlotte",
     "lat": 35.15092,
     "lon": -80.77219
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117649",
+     "name": "Chabad Center for Jewish Life",
+     "city": "Charlotte",
+     "lat": 35.15092,
+     "lon": -80.77219
+    }
+   ]
   },
   {
    "id": "virginia",
@@ -459,7 +756,16 @@
     "city": "Richmond",
     "lat": 37.58779,
     "lon": -77.60152
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117734",
+     "name": "Chabad of Virginia",
+     "city": "Richmond",
+     "lat": 37.58779,
+     "lon": -77.60152
+    }
+   ]
   },
   {
    "id": "western-pennsylvania",
@@ -473,6 +779,15 @@
     "lat": 40.43223,
     "lon": -79.92783
    },
+   "capitals": [
+    {
+     "centerId": "117721",
+     "name": "Chabad Lubavitch of Western PA",
+     "city": "Pittsburgh",
+     "lat": 40.43223,
+     "lon": -79.92783
+    }
+   ],
    "labelCentre": "US-PA"
   },
   {
@@ -486,7 +801,16 @@
     "city": "Philadelphia",
     "lat": 40.05673,
     "lon": -75.06133
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117715",
+     "name": "Lubavitcher Center",
+     "city": "Philadelphia",
+     "lat": 40.05673,
+     "lon": -75.06133
+    }
+   ]
   },
   {
    "id": "new-jersey",
@@ -499,7 +823,16 @@
     "city": "Morristown",
     "lat": 40.80546,
     "lon": -74.49872
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117657",
+     "name": "Lubavitch of New Jersey Regional Hdqts.",
+     "city": "Morristown",
+     "lat": 40.80546,
+     "lon": -74.49872
+    }
+   ]
   },
   {
    "id": "maryland",
@@ -512,7 +845,16 @@
     "city": "Baltimore",
     "lat": 39.37622,
     "lon": -76.67699
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117634",
+     "name": "Chabad Center and Lubavitch of Maryland",
+     "city": "Baltimore",
+     "lat": 39.37622,
+     "lon": -76.67699
+    }
+   ]
   },
   {
    "id": "washington-dc",
@@ -525,7 +867,16 @@
     "city": "Washington",
     "lat": 38.91553,
     "lon": -77.04699
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117966",
+     "name": "American Friends of Lubavitch (Chabad)",
+     "city": "Washington",
+     "lat": 38.91553,
+     "lon": -77.04699
+    }
+   ]
   },
   {
    "id": "delaware",
@@ -538,7 +889,16 @@
     "city": "Wilmington",
     "lat": 39.79836,
     "lon": -75.49719
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117586",
+     "name": "Chabad Lubavitch of Delaware",
+     "city": "Wilmington",
+     "lat": 39.79836,
+     "lon": -75.49719
+    }
+   ]
   },
   {
    "id": "new-york-city",
@@ -553,7 +913,17 @@
     "city": "Brooklyn",
     "lat": 40.66897,
     "lon": -73.94282
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117678",
+     "world": true,
+     "name": "Chabad Lubavitch Headquarters",
+     "city": "Brooklyn",
+     "lat": 40.66897,
+     "lon": -73.94282
+    }
+   ]
   },
   {
    "id": "long-island",
@@ -566,7 +936,16 @@
     "city": "Commack",
     "lat": 40.83535,
     "lon": -73.26695
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117681",
+     "name": "Lubavitch of Long Island",
+     "city": "Commack",
+     "lat": 40.83535,
+     "lon": -73.26695
+    }
+   ]
   },
   {
    "id": "upstate-new-york",
@@ -597,7 +976,16 @@
     "city": "Portland",
     "lat": 43.66433,
     "lon": -70.30165
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117638",
+     "name": "Chabad Lubavitch of Maine",
+     "city": "Portland",
+     "lat": 43.66433,
+     "lon": -70.30165
+    }
+   ]
   },
   {
    "id": "new-hampshire",
@@ -610,7 +998,16 @@
     "city": "Manchester",
     "lat": 43.02421,
     "lon": -71.47038
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117652",
+     "name": "Chabad of New Hampshire",
+     "city": "Manchester",
+     "lat": 43.02421,
+     "lon": -71.47038
+    }
+   ]
   },
   {
    "id": "vermont",
@@ -623,7 +1020,16 @@
     "city": "Burlington",
     "lat": 44.47905,
     "lon": -73.20365
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117736",
+     "name": "Chabad of Vermont",
+     "city": "Burlington",
+     "lat": 44.47905,
+     "lon": -73.20365
+    }
+   ]
   },
   {
    "id": "central-massachusetts",
@@ -636,7 +1042,16 @@
     "city": "Worcester",
     "lat": 42.27184,
     "lon": -71.82396
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117633",
+     "name": "Chabad Lubavitch of Central Massachusetts",
+     "city": "Worcester",
+     "lat": 42.27184,
+     "lon": -71.82396
+    }
+   ]
   },
   {
    "id": "connecticut",
@@ -649,7 +1064,16 @@
     "city": "Stamford",
     "lat": 41.04112,
     "lon": -73.54174
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "2948789",
+     "name": "Chabad Lubavitch of Connecticut & Western Massachusetts",
+     "city": "Stamford",
+     "lat": 41.04112,
+     "lon": -73.54174
+    }
+   ]
   },
   {
    "id": "eastern-massachusetts",
@@ -662,7 +1086,16 @@
     "city": "Boston",
     "lat": 42.34935,
     "lon": -71.09432
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "1591836",
+     "name": "Chabad of Eastern Massachusetts",
+     "city": "Boston",
+     "lat": 42.34935,
+     "lon": -71.09432
+    }
+   ]
   },
   {
    "id": "north-shore-of-massachusetts",
@@ -678,7 +1111,16 @@
     "city": "Swampscott",
     "lat": 42.4689,
     "lon": -70.91907
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117908",
+     "name": "Chabad Lubavitch of the North Shore",
+     "city": "Swampscott",
+     "lat": 42.4689,
+     "lon": -70.91907
+    }
+   ]
   },
   {
    "id": "cape-cod-and-the-islands",
@@ -694,7 +1136,16 @@
     "city": "Hyannis",
     "lat": 41.65321,
     "lon": -70.3224
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118178",
+     "name": "Chabad Lubavitch of Cape Cod",
+     "city": "Hyannis",
+     "lat": 41.65321,
+     "lon": -70.3224
+    }
+   ]
   },
   {
    "id": "rhode-island",
@@ -707,7 +1158,16 @@
     "city": "Providence",
     "lat": 41.83609,
     "lon": -71.40168
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117723",
+     "name": "Merkos - Chabad of Rhode Island / Chabad of Providence",
+     "city": "Providence",
+     "lat": 41.83609,
+     "lon": -71.40168
+    }
+   ]
   },
   {
    "id": "british-columbia",
@@ -720,7 +1180,16 @@
     "city": "Vancouver",
     "lat": 49.23361,
     "lon": -123.12765
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117788",
+     "name": "Chabad-Lubavitch of British Columbia",
+     "city": "Vancouver",
+     "lat": 49.23361,
+     "lon": -123.12765
+    }
+   ]
   },
   {
    "id": "alberta",
@@ -734,6 +1203,15 @@
     "lat": 50.99347,
     "lon": -114.06125
    },
+   "capitals": [
+    {
+     "centerId": "117787",
+     "name": "Chabad Lubavitch of Alberta",
+     "city": "Calgary",
+     "lat": 50.99347,
+     "lon": -114.06125
+    }
+   ],
    "labelState": "CA-AB"
   },
   {
@@ -747,7 +1225,16 @@
     "city": "Winnipeg",
     "lat": 49.85412,
     "lon": -97.20307
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117789",
+     "name": "Chabad-Lubavitch of Winnipeg",
+     "city": "Winnipeg",
+     "lat": 49.85412,
+     "lon": -97.20307
+    }
+   ]
   },
   {
    "id": "ontario",
@@ -760,7 +1247,16 @@
     "city": "Thornhill",
     "lat": 43.79879,
     "lon": -79.44527
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117797",
+     "name": "Chabad Lubavitch Of Southern Ontario",
+     "city": "Thornhill",
+     "lat": 43.79879,
+     "lon": -79.44527
+    }
+   ]
   },
   {
    "id": "quebec",
@@ -773,7 +1269,16 @@
     "city": "Montreal",
     "lat": 45.50258,
     "lon": -73.57742
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117801",
+     "name": "Chabad Lubavitch Youth Organization",
+     "city": "Montreal",
+     "lat": 45.50258,
+     "lon": -73.57742
+    }
+   ]
   },
   {
    "id": "maritimes",
@@ -786,7 +1291,16 @@
     "city": "Halifax",
     "lat": 44.63556,
     "lon": -63.58701
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117790",
+     "name": "Chabad-Lubavitch of the Maritimes",
+     "city": "Halifax",
+     "lat": 44.63556,
+     "lon": -63.58701
+    }
+   ]
   },
   {
    "id": "newfoundland-and-labrador",
@@ -799,7 +1313,16 @@
     "city": "St. John's",
     "lat": 47.57949,
     "lon": -52.72506
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "3610901",
+     "name": "Chabad of Newfoundland",
+     "city": "St. John's",
+     "lat": 47.57949,
+     "lon": -52.72506
+    }
+   ]
   },
   {
    "id": "andorra",
@@ -812,7 +1335,16 @@
     "city": "Andorra la Vella",
     "lat": 42.50632,
     "lon": 1.52184
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "6518150",
+     "name": "Chabad of Andorra",
+     "city": "Andorra la Vella",
+     "lat": 42.50632,
+     "lon": 1.52184
+    }
+   ]
   },
   {
    "id": "austria",
@@ -825,7 +1357,16 @@
     "city": "Vienna",
     "lat": 48.22837,
     "lon": 16.37935
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117785",
+     "name": "Agudas Chasidei Chabad Austria - Headquarters",
+     "city": "Vienna",
+     "lat": 48.22837,
+     "lon": 16.37935
+    }
+   ]
   },
   {
    "id": "belarus",
@@ -838,7 +1379,16 @@
     "city": "Minsk",
     "lat": 53.92279,
     "lon": 27.55947
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117882",
+     "name": "Chabad Lubavitch of Minsk",
+     "city": "Minsk",
+     "lat": 53.92279,
+     "lon": 27.55947
+    }
+   ]
   },
   {
    "id": "belgium",
@@ -851,7 +1401,16 @@
     "city": "Antwerp",
     "lat": 51.20873,
     "lon": 4.42187
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117756",
+     "name": "Chabad Lubavitch of Antwerp",
+     "city": "Antwerp",
+     "lat": 51.20873,
+     "lon": 4.42187
+    }
+   ]
   },
   {
    "id": "bulgaria",
@@ -864,7 +1423,16 @@
     "city": "Sofia",
     "lat": 42.70009,
     "lon": 23.3369
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118478",
+     "name": "The Rohr Chabad Jewish Community Center",
+     "city": "Sofia",
+     "lat": 42.70009,
+     "lon": 23.3369
+    }
+   ]
   },
   {
    "id": "croatia",
@@ -877,7 +1445,16 @@
     "city": "Zagreb",
     "lat": 45.81349,
     "lon": 15.96543
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "279285",
+     "name": "Chabad of Croatia",
+     "city": "Zagreb",
+     "lat": 45.81349,
+     "lon": 15.96543
+    }
+   ]
   },
   {
    "id": "cyprus",
@@ -890,7 +1467,16 @@
     "city": "Larnaca",
     "lat": 34.91261,
     "lon": 33.6327
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118616",
+     "name": "Chabad - CJCC - Cyprus Jewish Community Centres",
+     "city": "Larnaca",
+     "lat": 34.91261,
+     "lon": 33.6327
+    }
+   ]
   },
   {
    "id": "northern-cyprus",
@@ -906,7 +1492,16 @@
     "city": "karaoglanoglu",
     "lat": 35.3392,
     "lon": 33.27283
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "648321",
+     "name": "Chabad-Lubavitch of North Cyprus",
+     "city": "karaoglanoglu",
+     "lat": 35.3392,
+     "lon": 33.27283
+    }
+   ]
   },
   {
    "id": "czech-republic",
@@ -922,7 +1517,16 @@
     "city": "Praha 1",
     "lat": 50.09232,
     "lon": 14.42119
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118213",
+     "name": "Chabad of Prague",
+     "city": "Praha 1",
+     "lat": 50.09232,
+     "lon": 14.42119
+    }
+   ]
   },
   {
    "id": "denmark",
@@ -935,7 +1539,16 @@
     "city": "Copenhagen",
     "lat": 55.68933,
     "lon": 12.57234
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118216",
+     "name": "Chabad of Denmark",
+     "city": "Copenhagen",
+     "lat": 55.68933,
+     "lon": 12.57234
+    }
+   ]
   },
   {
    "id": "estonia",
@@ -948,7 +1561,16 @@
     "city": "Tallinn",
     "lat": 59.43866,
     "lon": 24.76595
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118417",
+     "name": "Estonian Jewish Center",
+     "city": "Tallinn",
+     "lat": 59.43866,
+     "lon": 24.76595
+    }
+   ]
   },
   {
    "id": "finland",
@@ -961,7 +1583,16 @@
     "city": "Helsinki",
     "lat": 60.16944,
     "lon": 24.95729
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118639",
+     "name": "Lubavitch of Finland",
+     "city": "Helsinki",
+     "lat": 60.16944,
+     "lon": 24.95729
+    }
+   ]
   },
   {
    "id": "france",
@@ -974,7 +1605,16 @@
     "city": "Paris",
     "lat": 48.87695,
     "lon": 2.34342
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "330228",
+     "name": "Beit Loubavitch Centre Siège",
+     "city": "Paris",
+     "lat": 48.87695,
+     "lon": 2.34342
+    }
+   ]
   },
   {
    "id": "germany",
@@ -987,7 +1627,16 @@
     "city": "Munich",
     "lat": 48.14052,
     "lon": 11.68187
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117853",
+     "name": "Chabad Lubawitsch Munich",
+     "city": "Munich",
+     "lat": 48.14052,
+     "lon": 11.68187
+    }
+   ]
   },
   {
    "id": "greece",
@@ -1000,7 +1649,16 @@
     "city": "Athens",
     "lat": 37.97791,
     "lon": 23.72399
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118477",
+     "name": "Chabad Lubavitch of Athens Greece",
+     "city": "Athens",
+     "lat": 37.97791,
+     "lon": 23.72399
+    }
+   ]
   },
   {
    "id": "lower-balkans",
@@ -1016,7 +1674,16 @@
     "city": "Thessaloniki",
     "lat": 40.63631,
     "lon": 22.93606
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "792557",
+     "name": "Chabad Lubavitch of Thessaloniki",
+     "city": "Thessaloniki",
+     "lat": 40.63631,
+     "lon": 22.93606
+    }
+   ]
   },
   {
    "id": "hungary",
@@ -1029,7 +1696,16 @@
     "city": "Budapest",
     "lat": 47.49569,
     "lon": 19.05838
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117858",
+     "name": "Lubavitch of Hungary",
+     "city": "Budapest",
+     "lat": 47.49569,
+     "lon": 19.05838
+    }
+   ]
   },
   {
    "id": "iceland",
@@ -1042,7 +1718,16 @@
     "city": "Reykjavik",
     "lat": 64.14663,
     "lon": -21.92915
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "3849544",
+     "name": "Chabad of Iceland",
+     "city": "Reykjavik",
+     "lat": 64.14663,
+     "lon": -21.92915
+    }
+   ]
   },
   {
    "id": "ireland",
@@ -1055,7 +1740,16 @@
     "city": "Dublin",
     "lat": 53.31916,
     "lon": -6.26486
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118401",
+     "name": "Chabad Lubavitch of Ireland",
+     "city": "Dublin",
+     "lat": 53.31916,
+     "lon": -6.26486
+    }
+   ]
   },
   {
    "id": "italy",
@@ -1068,7 +1762,16 @@
     "city": "Milan",
     "lat": 45.47149,
     "lon": 9.20999
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117862",
+     "name": "Merkos L'inyonei Chinuch - 770",
+     "city": "Milan",
+     "lat": 45.47149,
+     "lon": 9.20999
+    }
+   ]
   },
   {
    "id": "slovenia",
@@ -1081,7 +1784,16 @@
     "city": "Trieste",
     "lat": 45.64919,
     "lon": 13.77427
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118457",
+     "name": "Chabad of Trieste and Slovenjia",
+     "city": "Trieste",
+     "lat": 45.64919,
+     "lon": 13.77427
+    }
+   ]
   },
   {
    "id": "latvia",
@@ -1094,7 +1806,16 @@
     "city": "Riga",
     "lat": 56.95939,
     "lon": 24.11183
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117907",
+     "name": "Chabad of Latvia",
+     "city": "Riga",
+     "lat": 56.95939,
+     "lon": 24.11183
+    }
+   ]
   },
   {
    "id": "lithuania",
@@ -1107,7 +1828,16 @@
     "city": "Vilnius",
     "lat": 54.6778,
     "lon": 25.29147
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117978",
+     "name": "Chabad Lubavitch of Lithuania",
+     "city": "Vilnius",
+     "lat": 54.6778,
+     "lon": 25.29147
+    }
+   ]
   },
   {
    "id": "malta",
@@ -1120,7 +1850,16 @@
     "city": "Sliema",
     "lat": 35.91007,
     "lon": 14.49793
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "2015539",
+     "name": "Chabad of Malta",
+     "city": "Sliema",
+     "lat": 35.91007,
+     "lon": 14.49793
+    }
+   ]
   },
   {
    "id": "moldova",
@@ -1133,7 +1872,16 @@
     "city": "Kishinev",
     "lat": 47.02301,
     "lon": 28.84242
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117940",
+     "name": "Chabad Lubavitch of Moldova",
+     "city": "Kishinev",
+     "lat": 47.02301,
+     "lon": 28.84242
+    }
+   ]
   },
   {
    "id": "monaco",
@@ -1146,7 +1894,16 @@
     "city": "Monte Carlo",
     "lat": 43.74013,
     "lon": 7.42288
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "1949364",
+     "name": "Chabad Lubavitch of Monaco",
+     "city": "Monte Carlo",
+     "lat": 43.74013,
+     "lon": 7.42288
+    }
+   ]
   },
   {
    "id": "montenegro",
@@ -1159,7 +1916,16 @@
     "city": "Podgorica",
     "lat": 42.43042,
     "lon": 19.25936
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "3829725",
+     "name": "Lubavitch of Montenegro",
+     "city": "Podgorica",
+     "lat": 42.43042,
+     "lon": 19.25936
+    }
+   ]
   },
   {
    "id": "netherlands",
@@ -1172,7 +1938,16 @@
     "city": "Amersfoort",
     "lat": 52.15548,
     "lon": 5.41351
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117854",
+     "name": "Lubavitch of the Netherlands",
+     "city": "Amersfoort",
+     "lat": 52.15548,
+     "lon": 5.41351
+    }
+   ]
   },
   {
    "id": "norway",
@@ -1185,7 +1960,16 @@
     "city": "Oslo",
     "lat": 59.91217,
     "lon": 10.73127
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118650",
+     "name": "Lubavitch of Norway",
+     "city": "Oslo",
+     "lat": 59.91217,
+     "lon": 10.73127
+    }
+   ]
   },
   {
    "id": "poland",
@@ -1198,7 +1982,16 @@
     "city": "Warsaw",
     "lat": 52.2548,
     "lon": 20.98504
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "331526",
+     "name": "Chabad Lubavitch of Poland",
+     "city": "Warsaw",
+     "lat": 52.2548,
+     "lon": 20.98504
+    }
+   ]
   },
   {
    "id": "portugal",
@@ -1211,7 +2004,16 @@
     "city": "Cascais",
     "lat": 38.69976,
     "lon": -9.44312
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "1332828",
+     "name": "Chabad Lubavitch of Portugal",
+     "city": "Cascais",
+     "lat": 38.69976,
+     "lon": -9.44312
+    }
+   ]
   },
   {
    "id": "romania",
@@ -1224,7 +2026,16 @@
     "city": "Bucharest",
     "lat": 44.44442,
     "lon": 26.09727
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118397",
+     "name": "Chabad Lyubavitsh of Romania",
+     "city": "Bucharest",
+     "lat": 44.44442,
+     "lon": 26.09727
+    }
+   ]
   },
   {
    "id": "russia",
@@ -1237,7 +2048,16 @@
     "city": "Moscow",
     "lat": 55.60571,
     "lon": 37.71715
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "249438",
+     "name": "Marina Roscha Synagogue and Jewish Community Center",
+     "city": "Moscow",
+     "lat": 55.60571,
+     "lon": 37.71715
+    }
+   ]
   },
   {
    "id": "serbia",
@@ -1250,7 +2070,16 @@
     "city": "Belgrade",
     "lat": 44.80289,
     "lon": 20.45728
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "660981",
+     "name": "Chabad-Lubavitch of Serbia",
+     "city": "Belgrade",
+     "lat": 44.80289,
+     "lon": 20.45728
+    }
+   ]
   },
   {
    "id": "slovakia",
@@ -1263,7 +2092,16 @@
     "city": "Bratislava",
     "lat": 48.16327,
     "lon": 17.13938
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117972",
+     "name": "Chabad of Slovakia",
+     "city": "Bratislava",
+     "lat": 48.16327,
+     "lon": 17.13938
+    }
+   ]
   },
   {
    "id": "spain",
@@ -1276,7 +2114,16 @@
     "city": "Madrid",
     "lat": 40.41673,
     "lon": -3.70329
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117874",
+     "name": "Chabad of Madrid",
+     "city": "Madrid",
+     "lat": 40.41673,
+     "lon": -3.70329
+    }
+   ]
   },
   {
    "id": "sweden",
@@ -1289,7 +2136,16 @@
     "city": "Gothenburg",
     "lat": 57.69238,
     "lon": 11.96053
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117875",
+     "name": "Chabad Lubavitch Sweden",
+     "city": "Gothenburg",
+     "lat": 57.69238,
+     "lon": 11.96053
+    }
+   ]
   },
   {
    "id": "switzerland",
@@ -1302,7 +2158,16 @@
     "city": "Zurich",
     "lat": 47.36077,
     "lon": 8.52212
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117900",
+     "name": "Chabad Lubavitch Switzerland",
+     "city": "Zurich",
+     "lat": 47.36077,
+     "lon": 8.52212
+    }
+   ]
   },
   {
    "id": "ukraine",
@@ -1315,7 +2180,16 @@
     "city": "Dnepropetrovsk",
     "lat": 48.46472,
     "lon": 35.04618
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "249574",
+     "name": "Federation of Jewish Communities of Ukraine",
+     "city": "Dnepropetrovsk",
+     "lat": 48.46472,
+     "lon": 35.04618
+    }
+   ]
   },
   {
    "id": "united-kingdom",
@@ -1329,7 +2203,16 @@
     "city": "London",
     "lat": 51.57216,
     "lon": -0.07323
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117824",
+     "name": "Chabad Lubavitch UK Hdqts.",
+     "city": "London",
+     "lat": 51.57216,
+     "lon": -0.07323
+    }
+   ]
   },
   {
    "id": "crimea",
@@ -1347,7 +2230,15 @@
     "city": "Yerevan",
     "lat": 40.18111,
     "lon": 44.51361
-   }
+   },
+   "capitals": [
+    {
+     "name": "Jewish Community of Yerevan",
+     "city": "Yerevan",
+     "lat": 40.18111,
+     "lon": 44.51361
+    }
+   ]
   },
   {
    "id": "azerbaijan",
@@ -1360,7 +2251,16 @@
     "city": "Baku",
     "lat": 40.37571,
     "lon": 49.83814
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118599",
+     "name": "Jewish Community of Baku",
+     "city": "Baku",
+     "lat": 40.37571,
+     "lon": 49.83814
+    }
+   ]
   },
   {
    "id": "georgia-country",
@@ -1373,7 +2273,16 @@
     "city": "Tbilisi",
     "lat": 41.69307,
     "lon": 44.80446
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "237922",
+     "name": "Chabad Lubavitch of Georgia",
+     "city": "Tbilisi",
+     "lat": 41.69307,
+     "lon": 44.80446
+    }
+   ]
   },
   {
    "id": "kazakhstan",
@@ -1386,7 +2295,16 @@
     "city": "Almaty",
     "lat": 43.2629,
     "lon": 76.90038
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "4936718",
+     "name": "Jewish Center Chabad Lubavitch",
+     "city": "Almaty",
+     "lat": 43.2629,
+     "lon": 76.90038
+    }
+   ]
   },
   {
    "id": "kyrgyzstan",
@@ -1399,7 +2317,16 @@
     "city": "Bishkek",
     "lat": 42.87462,
     "lon": 74.56976
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "249363",
+     "name": "Jewish Community of Bishkek",
+     "city": "Bishkek",
+     "lat": 42.87462,
+     "lon": 74.56976
+    }
+   ]
   },
   {
    "id": "uzbekistan",
@@ -1412,7 +2339,16 @@
     "city": "Tashkent",
     "lat": 41.29822,
     "lon": 69.23852
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "6656076",
+     "name": "Beis Menachem Tashkent",
+     "city": "Tashkent",
+     "lat": 41.29822,
+     "lon": 69.23852
+    }
+   ]
   },
   {
    "id": "india",
@@ -1424,6 +2360,14 @@
     "lat": 26.91962,
     "lon": 75.78781
    },
+   "capitals": [
+    {
+     "name": "Chabad House Jaipur",
+     "city": "Jaipur",
+     "lat": 26.91962,
+     "lon": 75.78781
+    }
+   ],
    "labelAt": [
     78.9,
     22.6
@@ -1439,7 +2383,16 @@
     "city": "Thamel",
     "lat": 27.71433,
     "lon": 85.31237
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118561",
+     "name": "Chabad House of Kathmandu",
+     "city": "Thamel",
+     "lat": 27.71433,
+     "lon": 85.31237
+    }
+   ]
   },
   {
    "id": "sri-lanka",
@@ -1458,7 +2411,16 @@
     "city": "Hong Kong",
     "lat": 22.27605,
     "lon": 114.15655
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117857",
+     "name": "Chabad of Hong Kong",
+     "city": "Hong Kong",
+     "lat": 22.27605,
+     "lon": 114.15655
+    }
+   ]
   },
   {
    "id": "japan",
@@ -1470,7 +2432,16 @@
     "city": "Tokyo",
     "lat": 35.6409,
     "lon": 139.73762
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118403",
+     "name": "Chabad Lubavitch Tokyo-Japan",
+     "city": "Tokyo",
+     "lat": 35.6409,
+     "lon": 139.73762
+    }
+   ]
   },
   {
    "id": "south-korea",
@@ -1486,7 +2457,16 @@
     "city": "Seoul",
     "lat": 37.52834,
     "lon": 126.99392
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "665144",
+     "name": "The Chabad Jewish Community of Korea",
+     "city": "Seoul",
+     "lat": 37.52834,
+     "lon": 126.99392
+    }
+   ]
   },
   {
    "id": "taiwan",
@@ -1499,7 +2479,16 @@
     "city": "Taipei City",
     "lat": 25.03717,
     "lon": 121.53616
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "2850083",
+     "name": "Chabad Taipei",
+     "city": "Taipei City",
+     "lat": 25.03717,
+     "lon": 121.53616
+    }
+   ]
   },
   {
    "id": "thailand",
@@ -1512,7 +2501,16 @@
     "city": "Bangkok",
     "lat": 13.72623,
     "lon": 100.5641
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117964",
+     "name": "Jewish Community of Thailand",
+     "city": "Bangkok",
+     "lat": 13.72623,
+     "lon": 100.5641
+    }
+   ]
   },
   {
    "id": "cambodia",
@@ -1525,7 +2523,16 @@
     "city": "Phnom Penh",
     "lat": 11.56057,
     "lon": 104.9343
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "992232",
+     "name": "Chabad Cambodia",
+     "city": "Phnom Penh",
+     "lat": 11.56057,
+     "lon": 104.9343
+    }
+   ]
   },
   {
    "id": "vietnam",
@@ -1538,7 +2545,16 @@
     "city": "Ho Chi Minh City",
     "lat": 10.78849,
     "lon": 106.69956
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "420832",
+     "name": "Chabad of Vietnam",
+     "city": "Ho Chi Minh City",
+     "lat": 10.78849,
+     "lon": 106.69956
+    }
+   ]
   },
   {
    "id": "philippines",
@@ -1550,7 +2566,15 @@
     "city": "Manila",
     "lat": 14.6042,
     "lon": 120.9822
-   }
+   },
+   "capitals": [
+    {
+     "name": "Chabad of Manila Philippines",
+     "city": "Manila",
+     "lat": 14.6042,
+     "lon": 120.9822
+    }
+   ]
   },
   {
    "id": "singapore",
@@ -1563,7 +2587,16 @@
     "city": "Singapore",
     "lat": 1.29812,
     "lon": 103.85052
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118003",
+     "name": "Chabad-Lubavitch Representatives in Singapore (operating under the auspices of the Jewish Welfare Board)",
+     "city": "Singapore",
+     "lat": 1.29812,
+     "lon": 103.85052
+    }
+   ]
   },
   {
    "id": "israel",
@@ -1576,7 +2609,16 @@
     "city": "Kfar Chabad",
     "lat": 31.98706,
     "lon": 34.85152
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118095",
+     "name": "Tzerei Agudat Chabad H.Q. Israel",
+     "city": "Kfar Chabad",
+     "lat": 31.98706,
+     "lon": 34.85152
+    }
+   ]
   },
   {
    "id": "turkey",
@@ -1589,7 +2631,16 @@
     "city": "Istanbul",
     "lat": 41.0512,
     "lon": 28.9921
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "extra-istanbul-nisantasi",
+     "name": "Chabad of Istanbul",
+     "city": "Istanbul",
+     "lat": 41.0512,
+     "lon": 28.9921
+    }
+   ]
   },
   {
    "id": "united-arab-emirates",
@@ -1602,7 +2653,16 @@
     "city": "Dubai",
     "lat": 25.08,
     "lon": 55.142
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "4920073",
+     "name": "Chabad of United Arab Emirates",
+     "city": "Dubai",
+     "lat": 25.08,
+     "lon": 55.142
+    }
+   ]
   },
   {
    "id": "qatar",
@@ -1620,7 +2680,16 @@
     "city": "Riyadh",
     "lat": 24.68773,
     "lon": 46.72185
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "extra-riyadh",
+     "name": "Jewish KSA",
+     "city": "Riyadh",
+     "lat": 24.68773,
+     "lon": 46.72185
+    }
+   ]
   },
   {
    "id": "morocco",
@@ -1633,7 +2702,16 @@
     "city": "Casablanca",
     "lat": 33.59704,
     "lon": -7.62987
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117865",
+     "name": "Chabad Lubavitch au Maroc",
+     "city": "Casablanca",
+     "lat": 33.59704,
+     "lon": -7.62987
+    }
+   ]
   },
   {
    "id": "tunisia",
@@ -1647,7 +2725,16 @@
     "city": "Tunis",
     "lat": 36.81617,
     "lon": 10.17993
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117877",
+     "name": "Chabad Lubavitch of Tunisia",
+     "city": "Tunis",
+     "lat": 36.81617,
+     "lon": 10.17993
+    }
+   ]
   },
   {
    "id": "central-africa",
@@ -1663,7 +2750,16 @@
     "city": "Kinshasa",
     "lat": -4.30325,
     "lon": 15.31053
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117894",
+     "name": "Chabad-Lubavitch of Central Africa",
+     "city": "Kinshasa",
+     "lat": -4.30325,
+     "lon": 15.31053
+    }
+   ]
   },
   {
    "id": "south-africa",
@@ -1679,7 +2775,16 @@
     "city": "Orchards",
     "lat": -26.15457,
     "lon": 28.08523
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117872",
+     "name": "Lubavitch Foundation of Southern Africa",
+     "city": "Orchards",
+     "lat": -26.15457,
+     "lon": 28.08523
+    }
+   ]
   },
   {
    "id": "mauritius",
@@ -1692,7 +2797,16 @@
     "city": "Grand-Baie",
     "lat": -20.00892,
     "lon": 57.58164
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "3460324",
+     "name": "Chabad Mauritius",
+     "city": "Grand-Baie",
+     "lat": -20.00892,
+     "lon": 57.58164
+    }
+   ]
   },
   {
    "id": "reunion",
@@ -1705,7 +2819,16 @@
     "city": "Saint-Denis",
     "lat": -20.87402,
     "lon": 55.449
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "4379754",
+     "name": "Chabad La Réunion",
+     "city": "Saint-Denis",
+     "lat": -20.87402,
+     "lon": 55.449
+    }
+   ]
   },
   {
    "id": "new-south-wales",
@@ -1718,7 +2841,16 @@
     "city": "Bondi Beach",
     "lat": -33.89182,
     "lon": 151.25942
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117752",
+     "name": "Yeshiva Centre - Chabad NSW HQ",
+     "city": "Bondi Beach",
+     "lat": -33.89182,
+     "lon": 151.25942
+    }
+   ]
   },
   {
    "id": "victoria",
@@ -1727,11 +2859,30 @@
    "headShliach": "Disputed — Chaim Tzvi Groner; Yoselle Gutnick; Hendel Serebryanski",
    "capital": {
     "centerId": "117782",
+    "for": "Chaim Tzvi Groner",
     "name": "Yeshivah Centre - Lubavitch",
     "city": "East St. Kilda",
     "lat": -37.86862,
     "lon": 145.00022
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117782",
+     "for": "Chaim Tzvi Groner",
+     "name": "Yeshivah Centre - Lubavitch",
+     "city": "East St. Kilda",
+     "lat": -37.86862,
+     "lon": 145.00022
+    },
+    {
+     "centerId": "117755",
+     "for": "Hendel Serebryanski",
+     "name": "Merkos L'inyonei Chinuch",
+     "city": "East St. Kilda",
+     "lat": -37.87215,
+     "lon": 144.99912
+    }
+   ]
   },
   {
    "id": "brisbane",
@@ -1744,7 +2895,16 @@
     "city": "Brisbane",
     "lat": -27.50705,
     "lon": 153.10308
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118204",
+     "name": "Chabad Brisbane",
+     "city": "Brisbane",
+     "lat": -27.50705,
+     "lon": 153.10308
+    }
+   ]
   },
   {
    "id": "gold-coast",
@@ -1760,7 +2920,16 @@
     "city": "Surfers Paradise",
     "lat": -28.01126,
     "lon": 153.42065
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118291",
+     "name": "Chabad Gold Coast",
+     "city": "Surfers Paradise",
+     "lat": -28.01126,
+     "lon": 153.42065
+    }
+   ]
   },
   {
    "id": "rara",
@@ -1774,7 +2943,16 @@
     "city": "Caulfield North",
     "lat": -37.86901,
     "lon": 145.00988
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "252052",
+     "name": "Chabad of Rural and Regional Australia",
+     "city": "Caulfield North",
+     "lat": -37.86901,
+     "lon": 145.00988
+    }
+   ]
   },
   {
    "id": "south-australia",
@@ -1787,7 +2965,16 @@
     "city": "Adelaide",
     "lat": -34.91627,
     "lon": 138.55885
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118614",
+     "name": "Chabad of South Australia",
+     "city": "Adelaide",
+     "lat": -34.91627,
+     "lon": 138.55885
+    }
+   ]
   },
   {
    "id": "western-australia",
@@ -1800,7 +2987,16 @@
     "city": "Perth",
     "lat": -31.8775,
     "lon": 115.8935
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "273337",
+     "name": "Chabad of Western Australia",
+     "city": "Perth",
+     "lat": -31.8775,
+     "lon": 115.8935
+    }
+   ]
   },
   {
    "id": "tasmania",
@@ -1813,7 +3009,16 @@
     "city": "Hobart",
     "lat": -42.90042,
     "lon": 147.31884
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "120143",
+     "name": "Hobart Chabad Jewish Centre and Mikveh",
+     "city": "Hobart",
+     "lat": -42.90042,
+     "lon": 147.31884
+    }
+   ]
   },
   {
    "id": "act",
@@ -1826,7 +3031,16 @@
     "city": "Canberra",
     "lat": -35.21349,
     "lon": 149.09386
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "904396",
+     "name": "Chabad Australian Capital Territory",
+     "city": "Canberra",
+     "lat": -35.21349,
+     "lon": 149.09386
+    }
+   ]
   },
   {
    "id": "new-zealand",
@@ -1848,7 +3062,16 @@
     "city": "Nouméa",
     "lat": -22.27541,
     "lon": 166.45167
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "3252539",
+     "name": "Chabad New Caledonia",
+     "city": "Nouméa",
+     "lat": -22.27541,
+     "lon": 166.45167
+    }
+   ]
   },
   {
    "id": "baja-california",
@@ -1861,7 +3084,16 @@
     "city": "Tijuana",
     "lat": 32.5332,
     "lon": -117.01928
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "334161",
+     "name": "Chabad Baja California",
+     "city": "Tijuana",
+     "lat": 32.5332,
+     "lon": -117.01928
+    }
+   ]
   },
   {
    "id": "sinaloa",
@@ -1873,7 +3105,15 @@
     "city": "Mazatlán",
     "lat": 23.2329,
     "lon": -106.4062
-   }
+   },
+   "capitals": [
+    {
+     "name": "Chabad of Mazatlán",
+     "city": "Mazatlán",
+     "lat": 23.2329,
+     "lon": -106.4062
+    }
+   ]
   },
   {
    "id": "nayarit",
@@ -1886,7 +3126,16 @@
     "city": "Puerto Vallarta",
     "lat": 20.67394,
     "lon": -105.22751
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "3424139",
+     "name": "Chabad of Puerto Vallarta",
+     "city": "Puerto Vallarta",
+     "lat": 20.67394,
+     "lon": -105.22751
+    }
+   ]
   },
   {
    "id": "jalisco",
@@ -1899,7 +3148,16 @@
     "city": "Guadalajara",
     "lat": 20.68637,
     "lon": -103.39075
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "7011671",
+     "name": "Chabad of Guadalajara",
+     "city": "Guadalajara",
+     "lat": 20.68637,
+     "lon": -103.39075
+    }
+   ]
   },
   {
    "id": "bajio",
@@ -1912,7 +3170,16 @@
     "city": "S Miguel de Allende",
     "lat": 20.91982,
     "lon": -100.74908
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "4251108",
+     "name": "Chabad of SMA",
+     "city": "S Miguel de Allende",
+     "lat": 20.91982,
+     "lon": -100.74908
+    }
+   ]
   },
   {
    "id": "nuevo-leon",
@@ -1925,7 +3192,16 @@
     "city": "Monterrey",
     "lat": 25.69277,
     "lon": -100.35223
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "7338776",
+     "name": "Jabad Monterrey",
+     "city": "Monterrey",
+     "lat": 25.69277,
+     "lon": -100.35223
+    }
+   ]
   },
   {
    "id": "central-mexico",
@@ -1941,7 +3217,16 @@
     "city": "Estado de Mexico",
     "lat": 19.41571,
     "lon": -99.24262
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "6342563",
+     "name": "Chabad of Bosques",
+     "city": "Estado de Mexico",
+     "lat": 19.41571,
+     "lon": -99.24262
+    }
+   ]
   },
   {
    "id": "chiapas",
@@ -1954,7 +3239,16 @@
     "city": "S. Cristobal de las casas",
     "lat": 16.73605,
     "lon": -92.63998
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "7022006",
+     "name": "Chabad Of Chiapas",
+     "city": "S. Cristobal de las casas",
+     "lat": 16.73605,
+     "lon": -92.63998
+    }
+   ]
   },
   {
    "id": "mexican-caribbean",
@@ -1967,7 +3261,16 @@
     "city": "Cancun",
     "lat": 21.10238,
     "lon": -86.76535
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "503725",
+     "name": "Chabad Jewish Center of Cancun",
+     "city": "Cancun",
+     "lat": 21.10238,
+     "lon": -86.76535
+    }
+   ]
   },
   {
    "id": "belize",
@@ -1986,7 +3289,16 @@
     "city": "Guatemala City",
     "lat": 14.63422,
     "lon": -90.51142
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118392",
+     "name": "Chabad Lubavitch Guatemala",
+     "city": "Guatemala City",
+     "lat": 14.63422,
+     "lon": -90.51142
+    }
+   ]
   },
   {
    "id": "el-salvador",
@@ -1998,7 +3310,15 @@
     "city": "El Tunco",
     "lat": 13.493,
     "lon": -89.383
-   }
+   },
+   "capitals": [
+    {
+     "name": "Chabad House El Tunco",
+     "city": "El Tunco",
+     "lat": 13.493,
+     "lon": -89.383
+    }
+   ]
   },
   {
    "id": "honduras",
@@ -2017,7 +3337,16 @@
     "city": "San Juan del Sur",
     "lat": 11.25453,
     "lon": -85.86467
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "5544455",
+     "name": "Chabad Nicaragua",
+     "city": "San Juan del Sur",
+     "lat": 11.25453,
+     "lon": -85.86467
+    }
+   ]
   },
   {
    "id": "costa-rica",
@@ -2033,7 +3362,16 @@
     "city": "Escazú",
     "lat": 9.93396,
     "lon": -84.12977
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117814",
+     "name": "Jabad Lubavitch de Costa Rica",
+     "city": "Escazú",
+     "lat": 9.93396,
+     "lon": -84.12977
+    }
+   ]
   },
   {
    "id": "panama",
@@ -2052,7 +3390,16 @@
     "city": "Capital Federal",
     "lat": -34.5961,
     "lon": -58.41007
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117745",
+     "name": "Chabad Lubavitch Argentina HQ",
+     "city": "Capital Federal",
+     "lat": -34.5961,
+     "lon": -58.41007
+    }
+   ]
   },
   {
    "id": "bolivia",
@@ -2071,7 +3418,16 @@
     "city": "S. Paulo",
     "lat": -23.56196,
     "lon": -46.67176
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117772",
+     "name": "Beit Chabad do Brasil - Hdqts.",
+     "city": "S. Paulo",
+     "lat": -23.56196,
+     "lon": -46.67176
+    }
+   ]
   },
   {
    "id": "chile",
@@ -2083,7 +3439,16 @@
     "city": "Santiago",
     "lat": -33.3574,
     "lon": -70.52048
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117811",
+     "name": "Jabad Lubavitch de Chile",
+     "city": "Santiago",
+     "lat": -33.3574,
+     "lon": -70.52048
+    }
+   ]
   },
   {
    "id": "colombia",
@@ -2096,7 +3461,16 @@
     "city": "Bogotá",
     "lat": 4.67663,
     "lon": -74.04449
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117813",
+     "name": "Casa Lubavitch-Bogota",
+     "city": "Bogotá",
+     "lat": 4.67663,
+     "lon": -74.04449
+    }
+   ]
   },
   {
    "id": "ecuador",
@@ -2109,7 +3483,16 @@
     "city": "Guayaquil",
     "lat": -2.17473,
     "lon": -79.90542
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "4211957",
+     "name": "Jabad Lubavitch Guayaquil",
+     "city": "Guayaquil",
+     "lat": -2.17473,
+     "lon": -79.90542
+    }
+   ]
   },
   {
    "id": "paraguay",
@@ -2122,7 +3505,16 @@
     "city": "Asuncion",
     "lat": -25.29007,
     "lon": -57.61338
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117866",
+     "name": "Chabad of Paraguay",
+     "city": "Asuncion",
+     "lat": -25.29007,
+     "lon": -57.61338
+    }
+   ]
   },
   {
    "id": "peru",
@@ -2135,7 +3527,16 @@
     "city": "Lima",
     "lat": -12.09781,
     "lon": -77.05532
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117867",
+     "name": "Chabad Lubavitch de Peru",
+     "city": "Lima",
+     "lat": -12.09781,
+     "lon": -77.05532
+    }
+   ]
   },
   {
    "id": "uruguay",
@@ -2148,7 +3549,16 @@
     "city": "Montevideo",
     "lat": -34.90878,
     "lon": -56.1499
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117878",
+     "name": "Beit Jabad Uruguay",
+     "city": "Montevideo",
+     "lat": -34.90878,
+     "lon": -56.1499
+    }
+   ]
   },
   {
    "id": "venezuela",
@@ -2161,7 +3571,16 @@
     "city": "San Bernardino",
     "lat": 10.5162,
     "lon": -66.89765
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "117879",
+     "name": "Hogar Jabad Lubavitch",
+     "city": "San Bernardino",
+     "lat": 10.5162,
+     "lon": -66.89765
+    }
+   ]
   },
   {
    "id": "caribbean",
@@ -2174,7 +3593,16 @@
     "city": "Carolina",
     "lat": 18.44401,
     "lon": -66.01576
-   }
+   },
+   "capitals": [
+    {
+     "centerId": "118318",
+     "name": "Chabad Jewish Center of Puerto Rico",
+     "city": "Carolina",
+     "lat": 18.44401,
+     "lon": -66.01576
+    }
+   ]
   }
  ]
 }

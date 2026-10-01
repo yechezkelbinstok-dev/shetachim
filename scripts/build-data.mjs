@@ -1010,13 +1010,12 @@ function absorbSlivers(features) {
 }
 
 // Capitals: a known center (or a lat/lon), placed on that center's dot. One in the wrong shetach is
-// reported, not refused, since the lists are still being checked.
+// reported, not refused, since the lists are still being checked. A disputed shetach may have several, a list, each
+// with `for`: the claimant whose it is (Victoria).
 function checkCapitals(data, dots, pieceOf) {
   const problems = [], warnings = [];
   const dotOf = new Map(dots.flatMap((d) => d.centers.map((c) => [c.id, { d, c }])));
-  for (const s of data.shetachim) {
-    const cap = s.capital;
-    if (!cap) continue;
+  for (const s of data.shetachim) for (const cap of [].concat(s.capital || [])) {
     if (cap.centerId !== undefined) {
       const hit = dotOf.get(String(cap.centerId));
       if (!hit) { problems.push(`${s.id}: capital centerId ${cap.centerId} isn't in the centers data`); continue; }
@@ -1168,7 +1167,9 @@ async function main() {
   }
   const forPage = {
     notShown: shetachData.notShown || [],
-    shetachim: shetachData.shetachim.map(({ id, name, short, headShliach, headTitle, lastName, capital, labelState, labelCentre, labelAt }) => ({ id, name, short, headShliach, headTitle, lastName, capital, labelState, labelCentre, labelAt })),
+    // capital: the (first) capital; capitals: all of them (a disputed shetach has one per claimant)
+    shetachim: shetachData.shetachim.map(({ id, name, short, headShliach, headTitle, lastName, capital, labelState, labelCentre, labelAt }) => ({
+      id, name, short, headShliach, headTitle, lastName, capital: [].concat(capital || [])[0], capitals: capital ? [].concat(capital) : undefined, labelState, labelCentre, labelAt })),
   };
   fs.writeFileSync(path.join(OUT, 'shetachim.json'), `${JSON.stringify(forPage, null, 1)}\n`);
 
@@ -1223,7 +1224,7 @@ ${shetachData.shetachim.length} entered. No shetach (left blank): ${pieces.filte
 
 | Shetach | Short | Head shliach | Capital |
 |---|---|---|---|
-${shetachData.shetachim.map((s) => `| ${s.name} | ${s.short || ''} | ${s.headShliach || ''} | ${s.capital ? `${s.capital.name}${s.capital.city ? `, ${s.capital.city}` : ''}` : ''} |`).join('\n')}
+${shetachData.shetachim.map((s) => `| ${s.name} | ${s.short || ''} | ${s.headShliach || ''} | ${[].concat(s.capital || []).map((c) => `${c.name}${c.city ? `, ${c.city}` : ''}${c.for ? ` (${c.for})` : ''}`).join('; ')} |`).join('\n')}
 ${warnings.length ? `\nTo check:\n\n${warnings.map((w) => `- ${w}`).join('\n')}\n` : ''}
 ## Cities without a GeoNames match (${unmatched.length} of ${cities.length})
 

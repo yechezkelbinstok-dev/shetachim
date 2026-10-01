@@ -167,17 +167,21 @@ const fontFile = (pkg, file) => opentype.loadSync(path.join(ROOT, 'node_modules'
 const INTER = fontFile('inter', 'inter-latin-600-normal.woff');
 const HEEBO = [fontFile('heebo', 'heebo-hebrew-600-normal.woff'), fontFile('heebo', 'heebo-latin-600-normal.woff')];
 let HEBREW = false;
+const INTER_ITALIC = fontFile('inter', 'inter-latin-600-italic.woff');
 const fontFor = (ch) => (HEBREW && HEEBO.find((f) => f.charToGlyphIndex(ch) > 0)) || INTER;
+// "Disputed" (a disputed shetach's head: "Disputed — A; B; C") in italics; Hebrew has no italics, so במחלוקת stays upright
+const ITALIC = /^Disputed/;
+const fontAt = (t, i, ch) => (!HEBREW && i < 8 && ITALIC.test(t) ? INTER_ITALIC : fontFor(ch));
 // Hebrew in drawing order (left to right): the words reversed, letters of Hebrew runs reversed, Latin runs ("RARA") kept.
 const visual = (t) => (HEBREW ? t.split(/([A-Za-z0-9][A-Za-z0-9.]*)/).reverse().map((r) => (/^[A-Za-z0-9]/.test(r) ? r : [...r].reverse().join(''))).join('') : t);
 const TRACK = 0.01; // letter spacing, in em
 const LINE = 1.18; // line spacing, in em
 const CAP = 0.727; // Inter's capital height, in em (Heebo's letters stand about as tall)
-const textWidth = (t, size) => [...t].reduce((w, ch) => w + fontFor(ch).getAdvanceWidth(ch, size), 0) + TRACK * size * ([...t].length - 1);
+const textWidth = (t, size) => [...t].reduce((w, ch, i) => w + fontAt(t, i, ch).getAdvanceWidth(ch, size), 0) + TRACK * size * ([...t].length - 1);
 function textPath(t, cx, baseline, size) {
   let x = cx - textWidth(t, size) / 2, d = '';
-  for (const ch of visual(t)) {
-    const f = fontFor(ch);
+  for (const [i, ch] of [...visual(t)].entries()) {
+    const f = fontAt(t, i, ch);
     d += f.getPath(ch, x, baseline, size).toPathData(1);
     x += f.getAdvanceWidth(ch, size) + TRACK * size;
   }

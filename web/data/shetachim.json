@@ -8,7 +8,7 @@
   {
    "id": "west-coast",
    "name": "West Coast",
-   "short": "CA-NV",
+   "short": "WC",
    "headShliach": "Shlomo Cunin",
    "capital": {
     "centerId": "117555",
@@ -177,7 +177,7 @@
   {
    "id": "upper-midwest",
    "name": "Upper Midwest",
-   "short": "MN-ND-SD",
+   "short": "U. Midwest",
    "headShliach": "Moshe Feller",
    "capital": {
     "centerId": "117647",
@@ -332,7 +332,7 @@
   {
    "id": "louisiana-mississippi",
    "name": "Louisiana",
-   "short": "LA-MS",
+   "short": "LA",
    "headShliach": "Zelig Rivkin",
    "capital": {
     "centerId": "117623",
@@ -384,7 +384,7 @@
   {
    "id": "the-carolinas",
    "name": "The Carolinas",
-   "short": "NC-SC",
+   "short": "Carolinas",
    "headShliach": "Yossi Groner",
    "capital": {
     "centerId": "117649",
@@ -395,9 +395,9 @@
    }
   },
   {
-   "id": "the-virginias",
-   "name": "The Virginias",
-   "short": "VA-WV",
+   "id": "virginia",
+   "name": "Virginia",
+   "short": "VA",
    "headShliach": "Yossel Kranz",
    "capital": {
     "centerId": "117734",
@@ -579,7 +579,7 @@
   {
    "id": "western-and-southern-new-england",
    "name": "Western and Southern New England",
-   "short": "CT-W. MA",
+   "short": "W. & S. NE",
    "headShliach": "Yisroel Deren",
    "capital": {
     "centerId": "2948789",
@@ -709,7 +709,7 @@
   {
    "id": "maritimes",
    "name": "Maritimes",
-   "short": "NS-NB-PE",
+   "short": "Maritimes",
    "headShliach": "Mendel Feldman",
    "capital": {
     "centerId": "117790",

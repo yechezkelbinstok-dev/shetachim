@@ -86,7 +86,18 @@ Later in the same round:
   outline the water's colour there, like the rest of Ontario's lake water.
 - **Upper Midwest** (owner, Oct 1): North and South Dakota joined Minnesota under Moshe Feller; the shetach is now
   "Upper Midwest" (id `upper-midwest`, territory US-MN, US-ND, US-SD). The North Dakota (Yonah Grossman) and South
-  Dakota (Mendel Alperowitz) shetachim are gone. Ontario is drawn at 100 m (`FINE`).
+  Dakota (Mendel Alperowitz) shetachim are gone.
+- **Short labels** (owner, Oct 1: "I hate your double abbreviations"): state codes are never joined any more. Only
+  Kansas-Missouri (KS-MO) and Manitoba-Saskatchewan (MB-SK) keep them, by the owner's choice. The rest are given in
+  the data: West Coast "WC", Upper Midwest "U. Midwest", Louisiana "LA", The Carolinas "Carolinas", Virginia "VA",
+  Western and Southern New England "W. & S. NE", Maritimes (no short form). A single whole state still defaults to its
+  own code (TX); the build warns if a multi-state shetach has no short form. "The Virginias" is now **Virginia**
+  (id `virginia`; still VA + WV).
+- **Split shetachim get a label per piece** (`labelClusters` in the page): when other land keeps a shetach's big
+  pieces apart (Lower Balkans: Bosnia, and Albania–Kosovo–North Macedonia–northern Greece, with Montenegro and Serbia
+  between), each piece (from a tenth of the biggest) gets the name, so neither is left blank and both read as one
+  shetach. Pieces only water keeps apart (islands, the two sides of a gulf, Michigan's peninsulas) still share one
+  label. In the full Europe view Bosnia is about a pixel too small for even "Balkans"; any zoom in shows both. Ontario is drawn at 100 m (`FINE`).
   Area cards no longer list a shetach's states (kept in the data, not shown).
 - **SVG export**: `npm run svg` (scripts/export-svg.mjs) writes `web/shetachim-map.svg` — every shetach in its map colour,
   shetach borders and coasts only (no names, cities, dots, stars); Natural Earth projection, 3600 px wide, lines

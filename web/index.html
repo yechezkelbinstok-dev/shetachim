@@ -764,6 +764,42 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     return { points, area: sized[0].area, bbox: [x0, y0, x1, y1] };
   }
 
+  // A shetach in pieces that other land keeps apart (Bosnia and the rest of the Lower Balkans, with Montenegro and
+  // Serbia between) gets its name on each big piece, so each is labelled and both read as one shetach; pieces only
+  // water keeps apart (islands, the two sides of a gulf) share one label, which may cross the water. A piece counts
+  // as big from a tenth of the biggest; smaller ones go with the nearest big one. Labels keep the shetach's one size.
+  function labelClusters(r, id, ix) {
+    const polys = r.polysXY.map((rings) => ({ rings, area: Math.abs(d3.polygonArea(rings[0])), c: d3.polygonCentroid(rings[0]) }));
+    const max = d3.max(polys, (q) => q.area);
+    const big = polys.filter((q) => q.area >= max * 0.1);
+    if (big.length < 2) return [{ polys: r.polysXY, a: r.anchor }];
+    const ownerAt = (x, y) => {
+      for (const [other, xs] of crossings(ix, y)) for (let i = 0; i + 1 < xs.length; i += 2) if (x >= xs[i] && x <= xs[i + 1]) return other;
+      return null;
+    };
+    // apart: where the straight line between their middles leaves the shetach, it's mostly over someone else's land
+    const apart = (a, b) => {
+      let land = 0, water = 0;
+      for (let t = 1; t < 48; t++) {
+        const o = ownerAt(a.c[0] + ((b.c[0] - a.c[0]) * t) / 48, a.c[1] + ((b.c[1] - a.c[1]) * t) / 48);
+        if (o === null) water++; else if (o !== id) land++;
+      }
+      return land > water;
+    };
+    const root = big.map((_, i) => i), find = (i) => (root[i] === i ? i : (root[i] = find(root[i])));
+    for (let i = 0; i < big.length; i++) for (let j = i + 1; j < big.length; j++) if (!apart(big[i], big[j])) root[find(j)] = find(i);
+    const groups = new Map();
+    for (const q of polys) {
+      let bi = big.indexOf(q);
+      if (bi < 0) bi = d3.minIndex(big, (b) => Math.hypot(b.c[0] - q.c[0], b.c[1] - q.c[1]));
+      const g = find(bi);
+      if (!groups.has(g)) groups.set(g, []);
+      groups.get(g).push(q.rings);
+    }
+    if (groups.size < 2) return [{ polys: r.polysXY, a: r.anchor }];
+    return [...groups.values()].map((ps) => ({ polys: ps, a: { ...anchorFor(ps), area: r.anchor.area } }));
+  }
+
   // The edges of the labelled areas filed by height, so where a horizontal line crosses them is quick to find.
   function edgeIndex(areas) {
     let y0 = Infinity, y1 = -Infinity;
@@ -825,7 +861,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     labels = [];
     if (state.labels !== 'off') {
       if (state.borders === 'regular') V.states.forEach((r, id) => { if (r.anchor) labels.push({ text: r.p.name, short: r.p.abbr, missing: false, a: r.anchor, id, r }); });
-      else V.regions.forEach((r, id) => { if (r.anchor) labels.push({ ...shetachLabel(r.s), a: r.anchor, id, r }); });
+      else {
+        const ix = labelIndex();
+        V.regions.forEach((r, id) => {
+          if (!r.anchor) return;
+          for (const cl of r.clusters || (r.clusters = labelClusters(r, id, ix))) labels.push({ ...shetachLabel(r.s), a: cl.a, id, r, cl });
+        });
+      }
     }
     const family = getComputedStyle(document.documentElement).getPropertyValue('--font-map');
     for (const L of labels) {
@@ -949,8 +991,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
       const [bx0, by0, bx1, by1] = L.a.bbox;
       if (bx1 < view[0] || bx0 > view[2] || by1 < view[1] || by0 > view[3]) continue;
       const whole = bx0 >= view[0] && bx1 <= view[2] && by0 >= view[1] && by1 <= view[3];
-      if (whole && !L.r.whole) L.r.whole = visiblePart(L.r.polysXY, null);
-      const part = whole ? L.r.whole : visiblePart(L.r.polysXY, view);
+      const cl = L.cl || L.r, polys = L.cl ? L.cl.polys : L.r.polysXY;
+      if (whole && !cl.whole) cl.whole = visiblePart(polys, null);
+      const part = whole ? cl.whole : visiblePart(polys, view);
       if (!part) continue;
       const hull = part.hull.map((pt) => T.apply(pt)), [cx, cy] = T.apply(part.centre), size = L.size * f;
       const hx0 = d3.min(hull, (q) => q[0]), hx1 = d3.max(hull, (q) => q[0]), hy0 = d3.min(hull, (q) => q[1]), hy1 = d3.max(hull, (q) => q[1]);

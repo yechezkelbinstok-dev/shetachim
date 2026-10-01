@@ -1121,13 +1121,16 @@ async function main() {
 
   const pieceOf = (d) => shetachOfPiece.get(d.piece ?? d.region) ?? null;
   const warnings = checkCapitals(shetachData, dots, pieceOf);
-  // The short label: as given, else the abbreviations of its whole states and provinces joined (KS-MO). A country's
+  // The short label: as given, else a single whole state's or province's abbreviation (TX). A country's
   // name is its own label (never an ISO code like NPL); where it doesn't fit, there's no label.
   const abbrOf = new Map(pieces.map((f) => [f.properties.state, f.properties.abbr]));
   for (const s of shetachData.shetachim) {
     if (!s.territory.length) continue; // not drawn yet, so no label to worry about
     const states = s.territory.every((t) => typeof t === 'string' && t.includes('-'));
-    if (s.short === undefined && states && s.territory.every((t) => abbrOf.get(t))) s.short = s.territory.map((t) => abbrOf.get(t)).join('-');
+    // A whole single state's own abbreviation; never state codes joined (the owner wants a real short form for those,
+    // given in the data: "WC", "LA"; joined codes only where asked, KS-MO and MB-SK).
+    if (s.short === undefined && states && s.territory.length === 1 && abbrOf.get(s.territory[0])) s.short = abbrOf.get(s.territory[0]);
+    if (s.short === undefined && states && s.territory.length > 1) warnings.push(`${s.id}: no short label (give one: state codes aren't joined)`);
     else if (s.short === undefined && s.territory.length === 1 && COUNTRY_SHORT[s.territory[0]]) s.short = COUNTRY_SHORT[s.territory[0]];
     if (!s.short && s.territory.some((t) => typeof t !== 'string')) warnings.push(`${s.id}: no short label (needed for a shetach that is part of a state)`);
   }

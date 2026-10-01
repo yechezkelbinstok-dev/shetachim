@@ -22,8 +22,10 @@ const MIN_AREA = 0.15; // px²: a point is kept if its triangle with its neighbo
 // The page's light-theme colours (web/index.html :root), so the SVG looks like the map.
 const COLORS = ['#f0e1a2', '#cce1b5', '#efc7c1', '#c5d9ee', '#f3cfa9', '#d8c8e5', '#bcded6', '#e1d8be'];
 const INK = '#1e2b32', BG = '#f1f3f0';
+// Land no shetach covers (world names map): one plain swath, no borders inside it.
+const LAND = '#dfe3df';
 
-const topo = JSON.parse(fs.readFileSync(path.join(ROOT, 'web', 'data', 'geo.json'), 'utf8'));
+let topo = JSON.parse(fs.readFileSync(path.join(ROOT, 'web', 'data', 'geo.json'), 'utf8'));
 const { notShown = [], shetachim } = JSON.parse(fs.readFileSync(path.join(ROOT, 'web', 'data', 'shetachim.json'), 'utf8'));
 const shetachById = new Map(shetachim.map((x) => [x.id, x]));
 const pieces = topo.objects.areas.geometries.filter((g) => !notShown.includes(g.properties.state));
@@ -50,8 +52,8 @@ const color = new Map(), used = new Array(8).fill(0);
 });
 
 // Arcs as lon/lat (long straight stretches get extra points, so they bend with the projection), then projected.
-const [kx, ky] = topo.transform.scale, [dx, dy] = topo.transform.translate;
-const arcLL = topo.arcs.map((arc) => {
+const arcsOf = (t) => t.arcs.map((arc) => {
+  const [kx, ky] = t.transform.scale, [dx, dy] = t.transform.translate;
   const out = [];
   let x = 0, y = 0, px = 0, py = 0;
   arc.forEach(([ax, ay], i) => {
@@ -66,6 +68,7 @@ const arcLL = topo.arcs.map((arc) => {
   });
   return out;
 });
+let arcLL = arcsOf(topo);
 // Visvalingam: each point's weight is the area of the triangle it makes with its neighbours as the line is simplified.
 function keep(pts) {
   const n = pts.length, w = new Float64Array(n).fill(Infinity);
@@ -126,6 +129,8 @@ function draw(list, projection) {
     .flatMap((line) => line.filter((a) => !onSeam(a < 0 ? ~a : a)).map((a) => trace([a], false))).join('');
   const fills = [...byShetachOf(list)].sort(([a], [b]) => (a < b ? -1 : 1))
     .map(([id, gs]) => `<path id="${id}" fill="${COLORS[color.get(id)]}" d="${polygonsPath(mergeArcs(topo, gs))}"/>`);
+  const bare = list.filter((g) => !key(g));
+  if (bare.length) fills.unshift(`<path id="no-shetach" fill="${LAND}" d="${polygonsPath(mergeArcs(topo, bare))}"/>`);
   return `<g stroke="none" fill-rule="evenodd">
 ${fills.join('\n')}
 </g>
@@ -193,6 +198,21 @@ function boxInside(poly, [x0, y0, x1, y1], m = 4) {
   }
   return true;
 }
+// The stretch of a polygon through (x, y), up-down (vertical) or left-right: the pair of edge crossings around the point.
+function spanAt(poly, x, y, vertical) {
+  const hits = [];
+  for (const r of poly) {
+    for (let i = 1; i < r.length; i++) {
+      const [ax, ay] = r[i - 1], [bx, by] = r[i];
+      if (vertical) { if ((ax > x) !== (bx > x)) hits.push(ay + ((x - ax) / (bx - ax)) * (by - ay)); }
+      else if ((ay > y) !== (by > y)) hits.push(ax + ((y - ay) / (by - ay)) * (bx - ax));
+    }
+  }
+  hits.sort((a, b) => a - b);
+  const at = vertical ? y : x;
+  for (let i = 0; i + 1 < hits.length; i += 2) if (hits[i] <= at && at <= hits[i + 1]) return [hits[i], hits[i + 1]];
+  return [at - 1, at + 1];
+}
 const polyArea = (r) => Math.abs(r.reduce((s2, p, i) => { const q = r[(i + 1) % r.length]; return s2 + p[0] * q[1] - q[0] * p[1]; }, 0)) / 2;
 
 // Distance from a segment to a box (0 if they touch).
@@ -202,20 +222,83 @@ function segBoxDist(a, b, [x0, y0, x1, y1]) {
   return Math.min(pd(a), pd(b), ...[[x0, y0], [x1, y0], [x1, y1], [x0, y1]].map((c) => sd(c, a, b)));
 }
 
+// The ways a head shliach's name may be set, fullest first: the whole name; on two lines (first names / last name);
+// for someone with more than one first name, just the first and last name, on one line or two ("Yosef Yitzchak
+// Aharonov" → "Yosef Aharonov"). Never the last name alone (the owner's rule): a name too small for these goes beside
+// the map with a leader line. Leadership entries and families ("Hanholo of Chabad Lubavitch UK", "Pinson family") are
+// never shortened; a list of several names ("Disputed — A; B; C") goes one name per line. offshore: the form used
+// beside the map.
+function nameForms(s) {
+  const name = s.headShliach.trim();
+  if (/;/.test(name)) {
+    const lines = name.split(/;\s*|\s+—\s+/).map((l, i, all) => (i === 0 && name.includes(' — ') ? `${l} —` : l)).filter(Boolean);
+    return { full: [lines], offshore: name };
+  }
+  const words = name.split(/\s+/);
+  const personal = !s.headTitle && words.length > 1 && !/\b(family|of)\b/i.test(name);
+  const first = words[0], last = words[words.length - 1];
+  const full = [[name]];
+  if (words.length > 1) full.push([words.slice(0, -1).join(' '), last]);
+  if (personal && words.length > 2) full.push([`${first} ${last}`], [first, last]);
+  return { full, offshore: personal && words.length > 2 ? `${first} ${last}` : name };
+}
+
 // Each shetach's head shliach, centred in its shetach: the biggest size (up to a cap that grows with the area) at which
 // the name fits inside, on one line or two (first name / last name), then shown a little smaller than that and placed
 // where it has the most room on every side. Too small for it (the small Northeast shetachim): offshore, in a column,
 // with a leader line.
-function labels(list, projection, { offshore = false, box = null } = {}) {
-  const MIN = 22, TINY = 6, out = [], lost = [];
+// tiny: the smallest a name may be set inside its shetach before it goes beside the map instead.
+// split: a shetach whose big parts other land keeps apart (Lower Balkans: Bosnia, and Albania to northern Greece, with
+// Montenegro and Serbia between) gets its name once, beside the map, with a leader line from each part.
+// maxSize: the biggest a name gets (the world poster's huge shetachim — Central Africa, Russia — go bigger than 64 px).
+function labels(list, projection, { offshore = false, aside = null, box = null, tiny = 6, width = WIDTH, land = list, split = false, maxSize = 64 } = {}) {
+  const MIN = 22, TINY = tiny, out = [], lost = [];
+  // every area's land, projected, to tell whether a line between two parts of a shetach runs over someone else's land
+  const others = split ? feature(topo, { type: 'GeometryCollection', geometries: land }).features.flatMap((f) =>
+    (f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates).map((poly) => {
+      const rings = poly.map((r) => r.map((p) => projection(p)));
+      let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+      for (const [x, y] of rings[0]) { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); }
+      return { who: key(f), rings, box: [x0, y0, x1, y1] };
+    })) : [];
+  const onOtherLand = (x, y, id) => others.some((o) => o.who !== id && x >= o.box[0] && x <= o.box[2] && y >= o.box[1] && y <= o.box[3] && inPoly(o.rings, x, y));
+  // ONLY=id,id… (testing): name just these shetachim, much faster
+  const only = process.env.ONLY ? process.env.ONLY.split(',') : null;
   for (const [id, gs] of byShetachOf(list)) {
     const s = shetachById.get(id);
-    if (!s.headShliach) continue;
+    if (!s.headShliach || (only && !only.includes(id))) continue;
     // labelState: the name goes on that state's part of the shetach (Alberta, not the territories' strip north of it)
     const core = s.labelState ? gs.filter((g) => g.properties.state === s.labelState) : [];
     const geo = merge(topo, core.length ? core : gs);
     const polys = (geo.type === 'Polygon' ? [geo.coordinates] : geo.coordinates).map((poly) => poly.map((r) => r.map((p) => projection(p))));
     polys.sort((a, b) => polyArea(b[0]) - polyArea(a[0]));
+    if (split && !core.length) {
+      // Parts from a tenth of the biggest; two are one cluster unless the shortest gap between them (closest points) runs
+      // mostly over someone else's land — water between them (Newfoundland and Labrador, islands) keeps them together.
+      // More than one cluster: one name, a leader to each cluster's biggest part.
+      const big = polys.filter((q) => polyArea(q[0]) >= polyArea(polys[0][0]) * 0.1);
+      const parts = big.map((q) => polylabel(q, 1));
+      const outline = big.map((q) => { const k = keep(q[0]); return k.length >= 4 ? k : q[0]; });
+      const group = parts.map((_, i) => i);
+      const find = (i) => (group[i] === i ? i : (group[i] = find(group[i])));
+      for (let i = 0; i < parts.length; i++) {
+        for (let j = i + 1; j < parts.length; j++) {
+          let a = null, b = null, dmin = Infinity;
+          for (const p of outline[i]) for (const q of outline[j]) { const dd = (p[0] - q[0]) ** 2 + (p[1] - q[1]) ** 2; if (dd < dmin) { dmin = dd; a = p; b = q; } }
+          const n = Math.max(2, Math.ceil(Math.sqrt(dmin) / 2));
+          let onLand = 0;
+          for (let k = 1; k < n; k++) if (onOtherLand(a[0] + ((b[0] - a[0]) * k) / n, a[1] + ((b[1] - a[1]) * k) / n, id)) onLand++;
+          if (onLand <= (n - 1) / 2) group[find(j)] = find(i);
+        }
+      }
+      const heads = [...new Set(parts.map((_, i) => find(i)))];
+      if (heads.length > 1) {
+        const points = heads.map((i) => parts[i]);
+        lost.push({ name: nameForms(s).offshore, points, px: points.reduce((t, p) => t + p[0], 0) / points.length, py: points.reduce((t, p) => t + p[1], 0) / points.length });
+        console.log(`  ${s.name}: ${points.length} parts apart, one name with a leader to each`);
+        continue;
+      }
+    }
     const main = polys[0].map((r) => { const k = keep(r); return k.length >= 4 ? k : r; });
     const segs = main.flatMap((r) => r.slice(1).map((p, i) => [r[i], p]));
     // the centre to aim for: the shape's centre of area when that's inside it, else the point farthest from its edges
@@ -224,17 +307,16 @@ function labels(list, projection, { offshore = false, box = null } = {}) {
     let ca = 0, cx0 = 0, cy0 = 0;
     for (let i = 0; i < ring.length - 1; i++) { const [x1, y1] = ring[i], [x2, y2] = ring[i + 1], c = x1 * y2 - x2 * y1; ca += c; cx0 += (x1 + x2) * c; cy0 += (y1 + y2) * c; }
     const cen = [cx0 / (3 * ca), cy0 / (3 * ca)];
-    const [px, py] = inPoly(main, cen[0], cen[1]) ? cen : pole;
+    // labelAt: a point the name centres on instead (India: mainland India, not pulled toward the northeast past Bangladesh)
+    const [px, py] = s.labelAt ? projection(s.labelAt) : inPoly(main, cen[0], cen[1]) ? cen : pole;
     let bx0 = Infinity, by0 = Infinity, bx1 = -Infinity, by1 = -Infinity;
     for (const [x, y] of main[0]) { bx0 = Math.min(bx0, x); bx1 = Math.max(bx1, x); by0 = Math.min(by0, y); by1 = Math.max(by1, y); }
-    const cap = Math.max(MIN, Math.min(64, Math.sqrt(polyArea(main[0])) * 0.12));
-    const name = s.headShliach.trim();
-    const words = name.split(/\s+/);
-    const forms = [[name], words.length > 1 ? [words.slice(0, -1).join(' '), words[words.length - 1]] : null].filter(Boolean);
+    const cap = Math.max(MIN, Math.min(maxSize, Math.sqrt(polyArea(main[0])) * 0.12));
+    const forms = nameForms(s);
     const dims = (lines, size) => [Math.max(...lines.map((l) => textWidth(l, size))), (lines.length - 1) * LINE * size + CAP * size];
     // every place (on a grid) a label of this size fits
     const spots = (lines, size) => {
-      const [w, h] = dims(lines, size), step = Math.max(1, size / 4), res = [], m = Math.max(1.5, size * 0.15);
+      const [w, h] = dims(lines, size), step = Math.max(0.5, size / 4, (bx1 - bx0) / 150, (by1 - by0) / 150), res = [], m = Math.max(Math.min(1.5, size * 0.25), size * 0.15);
       for (let cx = bx0 + w / 2; cx <= bx1 - w / 2; cx += step) {
         for (let cy = by0 + h / 2; cy <= by1 - h / 2; cy += step) {
           if (boxInside(main, [cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2], m)) res.push([cx, cy]);
@@ -242,26 +324,67 @@ function labels(list, projection, { offshore = false, box = null } = {}) {
       }
       return res;
     };
-    // small shetachim may go down to TINY rather than out of their shetach
-    const biggest = (lines) => { for (let size = cap; size >= TINY; size -= size > 30 ? 1 : 0.5) if (spots(lines, size).length) return size; return 0; };
-    // the last name alone, only where the whole name can't fit at all
-    if (words.length > 1) forms.push([words[words.length - 1]]);
-    const sizes = forms.map(biggest);
-    let k = sizes[1] && forms[1].length === 2 && (!sizes[0] || sizes[1] > sizes[0] * 1.25) ? 1 : 0;
-    if (!sizes[k] && sizes[1]) k = 1;
-    if (!sizes[k] && sizes[forms.length - 1]) k = forms.length - 1;
-    if (!sizes[k]) { lost.push({ name, px, py }); continue; }
-    const lines = forms[k], size = sizes[k] >= MIN ? Math.max(MIN, Math.round(Math.min(cap, sizes[k] * 0.85))) : sizes[k];
-    const [w, h] = dims(lines, size);
-    let best = null;
-    for (const [cx, cy] of spots(lines, size)) {
-      const bb = [cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2];
-      // enough room around it (up to a size's worth), then as near the centre as possible
-      const room = Math.min(...segs.map(([a, b2]) => segBoxDist(a, b2, bb)));
-      const score = Math.min(room, size * 1.2) - 0.35 * Math.hypot(cx - px, cy - py);
-      if (!best || score > best.score) best = { score, cx, cy };
+    // small shetachim may go down to TINY (or `floor`) rather than out of their shetach
+    const biggest = (lines, floor = TINY) => { for (let size = cap; size >= floor; size -= size > 30 ? 1 : 0.5) if (spots(lines, size).length) return size; return 0; };
+    // The fullest form that is within 25% of the biggest any form reaches (so a shorter one is used only where it reads
+    // clearly bigger).
+    // Each form placed (biggest well-centred size), then the fullest one whose quality — its size, less for sitting
+    // off-centre — is within 25% of the best any form reaches (so "Benjy / Korf" on two lines in the middle of Florida's
+    // peninsula beats one line along the panhandle).
+    const choose = (floor) => {
+      const placed = forms.full.map((l) => { const fit = biggest(l, floor); return fit ? place({ lines: l, fit }) : null; });
+      const top = Math.max(0, ...placed.map((q) => (q ? q.quality : 0)));
+      if (!top) return null;
+      const { quality, ...label } = placed.find((q) => q && q.quality >= top / 1.25);
+      return label;
+    };
+    // How far off-centre a name is in the land it sits on: at its middle, the stretch of the shetach above-to-below and
+    // left-to-right, and how far the name is from the middle of each (0 = dead centre, 0.5 = against an edge).
+    const reach0 = Math.sqrt(polyArea(main[0]));
+    const offCentre = (cx, cy) => {
+      const v = spanAt(main, cx, cy, true), hz = spanAt(main, cx, cy, false);
+      return Math.abs(cy - (v[0] + v[1]) / 2) / (v[1] - v[0]) + Math.abs(cx - (hz[0] + hz[1]) / 2) / (hz[1] - hz[0]);
+    };
+    // Where a name sits and how big: centred in its shetach, both ways (not tucked along one edge where the shape happens
+    // to be widest, like Virginia's southern border). The biggest size, from what fits down to two-thirds of it, at which the
+    // name can sit well centred; failing that, the most centred of them. At each size, the most centred spot, then the
+    // one with the most room around it.
+    const place = ({ lines, fit }) => {
+      const start = fit >= MIN ? Math.max(MIN, Math.round(Math.min(cap, fit * 0.85))) : fit;
+      let pick = null;
+      // Only a big name trades size for centring (Virginia's); a small one keeps the biggest size that fits and just takes
+      // its most central spot at that size (Delaware's name, slid a little south where the state is wider).
+      const floorF = start >= 30 ? 0.65 : 1;
+      for (let f = 1; f >= floorF - 1e-9; f -= 0.05) {
+        const size = f === 1 ? start : Math.round(start * f * 2) / 2;
+        if (f < 1 && size < Math.min(TINY, start)) break;
+        const [w, h] = dims(lines, size);
+        let best = null;
+        for (const [cx, cy] of spots(lines, size)) {
+          const bb = [cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2];
+          const room = Math.min(...segs.map(([a, b2]) => segBoxDist(a, b2, bb)));
+          // off-centre locally, plus how far from the middle of the whole shetach (in its own sizes)
+          const off = offCentre(cx, cy) + Math.hypot(cx - px, cy - py) / reach0;
+          const score = -off + 0.05 * (Math.min(room, size * 1.2) / size);
+          if (!best || score > best.score) best = { score, off, cx, cy };
+        }
+        if (!best) continue;
+        const here = { lines, size, cx: best.cx, cy: best.cy, h, off: best.off };
+        if (!pick || here.off < pick.off - 0.03) pick = here;
+        if (best.off <= 0.2) { pick = here; break; }
+      }
+      const { off, ...label } = pick;
+      return { ...label, quality: label.size * Math.max(0.05, 1 - off) };
+    };
+    const chosen = choose(TINY);
+    if (process.env.WHY === s.headShliach) console.log(`    pole room ${polylabel(main, 0.5).distance.toFixed(1)} px; ${s.headShliach}: main polygon ${Math.round(bx1 - bx0)}×${Math.round(by1 - by0)} px, ${polys.length} polygons, area ${Math.round(polyArea(main[0]))} px², ring ${main[0].length} pts; forms`, forms.full.map((l) => `${l.join('/')}=${biggest(l, TINY)}`).join(' '));
+    if (!chosen) {
+      // Beside the map if there's a good spot near it; else inside after all, as small as it takes (down to 5 px).
+      const small = TINY > 5 ? choose(5) : null;
+      lost.push({ name: forms.offshore, px, py, inside: small });
+      continue;
     }
-    out.push({ lines, size, cx: best.cx, cy: best.cy, h });
+    out.push(chosen);
   }
   if (box && lost.length) {
     // too small inside a corner box (Hawaii's islands): the name along the box's top
@@ -269,6 +392,7 @@ function labels(list, projection, { offshore = false, box = null } = {}) {
     lost.length = 0;
   }
   let leaders = '';
+  if (aside && lost.length) leaders += placeAside(lost, out, land, projection, { ...aside, width });
   if (offshore && lost.length) {
     const size = MIN + 2, gap = size * 1.9;
     const x = Math.max(...lost.map((l) => l.px)) + 150;
@@ -285,6 +409,240 @@ function labels(list, projection, { offshore = false, box = null } = {}) {
   return `<g fill="${INK}">${leaders ? `<path d="${leaders}" fill="none" stroke="${INK}" stroke-width="1.4"/>` : ''}<path d="${text}"/></g>`;
 }
 
+// Names that fit nowhere inside their shetach (the world's small countries and islands), each beside it in the nearest
+// open water: on a grid of the map (land, names, leader lines), the closest spot where the whole name is over water
+// and clear of everything already placed, reached by a leader line that crosses no other name. Returns leader paths.
+// A leader may cross at most `cross` px of other countries; one that can't be placed within `reach` goes inside its shetach
+// in small type (`inside`, worked out by labels()) when that fits, else anywhere within `far`.
+function placeAside(lost, out, list, projection, { size, cell = 3, reach = 900, far = reach, cross: maxCross = 0, width }) {
+  const W = width, H = Math.ceil(Math.max(...out.map((o) => o.cy + o.h), 0)) + 4000;
+  const gw = Math.ceil(W / cell), gh = Math.ceil(H / cell), grid = new Uint8Array(gw * gh); // 1 land, 2 a name, 3 a leader
+  // whose land each cell is (a shetach, or a country no shetach covers), so a leader can tell its own land from others'
+  const owner = new Int32Array(gw * gh), ids = new Map();
+  const geo = feature(topo, { type: 'GeometryCollection', geometries: list });
+  for (const f of geo.features) {
+    const who = key(f) || `country:${f.properties.country}`;
+    if (!ids.has(who)) ids.set(who, ids.size + 1);
+    const id = ids.get(who);
+    for (const poly of f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates) {
+      const rings = poly.map((r) => r.map((p) => projection(p)));
+      let y0 = Infinity, y1 = -Infinity;
+      for (const r of rings) for (const [, y] of r) { y0 = Math.min(y0, y); y1 = Math.max(y1, y); }
+      for (let gy = Math.max(0, Math.floor(y0 / cell)); gy <= Math.min(gh - 1, Math.ceil(y1 / cell)); gy++) {
+        const yc = (gy + 0.5) * cell, xs = [];
+        for (const r of rings) for (let i = 1; i < r.length; i++) {
+          const [ax, ay] = r[i - 1], [bx, by] = r[i];
+          if ((ay > yc) !== (by > yc)) xs.push(ax + ((yc - ay) / (by - ay)) * (bx - ax));
+        }
+        xs.sort((a, b) => a - b);
+        for (let i = 0; i + 1 < xs.length; i += 2) {
+          for (let gx = Math.max(0, Math.floor(xs[i] / cell)); gx <= Math.min(gw - 1, Math.floor(xs[i + 1] / cell)); gx++) { grid[gy * gw + gx] = 1; owner[gy * gw + gx] = id; }
+        }
+      }
+    }
+  }
+  const mark = ([x0, y0, x1, y1]) => {
+    for (let gy = Math.max(0, Math.floor(y0 / cell)); gy <= Math.min(gh - 1, Math.floor(y1 / cell)); gy++) {
+      for (let gx = Math.max(0, Math.floor(x0 / cell)); gx <= Math.min(gw - 1, Math.floor(x1 / cell)); gx++) grid[gy * gw + gx] = 2;
+    }
+  };
+  const free = ([x0, y0, x1, y1]) => {
+    if (x0 < PAD || y0 < PAD || x1 > W - PAD || y1 > H - PAD) return false;
+    for (let gy = Math.floor(y0 / cell); gy <= Math.floor(y1 / cell); gy++) {
+      for (let gx = Math.floor(x0 / cell); gx <= Math.floor(x1 / cell); gx++) if (grid[gy * gw + gx]) return false;
+    }
+    return true;
+  };
+  // skip: cells at the start left out (a leader may start under the edge of a neighbour's name)
+  const lineCells = (a, b, fn, skip = 0) => {
+    const n = Math.ceil(Math.hypot(b[0] - a[0], b[1] - a[1]) / cell) + 1;
+    for (let i = Math.min(skip, n); i <= n; i++) fn(Math.floor((a[0] + ((b[0] - a[0]) * i) / n) / cell), Math.floor((a[1] + ((b[1] - a[1]) * i) / n) / cell));
+  };
+  for (const o of out) {
+    const w = Math.max(...o.lines.map((l) => textWidth(l, o.size)));
+    mark([o.cx - w / 2 - 3, o.cy - o.h / 2 - 3, o.cx + w / 2 + 3, o.cy + o.h / 2 + 3]);
+  }
+  const h = CAP * size, gap = size * 0.5;
+  const angles = Array.from({ length: 24 }, (_, i) => (i * Math.PI) / 12).sort((a, b) => Math.abs(Math.sin(a)) - Math.abs(Math.sin(b)));
+  let d = '';
+  // Cells of other shetachim's or countries' land a leader crosses.
+  const foreignLand = (a, b) => {
+    const own = owner[Math.floor(a[1] / cell) * gw + Math.floor(a[0] / cell)];
+    let n = 0;
+    lineCells(a, b, (gx, gy) => { const o = owner[gy * gw + gx]; if (o && o !== own) n++; });
+    return n;
+  };
+  const search = (l, w, limit, maxCells, strict = true) => {
+    // The best spot by length plus land crossed (each px over other land counts three): a short leader over a sliver of
+    // a neighbour beats a long one round it. Stops once nothing farther could beat the best.
+    let found = null;
+    for (let r = size; r <= limit && !(found && (found.cross === 0 || r > found.cost)); r += size / 2) {
+      for (const t of angles) {
+        // the box's nearest edge r away from the point, in direction t
+        const cx = l.px + Math.cos(t) * (r + w / 2), cy = l.py + Math.sin(t) * (r + h / 2);
+        const bb = [cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2];
+        const dbg = process.env.WHY === l.name ? (why) => { if (r <= 200 && Math.abs(Math.cos(t)) > 0.9) console.log(`    r=${r} t=${t.toFixed(2)}: ${why}`); } : () => {};
+        if (!free([bb[0] - gap, bb[1] - gap, bb[2] + gap, bb[3] + gap])) { dbg('box not free'); continue; }
+        const end = [Math.max(bb[0], Math.min(l.px, bb[2])), Math.max(bb[1], Math.min(l.py, bb[3]))];
+        let clear = true;
+        lineCells([l.px, l.py], end, (gx, gy) => { const v = grid[gy * gw + gx]; if (v === 2 || (strict && v === 3)) clear = false; }, 3);
+        if (!clear) { dbg('leader blocked'); continue; }
+        const cross = foreignLand([l.px, l.py], end);
+        if (cross > maxCells) { dbg(`crosses ${cross} cells`); continue; }
+        const cost = Math.hypot(end[0] - l.px, end[1] - l.py) + 3 * cross * cell;
+        if (!found || cost < found.cost) found = { cx, cy, end, cross, cost };
+        if (cross === 0) break;
+      }
+    }
+    return found;
+  };
+  // the most hemmed-in first (fewest open cells nearby), so the easy ones don't take their only spots
+  const openNear = (l) => { let n = 0; const R = Math.round(reach / 2 / cell), gx0 = Math.floor(l.px / cell), gy0 = Math.floor(l.py / cell); for (let gy = gy0 - R; gy <= gy0 + R; gy += 3) for (let gx = gx0 - R; gx <= gx0 + R; gx += 3) if (gx >= 0 && gy >= 0 && gx < gw && gy < gh && !grid[gy * gw + gx]) n++; return n; };
+  // A name with several leaders (a shetach in parts): the box near the parts' middle with every leader clear of names
+  // (and leaders), crossing the least other land in all.
+  const searchMany = (l, w, limit, maxCells) => {
+    let found = null;
+    for (let r = 0; r <= limit && !(found && found.cross === 0); r += size / 2) {
+      for (const t of r ? angles : [0]) {
+        const cx = l.px + Math.cos(t) * r, cy = l.py + Math.sin(t) * r;
+        const bb = [cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2];
+        if (!free([bb[0] - gap, bb[1] - gap, bb[2] + gap, bb[3] + gap])) continue;
+        const ends = l.points.map(([x, y]) => [Math.max(bb[0], Math.min(x, bb[2])), Math.max(bb[1], Math.min(y, bb[3]))]);
+        let clear = true, cross = 0, worst = 0;
+        l.points.forEach((p, i) => {
+          lineCells(p, ends[i], (gx, gy) => { const v = grid[gy * gw + gx]; if (v === 2 || v === 3) clear = false; }, 3);
+          const c = foreignLand(p, ends[i]);
+          cross += c; worst = Math.max(worst, c);
+        });
+        if (!clear || worst > maxCells) continue;
+        if (!found || cross < found.cross) found = { cx, cy, ends, cross };
+        if (cross === 0) break;
+      }
+    }
+    return found;
+  };
+  const hard = [];
+  // Crowds — five or more names close together that fit nowhere inside their shetach (the US Northeast's small
+  // shetachim) — go straight into a column: one leader each, in order, rather than a fan of crossing leaders. A name
+  // near a crowd that does fit inside at a readable size (8 px+) stays inside, so it adds no leader to the tangle.
+  const readable = (l) => l.inside && l.inside.size >= 8;
+  const singles = lost.filter((l) => !l.points && !readable(l)), link = reach * 0.4;
+  const crowdOf = new Map(singles.map((l, i) => [l, i]));
+  const root = singles.map((_, i) => i);
+  const top = (i) => (root[i] === i ? i : (root[i] = top(root[i])));
+  singles.forEach((a, i) => singles.forEach((b, j) => { if (j > i && Math.hypot(a.px - b.px, a.py - b.py) < link) root[top(j)] = top(i); }));
+  const crowdSize = new Map();
+  singles.forEach((_, i) => crowdSize.set(top(i), (crowdSize.get(top(i)) || 0) + 1));
+  const crowd = singles.filter((_, i) => crowdSize.get(top(i)) >= 5);
+  const crowded = (l) => crowd.includes(l);
+  const nearCrowd = (l) => crowd.some((c) => Math.hypot(c.px - l.px, c.py - l.py) < link);
+  for (const l of [...lost].map((x) => ({ ...x, open: openNear(x), crowd: crowded(x), near: !crowded(x) && readable(x) && nearCrowd(x) })).sort((a, b) => a.open - b.open)) {
+    const w = textWidth(l.name, size);
+    if (l.crowd) { hard.push({ ...l, w }); continue; }
+    if (l.near) {
+      out.push(l.inside);
+      const iw = Math.max(...l.inside.lines.map((t) => textWidth(t, l.inside.size)));
+      mark([l.inside.cx - iw / 2 - 2, l.inside.cy - l.inside.h / 2 - 2, l.inside.cx + iw / 2 + 2, l.inside.cy + l.inside.h / 2 + 2]);
+      continue;
+    }
+    if (l.points) {
+      const many = searchMany(l, w, reach, Math.round(maxCross / cell)) || searchMany(l, w, far, Infinity);
+      if (!many) { console.warn(`  no room for ${l.name}`); continue; }
+      out.push({ lines: [l.name], size, cx: many.cx, cy: many.cy, h });
+      mark([many.cx - w / 2 - gap, many.cy - h / 2 - gap, many.cx + w / 2 + gap, many.cy + h / 2 + gap]);
+      const r = size * 0.12;
+      l.points.forEach((p, i) => {
+        lineCells(p, many.ends[i], (gx, gy) => { if (gx >= 0 && gy >= 0 && gx < gw && gy < gh && grid[gy * gw + gx] !== 2) grid[gy * gw + gx] = 3; });
+        d += `M${fmt(p[0])},${fmt(p[1])}L${fmt(many.ends[i][0])},${fmt(many.ends[i][1])}`;
+        d += `M${fmt(p[0] + r)},${fmt(p[1])}A${fmt(r)},${fmt(r)} 0 1,1 ${fmt(p[0] - r)},${fmt(p[1])}A${fmt(r)},${fmt(r)} 0 1,1 ${fmt(p[0] + r)},${fmt(p[1])}`;
+      });
+      continue;
+    }
+    // a short leader if there's room close by; failing that, a readable name inside (8 px+) beats a long leader
+    let found = search(l, w, Math.min(reach, 250), Math.round(maxCross / cell));
+    if (!found && readable(l)) {
+      out.push(l.inside);
+      const iw = Math.max(...l.inside.lines.map((t) => textWidth(t, l.inside.size)));
+      mark([l.inside.cx - iw / 2 - 2, l.inside.cy - l.inside.h / 2 - 2, l.inside.cx + iw / 2 + 2, l.inside.cy + l.inside.h / 2 + 2]);
+      continue;
+    }
+    if (!found) found = search(l, w, reach, Math.round(maxCross / cell));
+    if (!found && l.inside) {
+      out.push(l.inside);
+      const iw = Math.max(...l.inside.lines.map((t) => textWidth(t, l.inside.size)));
+      mark([l.inside.cx - iw / 2 - 2, l.inside.cy - l.inside.h / 2 - 2, l.inside.cx + iw / 2 + 2, l.inside.cy + l.inside.h / 2 + 2]);
+      continue;
+    }
+    if (!found) { hard.push({ ...l, w }); continue; }
+    out.push({ lines: [l.name], size, cx: found.cx, cy: found.cy, h });
+    console.log(`  beside the map: ${l.name}, leader ${Math.round(Math.hypot(found.end[0] - l.px, found.end[1] - l.py))} px`);
+    mark([found.cx - w / 2 - gap, found.cy - h / 2 - gap, found.cx + w / 2 + gap, found.cy + h / 2 + gap]);
+    lineCells([l.px, l.py], found.end, (gx, gy) => { if (gx >= 0 && gy >= 0 && gx < gw && gy < gh && grid[gy * gw + gx] !== 2) grid[gy * gw + gx] = 3; });
+    const r = size * 0.12;
+    d += `M${fmt(l.px)},${fmt(l.py)}L${fmt(found.end[0])},${fmt(found.end[1])}`;
+    d += `M${fmt(l.px + r)},${fmt(l.py)}A${fmt(r)},${fmt(r)} 0 1,1 ${fmt(l.px - r)},${fmt(l.py)}A${fmt(r)},${fmt(r)} 0 1,1 ${fmt(l.px + r)},${fmt(l.py)}`;
+  }
+  // The rest (a crowded coast: the US Northeast) as atlases do it: neighbours together in a column in the nearest open
+  // water, in north-to-south order, so their leaders run side by side instead of crossing.
+  const groups = [];
+  for (const l of hard.sort((a, b) => a.py - b.py)) {
+    const g = groups.find((gr) => gr.some((o) => Math.hypot(o.px - l.px, o.py - l.py) < reach));
+    if (g) g.push(l); else groups.push([l]);
+  }
+  const row = size * 1.55;
+  // only a crowd makes a column; anything else gets its own leader
+  const lone = groups.flatMap((g) => (g.some((l) => l.crowd) ? [] : g.map((l) => [l])));
+  const columns = groups.filter((g) => g.some((l) => l.crowd));
+  for (const g of [...lone, ...columns]) {
+    if (g.length === 1 && !g[0].crowd) {
+      // a lone name: the nearest spot whose leader crosses the least other land, never a column
+      const [l] = g;
+      if (l.inside) { out.push(l.inside); continue; }
+      const found = search(l, l.w, far, Infinity) || search(l, l.w, far, Infinity, false);
+      if (!found) { console.warn(`  no room for ${l.name}`); continue; }
+      out.push({ lines: [l.name], size, cx: found.cx, cy: found.cy, h });
+      mark([found.cx - l.w / 2 - gap, found.cy - h / 2 - gap, found.cx + l.w / 2 + gap, found.cy + h / 2 + gap]);
+      lineCells([l.px, l.py], found.end, (gx, gy) => { if (gx >= 0 && gy >= 0 && gx < gw && gy < gh && grid[gy * gw + gx] !== 2) grid[gy * gw + gx] = 3; });
+      const r = size * 0.12;
+      d += `M${fmt(l.px)},${fmt(l.py)}L${fmt(found.end[0])},${fmt(found.end[1])}`;
+      d += `M${fmt(l.px + r)},${fmt(l.py)}A${fmt(r)},${fmt(r)} 0 1,1 ${fmt(l.px - r)},${fmt(l.py)}A${fmt(r)},${fmt(r)} 0 1,1 ${fmt(l.px + r)},${fmt(l.py)}`;
+      console.log(`  beside the map: ${l.name}, leader ${Math.round(Math.hypot(found.end[0] - l.px, found.end[1] - l.py))} px (lone)`);
+      continue;
+    }
+    g.sort((a, b) => a.py - b.py);
+    const colW = Math.max(...g.map((l) => l.w)), colH = g.length * row;
+    const yMid = g.reduce((t, l) => t + l.py, 0) / g.length;
+    const xs = g.map((l) => l.px), side = [];
+    // the nearest open water beside them, sliding the column up or down a little if that brings it closer
+    for (const dy of [0, -1, 1, -2, 2, -3, 3, -4, 4].map((n) => n * row * 1.5)) {
+      const y0 = Math.max(PAD, Math.min(H - PAD - colH, yMid - colH / 2 + dy));
+      for (const dir of [1, -1]) {
+        const start = dir > 0 ? Math.max(...xs) + size : Math.min(...xs) - size - colW;
+        for (let k = 0; k * size <= far; k++) {
+          const x = start + dir * k * size;
+          if (free([x - gap, y0 - gap, x + colW + gap, y0 + colH + gap])) { side.push({ x, y0, dir, dist: k * size + Math.abs(dy) }); break; }
+        }
+      }
+    }
+    const at = side.sort((a, b) => a.dist - b.dist)[0];
+    if (!at) { for (const l of g) console.warn(`  no room for ${l.name}`); continue; }
+    const { y0 } = at;
+    g.forEach((l, k) => {
+      const cy = y0 + k * row + row / 2, cx = at.dir > 0 ? at.x + l.w / 2 : at.x + colW - l.w / 2;
+      out.push({ lines: [l.name], size, cx, cy, h });
+      const end = [at.dir > 0 ? at.x - 4 : at.x + colW + 4, cy];
+      lineCells([l.px, l.py], end, (gx, gy) => { if (gx >= 0 && gy >= 0 && gx < gw && gy < gh && grid[gy * gw + gx] !== 2) grid[gy * gw + gx] = 3; });
+      const r = size * 0.12;
+      d += `M${fmt(l.px)},${fmt(l.py)}L${fmt(end[0])},${fmt(end[1])}`;
+      d += `M${fmt(l.px + r)},${fmt(l.py)}A${fmt(r)},${fmt(r)} 0 1,1 ${fmt(l.px - r)},${fmt(l.py)}A${fmt(r)},${fmt(r)} 0 1,1 ${fmt(l.px + r)},${fmt(l.py)}`;
+    });
+    mark([at.x - gap, y0 - gap, at.x + colW + gap, y0 + colH + gap]);
+    console.log(`  column of ${g.length} beside the coast: ${g.map((l) => l.name).join(', ')}`);
+  }
+  lost.length = 0;
+  return d;
+}
+
 const MAPS = {
   world: { file: 'shetachim-map.svg', title: 'Chabad shetachim', countries: null, projection: () => geoNaturalEarth1() },
   na: {
@@ -297,31 +655,42 @@ const MAPS = {
   },
 };
 MAPS['na-names'] = { ...MAPS.na, file: 'shetachim-us-canada-names.svg', labels: true };
+// The whole world (land no shetach covers in plain grey, Antarctica left off), with every head shliach's name, at poster size.
+MAPS['world-names'] = {
+  ...MAPS.world, file: 'shetachim-map-names.svg', title: 'Chabad shetachim and head shluchim', source: 'data/world-all.json', skip: ['ATA'],
+  labels: true, split: true, width: 10800, tiny: 2.5, maxSize: 130, aside: { size: 20, reach: 450, far: 1600, cross: 25 },
+};
 
 for (const [name, m] of Object.entries(MAPS)) {
   if (process.argv[3] && process.argv[3] !== name) continue;
-  const shown = m.countries ? pieces.filter((g) => m.countries.includes(g.properties.country)) : pieces;
+  if (m.source) {
+    topo = JSON.parse(fs.readFileSync(path.join(ROOT, m.source), 'utf8'));
+    arcLL = arcsOf(topo);
+  }
+  const all = m.source ? topo.objects.areas.geometries.filter((g) => !(m.skip || []).includes(g.properties.country)) : pieces;
+  const shown = m.countries ? all.filter((g) => m.countries.includes(g.properties.country)) : all;
   const insetStates = (m.insets || []).map((i) => i.state);
   const main = shown.filter((g) => !insetStates.includes(g.properties.state));
-  const proj = fitted(m.projection(), main, [0, 0, WIDTH - 2 * PAD]);
+  const WIDE = m.width || WIDTH;
+  const proj = fitted(m.projection(), main, [0, 0, WIDE - 2 * PAD]);
   const [bx0, by0, , by1] = bounds(proj, main);
   proj.translate([proj.translate()[0] + PAD - bx0, proj.translate()[1] + PAD - by0]);
   const height = Math.ceil(by1 - by0 + 2 * PAD);
   let body = draw(main, proj);
   const labelled = [];
-  if (m.labels) labelled.push(labels(main, proj, { offshore: true }));
+  if (m.labels) labelled.push(labels(main.filter(key), proj, m.aside ? { aside: m.aside, tiny: m.tiny, width: WIDE, land: main, split: m.split, maxSize: m.maxSize } : { offshore: true }));
   // Alaska and Hawaii in boxes along the bottom left, as on the site.
   let x = PAD;
   for (const inset of m.insets || []) {
     const list = shown.filter((g) => g.properties.state === inset.state);
-    const w = (WIDTH - 2 * PAD) * inset.share, h = w * inset.aspect, y = height - PAD - h;
+    const w = (WIDE - 2 * PAD) * inset.share, h = w * inset.aspect, y = height - PAD - h;
     const p = fitted(inset.projection(), list, [x + 10, y + 10, w - 20, h - 20]);
     body += `\n<rect x="${fmt(x)}" y="${fmt(y)}" width="${fmt(w)}" height="${fmt(h)}" rx="8" fill="${BG}" stroke="#d2d9dc" stroke-width="1.5"/>\n${draw(list, p)}`;
     if (m.labels) labelled.push(labels(list, p, { box: [x, y, w, h] }));
     x += w + 16;
   }
   const svg = `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}">
+<svg xmlns="http://www.w3.org/2000/svg" width="${WIDE}" height="${height}" viewBox="0 0 ${WIDE} ${height}">
 <title>${m.title}</title>
 <rect width="100%" height="100%" fill="${BG}"/>
 ${body}
@@ -330,5 +699,5 @@ ${labelled.join('\n')}
 `;
   const out = path.join(ROOT, 'web', m.file);
   fs.writeFileSync(out, svg);
-  console.log(`${path.relative(ROOT, out)}: ${WIDTH}×${height}, ${byShetachOf(shown).size} shetachim, ${(svg.length / 1e6).toFixed(1)} MB`);
+  console.log(`${path.relative(ROOT, out)}: ${WIDE}×${height}, ${byShetachOf(shown).size} shetachim, ${(svg.length / 1e6).toFixed(1)} MB`);
 }

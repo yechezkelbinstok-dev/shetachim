@@ -173,8 +173,9 @@ Later in the same round:
 
 - **Ohio** (owner, Oct 1; done by the session on the other account, branch `ccr-1f9385a8-jca1nj`): four regions
   from the owner's own map (`data/ohio-regions-v2.geojson`, kept verbatim; picture: estimated curved borders, not
-  county lines). Split into shapes `data/shapes/ohio-{toledo,northeast,central,southern}.geojson`, claimed as
-  `{ "state": "US-OH", "shape": … }`: **Northeast Ohio** (`northeast-ohio`, "Alevsky family"; Cleveland, Akron,
+  county lines). **Now by whole counties** (owner, Oct 1: "I hate the roundness"): each of Ohio's 88 counties goes to
+  the region of that map covering most of it (7 were split 51–69%: Muskingum, Champaign, Putnam, Logan, Adams,
+  Crawford, Fayette), so the borders follow county lines; territories are `{ "counties": [...] }`: **Northeast Ohio** (`northeast-ohio`, "Alevsky family"; Cleveland, Akron,
   Youngstown, Canton, east and south to Athens and Marietta), **Central Ohio** (`central-ohio`, Areyah Kaltmann;
   Columbus, south to Portsmouth/Ironton), **Southern Ohio** (`southern-ohio`, Sholom Ber Kalmanson; Cincinnati,
   Dayton, Springfield, Lima), and the **Toledo area joins Michigan** (Berel Shemtov) as part of the `michigan`

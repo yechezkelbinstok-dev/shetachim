@@ -8,7 +8,7 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
-## LATEST (Sept 30, second round) — read before "RIGHT NOW" below
+## LATEST (Sept 30 – Oct 1) — read before "RIGHT NOW" below
 
 Done in this round:
 - **Lag fixed.** The political map is drawn on a `<canvas>`, not SVG: every arc is projected once per view with a
@@ -53,25 +53,31 @@ Later in the same round:
   Pieria, Pella and Imathia. GADM has no regional-unit level, so `REGIONAL_UNITS` in the build lists each unit's
   municipalities (GADM level 3); territory `{ "country": "GRC", "regionalUnits": [...] }`. A country can now be claimed
   at several GADM levels at once (finest wins).
-- **Brisbane / Gold Coast** (owner: "use the ABS SUA geospatial boundary itself, do not approximate"): the old shapes
-  were ABS data simplified to 10% of their points (R package absmapsdata, `keep = 0.1`). Now exact:
-  `data/shapes/brisbane-sua.geojson` = the union of the 235 whole SA2s that make up SUA 3002 "Brisbane" (SUAs are built
-  from whole SA2s; membership read from ABS's SUA_2021 file: every SA2 is 100% in or out), from ABS's full-resolution
-  SA2_2021 boundaries (official area 6,462.4 km²; drawn 6,459); `gold-coast-lga.geojson` = ABS LGA 2022 33430 at full
-  resolution (1,333.4 km²; drawn 1,331). Source of the full-resolution ABS files: github.com/HughParsonage/ASGS
-  `inst/extdata/SA2_2021.qs` and `LGA_2022.qs` (ABS itself is blocked from the sandbox). Reading .qs needs R: conda-forge
-  is reachable, so `micromamba` (conda-forge linux-64 package, unpack the .tar.bz2) → `micromamba create -p renv -c
-  conda-forge r-base r-qs r-jsonlite`, then `qs::qread()` and write GeoJSON with jsonlite (rings need rewinding for d3).
-  Queensland is simplified at 100 m (`FINE` in the build) so the lines hold up zoomed in.
-  The official SUA really does include three large rural SA2s — Beaudesert (1,628 km², down toward the NSW border),
-  Rosewood (675), Dayboro (407) — see `docs/brisbane-sua-2021.png`; Tamborine–Canungra (between Brisbane and the Gold
-  Coast) is in neither, so it's RARA under the owner's rule. Don't shrink Brisbane unless the owner names another
-  official boundary (e.g. ABS's Urban Centre, UCL, for the built-up city only).
+- **Brisbane / Gold Coast — final (Oct 1).** The owner rejected the ABS Significant Urban Area (even the exact one:
+  it pulls in rural Beaudesert, Rosewood and Dayboro and leaves a RARA strip between Brisbane and the Gold Coast), then
+  left the call to us ("Levi Jaffe is Brisbane, Nir Gurevitch is the Gold Coast, figure out the exact borders").
+  Decided: **Brisbane = the five metropolitan councils** — City of Brisbane, Ipswich, Logan, Moreton Bay, Redland
+  (`data/shapes/brisbane-metro.geojson`, ABS LGA 2022 codes 31000, 33960, 34590, 35010, 36250 dissolved; official
+  5,973.3 km²) — and **Gold Coast = the City of Gold Coast** (`gold-coast-lga.geojson`, LGA 33430, 1,333.4 km²). The
+  two share their whole border (Logan/Redland–Gold Coast), so nothing is left between them; the rest of Queensland is
+  RARA. Both are ABS full resolution, from github.com/HughParsonage/ASGS `inst/extdata/LGA_2022.qs` (ABS itself is
+  blocked from the sandbox). Reading .qs needs R: conda-forge is reachable, so `micromamba` (conda-forge linux-64
+  package, unpack the .tar.bz2) → `micromamba create -p renv -c conda-forge r-base r-qs r-jsonlite`, then
+  `qs::qread()`, `sf::st_union` per group, and write GeoJSON with jsonlite (rings need rewinding for d3). Queensland is
+  simplified at 100 m (`FINE` in the build) so the lines hold up zoomed in. Check codes by area: 34580 is Lockyer
+  Valley, not Logan (34590).
 - Mexican states have no short labels (no "Sin.", "Nay."); Vic/Tas without dots.
-- **Essex County, Ontario (Windsor) is in the Michigan shetach** (owner, Oct 1): territory `{ "state": "CA-ON", "shape":
-  "essex-county-on" }` (shape = GADM level-2 "Essex County", lo-res, from `data/shapes/essex-county-on.geojson`; only its
-  inland line is used, the coast stays the province's). Ontario is drawn at 100 m (`FINE`). Area cards no longer list a
-  shetach's states (kept in the data, not shown).
+- **Essex County, Ontario (Windsor) is in the Michigan shetach** (owner, Oct 1), **with its waters**: territory
+  `{ "state": "CA-ON", "shape": "essex-county-on" }`. GADM's Ontario (lo-res Admin1) includes Canada's half of the
+  Great Lakes out to the international boundary — that's why Ontario's colour fills the lakes, and the lake edge of it
+  is the thin "maritime" line on the physical map. A land-only Essex left Ontario's water wrapped round it (a wedge of
+  Ontario's colour along the Detroit River and western Lake Erie, and a border that went into Lake St Clair and back).
+  So the shape (`data/shapes/essex-county-on.geojson`) is the Essex/Chatham-Kent land line (GADM lo-res Admin2)
+  carried out to the international boundary: across Lake St Clair at right angles to the boundary's straight line
+  through the lake (Detroit River head to the St Clair delta), and across Lake Erie due south. Essex takes the Canadian
+  water on its side (Detroit River, south of Lake St Clair, western Lake Erie with Pelee Island); past the boundary
+  the shape runs on over US ground, which a shape never cuts (only CA-ON's land). Ontario is drawn at 100 m (`FINE`).
+  Area cards no longer list a shetach's states (kept in the data, not shown).
 - **SVG export**: `npm run svg` (scripts/export-svg.mjs) writes `web/shetachim-map.svg` — every shetach in its map colour,
   shetach borders and coasts only (no names, cities, dots, stars); Natural Earth projection, 3600 px wide, lines
   thinned to what's visible at that size (~2 MB). Live at /web/shetachim-map.svg. Rerun after every build.
@@ -95,13 +101,12 @@ geometry. Built, and checked in headless Chromium on desktop (political map, lig
     `WORLD_STATES` in the build). Baja California = BCN+BCS+SON; Jalisco = JAL+COL; Bajío = AGU, GUA, MIC, QUE,
     SLP, ZAC; Nuevo León = CHH, COA, DUR, NLE, TAM; Central Mexico = CMX, MEX, GRO, HID, MOR, PUE, TLA, OAX, VER;
     Chiapas = CHP+TAB; Mexican Caribbean = CAM, ROO, YUC; Sinaloa, Nayarit single states.
-  - Australia by state (`AU-NSW`, …). **Brisbane** = the ABS Significant Urban Area 2021 (SUA 3002) and **Gold Coast**
-    = the City of Gold Coast LGA (2022), both real ABS boundaries in `data/shapes/*.geojson` (from the R package
-    `absmapsdata` on GitHub, CC BY 4.0 — ABS's own hosts are blocked from the sandbox; see "Notes for Claude").
+  - Australia by state (`AU-NSW`, …). **Brisbane** and **Gold Coast** are real ABS boundaries in
+    `data/shapes/*.geojson` (now the five metropolitan councils and the City of Gold Coast — see LATEST above).
     **RARA** = Northern Territory + the rest of Queensland. A new territory form `{ "state": "AU-QLD", "shape":
-    "brisbane-sua" }` cuts a shape out of a state; only the line through the state comes from the shape, the coast and
+    "brisbane-metro" }` cuts a shape out of a state; only the line through the state comes from the shape, the coast and
     state borders stay GADM's, and the thin slivers where the two sources draw the coast differently are handed to the
-    shape (`absorbSlivers`, 605 of them). Gold Coast comes out at 1,334 km², the official figure.
+    shape (`absorbSlivers`).
     Jervis Bay Territory isn't in the list, so it's drawn blank (a small blank bit of the NSW coast). Ashmore/Cartier
     and the Coral Sea Islands (reefs) are left off.
   - Greece / Lower Balkans: Central Macedonia and East Macedonia & Thrace go to Lower Balkans (new territory form
@@ -346,6 +351,9 @@ The owner got very angry at the first version. The lessons:
   `node scripts/screenshot.mjs <outdir> world:political:desktop:light fsu:physical:phone:dark …` (spec =
   view:base:device:theme[:extra clicks like labels=last,borders=both]); prints each view's stats line and any page errors
   ("Failed to load resource" lines are the blocked web fonts — expected). Look at the PNGs with the Read tool.
+  Extras run in order: `zoom=x/y/k` zooms the political map k× about screen point x,y; to see the physical map at the
+  same spot, zoom on political first and then `base=physical,wait=9000` (it takes the political map's camera; the
+  test uses MapLibre's demo style, so the base colours aren't the real ones, but our lines and labels are).
 - This cloud sandbox's network is limited: GitHub (`raw.githubusercontent.com`, and anonymous
   `git clone` of any public repo) and the npm registry work; census.gov, geonames.org, chabad.org,
   gadm.org, geoboundaries.org, any OSM host, cdnjs, jsdelivr, unpkg, openfreemap.org and github.io

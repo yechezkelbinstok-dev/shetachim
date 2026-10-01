@@ -134,7 +134,7 @@ const WORLD_STATES = {
 };
 const WORLD_PREFIX = new Map(Object.entries(WORLD_STATES).map(([iso3, w]) => [w.prefix, iso3]));
 const STATE_INFO = new Map(Object.values(WORLD_STATES).flatMap((w) => Object.values(w.states).map(([code, name, abbr]) => [`${w.prefix}-${code}`, { name, abbr }])));
-// Boundary shapes a shetach can claim inside a state ({ "state": "AU-QLD", "shape": "brisbane-sua" }): data/shapes/<name>.geojson.
+// Boundary shapes a shetach can claim inside a state ({ "state": "AU-QLD", "shape": "brisbane-metro" }): data/shapes/<name>.geojson.
 const SHAPES = path.join(ROOT, 'data', 'shapes');
 // A sliver left between a shape and the state's own (differently drawn) coast or border goes to the shape beside it.
 const SLIVER_KM2 = 25;
@@ -145,8 +145,8 @@ const UNIT_COUNTRIES = ['USA', 'CAN'];
 const UNIT_ISO = ['US', 'CA'];
 const CITY_KM = 60; // a GeoNames place this close with the same name is the center's city
 const ROUGH = ['US-AK']; // drawn small in an inset, so simplified harder
-// States cut by an official boundary shape (Brisbane's SUA, the City of Gold Coast): drawn at 100 m, so the line
-// follows the official boundary closely when zoomed in, not the 800 m used for whole countries.
+// States cut by a boundary shape (Brisbane's councils, the City of Gold Coast, Essex County): drawn at 100 m, so the
+// line follows the boundary closely when zoomed in, not the 800 m used for whole countries.
 const FINE = ['AU-QLD', 'CA-ON'];
 
 // ---------- downloads ----------

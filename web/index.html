@@ -318,6 +318,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     <button id="zin" type="button" aria-label="Zoom in"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg></button>
     <button id="zout" type="button" aria-label="Zoom out"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/></svg></button>
     <button id="zreset" type="button" aria-label="Show all"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10"/></svg></button>
+    <button id="refresh" type="button" aria-label="Load the latest version" title="Load the latest version"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M13 8a5 5 0 1 1-1.46-3.54"/><path d="M13.2 2.3v3h-3"/></svg></button>
   </div>
 
   <div id="card" hidden></div>
@@ -339,7 +340,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   if (!phone()) $('#panel').classList.remove('collapsed');
 
   // ---------- data ----------
-  const get = (url) => fetch(url).then((r) => { if (!r.ok) throw new Error(`${url} (${r.status})`); return r.json(); });
+  // The refresh button reloads the page as ?v=<time>: a new address no cache has (the browser's or GitHub's), and every
+  // data file and map tile is asked for with the same ?v=, so all of it comes fresh from the site.
+  const BUST = new URLSearchParams(location.search).get('v');
+  const fresh = (url) => (BUST ? `${url}${url.includes('?') ? '&' : '?'}v=${encodeURIComponent(BUST)}` : url);
+  $('#refresh').addEventListener('click', () => { location.replace(`${location.pathname}?v=${Date.now()}${location.hash}`); });
+  const get = (url) => fetch(fresh(url), BUST ? { cache: 'reload' } : undefined).then((r) => { if (!r.ok) throw new Error(`${url} (${r.status})`); return r.json(); });
   let topo, centersGeo, shetachFile;
   try {
     [topo, centersGeo, shetachFile] = await Promise.all([get('data/geo.json'), get('data/centers.geojson'), get('data/shetachim.json')]);
@@ -1469,7 +1475,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const waterBefore = (layers.find((l) => ['water', 'waterway'].includes(l['source-layer'])) || {}).id;
     // Borders and the land to fade come as ready-made tiles (the build's web/tiles/): each zoom's tiles are already
     // simplified for it and only the ones on screen load, so a phone never handles the whole world at once.
-    mapgl.addSource('st', { type: 'vector', tiles: [`${new URL('.', location.href).href}tiles/{z}/{x}/{y}.pbf`], minzoom: 0, maxzoom: 6 });
+    mapgl.addSource('st', { type: 'vector', tiles: [fresh(`${new URL('.', location.href).href}tiles/{z}/{x}/{y}.pbf`)], minzoom: 0, maxzoom: 6 });
     mapgl.addSource('st-hover-area', { type: 'geojson', data: EMPTY });
     for (const id of ['st-dots', 'st-hover-dot']) mapgl.addSource(id, { type: 'geojson', data: EMPTY });
     mapgl.addLayer({ id: 'st-fade-land', type: 'fill', source: 'st', 'source-layer': 'land', paint: { 'fill-color': FADE, 'fill-opacity': 0.72, 'fill-antialias': false } }, waterBefore);

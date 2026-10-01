@@ -145,6 +145,11 @@ Later in the same round:
   (`overturemaps-us-west-2`, `theme=addresses`) is reachable: read parquet footers over HTTP range requests and fetch
   only the row groups whose bbox stats cover the spot (pyarrow in a venv; ~1 minute).
 
+- **Refresh button** (owner, Oct 1: reloads often showed the old map — GitHub Pages and browsers cache for ~10 min):
+  the circular-arrow button under the zoom buttons reloads the page as `?v=<time>`; with `?v=` in the address every data
+  file and map tile is fetched with the same `?v=` (`fresh()` in the page), so nothing comes from a cache. Any new
+  fetch of site files should go through `fresh()`.
+
 Next: test physical map labels/cards on the real site (tiles can't be fetched
 from the sandbox, the test uses MapLibre's demo style); update the Claude artifact preview if still used.
 

@@ -2,7 +2,7 @@
   "about": [
     "One entry per shetach. territory lists what it covers: a US state or Canadian province (US-TX, CA-ON), a Mexican or Australian state (MX-JAL, AU-NSW), or a whole country (ISO 3166-1 alpha-3: FRA, DEU; ISR is all of Israel, including Judea and Samaria (the West Bank) and the Golan Heights); the part of a US state east and/or west of a longitude ({ \"state\": \"US-PA\", \"westOf\": -78.13 }); counties by 5-digit FIPS ({ \"counties\": [...] }); towns ({ \"state\": \"US-MA\", \"towns\": [...] }); census tracts ({ \"state\": \"US-MA\", \"tracts\": [...] }); regions of a country by their GADM name ({ \"country\": \"GRC\", \"level\": 2, \"regions\": [\"Central Macedonia\"] }; level 1 unless given; claims at several levels can be combined, the finer winning), or regional units of a country GADM has no level for ({ \"country\": \"GRC\", \"regionalUnits\": [\"Thessaloniki\"] }, as their municipalities, REGIONAL_UNITS in the build); or a boundary shape from data/shapes/ inside a state ({ \"state\": \"AU-QLD\", \"shape\": \"brisbane-metro\" }).",
     "Where claims overlap, the more specific one wins: tracts, then towns and shapes, then counties and regions, then longitude lines, then whole states and countries. Anything no shetach claims is left blank.",
-    "short: the label used where the name doesn't fit, or a list of them from longest to shortest, used as the shetach gets smaller on screen ([\"Carolinas\", \"Car.\"]); a single whole state defaults to its own abbreviation (TX), and state codes are never joined unless given (KS-MO). capital: the chabad.org center id of the shetach's headquarters (the number in its chabad.org link), or lat and lon; \"world\": true marks 770. headTitle: what the card calls the head (\"Head shliach\" unless given, e.g. \"Leadership\"). lastName is optional; it defaults to the last word of headShliach. notShown: areas left off the map entirely. notShownWhenBlank: states left off the map wherever no shetach claims them (the Northwest Territories and Yukon north of 63°N). labelState: the state whose part of the shetach carries its name on the map (Alberta, for the territories north of it)."
+    "short: the label used where the name doesn't fit, or a list of them from longest to shortest, used as the shetach gets smaller on screen ([\"Carolinas\", \"Car.\"]); a single whole state defaults to its own abbreviation (TX), and state codes are never joined unless given (KS-MO). capital: the chabad.org center id of the shetach's headquarters (the number in its chabad.org link), or lat and lon; \"world\": true marks 770. headTitle: what the card calls the head (\"Head shliach\" unless given, e.g. \"Leadership\"). lastName is optional; it defaults to the last word of headShliach. notShown: areas left off the map entirely. notShownWhenBlank: states left off the map wherever no shetach claims them (the Northwest Territories and Yukon north of 63°N). labelState: the state whose part of the shetach carries its name on the map (Alberta, for the territories north of it). labelAt: [lon, lat] the name centres on in the SVG maps (India: mainland India)."
   ],
   "notShown": [
     "CA-NU"
@@ -255,7 +255,8 @@
       ],
       "capital": {
         "centerId": "117708"
-      }
+      },
+      "lastName": "Alevsky"
     },
     {
       "id": "central-ohio",
@@ -1545,7 +1546,11 @@
         "city": "Jaipur",
         "lat": 26.91962,
         "lon": 75.78781
-      }
+      },
+      "labelAt": [
+        78.9,
+        22.6
+      ]
     },
     {
       "id": "nepal",
@@ -1766,7 +1771,8 @@
       ],
       "capital": {
         "centerId": "117877"
-      }
+      },
+      "lastName": "Pinson"
     },
     {
       "id": "central-africa",
@@ -2285,13 +2291,14 @@
     {
       "id": "peru",
       "name": "Peru",
-      "headShliach": "Sara Blumenfeld",
+      "headShliach": "Blumenfeld family",
       "territory": [
         "PER"
       ],
       "capital": {
         "centerId": "117867"
-      }
+      },
+      "lastName": "Blumenfeld"
     },
     {
       "id": "uruguay",

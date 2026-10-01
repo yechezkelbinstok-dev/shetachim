@@ -2109,7 +2109,12 @@
       "short": "Nay.",
       "headShliach": "Shneur Hecht",
       "territory": [
-        "MX-NAY"
+        "MX-NAY",
+        {
+          "state": "MX-JAL",
+          "shape": "jalisco-costa-norte",
+          "name": "Puerto Vallarta and Jalisco's north coast (Costa Norte: Puerto Vallarta, Cabo Corrientes, Tomatlán)"
+        }
       ],
       "capital": {
         "centerId": "3424139"

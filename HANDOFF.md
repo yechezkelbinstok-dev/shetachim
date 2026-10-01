@@ -126,6 +126,20 @@ Later in the same round:
 - `closeSeams()` in the build: coast points of one area within 400 m of another area's coast are moved onto it, then
   -clean again (fixes the Baja California / Baja California Sur line, Tijuana, Belgium–France).
 
+- **Ohio** (owner, Oct 1; done by the session on the other account, branch `ccr-1f9385a8-jca1nj`): four regions
+  from the owner's own map (`data/ohio-regions-v2.geojson`, kept verbatim; picture: estimated curved borders, not
+  county lines). Split into shapes `data/shapes/ohio-{toledo,northeast,central,western}.geojson`, claimed as
+  `{ "state": "US-OH", "shape": … }`: **Northeast Ohio** (`northeast-ohio`, "Alevsky family"; Cleveland, Akron,
+  Youngstown, Canton, east and south to Athens and Marietta), **Central Ohio** (`central-ohio`, Areyah Kaltmann;
+  Columbus, south to Portsmouth/Ironton), **Western Ohio** (`western-ohio`, Sholom Ber Kalmanson; Cincinnati,
+  Dayton, Springfield, Lima), and the **Toledo area joins Michigan** (Berel Shemtov) as part of the `michigan`
+  shetach. The owner let us pick "Northeast" over "Northeastern". The four shapes tile Ohio exactly (union is one
+  piece plus the Lake Erie islands; within 0.4% of Census Ohio); only their lines through Ohio are used, Ohio's own
+  border and shore stay Census. Two Lake Erie islets the shapes don't cover (Rattlesnake, West Sister) go to the
+  nearest region (`ISLAND_KM` = 25 in `absorbSlivers`; only for unclaimed islands in a state cut by shapes).
+  Ohio's 40 centers: NE 27, Western 6, Central 4, Toledo/Michigan 3. No capitals yet (owner hasn't given them).
+  The image's legend said "Cincinnati / Southern Ohio"; the owner named it **Western Ohio**.
+
 Next: test physical map labels/cards on the real site (tiles can't be fetched
 from the sandbox, the test uses MapLibre's demo style); update the Claude artifact preview if still used.
 
@@ -325,8 +339,7 @@ The owner got very angry at the first version. The lessons:
   - `data/shetachim.json`: 57 shetachim with head shluchim and capitals (chabad.org center ids).
     Territory items: state codes, `{state, westOf/eastOf}` longitude cuts, `{counties}` (FIPS),
     `{state, towns}` (Census county subdivisions), `{state, tracts}` (Census tracts). The most
-    specific claim wins where they overlap. Unclaimed areas are blank: now Ohio and New York
-    outside NYC and Long Island.
+    specific claim wins where they overlap. Unclaimed areas are blank (none left in the US since Ohio, Oct 1).
   - Drawing: every US state and DC from its own Census 2022 1:500k counties (from the Census Bureau's
     GitHub); every Canadian province from GADM (github.com/stephanietuerk/admin-boundaries, a plain-file
     mirror — gadm.org itself, and every other boundary host tried, is blocked from this sandbox; see
@@ -367,7 +380,7 @@ The owner got very angry at the first version. The lessons:
   supporting files under `data/`.
 
 ## Open questions for the owner
-- Ohio: which shetachim, when the owner has it. New York is all assigned (Upstate: Gurary, Eastern: Rubin, Rockland with NYC).
+- Capitals (flagship centers) for Northeast, Central and Western Ohio.
 - Anything in the current list that turns out wrong (it came from another AI).
 - DC; co-head or deceased head shliach display (Victoria's entry lists three names as "Disputed — …"; UK's is
   "Hanholo of Chabad Lubavitch UK"; Tunisia's "Pinson family" — shown as given for now).

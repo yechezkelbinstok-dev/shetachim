@@ -227,11 +227,64 @@
           "state": "CA-ON",
           "shape": "essex-county-on",
           "name": "Essex County, Ontario (Windsor)"
+        },
+        {
+          "state": "US-OH",
+          "shape": "ohio-toledo",
+          "name": "Toledo area (northwest Ohio)"
         }
       ],
       "capital": {
         "centerId": "117640"
       }
+    },
+    {
+      "id": "northeast-ohio",
+      "name": "Northeast Ohio",
+      "short": [
+        "NE Ohio",
+        "NE OH"
+      ],
+      "headShliach": "Alevsky family",
+      "territory": [
+        {
+          "state": "US-OH",
+          "shape": "ohio-northeast",
+          "name": "Cleveland, Akron, Youngstown, Canton, east to the Ohio River (Athens, Marietta)"
+        }
+      ]
+    },
+    {
+      "id": "central-ohio",
+      "name": "Central Ohio",
+      "short": [
+        "C. Ohio",
+        "C. OH"
+      ],
+      "headShliach": "Areyah Kaltmann",
+      "territory": [
+        {
+          "state": "US-OH",
+          "shape": "ohio-central",
+          "name": "Columbus, south to the Ohio River (Portsmouth, Ironton)"
+        }
+      ]
+    },
+    {
+      "id": "western-ohio",
+      "name": "Western Ohio",
+      "short": [
+        "W. Ohio",
+        "W. OH"
+      ],
+      "headShliach": "Sholom Ber Kalmanson",
+      "territory": [
+        {
+          "state": "US-OH",
+          "shape": "ohio-western",
+          "name": "Cincinnati, Dayton, Springfield, Lima"
+        }
+      ]
     },
     {
       "id": "indiana",

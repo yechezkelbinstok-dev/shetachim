@@ -141,6 +141,8 @@ const STATE_INFO = new Map(Object.values(WORLD_STATES).flatMap((w) => Object.val
 const SHAPES = path.join(ROOT, 'data', 'shapes');
 // A sliver left between a shape and the state's own (differently drawn) coast or border goes to the shape beside it.
 const SLIVER_KM2 = 25;
+// An unclaimed island this close to a shape in a state the shapes divide up goes to the nearest one.
+const ISLAND_KM = 25;
 
 const MERGE_METERS = 25; // centers closer than this are one dot (same building / campus)
 const COAST_KM = 25; // a point just offshore is given to the nearest area within this distance
@@ -974,10 +976,23 @@ function absorbSlivers(features) {
         }
       }
     }
-    if (!shared.size) return;
-    const [best] = [...shared].sort((a, b) => b[1] - a[1])[0];
-    f.properties.shetach = features[best].properties.shetach;
-    n++;
+    if (shared.size) {
+      const [best] = [...shared].sort((a, b) => b[1] - a[1])[0];
+      f.properties.shetach = features[best].properties.shetach;
+      n++;
+      return;
+    }
+    // A small island no shape and no other claim covers (a Lake Erie islet just outside Ohio's regions) goes to the
+    // nearest shape piece of its state within ISLAND_KM, so it isn't left blank in a state the shapes divide up.
+    if (f.properties.shetach) return;
+    const [x, y] = polygonsOf(f.geometry)[0][0][0];
+    let near = null;
+    for (const o of features) {
+      if (!o.properties.byShape || o.properties.state !== f.properties.state) continue;
+      const km = kmTo(o, x, y);
+      if (km <= ISLAND_KM && (!near || km < near.km)) near = { o, km };
+    }
+    if (near) { f.properties.shetach = near.o.properties.shetach; n++; }
   });
   return n;
 }

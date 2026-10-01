@@ -24,7 +24,7 @@ country (USA, Canada) shows only that country.
 | Cities that have shluchim (on/off), more appearing as you zoom in | Done |
 | A capital for each shetach, drawn as a star (770 bigger) | Done |
 | Physical map ("like Google Maps": land cover, relief, roads) with shetach borders | Done (needs the live site) |
-| Ohio and the rest of New York | Blank until the owner sends them |
+| Ohio and the rest of New York | Done (Ohio: Northeast, Central, Western; Toledo area in Michigan) |
 | Puerto Rico / USVI and other insets | Later |
 | The rest of the world, with continent views | Later |
 
@@ -88,7 +88,7 @@ Easiest way to send changes: plain text, one line per shetach, such as
 
 Open questions:
 
-1. Ohio and New York outside NYC and Long Island: which shetachim?
+1. ~~Ohio and New York outside NYC and Long Island~~ — done.
 2. Co-heads, or a shetach whose head shliach has passed away: show two names, the
    successor, or the shetach name only?
 3. Puerto Rico and the US Virgin Islands: show them (in corner boxes) and under which shetach?

@@ -709,59 +709,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
 
   // ---------- labels ----------
-  // Pole of inaccessibility: the point inside a polygon farthest from its edges (after mapbox/polylabel).
-  function polylabel(rings, precision) {
-    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
-    for (const [x, y] of rings[0]) { x0 = Math.min(x0, x); y0 = Math.min(y0, y); x1 = Math.max(x1, x); y1 = Math.max(y1, y); }
-    const size = Math.min(x1 - x0, y1 - y0);
-    if (!(size > 0)) return [x0, y0];
-    const cell = (x, y, h) => { const d = signedDistance(x, y, rings); return { x, y, h, d, max: d + h * Math.SQRT2 }; };
-    const queue = [];
-    for (let x = x0; x < x1; x += size) for (let y = y0; y < y1; y += size) queue.push(cell(x + size / 2, y + size / 2, size / 2));
-    const c = d3.polygonCentroid(rings[0]);
-    let best = cell(c[0], c[1], 0);
-    const mid = cell((x0 + x1) / 2, (y0 + y1) / 2, 0);
-    if (mid.d > best.d) best = mid;
-    while (queue.length) {
-      let bi = 0;
-      for (let i = 1; i < queue.length; i++) if (queue[i].max > queue[bi].max) bi = i;
-      const q = queue[bi];
-      queue[bi] = queue[queue.length - 1];
-      queue.pop();
-      if (q.d > best.d) best = q;
-      if (q.max - best.d <= precision) continue;
-      const h = q.h / 2;
-      queue.push(cell(q.x - h, q.y - h, h), cell(q.x + h, q.y - h, h), cell(q.x - h, q.y + h, h), cell(q.x + h, q.y + h, h));
-    }
-    return [best.x, best.y];
-  }
-  function signedDistance(px, py, rings) {
-    let inside = false, min = Infinity;
-    for (const ring of rings) {
-      for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
-        const a = ring[i], b = ring[j];
-        if ((a[1] > py) !== (b[1] > py) && px < ((b[0] - a[0]) * (py - a[1])) / (b[1] - a[1]) + a[0]) inside = !inside;
-        let x = b[0], y = b[1], dx = a[0] - x, dy = a[1] - y;
-        if (dx || dy) {
-          const t = ((px - x) * dx + (py - y) * dy) / (dx * dx + dy * dy);
-          if (t > 1) { x = a[0]; y = a[1]; } else if (t > 0) { x += dx * t; y += dy * t; }
-        }
-        min = Math.min(min, (px - x) ** 2 + (py - y) ** 2);
-      }
-    }
-    return (inside ? 1 : -1) * Math.sqrt(min);
-  }
-
-  // Where an area's label looks for room first: the middle of each of its bigger polygons, biggest first.
-  // The biggest polygon's area sets the label's size. bbox covers every polygon (even small ones), so
-  // placeLabels can tell when the whole area doesn't fit on screen and needs recentring on what does.
+  // An area's biggest polygon's area, and a bbox over every polygon (even small ones), so placeLabels can tell when the
+  // whole area doesn't fit on screen and works from what does.
   function anchorFor(polys) {
-    const sized = polys.map((rings) => ({ rings, area: Math.abs(d3.polygonArea(rings[0])) })).sort((a, b) => b.area - a.area);
-    if (!sized.length || !(sized[0].area > 0)) return null;
-    const points = sized.filter((q, i) => i < 4 && q.area >= sized[0].area * 0.05).map((q) => polylabel(q.rings, 0.5));
+    const area = d3.max(polys, (rings) => Math.abs(d3.polygonArea(rings[0])));
+    if (!(area > 0)) return null;
     let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
     for (const poly of polys) for (const [x, y] of poly[0]) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
-    return { points, area: sized[0].area, bbox: [x0, y0, x1, y1] };
+    return { area, bbox: [x0, y0, x1, y1] };
   }
 
   // A shetach in pieces that other land keeps apart (Bosnia and the rest of the Lower Balkans, with Montenegro and
@@ -836,11 +791,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return out;
   }
 
-  // What a shetach's label says in the current mode; the short form is for where it has no room.
+  // What a shetach's label says in the current mode; the short forms are for where it has no room (a head shliach's
+  // is his last name).
   function shetachLabel(s) {
     if (state.labels === 'name') return { text: s.name, short: s.short, missing: false };
     const person = state.labels === 'last' ? s.lastName : s.headShliach;
-    return person ? { text: person, missing: false } : { text: s.name, short: s.short, missing: true };
+    if (!person) return { text: s.name, short: s.short, missing: true };
+    return { text: person, short: state.labels === 'full' && s.lastName && s.lastName !== person ? s.lastName : null, missing: false };
   }
 
   // A name on two lines, split at the space or hyphen that makes the lines most even.
@@ -857,6 +814,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
   const MARK_FONT = 12;
   const LINE = 1.2; // line height of two-line labels, in font sizes
+  const GLYPH = 0.95; // how tall a line of letters really is, in font sizes
   function buildLabels() {
     labels = [];
     if (state.labels !== 'off') {
@@ -869,20 +827,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         });
       }
     }
+    // Each label's forms, most wanted first: the name on one line, on two, then each short form in turn (The Carolinas
+    // → Carolinas → Car.), with how wide and tall each is per pixel of font size.
     const family = getComputedStyle(document.documentElement).getPropertyValue('--font-map');
     for (const L of labels) {
-      L.size = clamp(Math.sqrt(L.a.area) / 10, 10, 20);
-      measure.font = `${L.missing ? 500 : 700} ${L.size}px ${family}`;
-      const width = (t) => measure.measureText(t).width + 0.01 * L.size * t.length; // letter-spacing .01em
-      // The name on one line; on two lines, or the short form, only when that doesn't fit near the middle.
-      // Smaller (85%, 70%; short forms also 55%; never under 7px) where that's what it takes to fit, at a cost.
-      // Then each short form in turn, longest first (The Carolinas → Carolinas → Car.), so something always fits.
-      const shorts = [].concat(L.short || []).filter((t) => t !== L.text);
-      // A short form at full size beats the name shrunk to 70%, so neighbours don't end up in very different sizes;
-      // only the short forms go down to 55%.
-      L.opts = [[[L.text], 0, false], [twoLines(L.text), 0.8, false], ...shorts.map((t, i) => [[t], 1 + i * 0.8, true])]
-        .filter(([lines]) => lines).flatMap(([lines, cost, isShort]) => [[1, 0], [0.85, 0.6], [0.7, 1.2], ...(isShort ? [[0.55, 1.8]] : [])]
-          .map(([s, extra]) => ({ lines, s, cost: cost + extra, w: d3.max(lines, width) * s })));
+      measure.font = `${L.missing ? 500 : 700} 100px ${family}`;
+      const unit = (t) => (measure.measureText(t).width + 0.01 * 100 * t.length) / 100; // letter-spacing .01em
+      // height: the letters themselves (capitals and descenders, about 0.95 em), plus a line's pitch for a second line
+      const form = (lines, kind) => ({ lines, kind, wu: d3.max(lines, unit), hu: GLYPH + (lines.length - 1) * LINE });
+      const two = twoLines(L.text);
+      L.forms = [form([L.text], 'name'), ...(two ? [form(two, 'two')] : []),
+        ...[].concat(L.short || []).filter((t) => t && t !== L.text).map((t) => form([t], 'short'))];
     }
     labels.sort((a, b) => b.a.area - a.a.area);
     for (const box of insetBoxes) {
@@ -892,6 +847,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     }
   }
 
+  // How names grow during a zoom, until they're placed (and sized) again when it ends.
   const fontScale = (k) => clamp(Math.pow(k, 0.4), 0.8, 2.6);
   const overlaps = (box, boxes) => boxes.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1]);
 
@@ -919,10 +875,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
 
   // How much of a w×h label centred at screen (cx, cy) lies on its own area me (0-1), checked along five rows through
-  // the label; null if it comes within 2px of any other area. Water is fine: a label may cross a gulf or a strait
+  // the label; null if it comes within gap px of any other area. Water is fine: a label may cross a gulf or a strait
   // between two parts of its own shetach.
   const ROWS = [0, -0.42, 0.42, -0.21, 0.21]; // in label heights
-  function ownShare(ix, me, cx, cy, w, h) {
+  function ownShare(ix, me, cx, cy, w, h, gap = 2) {
     const k = T.k, x0 = cx - w / 2, x1 = cx + w / 2;
     let on = 0;
     for (const t of ROWS) {
@@ -930,7 +886,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         for (let i = 0; i + 1 < xs.length; i += 2) {
           const a = T.x + xs[i] * k, b = T.x + xs[i + 1] * k;
           if (id === me) on += Math.max(0, Math.min(x1, b) - Math.max(x0, a));
-          else if (a < x1 + 2 && b > x0 - 2) return null;
+          else if (a < x1 + gap && b > x0 - gap) return null;
         }
       }
     }
@@ -959,11 +915,28 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return pts;
   }
 
-  // The part of an area on screen: its land's centre of mass (in a gulf, for land wrapped around one), the middle of
-  // its biggest piece of land (the point farthest from its edges, the screen's edge counting as one), and the convex
-  // hull around it all, which a label mustn't leave. Map pixels; tiny outlying islands don't stretch the hull.
-  function visiblePart(polys, box) {
-    const parts = [];
+  // The part of an area on screen: its land's area and centre of mass (in a gulf, for land wrapped around one), and the
+  // convex hull around it all, which a label mustn't leave. Map pixels; tiny outlying islands don't stretch the hull.
+  // An area's polygons with only the points that show at this zoom (no two within about half a screen pixel), made
+  // once per zoom level: the outlines a label needs, at a fraction of the work.
+  function polysAt(polys) {
+    const L = levelFor(T.k), cache = polys.simple || (polys.simple = []);
+    if (cache[L]) return cache[L];
+    const tol = 0.5 / 2 ** L;
+    return (cache[L] = polys.map((rings) => rings.map((ring) => {
+      const out = [ring[0]];
+      let [px, py] = ring[0];
+      for (let i = 1; i < ring.length; i++) {
+        const [x, y] = ring[i];
+        if (Math.abs(x - px) + Math.abs(y - py) < tol && i < ring.length - 1) continue;
+        out.push(ring[i]);
+        px = x; py = y;
+      }
+      return out;
+    })));
+  }
+  function visiblePart(allPolys, box) {
+    const parts = [], polys = polysAt(allPolys);
     for (const rings of polys) {
       const outer = box ? clipRing(rings[0], box) : rings[0];
       if (outer.length < 3) continue;
@@ -975,22 +948,181 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     parts.sort((a, b) => b.area - a.area);
     const total = d3.sum(parts, (q) => q.area);
     const big = parts.filter((q) => q.area >= total * 0.01);
+    const hull = d3.polygonHull(big.flatMap((q) => q.rings[0])) || parts[0].rings[0];
+    const hullArea = Math.abs(d3.polygonArea(hull));
+    // Islands strung across a sea (the Caribbean, Indonesia), with land on little of their hull and no one piece most of
+    // it: the name goes in the middle of the whole spread, sized for it, rather than wherever the biggest island pulls
+    // the land's centre. (Ecuador and the Galápagos aren't that: the mainland is nearly all of it.)
+    const spread = hullArea > 0 && total / hullArea < 0.35 && parts[0].area < total * 0.6;
     return {
-      centre: [d3.sum(big, (q) => q.c[0] * q.area) / d3.sum(big, (q) => q.area), d3.sum(big, (q) => q.c[1] * q.area) / d3.sum(big, (q) => q.area)],
-      middle: polylabel(parts[0].rings, 0.5 / T.k),
-      hull: d3.polygonHull(big.flatMap((q) => q.rings[0])) || parts[0].rings[0],
+      area: spread ? Math.max(total, hullArea * 0.3) : total,
+      centre: spread ? d3.polygonCentroid(hull)
+        : [d3.sum(big, (q) => q.c[0] * q.area) / d3.sum(big, (q) => q.area), d3.sum(big, (q) => q.c[1] * q.area) / d3.sum(big, (q) => q.area)],
+      hull,
     };
   }
 
-  // Each area's label, biggest areas first, as near as it fits to the centre of what's on screen of the area: inside
-  // the hull around its land, clear of every other area, star and label. Nearer is better; so is sitting on land
-  // rather than water; the name on two lines or the short form cost as much as moving a few letters' height away.
-  // Then the stars and cities, biggest first, wherever they fit.
+  // ---------- label placement ----------
+  // Every area's name sized and placed as a cartographer would: the full name wherever it fits at a readable size (on
+  // two lines when that's clearly bigger), else its short forms in turn; as big as the area's size on screen calls for
+  // and as fits, a little under the most that fits so it has room to breathe; and where it has the most room on every
+  // side, near the middle of what's on screen of the area. Room is read off a grid laid over the area: each cell is
+  // the area's own land, water inside the hull around its land (a name may cross a gulf or a strait), or blocked —
+  // another area, outside the hull, off screen, under the panel, a capital's star or a name placed before it.
+  // Biggest areas first.
+  const LABEL_MIN = 9, SHORT_MIN = 8; // px: names never smaller; short forms a little smaller still
+  const BREATHE = 0.88; // a name is set this much under the most that fits, so it isn't pressed against its edges
+  const labelMax = () => (phone() ? 24 : 30);
+  // the size an area's name calls for, from its land's size on screen: bigger areas, bigger names
+  const capFor = (areaPx) => clamp(5 + Math.sqrt(areaPx) * 0.1, LABEL_MIN, labelMax());
+  const padFor = (size) => Math.max(1, size * 0.12); // room kept clear around a name
+
+  // A polygon's extent along the line at height y (screen px).
+  function spanAt(poly, y) {
+    let lo = Infinity, hi = -Infinity;
+    for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+      const [x1, y1] = poly[j], [x2, y2] = poly[i];
+      if ((y1 > y) === (y2 > y)) continue;
+      const x = x1 + ((y - y1) / (y2 - y1)) * (x2 - x1);
+      if (x < lo) lo = x;
+      if (x > hi) hi = x;
+    }
+    return [lo, hi];
+  }
+
+  // The grid over an area's hull on screen: blocked and water cells, their running totals (so any rectangle's count
+  // is four lookups), and each cell's distance in cells to the nearest blocked one.
+  const EDGE = 4; // px kept clear of the screen's edge
+  function labelGrid(id, hull, ix, obstacles) {
+    const k = T.k;
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    for (const [x, y] of hull) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+    x0 = Math.max(x0, EDGE); y0 = Math.max(y0, EDGE); x1 = Math.min(x1, W - EDGE); y1 = Math.min(y1, H - EDGE);
+    if (x1 - x0 < 10 || y1 - y0 < 8) return null;
+    const cs = Math.max(1, (x1 - x0) / 60, (y1 - y0) / 60);
+    const nx = Math.ceil((x1 - x0) / cs), ny = Math.ceil((y1 - y0) / cs), n = nx * ny;
+    const blocked = new Uint8Array(n), water = new Uint8Array(n);
+    // cells whose middle is in [a, b] (own land), or that touch it at all (another area: the margin errs on the safe side)
+    const centred = (a, b) => [Math.max(0, Math.ceil((a - x0) / cs - 0.5)), Math.min(nx - 1, Math.floor((b - x0) / cs - 0.5))];
+    const touched = (a, b) => [Math.max(0, Math.floor((a - x0) / cs)), Math.min(nx - 1, Math.floor((b - x0) / cs))];
+    for (let j = 0; j < ny; j++) {
+      const y = y0 + (j + 0.5) * cs, row = j * nx, [hl, hr] = spanAt(hull, y);
+      for (let i = 0; i < nx; i++) { const x = x0 + (i + 0.5) * cs; if (x >= hl && x <= hr) water[row + i] = 1; else blocked[row + i] = 1; }
+      const cr = crossings(ix, (y - T.y) / k), own = cr.get(id);
+      if (own) for (let q = 0; q + 1 < own.length; q += 2) {
+        const [i0, i1] = centred(T.x + own[q] * k, T.x + own[q + 1] * k);
+        for (let i = i0; i <= i1; i++) { blocked[row + i] = 0; water[row + i] = 0; }
+      }
+      for (const [other, xs] of cr) {
+        if (other === id) continue;
+        for (let q = 0; q + 1 < xs.length; q += 2) {
+          const [i0, i1] = touched(T.x + xs[q] * k, T.x + xs[q + 1] * k);
+          for (let i = i0; i <= i1; i++) { blocked[row + i] = 1; water[row + i] = 0; }
+        }
+      }
+    }
+    for (const b of obstacles) {
+      if (b[2] < x0 || b[0] > x1 || b[3] < y0 || b[1] > y1) continue;
+      const [i0, i1] = touched(b[0], b[2]);
+      const j0 = Math.max(0, Math.floor((b[1] - y0) / cs)), j1 = Math.min(ny - 1, Math.floor((b[3] - y0) / cs));
+      for (let j = j0; j <= j1; j++) blocked.fill(1, j * nx + i0, j * nx + i1 + 1);
+    }
+    const sat = (a) => {
+      const t = new Int32Array((nx + 1) * (ny + 1));
+      for (let j = 0; j < ny; j++) { let run = 0; for (let i = 0; i < nx; i++) { run += a[j * nx + i]; t[(j + 1) * (nx + 1) + i + 1] = t[j * (nx + 1) + i + 1] + run; } }
+      return t;
+    };
+    // chessboard distance to the nearest blocked cell (the grid's edge counts as blocked)
+    const dt = new Int16Array(n);
+    for (let c = 0; c < n; c++) dt[c] = blocked[c] ? 0 : 32000;
+    const at = (i, j) => (i < 0 || j < 0 || i >= nx || j >= ny ? 0 : dt[j * nx + i]);
+    for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) {
+      const c = j * nx + i;
+      if (dt[c]) dt[c] = Math.min(dt[c], at(i - 1, j) + 1, at(i - 1, j - 1) + 1, at(i, j - 1) + 1, at(i + 1, j - 1) + 1);
+    }
+    for (let j = ny - 1; j >= 0; j--) for (let i = nx - 1; i >= 0; i--) {
+      const c = j * nx + i;
+      if (dt[c]) dt[c] = Math.min(dt[c], at(i + 1, j) + 1, at(i + 1, j + 1) + 1, at(i, j + 1) + 1, at(i - 1, j + 1) + 1);
+    }
+    return { x0, y0, cs, nx, ny, blocked, dt, B: sat(blocked), WT: sat(water) };
+  }
+
+  // One label: which form, what size, where; null if nothing fits.
+  function placeOne(L, part, ix, obstacles) {
+    const k = T.k, hull = part.hull.map((pt) => T.apply(pt)), [ax, ay] = T.apply(part.centre);
+    const g = labelGrid(L.id, hull, ix, obstacles);
+    if (!g) return null;
+    const { x0, y0, cs, nx, ny, blocked, dt, B, WT } = g;
+    const cx = (c) => x0 + ((c % nx) + 0.5) * cs, cy = (c) => y0 + (Math.floor(c / nx) + 0.5) * cs;
+    const cells = (b) => [Math.floor((b[0] - x0) / cs), Math.floor((b[1] - y0) / cs), Math.floor((b[2] - x0) / cs), Math.floor((b[3] - y0) / cs)];
+    const sum = (t, [i0, j0, i1, j1]) => t[(j1 + 1) * (nx + 1) + i1 + 1] - t[j0 * (nx + 1) + i1 + 1] - t[(j1 + 1) * (nx + 1) + i0] + t[j0 * (nx + 1) + i0];
+    const clear = (b) => { const r = cells(b); return r[0] >= 0 && r[1] >= 0 && r[2] < nx && r[3] < ny && sum(B, r) === 0; };
+    const boxAt = (c, w, h, m) => [cx(c) - w / 2 - m, cy(c) - h / 2 - m, cx(c) + w / 2 + m, cy(c) + h / 2 + m];
+    // the free cells, and how far each is from the middle of what's on screen (sideways counts a little less)
+    const d2 = new Float32Array(nx * ny), order = [];
+    for (let c = 0; c < nx * ny; c++) {
+      if (blocked[c]) continue;
+      const dx = cx(c) - ax, dy = (cy(c) - ay) * 1.3;
+      d2[c] = dx * dx + dy * dy;
+      order.push(c);
+    }
+    const need = (w, h) => Math.max(0, Math.floor(Math.min(w, h) / 2 / cs) - 1); // a centre any nearer the blocked can't hold it
+    const fitsAt = (f, s) => {
+      const w = f.wu * s, h = f.hu * s, m = padFor(s), dmin = need(w, h);
+      for (const c of order) if (dt[c] >= dmin && clear(boxAt(c, w, h, m))) return true;
+      return false;
+    };
+    // the biggest size from lo up to hi at which a form fits anywhere (0 if not even at lo)
+    const biggest = (f, lo, hi) => {
+      if (!fitsAt(f, lo)) return 0;
+      if (fitsAt(f, hi)) return hi;
+      let a = lo, b = hi;
+      for (let t = 0; t < 6; t++) { const mid = (a + b) / 2; if (fitsAt(f, mid)) a = mid; else b = mid; }
+      return a;
+    };
+    const cap = capFor(part.area * k * k), top = Math.max(LABEL_MIN, cap / BREATHE);
+    // the forms to try, in order, each with the most it fits at: the name (on two lines when they're clearly bigger),
+    // the other way of setting the name, then each short form
+    const one = L.forms[0], two = L.forms.find((f) => f.kind === 'two');
+    const s1 = biggest(one, LABEL_MIN, top), s2 = two ? biggest(two, LABEL_MIN, top) : 0;
+    const tries = s1 && !(s2 > s1 * 1.15) ? [[one, s1], [two, s2]] : [[two, s2], [one, s1]]; // two lines only when clearly bigger
+    const tried = tries.filter(([f, sz]) => f && sz).map(([f, sz]) => [f, sz, LABEL_MIN]);
+    for (const f of L.forms.filter((x) => x.kind === 'short')) tried.push([f, null, SHORT_MIN]);
+    // where it has the most room on every side (up to about a letter's height), near the middle, on land rather than water
+    const spotAt = (form, s) => {
+      const w = form.wu * s, h = form.hu * s, m = padFor(s), dmin = need(w, h), cands = [];
+      for (const c of order) {
+        if (dt[c] < dmin) continue;
+        if (!clear(boxAt(c, w, h, m))) continue;
+        let room = m;
+        for (const e of [0.3, 0.6, 1, 1.4]) { if (clear(boxAt(c, w, h, m + e * s))) room = m + e * s; else break; }
+        const r = cells(boxAt(c, w, h, 0)), wet = sum(WT, r) / ((r[2] - r[0] + 1) * (r[3] - r[1] + 1));
+        cands.push({ c, score: Math.min(room, s * 1.4) - 0.3 * Math.sqrt(d2[c]) - wet * s * 0.8 });
+      }
+      cands.sort((a, b) => b.score - a.score);
+      for (const { c } of cands.slice(0, 40)) {
+        const x = cx(c), y = cy(c);
+        if (ownShare(ix, L.id, x, y, w, h, m) === null) continue; // the grid's verdict, checked exactly against the borders
+        return { form, size: s, x, y, box: [x - w / 2 - 3, y - h / 2 - 2, x + w / 2 + 3, y + h / 2 + 2] };
+      }
+      return null;
+    };
+    for (const [form, known, min] of tried) {
+      const most = known || biggest(form, min, Math.max(min, top));
+      if (!most) continue;
+      for (const s of new Set([Math.max(min, Math.min(cap, most * BREATHE)), most])) {
+        const spot = spotAt(form, s);
+        if (spot) return spot;
+      }
+    }
+    return null;
+  }
+
   function placeLabels() {
-    const k = T.k, f = fontScale(k), stars = starsNow(), covered = coveredRects(), p = insets(), ix = labelIndex();
-    const boxes = [], blocked = [...stars.map((st) => st.box), ...covered];
+    const k = T.k, stars = starsNow(), covered = coveredRects(), p = insets(), ix = labelIndex();
+    const boxes = [], fixed = [...stars.map((st) => st.box), ...covered];
     const view = [(p.l - T.x) / k, (p.t - T.y) / k, (W - p.r - T.x) / k, (H - p.b - T.y) / k]; // map pixels
-    const hits = (b, list) => list.some((o) => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]);
+    const todo = [];
     for (const L of labels) {
       L.show = null;
       const [bx0, by0, bx1, by1] = L.a.bbox;
@@ -999,42 +1131,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const cl = L.cl || L.r, polys = L.cl ? L.cl.polys : L.r.polysXY;
       if (whole && !cl.whole) cl.whole = visiblePart(polys, null);
       const part = whole ? cl.whole : visiblePart(polys, view);
-      if (!part) continue;
-      const hull = part.hull.map((pt) => T.apply(pt)), [cx, cy] = T.apply(part.centre), size = L.size * f;
-      const hx0 = d3.min(hull, (q) => q[0]), hx1 = d3.max(hull, (q) => q[0]), hy0 = d3.min(hull, (q) => q[1]), hy1 = d3.max(hull, (q) => q[1]);
-      const cands = [];
-      for (const [ax, ay] of [[cx, cy], T.apply(part.middle)]) {
-        for (const o of L.opts) {
-          if (size * o.s < 7) continue; // never smaller than 7px on screen
-          const w = o.w * f, h = o.lines.length * LINE * size * o.s;
-          if (w > (hx1 - hx0) * 1.02 || h > (hy1 - hy0) * 1.02) continue;
-          // a grid over the whole hull, finest near the middle's scale of the label itself
-          const stepX = Math.max(3, w / 6, (hx1 - hx0) / 24), stepY = Math.max(3, h / 4, (hy1 - hy0) / 24);
-          for (let i = -24; i <= 24; i++) {
-            for (let j = -24; j <= 24; j++) {
-              const x = ax + i * stepX, y = ay + j * stepY;
-              if (x - w / 2 < hx0 || x + w / 2 > hx1 || y - h / 2 < hy0 || y + h / 2 > hy1) continue;
-              cands.push({ o, w, h, x, y, cost: o.cost + Math.hypot(x - cx, (y - cy) * 1.4) / (size * 3) });
-            }
-          }
-        }
-      }
-      cands.sort((a, b) => a.cost - b.cost);
-      let best = null;
-      for (const c of cands) {
-        if (best && c.cost >= best.cost) break;
-        const box = [c.x - c.w / 2 - 3, c.y - c.h / 2 - 2, c.x + c.w / 2 + 3, c.y + c.h / 2 + 2];
-        if (box[0] < 0 || box[1] < 0 || box[2] > W || box[3] > H || hits(box, boxes) || hits(box, blocked)) continue;
-        const inHull = [[box[0], box[1]], [box[2], box[1]], [box[0], box[3]], [box[2], box[3]]].every((q) => d3.polygonContains(hull, q));
-        if (!inHull) continue;
-        const share = ownShare(ix, L.id, c.x, c.y, c.w, c.h);
-        if (share === null) continue;
-        const cost = c.cost + 0.5 * (1 - share); // on land beats over water, other things equal
-        if (!best || cost < best.cost) best = { ...c, box, cost };
-      }
-      if (!best) continue;
-      Object.assign(L, { show: best.o, mx: (best.x - T.x) / k, my: (best.y - T.y) / k });
-      boxes.push(best.box);
+      if (part) todo.push({ L, part });
+    }
+    todo.sort((a, b) => b.part.area - a.part.area); // the biggest on screen choose first
+    for (const { L, part } of todo) {
+      const spot = placeOne(L, part, ix, [...fixed, ...boxes]);
+      if (!spot) continue;
+      Object.assign(L, { show: spot.form, px: spot.size, k0: k, mx: (spot.x - T.x) / k, my: (spot.y - T.y) / k });
+      boxes.push(spot.box);
     }
     gLabels.selectAll('text').data(labels.filter((L) => L.show)).join('text')
       .attr('class', (L) => (L.missing ? 'lab lab-missing' : 'lab'))
@@ -1096,12 +1200,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
 
   function moveLabels() {
-    const f = fontScale(T.k);
     gLabels.selectAll('text').each(function (L) {
       const [sx, sy] = T.apply([L.mx, L.my]);
+      const px = L.px * (fontScale(T.k) / fontScale(L.k0)); // during a zoom, until they're placed again
       this.setAttribute('transform', `translate(${sx},${sy})`);
-      this.style.fontSize = `${L.size * f * L.show.s}px`;
-      this.style.strokeWidth = `${Math.max(2, L.size * f * L.show.s * 0.2)}px`;
+      this.style.fontSize = `${px}px`;
+      this.style.strokeWidth = `${Math.max(2, px * 0.2)}px`;
     });
     gMarks.selectAll('g').each(function (m) {
       const at = m.anchor || m.c;

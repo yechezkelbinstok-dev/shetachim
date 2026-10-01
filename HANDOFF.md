@@ -28,10 +28,19 @@ Done in this round:
   `snap-interval`**: tested at 30 m–200 m, it moved whole counties/countries (Texas→Chihuahua, Nepal→India, Finland
   vanished). Still open: a few seams that open onto the sea at one end aren't "gaps" to -clean (Tijuana/San Diego
   coast, Belgium–France coast; `scratchpad` scan listed them) — small, but worth a targeted fix.
-- **Labels** (`placeLabels`): aim at the centre of mass of the part of the shetach on screen (so Baja California's
-  label crosses the Gulf, the Caribbean's the Caribbean Sea), may cross water but must stay inside the hull around its
-  land and off other shetachim; nearest spot wins, land preferred over water, then two lines, then short form, then
-  85% size. Recomputed after every pan/zoom.
+- **Labels** (`placeLabels` / `placeOne` / `labelGrid`, rebuilt Oct 1 after the owner's "Carib." and tucked-away
+  "KS-MO" complaints): each area gets a grid over its hull on screen (≤60×60 cells): own land, water inside the hull
+  (a name may cross a gulf or strait), or blocked (another area, outside the hull, off screen, under the panel, a
+  capital's star, a name already placed). Summed-area tables answer "is this box clear" in four lookups; a distance
+  transform prunes centres. **Form**: the full name at the biggest size it fits (two lines if ≥15% bigger), else the
+  other way of setting it, else each short form in turn; head-shliach mode's short form is the last name. **Size**:
+  what the area's land on screen calls for (`capFor`: 5 + 0.1·√area px, 9–24 px on phones, 9–30 on desktop), and no
+  more than 88% of the most that fits (`BREATHE`), so names aren't pressed against edges; never under 9 px (8 for
+  short forms). **Place**: most room on every side (up to ~1.4 letters), near the visible part's centre of mass, on
+  land rather than water; then an exact check against the borders. Island chains (land < 35% of hull, no piece over
+  60%: the Caribbean, Indonesia) aim at the hull's centre and size for the spread. Biggest areas on screen go first.
+  During a zoom names scale smoothly (`fontScale` ratio) and are re-placed when it ends. 2–3× faster than the old
+  engine (30–115 ms headless desktop per placement).
 - Defaults: **World view, Physical map** (falls back to Political if it can't load).
 - Data: flagship centers for 100 of 108 world shetachim from the owner's `data/world-flagship-centers.txt` (not in
   chabad.org's data, so no star: Crimea, Sri Lanka, Belize, Honduras, Bolivia, New Zealand, Panama (Beth El), Qatar

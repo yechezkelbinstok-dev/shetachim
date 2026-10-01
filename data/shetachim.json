@@ -5,8 +5,6 @@
     "short: the label used where the name doesn't fit, or a list of them from longest to shortest, used as the shetach gets smaller on screen ([\"Carolinas\", \"Car.\"]); a single whole state defaults to its own abbreviation (TX), and state codes are never joined unless given (KS-MO). capital: the chabad.org center id of the shetach's headquarters (the number in its chabad.org link), or lat and lon; \"world\": true marks 770. headTitle: what the card calls the head (\"Head shliach\" unless given, e.g. \"Leadership\"). lastName is optional; it defaults to the last word of headShliach. notShown: areas left off the map entirely."
   ],
   "notShown": [
-    "CA-YT",
-    "CA-NT",
     "CA-NU"
   ],
   "shetachim": [
@@ -777,11 +775,14 @@
       "name": "Alberta",
       "headShliach": "Menachem Matusof",
       "territory": [
-        "CA-AB"
+        "CA-AB",
+        "CA-NT",
+        "CA-YT"
       ],
       "capital": {
         "centerId": "117787"
-      }
+      },
+      "short": "AB"
     },
     {
       "id": "manitoba-saskatchewan",

@@ -33,6 +33,11 @@ between two Claude accounts when usage limits run out; whichever session picks t
   (`gold-coast-lga`) is part of the Victoria shetach; the separate Gold Coast shetach (Nir Gurevitch) is gone.
   Victoria (disputed) has a capital per claimant: Groner — Yeshivah Centre; Gutnick — Chabad House of Caulfield;
   Serebryanski — Merkos L'inyonei Chinuch (`capital` is a list with `for`). "Disputed" is set in italics.
+- **North Queensland** (Ari Rubin; capital Chabad of Northern Queensland, Cairns): Mackay and north, Mount Isa,
+  Cloncurry and the Gulf — 37 whole ABS LGAs (2022) dissolved into `data/shapes/north-queensland.geojson` (Mackay,
+  Whitsunday, Burdekin, Townsville, Charters Towers, Cairns, Douglas, Cook, Torres, the Cape and Gulf councils, Mount
+  Isa, Cloncurry, McKinlay, Richmond, Flinders…). Isaac (Moranbah, Clermont), Winton, Boulia, Rockhampton and south
+  stay with RARA. **The Isle of Man is in the UK** (`IMN` in its territory).
 - **Puerto Vallarta** and the coast south of it (Cabo Corrientes, Tomatlán without its inland finger) are in the Nayarit
   shetach (`data/shapes/jalisco-costa-norte.geojson`); Guadalajara keeps the rest of Jalisco.
 - **Cyprus includes the British Sovereign Base Areas** (Akrotiri, Dhekelia): Natural Earth shapes (`CYPRUS_EXTRA` in

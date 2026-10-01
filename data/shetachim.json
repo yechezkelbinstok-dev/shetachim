@@ -1521,7 +1521,8 @@
       "headShliach": "Hanholo of Chabad Lubavitch UK",
       "headTitle": "Leadership",
       "territory": [
-        "GBR"
+        "GBR",
+        "IMN"
       ],
       "capital": {
         "centerId": "117824"
@@ -1990,6 +1991,25 @@
       ],
       "capital": {
         "centerId": "118204"
+      }
+    },
+    {
+      "id": "north-queensland",
+      "name": "North Queensland",
+      "short": [
+        "N. Queensland",
+        "NQ"
+      ],
+      "headShliach": "Ari Rubin",
+      "territory": [
+        {
+          "state": "AU-QLD",
+          "shape": "north-queensland",
+          "name": "Mackay and north, Mount Isa, Cloncurry and the Gulf: 37 local government areas (Mackay, Whitsunday, Burdekin, Townsville, Charters Towers, Cairns, Douglas, Cook, Torres, Mount Isa, Cloncurry, McKinlay, Richmond, Flinders and the rest north of them); Isaac, Winton, Boulia and south stay with RARA"
+        }
+      ],
+      "capital": {
+        "centerId": "3345551"
       }
     },
     {

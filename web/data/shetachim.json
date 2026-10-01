@@ -2915,6 +2915,31 @@
    ]
   },
   {
+   "id": "north-queensland",
+   "name": "North Queensland",
+   "short": [
+    "N. Queensland",
+    "NQ"
+   ],
+   "headShliach": "Ari Rubin",
+   "capital": {
+    "centerId": "3345551",
+    "name": "Chabad of Northern Queensland",
+    "city": "Cairns",
+    "lat": -16.79097,
+    "lon": 145.68104
+   },
+   "capitals": [
+    {
+     "centerId": "3345551",
+     "name": "Chabad of Northern Queensland",
+     "city": "Cairns",
+     "lat": -16.79097,
+     "lon": 145.68104
+    }
+   ]
+  },
+  {
    "id": "rara",
    "name": "RARA",
    "short": "RARA",

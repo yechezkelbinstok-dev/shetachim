@@ -152,6 +152,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 .legend-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--dot); opacity: .55; }
 .legend-ring { display: inline-block; width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid var(--ink); background: var(--halo); }
 .legend-star { width: 12px; height: 12px; fill: var(--ink); }
+#more > summary { cursor: pointer; font: 600 10.5px var(--font-map); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); list-style: none; padding: 2px 0; }
+#more > summary::-webkit-details-marker { display: none; }
+#more > summary::after { content: '▾'; margin-left: 6px; font-size: 11px; }
+#more[open] > summary::after { content: '▴'; }
+.more-body { display: flex; flex-direction: column; gap: 14px; padding-top: 10px; }
+.more-body .checks { display: flex; flex-direction: column; gap: 7px; }
 .note { margin: 0; font-size: 13px; color: var(--muted); }
 .error { margin: 0; color: var(--ink); background: var(--accent-soft); border-radius: 8px; padding: 8px 10px; font-size: 14px; }
 
@@ -272,20 +278,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           <button type="button" data-value="shetach" aria-pressed="false">Shetachim</button>
         </div>
       </fieldset>
-      <fieldset class="ctl" id="alaska-ctl" hidden>
-        <legend>Alaska</legend>
-        <div class="seg" data-name="alaska">
-          <button type="button" data-value="box" aria-pressed="true">In a box</button>
-          <button type="button" data-value="place" aria-pressed="false">In place</button>
-        </div>
-      </fieldset>
-      <fieldset class="ctl" id="colors-ctl">
-        <legend>Colors</legend>
-        <div class="seg" data-name="color">
-          <button type="button" data-value="colorful" aria-pressed="true">Colorful</button>
-          <button type="button" data-value="plain" aria-pressed="false">Plain</button>
-        </div>
-      </fieldset>
       <fieldset class="ctl">
         <legend>Labels</legend>
         <div class="seg" data-name="labels">
@@ -294,10 +286,31 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           <button type="button" data-value="last" aria-pressed="false">Last name</button>
           <button type="button" data-value="off" aria-pressed="false">Off</button>
         </div>
-        <label class="check" for="show-dots"><input type="checkbox" id="show-dots" checked> <span class="legend-dot" aria-hidden="true"></span> Chabad centers</label>
-        <label class="check" for="show-cities"><input type="checkbox" id="show-cities" checked> <span class="legend-ring" aria-hidden="true"></span> Cities with shluchim</label>
-        <label class="check" for="show-capitals"><input type="checkbox" id="show-capitals" checked> <svg class="legend-star" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path id="star-shape"/></svg> Shetach capitals</label>
       </fieldset>
+      <details id="more">
+        <summary>More options</summary>
+        <div class="more-body">
+          <div class="checks">
+          <label class="check" for="show-dots"><input type="checkbox" id="show-dots" checked> <span class="legend-dot" aria-hidden="true"></span> Chabad centers</label>
+          <label class="check" for="show-cities"><input type="checkbox" id="show-cities" checked> <span class="legend-ring" aria-hidden="true"></span> Cities with shluchim</label>
+          <label class="check" for="show-capitals"><input type="checkbox" id="show-capitals" checked> <svg class="legend-star" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path id="star-shape"/></svg> Shetach capitals</label>
+          </div>
+        <fieldset class="ctl" id="alaska-ctl" hidden>
+          <legend>Alaska</legend>
+          <div class="seg" data-name="alaska">
+            <button type="button" data-value="box" aria-pressed="true">In a box</button>
+            <button type="button" data-value="place" aria-pressed="false">In place</button>
+          </div>
+        </fieldset>
+        <fieldset class="ctl" id="colors-ctl">
+          <legend>Colors</legend>
+          <div class="seg" data-name="color">
+            <button type="button" data-value="colorful" aria-pressed="true">Colorful</button>
+            <button type="button" data-value="plain" aria-pressed="false">Plain</button>
+          </div>
+        </fieldset>
+        </div>
+      </details>
     </div>
   </aside>
 
@@ -1814,6 +1827,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   });
   darkQuery.addEventListener('change', () => { showThemeButton(); readPalette(); requestDraw(); });
   showThemeButton();
+
+  $('#more').addEventListener('toggle', () => { // the panel's height changed: the zoom buttons and the free map area follow
+    document.documentElement.style.setProperty('--sheet', `${$('#panel').getBoundingClientRect().height}px`);
+    placeLabels();
+  });
 
   $('#panel-toggle').addEventListener('click', () => {
     const panel = $('#panel');

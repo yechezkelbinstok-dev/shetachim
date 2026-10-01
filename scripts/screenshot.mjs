@@ -67,6 +67,7 @@ for (const spec of specs) {
     if (name === 'check') await page.evaluate((id) => document.querySelector(id).click(), `#${value}`);
     else if (name === 'wait') await page.waitForTimeout(+value);
     else if (name === 'zoom') await page.evaluate(([x, y, k]) => new Promise((r) => { const svg = document.querySelector('#map'); svg.dispatchEvent(new WheelEvent('wheel', { clientX: +x, clientY: +y, deltaY: -Math.log2(+k) * 500, bubbles: true })); setTimeout(r, 800); }), value.split('/'));
+    else if (name === 'more') await page.evaluate(() => { document.querySelector('#more').open = true; });
     else await page.evaluate(([n, v]) => document.querySelector(`.seg[data-name="${n}"] [data-value="${v}"]`).click(), [name, value]);
   }
   await page.waitForTimeout(900);

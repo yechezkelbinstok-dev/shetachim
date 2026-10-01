@@ -237,7 +237,12 @@
       "name": "Michigan",
       "headShliach": "Berel Shemtov",
       "territory": [
-        "US-MI"
+        "US-MI",
+        {
+          "state": "CA-ON",
+          "shape": "essex-county-on",
+          "name": "Essex County, Ontario (Windsor)"
+        }
       ],
       "capital": {
         "centerId": "117640"

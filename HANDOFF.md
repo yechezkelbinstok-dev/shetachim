@@ -68,6 +68,10 @@ Later in the same round:
   Coast) is in neither, so it's RARA under the owner's rule. Don't shrink Brisbane unless the owner names another
   official boundary (e.g. ABS's Urban Centre, UCL, for the built-up city only).
 - Mexican states have no short labels (no "Sin.", "Nay."); Vic/Tas without dots.
+- **Essex County, Ontario (Windsor) is in the Michigan shetach** (owner, Oct 1): territory `{ "state": "CA-ON", "shape":
+  "essex-county-on" }` (shape = GADM level-2 "Essex County", lo-res, from `data/shapes/essex-county-on.geojson`; only its
+  inland line is used, the coast stays the province's). Ontario is drawn at 100 m (`FINE`). Area cards no longer list a
+  shetach's states (kept in the data, not shown).
 - **SVG export**: `npm run svg` (scripts/export-svg.mjs) writes `web/shetachim-map.svg` — every shetach in its map colour,
   shetach borders and coasts only (no names, cities, dots, stars); Natural Earth projection, 3600 px wide, lines
   thinned to what's visible at that size (~2 MB). Live at /web/shetachim-map.svg. Rerun after every build.

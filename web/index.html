@@ -1507,10 +1507,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
       return `<span class="kicker">${areaKind(p)}</span><h2>${esc(p.name)}</h2>${part}
         <div class="foot"><span class="meta">${count(centersInState(p.state))}</span>${zoomBtn}</div>`;
     }
-    const states = s.states.size > 1 ? `<p>${esc([...s.states].map((st) => stateName.get(st)).sort().join(', '))}</p>` : '';
     const capital = s.capital ? `<p>Capital: ${esc(s.capital.name)}${s.capital.city ? `, ${esc(s.capital.city)}` : ''}</p>` : '';
     return `<h2>${esc(s.name)}</h2>
-      <p>${esc(s.headTitle || 'Head shliach')}: ${esc(s.headShliach)}</p>${states}${capital}
+      <p>${esc(s.headTitle || 'Head shliach')}: ${esc(s.headShliach)}</p>${capital}
       <div class="foot"><span class="meta">${count(centersInShetach(s))}</span>${zoomBtn}</div>`;
   }
 

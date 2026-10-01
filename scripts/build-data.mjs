@@ -147,7 +147,7 @@ const CITY_KM = 60; // a GeoNames place this close with the same name is the cen
 const ROUGH = ['US-AK']; // drawn small in an inset, so simplified harder
 // States cut by an official boundary shape (Brisbane's SUA, the City of Gold Coast): drawn at 100 m, so the line
 // follows the official boundary closely when zoomed in, not the 800 m used for whole countries.
-const FINE = ['AU-QLD'];
+const FINE = ['AU-QLD', 'CA-ON'];
 
 // ---------- downloads ----------
 

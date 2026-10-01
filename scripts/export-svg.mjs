@@ -211,7 +211,9 @@ function labels(list, projection, { offshore = false, box = null } = {}) {
   for (const [id, gs] of byShetachOf(list)) {
     const s = shetachById.get(id);
     if (!s.headShliach) continue;
-    const geo = merge(topo, gs);
+    // labelState: the name goes on that state's part of the shetach (Alberta, not the territories' strip north of it)
+    const core = s.labelState ? gs.filter((g) => g.properties.state === s.labelState) : [];
+    const geo = merge(topo, core.length ? core : gs);
     const polys = (geo.type === 'Polygon' ? [geo.coordinates] : geo.coordinates).map((poly) => poly.map((r) => r.map((p) => projection(p))));
     polys.sort((a, b) => polyArea(b[0]) - polyArea(a[0]));
     const main = polys[0].map((r) => { const k = keep(r); return k.length >= 4 ? k : r; });

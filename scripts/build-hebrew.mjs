@@ -25,6 +25,7 @@ for (const s of shetachim) {
   if (!h) { missing.push(`shetach ${s.id}`); continue; }
   // The last name, for the page's "Last name" labels: the Hebrew name less as many first names as the English one has
   // ("Berel Shemtov" → "שם טוב"); a family's name without "משפחת"; leadership entries whole.
+  if (!s.headShliach) { out.shetachim[s.id] = { name: h.name, short: h.short || [] }; continue; } // no head shliach (India)
   const words = s.headShliach.trim().split(/\s+/), hw = h.head.trim().split(/\s+/);
   let lastName = h.head;
   if (/^משפחת /.test(h.head)) lastName = h.head.replace(/^משפחת /, '');

@@ -159,7 +159,12 @@ function bounds(projection, list) {
 // Indonesia's archipelago, the Philippines, Qatar); every other name stays on land or goes beside the map.
 // 'open': the name big over the open sea at the shetach's labelAt, touching no land at all (the Caribbean: Mendel
 // Zarchi's name over the Caribbean Sea, not on Guyana, its biggest piece of land).
-const SEA_NAMES = { singapore: 'islands', philippines: 'islands', qatar: 'islands', caribbean: 'open' };
+// 'chain': an island chain whose name runs across it, centred in the chain, even though one island is most of its land
+// (Hawaii: the Big Island).
+const SEA_NAMES = { singapore: 'islands', philippines: 'islands', qatar: 'islands', caribbean: 'open', hawaii: 'chain' };
+// Names that go beside the map with a short leader even though a tiny one would fit inside (Israel: Yosef Yitzchak
+// Aharonov's name was a few px inside the country; the owner prefers a short line).
+const ASIDE_NAMES = ['israel'];
 // Names as outlines (so the SVG looks the same everywhere, with no font needed): Inter SemiBold, capitals,
 // slightly spaced. Each name gets the biggest size (up to a cap that grows with the area, so big areas read bigger)
 // at which it fits wholly inside its shetach, on one line or two, else its short form; one that doesn't fit at all
@@ -340,14 +345,14 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
   // there: its box either centred within the hull of a shetach of scattered islands (land under half its hull), or
   // straddling the coast (at least 15% of the box its own land, some of it under the name's middle third). Nearest the
   // middle of the shetach's land. Returns null when nothing is bigger than `floor`.
-  const overSea = (id, polys, forms, floor, onlySpread, open = null) => {
+  const overSea = (id, polys, forms, floor, onlySpread, open = null, chain = false) => {
     const me = rast.ids.get(id);
     const rings = polys.map((q) => q[0]);
     const areas = rings.map(polyArea), landA = areas.reduce((t, a) => t + a, 0);
     // the hull of the bigger islands (from 2% of the biggest), so a long tail of islets (the Aleutians) doesn't make it
     const hull = hullOf(rings.filter((r, i) => areas[i] >= 0.02 * Math.max(...areas)).flat());
     // scattered: islands (or parts) none of which is most of the land, together under half their hull
-    const hullA = polyArea(hull), spread = landA < 0.5 * hullA && Math.max(...areas) < 0.6 * landA;
+    const hullA = polyArea(hull), spread = chain || (landA < 0.5 * hullA && Math.max(...areas) < 0.6 * landA);
     if (onlySpread && !spread) return null;
     let tx = 0, ty = 0;
     rings.forEach((r, i) => { const c = polylabel([r], 1); tx += c[0] * areas[i]; ty += c[1] * areas[i]; });
@@ -355,7 +360,7 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
     if (open) [tx, ty] = open;
     // as big as the land would make it; scattered islands, as big as land and sea between them together would; over
     // open sea, as big as the sea there allows
-    const cap = open ? maxSize : Math.min(maxSize, Math.max(16, (spread ? 0.2 : 0.12) * Math.sqrt(spread ? Math.sqrt(landA * hullA) : landA)));
+    const cap = open ? maxSize : Math.min(maxSize, Math.max(chain ? 20 : 16, (spread ? 0.2 : 0.12) * Math.sqrt(spread ? Math.sqrt(landA * hullA) : landA)));
     if (cap < floor) return null;
     let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
     for (const r of rings) for (const [x, y] of r) { x0 = Math.min(x0, x); x1 = Math.max(x1, x); y0 = Math.min(y0, y); y1 = Math.max(y1, y); }
@@ -546,14 +551,14 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
       // name dead centre, and a bigger name there still reads better)
       return { ...label, quality: label.size * (1 - 0.3 * Math.min(off, 1)) };
     };
-    let chosen = choose(TINY);
+    let chosen = sea && ASIDE_NAMES.includes(id) ? null : choose(TINY);
     // only the few the owner picked (SEA_NAMES): elsewhere a name over the sea looks wrong
     if (sea && !core.length && SEA_NAMES[id]) {
       // over the sea: a name that fits nowhere inside, or only in small type (under 9 px); or a scattered shetach's
       // (Indonesia's, the Philippines') when that reads clearly bigger (40%+) than on one of its islands; an 'open' one
       // always, over open water at its labelAt
       const open = SEA_NAMES[id] === 'open' && s.labelAt ? projection(s.labelAt) : null;
-      const wet = overSea(id, polys, forms, open ? 12 : Math.max(9, chosen ? chosen.size * 1.4 : 0), false, open);
+      const wet = overSea(id, polys, forms, open ? 12 : Math.max(9, chosen ? chosen.size * 1.4 : 0), false, open, SEA_NAMES[id] === 'chain');
       if (wet) {
         console.log(`  over the sea: ${s.headShliach} at ${wet.size} px${chosen ? ` (inside: ${chosen.size})` : ''}`);
         takeSea(wet);
@@ -854,7 +859,9 @@ const MAPS = {
     ],
   },
 };
-MAPS['na-names'] = { ...MAPS.na, file: 'shetachim-us-canada-names.svg', labels: true };
+// Names too small inside (under 8 px: Tuvia Teldon, Tzach) get their own short leader to the nearest open water, like the
+// world poster's; not one column far out in the Atlantic (the owner, Oct 1).
+MAPS['na-names'] = { ...MAPS.na, file: 'shetachim-us-canada-names.svg', labels: true, tiny: 8, aside: { size: 22, reach: 300, far: 900, cross: 25, column: true } };
 // The whole world (land no shetach covers in plain grey, Antarctica left off), with every head shliach's name, at poster size.
 MAPS['world-names'] = {
   ...MAPS.world, file: 'shetachim-map-names.svg', title: 'Chabad shetachim and head shluchim', source: 'data/world-all.json', skip: ['ATA'],

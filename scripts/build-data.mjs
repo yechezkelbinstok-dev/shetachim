@@ -1168,8 +1168,9 @@ async function main() {
   const forPage = {
     notShown: shetachData.notShown || [],
     // capital: the (first) capital; capitals: all of them (a disputed shetach has one per claimant)
-    shetachim: shetachData.shetachim.map(({ id, name, short, headShliach, headTitle, lastName, capital, labelState, labelCentre, labelAt }) => ({
-      id, name, short, headShliach, headTitle, lastName, capital: [].concat(capital || [])[0], capitals: capital ? [].concat(capital) : undefined, labelState, labelCentre, labelAt })),
+    // noCentralLeadership: no head shliach (India): the card says so, the map shows no head name there
+    shetachim: shetachData.shetachim.map(({ id, name, short, headShliach, headTitle, lastName, noCentralLeadership, capital, labelState, labelCentre, labelAt }) => ({
+      id, name, short, headShliach, headTitle, lastName, noCentralLeadership, capital: [].concat(capital || [])[0], capitals: capital ? [].concat(capital) : undefined, labelState, labelCentre, labelAt })),
   };
   fs.writeFileSync(path.join(OUT, 'shetachim.json'), `${JSON.stringify(forPage, null, 1)}\n`);
 

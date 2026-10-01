@@ -385,7 +385,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'Download maps (SVG, PNG)': 'הורדת מפות (SVG, PNG)', 'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
     'Loading…': 'טוען…', "This browser can't show the physical map.": 'הדפדפן הזה לא יכול להציג את המפה הפיזית.', "The physical map couldn't load.": 'המפה הפיזית לא נטענה.',
     'Open on chabad.org': 'לעמוד ב-chabad.org', 'World Headquarters': 'המטה העולמי', 'Same address': 'אותה כתובת', City: 'עיר', Population: 'אוכלוסייה',
-    Province: 'פרובינציה', State: 'מדינה', Country: 'ארץ', Capital: 'בירה', Leadership: 'הנהלה',
+    Province: 'פרובינציה', State: 'מדינה', Country: 'ארץ', Capital: 'בירה', 'No centralized leadership': 'אין הנהגה מרכזית', Leadership: 'הנהלה',
     // center types (chabad.org's)
     'Chabad House': 'בית חב״ד', 'High School - Girls': 'תיכון לבנות', 'Vocational School': 'בית ספר מקצועי', Preschool: 'גן ילדים', 'Hebrew School': 'תלמוד תורה',
     'Yeshivah Ketanah/Mesivtah': 'ישיבה קטנה', 'Day School': 'בית ספר', 'Yeshivah for Beginners - Men': 'ישיבה למתחילים', Kollel: 'כולל', 'Social Services': 'שירותי רווחה',
@@ -418,7 +418,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         Object.assign(s, { name: h.name, short: h.short, headShliach: h.headShliach, lastName: h.lastName, headTitle: h.headTitle || (s.headTitle && tr(s.headTitle)),
           firstLast: personal ? `${h.headShliach.split(/\s+/)[0]} ${h.lastName}` : null });
         // a disputed shetach's capitals name their claimant: the same place in the Hebrew list of names
-        const names = (list) => list.replace(/^.*?—\s*/, '').split(/;\s*/);
+        const names = (list) => (list || '').replace(/^.*?—\s*/, '').split(/;\s*/);
         const en = names(englishHead), hn = names(h.headShliach);
         s.capitals = (s.capitals || []).map((c) => ({ ...c, city: he.cities[c.city] || c.city, for: c.for && (hn[en.indexOf(c.for)] || c.for) }));
         if (s.capital) s.capital = s.capitals[0];
@@ -951,6 +951,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function shetachLabel(s) {
     if (state.labels === 'name') return { text: s.name, short: s.short, missing: false };
     const person = state.labels === 'last' ? s.lastName : s.headShliach;
+    if (!person && s.noCentralLeadership) return null; // no head shliach to name: the shetach is left blank
     if (!person) return { text: s.name, short: s.short, missing: true };
     return { text: person, short: state.labels === 'full' ? firstAndLast(s) : null, missing: false };
   }
@@ -983,8 +984,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       else {
         const ix = labelIndex();
         V.regions.forEach((r, id) => {
-          if (!r.anchor) return;
-          for (const cl of r.clusters || (r.clusters = labelClusters(r, id, ix))) labels.push({ ...shetachLabel(r.s), a: cl.a, id, r, cl });
+          const sl = r.anchor && shetachLabel(r.s);
+          if (!sl) return; // no label (a head-shliach mode where the shetach has no central leadership: India)
+          for (const cl of r.clusters || (r.clusters = labelClusters(r, id, ix))) labels.push({ ...sl, a: cl.a, id, r, cl });
         });
       }
     }
@@ -1786,7 +1788,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function shetachLine(pieceId, withHead = true) {
     const g = pieceById.get(pieceId);
     const s = g && shetachOf(g);
-    if (s) return withHead ? `${esc(s.name)} · ${headHTML(s.headShliach)}` : esc(s.name);
+    if (s) return withHead && s.headShliach ? `${esc(s.name)} · ${headHTML(s.headShliach)}` : esc(s.name);
     return g ? esc(g.properties.name) : '';
   }
 
@@ -1849,7 +1851,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // "Capital: …", or for a disputed shetach "Capital (Chaim Tzvi Groner): …", one per claimant
     const capital = caps.map((c) => `<p>${tr('Capital')}${c.for ? ` (${esc(c.for)})` : ''}: ${esc(c.name)}${c.city ? `, ${esc(c.city)}` : ''}</p>`).join('');
     return `<h2>${esc(s.name)}</h2>
-      <p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>${capital}
+      ${s.noCentralLeadership ? `<p>${tr('No centralized leadership')}</p>` : s.headShliach ? `<p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>` : ''}${capital}
       <div class="foot"><span class="meta">${count(centersInShetach(s))}</span>${zoomBtn}</div>`;
   }
 

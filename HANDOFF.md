@@ -73,10 +73,13 @@ Later in the same round:
   is the thin "maritime" line on the physical map. A land-only Essex left Ontario's water wrapped round it (a wedge of
   Ontario's colour along the Detroit River and western Lake Erie, and a border that went into Lake St Clair and back).
   So the shape (`data/shapes/essex-county-on.geojson`) is the Essex/Chatham-Kent land line (GADM lo-res Admin2)
-  carried out to the international boundary: across Lake St Clair at right angles to the boundary's straight line
-  through the lake (Detroit River head to the St Clair delta), and across Lake Erie due south. Essex takes the Canadian
-  water on its side (Detroit River, south of Lake St Clair, western Lake Erie with Pelee Island); past the boundary
-  the shape runs on over US ground, which a shape never cuts (only CA-ON's land). Ontario is drawn at 100 m (`FINE`).
+  carried on through the water: across Lake St Clair straight to the elbow where the St Clair River border turns west
+  along the delta's South Channel (so the Michigan–Ontario line runs on from the river unbroken and nearly straight —
+  the owner rejected the version ending at the channel's mouth, which left a sharp spike of Ontario along the
+  channel), and across Lake Erie due south to the international boundary. Essex takes the Canadian water on its side
+  (Detroit River, Lake St Clair west of that line, western Lake Erie with Pelee Island); past the boundary the shape
+  runs on over US ground, which a shape never cuts (only CA-ON's land). The elbow point is read off the built map
+  (`web/data/geo.json`, the Ontario / Michigan arc); if the land data changes, check it's still on that border. Ontario is drawn at 100 m (`FINE`).
   Area cards no longer list a shetach's states (kept in the data, not shown).
 - **SVG export**: `npm run svg` (scripts/export-svg.mjs) writes `web/shetachim-map.svg` — every shetach in its map colour,
   shetach borders and coasts only (no names, cities, dots, stars); Natural Earth projection, 3600 px wide, lines

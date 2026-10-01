@@ -571,7 +571,7 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
       // Beside the map if there's a good spot near it; else inside after all, as small as it takes (down to 5 px).
       const small = TINY > 5 ? choose(5) : null;
       // last: the name inside after all, however small, only if no spot beside the map can be found (never dropped)
-      lost.push({ name: forms.offshore, px, py, inside: small, last: small || choose(1.5) });
+      lost.push({ name: forms.offshore, px, py, inside: small, last: small || choose(1.5), early: ASIDE_NAMES.includes(id) });
       continue;
     }
     out.push(chosen);
@@ -713,9 +713,9 @@ function placeAside(lost, out, list, projection, { size, cell = 3, reach = 900, 
     singles.forEach((a, i) => singles.forEach((b, j) => { if (j > i && Math.hypot(a.px - b.px, a.py - b.py) < link) root[top(j)] = top(i); }));
     const crowdSize = new Map();
     singles.forEach((_, i) => crowdSize.set(top(i), (crowdSize.get(top(i)) || 0) + 1));
-    // column: only a tight knot (two or more within 45 px: Boston, Cape Cod and Rhode Island; Cyprus and Northern Cyprus) is stacked, right off
+    // column: only a tight knot (three or more within 45 px: Boston, Cape Cod and Rhode Island) is stacked, right off
     // the coast; every other name gets its own short leader, as close to its shetach as there's room (the owner's call)
-    const crowd = column ? singles.filter((_, i) => crowdSize.get(top(i)) >= 2) : [];
+    const crowd = column ? singles.filter((_, i) => crowdSize.get(top(i)) >= 3) : [];
     const crowded = (l) => crowd.includes(l);
     const nearCrowd = (l) => crowd.some((c) => Math.hypot(c.px - l.px, c.py - l.py) < link);
     const placeHard = (list) => {
@@ -739,7 +739,7 @@ function placeAside(lost, out, list, projection, { size, cell = 3, reach = 900, 
           const found = search(l, l.w, far, Math.round(maxCross / cell)) || search(l, l.w, far, Infinity) || search(l, l.w, far, Infinity, false);
           if (!found) { fail(l.name, 5000); if (l.last) out.push(l.last); continue; }
           out.push({ lines: [l.name], size, cx: found.cx, cy: found.cy, h });
-          mark([found.cx - l.w / 2 - gap, found.cy - h / 2 - gap, found.cx + l.w / 2 + gap, found.cy + h / 2 + gap]);
+          mark([found.cx - l.w / 2 - 3, found.cy - h / 2 - 3, found.cx + l.w / 2 + 3, found.cy + h / 2 + 3]);
           lineCells([l.px, l.py], found.end, (gx, gy) => { if (gx >= 0 && gy >= 0 && gx < gw && gy < gh && grid[gy * gw + gx] !== 2) grid[gy * gw + gx] = 3; });
           const r = size * 0.12;
           d += `M${fmt(l.px)},${fmt(l.py)}L${fmt(found.end[0])},${fmt(found.end[1])}`;
@@ -787,7 +787,7 @@ function placeAside(lost, out, list, projection, { size, cell = 3, reach = 900, 
     let stacked = false;
     const stack = () => { if (!stacked) { stacked = true; placeHard(lost.filter(crowded).map((l) => ({ ...l, crowd: true, w: textWidth(l.name, size) }))); } };
     stack();
-    for (const l of [...lost].map((x) => ({ ...x, open: openNear(x), crowd: crowded(x), near: !crowded(x) && readable(x) && nearCrowd(x) })).sort((a, b) => (first.has(b.name) - first.has(a.name)) || a.open - b.open)) {
+    for (const l of [...lost].map((x) => ({ ...x, open: openNear(x), crowd: crowded(x), near: !crowded(x) && readable(x) && nearCrowd(x) })).sort((a, b) => (first.has(b.name) - first.has(a.name)) || (!!b.early - !!a.early) || a.open - b.open)) {
       if (!first.has(l.name)) stack(); // names that got no room or a long line last try go before the column
       const w = textWidth(l.name, size);
       if (l.crowd) continue;
@@ -831,7 +831,7 @@ function placeAside(lost, out, list, projection, { size, cell = 3, reach = 900, 
       out.push({ lines: [l.name], size, cx: found.cx, cy: found.cy, h });
       log(`  beside the map: ${l.name}, leader ${Math.round(Math.hypot(found.end[0] - l.px, found.end[1] - l.py))} px`);
       long(l, found);
-      mark([found.cx - w / 2 - gap, found.cy - h / 2 - gap, found.cx + w / 2 + gap, found.cy + h / 2 + gap]);
+      mark([found.cx - w / 2 - 3, found.cy - h / 2 - 3, found.cx + w / 2 + 3, found.cy + h / 2 + 3]); // the next one keeps `gap` clear of it
       lineCells([l.px, l.py], found.end, (gx, gy) => { if (gx >= 0 && gy >= 0 && gx < gw && gy < gh && grid[gy * gw + gx] !== 2) grid[gy * gw + gx] = 3; });
       const r = size * 0.12;
       d += `M${fmt(l.px)},${fmt(l.py)}L${fmt(found.end[0])},${fmt(found.end[1])}`;

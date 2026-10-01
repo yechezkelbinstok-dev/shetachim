@@ -129,13 +129,13 @@ button:focus-visible, input:focus-visible, a:focus-visible, summary:focus-visibl
   display: flex; flex-direction: column;
 }
 .p-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 14px 16px 10px; }
-.p-head h1 { margin: 0; font: 700 21px/1.1 var(--font-map); letter-spacing: -.01em; text-wrap: balance; }
+.p-head h1 { margin: 0; font: 700 20px/1.1 var(--font-map); letter-spacing: -.01em; white-space: nowrap; }
 .p-head .sub { margin: 3px 0 0; color: var(--muted); font-size: 13px; }
 #panel-toggle { display: none; }
-.p-actions { display: flex; align-items: center; gap: 8px; flex: none; }
+.p-actions { display: flex; align-items: center; gap: 6px; flex: none; }
 #theme-toggle { width: 34px; height: 34px; padding: 0; border: 1px solid var(--panel-line); background: transparent; border-radius: 999px; cursor: pointer; display: grid; place-items: center; }
 #theme-toggle:hover, #lang-toggle:hover { border-color: var(--accent); }
-#lang-toggle { height: 34px; padding: 0 12px; border: 1px solid var(--panel-line); background: transparent; color: inherit; border-radius: 999px; cursor: pointer; font: 500 14px var(--font-ui); }
+#lang-toggle { height: 34px; min-width: 34px; padding: 0 8px; border: 1px solid var(--panel-line); background: transparent; color: inherit; border-radius: 999px; cursor: pointer; font: 500 14px var(--font-ui); }
 #theme-toggle svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 #panel-body { display: flex; flex-direction: column; gap: 14px; padding: 0 16px 16px; }
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 0; padding: 10px 0; border-block: 1px solid var(--panel-line); }
@@ -437,8 +437,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     walk(document.body);
     for (const el of document.querySelectorAll('[aria-label],[title]')) walk(el);
   }
-  $('#lang-toggle').textContent = HE ? 'English' : 'עברית';
+  $('#lang-toggle').textContent = HE ? 'EN' : 'עב';
   $('#lang-toggle').lang = HE ? 'en' : 'he';
+  $('#lang-toggle').title = HE ? 'English' : 'עברית';
+  $('#lang-toggle').setAttribute('aria-label', HE ? 'English' : 'עברית');
   $('#lang-toggle').addEventListener('click', () => {
     const next = HE ? 'en' : 'he';
     try { localStorage.setItem('shetachim-lang', next); } catch (e) { /* the address carries it */ }

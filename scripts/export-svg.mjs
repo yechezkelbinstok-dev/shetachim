@@ -163,8 +163,8 @@ function bounds(projection, list) {
 // (Hawaii: the Big Island).
 const SEA_NAMES = { singapore: 'islands', philippines: 'islands', qatar: 'islands', caribbean: 'open', hawaii: 'chain' };
 // Names that go beside the map with a short leader even though a tiny one would fit inside (Israel: Yosef Yitzchak
-// Aharonov's name was a few px inside the country; the owner prefers a short line).
-const ASIDE_NAMES = ['israel'];
+// Aharonov's name was a few px inside the country; Cyprus: Aryeh Zeev Raskin's; the owner prefers a short line).
+const ASIDE_NAMES = ['israel', 'cyprus'];
 // Names as outlines (so the SVG looks the same everywhere, with no font needed): Inter SemiBold, capitals,
 // slightly spaced. Each name gets the biggest size (up to a cap that grows with the area, so big areas read bigger)
 // at which it fits wholly inside its shetach, on one line or two, else its short form; one that doesn't fit at all
@@ -697,7 +697,8 @@ function placeAside(lost, out, list, projection, { size, cell = 3, reach = 900, 
   let logs = [], bad = [];
   const log = (t) => logs.push(t);
   const fail = (name, cost) => { bad.push({ name, cost }); logs.push(`  no room for ${name}`); };
-  const long = (l, f) => { const len = Math.hypot(f.end[0] - l.px, f.end[1] - l.py); if (len > reach) bad.push({ name: l.name, cost: len - reach }); };
+  const long = (l, f) => { const len = Math.hypot(f.end[0] - l.px, f.end[1] - l.py), ok = Math.min(reach, 120); if (len > ok) bad.push({ name: l.name, cost: len - ok }); };
+  let lean = 0;
   const run = (first) => {
     grid.set(grid0); out.length = out0; d = ''; logs = []; bad = [];
     const hard = [];
@@ -712,9 +713,9 @@ function placeAside(lost, out, list, projection, { size, cell = 3, reach = 900, 
     singles.forEach((a, i) => singles.forEach((b, j) => { if (j > i && Math.hypot(a.px - b.px, a.py - b.py) < link) root[top(j)] = top(i); }));
     const crowdSize = new Map();
     singles.forEach((_, i) => crowdSize.set(top(i), (crowdSize.get(top(i)) || 0) + 1));
-    // column: only a tight knot (three or more within 45 px: Boston, Cape Cod and Rhode Island) is stacked, right off
+    // column: only a tight knot (two or more within 45 px: Boston, Cape Cod and Rhode Island; Cyprus and Northern Cyprus) is stacked, right off
     // the coast; every other name gets its own short leader, as close to its shetach as there's room (the owner's call)
-    const crowd = column ? singles.filter((_, i) => crowdSize.get(top(i)) >= 3) : [];
+    const crowd = column ? singles.filter((_, i) => crowdSize.get(top(i)) >= 2) : [];
     const crowded = (l) => crowd.includes(l);
     const nearCrowd = (l) => crowd.some((c) => Math.hypot(c.px - l.px, c.py - l.py) < link);
     const placeHard = (list) => {
@@ -752,13 +753,13 @@ function placeAside(lost, out, list, projection, { size, cell = 3, reach = 900, 
         const yMid = g.reduce((t, l) => t + l.py, 0) / g.length;
         const xs = g.map((l) => l.px), side = [];
         // the nearest open water beside them, sliding the column up or down a little if that brings it closer
-        for (const dy of [0, -1, 1, -2, 2, -3, 3, -4, 4].map((n) => n * row * 1.5)) {
+        for (const dy of [0, ...Array.from({ length: 12 }, (_, i) => [-(i + 1), i + 1]).flat()].map((n) => n * row * 0.5)) {
           const y0 = Math.max(PAD, Math.min(H - PAD - colH, yMid - colH / 2 + dy));
           for (const dir of [1, -1]) {
             const start = dir > 0 ? Math.max(...xs) + size : Math.min(...xs) - size - colW;
             for (let k = 0; k * size <= far; k++) {
               const x = start + dir * k * size;
-              if (free([x - gap, y0 - gap, x + colW + gap, y0 + colH + gap])) { side.push({ x, y0, dir, dist: k * size + Math.abs(dy) }); break; }
+              if (free([x - gap, y0 - gap, x + colW + gap, y0 + colH + gap])) { side.push({ x, y0, dir, dist: k * size + Math.abs(dy) + (dy >= 0 ? lean : 0) }); break; }
             }
           }
         }
@@ -781,9 +782,13 @@ function placeAside(lost, out, list, projection, { size, cell = 3, reach = 900, 
         log(`  column of ${g.length} beside the coast: ${g.map((l) => l.name).join(', ')}`);
       }
     };
-    // the knot's column first, so the names placed after it keep clear of its leaders
-    placeHard(lost.filter(crowded).map((l) => ({ ...l, crowd: true, w: textWidth(l.name, size) })));
+    // the knot's column first, so the names placed after it keep clear of its leaders; on each retry it leans further
+    // north (`lean`), off the strip of sea a neighbour needs (Cyprus's pair up off Aharonov's spot west of Israel)
+    let stacked = false;
+    const stack = () => { if (!stacked) { stacked = true; placeHard(lost.filter(crowded).map((l) => ({ ...l, crowd: true, w: textWidth(l.name, size) }))); } };
+    stack();
     for (const l of [...lost].map((x) => ({ ...x, open: openNear(x), crowd: crowded(x), near: !crowded(x) && readable(x) && nearCrowd(x) })).sort((a, b) => (first.has(b.name) - first.has(a.name)) || a.open - b.open)) {
+      if (!first.has(l.name)) stack(); // names that got no room or a long line last try go before the column
       const w = textWidth(l.name, size);
       if (l.crowd) continue;
       if (l.near) {
@@ -836,6 +841,7 @@ function placeAside(lost, out, list, projection, { size, cell = 3, reach = 900, 
   };
   let first = new Set(), best = null;
   for (let tries = 0; tries < 6; tries++) {
+    lean = tries * 60;
     run(first);
     const cost = bad.reduce((t, b) => t + b.cost, 0);
     if (!best || cost < best.cost) best = { cost, grid: grid.slice(), out: out.slice(out0), d, logs };

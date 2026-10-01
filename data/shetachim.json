@@ -776,8 +776,16 @@
       "headShliach": "Menachem Matusof",
       "territory": [
         "CA-AB",
-        "CA-NT",
-        "CA-YT"
+        {
+          "state": "CA-NT",
+          "shape": "north-to-63",
+          "name": "Northwest Territories south of 63°N"
+        },
+        {
+          "state": "CA-YT",
+          "shape": "north-to-63",
+          "name": "Yukon south of 63°N"
+        }
       ],
       "capital": {
         "centerId": "117787"

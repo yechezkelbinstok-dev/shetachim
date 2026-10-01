@@ -93,8 +93,10 @@ Later in the same round:
   on both sides) as lake edges, `lk` in the tiles: the physical map draws them only in States/Both border modes, not
   as a maritime line (the owner circled them as not fitting the new borders). The political map and SVGs still
   outline the water's colour there, like the rest of Ontario's lake water.
-- **Alberta** now also takes the Northwest Territories and Yukon (name stays "Alberta"; Nunavut is still left off the map,
-  `notShown`). The page is titled **Chabad Shetachim** (was plain "Shetachim").
+- **Alberta** now also takes the Northwest Territories and Yukon south of 63°N (name stays "Alberta"; shape
+  `data/shapes/north-to-63.geojson` cuts both territories; what's north of 63° is drawn blank, Nunavut is left off the map,
+  `notShown`). New panel option **Alaska: In a box / In place** (political map, views with Alaska; default box; the physical
+  map is always in place). The page is titled **Chabad Shetachim** (was plain "Shetachim").
 - **Upper Midwest** (owner, Oct 1): North and South Dakota joined Minnesota under Moshe Feller; the shetach is now
   "Upper Midwest" (id `upper-midwest`, territory US-MN, US-ND, US-SD). The North Dakota (Yonah Grossman) and South
   Dakota (Mendel Alperowitz) shetachim are gone.

@@ -40,9 +40,18 @@ it (from `data/world-all.json`, which the build now writes); Antarctica left off
   the shetach's middle), shrinking up to a third to get there; Virginia was the example (it had sat on the southern
   border). `labelAt` [lon, lat] in data/shetachim.json overrides the middle (India: mainland India, not pulled toward
   the northeast past Bangladesh). Same code for the US & Canada names SVG.
-- too small inside at 12 px: a short leader to nearby open water (no crossing other names/leaders, ≤25 px over other
-  countries' land); else inside at a readable 8 px+; else crowded clusters (5+ close together: the US Northeast) in one
-  ordered column offshore; lone ones at the nearest spot with the least crossing.
+- names under 5 px inside (`tiny: 5`; Tzach, Tuvia Teldon, Mendel Fogelman, Chaim Prus, Chuni Vogel were 2.5–4 px and
+  "impossible to read") get a leader instead: each its own short line to the nearest open water (no crossing other
+  names, ≤25 px over other countries' land; crossing one other leader beats a long way round). Placement is retried
+  with any name that got no room, or only a long line, placed first; the best try is kept.
+- **No columns of names** (the owner, Oct 1: the old 8-name list off New England with long crossing lines was
+  rejected) — except a tight knot (3+ names starting within 45 px: Boston, Cape Cod, Rhode Island), which is stacked
+  right off the coast, placed first, rows in the order the lines arrive so none cross (`column: true`).
+- **Names over the sea only where the owner picked** (`SEA_NAMES` in export-svg.mjs: Indonesia/Singapore's shetach, the
+  Philippines, Qatar): centred between the islands or straddling the coast, clear of other land. Everywhere else it
+  looked bad and was rejected — keep it to that list.
+- The same words on one line or two: two lines when that's at least as big (Eli Rosenfeld down Portugal); between
+  different wordings, the fullest within 15% of the best. The owner asked to leave this rule as it is.
 - Lower Balkans (Yoel Kaplan): one name with a leader from each of its two parts (Bosnia; Albania–northern Greece) —
   `split`: big parts that other land keeps apart (shortest gap mostly someone else's land).
 - The owner's verdicts on the SVG (Oct 1): as few names beside the map as possible — a small name inside its shetach
@@ -51,7 +60,19 @@ it (from `data/world-all.json`, which the build now writes); Antarctica left off
   biggest size that fits even a little off-centre (Delaware); big shetachim get big names (Central Africa, up to 130 px).
   Long non-personal names (UK leadership) break into balanced lines.
 - `ONLY=id,id WHY="Name" node scripts/export-svg.mjs 3600 world-names` renders just some shetachim and says why spots
-  were refused — a full render takes ~10–15 min. `node scripts/svg-png.mjs [file.svg]` makes the PNGs (Chromium).
+  were refused — a full render takes ~5 min. `node scripts/svg-png.mjs [file.svg]` makes the PNGs (Chromium).
+
+## Hebrew (Oct 1)
+The whole site in Hebrew, the way a Chabad person in Israel would say it: the header button (עברית / English) reloads
+with `?lang=he` (remembered); the page goes right to left, Heebo for Hebrew letters. Names come from `web/data/he.json`,
+built by `node scripts/build-hebrew.mjs` (run after `npm run build`; it stops and lists anything without a Hebrew name)
+from the hand-written lists in `data/hebrew/`: `shetachim.json` (name, short forms, head shliach, headTitle הנהלה),
+`areas.json` (every state/country code; from Natural Earth's Hebrew names, fixed by hand), `cities.json` (map cities,
+centers' towns, capitals' towns). Israel's shetach is "ארץ הקודש", the view "ארץ ישראל"; Judea and Samaria stays Israel.
+Centers show chabad.org's own Hebrew name where it has one (920 do); the rest keep their names; center types are
+translated in the page (`HE_TEXT`). "Last name" mode uses the Hebrew surname (שם טוב is two words; the build works
+it out by the English name's word count). The name SVGs have Hebrew copies (`world-names-he`, `na-names-he` in
+export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn right to left (`visual()`).
 
 ## LATEST (Sept 30 – Oct 1) — read before "RIGHT NOW" below
 

@@ -7,9 +7,11 @@
 <title>Chabad Shetachim Map</title>
 <link rel="icon" href="data:,">
 <script>try { const t = localStorage.getItem('shetachim-theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
+<script>// Hebrew (?lang=he, or picked before): the whole page right to left
+try { const q = new URLSearchParams(location.search).get('lang'); if (q) localStorage.setItem('shetachim-lang', q); if ((q || localStorage.getItem('shetachim-lang')) === 'he') { document.documentElement.lang = 'he'; document.documentElement.dir = 'rtl'; document.title = 'מפת שטחי חב״ד'; } } catch (e) {}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..800;1,14..32,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..800;1,14..32,400&family=Heebo:wght@400..800&display=swap">
 <style>
 /* Layout: full-bleed map of the shetachim alone on a plain ground (or on a physical map); options card top-left (bottom sheet on phones); zoom buttons bottom-right. */
 :root {
@@ -28,8 +30,8 @@
   --plain: #fcfcfa;
   /* what the map draws with: the theme's colors, except on the physical map, which is always light */
   --map-ink: var(--ink); --map-halo: var(--halo); --map-dot: var(--dot); --map-accent: var(--accent); --map-missing: var(--missing);
-  --font-ui: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-  --font-map: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-ui: "Inter", "Heebo", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-map: "Inter", "Heebo", "Segoe UI", system-ui, -apple-system, sans-serif;
   --shadow: 0 1px 2px rgb(20 35 45 / .08), 0 6px 20px rgb(20 35 45 / .10);
 }
 @media (prefers-color-scheme: dark) {
@@ -77,6 +79,8 @@ button:focus-visible, input:focus-visible, a:focus-visible, summary:focus-visibl
 .lab-missing { fill: var(--map-missing); font-weight: 500; }
 .physical .lab { stroke-opacity: .9; }
 
+/* the map's own text is placed by its left/centre edge, whatever the page's direction (Hebrew is right to left) */
+#map, #canvas { direction: ltr; }
 /* cities with shluchim and shetach capitals: drawn in screen space, over everything else */
 .mk { pointer-events: none; }
 .mk-city { fill: var(--map-halo); stroke: var(--map-ink); stroke-width: 1.4; }
@@ -130,7 +134,8 @@ button:focus-visible, input:focus-visible, a:focus-visible, summary:focus-visibl
 #panel-toggle { display: none; }
 .p-actions { display: flex; align-items: center; gap: 8px; flex: none; }
 #theme-toggle { width: 34px; height: 34px; padding: 0; border: 1px solid var(--panel-line); background: transparent; border-radius: 999px; cursor: pointer; display: grid; place-items: center; }
-#theme-toggle:hover { border-color: var(--accent); }
+#theme-toggle:hover, #lang-toggle:hover { border-color: var(--accent); }
+#lang-toggle { height: 34px; padding: 0 12px; border: 1px solid var(--panel-line); background: transparent; color: inherit; border-radius: 999px; cursor: pointer; font: 500 14px var(--font-ui); }
 #theme-toggle svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 #panel-body { display: flex; flex-direction: column; gap: 14px; padding: 0 16px 16px; }
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 0; padding: 10px 0; border-block: 1px solid var(--panel-line); }
@@ -227,6 +232,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         <p class="sub" id="view-name">World</p>
       </div>
       <div class="p-actions">
+        <button id="lang-toggle" type="button"></button>
         <button id="theme-toggle" type="button"></button>
         <button id="panel-toggle" type="button" aria-expanded="false" aria-controls="panel-body">Options</button>
       </div>
@@ -352,10 +358,94 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   } catch (err) {
     $('#panel').classList.remove('collapsed');
     $('#load-error').hidden = false;
-    $('#load-error').textContent = `The map data didn't load (${err.message}). Reload the page to try again.`;
+    $('#load-error').textContent = document.documentElement.lang === 'he' ? `נתוני המפה לא נטענו (${err.message}). נסו לטעון את הדף מחדש.` : `The map data didn't load (${err.message}). Reload the page to try again.`;
     return;
   }
   const cityFile = await get('data/cities.json').catch(() => []);
+
+  // ---------- Hebrew ----------
+  // The page in Hebrew (the switch in the header reloads it with ?lang=he): every word on it, and the names of the
+  // shetachim, head shluchim, states, countries and cities, from data/he.json (scripts/build-hebrew.mjs). A center's own
+  // Hebrew name is used where chabad.org has one; other centers keep their names.
+  const HE = document.documentElement.lang === 'he';
+  const HE_TEXT = {
+    'Chabad Shetachim': 'שטחי חב״ד', Options: 'אפשרויות', Close: 'סגירה', Shetachim: 'שטחים', Centers: 'מוסדות', Dots: 'נקודות',
+    Show: 'תצוגה', World: 'עולם', Europe: 'אירופה', FSU: 'חבר העמים', Israel: 'ארץ ישראל', 'Middle East': 'המזרח התיכון', Asia: 'אסיה',
+    Africa: 'אפריקה', Oceania: 'אוקיאניה', 'Latin America': 'אמריקה הלטינית', 'US & Canada': 'ארה״ב וקנדה', USA: 'ארה״ב', Canada: 'קנדה',
+    'United States & Canada': 'ארצות הברית וקנדה', 'United States': 'ארצות הברית', 'Former Soviet Union': 'ברית המועצות לשעבר',
+    'Latin America & Caribbean': 'אמריקה הלטינית והאיים הקריביים',
+    Map: 'מפה', Physical: 'פיזית', Political: 'מדינית', Borders: 'גבולות', States: 'מדינות', Countries: 'ארצות', Both: 'שניהם',
+    'Lighter:': 'בהיר יותר:', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', 'Last name': 'שם משפחה', Off: 'ללא',
+    'More options': 'אפשרויות נוספות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים',
+    Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד',
+    'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
+    'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
+    'Loading…': 'טוען…', "This browser can't show the physical map.": 'הדפדפן הזה לא יכול להציג את המפה הפיזית.', "The physical map couldn't load.": 'המפה הפיזית לא נטענה.',
+    'Open on chabad.org': 'לעמוד ב-chabad.org', 'World Headquarters': 'המטה העולמי', 'Same address': 'אותה כתובת', City: 'עיר', Population: 'אוכלוסייה',
+    Province: 'פרובינציה', State: 'מדינה', Country: 'ארץ', 'Capital:': 'בירה:', Leadership: 'הנהלה',
+    // center types (chabad.org's)
+    'Chabad House': 'בית חב״ד', 'High School - Girls': 'תיכון לבנות', 'Vocational School': 'בית ספר מקצועי', Preschool: 'גן ילדים', 'Hebrew School': 'תלמוד תורה',
+    'Yeshivah Ketanah/Mesivtah': 'ישיבה קטנה', 'Day School': 'בית ספר', 'Yeshivah for Beginners - Men': 'ישיבה למתחילים', Kollel: 'כולל', 'Social Services': 'שירותי רווחה',
+    Synagogue: 'בית כנסת', 'Campus Chabad House': 'בית חב״ד בקמפוס', 'Adult Education': 'לימוד למבוגרים', 'High School - Boys': 'תיכון לבנים', Library: 'ספרייה',
+    "Teachers' Seminary": 'סמינר למורות', 'Yeshivah Gedolah': 'ישיבה גדולה', 'Jewish Learning Institute': 'JLI – המכון ללימודי יהדות', Publications: 'פרסומים',
+    'Jewish Community Center': 'מרכז קהילתי יהודי', 'Tzivos Hashem Chapter': 'סניף צבאות השם', Orphanage: 'בית יתומים', Mikveh: 'מקווה', 'Mikveh (for men)': 'מקווה גברים',
+    'Russian Jewry Center': 'מרכז ליהודי רוסיה', 'Publishing House': 'הוצאה לאור', 'Educational Resource Center': 'מרכז חומרי לימוד', 'Rabbinic Council': 'ועד רבנים',
+    'Soup Kitchen': 'בית תמחוי', 'Overnight Camp': 'קייטנה עם לינה', 'TV / Radio Programs': 'תוכניות טלוויזיה ורדיו', 'Friendship Circle': 'Friendship Circle – מעגל ידידות',
+    'Charitable Foundation': 'קרן צדקה', "Women's Group": 'קבוצת נשים', Cheder: 'חדר', "Children's Club": 'מועדון ילדים', 'Youth Center': 'מרכז נוער', Kashrut: 'כשרות',
+    'Hebrew High': 'תיכון ללימודי יהדות', 'Day Camp': 'קייטנה', Restaurant: 'מסעדה', 'Senior Club & Study': 'מועדון גיל הזהב', 'Teen Club': 'מועדון נוער', Internet: 'אינטרנט',
+    'Young Professionals': 'צעירים', Cemetery: 'בית עלמין', 'Semichah Program': 'תוכנית סמיכה', 'Israeli Center': 'מרכז לישראלים', 'Judaica/Gift Shop': 'חנות יודאיקה',
+    'Yeshivah for Beginners - Women': 'מדרשה למתחילות', 'Elementary/ Primary School - Boys': 'בית ספר יסודי לבנים', 'Elementary / Primary School - Girls': 'בית ספר יסודי לבנות',
+    'Hospitality Center': 'מרכז הכנסת אורחים', 'Senior Center': 'מרכז לגיל הזהב', 'Drug Rehabilitation Center': 'מרכז גמילה', "N'Shei Chabad": 'נשי חב״ד', 'Free Loan Fund': 'גמ״ח',
+    'Yeshiva Camp': 'קייטנת ישיבה', 'Humanitarian Aid': 'סיוע הומניטרי', 'Hospital Visitation': 'ביקור חולים', 'Mitzvah Mobile': 'טנק מצוות', 'Yeshivah for Beginners': 'ישיבה למתחילים',
+    'Kosher Store': 'חנות כשרה',
+  };
+  const tr = (t) => (HE && HE_TEXT[t]) || t;
+  if (HE) {
+    const he = await get('data/he.json').catch(() => null);
+    if (he) {
+      for (const s of shetachFile.shetachim) {
+        const h = he.shetachim[s.id];
+        if (!h) continue;
+        // first and last name only, for someone with middle names: as in English, by the English name's word count
+        const words = (s.headShliach || '').trim().split(/\s+/);
+        const personal = !s.headTitle && words.length > 2 && !/[;—]|\b(family|of)\b/i.test(s.headShliach);
+        Object.assign(s, { name: h.name, short: h.short, headShliach: h.headShliach, lastName: h.lastName, headTitle: h.headTitle || (s.headTitle && tr(s.headTitle)),
+          firstLast: personal ? `${h.headShliach.split(/\s+/)[0]} ${h.lastName}` : null });
+        if (s.capital) s.capital = { ...s.capital, city: he.cities[s.capital.city] || s.capital.city };
+      }
+      for (const g of topo.objects.areas.geometries) { const n = he.areas[g.properties.state]; if (n) { g.properties.name = n; g.properties.abbr = ''; } }
+      for (const c of cityFile) c.name = he.cities[c.name] || c.name;
+      for (const f of centersGeo.features) for (const c of f.properties.centers) {
+        if (c.nativeName && /[\u0590-\u05ff]/.test(c.nativeName)) c.name = c.nativeName;
+        if (c.type) c.type = tr(c.type);
+        if (c.city) c.city = he.cities[c.city] || c.city;
+      }
+      // a capital's name: its center's Hebrew name, where it has one
+      const byId = new Map(centersGeo.features.flatMap((f) => f.properties.centers.map((c) => [c.id, c])));
+      for (const s of shetachFile.shetachim) {
+        const c = s.capital && byId.get(s.capital.centerId);
+        if (c && /[\u0590-\u05ff]/.test(c.name)) s.capital.name = c.name;
+      }
+    }
+    // the page's own words: every text and label in the panel and the buttons
+    const walk = (node) => {
+      for (const n of node.childNodes) {
+        if (n.nodeType === 3) { const t = n.nodeValue.trim(); if (t && HE_TEXT[t]) n.nodeValue = n.nodeValue.replace(t, HE_TEXT[t]); } else if (n.nodeType === 1) walk(n);
+      }
+      if (node.nodeType === 1) for (const a of ['aria-label', 'title']) { const v = node.getAttribute(a); if (v && HE_TEXT[v]) node.setAttribute(a, HE_TEXT[v]); }
+    };
+    walk(document.body);
+    for (const el of document.querySelectorAll('[aria-label],[title]')) walk(el);
+  }
+  $('#lang-toggle').textContent = HE ? 'English' : 'עברית';
+  $('#lang-toggle').lang = HE ? 'en' : 'he';
+  $('#lang-toggle').addEventListener('click', () => {
+    const next = HE ? 'en' : 'he';
+    try { localStorage.setItem('shetachim-lang', next); } catch (e) { /* the address carries it */ }
+    const q = new URLSearchParams(location.search);
+    q.set('lang', next);
+    location.replace(`${location.pathname}?${q}${location.hash}`);
+  });
 
   // Pieces: whole states and provinces, and the parts of states split between shetachim. Each knows its
   // state and its shetach (none where no shetach is entered yet).
@@ -694,8 +784,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
     const shownIds = new Set(shown.map((g) => g.properties.id));
     const viewDots = dots.filter((d) => shownIds.has(d.piece));
-    $('#view-name').textContent = view.name;
-    const regular = view.world ? 'Countries' : 'States';
+    $('#view-name').textContent = tr(view.name);
+    const regular = tr(view.world ? 'Countries' : 'States');
     document.querySelectorAll('[data-name="borders"] [data-value="regular"], [data-name="lighter"] [data-value="regular"]').forEach((btn) => { btn.textContent = regular; });
     $('#st-shetachim').textContent = fmt(new Set(shown.map((g) => g.properties.shetach).filter(Boolean)).size);
     $('#st-centers').textContent = fmt(d3.sum(viewDots, (d) => d.centers.length));
@@ -849,6 +939,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return { text: person, short: state.labels === 'full' ? firstAndLast(s) : null, missing: false };
   }
   function firstAndLast(s) {
+    if (s.firstLast !== undefined) return s.firstLast;
     const words = (s.headShliach || '').trim().split(/\s+/);
     if (s.headTitle || words.length < 3 || /[;—]|\b(family|of)\b/i.test(s.headShliach)) return null;
     return `${words[0]} ${words[words.length - 1]}`;
@@ -1611,13 +1702,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (value === 'physical') {
       msg.hidden = false;
       msg.className = 'note';
-      msg.textContent = 'Loading…';
+      msg.textContent = tr('Loading…');
       try {
         await startGL();
       } catch (err) {
         pressed('base', 'political');
         msg.className = 'error';
-        msg.textContent = /webgl/i.test(String(err && err.message)) ? "This browser can't show the physical map." : "The physical map couldn't load.";
+        msg.textContent = tr(/webgl/i.test(String(err && err.message)) ? "This browser can't show the physical map." : "The physical map couldn't load.");
         return;
       }
       // switched back while it loaded, or a second click already finished the switch
@@ -1667,8 +1758,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return pickAt(mx, my, event.pointerType === 'touch', event.target);
   }
 
-  const count = (n) => `${fmt(n)} ${n === 1 ? 'center' : 'centers'}`;
-  const chabadLink = (c) => (c && c.slug ? `<a href="https://www.chabad.org/jewish-centers/${esc(c.pageId || c.id)}/${esc(c.slug)}" target="_blank" rel="noopener">Open on chabad.org</a>` : '');
+  const count = (n) => (HE ? (n === 1 ? 'מוסד אחד' : `${fmt(n)} מוסדות`) : `${fmt(n)} ${n === 1 ? 'center' : 'centers'}`);
+  const chabadLink = (c) => (c && c.slug ? `<a href="https://www.chabad.org/jewish-centers/${esc(c.pageId || c.id)}/${esc(c.slug)}" target="_blank" rel="noopener">${tr('Open on chabad.org')}</a>` : '');
   // withHead: false just names the shetach whose territory this is, without implying its head shliach
   // runs the place — used for 770, which sits in New York City's territory but isn't Tzach's to run.
   function shetachLine(pieceId, withHead = true) {
@@ -1679,18 +1770,18 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
 
   // A shetach's flagship center; 770 (world HQ) gets its own wording rather than "of New York City".
-  const capKicker = (c) => (c.world ? 'World Headquarters' : `${esc(c.s.name)} flagship center`);
+  const capKicker = (c) => (c.world ? tr('World Headquarters') : HE ? `המוסד המרכזי של ${esc(c.s.name)}` : `${esc(c.s.name)} flagship center`);
 
   // Who's listed at a center (chabad.org's own listing, when scripts/chabad-personnel-scrape.js has
   // been run): the first one still living is shown as the shliach; anyone else goes under "+more".
-  const personName = (p) => `${[p.title, p.firstName, p.lastName].filter(Boolean).join(' ')}${p.isDeceased ? ' obm' : ''}`;
+  const personName = (p) => `${[HE && /^rabbi$/i.test(p.title || '') ? 'הרב' : p.title, p.firstName, p.lastName].filter(Boolean).join(' ')}${p.isDeceased ? (HE ? ' ע״ה' : ' obm') : ''}`;
   const personLine = (p) => `${esc(personName(p))}${p.position ? ` <span class="meta">· ${esc(p.position)}</span>` : ''}`;
   function personnelHTML(list) {
     if (!list || !list.length) return '';
     const primary = list.find((p) => !p.isDeceased) || list[0];
     const others = list.filter((p) => p !== primary);
     const more = others.length
-      ? `<details class="personnel"><summary>+${others.length} more</summary>${others.map((p) => `<div class="pother">${personLine(p)}</div>`).join('')}</details>` : '';
+      ? `<details class="personnel"><summary>+${others.length} ${HE ? 'נוספים' : 'more'}</summary>${others.map((p) => `<div class="pother">${personLine(p)}</div>`).join('')}</details>` : '';
     return `<p class="person">${personLine(primary)}</p>${more}`;
   }
 
@@ -1706,7 +1797,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         ${chabadLink(c)}
       </li>`;
     }).join('');
-    const head = n > 1 ? `<span class="kicker">${n} listings at this address</span><h2>${esc(d.centers[0].city || 'Same address')}</h2>` : '';
+    const head = n > 1 ? `<span class="kicker">${HE ? `${n} מוסדות בכתובת זו` : `${n} listings at this address`}</span><h2>${esc(d.centers[0].city || tr('Same address'))}</h2>` : '';
     return `${head}<ul>${items}</ul><div class="foot"><span class="meta">${shetachLine(d.piece)}</span></div>`;
   }
 
@@ -1717,25 +1808,25 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
 
   function cityHTML(c) {
-    const pop = c.pop ? `<p>Population ${fmt(c.pop)}</p>` : '';
-    return `<span class="kicker">City</span><h2>${esc(c.name)}</h2>${pop}
+    const pop = c.pop ? `<p>${tr('Population')} ${fmt(c.pop)}</p>` : '';
+    return `<span class="kicker">${tr('City')}</span><h2>${esc(c.name)}</h2>${pop}
       <div class="foot"><span class="meta">${count(c.centers)} · ${shetachLine(c.piece)}</span></div>`;
   }
 
-  const areaKind = (p) => (p.country === 'CA' ? 'Province' : p.state.includes('-') ? 'State' : 'Country');
+  const areaKind = (p) => tr(p.country === 'CA' ? 'Province' : p.state.includes('-') ? 'State' : 'Country');
   function areaHTML(p) {
     const g = pieceById.get(p.id), s = shetachOf(g);
     const inMain = V.main.includes(g);
-    const zoomBtn = inMain ? `<button type="button" class="zoomto" data-piece="${esc(p.id)}">Zoom in</button>` : '';
+    const zoomBtn = inMain ? `<button type="button" class="zoomto" data-piece="${esc(p.id)}">${tr('Zoom in')}</button>` : '';
     if (state.borders === 'regular' || !s) {
       const inState = [...new Set(pieces.filter((x) => x.properties.state === p.state).map(shetachOf).filter(Boolean))];
       const part = state.borders === 'regular' && inState.length ? `<p>${esc(inState.map((x) => x.name).join(', '))}</p>` : '';
       return `<span class="kicker">${areaKind(p)}</span><h2>${esc(p.name)}</h2>${part}
         <div class="foot"><span class="meta">${count(centersInState(p.state))}</span>${zoomBtn}</div>`;
     }
-    const capital = s.capital ? `<p>Capital: ${esc(s.capital.name)}${s.capital.city ? `, ${esc(s.capital.city)}` : ''}</p>` : '';
+    const capital = s.capital ? `<p>${tr('Capital:')} ${esc(s.capital.name)}${s.capital.city ? `, ${esc(s.capital.city)}` : ''}</p>` : '';
     return `<h2>${esc(s.name)}</h2>
-      <p>${esc(s.headTitle || 'Head shliach')}: ${esc(s.headShliach)}</p>${capital}
+      <p>${esc(s.headTitle || tr('Head shliach'))}: ${esc(s.headShliach)}</p>${capital}
       <div class="foot"><span class="meta">${count(centersInShetach(s))}</span>${zoomBtn}</div>`;
   }
 
@@ -1849,7 +1940,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function showThemeButton() {
     const dark = theme() === 'dark';
     $('#theme-toggle').innerHTML = dark ? SUN : MOON;
-    $('#theme-toggle').setAttribute('aria-label', dark ? 'Light mode' : 'Dark mode');
+    $('#theme-toggle').setAttribute('aria-label', tr(dark ? 'Light mode' : 'Dark mode'));
   }
   $('#theme-toggle').addEventListener('click', () => {
     const next = theme() === 'dark' ? 'light' : 'dark';
@@ -1871,7 +1962,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const panel = $('#panel');
     const open = panel.classList.toggle('collapsed') === false;
     $('#panel-toggle').setAttribute('aria-expanded', String(open));
-    $('#panel-toggle').textContent = open ? 'Close' : 'Options';
+    $('#panel-toggle').textContent = tr(open ? 'Close' : 'Options');
     document.documentElement.style.setProperty('--sheet', `${panel.getBoundingClientRect().height}px`);
     placeLabels(); // names keep clear of the sheet
   });

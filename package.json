@@ -4,9 +4,11 @@
   "type": "module",
   "scripts": {
     "build": "node --max-old-space-size=12000 scripts/build-data.mjs",
+    "hebrew": "node scripts/build-hebrew.mjs",
     "svg": "node scripts/export-svg.mjs"
   },
   "devDependencies": {
+    "@fontsource/heebo": "^5.3.0",
     "@fontsource/inter": "^5.3.0",
     "all-the-cities": "^3.1.0",
     "d3-geo": "^3.1.1",

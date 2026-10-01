@@ -35,14 +35,15 @@ for (const spec of specs) {
       const f = map[path.basename(url.pathname)];
       return f ? route.fulfill({ status: 200, contentType: 'text/javascript', body: fs.readFileSync(path.join(LIB, f)) }) : route.abort();
     }
-    // Google Fonts isn't reachable from the sandbox: serve the page's font (Inter) from the local @fontsource copy.
+    // Google Fonts isn't reachable from the sandbox: serve the page's fonts (Inter, Heebo) from the local @fontsource copies.
     if (url.host === 'fonts.googleapis.com') {
-      const css = [400, 500, 600, 700].map((w) => `@font-face{font-family:Inter;font-weight:${w};src:url(https://fonts.gstatic.com/inter-${w}.woff2) format('woff2')}`).join('');
+      const css = [400, 500, 600, 700].map((w) => `@font-face{font-family:Inter;font-weight:${w};src:url(https://fonts.gstatic.com/inter-${w}.woff2) format('woff2')}`
+        + `@font-face{font-family:Heebo;font-weight:${w};src:url(https://fonts.gstatic.com/heebo-${w}.woff2) format('woff2')}`).join('');
       return route.fulfill({ status: 200, contentType: 'text/css', body: css });
     }
     if (url.host === 'fonts.gstatic.com') {
-      const w = /inter-(\d+)/.exec(url.pathname)?.[1];
-      const file = w && path.join(REPO, 'node_modules', '@fontsource', 'inter', 'files', `inter-latin-${w}-normal.woff2`);
+      const [, fam, w] = /(inter|heebo)-(\d+)/.exec(url.pathname) || [];
+      const file = w && path.join(REPO, 'node_modules', '@fontsource', fam, 'files', `${fam}-${fam === 'heebo' ? 'hebrew' : 'latin'}-${w}-normal.woff2`);
       return file && fs.existsSync(file) ? route.fulfill({ status: 200, contentType: 'font/woff2', body: fs.readFileSync(file) }) : route.abort();
     }
     if (url.host === 'tiles.openfreemap.org' && url.pathname.startsWith('/styles/')) {
@@ -55,7 +56,7 @@ for (const spec of specs) {
     }
     return route.abort();
   });
-  await page.goto('https://site.test/web/index.html');
+  await page.goto(`https://site.test/web/index.html${process.env.QUERY || ''}`); // QUERY=?lang=he: the Hebrew page
   await page.waitForFunction(() => document.querySelector('#st-dots').textContent !== '–');
   await page.evaluate(([v]) => document.querySelector(`.seg[data-name="view"] [data-value="${v}"]`).click(), [view]);
   // The page opens on the physical map; wait for it (or its fallback), then pick the one wanted.

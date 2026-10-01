@@ -26,6 +26,12 @@ between two Claude accounts when usage limits run out; whichever session picks t
 - Before changing anything on the live map, check what the other account last did (`git log` on
   `claude/bold-albattani-aqfnj9`, and this file) and keep it.
 
+- **West Virginia** is entirely in **Western Pennsylvania** (Yisroel Rosenfeld) — the owner briefly kept 8 eastern
+  counties with Virginia, then reversed it. Its name centres on Pennsylvania (`labelCentre: "US-PA"`, softer than
+  Alberta's `labelState`: aims at that state's part but may run a little into West Virginia).
+- **Cyprus includes the British Sovereign Base Areas** (Akrotiri, Dhekelia): Natural Earth shapes (`CYPRUS_EXTRA` in
+  the build; GADM has none), merged into Cyprus itself.
+
 ## World names SVG (Oct 1, in progress on the other account's branch `ccr-1f9385a8-jca1nj` until pushed)
 `web/shetachim-map-names.svg` (+ .png): the whole world at poster size (10,800 px wide, Natural Earth projection), every
 shetach coloured with its head shliach's name; land no shetach covers is one plain grey swath with no borders inside
@@ -39,6 +45,11 @@ it (from `data/world-all.json`, which the build now writes); Antarctica left off
   ordered column offshore; lone ones at the nearest spot with the least crossing.
 - Lower Balkans (Yoel Kaplan): one name with a leader from each of its two parts (Bosnia; Albania–northern Greece) —
   `split`: big parts that other land keeps apart (shortest gap mostly someone else's land).
+- The owner's verdicts on the SVG (Oct 1): as few names beside the map as possible — a small name inside its shetach
+  (down to ~2.5 px on the 10,800 px poster) beats a leader; a column of leadered names "looks like a list" and is
+  rejected; leaders short and near their place (Raskin's long line to Cyprus was rejected); a small name takes the
+  biggest size that fits even a little off-centre (Delaware); big shetachim get big names (Central Africa, up to 130 px).
+  Long non-personal names (UK leadership) break into balanced lines.
 - `ONLY=id,id WHY="Name" node scripts/export-svg.mjs 3600 world-names` renders just some shetachim and says why spots
   were refused — a full render takes ~10–15 min. `node scripts/svg-png.mjs [file.svg]` makes the PNGs (Chromium).
 

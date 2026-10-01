@@ -98,6 +98,8 @@ const FROM_NATURAL_EARTH = ['CPV'];
 const ISRAEL_EXTRA = { url: `${GADM}/Admin1/gadm36_PSE_1.json`, cache: 'gadm-hi-ISR-judea-samaria.json', region: 'West Bank' };
 // The same file's other region, Gaza, isn't in any shetach: it's only land outside the map, under its own name.
 const GAZA = { region: 'Gaza', code: 'GAZA', name: 'Gaza' };
+// The British Sovereign Base Areas on Cyprus, by Natural Earth code: Akrotiri (WSB) and Dhekelia (ESB).
+const CYPRUS_EXTRA = ['WSB', 'ESB'];
 // Countries a shetach list divides by state, like the US and Canada: each state is its own area (MX-JAL), with
 // ISO 3166-2 codes; name, short form (none for Mexico's states except CDMX: their official abbreviations, like
 // "Sin.", read badly as map labels). GADM's own codes (HASC) aren't ISO, so this is by hand.
@@ -724,7 +726,7 @@ async function worldLand(data, levels) {
     else if (WORLD_PREFIX.has(m[1])) divided.add(WORLD_PREFIX.get(m[1]));
   }
   const outside = GADM_ALL.filter((c) => !whole.has(c) && !divided.has(c));
-  const spec = JSON.stringify({ v: 4, whole: [...whole].sort(), divided: [...divided].sort(), levels: [...levels].sort(), outside });
+  const spec = JSON.stringify({ v: 5, whole: [...whole].sort(), divided: [...divided].sort(), levels: [...levels].sort(), outside });
   const file = path.join(CACHE, `world-${createHash('sha1').update(spec).digest('hex').slice(0, 10)}.json`);
   if (!fs.existsSync(file)) {
     const dir = fs.mkdtempSync(path.join(CACHE, 'world-')), files = [], missing = [];
@@ -752,6 +754,13 @@ async function worldLand(data, levels) {
           const extra = readJSON(await download(ISRAEL_EXTRA.url, ISRAEL_EXTRA.cache)).features.filter((f) => f.properties.NAME_1 === ISRAEL_EXTRA.region);
           if (!extra.length) throw new Error('Judea and Samaria is missing from its GADM file');
           features.push(...extra.map((f) => featureOf(f.geometry, props('Israel'))));
+        }
+        if (code === 'CYP') {
+          // Cyprus includes the British Sovereign Base Areas (owner, Oct 1): GADM has no file for them, so they're
+          // Natural Earth's, made part of Cyprus itself (the gap-fill in cleanLand() closes the seam with GADM's coast)
+          const bases = readJSON(await cached('countries')).features.filter((f) => CYPRUS_EXTRA.includes(f.properties.ADM0_A3));
+          if (bases.length !== CYPRUS_EXTRA.length) throw new Error('Akrotiri or Dhekelia is missing from Natural Earth');
+          features.push(...bases.map((f) => featureOf(f.geometry, props('Cyprus'))));
         }
       }
       if (features.length) write(code, features); else missing.push(code);

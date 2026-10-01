@@ -308,7 +308,15 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
     for (let i = 0; i < ring.length - 1; i++) { const [x1, y1] = ring[i], [x2, y2] = ring[i + 1], c = x1 * y2 - x2 * y1; ca += c; cx0 += (x1 + x2) * c; cy0 += (y1 + y2) * c; }
     const cen = [cx0 / (3 * ca), cy0 / (3 * ca)];
     // labelAt: a point the name centres on instead (India: mainland India, not pulled toward the northeast past Bangladesh)
-    const [px, py] = s.labelAt ? projection(s.labelAt) : inPoly(main, cen[0], cen[1]) ? cen : pole;
+    // labelCentre: aim at that state's part (Western Pennsylvania's Pennsylvania), the name free to run a little past it
+    const leanAt = () => {
+      const lean = gs.filter((g) => g.properties.state === s.labelCentre);
+      if (!lean.length || lean.length === gs.length) return null;
+      const lg = merge(topo, lean), lp = (lg.type === 'Polygon' ? [lg.coordinates] : lg.coordinates).map((poly) => poly.map((r) => r.map((p) => projection(p))));
+      lp.sort((a, b) => polyArea(b[0]) - polyArea(a[0]));
+      return polylabel(lp[0], 1);
+    };
+    const [px, py] = s.labelAt ? projection(s.labelAt) : (s.labelCentre && leanAt()) || (inPoly(main, cen[0], cen[1]) ? cen : pole);
     let bx0 = Infinity, by0 = Infinity, bx1 = -Infinity, by1 = -Infinity;
     for (const [x, y] of main[0]) { bx0 = Math.min(bx0, x); bx1 = Math.max(bx1, x); by0 = Math.min(by0, y); by1 = Math.max(by1, y); }
     const cap = Math.max(MIN, Math.min(maxSize, Math.sqrt(polyArea(main[0])) * 0.12));
@@ -364,7 +372,7 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
           const bb = [cx - w / 2, cy - h / 2, cx + w / 2, cy + h / 2];
           const room = Math.min(...segs.map(([a, b2]) => segBoxDist(a, b2, bb)));
           // off-centre locally, plus how far from the middle of the whole shetach (in its own sizes)
-          const off = offCentre(cx, cy) + Math.hypot(cx - px, cy - py) / reach0;
+          const off = s.labelCentre ? 0.3 * offCentre(cx, cy) + 3 * Math.hypot(cx - px, cy - py) / reach0 : offCentre(cx, cy) + Math.hypot(cx - px, cy - py) / reach0;
           const score = -off + 0.05 * (Math.min(room, size * 1.2) / size);
           if (!best || score > best.score) best = { score, off, cx, cy };
         }

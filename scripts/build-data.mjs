@@ -1159,7 +1159,7 @@ async function main() {
   }
   const forPage = {
     notShown: shetachData.notShown || [],
-    shetachim: shetachData.shetachim.map(({ id, name, short, headShliach, headTitle, lastName, capital, labelState, labelAt }) => ({ id, name, short, headShliach, headTitle, lastName, capital, labelState, labelAt })),
+    shetachim: shetachData.shetachim.map(({ id, name, short, headShliach, headTitle, lastName, capital, labelState, labelCentre, labelAt }) => ({ id, name, short, headShliach, headTitle, lastName, capital, labelState, labelCentre, labelAt })),
   };
   fs.writeFileSync(path.join(OUT, 'shetachim.json'), `${JSON.stringify(forPage, null, 1)}\n`);
 

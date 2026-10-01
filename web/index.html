@@ -657,6 +657,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       // labelState: the part of the shetach its name belongs on (Alberta, not the territories' narrow strip north of it)
       const core = s.labelState && gs.filter((g) => g.properties.state === s.labelState);
       if (core && core.length && core.length < gs.length) r.coreXY = area(core, {}).polysXY;
+      // labelCentre: softer — the name aims at that state's part (Western Pennsylvania's Pennsylvania, not its West
+      // Virginia) but may run a little past it
+      const lean = s.labelCentre && gs.filter((g) => g.properties.state === s.labelCentre);
+      if (lean && lean.length && lean.length < gs.length) { r.coreXY = area(lean, {}).polysXY; r.soft = true; }
       return r;
     });
     V.blanks = [...d3.group(main.filter((g) => !shetachOf(g)), (g) => g.properties.state)].map(([st, gs]) => area(gs, { st }));
@@ -769,7 +773,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const polys = r.polysXY.map((rings) => ({ rings, area: Math.abs(d3.polygonArea(rings[0])), c: d3.polygonCentroid(rings[0]) }));
     const max = d3.max(polys, (q) => q.area);
     const big = polys.filter((q) => q.area >= max * 0.1);
-    if (r.coreXY) return [{ polys: r.polysXY, a: r.anchor, core: r.coreXY }];
+    if (r.coreXY) return [{ polys: r.polysXY, a: r.anchor, core: r.coreXY, soft: r.soft }];
     if (big.length < 2) return [{ polys: r.polysXY, a: r.anchor }];
     const ownerAt = (x, y) => {
       for (const [other, xs] of crossings(ix, y)) for (let i = 0; i + 1 < xs.length; i += 2) if (x >= xs[i] && x <= xs[i + 1]) return other;
@@ -1192,7 +1196,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         // the name goes on the shetach's main part while that's in view (more than a few hundred px² of it): centred on
         // it and kept within it (Alberta's name on Alberta itself, in every label mode, never up in the territories' strip)
         const core = visiblePart(L.cl.core, view);
-        if (core && core.area * k * k > 500) { part.centre = core.centre; part.hull = core.hull; part.area = Math.max(core.area, part.area * 0.5); }
+        if (core && core.area * k * k > 500) { part.centre = core.centre; if (!L.cl.soft) part.hull = core.hull; part.area = Math.max(core.area, part.area * 0.5); }
       }
       if (part) todo.push({ L, part });
     }

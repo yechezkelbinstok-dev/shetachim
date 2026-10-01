@@ -135,6 +135,9 @@ const WORLD_STATES = {
 const WORLD_PREFIX = new Map(Object.entries(WORLD_STATES).map(([iso3, w]) => [w.prefix, iso3]));
 const STATE_INFO = new Map(Object.values(WORLD_STATES).flatMap((w) => Object.values(w.states).map(([code, name, abbr]) => [`${w.prefix}-${code}`, { name, abbr }])));
 // Boundary shapes a shetach can claim inside a state ({ "state": "AU-QLD", "shape": "brisbane-metro" }): data/shapes/<name>.geojson.
+// A shape whose properties say "lakeEdges": true (Essex County with its waters) cuts a piece with no coast: its open
+// edges are the international boundary in the lakes, with the shetach's own state's water across them, so the
+// physical map draws them only with the country borders, not as a maritime line of the shetach.
 const SHAPES = path.join(ROOT, 'data', 'shapes');
 // A sliver left between a shape and the state's own (differently drawn) coast or border goes to the shape beside it.
 const SLIVER_KM2 = 25;
@@ -628,11 +631,15 @@ async function buildGeo(data) {
   // Boundary shapes (Brisbane's urban area, the Gold Coast): like tracts, cut out of the state's own land, so
   // the state's coast and borders stay the state's; only the line through the state comes from the shape.
   const shapeStates = [...byState].filter(([, cs]) => cs.some((c) => c.kind === 'shape')).map(([state]) => state);
+  const lakeShapes = new Set();
   for (const state of shapeStates) {
     const P = prefixOf(state);
     const names = [...new Set(byState.get(state).filter((c) => c.kind === 'shape').map((c) => c.shape))];
     layers[`${P}shapes`] = collectionOf(names.flatMap((name) => readJSON(path.join(SHAPES, `${name}.geojson`)).features
-      .map((f) => featureOf(f.geometry, { [`${P}shape`]: name }))));
+      .map((f) => {
+        if (f.properties?.lakeEdges) lakeShapes.add(name);
+        return featureOf(f.geometry, { [`${P}shape`]: name });
+      })));
   }
   if (problems.length) throw new Error(`data/shetachim.json:\n  ${problems.join('\n  ')}`);
   layers.land = await cleanLand(land);
@@ -662,12 +669,15 @@ async function buildGeo(data) {
     }
     p.shetach = best ? best.shetach : null;
     p.byShape = !!(best && best.kind === 'shape');
+    p.lake = !!(best && best.kind === 'shape' && lakeShapes.has(best.shape));
   }
   const absorbed = absorbSlivers(mosaic.filter((f) => shapeStates.includes(f.properties.state)));
   if (absorbed) console.log(`${absorbed} slivers along shape edges given to the shape beside them`);
+  const pieceOf = (p) => `${p.state}:${p.shetach ?? 'none'}`;
+  const lakePieces = new Set(mosaic.filter((f) => f.properties.lake).map((f) => pieceOf(f.properties)));
   for (const f of mosaic) {
-    const p = f.properties;
-    f.properties = { piece: `${p.state}:${p.shetach ?? 'none'}`, state: p.state, name: p.name, abbr: p.abbr, country: p.country, shetach: p.shetach, outside: !!p.outside };
+    const p = f.properties, piece = pieceOf(p);
+    f.properties = { piece, state: p.state, name: p.name, abbr: p.abbr, country: p.country, shetach: p.shetach, outside: !!p.outside, lake: lakePieces.has(piece) };
   }
 
   // Small islands are dropped to keep the page light, except from areas that are small altogether (Bermuda, the
@@ -675,12 +685,12 @@ async function buildGeo(data) {
   const rough = JSON.stringify(ROUGH).replace(/"/g, "'");
   const fine = JSON.stringify(FINE).replace(/"/g, "'");
   const out = await mapshaper.applyCommands(
-    '-i mosaic.json -dissolve piece copy-fields=state,name,abbr,country,shetach,outside -rename-fields id=piece -rename-layers areas ' +
+    '-i mosaic.json -dissolve piece copy-fields=state,name,abbr,country,shetach,outside,lake -rename-fields id=piece -rename-layers areas ' +
     '-o pieces.json format=geojson ' +
     `-simplify variable interval="${rough}.includes(state) ? 2500 : ${fine}.includes(state) ? 100 : country === 'US' ? 400 : 800" keep-shapes ` +
     `-each "size = this.area < 2e9 ? 'small' : 'big'" -split size ` +
     '-filter-islands min-area=40km2 remove-empty target=big ' +
-    '-merge-layers target=big,small force name=areas -filter-fields id,state,name,abbr,country,shetach,outside ' +
+    '-merge-layers target=big,small force name=areas -filter-fields id,state,name,abbr,country,shetach,outside,lake ' +
     '-o world.json format=topojson quantization=100000 ' +
     '-filter "!outside" -filter-fields id,state,name,abbr,country,shetach ' +
     '-o geo.json format=topojson quantization=100000',
@@ -872,7 +882,8 @@ const clampNum = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
 //   land   every area, merged by country; c = its country, or '' for land outside the map (the page fades
 //          whatever isn't in the view)
 //   lines  every edge between two areas (or an area and the sea), with both sides' countries (ca, cb), and
-//          whether the two share a state (ss) and a shetach (sh); the page picks the edges its view needs.
+//          whether the two share a state (ss) and a shetach (sh); lk marks an open edge that's a lake boundary
+//          inside a shetach (a "lakeEdges" shape), not a coast. The page picks the edges its view needs.
 const TILES = path.join(OUT, '..', 'tiles');
 const TILE_ZOOM = 6;
 function writeTiles(topo) {
@@ -888,7 +899,7 @@ function writeTiles(topo) {
     const [a, b] = sides[i].map((gi) => geoms[gi].properties);
     if (!a || (b && code(a) === '' && code(b) === '')) return;
     if (!b && coords.every(([x]) => Math.abs(x) > 179.99)) return; // the cut along 180°, not a coast
-    const props = b ? { ca: code(a), cb: code(b), ss: a.state === b.state ? 1 : 0, sh: (a.shetach || '') === (b.shetach || '') ? 1 : 0 } : { ca: code(a) };
+    const props = b ? { ca: code(a), cb: code(b), ss: a.state === b.state ? 1 : 0, sh: (a.shetach || '') === (b.shetach || '') ? 1 : 0 } : { ca: code(a), ...(a.lake ? { lk: 1 } : {}) };
     lines.push(featureOf({ type: 'LineString', coordinates: coords }, props));
   });
   const byCode = new Map();

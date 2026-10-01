@@ -144,28 +144,6 @@
       }
     },
     {
-      "id": "north-dakota",
-      "name": "North Dakota",
-      "headShliach": "Yonah Grossman",
-      "territory": [
-        "US-ND"
-      ],
-      "capital": {
-        "centerId": "2027612"
-      }
-    },
-    {
-      "id": "south-dakota",
-      "name": "South Dakota",
-      "headShliach": "Mendel Alperowitz",
-      "territory": [
-        "US-SD"
-      ],
-      "capital": {
-        "centerId": "3451535"
-      }
-    },
-    {
       "id": "nebraska",
       "name": "Nebraska",
       "headShliach": "Mendel Katzman",
@@ -177,11 +155,13 @@
       }
     },
     {
-      "id": "minnesota",
-      "name": "Minnesota",
+      "id": "upper-midwest",
+      "name": "Upper Midwest",
       "headShliach": "Moshe Feller",
       "territory": [
-        "US-MN"
+        "US-MN",
+        "US-ND",
+        "US-SD"
       ],
       "capital": {
         "centerId": "117647"

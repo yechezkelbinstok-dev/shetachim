@@ -162,32 +162,6 @@
    }
   },
   {
-   "id": "north-dakota",
-   "name": "North Dakota",
-   "short": "ND",
-   "headShliach": "Yonah Grossman",
-   "capital": {
-    "centerId": "2027612",
-    "name": "Chabad Jewish Center of North Dakota",
-    "city": "Fargo",
-    "lat": 46.89164,
-    "lon": -96.78825
-   }
-  },
-  {
-   "id": "south-dakota",
-   "name": "South Dakota",
-   "short": "SD",
-   "headShliach": "Mendel Alperowitz",
-   "capital": {
-    "centerId": "3451535",
-    "name": "Chabad Jewish Center of South Dakota",
-    "city": "Sioux Falls",
-    "lat": 43.49899,
-    "lon": -96.74587
-   }
-  },
-  {
    "id": "nebraska",
    "name": "Nebraska",
    "short": "NE",
@@ -201,9 +175,9 @@
    }
   },
   {
-   "id": "minnesota",
-   "name": "Minnesota",
-   "short": "MN",
+   "id": "upper-midwest",
+   "name": "Upper Midwest",
+   "short": "MN-ND-SD",
    "headShliach": "Moshe Feller",
    "capital": {
     "centerId": "117647",

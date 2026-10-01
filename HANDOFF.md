@@ -79,7 +79,14 @@ Later in the same round:
   channel), and across Lake Erie due south to the international boundary. Essex takes the Canadian water on its side
   (Detroit River, Lake St Clair west of that line, western Lake Erie with Pelee Island); past the boundary the shape
   runs on over US ground, which a shape never cuts (only CA-ON's land). The elbow point is read off the built map
-  (`web/data/geo.json`, the Ontario / Michigan arc); if the land data changes, check it's still on that border. Ontario is drawn at 100 m (`FINE`).
+  (`web/data/geo.json`, the Ontario / Michigan arc); if the land data changes, check it's still on that border.
+  The shape's `"lakeEdges": true` marks the piece's open edges (the international line round Essex's water, Michigan's
+  on both sides) as lake edges, `lk` in the tiles: the physical map draws them only in States/Both border modes, not
+  as a maritime line (the owner circled them as not fitting the new borders). The political map and SVGs still
+  outline the water's colour there, like the rest of Ontario's lake water.
+- **Upper Midwest** (owner, Oct 1): North and South Dakota joined Minnesota under Moshe Feller; the shetach is now
+  "Upper Midwest" (id `upper-midwest`, territory US-MN, US-ND, US-SD). The North Dakota (Yonah Grossman) and South
+  Dakota (Mendel Alperowitz) shetachim are gone. Ontario is drawn at 100 m (`FINE`).
   Area cards no longer list a shetach's states (kept in the data, not shown).
 - **SVG export**: `npm run svg` (scripts/export-svg.mjs) writes `web/shetachim-map.svg` — every shetach in its map colour,
   shetach borders and coasts only (no names, cities, dots, stars); Natural Earth projection, 3600 px wide, lines

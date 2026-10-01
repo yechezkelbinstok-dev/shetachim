@@ -1272,7 +1272,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     mapgl.addLayer({ id: 'st-fade-land', type: 'fill', source: 'st', 'source-layer': 'land', paint: { 'fill-color': FADE, 'fill-opacity': 0.72, 'fill-antialias': false } }, waterBefore);
     mapgl.addLayer({ id: 'st-line-casing', type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' },
       paint: { 'line-color': '#ffffff', 'line-width': 4.5, 'line-opacity': 0.5 } }, lineBefore);
-    for (const kind of ['coast', 'regular', 'country', 'shetach']) {
+    for (const kind of ['coast', 'lake', 'regular', 'country', 'shetach']) {
       mapgl.addLayer({ id: `st-line-${kind}`, type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, lineBefore);
     }
     mapgl.addLayer({ id: 'st-fade-top', type: 'fill', source: 'st', 'source-layer': 'land', paint: { 'fill-color': FADE, 'fill-opacity': 0.3, 'fill-antialias': false } });
@@ -1309,8 +1309,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
     const fc = (features) => ({ type: 'FeatureCollection', features });
     const list = ['literal', V.view.countries];
     const a = ['in', ['get', 'ca'], list], b = ['all', ['has', 'cb'], ['in', ['get', 'cb'], list]];
+    // lake: an open edge that's the international boundary in the lakes inside one shetach (Essex County's water,
+    // Michigan's on both sides), drawn with the country borders rather than as a maritime line.
+    const lake = ['has', 'lk'];
     const filters = {
-      coast: ['any', ['all', a, ['!', b]], ['all', b, ['!', a]]],
+      coast: ['any', ['all', a, ['!', b], ['!', lake]], ['all', b, ['!', a]]],
+      lake: ['all', a, lake],
       regular: ['all', a, b, ['==', ['get', 'ss'], 0], ['==', ['get', 'ca'], ['get', 'cb']]],
       country: ['all', a, b, ['!=', ['get', 'ca'], ['get', 'cb']]],
       shetach: ['all', a, b, ['==', ['get', 'sh'], 0]],
@@ -1342,6 +1346,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 500 12px var(--font-
       paint(`st-line-${kind}`, 'line-opacity', opacity);
     };
     line('coast', true, 0.8, 0.35);
+    line('lake', state.borders !== 'shetach', 0.8, 0.35);
     line('regular', state.borders !== 'shetach', 1.2, lightR ? 0.35 : 0.8);
     line('country', state.borders !== 'shetach', 2, lightR ? 0.35 : 0.9);
     line('shetach', state.borders !== 'regular', 2, lightS ? 0.3 : 0.9);

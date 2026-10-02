@@ -226,9 +226,12 @@ Later in the same round:
 
 - **Ohio** (owner, Oct 1; done by the session on the other account, branch `ccr-1f9385a8-jca1nj`): four regions
   from the owner's own map (`data/ohio-regions-v2.geojson`, kept verbatim; picture: estimated curved borders, not
-  county lines). **Now by whole counties** (owner, Oct 1: "I hate the roundness"): each of Ohio's 88 counties goes to
-  the region of that map covering most of it (7 were split 51–69%: Muskingum, Champaign, Putnam, Logan, Adams,
-  Crawford, Fayette), so the borders follow county lines; territories are `{ "counties": [...] }`: **Northeast Ohio** (`northeast-ohio`, "Alevsky family"; Cleveland, Akron,
+  county lines). Oct 1 they were switched to whole counties ("I hate the roundness"); Oct 2 the owner rejected the
+  county staircase ("just makes it look bad") and wanted the original back with straight-ish lines: the shapes in
+  `data/shapes/ohio-{toledo,northeast,central,southern}.geojson` are the original map's regions with each inner
+  border straightened — Toledo's (Michigan's) borders and the Southern–Central border are single straight lines, the
+  Central–Northeast border a few straight segments that keep Central's big bulge east into the Alevsky shetach (made
+  by straightening the shared lines and re-tiling; no center changes region vs the original map). Regions: **Northeast Ohio** (`northeast-ohio`, "Alevsky family"; Cleveland, Akron,
   Youngstown, Canton, east and south to Athens and Marietta), **Central Ohio** (`central-ohio`, Areyah Kaltmann;
   Columbus, south to Portsmouth/Ironton), **Southern Ohio** (`southern-ohio`, Sholom Ber Kalmanson; Cincinnati,
   Dayton, Springfield, Lima), and the **Toledo area joins Michigan** (Berel Shemtov) as part of the `michigan`

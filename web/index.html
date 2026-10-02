@@ -80,6 +80,9 @@ button:focus-visible, input:focus-visible, a:focus-visible, summary:focus-visibl
 .lab { paint-order: stroke; stroke: var(--map-halo); stroke-opacity: .7; stroke-linejoin: round; text-anchor: middle; dominant-baseline: central; pointer-events: none;
   font-family: var(--font-map); font-weight: 700; letter-spacing: .01em; fill: var(--map-ink); }
 .lab-missing { fill: var(--map-missing); font-weight: 500; }
+/* the head's name over a territory of his shetach (Kantor's over India): the same name, in italics (Hebrew: lighter) */
+.lab-secondary { font-style: italic; }
+html[lang="he"] .lab-secondary { font-style: normal; font-weight: 500; }
 .physical .lab { stroke-opacity: .9; }
 
 /* the map's own text is placed by its left/centre edge, whatever the page's direction (Hebrew is right to left) */
@@ -958,10 +961,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // first and last name ("Yosef Yitzchak Aharonov" → "Yosef Aharonov"); where neither fits, no name until zoomed in.
   // Leadership entries and families ("Hanholo of Chabad Lubavitch UK", "Pinson family") are never shortened.
   function shetachLabel(s) {
-    // a territory: "India (Thailand)" by name; in the head-shliach modes its shetach's name stands for both
-    if (s.territoryOf) {
-      const p = shetachById.get(s.territoryOf);
-      return state.labels === 'name' && p ? { text: `${s.name} (${p.name})`, short: [s.name], missing: false } : null;
+    // a territory of another shetach (India, of Thailand's): by name, its own name; in the head-shliach modes that
+    // shetach's head again, in italics (`secondary`)
+    const p = s.territoryOf && shetachById.get(s.territoryOf);
+    if (p) {
+      if (state.labels === 'name') return { text: s.name, short: s.short, missing: false };
+      const head = state.labels === 'last' ? p.lastName : p.headShliach;
+      return head ? { text: head, short: state.labels === 'full' ? firstAndLast(p) : null, missing: false, secondary: true } : null;
     }
     if (state.labels === 'name') return { text: s.name, short: s.short, missing: false };
     const person = state.labels === 'last' ? s.lastName : s.headShliach;
@@ -1264,7 +1270,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       for (let t = 0; t < 6; t++) { const mid = (a + b) / 2; if (fitsAt(f, mid)) a = mid; else b = mid; }
       return a;
     };
-    const cap = capFor(part.area * k * k), top = Math.max(LABEL_MIN, cap / BREATHE);
+    // the head's name over a territory (Kantor's over India) is the lesser one: smaller than his main name
+    const cap = capFor(part.area * k * k) * (L.secondary ? 0.55 : 1), top = Math.max(LABEL_MIN, cap / BREATHE);
     // the forms to try, in order, each with the most it fits at: the name (on two lines when they're clearly bigger),
     // the other way of setting the name, then each short form
     const one = L.forms[0], two = L.forms.find((f) => f.kind === 'two');
@@ -1331,7 +1338,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       boxes.push(spot.box);
     }
     gLabels.selectAll('text').data(labels.filter((L) => L.show)).join('text')
-      .attr('class', (L) => (L.missing ? 'lab lab-missing' : 'lab'))
+      .attr('class', (L) => (L.missing ? 'lab lab-missing' : L.secondary ? 'lab lab-secondary' : 'lab'))
       .each(function (L) {
         const n = L.show.lines.length;
         d3.select(this).selectAll('tspan').data(L.show.lines).join('tspan')
@@ -1464,7 +1471,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // fills: shetachim (blank parts of states stay unfilled), or states with States borders
     const fillAlpha = state.borders === 'both' && state.lighter === 'shetach' ? 0.55 : 1;
     for (const r of state.borders === 'regular' ? V.states : V.regions) {
-      ctx.globalAlpha = fillAlpha * (r.territory ? 0.5 : 1); // a territory: its shetach's colour, lighter
+      ctx.globalAlpha = fillAlpha;
       ctx.fillStyle = state.color === 'plain' ? pal.plain : pal.c[r.color];
       for (const poly of r.polys) if (seen(poly.box)) ctx.fill(polyPath(poly, L), 'evenodd');
     }
@@ -1840,7 +1847,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const g = pieceById.get(pieceId);
     const s = g && shetachOf(g);
     const p = s && s.territoryOf && shetachById.get(s.territoryOf);
-    if (p) return withHead && p.headShliach ? `${esc(s.name)} (${esc(p.name)}) · ${headHTML(p.headShliach)}` : `${esc(s.name)} (${esc(p.name)})`;
+    if (p) return withHead && p.headShliach ? `${esc(s.name)} · ${headHTML(p.headShliach)}` : esc(s.name);
     if (s) return withHead && s.headShliach ? `${esc(s.name)} · ${headHTML(s.headShliach)}` : esc(s.name);
     return g ? esc(g.properties.name) : '';
   }
@@ -1904,7 +1911,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // "Capital: …", or for a disputed shetach "Capital (Chaim Tzvi Groner): …", one per claimant
     const capital = caps.map((c) => `<p>${tr('Capital')}${c.for ? ` (${esc(c.for)})` : ''}: ${esc(c.name)}${c.city ? `, ${esc(c.city)}` : ''}</p>`).join('');
     return `<h2>${esc(s.name)}</h2>
-      ${s.territoryOf && shetachById.get(s.territoryOf) ? (() => { const p = shetachById.get(s.territoryOf); return `<p>${HE ? `טריטוריה של שטח ${esc(p.name)}` : `Territory of the ${esc(p.name)} shetach`}</p><p>${esc(p.headTitle || tr('Head shliach'))}: ${headHTML(p.headShliach)}</p>`; })()
+      ${s.territoryOf && shetachById.get(s.territoryOf) ? (() => { const p = shetachById.get(s.territoryOf); return `<p>${esc(p.headTitle || tr('Head shliach'))}: ${headHTML(p.headShliach)}</p><p>${HE ? `יחד עם שטח ${esc(p.name)}` : `Together with the ${esc(p.name)} shetach`}</p>`; })()
         : s.noCentralLeadership ? `<p>${tr('No centralized leadership')}</p>` : s.headShliach ? `<p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>` : ''}${capital}
       <div class="foot"><span class="meta">${count(centersInShetach(s))}</span>${zoomBtn}</div>`;
   }

@@ -131,7 +131,7 @@ function draw(list, projection) {
   const linesPath = (filter) => meshArcs(topo, coll, filter).arcs
     .flatMap((line) => line.filter((a) => !onSeam(a < 0 ? ~a : a)).map((a) => trace([a], false))).join('');
   const fills = [...byShetachOf(list)].sort(([a], [b]) => (a < b ? -1 : 1))
-    .map(([id, gs]) => `<path id="${id}" fill="${COLORS[color.get(groupOf(id))]}"${groupOf(id) !== id ? ' fill-opacity="0.5"' : ''} d="${polygonsPath(mergeArcs(topo, gs))}"/>`);
+    .map(([id, gs]) => `<path id="${id}" fill="${COLORS[color.get(groupOf(id))]}" d="${polygonsPath(mergeArcs(topo, gs))}"/>`);
   const bare = list.filter((g) => !key(g));
   if (bare.length) fills.unshift(`<path id="no-shetach" fill="${LAND}" d="${polygonsPath(mergeArcs(topo, bare))}"/>`);
   return `<g stroke="none" fill-rule="evenodd">
@@ -182,17 +182,18 @@ const INTER_ITALIC = fontFile('inter', 'inter-latin-600-italic.woff');
 const fontFor = (ch) => (HEBREW && HEEBO.find((f) => f.charToGlyphIndex(ch) > 0)) || INTER;
 // "Disputed" (a disputed shetach's head: "Disputed — A; B; C") in italics; Hebrew has no italics, so במחלוקת stays upright
 const ITALIC = /^Disputed/;
-const fontAt = (t, i, ch) => (!HEBREW && i < 8 && ITALIC.test(t) ? INTER_ITALIC : fontFor(ch));
+// italic: the whole name in italics (the head's name over a territory of his shetach: Kantor's over India)
+const fontAt = (t, i, ch, italic) => (!HEBREW && (italic || (i < 8 && ITALIC.test(t))) ? INTER_ITALIC : fontFor(ch));
 // Hebrew in drawing order (left to right): the words reversed, letters of Hebrew runs reversed, Latin runs ("RARA") kept.
 const visual = (t) => (HEBREW ? t.split(/([A-Za-z0-9][A-Za-z0-9.]*)/).reverse().map((r) => (/^[A-Za-z0-9]/.test(r) ? r : [...r].reverse().join(''))).join('') : t);
 const TRACK = 0.01; // letter spacing, in em
 const LINE = 1.18; // line spacing, in em
 const CAP = 0.727; // Inter's capital height, in em (Heebo's letters stand about as tall)
 const textWidth = (t, size) => [...t].reduce((w, ch, i) => w + fontAt(t, i, ch).getAdvanceWidth(ch, size), 0) + TRACK * size * ([...t].length - 1);
-function textPath(t, cx, baseline, size) {
+function textPath(t, cx, baseline, size, italic = false) {
   let x = cx - textWidth(t, size) / 2, d = '';
   for (const [i, ch] of [...visual(t)].entries()) {
-    const f = fontAt(t, i, ch);
+    const f = fontAt(t, i, ch, italic);
     d += f.getPath(ch, x, baseline, size).toPathData(1);
     x += f.getAdvanceWidth(ch, size) + TRACK * size;
   }
@@ -429,7 +430,9 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
   // ONLY=id,id… (testing): name just these shetachim, much faster
   const only = process.env.ONLY ? process.env.ONLY.split(',') : null;
   for (const [id, gs] of byShetachOf(list)) {
-    const s = shetachById.get(id);
+    // a territory of another shetach (India, of Thailand's): that shetach's head, his name in italics
+    const s0 = shetachById.get(id), parent = s0 && s0.territoryOf && shetachById.get(s0.territoryOf);
+    const s = parent ? { ...s0, headShliach: parent.headShliach, lastName: parent.lastName, headTitle: parent.headTitle, italic: true } : s0;
     if (!s.headShliach || (only && !only.includes(id))) continue;
     // labelState: the name goes on that state's part of the shetach (Alberta, not the territories' strip north of it)
     const core = s.labelState ? gs.filter((g) => g.properties.state === s.labelState) : [];
@@ -578,7 +581,12 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
       lost.push({ name: forms.offshore, px, py, inside: small, last: small || choose(1.5), early: ASIDE_NAMES.includes(id) });
       continue;
     }
-    out.push(chosen);
+    out.push(s.italic ? { ...chosen, italic: true, id, parent: s0.territoryOf } : { ...chosen, id });
+  }
+  // a territory's name (in italics) never bigger than its shetach's own: at most 85% of it, on the same spot
+  for (const o of out) {
+    const main = o.parent && out.find((q) => q.id === o.parent);
+    if (main && o.size > main.size * 0.85) { const f = (main.size * 0.85) / o.size; o.size *= f; o.h *= f; }
   }
   if (box && lost.length) {
     // too small inside a corner box (Hawaii's islands): the name along the box's top
@@ -599,7 +607,7 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
       leaders += `M${fmt(l.px + 3.5)},${fmt(l.py)}A3.5,3.5 0 1,1 ${fmt(l.px - 3.5)},${fmt(l.py)}A3.5,3.5 0 1,1 ${fmt(l.px + 3.5)},${fmt(l.py)}`;
     }
   }
-  const text = out.map(({ lines, size, cx, cy, h }) => lines.map((l, k) => textPath(l, cx, cy - h / 2 + CAP * size + k * LINE * size, size)).join('')).join('');
+  const text = out.map(({ lines, size, cx, cy, h, italic }) => lines.map((l, k) => textPath(l, cx, cy - h / 2 + CAP * size + k * LINE * size, size, italic)).join('')).join('');
   return `<g fill="${INK}">${leaders ? `<path d="${leaders}" fill="none" stroke="${INK}" stroke-width="1.4"/>` : ''}<path d="${text}"/></g>`;
 }
 

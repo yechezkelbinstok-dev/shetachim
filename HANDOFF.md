@@ -36,10 +36,11 @@ between two Claude accounts when usage limits run out; whichever session picks t
 - **"Land with no shetach"** (More options checkbox, off by default): the political map draws land no shetach covers
   (`web/data/outside.json`, written by the build) and the land outside the current view in plain grey (`--empty`).
 - **India is a territory of the Thailand shetach** (`territoryOf: "thailand"`; the owner: "under the same auspices but
-  not fully united"): its own entry, coloured as Thailand's shetach but lighter, a dashed border between them (page
-  mesh `inner`, tile edges `tr`, SVG dashed path), named "India (Thailand)" in shetach-name mode and blank in the
-  head modes (Kantor's name stays on Thailand–Myanmar–Laos as before); its card: "Territory of the Thailand shetach"
-  and Kantor as head. (`noCentralLeadership: true` remains for a shetach without a head.) Israel's name on the world poster goes beside the map with a short leader (`ASIDE_NAMES`);
+  not fully united"; he rejected "India (Thailand)" and a lighter shade): India is its own entry, in exactly Thailand's
+  colour, with a dashed border between them (page mesh `inner`, tile edges `tr`, SVG dashed path); named plainly
+  "India"; in the head modes Kantor's name again over India in italics and smaller (`secondary` labels; Hebrew:
+  lighter weight; at most 85% of his main name on the posters), his main name on Thailand–Myanmar–Laos as before;
+  India's card: head shliach Kantor, "Together with the Thailand shetach". (`noCentralLeadership: true` remains for a shetach without a head.) Israel's name on the world poster goes beside the map with a short leader (`ASIDE_NAMES`);
   Hawaii's runs across its islands (`SEA_NAMES` 'chain'). The US & Canada names maps use short leaders to the nearest
   water (`aside`, only the Boston/Cape Cod knot stacked), not one column far out in the Atlantic.
 - **North Queensland** (Ari Rubin; capital Chabad of Northern Queensland, Cairns): Mackay and north, Mount Isa,

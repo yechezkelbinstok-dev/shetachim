@@ -30,7 +30,7 @@ try { const q = new URLSearchParams(location.search).get('lang'); if (q) localSt
   --plain: #fcfcfa;
   --empty: #dcdfdb; /* land with no shetach, when shown */
   /* what the map draws with: the theme's colors, except on the physical map, which is always light */
-  --map-ink: var(--ink); --map-halo: var(--halo); --map-dot: var(--dot); --map-accent: var(--accent); --map-missing: var(--missing);
+  --map-ink: var(--ink); --map-halo: var(--halo); --map-dot: var(--dot); --map-accent: var(--accent); --map-missing: var(--missing); --map-secondary: #3d5f8f;
   --font-ui: "Inter", "Heebo", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-map: "Inter", "Heebo", "Segoe UI", system-ui, -apple-system, sans-serif;
   --shadow: 0 1px 2px rgb(20 35 45 / .08), 0 6px 20px rgb(20 35 45 / .10);
@@ -39,6 +39,7 @@ try { const q = new URLSearchParams(location.search).get('lang'); if (q) localSt
   :root:not([data-theme="light"]) {
     --bg: #0f1518; --ink: #e6edf0; --halo: #0f1518; --dot: #f1cf78;
     --panel: #152025; --panel-line: #2b3a41; --muted: #9baab0; --missing: #7d8c93; --accent: #93b8ec; --accent-soft: #22344a;
+    --map-secondary: #a8c3ea;
     --c1: #5a5026; --c2: #394e30; --c3: #5c3a36; --c4: #2e435f;
     --c5: #5c4228; --c6: #473957; --c7: #294c45; --c8: #494434;
     --plain: #223036;
@@ -51,13 +52,14 @@ try { const q = new URLSearchParams(location.search).get('lang'); if (q) localSt
 :root[data-theme="dark"] {
   --bg: #0f1518; --ink: #e6edf0; --halo: #0f1518; --dot: #f1cf78;
   --panel: #152025; --panel-line: #2b3a41; --muted: #9baab0; --missing: #7d8c93; --accent: #93b8ec; --accent-soft: #22344a;
+  --map-secondary: #a8c3ea;
   --c1: #5a5026; --c2: #394e30; --c3: #5c3a36; --c4: #2e435f;
   --c5: #5c4228; --c6: #473957; --c7: #294c45; --c8: #494434;
   --plain: #223036;
   --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 8px 24px rgb(0 0 0 / .35);
   color-scheme: dark;
 }
-.physical #map { --map-ink: #1e2b32; --map-halo: #ffffff; --map-dot: #163e74; --map-accent: #1d4f8f; --map-missing: #6b7780; }
+.physical #map { --map-ink: #1e2b32; --map-halo: #ffffff; --map-dot: #163e74; --map-accent: #1d4f8f; --map-missing: #6b7780; --map-secondary: #3d5f8f; }
 
 html, body { height: 100%; margin: 0; }
 [hidden] { display: none !important; }
@@ -81,7 +83,8 @@ button:focus-visible, input:focus-visible, a:focus-visible, summary:focus-visibl
   font-family: var(--font-map); font-weight: 700; letter-spacing: .01em; fill: var(--map-ink); }
 .lab-missing { fill: var(--map-missing); font-weight: 500; }
 /* the head's name over a territory of his shetach (Kantor's over India): the same name, in italics (Hebrew: lighter) */
-.lab-secondary { font-style: italic; }
+/* a territory's head name (Kantor's over India): italic and slate blue, never mistaken for his main name */
+.lab-secondary { font-style: italic; fill: var(--map-secondary); }
 html[lang="he"] .lab-secondary { font-style: oblique 14deg; font-weight: 400; }
 .physical .lab { stroke-opacity: .9; }
 

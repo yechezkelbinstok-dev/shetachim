@@ -22,6 +22,7 @@ const MIN_AREA = 0.15; // px²: a point is kept if its triangle with its neighbo
 // The page's light-theme colours (web/index.html :root), so the SVG looks like the map.
 const COLORS = ['#f0e1a2', '#cce1b5', '#efc7c1', '#c5d9ee', '#f3cfa9', '#d8c8e5', '#bcded6', '#e1d8be'];
 const INK = '#1e2b32', BG = '#f1f3f0';
+const SECONDARY = '#3d5f8f'; // a territory's head name (Kantor's over India): italic and slate blue, as on the page
 // Land no shetach covers (world names map): one plain swath, no borders inside it.
 const LAND = '#dfe3df';
 
@@ -617,8 +618,9 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
       leaders += `M${fmt(l.px + 3.5)},${fmt(l.py)}A3.5,3.5 0 1,1 ${fmt(l.px - 3.5)},${fmt(l.py)}A3.5,3.5 0 1,1 ${fmt(l.px + 3.5)},${fmt(l.py)}`;
     }
   }
-  const text = out.map(({ lines, size, cx, cy, h, italic }) => lines.map((l, k) => textPath(l, cx, cy - h / 2 + CAP * size + k * LINE * size, size, italic)).join('')).join('');
-  return `<g fill="${INK}">${leaders ? `<path d="${leaders}" fill="none" stroke="${INK}" stroke-width="1.4"/>` : ''}<path d="${text}"/></g>`;
+  const draw = (list) => list.map(({ lines, size, cx, cy, h, italic }) => lines.map((l, k) => textPath(l, cx, cy - h / 2 + CAP * size + k * LINE * size, size, italic)).join('')).join('');
+  const text = draw(out.filter((o) => !o.italic)), terr = draw(out.filter((o) => o.italic));
+  return `<g fill="${INK}">${leaders ? `<path d="${leaders}" fill="none" stroke="${INK}" stroke-width="1.4"/>` : ''}<path d="${text}"/>${terr ? `<path fill="${SECONDARY}" d="${terr}"/>` : ''}</g>`;
 }
 
 // Names that fit nowhere inside their shetach (the world's small countries and islands), each beside it in the nearest

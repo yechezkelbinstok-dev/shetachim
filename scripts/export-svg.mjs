@@ -491,7 +491,7 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
     const [px, py] = s.labelAt ? projection(s.labelAt) : (s.labelCentre && leanAt()) || (inPoly(main, cen[0], cen[1]) ? cen : pole);
     let bx0 = Infinity, by0 = Infinity, bx1 = -Infinity, by1 = -Infinity;
     for (const [x, y] of main[0]) { bx0 = Math.min(bx0, x); bx1 = Math.max(bx1, x); by0 = Math.min(by0, y); by1 = Math.max(by1, y); }
-    const cap = Math.max(MIN, Math.min(maxSize, Math.sqrt(polyArea(main[0])) * 0.12));
+    const cap = Math.max(MIN, Math.min(maxSize, Math.sqrt(polyArea(main[0])) * 0.16));
     const forms = nameForms(s);
     const dims = (lines, size) => [Math.max(...lines.map((l) => textWidth(l, size))), (lines.length - 1) * LINE * size + CAP * size];
     // every place (on a grid) a label of this size fits
@@ -535,11 +535,11 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
     // name can sit well centred; failing that, the most centred of them. At each size, the most centred spot, then the
     // one with the most room around it.
     const place = ({ lines, fit }) => {
-      const start = fit >= MIN ? Math.max(MIN, Math.round(Math.min(cap, fit * 0.85))) : fit;
+      const start = fit >= MIN ? Math.max(MIN, Math.round(Math.min(cap, fit * 0.92))) : fit;
       let pick = null;
       // Only a big name trades size for centring (Virginia's); a small one keeps the biggest size that fits and just takes
       // its most central spot at that size (Delaware's name, slid a little south where the state is wider).
-      const floorF = start >= 30 ? 0.65 : 1;
+      const floorF = start >= 30 ? 0.8 : 1;
       for (let f = 1; f >= floorF - 1e-9; f -= 0.05) {
         const size = f === 1 ? start : Math.round(start * f * 2) / 2;
         if (f < 1 && size < Math.min(TINY, start)) break;
@@ -586,6 +586,7 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
       lost.push({ name: forms.offshore, px, py, inside: small, last: small || choose(1.5), early: ASIDE_NAMES.includes(id) });
       continue;
     }
+    if (process.env.SIZES) console.log(`    size ${id}: ${chosen.size} (cap ${Math.round(cap)}, ${chosen.lines.join('/')})`);
     out.push(s.italic ? { ...chosen, italic: true, id, parent: s0.territoryOf } : { ...chosen, id });
   }
   // a territory's name (in italics) never bigger than its shetach's own: at most 85% of it, on the same spot
@@ -884,11 +885,11 @@ const MAPS = {
 };
 // Names too small inside (under 8 px: Tuvia Teldon, Tzach) get their own short leader to the nearest open water, like the
 // world poster's; not one column far out in the Atlantic (the owner, Oct 1).
-MAPS['na-names'] = { ...MAPS.na, file: 'shetachim-us-canada-names.svg', labels: true, tiny: 8, aside: { size: 22, reach: 300, far: 900, cross: 25, column: true } };
+MAPS['na-names'] = { ...MAPS.na, file: 'shetachim-us-canada-names.svg', labels: true, tiny: 8, maxSize: 90, aside: { size: 22, reach: 300, far: 900, cross: 25, column: true } };
 // The whole world (land no shetach covers in plain grey, Antarctica left off), with every head shliach's name, at poster size.
 MAPS['world-names'] = {
   ...MAPS.world, file: 'shetachim-map-names.svg', title: 'Chabad shetachim and head shluchim', source: 'data/world-all.json', skip: ['ATA'],
-  labels: true, split: true, sea: true, width: 10800, tiny: 5, maxSize: 130, aside: { size: 20, reach: 450, far: 1600, cross: 25, column: true },
+  labels: true, split: true, sea: true, width: 10800, tiny: 5, maxSize: 190, aside: { size: 20, reach: 450, far: 1600, cross: 25, column: true },
 };
 // The two name maps in Hebrew too (head shluchim's names from web/data/he.json: run scripts/build-hebrew.mjs first).
 MAPS['na-names-he'] = { ...MAPS['na-names'], file: 'shetachim-us-canada-names-he.svg', title: 'שטחי חב״ד: ארצות הברית וקנדה', he: true };

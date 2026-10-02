@@ -78,7 +78,7 @@ it (from `data/world-all.json`, which the build now writes); Antarctica left off
 - The owner's verdicts on the SVG (Oct 1): as few names beside the map as possible — a small name inside its shetach
   (down to ~2.5 px on the 10,800 px poster) beats a leader; a column of leadered names "looks like a list" and is
   rejected; leaders short and near their place (Raskin's long line to Cyprus was rejected); a small name takes the
-  biggest size that fits even a little off-centre (Delaware); big shetachim get big names (Central Africa, up to 130 px).
+  biggest size that fits even a little off-centre (Delaware); big shetachim get big names (Oct 2, "Lazar, Bolivia… should be bigger": cap 0.16·√area, up to 190 px on the world poster and 90 on US & Canada; a name starts at 92% of the most that fits and gives up at most 20% for centring).
   Long non-personal names (UK leadership) break into balanced lines.
 - `ONLY=id,id WHY="Name" node scripts/export-svg.mjs 3600 world-names` renders just some shetachim and says why spots
   were refused — a full render takes ~5 min. `node scripts/svg-png.mjs [file.svg]` makes the PNGs (Chromium).
@@ -121,13 +121,19 @@ Done in this round:
   capital's star, a name already placed). Summed-area tables answer "is this box clear" in four lookups; a distance
   transform prunes centres. **Form**: the full name at the biggest size it fits (two lines if ≥15% bigger), else the
   other way of setting it, else each short form in turn; head-shliach mode's short form is the last name. **Size**:
-  what the area's land on screen calls for (`capFor`: 5 + 0.1·√area px, 9–24 px on phones, 9–30 on desktop), and no
+  what the area's land on screen calls for (`capFor`: 5 + 0.14·√area px, 9–36 px on phones, 9–46 on desktop), and no
   more than 88% of the most that fits (`BREATHE`), so names aren't pressed against edges; never under 9 px (8 for
   short forms). **Place**: most room on every side (up to ~1.4 letters), near the visible part's centre of mass, on
   land rather than water; then an exact check against the borders. Island chains (land < 35% of hull, no piece over
   60%: the Caribbean, Indonesia) aim at the hull's centre and size for the spread. Biggest areas on screen go first.
-  During a zoom names scale smoothly (`fontScale` ratio) and are re-placed when it ends. 2–3× faster than the old
-  engine (30–115 ms headless desktop per placement).
+  **Fixed like a map site** (Oct 2, the owner: names changing as you move "should be the same way … Google maps"):
+  names are laid out once per zoom step (`levelLayout`, two steps per doubling) over the whole map, not over what's on
+  screen; panning only slides them, and a name shows when ≥85% of it is on screen and it isn't under the panel, zoom
+  buttons or inset boxes. A shetach bigger than a screen repeats its name in a fixed grid of tiles (`levelRepeats`,
+  tile 0.6× the screen's short side, ≥340 px; repeats ≥0.6 tile apart), worked out as tiles come into view and kept.
+  The cache resets when labels are rebuilt (mode, borders, language, resize). `labelAt` on a shetach: the spot its name
+  aims for on the page too (India: [78.9, 21.6], mid mainland). During a zoom names scale smoothly (`fontScale`) and
+  the step's layout replaces them when it ends (~50–250 ms headless desktop for a new step).
 - Defaults: **World view, Physical map** (falls back to Political if it can't load).
 - Data: flagship centers for 100 of 108 world shetachim from the owner's `data/world-flagship-centers.txt` (not in
   chabad.org's data, so no star: Crimea, Sri Lanka, Belize, Honduras, Bolivia, New Zealand, Panama (Beth El), Qatar

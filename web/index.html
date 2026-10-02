@@ -999,6 +999,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const GLYPH = 0.95; // how tall a line of letters really is, in font sizes
   function buildLabels() {
     labels = [];
+    levelCache = new Map();
     if (state.labels !== 'off') {
       if (state.borders === 'regular') V.states.forEach((r, id) => { if (r.anchor) labels.push({ text: r.p.name, short: r.p.abbr, missing: false, a: r.anchor, id, r }); });
       else {
@@ -1162,9 +1163,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // Biggest areas first.
   const LABEL_MIN = 9, SHORT_MIN = 8; // px: names never smaller; short forms a little smaller still
   const BREATHE = 0.88; // a name is set this much under the most that fits, so it isn't pressed against its edges
-  const labelMax = () => (phone() ? 24 : 30);
+  const labelMax = () => (phone() ? 36 : 46);
   // the size an area's name calls for, from its land's size on screen: bigger areas, bigger names
-  const capFor = (areaPx) => clamp(5 + Math.sqrt(areaPx) * 0.1, LABEL_MIN, labelMax());
+  const capFor = (areaPx) => clamp(5 + Math.sqrt(areaPx) * 0.14, LABEL_MIN, labelMax());
   const padFor = (size) => Math.max(1, size * 0.12); // room kept clear around a name
 
   // A polygon's extent along the line at height y (screen px).
@@ -1288,7 +1289,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         let room = m;
         for (const e of [0.3, 0.6, 1, 1.4]) { if (clear(boxAt(c, w, h, m + e * s))) room = m + e * s; else break; }
         const r = cells(boxAt(c, w, h, 0)), wet = sum(WT, r) / ((r[2] - r[0] + 1) * (r[3] - r[1] + 1));
-        cands.push({ c, score: Math.min(room, s * 1.4) - 0.3 * Math.sqrt(d2[c]) - wet * s * 0.8 });
+        cands.push({ c, score: Math.min(room, s * 1.4) - (part.aim ? 1 : 0.3) * Math.sqrt(d2[c]) - wet * s * 0.8 });
       }
       cands.sort((a, b) => b.score - a.score);
       for (const { c } of cands.slice(0, 40)) {
@@ -1309,35 +1310,112 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return null;
   }
 
-  function placeLabels() {
-    const k = T.k, stars = starsNow(), covered = coveredRects(), p = insets(), ix = labelIndex();
-    const boxes = [], fixed = [...stars.map((st) => st.box), ...covered];
-    const view = [(p.l - T.x) / k, (p.t - T.y) / k, (W - p.r - T.x) / k, (H - p.b - T.y) / k]; // map pixels
-    const todo = [];
-    for (const L of labels) {
-      L.show = null;
-      const [bx0, by0, bx1, by1] = L.a.bbox;
-      if (bx1 < view[0] || bx0 > view[2] || by1 < view[1] || by0 > view[3]) continue;
-      const whole = bx0 >= view[0] && bx1 <= view[2] && by0 >= view[1] && by1 <= view[3];
-      const cl = L.cl || L.r, polys = L.cl ? L.cl.polys : L.r.polysXY;
-      if (whole && !cl.whole) cl.whole = visiblePart(polys, null);
-      const part = whole ? cl.whole : visiblePart(polys, view);
-      if (part && L.cl && L.cl.core) {
-        // the name goes on the shetach's main part while that's in view (more than a few hundred px² of it): centred on
-        // it and kept within it (Alberta's name on Alberta itself, in every label mode, never up in the territories' strip)
-        const core = visiblePart(L.cl.core, view);
-        if (core && core.area * k * k > 500) { part.centre = core.centre; if (!L.cl.soft) part.hull = core.hull; part.area = Math.max(core.area, part.area * 0.5); }
+  // Names as a map website sets them (Google Maps): for each zoom step, every name has one place and size on the whole
+  // map, worked out once; moving the map only slides them along and shows the ones on screen, and they're set again only
+  // when the zoom reaches another step. A big shetach seen up close repeats its name across its land (one per tile of
+  // about a screen), so it's never without one; those repeats are worked out as their tiles first come into view and
+  // then kept.
+  const LEVEL_STEPS = 2; // zoom steps per doubling
+  const tileSize = () => Math.max(340, 0.6 * Math.min(W, H)); // px on screen: the spacing of a big shetach's repeated names
+  let levelCache = new Map();
+  const levelOf = (k) => Math.floor(Math.log2(k) * LEVEL_STEPS + 1e-6);
+  // run fn as if the map were drawn whole at zoom step lv (no screen edge, panel or boxes in the way)
+  function atLevel(lv, fn) {
+    const kL = 2 ** (lv / LEVEL_STEPS);
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    for (const L of labels) { const b = L.a.bbox; x0 = Math.min(x0, b[0]); y0 = Math.min(y0, b[1]); x1 = Math.max(x1, b[2]); y1 = Math.max(y1, b[3]); }
+    if (!(x1 > x0)) return null;
+    const saved = [T, W, H];
+    T = d3.zoomIdentity.translate(EDGE + 8 - x0 * kL, EDGE + 8 - y0 * kL).scale(kL);
+    W = (x1 - x0) * kL + 2 * (EDGE + 8); H = (y1 - y0) * kL + 2 * (EDGE + 8);
+    try { return fn(kL); } finally { [T, W, H] = saved; }
+  }
+  // a placement, kept in map pixels
+  const toMap = (L, spot) => ({ L, id: L.id, show: spot.form, px: spot.size, k0: T.k, mx: (spot.x - T.x) / T.k, my: (spot.y - T.y) / T.k,
+    box: [(spot.box[0] - T.x) / T.k, (spot.box[1] - T.y) / T.k, (spot.box[2] - T.x) / T.k, (spot.box[3] - T.y) / T.k],
+    missing: L.missing, secondary: L.secondary });
+  const toScreen = (b) => [T.x + b[0] * T.k, T.y + b[1] * T.k, T.x + b[2] * T.k, T.y + b[3] * T.k];
+  function levelLayout(lv) {
+    if (levelCache.has(lv)) return levelCache.get(lv);
+    const TILE = tileSize();
+    const out = atLevel(lv, (k) => {
+      const ix = labelIndex(), stars = starsNow().map((st) => st.box), placed = [], todo = [];
+      for (const L of labels) {
+        const cl = L.cl || L.r, polys = L.cl ? L.cl.polys : L.r.polysXY;
+        if (!cl.whole) cl.whole = visiblePart(polys, null);
+        if (!cl.whole) continue;
+        const part = { ...cl.whole };
+        if (L.cl && L.cl.core) {
+          // the name goes on the shetach's main part (Alberta's name on Alberta itself, never up in the territories' strip)
+          const core = L.cl.coreWhole || (L.cl.coreWhole = visiblePart(L.cl.core, null));
+          if (core && core.area * k * k > 500) { part.centre = core.centre; if (!L.cl.soft) part.hull = core.hull; part.area = Math.max(core.area, part.area * 0.5); }
+        }
+        // labelAt: the spot the name aims for (Kantor's over the middle of mainland India)
+        const at = L.r.s && L.r.s.labelAt && (!L.cl || L.r.clusters.length === 1) ? projection(L.r.s.labelAt) : null;
+        if (at) { part.centre = at; part.aim = true; }
+        todo.push({ L, part });
       }
-      if (part) todo.push({ L, part });
+      todo.sort((a, b) => b.part.area - a.part.area); // the biggest choose first
+      for (const { L, part } of todo) {
+        const spot = placeOne(L, part, ix, [...stars, ...placed.map((q) => toScreen(q.box))]);
+        if (spot) placed.push(toMap(L, spot));
+      }
+      return { lv, placed, tiles: new Map(), stars, TILE };
+    });
+    levelCache.set(lv, out);
+    return out;
+  }
+  // the repeated names of big shetachim in the tiles now in view (each tile worked out once per step)
+  function levelRepeats(lay, view) {
+    const { TILE } = lay, kL = 2 ** (lay.lv / LEVEL_STEPS), size = TILE / kL;
+    const i0 = Math.floor(view[0] / size), i1 = Math.floor(view[2] / size), j0 = Math.floor(view[1] / size), j1 = Math.floor(view[3] / size);
+    const fresh = [];
+    for (let i = i0; i <= i1; i++) for (let j = j0; j <= j1; j++) if (!lay.tiles.has(`${i},${j}`)) fresh.push([i, j]);
+    if (!fresh.length) return;
+    atLevel(lay.lv, (k) => {
+      const ix = labelIndex();
+      for (const [i, j] of fresh) {
+        const box = [i * size, j * size, (i + 1) * size, (j + 1) * size], got = [];
+        lay.tiles.set(`${i},${j}`, got);
+        for (const L of labels) {
+          const b = L.a.bbox;
+          if (b[2] < box[0] || b[0] > box[2] || b[3] < box[1] || b[1] > box[3]) continue;
+          if ((b[2] - b[0]) * k < TILE * 1.2 && (b[3] - b[1]) * k < TILE * 1.2) continue; // only shetachim bigger than a screen
+          const mine = [...lay.placed, ...[...lay.tiles.values()].flat()].filter((q) => q.L === L);
+          const cx = (box[0] + box[2]) / 2, cy = (box[1] + box[3]) / 2;
+          if (mine.some((q) => Math.hypot(q.mx - cx, q.my - cy) * k < TILE * 0.6)) continue; // its name is near already
+          const part = visiblePart(L.cl ? L.cl.polys : L.r.polysXY, box);
+          if (!part || part.area * k * k < TILE * TILE * 0.15) continue; // little of it in this tile
+          const all = [...lay.placed, ...[...lay.tiles.values()].flat()];
+          const spot = placeOne(L, part, ix, [...lay.stars, ...all.map((q) => toScreen(q.box))]);
+          if (!spot) continue;
+          const q = toMap(L, spot);
+          if (!mine.some((o) => Math.hypot(o.mx - q.mx, o.my - q.my) * k < TILE * 0.6)) got.push(q); // not near another of its names
+        }
+      }
+    });
+  }
+
+  function placeLabels() {
+    const covered = coveredRects(), stars = starsNow(), k = T.k;
+    const lay = levelLayout(levelOf(k));
+    const shown = [];
+    if (lay) {
+      levelRepeats(lay, [(-T.x) / k, (-T.y) / k, (W - T.x) / k, (H - T.y) / k]);
+      // on screen, and not under the panel, the zoom buttons or the Alaska/Hawaii boxes
+      for (const q of [...lay.placed, ...[...lay.tiles.values()].flat()]) {
+        const [sx, sy] = T.apply([q.mx, q.my]);
+        const hw = ((q.box[2] - q.box[0]) * q.k0) / 2, hh = ((q.box[3] - q.box[1]) * q.k0) / 2;
+        const b = [sx - hw, sy - hh, sx + hw, sy + hh];
+        // mostly on screen (a name cut in half at the edge reads badly; it shows as it comes in)
+        const inX = Math.min(b[2], W) - Math.max(b[0], 0), inY = Math.min(b[3], H) - Math.max(b[1], 0);
+        if (inX < (b[2] - b[0]) * 0.85 || inY < (b[3] - b[1]) * 0.85 || overlaps(b, covered)) continue;
+        q.kShown = k;
+        shown.push({ q, b });
+      }
     }
-    todo.sort((a, b) => b.part.area - a.part.area); // the biggest on screen choose first
-    for (const { L, part } of todo) {
-      const spot = placeOne(L, part, ix, [...fixed, ...boxes]);
-      if (!spot) continue;
-      Object.assign(L, { show: spot.form, px: spot.size, k0: k, mx: (spot.x - T.x) / k, my: (spot.y - T.y) / k });
-      boxes.push(spot.box);
-    }
-    gLabels.selectAll('text').data(labels.filter((L) => L.show)).join('text')
+    const boxes = shown.map((x) => x.b);
+    gLabels.selectAll('text').data(shown.map((x) => x.q)).join('text')
       .attr('class', (L) => (L.missing ? 'lab lab-missing' : L.secondary ? 'lab lab-secondary' : 'lab'))
       .each(function (L) {
         const n = L.show.lines.length;
@@ -1403,7 +1481,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function moveLabels() {
     gLabels.selectAll('text').each(function (L) {
       const [sx, sy] = T.apply([L.mx, L.my]);
-      const px = L.px * (fontScale(T.k) / fontScale(L.k0)); // during a zoom, until they're placed again
+      const px = L.px * (fontScale(T.k) / fontScale(L.kShown)); // during a zoom, until they're placed again
       this.setAttribute('transform', `translate(${sx},${sy})`);
       this.style.fontSize = `${px}px`;
       this.style.strokeWidth = `${Math.max(2, px * 0.2)}px`;

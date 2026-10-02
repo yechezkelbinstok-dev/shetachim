@@ -179,6 +179,9 @@ const INTER = fontFile('inter', 'inter-latin-600-normal.woff');
 const HEEBO = [fontFile('heebo', 'heebo-hebrew-600-normal.woff'), fontFile('heebo', 'heebo-latin-600-normal.woff')];
 let HEBREW = false;
 const INTER_ITALIC = fontFile('inter', 'inter-latin-600-italic.woff');
+// Hebrew has no italic face: an italic Hebrew name (Kantor's over India) is Heebo Regular, slanted by hand
+const HEEBO_LIGHT = fontFile('heebo', 'heebo-hebrew-400-normal.woff');
+const SLANT = 0.22;
 const fontFor = (ch) => (HEBREW && HEEBO.find((f) => f.charToGlyphIndex(ch) > 0)) || INTER;
 // "Disputed" (a disputed shetach's head: "Disputed — A; B; C") in italics; Hebrew has no italics, so במחלוקת stays upright
 const ITALIC = /^Disputed/;
@@ -193,8 +196,10 @@ const textWidth = (t, size) => [...t].reduce((w, ch, i) => w + fontAt(t, i, ch).
 function textPath(t, cx, baseline, size, italic = false) {
   let x = cx - textWidth(t, size) / 2, d = '';
   for (const [i, ch] of [...visual(t)].entries()) {
-    const f = fontAt(t, i, ch, italic);
-    d += f.getPath(ch, x, baseline, size).toPathData(1);
+    const f = HEBREW && italic && HEEBO_LIGHT.charToGlyphIndex(ch) > 0 ? HEEBO_LIGHT : fontAt(t, i, ch, italic);
+    const p = f.getPath(ch, x, baseline, size);
+    if (HEBREW && italic) for (const c of p.commands) for (const [kx, ky] of [['x', 'y'], ['x1', 'y1'], ['x2', 'y2']]) if (c[kx] !== undefined) c[kx] += (baseline - c[ky]) * SLANT;
+    d += p.toPathData(1);
     x += f.getAdvanceWidth(ch, size) + TRACK * size;
   }
   return d;

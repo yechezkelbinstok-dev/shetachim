@@ -31,15 +31,18 @@ const shetachById = new Map(shetachim.map((x) => [x.id, x]));
 const pieces = topo.objects.areas.geometries.filter((g) => !notShown.includes(g.properties.state));
 const collection = { type: 'GeometryCollection', geometries: pieces };
 const key = (g) => g.properties.shetach || null;
+// a territory (India, of Thailand's shetach) is coloured as the shetach it belongs to, lighter, with a dashed border between
+const groupOf = (id) => (id && shetachById.get(id) && shetachById.get(id).territoryOf) || id;
+const gkey = (g) => groupOf(key(g));
 
 // Neighbouring shetachim never share a colour, colours spread evenly (the page's colouring, so they match).
 const adj = new Map();
 const touch = (k) => adj.get(k) || adj.set(k, new Set()).get(k);
 neighbors(pieces).forEach((list, i) => {
-  const a = key(pieces[i]);
+  const a = gkey(pieces[i]);
   if (a == null) return;
   touch(a);
-  for (const j of list) { const b = key(pieces[j]); if (b != null && a !== b) { touch(a).add(b); touch(b).add(a); } }
+  for (const j of list) { const b = gkey(pieces[j]); if (b != null && a !== b) { touch(a).add(b); touch(b).add(a); } }
 });
 const color = new Map(), used = new Array(8).fill(0);
 [...adj.keys()].sort((a, b) => adj.get(b).size - adj.get(a).size || (a < b ? -1 : 1)).forEach((k) => {
@@ -128,7 +131,7 @@ function draw(list, projection) {
   const linesPath = (filter) => meshArcs(topo, coll, filter).arcs
     .flatMap((line) => line.filter((a) => !onSeam(a < 0 ? ~a : a)).map((a) => trace([a], false))).join('');
   const fills = [...byShetachOf(list)].sort(([a], [b]) => (a < b ? -1 : 1))
-    .map(([id, gs]) => `<path id="${id}" fill="${COLORS[color.get(id)]}" d="${polygonsPath(mergeArcs(topo, gs))}"/>`);
+    .map(([id, gs]) => `<path id="${id}" fill="${COLORS[color.get(groupOf(id))]}"${groupOf(id) !== id ? ' fill-opacity="0.5"' : ''} d="${polygonsPath(mergeArcs(topo, gs))}"/>`);
   const bare = list.filter((g) => !key(g));
   if (bare.length) fills.unshift(`<path id="no-shetach" fill="${LAND}" d="${polygonsPath(mergeArcs(topo, bare))}"/>`);
   return `<g stroke="none" fill-rule="evenodd">
@@ -136,7 +139,8 @@ ${fills.join('\n')}
 </g>
 <g fill="none" stroke="${INK}" stroke-linejoin="round" stroke-linecap="round">
 <path stroke-width="0.8" d="${linesPath((a, b) => a === b)}"/>
-<path stroke-width="1.2" d="${linesPath((a, b) => a !== b && (key(a) || '') !== (key(b) || ''))}"/>
+<path stroke-width="1.2" d="${linesPath((a, b) => a !== b && (gkey(a) || '') !== (gkey(b) || ''))}"/>
+<path stroke-width="1" stroke-dasharray="4 3" d="${linesPath((a, b) => a !== b && gkey(a) && gkey(a) === gkey(b) && key(a) !== key(b))}"/>
 </g>`;
 }
 

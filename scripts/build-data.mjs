@@ -710,7 +710,7 @@ async function buildGeo(data) {
   const empty = await mapshaper.applyCommands('-i world.json -filter "outside" -dissolve country copy-fields=name ' +
     '-simplify 40% keep-shapes -o outside.json format=topojson quantization=50000', { 'world.json': out['world.json'] });
   fs.writeFileSync(path.join(OUT, 'outside.json'), empty['outside.json']);
-  writeTiles(JSON.parse(out['world.json']));
+  writeTiles(JSON.parse(out['world.json']), new Map(data.shetachim.filter((x) => x.territoryOf).map((x) => [x.id, x.territoryOf])));
   const pieces = JSON.parse(out['pieces.json']).features.filter((f) => !f.properties.outside);
   const byStateCount = count(pieces, (f) => f.properties.state);
   const split = byStateCount.filter(([, n]) => n > 1).map(([state]) => state);
@@ -903,10 +903,11 @@ const clampNum = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
 //          whatever isn't in the view)
 //   lines  every edge between two areas (or an area and the sea), with both sides' countries (ca, cb), and
 //          whether the two share a state (ss) and a shetach (sh); lk marks an open edge that's a lake boundary
-//          inside a shetach (a "lakeEdges" shape), not a coast. The page picks the edges its view needs.
+//          inside a shetach (a "lakeEdges" shape), not a coast; tr marks the edge between a territory and the shetach
+//          it belongs to (India and Thailand's shetach), drawn dashed. The page picks the edges its view needs.
 const TILES = path.join(OUT, '..', 'tiles');
 const TILE_ZOOM = 6;
-function writeTiles(topo) {
+function writeTiles(topo, parentOf = new Map()) {
   const geoms = topo.objects.areas.geometries;
   const { scale: [kx, ky], translate: [dx, dy] } = topo.transform;
   const arcs = topo.arcs.map((arc) => { let x = 0, y = 0; return arc.map(([a, b]) => [(x += a) * kx + dx, (y += b) * ky + dy]); });
@@ -919,7 +920,9 @@ function writeTiles(topo) {
     const [a, b] = sides[i].map((gi) => geoms[gi].properties);
     if (!a || (b && code(a) === '' && code(b) === '')) return;
     if (!b && coords.every(([x]) => Math.abs(x) > 179.99)) return; // the cut along 180°, not a coast
-    const props = b ? { ca: code(a), cb: code(b), ss: a.state === b.state ? 1 : 0, sh: (a.shetach || '') === (b.shetach || '') ? 1 : 0 } : { ca: code(a), ...(a.lake ? { lk: 1 } : {}) };
+    const group = (p) => parentOf.get(p.shetach) || p.shetach || '';
+    const tr = b && a.shetach !== b.shetach && group(a) === group(b) && group(a) !== '';
+    const props = b ? { ca: code(a), cb: code(b), ss: a.state === b.state ? 1 : 0, sh: (a.shetach || '') === (b.shetach || '') ? 1 : 0, ...(tr ? { tr: 1 } : {}) } : { ca: code(a), ...(a.lake ? { lk: 1 } : {}) };
     lines.push(featureOf({ type: 'LineString', coordinates: coords }, props));
   });
   const byCode = new Map();
@@ -1174,8 +1177,9 @@ async function main() {
     notShown: shetachData.notShown || [],
     // capital: the (first) capital; capitals: all of them (a disputed shetach has one per claimant)
     // noCentralLeadership: no head shliach (India): the card says so, the map shows no head name there
-    shetachim: shetachData.shetachim.map(({ id, name, short, headShliach, headTitle, lastName, noCentralLeadership, capital, labelState, labelCentre, labelAt }) => ({
-      id, name, short, headShliach, headTitle, lastName, noCentralLeadership, capital: [].concat(capital || [])[0], capitals: capital ? [].concat(capital) : undefined, labelState, labelCentre, labelAt })),
+    // territoryOf: a territory of another shetach (India, of Thailand's): its colour, lighter, a dashed border between
+    shetachim: shetachData.shetachim.map(({ id, name, short, headShliach, headTitle, lastName, noCentralLeadership, territoryOf, capital, labelState, labelCentre, labelAt }) => ({
+      id, name, short, headShliach, headTitle, lastName, noCentralLeadership, territoryOf, capital: [].concat(capital || [])[0], capitals: capital ? [].concat(capital) : undefined, labelState, labelCentre, labelAt })),
   };
   fs.writeFileSync(path.join(OUT, 'shetachim.json'), `${JSON.stringify(forPage, null, 1)}\n`);
 

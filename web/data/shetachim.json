@@ -2487,8 +2487,12 @@
      "lat": 13.72623,
      "lon": 100.5641
     }
-   ],
-   "labelCentre": "THA"
+   ]
+  },
+  {
+   "id": "india",
+   "name": "India",
+   "territoryOf": "thailand"
   },
   {
    "id": "cambodia",

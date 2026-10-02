@@ -278,8 +278,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       <fieldset class="ctl">
         <legend>Map</legend>
         <div class="seg" data-name="base">
-          <button type="button" data-value="physical" aria-pressed="true">Physical</button>
-          <button type="button" data-value="political" aria-pressed="false">Political</button>
+          <button type="button" data-value="physical" aria-pressed="false">Physical</button>
+          <button type="button" data-value="political" aria-pressed="true">Political</button>
         </div>
         <p id="base-msg" class="note" role="status" hidden></p>
       </fieldset>
@@ -2147,8 +2147,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   await Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise((r) => setTimeout(r, 1500))]);
   layout();
   apply();
-  // The physical map is the default; the political map shows first and stays if the physical one can't load.
-  setBase('physical');
 })();
 </script>
 </body>

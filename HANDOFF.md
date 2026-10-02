@@ -35,6 +35,8 @@ between two Claude accounts when usage limits run out; whichever session picks t
   Serebryanski — Merkos L'inyonei Chinuch (`capital` is a list with `for`). "Disputed" is set in italics.
 - **"Land with no shetach"** (More options checkbox, off by default): the political map draws land no shetach covers
   (`web/data/outside.json`, written by the build) and the land outside the current view in plain grey (`--empty`).
+- **Cambodia is fully part of Kantor's Thailand shetach** (Oct 2; territory THA, LAO, MMR, KHM; the separate Cambodia
+  shetach under Bentzion Butman is gone, also from data/global-shetach-list.txt and data/hebrew/).
 - **India is a territory of the Thailand shetach** (`territoryOf: "thailand"`; the owner: "under the same auspices but
   not fully united"; he rejected "India (Thailand)" and a lighter shade): India is its own entry, in exactly Thailand's
   colour, with a dashed border between them (page mesh `inner`, tile edges `tr`, SVG dashed path); named plainly
@@ -78,7 +80,7 @@ it (from `data/world-all.json`, which the build now writes); Antarctica left off
 - The owner's verdicts on the SVG (Oct 1): as few names beside the map as possible — a small name inside its shetach
   (down to ~2.5 px on the 10,800 px poster) beats a leader; a column of leadered names "looks like a list" and is
   rejected; leaders short and near their place (Raskin's long line to Cyprus was rejected); a small name takes the
-  biggest size that fits even a little off-centre (Delaware); big shetachim get big names (Oct 2, "Lazar, Bolivia… should be bigger": cap 0.16·√area, up to 190 px on the world poster and 90 on US & Canada; a name starts at 92% of the most that fits and gives up at most 20% for centring).
+  biggest size that fits even a little off-centre (Delaware); big shetachim get big names (Oct 2, "Lazar, Bolivia… should be bigger", then "way bigger and one line": cap 0.25·√area, up to 420 px on the world poster and 160 on US & Canada; a name starts at 97% of the most that fits and gives up at most 10% for centring; the same words on one line beat two lines when at least as big — Berel Lazar, ~300 px on one line across Russia).
   Long non-personal names (UK leadership) break into balanced lines.
 - `ONLY=id,id WHY="Name" node scripts/export-svg.mjs 3600 world-names` renders just some shetachim and says why spots
   were refused — a full render takes ~5 min. `node scripts/svg-png.mjs [file.svg]` makes the PNGs (Chromium).

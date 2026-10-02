@@ -1272,7 +1272,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       return a;
     };
     // the head's name over a territory (Kantor's over India) is the lesser one: smaller than his main name
-    const cap = capFor(part.area * k * k) * (L.secondary ? 0.55 : 1), top = Math.max(LABEL_MIN, cap / BREATHE);
+    const cap = Math.min(capFor(part.area * k * k) * (L.secondary ? 0.55 : 1), L.maxPx || Infinity), top = Math.max(LABEL_MIN, L.maxPx ? cap : cap / BREATHE);
     // the forms to try, in order, each with the most it fits at: the name (on two lines when they're clearly bigger),
     // the other way of setting the name, then each short form
     const one = L.forms[0], two = L.forms.find((f) => f.kind === 'two');
@@ -1355,8 +1355,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         if (at) { part.centre = at; part.aim = true; }
         todo.push({ L, part });
       }
-      todo.sort((a, b) => b.part.area - a.part.area); // the biggest choose first
+      // the biggest choose first; a territory's head name (Kantor's over India) after his main one, and smaller than it
+      todo.sort((a, b) => !!a.L.secondary - !!b.L.secondary || b.part.area - a.part.area);
       for (const { L, part } of todo) {
+        if (L.secondary) {
+          const main = placed.find((q) => q.L.r.s && q.L.r.s.id === L.r.s.territoryOf);
+          if (!main) continue; // only beside his main name
+          L.maxPx = main.px * 0.85;
+        }
         const spot = placeOne(L, part, ix, [...stars, ...placed.map((q) => toScreen(q.box))]);
         if (spot) placed.push(toMap(L, spot));
       }

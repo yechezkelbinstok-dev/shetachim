@@ -1699,7 +1699,8 @@
       "territory": [
         "THA",
         "LAO",
-        "MMR"
+        "MMR",
+        "KHM"
       ],
       "capital": {
         "centerId": "117964"
@@ -1713,18 +1714,6 @@
       "territory": [
         "IND"
       ]
-    },
-    {
-      "id": "cambodia",
-      "name": "Cambodia",
-      "short": "Camb.",
-      "headShliach": "Bentzion Butman",
-      "territory": [
-        "KHM"
-      ],
-      "capital": {
-        "centerId": "992232"
-      }
     },
     {
       "id": "vietnam",

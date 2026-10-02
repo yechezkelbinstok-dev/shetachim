@@ -2147,6 +2147,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   await Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise((r) => setTimeout(r, 1500))]);
   layout();
   apply();
+  // The political map is the default; the physical one loads quietly behind it, so picking it is instant
+  // (if it can't load, picking it says so then).
+  setTimeout(() => startGL().catch(() => {}), 300);
 })();
 </script>
 </body>

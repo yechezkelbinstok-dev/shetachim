@@ -50,11 +50,10 @@ between two Claude accounts when usage limits run out; whichever session picks t
   Whitsunday, Burdekin, Townsville, Charters Towers, Cairns, Douglas, Cook, Torres, the Cape and Gulf councils, Mount
   Isa, Cloncurry, McKinlay, Richmond, Flinders…). Isaac (Moranbah, Clermont), Winton, Boulia, Rockhampton and south
   stay with RARA. **The Isle of Man is in the UK** (`IMN` in its territory).
-- **Puerto Vallarta**: the Nayarit shetach has a connected western block of Jalisco, six municipalities (Puerto Vallarta,
-  Cabo Corrientes, San Sebastián del Oeste, Mascota, Talpa de Allende, Tomatlán; the owner, Oct 2, after rejecting an
-  uneven coastal piece); Guadalajara keeps the other 119. `data/shapes/jalisco-costa-norte.geojson` is the GADM
-  municipalities' union plus ~25 km of sea beside it (cut square to the coast at the Tomatlán–La Huerta line), so the
-  coast comes from the state's own outline — a shape's own coastline gave a doubled, bold-looking coast line.
+- **Mexico is one shetach under Yosef Mayzlesh** (Oct 2, the owner: "entire Mexico is Mayzlish"; Rabbi Yosef
+  Mayzlesh, Chabad of Bosques — Rabbi Mendel Mayzlesh runs Chabad Lubavitch Mexico City). The earlier Mexican
+  shetachim (Baja California, Sinaloa, Nayarit with western Jalisco, Jalisco, Bajío, Nuevo León, Chiapas, the Mexican
+  Caribbean) are gone, and with them the jalisco-costa-norte shape.
 - **Cyprus includes the British Sovereign Base Areas** (Akrotiri, Dhekelia): Natural Earth shapes (`CYPRUS_EXTRA` in
   the build; GADM has none), merged into Cyprus itself.
 

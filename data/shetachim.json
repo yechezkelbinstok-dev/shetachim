@@ -1710,7 +1710,10 @@
       "id": "india",
       "name": "India",
       "territoryOf": "thailand",
-      "labelAt": [78.9, 21.6],
+      "labelAt": [
+        78.9,
+        21.6
+      ],
       "territory": [
         "IND"
       ]
@@ -2074,145 +2077,15 @@
       }
     },
     {
-      "id": "baja-california",
-      "name": "Baja California",
-      "short": "Baja",
-      "headShliach": "Mendel Polichenco",
-      "territory": [
-        "MX-BCN",
-        "MX-BCS",
-        "MX-SON"
-      ],
-      "capital": {
-        "centerId": "334161"
-      }
-    },
-    {
-      "id": "sinaloa",
-      "name": "Sinaloa",
-      "short": "Sin.",
-      "headShliach": "Chaim Raitport",
-      "territory": [
-        "MX-SIN"
-      ],
-      "capital": {
-        "name": "Chabad of Mazatlán",
-        "city": "Mazatlán",
-        "lat": 23.2329,
-        "lon": -106.4062
-      }
-    },
-    {
-      "id": "nayarit",
-      "name": "Nayarit",
-      "short": "Nay.",
-      "headShliach": "Shneur Hecht",
-      "territory": [
-        "MX-NAY",
-        {
-          "state": "MX-JAL",
-          "shape": "jalisco-costa-norte",
-          "name": "Western Jalisco: the municipalities of Puerto Vallarta, Cabo Corrientes, San Sebastián del Oeste, Mascota, Talpa de Allende and Tomatlán"
-        }
-      ],
-      "capital": {
-        "centerId": "3424139"
-      }
-    },
-    {
-      "id": "jalisco",
-      "name": "Jalisco",
-      "short": "Jal.",
-      "headShliach": "Avraham Srugo",
-      "territory": [
-        "MX-JAL",
-        "MX-COL"
-      ],
-      "capital": {
-        "centerId": "7011671"
-      }
-    },
-    {
-      "id": "bajio",
-      "name": "Bajío",
-      "headShliach": "Daniel Huebner",
-      "territory": [
-        "MX-AGU",
-        "MX-GUA",
-        "MX-MIC",
-        "MX-QUE",
-        "MX-SLP",
-        "MX-ZAC"
-      ],
-      "short": "Bajío",
-      "capital": {
-        "centerId": "4251108"
-      }
-    },
-    {
-      "id": "nuevo-leon",
-      "name": "Nuevo León",
-      "short": "N. León",
-      "headShliach": "Zalmy Srugo",
-      "territory": [
-        "MX-CHH",
-        "MX-COA",
-        "MX-DUR",
-        "MX-NLE",
-        "MX-TAM"
-      ],
-      "capital": {
-        "centerId": "7338776"
-      }
-    },
-    {
-      "id": "central-mexico",
-      "name": "Central Mexico",
-      "short": [
-        "C. Mexico",
-        "C. Mex."
-      ],
+      "id": "mexico",
+      "name": "Mexico",
+      "short": "Mex.",
       "headShliach": "Yosef Mayzlesh",
       "territory": [
-        "MX-CMX",
-        "MX-MEX",
-        "MX-GRO",
-        "MX-HID",
-        "MX-MOR",
-        "MX-PUE",
-        "MX-TLA",
-        "MX-OAX",
-        "MX-VER"
+        "MEX"
       ],
       "capital": {
         "centerId": "6342563"
-      }
-    },
-    {
-      "id": "chiapas",
-      "name": "Chiapas",
-      "short": "Chis.",
-      "headShliach": "Oren Raz",
-      "territory": [
-        "MX-CHP",
-        "MX-TAB"
-      ],
-      "capital": {
-        "centerId": "7022006"
-      }
-    },
-    {
-      "id": "mexican-caribbean",
-      "name": "Mexican Caribbean",
-      "short": "Mex. Carib.",
-      "headShliach": "Mendel Druk",
-      "territory": [
-        "MX-CAM",
-        "MX-ROO",
-        "MX-YUC"
-      ],
-      "capital": {
-        "centerId": "503725"
       }
     },
     {
@@ -2417,7 +2290,10 @@
       "name": "Caribbean",
       "short": "Carib.",
       "headShliach": "Mendel Zarchi",
-      "labelAt": [-73.5, 14.5],
+      "labelAt": [
+        -73.5,
+        14.5
+      ],
       "territory": [
         "AIA",
         "ATG",

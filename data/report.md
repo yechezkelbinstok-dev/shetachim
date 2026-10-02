@@ -501,7 +501,7 @@ a misspelling on chabad.org shows up here too.
 - Bobruisk (BLR): 1 center
 - Bricket Wood (GBR): 1 center
 - CABA (ARG): 1 center
-- Cabos S. Lucas (MEX): 1 center
+- Cabos S. Lucas (MX-BCS): 1 center
 - Chacarita (ARG): 1 center
 - Chadera (ISR): 1 center
 - Chagor (ISR): 1 center
@@ -527,7 +527,7 @@ a misspelling on chabad.org shows up here too.
 - Elon More (ISR): 1 center
 - Elyachin (ISR): 1 center
 - Eshta'ol (ISR): 1 center
-- Estado de Mexico (MEX): 1 center
+- Estado de Mexico (MX-MEX): 1 center
 - Even Sapir (ISR): 1 center
 - Firenze (ITA): 1 center
 - Flanders (US-NJ): 1 center

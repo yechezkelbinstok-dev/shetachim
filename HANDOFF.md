@@ -53,7 +53,8 @@ between two Claude accounts when usage limits run out; whichever session picks t
 - **Mexico is one shetach under Yosef Mayzlesh** (Oct 2, the owner: "entire Mexico is Mayzlish"; Rabbi Yosef
   Mayzlesh, Chabad of Bosques — Rabbi Mendel Mayzlesh runs Chabad Lubavitch Mexico City). The earlier Mexican
   shetachim (Baja California, Sinaloa, Nayarit with western Jalisco, Jalisco, Bajío, Nuevo León, Chiapas, the Mexican
-  Caribbean) are gone, and with them the jalisco-costa-norte shape.
+  Caribbean) are gone, and with them the jalisco-costa-norte shape. Baja California and Baja California Sur belong to
+  the West Coast (Shlomo Cunin) with California and Nevada; Mexico is its other 30 states.
 - **Cyprus includes the British Sovereign Base Areas** (Akrotiri, Dhekelia): Natural Earth shapes (`CYPRUS_EXTRA` in
   the build; GADM has none), merged into Cyprus itself.
 

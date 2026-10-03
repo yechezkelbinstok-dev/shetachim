@@ -38,6 +38,156 @@
       "precision": "exact",
       "note": "Office: 7380 Laurel Oak Lane, Amberley Village",
       "source": "Address from the owner; location from Overture Maps addresses (release 2026-09-23.1)"
+    },
+    {
+      "id": "extra-india-delhi",
+      "name": "Chabad House New Delhi",
+      "city": "New Delhi",
+      "lat": 28.6419,
+      "lon": 77.2116,
+      "precision": "area",
+      "note": "T-432 Main Bazaar, Paharganj; open all year. The dot is a rough spot",
+      "source": "Chabad of India's houses as listed by chabadindia.info / chabad.info / lametayel (via search, Oct 2026); not on chabad.org"
+    },
+    {
+      "id": "extra-india-pushkar",
+      "name": "Chabad House Pushkar",
+      "city": "Pushkar",
+      "lat": 26.4897,
+      "lon": 74.5511,
+      "precision": "area",
+      "note": "Near the Ajmer bus stand, start of the main street. Seasonal; the dot is a rough spot",
+      "source": "Chabad of India's houses as listed by chabadindia.info / chabad.info / lametayel (via search, Oct 2026); not on chabad.org"
+    },
+    {
+      "id": "extra-india-manali",
+      "name": "Chabad of Old Manali",
+      "city": "Manali",
+      "lat": 32.2543,
+      "lon": 77.1842,
+      "precision": "area",
+      "note": "Club House Rd., Old Manali. Seasonal; the dot is a rough spot",
+      "source": "Chabad of India's houses as listed by chabadindia.info / chabad.info / lametayel (via search, Oct 2026); not on chabad.org"
+    },
+    {
+      "id": "extra-india-kasol",
+      "name": "Chabad House Kasol",
+      "city": "Kasol",
+      "lat": 32.01,
+      "lon": 77.315,
+      "precision": "city",
+      "note": "Seasonal Chabad house (mainly for Israeli travellers); placed at the town, address not known",
+      "source": "Chabad of India's houses as listed by chabadindia.info / chabad.info / lametayel (via search, Oct 2026); not on chabad.org"
+    },
+    {
+      "id": "extra-india-rishikesh",
+      "name": "Chabad of Rishikesh",
+      "city": "Rishikesh",
+      "lat": 30.1236,
+      "lon": 78.3242,
+      "precision": "area",
+      "note": "Lakshman Jhula Rd., by Green Hills Cottage. Seasonal; the dot is a rough spot",
+      "source": "Chabad of India's houses as listed by chabadindia.info / chabad.info / lametayel (via search, Oct 2026); not on chabad.org"
+    },
+    {
+      "id": "extra-india-hampi",
+      "name": "Chabad House Hampi",
+      "city": "Hampi",
+      "lat": 15.341,
+      "lon": 76.456,
+      "precision": "area",
+      "note": "Virupapur Gaddi (across the river from Hampi). Seasonal; the dot is a rough spot",
+      "source": "Chabad of India's houses as listed by chabadindia.info / chabad.info / lametayel (via search, Oct 2026); not on chabad.org"
+    },
+    {
+      "id": "extra-india-varanasi",
+      "name": "Chabad House Varanasi",
+      "city": "Varanasi",
+      "lat": 25.289,
+      "lon": 83.0005,
+      "precision": "area",
+      "note": "Durgakund. The dot is a rough spot",
+      "source": "Chabad of India's houses as listed by chabadindia.info / chabad.info / lametayel (via search, Oct 2026); not on chabad.org"
+    },
+    {
+      "id": "extra-india-goa-anjuna",
+      "name": "Chabad Goa (Anjuna)",
+      "city": "Anjuna",
+      "lat": 15.58,
+      "lon": 73.744,
+      "precision": "city",
+      "note": "Seasonal Chabad house (mainly for Israeli travellers); placed at the town, address not known",
+      "source": "Chabad of India's houses as listed by chabadindia.info / chabad.info / lametayel (via search, Oct 2026); not on chabad.org"
+    },
+    {
+      "id": "extra-india-goa-palolem",
+      "name": "Chabad Goa (Palolem)",
+      "city": "Palolem",
+      "lat": 15.01,
+      "lon": 74.023,
+      "precision": "city",
+      "note": "Seasonal Chabad house (mainly for Israeli travellers); placed at the town, address not known",
+      "source": "Chabad of India's houses as listed by chabadindia.info / chabad.info / lametayel (via search, Oct 2026); not on chabad.org"
+    },
+    {
+      "id": "extra-india-pune",
+      "name": "Chabad House Pune",
+      "city": "Pune",
+      "lat": 18.5204,
+      "lon": 73.8567,
+      "precision": "city",
+      "note": "Placed at the city centre, address not known",
+      "source": "Chabad of India's houses as listed by chabadindia.info / chabad.info / lametayel (via search, Oct 2026); not on chabad.org"
+    },
+    {
+      "id": "extra-india-kochi",
+      "name": "Chabad House Kochi",
+      "city": "Kochi",
+      "lat": 9.9658,
+      "lon": 76.2421,
+      "precision": "city",
+      "note": "Seasonal Chabad house (mainly for Israeli travellers); placed at the town, address not known",
+      "source": "Chabad of India's houses as listed by chabadindia.info / chabad.info / lametayel (via search, Oct 2026); not on chabad.org"
+    },
+    {
+      "id": "extra-india-gokarna",
+      "name": "Chabad House Gokarna",
+      "city": "Gokarna",
+      "lat": 14.5479,
+      "lon": 74.3188,
+      "precision": "city",
+      "note": "Seasonal Chabad house (mainly for Israeli travellers); placed at the town, address not known",
+      "source": "Chabad of India's houses as listed by chabadindia.info / chabad.info / lametayel (via search, Oct 2026); not on chabad.org"
+    },
+    {
+      "id": "extra-india-vattakanal",
+      "name": "Chabad House Vattakanal",
+      "city": "Kodaikanal",
+      "lat": 10.2108,
+      "lon": 77.4887,
+      "precision": "city",
+      "note": "Seasonal Chabad house (mainly for Israeli travellers); placed at the town, address not known",
+      "source": "Chabad of India's houses as listed by chabadindia.info / chabad.info / lametayel (via search, Oct 2026); not on chabad.org"
+    },
+    {
+      "id": "extra-india-kasar-devi",
+      "name": "Chabad House Kasar Devi",
+      "city": "Almora",
+      "lat": 29.6235,
+      "lon": 79.654,
+      "precision": "city",
+      "note": "Seasonal Chabad house (mainly for Israeli travellers); placed at the town, address not known",
+      "source": "Chabad of India's houses as listed by chabadindia.info / chabad.info / lametayel (via search, Oct 2026); not on chabad.org"
+    },
+    {
+      "id": "extra-india-andaman",
+      "name": "Chabad House Andaman Islands",
+      "city": "Swaraj Dweep",
+      "lat": 11.99,
+      "lon": 92.99,
+      "precision": "city",
+      "note": "Seasonal Chabad house (mainly for Israeli travellers); placed at the town, address not known",
+      "source": "Chabad of India's houses as listed by chabadindia.info / chabad.info / lametayel (via search, Oct 2026); not on chabad.org"
     }
   ],
   "fixes": {

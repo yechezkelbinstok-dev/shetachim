@@ -140,6 +140,12 @@ Done in this round:
   The cache resets when labels are rebuilt (mode, borders, language, resize). `labelAt` on a shetach: the spot its name
   aims for on the page too (India: [78.9, 21.6], mid mainland). During a zoom names scale smoothly (`fontScale`) and
   the step's layout replaces them when it ends (~50–250 ms headless desktop for a new step).
+- **India** (Oct 3, the owner: "India has a lot more Chabad centers than the locator"): 15 Chabad houses not on
+  chabad.org added to `data/extra-centers.json` (`extra-india-*`: New Delhi/Paharganj, Pushkar, Manali, Kasol, Rishikesh,
+  Hampi, Varanasi, Goa's Anjuna and Palolem, Pune, Kochi, Gokarna, Vattakanal, Kasar Devi, the Andamans), from
+  chabadindia.info / chabad.info / lametayel (their sites are blocked here; via search). Address where known, else at
+  the town, as for Riyadh. Many Asian Chabad houses are seasonal; not marked, like chabad.org's own. Arambol's Jewish
+  house is Breslov, not Chabad: left out.
 - **Cities with shluchim** (build-data `buildCities`): a center town that GeoNames doesn't have by that name is matched,
   Oct 3, to a place spelled nearly the same within 8 km (keeping chabad.org's spelling: Be'er Sheva, Petach Tikva),
   else to the 500,000+ city within 10 km it's a neighbourhood of (Jabi → Abuja, Victoria Island → Lagos, Capital

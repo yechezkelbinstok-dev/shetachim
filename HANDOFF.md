@@ -111,11 +111,8 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
   429s, resumable from the output file. The browser collector (`chabad-personnel-scrape.js`, `web/personnel.html`)
   is no longer needed. Its batch guess doesn't work: the list endpoint ignores `filter[id]`/`filter[ids]` (returns all
   4,220) and carries no relationships or `included`, so personnel is only per center.
-- These commits were made on `claude/exciting-euler-o7vx0z` (one step ahead of `claude/bold-albattani-aqfnj9`). To
-  finish: on the live branch, `git fetch origin claude/exciting-euler-o7vx0z && git merge
-  origin/claude/exciting-euler-o7vx0z`, then `npm install && npm run build && npm run hebrew`, check the cards
-  (first living person as the shliach, the rest under "+more"), commit `web/data/`, and push to
-  `claude/bold-albattani-aqfnj9`.
+- Merged into `claude/bold-albattani-aqfnj9` and built (Oct 3); the cards follow the owner's rule (see "Shluchim on
+  center cards" above). `web/personnel.html` was removed (the Node fetcher replaces the browser collector).
 
 ## LATEST (Sept 30 – Oct 1) — read before "RIGHT NOW" below
 
@@ -163,8 +160,8 @@ Done in this round:
   passed away in a separate "Deceased" (נפטרו) section, each name followed by obm / ע״ה (obm goes after a name,
   never as a heading). Men/women by chabad.org's title (Mrs., Ms., Miss,
   Rebbetzin = women). Names are shown without titles (no "Rabbi"). Data: `data/raw/chabad-personnel.json` (chabad.org `/api/v2/chabadorg/centers/<id>` personnel;
-  lubavitch.com/centers/<id> has the same names) — not collected yet as of Oct 3 (this environment couldn't reach
-  either site; the owner is opening network access).
+  lubavitch.com/centers/<id> has the same names) — collected Oct 3 (3,764 of 4,220 centers), re-fetch with
+  `node scripts/chabad-personnel-fetch.mjs`.
 - **India** (Oct 3, the owner: "India has a lot more Chabad centers than the locator"): Chabad houses not on chabad.org in
   `data/extra-centers.json` (`extra-india-*`), from Chabad of India's own directory (indiakoshertravel.com/Chabad_india;
   blocked here — the owner sent its pages): New Delhi Main Bazaar (Akiva Sudri), South Delhi (Shneor Kupchik), Pushkar,
@@ -490,8 +487,7 @@ The owner got very angry at the first version. The lessons:
     `scripts/chabad-personnel-fetch.mjs` (Node, since Oct 3 — see PERSONNEL above), or the older
     `scripts/chabad-personnel-scrape.js`, run by hand in a browser console: paste it on a chabad.org tab, it downloads `chabad-personnel.json` when done (it's
     slow — one request per center, rate-limited by the site — and resumable if stopped partway).
-    Drop the file at `data/raw/chabad-personnel.json` and rebuild. `web/personnel.html` (on Pages) walks the owner
-    through it with a copy button. The collector tries a batch request first (`filter[id]=…&include=personnel`, 50 ids;
+    Drop the file at `data/raw/chabad-personnel.json` and rebuild. The collector tries a batch request first (`filter[id]=…&include=personnel`, 50 ids;
     untested against the real site — blocked here) and falls back to 4 parallel single-center requests. If `chabad-centers.json` is ever
     re-scraped, run `node scripts/gen-personnel-ids.mjs` first to refresh the id list the scraper covers.
   - Blank areas (no shetach): no fill, no label; their card shows the state.

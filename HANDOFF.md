@@ -229,7 +229,8 @@ Later in the same round:
   county lines). Oct 1 they were switched to whole counties ("I hate the roundness"); Oct 2 the owner rejected the
   county staircase ("just makes it look bad") and wanted the original back with straight-ish lines: the shapes in
   `data/shapes/ohio-{toledo,northeast,central,southern}.geojson` are the original map's regions with each inner
-  border straightened — Toledo's (Michigan's) borders and the Southern–Central border are single straight lines, the
+  border straightened — Toledo's (Michigan's) whole southern border is one straight line from the Indiana line to the
+  Northeast corner (owner's sketch, Oct 3; Findlay falls to Central), its border with the Northeast and the Southern–Central border are single straight lines, the
   Central–Northeast border a few straight segments that keep Central's big bulge east into the Alevsky shetach (made
   by straightening the shared lines and re-tiling; no center changes region vs the original map). Regions: **Northeast Ohio** (`northeast-ohio`, "Alevsky family"; Cleveland, Akron,
   Youngstown, Canton, east and south to Athens and Marietta), **Central Ohio** (`central-ohio`, Areyah Kaltmann;

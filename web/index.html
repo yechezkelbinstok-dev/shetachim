@@ -19,6 +19,7 @@ try { const q = new URLSearchParams(location.search).get('lang'); if (q) localSt
   --ink: #1e2b32;
   --halo: #ffffff;
   --dot: #163e74;
+  --dot-solid: #c8102e; /* the solid and see-through dots */
   --panel: #fbfcfb;
   --panel-line: #d2d9dc;
   --muted: #5a6870;
@@ -30,14 +31,14 @@ try { const q = new URLSearchParams(location.search).get('lang'); if (q) localSt
   --plain: #fcfcfa;
   --empty: #dcdfdb; /* land with no shetach, when shown */
   /* what the map draws with: the theme's colors, except on the physical map, which is always light */
-  --map-ink: var(--ink); --map-halo: var(--halo); --map-dot: var(--dot); --map-accent: var(--accent); --map-missing: var(--missing); --map-secondary: #3d5f8f;
+  --map-ink: var(--ink); --map-halo: var(--halo); --map-dot: var(--dot); --map-dot-solid: var(--dot-solid); --map-accent: var(--accent); --map-missing: var(--missing); --map-secondary: #3d5f8f;
   --font-ui: "Inter", "Heebo", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-map: "Inter", "Heebo", "Segoe UI", system-ui, -apple-system, sans-serif;
   --shadow: 0 1px 2px rgb(20 35 45 / .08), 0 6px 20px rgb(20 35 45 / .10);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0f1518; --ink: #e6edf0; --halo: #0f1518; --dot: #f1cf78;
+    --bg: #0f1518; --ink: #e6edf0; --halo: #0f1518; --dot: #f1cf78; --dot-solid: #ff7466;
     --panel: #152025; --panel-line: #2b3a41; --muted: #9baab0; --missing: #7d8c93; --accent: #93b8ec; --accent-soft: #22344a;
     --map-secondary: #a8c3ea;
     --c1: #5a5026; --c2: #394e30; --c3: #5c3a36; --c4: #2e435f;
@@ -50,7 +51,7 @@ try { const q = new URLSearchParams(location.search).get('lang'); if (q) localSt
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0f1518; --ink: #e6edf0; --halo: #0f1518; --dot: #f1cf78;
+  --bg: #0f1518; --ink: #e6edf0; --halo: #0f1518; --dot: #f1cf78; --dot-solid: #ff7466;
   --panel: #152025; --panel-line: #2b3a41; --muted: #9baab0; --missing: #7d8c93; --accent: #93b8ec; --accent-soft: #22344a;
   --map-secondary: #a8c3ea;
   --c1: #5a5026; --c2: #394e30; --c3: #5c3a36; --c4: #2e435f;
@@ -59,7 +60,7 @@ try { const q = new URLSearchParams(location.search).get('lang'); if (q) localSt
   --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 8px 24px rgb(0 0 0 / .35);
   color-scheme: dark;
 }
-.physical #map { --map-ink: #1e2b32; --map-halo: #ffffff; --map-dot: #163e74; --map-accent: #1d4f8f; --map-missing: #6b7780; --map-secondary: #3d5f8f; }
+.physical #map { --map-ink: #1e2b32; --map-halo: #ffffff; --map-dot: #163e74; --map-dot-solid: #c8102e; --map-accent: #1d4f8f; --map-missing: #6b7780; --map-secondary: #3d5f8f; }
 
 html, body { height: 100%; margin: 0; }
 [hidden] { display: none !important; }
@@ -163,7 +164,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 .seg-label { align-self: center; font-size: 13px; color: var(--muted); margin-right: 2px; }
 .check { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }
 .check input { accent-color: var(--accent); width: 16px; height: 16px; margin: 0; }
-.legend-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--dot); }
+.legend-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--dot-solid); }
 .legend-ring { display: inline-block; width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid var(--ink); background: var(--halo); }
 .legend-star { width: 12px; height: 12px; fill: var(--ink); }
 #more > summary { cursor: pointer; font: 600 10.5px var(--font-map); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); list-style: none; padding: 2px 0; }
@@ -1511,9 +1512,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
 
   // ---------- drawing (political map) ----------
-  // Dot styles (More options): solid (the default: small and opaque, so a cluster reads as one), see-through (the same,
-  // faded) and classic (the first dots: bigger and faded). Radius at the framed view: a + b·log2(centers there).
-  const DOT_STYLES = { solid: { a: 1.25, b: 0.4, alpha: 1 }, faded: { a: 1.25, b: 0.4, alpha: 0.6 }, classic: { a: 1.9, b: 0.55, alpha: 0.42 } };
+  // Dot styles (More options): solid (the default: small, opaque and deep red, so a cluster reads as one), see-through
+  // (the same, as faded as classic) and classic (the first dots: bigger, navy and faded). Radius at the framed view: a + b·log2(centers there).
+  const DOT_STYLES = { solid: { a: 1.6, b: 0.45, alpha: 1, color: 'dotSolid' }, faded: { a: 1.6, b: 0.45, alpha: 0.42, color: 'dotSolid' }, classic: { a: 1.9, b: 0.55, alpha: 0.42, color: 'dot' } };
   const dotStyle = () => DOT_STYLES[state.dotStyle] || DOT_STYLES.solid;
   const dotBase = (d) => { const st = dotStyle(); return st.a + st.b * Math.log2(d.centers.length); };
   const dotRadius = (d, k) => dotBase(d) * Math.pow(k, 0.35); // screen pixels
@@ -1521,7 +1522,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function readPalette() {
     const css = getComputedStyle($('#map'));
     const v = (name) => css.getPropertyValue(name).trim();
-    pal = { c: d3.range(8).map((i) => v(`--c${i + 1}`)), plain: v('--plain'), empty: v('--empty'), ink: v('--map-ink'), halo: v('--map-halo'), dot: v('--map-dot'), accent: v('--map-accent') };
+    pal = { c: d3.range(8).map((i) => v(`--c${i + 1}`)), plain: v('--plain'), empty: v('--empty'), ink: v('--map-ink'), halo: v('--map-halo'), dot: v('--map-dot'), dotSolid: v('--map-dot-solid'), accent: v('--map-accent') };
   }
   // Land no shetach covers (data/outside.json, loaded the first time it's asked for), as paths for the view: only the
   // countries near what the view shows, so a conic projection isn't asked to draw the far side of the world.
@@ -1605,7 +1606,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (state.dots) {
       const f = Math.pow(k, 0.35), st = dotStyle();
       ctx.globalAlpha = st.alpha;
-      ctx.fillStyle = pal.dot;
+      ctx.fillStyle = pal[st.color];
       ctx.beginPath();
       for (const d of V.dots) {
         const x = T.x + d.x * k, y = T.y + d.y * k, r = dotBase(d) * f;
@@ -1850,7 +1851,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const radius = ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], V.zFit - 2, r(-2), V.zFit + Math.log2(60), r(Math.log2(60))];
     show('st-dots', state.dots);
     paint('st-dots', 'circle-radius', radius);
-    paint('st-dots', 'circle-color', v('--map-dot'));
+    paint('st-dots', 'circle-color', v(ds.color === 'dot' ? '--map-dot' : '--map-dot-solid'));
     paint('st-dots', 'circle-opacity', ds.alpha === 1 ? 1 : ds.alpha + 0.1);
     paint('st-dots', 'circle-stroke-width', ds.alpha === 1 ? 0.7 : 0);
     paint('st-dots', 'circle-stroke-color', v('--map-halo'));
@@ -2103,7 +2104,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     $('#lighter-row').hidden = state.borders !== 'both';
     if (V.physical) styleGL();
     const ds = dotStyle(); // the Alaska/Hawaii boxes' dots, in the chosen style
-    gInsets.selectAll('circle.dot').attr('r', (d) => dotBase(d) * 1.1).style('fill-opacity', ds.alpha).style('stroke', ds.alpha === 1 ? 'var(--map-halo)' : 'none').style('stroke-width', 0.7);
+    gInsets.selectAll('circle.dot').attr('r', (d) => dotBase(d) * 1.1).style('fill', `var(${ds.color === 'dot' ? '--map-dot' : '--map-dot-solid'})`).style('fill-opacity', ds.alpha).style('stroke', ds.alpha === 1 ? 'var(--map-halo)' : 'none').style('stroke-width', 0.7);
     readPalette();
     requestDraw();
     buildLabels();

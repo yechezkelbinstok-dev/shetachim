@@ -140,8 +140,8 @@ Done in this round:
   The cache resets when labels are rebuilt (mode, borders, language, resize). `labelAt` on a shetach: the spot its name
   aims for on the page too (India: [78.9, 21.6], mid mainland). During a zoom names scale smoothly (`fontScale`) and
   the step's layout replaces them when it ends (~50–250 ms headless desktop for a new step).
-- **Dots** (More options → Dots, Oct 3): **Solid** (default; small, opaque, deep red `--dot-solid` #c8102e / coral #ff7466 in
-  dark, a hairline of the background around each so a cluster reads as a cluster), **See-through** (same, 42% like
+- **Dots** (More options → Dots, Oct 3): **Solid** (default; small, opaque, golden yellow `--dot-solid` #e0a400 with a thin dark
+  edge `--dot-edge` so it shows on yellow shetachim too; #ffc531 in dark; the owner tried red, then asked for gold), **See-through** (same, 42% like
   classic), **Classic** (the first dots: bigger, navy, 42%). `DOT_STYLES`; the owner found navy a bad colour for the new dots.
 - Defaults: **World view, Political map** (Oct 2, the owner); the physical map loads quietly in the background right after, so picking it is instant.
 - Data: flagship centers for 100 of 108 world shetachim from the owner's `data/world-flagship-centers.txt` (not in

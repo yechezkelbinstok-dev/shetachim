@@ -140,9 +140,11 @@ Done in this round:
   The cache resets when labels are rebuilt (mode, borders, language, resize). `labelAt` on a shetach: the spot its name
   aims for on the page too (India: [78.9, 21.6], mid mainland). During a zoom names scale smoothly (`fontScale`) and
   the step's layout replaces them when it ends (~50–250 ms headless desktop for a new step).
-- **Dots** (More options → Dots, Oct 3): **Solid** (default; small, opaque, golden yellow `--dot-solid` #e0a400 with a thin dark
-  edge `--dot-edge` so it shows on yellow shetachim too; #ffc531 in dark; the owner tried red, then asked for gold), **See-through** (same, 42% like
-  classic), **Classic** (the first dots: bigger, navy, 42%). `DOT_STYLES`; the owner found navy a bad colour for the new dots.
+- **Dots** (More options → Dots / Dot color, Oct 3): **Solid** (default; small — radius 1.05 + 0.35·log2(centers) at the
+  framed view, the owner wants them small — opaque, with a thin edge so a cluster reads as a cluster), **See-through**
+  (same, 42% like classic), **Classic** (the first dots: bigger, navy, 42%). Colour for solid/see-through: Gold
+  (default), Red, Black, Navy, Green, Purple (`DOT_COLORS`: light and dark-map shades; dark edge under gold, white
+  under the others, the background on the dark map; `setDotColors` puts them on #app).
 - Defaults: **World view, Political map** (Oct 2, the owner); the physical map loads quietly in the background right after, so picking it is instant.
 - Data: flagship centers for 100 of 108 world shetachim from the owner's `data/world-flagship-centers.txt` (not in
   chabad.org's data, so no star: Crimea, Sri Lanka, Belize, Honduras, Bolivia, New Zealand, Panama (Beth El), Qatar

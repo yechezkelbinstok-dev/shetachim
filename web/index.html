@@ -19,8 +19,6 @@ try { const q = new URLSearchParams(location.search).get('lang'); if (q) localSt
   --ink: #1e2b32;
   --halo: #ffffff;
   --dot: #163e74;
-  --dot-solid: #e0a400; /* the solid and see-through dots: golden yellow, with a thin dark edge so they show on yellow too */
-  --dot-edge: #4a3500;
   --panel: #fbfcfb;
   --panel-line: #d2d9dc;
   --muted: #5a6870;
@@ -32,14 +30,14 @@ try { const q = new URLSearchParams(location.search).get('lang'); if (q) localSt
   --plain: #fcfcfa;
   --empty: #dcdfdb; /* land with no shetach, when shown */
   /* what the map draws with: the theme's colors, except on the physical map, which is always light */
-  --map-ink: var(--ink); --map-halo: var(--halo); --map-dot: var(--dot); --map-dot-solid: var(--dot-solid); --map-dot-edge: var(--dot-edge); --map-accent: var(--accent); --map-missing: var(--missing); --map-secondary: #3d5f8f;
+  --map-ink: var(--ink); --map-halo: var(--halo); --map-dot: var(--dot); --map-accent: var(--accent); --map-missing: var(--missing); --map-secondary: #3d5f8f;
   --font-ui: "Inter", "Heebo", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-map: "Inter", "Heebo", "Segoe UI", system-ui, -apple-system, sans-serif;
   --shadow: 0 1px 2px rgb(20 35 45 / .08), 0 6px 20px rgb(20 35 45 / .10);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #0f1518; --ink: #e6edf0; --halo: #0f1518; --dot: #f1cf78; --dot-solid: #ffc531; --dot-edge: #0f1518;
+    --bg: #0f1518; --ink: #e6edf0; --halo: #0f1518; --dot: #f1cf78;
     --panel: #152025; --panel-line: #2b3a41; --muted: #9baab0; --missing: #7d8c93; --accent: #93b8ec; --accent-soft: #22344a;
     --map-secondary: #a8c3ea;
     --c1: #5a5026; --c2: #394e30; --c3: #5c3a36; --c4: #2e435f;
@@ -52,7 +50,7 @@ try { const q = new URLSearchParams(location.search).get('lang'); if (q) localSt
   }
 }
 :root[data-theme="dark"] {
-  --bg: #0f1518; --ink: #e6edf0; --halo: #0f1518; --dot: #f1cf78; --dot-solid: #ffc531; --dot-edge: #0f1518;
+  --bg: #0f1518; --ink: #e6edf0; --halo: #0f1518; --dot: #f1cf78;
   --panel: #152025; --panel-line: #2b3a41; --muted: #9baab0; --missing: #7d8c93; --accent: #93b8ec; --accent-soft: #22344a;
   --map-secondary: #a8c3ea;
   --c1: #5a5026; --c2: #394e30; --c3: #5c3a36; --c4: #2e435f;
@@ -61,7 +59,7 @@ try { const q = new URLSearchParams(location.search).get('lang'); if (q) localSt
   --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 8px 24px rgb(0 0 0 / .35);
   color-scheme: dark;
 }
-.physical #map { --map-ink: #1e2b32; --map-halo: #ffffff; --map-dot: #163e74; --map-dot-solid: #e0a400; --map-dot-edge: #4a3500; --map-accent: #1d4f8f; --map-missing: #6b7780; --map-secondary: #3d5f8f; }
+.physical #map { --map-ink: #1e2b32; --map-halo: #ffffff; --map-dot: #163e74; --map-accent: #1d4f8f; --map-missing: #6b7780; --map-secondary: #3d5f8f; }
 
 html, body { height: 100%; margin: 0; }
 [hidden] { display: none !important; }
@@ -165,7 +163,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 .seg-label { align-self: center; font-size: 13px; color: var(--muted); margin-right: 2px; }
 .check { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }
 .check input { accent-color: var(--accent); width: 16px; height: 16px; margin: 0; }
-.legend-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--dot-solid); box-shadow: 0 0 0 1px var(--dot-edge); }
+.legend-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #e0a400; box-shadow: 0 0 0 1px #4a3500; }
 .legend-ring { display: inline-block; width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid var(--ink); background: var(--halo); }
 .legend-star { width: 12px; height: 12px; fill: var(--ink); }
 #more > summary { cursor: pointer; font: 600 10.5px var(--font-map); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); list-style: none; padding: 2px 0; }
@@ -324,6 +322,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
             <button type="button" data-value="classic" aria-pressed="false">Classic</button>
           </div>
         </fieldset>
+        <fieldset class="ctl" id="dotcolor-ctl">
+          <legend>Dot color</legend>
+          <div class="seg" data-name="dotColor">
+            <button type="button" data-value="gold" aria-pressed="true">Gold</button>
+            <button type="button" data-value="red" aria-pressed="false">Red</button>
+            <button type="button" data-value="black" aria-pressed="false">Black</button>
+            <button type="button" data-value="navy" aria-pressed="false">Navy</button>
+            <button type="button" data-value="green" aria-pressed="false">Green</button>
+            <button type="button" data-value="purple" aria-pressed="false">Purple</button>
+          </div>
+        </fieldset>
         <fieldset class="ctl" id="alaska-ctl" hidden>
           <legend>Alaska</legend>
           <div class="seg" data-name="alaska">
@@ -366,7 +375,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const phone = () => window.matchMedia('(max-width: 760px)').matches;
   const coarse = () => window.matchMedia('(pointer: coarse)').matches;
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const state = { empty: false, alaska: 'box', view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', cities: true, capitals: true };
+  const state = { empty: false, alaska: 'box', view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'gold', cities: true, capitals: true };
   if (!phone()) $('#panel').classList.remove('collapsed');
 
   // ---------- data ----------
@@ -393,7 +402,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // Hebrew name is used where chabad.org has one; other centers keep their names.
   const HE = document.documentElement.lang === 'he';
   const HE_TEXT = {
-    'Chabad Shetachim': 'שטחי חב״ד', Options: 'אפשרויות', Close: 'סגירה', Shetachim: 'שטחים', Centers: 'מוסדות', Dots: 'נקודות',
+    'Chabad Shetachim': 'שטחי חב״ד', Options: 'אפשרויות', Close: 'סגירה', Shetachim: 'שטחים', Centers: 'מוסדות', Dots: 'נקודות', 'Dot color': 'צבע הנקודות', Gold: 'זהב', Red: 'אדום', Black: 'שחור', Navy: 'כחול כהה', Green: 'ירוק', Purple: 'סגול',
     Show: 'תצוגה', World: 'עולם', Europe: 'אירופה', FSU: 'חבר העמים', Israel: 'ארץ ישראל', 'Middle East': 'המזרח התיכון', Asia: 'אסיה',
     Africa: 'אפריקה', Oceania: 'אוקיאניה', 'Latin America': 'אמריקה הלטינית', 'US & Canada': 'ארה״ב וקנדה', USA: 'ארה״ב', Canada: 'קנדה',
     'United States & Canada': 'ארצות הברית וקנדה', 'United States': 'ארצות הברית', 'Former Soviet Union': 'ברית המועצות לשעבר',
@@ -1515,8 +1524,19 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // ---------- drawing (political map) ----------
   // Dot styles (More options): solid (the default: small, opaque and deep red, so a cluster reads as one), see-through
   // (the same, as faded as classic) and classic (the first dots: bigger, navy and faded). Radius at the framed view: a + b·log2(centers there).
-  const DOT_STYLES = { solid: { a: 1.6, b: 0.45, alpha: 1, color: 'dotSolid' }, faded: { a: 1.6, b: 0.45, alpha: 0.42, color: 'dotSolid' }, classic: { a: 1.9, b: 0.55, alpha: 0.42, color: 'dot' } };
+  const DOT_STYLES = { solid: { a: 1.05, b: 0.35, alpha: 1, color: 'dotSolid' }, faded: { a: 1.05, b: 0.35, alpha: 0.42, color: 'dotSolid' }, classic: { a: 1.9, b: 0.55, alpha: 0.42, color: 'dot' } };
   const dotStyle = () => DOT_STYLES[state.dotStyle] || DOT_STYLES.solid;
+  // Dot colour (More options) for the solid and see-through dots: [light map, dark map]. Each dot has a thin edge — dark
+  // under gold (so it shows on the yellow shetachim), white under the darker colours, the background on the dark map.
+  const DOT_COLORS = { gold: ['#e0a400', '#ffc531'], red: ['#c8102e', '#ff6b5e'], black: ['#1a1a1a', '#f2f2f2'], navy: ['#163e74', '#8db5ee'], green: ['#16784a', '#5fd38f'], purple: ['#6b2fa3', '#c89cff'] };
+  function setDotColors() {
+    const dark = !V.physical && theme() === 'dark', c = DOT_COLORS[state.dotColor] || DOT_COLORS.gold;
+    const app = $('#app');
+    app.style.setProperty('--map-dot-solid', c[dark ? 1 : 0]);
+    app.style.setProperty('--map-dot-edge', dark ? '#0f1518' : state.dotColor === 'gold' || !DOT_COLORS[state.dotColor] ? '#4a3500' : '#ffffff');
+    const lg = $('.legend-dot');
+    if (lg) { lg.style.background = c[dark ? 1 : 0]; lg.style.boxShadow = `0 0 0 1px ${dark ? '#0f1518' : state.dotColor === 'gold' ? '#4a3500' : 'transparent'}`; }
+  }
   const dotBase = (d) => { const st = dotStyle(); return st.a + st.b * Math.log2(d.centers.length); };
   const dotRadius = (d, k) => dotBase(d) * Math.pow(k, 0.35); // screen pixels
   let pal = null, hover = null, drawQueued = 0;
@@ -1616,7 +1636,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         ctx.arc(x, y, r, 0, 2 * Math.PI);
       }
       // solid dots get a thin dark edge, so dots side by side still read as separate ones and gold shows on yellow
-      if (st.alpha === 1) { ctx.strokeStyle = pal.dotEdge; ctx.lineWidth = 0.8; ctx.stroke(); }
+      if (st.alpha === 1) { ctx.strokeStyle = pal.dotEdge; ctx.lineWidth = 0.6; ctx.stroke(); }
       ctx.fill();
       if (hover && hover.dot) {
         ctx.globalAlpha = 1;
@@ -1854,7 +1874,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     paint('st-dots', 'circle-radius', radius);
     paint('st-dots', 'circle-color', v(ds.color === 'dot' ? '--map-dot' : '--map-dot-solid'));
     paint('st-dots', 'circle-opacity', ds.alpha === 1 ? 1 : ds.alpha + 0.1);
-    paint('st-dots', 'circle-stroke-width', ds.alpha === 1 ? 0.8 : 0);
+    paint('st-dots', 'circle-stroke-width', ds.alpha === 1 ? 0.6 : 0);
     paint('st-dots', 'circle-stroke-color', v('--map-dot-edge'));
     paint('st-hover-dot', 'circle-radius', radius);
     paint('st-hover-dot', 'circle-stroke-color', v('--map-accent'));
@@ -2103,6 +2123,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     $('#alaska-ctl').hidden = V.physical || !V.view.insets.includes('US-AK');
     gInsets.attr('class', `l-insets${T.k > 1.3 ? ' away' : ''}`);
     $('#lighter-row').hidden = state.borders !== 'both';
+    setDotColors();
     if (V.physical) styleGL();
     const ds = dotStyle(); // the Alaska/Hawaii boxes' dots, in the chosen style
     gInsets.selectAll('circle.dot').attr('r', (d) => dotBase(d) * 1.1).style('fill', `var(${ds.color === 'dot' ? '--map-dot' : '--map-dot-solid'})`).style('fill-opacity', ds.alpha).style('stroke', ds.alpha === 1 ? 'var(--map-dot-edge)' : 'none').style('stroke-width', 0.8);
@@ -2141,10 +2162,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     document.documentElement.dataset.theme = next;
     try { localStorage.setItem('shetachim-theme', next); } catch (e) { /* not remembered, still switched */ }
     showThemeButton();
+    setDotColors();
     readPalette();
     requestDraw();
   });
-  darkQuery.addEventListener('change', () => { showThemeButton(); readPalette(); requestDraw(); });
+  darkQuery.addEventListener('change', () => { showThemeButton(); setDotColors(); readPalette(); requestDraw(); });
   showThemeButton();
 
   $('#more').addEventListener('toggle', () => { // the panel's height changed: the zoom buttons and the free map area follow

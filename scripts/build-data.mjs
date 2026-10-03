@@ -265,6 +265,20 @@ function locate(idx, x, y) {
 
 // ---------- centers ----------
 
+// Ukraine's towns by the names the Chabad kehillos there use — the Russian ones (the owner, Oct 3: "Kiev and Dnepr"):
+// for the centers' towns (chabad.org lists some both ways, "Kyiv" and "Kiev") and the GeoNames cities on the map.
+const UA_NAMES = {
+  Kyiv: 'Kiev', Dnipro: 'Dnepr', Dnipropetrovsk: 'Dnepr', Dnepropetrovsk: 'Dnepr', Lviv: 'Lvov', Kharkiv: 'Kharkov',
+  Khmelnytskyi: 'Khmelnitsky', "Khmel'nyts'kyy": 'Khmelnitsky', Zaporizhzhia: 'Zaporozhye', Zaporizhia: 'Zaporozhye',
+  Mykolaiv: 'Nikolayev', Luhansk: 'Lugansk', Zhytomyr: 'Zhitomir', Chernihiv: 'Chernigov', Chernivtsi: 'Chernovtsy',
+  Rivne: 'Rovno', Ternopil: 'Ternopol', Kropyvnytskyi: 'Kirovograd', Uzhhorod: 'Uzhgorod', 'Ivano-Frankivsk': 'Ivano-Frankovsk',
+  'Kryvyi Rih': 'Krivoy Rog', Kremenchuk: 'Kremenchug', 'Bila Tserkva': 'Belaya Tserkov', Berdychiv: 'Berdichev',
+  Cherkasy: 'Cherkassy', Vinnytsia: 'Vinnitza', 'Bilhorod-Dnistrovskyi': 'Belgorod-Dnestrovsky', Kamianske: 'Dneprodzerzhinsk',
+  Horlivka: 'Gorlovka', Makiivka: 'Makeevka', Sloviansk: 'Slavyansk', 'Korosten’': 'Korosten', "Korosten'": 'Korosten',
+  Odesa: 'Odessa', Mariupol: 'Mariupol', Sevastopol: 'Sevastopol', Simferopol: 'Simferopol',
+};
+const uaName = (n) => UA_NAMES[n] || n;
+
 function normalize(raw, extra = false) {
   const c = raw.coordinates || {};
   return {
@@ -272,7 +286,7 @@ function normalize(raw, extra = false) {
     name: (raw.name || '').trim(),
     nativeName: (raw['native-name'] || '').trim() || undefined,
     type: (raw['center-type'] && raw['center-type'].name) || undefined,
-    city: (raw.city || (raw.address && raw.address.city) || '').trim(),
+    city: uaName((raw.city || (raw.address && raw.address.city) || '').trim()),
     slug: raw['static-url'] || undefined, // page: https://www.chabad.org/jewish-centers/<id>/<slug>
     lat: c.latitude,
     lon: c.longitude,
@@ -371,7 +385,8 @@ const regionOf = (g) => `${g.country}-${g.country === 'CA' ? CA_ADMIN1[g.adminCo
 // the map labels them first.
 function buildCities(dots) {
   const places = new Map();
-  for (const g of geonames) {
+  for (let g of geonames) {
+    if (g.country === 'UA' && UA_NAMES[g.name]) g = { ...g, name: UA_NAMES[g.name] };
     const key = placeKey(g.name);
     if (!places.has(key)) places.set(key, []);
     places.get(key).push(g);

@@ -163,7 +163,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 .seg-label { align-self: center; font-size: 13px; color: var(--muted); margin-right: 2px; }
 .check { display: flex; align-items: center; gap: 8px; font-size: 14px; cursor: pointer; }
 .check input { accent-color: var(--accent); width: 16px; height: 16px; margin: 0; }
-.legend-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--dot); opacity: .55; }
+.legend-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--dot); }
 .legend-ring { display: inline-block; width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid var(--ink); background: var(--halo); }
 .legend-star { width: 12px; height: 12px; fill: var(--ink); }
 #more > summary { cursor: pointer; font: 600 10.5px var(--font-map); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); list-style: none; padding: 2px 0; }
@@ -314,6 +314,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           <label class="check" for="show-capitals"><input type="checkbox" id="show-capitals" checked> <svg class="legend-star" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path id="star-shape"/></svg> Shetach capitals</label>
           <label class="check" for="show-empty"><input type="checkbox" id="show-empty"> <span class="legend-empty" aria-hidden="true"></span> Land with no shetach</label>
           </div>
+        <fieldset class="ctl" id="dots-ctl">
+          <legend>Dots</legend>
+          <div class="seg" data-name="dotStyle">
+            <button type="button" data-value="solid" aria-pressed="true">Solid</button>
+            <button type="button" data-value="faded" aria-pressed="false">See-through</button>
+            <button type="button" data-value="classic" aria-pressed="false">Classic</button>
+          </div>
+        </fieldset>
         <fieldset class="ctl" id="alaska-ctl" hidden>
           <legend>Alaska</legend>
           <div class="seg" data-name="alaska">
@@ -356,7 +364,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const phone = () => window.matchMedia('(max-width: 760px)').matches;
   const coarse = () => window.matchMedia('(pointer: coarse)').matches;
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const state = { empty: false, alaska: 'box', view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, cities: true, capitals: true };
+  const state = { empty: false, alaska: 'box', view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', cities: true, capitals: true };
   if (!phone()) $('#panel').classList.remove('collapsed');
 
   // ---------- data ----------
@@ -391,7 +399,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     Map: 'מפה', Physical: 'פיזית', Political: 'מדינית', Borders: 'גבולות', States: 'מדינות', Countries: 'ארצות', Both: 'שניהם',
     'Lighter:': 'בהיר יותר:', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', 'Last name': 'שם משפחה', Off: 'ללא',
     'More options': 'אפשרויות נוספות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Land with no shetach': 'אזורים ללא שטח',
-    Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד',
+    Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד', Dots: 'נקודות', Solid: 'מלאות', 'See-through': 'שקופות', Classic: 'קלאסיות',
     'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
     'Download maps (SVG, PNG)': 'הורדת מפות (SVG, PNG)', 'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
     'Loading…': 'טוען…', "This browser can't show the physical map.": 'הדפדפן הזה לא יכול להציג את המפה הפיזית.', "The physical map couldn't load.": 'המפה הפיזית לא נטענה.',
@@ -867,7 +875,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       box.caption = group.append('text').attr('class', 'inset-caption').attr('x', x + 8).attr('y', y + 13);
       group.selectAll('circle').data(box.dots).join('circle').attr('class', 'dot')
         .attr('cx', (d) => proj([d.lon, d.lat])[0]).attr('cy', (d) => proj([d.lon, d.lat])[1])
-        .attr('r', (d) => 2.2 + 0.5 * Math.log2(d.centers.length));
+        .attr('r', (d) => dotBase(d) * 1.1);
       insetBoxes.push(box);
       x += w + 10;
     }
@@ -1340,7 +1348,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const toScreen = (b) => [T.x + b[0] * T.k, T.y + b[1] * T.k, T.x + b[2] * T.k, T.y + b[3] * T.k];
   function levelLayout(lv) {
     if (levelCache.has(lv)) return levelCache.get(lv);
-    const TILE = tileSize();
+    const TILE = tileSize(), APART = Math.max(W, H) * 1.05; // repeats at least a screen apart: never two on one screen
     const out = atLevel(lv, (k) => {
       const ix = labelIndex(), stars = starsNow().map((st) => st.box), placed = [], todo = [];
       for (const L of labels) {
@@ -1369,14 +1377,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         const spot = placeOne(L, part, ix, [...stars, ...placed.map((q) => toScreen(q.box))]);
         if (spot) placed.push(toMap(L, spot));
       }
-      return { lv, placed, tiles: new Map(), stars, TILE };
+      return { lv, placed, tiles: new Map(), stars, TILE, APART };
     });
     levelCache.set(lv, out);
     return out;
   }
   // the repeated names of big shetachim in the tiles now in view (each tile worked out once per step)
   function levelRepeats(lay, view) {
-    const { TILE } = lay, kL = 2 ** (lay.lv / LEVEL_STEPS), size = TILE / kL;
+    const { TILE, APART } = lay, kL = 2 ** (lay.lv / LEVEL_STEPS), size = TILE / kL;
     const i0 = Math.floor(view[0] / size), i1 = Math.floor(view[2] / size), j0 = Math.floor(view[1] / size), j1 = Math.floor(view[3] / size);
     const fresh = [];
     for (let i = i0; i <= i1; i++) for (let j = j0; j <= j1; j++) if (!lay.tiles.has(`${i},${j}`)) fresh.push([i, j]);
@@ -1392,14 +1400,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           if ((b[2] - b[0]) * k < TILE * 1.2 && (b[3] - b[1]) * k < TILE * 1.2) continue; // only shetachim bigger than a screen
           const mine = [...lay.placed, ...[...lay.tiles.values()].flat()].filter((q) => q.L === L);
           const cx = (box[0] + box[2]) / 2, cy = (box[1] + box[3]) / 2;
-          if (mine.some((q) => Math.hypot(q.mx - cx, q.my - cy) * k < TILE * 0.6)) continue; // its name is near already
+          if (mine.some((q) => Math.hypot(q.mx - cx, q.my - cy) * k < APART * 0.8)) continue; // its name is near already
           const part = visiblePart(L.cl ? L.cl.polys : L.r.polysXY, box);
           if (!part || part.area * k * k < TILE * TILE * 0.15) continue; // little of it in this tile
           const all = [...lay.placed, ...[...lay.tiles.values()].flat()];
           const spot = placeOne(L, part, ix, [...lay.stars, ...all.map((q) => toScreen(q.box))]);
           if (!spot) continue;
           const q = toMap(L, spot);
-          if (!mine.some((o) => Math.hypot(o.mx - q.mx, o.my - q.my) * k < TILE * 0.6)) got.push(q); // not near another of its names
+          if (!mine.some((o) => Math.hypot(o.mx - q.mx, o.my - q.my) * k < APART)) got.push(q); // not on one screen with another of its names
         }
       }
     });
@@ -1503,13 +1511,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
 
   // ---------- drawing (political map) ----------
-  const dotBase = (d) => 1.9 + 0.55 * Math.log2(d.centers.length);
+  // Dot styles (More options): solid (the default: small and opaque, so a cluster reads as one), see-through (the same,
+  // faded) and classic (the first dots: bigger and faded). Radius at the framed view: a + b·log2(centers there).
+  const DOT_STYLES = { solid: { a: 1.25, b: 0.4, alpha: 1 }, faded: { a: 1.25, b: 0.4, alpha: 0.6 }, classic: { a: 1.9, b: 0.55, alpha: 0.42 } };
+  const dotStyle = () => DOT_STYLES[state.dotStyle] || DOT_STYLES.solid;
+  const dotBase = (d) => { const st = dotStyle(); return st.a + st.b * Math.log2(d.centers.length); };
   const dotRadius = (d, k) => dotBase(d) * Math.pow(k, 0.35); // screen pixels
   let pal = null, hover = null, drawQueued = 0;
   function readPalette() {
     const css = getComputedStyle($('#map'));
     const v = (name) => css.getPropertyValue(name).trim();
-    pal = { c: d3.range(8).map((i) => v(`--c${i + 1}`)), plain: v('--plain'), empty: v('--empty'), ink: v('--map-ink'), dot: v('--map-dot'), accent: v('--map-accent') };
+    pal = { c: d3.range(8).map((i) => v(`--c${i + 1}`)), plain: v('--plain'), empty: v('--empty'), ink: v('--map-ink'), halo: v('--map-halo'), dot: v('--map-dot'), accent: v('--map-accent') };
   }
   // Land no shetach covers (data/outside.json, loaded the first time it's asked for), as paths for the view: only the
   // countries near what the view shows, so a conic projection isn't asked to draw the far side of the world.
@@ -1591,8 +1603,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // dots, in screen pixels
     ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
     if (state.dots) {
-      const f = Math.pow(k, 0.35);
-      ctx.globalAlpha = 0.42;
+      const f = Math.pow(k, 0.35), st = dotStyle();
+      ctx.globalAlpha = st.alpha;
       ctx.fillStyle = pal.dot;
       ctx.beginPath();
       for (const d of V.dots) {
@@ -1601,6 +1613,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         ctx.moveTo(x + r, y);
         ctx.arc(x, y, r, 0, 2 * Math.PI);
       }
+      // solid dots get a hairline of the background around each, so dots side by side still read as separate ones
+      if (st.alpha === 1) { ctx.strokeStyle = pal.halo; ctx.lineWidth = 0.7; ctx.stroke(); }
       ctx.fill();
       if (hover && hover.dot) {
         ctx.globalAlpha = 1;
@@ -1801,7 +1815,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const faded = ['!', ['in', ['get', 'c'], list]];
     mapgl.setFilter('st-fade-land', faded);
     mapgl.setFilter('st-fade-top', faded);
-    set('st-dots', fc(V.dots.map((d) => feature({ type: 'Point', coordinates: [d.lon, d.lat] }, { r: dotBase(d) }))));
+    set('st-dots', fc(V.dots.map((d) => feature({ type: 'Point', coordinates: [d.lon, d.lat] }, { l: Math.log2(d.centers.length) }))));
     set('st-hover-area', EMPTY);
     set('st-hover-dot', EMPTY);
   }
@@ -1832,12 +1846,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     show('st-line-casing', state.borders !== 'regular' && !lightS);
     paint('st-line-regular', 'line-dasharray', both ? [2, 2] : [1, 0]);
     // Same sizes as the political map: grows with zoom like k^0.35, and stops growing at 60x the framed view.
-    const r = (dz) => ['*', ['get', 'r'], 2 ** (0.35 * dz)];
+    const ds = dotStyle(), r = (dz) => ['*', ['+', ds.a, ['*', ds.b, ['get', 'l']]], 2 ** (0.35 * dz)];
     const radius = ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], V.zFit - 2, r(-2), V.zFit + Math.log2(60), r(Math.log2(60))];
     show('st-dots', state.dots);
     paint('st-dots', 'circle-radius', radius);
     paint('st-dots', 'circle-color', v('--map-dot'));
-    paint('st-dots', 'circle-opacity', 0.55);
+    paint('st-dots', 'circle-opacity', ds.alpha === 1 ? 1 : ds.alpha + 0.1);
+    paint('st-dots', 'circle-stroke-width', ds.alpha === 1 ? 0.7 : 0);
+    paint('st-dots', 'circle-stroke-color', v('--map-halo'));
     paint('st-hover-dot', 'circle-radius', radius);
     paint('st-hover-dot', 'circle-stroke-color', v('--map-accent'));
     paint('st-hover-area', 'line-color', v('--map-accent'));
@@ -2041,7 +2057,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const area = hit && hit.piece && onMain(hit.piece.id) ? areaOf(hit.piece.id) : null;
     if (V.physical) {
       if (!glReady()) return;
-      mapgl.getSource('st-hover-dot').setData(dot && state.dots && onMain(dot.piece) ? feature({ type: 'Point', coordinates: [dot.lon, dot.lat] }, { r: dotBase(dot) }) : EMPTY);
+      mapgl.getSource('st-hover-dot').setData(dot && state.dots && onMain(dot.piece) ? feature({ type: 'Point', coordinates: [dot.lon, dot.lat] }, { l: Math.log2(dot.centers.length) }) : EMPTY);
       mapgl.getSource('st-hover-area').setData(area ? feature(topojson.feature(topo, area.ma).geometry) : EMPTY);
       return;
     }
@@ -2086,6 +2102,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     gInsets.attr('class', `l-insets${T.k > 1.3 ? ' away' : ''}`);
     $('#lighter-row').hidden = state.borders !== 'both';
     if (V.physical) styleGL();
+    const ds = dotStyle(); // the Alaska/Hawaii boxes' dots, in the chosen style
+    gInsets.selectAll('circle.dot').attr('r', (d) => dotBase(d) * 1.1).style('fill-opacity', ds.alpha).style('stroke', ds.alpha === 1 ? 'var(--map-halo)' : 'none').style('stroke-width', 0.7);
     readPalette();
     requestDraw();
     buildLabels();

@@ -135,10 +135,13 @@ Done in this round:
   names are laid out once per zoom step (`levelLayout`, two steps per doubling) over the whole map, not over what's on
   screen; panning only slides them, and a name shows when ≥85% of it is on screen and it isn't under the panel, zoom
   buttons or inset boxes. A shetach bigger than a screen repeats its name in a fixed grid of tiles (`levelRepeats`,
-  tile 0.6× the screen's short side, ≥340 px; repeats ≥0.6 tile apart), worked out as tiles come into view and kept.
+  tile 0.6× the screen's short side, ≥340 px; repeats at least the screen's long side apart, so a name never shows twice on one screen — Oct 3, the owner's
+  phone showed Western Pennsylvania twice), worked out as tiles come into view and kept.
   The cache resets when labels are rebuilt (mode, borders, language, resize). `labelAt` on a shetach: the spot its name
   aims for on the page too (India: [78.9, 21.6], mid mainland). During a zoom names scale smoothly (`fontScale`) and
   the step's layout replaces them when it ends (~50–250 ms headless desktop for a new step).
+- **Dots** (More options → Dots, Oct 3): **Solid** (default; small, opaque, a hairline of the background around each so a
+  cluster reads as a cluster), **See-through** (same size, 60%), **Classic** (the first dots: bigger, 42%). `DOT_STYLES`.
 - Defaults: **World view, Political map** (Oct 2, the owner); the physical map loads quietly in the background right after, so picking it is instant.
 - Data: flagship centers for 100 of 108 world shetachim from the owner's `data/world-flagship-centers.txt` (not in
   chabad.org's data, so no star: Crimea, Sri Lanka, Belize, Honduras, Bolivia, New Zealand, Panama (Beth El), Qatar
@@ -230,7 +233,9 @@ Later in the same round:
   county staircase ("just makes it look bad") and wanted the original back with straight-ish lines: the shapes in
   `data/shapes/ohio-{toledo,northeast,central,southern}.geojson` are the original map's regions with each inner
   border straightened — Toledo's (Michigan's) whole southern border is one due east–west line (41.03°N, parallel to the Michigan line) from Indiana to the
-  Northeast corner (owner, Oct 3: "properly straight", not the diagonal first tried), its border with the Northeast and the Southern–Central border are single straight lines, the
+  Northeast corner (owner, Oct 3: "properly straight", not the diagonal first tried), its border with the Northeast runs due north from that corner to the lake, west of Port Clinton
+  (so the Marblehead peninsula isn't cut off on Toledo's side), the Southern–Central border is one straight line; the
+  lines are carried out past Ohio's outline so every bit of shore and island falls cleanly on one side, the
   Central–Northeast border a few straight segments that keep Central's big bulge east into the Alevsky shetach (made
   by straightening the shared lines and re-tiling; no center changes region vs the original map). Regions: **Northeast Ohio** (`northeast-ohio`, "Alevsky family"; Cleveland, Akron,
   Youngstown, Canton, east and south to Athens and Marietta), **Central Ohio** (`central-ohio`, Areyah Kaltmann;

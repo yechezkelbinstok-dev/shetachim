@@ -142,7 +142,7 @@ Done in this round:
   the step's layout replaces them when it ends (~50–250 ms headless desktop for a new step).
 - **Ukraine's towns** use the names the Chabad kehillos there use, the Russian ones (Oct 3: Kiev, Dnepr, Lvov, Kharkov,
   Zaporozhye…): `UA_NAMES` in build-data renames both the centers' towns and the GeoNames cities, so Kyiv/Kiev and
-  Dnipro/Dnepropetrovsk are one city each.
+  Dnipro/Dnepropetrovsk are one city each. Except Khmelnytskyi, which keeps its modern name (the owner: its kehilla uses it).
 - **Dots** (More options → Dots / Dot color, Oct 3): **Solid** (default; small — radius 1.05 + 0.35·log2(centers) at the
   framed view, the owner wants them small — opaque, with a thin edge so a cluster reads as a cluster), **See-through**
   (same, 42% like classic), **Classic** (the first dots: bigger, navy, 42%). Colour for solid/see-through: Gold

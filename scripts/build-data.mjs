@@ -267,9 +267,10 @@ function locate(idx, x, y) {
 
 // Ukraine's towns by the names the Chabad kehillos there use — the Russian ones (the owner, Oct 3: "Kiev and Dnepr"):
 // for the centers' towns (chabad.org lists some both ways, "Kyiv" and "Kiev") and the GeoNames cities on the map.
+// Khmelnytskyi keeps its modern name, as its kehilla does.
 const UA_NAMES = {
   Kyiv: 'Kiev', Dnipro: 'Dnepr', Dnipropetrovsk: 'Dnepr', Dnepropetrovsk: 'Dnepr', Lviv: 'Lvov', Kharkiv: 'Kharkov',
-  Khmelnytskyi: 'Khmelnitsky', "Khmel'nyts'kyy": 'Khmelnitsky', Zaporizhzhia: 'Zaporozhye', Zaporizhia: 'Zaporozhye',
+  "Khmel'nyts'kyy": 'Khmelnytskyi', Zaporizhzhia: 'Zaporozhye', Zaporizhia: 'Zaporozhye',
   Mykolaiv: 'Nikolayev', Luhansk: 'Lugansk', Zhytomyr: 'Zhitomir', Chernihiv: 'Chernigov', Chernivtsi: 'Chernovtsy',
   Rivne: 'Rovno', Ternopil: 'Ternopol', Kropyvnytskyi: 'Kirovograd', Uzhhorod: 'Uzhgorod', 'Ivano-Frankivsk': 'Ivano-Frankovsk',
   'Kryvyi Rih': 'Krivoy Rog', Kremenchuk: 'Kremenchug', 'Bila Tserkva': 'Belaya Tserkov', Berdychiv: 'Berdichev',

@@ -587,6 +587,8 @@ The owner got very angry at the first version. The lessons:
   policy (cloud environment menu → Edit, in the session's title bar) can be widened to a specific
   host if a source is worth reaching directly next time, or the owner can download a file and hand
   it over the way `data/raw/chabad-personnel.json` works.
+- Before every push: syntax-check web/index.html's scripts and load it headless — a `// comment` inside a one-line
+  template expression once blanked the whole site (Oct 3).
 - Testing: headless Chromium is at `/opt/pw-browsers`, and the global `playwright` package is
   installed. Chromium doesn't trust the proxy CA, so serve the repo with `page.route`, answer
   cdnjs URLs from local npm copies (`npm install d3@7.9.0 topojson@3.0.2 maplibre-gl@4.7.1` in a

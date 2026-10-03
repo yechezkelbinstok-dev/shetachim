@@ -97,6 +97,8 @@ html[lang="he"] .lab-secondary { font-style: oblique 14deg; font-weight: 400; }
 .mk-lab { font: 500 12px var(--font-ui); fill: var(--map-ink); dominant-baseline: central;
   paint-order: stroke; stroke: var(--map-halo); stroke-width: 3px; stroke-opacity: .8; stroke-linejoin: round; }
 .physical .mk-lab { stroke-opacity: .95; }
+/* a city big on screen: the name on the city itself, no dot (as on Google Maps) */
+.mk-lab-big { font-weight: 600; }
 
 .l-insets { transition: transform .25s; }
 .l-insets.away { transform: scale(.6); } /* zoomed in: the boxes shrink into their corner, never vanish */
@@ -1484,6 +1486,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     };
     marks = [];
     taken.push(...stars.map((st) => st.box));
+    // As on Google Maps: a city is a dot with its name beside it until it's big on screen; then the dot goes and the name
+    // sits on the city itself (above its star if it has one). No city outlines here, so its size comes from its
+    // population: about 4 km across for 100,000 people, 12 km for a million, at most 30 km.
+    const cityKm = (c) => clamp(0.012 * Math.sqrt(c.pop || c.centers * 5000), 1.5, 30);
+    const BIG_PX = 22; // half-width on screen from which a city counts as big
     if (state.cities) {
       const px = V.pxPerKm * T.k, least = CITY_DENSITY / (px * px);
       for (const c of V.cities) {
@@ -1493,8 +1500,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         const ring = [sx - 4, sy - 4, sx + 4, sy + 4];
         // A city right at a capital's star is marked by the star, with the city's name beside it.
         const star = stars.find((st) => !st.city && overlaps(ring, [st.box]));
+        const big = cityKm(c) * px >= BIG_PX;
+        if (big && !star) {
+          const w = c.widths[0] * 1.08, h = MARK_FONT + 3, box = [sx - w / 2 - 2, sy - h / 2, sx + w / 2 + 2, sy + h / 2];
+          if (box[0] < -M || box[2] > W + M || box[1] < -M || box[3] > H + M || overlaps(box, taken)) continue;
+          taken.push(box);
+          marks.push({ kind: 'city', c, at: { dx: 0, dy: 0, anchor: 'middle', box }, text: c.texts[0], big: true });
+          continue;
+        }
         if (star) {
-          const at = spot(star.sx, star.sy, star.r + 2, c.widths[0]);
+          const at = big ? (() => { const h = MARK_FONT + 2, w = c.widths[0] * 1.08, dy = -star.r - 3 - h / 2, box = [star.sx - w / 2 - 2, star.sy + dy - h / 2, star.sx + w / 2 + 2, star.sy + dy + h / 2]; return overlaps(box, taken) ? spot(star.sx, star.sy, star.r + 2, c.widths[0]) : { dx: 0, dy, anchor: 'middle', box, big: true }; })()
+            : spot(star.sx, star.sy, star.r + 2, c.widths[0]);
           if (!at) continue;
           star.city = c;
           taken.push(at.box);
@@ -1513,8 +1529,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     for (const m of marks) {
       const g = gMarks.append('g').attr('class', 'mk').datum(m);
       if (m.kind === 'cap') g.append('path').attr('class', 'mk-cap').attr('d', m.c.world ? WORLD_STAR : STAR).attr('transform', `scale(${m.f})`);
-      else if (!m.anchor) g.append('circle').attr('class', 'mk-city').attr('r', 3);
-      if (m.at) g.append('text').attr('class', 'mk-lab').attr('x', m.at.dx).attr('y', m.at.dy).attr('text-anchor', m.at.anchor).text(m.text);
+      else if (!m.anchor && !m.big) g.append('circle').attr('class', 'mk-city').attr('r', 3);
+      if (m.at) g.append('text').attr('class', m.big || m.at.big ? 'mk-lab mk-lab-big' : 'mk-lab').attr('x', m.at.dx).attr('y', m.at.dy).attr('text-anchor', m.at.anchor).text(m.text);
     }
   }
 

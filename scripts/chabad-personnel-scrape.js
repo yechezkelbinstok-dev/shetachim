@@ -11,7 +11,9 @@
 // data/raw/chabad-centers.json when this script was made — rerun scripts/build-data.mjs's
 // export if the centers list has since changed and you want everyone covered).
 //
-// chabad.org rate-limits (HTTP 429), so requests go one at a time and slow down whenever the
+// It first tries 50 centers per request (if the API takes a list of ids; a few minutes in all); otherwise it goes
+// center by center, 4 requests side by side (about half an hour).
+// chabad.org rate-limits (HTTP 429), so requests slow down whenever the
 // site pushes back. Progress is saved in this browser (IndexedDB): if the tab is reloaded or
 // the run is stopped, pasting the script again resumes where it left off.
 //   savePersonnel()   download what has been collected so far
@@ -151,8 +153,7 @@
 
   // One center's personnel, in the order the record lists them (the first non-deceased one is
   // the primary shliach); [] if the record has none.
-  function extract(json) {
-    const d = json && json.data;
+  function extract(json, d = json && json.data) {
     if (!d || !d.relationships) return [];
     const order = ((d.relationships.personnel && d.relationships.personnel.data) || []).map((r) => r.id);
     const people = new Map((json.included || []).filter((inc) => inc.type === 'person').map((inc) => [inc.id, inc.attributes || {}]));
@@ -172,19 +173,62 @@
   const t0 = Date.now();
   const mins = () => ((Date.now() - t0) / 60000).toFixed(1);
 
-  while (!stopped && S.next < IDS.length) {
-    const id = IDS[S.next];
-    const json = await getJSON(`${API}/${encodeURIComponent(id)}?${Q}`);
-    if (json !== undefined) {
-      const people = extract(json);
-      if (people.length) { S.personnel[id] = people; S.stats.withPersonnel++; }
-      S.next++;
-    } // a failed id (undefined) is retried on resume — don't advance
-    await sleep(delay);
-    if (S.next % 25 === 0) {
-      await persist();
-      log(`${S.next}/${IDS.length} centers (${S.stats.withPersonnel} with personnel) — 1 request every ${(delay / 1000).toFixed(1)}s (${mins()} min this session)`);
+  // Fast path: many centers per request, if chabad.org's API takes a list of ids (JSON:API filter) and includes their
+  // personnel. Tried once with a few known ids; if the answer holds several centers with personnel, the whole list goes
+  // 50 at a time (~85 requests, a few minutes).
+  const BATCH = 50;
+  const batchURLs = (ids) => [
+    `${API}?filter[id]=${ids.join(',')}&include=personnel&page[size]=${ids.length}&${Q}`,
+    `${API}?filter[ids]=${ids.join(',')}&include=personnel&page[size]=${ids.length}&${Q}`,
+    `${API}?ids=${ids.join(',')}&include=personnel&${Q}`,
+  ];
+  let batchForm = S.batchForm;
+  if (batchForm === undefined && S.next < IDS.length) {
+    const probe = IDS.slice(S.next, S.next + 10);
+    batchForm = -1;
+    for (let f = 0; f < 3 && batchForm < 0; f++) {
+      const json = await getJSON(batchURLs(probe)[f]);
+      const list = json && Array.isArray(json.data) ? json.data.filter((d) => probe.includes(+d.id)) : [];
+      if (list.length >= 2 && list.some((d) => extract(json, d).length)) batchForm = f;
     }
+    S.batchForm = batchForm;
+    log(batchForm >= 0 ? `fast mode: ${BATCH} centers per request` : 'fast mode not available; going center by center, 4 at a time');
+  }
+
+  if (batchForm >= 0) {
+    while (!stopped && S.next < IDS.length) {
+      const ids = IDS.slice(S.next, S.next + BATCH);
+      const json = await getJSON(batchURLs(ids)[batchForm]);
+      if (json && Array.isArray(json.data)) {
+        for (const d of json.data) {
+          const people = extract(json, d);
+          if (people.length && ids.includes(+d.id)) { S.personnel[d.id] = people; S.stats.withPersonnel++; }
+        }
+        S.next += ids.length;
+      }
+      await persist();
+      log(`${S.next}/${IDS.length} centers (${S.stats.withPersonnel} with personnel) — ${mins()} min`);
+      await sleep(delay);
+    }
+  } else {
+    // Center by center, 4 requests side by side; each worker slows down when chabad.org pushes back. Ids whose request
+    // failed are kept and tried again at the end (and on the next paste).
+    S.retry = S.retry || [];
+    let done = 0;
+    const take = () => (S.next < IDS.length ? IDS[S.next++] : S.retry.length ? S.retry.shift() : null);
+    const worker = async () => {
+      for (let id = take(); id !== null && !stopped; id = take()) {
+        const json = await getJSON(`${API}/${encodeURIComponent(id)}?${Q}`);
+        if (json === undefined) S.retry.push(id);
+        else { const people = extract(json); if (people.length) { S.personnel[id] = people; S.stats.withPersonnel++; } }
+        if (++done % 50 === 0) {
+          await persist();
+          log(`${S.next}/${IDS.length} centers (${S.stats.withPersonnel} with personnel) — ${mins()} min, ${S.retry.length} to retry`);
+        }
+        await sleep(delay);
+      }
+    };
+    await Promise.all([worker(), worker(), worker(), worker()]);
   }
 
   await persist();

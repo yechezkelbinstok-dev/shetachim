@@ -22,13 +22,13 @@
 <main>
   <h1>Collect the shluchim from chabad.org</h1>
   <p>chabad.org lists who runs each center only on that center's own record, and only to a normal browser. This collects
-    all of them (about 4,200 centers) into one file for the map. It needs a <b>computer</b> (a phone browser has no console).</p>
+    all of them (about 4,200 centers) into one file — usually in minutes, at most about half an hour — for the map. It needs a <b>computer</b> (a phone browser has no console).</p>
   <ol>
     <li>Press <button id="copy" type="button">Copy the script</button><span id="status"></span></li>
     <li>Open <a href="https://www.chabad.org/jewish-centers/" target="_blank" rel="noopener">chabad.org/jewish-centers</a> in a new tab.</li>
     <li>Open the browser console: <code>F12</code> (or <code>Ctrl+Shift+J</code>; on a Mac <code>Cmd+Option+J</code>) and pick the <b>Console</b> tab.</li>
     <li>Paste (<code>Ctrl+V</code>) and press <code>Enter</code>. Chrome may first ask you to type <code>allow pasting</code>; type it, press Enter, then paste again.</li>
-    <li>Leave the tab open. It goes one center at a time and slows down whenever chabad.org asks it to, so it can take a few hours. It shows its progress in the console.</li>
+    <li>Leave the tab open. It first tries a fast way (50 centers per request — a few minutes). If chabad.org doesn't allow that, it goes 4 centers at a time and slows down whenever chabad.org asks it to — usually about half an hour. It shows its progress in the console.</li>
     <li>When it's done it downloads <code>chabad-personnel.json</code>. Send me that file and I'll put it on the map.</li>
   </ol>
   <p class="note">If the tab closes or the computer sleeps, open chabad.org again and paste the script again: it picks up where it stopped.

@@ -140,6 +140,12 @@ Done in this round:
   The cache resets when labels are rebuilt (mode, borders, language, resize). `labelAt` on a shetach: the spot its name
   aims for on the page too (India: [78.9, 21.6], mid mainland). During a zoom names scale smoothly (`fontScale`) and
   the step's layout replaces them when it ends (~50–250 ms headless desktop for a new step).
+- **Cities with shluchim** (build-data `buildCities`): a center town that GeoNames doesn't have by that name is matched,
+  Oct 3, to a place spelled nearly the same within 8 km (keeping chabad.org's spelling: Be'er Sheva, Petach Tikva),
+  else to the 500,000+ city within 10 km it's a neighbourhood of (Jabi → Abuja, Victoria Island → Lagos, Capital
+  Federal → Buenos Aires, Praha 1 → Prague). Unmatched went from 434 to ~315 (small Israeli towns mostly; they still
+  show by their centers, 5,000 "people" per center). `CITY_NAMES` keeps the Chabad houses' spellings (Kishinev,
+  Cologne, Gothenburg).
 - **Ukraine's towns** use the names the Chabad kehillos there use, the Russian ones (Oct 3: Kiev, Dnepr, Lvov, Kharkov,
   Zaporozhye…): `UA_NAMES` in build-data renames both the centers' towns and the GeoNames cities, so Kyiv/Kiev and
   Dnipro/Dnepropetrovsk are one city each. Except Khmelnytskyi, which keeps its modern name (the owner: its kehilla uses it).

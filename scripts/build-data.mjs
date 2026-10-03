@@ -279,6 +279,8 @@ const UA_NAMES = {
   Odesa: 'Odessa', Mariupol: 'Mariupol', Sevastopol: 'Sevastopol', Simferopol: 'Simferopol',
 };
 const uaName = (n) => UA_NAMES[n] || n;
+// GeoNames' local spellings, as the Chabad houses there write them
+const CITY_NAMES = { Chisinau: 'Kishinev', Mykolayiv: 'Nikolayev', Köln: 'Cologne', Göteborg: 'Gothenburg' };
 
 function normalize(raw, extra = false) {
   const c = raw.coordinates || {};
@@ -362,7 +364,7 @@ function suspectReason(dot) {
 // chabad.org writes Saint, San, Santa, Sainte and South all as "S." (S. Diego, S. Euclid, Rancho S. Fe).
 // GeoNames spells St., Mt. and Ft. out, and accents are dropped on both sides.
 const SPELLED = { st: 'saint', ste: 'sainte', mt: 'mount', ft: 'fort' };
-const S_WORDS = ['saint', 'san', 'santa', 'sainte', 'south'];
+const S_WORDS = ['saint', 'san', 'santa', 'sainte', 'south', 'sao'];
 const words = (s) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/['’]/g, '').toLowerCase()
   .split(/[^a-z]+/).filter(Boolean).map((w) => SPELLED[w] || w);
 const placeKey = (s) => words(s).join('');
@@ -422,14 +424,47 @@ function buildCities(dots) {
     }
     return null;
   }
+  // No place by that name: chabad.org often lists a neighbourhood (Abuja's center is in "Jabi", Lagos's on "Victoria
+  // Island", Buenos Aires's "Capital Federal") or its own spelling (Be'er Sheva, Petach Tikva, Milano). So: a place
+  // spelled nearly the same within 8 km (keeping chabad.org's spelling, which the Hebrew names follow); else the big
+  // city (500,000+) within 10 km that the neighbourhood is part of.
+  const lev = (a, b) => {
+    const d = Array.from({ length: b.length + 1 }, (_, j) => j);
+    for (let i = 1; i <= a.length; i++) {
+      let prev = d[0]; d[0] = i;
+      for (let j = 1; j <= b.length; j++) { const t = d[j]; d[j] = Math.min(d[j] + 1, d[j - 1] + 1, prev + (a[i - 1] === b[j - 1] ? 0 : 1)); prev = t; }
+    }
+    return d[b.length];
+  };
+  const alike = (a, b) => a.length >= 4 && b.length >= 4 && ((a.startsWith(b) || b.startsWith(a)) || 1 - lev(a, b) / Math.max(a.length, b.length) >= 0.72);
+  const near = (mid, km, ok) => {
+    let best = null;
+    for (const p of geonames) {
+      const [lon, lat] = p.loc.coordinates;
+      if (Math.abs(lat - mid.lat) > km / 100 || Math.abs(lon - mid.lon) > km / 60) continue;
+      if (!ok(p)) continue;
+      const d = metersBetween(mid, { lat, lon }) / 1000;
+      if (d <= km && (!best || d < best.d)) best = { p, d };
+    }
+    return best && best.p;
+  };
+  const fallback = (g, mid) => {
+    const keys = [...new Set(g.names.map(placeKey))];
+    const sameRegion = (p) => !UNIT_ISO.includes(g.country) ? !UNIT_ISO.includes(p.country) : regionOf(p) === g.region;
+    const spelled = near(mid, 8, (p) => sameRegion(p) && p.population >= 1000 && keys.some((k) => alike(k, placeKey(p.name)) || (p.altName && alike(k, placeKey(p.altName)))));
+    if (spelled) return { p: spelled, keepName: true };
+    const city = near(mid, 10, (p) => sameRegion(p) && p.population >= 500000);
+    return city ? { p: city, keepName: false } : null;
+  };
   const cities = [], byPlace = new Map(); // one city for "S. Diego" and "San Diego" listings
   for (const g of groups.values()) {
     const mid = { lat: median(g.at.map((d) => d.lat)), lon: median(g.at.map((d) => d.lon)) };
-    const p = match(g, mid);
+    let p = match(g, mid), keepName = false;
+    if (!p) { const f = fallback(g, mid); if (f) ({ p, keepName } = f); }
     if (p && byPlace.has(p.cityId)) { byPlace.get(p.cityId).centers += g.names.length; continue; }
     const [lon, lat] = p ? p.loc.coordinates : [mid.lon, mid.lat];
     const city = {
-      name: p ? p.name.replace(/ Township$| \(.*\)$/, '') : count(g.names, (n) => n)[0][0],
+      name: p && !keepName ? (CITY_NAMES[p.name] || p.name).replace(/ Township$| \(.*\)$/, '') : count(g.names, (n) => n)[0][0],
       region: g.region, country: g.country, lat: +lat.toFixed(5), lon: +lon.toFixed(5),
       pop: p ? p.population : 0, centers: g.names.length, unmatched: p ? undefined : true,
     };

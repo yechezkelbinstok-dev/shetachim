@@ -465,7 +465,8 @@ The owner got very angry at the first version. The lessons:
     `scripts/chabad-personnel-scrape.js`, run by hand in a browser console (this sandbox can't reach
     chabad.org): paste it on a chabad.org tab, it downloads `chabad-personnel.json` when done (it's
     slow — one request per center, rate-limited by the site — and resumable if stopped partway).
-    Drop the file at `data/raw/chabad-personnel.json` and rebuild. If `chabad-centers.json` is ever
+    Drop the file at `data/raw/chabad-personnel.json` and rebuild. `web/personnel.html` (on Pages) walks the owner
+    through it with a copy button. If `chabad-centers.json` is ever
     re-scraped, run `node scripts/gen-personnel-ids.mjs` first to refresh the id list the scraper covers.
   - Blank areas (no shetach): no fill, no label; their card shows the state.
   - If the physical map can't load (no WebGL, or the tiles are blocked, as in a Claude artifact),

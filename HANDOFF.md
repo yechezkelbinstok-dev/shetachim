@@ -100,6 +100,23 @@ translated in the page (`HE_TEXT`). "Last name" mode uses the Hebrew surname (ש
 it out by the English name's word count). The name SVGs have Hebrew copies (`world-names-he`, `na-names-he` in
 export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn right to left (`visual()`).
 
+## PERSONNEL — collected Oct 3, NOT YET BUILT (do this next)
+- `data/raw/chabad-personnel.json` is in (commit `9077cb8`): all 4,220 chabad.org centers checked, 0 errors;
+  3,764 have personnel listed (3,734 with at least one living person). Format:
+  `{ meta, personnel: { "<centerId>": [{ title, firstName, lastName, position, isDirector, isDeceased }, …] } }` —
+  exactly what `scripts/build-data.mjs` (~line 1118) already reads; no code changes needed.
+- **chabad.org's API is reachable from the sandbox now** (the site's HTML pages still get a Cloudflare challenge, but
+  `/api/v2/chabadorg/centers/<id>?format=jsonapi&lang=en` answers 200). So `node scripts/chabad-personnel-fetch.mjs`
+  (commit `d93b393`) collects it straight from Node in ~4 minutes: one request per center, 4 at a time, pausing on
+  429s, resumable from the output file. The browser collector (`chabad-personnel-scrape.js`, `web/personnel.html`)
+  is no longer needed. Its batch guess doesn't work: the list endpoint ignores `filter[id]`/`filter[ids]` (returns all
+  4,220) and carries no relationships or `included`, so personnel is only per center.
+- These commits were made on `claude/exciting-euler-o7vx0z` (one step ahead of `claude/bold-albattani-aqfnj9`). To
+  finish: on the live branch, `git fetch origin claude/exciting-euler-o7vx0z && git merge
+  origin/claude/exciting-euler-o7vx0z`, then `npm install && npm run build && npm run hebrew`, check the cards
+  (first living person as the shliach, the rest under "+more"), commit `web/data/`, and push to
+  `claude/bold-albattani-aqfnj9`.
+
 ## LATEST (Sept 30 – Oct 1) — read before "RIGHT NOW" below
 
 Done in this round:
@@ -462,8 +479,8 @@ The owner got very angry at the first version. The lessons:
   - Any center's card can show who's listed there — the first (living) person as the shliach, the
     rest under "+more" — from `data/raw/chabad-personnel.json` (optional; the map works without it).
     It isn't on chabad.org's bulk locator data, only on each center's own record, so it comes from
-    `scripts/chabad-personnel-scrape.js`, run by hand in a browser console (this sandbox can't reach
-    chabad.org): paste it on a chabad.org tab, it downloads `chabad-personnel.json` when done (it's
+    `scripts/chabad-personnel-fetch.mjs` (Node, since Oct 3 — see PERSONNEL above), or the older
+    `scripts/chabad-personnel-scrape.js`, run by hand in a browser console: paste it on a chabad.org tab, it downloads `chabad-personnel.json` when done (it's
     slow — one request per center, rate-limited by the site — and resumable if stopped partway).
     Drop the file at `data/raw/chabad-personnel.json` and rebuild. `web/personnel.html` (on Pages) walks the owner
     through it with a copy button. The collector tries a batch request first (`filter[id]=…&include=personnel`, 50 ids;

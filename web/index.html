@@ -2026,7 +2026,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const woman = !primary && living.find((p) => !isMale(p) && p.lastName);
     const widowed = woman && passed.some(isMale);
     const head = primary ? personLine(primary) : widowed ? esc(HE ? `משפחת ${woman.lastName}` : `${woman.lastName} family`) : woman ? personLine(woman) : '';
-    const others = living.filter((p) => p !== primary && !(woman && p === woman && (!widowed || !living.some((q) => q !== woman))));
+    const others = living.filter((p) => p !== primary && !(woman && !widowed && p === woman)); // under "<name> family" she's still listed
     const more = others.length
       ? `<details class="personnel"><summary>+${others.length} ${HE ? 'נוספים' : 'more'}</summary>${others.map((p) => `<div class="pother">${personLine(p)}</div>`).join('')}</details>` : '';
     const obm = passed.length

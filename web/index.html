@@ -1995,8 +1995,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const capKicker = (c) => (c.world ? tr('World Headquarters') : (HE ? `המוסד המרכזי של ${esc(c.s.name)}` : `${esc(c.s.name)} flagship center`) + (c.for ? ` · ${esc(c.for)}` : ''));
 
   // Who's listed at a center (chabad.org's own listing, or ours for unlisted centers). The owner's rule: the shliach shown
-  // is the first man listed who's alive (a woman listed first, or a man who has passed away, is passed over); with no
-  // living man, "<last name> family" from a living woman. Everyone else alive goes under "+more"; anyone who has passed
+  // is the first man listed who's alive (a woman listed first, or a man who has passed away, is passed over). With no
+  // living man: where a man listed has passed away (her husband), "<last name> family" from the living woman; where
+  // only women are listed (a mikvah Mrs. Axelrod runs), the first woman by name. Everyone else alive goes under "+more"; anyone who has passed
   // away in a "Deceased" section, each with obm / ע״ה after the name. Men and women are told apart by title (Mrs., Ms., Miss, Rebbetzin = women).
   const FEMALE = /^(mrs|ms|miss|rebbetzin|rebbitzen|mme|madame|sra|frau)\.?$/i;
   const isMale = (p) => !FEMALE.test((p.title || '').trim());
@@ -2007,8 +2008,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const living = list.filter((p) => !p.isDeceased), passed = list.filter((p) => p.isDeceased);
     const primary = living.find(isMale);
     const woman = !primary && living.find((p) => !isMale(p) && p.lastName);
-    const head = primary ? personLine(primary) : woman ? esc(HE ? `משפחת ${woman.lastName}` : `${woman.lastName} family`) : '';
-    const others = living.filter((p) => p !== primary && !(woman && p === woman && !living.some((q) => q !== woman)));
+    const widowed = woman && passed.some(isMale);
+    const head = primary ? personLine(primary) : widowed ? esc(HE ? `משפחת ${woman.lastName}` : `${woman.lastName} family`) : woman ? personLine(woman) : '';
+    const others = living.filter((p) => p !== primary && !(woman && p === woman && (!widowed || !living.some((q) => q !== woman))));
     const more = others.length
       ? `<details class="personnel"><summary>+${others.length} ${HE ? 'נוספים' : 'more'}</summary>${others.map((p) => `<div class="pother">${personLine(p)}</div>`).join('')}</details>` : '';
     const obm = passed.length

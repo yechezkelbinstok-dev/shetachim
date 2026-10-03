@@ -159,7 +159,8 @@ Done in this round:
   the step's layout replaces them when it ends (~50–250 ms headless desktop for a new step).
 - **Shluchim on center cards — the owner's rule** (Oct 3; `personnelHTML` in web/index.html): the shliach shown is the
   first man listed who's alive — a woman listed first, or a man who has passed away (obm), is passed over. With no
-  living man: "<last name> family" from the living woman. Everyone else alive goes under "+N more"; anyone who has
+  living man: if a man listed has passed away (her husband), "<last name> family" from the living woman; if only women
+  are listed (e.g. Mrs. Chana Axelrod's mikvah in Ukraine), the first woman by name (owner, Oct 3). Everyone else alive goes under "+N more"; anyone who has
   passed away in a separate "Deceased" (נפטרו) section, each name followed by obm / ע״ה (obm goes after a name,
   never as a heading). Men/women by chabad.org's title (Mrs., Ms., Miss,
   Rebbetzin = women). Names are shown without titles (no "Rabbi"). Data: `data/raw/chabad-personnel.json` (chabad.org `/api/v2/chabadorg/centers/<id>` personnel;

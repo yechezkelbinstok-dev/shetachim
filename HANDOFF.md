@@ -147,8 +147,11 @@ Done in this round:
   60%: the Caribbean, Indonesia) aim at the hull's centre and size for the spread. Biggest areas on screen go first.
   **Fixed like a map site** (Oct 2, the owner: names changing as you move "should be the same way … Google maps"):
   names are laid out once per zoom step (`levelLayout`, two steps per doubling) over the whole map, not over what's on
-  screen; panning only slides them, and a name shows when ≥85% of it is on screen and it isn't under the panel, zoom
-  buttons or inset boxes. A shetach bigger than a screen repeats its name in a fixed grid of tiles (`levelRepeats`,
+  screen; panning only slides them. Oct 3 ("names only render when you load that part"): names (and city names, stars)
+  are kept a full screen beyond every edge (the screen clips them), refreshed every ≤120 ms while the map moves
+  (`livePlace`), names keep their size during a zoom, and the zoom steps either side are worked out in idle time
+  (`prefetchLevels`), so nothing pops in when the map stops. Only the Alaska/Hawaii boxes hide names; the panel just
+  covers them. A shetach bigger than a screen repeats its name in a fixed grid of tiles (`levelRepeats`,
   tile 0.6× the screen's short side, ≥340 px; repeats at least the screen's long side apart, so a name never shows twice on one screen — Oct 3, the owner's
   phone showed Western Pennsylvania twice), worked out as tiles come into view and kept.
   The cache resets when labels are rebuilt (mode, borders, language, resize). `labelAt` on a shetach: the spot its name

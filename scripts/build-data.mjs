@@ -296,6 +296,7 @@ function normalize(raw, extra = false) {
     approx: !!raw['location-is-approximate'] || undefined,
     unlisted: extra || undefined,
     note: raw.note || undefined,
+    personnel: extra && raw.personnel ? raw.personnel : undefined, // an unlisted center's rabbi, from its own listing
     pageId: raw.pageId || undefined, // an unlisted dot that shares a chabad.org page with a listed one
     ...(extra && raw.slug ? { slug: raw.slug } : {}),
   };

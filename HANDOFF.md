@@ -151,8 +151,8 @@ Done in this round:
   Dnipro/Dnepropetrovsk are one city each. Except Khmelnytskyi, which keeps its modern name (the owner: its kehilla uses it).
 - **Dots** (More options → Dots / Dot color, Oct 3): **Solid** (default; small — radius 1.05 + 0.35·log2(centers) at the
   framed view, the owner wants them small — opaque, with a thin edge so a cluster reads as a cluster), **See-through**
-  (same, 42% like classic), **Classic** (the first dots: bigger, navy, 42%). Colour for solid/see-through: Gold
-  (default), Red, Black, Navy, Green, Purple (`DOT_COLORS`: light and dark-map shades; dark edge under gold, white
+  (same, 42% like classic), **Classic** (the first dots: bigger, navy, 42%). Colour for solid/see-through: Navy
+  (default since Oct 3, the owner), Gold, Red, Black, Green, Purple (`DOT_COLORS`: light and dark-map shades; dark edge under gold, white
   under the others, the background on the dark map; `setDotColors` puts them on #app).
 - Defaults: **World view, Political map** (Oct 2, the owner); the physical map loads quietly in the background right after, so picking it is instant.
 - Data: flagship centers for 100 of 108 world shetachim from the owner's `data/world-flagship-centers.txt` (not in

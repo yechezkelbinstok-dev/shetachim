@@ -145,7 +145,7 @@ Done in this round:
   living man: "<last name> family" from the living woman. Everyone else alive goes under "+N more"; anyone who has
   passed away in a separate "Deceased" (נפטרו) section, each name followed by obm / ע״ה (obm goes after a name,
   never as a heading). Men/women by chabad.org's title (Mrs., Ms., Miss,
-  Rebbetzin = women). Data: `data/raw/chabad-personnel.json` (chabad.org `/api/v2/chabadorg/centers/<id>` personnel;
+  Rebbetzin = women). Names are shown without titles (no "Rabbi"). Data: `data/raw/chabad-personnel.json` (chabad.org `/api/v2/chabadorg/centers/<id>` personnel;
   lubavitch.com/centers/<id> has the same names) — not collected yet as of Oct 3 (this environment couldn't reach
   either site; the owner is opening network access).
 - **India** (Oct 3, the owner: "India has a lot more Chabad centers than the locator"): Chabad houses not on chabad.org in

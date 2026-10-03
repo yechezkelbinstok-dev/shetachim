@@ -1986,7 +1986,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // away in a "Deceased" section, each with obm / ע״ה after the name. Men and women are told apart by title (Mrs., Ms., Miss, Rebbetzin = women).
   const FEMALE = /^(mrs|ms|miss|rebbetzin|rebbitzen|mme|madame|sra|frau)\.?$/i;
   const isMale = (p) => !FEMALE.test((p.title || '').trim());
-  const personName = (p) => `${[HE && /^rabbi$/i.test(p.title || '') ? 'הרב' : p.title, p.firstName, p.lastName].filter(Boolean).join(' ')}${p.isDeceased ? (HE ? ' ע״ה' : ' obm') : ''}`;
+  const personName = (p) => `${[p.firstName, p.lastName].filter(Boolean).join(' ')}${p.isDeceased ? (HE ? ' ע״ה' : ' obm') : ''}`;
   const personLine = (p) => `${esc(personName(p))}${p.position ? ` <span class="meta">· ${esc(p.position)}</span>` : ''}`;
   function personnelHTML(list) {
     if (!list || !list.length) return '';

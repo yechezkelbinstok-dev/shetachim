@@ -36,7 +36,7 @@ for f in d:
         row=['USA' if pr['country']=='US' else 'Canada', pr['region'].split('-',1)[-1], c.get('city',''), c['name'], c.get('type',''),
              s.get('name',''), head(s.get('headShliach')), m, o, dd, len(ps), round(lat,5), round(lon,5),
              (f"https://www.chabad.org/jewish-centers/{c.get('pageId') or c['id']}/{c.get('slug','')}" if (c.get('pageId') or c['id']).isdigit() else ''), c['id']]
-        row[5:5]=list(classify(c['name'], c.get('type','')))
+        row[5:5]=list(classify(c['name'], c.get('type',''), c.get('city','')))
         C.append(row)
         for p in ps:
             P.append([row[0],row[1],row[2],c['name'],row[7],p.get('title') or '',p.get('firstName') or '',p.get('lastName') or '',p.get('position') or '','Yes' if p.get('isDirector') else '','Yes' if p.get('isDeceased') else '',c['id']])
@@ -57,7 +57,7 @@ for r in range(2,ws.max_row+1):
     if c.value: c.hyperlink=c.value; c.value='Open'; c.font=Font(name='Arial',size=10,color='0563C1',underline='single')
 sheet(wb.create_sheet('Shluchim'),['Country','State/Province','City','Center','Shetach','Title','First name','Last name','Position','Director','Deceased','Center ID'],P,[9,8,18,42,24,10,16,18,22,8,9,10])
 n=wb.create_sheet('About')
-for line in ['Chabad centers in the USA and Canada, with their shluchim.',f'{len(C)} centers, {len(P)} people listed.','Sources: chabad.org center directory and personnel listings, as used by the Shetachim map.','Main shliach: the first living man listed. If none and a man is listed obm: "<last name> family". If only women: the first woman.','Other shluchim: everyone else alive. Deceased: those listed obm.','Shluchim sheet: one row per person, exactly as chabad.org lists them.','Outreach?: Outreach = a center serving the wider Jewish public (Chabad houses, campus, day schools, preschools, Hebrew schools, camps, etc.). Not outreach = central offices, publishers, stores, libraries and Crown Heights community institutions, plus Lubavitch community schools (cheder, mesivta, yeshiva, girls schools), kollels and seminaries. Borderline = mikvaos, overnight camps, a few others. Sorted by type and name by rule; check the Why column.']: n.append([line])
+for line in ['Chabad centers in the USA and Canada, with their shluchim.',f'{len(C)} centers, {len(P)} people listed.','Sources: chabad.org center directory and personnel listings, as used by the Shetachim map.','Main shliach: the first living man listed. If none and a man is listed obm: "<last name> family". If only women: the first woman.','Other shluchim: everyone else alive. Deceased: those listed obm.','Shluchim sheet: one row per person, exactly as chabad.org lists them.','Outreach?: Outreach = a center serving the wider Jewish public (Chabad houses, campus, day schools, preschools, Hebrew schools, camps, etc.). Not outreach = central offices, publishers, stores, libraries and Crown Heights community institutions, plus Lubavitch community schools (cheder, mesivta, yeshiva, girls schools), kollels and seminaries. Mikvaos count as outreach when run by a shliach, not outreach in Lubavitch communities. Overnight camps are not outreach. Borderline = a few shuls in Lubavitch communities, Michigan Jewish Institute, and similar. Sorted by type and name by rule; check the Why column.']: n.append([line])
 n.column_dimensions['A'].width=110
 for r in n.iter_rows():
     for c in r: c.font=Font(name='Arial',size=10)

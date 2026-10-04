@@ -1,4 +1,5 @@
-import json, re
+import json, re, runpy
+classify = runpy.run_path('scripts/classify-centers.py')['classify']
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment
 from openpyxl.utils import get_column_letter
@@ -35,9 +36,10 @@ for f in d:
         row=['USA' if pr['country']=='US' else 'Canada', pr['region'].split('-',1)[-1], c.get('city',''), c['name'], c.get('type',''),
              s.get('name',''), head(s.get('headShliach')), m, o, dd, len(ps), round(lat,5), round(lon,5),
              (f"https://www.chabad.org/jewish-centers/{c.get('pageId') or c['id']}/{c.get('slug','')}" if (c.get('pageId') or c['id']).isdigit() else ''), c['id']]
+        row[5:5]=list(classify(c['name'], c.get('type','')))
         C.append(row)
         for p in ps:
-            P.append([row[0],row[1],row[2],c['name'],row[5],p.get('title') or '',p.get('firstName') or '',p.get('lastName') or '',p.get('position') or '','Yes' if p.get('isDirector') else '','Yes' if p.get('isDeceased') else '',c['id']])
+            P.append([row[0],row[1],row[2],c['name'],row[7],p.get('title') or '',p.get('firstName') or '',p.get('lastName') or '',p.get('position') or '','Yes' if p.get('isDirector') else '','Yes' if p.get('isDeceased') else '',c['id']])
 C.sort(key=lambda r:(r[0]!='USA',r[1],r[2],r[3])); P.sort(key=lambda r:(r[0]!='USA',r[1],r[2],r[3]))
 wb=Workbook()
 def sheet(ws,hdr,rows,widths):
@@ -49,18 +51,18 @@ def sheet(ws,hdr,rows,widths):
     for cell in ws[1]: cell.fill=PatternFill('solid',fgColor='1F3A5F'); cell.alignment=Alignment(vertical='center')
     ws.freeze_panes='A2'; ws.auto_filter.ref=ws.dimensions
 ws=wb.active; ws.title='Centers'
-sheet(ws,['Country','State/Province','City','Center','Type','Shetach','Head shliach (shetach)','Main shliach','Other shluchim','Deceased','# people listed','Latitude','Longitude','chabad.org page','Center ID'],C,[9,8,18,42,20,24,22,24,40,28,8,10,10,20,10])
+sheet(ws,['Country','State/Province','City','Center','Type','Outreach?','Why','Shetach','Head shliach (shetach)','Main shliach','Other shluchim','Deceased','# people listed','Latitude','Longitude','chabad.org page','Center ID'],C,[9,8,18,42,20,13,24,24,22,24,40,28,8,10,10,20,10])
 for r in range(2,ws.max_row+1):
-    c=ws.cell(r,14)
+    c=ws.cell(r,16)
     if c.value: c.hyperlink=c.value; c.value='Open'; c.font=Font(name='Arial',size=10,color='0563C1',underline='single')
 sheet(wb.create_sheet('Shluchim'),['Country','State/Province','City','Center','Shetach','Title','First name','Last name','Position','Director','Deceased','Center ID'],P,[9,8,18,42,24,10,16,18,22,8,9,10])
 n=wb.create_sheet('About')
-for line in ['Chabad centers in the USA and Canada, with their shluchim.',f'{len(C)} centers, {len(P)} people listed.','Sources: chabad.org center directory and personnel listings, as used by the Shetachim map.','Main shliach: the first living man listed. If none and a man is listed obm: "<last name> family". If only women: the first woman.','Other shluchim: everyone else alive. Deceased: those listed obm.','Shluchim sheet: one row per person, exactly as chabad.org lists them.']: n.append([line])
+for line in ['Chabad centers in the USA and Canada, with their shluchim.',f'{len(C)} centers, {len(P)} people listed.','Sources: chabad.org center directory and personnel listings, as used by the Shetachim map.','Main shliach: the first living man listed. If none and a man is listed obm: "<last name> family". If only women: the first woman.','Other shluchim: everyone else alive. Deceased: those listed obm.','Shluchim sheet: one row per person, exactly as chabad.org lists them.','Outreach?: Outreach = a center serving the wider Jewish public (Chabad houses, campus, day schools, preschools, Hebrew schools, camps, etc.). Not outreach = central offices, publishers, stores, libraries and Crown Heights community institutions, plus Lubavitch community schools (cheder, mesivta, yeshiva, girls schools), kollels and seminaries. Borderline = mikvaos, overnight camps, a few others. Sorted by type and name by rule; check the Why column.']: n.append([line])
 n.column_dimensions['A'].width=110
 for r in n.iter_rows():
     for c in r: c.font=Font(name='Arial',size=10)
 wb.save('exports/us-canada-centers-shluchim.xlsx')
 import csv
 with open('exports/us-canada-centers-shluchim.csv','w',newline='') as fh:
-    w=csv.writer(fh); w.writerow([c.value for c in ws[1]][:13]+['chabad.org page','Center ID']); w.writerows(C)
-print(len(C),len(P),sum(1 for r in C if r[7]), sum(1 for r in C if not r[13]))
+    w=csv.writer(fh); w.writerow([c.value for c in ws[1]][:15]+['chabad.org page','Center ID']); w.writerows(C)
+print(len(C),len(P),sum(1 for r in C if r[9]))

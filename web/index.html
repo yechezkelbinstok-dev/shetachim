@@ -196,8 +196,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   padding: 10px 12px; font-size: 14px; pointer-events: none;
 }
 #card.pinned { pointer-events: auto; }
-#card.pinned > ul:first-child > li:first-child { padding-right: 24px; }
-#card h2 { margin: 0 22px 4px 0; font: 700 16px/1.25 var(--font-ui); text-wrap: balance; }
+#card.pinned > ul:first-child > li:first-child, #card.pinned > .kicker:first-child { padding-inline-end: 26px; }
+#card h2 { margin: 0 0 4px; margin-inline-end: 22px; font: 700 16px/1.25 var(--font-ui); text-wrap: balance; }
 #card .kicker { display: block; font: 600 10px var(--font-map); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
 #card .kicker-world { color: var(--accent); font-weight: 700; }
 #card.world { border-color: var(--accent); box-shadow: var(--shadow), 0 0 0 1px var(--accent); }
@@ -214,7 +214,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card .personnel .pother { font-size: 13px; margin-top: 3px; padding-left: 10px; }
 #card a { color: var(--accent); font-size: 13px; }
 #card .foot { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--panel-line); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 10px; }
-#card .close { position: absolute; top: 6px; right: 6px; width: 26px; height: 26px; border: 0; border-radius: 6px; background: transparent; cursor: pointer; display: none; }
+#card .close { position: absolute; top: 6px; inset-inline-end: 6px; width: 26px; height: 26px; border: 0; border-radius: 6px; background: transparent; cursor: pointer; display: none; }
 #card.pinned .close { display: grid; place-items: center; }
 #card .close:hover { background: var(--accent-soft); }
 #card .zoomto { border: 1px solid var(--panel-line); background: transparent; border-radius: 999px; padding: 2px 10px; font-size: 13px; cursor: pointer; }

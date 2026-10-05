@@ -114,6 +114,10 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
 - Merged into `claude/bold-albattani-aqfnj9` and built (Oct 3); the cards follow the owner's rule (see "Shluchim on
   center cards" above). `web/personnel.html` was removed (the Node fetcher replaces the browser collector).
 
+## CARD WORDING (Oct 5)
+- A family at the head (Alevsky, Pinson, Blumenfeld): "Shluchim: Alevsky family" (שלוחים:) — keep the "Label: name"
+  form; the owner rejected "Led by the Alevsky family" (a sentence, no colon).
+
 ## PERFORMANCE (Oct 5) — keep it this way
 - The owner: panning and zooming the physical map was "so so bad" (low FPS). Causes: names were rebuilt from scratch every
   120 ms while moving (all texts, tspans and city marks recreated), new zoom-step layouts (200–500 ms) ran mid-gesture,
@@ -254,7 +258,7 @@ Later in the same round:
   `notShown`). New panel option **Alaska: In a box / In place** (political map, views with Alaska; default box; the physical
   map is always in place). The page is titled **Chabad Shetachim** (was plain "Shetachim").
 - Alberta's name is centred on Alberta proper (`labelState: "CA-AB"` in the data), not the territories' strip, while Alberta is on screen (>500 px²).
-- Alaska/Hawaii boxes (political map): on a phone the map is framed above the *closed* bar plus a strip for the boxes (opening the sheet never moves the map; names re-place around it); the boxes shrink to 60% when zoomed in, never vanish, have a solid background, and names/cities keep clear of them.
+- Alaska/Hawaii boxes (political map): on a phone the map is framed above the *closed* bar plus a strip for the boxes (opening the sheet never moves the map; names re-place around it); the boxes fade out once zoomed in (Oct 5, the owner was confused by the shrunken ones left on top of the map) and come back at the whole view, have a solid background, and names/cities keep clear of them.
 - Panel: Show, Map, Borders, Labels up front; **More options** (a collapsed `<details id="more">`) holds the Chabad centers / cities / capitals checkboxes, Alaska, Colors. New rarely-used options go there.
 - **Upper Midwest** (owner, Oct 1): North and South Dakota joined Minnesota under Moshe Feller; the shetach is now
   "Upper Midwest" (id `upper-midwest`, territory US-MN, US-ND, US-SD). The North Dakota (Yonah Grossman) and South

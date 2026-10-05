@@ -314,7 +314,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           <label class="check" for="show-dots"><input type="checkbox" id="show-dots" checked> <span class="legend-dot" aria-hidden="true"></span> Chabad centers</label>
           <label class="check" for="show-cities"><input type="checkbox" id="show-cities" checked> <span class="legend-ring" aria-hidden="true"></span> Cities with shluchim</label>
           <label class="check" for="show-capitals"><input type="checkbox" id="show-capitals" checked> <svg class="legend-star" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path id="star-shape"/></svg> Shetach capitals</label>
-          <label class="check" for="show-empty"><input type="checkbox" id="show-empty"> <span class="legend-empty" aria-hidden="true"></span> Land with no shetach</label>
+          <label class="check" for="show-empty"><input type="checkbox" id="show-empty"> <span class="legend-empty" aria-hidden="true"></span> Rest of the world</label>
           </div>
         <fieldset class="ctl" id="dots-ctl">
           <legend>Dots</legend>
@@ -411,7 +411,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'Latin America & Caribbean': 'אמריקה הלטינית והאיים הקריביים',
     Map: 'מפה', Physical: 'פיזית', Political: 'מדינית', Borders: 'גבולות', States: 'מדינות', Countries: 'ארצות', Both: 'שניהם',
     'Lighter:': 'בהיר יותר:', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', 'Last name': 'שם משפחה', Off: 'ללא',
-    'More options': 'אפשרויות נוספות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Land with no shetach': 'אזורים ללא שטח',
+    'More options': 'אפשרויות נוספות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Rest of the world': 'שאר העולם',
     Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד', Dots: 'נקודות', Solid: 'מלאות', 'See-through': 'שקופות', Classic: 'קלאסיות',
     'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
     'Download maps (SVG, PNG)': 'הורדת מפות (SVG, PNG)', 'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
@@ -1353,7 +1353,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     try { return fn(kL); } finally { [T, W, H] = saved; }
   }
   // a placement, kept in map pixels
-  const toMap = (L, spot) => ({ L, id: L.id, show: spot.form, px: spot.size, k0: T.k, mx: (spot.x - T.x) / T.k, my: (spot.y - T.y) / T.k,
+  let placeSeq = 0;
+  const toMap = (L, spot) => ({ L, id: L.id, uid: ++placeSeq, show: spot.form, px: spot.size, k0: T.k, mx: (spot.x - T.x) / T.k, my: (spot.y - T.y) / T.k,
     box: [(spot.box[0] - T.x) / T.k, (spot.box[1] - T.y) / T.k, (spot.box[2] - T.x) / T.k, (spot.box[3] - T.y) / T.k],
     missing: L.missing, secondary: L.secondary });
   const toScreen = (b) => [T.x + b[0] * T.k, T.y + b[1] * T.k, T.x + b[2] * T.k, T.y + b[3] * T.k];
@@ -1427,12 +1428,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // Like a map site: the names are in place a screen beyond every edge, so panning slides them in already there (the
   // screen's edge clips them); while the map moves they're refreshed every few frames, not only when it stops; and the
   // zoom steps either side are worked out in idle time, so a zoom swaps names in without a stall.
+  // While the map moves (moving), only what's already worked out is used: a zoom step not yet laid out keeps the last
+  // one's names, and new repeat tiles wait, so a gesture never waits on layout; it all catches up when the map stops.
+  let moving = false, shownLevel = null;
   function placeLabels() {
     const M = Math.max(W, H), covered = V.physical ? [] : insetBoxes.map(insetRect), stars = starsNow(M), k = T.k;
-    const lay = levelLayout(levelOf(k));
+    const lv = levelOf(k);
+    const lay = moving && !levelCache.has(lv) && levelCache.has(shownLevel) ? levelCache.get(shownLevel) : levelLayout(lv);
+    if (lay) shownLevel = lay.lv;
     const shown = [];
     if (lay) {
-      levelRepeats(lay, [(-M - T.x) / k, (-M - T.y) / k, (W + M - T.x) / k, (H + M - T.y) / k]);
+      if (!moving) levelRepeats(lay, [(-M - T.x) / k, (-M - T.y) / k, (W + M - T.x) / k, (H + M - T.y) / k]);
       // within a screen of the view, and not over the Alaska/Hawaii boxes (the panel simply covers what's under it)
       for (const q of [...lay.placed, ...[...lay.tiles.values()].flat()]) {
         const [sx, sy] = T.apply([q.mx, q.my]);
@@ -1443,7 +1449,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       }
     }
     const boxes = shown.map((x) => x.b);
-    gLabels.selectAll('text').data(shown.map((x) => x.q)).join('text')
+    // keyed by placement, so names already on screen are left as they are (rewriting text is what costs)
+    gLabels.selectAll('text').data(shown.map((x) => x.q), (q) => q.uid).join((enter) => enter.append('text')
       .attr('class', (L) => (L.missing ? 'lab lab-missing' : L.secondary ? 'lab lab-secondary' : 'lab'))
       .each(function (L) {
         const n = L.show.lines.length;
@@ -1453,7 +1460,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
             const m = DISPUTED.exec(t), el = d3.select(this).text(m ? null : t);
             if (m) { el.append('tspan').attr('font-style', 'italic').text(m[1]); el.append('tspan').text(m[2]); }
           });
-      });
+      }));
     placeMarks(boxes, stars, covered, M);
     moveLabels();
     prefetchLevels();
@@ -1462,12 +1469,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const idle = window.requestIdleCallback || ((f) => setTimeout(f, 60));
   function prefetchLevels() {
     const lv = levelOf(T.k);
-    for (const d of [1, -1]) if (lv + d >= 0 && lv + d <= levelOf(60) && !levelCache.has(lv + d)) idle(() => { if (labels.length) levelLayout(lv + d); });
+    for (const d of [1, -1]) if (lv + d >= 0 && lv + d <= levelOf(60) && !levelCache.has(lv + d)) idle(() => { if (labels.length && !moving) levelLayout(lv + d); });
   }
   // while the map moves: names refreshed at most every 120 ms (cheap — each zoom step's layout is already worked out)
   let liveTimer = 0, liveLast = 0;
   function livePlace() {
-    const wait = 120 - (performance.now() - liveLast);
+    const wait = 250 - (performance.now() - liveLast);
     if (liveTimer) return;
     liveTimer = setTimeout(() => { liveTimer = 0; liveLast = performance.now(); placeLabels(); }, Math.max(0, wait));
   }
@@ -1525,13 +1532,19 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       }
     }
     marks.push(...stars); // drawn last, on top
-    gMarks.selectAll('g').remove();
+    // a mark that's the same as before (same place, same side for its name) keeps its element
+    const key = (m) => `${m.kind}|${m.kind === 'cap' ? m.c.id || m.c.name : m.c.name}|${m.f || ''}|${m.at ? [m.at.dx, m.at.dy, m.at.anchor, !!(m.big || m.at.big)].join() : ''}|${!!m.anchor}`;
+    const keep = new Map();
+    gMarks.selectAll('g').each(function (m) { keep.set(key(m), this); });
     for (const m of marks) {
+      const old = keep.get(key(m));
+      if (old) { keep.delete(key(m)); d3.select(old).datum(m).raise(); continue; }
       const g = gMarks.append('g').attr('class', 'mk').datum(m);
       if (m.kind === 'cap') g.append('path').attr('class', 'mk-cap').attr('d', m.c.world ? WORLD_STAR : STAR).attr('transform', `scale(${m.f})`);
       else if (!m.anchor && !m.big) g.append('circle').attr('class', 'mk-city').attr('r', 3);
       if (m.at) g.append('text').attr('class', m.big || m.at.big ? 'mk-lab mk-lab-big' : 'mk-lab').attr('x', m.at.dx).attr('y', m.at.dy).attr('text-anchor', m.at.anchor).text(m.text);
     }
+    for (const el of keep.values()) el.remove();
   }
 
   function moveLabels() {
@@ -1539,8 +1552,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const [sx, sy] = T.apply([L.mx, L.my]);
       const px = L.px; // names keep their size while the map zooms, as on a map site; the next zoom step swaps them
       this.setAttribute('transform', `translate(${sx},${sy})`);
-      this.style.fontSize = `${px}px`;
-      this.style.strokeWidth = `${Math.max(2, px * 0.2)}px`;
+      if (this.__px !== px) { this.__px = px; this.style.fontSize = `${px}px`; this.style.strokeWidth = `${Math.max(2, px * 0.2)}px`; }
     });
     gMarks.selectAll('g').each(function (m) {
       const at = m.anchor || m.c;
@@ -1575,10 +1587,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
   // Land no shetach covers (data/outside.json, loaded the first time it's asked for), as paths for the view: only the
   // countries near what the view shows, so a conic projection isn't asked to draw the far side of the world.
-  let emptyGeo = null, emptyLoading = false;
+  let emptyGeo = null, emptyTopo = null, emptyLoading = false;
   function emptyPaths() {
     if (!emptyGeo) {
-      if (!emptyLoading) { emptyLoading = true; get('data/outside.json').then((t) => { emptyGeo = topojson.feature(t, t.objects[Object.keys(t.objects)[0]]).features; requestDraw(); }).catch(() => {}); }
+      if (!emptyLoading) { emptyLoading = true; get('data/outside.json').then((t) => { emptyTopo = t; emptyGeo = topojson.feature(t, t.objects[Object.keys(t.objects)[0]]).features; requestDraw(); }).catch(() => {}); }
       return [];
     }
     if (V.emptyPaths) return V.emptyPaths;
@@ -1592,6 +1604,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     for (const g of pieces) if (!inView.has(g) && !boxed.has(g)) (byCountry.get(g.properties.country) || byCountry.set(g.properties.country, []).get(g.properties.country)).push(g);
     const others = [...byCountry.values()].map((gs) => ({ type: 'Feature', geometry: topojson.merge(topo, gs) }));
     V.emptyPaths = [...emptyGeo, ...others].filter(near).map((f) => new Path2D(geoPath(f) || ''));
+    // its outline alone, with no borders between countries inside it (for the Shetachim borders setting)
+    const geoms = emptyTopo.objects[Object.keys(emptyTopo.objects)[0]].geometries.filter((g, i) => near(emptyGeo[i]));
+    V.emptyCoast = new Path2D(geoPath(topojson.merge(emptyTopo, geoms)) || '');
     return V.emptyPaths;
   }
   function requestDraw() { if (!drawQueued) drawQueued = requestAnimationFrame(draw); }
@@ -1606,7 +1621,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const vx0 = -T.x / k, vy0 = -T.y / k, vx1 = (W - T.x) / k, vy1 = (H - T.y) / k;
     const seen = (b) => b[2] >= vx0 && b[0] <= vx1 && b[3] >= vy0 && b[1] <= vy1;
 
-    // land with no shetach (the option): plain, under everything, its coasts and borders faint
+    // the rest of the world (the option): plain, under everything, its coasts faint; borders between its countries
+    // only when the borders setting shows countries
     if (state.empty) {
       const paths = emptyPaths();
       ctx.globalAlpha = 1;
@@ -1615,7 +1631,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       ctx.strokeStyle = pal.ink;
       ctx.globalAlpha = 0.35;
       ctx.lineWidth = 0.8 / k;
-      for (const p2 of paths) ctx.stroke(p2);
+      if (state.borders !== 'shetach') for (const p2 of paths) ctx.stroke(p2);
+      else if (V.emptyCoast) ctx.stroke(V.emptyCoast);
     }
     // fills: shetachim (blank parts of states stay unfilled), or states with States borders
     const fillAlpha = state.borders === 'both' && state.lighter === 'shetach' ? 0.55 : 1;
@@ -1696,7 +1713,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // ---------- zoom (political map) ----------
   let frame = 0;
   const zoom = d3.zoom().scaleExtent([1, 60])
-    .on('start', (e) => { if (e.sourceEvent && !pinned) hideCard(); })
+    .on('start', (e) => { moving = true; if (e.sourceEvent && !pinned) hideCard(); })
     .on('zoom', (e) => {
       if (V && V.physical) return; // the physical map moves itself (syncCamera)
       T = e.transform;
@@ -1705,7 +1722,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       livePlace();
     // (the boxes' size changes with the zoom, so the names around them are placed again when it ends)
     })
-    .on('end', () => { if (!V.physical) placeLabels(); });
+    .on('end', () => { moving = false; if (!V.physical) placeLabels(); });
   svg.call(zoom);
 
   // Move either map to zoom transform t.
@@ -1758,6 +1775,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const m = new maplibregl.Map({
         container: 'basemap', style: GL_STYLE, attributionControl: false, renderWorldCopies: false,
         dragRotate: false, pitchWithRotate: false, touchPitch: false, maxZoom: 18.5, fadeDuration: 150,
+        // phones draw at up to 3x; 2x looks the same on a map and is under half the pixels to fill each frame
+        pixelRatio: Math.min(window.devicePixelRatio || 1, 2),
       });
       mapgl = m;
       m.addControl(new maplibregl.AttributionControl({ compact: true }), 'top-right');
@@ -1770,8 +1789,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         m.on('error', (e) => { if (!styled) reject(e.error || new Error('map error')); });
       }), 20000, 'the map took too long');
       mapgl.on('move', syncCamera);
-      mapgl.on('moveend', () => { if (V.physical) placeLabels(); });
-      mapgl.on('movestart', () => { if (!pinned) hideCard(); });
+      // names catch up fully once the map has been still for a moment (a pinch or a run of wheel steps has short pauses)
+      let settle = 0;
+      mapgl.on('moveend', () => { clearTimeout(settle); settle = setTimeout(() => { if (mapgl.isMoving()) return; moving = false; if (V.physical) placeLabels(); }, 150); });
+      mapgl.on('movestart', () => { clearTimeout(settle); moving = true; if (!pinned) hideCard(); });
       mapgl.on('mousemove', (e) => {
         if (!V.physical || pinned || e.originalEvent.buttons) return;
         const hit = pickAt(e.point.x, e.point.y, false);
@@ -1822,6 +1843,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     for (const l of layers) {
       if (l.type === 'symbol' && l.layout && /"name/.test(JSON.stringify(l.layout['text-field'] || ''))) mapgl.setLayoutProperty(l.id, 'text-field', latin);
     }
+    // Buildings flat at every zoom: the map can't tilt, so the 3D ones only cost drawing time.
+    if (mapgl.getLayer('building-3d')) mapgl.setLayoutProperty('building-3d', 'visibility', 'none');
+    if (mapgl.getLayer('building')) mapgl.setLayerZoomRange('building', 13, 24);
     mapgl.addLayer({ id: 'st-hover-area', type: 'line', source: 'st-hover-area', paint: { 'line-width': 2.5 } });
     mapgl.addLayer({ id: 'st-dots', type: 'circle', source: 'st-dots' });
     mapgl.addLayer({ id: 'st-hover-dot', type: 'circle', source: 'st-hover-dot', paint: { 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-width': 2 } });
@@ -2077,7 +2101,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // "Capital: …", or for a disputed shetach "Capital (Chaim Tzvi Groner): …", one per claimant
     const capital = caps.map((c) => `<p>${tr('Capital')}${c.for ? ` (${esc(c.for)})` : ''}: ${esc(c.name)}${c.city ? `, ${esc(c.city)}` : ''}</p>`).join('');
     return `<h2>${esc(s.name)}</h2>
-      ${s.territoryOf && shetachById.get(s.territoryOf) ? (() => { const p = shetachById.get(s.territoryOf); return `<p>${HE ? 'בחסות' : 'Under the auspices of'}: ${headHTML(p.headShliach)}</p>`; })()
+      ${s.territoryOf && shetachById.get(s.territoryOf) ? (() => { const p = shetachById.get(s.territoryOf); return `<p>${tr('Head shliach')}: ${headHTML(p.headShliach)}</p><p class="meta">${HE ? `גם השליח הראשי של ${esc(p.name)}` : `Also head shliach of ${esc(p.name)}`}</p>`; })()
         : s.noCentralLeadership ? `<p>${tr('No centralized leadership')}</p>` : s.headShliach ? `<p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>` : ''}${capital}
       <div class="foot"><span class="meta">${count(centersInShetach(s))}</span>${zoomBtn}</div>`;
   }

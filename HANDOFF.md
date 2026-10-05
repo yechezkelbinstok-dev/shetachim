@@ -9,6 +9,11 @@ More detail is in `docs/PLAN.md`.
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
 ## OWNER'S STANDING RULES (Oct 1) — never undo these
+- **Any Chabad activity in a country puts it in a shetach** (Oct 5): visiting bochurim, a shliach who serves it from next
+  door, holiday trips — the country goes to the shetach of the shliach responsible (Mongolia is Russia's; Guyana and,
+  since Oct 5, **Suriname** are the Caribbean's — Suriname from the Pesach 2025 Merkos Shlichus seders in Paramaribo,
+  Rabbi Avromy Super of St. Lucia being the nearest link). Only truly uninhabited stretches are left out (the Yukon and
+  NWT only partly in Alberta). French Guiana: no Chabad activity found (Oct 5), so no shetach yet.
 - **Head shliach names are never shortened to the last name alone** — not on the live map, not in the SVGs. Only the
   full name (one line or two), or, for someone with middle names, first + last name ("Yosef Yitzchak Aharonov" →
   "Yosef Aharonov") until zoomed in; where neither fits, no name. Families and leadership entries ("Alevsky family",

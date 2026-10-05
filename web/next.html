@@ -920,6 +920,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const BASE = new Map(); // the street map's own layers, with the visibility each came with
   let physicalOK = false, firstBaseId = null, waterBefore = null, lineBefore = null;
   // colours the map draws with: the theme's (CSS), except on the physical map, which is always light
+  const PHYS_TINTS = ['#e6c84a', '#8fc46a', '#e48a7e', '#7fa8de', '#eea25a', '#ad8fd0', '#5fbfae', '#c9b27e'];
   const PHYS = { ink: '#1e2b32', halo: '#ffffff', dot: '#163e74', accent: '#1d4f8f', missing: '#6b7780', secondary: '#3d5f8f' };
   function palette() {
     const css = getComputedStyle(document.documentElement), v = (n) => css.getPropertyValue(n).trim();
@@ -1005,13 +1006,15 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // physical: our borders and the fade over land outside the view, from the build's tiles, among the street map's layers
     if (physicalOK) {
       map.addSource('st', { type: 'vector', tiles: [fresh(`${new URL('.', location.href).href}tiles/{z}/{x}/{y}.pbf`)], minzoom: 0, maxzoom: 6 });
-      map.addLayer({ id: 'st-fade-land', type: 'fill', source: 'st', 'source-layer': 'land', paint: { 'fill-color': '#f2efe9', 'fill-opacity': 0.72, 'fill-antialias': false } }, waterBefore);
-      map.addLayer({ id: 'st-line-casing', type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' },
-        paint: { 'line-color': '#ffffff', 'line-width': 4.5, 'line-opacity': 0.5 } }, lineBefore);
-      for (const kind of ['coast', 'lake', 'regular', 'country', 'shetach', 'inner']) {
+      // Each shetach as a soft tint of its colour, under the water (so the map's own coastline trims it) and under the
+      // roads and names; it fades away at street level, where the map itself takes over, as region highlights do.
+      map.addLayer({ id: 'st-tint', type: 'fill', source: 'areas', paint: { 'fill-antialias': false } }, waterBefore);
+      // Shetach borders as a soft coloured line with a light casing (the map's own country and state borders stay as
+      // they are); also fading at street level.
+      map.addLayer({ id: 'st-line-casing', type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, lineBefore);
+      for (const kind of ['shetach', 'inner']) {
         map.addLayer({ id: `st-line-${kind}`, type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, lineBefore);
       }
-      map.addLayer({ id: 'st-fade-top', type: 'fill', source: 'st', 'source-layer': 'land', paint: { 'fill-color': '#f2efe9', 'fill-opacity': 0.3, 'fill-antialias': false } });
       // place names in English (Latin letters), and richer natural colours (as the physical map had)
       const latin = ['coalesce', ['get', 'name:en'], ['get', 'name_en'], ['get', 'name:latin'], ['get', 'name']];
       for (const l of map.getStyle().layers) {
@@ -1121,7 +1124,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     show('pol-bg', !physical);
     for (const [id, vis] of BASE) show(id, physical && vis !== 'none');
     for (const id of ['pol-out-fill', 'pol-out-line', 'pol-fill', 'pol-line-coast', 'pol-line-regular', 'pol-line-country', 'pol-line-shetach', 'pol-line-inner']) show(id, !physical);
-    for (const id of ['st-fade-land', 'st-fade-top', 'st-line-casing', 'st-line-coast', 'st-line-lake', 'st-line-regular', 'st-line-country', 'st-line-shetach', 'st-line-inner']) show(id, physical);
+    for (const id of ['st-tint', 'st-line-casing', 'st-line-shetach', 'st-line-inner']) show(id, physical);
     const inView = ['in', ['get', 'country'], ['literal', V.view.countries]];
     map.setFilter('pick', inView);
     const both = state.borders === 'both', lightS = both && state.lighter === 'shetach', lightR = both && state.lighter === 'regular';
@@ -1150,34 +1153,37 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       show('pol-out-line', state.empty);
       setOutside();
     } else {
-      // our borders over the street map, by kind, where both sides are in the view (an outline where only one is)
+      // shetach borders where both sides are in the view
       const list = ['literal', V.view.countries];
-      const a = ['in', ['get', 'ca'], list], b = ['all', ['has', 'cb'], ['in', ['get', 'cb'], list]], lake = ['has', 'lk'];
-      const filters = {
-        coast: ['any', ['all', a, ['!', b], ['!', lake]], ['all', b, ['!', a]]], lake: ['all', a, lake],
-        regular: ['all', a, b, ['==', ['get', 'ss'], 0], ['==', ['get', 'ca'], ['get', 'cb']]], country: ['all', a, b, ['!=', ['get', 'ca'], ['get', 'cb']]],
-        shetach: ['all', a, b, ['==', ['get', 'sh'], 0], ['!', ['has', 'tr']]], inner: ['all', a, b, ['has', 'tr']],
-      };
-      for (const [kind, f] of Object.entries(filters)) map.setFilter(`st-line-${kind}`, f);
-      map.setFilter('st-line-casing', filters.shetach);
-      const faded = ['!', ['in', ['get', 'c'], list]];
-      map.setFilter('st-fade-land', faded);
-      map.setFilter('st-fade-top', faded);
-      const line = (kind, on, width, opacity) => { show(`st-line-${kind}`, on); paint(`st-line-${kind}`, 'line-color', pal.ink); paint(`st-line-${kind}`, 'line-width', width); paint(`st-line-${kind}`, 'line-opacity', opacity); };
-      line('coast', true, 0.8, 0.35);
-      line('lake', state.borders !== 'shetach', 0.8, 0.35);
-      line('regular', state.borders !== 'shetach', 1.2, lightR ? 0.35 : 0.8);
-      line('country', state.borders !== 'shetach', 2, lightR ? 0.35 : 0.9);
-      line('shetach', state.borders !== 'regular', 2, lightS ? 0.3 : 0.9);
-      line('inner', state.borders !== 'regular', 1.6, lightS ? 0.3 : 0.85);
+      const a = ['in', ['get', 'ca'], list], b = ['all', ['has', 'cb'], ['in', ['get', 'cb'], list]];
+      const shetachLines = state.borders !== 'regular';
+      map.setFilter('st-line-shetach', ['all', a, b, ['==', ['get', 'sh'], 0], ['!', ['has', 'tr']]]);
+      map.setFilter('st-line-inner', ['all', a, b, ['has', 'tr']]);
+      map.setFilter('st-line-casing', ['all', a, b, ['==', ['get', 'sh'], 0]]);
+      const fadeOut = (v) => ['interpolate', ['linear'], ['zoom'], 9, v, 12, 0];
+      const BORDER = 'hsl(258, 28%, 44%)';
+      for (const id of ['st-line-shetach', 'st-line-inner']) {
+        show(id, shetachLines);
+        paint(id, 'line-color', BORDER);
+        paint(id, 'line-width', ['interpolate', ['linear'], ['zoom'], 2, 1, 6, 1.7, 10, 2.6]);
+        paint(id, 'line-opacity', fadeOut(lightS ? 0.4 : 0.85));
+      }
       paint('st-line-inner', 'line-dasharray', [3, 2]);
-      show('st-line-casing', state.borders !== 'regular' && !lightS);
-      paint('st-line-regular', 'line-dasharray', both ? [2, 2] : [1, 0]);
-      // the street map's own borders and state and country names give way to ours; its city names do while ours are on
+      show('st-line-casing', shetachLines && !lightS);
+      paint('st-line-casing', 'line-color', '#ffffff');
+      paint('st-line-casing', 'line-width', ['interpolate', ['linear'], ['zoom'], 2, 3, 6, 4.5, 10, 6]);
+      paint('st-line-casing', 'line-opacity', fadeOut(0.55));
+      // the tint: by shetach (blank parts of states untinted); none with States borders, where the map's own lines say it
+      show('st-tint', shetachLines);
+      map.setFilter('st-tint', ['all', inView, ['>=', ['get', 'cs'], 0]]);
+      paint('st-tint', 'fill-color', state.color === 'plain' ? '#ffffff' : ['match', ['get', 'cs'], ...PHYS_TINTS.flatMap((c, i) => [i, c]), '#ffffff']);
+      paint('st-tint', 'fill-opacity', ['interpolate', ['linear'], ['zoom'], 0, lightS ? 0.22 : 0.42, 6, lightS ? 0.2 : 0.36, 9, 0.22, 11, 0.08, 12, 0]);
+      // the map's own country and state borders and city names stay (they're the map's); its country and state names
+      // give way to the shetachim's
       for (const layer of map.getStyle().layers) {
         if (!BASE.has(layer.id)) continue;
-        if (layer['source-layer'] === 'boundary') show(layer.id, false);
-        if (layer.type === 'symbol' && layer['source-layer'] === 'place') show(layer.id, !(/country|state|continent/.test(layer.id) || state.cities));
+        if (layer['source-layer'] === 'boundary') show(layer.id, BASE.get(layer.id) !== 'none' && state.borders !== 'shetach');
+        if (layer.type === 'symbol' && layer['source-layer'] === 'place') show(layer.id, BASE.get(layer.id) !== 'none' && !/country|state|continent/.test(layer.id));
       }
     }
     // dots: as before, growing with zoom like k^0.35 from the framed view, up to 60× it
@@ -1197,13 +1203,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     for (const id of ['names', 'cities', 'cap-names', 'honor']) {
       paint(id, 'text-color', id === 'names' ? ['case', ['==', ['get', 'kind'], 'miss'], pal.missing, ['==', ['get', 'kind'], 'sec'], pal.secondary, pal.ink] : pal.ink);
       paint(id, 'text-halo-color', pal.halo);
-      paint(id, 'text-halo-width', id === 'names' ? 1.8 : 1.5);
-      paint(id, 'text-halo-blur', 0.4);
+      paint(id, 'text-halo-width', physical ? 1.4 : id === 'names' ? 1.8 : 1.5);
+      paint(id, 'text-halo-blur', physical ? 1 : 0.4);
     }
     show('names', state.labels !== 'off');
-    show('cities', state.cities);
+    show('cities', state.cities && !physical);
     show('caps', state.capitals);
-    show('cap-names', state.capitals);
+    show('cap-names', state.capitals && !physical);
     const zs = V.zFit ?? 2;
     map.setLayoutProperty('caps', 'icon-size', ['interpolate', ['linear'], ['zoom'], zs, phone() ? 0.42 : 0.6, zs + 3, 1]);
     if (pinned) showCard(pinned, lastPoint, true);

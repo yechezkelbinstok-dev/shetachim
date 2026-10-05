@@ -635,7 +635,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const NE_SCALE = 0.075;
   let PROJ = null, PROJ_FINE = null; // the current flat projection (output in world units), or null for standard; and one that bends lines
   function flatFor(view) {
-    if (state.base === 'physical' && physicalOK) return null;
     if (!view.world || view === VIEWS.israel) return null;
     return d3.geoNaturalEarth1().rotate([-(view.lon ?? 11), 0]).scale(NE_SCALE).translate([0.5, 0.5]).precision(0);
   }
@@ -703,7 +702,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
   // ---------- names: what each says, and how big it can be at each zoom ----------
   const LABEL_MIN = 9; // px: smaller than this, a name isn't shown
-  const labelMax = () => (phone() ? 28 : 36);
+  const labelMax = () => (phone() ? 22 : 26); // as big as map sites name a region, no bigger
   // an em of the map's bold font, per character (Noto Sans Bold), measured once per text
   function emWidth(text, weight = 700) {
     measure.font = `${weight} 100px "Noto Sans", "Inter", "Heebo", sans-serif`;
@@ -863,54 +862,74 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return null;
   }
 
-  // The view: its pieces, its dots, cities and capitals, the lines between its pieces, and where it's framed.
+  // The view: its pieces, dots, cities and capitals, and two ways of drawing it: standard (M) and, for the world and
+  // continents, flat in Natural Earth (F). The map shows F zoomed out and M from country level in, switching between them
+  // as you zoom (see setMode).
   let V = null, map = null, glOK = false, hoverPiece = null;
+  const SETS = new Map();
+  let allLand = null; // every piece's land, merged once (a flat view's land, with the land no shetach covers)
+  // run fn with S's projection in force (P, projGeom and unitsPerKm follow it)
+  function within(S, fn) {
+    const keep = [PROJ, PROJ_FINE];
+    PROJ = S.proj; PROJ_FINE = S.fine;
+    try { return fn(); } finally { [PROJ, PROJ_FINE] = keep; }
+  }
+  function buildSet(view, framedGeoms, flat) {
+    const proj = flat ? flatFor(view) : null;
+    const S = { proj, fine: proj && flatFor(view).precision(1e-5), sfx: flat ? '-f' : '', flat, labelCache: new Map(), capCity: new Map(), outside: null };
+    return within(S, () => {
+      const main = V.main;
+      if (!flat) {
+        if (view.frame) S.bounds = view.frame;
+        else {
+          const b = d3.geoBounds(topojson.feature(topo, collection(framedGeoms)));
+          S.bounds = b[0][0] > b[1][0] ? [[b[0][0], b[0][1]], [b[1][0] + 360, b[1][1]]] : b; // across the 180° line
+        }
+      } else {
+        // the frame (or the view's land), its edges bent by the projection
+        const [[w, so], [e, n]] = view.frame || d3.geoBounds(topojson.feature(topo, collection(framedGeoms))), pts = [];
+        const east = e < w ? e + 360 : e;
+        for (let i = 0; i <= 40; i++) { const t = i / 40; pts.push(P(w + (east - w) * t, so), P(w + (east - w) * t, n), P(w, so + (n - so) * t), P(east, so + (n - so) * t)); }
+        S.bounds = view === VIEWS.world ? flatBounds(projGeom({ type: 'Sphere' })) : flatBounds({ coordinates: pts.filter(Boolean) });
+        if (!allLand) allLand = topojson.merge(topo, pieces);
+        S.land = feature(projGeom(allLand));
+      }
+      // the areas as the engine gets them: all of them as they are, or the view's own, flat
+      S.areas = flat ? fc(areaFeatures.filter((f) => view.countries.includes(f.properties.country)).map((f) => feature(projGeom(f.geometry), f.properties)).filter((f) => f.geometry))
+        : fc(areaFeatures);
+      const key = (g) => groupOf(g.properties.shetach) || '';
+      const lineFeature = (lines, k) => feature(projGeom({ type: 'MultiLineString', coordinates: lines }) || { type: 'MultiLineString', coordinates: [] }, { k });
+      S.mesh = fc([
+        lineFeature(meshLines(main, (a, b) => a === b), 'coast'),
+        lineFeature(meshLines(main, (a, b) => a.properties.state !== b.properties.state && a.properties.country === b.properties.country), 'regular'),
+        lineFeature(meshLines(main, (a, b) => a.properties.country !== b.properties.country), 'country'),
+        lineFeature(meshLines(main, (a, b) => a !== b && key(a) !== key(b)), 'shetach'),
+        lineFeature(meshLines(main, (a, b) => a !== b && key(a) && key(a) === key(b) && a.properties.shetach !== b.properties.shetach), 'inner'),
+      ]);
+      // merged areas: shetachim and the blank parts of states, and states (for States borders)
+      S.regions = [...d3.group(main.filter(shetachOf), shetachOf)].map(([s, gs]) => {
+        const core = (s.labelState && gs.filter((g) => g.properties.state === s.labelState)) || (s.labelCentre && gs.filter((g) => g.properties.state === s.labelCentre));
+        return { s, gs, geometry: projGeom(topojson.merge(topo, gs)), core: core && core.length && core.length < gs.length ? projGeom(topojson.merge(topo, core)) : null };
+      });
+      S.states = [...d3.group(main, (g) => g.properties.state)].map(([st, gs]) => ({ st, p: gs[0].properties, gs, geometry: projGeom(topojson.merge(topo, gs)) }));
+      return S;
+    });
+  }
   function viewData() {
     const view = VIEWS[state.view];
-    PROJ = flatFor(view);
-    PROJ_FINE = PROJ && flatFor(view).precision(1e-5);
     const shown = pieces.filter((g) => view.countries.includes(g.properties.country));
     const main = shown;
     const mainIds = new Set(main.map((g) => g.properties.id));
     // framed: the view's whole land, except Alaska and Hawaii (in their places, a pan away) and a view's own frame
     const framedGeoms = shown.filter((g) => !view.insets.includes(g.properties.state));
-    let bounds;
-    if (PROJ && view === VIEWS.world) bounds = flatBounds(projGeom({ type: 'Sphere' }));
-    else if (PROJ && view.frame) {
-      // the frame's edges, bent by the projection
-      const [[w, so], [e, n]] = view.frame, pts = [];
-      for (let i = 0; i <= 20; i++) { const t = i / 20; pts.push(P(w + (e - w) * t, so), P(w + (e - w) * t, n), P(w, so + (n - so) * t), P(e, so + (n - so) * t)); }
-      bounds = flatBounds({ coordinates: pts.filter(Boolean) });
-    } else if (PROJ) bounds = flatBounds(projGeom(topojson.merge(topo, framedGeoms)));
-    else if (view.frame) bounds = view.frame;
-    else {
-      const b = d3.geoBounds(topojson.feature(topo, collection(framedGeoms)));
-      bounds = b[0][0] > b[1][0] ? [[b[0][0], b[0][1]], [b[1][0] + 360, b[1][1]]] : b; // across the 180° line
-    }
-    V = { view, shown, main, mainIds, bounds, flat: !!PROJ };
-    // the areas as the engine gets them: all of them as they are, or the view's own, flat
-    V.areas = PROJ ? fc(areaFeatures.filter((f) => view.countries.includes(f.properties.country)).map((f) => feature(projGeom(f.geometry), f.properties)).filter((f) => f.geometry))
-      : fc(areaFeatures);
-    V.sphere = PROJ ? fc([feature(projGeom({ type: 'Sphere' }))]) : EMPTY;
+    V = { view, shown, main, mainIds };
     V.dots = dots.filter((d) => mainIds.has(d.piece));
     V.caps = capitals.filter((c) => (c.honor ? view.world : mainIds.has(c.piece)));
     V.cities = cities.filter((c) => mainIds.has(c.piece));
-    const key = (g) => groupOf(g.properties.shetach) || '';
-    const lineFeature = (lines, k) => feature(projGeom({ type: 'MultiLineString', coordinates: lines }), { k });
-    V.mesh = fc([
-      lineFeature(meshLines(main, (a, b) => a === b), 'coast'),
-      lineFeature(meshLines(main, (a, b) => a.properties.state !== b.properties.state && a.properties.country === b.properties.country), 'regular'),
-      lineFeature(meshLines(main, (a, b) => a.properties.country !== b.properties.country), 'country'),
-      lineFeature(meshLines(main, (a, b) => a !== b && key(a) !== key(b)), 'shetach'),
-      lineFeature(meshLines(main, (a, b) => a !== b && key(a) && key(a) === key(b) && a.properties.shetach !== b.properties.shetach), 'inner'),
-    ]);
-    // merged areas: shetachim and the blank parts of states, and states (for States borders)
-    V.regions = [...d3.group(main.filter(shetachOf), shetachOf)].map(([s, gs]) => {
-      const core = (s.labelState && gs.filter((g) => g.properties.state === s.labelState)) || (s.labelCentre && gs.filter((g) => g.properties.state === s.labelCentre));
-      return { s, gs, geometry: projGeom(topojson.merge(topo, gs)), core: core && core.length && core.length < gs.length ? projGeom(topojson.merge(topo, core)) : null };
-    });
-    V.states = [...d3.group(main, (g) => g.properties.state)].map(([st, gs]) => ({ st, p: gs[0].properties, gs, geometry: projGeom(topojson.merge(topo, gs)) }));
-    V.labelCache = new Map();
+    // (each view's two ways of drawing are worked out once, and kept for coming back to it)
+    if (!SETS.has(state.view)) SETS.set(state.view, { M: buildSet(view, framedGeoms, false), F: flatFor(view) ? buildSet(view, framedGeoms, true) : null });
+    Object.assign(V, SETS.get(state.view));
+    V.cur = V.F && state.base !== 'physical' ? V.F : V.M;
     const shownIds = new Set(shown.map((g) => g.properties.id));
     const viewDots = dots.filter((d) => shownIds.has(d.piece));
     $('#view-name').textContent = tr(view.name);
@@ -922,10 +941,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
 
   // The names for the view in the current label mode: one feature per spot, each with its size at every zoom.
-  function labelData() {
+  function labelData(S) {
     if (state.labels === 'off') return EMPTY;
     const ck = `${state.labels}|${state.borders === 'regular' ? 'r' : 's'}|${phone() ? 'p' : 'd'}`;
-    if (V.labelCache.has(ck)) return V.labelCache.get(ck);
+    if (S.labelCache.has(ck)) return S.labelCache.get(ck);
     const out = [];
     const add = (spot, t, extra) => {
       const props = { ...extra };
@@ -943,79 +962,140 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       if (short && short.minz < full.minz) put(short, short.minz, full.minz);
       put(full, full.minz, 30);
     };
-    if (state.borders === 'regular') {
-      for (const r of V.states) {
-        for (const spot of spotsFor(r.geometry, null, null)) {
-          add(spot, { text: r.p.name, short: r.p.abbr || null }, { kind: '' });
-          if (spot.main) for (const rp of repeatsFor(spot)) add(rp, { text: r.p.name, short: null }, { kind: '' });
+    within(S, () => {
+      if (state.borders === 'regular') {
+        for (const r of S.states) {
+          for (const spot of spotsFor(r.geometry, null, null)) {
+            add(spot, { text: r.p.name, short: r.p.abbr || null }, { kind: '' });
+            if (spot.main) for (const rp of repeatsFor(spot)) add(rp, { text: r.p.name, short: null }, { kind: '' });
+          }
+        }
+      } else {
+        // territories (India) after their shetach, so the head's name over a territory is kept smaller than his main one
+        const regions = [...S.regions].sort((a, b) => !!a.s.territoryOf - !!b.s.territoryOf);
+        for (const r of regions) {
+          const t = labelTexts(r.s);
+          if (!t) continue;
+          const spots = spotsFor(r.geometry, r.core, r.s.labelAt || null);
+          const sec = t.kind === 'sec';
+          for (const spot of spots) {
+            const extra = { kind: t.kind, sid: r.s.id };
+            if (sec) extra.secScale = 0.85;
+            add(spot, t, extra);
+            if (spot.main && !sec) for (const rp of repeatsFor(spot)) add(rp, { text: t.text, short: null }, extra);
+          }
         }
       }
-    } else {
-      const mainSizes = new Map();
-      // territories (India) after their shetach, so the head's name over a territory is kept smaller than his main one
-      const regions = [...V.regions].sort((a, b) => !!a.s.territoryOf - !!b.s.territoryOf);
-      for (const r of regions) {
-        const t = labelTexts(r.s);
-        if (!t) continue;
-        const spots = spotsFor(r.geometry, r.core, r.s.labelAt || null);
-        const sec = t.kind === 'sec';
-        for (const spot of spots) {
-          const extra = { kind: t.kind, sid: r.s.id };
-          if (sec) extra.secScale = 0.85;
-          add(spot, t, extra);
-          if (spot.main && !sec) for (const rp of repeatsFor(spot)) add(rp, { text: t.text, short: null }, extra);
-        }
-        if (!sec) mainSizes.set(r.s.id, true);
-      }
-    }
+    });
     const data = fc(out);
-    V.labelCache.set(ck, data);
+    S.labelCache.set(ck, data);
     return data;
   }
 
+  // The zoom from which something shows once the map has a given number of screen pixels per km there.
+  const zoomFor = (pxPerKm, lon, lat) => Math.log2(pxPerKm / (512 * unitsPerKm(lon, lat)));
   // Cities: each from the zoom at which there's room for it (a city's people per screen pixel, as before), biggest first.
-  function cityData() {
-    for (const c of V.caps) { delete c.cityName; delete c.cityMinz; }
-    const out = [];
-    for (const c of V.cities) {
-      // pixels per km at zoom z, at the city's latitude: 512·2^z / (40075·cos φ)
-      const k = 512 * unitsPerKm(c.lon, c.lat);
-      const minz = Math.log2(Math.sqrt(CITY_DENSITY / Math.max(1, c.weight)) / k);
-      // a city at a capital's star: the star marks it, with the city's name beside the star
-      const star = V.caps.find((cap) => !cap.honor && Math.abs(cap.lat - c.lat) < 0.08 && Math.abs(cap.lon - c.lon) < 0.12);
-      if (star) { star.cityName = c.name; star.cityMinz = clamp(minz, 0, 16); continue; }
-      const at = P(c.lon, c.lat);
-      if (at) out.push(feature({ type: 'Point', coordinates: at }, { name: c.name, minz: clamp(minz, 0, 16), rank: -c.weight, i: V.cities.indexOf(c) }));
-    }
-    return fc(out);
+  function cityData(S) {
+    return within(S, () => {
+      S.capCity.clear();
+      const out = [];
+      for (const c of V.cities) {
+        const minz = zoomFor(Math.sqrt(CITY_DENSITY / Math.max(1, c.weight)), c.lon, c.lat);
+        // a city at a capital's star: the star marks it, with the city's name beside the star
+        const star = V.caps.find((cap) => !cap.honor && Math.abs(cap.lat - c.lat) < 0.08 && Math.abs(cap.lon - c.lon) < 0.12);
+        if (star) { S.capCity.set(star, { name: c.name, minz: clamp(minz, 0, 16) }); continue; }
+        const at = P(c.lon, c.lat);
+        if (at) out.push(feature({ type: 'Point', coordinates: at }, { name: c.name, minz: clamp(minz, 0, 16), rank: -c.weight, i: V.cities.indexOf(c) }));
+      }
+      return fc(out);
+    });
   }
-  function capData() {
-    return fc(V.caps.map((c, i) => feature({ type: 'Point', coordinates: P(c.lon, c.lat) },
-      { i, world: !!c.world, honor: !!c.honor, name: c.honor ? c.name : c.cityName || '', minz: c.cityMinz ?? 0, rank: c.world ? 0 : c.honor ? 1 : 2 })).filter((f) => f.geometry.coordinates));
+  // Capitals' stars (always), their cities' names (from when the city has room), and Lubavitch, named once the map is
+  // close enough to show a region (not across the whole world).
+  function capData(S) {
+    return within(S, () => fc(V.caps.map((c, i) => {
+      const city = S.capCity.get(c);
+      const minz = c.honor ? zoomFor(0.07, c.lon, c.lat) : city ? city.minz : 0;
+      return feature({ type: 'Point', coordinates: P(c.lon, c.lat) },
+        { i, world: !!c.world, honor: !!c.honor, name: c.honor ? c.name : city ? city.name : '', minz, rank: c.world ? 0 : c.honor ? 1 : 2 });
+    }).filter((f) => f.geometry.coordinates)));
   }
-  function dotData() {
-    return fc(V.dots.map((d, i) => feature({ type: 'Point', coordinates: P(d.lon, d.lat) }, { l: Math.log2(d.centers.length), i })).filter((f) => f.geometry.coordinates));
+  function dotData(S) {
+    return within(S, () => fc(V.dots.map((d, i) => feature({ type: 'Point', coordinates: P(d.lon, d.lat) }, { l: Math.log2(d.centers.length), i })).filter((f) => f.geometry.coordinates)));
+  }
+  // The seas and oceans (a flat view has no street map to name them), each from when it has room.
+  const SEAS = [
+    ['Pacific Ocean', 'האוקיינוס השקט', -145, 2, 0], ['Pacific Ocean', 'האוקיינוס השקט', 168, 8, 0], ['Atlantic Ocean', 'האוקיינוס האטלנטי', -40, 30, 0],
+    ['Atlantic Ocean', 'האוקיינוס האטלנטי', -14, -28, 0], ['Indian Ocean', 'האוקיינוס ההודי', 80, -22, 0], ['Arctic Ocean', 'אוקיינוס הקרח הצפוני', -10, 80, 0],
+    ['Southern Ocean', 'האוקיינוס הדרומי', 40, -60, 0],
+    ['Mediterranean Sea', 'הים התיכון', 17.5, 34.6, 1], ['Caribbean Sea', 'הים הקריבי', -75, 14.5, 1], ['Gulf of Mexico', 'מפרץ מקסיקו', -90.5, 25, 1],
+    ['Black Sea', 'הים השחור', 34, 43.3, 1], ['Red Sea', 'ים סוף', 38.3, 20.3, 1], ['Arabian Sea', 'ים ערב', 64, 15, 1], ['Bay of Bengal', 'מפרץ בנגל', 89, 15, 1],
+    ['South China Sea', 'ים סין הדרומי', 114, 13, 1], ['Tasman Sea', 'ים טסמן', 160, -38, 1], ['Coral Sea', 'ים האלמוגים', 156, -16, 1],
+    ['Hudson Bay', 'מפרץ הדסון', -85.5, 60, 1], ['North Sea', 'הים הצפוני', 3, 56, 1], ['Baltic Sea', 'הים הבלטי', 19.3, 57.6, 1],
+    ['Bering Sea', 'ים ברינג', -178, 58, 1], ['Sea of Okhotsk', 'ים אוחוטסק', 150, 54.5, 1], ['Philippine Sea', 'הים הפיליפיני', 133, 18, 1],
+    ['Gulf of Guinea', 'מפרץ גינאה', 2.5, 0.5, 1], ['Labrador Sea', 'ים לברדור', -54, 59, 1], ['Norwegian Sea', 'הים הנורווגי', 2, 68, 1],
+  ];
+  function seaData(S) {
+    return within(S, () => fc(SEAS.map(([en, he, lon, lat, tier]) => {
+      const at = P(lon, lat);
+      return at && feature({ type: 'Point', coordinates: at }, { name: HE ? he : en, tier, minz: zoomFor(tier ? 0.05 : 0.022, lon, lat) });
+    }).filter(Boolean)));
   }
 
   // ---------- the map itself ----------
   const RTL_PLUGIN = new URL('lib/mapbox-gl-rtl-text.js', location.href).href; // right-to-left text (Hebrew), from @mapbox/mapbox-gl-rtl-text 0.3.0, kept here
   const BASE = new Map(); // the street map's own layers, with the visibility each came with
-  let physicalOK = false, firstBaseId = null, waterBefore = null, lineBefore = null;
+  const BASE_PAINT = new Map(); // ... and the paint each came with
+  let physicalOK = false, waterBefore = null, lineBefore = null;
   // colours the map draws with: the theme's (CSS), except on the physical map, which is always light
   const PHYS_TINTS = ['#e6c84a', '#8fc46a', '#e48a7e', '#7fa8de', '#eea25a', '#ad8fd0', '#5fbfae', '#c9b27e'];
   const PHYS = { ink: '#1e2b32', halo: '#ffffff', dot: '#163e74', accent: '#1d4f8f', missing: '#6b7780', secondary: '#3d5f8f' };
+  // The political map's land and sea, the street map's own (light) or a night version of it (dark).
+  const GROUND = { light: { land: '#f8f4f0', water: '#a9c7f2', coast: '#8fb2e4', border: '#ffffff', grey: 'hsl(248,2%,50%)' },
+    dark: { land: '#1c2226', water: '#14273a', coast: '#20384f', border: '#0c1114', grey: 'hsl(210,8%,52%)' } };
   function palette() {
     const css = getComputedStyle(document.documentElement), v = (n) => css.getPropertyValue(n).trim();
     const physical = state.base === 'physical';
     const dark = !physical && theme() === 'dark', c = DOT_COLORS[state.dotColor] || DOT_COLORS.navy;
     return {
-      c: d3.range(8).map((i) => v(`--c${i + 1}`)), plain: v('--plain'), empty: v('--empty'), bg: v('--bg'),
+      c: d3.range(8).map((i) => v(`--c${i + 1}`)), plain: v('--plain'), empty: v('--empty'), bg: v('--bg'), ground: GROUND[dark ? 'dark' : 'light'], dark,
       ink: physical ? PHYS.ink : v('--ink'), halo: physical ? PHYS.halo : v('--halo'), accent: physical ? PHYS.accent : v('--accent'),
       missing: physical ? PHYS.missing : v('--missing'), secondary: physical ? PHYS.secondary : v('--map-secondary'),
       dot: physical ? PHYS.dot : v('--dot'), dotSolid: c[dark ? 1 : 0], dotEdge: dark ? '#0f1518' : state.dotColor === 'gold' ? '#4a3500' : '#ffffff',
     };
   }
-  // The little pictures the map draws: a city's ring, a capital's star, 770's bigger star, Lubavitch's dot.
+  // The street map in the look asked for: as it comes (physical), with the political map's land and sea (light), or at
+  // night (dark): every colour it has turned dark, roads a little lighter than the land, names light.
+  let baseLook = null;
+  function lookBase(look) {
+    if (look === baseLook || !physicalOK) return;
+    baseLook = look;
+    const g = look === 'physical' ? null : GROUND[look];
+    const dim = (fn) => { const walk = (v) => (typeof v === 'string' && d3.color(v) ? fn(d3.hsl(v)) : Array.isArray(v) ? v.map(walk) : v); return walk; };
+    const shade = (l0, l1, sat) => dim((c) => { const h = isNaN(c.h) ? 210 : c.h; return d3.hsl(h, (isNaN(c.s) ? 0 : c.s) * sat, l0 + (l1 - l0) * c.l, c.opacity).formatRgb(); });
+    for (const [id, paint] of BASE_PAINT) {
+      const layer = map.getLayer(id);
+      if (!layer) continue;
+      for (const [prop, value] of Object.entries(paint)) {
+        let v = value;
+        if (g) {
+          if (id === 'background') v = g.land;
+          else if (id === 'water' && prop === 'fill-color') v = g.water;
+          else if (id.startsWith('waterway') && prop === 'line-color') v = g.water;
+          else if (look === 'dark' && /color/.test(prop)) {
+            const sl = layer.sourceLayer;
+            if (prop === 'text-color') v = dim((c) => d3.hsl(c.h || 0, (c.s || 0) * 0.5, 0.8).formatRgb())(value);
+            else if (prop === 'text-halo-color') v = 'rgba(16,21,24,0.85)';
+            else if (sl === 'transportation') v = shade(0.2, 0.32, 0.25)(value);
+            else if (sl === 'boundary') v = shade(0.45, 0.62, 0.2)(value);
+            else v = shade(0.12, 0.2, 0.35)(value);
+          }
+        }
+        map.setPaintProperty(id, prop, v);
+      }
+    }
+  }
+  // The little pictures the map draws: a capital's star, 770's bigger star, Lubavitch's dot.
   const icons = new Map(); // which colours each icon was drawn in
   function drawIcons(pal) {
     const make = (name, size, paint) => {
@@ -1032,7 +1112,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       map.addImage(name, img, { pixelRatio: r });
       icons.set(name, key);
     };
-    make('ring', 12, (g) => { g.beginPath(); g.arc(0, 0, 3.4, 0, 2 * Math.PI); g.fillStyle = pal.halo; g.fill(); g.lineWidth = 1.5; g.strokeStyle = pal.ink; g.stroke(); });
     const star = (g, d) => { const p = new Path2D(d); g.lineJoin = 'round'; g.lineWidth = 2.4; g.strokeStyle = pal.halo; g.stroke(p); g.fillStyle = pal.ink; g.fill(p); };
     make('star', 20, (g) => star(g, STAR));
     make('star-world', 30, (g) => star(g, WORLD_STAR));
@@ -1041,12 +1120,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
   async function startMap() {
     if (!window.maplibregl) throw new Error('the map library did not load');
-    if (HE) { try { maplibregl.setRTLTextPlugin(RTL_PLUGIN, true); } catch (e) { /* set once */ } }
+    // Hebrew: the right-to-left text support, loaded before the map starts, so every layer's Hebrew is shaped from the first
+    if (HE) { try { await withTimeout(Promise.resolve(maplibregl.setRTLTextPlugin(RTL_PLUGIN, false)), 10000, 'rtl'); } catch (e) { /* the names still show */ } }
     let liberty = null;
     try { liberty = await withTimeout(fetch(GL_STYLE).then((r) => r.json()), 12000, 'the street map took too long'); } catch (e) { liberty = null; }
-    const style = { version: 8, glyphs: GLYPHS, sources: { ...(liberty ? liberty.sources : {}) }, layers: [{ id: 'pol-bg', type: 'background', paint: { 'background-color': '#f1f3f0' } }] };
+    const style = { version: 8, glyphs: GLYPHS, sources: { ...(liberty ? liberty.sources : {}) }, layers: [{ id: 'pol-bg', type: 'background', paint: { 'background-color': GROUND.light.water } }] };
     if (liberty && liberty.sprite) style.sprite = liberty.sprite;
-    for (const l of liberty ? liberty.layers : []) { BASE.set(l.id, (l.layout && l.layout.visibility) || 'visible'); style.layers.push({ ...l, layout: { ...(l.layout || {}), visibility: 'none' } }); }
+    for (const l of liberty ? liberty.layers : []) {
+      BASE.set(l.id, (l.layout && l.layout.visibility) || 'visible');
+      BASE_PAINT.set(l.id, l.paint || {});
+      style.layers.push({ ...l, layout: { ...(l.layout || {}), visibility: 'none' } });
+    }
     physicalOK = !!liberty;
     map = new maplibregl.Map({
       container: 'basemap', style, attributionControl: false, renderWorldCopies: true, dragRotate: false, pitchWithRotate: false, touchPitch: false,
@@ -1058,94 +1142,88 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     map.keyboard.disableRotation();
     await withTimeout(new Promise((resolve, reject) => { map.once('load', resolve); map.once('error', (e) => { if (!map.loaded()) reject(e.error || new Error('map error')); }); }), 30000, 'the map took too long');
     const layers = map.getStyle().layers;
-    firstBaseId = (layers.find((l) => BASE.has(l.id)) || {}).id;
     const lastRoad = layers.map((l) => l.type === 'line' && l['source-layer'] === 'transportation').lastIndexOf(true);
     lineBefore = (layers.find((l, i) => i > lastRoad && l.type === 'symbol') || {}).id;
     waterBefore = (layers.find((l) => ['water', 'waterway'].includes(l['source-layer'])) || {}).id;
     addLayers();
   }
 
+  // Our layers, once per way of drawing: standard ('' — among the street map's layers) and flat ('-f' — on their own
+  // over the sea). Only the current one is shown.
   function addLayers() {
-    const src = (id, data) => map.addSource(id, { type: 'geojson', data, tolerance: 0.25 });
-    // political: the areas' fills, the land no shetach covers, the lines between areas
-    src('areas', fc(areaFeatures));
-    src('sphere', EMPTY);
-    src('mesh', EMPTY);
-    src('outside', EMPTY);
-    src('outside-lines', EMPTY);
-    src('hover-area', EMPTY);
-    src('hover-dot', EMPTY);
-    src('dots', EMPTY);
-    map.addSource('names', { type: 'geojson', data: EMPTY, tolerance: 0 });
-    src('cities', EMPTY);
-    src('caps', EMPTY);
-    const before = firstBaseId;
-    // a flat view's world: the sea inside the projection's outline, a quieter tone beyond it
-    map.addLayer({ id: 'pol-sphere', type: 'fill', source: 'sphere', paint: { 'fill-antialias': false } }, before);
-    map.addLayer({ id: 'pol-sphere-edge', type: 'line', source: 'sphere', paint: { 'line-width': 1 } }, before);
-    map.addLayer({ id: 'pol-out-fill', type: 'fill', source: 'outside', paint: { 'fill-antialias': false } }, before);
-    map.addLayer({ id: 'pol-out-line', type: 'line', source: 'outside-lines', layout: { 'line-join': 'round', 'line-cap': 'round' }, paint: { 'line-width': 0.8, 'line-opacity': 0.35 } }, before);
-    map.addLayer({ id: 'pol-fill', type: 'fill', source: 'areas', paint: { 'fill-antialias': false } }, before);
-    for (const kind of ['coast', 'regular', 'country', 'shetach', 'inner']) {
-      map.addLayer({ id: `pol-line-${kind}`, type: 'line', source: 'mesh', filter: ['==', ['get', 'k'], kind], layout: { 'line-join': 'round', 'line-cap': 'round' } }, before);
-    }
-    // physical: our borders and the fade over land outside the view, from the build's tiles, among the street map's layers
     if (physicalOK) {
       map.addSource('st', { type: 'vector', tiles: [fresh(`${new URL('.', location.href).href}tiles/{z}/{x}/{y}.pbf`)], minzoom: 0, maxzoom: 6 });
-      // Each shetach as a soft tint of its colour, under the water (so the map's own coastline trims it) and under the
-      // roads and names; it fades away at street level, where the map itself takes over, as region highlights do.
-      map.addLayer({ id: 'st-tint', type: 'fill', source: 'areas', paint: { 'fill-antialias': false } }, waterBefore);
-      // Shetach borders as a soft coloured line with a light casing (the map's own country and state borders stay as
-      // they are); also fading at street level.
-      map.addLayer({ id: 'st-line-casing', type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, lineBefore);
-      for (const kind of ['shetach', 'inner']) {
-        map.addLayer({ id: `st-line-${kind}`, type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, lineBefore);
-      }
-      // place names in English (Latin letters), and richer natural colours (as the physical map had)
+      // place names in English (Latin letters), or Hebrew
       const latin = ['coalesce', ['get', 'name:en'], ['get', 'name_en'], ['get', 'name:latin'], ['get', 'name']];
       for (const l of map.getStyle().layers) {
         if (BASE.has(l.id) && l.type === 'symbol' && l.layout && /"name/.test(JSON.stringify(l.layout['text-field'] || ''))) map.setLayoutProperty(l.id, 'text-field', HE ? ['coalesce', ['get', 'name:he'], ...latin.slice(1)] : latin);
       }
       if (BASE.has('building-3d')) BASE.set('building-3d', 'none');
       if (map.getLayer('building')) map.setLayerZoomRange('building', 13, 24);
-      const set = (id, prop, value) => { if (map.getLayer(id)) map.setPaintProperty(id, prop, value); };
-      if (map.getLayer('natural_earth')) {
-        map.setLayerZoomRange('natural_earth', 0, 12);
-        set('natural_earth', 'raster-opacity', ['interpolate', ['linear'], ['zoom'], 0, 0.95, 5, 0.9, 7, 0.75, 9, 0.5, 11, 0.25, 12, 0]);
-        set('natural_earth', 'raster-saturation', 0.15);
-      }
-      set('landcover_wood', 'fill-color', 'hsl(100, 38%, 62%)');
-      set('landcover_wood', 'fill-opacity', ['interpolate', ['linear'], ['zoom'], 6, 0.35, 10, 0.6]);
-      set('landcover_grass', 'fill-opacity', 0.5);
-      set('park', 'fill-color', '#c9e2b3');
+      // the physical look's richer natural colours
+      const phys = (id, prop, value) => { if (BASE_PAINT.has(id)) BASE_PAINT.set(id, { ...BASE_PAINT.get(id), [prop]: value }); };
+      if (map.getLayer('natural_earth')) map.setLayerZoomRange('natural_earth', 0, 12);
+      phys('natural_earth', 'raster-opacity', ['interpolate', ['linear'], ['zoom'], 0, 0.95, 5, 0.9, 7, 0.75, 9, 0.5, 11, 0.25, 12, 0]);
+      phys('natural_earth', 'raster-saturation', 0.15);
+      phys('landcover_wood', 'fill-color', 'hsl(100, 38%, 62%)');
+      phys('landcover_wood', 'fill-opacity', ['interpolate', ['linear'], ['zoom'], 6, 0.35, 10, 0.6]);
+      phys('landcover_grass', 'fill-opacity', 0.5);
+      phys('park', 'fill-color', '#c9e2b3');
     }
-    // both looks: what a tap can land on (invisible), the outline of the area a card is about, the dots
-    map.addLayer({ id: 'pick', type: 'fill', source: 'areas', paint: { 'fill-opacity': 0 } });
-    map.addLayer({ id: 'hover-area', type: 'line', source: 'hover-area', layout: { 'line-join': 'round' }, paint: { 'line-width': 2.5 } });
-    map.addLayer({ id: 'dots', type: 'circle', source: 'dots' });
-    map.addLayer({ id: 'hover-dot', type: 'circle', source: 'hover-dot', paint: { 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-width': 2 } });
-    // Names, cities and capitals. The map places a layer higher up first, so Lubavitch and the capitals come first,
-    // then the shetachim's names, then cities where there's room left; within a layer, the biggest first.
-    map.addLayer({ id: 'cities', type: 'symbol', source: 'cities', filter: ['>=', ['zoom'], ['get', 'minz']],
-      layout: { 'icon-image': 'ring', 'text-field': ['get', 'name'], 'text-font': F_REG, 'text-size': 12, 'text-variable-anchor': ['left', 'right', 'top', 'bottom'],
-        'text-radial-offset': 0.55, 'text-justify': 'auto', 'symbol-sort-key': ['get', 'rank'], 'text-padding': 2, 'icon-padding': 0 } });
-    map.addLayer({ id: 'names', type: 'symbol', source: 'names', filter: ['all', ['>=', ['zoom'], ['get', 'minz']], ['<', ['zoom'], ['get', 'maxz']]],
+    for (const sfx of ['', '-f']) addOverlay(sfx);
+    glOK = true;
+  }
+  function addOverlay(sfx) {
+    const flat = sfx === '-f', id = (n) => n + sfx;
+    const src = (n) => map.addSource(id(n), { type: 'geojson', data: n === 'areas' && !flat ? fc(areaFeatures) : EMPTY, tolerance: n === 'names' ? 0 : 0.25 });
+    for (const n of ['land', 'areas', 'mesh', 'outside', 'outside-lines', 'hover-area', 'hover-dot', 'dots', 'names', 'cities', 'caps', 'seas']) src(n);
+    const add = (layer, before) => map.addLayer({ ...layer, id: id(layer.id), source: id(layer.source) }, flat ? undefined : before);
+    const under = physicalOK ? waterBefore : undefined, over = physicalOK ? lineBefore : undefined;
+    // the land (flat: there's no street map), the land no shetach covers (Rest of the world), the shetachim
+    if (flat) add({ id: 'land', type: 'fill', source: 'land', paint: { 'fill-antialias': false } });
+    add({ id: 'out-fill', type: 'fill', source: 'outside', paint: { 'fill-antialias': false } }, under);
+    add({ id: 'fill', type: 'fill', source: 'areas', paint: { 'fill-antialias': false } }, under);
+    // physical: each shetach as a soft tint under the water and relief
+    if (!flat && physicalOK) map.addLayer({ id: 'st-tint', type: 'fill', source: 'areas', paint: { 'fill-antialias': false } }, under);
+    // lines: (flat) the coast and the countries' and states' borders, as the street map draws its own; the shetachim's
+    for (const kind of ['coast', 'regular', 'country', 'casing', 'shetach', 'inner']) {
+      add({ id: `line-${kind}`, type: 'line', source: 'mesh', filter: ['==', ['get', 'k'], kind === 'casing' ? 'shetach' : kind], layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
+    }
+    add({ id: 'out-line', type: 'line', source: 'outside-lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
+    if (!flat && physicalOK) {
+      map.addLayer({ id: 'st-line-casing', type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
+      for (const kind of ['shetach', 'inner']) map.addLayer({ id: `st-line-${kind}`, type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
+    }
+    // what a tap can land on (invisible), the outline of the area a card is about, the dots
+    add({ id: 'pick', type: 'fill', source: 'areas', paint: { 'fill-opacity': 0 } });
+    add({ id: 'hover-area', type: 'line', source: 'hover-area', layout: { 'line-join': 'round' }, paint: { 'line-width': 2.5 } });
+    add({ id: 'dots', type: 'circle', source: 'dots' });
+    add({ id: 'hover-dot', type: 'circle', source: 'hover-dot', paint: { 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-width': 2 } });
+    // Names. The map places a layer higher up first, so Lubavitch and the capitals come first, then the shetachim's
+    // names, then cities where there's room left; within a layer, the biggest first.
+    if (flat) {
+      add({ id: 'seas', type: 'symbol', source: 'seas', filter: ['>=', ['zoom'], ['get', 'minz']],
+        layout: { 'text-field': ['get', 'name'], 'text-font': F_IT, 'text-size': ['case', ['==', ['get', 'tier'], 0], 12.5, 10.5], 'text-letter-spacing': ['case', ['==', ['get', 'tier'], 0], 0.18, 0.06],
+          'text-max-width': 7, 'symbol-sort-key': ['get', 'tier'], 'text-padding': 4 } });
+    }
+    // a capital's star: always shown, and never in the way of a name (names sit over it, so it's under them)
+    add({ id: 'caps', type: 'symbol', source: 'caps', filter: ['!', ['get', 'honor']],
+      layout: { 'icon-image': ['case', ['get', 'world'], 'star-world', 'star'], 'icon-allow-overlap': true, 'icon-ignore-placement': true, 'symbol-sort-key': ['get', 'rank'] } });
+    add({ id: 'cities', type: 'symbol', source: 'cities', filter: ['>=', ['zoom'], ['get', 'minz']],
+      layout: { 'text-field': ['get', 'name'], 'text-font': F_REG, 'text-size': 11.5, 'symbol-sort-key': ['get', 'rank'], 'text-padding': 3 } });
+    add({ id: 'names', type: 'symbol', source: 'names', filter: ['all', ['>=', ['zoom'], ['get', 'minz']], ['<', ['zoom'], ['get', 'maxz']]],
       layout: {
         'text-field': ['case', ['!=', ['get', 'pre'], ''], ['format', ['get', 'pre'], { 'text-font': ['literal', F_IT] }, ['get', 'rest'], {}], ['get', 't']],
         'text-font': ['case', ['==', ['get', 'kind'], 'sec'], ['literal', F_IT], ['==', ['get', 'kind'], 'miss'], ['literal', F_REG], ['literal', F_BOLD]],
         'text-size': ['interpolate', ['linear'], ['zoom'], ...ZS.flatMap((z) => [z, ['get', `s${z}`]])],
         'text-max-width': 100, 'text-line-height': 1.15, 'text-letter-spacing': 0.01, 'symbol-sort-key': ['get', 'rank'], 'text-padding': 2,
       } });
-    map.addLayer({ id: 'cap-names', type: 'symbol', source: 'caps', filter: ['all', ['!', ['get', 'honor']], ['!=', ['get', 'name'], ''], ['>=', ['zoom'], ['get', 'minz']]],
-      layout: { 'text-field': ['get', 'name'], 'text-font': F_REG, 'text-size': 12, 'text-variable-anchor': ['left', 'right', 'top', 'bottom'],
-        'text-radial-offset': ['case', ['get', 'world'], 1.1, 0.8], 'text-justify': 'auto', 'symbol-sort-key': ['get', 'rank'], 'text-padding': 2 } }, 'names');
-    // a capital's star: always shown, and never in the way of a name (names may sit over it)
-    map.addLayer({ id: 'caps', type: 'symbol', source: 'caps', filter: ['!', ['get', 'honor']],
-      layout: { 'icon-image': ['case', ['get', 'world'], 'star-world', 'star'], 'icon-allow-overlap': true, 'icon-ignore-placement': true, 'symbol-sort-key': ['get', 'rank'] } });
-    map.addLayer({ id: 'honor', type: 'symbol', source: 'caps', filter: ['get', 'honor'],
-      layout: { 'icon-image': 'honor', 'icon-allow-overlap': true, 'text-allow-overlap': true, 'text-field': ['get', 'name'], 'text-font': F_IT, 'text-size': 13.5,
+    add({ id: 'cap-names', type: 'symbol', source: 'caps', filter: ['all', ['!', ['get', 'honor']], ['!=', ['get', 'name'], ''], ['>=', ['zoom'], ['get', 'minz']]],
+      layout: { 'text-field': ['get', 'name'], 'text-font': F_REG, 'text-size': 11.5, 'text-variable-anchor': ['left', 'right', 'top', 'bottom'],
+        'text-radial-offset': ['case', ['get', 'world'], 1.1, 0.8], 'text-justify': 'auto', 'symbol-sort-key': ['get', 'rank'], 'text-padding': 2 } });
+    add({ id: 'honor', type: 'symbol', source: 'caps', filter: ['all', ['get', 'honor'], ['>=', ['zoom'], ['get', 'minz']]],
+      layout: { 'icon-image': 'honor', 'icon-allow-overlap': true, 'text-allow-overlap': true, 'text-field': ['get', 'name'], 'text-font': F_IT, 'text-size': 13,
         'text-letter-spacing': 0.02, 'text-variable-anchor': ['left', 'right', 'top'], 'text-radial-offset': 0.6, 'text-justify': 'auto' } });
-    glOK = true;
   }
 
   // ---------- views and options on the map ----------
@@ -1166,39 +1244,130 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     }
     return { top: 16, left: Math.max(16, r.right - app.left + 16), right: 64, bottom: 16 };
   }
-  // The camera for the whole view, and from it the zoom the dots are sized for.
+
+  // Flat zoomed out, standard from country level in: how many km the screen spans (the square root of its area), and
+  // the span below which the map changes to standard. Away from the flat map's middle its meridians lean (America on a
+  // world map centred on Europe), and the land looks slanted as soon as you zoom in on it, so there it changes over
+  // sooner. Back to flat only once well past that (so it doesn't flip back and forth around one zoom).
+  const TO_STANDARD = 3000, FLAT_BACK = 1.5;
+  function leanAt(S, ll) { // degrees the meridian leans off upright there
+    return within(S, () => {
+      const [lon, lat] = ll, e = 0.05, a = PROJ([lon, lat]), b = PROJ([lon + e, lat]), c = PROJ([lon, lat + e]);
+      if (!a || !b || !c) return 0;
+      const ang = Math.atan2(b[1] - a[1], b[0] - a[0]) - Math.atan2(-(c[1] - a[1]), c[0] - a[0]) + Math.PI / 2;
+      return Math.abs((((ang * 180) / Math.PI + 540) % 360) - 180);
+    });
+  }
+  const standardBelow = (lean) => TO_STANDARD + 10000 * Math.min(1, lean / 20);
+  // the most the meridians lean anywhere on screen (the top of the US leans more than Mexico under it)
+  function screenLean() {
+    if (!V.F || V.view !== VIEWS.world) return 0; // a continent's own flat map is centred on it: it stays flat to country level
+    const c = map.getContainer();
+    let most = 0;
+    for (const fx of [0.2, 0.5, 0.8]) {
+      for (const fy of [0.2, 0.5, 0.8]) {
+        const p = map.unproject([c.clientWidth * fx, c.clientHeight * fy]);
+        const ll = V.cur.flat ? V.cur.proj.invert([mx(p.lng), my(p.lat)]) : [((p.lng + 540) % 360) - 180, p.lat];
+        if (ll && isFinite(ll[0]) && Math.abs(ll[0]) <= 180 && Math.abs(ll[1]) < 85) most = Math.max(most, leanAt(V.F, ll));
+      }
+    }
+    return most;
+  }
+  function centreLL() {
+    const c = map.getCenter();
+    if (!V.cur.flat) return [c.lng, c.lat];
+    const ll = V.cur.proj.invert([mx(c.lng), my(c.lat)]);
+    return ll && isFinite(ll[0]) && Math.abs(ll[0]) <= 180 ? ll : null;
+  }
+  const kmScale = (S, ll, z) => 512 * 2 ** z * within(S, () => unitsPerKm(ll[0], ll[1])); // screen px per km
+  function spanKm(S, ll, z) { const c = map.getContainer(); return Math.sqrt(c.clientWidth * c.clientHeight) / kmScale(S, ll, z); }
+  const flatAllowed = () => V.F && !(state.base === 'physical' && physicalOK);
+  // Change to S, keeping the place at the centre where it is and the scale there the same.
+  function setMode(S) {
+    if (!S || S === V.cur) return;
+    const ll = centreLL() || [0, 0], z = map.getZoom();
+    const zTo = z + Math.log2(kmScale(V.cur, ll, 0) / kmScale(S, ll, 0));
+    V.cur = S;
+    limits();
+    apply();
+    map.jumpTo({ center: within(S, () => P(ll[0], ll[1])) || map.getCenter(), zoom: zTo });
+  }
+  function checkMode() {
+    if (!V || !glOK) return;
+    if (!flatAllowed()) { if (V.cur !== V.M) setMode(V.M); return; }
+    const ll = centreLL();
+    if (!ll) return;
+    const span = spanKm(V.cur, ll, map.getZoom());
+    const below = standardBelow(screenLean());
+    if (V.cur === V.F && span < below) setMode(V.M);
+    else if (V.cur === V.M && span > below * FLAT_BACK) setMode(V.F);
+  }
+  // how far out the map may zoom, and whether it repeats sideways: a flat world doesn't
+  function limits() {
+    map.setRenderWorldCopies(!V.cur.flat);
+    map.setMinZoom(V.cur === V.M && V.F && flatAllowed() ? 0 : Math.max(0, (V.cur.zFit ?? 0) - 1.5));
+  }
+  // The camera for the whole view (flat, where the view has it), and from it the zoom the dots are sized for.
   function frameView(animate) {
-    const cam = map.cameraForBounds(V.bounds, { padding: framePadding() });
+    const S = flatAllowed() ? V.F : V.M, was = V.cur;
+    for (const T of [V.M, V.F]) {
+      if (!T) continue;
+      const cam = map.cameraForBounds(T.bounds, { padding: framePadding() });
+      if (cam) T.zFit = cam.zoom;
+    }
+    const cam = map.cameraForBounds(S.bounds, { padding: framePadding() });
     if (!cam) return;
-    V.zFit = cam.zoom;
-    map.setMinZoom(Math.max(0, V.zFit - 1.5));
-    if (animate && !still) map.flyTo({ ...cam, bearing: 0, duration: 900, essential: true });
+    V.cur = S;
+    limits();
+    if (was !== S) apply();
+    if (animate && !still && was === S && !S.flat) map.flyTo({ ...cam, bearing: 0, duration: 900, essential: true });
     else map.jumpTo(cam);
   }
 
   // A new view: its data into the map, framed.
   function showView(animate) {
+    const prev = V && V.cur;
     viewData();
     if (!glOK) return;
-    map.setRenderWorldCopies(!V.flat);
-    map.getSource('areas').setData(V.areas);
-    map.getSource('sphere').setData(V.sphere);
-    map.getSource('mesh').setData(V.mesh);
-    map.getSource('dots').setData(dotData());
-    map.getSource('cities').setData(cityData());
-    map.getSource('caps').setData(capData());
-    frameView(animate);
+    for (const S of [V.M, V.F]) {
+      if (!S) continue;
+      const set = (n, d) => map.getSource(n + S.sfx).setData(d);
+      S.namesShown = null; // (the sources held another view's)
+      set('areas', S.areas);
+      set('mesh', S.mesh);
+      set('dots', dotData(S));
+      set('cities', cityData(S));
+      set('caps', capData(S));
+      if (S.flat) { set('seas', seaData(S)); set('land', fc([S.land])); }
+    }
+    frameView(animate && prev && !prev.flat);
+    setOutside();
     apply();
   }
+  // The land no shetach covers: flat, it's land like any other (there's no street map to show it); with Rest of the
+  // world it's greyed, with its borders.
   function setOutside() {
-    if (!glOK) return;
-    let o = state.empty ? outsideData() : null;
-    if (o && V.flat) {
-      if (!V.outside) V.outside = { fill: fc(o.fill.features.map((f) => feature(projGeom(f.geometry), f.properties)).filter((f) => f.geometry)), coast: feature(projGeom(o.coast.geometry), o.coast.properties), borders: feature(projGeom(o.borders.geometry), o.borders.properties) };
-      o = V.outside;
+    if (!glOK || !V) return;
+    const o = V.F || state.empty ? outsideData() : null;
+    const key = `${!!o}|${state.empty}|${state.borders}`;
+    if (V.outsideKey === key) return;
+    if (o || !(V.F || state.empty)) V.outsideKey = key;
+    for (const S of [V.M, V.F]) {
+      if (!S) continue;
+      let so = o;
+      if (o && S.flat) {
+        if (!S.outside) {
+          S.outside = within(S, () => ({ fill: fc(o.fill.features.map((f) => feature(projGeom(f.geometry), f.properties)).filter((f) => f.geometry)),
+            coast: feature(projGeom(o.coast.geometry) || { type: 'MultiLineString', coordinates: [] }, o.coast.properties),
+            borders: feature(projGeom(o.borders.geometry) || { type: 'MultiLineString', coordinates: [] }, o.borders.properties) }));
+        }
+        map.getSource(`land${S.sfx}`).setData(fc([S.land, ...S.outside.fill.features]));
+        so = S.outside;
+      }
+      map.getSource(`outside${S.sfx}`).setData(so && state.empty ? so.fill : EMPTY);
+      const lines = so ? (S.flat ? [so.coast] : []).concat(state.empty && state.borders !== 'shetach' ? [so.borders] : []) : [];
+      map.getSource(`outside-lines${S.sfx}`).setData(fc(lines));
     }
-    map.getSource('outside').setData(o ? o.fill : EMPTY);
-    map.getSource('outside-lines').setData(o ? fc((state.borders === 'shetach' ? [o.coast] : [o.coast, o.borders]).filter((f) => f.geometry)) : EMPTY);
   }
 
   // Everything the options decide: which look, which fills and lines, the names, dots, cities and capitals.
@@ -1207,51 +1376,79 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     $('#colors-ctl').hidden = state.base === 'physical';
     $('#lighter-row').hidden = state.borders !== 'both';
     if (!glOK || !V) return;
-    const pal = palette();
+    const pal = palette(), G = pal.ground;
     setLegendDot(pal);
     drawIcons(pal);
     const physical = state.base === 'physical' && physicalOK;
+    const S = V.cur, street = !S.flat && physicalOK; // the street map shows (standard), or our own land and sea (flat)
     const show = (id, on) => { if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', on ? 'visible' : 'none'); };
     const paint = (id, prop, value) => { if (map.getLayer(id)) map.setPaintProperty(id, prop, value); };
-    // the two looks
-    show('pol-bg', !physical);
-    for (const [id, vis] of BASE) show(id, physical && vis !== 'none');
-    for (const id of ['pol-sphere', 'pol-sphere-edge', 'pol-out-fill', 'pol-out-line', 'pol-fill', 'pol-line-coast', 'pol-line-regular', 'pol-line-country', 'pol-line-shetach', 'pol-line-inner']) show(id, !physical);
-    for (const id of ['st-tint', 'st-line-casing', 'st-line-shetach', 'st-line-inner']) show(id, physical);
-    const inView = ['in', ['get', 'country'], ['literal', V.view.countries]];
-    map.setFilter('pick', inView);
     const both = state.borders === 'both', lightS = both && state.lighter === 'shetach', lightR = both && state.lighter === 'regular';
-    if (!physical) {
-      // flat views: the sea inside the world's outline, beyond it a slightly different tone (paper, or night)
-      const dark = theme() === 'dark';
-      paint('pol-bg', 'background-color', V.flat ? (dark ? d3.color(pal.bg).darker(0.45).formatHex() : '#fbfbfa') : pal.bg);
-      paint('pol-sphere', 'fill-color', pal.bg);
-      paint('pol-sphere-edge', 'line-color', pal.ink);
-      paint('pol-sphere-edge', 'line-opacity', 0.25);
-      // fills: shetachim (blank parts of states stay unfilled), or every state with States borders
-      const regular = state.borders === 'regular';
-      map.setFilter('pol-fill', regular ? inView : ['all', inView, ['>=', ['get', 'cs'], 0]]);
-      paint('pol-fill', 'fill-color', state.color === 'plain' ? pal.plain : ['match', ['get', regular ? 'cu' : 'cs'], ...pal.c.flatMap((c, i) => [i, c]), pal.plain]);
-      paint('pol-fill', 'fill-opacity', lightS ? 0.55 : 1);
-      for (const [kind, width, on, alpha, dash] of [
-        ['coast', 1.1, true, 1], ['regular', 1, state.borders !== 'shetach', lightR ? 0.35 : 1, both ? [2, 3] : null],
-        ['country', 1.8, state.borders !== 'shetach', lightR ? 0.35 : 1], ['shetach', 1.3, state.borders !== 'regular', lightS ? 0.3 : 1],
-        ['inner', 1.1, state.borders !== 'regular', lightS ? 0.3 : 0.85, [4 / 1.1, 3 / 1.1]],
+    const regular = state.borders === 'regular';
+    const inView = ['in', ['get', 'country'], ['literal', V.view.countries]];
+    // the street map: its own look for each of ours
+    lookBase(physical ? 'physical' : pal.dark ? 'dark' : 'light');
+    setOutside();
+    show('pol-bg', !street);
+    paint('pol-bg', 'background-color', G.water);
+    for (const [id, vis] of BASE) {
+      const layer = map.getLayer(id);
+      let on = street && vis !== 'none';
+      if (on && !physical && (id === 'natural_earth' || layer.sourceLayer === 'landcover' || id === 'park_outline')) on = false; // a political map isn't green
+      // the street map's own borders on the physical map; the political one draws its own (they match the shetachim's)
+      if (on && layer.sourceLayer === 'boundary') on = physical && state.borders !== 'shetach';
+      if (on && layer.type === 'symbol' && layer.sourceLayer === 'place' && /country|state|continent/.test(id)) on = false; // the shetachim's names instead
+      show(id, on);
+      if (layer.sourceLayer === 'boundary') paint(id, 'line-opacity', lightR ? 0.35 : (BASE_PAINT.get(id) || {})['line-opacity'] ?? 1);
+    }
+    if (!V.F) for (const l of map.getStyle().layers) if (l.id.endsWith('-f')) show(l.id, false); // (left from a flat view before)
+    for (const T of [V.M, V.F]) {
+      if (!T) continue;
+      const on = T === S, id = (n) => n + T.sfx, flat = T.flat;
+      const polOn = on && !physical;
+      // fills: shetachim (blank parts of states stay land), or every state with States borders; strong zoomed out, and
+      // see-through at street level so the streets show
+      show(id('land'), on && flat);
+      paint(id('land'), 'fill-color', G.land);
+      show(id('fill'), polOn);
+      map.setFilter(id('fill'), regular ? inView : ['all', inView, ['>=', ['get', 'cs'], 0]]);
+      paint(id('fill'), 'fill-color', state.color === 'plain' ? pal.plain : ['match', ['get', regular ? 'cu' : 'cs'], ...pal.c.flatMap((c, i) => [i, c]), pal.plain]);
+      const k = lightS ? 0.6 : 1;
+      paint(id('fill'), 'fill-opacity', flat || !physicalOK ? 0.92 * k : ['interpolate', ['linear'], ['zoom'], 5, 0.9 * k, 7, 0.78 * k, 10, 0.5 * k, 13, 0.3 * k]);
+      show(id('out-fill'), polOn && state.empty);
+      paint(id('out-fill'), 'fill-color', pal.empty);
+      paint(id('out-fill'), 'fill-opacity', street ? 0.7 : 1);
+      // lines: shetach borders light against the colours (as map sites draw region borders); countries' and states'
+      // borders grey; the coast a darker sea (flat only: the street map has its own)
+      const w = (a, b, c) => ['interpolate', ['linear'], ['zoom'], 2, a, 6, b, 12, c];
+      for (const [kind, onK, color, width, alpha, dash] of [
+        ['coast', flat, G.coast, 0.6, 1],
+        ['regular', state.borders !== 'shetach', G.grey, w(0.5, 0.8, 1.4), lightR ? 0.3 : 0.6, [2, 2]],
+        ['country', state.borders !== 'shetach', G.grey, w(0.7, 1.1, 1.8), lightR ? 0.4 : 0.85],
+        ['casing', !regular, G.border, w(1.2, 2.2, 3.6), lightS ? 0.45 : 0.95],
+        ['shetach', false],
+        ['inner', !regular, G.border, w(0.6, 1, 1.6), lightS ? 0.4 : 0.85, [3, 2]],
       ]) {
-        const id = `pol-line-${kind}`;
-        show(id, on);
-        paint(id, 'line-color', pal.ink);
-        paint(id, 'line-width', width);
-        paint(id, 'line-opacity', alpha);
-        paint(id, 'line-dasharray', dash || [1, 0]);
+        const lid = id(`line-${kind}`);
+        show(lid, polOn && onK);
+        if (!onK) continue;
+        paint(lid, 'line-color', color);
+        paint(lid, 'line-width', width);
+        paint(lid, 'line-opacity', alpha);
+        paint(lid, 'line-dasharray', dash || [1, 0]);
       }
-      paint('pol-out-fill', 'fill-color', pal.empty);
-      paint('pol-out-line', 'line-color', pal.ink);
-      show('pol-out-fill', state.empty);
-      show('pol-out-line', state.empty);
-      setOutside();
-    } else {
-      // shetach borders where both sides are in the view
+      show(id('out-line'), polOn);
+      paint(id('out-line'), 'line-color', G.grey);
+      paint(id('out-line'), 'line-width', 0.7);
+      paint(id('out-line'), 'line-opacity', ['match', ['get', 'k'], 'coast', 0, 0.6]);
+      // (the coast of the land no shetach covers, flat: same as ours)
+      if (flat) paint(id('out-line'), 'line-color', ['match', ['get', 'k'], 'coast', G.coast, G.grey]), paint(id('out-line'), 'line-opacity', ['match', ['get', 'k'], 'coast', 1, 0.6]);
+      map.setFilter(id('pick'), inView);
+      show(id('pick'), on);
+    }
+    // physical (standard only): shetach borders where both sides are in the view, and the tints
+    if (physicalOK) {
+      const physOn = physical && S === V.M;
       const list = ['literal', V.view.countries];
       const a = ['in', ['get', 'ca'], list], b = ['all', ['has', 'cb'], ['in', ['get', 'cb'], list]];
       const shetachLines = state.borders !== 'regular';
@@ -1260,57 +1457,72 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       map.setFilter('st-line-casing', ['all', a, b, ['==', ['get', 'sh'], 0]]);
       const fadeOut = (v) => ['interpolate', ['linear'], ['zoom'], 9, v, 12, 0];
       const BORDER = 'hsl(258, 28%, 44%)';
-      for (const id of ['st-line-shetach', 'st-line-inner']) {
-        show(id, shetachLines);
-        paint(id, 'line-color', BORDER);
-        paint(id, 'line-width', ['interpolate', ['linear'], ['zoom'], 2, 1, 6, 1.7, 10, 2.6]);
-        paint(id, 'line-opacity', fadeOut(lightS ? 0.4 : 0.85));
+      for (const lid of ['st-line-shetach', 'st-line-inner']) {
+        show(lid, physOn && shetachLines);
+        paint(lid, 'line-color', BORDER);
+        paint(lid, 'line-width', ['interpolate', ['linear'], ['zoom'], 2, 1, 6, 1.7, 10, 2.6]);
+        paint(lid, 'line-opacity', fadeOut(lightS ? 0.4 : 0.85));
       }
       paint('st-line-inner', 'line-dasharray', [3, 2]);
-      show('st-line-casing', shetachLines && !lightS);
+      show('st-line-casing', physOn && shetachLines && !lightS);
       paint('st-line-casing', 'line-color', '#ffffff');
       paint('st-line-casing', 'line-width', ['interpolate', ['linear'], ['zoom'], 2, 3, 6, 4.5, 10, 6]);
       paint('st-line-casing', 'line-opacity', fadeOut(0.55));
       // the tint: by shetach (blank parts of states untinted); none with States borders, where the map's own lines say it
-      show('st-tint', shetachLines);
+      show('st-tint', physOn && shetachLines);
       map.setFilter('st-tint', ['all', inView, ['>=', ['get', 'cs'], 0]]);
       paint('st-tint', 'fill-color', state.color === 'plain' ? '#ffffff' : ['match', ['get', 'cs'], ...PHYS_TINTS.flatMap((c, i) => [i, c]), '#ffffff']);
       paint('st-tint', 'fill-opacity', ['interpolate', ['linear'], ['zoom'], 0, lightS ? 0.22 : 0.42, 6, lightS ? 0.2 : 0.36, 9, 0.22, 11, 0.08, 12, 0]);
-      // the map's own country and state borders and city names stay (they're the map's); its country and state names
-      // give way to the shetachim's
-      for (const layer of map.getStyle().layers) {
-        if (!BASE.has(layer.id)) continue;
-        if (layer['source-layer'] === 'boundary') show(layer.id, BASE.get(layer.id) !== 'none' && state.borders !== 'shetach');
-        if (layer.type === 'symbol' && layer['source-layer'] === 'place') show(layer.id, BASE.get(layer.id) !== 'none' && !/country|state|continent/.test(layer.id));
-      }
     }
     // dots: as before, growing with zoom like k^0.35 from the framed view, up to 60× it
-    const ds = dotStyle(), zf = V.zFit ?? 2, r = (dz) => ['*', ['+', ds.a, ['*', ds.b, ['get', 'l']]], 2 ** (0.35 * dz)];
-    const radius = ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], zf - 2, r(-2), zf + Math.log2(60), r(Math.log2(60))];
-    show('dots', state.dots);
-    paint('dots', 'circle-radius', radius);
-    paint('dots', 'circle-color', ds.color === 'dot' ? pal.dot : pal.dotSolid);
-    paint('dots', 'circle-opacity', ds.alpha === 1 ? 1 : ds.alpha + 0.1);
-    paint('dots', 'circle-stroke-width', ds.alpha === 1 ? 0.6 : 0);
-    paint('dots', 'circle-stroke-color', pal.dotEdge);
-    paint('hover-dot', 'circle-radius', ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], zf - 2, ['+', r(-2), 2.5], zf + Math.log2(60), ['+', r(Math.log2(60)), 2.5]]);
-    paint('hover-dot', 'circle-stroke-color', pal.accent);
-    paint('hover-area', 'line-color', pal.accent);
-    // names, cities, capitals
-    map.getSource('names').setData(labelData());
-    for (const id of ['names', 'cities', 'cap-names', 'honor']) {
-      paint(id, 'text-color', id === 'names' ? ['case', ['==', ['get', 'kind'], 'miss'], pal.missing, ['==', ['get', 'kind'], 'sec'], pal.secondary, pal.ink] : pal.ink);
-      paint(id, 'text-halo-color', pal.halo);
-      paint(id, 'text-halo-width', physical ? 1.4 : id === 'names' ? 1.8 : 1.5);
-      paint(id, 'text-halo-blur', physical ? 1 : 0.4);
+    const ds = dotStyle();
+    for (const T of [V.M, V.F]) {
+      if (!T) continue;
+      const on = T === S, id = (n) => n + T.sfx;
+      const zf = T.zFit ?? 2, r = (dz) => ['*', ['+', ds.a, ['*', ds.b, ['get', 'l']]], 2 ** (0.35 * dz)];
+      const radius = ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], zf - 2, r(-2), zf + Math.log2(60), r(Math.log2(60))];
+      show(id('dots'), on && state.dots);
+      paint(id('dots'), 'circle-radius', radius);
+      paint(id('dots'), 'circle-color', ds.color === 'dot' ? pal.dot : pal.dotSolid);
+      paint(id('dots'), 'circle-opacity', ds.alpha === 1 ? 1 : ds.alpha + 0.1);
+      paint(id('dots'), 'circle-stroke-width', ds.alpha === 1 ? 0.6 : 0);
+      paint(id('dots'), 'circle-stroke-color', pal.dotEdge);
+      show(id('hover-dot'), on);
+      show(id('hover-area'), on);
+      paint(id('hover-dot'), 'circle-radius', ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], zf - 2, ['+', r(-2), 2.5], zf + Math.log2(60), ['+', r(Math.log2(60)), 2.5]]);
+      paint(id('hover-dot'), 'circle-stroke-color', pal.accent);
+      paint(id('hover-area'), 'line-color', pal.accent);
+      // names, cities, capitals: in the street map's way (dark grey with a soft white halo); on the street map its own
+      // cities, which ours would only double
+      // the names of the way it's drawn now at once; the other's when the map is idle (it's ready by the time it's needed)
+      if (on) setNames(T);
+      else setTimeout(() => { if (V && (T === V.M || T === V.F)) setNames(T); }, 600);
+      for (const lid of ['names', 'cities', 'cap-names', 'honor']) {
+        paint(id(lid), 'text-color', lid === 'names' ? ['case', ['==', ['get', 'kind'], 'miss'], pal.missing, ['==', ['get', 'kind'], 'sec'], pal.secondary, pal.ink] : lid === 'cities' || lid === 'cap-names' ? (pal.dark ? '#c9d1d6' : '#333333') : pal.ink);
+        paint(id(lid), 'text-halo-color', pal.halo);
+        paint(id(lid), 'text-halo-width', lid === 'names' ? 1.6 : 1.2);
+        paint(id(lid), 'text-halo-blur', 0.8);
+      }
+      show(id('seas'), on && T.flat);
+      paint(id('seas'), 'text-color', pal.dark ? '#7f9cc0' : '#4a6390');
+      paint(id('seas'), 'text-halo-color', G.water);
+      paint(id('seas'), 'text-halo-width', 1);
+      show(id('names'), on && state.labels !== 'off');
+      show(id('cities'), on && state.cities && T.flat);
+      show(id('caps'), on && state.capitals);
+      show(id('cap-names'), on && state.capitals && T.flat);
+      show(id('honor'), on);
+      const zs = T.zFit ?? 2;
+      map.setLayoutProperty(id('caps'), 'icon-size', ['interpolate', ['linear'], ['zoom'], zs, phone() ? 0.42 : 0.6, zs + 3, 1]);
     }
-    show('names', state.labels !== 'off');
-    show('cities', state.cities && !physical);
-    show('caps', state.capitals);
-    show('cap-names', state.capitals && !physical);
-    const zs = V.zFit ?? 2;
-    map.setLayoutProperty('caps', 'icon-size', ['interpolate', ['linear'], ['zoom'], zs, phone() ? 0.42 : 0.6, zs + 3, 1]);
     if (pinned) showCard(pinned, lastPoint, true);
+  }
+
+  function setNames(T) {
+    const data = labelData(T);
+    if (T.namesShown === data) return;
+    T.namesShown = data;
+    map.getSource(`names${T.sfx}`).setData(data);
   }
 
   // ---------- hover and tap ----------
@@ -1318,9 +1530,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   let pinned = null, lastPoint = { clientX: 0, clientY: 0 };
   // What's under a point on screen: Lubavitch or a capital, a dot, a city, or an area.
   function pickAt(point, touch) {
-    const reach = touch ? 14 : 8;
+    const reach = touch ? 14 : 8, sfx = V.cur.sfx;
     const box = [[point.x - reach, point.y - reach], [point.x + reach, point.y + reach]];
-    const q = (ids) => map.queryRenderedFeatures(box, { layers: ids.filter((id) => map.getLayer(id) && map.getLayoutProperty(id, 'visibility') !== 'none') });
+    const q = (ids) => map.queryRenderedFeatures(box, { layers: ids.map((id) => id + sfx).filter((id) => map.getLayer(id) && map.getLayoutProperty(id, 'visibility') !== 'none') });
     const nearest = (fs) => d3.least(fs, (f) => { const p = map.project(f.geometry.coordinates); return Math.hypot(p.x - point.x, p.y - point.y); });
     let f = nearest(q(['honor', 'caps']));
     if (f) return { capital: V.caps[f.properties.i] };
@@ -1328,29 +1540,43 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (f) return { dot: V.dots[f.properties.i] };
     f = nearest(q(['cities']));
     if (f) return { city: V.cities[f.properties.i] };
-    const a = map.queryRenderedFeatures(point, { layers: ['pick'] })[0];
+    const a = map.queryRenderedFeatures(point, { layers: [`pick${sfx}`] })[0];
     return a ? { piece: pieceById.get(a.properties.id).properties } : null;
   }
   // The area a card is about: its state with States borders, else its shetach or the blank part of its state.
-  function areaOf(pieceId) {
+  function areaOf(S, pieceId) {
     const g = pieceById.get(pieceId), s = shetachOf(g);
-    if (state.borders === 'regular') return V.states.find((r) => r.st === g.properties.state);
-    if (s) return V.regions.find((r) => r.s === s);
+    if (state.borders === 'regular') return S.states.find((r) => r.st === g.properties.state);
+    if (s) return S.regions.find((r) => r.s === s);
     const gs = V.main.filter((x) => !shetachOf(x) && x.properties.state === g.properties.state);
-    return gs.length ? { geometry: projGeom(topojson.merge(topo, gs)) } : null;
+    return gs.length ? { geometry: within(S, () => projGeom(topojson.merge(topo, gs))) } : null;
   }
   function highlight(hit) {
     if (!glOK) return;
+    const S = V.cur;
     const dot = hit && (hit.dot || (hit.capital && dotOfCenter.get(hit.capital.centerId)));
-    const area = hit && hit.piece && V.mainIds.has(hit.piece.id) ? areaOf(hit.piece.id) : null;
-    map.getSource('hover-dot').setData(dot && state.dots && V.mainIds.has(dot.piece) ? feature({ type: 'Point', coordinates: P(dot.lon, dot.lat) }, { l: Math.log2(dot.centers.length) }) : EMPTY);
-    map.getSource('hover-area').setData(area ? feature(area.geometry) : EMPTY);
+    const area = hit && hit.piece && V.mainIds.has(hit.piece.id) ? areaOf(S, hit.piece.id) : null;
+    map.getSource(`hover-dot${S.sfx}`).setData(dot && state.dots && V.mainIds.has(dot.piece) ? feature({ type: 'Point', coordinates: within(S, () => P(dot.lon, dot.lat)) }, { l: Math.log2(dot.centers.length) }) : EMPTY);
+    map.getSource(`hover-area${S.sfx}`).setData(area && area.geometry ? feature(area.geometry) : EMPTY);
   }
+  // Zoom to an area: in the way of drawing that suits how close that is (a country: standard; a continent: flat).
   function zoomToArea(pieceId) {
-    const area = areaOf(pieceId);
-    if (!area) return;
-    const b = V.flat ? flatBounds(area.geometry) : d3.geoBounds(feature(area.geometry));
-    const bounds = b[0][0] > b[1][0] ? [[b[0][0], b[0][1]], [b[1][0] + 360, b[1][1]]] : b;
+    const boundsIn = (S) => {
+      const area = areaOf(S, pieceId);
+      if (!area || !area.geometry) return null;
+      const b = S.flat ? flatBounds(area.geometry) : d3.geoBounds(feature(area.geometry));
+      return b[0][0] > b[1][0] ? [[b[0][0], b[0][1]], [b[1][0] + 360, b[1][1]]] : b;
+    };
+    let bounds = boundsIn(V.cur);
+    if (!bounds) return;
+    if (flatAllowed()) {
+      const cam = map.cameraForBounds(bounds, { padding: framePadding(), maxZoom: 12 });
+      const ll = V.cur.flat ? V.cur.proj.invert([mx(cam.center.lng), my(cam.center.lat)]) : [cam.center.lng, cam.center.lat];
+      const span = ll ? spanKm(V.cur, ll, cam.zoom) : 0;
+      const below = ll && V.view === VIEWS.world ? standardBelow(leanAt(V.F, ll)) : TO_STANDARD;
+      const want = span < below ? V.M : span > below * FLAT_BACK ? V.F : V.cur;
+      if (want !== V.cur) { setMode(want); bounds = boundsIn(V.cur); }
+    }
     map.fitBounds(bounds, { padding: framePadding(), duration: still ? 0 : 900, maxZoom: 12 });
   }
 
@@ -1497,7 +1723,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     pressed(name, b.dataset.value);
     state[name] = b.dataset.value;
     if (name === 'view') { hideCard(); showView(true); return; }
-    if (name === 'base' && glOK && !!flatFor(V.view) !== V.flat) { hideCard(); showView(false); return; }
+    if (name === 'base' && glOK) {
+      // at the view as framed, the other look framed too (the physical world isn't flat); closer in, the same place
+      const framed = V.cur.zFit != null && map.getZoom() < V.cur.zFit + 0.75;
+      apply();
+      if (framed) frameView(false); else checkMode();
+      return;
+    }
     apply();
   }));
   $('#show-empty').addEventListener('change', (e) => { state.empty = e.target.checked; apply(); });
@@ -1568,12 +1800,16 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     showCard(hit, e.originalEvent, true);
   });
   map.on('movestart', (e) => { if (e.originalEvent && !pinned) hideCard(); });
+  map.on('moveend', checkMode); // flat zoomed out, standard from country level in
   showView(false);
   // the credits start folded on a phone (an (i) to open them), as map sites do
   if (phone()) { const at = document.querySelector('.maplibregl-ctrl-attrib'); if (at) at.classList.remove('maplibregl-compact-show'); }
   // ready: for tests and anyone curious
   window.__map = map;
-  window.__dbg = { labelData, V: () => V, dotData, spotsFor, partsOf, polylabel, unlon, unlat, PX };
+  window.__dbg = { labelData, V: () => V, dotData, spotsFor, partsOf, polylabel, unlon, unlat, PX, setMode, centreLL, spanKm,
+    zoomTo: (st) => zoomToArea(pieces.find((g) => g.properties.state === st).properties.id),
+    at: (lon, lat) => map.jumpTo({ center: within(V.cur, () => P(lon, lat)) }),
+    go: (lon, lat, z) => { V.cur = V.M; limits(); apply(); map.jumpTo({ center: [lon, lat], zoom: z }); } }; // go: a standard place and zoom (the map then picks flat or standard)
   document.documentElement.dataset.ready = '1';
 })();
 </script>

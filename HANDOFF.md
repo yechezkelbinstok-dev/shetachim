@@ -151,6 +151,14 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
   standard, because the physical imagery only comes in Web Mercator.
   NE_SCALE = 0.075 keeps the flat world small inside the engine's world, because the engine won't zoom out past its
   world filling the screen (a phone's height too) and we need room to fit the map beside the panel.
+- SWITCHING (Oct 5, after the owner caught the US still sheared when zoomed in): each world or continent view has two
+  sets of sources and layers, standard (suffix '') and flat ('-f'). `checkMode` runs on moveend and swaps them with
+  `setMode`, keeping the centre and scale. The swap happens below about 3000 km on screen, or sooner on the world view
+  where Natural Earth's meridians visibly lean (`screenLean`). It swaps back past 1.5 times that.
+- POLITICAL LOOK: the political map now sits on the street map (liberty, recoloured: no green landcover, our own
+  water colour, a night version in dark mode). Shetach fills fade as you zoom so streets show, with white shetach
+  borders and our own grey country and state lines. The flat view draws its own land and sea and names the oceans.
+  The owner rejected the outline frame around the flat world, and Lubavitch only shows from region zoom.
 - When the owner approves, next.html replaces index.html.
 
 ## LATEST (Sept 30 – Oct 1) — read before "RIGHT NOW" below

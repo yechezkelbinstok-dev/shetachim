@@ -119,6 +119,12 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
 - Merged into `claude/bold-albattani-aqfnj9` and built (Oct 3); the cards follow the owner's rule (see "Shluchim on
   center cards" above). `web/personnel.html` was removed (the Node fetcher replaces the browser collector).
 
+## LUBAVITCH (Oct 5, the owner: "something honorary for the original Lubavitch")
+- A gold ring (not a star: it isn't a capital) at Lyubavichi, Smolensk region (54.8352, 30.9632), named "Lubavitch"
+  (ליובאוויטש), shown in every world view even with capitals off, its name placed before any city's. Card: "Where
+  Chabad-Lubavitch takes its name" — home of the Rebbeim (Mitteler Rebbe, Tzemach Tzedek, Maharash, Rashab), 1813–1915.
+  (`honor: true` in the page's capitals list; `HONOR_MARK`.) Keep it in the map-engine rebuild.
+
 ## CARD WORDING (Oct 5)
 - A family at the head (Alevsky, Pinson, Blumenfeld): "Shluchim: Alevsky family" (שלוחים:) — keep the "Label: name"
   form; the owner rejected "Led by the Alevsky family" (a sentence, no colon).

@@ -93,6 +93,8 @@ html[lang="he"] .lab-secondary { font-style: oblique 14deg; font-weight: 400; }
 /* cities with shluchim and shetach capitals: drawn in screen space, over everything else */
 .mk { pointer-events: none; }
 .mk-city { fill: var(--map-halo); stroke: var(--map-ink); stroke-width: 1.4; }
+.mk-honor { fill: #b8860b; fill-rule: evenodd; stroke: var(--map-halo); stroke-width: 1.4; paint-order: stroke; }
+.mk-lab-honor { font-weight: 600; fill: #9a6f08; }
 .mk-cap { fill: var(--map-ink); stroke: var(--map-halo); stroke-width: 1.3; stroke-linejoin: round; paint-order: stroke; }
 .mk-lab { font: 500 12px var(--font-ui); fill: var(--map-ink); dominant-baseline: central;
   paint-order: stroke; stroke: var(--map-halo); stroke-width: 3px; stroke-opacity: .8; stroke-linejoin: round; }
@@ -525,6 +527,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const dot = dotOfCenter.get(cap.centerId);
     return { s, ...cap, piece: dot ? dot.piece : s.pieces[0] && s.pieces[0].properties.id, center: dot && dot.centers.find((c) => c.id === cap.centerId) };
   }));
+  // Lubavitch itself, in honour: the town the movement is named for, seat of the Rebbeim 1813–1915 (not a center today)
+  const rusPiece = [...pieceById.keys()].find((k) => k.startsWith('RUS:'));
+  if (rusPiece) capitals.push({ honor: true, name: HE ? 'ליובאוויטש' : 'Lubavitch', city: HE ? 'מחוז סמולנסק, רוסיה' : 'Smolensk region, Russia', lat: 54.8352, lon: 30.9632, piece: rusPiece });
   const capitalOfCenter = new Map(capitals.filter((c) => c.centerId).map((c) => [c.centerId, c]));
   // Bigger cities are labelled first and from further out. A city with many centers counts as big even when
   // GeoNames doesn't know it (Thornhill), so weigh each center as 5,000 people.
@@ -604,6 +609,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
   const STAR = d3.symbol(d3.symbolStar, 55)(); // about 14px across
   const WORLD_STAR = d3.symbol(d3.symbolStar, 150)(); // 770: about 23px across
+  // Lubavitch: a gold ring around a dot (no star: it isn't a shetach's capital)
+  const HONOR_MARK = 'M7,0A7,7 0 1,1 -7,0A7,7 0 1,1 7,0ZM4.2,0A4.2,4.2 0 1,0 -4.2,0A4.2,4.2 0 1,0 4.2,0ZM2,0A2,2 0 1,1 -2,0A2,2 0 1,1 2,0Z';
   $('#star-shape').setAttribute('d', STAR);
 
   // T maps projected points to the screen. On the political map it's the d3 zoom; on the physical map it
@@ -821,7 +828,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     V.dots = dots.filter((d) => mainIds.has(d.piece));
     for (const d of V.dots) [d.x, d.y] = projection([d.lon, d.lat]);
     tree = d3.quadtree(V.dots, (d) => d.x, (d) => d.y);
-    V.caps = capitals.filter((c) => mainIds.has(c.piece));
+    V.caps = capitals.filter((c) => (c.honor ? view.world : mainIds.has(c.piece))); // Lubavitch shows in every world view
     V.cities = cities.filter((c) => mainIds.has(c.piece));
     for (const c of [...V.caps, ...V.cities]) [c.x, c.y] = projection([c.lon, c.lat]);
     const ui = getComputedStyle(document.documentElement).getPropertyValue('--font-ui');
@@ -1060,12 +1067,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // Capital stars on screen now. They shrink when the whole map is small (a phone, zoomed out).
   const STAR_FULL = 0.19; // screen pixels per km at which stars are full size (a desktop's whole-map view)
   function starsNow(m = 12) { // m: px beyond the screen's edges (names are laid out a screen beyond them)
-    if (!state.capitals) return [];
     const f = clamp((V.pxPerKm * T.k) / STAR_FULL, 0.55, 1), out = [];
     for (const c of V.caps) {
+      if (!state.capitals && !c.honor) continue;
       const [sx, sy] = T.apply([c.x, c.y]);
       if (sx < -m || sx > W + m || sy < -m || sy > H + m) continue;
-      const r = (c.world ? 11 : 7) * f;
+      const r = (c.world ? 11 : c.honor ? 7.5 : 7) * f;
       out.push({ kind: 'cap', c, f, r, sx, sy, box: [sx - r, sy - r, sx + r, sy + r] });
     }
     return out;
@@ -1493,6 +1500,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     };
     marks = [];
     taken.push(...stars.map((st) => st.box));
+    for (const st of stars) if (st.c.honor) { // Lubavitch's name beside its mark, before any city's
+      measure.font = `600 ${MARK_FONT}px ${getComputedStyle(document.documentElement).getPropertyValue('--font-ui')}`;
+      const at = spot(st.sx, st.sy, st.r + 3, measure.measureText(st.c.name).width);
+      if (at) { taken.push(at.box); st.at = at; st.text = st.c.name; }
+    }
     // As on Google Maps: a city is a dot with its name beside it until it's big on screen; then the dot goes and the name
     // sits on the city itself (above its star if it has one). No city outlines here, so its size comes from its
     // population: about 4 km across for 100,000 people, 12 km for a million, at most 30 km.
@@ -1540,9 +1552,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const old = keep.get(key(m));
       if (old) { keep.delete(key(m)); d3.select(old).datum(m).raise(); continue; }
       const g = gMarks.append('g').attr('class', 'mk').datum(m);
-      if (m.kind === 'cap') g.append('path').attr('class', 'mk-cap').attr('d', m.c.world ? WORLD_STAR : STAR).attr('transform', `scale(${m.f})`);
+      if (m.kind === 'cap') g.append('path').attr('class', m.c.honor ? 'mk-honor' : 'mk-cap').attr('d', m.c.honor ? HONOR_MARK : m.c.world ? WORLD_STAR : STAR).attr('transform', `scale(${m.f})`);
       else if (!m.anchor && !m.big) g.append('circle').attr('class', 'mk-city').attr('r', 3);
-      if (m.at) g.append('text').attr('class', m.big || m.at.big ? 'mk-lab mk-lab-big' : 'mk-lab').attr('x', m.at.dx).attr('y', m.at.dy).attr('text-anchor', m.at.anchor).text(m.text);
+      if (m.at) g.append('text').attr('class', m.c && m.c.honor ? 'mk-lab mk-lab-honor' : m.big || m.at.big ? 'mk-lab mk-lab-big' : 'mk-lab').attr('x', m.at.dx).attr('y', m.at.dy).attr('text-anchor', m.at.anchor).text(m.text);
     }
     for (const el of keep.values()) el.remove();
   }
@@ -2106,6 +2118,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
 
   function capitalHTML(c) {
+    if (c.honor) return `<span class="kicker kicker-world">${HE ? 'עיירת רבותינו נשיאינו' : 'Where Chabad-Lubavitch takes its name'}</span><h2>${esc(c.name)}</h2>
+      <p>${esc(c.city)}</p><p class="meta">${HE ? 'מקום מושבם של רבותינו נשיאינו – אדמו״ר האמצעי, הצמח צדק, אדמו״ר מהר״ש ואדמו״ר מוהרש״ב – למעלה ממאה שנה, תקע״ג–תרע״ה (1813–1915).'
+        : 'Home of the Rebbeim — the Mitteler Rebbe, the Tzemach Tzedek, the Rebbe Maharash and the Rebbe Rashab — for over a century, 1813–1915.'}</p>`;
     return `<span class="kicker${c.world ? ' kicker-world' : ''}">${capKicker(c)}</span><h2>${esc(c.name)}</h2>
       ${c.city ? `<p>${esc(c.city)}</p>` : ''}${personnelHTML(c.center && c.center.personnel)}${chabadLink(c.center)}
       <div class="foot"><span class="meta">${shetachLine(c.piece, !c.world)}</span></div>`;
@@ -2145,7 +2160,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       '<button type="button" class="close" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>';
     card.hidden = false;
     card.classList.toggle('pinned', pin);
-    card.classList.toggle('world', !!(hit.capital && hit.capital.world));
+    card.classList.toggle('world', !!(hit.capital && (hit.capital.world || hit.capital.honor)));
     lastPoint = { clientX: event.clientX, clientY: event.clientY };
     if (!phone()) {
       const app = $('#app').getBoundingClientRect();

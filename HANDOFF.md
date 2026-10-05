@@ -33,7 +33,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
   (`gold-coast-lga`) is part of the Victoria shetach; the separate Gold Coast shetach (Nir Gurevitch) is gone.
   Victoria (disputed) has a capital per claimant: Groner — Yeshivah Centre; Gutnick — Chabad House of Caulfield;
   Serebryanski — Merkos L'inyonei Chinuch (`capital` is a list with `for`). "Disputed" is set in italics.
-- **"Land with no shetach"** (More options checkbox, off by default): the political map draws land no shetach covers
+- **"Rest of the world"** (More options checkbox, off by default; was "Land with no shetach" — the owner, Oct 5: never that wording; borders between its countries only with the Countries or Both borders setting): the political map draws land no shetach covers
   (`web/data/outside.json`, written by the build) and the land outside the current view in plain grey (`--empty`).
 - **Cambodia is fully part of Kantor's Thailand shetach** (Oct 2; territory THA, LAO, MMR, KHM; the separate Cambodia
   shetach under Bentzion Butman is gone, also from data/global-shetach-list.txt and data/hebrew/).
@@ -42,7 +42,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
   colour, with a dashed border between them (page mesh `inner`, tile edges `tr`, SVG dashed path); named plainly
   "India"; in the head modes Kantor's name again over India in italics and smaller (`secondary` labels; Hebrew, which has no italics:
   Heebo Regular slanted by hand on the posters, oblique on the page; at most 85% of his main name on the posters), his main name on Thailand–Myanmar–Laos as before;
-  India's card: "Under the auspices of: Yosef Chaim Kantor" (בחסות; the owner found "Together with the Thailand shetach" odd). (`noCentralLeadership: true` remains for a shetach without a head.) Israel's name on the world poster goes beside the map with a short leader (`ASIDE_NAMES`);
+  India's card: "Head shliach: Yosef Chaim Kantor" and "Also head shliach of Thailand" (Oct 5; the owner rejected both "Together with the Thailand shetach" and "Under the auspices of" — don't quote his own words onto the page). (`noCentralLeadership: true` remains for a shetach without a head.) Israel's name on the world poster goes beside the map with a short leader (`ASIDE_NAMES`);
   Hawaii's runs across its islands (`SEA_NAMES` 'chain'). The US & Canada names maps use short leaders to the nearest
   water (`aside`, only the Boston/Cape Cod knot stacked), not one column far out in the Atlantic.
 - **North Queensland** (Ari Rubin; capital Chabad of Northern Queensland, Cairns): Mackay and north, Mount Isa,
@@ -113,6 +113,13 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
   4,220) and carries no relationships or `included`, so personnel is only per center.
 - Merged into `claude/bold-albattani-aqfnj9` and built (Oct 3); the cards follow the owner's rule (see "Shluchim on
   center cards" above). `web/personnel.html` was removed (the Node fetcher replaces the browser collector).
+
+## PERFORMANCE (Oct 5) — keep it this way
+- The owner: panning and zooming the physical map was "so so bad" (low FPS). Causes: names were rebuilt from scratch every
+  120 ms while moving (all texts, tspans and city marks recreated), new zoom-step layouts (200–500 ms) ran mid-gesture,
+  and MapLibre drew at the phone's full 3x pixel ratio. Now: keyed joins keep existing labels and marks while moving,
+  `moving` holds new layout work until the map is still (150 ms after moveend), live refresh every 250 ms, pixelRatio
+  capped at 2, 3D buildings off. Don't reintroduce per-frame DOM rebuilding.
 
 ## LATEST (Sept 30 – Oct 1) — read before "RIGHT NOW" below
 

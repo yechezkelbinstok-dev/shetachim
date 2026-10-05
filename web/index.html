@@ -2100,9 +2100,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const caps = s.capitals || (s.capital ? [s.capital] : []);
     // "Capital: …", or for a disputed shetach "Capital (Chaim Tzvi Groner): …", one per claimant
     const capital = caps.map((c) => `<p>${tr('Capital')}${c.for ? ` (${esc(c.for)})` : ''}: ${esc(c.name)}${c.city ? `, ${esc(c.city)}` : ''}</p>`).join('');
+    // a family at the head (Alevsky, Pinson, Blumenfeld): "Led by the Alevsky family", not "Head shliach: Alevsky family"
     return `<h2>${esc(s.name)}</h2>
       ${s.territoryOf && shetachById.get(s.territoryOf) ? (() => { const p = shetachById.get(s.territoryOf); return `<p>${HE ? 'בהנהגת' : 'Overseen by'} ${headHTML(p.headShliach)}</p>`; })()
-        : s.noCentralLeadership ? `<p>${tr('No centralized leadership')}</p>` : s.headShliach ? `<p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>` : ''}${capital}
+        : s.noCentralLeadership ? `<p>${tr('No centralized leadership')}</p>`
+        : s.headShliach && / family$|^משפחת /.test(s.headShliach) ? `<p>${HE ? `בהנהגת ${esc(s.headShliach)}` : `Led by the ${esc(s.headShliach)}`}</p>`
+        : s.headShliach ? `<p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>` : ''}${capital}
       <div class="foot"><span class="meta">${count(centersInShetach(s))}</span>${zoomBtn}</div>`;
   }
 

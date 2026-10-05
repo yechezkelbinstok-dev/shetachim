@@ -138,6 +138,21 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
   `moving` holds new layout work until the map is still (150 ms after moveend), live refresh every 250 ms, pixelRatio
   capped at 2, 3D buildings off. Don't reintroduce per-frame DOM rebuilding.
 
+## NEW MAP ENGINE — web/next.html (Oct 5, in progress; web/index.html is still the main page)
+- The owner asked for the map to feel like a real map site, not a custom project. next.html runs on MapLibre GL with
+  OpenFreeMap's liberty style. Names, cities and capitals are the engine's own symbol layers, each name pre-sized per zoom
+  (s0..s14) at its area's pole of inaccessibility.
+- PHYSICAL: shetachim are soft tints under the water and relief, with purple cased borders that fade out by z12. The map's
+  own boundaries and city names stay. Don't go back to ink lines or a fade drawn over the map ("custom low quality lines").
+- PROJECTION: the owner hates Mercator. He chose "flat when zoomed out only", with Natural Earth (or Robinson), NEVER
+  Equal Earth. The political map's world and continent views are in Natural Earth, centred on the view's `lon`:
+  shapes are projected with d3 and handed to the engine as the lon/lat Web Mercator would draw at that spot
+  (`flatFor`, `projGeom`, `P`). Country views (USA, Canada, US & Canada, Israel) and the whole physical map stay
+  standard, because the physical imagery only comes in Web Mercator.
+  NE_SCALE = 0.075 keeps the flat world small inside the engine's world, because the engine won't zoom out past its
+  world filling the screen (a phone's height too) and we need room to fit the map beside the panel.
+- When the owner approves, next.html replaces index.html.
+
 ## LATEST (Sept 30 – Oct 1) — read before "RIGHT NOW" below
 
 Done in this round:

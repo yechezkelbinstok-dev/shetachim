@@ -267,6 +267,23 @@
       "precision": "area",
       "note": "Synagogue Lane, Jew Town, Mattancherry (by the Paradesi Synagogue); the dot is a rough spot",
       "source": "chabadcochin.com contact listing (via search, Oct 2026); not on chabad.org or the Chabad of India directory"
+    },
+    {
+      "id": "extra-yerevan",
+      "name": "Jewish Community of Yerevan – Mordechai Navi Synagogue",
+      "city": "Yerevan",
+      "lat": 40.16582,
+      "lon": 44.51387,
+      "precision": "exact",
+      "note": "23 Nar-Dos St, Yerevan 0018",
+      "source": "Address and rabbi from the owner (Oct 2026); location from OpenStreetMap (Nominatim); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Gershon Meir",
+          "lastName": "Burshtein"
+        }
+      ]
     }
   ],
   "fixes": {

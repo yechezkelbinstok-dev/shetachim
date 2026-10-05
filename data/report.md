@@ -365,7 +365,7 @@ To check:
 - rara: short forms should get shorter (RARA → RARA)
 - act: short forms should get shorter (ACT → ACT)
 
-## Cities without a GeoNames match (318 of 1916)
+## Cities without a GeoNames match (317 of 1916)
 
 Placed at the middle of their centers. Usually a neighbourhood or a place under 1,000 people;
 a misspelling on chabad.org shows up here too.
@@ -385,7 +385,6 @@ a misspelling on chabad.org shows up here too.
 - Tarzana (US-CA): 3 centers
 - Alfei Menashe (ISR): 2 centers
 - Emanuel (ISR): 2 centers
-- Kaliningrad (RUS): 2 centers
 - Kfar Chabad Bet (ISR): 2 centers
 - Kiryat Arba (ISR): 2 centers
 - Kiryat Ono (ISR): 2 centers

@@ -2118,7 +2118,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
 
   function capitalHTML(c) {
-    if (c.honor) return `<span class="kicker">${HE ? 'השורשים' : 'Where our roots are'}</span><h2>${esc(c.name)}</h2>`;
+    if (c.honor) return `<span class="kicker">${HE ? 'ערש חב״ד-ליובאוויטש' : 'Birthplace of Chabad-Lubavitch'}</span><h2>${esc(c.name)}</h2>
+      <p class="meta">${HE ? 'מקום מושב הרביים, תקע״ג–תרע״ה' : 'Seat of the Rebbeim, 1813–1915'}</p>`;
     return `<span class="kicker${c.world ? ' kicker-world' : ''}">${capKicker(c)}</span><h2>${esc(c.name)}</h2>
       ${c.city ? `<p>${esc(c.city)}</p>` : ''}${personnelHTML(c.center && c.center.personnel)}${chabadLink(c.center)}
       <div class="foot"><span class="meta">${shetachLine(c.piece, !c.world)}</span></div>`;

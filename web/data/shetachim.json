@@ -2226,17 +2226,19 @@
    "short": "Arm.",
    "headShliach": "Gershon Meir Burshtein",
    "capital": {
-    "name": "Jewish Community of Yerevan",
+    "centerId": "extra-yerevan",
+    "name": "Jewish Community of Yerevan – Mordechai Navi Synagogue",
     "city": "Yerevan",
-    "lat": 40.18111,
-    "lon": 44.51361
+    "lat": 40.16582,
+    "lon": 44.51387
    },
    "capitals": [
     {
-     "name": "Jewish Community of Yerevan",
+     "centerId": "extra-yerevan",
+     "name": "Jewish Community of Yerevan – Mordechai Navi Synagogue",
      "city": "Yerevan",
-     "lat": 40.18111,
-     "lon": 44.51361
+     "lat": 40.16582,
+     "lon": 44.51387
     }
    ]
   },

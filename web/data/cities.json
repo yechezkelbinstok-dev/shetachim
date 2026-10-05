@@ -116,6 +116,7 @@
 {"name":"Omsk","region":"RUS","country":"RUS","lat":54.99244,"lon":73.36859,"pop":1129281,"centers":2,"piece":"RUS:russia"},
 {"name":"Baku","region":"AZE","country":"AZE","lat":40.37767,"lon":49.89201,"pop":1116513,"centers":1,"piece":"AZE:azerbaijan"},
 {"name":"Kazan","region":"RUS","country":"RUS","lat":55.78874,"lon":49.12214,"pop":1104738,"centers":1,"piece":"RUS:russia"},
+{"name":"Yerevan","region":"ARM","country":"ARM","lat":40.18111,"lon":44.51361,"pop":1093485,"centers":1,"piece":"ARM:armenia"},
 {"name":"Rostov-on-Don","region":"RUS","country":"RUS","lat":47.23135,"lon":39.72328,"pop":1074482,"centers":4,"piece":"RUS:russia"},
 {"name":"Chelyabinsk","region":"RUS","country":"RUS","lat":55.15402,"lon":61.42915,"pop":1062919,"centers":3,"piece":"RUS:russia"},
 {"name":"Tbilisi","region":"GEO","country":"GEO","lat":41.69411,"lon":44.83368,"pop":1049498,"centers":3,"piece":"GEO:georgia-country"},

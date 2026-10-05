@@ -100,8 +100,8 @@ html[lang="he"] .lab-secondary { font-style: oblique 14deg; font-weight: 400; }
 /* a city big on screen: the name on the city itself, no dot (as on Google Maps) */
 .mk-lab-big { font-weight: 600; }
 
-.l-insets { transition: transform .25s; }
-.l-insets.away { transform: scale(.6); } /* zoomed in: the boxes shrink into their corner, never vanish */
+.l-insets { transition: opacity .25s; }
+.l-insets.away { opacity: 0; pointer-events: none; } /* zoomed in: the boxes go (they only make sense at the whole view) */
 .inset-frame { fill: var(--bg); fill-opacity: .94; stroke: var(--panel-line); } /* solid enough that the map doesn't show through when zoomed in */
 .inset-land { fill: var(--fill); stroke: var(--map-ink); stroke-width: 1; }
 .borders-regular .inset-land { fill: var(--fill-u); }
@@ -1432,7 +1432,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // one's names, and new repeat tiles wait, so a gesture never waits on layout; it all catches up when the map stops.
   let moving = false, shownLevel = null;
   function placeLabels() {
-    const M = Math.max(W, H), covered = V.physical ? [] : insetBoxes.map(insetRect), stars = starsNow(M), k = T.k;
+    const M = Math.max(W, H), covered = V.physical || T.k > 1.3 ? [] : insetBoxes.map(insetRect), stars = starsNow(M), k = T.k;
     const lv = levelOf(k);
     const lay = moving && !levelCache.has(lv) && levelCache.has(shownLevel) ? levelCache.get(shownLevel) : levelLayout(lv);
     if (lay) shownLevel = lay.lv;
@@ -1777,6 +1777,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         dragRotate: false, pitchWithRotate: false, touchPitch: false, maxZoom: 18.5, fadeDuration: 150,
         // phones draw at up to 3x; 2x looks the same on a map and is under half the pixels to fill each frame
         pixelRatio: Math.min(window.devicePixelRatio || 1, 2),
+        // tiles keep loading through a zoom (not cancelled and started again when it ends, which showed as squares
+        // filling in afterwards), and more of them are kept, so going back to a place doesn't load it again
+        cancelPendingTileRequestsWhileZooming: false, maxTileCacheSize: 600, maxTileCacheZoomLevels: 10,
       });
       mapgl = m;
       m.addControl(new maplibregl.AttributionControl({ compact: true }), 'top-right');
@@ -1793,6 +1796,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       let settle = 0;
       mapgl.on('moveend', () => { clearTimeout(settle); settle = setTimeout(() => { if (mapgl.isMoving()) return; moving = false; if (V.physical) placeLabels(); }, 150); });
       mapgl.on('movestart', () => { clearTimeout(settle); moving = true; if (!pinned) hideCard(); });
+      mapgl.on('idle', prefetchAround);
       mapgl.on('mousemove', (e) => {
         if (!V.physical || pinned || e.originalEvent.buttons) return;
         const hit = pickAt(e.point.x, e.point.y, false);
@@ -1816,6 +1820,33 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
 
   const glReady = () => mapgl && mapgl.getSource('st-dots');
+
+  // Once the map is still, the tiles just beyond the screen (half a screen each way, and the next zoom in) are fetched
+  // in the background, so panning or zooming into them finds them ready instead of filling in square by square.
+  const prefetched = new Set();
+  function prefetchAround() {
+    if (!mapgl || !V || !V.physical) return;
+    const b = mapgl.getBounds(), z0 = mapgl.getZoom();
+    const w = b.getEast() - b.getWest(), h = b.getNorth() - b.getSouth();
+    const west = b.getWest() - w / 2, east = b.getEast() + w / 2;
+    const north = Math.min(85, b.getNorth() + h / 2), south = Math.max(-85, b.getSouth() - h / 2);
+    const tx = (lon, z) => Math.floor(((lon + 180) / 360) * 2 ** z);
+    const ty = (lat, z) => { const r = (lat * Math.PI) / 180; return Math.floor(((1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2) * 2 ** z); };
+    const urls = [];
+    for (const id of ['openmaptiles', 'st']) {
+      const src = mapgl.getSource(id);
+      const tpl = src && (src.tiles || (src._options && src._options.tiles) || [])[0];
+      if (!tpl) continue;
+      const max = src.maxzoom ?? 14;
+      for (const dz of [0, 1]) {
+        const z = Math.max(0, Math.min(max, Math.floor(z0) + dz)), n = 2 ** z;
+        const x0 = tx(Math.max(-180, west), z), x1 = tx(Math.min(179.999, east), z), y0 = ty(north, z), y1 = ty(south, z);
+        if ((x1 - x0 + 1) * (y1 - y0 + 1) > 80) continue; // a whole-world view: nothing worth guessing
+        for (let x = x0; x <= x1; x++) for (let y = Math.max(0, y0); y <= Math.min(n - 1, y1); y++) urls.push(tpl.replace('{z}', z).replace('{x}', x).replace('{y}', y));
+      }
+    }
+    for (const u of urls) if (!prefetched.has(u)) { prefetched.add(u); fetch(u, { priority: 'low' }).catch(() => {}); }
+  }
 
   // Our layers: borders over the streets but under the map's own labels; a fade over land outside the shown
   // shetachim (under the water, so seas stay blue) and a lighter one over everything outside; the dots and
@@ -1988,7 +2019,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // What's under a screen point: a capital star, a dot, a city, or an area.
   function pickAt(mx, my, touch, target) {
     const reach = touch ? 14 : 8;
-    const box = !V.physical && insetBoxes.find((b) => { const [x0, y0, x1, y1] = insetRect(b); return mx >= x0 && mx <= x1 && my >= y0 && my <= y1; });
+    const box = !V.physical && T.k <= 1.3 && insetBoxes.find((b) => { const [x0, y0, x1, y1] = insetRect(b); return mx >= x0 && mx <= x1 && my >= y0 && my <= y1; });
     if (box) {
       if (state.dots) {
         const near = d3.least(box.dots, (d) => { const [x, y] = box.proj([d.lon, d.lat]); return Math.hypot(x - mx, y - my); });
@@ -2100,11 +2131,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const caps = s.capitals || (s.capital ? [s.capital] : []);
     // "Capital: …", or for a disputed shetach "Capital (Chaim Tzvi Groner): …", one per claimant
     const capital = caps.map((c) => `<p>${tr('Capital')}${c.for ? ` (${esc(c.for)})` : ''}: ${esc(c.name)}${c.city ? `, ${esc(c.city)}` : ''}</p>`).join('');
-    // a family at the head (Alevsky, Pinson, Blumenfeld): "Led by the Alevsky family", not "Head shliach: Alevsky family"
+    // a family at the head (Alevsky, Pinson, Blumenfeld): "Shluchim: Alevsky family" (they are the shluchim there)
     return `<h2>${esc(s.name)}</h2>
       ${s.territoryOf && shetachById.get(s.territoryOf) ? (() => { const p = shetachById.get(s.territoryOf); return `<p>${HE ? 'בהנהגת' : 'Overseen by'} ${headHTML(p.headShliach)}</p>`; })()
         : s.noCentralLeadership ? `<p>${tr('No centralized leadership')}</p>`
-        : s.headShliach && / family$|^משפחת /.test(s.headShliach) ? `<p>${HE ? `בהנהגת ${esc(s.headShliach)}` : `Led by the ${esc(s.headShliach)}`}</p>`
+        : s.headShliach && / family$|^משפחת /.test(s.headShliach) ? `<p>${HE ? 'שלוחים' : 'Shluchim'}: ${headHTML(s.headShliach)}</p>`
         : s.headShliach ? `<p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>` : ''}${capital}
       <div class="foot"><span class="meta">${count(centersInShetach(s))}</span>${zoomBtn}</div>`;
   }

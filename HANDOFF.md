@@ -42,7 +42,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
   colour, with a dashed border between them (page mesh `inner`, tile edges `tr`, SVG dashed path); named plainly
   "India"; in the head modes Kantor's name again over India in italics and smaller (`secondary` labels; Hebrew, which has no italics:
   Heebo Regular slanted by hand on the posters, oblique on the page; at most 85% of his main name on the posters), his main name on Thailand–Myanmar–Laos as before;
-  India's card: head shliach Kantor, "Together with the Thailand shetach". (`noCentralLeadership: true` remains for a shetach without a head.) Israel's name on the world poster goes beside the map with a short leader (`ASIDE_NAMES`);
+  India's card: "Under the auspices of: Yosef Chaim Kantor" (בחסות; the owner found "Together with the Thailand shetach" odd). (`noCentralLeadership: true` remains for a shetach without a head.) Israel's name on the world poster goes beside the map with a short leader (`ASIDE_NAMES`);
   Hawaii's runs across its islands (`SEA_NAMES` 'chain'). The US & Canada names maps use short leaders to the nearest
   water (`aside`, only the Boston/Cape Cod knot stacked), not one column far out in the Atlantic.
 - **North Queensland** (Ari Rubin; capital Chabad of Northern Queensland, Cairns): Mackay and north, Mount Isa,
@@ -111,11 +111,8 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
   429s, resumable from the output file. The browser collector (`chabad-personnel-scrape.js`, `web/personnel.html`)
   is no longer needed. Its batch guess doesn't work: the list endpoint ignores `filter[id]`/`filter[ids]` (returns all
   4,220) and carries no relationships or `included`, so personnel is only per center.
-- These commits were made on `claude/exciting-euler-o7vx0z` (one step ahead of `claude/bold-albattani-aqfnj9`). To
-  finish: on the live branch, `git fetch origin claude/exciting-euler-o7vx0z && git merge
-  origin/claude/exciting-euler-o7vx0z`, then `npm install && npm run build && npm run hebrew`, check the cards
-  (first living person as the shliach, the rest under "+more"), commit `web/data/`, and push to
-  `claude/bold-albattani-aqfnj9`.
+- Merged into `claude/bold-albattani-aqfnj9` and built (Oct 3); the cards follow the owner's rule (see "Shluchim on
+  center cards" above). `web/personnel.html` was removed (the Node fetcher replaces the browser collector).
 
 ## LATEST (Sept 30 – Oct 1) — read before "RIGHT NOW" below
 
@@ -150,13 +147,25 @@ Done in this round:
   60%: the Caribbean, Indonesia) aim at the hull's centre and size for the spread. Biggest areas on screen go first.
   **Fixed like a map site** (Oct 2, the owner: names changing as you move "should be the same way … Google maps"):
   names are laid out once per zoom step (`levelLayout`, two steps per doubling) over the whole map, not over what's on
-  screen; panning only slides them, and a name shows when ≥85% of it is on screen and it isn't under the panel, zoom
-  buttons or inset boxes. A shetach bigger than a screen repeats its name in a fixed grid of tiles (`levelRepeats`,
+  screen; panning only slides them. Oct 3 ("names only render when you load that part"): names (and city names, stars)
+  are kept a full screen beyond every edge (the screen clips them), refreshed every ≤120 ms while the map moves
+  (`livePlace`), names keep their size during a zoom, and the zoom steps either side are worked out in idle time
+  (`prefetchLevels`), so nothing pops in when the map stops. Only the Alaska/Hawaii boxes hide names; the panel just
+  covers them. A shetach bigger than a screen repeats its name in a fixed grid of tiles (`levelRepeats`,
   tile 0.6× the screen's short side, ≥340 px; repeats at least the screen's long side apart, so a name never shows twice on one screen — Oct 3, the owner's
   phone showed Western Pennsylvania twice), worked out as tiles come into view and kept.
   The cache resets when labels are rebuilt (mode, borders, language, resize). `labelAt` on a shetach: the spot its name
   aims for on the page too (India: [78.9, 21.6], mid mainland). During a zoom names scale smoothly (`fontScale`) and
   the step's layout replaces them when it ends (~50–250 ms headless desktop for a new step).
+- **Shluchim on center cards — the owner's rule** (Oct 3; `personnelHTML` in web/index.html): the shliach shown is the
+  first man listed who's alive — a woman listed first, or a man who has passed away (obm), is passed over. With no
+  living man: if a man listed has passed away (her husband), "<last name> family" from the living woman (she's still listed by name under "+more"); if only women
+  are listed (e.g. Mrs. Chana Axelrod's mikvah in Ukraine), the first woman by name (owner, Oct 3). Everyone else alive goes under "+N more"; anyone who has
+  passed away in a separate "Deceased" (נפטרו) section, each name followed by obm / ע״ה (obm goes after a name,
+  never as a heading). Men/women by chabad.org's title (Mrs., Ms., Miss,
+  Rebbetzin = women). Names are shown without titles (no "Rabbi"). Data: `data/raw/chabad-personnel.json` (chabad.org `/api/v2/chabadorg/centers/<id>` personnel;
+  lubavitch.com/centers/<id> has the same names) — collected Oct 3 (3,764 of 4,220 centers), re-fetch with
+  `node scripts/chabad-personnel-fetch.mjs`.
 - **India** (Oct 3, the owner: "India has a lot more Chabad centers than the locator"): Chabad houses not on chabad.org in
   `data/extra-centers.json` (`extra-india-*`), from Chabad of India's own directory (indiakoshertravel.com/Chabad_india;
   blocked here — the owner sent its pages): New Delhi Main Bazaar (Akiva Sudri), South Delhi (Shneor Kupchik), Pushkar,
@@ -173,6 +182,9 @@ Done in this round:
 - **Ukraine's towns** use the names the Chabad kehillos there use, the Russian ones (Oct 3: Kiev, Dnepr, Lvov, Kharkov,
   Zaporozhye…): `UA_NAMES` in build-data renames both the centers' towns and the GeoNames cities, so Kyiv/Kiev and
   Dnipro/Dnepropetrovsk are one city each. Except Khmelnytskyi, which keeps its modern name (the owner: its kehilla uses it).
+- **City names, Google-style** (Oct 3): a city is a dot with its name beside it until it's big on screen, then the dot
+  goes and the name sits on the city (bolder, `.mk-lab-big`; above its star if it's a capital). Size from population
+  (`cityKm`: 0.012·√pop km, 1.5–30 km; no outlines), big from a 22 px half-width (`BIG_PX`) — in `placeMarks`.
 - **Dots** (More options → Dots / Dot color, Oct 3): **Solid** (default; small — radius 1.05 + 0.35·log2(centers) at the
   framed view, the owner wants them small — opaque, with a thin edge so a cluster reads as a cluster), **See-through**
   (same, 42% like classic), **Classic** (the first dots: bigger, navy, 42%). Colour for solid/see-through: Navy
@@ -482,8 +494,7 @@ The owner got very angry at the first version. The lessons:
     `scripts/chabad-personnel-fetch.mjs` (Node, since Oct 3 — see PERSONNEL above), or the older
     `scripts/chabad-personnel-scrape.js`, run by hand in a browser console: paste it on a chabad.org tab, it downloads `chabad-personnel.json` when done (it's
     slow — one request per center, rate-limited by the site — and resumable if stopped partway).
-    Drop the file at `data/raw/chabad-personnel.json` and rebuild. `web/personnel.html` (on Pages) walks the owner
-    through it with a copy button. The collector tries a batch request first (`filter[id]=…&include=personnel`, 50 ids;
+    Drop the file at `data/raw/chabad-personnel.json` and rebuild. The collector tries a batch request first (`filter[id]=…&include=personnel`, 50 ids;
     untested against the real site — blocked here) and falls back to 4 parallel single-center requests. If `chabad-centers.json` is ever
     re-scraped, run `node scripts/gen-personnel-ids.mjs` first to refresh the id list the scraper covers.
   - Blank areas (no shetach): no fill, no label; their card shows the state.
@@ -576,6 +587,8 @@ The owner got very angry at the first version. The lessons:
   policy (cloud environment menu → Edit, in the session's title bar) can be widened to a specific
   host if a source is worth reaching directly next time, or the owner can download a file and hand
   it over the way `data/raw/chabad-personnel.json` works.
+- Before every push: syntax-check web/index.html's scripts and load it headless — a `// comment` inside a one-line
+  template expression once blanked the whole site (Oct 3).
 - Testing: headless Chromium is at `/opt/pw-browsers`, and the global `playwright` package is
   installed. Chromium doesn't trust the proxy CA, so serve the repo with `page.route`, answer
   cdnjs URLs from local npm copies (`npm install d3@7.9.0 topojson@3.0.2 maplibre-gl@4.7.1` in a

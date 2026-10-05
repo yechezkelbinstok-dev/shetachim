@@ -120,10 +120,12 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
   center cards" above). `web/personnel.html` was removed (the Node fetcher replaces the browser collector).
 
 ## LUBAVITCH (Oct 5, the owner: "something honorary for the original Lubavitch")
-- A gold ring (not a star: it isn't a capital) at Lyubavichi, Smolensk region (54.8352, 30.9632), named "Lubavitch"
-  (ליובאוויטש), shown in every world view even with capitals off, its name placed before any city's. Card: "Where
-  Chabad-Lubavitch takes its name" — home of the Rebbeim (Mitteler Rebbe, Tzemach Tzedek, Maharash, Rashab), 1813–1915.
-  (`honor: true` in the page's capitals list; `HONOR_MARK`.) Keep it in the map-engine rebuild.
+- At Lyubavichi, Smolensk region (54.8352, 30.9632): a small dot and the name *Lubavitch* in italics, as maps mark a
+  historic place; card just "Lubavitch" / "Town of the Rebbeim" (עיירת הרביים). Shown in every world view even with
+  capitals off, its name placed before any city's (`honor: true` in the page's capitals list; `HONOR_MARK`).
+  The owner rejected a gold ring and a card with a paragraph of history ("AI generated") — keep it understated.
+  Keep it in the map-engine rebuild.
+- Never Syria (Oct 5: "ridiculous", hardly any Jews there).
 
 ## CARD WORDING (Oct 5)
 - A family at the head (Alevsky, Pinson, Blumenfeld): "Shluchim: Alevsky family" (שלוחים:) — keep the "Label: name"

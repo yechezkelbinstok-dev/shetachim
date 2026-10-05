@@ -292,6 +292,16 @@
       "lat": 25.08,
       "lon": 55.142,
       "why": "listed for three cities at Dubai's city point; the center is on Al Marsa St, Dubai Marina (Abu Dhabi has its own dot)"
+    },
+    "118458": {
+      "lat": 54.70856,
+      "lon": 20.53447,
+      "why": "chabad.org places it near Moscow (Korolyov, once also called Kaliningrad); its address, Cherepichnaya 4, 236006, is in Kaliningrad (OpenStreetMap)"
+    },
+    "250966": {
+      "lat": 54.71107,
+      "lon": 20.50496,
+      "why": "chabad.org places it near Sovetsk; its address, Saltykova-Shchedrina 2, 236006, is in Kaliningrad (OpenStreetMap)"
     }
   }
 }

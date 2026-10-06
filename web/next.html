@@ -135,6 +135,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #more[open] > summary::after { content: '▴'; }
 .more-body { display: flex; flex-direction: column; gap: 14px; padding-top: 10px; }
 .more-body .checks { display: flex; flex-direction: column; gap: 7px; }
+.legend-sea { display: inline-block; width: 12px; height: 10px; border-radius: 2px; background: #a9c7f2; }
 .legend-empty { display: inline-block; width: 12px; height: 10px; border-radius: 2px; background: var(--empty); border: 1px solid var(--map-ink); opacity: .7; }
 .downloads { font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none; }
 .downloads:hover { text-decoration: underline; }
@@ -274,6 +275,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           <label class="check" for="show-cities"><input type="checkbox" id="show-cities" checked> <span class="legend-ring" aria-hidden="true"></span> Cities with shluchim</label>
           <label class="check" for="show-capitals"><input type="checkbox" id="show-capitals" checked> <svg class="legend-star" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path id="star-shape"/></svg> Shetach capitals</label>
           <label class="check" for="show-empty"><input type="checkbox" id="show-empty"> <span class="legend-empty" aria-hidden="true"></span> Rest of the world</label>
+          <label class="check" for="show-sea" id="sea-row"><input type="checkbox" id="show-sea" checked> <span class="legend-sea" aria-hidden="true"></span> Blue sea</label>
           </div>
         <fieldset class="ctl" id="dots-ctl">
           <legend>Dots</legend>
@@ -337,7 +339,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const phone = () => window.matchMedia('(max-width: 760px)').matches;
   const coarse = () => window.matchMedia('(pointer: coarse)').matches;
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const state = { empty: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true };
+  const state = { empty: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true, sea: true };
   if (!phone()) $('#panel').classList.remove('collapsed');
 
   // ---------- data ----------
@@ -371,7 +373,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'Latin America & Caribbean': 'אמריקה הלטינית והאיים הקריביים',
     Map: 'מפה', Physical: 'פיזית', Political: 'מדינית', Borders: 'גבולות', States: 'מדינות', Countries: 'ארצות', Both: 'שניהם',
     'Lighter:': 'בהיר יותר:', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', 'Last name': 'שם משפחה', Off: 'ללא',
-    'More options': 'אפשרויות נוספות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Rest of the world': 'שאר העולם',
+    'More options': 'אפשרויות נוספות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Rest of the world': 'שאר העולם', 'Blue sea': 'ים כחול',
     Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד', Dots: 'נקודות', Solid: 'מלאות', 'See-through': 'שקופות', Classic: 'קלאסיות',
     'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
     'Download maps (SVG, PNG)': 'הורדת מפות (SVG, PNG)', 'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
@@ -1053,12 +1055,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // The political map's land and sea, the street map's own (light) or a night version of it (dark).
   const GROUND = { light: { land: '#f8f4f0', water: '#a9c7f2', coast: '#8fb2e4', border: '#ffffff', grey: 'hsl(248,2%,50%)' },
     dark: { land: '#1c2226', water: '#14273a', coast: '#20384f', border: '#0c1114', grey: 'hsl(210,8%,52%)' } };
+  // the political map's sea without the blue (More options): a quiet grey, the coast a shade darker
+  const GREY_SEA = { light: { water: '#e3e7e3', coast: '#c2c9c2', seaText: '#7a837d' }, dark: { water: '#101619', coast: '#2c3539', seaText: '#7d878c' } };
   function palette() {
     const css = getComputedStyle(document.documentElement), v = (n) => css.getPropertyValue(n).trim();
     const physical = state.base === 'physical';
     const dark = !physical && theme() === 'dark', c = DOT_COLORS[state.dotColor] || DOT_COLORS.navy;
     return {
-      c: d3.range(8).map((i) => v(`--c${i + 1}`)), plain: v('--plain'), empty: v('--empty'), bg: v('--bg'), ground: GROUND[dark ? 'dark' : 'light'], dark,
+      c: d3.range(8).map((i) => v(`--c${i + 1}`)), plain: v('--plain'), empty: v('--empty'), bg: v('--bg'), ground: { ...GROUND[dark ? 'dark' : 'light'], ...(state.sea ? {} : GREY_SEA[dark ? 'dark' : 'light']) }, dark,
       ink: physical ? PHYS.ink : v('--ink'), halo: physical ? PHYS.halo : v('--halo'), accent: physical ? PHYS.accent : v('--accent'),
       missing: physical ? PHYS.missing : v('--missing'), secondary: physical ? PHYS.secondary : v('--map-secondary'),
       dot: physical ? PHYS.dot : v('--dot'), dotSolid: c[dark ? 1 : 0], dotEdge: dark ? '#0f1518' : state.dotColor === 'gold' ? '#4a3500' : '#ffffff',
@@ -1067,10 +1071,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // The street map in the look asked for: as it comes (physical), with the political map's land and sea (light), or at
   // night (dark): every colour it has turned dark, roads a little lighter than the land, names light.
   let baseLook = null;
-  function lookBase(look) {
-    if (look === baseLook || !physicalOK) return;
-    baseLook = look;
-    const g = look === 'physical' ? null : GROUND[look];
+  function lookBase(look, ground) {
+    const key = look === 'physical' ? look : `${look}|${ground.water}`;
+    if (key === baseLook || !physicalOK) return;
+    baseLook = key;
+    const g = look === 'physical' ? null : ground;
     const dim = (fn) => { const walk = (v) => (typeof v === 'string' && d3.color(v) ? fn(d3.hsl(v)) : Array.isArray(v) ? v.map(walk) : v); return walk; };
     const shade = (l0, l1, sat) => dim((c) => { const h = isNaN(c.h) ? 210 : c.h; return d3.hsl(h, (isNaN(c.s) ? 0 : c.s) * sat, l0 + (l1 - l0) * c.l, c.opacity).formatRgb(); });
     for (const [id, paint] of BASE_PAINT) {
@@ -1082,6 +1087,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           if (id === 'background') v = g.land;
           else if (id === 'water' && prop === 'fill-color') v = g.water;
           else if (id.startsWith('waterway') && prop === 'line-color') v = g.water;
+          else if (g.seaText && /water_name|waterway_line_label/.test(id) && prop === 'text-color') v = g.seaText;
           else if (look === 'dark' && /color/.test(prop)) {
             const sl = layer.sourceLayer;
             if (prop === 'text-color') v = dim((c) => d3.hsl(c.h || 0, (c.s || 0) * 0.5, 0.8).formatRgb())(value);
@@ -1136,6 +1142,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       container: 'basemap', style, attributionControl: false, renderWorldCopies: true, dragRotate: false, pitchWithRotate: false, touchPitch: false,
       maxZoom: MAX_Z, fadeDuration: 250, pixelRatio: Math.min(window.devicePixelRatio || 1, 2),
       cancelPendingTileRequestsWhileZooming: false, maxTileCacheSize: 600, maxTileCacheZoomLevels: 10,
+      preserveDrawingBuffer: true, // (the picture the change between flat and standard bends)
     });
     map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: 'Boundaries: US Census, GADM, Natural Earth' }), 'top-right');
     map.touchZoomRotate.disableRotation();
@@ -1248,8 +1255,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // Flat zoomed out, standard from country level in: how many km the screen spans (the square root of its area), and
   // the span below which the map changes to standard. Away from the flat map's middle its meridians lean (America on a
   // world map centred on Europe), and the land looks slanted as soon as you zoom in on it, so there it changes over
-  // sooner. Back to flat only once well past that (so it doesn't flip back and forth around one zoom).
-  const TO_STANDARD = 3000, FLAT_BACK = 1.5;
+  // sooner. Back to flat only once a quarter past that (so it doesn't flip back and forth around one zoom).
+  const TO_STANDARD = 3000, FLAT_BACK = 1.25;
   function leanAt(S, ll) { // degrees the meridian leans off upright there
     return within(S, () => {
       const [lon, lat] = ll, e = 0.05, a = PROJ([lon, lat]), b = PROJ([lon + e, lat]), c = PROJ([lon, lat + e]);
@@ -1282,15 +1289,142 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const kmScale = (S, ll, z) => 512 * 2 ** z * within(S, () => unitsPerKm(ll[0], ll[1])); // screen px per km
   function spanKm(S, ll, z) { const c = map.getContainer(); return Math.sqrt(c.clientWidth * c.clientHeight) / kmScale(S, ll, z); }
   const flatAllowed = () => V.F && !(state.base === 'physical' && physicalOK);
-  // Change to S, keeping the place at the centre where it is and the scale there the same.
-  function setMode(S) {
-    if (!S || S === V.cur) return;
+  // Change to S, keeping the place at the centre where it is and the scale there the same. The change is shown as a
+  // morph: the map as it was, bent smoothly into the new shape (each place moving to where it now is), then handing over
+  // to the live map. Calls done once the shape has settled.
+  function setMode(S, done) {
+    if (!S || S === V.cur) { if (done) done(); return; }
     const ll = centreLL() || [0, 0], z = map.getZoom();
     const zTo = z + Math.log2(kmScale(V.cur, ll, 0) / kmScale(S, ll, 0));
+    const from = still ? null : morphStart();
     V.cur = S;
     limits();
     apply();
     map.jumpTo({ center: within(S, () => P(ll[0], ll[1])) || map.getCenter(), zoom: zTo });
+    if (from) morphRun(from, done); else if (done) done();
+  }
+
+  // ---------- the morph between flat and standard ----------
+  const M8 = { canvas: null, gl: null, prog: null, tex: null, buf: null, raf: 0, cancel: null };
+  function morphGL() {
+    if (M8.gl) return M8.gl;
+    const c = document.createElement('canvas');
+    c.className = 'morph';
+    c.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;display:none';
+    map.getCanvasContainer().after(c);
+    const gl = c.getContext('webgl', { premultipliedAlpha: true, alpha: true, antialias: true });
+    if (!gl) return null;
+    const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
+    const prog = gl.createProgram();
+    gl.attachShader(prog, sh(gl.VERTEX_SHADER, `attribute vec2 a_from; attribute vec2 a_to; attribute vec2 a_uv; uniform float u_t; uniform vec2 u_size; varying vec2 v_uv;
+      void main() { vec2 p = mix(a_from, a_to, u_t) / u_size * 2.0 - 1.0; gl_Position = vec4(p.x, -p.y, 0.0, 1.0); v_uv = a_uv; }`));
+    gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, `precision mediump float; uniform sampler2D u_tex; uniform float u_a; varying vec2 v_uv;
+      void main() { gl_FragColor = texture2D(u_tex, v_uv) * u_a; }`));
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return null;
+    M8.tex = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, M8.tex);
+    for (const [k, v] of [[gl.TEXTURE_MIN_FILTER, gl.LINEAR], [gl.TEXTURE_MAG_FILTER, gl.LINEAR], [gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE], [gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE]]) gl.texParameteri(gl.TEXTURE_2D, k, v);
+    M8.buf = gl.createBuffer();
+    Object.assign(M8, { canvas: c, gl, prog });
+    return gl;
+  }
+  // Before the change: the picture on screen, and a grid over it with the place under each point.
+  function morphStart() {
+    const gl = morphGL();
+    if (!gl) return null;
+    morphStop();
+    const W = map.getContainer().clientWidth, H = map.getContainer().clientHeight;
+    gl.bindTexture(gl.TEXTURE_2D, M8.tex);
+    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
+    try { gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, map.getCanvas()); } catch (e) { return null; }
+    const cols = 40, rows = Math.max(8, Math.round((cols * H) / W)), pts = [];
+    const S = V.cur;
+    for (let j = 0; j <= rows; j++) {
+      for (let i = 0; i <= cols; i++) {
+        const q = [(i / cols) * W, (j / rows) * H], p = map.unproject(q);
+        let ll = S.flat ? S.proj.invert([mx(p.lng), my(p.lat)]) : [((p.lng + 540) % 360) - 180, p.lat];
+        if (!ll || !isFinite(ll[0]) || !isFinite(ll[1]) || Math.abs(ll[0]) > 180 || Math.abs(ll[1]) > 85) ll = null;
+        else if (S.flat) { const back = S.proj(ll); if (!back || Math.hypot(back[0] - mx(p.lng), back[1] - my(p.lat)) > 1e-6) ll = null; } // off the flat world's edge
+        pts.push({ q, ll });
+      }
+    }
+    return { W, H, cols, rows, pts };
+  }
+  // After the change: where each place now is; then the picture bends from the old places to the new.
+  function morphRun(m, done) {
+    const gl = M8.gl, S = V.cur, c = map.getCenter(), { W, H, cols, rows, pts } = m;
+    for (const pt of pts) {
+      if (!pt.ll) continue;
+      let at;
+      if (S.flat) at = within(S, () => P(pt.ll[0], pt.ll[1]));
+      else at = [pt.ll[0] + 360 * Math.round((c.lng - pt.ll[0]) / 360), pt.ll[1]];
+      pt.r = at ? map.project(at) : null;
+    }
+    const data = [], far = 2 * Math.max(W, H);
+    const ok = (pt) => pt.ll && pt.r && Math.abs(pt.r.x - pt.q[0]) < far && Math.abs(pt.r.y - pt.q[1]) < far;
+    for (let j = 0; j < rows; j++) {
+      for (let i = 0; i < cols; i++) {
+        const a = pts[j * (cols + 1) + i], b = pts[j * (cols + 1) + i + 1], cc = pts[(j + 1) * (cols + 1) + i], d = pts[(j + 1) * (cols + 1) + i + 1];
+        if (![a, b, cc, d].every(ok)) continue;
+        if (Math.hypot(a.r.x - d.r.x, a.r.y - d.r.y) > W / 3) continue; // torn across the flat world's edge
+        for (const v of [a, b, cc, b, d, cc]) data.push(v.q[0], v.q[1], v.r.x, v.r.y, v.q[0] / W, v.q[1] / H);
+      }
+    }
+    if (!data.length) { if (done) done(); return; }
+    const dpr = Math.min(window.devicePixelRatio || 1, 2), cv = M8.canvas;
+    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+    gl.viewport(0, 0, cv.width, cv.height);
+    gl.useProgram(M8.prog);
+    gl.bindBuffer(gl.ARRAY_BUFFER, M8.buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(data), gl.STATIC_DRAW);
+    for (const [name, off] of [['a_from', 0], ['a_to', 2], ['a_uv', 4]]) {
+      const loc = gl.getAttribLocation(M8.prog, name);
+      gl.enableVertexAttribArray(loc);
+      gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 24, off * 4);
+    }
+    gl.uniform2f(gl.getUniformLocation(M8.prog, 'u_size'), W, H);
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    // where the bent picture doesn't reach (the edges, off the flat world), the sea, until the live map shows
+    const sea = d3.color(palette().ground.water) || d3.rgb(170, 200, 240);
+    const draw = (t, a) => {
+      gl.clearColor((sea.r / 255) * a, (sea.g / 255) * a, (sea.b / 255) * a, a);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.uniform1f(gl.getUniformLocation(M8.prog, 'u_t'), t);
+      gl.uniform1f(gl.getUniformLocation(M8.prog, 'u_a'), a);
+      gl.drawArrays(gl.TRIANGLES, 0, data.length / 6);
+    };
+    // behind it, the live map (already in its new shape) gets ready; the picture keeps it covered until it settles
+    const BEND = 600, FADE = 260, ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
+    let t0 = performance.now(), phase = 'bend', fadeFrom = 0, ready = false, settled = false;
+    const readyAt = t0 + 1200;
+    map.once('idle', () => { ready = true; });
+    cv.style.display = 'block';
+    const settle = () => { if (!settled) { settled = true; if (done) done(); } };
+    const step = (now) => {
+      if (phase === 'bend') {
+        const t = Math.min(1, (now - t0) / BEND);
+        draw(ease(t), 1);
+        if (t >= 1) { phase = 'hold'; settle(); }
+      }
+      if (phase === 'hold' && (ready || now > readyAt)) { phase = 'fade'; fadeFrom = now; }
+      if (phase === 'fade') {
+        const a = 1 - Math.min(1, (now - fadeFrom) / FADE);
+        draw(1, a);
+        if (a <= 0) { morphStop(); return; }
+      }
+      M8.raf = requestAnimationFrame(step);
+    };
+    M8.raf = requestAnimationFrame(step);
+    // the map moving again (a drag, a zoom): let it show straight away
+    M8.cancel = () => { settle(); if (phase !== 'fade') { phase = 'fade'; fadeFrom = performance.now() - FADE * 0.6; } };
+  }
+  function morphStop() {
+    cancelAnimationFrame(M8.raf);
+    M8.raf = 0;
+    M8.cancel = null;
+    if (M8.canvas) M8.canvas.style.display = 'none';
   }
   function checkMode() {
     if (!V || !glOK) return;
@@ -1299,8 +1433,28 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (!ll) return;
     const span = spanKm(V.cur, ll, map.getZoom());
     const below = standardBelow(screenLean());
-    if (V.cur === V.F && span < below) setMode(V.M);
-    else if (V.cur === V.M && span > below * FLAT_BACK) setMode(V.F);
+    const to = V.cur === V.F && span < below ? V.M : V.cur === V.M && span > below * FLAT_BACK ? V.F : null;
+    if (to) changeOnceDrawn(to);
+  }
+  // Change once the map has drawn where it now is, fully (the morph starts from the picture on screen, and a jump's last
+  // frame may not be drawn yet, or the street map's tiles not all in).
+  let changePending = false;
+  function changeOnceDrawn(to) {
+    if (changePending) return;
+    changePending = true;
+    const views = V;
+    const go = () => {
+      map.once('render', () => { changePending = false; if (V === views && !map.isMoving()) setMode(to); });
+      map.triggerRepaint();
+    };
+    // the street map's tiles for where it is now loaded first (else the picture would have holes), up to a moment
+    if (map.areTilesLoaded()) go();
+    else {
+      let gone = false;
+      const once = () => { if (!gone) { gone = true; go(); } };
+      map.once('idle', once);
+      setTimeout(once, 1500);
+    }
   }
   // how far out the map may zoom, and whether it repeats sideways: a flat world doesn't
   function limits() {
@@ -1387,7 +1541,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const regular = state.borders === 'regular';
     const inView = ['in', ['get', 'country'], ['literal', V.view.countries]];
     // the street map: its own look for each of ours
-    lookBase(physical ? 'physical' : pal.dark ? 'dark' : 'light');
+    lookBase(physical ? 'physical' : pal.dark ? 'dark' : 'light', G);
+    $('#sea-row').hidden = physical;
     setOutside();
     show('pol-bg', !street);
     paint('pol-bg', 'background-color', G.water);
@@ -1504,7 +1659,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         paint(id(lid), 'text-halo-blur', 0.8);
       }
       show(id('seas'), on && T.flat);
-      paint(id('seas'), 'text-color', pal.dark ? '#7f9cc0' : '#4a6390');
+      paint(id('seas'), 'text-color', G.seaText || (pal.dark ? '#7f9cc0' : '#4a6390'));
       paint(id('seas'), 'text-halo-color', G.water);
       paint(id('seas'), 'text-halo-width', 1);
       show(id('names'), on && state.labels !== 'off');
@@ -1575,7 +1730,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const span = ll ? spanKm(V.cur, ll, cam.zoom) : 0;
       const below = ll && V.view === VIEWS.world ? standardBelow(leanAt(V.F, ll)) : TO_STANDARD;
       const want = span < below ? V.M : span > below * FLAT_BACK ? V.F : V.cur;
-      if (want !== V.cur) { setMode(want); bounds = boundsIn(V.cur); }
+      if (want !== V.cur) {
+        setMode(want, () => { if (M8.cancel) M8.cancel(); map.fitBounds(boundsIn(V.cur), { padding: framePadding(), duration: still ? 0 : 900, maxZoom: 12 }); });
+        return;
+      }
     }
     map.fitBounds(bounds, { padding: framePadding(), duration: still ? 0 : 900, maxZoom: 12 });
   }
@@ -1733,6 +1891,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     apply();
   }));
   $('#show-empty').addEventListener('change', (e) => { state.empty = e.target.checked; apply(); });
+  $('#show-sea').addEventListener('change', (e) => { state.sea = e.target.checked; apply(); });
   for (const [id, key] of [['#show-dots', 'dots'], ['#show-cities', 'cities'], ['#show-capitals', 'capitals']]) {
     $(id).addEventListener('change', (e) => { state[key] = e.target.checked; apply(); });
   }
@@ -1799,7 +1958,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     pinned = hit;
     showCard(hit, e.originalEvent, true);
   });
-  map.on('movestart', (e) => { if (e.originalEvent && !pinned) hideCard(); });
+  map.on('movestart', (e) => { if (e.originalEvent && M8.cancel) M8.cancel(); if (e.originalEvent && !pinned) hideCard(); });
   map.on('moveend', checkMode); // flat zoomed out, standard from country level in
   showView(false);
   // the credits start folded on a phone (an (i) to open them), as map sites do
@@ -1808,6 +1967,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   window.__map = map;
   window.__dbg = { labelData, V: () => V, dotData, spotsFor, partsOf, polylabel, unlon, unlat, PX, setMode, centreLL, spanKm,
     zoomTo: (st) => zoomToArea(pieces.find((g) => g.properties.state === st).properties.id),
+    M8,
     at: (lon, lat) => map.jumpTo({ center: within(V.cur, () => P(lon, lat)) }),
     go: (lon, lat, z) => { V.cur = V.M; limits(); apply(); map.jumpTo({ center: [lon, lat], zoom: z }); } }; // go: a standard place and zoom (the map then picks flat or standard)
   document.documentElement.dataset.ready = '1';

@@ -159,6 +159,12 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
   water colour, a night version in dark mode). Shetach fills fade as you zoom so streets show, with white shetach
   borders and our own grey country and state lines. The flat view draws its own land and sea and names the oceans.
   The owner rejected the outline frame around the flat world, and Lubavitch only shows from region zoom.
+- TRANSITION (Oct 6): the owner called the hard snap between flat and standard unbearable. Every change is now a
+  morph (`morphStart`/`morphRun`): it snapshots the map canvas (preserveDrawingBuffer), puts a 40-column grid over it,
+  and bends the picture in a WebGL overlay from each place's old screen position to its new one over 600 ms. It then
+  fades into the live map once the map is idle. The change waits for the frame to be drawn and the tiles to load
+  (`changeOnceDrawn`). Never go back to a snap.
+- BLUE SEA option (More options): off gives a quiet grey sea, on the political map only.
 - When the owner approves, next.html replaces index.html.
 
 ## LATEST (Sept 30 – Oct 1) — read before "RIGHT NOW" below

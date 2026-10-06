@@ -144,6 +144,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
 /* ---- zoom buttons ---- */
 #zoomctl { position: absolute; z-index: 3; right: 16px; bottom: 16px; display: flex; flex-direction: column; background: var(--panel); border: 1px solid var(--panel-line); border-radius: 10px; box-shadow: var(--shadow); overflow: hidden; }
+#streets { position: absolute; z-index: 3; right: 64px; bottom: 16px; height: 36px; padding: 0 14px 0 11px; display: flex; align-items: center; gap: 7px;
+  background: var(--panel); color: var(--ink); border: 1px solid var(--panel-line); border-radius: 18px; box-shadow: var(--shadow);
+  font: 600 13px/1 var(--font-ui); cursor: pointer; opacity: 0; transform: translateY(6px); pointer-events: none; transition: opacity .22s ease, transform .22s ease, background .15s; }
+#streets.on { opacity: 1; transform: none; pointer-events: auto; }
+#streets:hover { background: var(--accent-soft); }
+#streets[aria-pressed="true"] { background: var(--accent); color: var(--panel); border-color: var(--accent); }
+#streets svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linejoin: round; }
 #zoomctl button { width: 38px; height: 38px; border: 0; background: transparent; cursor: pointer; display: grid; place-items: center; }
 #zoomctl button + button { border-top: 1px solid var(--panel-line); }
 #zoomctl button:hover { background: var(--accent-soft); }
@@ -188,6 +195,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   #panel-toggle { display: block; border: 1px solid var(--panel-line); background: transparent; border-radius: 999px; padding: 5px 14px; cursor: pointer; font-size: 14px; }
   #panel.collapsed #panel-body { display: none; }
   #zoomctl { bottom: calc(var(--sheet, 64px) + 12px); }
+  #streets { bottom: calc(var(--sheet, 64px) + 12px); }
   #card, #card.pinned { left: 16px !important; right: 16px; top: auto !important; bottom: calc(var(--sheet, 64px) + 12px); width: auto; max-height: 45%; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -316,6 +324,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     </div>
   </aside>
 
+  <button id="streets" type="button" aria-pressed="false" tabindex="-1"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 2.5 2.5 4v9.5l3-1.5 5 1.5 3-1.5V2.5l-3 1.5z"/><path d="M5.5 2.5V12M10.5 4v9.5"/></svg><span>Street map</span></button>
   <div id="zoomctl" role="group" aria-label="Zoom">
     <button id="zin" type="button" aria-label="Zoom in"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg></button>
     <button id="zout" type="button" aria-label="Zoom out"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/></svg></button>
@@ -339,7 +348,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const phone = () => window.matchMedia('(max-width: 760px)').matches;
   const coarse = () => window.matchMedia('(pointer: coarse)').matches;
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const state = { empty: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true, sea: true };
+  const state = { empty: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true, sea: true, streets: false };
   if (!phone()) $('#panel').classList.remove('collapsed');
 
   // ---------- data ----------
@@ -373,7 +382,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'Latin America & Caribbean': 'אמריקה הלטינית והאיים הקריביים',
     Map: 'מפה', Physical: 'פיזית', Political: 'מדינית', Borders: 'גבולות', States: 'מדינות', Countries: 'ארצות', Both: 'שניהם',
     'Lighter:': 'בהיר יותר:', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', 'Last name': 'שם משפחה', Off: 'ללא',
-    'More options': 'אפשרויות נוספות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Rest of the world': 'שאר העולם', 'Blue sea': 'ים כחול',
+    'More options': 'אפשרויות נוספות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Rest of the world': 'שאר העולם', 'Blue sea': 'ים כחול', 'Street map': 'מפת רחובות',
     Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד', Dots: 'נקודות', Solid: 'מלאות', 'See-through': 'שקופות', Classic: 'קלאסיות',
     'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
     'Download maps (SVG, PNG)': 'הורדת מפות (SVG, PNG)', 'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
@@ -931,7 +940,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // (each view's two ways of drawing are worked out once, and kept for coming back to it)
     if (!SETS.has(state.view)) SETS.set(state.view, { M: buildSet(view, framedGeoms, false), F: flatFor(view) ? buildSet(view, framedGeoms, true) : null });
     Object.assign(V, SETS.get(state.view));
-    V.cur = V.F && state.base !== 'physical' ? V.F : V.M;
+    V.cur = wantedSet();
     const shownIds = new Set(shown.map((g) => g.properties.id));
     const viewDots = dots.filter((d) => shownIds.has(d.piece));
     $('#view-name').textContent = tr(view.name);
@@ -1142,7 +1151,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       container: 'basemap', style, attributionControl: false, renderWorldCopies: true, dragRotate: false, pitchWithRotate: false, touchPitch: false,
       maxZoom: MAX_Z, fadeDuration: 250, pixelRatio: Math.min(window.devicePixelRatio || 1, 2),
       cancelPendingTileRequestsWhileZooming: false, maxTileCacheSize: 600, maxTileCacheZoomLevels: 10,
-      preserveDrawingBuffer: true, // (the picture the change between flat and standard bends)
+      preserveDrawingBuffer: true, // (the picture that fades out when changing between flat and street map)
     });
     map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: 'Boundaries: US Census, GADM, Natural Earth' }), 'top-right');
     map.touchZoomRotate.disableRotation();
@@ -1218,6 +1227,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       layout: { 'icon-image': ['case', ['get', 'world'], 'star-world', 'star'], 'icon-allow-overlap': true, 'icon-ignore-placement': true, 'symbol-sort-key': ['get', 'rank'] } });
     add({ id: 'cities', type: 'symbol', source: 'cities', filter: ['>=', ['zoom'], ['get', 'minz']],
       layout: { 'text-field': ['get', 'name'], 'text-font': F_REG, 'text-size': 11.5, 'symbol-sort-key': ['get', 'rank'], 'text-padding': 3 } });
+    // a capital's city name, after the shetachim's names (they're placed first)
+    add({ id: 'cap-names', type: 'symbol', source: 'caps', filter: ['all', ['!', ['get', 'honor']], ['!=', ['get', 'name'], ''], ['>=', ['zoom'], ['get', 'minz']]],
+      layout: { 'text-field': ['get', 'name'], 'text-font': F_REG, 'text-size': 11.5, 'text-variable-anchor': ['left', 'right', 'top', 'bottom'],
+        'text-radial-offset': ['case', ['get', 'world'], 1.1, 0.8], 'text-justify': 'auto', 'symbol-sort-key': ['get', 'rank'], 'text-padding': 2 } });
     add({ id: 'names', type: 'symbol', source: 'names', filter: ['all', ['>=', ['zoom'], ['get', 'minz']], ['<', ['zoom'], ['get', 'maxz']]],
       layout: {
         'text-field': ['case', ['!=', ['get', 'pre'], ''], ['format', ['get', 'pre'], { 'text-font': ['literal', F_IT] }, ['get', 'rest'], {}], ['get', 't']],
@@ -1225,9 +1238,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         'text-size': ['interpolate', ['linear'], ['zoom'], ...ZS.flatMap((z) => [z, ['get', `s${z}`]])],
         'text-max-width': 100, 'text-line-height': 1.15, 'text-letter-spacing': 0.01, 'symbol-sort-key': ['get', 'rank'], 'text-padding': 2,
       } });
-    add({ id: 'cap-names', type: 'symbol', source: 'caps', filter: ['all', ['!', ['get', 'honor']], ['!=', ['get', 'name'], ''], ['>=', ['zoom'], ['get', 'minz']]],
-      layout: { 'text-field': ['get', 'name'], 'text-font': F_REG, 'text-size': 11.5, 'text-variable-anchor': ['left', 'right', 'top', 'bottom'],
-        'text-radial-offset': ['case', ['get', 'world'], 1.1, 0.8], 'text-justify': 'auto', 'symbol-sort-key': ['get', 'rank'], 'text-padding': 2 } });
     add({ id: 'honor', type: 'symbol', source: 'caps', filter: ['all', ['get', 'honor'], ['>=', ['zoom'], ['get', 'minz']]],
       layout: { 'icon-image': 'honor', 'icon-allow-overlap': true, 'text-allow-overlap': true, 'text-field': ['get', 'name'], 'text-font': F_IT, 'text-size': 13,
         'text-letter-spacing': 0.02, 'text-variable-anchor': ['left', 'right', 'top'], 'text-radial-offset': 0.6, 'text-justify': 'auto' } });
@@ -1252,218 +1262,129 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return { top: 16, left: Math.max(16, r.right - app.left + 16), right: 64, bottom: 16 };
   }
 
-  // Flat zoomed out, standard from country level in: how many km the screen spans (the square root of its area), and
-  // the span below which the map changes to standard. Away from the flat map's middle its meridians lean (America on a
-  // world map centred on Europe), and the land looks slanted as soon as you zoom in on it, so there it changes over
-  // sooner. Back to flat only once a quarter past that (so it doesn't flip back and forth around one zoom).
-  const TO_STANDARD = 3000, FLAT_BACK = 1.25;
-  function leanAt(S, ll) { // degrees the meridian leans off upright there
-    return within(S, () => {
-      const [lon, lat] = ll, e = 0.05, a = PROJ([lon, lat]), b = PROJ([lon + e, lat]), c = PROJ([lon, lat + e]);
-      if (!a || !b || !c) return 0;
-      const ang = Math.atan2(b[1] - a[1], b[0] - a[0]) - Math.atan2(-(c[1] - a[1]), c[0] - a[0]) + Math.PI / 2;
-      return Math.abs((((ang * 180) / Math.PI + 540) % 360) - 180);
-    });
-  }
-  const standardBelow = (lean) => TO_STANDARD + 10000 * Math.min(1, lean / 20);
-  // the most the meridians lean anywhere on screen (the top of the US leans more than Mexico under it)
-  function screenLean() {
-    if (!V.F || V.view !== VIEWS.world) return 0; // a continent's own flat map is centred on it: it stays flat to country level
-    const c = map.getContainer();
-    let most = 0;
-    for (const fx of [0.2, 0.5, 0.8]) {
-      for (const fy of [0.2, 0.5, 0.8]) {
-        const p = map.unproject([c.clientWidth * fx, c.clientHeight * fy]);
-        const ll = V.cur.flat ? V.cur.proj.invert([mx(p.lng), my(p.lat)]) : [((p.lng + 540) % 360) - 180, p.lat];
-        if (ll && isFinite(ll[0]) && Math.abs(ll[0]) <= 180 && Math.abs(ll[1]) < 85) most = Math.max(most, leanAt(V.F, ll));
-      }
-    }
-    return most;
-  }
+  // The political map is flat (Natural Earth) at every zoom. Close in, a button in the corner offers the street map (the
+  // standard shape, with streets under the shetachim) for the same place; pressed again, back to flat. Nothing changes
+  // over on its own. The button shows once the screen spans less than this many km (the square root of its area).
+  const STREETS_FROM = 2500;
   function centreLL() {
     const c = map.getCenter();
-    if (!V.cur.flat) return [c.lng, c.lat];
+    if (!V.cur.flat) return [((c.lng + 540) % 360) - 180, c.lat];
     const ll = V.cur.proj.invert([mx(c.lng), my(c.lat)]);
     return ll && isFinite(ll[0]) && Math.abs(ll[0]) <= 180 ? ll : null;
   }
   const kmScale = (S, ll, z) => 512 * 2 ** z * within(S, () => unitsPerKm(ll[0], ll[1])); // screen px per km
   function spanKm(S, ll, z) { const c = map.getContainer(); return Math.sqrt(c.clientWidth * c.clientHeight) / kmScale(S, ll, z); }
+  // flat, unless the view has no flat way, the physical map is up (its imagery only comes standard), or the street map
+  // was asked for
   const flatAllowed = () => V.F && !(state.base === 'physical' && physicalOK);
-  // Change to S, keeping the place at the centre where it is and the scale there the same. The change is shown as a
-  // morph: the map as it was, bent smoothly into the new shape (each place moving to where it now is), then handing over
-  // to the live map. Calls done once the shape has settled.
-  function setMode(S, done) {
-    if (!S || S === V.cur) { if (done) done(); return; }
+  const wantedSet = () => (flatAllowed() && !state.streets ? V.F : V.M);
+  // Change to S, keeping the place at the centre where it is and the scale there the same; the old picture fades out
+  // over the new one, quickly, once the new one has drawn.
+  function setMode(S) {
+    if (!S || S === V.cur) return;
     const ll = centreLL() || [0, 0], z = map.getZoom();
     const zTo = z + Math.log2(kmScale(V.cur, ll, 0) / kmScale(S, ll, 0));
-    const from = still ? null : morphStart();
+    const snap = still ? false : fadeStart();
     V.cur = S;
     limits();
     apply();
     map.jumpTo({ center: within(S, () => P(ll[0], ll[1])) || map.getCenter(), zoom: zTo });
-    if (from) morphRun(from, done); else if (done) done();
+    if (snap) fadeRun();
+    streetsButton();
   }
 
-  // ---------- the morph between flat and standard ----------
-  const M8 = { canvas: null, gl: null, prog: null, tex: null, buf: null, raf: 0, cancel: null };
-  function morphGL() {
-    if (M8.gl) return M8.gl;
+  // ---------- the fade between flat and street map ----------
+  const FD = { canvas: null, gl: null, prog: null, tex: null, buf: null, raf: 0 };
+  function fadeGL() {
+    if (FD.gl) return FD.gl;
     const c = document.createElement('canvas');
-    c.className = 'morph';
     c.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;display:none';
     map.getCanvasContainer().after(c);
-    const gl = c.getContext('webgl', { premultipliedAlpha: true, alpha: true, antialias: true });
+    const gl = c.getContext('webgl', { premultipliedAlpha: true, alpha: true });
     if (!gl) return null;
     const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
     const prog = gl.createProgram();
-    gl.attachShader(prog, sh(gl.VERTEX_SHADER, `attribute vec2 a_from; attribute vec2 a_to; attribute vec2 a_uv; uniform float u_t; uniform vec2 u_size; varying vec2 v_uv;
-      void main() { vec2 p = mix(a_from, a_to, u_t) / u_size * 2.0 - 1.0; gl_Position = vec4(p.x, -p.y, 0.0, 1.0); v_uv = a_uv; }`));
-    gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, `precision mediump float; uniform sampler2D u_tex; uniform float u_a; varying vec2 v_uv;
-      void main() { gl_FragColor = texture2D(u_tex, v_uv) * u_a; }`));
+    gl.attachShader(prog, sh(gl.VERTEX_SHADER, 'attribute vec2 a; varying vec2 v; void main() { v = a; gl_Position = vec4(a.x * 2.0 - 1.0, 1.0 - a.y * 2.0, 0.0, 1.0); }'));
+    gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, 'precision mediump float; uniform sampler2D t; uniform float o; varying vec2 v; void main() { gl_FragColor = texture2D(t, v) * o; }'));
     gl.linkProgram(prog);
     if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return null;
-    M8.tex = gl.createTexture();
-    gl.bindTexture(gl.TEXTURE_2D, M8.tex);
+    FD.tex = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, FD.tex);
     for (const [k, v] of [[gl.TEXTURE_MIN_FILTER, gl.LINEAR], [gl.TEXTURE_MAG_FILTER, gl.LINEAR], [gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE], [gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE]]) gl.texParameteri(gl.TEXTURE_2D, k, v);
-    M8.buf = gl.createBuffer();
-    Object.assign(M8, { canvas: c, gl, prog });
+    FD.buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, FD.buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1]), gl.STATIC_DRAW);
+    Object.assign(FD, { canvas: c, gl, prog });
     return gl;
   }
-  // Before the change: the picture on screen, and a grid over it with the place under each point.
-  function morphStart() {
-    const gl = morphGL();
-    if (!gl) return null;
-    morphStop();
-    const W = map.getContainer().clientWidth, H = map.getContainer().clientHeight;
-    gl.bindTexture(gl.TEXTURE_2D, M8.tex);
-    gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL, false);
-    try { gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, map.getCanvas()); } catch (e) { return null; }
-    const cols = 40, rows = Math.max(8, Math.round((cols * H) / W)), pts = [];
-    const S = V.cur;
-    for (let j = 0; j <= rows; j++) {
-      for (let i = 0; i <= cols; i++) {
-        const q = [(i / cols) * W, (j / rows) * H], p = map.unproject(q);
-        let ll = S.flat ? S.proj.invert([mx(p.lng), my(p.lat)]) : [((p.lng + 540) % 360) - 180, p.lat];
-        if (!ll || !isFinite(ll[0]) || !isFinite(ll[1]) || Math.abs(ll[0]) > 180 || Math.abs(ll[1]) > 85) ll = null;
-        else if (S.flat) { const back = S.proj(ll); if (!back || Math.hypot(back[0] - mx(p.lng), back[1] - my(p.lat)) > 1e-6) ll = null; } // off the flat world's edge
-        pts.push({ q, ll });
-      }
-    }
-    return { W, H, cols, rows, pts };
-  }
-  // After the change: where each place now is; then the picture bends from the old places to the new.
-  function morphRun(m, done) {
-    const gl = M8.gl, S = V.cur, c = map.getCenter(), { W, H, cols, rows, pts } = m;
-    for (const pt of pts) {
-      if (!pt.ll) continue;
-      let at;
-      if (S.flat) at = within(S, () => P(pt.ll[0], pt.ll[1]));
-      else at = [pt.ll[0] + 360 * Math.round((c.lng - pt.ll[0]) / 360), pt.ll[1]];
-      pt.r = at ? map.project(at) : null;
-    }
-    const data = [], far = 2 * Math.max(W, H);
-    const ok = (pt) => pt.ll && pt.r && Math.abs(pt.r.x - pt.q[0]) < far && Math.abs(pt.r.y - pt.q[1]) < far;
-    for (let j = 0; j < rows; j++) {
-      for (let i = 0; i < cols; i++) {
-        const a = pts[j * (cols + 1) + i], b = pts[j * (cols + 1) + i + 1], cc = pts[(j + 1) * (cols + 1) + i], d = pts[(j + 1) * (cols + 1) + i + 1];
-        if (![a, b, cc, d].every(ok)) continue;
-        if (Math.hypot(a.r.x - d.r.x, a.r.y - d.r.y) > W / 3) continue; // torn across the flat world's edge
-        for (const v of [a, b, cc, b, d, cc]) data.push(v.q[0], v.q[1], v.r.x, v.r.y, v.q[0] / W, v.q[1] / H);
-      }
-    }
-    if (!data.length) { if (done) done(); return; }
-    const dpr = Math.min(window.devicePixelRatio || 1, 2), cv = M8.canvas;
-    cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
-    gl.viewport(0, 0, cv.width, cv.height);
-    gl.useProgram(M8.prog);
-    gl.bindBuffer(gl.ARRAY_BUFFER, M8.buf);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(data), gl.STATIC_DRAW);
-    for (const [name, off] of [['a_from', 0], ['a_to', 2], ['a_uv', 4]]) {
-      const loc = gl.getAttribLocation(M8.prog, name);
-      gl.enableVertexAttribArray(loc);
-      gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 24, off * 4);
-    }
-    gl.uniform2f(gl.getUniformLocation(M8.prog, 'u_size'), W, H);
+  // the picture on screen, held over the map while it changes
+  function fadeStart() {
+    const gl = fadeGL();
+    if (!gl) return false;
+    cancelAnimationFrame(FD.raf);
+    gl.bindTexture(gl.TEXTURE_2D, FD.tex);
+    try { gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, map.getCanvas()); } catch (e) { return false; }
+    const dpr = Math.min(window.devicePixelRatio || 1, 2), c = FD.canvas, box = map.getContainer();
+    c.width = Math.round(box.clientWidth * dpr); c.height = Math.round(box.clientHeight * dpr);
+    gl.viewport(0, 0, c.width, c.height);
+    gl.useProgram(FD.prog);
+    gl.bindBuffer(gl.ARRAY_BUFFER, FD.buf);
+    const loc = gl.getAttribLocation(FD.prog, 'a');
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
     gl.enable(gl.BLEND);
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
-    // where the bent picture doesn't reach (the edges, off the flat world), the sea, until the live map shows
-    const sea = d3.color(palette().ground.water) || d3.rgb(170, 200, 240);
-    const draw = (t, a) => {
-      gl.clearColor((sea.r / 255) * a, (sea.g / 255) * a, (sea.b / 255) * a, a);
-      gl.clear(gl.COLOR_BUFFER_BIT);
-      gl.uniform1f(gl.getUniformLocation(M8.prog, 'u_t'), t);
-      gl.uniform1f(gl.getUniformLocation(M8.prog, 'u_a'), a);
-      gl.drawArrays(gl.TRIANGLES, 0, data.length / 6);
-    };
-    // behind it, the live map (already in its new shape) gets ready; the picture keeps it covered until it settles
-    const BEND = 600, FADE = 260, ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
-    let t0 = performance.now(), phase = 'bend', fadeFrom = 0, ready = false, settled = false;
-    const readyAt = t0 + 1200;
-    map.once('idle', () => { ready = true; });
-    cv.style.display = 'block';
-    const settle = () => { if (!settled) { settled = true; if (done) done(); } };
+    fadeDraw(1);
+    c.style.display = 'block';
+    return true;
+  }
+  function fadeDraw(o) {
+    const gl = FD.gl;
+    gl.clearColor(0, 0, 0, 0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.uniform1f(gl.getUniformLocation(FD.prog, 'o'), o);
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
+  }
+  // ... then, once the new map has drawn (its streets loaded, or a moment at most), faded out
+  function fadeRun() {
+    const T = 280;
+    let start = 0;
+    const go = () => { if (!start) start = performance.now(); };
+    map.once('idle', go);
+    const giveUp = performance.now() + 900;
     const step = (now) => {
-      if (phase === 'bend') {
-        const t = Math.min(1, (now - t0) / BEND);
-        draw(ease(t), 1);
-        if (t >= 1) { phase = 'hold'; settle(); }
+      if (!start && now > giveUp) go();
+      if (start) {
+        const k = Math.min(1, (now - start) / T);
+        fadeDraw(1 - k * k * (3 - 2 * k));
+        if (k >= 1) { FD.canvas.style.display = 'none'; return; }
       }
-      if (phase === 'hold' && (ready || now > readyAt)) { phase = 'fade'; fadeFrom = now; }
-      if (phase === 'fade') {
-        const a = 1 - Math.min(1, (now - fadeFrom) / FADE);
-        draw(1, a);
-        if (a <= 0) { morphStop(); return; }
-      }
-      M8.raf = requestAnimationFrame(step);
+      FD.raf = requestAnimationFrame(step);
     };
-    M8.raf = requestAnimationFrame(step);
-    // the map moving again (a drag, a zoom): let it show straight away
-    M8.cancel = () => { settle(); if (phase !== 'fade') { phase = 'fade'; fadeFrom = performance.now() - FADE * 0.6; } };
+    FD.raf = requestAnimationFrame(step);
   }
-  function morphStop() {
-    cancelAnimationFrame(M8.raf);
-    M8.raf = 0;
-    M8.cancel = null;
-    if (M8.canvas) M8.canvas.style.display = 'none';
-  }
-  function checkMode() {
-    if (!V || !glOK) return;
-    if (!flatAllowed()) { if (V.cur !== V.M) setMode(V.M); return; }
-    const ll = centreLL();
-    if (!ll) return;
-    const span = spanKm(V.cur, ll, map.getZoom());
-    const below = standardBelow(screenLean());
-    const to = V.cur === V.F && span < below ? V.M : V.cur === V.M && span > below * FLAT_BACK ? V.F : null;
-    if (to) changeOnceDrawn(to);
-  }
-  // Change once the map has drawn where it now is, fully (the morph starts from the picture on screen, and a jump's last
-  // frame may not be drawn yet, or the street map's tiles not all in).
-  let changePending = false;
-  function changeOnceDrawn(to) {
-    if (changePending) return;
-    changePending = true;
-    const views = V;
-    const go = () => {
-      map.once('render', () => { changePending = false; if (V === views && !map.isMoving()) setMode(to); });
-      map.triggerRepaint();
-    };
-    // the street map's tiles for where it is now loaded first (else the picture would have holes), up to a moment
-    if (map.areTilesLoaded()) go();
-    else {
-      let gone = false;
-      const once = () => { if (!gone) { gone = true; go(); } };
-      map.once('idle', once);
-      setTimeout(once, 1500);
+
+  // The corner button: shown close in on the flat map, and on the street map (to go back), with a soft fade.
+  function streetsButton() {
+    const b = $('#streets');
+    if (!b || !V || !glOK) return;
+    let show = false;
+    if (flatAllowed()) {
+      if (V.cur === V.M) show = true;
+      else { const ll = centreLL(); show = !!ll && spanKm(V.cur, ll, map.getZoom()) < STREETS_FROM; }
     }
+    b.classList.toggle('on', show);
+    b.setAttribute('aria-pressed', String(V.cur === V.M && !!V.F));
+    b.tabIndex = show ? 0 : -1;
   }
   // how far out the map may zoom, and whether it repeats sideways: a flat world doesn't
   function limits() {
     map.setRenderWorldCopies(!V.cur.flat);
-    map.setMinZoom(V.cur === V.M && V.F && flatAllowed() ? 0 : Math.max(0, (V.cur.zFit ?? 0) - 1.5));
+    map.setMinZoom(V.cur === V.M && V.F && flatAllowed() ? Math.max(0, map.getZoom() - 6) : Math.max(0, (V.cur.zFit ?? 0) - 1.5));
   }
   // The camera for the whole view (flat, where the view has it), and from it the zoom the dots are sized for.
   function frameView(animate) {
-    const S = flatAllowed() ? V.F : V.M, was = V.cur;
+    const S = wantedSet(), was = V.cur;
     for (const T of [V.M, V.F]) {
       if (!T) continue;
       const cam = map.cameraForBounds(T.bounds, { padding: framePadding() });
@@ -1714,27 +1635,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     map.getSource(`hover-dot${S.sfx}`).setData(dot && state.dots && V.mainIds.has(dot.piece) ? feature({ type: 'Point', coordinates: within(S, () => P(dot.lon, dot.lat)) }, { l: Math.log2(dot.centers.length) }) : EMPTY);
     map.getSource(`hover-area${S.sfx}`).setData(area && area.geometry ? feature(area.geometry) : EMPTY);
   }
-  // Zoom to an area: in the way of drawing that suits how close that is (a country: standard; a continent: flat).
+  // Zoom to an area (in the way it's drawn now).
   function zoomToArea(pieceId) {
-    const boundsIn = (S) => {
-      const area = areaOf(S, pieceId);
-      if (!area || !area.geometry) return null;
-      const b = S.flat ? flatBounds(area.geometry) : d3.geoBounds(feature(area.geometry));
-      return b[0][0] > b[1][0] ? [[b[0][0], b[0][1]], [b[1][0] + 360, b[1][1]]] : b;
-    };
-    let bounds = boundsIn(V.cur);
-    if (!bounds) return;
-    if (flatAllowed()) {
-      const cam = map.cameraForBounds(bounds, { padding: framePadding(), maxZoom: 12 });
-      const ll = V.cur.flat ? V.cur.proj.invert([mx(cam.center.lng), my(cam.center.lat)]) : [cam.center.lng, cam.center.lat];
-      const span = ll ? spanKm(V.cur, ll, cam.zoom) : 0;
-      const below = ll && V.view === VIEWS.world ? standardBelow(leanAt(V.F, ll)) : TO_STANDARD;
-      const want = span < below ? V.M : span > below * FLAT_BACK ? V.F : V.cur;
-      if (want !== V.cur) {
-        setMode(want, () => { if (M8.cancel) M8.cancel(); map.fitBounds(boundsIn(V.cur), { padding: framePadding(), duration: still ? 0 : 900, maxZoom: 12 }); });
-        return;
-      }
-    }
+    const S = V.cur, area = areaOf(S, pieceId);
+    if (!area || !area.geometry) return;
+    const b = S.flat ? flatBounds(area.geometry) : d3.geoBounds(feature(area.geometry));
+    const bounds = b[0][0] > b[1][0] ? [[b[0][0], b[0][1]], [b[1][0] + 360, b[1][1]]] : b;
     map.fitBounds(bounds, { padding: framePadding(), duration: still ? 0 : 900, maxZoom: 12 });
   }
 
@@ -1880,12 +1786,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     $('#base-msg').hidden = true;
     pressed(name, b.dataset.value);
     state[name] = b.dataset.value;
-    if (name === 'view') { hideCard(); showView(true); return; }
+    if (name === 'view') { hideCard(); state.streets = false; showView(true); streetsButton(); return; }
     if (name === 'base' && glOK) {
       // at the view as framed, the other look framed too (the physical world isn't flat); closer in, the same place
       const framed = V.cur.zFit != null && map.getZoom() < V.cur.zFit + 0.75;
       apply();
-      if (framed) frameView(false); else checkMode();
+      if (framed) frameView(false); else setMode(wantedSet());
+      streetsButton();
       return;
     }
     apply();
@@ -1958,8 +1865,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     pinned = hit;
     showCard(hit, e.originalEvent, true);
   });
-  map.on('movestart', (e) => { if (e.originalEvent && M8.cancel) M8.cancel(); if (e.originalEvent && !pinned) hideCard(); });
-  map.on('moveend', checkMode); // flat zoomed out, standard from country level in
+  map.on('movestart', (e) => { if (e.originalEvent && !pinned) hideCard(); });
+  map.on('move', streetsButton); // the street map button, close in
+  $('#streets').addEventListener('click', () => { state.streets = V.cur !== V.M; hideCard(); setMode(wantedSet()); });
   showView(false);
   // the credits start folded on a phone (an (i) to open them), as map sites do
   if (phone()) { const at = document.querySelector('.maplibregl-ctrl-attrib'); if (at) at.classList.remove('maplibregl-compact-show'); }
@@ -1967,7 +1875,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   window.__map = map;
   window.__dbg = { labelData, V: () => V, dotData, spotsFor, partsOf, polylabel, unlon, unlat, PX, setMode, centreLL, spanKm,
     zoomTo: (st) => zoomToArea(pieces.find((g) => g.properties.state === st).properties.id),
-    M8,
     at: (lon, lat) => map.jumpTo({ center: within(V.cur, () => P(lon, lat)) }),
     go: (lon, lat, z) => { V.cur = V.M; limits(); apply(); map.jumpTo({ center: [lon, lat], zoom: z }); } }; // go: a standard place and zoom (the map then picks flat or standard)
   document.documentElement.dataset.ready = '1';

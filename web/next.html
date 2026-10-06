@@ -144,13 +144,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
 /* ---- zoom buttons ---- */
 #zoomctl { position: absolute; z-index: 3; right: 16px; bottom: 16px; display: flex; flex-direction: column; background: var(--panel); border: 1px solid var(--panel-line); border-radius: 10px; box-shadow: var(--shadow); overflow: hidden; }
-#streets { position: absolute; z-index: 3; right: 64px; bottom: 16px; height: 36px; padding: 0 14px 0 11px; display: flex; align-items: center; gap: 7px;
-  background: var(--panel); color: var(--ink); border: 1px solid var(--panel-line); border-radius: 18px; box-shadow: var(--shadow);
-  font: 600 13px/1 var(--font-ui); cursor: pointer; opacity: 0; transform: translateY(6px); pointer-events: none; transition: opacity .22s ease, transform .22s ease, background .15s; }
-#streets.on { opacity: 1; transform: none; pointer-events: auto; }
-#streets:hover { background: var(--accent-soft); }
-#streets[aria-pressed="true"] { background: var(--accent); color: var(--panel); border-color: var(--accent); }
-#streets svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linejoin: round; }
 #zoomctl button { width: 38px; height: 38px; border: 0; background: transparent; cursor: pointer; display: grid; place-items: center; }
 #zoomctl button + button { border-top: 1px solid var(--panel-line); }
 #zoomctl button:hover { background: var(--accent-soft); }
@@ -195,7 +188,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   #panel-toggle { display: block; border: 1px solid var(--panel-line); background: transparent; border-radius: 999px; padding: 5px 14px; cursor: pointer; font-size: 14px; }
   #panel.collapsed #panel-body { display: none; }
   #zoomctl { bottom: calc(var(--sheet, 64px) + 12px); }
-  #streets { bottom: calc(var(--sheet, 64px) + 12px); }
   #card, #card.pinned { left: 16px !important; right: 16px; top: auto !important; bottom: calc(var(--sheet, 64px) + 12px); width: auto; max-height: 45%; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -248,8 +240,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       <fieldset class="ctl">
         <legend>Map</legend>
         <div class="seg" data-name="base">
-          <button type="button" data-value="physical" aria-pressed="false">Physical</button>
           <button type="button" data-value="political" aria-pressed="true">Political</button>
+          <button type="button" data-value="streets" aria-pressed="false">Streets</button>
+          <button type="button" data-value="physical" aria-pressed="false">Physical</button>
         </div>
         <p id="base-msg" class="note" role="status" hidden></p>
       </fieldset>
@@ -324,7 +317,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     </div>
   </aside>
 
-  <button id="streets" type="button" aria-pressed="false" tabindex="-1"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.5 2.5 2.5 4v9.5l3-1.5 5 1.5 3-1.5V2.5l-3 1.5z"/><path d="M5.5 2.5V12M10.5 4v9.5"/></svg><span>Street map</span></button>
   <div id="zoomctl" role="group" aria-label="Zoom">
     <button id="zin" type="button" aria-label="Zoom in"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg></button>
     <button id="zout" type="button" aria-label="Zoom out"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/></svg></button>
@@ -348,7 +340,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const phone = () => window.matchMedia('(max-width: 760px)').matches;
   const coarse = () => window.matchMedia('(pointer: coarse)').matches;
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const state = { empty: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true, sea: true, streets: false };
+  const state = { empty: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true, sea: true };
   if (!phone()) $('#panel').classList.remove('collapsed');
 
   // ---------- data ----------
@@ -382,7 +374,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'Latin America & Caribbean': 'אמריקה הלטינית והאיים הקריביים',
     Map: 'מפה', Physical: 'פיזית', Political: 'מדינית', Borders: 'גבולות', States: 'מדינות', Countries: 'ארצות', Both: 'שניהם',
     'Lighter:': 'בהיר יותר:', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', 'Last name': 'שם משפחה', Off: 'ללא',
-    'More options': 'אפשרויות נוספות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Rest of the world': 'שאר העולם', 'Blue sea': 'ים כחול', 'Street map': 'מפת רחובות',
+    'More options': 'אפשרויות נוספות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Rest of the world': 'שאר העולם', 'Blue sea': 'ים כחול', Streets: 'רחובות',
     Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד', Dots: 'נקודות', Solid: 'מלאות', 'See-through': 'שקופות', Classic: 'קלאסיות',
     'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
     'Download maps (SVG, PNG)': 'הורדת מפות (SVG, PNG)', 'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
@@ -902,9 +894,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         const east = e < w ? e + 360 : e;
         for (let i = 0; i <= 40; i++) { const t = i / 40; pts.push(P(w + (east - w) * t, so), P(w + (east - w) * t, n), P(w, so + (n - so) * t), P(east, so + (n - so) * t)); }
         S.bounds = view === VIEWS.world ? flatBounds(projGeom({ type: 'Sphere' })) : flatBounds({ coordinates: pts.filter(Boolean) });
-        if (!allLand) allLand = topojson.merge(topo, pieces);
-        S.land = feature(projGeom(allLand));
       }
+      // all the land (the political map has no street map to show it)
+      if (!allLand) allLand = topojson.merge(topo, pieces);
+      S.land = flat ? feature(projGeom(allLand)) : feature(allLand);
       // the areas as the engine gets them: all of them as they are, or the view's own, flat
       S.areas = flat ? fc(areaFeatures.filter((f) => view.countries.includes(f.properties.country)).map((f) => feature(projGeom(f.geometry), f.properties)).filter((f) => f.geometry))
         : fc(areaFeatures);
@@ -1196,7 +1189,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const add = (layer, before) => map.addLayer({ ...layer, id: id(layer.id), source: id(layer.source) }, flat ? undefined : before);
     const under = physicalOK ? waterBefore : undefined, over = physicalOK ? lineBefore : undefined;
     // the land (flat: there's no street map), the land no shetach covers (Rest of the world), the shetachim
-    if (flat) add({ id: 'land', type: 'fill', source: 'land', paint: { 'fill-antialias': false } });
+    add({ id: 'land', type: 'fill', source: 'land', paint: { 'fill-antialias': false } }, under);
     add({ id: 'out-fill', type: 'fill', source: 'outside', paint: { 'fill-antialias': false } }, under);
     add({ id: 'fill', type: 'fill', source: 'areas', paint: { 'fill-antialias': false } }, under);
     // physical: each shetach as a soft tint under the water and relief
@@ -1262,10 +1255,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return { top: 16, left: Math.max(16, r.right - app.left + 16), right: 64, bottom: 16 };
   }
 
-  // The political map is flat (Natural Earth) at every zoom. Close in, a button in the corner offers the street map (the
-  // standard shape, with streets under the shetachim) for the same place; pressed again, back to flat. Nothing changes
-  // over on its own. The button shows once the screen spans less than this many km (the square root of its area).
-  const STREETS_FROM = 2500;
+  // Three maps (Map in the panel): political — our own drawing, flat (Natural Earth) where the view has it, as far in as a
+  // political map makes sense; streets — the shetachim over the street map, standard, all the way in; physical — terrain.
+  const POLITICAL_DEPTH = 5; // zoom steps in from the framed view the political map allows
   function centreLL() {
     const c = map.getCenter();
     if (!V.cur.flat) return [((c.lng + 540) % 360) - 180, c.lat];
@@ -1274,10 +1266,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
   const kmScale = (S, ll, z) => 512 * 2 ** z * within(S, () => unitsPerKm(ll[0], ll[1])); // screen px per km
   function spanKm(S, ll, z) { const c = map.getContainer(); return Math.sqrt(c.clientWidth * c.clientHeight) / kmScale(S, ll, z); }
-  // flat, unless the view has no flat way, the physical map is up (its imagery only comes standard), or the street map
-  // was asked for
-  const flatAllowed = () => V.F && !(state.base === 'physical' && physicalOK);
-  const wantedSet = () => (flatAllowed() && !state.streets ? V.F : V.M);
+  const political = () => state.base === 'political' || !physicalOK; // (no street map loaded: political only)
+  const wantedSet = () => (political() && V.F ? V.F : V.M);
   // Change to S, keeping the place at the centre where it is and the scale there the same; the old picture fades out
   // over the new one, quickly, once the new one has drawn.
   function setMode(S) {
@@ -1290,7 +1280,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     apply();
     map.jumpTo({ center: within(S, () => P(ll[0], ll[1])) || map.getCenter(), zoom: zTo });
     if (snap) fadeRun();
-    streetsButton();
   }
 
   // ---------- the fade between flat and street map ----------
@@ -1364,23 +1353,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     FD.raf = requestAnimationFrame(step);
   }
 
-  // The corner button: shown close in on the flat map, and on the street map (to go back), with a soft fade.
-  function streetsButton() {
-    const b = $('#streets');
-    if (!b || !V || !glOK) return;
-    let show = false;
-    if (flatAllowed()) {
-      if (V.cur === V.M) show = true;
-      else { const ll = centreLL(); show = !!ll && spanKm(V.cur, ll, map.getZoom()) < STREETS_FROM; }
-    }
-    b.classList.toggle('on', show);
-    b.setAttribute('aria-pressed', String(V.cur === V.M && !!V.F));
-    b.tabIndex = show ? 0 : -1;
-  }
-  // how far out the map may zoom, and whether it repeats sideways: a flat world doesn't
+  // how far out and in the map may zoom (the political map only so far in), and whether it repeats sideways (a flat
+  // world doesn't)
   function limits() {
     map.setRenderWorldCopies(!V.cur.flat);
-    map.setMinZoom(V.cur === V.M && V.F && flatAllowed() ? Math.max(0, map.getZoom() - 6) : Math.max(0, (V.cur.zFit ?? 0) - 1.5));
+    const fit = V.cur.zFit ?? 0;
+    map.setMinZoom(Math.max(0, fit - 1.5));
+    map.setMaxZoom(political() ? Math.min(MAX_Z, fit + POLITICAL_DEPTH) : MAX_Z);
   }
   // The camera for the whole view (flat, where the view has it), and from it the zoom the dots are sized for.
   function frameView(animate) {
@@ -1413,7 +1392,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       set('dots', dotData(S));
       set('cities', cityData(S));
       set('caps', capData(S));
-      if (S.flat) { set('seas', seaData(S)); set('land', fc([S.land])); }
+      set('land', fc([S.land]));
+      if (S.flat) set('seas', seaData(S));
     }
     frameView(animate && prev && !prev.flat);
     setOutside();
@@ -1423,10 +1403,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // world it's greyed, with its borders.
   function setOutside() {
     if (!glOK || !V) return;
-    const o = V.F || state.empty ? outsideData() : null;
+    const o = outsideData();
     const key = `${!!o}|${state.empty}|${state.borders}`;
     if (V.outsideKey === key) return;
-    if (o || !(V.F || state.empty)) V.outsideKey = key;
+    if (o) V.outsideKey = key;
     for (const S of [V.M, V.F]) {
       if (!S) continue;
       let so = o;
@@ -1436,11 +1416,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
             coast: feature(projGeom(o.coast.geometry) || { type: 'MultiLineString', coordinates: [] }, o.coast.properties),
             borders: feature(projGeom(o.borders.geometry) || { type: 'MultiLineString', coordinates: [] }, o.borders.properties) }));
         }
-        map.getSource(`land${S.sfx}`).setData(fc([S.land, ...S.outside.fill.features]));
         so = S.outside;
       }
+      if (so) map.getSource(`land${S.sfx}`).setData(fc([S.land, ...so.fill.features]));
       map.getSource(`outside${S.sfx}`).setData(so && state.empty ? so.fill : EMPTY);
-      const lines = so ? (S.flat ? [so.coast] : []).concat(state.empty && state.borders !== 'shetach' ? [so.borders] : []) : [];
+      const lines = so ? [so.coast].concat(state.empty && state.borders !== 'shetach' ? [so.borders] : []) : [];
       map.getSource(`outside-lines${S.sfx}`).setData(fc(lines));
     }
   }
@@ -1455,7 +1435,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     setLegendDot(pal);
     drawIcons(pal);
     const physical = state.base === 'physical' && physicalOK;
-    const S = V.cur, street = !S.flat && physicalOK; // the street map shows (standard), or our own land and sea (flat)
+    const S = V.cur, street = !political(); // the street map shows (streets, physical), or our own land and sea (political)
     const show = (id, on) => { if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', on ? 'visible' : 'none'); };
     const paint = (id, prop, value) => { if (map.getLayer(id)) map.setPaintProperty(id, prop, value); };
     const both = state.borders === 'both', lightS = both && state.lighter === 'shetach', lightR = both && state.lighter === 'regular';
@@ -1484,13 +1464,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const polOn = on && !physical;
       // fills: shetachim (blank parts of states stay land), or every state with States borders; strong zoomed out, and
       // see-through at street level so the streets show
-      show(id('land'), on && flat);
+      show(id('land'), on && !street);
       paint(id('land'), 'fill-color', G.land);
       show(id('fill'), polOn);
       map.setFilter(id('fill'), regular ? inView : ['all', inView, ['>=', ['get', 'cs'], 0]]);
       paint(id('fill'), 'fill-color', state.color === 'plain' ? pal.plain : ['match', ['get', regular ? 'cu' : 'cs'], ...pal.c.flatMap((c, i) => [i, c]), pal.plain]);
       const k = lightS ? 0.6 : 1;
-      paint(id('fill'), 'fill-opacity', flat || !physicalOK ? 0.92 * k : ['interpolate', ['linear'], ['zoom'], 5, 0.9 * k, 7, 0.78 * k, 10, 0.5 * k, 13, 0.3 * k]);
+      paint(id('fill'), 'fill-opacity', !street ? 0.92 * k : ['interpolate', ['linear'], ['zoom'], 5, 0.9 * k, 7, 0.78 * k, 10, 0.5 * k, 13, 0.3 * k]);
       show(id('out-fill'), polOn && state.empty);
       paint(id('out-fill'), 'fill-color', pal.empty);
       paint(id('out-fill'), 'fill-opacity', street ? 0.7 : 1);
@@ -1498,7 +1478,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       // borders grey; the coast a darker sea (flat only: the street map has its own)
       const w = (a, b, c) => ['interpolate', ['linear'], ['zoom'], 2, a, 6, b, 12, c];
       for (const [kind, onK, color, width, alpha, dash] of [
-        ['coast', flat, G.coast, 0.6, 1],
+        ['coast', !street, G.coast, 0.6, 1],
         ['regular', state.borders !== 'shetach', G.grey, w(0.5, 0.8, 1.4), lightR ? 0.3 : 0.6, [2, 2]],
         ['country', state.borders !== 'shetach', G.grey, w(0.7, 1.1, 1.8), lightR ? 0.4 : 0.85],
         ['casing', !regular, G.border, w(1.2, 2.2, 3.6), lightS ? 0.45 : 0.95],
@@ -1517,8 +1497,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       paint(id('out-line'), 'line-color', G.grey);
       paint(id('out-line'), 'line-width', 0.7);
       paint(id('out-line'), 'line-opacity', ['match', ['get', 'k'], 'coast', 0, 0.6]);
-      // (the coast of the land no shetach covers, flat: same as ours)
-      if (flat) paint(id('out-line'), 'line-color', ['match', ['get', 'k'], 'coast', G.coast, G.grey]), paint(id('out-line'), 'line-opacity', ['match', ['get', 'k'], 'coast', 1, 0.6]);
+      // (the coast of the land no shetach covers, political: same as ours)
+      if (!street) paint(id('out-line'), 'line-color', ['match', ['get', 'k'], 'coast', G.coast, G.grey]), paint(id('out-line'), 'line-opacity', ['match', ['get', 'k'], 'coast', 1, 0.6]);
       map.setFilter(id('pick'), inView);
       show(id('pick'), on);
     }
@@ -1584,9 +1564,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       paint(id('seas'), 'text-halo-color', G.water);
       paint(id('seas'), 'text-halo-width', 1);
       show(id('names'), on && state.labels !== 'off');
-      show(id('cities'), on && state.cities && T.flat);
+      show(id('cities'), on && state.cities && !street);
       show(id('caps'), on && state.capitals);
-      show(id('cap-names'), on && state.capitals && T.flat);
+      show(id('cap-names'), on && state.capitals && !street);
       show(id('honor'), on);
       const zs = T.zFit ?? 2;
       map.setLayoutProperty(id('caps'), 'icon-size', ['interpolate', ['linear'], ['zoom'], zs, phone() ? 0.42 : 0.6, zs + 3, 1]);
@@ -1786,13 +1766,18 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     $('#base-msg').hidden = true;
     pressed(name, b.dataset.value);
     state[name] = b.dataset.value;
-    if (name === 'view') { hideCard(); state.streets = false; showView(true); streetsButton(); return; }
+    if (name === 'view') { hideCard(); showView(true); return; }
     if (name === 'base' && glOK) {
       // at the view as framed, the other look framed too (the physical world isn't flat); closer in, the same place
       const framed = V.cur.zFit != null && map.getZoom() < V.cur.zFit + 0.75;
-      apply();
-      if (framed) frameView(false); else setMode(wantedSet());
-      streetsButton();
+      if (framed) {
+        // the old map fades out over the new one, framed
+        const snap = !still && fadeStart();
+        apply();
+        frameView(false);
+        if (snap) fadeRun();
+      } else { apply(); setMode(wantedSet()); }
+      limits();
       return;
     }
     apply();
@@ -1866,8 +1851,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     showCard(hit, e.originalEvent, true);
   });
   map.on('movestart', (e) => { if (e.originalEvent && !pinned) hideCard(); });
-  map.on('move', streetsButton); // the street map button, close in
-  $('#streets').addEventListener('click', () => { state.streets = V.cur !== V.M; hideCard(); setMode(wantedSet()); });
   showView(false);
   // the credits start folded on a phone (an (i) to open them), as map sites do
   if (phone()) { const at = document.querySelector('.maplibregl-ctrl-attrib'); if (at) at.classList.remove('maplibregl-compact-show'); }

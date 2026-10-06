@@ -151,11 +151,13 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
   standard, because the physical imagery only comes in Web Mercator.
   NE_SCALE = 0.075 keeps the flat world small inside the engine's world, because the engine won't zoom out past its
   world filling the screen (a phone's height too) and we need room to fit the map beside the panel.
-- NO AUTOMATIC SWITCH (Oct 6, the owner's decision after rejecting both a snap and a bending morph): the political map
-  is Natural Earth at EVERY zoom. Close in (screen spans under 2500 km), a small "Street map" button fades in at the
-  bottom corner beside the zoom buttons. Pressing it changes the map you're on to the standard map with streets
-  (`state.streets`), with a quick 0.28 s cross-fade of a canvas snapshot. Pressing it again goes back. Never switch
-  on your own, and never bring back the bend. Each view keeps two sets of layers (standard '' and flat '-f') for this.
+- THREE MAPS (Oct 6, the owner's design after rejecting a snap, a bending morph and a corner button). Map: Political |
+  Streets | Physical.
+  - Political: our own drawing, Natural Earth where the view has it (world, continents), standard for country views.
+    No street map, and only 5 zoom steps in from the framed view (POLITICAL_DEPTH).
+  - Streets: the shetachim over the street map, standard, all the way in.
+  - Physical: terrain.
+  - Never switch projection on your own. Changing maps cross-fades a canvas snapshot (0.28 s).
 - BLUE SEA option (More options): off gives a quiet grey sea, on the political map only.
 - When the owner approves, next.html replaces index.html.
 

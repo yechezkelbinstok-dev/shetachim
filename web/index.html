@@ -1306,6 +1306,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
 
   // ---------- the map itself ----------
+  let rtlLoad = null;
+  const loadRTL = () => withTimeout(Promise.resolve(maplibregl.setRTLTextPlugin(RTL_PLUGIN, false)), 10000, 'rtl').catch(() => { /* the names still show */ });
   const RTL_PLUGIN = new URL('lib/mapbox-gl-rtl-text.js', location.href).href; // right-to-left text (Hebrew), from @mapbox/mapbox-gl-rtl-text 0.3.0, kept here
   const BASE = new Map(); // the street map's own layers, with the visibility each came with
   const BASE_PAINT = new Map(); // ... and the paint each came with
@@ -1390,7 +1392,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   async function startMap() {
     if (!window.maplibregl) throw new Error('the map library did not load');
     // Hebrew: the right-to-left text support, loaded before the map starts, so every layer's Hebrew is shaped from the first
-    if (HE) { try { await withTimeout(Promise.resolve(maplibregl.setRTLTextPlugin(RTL_PLUGIN, false)), 10000, 'rtl'); } catch (e) { /* the names still show */ } }
+    if (HE) await (rtlLoad = loadRTL());
     let liberty = null;
     try { liberty = await withTimeout(fetch(GL_STYLE).then((r) => r.json()), 12000, 'the street map took too long'); } catch (e) { liberty = null; }
     const style = { version: 8, glyphs: GLYPHS, sources: { ...(liberty ? liberty.sources : {}) }, layers: [{ id: 'pol-bg', type: 'background', paint: { 'background-color': GROUND.light.water } }] };
@@ -2098,17 +2100,15 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   });
 
   // The language switch: the page, the panel and the map's names change over in place.
-  let rtlAsked = false;
+
   async function setLanguage(lang) {
     const he = lang === 'he';
     if (he === HE) return;
     if (he) {
       await loadHebrew();
       // right-to-left shaping for the map's Hebrew names, loaded the first time Hebrew is shown
-      if (!rtlAsked && window.maplibregl) {
-        rtlAsked = true;
-        try { if (maplibregl.getRTLTextPluginStatus() === 'unavailable') await withTimeout(Promise.resolve(maplibregl.setRTLTextPlugin(RTL_PLUGIN, false)), 10000, 'rtl'); } catch (e) { /* the names still show */ }
-      }
+      // right-to-left shaping for the map's Hebrew names, loaded the first time Hebrew is shown (a tap meanwhile waits)
+      await (rtlLoad || (rtlLoad = loadRTL()));
     }
     HE = he;
     try { localStorage.setItem('shetachim-lang', lang); } catch (e) { /* not remembered, still switched */ }
@@ -2139,7 +2139,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     apply();
     if (pinned) showCard(pinned, lastPoint, true); else hideCard();
   }
-  $('#lang-toggle').addEventListener('click', () => setLanguage(HE ? 'en' : 'he'));
+  let switching = null; // (a tap while the language is still changing waits for it, then switches back)
+  $('#lang-toggle').addEventListener('click', () => { switching = (switching || Promise.resolve()).then(() => setLanguage(HE ? 'en' : 'he')).finally(() => { switching = null; }); });
 
   // ---------- start ----------
   syncSheet();

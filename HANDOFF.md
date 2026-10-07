@@ -21,6 +21,8 @@ between two Claude accounts when usage limits run out; whichever session picks t
   Burshtein, Aryeh Zeev Raskin, as the press names them). Oct 7: Yaakov Biderman, Chaim Azimov, Yeshaya Cohen, Yosef
   Kantor, Chaim Shaikevitz (that last one unconfirmed: found no usage either way). Same in data/hebrew/shetachim.json.
   Families and leadership entries ("Alevsky family", "Hanholo of Chabad Lubavitch UK") are never shortened.
+  **Cards keep everyone's full name exactly as chabad.org lists it** (owner, Oct 7): the middle-name rule is for the
+  map's head shliach labels and posters only; double names like Chaya Mushka, Devorah Leah count as one first name.
 - **Alberta's name sits on Alberta itself** in every label mode (`labelState: "CA-AB"`: the page keeps the name within
   that state's part while it's on screen — it used to only aim there, and the two-line head-shliach name drifted up
   into the territories' strip). The Alberta shetach's territories part ends at **110°W** (the Alberta–Saskatchewan

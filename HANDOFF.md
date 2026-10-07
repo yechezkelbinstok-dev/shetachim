@@ -158,9 +158,6 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
   - Streets: the shetachim over the street map, standard, all the way in.
   - Physical: terrain.
   - Never switch projection on your own. Changing maps cross-fades a canvas snapshot (0.28 s).
-  - Political LOOKS LIKE THE OLD PAGE (owner, Oct 6: "the old political map I kind of liked"): plain page background,
-    every shape outlined in ink, solid fills, big names, cities as rings with the name beside. Six zoom steps in, about
-    the old 60×. Blue sea is an option, off by default. The pastel and white-border look is for Streets only.
 - BLUE SEA option (More options): off gives a quiet grey sea, on the political map only.
 - When the owner approves, next.html replaces index.html.
 

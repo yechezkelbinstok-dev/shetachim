@@ -276,7 +276,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           <label class="check" for="show-cities"><input type="checkbox" id="show-cities" checked> <span class="legend-ring" aria-hidden="true"></span> Cities with shluchim</label>
           <label class="check" for="show-capitals"><input type="checkbox" id="show-capitals" checked> <svg class="legend-star" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path id="star-shape"/></svg> Shetach capitals</label>
           <label class="check" for="show-empty"><input type="checkbox" id="show-empty"> <span class="legend-empty" aria-hidden="true"></span> Rest of the world</label>
-          <label class="check" for="show-sea" id="sea-row"><input type="checkbox" id="show-sea"> <span class="legend-sea" aria-hidden="true"></span> Blue sea</label>
+          <label class="check" for="show-sea" id="sea-row"><input type="checkbox" id="show-sea" checked> <span class="legend-sea" aria-hidden="true"></span> Blue sea</label>
           </div>
         <fieldset class="ctl" id="dots-ctl">
           <legend>Dots</legend>
@@ -340,7 +340,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const phone = () => window.matchMedia('(max-width: 760px)').matches;
   const coarse = () => window.matchMedia('(pointer: coarse)').matches;
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const state = { empty: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true, sea: false };
+  const state = { empty: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true, sea: true };
   if (!phone()) $('#panel').classList.remove('collapsed');
 
   // ---------- data ----------
@@ -705,7 +705,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
   // ---------- names: what each says, and how big it can be at each zoom ----------
   const LABEL_MIN = 9; // px: smaller than this, a name isn't shown
-  const labelMax = () => (phone() ? 28 : 36);
+  const labelMax = () => (phone() ? 22 : 26); // as big as map sites name a region, no bigger
   // an em of the map's bold font, per character (Noto Sans Bold), measured once per text
   function emWidth(text, weight = 700) {
     measure.font = `${weight} 100px "Noto Sans", "Inter", "Heebo", sans-serif`;
@@ -718,7 +718,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // with a little leeway), so it stays inside its own area and two neighbours' names never overlap.
   function sizeAt(z, { dist, area }, wEm, lines) {
     const px = PX(z), room = 2.2 * dist * px;
-    const want = clamp(6 + 0.22 * Math.sqrt(area) * px, 9, labelMax());
+    const want = clamp(5 + 0.15 * Math.sqrt(area) * px, 9, labelMax());
     return Math.min(want, room / Math.hypot(wEm * 1.04, lines * 1.15));
   }
   // The text a shetach's name has in the current mode, with its short form (shown where the full one has no room yet).
@@ -893,7 +893,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         const [[w, so], [e, n]] = view.frame || d3.geoBounds(topojson.feature(topo, collection(framedGeoms))), pts = [];
         const east = e < w ? e + 360 : e;
         for (let i = 0; i <= 40; i++) { const t = i / 40; pts.push(P(w + (east - w) * t, so), P(w + (east - w) * t, n), P(w, so + (n - so) * t), P(east, so + (n - so) * t)); }
-        S.bounds = flatBounds({ coordinates: pts.filter(Boolean) });
+        S.bounds = view === VIEWS.world ? flatBounds(projGeom({ type: 'Sphere' })) : flatBounds({ coordinates: pts.filter(Boolean) });
       }
       // all the land (the political map has no street map to show it)
       if (!allLand) allLand = topojson.merge(topo, pieces);
@@ -1120,8 +1120,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       map.addImage(name, img, { pixelRatio: r });
       icons.set(name, key);
     };
-    make('ring', 12, (g) => { g.beginPath(); g.arc(0, 0, 3.4, 0, 2 * Math.PI); g.fillStyle = pal.halo; g.fill(); g.lineWidth = 1.5; g.strokeStyle = pal.ink; g.stroke(); });
     const star = (g, d) => { const p = new Path2D(d); g.lineJoin = 'round'; g.lineWidth = 2.4; g.strokeStyle = pal.halo; g.stroke(p); g.fillStyle = pal.ink; g.fill(p); };
+    // a city: a small grey dot with a light rim, as map sites mark towns
+    make('city', 10, (g) => { g.beginPath(); g.arc(0, 0, 2.6, 0, 2 * Math.PI); g.fillStyle = pal.dark ? '#c9d1d6' : '#5b6166'; g.fill(); g.lineWidth = 1.2; g.strokeStyle = pal.halo; g.stroke(); });
     make('star', 20, (g) => star(g, STAR));
     make('star-world', 30, (g) => star(g, WORLD_STAR));
     make('honor', 12, (g) => { g.beginPath(); g.arc(0, 0, 3.2, 0, 2 * Math.PI); g.lineWidth = 2.4; g.strokeStyle = pal.halo; g.stroke(); g.fillStyle = pal.ink; g.fill(); });
@@ -1220,8 +1221,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     add({ id: 'caps', type: 'symbol', source: 'caps', filter: ['!', ['get', 'honor']],
       layout: { 'icon-image': ['case', ['get', 'world'], 'star-world', 'star'], 'icon-allow-overlap': true, 'icon-ignore-placement': true, 'symbol-sort-key': ['get', 'rank'] } });
     add({ id: 'cities', type: 'symbol', source: 'cities', filter: ['>=', ['zoom'], ['get', 'minz']],
-      layout: { 'icon-image': 'ring', 'text-field': ['get', 'name'], 'text-font': F_REG, 'text-size': 12, 'symbol-sort-key': ['get', 'rank'], 'text-padding': 2, 'icon-padding': 0,
-        'text-variable-anchor': ['left', 'right', 'top', 'bottom'], 'text-radial-offset': 0.55, 'text-justify': 'auto' } });
+      layout: { 'icon-image': 'city', 'text-field': ['get', 'name'], 'text-font': F_REG, 'text-size': 11.5, 'symbol-sort-key': ['get', 'rank'], 'text-padding': 3,
+        'icon-padding': 0, 'text-variable-anchor': ['left', 'right', 'top', 'bottom'], 'text-radial-offset': 0.55, 'text-justify': 'auto' } });
     // a capital's city name, after the shetachim's names (they're placed first)
     add({ id: 'cap-names', type: 'symbol', source: 'caps', filter: ['all', ['!', ['get', 'honor']], ['!=', ['get', 'name'], ''], ['>=', ['zoom'], ['get', 'minz']]],
       layout: { 'text-field': ['get', 'name'], 'text-font': F_REG, 'text-size': 11.5, 'text-variable-anchor': ['left', 'right', 'top', 'bottom'],
@@ -1259,7 +1260,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
   // Three maps (Map in the panel): political — our own drawing, flat (Natural Earth) where the view has it, as far in as a
   // political map makes sense; streets — the shetachim over the street map, standard, all the way in; physical — terrain.
-  const POLITICAL_DEPTH = 6; // zoom steps in from the framed view the political map allows (64×, as the old map's 60×)
+  const POLITICAL_DEPTH = 6; // zoom steps in from the framed view the political map allows (64×, as far as the old map's 60×)
   function centreLL() {
     const c = map.getCenter();
     if (!V.cur.flat) return [((c.lng + 540) % 360) - 180, c.lat];
@@ -1422,7 +1423,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       }
       if (so) map.getSource(`land${S.sfx}`).setData(fc([S.land, ...so.fill.features]));
       map.getSource(`outside${S.sfx}`).setData(so && state.empty ? so.fill : EMPTY);
-      const lines = so && state.empty ? [so.coast].concat(state.empty && state.borders !== 'shetach' ? [so.borders] : []) : [];
+      const lines = so ? [so.coast].concat(state.empty && state.borders !== 'shetach' ? [so.borders] : []) : [];
       map.getSource(`outside-lines${S.sfx}`).setData(fc(lines));
     }
   }
@@ -1448,7 +1449,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     $('#sea-row').hidden = physical;
     setOutside();
     show('pol-bg', !street);
-    paint('pol-bg', 'background-color', state.sea ? G.water : pal.bg); // political: the plain page, unless Blue sea
+    paint('pol-bg', 'background-color', G.water);
     for (const [id, vis] of BASE) {
       const layer = map.getLayer(id);
       let on = street && vis !== 'none';
@@ -1466,36 +1467,27 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const polOn = on && !physical;
       // fills: shetachim (blank parts of states stay land), or every state with States borders; strong zoomed out, and
       // see-through at street level so the streets show
-      show(id('land'), on && !street && state.sea);
+      show(id('land'), on && !street);
       paint(id('land'), 'fill-color', G.land);
       show(id('fill'), polOn);
       map.setFilter(id('fill'), regular ? inView : ['all', inView, ['>=', ['get', 'cs'], 0]]);
       paint(id('fill'), 'fill-color', state.color === 'plain' ? pal.plain : ['match', ['get', regular ? 'cu' : 'cs'], ...pal.c.flatMap((c, i) => [i, c]), pal.plain]);
       const k = lightS ? 0.6 : 1;
-      paint(id('fill'), 'fill-opacity', !street ? (lightS ? 0.55 : 1) : ['interpolate', ['linear'], ['zoom'], 5, 0.9 * k, 7, 0.78 * k, 10, 0.5 * k, 13, 0.3 * k]);
+      paint(id('fill'), 'fill-opacity', !street ? 0.92 * k : ['interpolate', ['linear'], ['zoom'], 5, 0.9 * k, 7, 0.78 * k, 10, 0.5 * k, 13, 0.3 * k]);
       show(id('out-fill'), polOn && state.empty);
       paint(id('out-fill'), 'fill-color', pal.empty);
       paint(id('out-fill'), 'fill-opacity', street ? 0.7 : 1);
       // lines: shetach borders light against the colours (as map sites draw region borders); countries' and states'
       // borders grey; the coast a darker sea (flat only: the street map has its own)
       const w = (a, b, c) => ['interpolate', ['linear'], ['zoom'], 2, a, 6, b, 12, c];
-      const lines = !street ? [
-        // Political: as the map always was — every shape outlined in ink, shetach borders solid, inner ones dashed
-        ['coast', true, pal.ink, 1.1, 1],
-        ['regular', state.borders !== 'shetach', pal.ink, 1, lightR ? 0.35 : 1, both ? [2, 3] : null],
-        ['country', state.borders !== 'shetach', pal.ink, 1.8, lightR ? 0.35 : 1],
-        ['casing', false],
-        ['shetach', !regular, pal.ink, 1.3, lightS ? 0.3 : 1],
-        ['inner', !regular, pal.ink, 1.1, lightS ? 0.3 : 0.85, [4 / 1.1, 3 / 1.1]],
-      ] : [
-        ['coast', false],
+      for (const [kind, onK, color, width, alpha, dash] of [
+        ['coast', !street, G.coast, 0.6, 1],
         ['regular', state.borders !== 'shetach', G.grey, w(0.5, 0.8, 1.4), lightR ? 0.3 : 0.6, [2, 2]],
         ['country', state.borders !== 'shetach', G.grey, w(0.7, 1.1, 1.8), lightR ? 0.4 : 0.85],
         ['casing', !regular, G.border, w(1.2, 2.2, 3.6), lightS ? 0.45 : 0.95],
         ['shetach', false],
         ['inner', !regular, G.border, w(0.6, 1, 1.6), lightS ? 0.4 : 0.85, [3, 2]],
-      ];
-      for (const [kind, onK, color, width, alpha, dash] of lines) {
+      ]) {
         const lid = id(`line-${kind}`);
         show(lid, polOn && onK);
         if (!onK) continue;
@@ -1509,7 +1501,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       paint(id('out-line'), 'line-width', 0.7);
       paint(id('out-line'), 'line-opacity', ['match', ['get', 'k'], 'coast', 0, 0.6]);
       // (the coast of the land no shetach covers, political: same as ours)
-      if (!street) { paint(id('out-line'), 'line-color', pal.ink); paint(id('out-line'), 'line-opacity', 0.35); paint(id('out-line'), 'line-width', 0.8); }
+      if (!street) paint(id('out-line'), 'line-color', ['match', ['get', 'k'], 'coast', G.coast, G.grey]), paint(id('out-line'), 'line-opacity', ['match', ['get', 'k'], 'coast', 1, 0.6]);
       map.setFilter(id('pick'), inView);
       show(id('pick'), on);
     }
@@ -1565,12 +1557,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       if (on) setNames(T);
       else setTimeout(() => { if (V && (T === V.M || T === V.F)) setNames(T); }, 600);
       for (const lid of ['names', 'cities', 'cap-names', 'honor']) {
-        paint(id(lid), 'text-color', lid === 'names' ? ['case', ['==', ['get', 'kind'], 'miss'], pal.missing, ['==', ['get', 'kind'], 'sec'], pal.secondary, pal.ink] : pal.ink);
+        paint(id(lid), 'text-color', lid === 'names' ? ['case', ['==', ['get', 'kind'], 'miss'], pal.missing, ['==', ['get', 'kind'], 'sec'], pal.secondary, pal.ink] : lid === 'cities' || lid === 'cap-names' ? (pal.dark ? '#c9d1d6' : '#333333') : pal.ink);
         paint(id(lid), 'text-halo-color', pal.halo);
-        paint(id(lid), 'text-halo-width', lid === 'names' ? 1.8 : 1.5);
-        paint(id(lid), 'text-halo-blur', 0.4);
+        paint(id(lid), 'text-halo-width', lid === 'names' ? 1.6 : 1.2);
+        paint(id(lid), 'text-halo-blur', 0.8);
       }
-      show(id('seas'), on && !street && state.sea);
+      show(id('seas'), on && T.flat);
       paint(id('seas'), 'text-color', G.seaText || (pal.dark ? '#7f9cc0' : '#4a6390'));
       paint(id('seas'), 'text-halo-color', G.water);
       paint(id('seas'), 'text-halo-width', 1);

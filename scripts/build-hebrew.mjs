@@ -45,9 +45,24 @@ for (const name of [...cities.map((c) => c.name), ...centers.map((c) => c.city),
   if (cityNames[name]) out.cities[name] = cityNames[name];
   else missing.push(`city ${name}`);
 }
+// people on the centers' cards: first names word by word, last names whole, and their positions (a pair is the
+// man's and the woman's form)
+const firstNames = read('data', 'hebrew', 'first-names.json');
+const lastNames = read('data', 'hebrew', 'last-names.json');
+const positions = read('data', 'hebrew', 'positions.json');
+out.first = {}; out.last = {}; out.positions = {};
+for (const person of centers.flatMap((c) => c.personnel || [])) {
+  for (const w of (person.firstName || '').trim().split(/\s+/).filter(Boolean)) {
+    if (firstNames[w] !== undefined) out.first[w] = firstNames[w]; else missing.push(`first name ${w}`);
+  }
+  const last = (person.lastName || '').trim();
+  if (last) { if (lastNames[last] !== undefined) out.last[last] = lastNames[last]; else missing.push(`last name ${last}`); }
+  const pos = (person.position || '').trim();
+  if (pos) { if (positions[pos] !== undefined) out.positions[pos] = positions[pos]; else missing.push(`position ${pos}`); }
+}
 if (missing.length) {
   console.error(`No Hebrew name for:\n  ${[...new Set(missing)].join('\n  ')}`);
   process.exit(1);
 }
 fs.writeFileSync(path.join(ROOT, 'web', 'data', 'he.json'), JSON.stringify(out));
-console.log(`web/data/he.json: ${Object.keys(out.shetachim).length} shetachim, ${Object.keys(out.areas).length} areas, ${Object.keys(out.cities).length} cities`);
+console.log(`web/data/he.json: ${Object.keys(out.shetachim).length} shetachim, ${Object.keys(out.areas).length} areas, ${Object.keys(out.cities).length} cities, ${Object.keys(out.first).length + Object.keys(out.last).length} name parts, ${Object.keys(out.positions).length} positions`);

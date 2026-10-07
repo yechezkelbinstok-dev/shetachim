@@ -1806,15 +1806,28 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // away in a "Deceased" section, each with obm / ע״ה after the name. Men and women are told apart by title (Mrs., Ms., Miss, Rebbetzin = women).
   const FEMALE = /^(mrs|ms|miss|rebbetzin|rebbitzen|mme|madame|sra|frau)\.?$/i;
   const isMale = (p) => !FEMALE.test((p.title || '').trim());
-  const personName = (p) => `${[p.firstName, p.lastName].filter(Boolean).join(' ')}${p.isDeceased ? (HE ? ' ע״ה' : ' obm') : ''}`;
-  const personLine = (p) => `${esc(personName(p))}${p.position ? ` <span class="meta">· ${esc(p.position)}</span>` : ''}`;
+  // a person's name and position in the page's language (Hebrew: first names word by word, the last name whole; a
+  // position has a man's and a woman's form where Hebrew needs them)
+  const heFirst = (n) => (n || '').trim().split(/\s+/).filter(Boolean).map((w) => (heData && heData.first && heData.first[w]) || w).join(' ');
+  const heLast = (n) => (heData && heData.last && heData.last[(n || '').trim()]) || n;
+  const firstOf = (p) => (HE ? heFirst(p.firstName) : p.firstName);
+  const lastOf = (p) => (HE ? heLast(p.lastName) : p.lastName);
+  const positionOf = (p) => {
+    const pos = (p.position || '').trim();
+    if (!HE || !pos) return pos;
+    const h = heData && heData.positions && heData.positions[pos];
+    if (h === undefined) return pos;
+    return Array.isArray(h) ? h[isMale(p) ? 0 : 1] : h;
+  };
+  const personName = (p) => `${[firstOf(p), lastOf(p)].filter(Boolean).join(' ')}${p.isDeceased ? (HE ? ' ע״ה' : ' obm') : ''}`;
+  const personLine = (p) => { const pos = positionOf(p); return `${esc(personName(p))}${pos ? ` <span class="meta">· ${esc(pos)}</span>` : ''}`; };
   function personnelHTML(list) {
     if (!list || !list.length) return '';
     const living = list.filter((p) => !p.isDeceased), passed = list.filter((p) => p.isDeceased);
     const primary = living.find(isMale);
     const woman = !primary && living.find((p) => !isMale(p) && p.lastName);
     const widowed = woman && passed.some(isMale);
-    const head = primary ? personLine(primary) : widowed ? esc(HE ? `משפחת ${woman.lastName}` : `${woman.lastName} family`) : woman ? personLine(woman) : '';
+    const head = primary ? personLine(primary) : widowed ? esc(HE ? `משפחת ${lastOf(woman)}` : `${woman.lastName} family`) : woman ? personLine(woman) : '';
     const others = living.filter((p) => p !== primary && !(woman && !widowed && p === woman)); // under "<name> family" she's still listed
     const more = others.length
       ? `<details class="personnel"><summary>+${others.length} ${HE ? 'נוספים' : 'more'}</summary>${others.map((p) => `<div class="pother">${personLine(p)}</div>`).join('')}</details>` : '';

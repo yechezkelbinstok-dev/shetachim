@@ -38,8 +38,8 @@ const input = {
   'zones.json': { type: 'FeatureCollection', features: zones },
 };
 const run = async (cmd) => JSON.parse((await mapshaper.applyCommands(cmd, structuredClone(input)))['out.json']); // (mapshaper uses up its input)
-const held = await run('-i gaza.json -clip zones.json -dissolve -o out.json format=geojson');
-const rest = await run('-i gaza.json -erase zones.json -dissolve -o out.json format=geojson');
+const held = await run('-i gaza.json -clip zones.json -dissolve -o out.json format=geojson geojson-type=FeatureCollection');
+const rest = await run('-i gaza.json -erase zones.json -dissolve -o out.json format=geojson geojson-type=FeatureCollection');
 const km2 = async (fc) => JSON.parse((await mapshaper.applyCommands('-i a.json -dissolve -each "km=this.area/1e6" -o out.json format=geojson', { 'a.json': fc }))['out.json']).features[0]?.properties.km || 0;
 const [h, r] = [await km2(held), await km2(rest)];
 console.log(`Gaza: ${h.toFixed(1)} km² held (${((100 * h) / (h + r)).toFixed(0)}%), ${r.toFixed(1)} km² the rest`);

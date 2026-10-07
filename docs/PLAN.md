@@ -123,7 +123,9 @@ Open questions:
   Natural Earth is the US Census / Canada situation, world-wide, if it's used for a border that isn't
   a whole, unsplit country.
 - Israel is one area: Israel, Judea and Samaria (the West Bank) and the Golan Heights, with no line
-  between them in any border mode. Centers there are all tagged as Israel.
+  between them in any border mode, together with the ground it holds beyond them now (the owner's IDF
+  control map, data/idf-control.kml): in Gaza, in southern Lebanon (and Har Dov) and in Syria (the former
+  UNDOF buffer zone with the Syrian summit of Mount Hermon, and beyond). Centers there are all tagged as Israel.
 - Continent views get their own projections (Europe, Israel, FSU, Latin America, Oceania,
   Africa, Asia) so each fills the screen.
 - Label density is the main design work there (Europe, Israel).

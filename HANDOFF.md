@@ -8,25 +8,51 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
-## IMMEDIATE CONTINUATION (Oct 7, handed off mid-task — do this first)
+## ISRAEL'S HELD GROUND (Oct 7, done): Gaza, southern Lebanon, Syria — from the owner's IDF control map
 The owner asked (Oct 7): **(1) add the Israeli-controlled parts of Lebanon and Syria to Israel, the same way as Gaza**
-(part of Israel, no line between); **(2) fix Gaza's edge — it was "a weird rough border, not a precise one" for the
-Orange Line.**
-- Done for (2), committed but **not yet rebuilt or live**: the two OSM areas (Yellow Line, Orange Line) didn't quite
-  meet, leaving 6 sliver holes and 10 slivers (all under 0.2 km²) along the seam — drawn as grey notches/specks inside
-  Israel. `data/shapes/gaza-held.geojson` is now one clean polygon (slivers given to it, holes filled; 207.3 km²) and
-  `gaza-rest.geojson` one piece (135.5 km²). Note: if `scripts/gaza-line.mjs` is re-run it regenerates the slivers —
-  add the same cleanup to the script (dissolve held + rest pieces under 1 km², drop holes). Also **Israel is now drawn
-  at 100 m** (`FINE` in the build, was 800 m), so the line's real bends survive simplification.
-- **Next steps:** `npm run build`, check Gaza in the Israel view zoomed in (political + physical), `npm run svg` and
-  `node scripts/svg-png.mjs`, then push to `claude/bold-albattani-aqfnj9`. (A screenshot run in the last session showed
-  "console Error" lines in the Israel view — check whether that's the test harness or real.)
-- **(1) is not started.** It needs OpenStreetMap (www.openstreetmap.org, and overpass-api.de to search), which the
-  last session's environment blocked. Find OSM areas for the zones Israel holds — in Syria (the former UNDOF buffer
-  zone, the Syrian side of Mount Hermon and positions beyond, since Dec 2024) and southern Lebanon — the way
-  `scripts/gaza-line.mjs` uses the Yellow/Orange Line ways; cut them from GADM's Syria/Lebanon (`.cache/gadm-hi-SYR-0`,
-  `gadm-hi-LBN-0`), add the held parts to Israel's land in `worldLand()` like `GAZA_HELD`, keep the rest as outside land.
-  Record the OSM way ids/versions in the shape files and here. Syria itself stays in no shetach ("never Syria").
+(part of Israel, no line between); **(2) fix Gaza's edge — it was "a weird rough border, not a precise one".** Then he
+sent his own map for all three: **`data/idf-control.kml`** (his "IDF Control" Google My Maps export, IDF_Control.kmz,
+unzipped, unchanged): "everything within every polygon is within IDF control, I've deleted anything that isn't"; treat
+the overlapping polygons as one contiguous area and ignore their names (dates). **It replaces the OpenStreetMap lines**
+(Gaza's Yellow/Orange Line ways, Lebanon's "security zone" relation 18723137, Syria's UNDOF relation 184888), which
+are no longer used.
+- `node scripts/held-lines.mjs` (replaced `gaza-line.mjs`): merges the map's 100 polygons (98 placemarks), closes the
+  gaps between them (grown 60 m and shrunk back: holes, hairline cracks, pockets with a mouth under 120 m), cuts GADM's
+  Gaza, Lebanon and Syria along the result, and writes `data/shapes/{gaza,lebanon,syria}-{held,rest}.geojson`. The build
+  (`HELD` in build-data.mjs) adds each held part to Israel's own land and draws each rest as outside land. Then `npm run
+  build`, `npm run svg`, `node scripts/svg-png.mjs`. **When the owner sends a new map**: unzip its doc.kml over
+  data/idf-control.kml and run the same. Israel is drawn at 100 m (`FINE`).
+- **Slivers and pockets**: where the map runs along a border, it and GADM draw the border a little differently; every
+  piece of the rest that isn't its main body and touches the held part (up to 25 km²) goes to the held part, so no grey
+  specks or notches show inside Israel (Gaza's "rough border" was exactly that).
+- **The owner's call on walled-in ground** (Oct 7, asked): **Rmeish and Ain Ebel** (the Christian villages, a 39.5 km²
+  pocket against the border that no polygon covers) **stay Lebanon**, an enclave in Israel's ground (`KEEP` in the
+  script); every other walled-in hole is filled: farmland west of Shamaa (8.5 km²), a spot in northern Gaza near Beit
+  Hanoun (1.9 km²), between Arnoun and Yohmor (0.5 km²), near Rafah (0.3 km²).
+- **Har Dov (the Shebaa Farms)**: GADM puts it in Lebanon (so the map had drawn it as Lebanon all along); Israel has held
+  it since 1967 as part of the Golan, so OSM's Golan Heights area (relation 16119376, `controlled_by` Israel) is also cut
+  from Lebanon. Without it the owner's posts on the Kfarchouba hills just north of it would float as islands.
+- Result (Oct 7): **Gaza** 195.7 km² held, 57% of GADM's Gaza outline (the rest one piece, 147.9 km²); **Lebanon** 377.2
+  km² held (3.7%; with Har Dov), several zones from Naqoura to the Hermon, the rest of Lebanon touching the border between
+  them, plus the Rmeish–Ain Ebel enclave; **Syria** 363.4 km² held beyond GADM's Israel (the whole former UNDOF buffer
+  zone with the Syrian summit of Mount Hermon, the Hermon's eastern slopes, ground east of Quneitra, a strip toward the
+  Yarmouk; all 9 IDF outposts on INSS's map are inside). Israel: one piece, 28,992 km², its one hole the Rmeish–Ain Ebel enclave.
+- Syria and Lebanon themselves stay in no shetach; only the held parts are Israel's.
+- **The bare strips along the borders (most likely the real "rough border")**: the faded land round a view and "Rest of
+  the world" come from web/data/outside.json, which the build used to thin to 40% on a coarser grid. Next to Israel's
+  100 m lines that left strips of bare sea, up to about a kilometre wide, between Israel and Lebanon, Syria and Gaza
+  zoomed in (and along every border between shetach land and land no shetach covers). Now outside.json and geo.json are
+  written on the same grid (TopoJSON quantization 200,000, both framed by the whole globe: a `frame` object in each,
+  after the main one — the page reads geo.json's `areas` and outside.json's first object) and outside.json isn't
+  simplified any further, so they meet point for point (checked in screenshots: no bare pixels inland at zoom 9–12).
+  outside.json is 0.9 MB now (250 KB gzipped; was 108 KB), geo.json 2.6 MB (650 KB gzipped, about the same).
+- Background found while the OSM lines were in use (kept for reference): the IDF's Lebanon "security zone" map of June
+  18, 2026 (OSM relation 18723137) is 618 km² of Lebanon, the owner's map 340 km²; INSS's ArcGIS map of Syria
+  (experience.arcgis.com/experience/417d6596ca2649518cf3f6cae9b204fa) has the IDF outposts as points.
+- Network (Oct 7): the OSM API (`www.openstreetmap.org/api/0.6/<way|relation>/<id>/full.json`, `map.json?bbox=`, history,
+  changesets) and nominatim.openstreetmap.org are reachable now; Overpass (every mirror tried) and Geofabrik are not.
+  Wikipedia (`/w/index.php?title=…&action=raw`, with a User-Agent), ArcGIS Online's REST API, feor.ru and
+  deepstatemap.live's API are reachable.
 
 ## OWNER'S STANDING RULES (Oct 1) — never undo these
 - **Any Chabad activity in a country puts it in a shetach** (Oct 5): visiting bochurim, a shliach who serves it from next
@@ -237,7 +263,7 @@ Done in this round:
   with both sides' countries `ca`/`cb`, same state `ss`, same shetach `sh`). The page just sets MapLibre filters per
   view (`dataGL()`). This replaced the old world-with-holes fade polygon, which was slow and broke on phones (blank
   land, blue wedges). Every GADM country is now built (unclaimed ones marked `outside`, `GADM_ALL` in the build) so the
-  fade meets the shetachim exactly; Gaza is outside land named "Gaza". Place names in English/Latin letters.
+  fade meets the shetachim exactly; Gaza (the part Israel doesn't hold, since Oct 7) is outside land named "Gaza". Place names in English/Latin letters.
 - **Borders snapped together**: `cleanLand()` runs mapshaper `-clean gap-fill-area=20km2` on all land before the union.
   India–Nepal had ~1,500 km of slivers/double lines (the "horrendous" border), US–Mexico too; now 0. **Never add
   `snap-interval`**: tested at 30 m–200 m, it moved whole counties/countries (Texas→Chihuahua, Nepal→India, Finland
@@ -449,7 +475,8 @@ geometry. Built, and checked in headless Chromium on desktop (political map, lig
   - **Israel = one area**: Israel, Judea and Samaria (the West Bank) and the Golan Heights, as the list says. GADM's
     Israel file already includes the Golan and East Jerusalem is in the Judea and Samaria region; the build takes that
     region from its GADM file and makes it **part of Israel itself** (state `ISR`, name Israel, no line between them in
-    any border mode). Gaza isn't in the list, so it isn't drawn. **The owner is emphatic: Judea and Samaria is Israel — never
+    any border mode). Gaza isn't in the list; since Oct 7 the part of it Israel holds is drawn as Israel, and likewise its
+    held parts of southern Lebanon and Syria (see "ISRAEL'S HELD GROUND" at the top). **The owner is emphatic: Judea and Samaria is Israel — never
     give it any other country's name or ISO code anywhere in this project (front end, data, code, comments, commit
     messages).** The
     one unavoidable trace is the upstream GADM file URL the build downloads (`ISRAEL_EXTRA` in the build); it's cached
@@ -562,7 +589,7 @@ The owner got very angry at the first version. The lessons:
 
 10. **Judea and Samaria is Israel**: never any other country name or ISO code for it anywhere in the project, not
     even in code, data, comments or commit messages. Israel is one area: Israel, Judea and Samaria (the West Bank) and the Golan Heights, no line between
-    them. The owner reacted very strongly to seeing it even as an internal code.
+    them, with the parts of Gaza, southern Lebanon and Syria it holds (Oct 7). The owner reacted very strongly to seeing it even as an internal code.
 11. When describing progress, be complete and exact (e.g. "Israel, Judea and Samaria and the Golan", not a partial
     list that sounds like something was left out). The owner reads quick status lines and reacts to omissions.
 12. The world list is the owner's data (`data/global-shetach-list.txt`): enter it literally. Where the literal reading
@@ -681,13 +708,15 @@ The owner got very angry at the first version. The lessons:
   `node scripts/screenshot.mjs <outdir> world:political:desktop:light fsu:physical:phone:dark …` (spec =
   view:base:device:theme[:extra clicks like labels=last,borders=both]); prints each view's stats line and any page errors
   ("Failed to load resource" lines are the blocked web fonts — expected). Look at the PNGs with the Read tool.
-  Extras run in order: `zoom=x/y/k` zooms the political map k× about screen point x,y; to see the physical map at the
+  Extras run in order: `go=lon/lat/zoom` puts the new engine's camera there (`window.__dbg.go`); the "console Error
+  … Failed to fetch" lines in every view are the test's blocked openfreemap tiles and fonts, not page errors (checked
+  Oct 7). `zoom=x/y/k` zooms the old page's political map k× about screen point x,y; to see the physical map at the
   same spot, zoom on political first and then `base=physical,wait=9000` (it takes the political map's camera; the
   test uses MapLibre's demo style, so the base colours aren't the real ones, but our lines and labels are).
 - This cloud sandbox's network is limited: GitHub (`raw.githubusercontent.com`, and anonymous
   `git clone` of any public repo) and the npm registry work; census.gov, geonames.org, chabad.org,
-  gadm.org, geoboundaries.org, any OSM host, cdnjs, jsdelivr, unpkg, openfreemap.org and github.io
-  are blocked (checked directly, not assumed). That's why counties, towns and tracts come from the
+  gadm.org, geoboundaries.org, Overpass and Geofabrik, cdnjs, jsdelivr, unpkg, openfreemap.org and github.io
+  are blocked (checked directly, not assumed; the OSM API and Nominatim are reachable since Oct 7). That's why counties, towns and tracts come from the
   Census Bureau's GitHub (`uscensusbureau/citysdk`, `v2/GeoJSON/500k/2022/…`), Canada's provinces
   from a plain-file GADM mirror on GitHub, and cities from npm. If a source is only on GitHub via
   Git LFS (`git-lfs.github.com` pointer files instead of real content when fetched anonymously —
@@ -742,10 +771,6 @@ spikes where the far-side seam cuts land (land across the seam is left out there
 lost every other tap while the first switch loaded (taps now queue); PNG posters were stale since Oct 3 (run
 `node scripts/svg-png.mjs` after every `npm run svg`); Zoom in on Alaska in US & Canada zoomed out to the world.
 English cards: 0 problems. Hebrew cards: only acronyms left in Latin letters (UCLA, MIT, SUNY, JRCC, RARA…), on purpose.
-**Gaza (owner, Oct 7): Israel's edge there follows the line Israel actually holds now**, not the Gaza boundary (the
-Yellow Line as it ended up, plus the Orange Line strip added from late April 2026). Source: OpenStreetMap, which keeps
-both as areas edited as the line moves, from IDF maps: "Yellow Line" (way 1313327399, v41, Aug 16 2026) and "Orange
-Line" (way 1541663246, v4, Sept 24 2026). `node scripts/gaza-line.mjs` fetches them, cuts GADM's Gaza along their
-union and writes data/shapes/gaza-held.geojson (part of Israel, no line between) and gaza-rest.geojson (land outside the
-map); then `npm run build`. Oct 7: 207.5 km² held, 60% of GADM's Gaza outline (Israel's own May figure was 60%; Reuters
-reported at least 64%). Re-run when the line moves (check the ways' history on openstreetmap.org).
+**Gaza (owner, Oct 7): Israel's edge there follows the ground Israel actually holds now**, not the Gaza boundary. First
+from OpenStreetMap's "Yellow Line" (way 1313327399) and "Orange Line" (way 1541663246) areas; since later on Oct 7 from
+the owner's own IDF control map, like southern Lebanon and Syria: see "ISRAEL'S HELD GROUND" at the top.

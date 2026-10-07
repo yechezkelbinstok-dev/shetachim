@@ -1261,16 +1261,30 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     addLayers();
   }
 
+  // The street map's names in the page's language. English: the English name (or the Latin one). Hebrew: places,
+  // seas, airports and sights only where they have a Hebrew name (a place shown in English on a Hebrew map is wrong);
+  // street names, which seldom have one, as they're signed.
+  const BASE_FILTER = new Map();
+  function baseLanguage() {
+    const latin = ['coalesce', ['get', 'name:en'], ['get', 'name_en'], ['get', 'name:latin'], ['get', 'name']];
+    for (const l of map.getStyle().layers) {
+      if (!BASE.has(l.id) || l.type !== 'symbol' || !l.layout || !/"name/.test(JSON.stringify(l.layout['text-field'] || ''))) continue;
+      if (!BASE_FILTER.has(l.id)) BASE_FILTER.set(l.id, l.filter || null);
+      const street = l['source-layer'] === 'transportation_name';
+      map.setLayoutProperty(l.id, 'text-field', HE ? (street ? ['coalesce', ['get', 'name:he'], ['get', 'name']] : ['get', 'name:he']) : latin);
+      const f = BASE_FILTER.get(l.id);
+      const he = ['has', 'name:he'];
+      map.setFilter(l.id, HE && !street ? (f ? ['all', f, he] : he) : f);
+    }
+  }
+
   // Our layers, once per way of drawing: standard ('' — among the street map's layers) and flat ('-f' — on their own
   // over the sea). Only the current one is shown.
   function addLayers() {
     if (physicalOK) {
       map.addSource('st', { type: 'vector', tiles: [fresh(`${new URL('.', location.href).href}tiles/{z}/{x}/{y}.pbf`)], minzoom: 0, maxzoom: 6 });
       // place names in English (Latin letters), or Hebrew
-      const latin = ['coalesce', ['get', 'name:en'], ['get', 'name_en'], ['get', 'name:latin'], ['get', 'name']];
-      for (const l of map.getStyle().layers) {
-        if (BASE.has(l.id) && l.type === 'symbol' && l.layout && /"name/.test(JSON.stringify(l.layout['text-field'] || ''))) map.setLayoutProperty(l.id, 'text-field', HE ? ['coalesce', ['get', 'name:he'], ...latin.slice(1)] : latin);
-      }
+      baseLanguage();
       if (BASE.has('building-3d')) BASE.set('building-3d', 'none');
       if (map.getLayer('building')) map.setLayerZoomRange('building', 13, 24);
       // the physical look's richer natural colours

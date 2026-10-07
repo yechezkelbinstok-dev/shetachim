@@ -702,10 +702,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // a point (a dot, a city, a capital) goes in a box if it's in that state's stretch of the globe.
   const MERC = d3.geoMercator().scale(1 / (2 * Math.PI)).translate([0.5, 0.5]).precision(0);
   const INSET_DEF = {
-    'US-AK': { name: 'Alaska', proj: () => d3.geoConicEqualArea().rotate([154, 0]).center([-2, 58.5]).parallels([55, 65]), top: 31, w: 0.27,
+    'US-AK': { name: 'Alaska', he: 'אלסקה', proj: () => d3.geoConicEqualArea().rotate([154, 0]).center([-2, 58.5]).parallels([55, 65]), top: 31, w: 0.27,
       // (the mainland west of 141°W and the Aleutians; the panhandle, 54.6–60°N to 130°W: no Canadian town with a center there)
       near: ([lon, lat]) => (lat > 51 && (lon < -141 || lon > 170)) || (lon < -129.9 && lon >= -141 && lat >= 54.6 && lat < 60) },
-    'US-HI': { name: 'Hawaii', proj: () => d3.geoConicEqualArea().rotate([157, 0]).center([-3, 19.9]).parallels([8, 18]), fit: [[-160.6, 18.8], [-154.7, 22.4]], top: 28.6, w: 0.11,
+    'US-HI': { name: 'Hawaii', he: 'הוואי', proj: () => d3.geoConicEqualArea().rotate([157, 0]).center([-3, 19.9]).parallels([8, 18]), fit: [[-160.6, 18.8], [-154.7, 22.4]], top: 28.6, w: 0.11,
       near: ([lon, lat]) => lat > 18 && lat < 23 && lon < -154 && lon > -161 },
   };
   function boxedFor(view) {
@@ -723,7 +723,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const [[bx0, by0], [bx1, by1]] = d3.geoPath(proj).bounds(fitTo);
       const h = by1 - by0 + 2 * pad, y = my(d.top);
       proj.translate([proj.translate()[0] + x + pad - bx0, proj.translate()[1] + y + pad - by0]);
-      boxes.push({ st, name: d.name, proj, geom, near: d.near, rect: [[x, y], [x + w, y + h]] });
+      boxes.push({ st, name: d.name, he: d.he, proj, geom, near: d.near, rect: [[x, y], [x + w, y + h]] });
       x += w + 0.012 * W;
     }
     const pick = (p) => boxes.find((b) => b.near(p));
@@ -1107,7 +1107,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           return feature({ type: 'Polygon', coordinates: [ring] }, { name: b.name, st: b.st });
         });
         if (boxes.length) S.bounds = flatBounds({ coordinates: [...S.bounds, ...S.boxFeatures.flatMap((f) => f.geometry.coordinates[0])] });
-        S.boxFeatures.push(...boxes.map((b) => feature({ type: 'Point', coordinates: fake(b.rect[0]) }, { name: b.name })));
+        // the caption in the box's top corner: left in English, right in Hebrew
+        S.boxFeatures.push(...boxes.flatMap((b) => [feature({ type: 'Point', coordinates: fake(b.rect[0]) }, { name: b.name, lang: 'en' }),
+          feature({ type: 'Point', coordinates: fake([b.rect[1][0], b.rect[0][1]]) }, { name: b.he, lang: 'he' })]));
       }
       // all the land (the political map has no street map to show it)
       if (!allLand) allLand = topojson.merge(topo, pieces);
@@ -1671,6 +1673,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       paint(id('box-line'), 'line-width', 1);
       paint(id('box-line'), 'line-opacity', 0.6);
       paint(id('box-name'), 'text-color', G.grey);
+      map.setFilter(id('box-name'), ['all', ['==', ['geometry-type'], 'Point'], ['==', ['get', 'lang'], HE ? 'he' : 'en']]);
+      map.setLayoutProperty(id('box-name'), 'text-anchor', HE ? 'top-right' : 'top-left');
+      map.setLayoutProperty(id('box-name'), 'text-offset', HE ? [-0.5, 0.45] : [0.5, 0.45]);
       paint(id('land'), 'fill-color', G.land);
       show(id('land-all'), on && !street && !state.empty);
       paint(id('land-all'), 'fill-color', G.land);

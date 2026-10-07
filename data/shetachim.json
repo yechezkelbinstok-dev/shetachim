@@ -1351,7 +1351,11 @@
       "headShliach": "Berel Lazar",
       "territory": [
         "RUS",
-        "MNG"
+        "MNG",
+        {
+          "state": "UKR",
+          "shape": "ukraine-occupied"
+        }
       ],
       "capital": {
         "centerId": "249438"
@@ -1443,21 +1447,6 @@
       "capital": {
         "centerId": "117824"
       }
-    },
-    {
-      "id": "crimea",
-      "name": "Crimea",
-      "short": "Crim.",
-      "headShliach": "Yitzchok Meyer Lipszyc",
-      "territory": [
-        {
-          "country": "UKR",
-          "regions": [
-            "Crimea",
-            "Sevastopol'"
-          ]
-        }
-      ]
     },
     {
       "id": "armenia",

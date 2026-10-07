@@ -45,7 +45,8 @@ are no longer used.
   written on the same grid (TopoJSON quantization 200,000, both framed by the whole globe: a `frame` object in each,
   after the main one — the page reads geo.json's `areas` and outside.json's first object) and outside.json isn't
   simplified any further, so they meet point for point (checked in screenshots: no bare pixels inland at zoom 9–12).
-  outside.json is 0.9 MB now (250 KB gzipped; was 108 KB), geo.json 2.6 MB (650 KB gzipped, about the same).
+  outside.json is 0.9 MB now (250 KB gzipped; was 108 KB), geo.json 2.6 MB (740 KB gzipped; was 666 KB: the finer grid
+  is what lets the 100 m lines of `FINE` show — at 100,000 the longitude grid alone was 300–400 m).
 - Background found while the OSM lines were in use (kept for reference): the IDF's Lebanon "security zone" map of June
   18, 2026 (OSM relation 18723137) is 618 km² of Lebanon, the owner's map 340 km²; INSS's ArcGIS map of Syria
   (experience.arcgis.com/experience/417d6596ca2649518cf3f6cae9b204fa) has the IDF outposts as points.
@@ -54,12 +55,42 @@ are no longer used.
   Wikipedia (`/w/index.php?title=…&action=raw`, with a User-Agent), ArcGIS Online's REST API, feor.ru and
   deepstatemap.live's API are reachable.
 
+## OCCUPIED UKRAINE AND CRIMEA → LAZAR'S RUSSIA SHETACH (Oct 7, done)
+- The owner (Oct 7): Donetsk, Lugansk and the other Chabad centers in the Russian-held regions now work under Berel
+  Lazar, and Lipszyc no longer runs Crimea, it's effectively under Lazar too; then: **"use the current occupation line and
+  put all centers behind it into the Russian shetach."** So **Russia** (Berel Lazar) = Russia, Mongolia, Crimea and all
+  of Ukraine Russia holds; the **Crimea shetach (Yitzchok Meyer Lipszyc) is gone** (data/shetachim.json,
+  data/global-shetach-list.txt, data/hebrew/shetachim.json; its flagship line in world-flagship-centers.txt left as it
+  is, like Cambodia's); **Ukraine** (Meir Stambler) = the rest.
+- The line: DeepStateMap (`deepstatemap.live/api/history/last`, its daily map as GeoJSON; reachable from the sandbox).
+  `node scripts/occupation-line.mjs` keeps its areas held by Russia (occupied, the parts of the Donetsk and Lugansk regions
+  held since 2014, Crimea, Tuzla — not its "unknown status" grey zone), merges them and writes
+  data/shapes/ukraine-occupied.geojson; the Russia shetach claims `{ "state": "UKR", "shape": "ukraine-occupied" }`
+  (Ukraine is cut along it; UKR is drawn at 100 m, `FINE`). Map of Oct 5, 2026: 116,800 km² (from the Kinburn Spit and the
+  left bank of the Dnepr to the Lugansk region, plus small pockets along the Sumy and Kharkov borders). **Re-run when the
+  line moves**, then `npm run build`.
+- What was found per center (Oct 7, before the owner's go-ahead): **Crimea** — Simferopol, Sevastopol, Yevpatoria and
+  Yalta are on FJC Russia's community list (feor.ru); chabad.org has Rabbi Yechezkel Lazar at Simferopol; Lipszyc left in
+  2014. **Lugansk** — led by Shneur Zalman Nekhaenko, "representative of the Chief Rabbi of Russia in the new regions"
+  (Lugansk city administration, Nov 2024); Rabbi Shalom Gopin left in 2014 (a Lugansk community in exile in Kiev).
+  **Donetsk** — helped by FJC Russia since 2014 (Lechaim, 2017); Rabbi Pinchas Vishedski left in 2014 (a Donetsk community
+  in exile in Kiev). **Mariupol** — Lazar to RIA Novosti (Aug 7, 2026): FJC Russia works with the Mariupol, Donetsk and
+  Lugansk communities, sends aid, has rabbis there. **Melitopol** — on Gotov (gotov.org, FJC Russia's community platform)
+  at a renamed street, though chabad.org and FJC Ukraine still list it under Zaporozhye's Rabbi Nochum Ehrentreu.
+  **Makeevka** — nothing found. chabad.org still shows the old personnel for all of them.
+- Centers behind the line (tagged by the map's own areas, so they follow the line): Donetsk (3 listings), Makeevka,
+  Lugansk (6), Mariupol, Melitopol, Simferopol, Sevastopol (2). A "Jewish Community of Donetsk" listing that chabad.org
+  places near Slavyansk (48.93, 37.69), about 14 km on the Ukrainian side, stays Ukraine's. Kherson, Zaporozhye, Kharkov
+  stay Ukraine's.
+
 ## OWNER'S STANDING RULES (Oct 1) — never undo these
 - **Any Chabad activity in a country puts it in a shetach** (Oct 5): visiting bochurim, a shliach who serves it from next
   door, holiday trips — the country goes to the shetach of the shliach responsible (Mongolia is Russia's; Guyana is the Caribbean's).
   The owner wants it *sure*: Suriname had Merkos Shlichus seders in Paramaribo (Pesach 2025) but no shliach is named as
   responsible (Rabbi Super of St. Lucia only helped with the bochurim's stopover), so it stays blank until one is. Only truly uninhabited stretches are left out (the Yukon and
   NWT only partly in Alberta). French Guiana: no Chabad activity found (Oct 5), so no shetach yet.
+- **Old Russian city names only** (owner, Oct 7), in messages to him as on the map: Lugansk, Zaporozhye, Kiev, Dnepr,
+  Kharkov, Nikolaev, Slavyansk — never the Ukrainian forms (`UA_NAMES` in the build does it for the map's towns).
 - **Head shliach names are never shortened** — not on the live map, not in the SVGs, never to the last name alone
   (owner, Oct 7: there is no "Last name" label mode any more). Where the full name doesn't fit on one line or two,
   no name. **Middle names are left out on the map and posters** (`mapName` in data/shetachim.json, `mapHead` in the
@@ -471,7 +502,8 @@ geometry. Built, and checked in headless Chromium on desktop (political map, lig
     not part of Central Macedonia, so as the list is written it stays with Greece (a small Greece piece at the tip of
     Chalkidiki) — worth a question to the owner if it looks odd.
   - Italy / Slovenia: the Trieste panhandle = the Province of Trieste (GADM ITA level 2 "Trieste") → Slovenia.
-  - Ukraine / Crimea: Crimea and Sevastopol (GADM UKR level 1) → Crimea.
+  - Ukraine / Crimea: Crimea and Sevastopol (GADM UKR level 1) → Crimea. (Since Oct 7 Crimea and occupied Ukraine are
+    Lazar's: see "OCCUPIED UKRAINE AND CRIMEA" at the top.)
   - **Israel = one area**: Israel, Judea and Samaria (the West Bank) and the Golan Heights, as the list says. GADM's
     Israel file already includes the Golan and East Jerusalem is in the Judea and Samaria region; the build takes that
     region from its GADM file and makes it **part of Israel itself** (state `ISR`, name Israel, no line between them in

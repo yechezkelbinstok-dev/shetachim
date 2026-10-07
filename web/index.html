@@ -1409,7 +1409,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       maxZoom: MAX_Z, fadeDuration: 250, pixelRatio: Math.min(window.devicePixelRatio || 1, 2),
       cancelPendingTileRequestsWhileZooming: false, maxTileCacheSize: 600, maxTileCacheZoomLevels: 10,
     });
-    map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: 'Boundaries: US Census, GADM, Natural Earth' }), 'top-right');
+    map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: 'Boundaries: US Census, GADM, Natural Earth, OpenStreetMap, DeepStateMap' }), 'top-right');
     map.touchZoomRotate.disableRotation();
     map.keyboard.disableRotation();
     await withTimeout(new Promise((resolve, reject) => { map.once('load', resolve); map.once('error', (e) => { if (!map.loaded()) reject(e.error || new Error('map error')); }); }), 30000, 'the map took too long');

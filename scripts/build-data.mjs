@@ -164,10 +164,10 @@ const UNIT_COUNTRIES = ['USA', 'CAN'];
 const UNIT_ISO = ['US', 'CA'];
 const CITY_KM = 60; // a GeoNames place this close with the same name is the center's city
 const ROUGH = ['US-AK']; // drawn small in an inset, so simplified harder
-// States cut by a boundary shape (Brisbane's councils, the City of Gold Coast, Essex County) and Israel (the lines it holds
-// in Gaza, Lebanon and Syria; owner Oct 7: "precise, not rough"): drawn at 100 m, so the line follows the boundary closely
-// when zoomed in, not the 800 m used for whole countries.
-const FINE = ['AU-QLD', 'CA-ON', 'ISR'];
+// States cut by a boundary shape (Brisbane's councils, the City of Gold Coast, Essex County, Ukraine's occupation line) and
+// Israel (the lines it holds in Gaza, Lebanon and Syria; owner Oct 7: "precise, not rough"): drawn at 100 m, so the line
+// follows the boundary closely when zoomed in, not the 800 m used for whole countries.
+const FINE = ['AU-QLD', 'CA-ON', 'ISR', 'UKR'];
 
 // ---------- downloads ----------
 

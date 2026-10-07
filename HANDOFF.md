@@ -159,6 +159,17 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
   - Physical: terrain.
   - Never switch projection on your own. Changing maps cross-fades a canvas snapshot (0.28 s).
 - BLUE SEA option (More options): off gives a quiet grey sea, on the political map only.
+- NAMES ON THE NEW ENGINE (Oct 7):
+  - A name sits where its whole box fits biggest inside its area (`fitBox`), as near the middle as possible, at most
+    10% smaller for being central. That replaced the circle rule, which left names off-centre and too small in long
+    shapes.
+  - Split shetachim: big pieces (a tenth of the biggest or more) that OTHER LAND keeps apart each get the name (Lower
+    Balkans: Bosnia and Albania-to-northern-Greece, the "Kaplan problem"). Pieces only water keeps apart (Michigan)
+    share one name (`landBetween`).
+  - MapLibre evaluates zoom in filters at WHOLE zoom steps, so a name may show from the whole step before it fits,
+    a touch small. A short form stays on behind the full name, at the same spot, so there's never a gap.
+  - Political zooms 7 steps in.
+  - Before porting anything else, re-read the rules in this file: the old page's rules carry over.
 - Oct 7: the new map IS the main page now (web/index.html). The old D3 page is kept at web/old.html; web/next.html just forwards to the main page. Edit web/index.html from now on.
 
 ## LATEST (Sept 30 – Oct 1) — read before "RIGHT NOW" below

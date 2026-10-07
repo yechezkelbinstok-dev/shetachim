@@ -716,10 +716,62 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // total size area (world units²): no bigger than the area calls for, and fitting in the room around its point.
   // The whole name fits in the clear circle around its spot (its box's diagonal no longer than the circle's width,
   // with a little leeway), so it stays inside its own area and two neighbours' names never overlap.
-  function sizeAt(z, { dist, area }, wEm, lines) {
-    const px = PX(z), room = 2.2 * dist * px;
-    const want = clamp(5 + 0.15 * Math.sqrt(area) * px, 9, labelMax());
-    return Math.min(want, room / Math.hypot(wEm * 1.04, lines * 1.15));
+  const wantAt = (z, { area }) => clamp(5 + 0.15 * Math.sqrt(area) * PX(z), 9, labelMax());
+  function sizeAt(z, spot, wEm, lines) {
+    const room = 2.2 * spot.dist * PX(z);
+    return Math.min(wantAt(z, spot), room / Math.hypot(wEm * 1.04, lines * 1.15));
+  }
+  // The biggest a box w×h (in ems) can be inside an area's polygon, and where: k is world units per em. Tried across the
+  // area; the most central place within 10% of the biggest wins. The box may reach a little past the edge (its halo).
+  function fitBox(part, w, h) {
+    const key = `${(w / h).toFixed(2)}`;
+    part.fits = part.fits || new Map();
+    if (part.fits.has(key)) { const f = part.fits.get(key); return { x: f.x, y: f.y, k: f.k / h }; }
+    const r = fitBoxRaw(part, w / h, 1);
+    part.fits.set(key, r);
+    return { x: r.x, y: r.y, k: r.k / h };
+  }
+  function fitBoxRaw(part, w, h) {
+    if (!part.simple) part.simple = part.rings.map((r) => { const n = Math.ceil(r.length / 90); return n > 1 ? r.filter((_, i) => i % n === 0) : r; });
+    const rings = part.simple;
+    const inside = (x, y) => { let c = false; for (const r of rings) for (let i = 0, j = r.length - 1; i < r.length; j = i++) { const a = r[i], b = r[j]; if ((a[1] > y) !== (b[1] > y) && x < ((b[0] - a[0]) * (y - a[1])) / (b[1] - a[1]) + a[0]) c = !c; } return c; };
+    const fits = (x, y, k) => {
+      const hw = (w * k) / 2 * 0.92, hh = (h * k) / 2 * 0.85;
+      for (let i = 0; i <= 4; i++) {
+        const t = i / 4;
+        if (!inside(x - hw + 2 * hw * t, y - hh) || !inside(x - hw + 2 * hw * t, y + hh)) return false;
+      }
+      return inside(x - hw, y) && inside(x + hw, y) && inside(x, y);
+    };
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    for (const [x, y] of rings[0]) { if (x < x0) x0 = x; if (y < y0) y0 = y; if (x > x1) x1 = x; if (y > y1) y1 = y; }
+    const kHi = (2 * Math.max(x1 - x0, y1 - y0)) / Math.max(w, h);
+    // (a place that can't hold 90% of the best so far is passed over at once)
+    let bestK = 0;
+    const most = (x, y) => {
+      if (!inside(x, y)) return 0;
+      let lo = bestK * 0.9, hi = kHi;
+      if (lo > 0 && !fits(x, y, lo)) return 0;
+      for (let i = 0; i < 7; i++) { const m = (lo + hi) / 2; if (fits(x, y, m)) lo = m; else hi = m; }
+      if (lo > bestK) bestK = lo;
+      return lo;
+    };
+    const c = d3.polygonCentroid(rings[0]), pl = polylabel(part.rings, Math.sqrt(part.area) / 400);
+    const cands = [[pl.x, pl.y], [c[0], c[1]]];
+    for (let i = 1; i < 6; i++) for (let j = 1; j < 6; j++) cands.push([x0 + ((x1 - x0) * i) / 6, y0 + ((y1 - y0) * j) / 6]);
+    let tried = cands.map(([x, y]) => ({ x, y, k: most(x, y) })).filter((q) => q.k > 0);
+    if (!tried.length) return { x: pl.x, y: pl.y, k: 0 };
+    // look closer around the best few
+    const step0 = Math.max(x1 - x0, y1 - y0) / 16;
+    for (const q of [...tried].sort((a, b) => b.k - a.k).slice(0, 2)) {
+      for (const [dx, dy] of [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [-1, -1], [1, -1], [-1, 1]]) {
+        const x = q.x + dx * step0, y = q.y + dy * step0, k = most(x, y);
+        if (k > 0) tried.push({ x, y, k });
+      }
+    }
+    const best = Math.max(...tried.map((q) => q.k));
+    const near = (q) => Math.hypot(q.x - c[0], q.y - c[1]);
+    return tried.filter((q) => q.k >= best * 0.9).sort((a, b) => near(a) - near(b))[0];
   }
   // The text a shetach's name has in the current mode, with its short form (shown where the full one has no room yet).
   function labelTexts(s) {
@@ -752,8 +804,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const one = { text, w: emWidth(text), lines: 1 };
     const two = twoLines(text);
     const forms = [one, ...(two ? [{ text: two.lines.join('\n'), w: two.worst, lines: 2 }] : [])];
-    // the same words on one line beat two unless two lines are clearly bigger (15%)
-    const at = (f, z) => sizeAt(z, spot, f.w, f.lines) * (sec || 1);
+    // A name's own place in its area (not a repeat): where its whole box fits biggest, as near the middle as can be
+    // (at most a tenth smaller for being central), so a long name in a long area isn't held to the room in a circle.
+    if (spot.part && !spot.rep) for (const f of forms) f.fit = fitBox(spot.part, f.w * 1.04, f.lines * 1.15);
+    const at = (f, z) => (f.fit ? Math.min(wantAt(z, spot), f.fit.k * PX(z)) : sizeAt(z, spot, f.w, f.lines)) * (sec || 1);
     const zRef = ZS.find((z) => at(one, z) >= LABEL_MIN) ?? 14;
     const pick = forms.length > 1 && at(forms[1], zRef) > at(one, zRef) * 1.15 ? forms[1] : one;
     const raw = ZS.map((z) => at(pick, z));
@@ -765,15 +819,27 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         break;
       }
     }
-    // Once shown, a name grows gently as the map zooms in (at most 40% a step, as names do on map sites), up to what
+    // Once shown, a name grows gently as the map zooms in (at most 35% a step, as names do on map sites), up to what
     // its area allows; this also keeps the map's collision boxes, sized for the step ahead, close to the real name.
     const sizes = [];
-    raw.forEach((v, i) => { sizes.push(Math.round((i && raw[i - 1] >= LABEL_MIN ? Math.min(v, sizes[i - 1] * 1.4) : v) * 10) / 10); });
-    return { text: pick.text, sizes, minz };
+    raw.forEach((v, i) => { sizes.push(Math.round((i && raw[i - 1] >= LABEL_MIN ? Math.min(v, sizes[i - 1] * 1.35) : v) * 10) / 10); });
+    // The map checks when a name may show only at whole zoom steps (4, 5, …), so one that has room from 4.4 would stay
+    // hidden until 5: it starts at the whole step before instead, a touch small there and growing to its size by 4.4.
+    if (minz > 0 && minz < 24 && minz % 1) {
+      const zf = Math.floor(minz), i = ZS.indexOf(zf);
+      if (i >= 0) sizes[i] = Math.max(sizes[i], LABEL_MIN - 1.5);
+      minz = zf;
+    }
+    return { text: pick.text, sizes, minz, x: pick.fit ? pick.fit.x : spot.x, y: pick.fit ? pick.fit.y : spot.y };
   }
   // The spot a name goes: its area's main part's pole of inaccessibility (Alberta: Alberta's part; India: the labelAt
   // point), or, for a chain of islands (the Caribbean), the middle of the chain over the water.
+  const SPOTS = new WeakMap(); // (each area's spots worked out once: its parts keep what fits where)
   function spotsFor(geometry, coreGeometry, labelAt) {
+    if (!SPOTS.has(geometry)) SPOTS.set(geometry, spotsOf(geometry, coreGeometry, labelAt));
+    return SPOTS.get(geometry);
+  }
+  function spotsOf(geometry, coreGeometry, labelAt) {
     const parts = partsOf(geometry);
     if (!parts.length) return [];
     const total = d3.sum(parts, (q) => q.area);
@@ -791,16 +857,45 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       return [{ x: cx, y: cy, dist: Math.sqrt(hullArea / Math.PI) * 0.55, area: total, main: true, sea: true }];
     }
     const spots = [];
-    const main = own[0], pl = polylabel(main.rings, Math.sqrt(main.area) / 400);
+    const main = own[0], pl = centred(main);
     spots.push({ x: pl.x, y: pl.y, dist: pl.d, area: total, main: true, part: main });
     // other big pieces another country keeps apart (the Lower Balkans' two halves): a name on each
+    // Other big pieces (a tenth of the biggest or more) that other land keeps apart get the name too (Lower Balkans:
+    // Bosnia, and Albania to northern Greece, with Montenegro and Serbia between). Pieces only water keeps apart
+    // (Michigan's peninsulas, islands) share one name.
     for (const q of parts.slice(1)) {
-      if (q.area < parts[0].area * 0.25) break;
-      const p2 = polylabel(q.rings, Math.sqrt(q.area) / 400);
-      if (Math.hypot(p2.x - pl.x, p2.y - pl.y) < 4 * Math.max(pl.d, p2.d)) continue;
+      if (q.area < parts[0].area * 0.1) break;
+      const p2 = centred(q);
+      if (!landBetween(pl, p2, parts)) continue;
       spots.push({ x: p2.x, y: p2.y, dist: p2.d, area: total, part: q });
     }
     return spots;
+  }
+  // Where a name sits in an area: its middle (the centre of its shape), as long as there's room there — at least two
+  // thirds of the room at its roomiest point; otherwise the spot on the way from the middle to the roomiest point
+  // where there first is.
+  // Whether the way from a to b, where it leaves the area's own pieces, is mostly other land (not sea).
+  let LAND = null; // the land of the map being labelled, in world units
+  function landBetween(a, b, own) {
+    if (!LAND) return false;
+    const inParts = (list, x, y) => list.some((q) => x >= q.box[0] && x <= q.box[2] && y >= q.box[1] && y <= q.box[3] && pointToPolygonDist(x, y, q.rings) > 0);
+    let land = 0, sea = 0;
+    for (let i = 1; i < 40; i++) {
+      const x = a.x + ((b.x - a.x) * i) / 40, y = a.y + ((b.y - a.y) * i) / 40;
+      if (own.some((q) => pointToPolygonDist(x, y, q.rings) > 0)) continue;
+      if (inParts(LAND, x, y)) land++; else sea++;
+    }
+    return land > sea;
+  }
+  function centred(part) {
+    const pl = polylabel(part.rings, Math.sqrt(part.area) / 400);
+    const c = d3.polygonCentroid(part.rings[0]);
+    for (let t = 0; t <= 1.0001; t += 0.05) {
+      const x = c[0] + (pl.x - c[0]) * t, y = c[1] + (pl.y - c[1]) * t;
+      const d = pointToPolygonDist(x, y, part.rings);
+      if (d >= pl.d * 0.66) return { x, y, d };
+    }
+    return pl;
   }
   // A big area seen up close repeats its name across its land: a grid of spots about a screen apart at each zoom step,
   // shown from that step on (the map's own collision keeps them from crowding).
@@ -954,19 +1049,26 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const props = { ...extra };
       const full = sized(t.text, spot, extra.secScale);
       const short = t.short && t.short !== t.text ? sized(t.short, spot, extra.secScale) : null;
+      if (short) { short.x = full.x; short.y = full.y; } // (same place, so the short form only shows where the full one can't)
       // DISPUTED: "Disputed" in italics, the names upright (two parts, one text)
-      const put = (s, minz, maxz) => {
+      const put = (s, minz, maxz, after = 0) => {
         const m = DISPUTED.exec(s.text.replace('\n', ' '));
-        out.push(feature({ type: 'Point', coordinates: [unlon(spot.x), unlat(spot.y)] }, {
+        out.push(feature({ type: 'Point', coordinates: [unlon(s.x), unlat(s.y)] }, {
           ...props, t: m ? '' : s.text, pre: m ? m[1] : '', rest: m ? m[2] : '',
           ...Object.fromEntries(s.sizes.map((v, i) => [`s${i}`, v])), minz: Math.max(minz, spot.fromZ || 0), maxz: Math.min(maxz, spot.toZ || 30),
-          rank: Math.round(-Math.sqrt(spot.area) * 1e5) + (spot.rep ? 1e6 : 0), rep: spot.rep || 0,
+          rank: Math.round(-Math.sqrt(spot.area) * 1e5) + (spot.rep ? 1e6 : 0) + after, rep: spot.rep || 0,
         }));
       };
-      if (short && short.minz < full.minz) put(short, short.minz, full.minz);
+      if (short && short.minz < full.minz) put(short, short.minz, full.minz + 3, 5e5);
       put(full, full.minz, 30);
     };
     within(S, () => {
+      if (!S.landParts) S.landParts = partsOf(S.land.geometry).map((q) => {
+        let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+        for (const [x, y] of q.rings[0]) { if (x < x0) x0 = x; if (y < y0) y0 = y; if (x > x1) x1 = x; if (y > y1) y1 = y; }
+        return { ...q, box: [x0, y0, x1, y1] };
+      });
+      LAND = S.landParts;
       if (state.borders === 'regular') {
         for (const r of S.states) {
           for (const spot of spotsFor(r.geometry, null, null)) {
@@ -1260,7 +1362,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
   // Three maps (Map in the panel): political — our own drawing, flat (Natural Earth) where the view has it, as far in as a
   // political map makes sense; streets — the shetachim over the street map, standard, all the way in; physical — terrain.
-  const POLITICAL_DEPTH = 6; // zoom steps in from the framed view the political map allows (64×, as far as the old map's 60×)
+  const POLITICAL_DEPTH = 7; // zoom steps in from the framed view the political map allows (128×, past the old map's 60×)
   function centreLL() {
     const c = map.getCenter();
     if (!V.cur.flat) return [((c.lng + 540) % 360) - 180, c.lat];
@@ -1553,9 +1655,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       paint(id('hover-area'), 'line-color', pal.accent);
       // names, cities, capitals: in the street map's way (dark grey with a soft white halo); on the street map its own
       // cities, which ours would only double
-      // the names of the way it's drawn now at once; the other's when the map is idle (it's ready by the time it's needed)
-      if (on) setNames(T);
-      else setTimeout(() => { if (V && (T === V.M || T === V.F)) setNames(T); }, 600);
+      if (on) setNames(T); // (the other map's names are worked out when it's shown)
       for (const lid of ['names', 'cities', 'cap-names', 'honor']) {
         paint(id(lid), 'text-color', lid === 'names' ? ['case', ['==', ['get', 'kind'], 'miss'], pal.missing, ['==', ['get', 'kind'], 'sec'], pal.secondary, pal.ink] : lid === 'cities' || lid === 'cap-names' ? (pal.dark ? '#c9d1d6' : '#333333') : pal.ink);
         paint(id(lid), 'text-halo-color', pal.halo);
@@ -1859,7 +1959,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   if (phone()) { const at = document.querySelector('.maplibregl-ctrl-attrib'); if (at) at.classList.remove('maplibregl-compact-show'); }
   // ready: for tests and anyone curious
   window.__map = map;
-  window.__dbg = { labelData, V: () => V, dotData, spotsFor, partsOf, polylabel, unlon, unlat, PX, setMode, centreLL, spanKm,
+  window.__dbg = { showCard: (hit) => showCard(hit, { clientX: 400, clientY: 300 }, true), labelData, V: () => V, dotData, spotsFor, partsOf, polylabel, unlon, unlat, PX, setMode, centreLL, spanKm,
     zoomTo: (st) => zoomToArea(pieces.find((g) => g.properties.state === st).properties.id),
     at: (lon, lat) => map.jumpTo({ center: within(V.cur, () => P(lon, lat)) }),
     go: (lon, lat, z) => { V.cur = V.M; limits(); apply(); map.jumpTo({ center: [lon, lat], zoom: z }); } }; // go: a standard place and zoom (the map then picks flat or standard)

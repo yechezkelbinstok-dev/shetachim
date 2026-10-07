@@ -127,7 +127,7 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
 
 ## LUBAVITCH (Oct 5, the owner: "something honorary for the original Lubavitch")
 - At Lyubavichi, Smolensk region (54.8352, 30.9632): a small dot and the name *Lubavitch* in italics, as maps mark a
-  historic place; card (owner, Oct 7): a really big "Lubavitch" as the heading, then "Seat of the Rebbeim, 1813–1915" under it (he took out the "Birthplace of Chabad-Lubavitch" kicker), in the special card like 770's (accent border and kicker) — he rejected every wording Claude made up, so ask him before changing it. Shown in every world view even with
+  historic place; card (owner, Oct 7): a really big "Lubavitch" as the heading, then "Seat of the Rebbeim, 1813–1915" under it (he took out the "Birthplace of Chabad-Lubavitch" kicker); under it, its own section, the center there: Hatzer Raboteinu Nesieinu B'Lubavitch (חצר רבותינו נשיאינו בליובאוויטש, opened 2008 near the graves), shliach Gavriel Gordon (owner, Oct 7; not on chabad.org's locator), in the special card like 770's (accent border and kicker) — he rejected every wording Claude made up, so ask him before changing it. Shown in every world view even with
   capitals off, its name placed before any city's (`honor: true` in the page's capitals list; `HONOR_MARK`).
   The owner rejected a gold ring and a card with a paragraph of history ("AI generated") — keep it understated.
   Keep it in the map-engine rebuild.

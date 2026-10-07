@@ -692,6 +692,10 @@ The owner got very angry at the first version. The lessons:
   holes break in some tiles and cover parts of the shetachim.
 
 ## Oct 7 (owner)
+- **City names Google-style again** (the old page's rule, lost in the new engine; owner Oct 7): a dot with the name beside
+  it until the city is big on screen (half-width 0.012·√people km, 1.5–30 km, at 22 px), then no dot and a bold name on
+  the city (`cities-big`; a capital's above its star), until zoom 13.5 (`CITY_NAMES_END`), where the street map's own
+  names take over (no lone town dot over the streets).
 - **Towns named on every map (political, streets, physical) are only ours: towns with a center.** The street map's own
   city/town/village labels are hidden; its other place labels (neighbourhoods) only from zoom 13.
 - **Hebrew: English-style nicknames are written as the proper name** (data/hebrew/first-names.json and the head

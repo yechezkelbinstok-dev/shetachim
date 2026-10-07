@@ -560,6 +560,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     }
     for (const c of cities) { const en = c.name, k = `${en}|${c.region}`; dual(c, 'name', (h) => (h.cities[k] ? [h.cities[k]] : h.cities[en] ? [h.cities[en]] : null)); }
   }
+  const CITY_NAMES_END = 13.5; // zoom from which a city's name gives way to the street map's own (neighbourhoods, streets)
   const CITY_DENSITY = 2500; // a city is a candidate once weight >= CITY_DENSITY / (screen pixels per km)²
 
   // Neighbours never share a colour; colours are spread evenly. Worked out once, so they stay put across views.
@@ -1246,11 +1247,15 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const out = [];
       for (const c of V.cities) {
         const minz = zoomFor(Math.sqrt(CITY_DENSITY / Math.max(1, c.weight)), c.lon, c.lat);
+        // Google-style (the old page's rule): a dot with the name beside it until the city is big on screen (its
+        // half-width, 0.012·√people km, 1.5–30 km, reaches 22 px), then no dot and a bolder name on the city itself
+        // (above the star for a capital), until street level, where the street map's own names take over
+        const big = clamp(zoomFor(22 / clamp(0.012 * Math.sqrt(Math.max(1, c.pop || c.weight)), 1.5, 30), c.lon, c.lat), 0, 16);
+        const at = P(c.lon, c.lat);
         // a city at a capital's star: the star marks it, with the city's name beside the star
         const star = V.caps.find((cap) => !cap.honor && Math.abs(cap.lat - c.lat) < 0.08 && Math.abs(cap.lon - c.lon) < 0.12);
-        if (star) { S.capCity.set(star, { name: c.name, minz: clamp(minz, 0, 16) }); continue; }
-        const at = P(c.lon, c.lat);
-        if (at) out.push(feature({ type: 'Point', coordinates: at }, { name: c.name, minz: clamp(minz, 0, 16), rank: -c.weight, i: V.cities.indexOf(c) }));
+        if (star) S.capCity.set(star, { name: c.name, minz: clamp(minz, 0, 16), big });
+        if (at) out.push(feature({ type: 'Point', coordinates: at }, { name: c.name, minz: clamp(minz, 0, 16), big, cap: star ? 1 : 0, rank: -c.weight, i: V.cities.indexOf(c) }));
       }
       return fc(out);
     });
@@ -1262,7 +1267,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const city = S.capCity.get(c);
       const minz = c.honor ? zoomFor(0.07, c.lon, c.lat) : city ? city.minz : 0;
       return feature({ type: 'Point', coordinates: P(c.lon, c.lat) },
-        { i, world: !!c.world, honor: !!c.honor, name: c.honor ? c.name : city ? city.name : '', minz, rank: c.world ? 0 : c.honor ? 1 : 2 });
+        { i, world: !!c.world, honor: !!c.honor, name: c.honor ? c.name : city ? city.name : '', minz, big: city ? city.big : 99, rank: c.world ? 0 : c.honor ? 1 : 2 });
     }).filter((f) => f.geometry.coordinates)));
   }
   function dotData(S) {
@@ -1482,11 +1487,15 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // a capital's star: always shown, and never in the way of a name (names sit over it, so it's under them)
     add({ id: 'caps', type: 'symbol', source: 'caps', filter: ['!', ['get', 'honor']],
       layout: { 'icon-image': ['case', ['get', 'world'], 'star-world', 'star'], 'icon-allow-overlap': true, 'icon-ignore-placement': true, 'symbol-sort-key': ['get', 'rank'] } });
-    add({ id: 'cities', type: 'symbol', source: 'cities', filter: ['>=', ['zoom'], ['get', 'minz']],
+    add({ id: 'cities', type: 'symbol', source: 'cities', filter: ['all', ['==', ['get', 'cap'], 0], ['>=', ['zoom'], ['get', 'minz']], ['<', ['zoom'], ['min', ['get', 'big'], CITY_NAMES_END]]],
       layout: { 'icon-image': 'city', 'text-field': ['get', 'name'], 'text-font': F_REG, 'text-size': 11.5, 'symbol-sort-key': ['get', 'rank'], 'text-padding': 3,
         'icon-padding': 0, 'text-variable-anchor': ['left', 'right', 'top', 'bottom'], 'text-radial-offset': 0.55, 'text-justify': 'auto' } });
     // a capital's city name, after the shetachim's names (they're placed first)
-    add({ id: 'cap-names', type: 'symbol', source: 'caps', filter: ['all', ['!', ['get', 'honor']], ['!=', ['get', 'name'], ''], ['>=', ['zoom'], ['get', 'minz']]],
+    // a big city's name on the city itself (no dot; a capital's above its star), from when it's big until street level
+    add({ id: 'cities-big', type: 'symbol', source: 'cities', filter: ['all', ['>=', ['zoom'], ['max', ['get', 'minz'], ['get', 'big']]], ['<', ['zoom'], CITY_NAMES_END]],
+      layout: { 'text-field': ['get', 'name'], 'text-font': F_BOLD, 'text-size': ['interpolate', ['linear'], ['zoom'], 6, 13, 10, 16], 'symbol-sort-key': ['get', 'rank'], 'text-padding': 3,
+        'text-anchor': ['case', ['==', ['get', 'cap'], 1], 'bottom', 'center'], 'text-offset': ['case', ['==', ['get', 'cap'], 1], ['literal', [0, -0.7]], ['literal', [0, 0]]] } });
+    add({ id: 'cap-names', type: 'symbol', source: 'caps', filter: ['all', ['!', ['get', 'honor']], ['!=', ['get', 'name'], ''], ['>=', ['zoom'], ['get', 'minz']], ['<', ['zoom'], ['min', ['get', 'big'], CITY_NAMES_END]]],
       layout: { 'text-field': ['get', 'name'], 'text-font': F_REG, 'text-size': 11.5, 'text-variable-anchor': ['left', 'right', 'top', 'bottom'],
         'text-radial-offset': ['case', ['get', 'world'], 1.1, 0.8], 'text-justify': 'auto', 'symbol-sort-key': ['get', 'rank'], 'text-padding': 2 } });
     // the shetachim's names: each one's own name in its own area, always shown (it's fitted inside its area, so it can't
@@ -1783,8 +1792,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       // names, cities, capitals: in the street map's way (dark grey with a soft white halo); on the street map its own
       // cities, which ours would only double
       if (on) setNames(T); // (the other map's names are worked out when it's shown)
-      for (const lid of ['names', 'names-alt', 'cities', 'cap-names', 'honor']) {
-        paint(id(lid), 'text-color', /^names/.test(lid) ? ['case', ['==', ['get', 'kind'], 'miss'], pal.missing, ['==', ['get', 'kind'], 'sec'], pal.secondary, pal.ink] : lid === 'cities' || lid === 'cap-names' ? (pal.dark ? '#c9d1d6' : '#333333') : pal.ink);
+      for (const lid of ['names', 'names-alt', 'cities', 'cities-big', 'cap-names', 'honor']) {
+        paint(id(lid), 'text-color', /^names/.test(lid) ? ['case', ['==', ['get', 'kind'], 'miss'], pal.missing, ['==', ['get', 'kind'], 'sec'], pal.secondary, pal.ink] : lid === 'cities' || lid === 'cities-big' || lid === 'cap-names' ? (pal.dark ? '#c9d1d6' : '#333333') : pal.ink);
         paint(id(lid), 'text-halo-color', pal.halo);
         paint(id(lid), 'text-halo-width', /^names/.test(lid) ? 1.6 : 1.2);
         paint(id(lid), 'text-halo-blur', 0.8);
@@ -1796,6 +1805,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       show(id('names'), on && state.labels !== 'off');
       show(id('names-alt'), on && state.labels !== 'off');
       show(id('cities'), on && state.cities);
+      show(id('cities-big'), on && state.cities);
       show(id('caps'), on && state.capitals);
       show(id('cap-names'), on && state.capitals && !street);
       show(id('honor'), on);

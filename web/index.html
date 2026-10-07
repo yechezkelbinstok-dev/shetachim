@@ -1924,7 +1924,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (c.honor) return `<h2 class="honor-h">${esc(c.name)}</h2>
       <p class="meta">${HE ? 'מקום מושב הרביים, תקע״ג–תרע״ה' : 'Seat of the Rebbeim, 1813–1915'}</p>
       <div class="subcard"><ul><li><strong>${HE ? 'חצר רבותינו נשיאינו בליובאוויטש' : "Hatzer Raboteinu Nesieinu B'Lubavitch"}</strong>
-        <span class="meta">${esc([tr('Chabad House'), HE ? 'ליובאוויטש' : 'Lubavitch'].join(' · '))}</span>
+        <span class="meta">${esc([HE ? 'מרכז מורשת' : 'Heritage center', HE ? 'ליובאוויטש' : 'Lubavitch'].join(' · '))}</span>
         ${personnelHTML(LUBAVITCH_CENTER_PEOPLE)}</li></ul></div>`;
     return `<span class="kicker${c.world ? ' kicker-world' : ''}">${capKicker(c)}</span><h2>${esc(c.name)}</h2>
       ${c.city ? `<p>${esc(c.city)}</p>` : ''}${personnelHTML(c.center && c.center.personnel)}${chabadLink(c.center)}

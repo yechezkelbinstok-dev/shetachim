@@ -1693,8 +1693,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       paint('st-line-casing', 'line-color', '#ffffff');
       paint('st-line-casing', 'line-width', ['interpolate', ['linear'], ['zoom'], 2, 3, 6, 4.5, 10, 6]);
       paint('st-line-casing', 'line-opacity', fadeOut(0.55));
-      // the tint: by shetach (blank parts of states untinted); none with States borders, where the map's own lines say it
-      show('st-tint', physOn && shetachLines);
+      // no tint: a physical map shows the land itself (greens, deserts, relief); the shetachim are only their borders
+      // (owner, Oct 7: tints made it look like a political map)
+      show('st-tint', false);
       map.setFilter('st-tint', ['all', inView, ['>=', ['get', 'cs'], 0]]);
       paint('st-tint', 'fill-color', state.color === 'plain' ? '#ffffff' : ['match', ['get', 'cs'], ...PHYS_TINTS.flatMap((c, i) => [i, c]), '#ffffff']);
       paint('st-tint', 'fill-opacity', ['interpolate', ['linear'], ['zoom'], 0, lightS ? 0.22 : 0.42, 6, lightS ? 0.2 : 0.36, 9, 0.22, 11, 0.08, 12, 0]);

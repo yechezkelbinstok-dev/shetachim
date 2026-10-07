@@ -148,7 +148,8 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
 - The owner asked for the map to feel like a real map site, not a custom project. next.html runs on MapLibre GL with
   OpenFreeMap's liberty style. Names, cities and capitals are the engine's own symbol layers, each name pre-sized per zoom
   (s0..s14) at its area's pole of inaccessibility.
-- PHYSICAL: shetachim are soft tints under the water and relief, with purple cased borders that fade out by z12. The map's
+- PHYSICAL: **no shetach tints or fills at all** (owner, Oct 7: the tints made it "look like a political map"; it must be a
+  proper physical map: the land's own greens, deserts, relief). Shetachim show only as purple cased borders that fade out by z12. The map's
   own boundaries and city names stay. Don't go back to ink lines or a fade drawn over the map ("custom low quality lines").
 - PROJECTION: the owner hates Mercator. He chose "flat when zoomed out only", with Natural Earth (or Robinson), NEVER
   Equal Earth. The political map's world and continent views are in Natural Earth, centred on the view's `lon`:

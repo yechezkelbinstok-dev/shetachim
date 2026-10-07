@@ -160,6 +160,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card h2 { margin: 0 0 4px; margin-inline-end: 22px; font: 700 16px/1.25 var(--font-ui); text-wrap: balance; }
 #card .kicker { display: block; font: 600 10px var(--font-map); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
 #card .kicker-world { color: var(--accent); font-weight: 700; }
+#card .subcard { margin-top: 12px; padding-top: 10px; border-top: 2px solid var(--panel-line); } /* a center of its own, under Lubavitch */
 #card h2.honor-h { font-size: 30px; line-height: 1.1; margin-bottom: 6px; } /* Lubavitch: just the name, big (owner, Oct 7) */
 #card.world { border-color: var(--accent); box-shadow: var(--shadow), 0 0 0 1px var(--accent); }
 #card ul { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
@@ -1884,6 +1885,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return Array.isArray(h) ? h[isMale(p) ? 0 : 1] : h;
   };
   const personName = (p) => `${[firstOf(p), lastOf(p)].filter(Boolean).join(' ')}${p.isDeceased ? (HE ? ' ע״ה' : ' obm') : ''}`;
+  // The center in Lubavitch (opened 2008 near the Rebbeim's graves; not on chabad.org's locator, so given here), shown
+  // on Lubavitch's card as a center of its own, under a divider
+  const LUBAVITCH_CENTER_PEOPLE = [{ title: 'Rabbi', firstName: 'Gavriel', lastName: 'Gordon', position: 'Director', isDirector: true, isDeceased: false }];
   const personLine = (p) => { const pos = positionOf(p); return `${esc(personName(p))}${pos ? ` <span class="meta">· ${esc(pos)}</span>` : ''}`; };
   function personnelHTML(list) {
     if (!list || !list.length) return '';
@@ -1919,9 +1923,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function capitalHTML(c) {
     if (c.honor) return `<h2 class="honor-h">${esc(c.name)}</h2>
       <p class="meta">${HE ? 'מקום מושב הרביים, תקע״ג–תרע״ה' : 'Seat of the Rebbeim, 1813–1915'}</p>
-      <div class="foot honor-center"><ul><li><strong>${HE ? 'חצר רבותינו נשיאינו בליובאוויטש' : "Hatzer Raboteinu Nesieinu B'Lubavitch"}</strong>
-        <p class="person">${HE ? 'גבריאל גורדון' : 'Gavriel Gordon'}</p></li></ul></div>`;
-  // (the center in Lubavitch, opened 2008 near the Rebbeim's graves; not on chabad.org's locator, so given here)
+      <div class="subcard"><ul><li><strong>${HE ? 'חצר רבותינו נשיאינו בליובאוויטש' : "Hatzer Raboteinu Nesieinu B'Lubavitch"}</strong>
+        <span class="meta">${esc([tr('Chabad House'), HE ? 'ליובאוויטש' : 'Lubavitch'].join(' · '))}</span>
+        ${personnelHTML(LUBAVITCH_CENTER_PEOPLE)}</li></ul></div>`;
     return `<span class="kicker${c.world ? ' kicker-world' : ''}">${capKicker(c)}</span><h2>${esc(c.name)}</h2>
       ${c.city ? `<p>${esc(c.city)}</p>` : ''}${personnelHTML(c.center && c.center.personnel)}${chabadLink(c.center)}
       <div class="foot"><span class="meta">${shetachLine(c.piece, !c.world)}</span></div>`;

@@ -536,7 +536,7 @@ The owner got very angry at the first version. The lessons:
    following the [Hudson]... it's been replicated across the entire thing"). Every US state now comes
    from its own real Census counties (see "Drawing" below) — check this hasn't regressed if the
    boundary sourcing changes again.
-9. 770 is the world HQ, not a regional flagship under whoever heads New York City's shetach. Its card
+9. 770's card title is large and prominent like Lubavitch's (`honor-h`, owner Oct 7: the headquarters of the whole movement). 770 is the world HQ, not a regional flagship under whoever heads New York City's shetach. Its card
    doesn't say "New York City · Tzach" the way a normal capital's does (`capitalHTML` in `web/index.html`
    passes `withHead: false` to `shetachLine` for it) — keep that distinction if the card is reworked.
 

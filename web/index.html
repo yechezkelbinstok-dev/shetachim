@@ -1184,7 +1184,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         out.push(feature({ type: 'Point', coordinates: [unlon(s.x), unlat(s.y)] }, {
           ...props, t: m ? '' : s.text, pre: m ? m[1] : '', rest: m ? m[2] : '',
           ...Object.fromEntries(s.sizes.map((v, i) => [`s${i}`, v])), minz: Math.max(minz, spot.fromZ || 0), maxz: Math.min(maxz, spot.toZ || 30),
-          rank: Math.round(-Math.sqrt(spot.area) * 1e5) + (spot.rep ? 1e6 : 0) + after, rep: spot.rep || 0,
+          rank: Math.round(-Math.sqrt(spot.area) * 1e5) + (spot.rep ? 1e6 : 0) + after, rep: spot.rep || 0, alt: after || spot.rep ? 1 : 0,
         }));
       };
       if (short && short.minz < full.minz) put(short, short.minz, full.minz + 3, 5e5);
@@ -1478,13 +1478,18 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     add({ id: 'cap-names', type: 'symbol', source: 'caps', filter: ['all', ['!', ['get', 'honor']], ['!=', ['get', 'name'], ''], ['>=', ['zoom'], ['get', 'minz']]],
       layout: { 'text-field': ['get', 'name'], 'text-font': F_REG, 'text-size': 11.5, 'text-variable-anchor': ['left', 'right', 'top', 'bottom'],
         'text-radial-offset': ['case', ['get', 'world'], 1.1, 0.8], 'text-justify': 'auto', 'symbol-sort-key': ['get', 'rank'], 'text-padding': 2 } });
-    add({ id: 'names', type: 'symbol', source: 'names', filter: ['all', ['>=', ['zoom'], ['get', 'minz']], ['<', ['zoom'], ['get', 'maxz']]],
-      layout: {
-        'text-field': ['case', ['!=', ['get', 'pre'], ''], ['format', ['get', 'pre'], { 'text-font': ['literal', F_IT] }, ['get', 'rest'], {}], ['get', 't']],
-        'text-font': ['case', ['==', ['get', 'kind'], 'sec'], ['literal', F_IT], ['==', ['get', 'kind'], 'miss'], ['literal', F_REG], ['literal', F_BOLD]],
-        'text-size': ['interpolate', ['linear'], ['zoom'], ...ZS.flatMap((z) => [z, ['get', `s${z}`]])],
-        'text-max-width': 100, 'text-line-height': 1.15, 'text-letter-spacing': 0.01, 'symbol-sort-key': ['get', 'rank'], 'text-padding': 2,
-      } });
+    // the shetachim's names: each one's own name in its own area, always shown (it's fitted inside its area, so it can't
+    // really clash; the engine's boxes, sized for the next whole zoom step, made neighbours hide each other: British
+    // Columbia's name under Alberta's, Oct 7); short forms and repeats (`alt`) only where there's room, placed after
+    const nameLayout = {
+      'text-field': ['case', ['!=', ['get', 'pre'], ''], ['format', ['get', 'pre'], { 'text-font': ['literal', F_IT] }, ['get', 'rest'], {}], ['get', 't']],
+      'text-font': ['case', ['==', ['get', 'kind'], 'sec'], ['literal', F_IT], ['==', ['get', 'kind'], 'miss'], ['literal', F_REG], ['literal', F_BOLD]],
+      'text-size': ['interpolate', ['linear'], ['zoom'], ...ZS.flatMap((z) => [z, ['get', `s${z}`]])],
+      'text-max-width': 100, 'text-line-height': 1.15, 'text-letter-spacing': 0.01, 'symbol-sort-key': ['get', 'rank'], 'text-padding': 2,
+    };
+    const inZoom = ['all', ['>=', ['zoom'], ['get', 'minz']], ['<', ['zoom'], ['get', 'maxz']]];
+    add({ id: 'names-alt', type: 'symbol', source: 'names', filter: ['all', inZoom, ['==', ['get', 'alt'], 1]], layout: nameLayout });
+    add({ id: 'names', type: 'symbol', source: 'names', filter: ['all', inZoom, ['==', ['get', 'alt'], 0]], layout: { ...nameLayout, 'text-allow-overlap': true } });
     add({ id: 'honor', type: 'symbol', source: 'caps', filter: ['all', ['get', 'honor'], ['>=', ['zoom'], ['get', 'minz']]],
       layout: { 'icon-image': 'honor', 'icon-allow-overlap': true, 'text-allow-overlap': true, 'text-field': ['get', 'name'], 'text-font': F_IT, 'text-size': 13,
         'text-letter-spacing': 0.02, 'text-variable-anchor': ['left', 'right', 'top'], 'text-radial-offset': 0.6, 'text-justify': 'auto' } });
@@ -1764,10 +1769,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       // names, cities, capitals: in the street map's way (dark grey with a soft white halo); on the street map its own
       // cities, which ours would only double
       if (on) setNames(T); // (the other map's names are worked out when it's shown)
-      for (const lid of ['names', 'cities', 'cap-names', 'honor']) {
-        paint(id(lid), 'text-color', lid === 'names' ? ['case', ['==', ['get', 'kind'], 'miss'], pal.missing, ['==', ['get', 'kind'], 'sec'], pal.secondary, pal.ink] : lid === 'cities' || lid === 'cap-names' ? (pal.dark ? '#c9d1d6' : '#333333') : pal.ink);
+      for (const lid of ['names', 'names-alt', 'cities', 'cap-names', 'honor']) {
+        paint(id(lid), 'text-color', /^names/.test(lid) ? ['case', ['==', ['get', 'kind'], 'miss'], pal.missing, ['==', ['get', 'kind'], 'sec'], pal.secondary, pal.ink] : lid === 'cities' || lid === 'cap-names' ? (pal.dark ? '#c9d1d6' : '#333333') : pal.ink);
         paint(id(lid), 'text-halo-color', pal.halo);
-        paint(id(lid), 'text-halo-width', lid === 'names' ? 1.6 : 1.2);
+        paint(id(lid), 'text-halo-width', /^names/.test(lid) ? 1.6 : 1.2);
         paint(id(lid), 'text-halo-blur', 0.8);
       }
       show(id('seas'), on && T.flat);
@@ -1775,6 +1780,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       paint(id('seas'), 'text-halo-color', G.water);
       paint(id('seas'), 'text-halo-width', 1);
       show(id('names'), on && state.labels !== 'off');
+      show(id('names-alt'), on && state.labels !== 'off');
       show(id('cities'), on && state.cities);
       show(id('caps'), on && state.capitals);
       show(id('cap-names'), on && state.capitals && !street);

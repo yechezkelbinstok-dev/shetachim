@@ -190,6 +190,9 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
   - MapLibre evaluates zoom in filters at WHOLE zoom steps, so a name may show from the whole step before it fits,
     a touch small. A short form stays on behind the full name, at the same spot, so there's never a gap.
   - Political zooms 7 steps in.
+  - A shetach's own name is always drawn (`names`, text-allow-overlap): the engine's collision boxes are sized for the
+    next whole zoom, so neighbours hid each other (BC under Alberta, Labrador). Short forms and repeats (`alt`) are a
+    separate layer under it and give way.
   - Before porting anything else, re-read the rules in this file: the old page's rules carry over.
 - LANGUAGE SWITCH (Oct 7, the owner: "should be seamless"): no reload. Every name holds both languages through
   `dual(obj, field, he)`, a getter that reads `HE`. `setLanguage()` loads he.json the first time Hebrew is asked for,

@@ -362,10 +362,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const cityFile = await get('data/cities.json').catch(() => []);
 
   // ---------- Hebrew ----------
-  // The page in Hebrew (the switch in the header reloads it with ?lang=he): every word on it, and the names of the
+  // The page in Hebrew (the switch in the header, or ?lang=he): every word on it, and the names of the
   // shetachim, head shluchim, states, countries and cities, from data/he.json (scripts/build-hebrew.mjs). A center's own
   // Hebrew name is used where chabad.org has one; other centers keep their names.
-  const HE = document.documentElement.lang === 'he';
+  let HE = document.documentElement.lang === 'he';
   const HE_TEXT = {
     'Chabad Shetachim': 'שטחי חב״ד', Options: 'אפשרויות', Close: 'סגירה', Shetachim: 'שטחים', Centers: 'מוסדות', Dots: 'נקודות', 'Dot color': 'צבע הנקודות', Gold: 'זהב', Red: 'אדום', Black: 'שחור', Navy: 'כחול כהה', Green: 'ירוק', Purple: 'סגול',
     Show: 'תצוגה', World: 'עולם', Europe: 'אירופה', FSU: 'חבר העמים', Israel: 'ארץ ישראל', 'Middle East': 'המזרח התיכון', Asia: 'אסיה',
@@ -400,62 +400,51 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const tr = (t) => (HE && HE_TEXT[t]) || t;
   // a disputed shetach's head: "Disputed — A; B; C", the word "Disputed" set in italics
   const DISPUTED = /^(Disputed|במחלוקת)(.*)$/;
-  if (HE) {
-    const he = await get('data/he.json').catch(() => null);
-    if (he) {
-      for (const s of shetachFile.shetachim) {
-        const h = he.shetachim[s.id];
-        if (!h) continue;
-        // first and last name only, for someone with middle names: as in English, by the English name's word count
-        const englishHead = s.headShliach || '';
-        const words = englishHead.trim().split(/\s+/);
-        const personal = !s.headTitle && words.length > 2 && !/[;—]|\b(family|of)\b/i.test(s.headShliach);
-        Object.assign(s, { name: h.name, short: h.short, headShliach: h.headShliach, lastName: h.lastName, headTitle: h.headTitle || (s.headTitle && tr(s.headTitle)),
-          firstLast: personal ? `${h.headShliach.split(/\s+/)[0]} ${h.lastName}` : null });
-        // a disputed shetach's capitals name their claimant: the same place in the Hebrew list of names
-        const names = (list) => (list || '').replace(/^.*?—\s*/, '').split(/;\s*/);
-        const en = names(englishHead), hn = names(h.headShliach);
-        s.capitals = (s.capitals || []).map((c) => ({ ...c, city: he.cities[c.city] || c.city, for: c.for && (hn[en.indexOf(c.for)] || c.for) }));
-        if (s.capital) s.capital = s.capitals[0];
-      }
-      for (const g of topo.objects.areas.geometries) { const n = he.areas[g.properties.state]; if (n) { g.properties.name = n; g.properties.abbr = ''; } }
-      for (const c of cityFile) c.name = he.cities[c.name] || c.name;
-      for (const f of centersGeo.features) for (const c of f.properties.centers) {
-        if (c.nativeName && /[\u0590-\u05ff]/.test(c.nativeName)) c.name = c.nativeName;
-        if (c.type) c.type = tr(c.type);
-        if (c.city) c.city = he.cities[c.city] || c.city;
-      }
-      // a capital's name: its center's Hebrew name, where it has one
-      const byId = new Map(centersGeo.features.flatMap((f) => f.properties.centers.map((c) => [c.id, c])));
-      for (const s of shetachFile.shetachim) {
-        for (const cap of s.capitals || []) {
-          const c = byId.get(cap.centerId);
-          if (c && /[\u0590-\u05ff]/.test(c.name)) cap.name = c.name;
-        }
-      }
-    }
-    // the page's own words: every text and label in the panel and the buttons
+  // Both languages are kept: every name on the page holds its English and its Hebrew (data/he.json, loaded the first
+  // time Hebrew is asked for) and shows the one the page is in, so the switch in the header changes the language at
+  // once, in place, without reloading the page.
+  let heData = null;
+  const loadHebrew = () => (heData ? Promise.resolve(heData) : get('data/he.json').then((h) => (heData = h)).catch(() => null));
+  if (HE) await loadHebrew();
+  // obj[field] in the page's language: the English as it came, or, in Hebrew, he(heData) — [value] (even an empty
+  // one), or null where there's no Hebrew (then the English stays)
+  function dual(obj, field, he) {
+    const en = obj[field];
+    let got = null;
+    Object.defineProperty(obj, field, {
+      configurable: true, enumerable: true,
+      get() { if (!HE || !heData) return en; if (!got) got = he(heData) || [en]; return got[0]; },
+      set(v) { got = [v]; },
+    });
+  }
+  const isHebrew = (t) => /[\u0590-\u05ff]/.test(t || '');
+  // the page's own words: every text and label in the panel and the buttons, each remembering its English
+  const ORIGINAL = new Map();
+  function pageWords() {
+    const swap = (en) => (HE && HE_TEXT[en]) || en;
     const walk = (node) => {
       for (const n of node.childNodes) {
-        if (n.nodeType === 3) { const t = n.nodeValue.trim(); if (t && HE_TEXT[t]) n.nodeValue = n.nodeValue.replace(t, HE_TEXT[t]); } else if (n.nodeType === 1) walk(n);
+        if (n.nodeType === 3) {
+          if (!ORIGINAL.has(n)) { const t = n.nodeValue.trim(); if (!t || !HE_TEXT[t]) continue; ORIGINAL.set(n, t); }
+          n.nodeValue = n.nodeValue.replace(n.nodeValue.trim(), swap(ORIGINAL.get(n)));
+        } else if (n.nodeType === 1 && n.id !== 'card') walk(n);
       }
-      if (node.nodeType === 1) for (const a of ['aria-label', 'title']) { const v = node.getAttribute(a); if (v && HE_TEXT[v]) node.setAttribute(a, HE_TEXT[v]); }
+      if (node.nodeType === 1) {
+        const orig = ORIGINAL.get(node) || {};
+        for (const a of ['aria-label', 'title']) {
+          const v = orig[a] ?? node.getAttribute(a);
+          if (v && HE_TEXT[v]) { orig[a] = v; ORIGINAL.set(node, orig); node.setAttribute(a, swap(v)); }
+        }
+      }
     };
     walk(document.body);
-    for (const el of document.querySelectorAll('[aria-label],[title]')) walk(el);
+    $('#downloads').href = HE ? 'download.html?lang=he' : 'download.html';
+    $('#lang-toggle').textContent = HE ? 'EN' : 'עב';
+    $('#lang-toggle').lang = HE ? 'en' : 'he';
+    $('#lang-toggle').title = HE ? 'English' : 'עברית';
+    $('#lang-toggle').setAttribute('aria-label', HE ? 'English' : 'עברית');
   }
-  if (HE) $('#downloads').href = 'download.html?lang=he';
-  $('#lang-toggle').textContent = HE ? 'EN' : 'עב';
-  $('#lang-toggle').lang = HE ? 'en' : 'he';
-  $('#lang-toggle').title = HE ? 'English' : 'עברית';
-  $('#lang-toggle').setAttribute('aria-label', HE ? 'English' : 'עברית');
-  $('#lang-toggle').addEventListener('click', () => {
-    const next = HE ? 'en' : 'he';
-    try { localStorage.setItem('shetachim-lang', next); } catch (e) { /* the address carries it */ }
-    const q = new URLSearchParams(location.search);
-    q.set('lang', next);
-    location.replace(`${location.pathname}?${q}${location.hash}`);
-  });
+  pageWords();
 
   // Pieces: whole states and provinces, and the parts of states split between shetachim. Each knows its
   // state and its shetach (none where no shetach is entered yet).
@@ -490,13 +479,65 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }));
   // Lubavitch itself, in honour: the town the movement is named for, seat of the Rebbeim 1813–1915 (not a center today)
   const rusPiece = [...pieceById.keys()].find((k) => k.startsWith('RUS:'));
-  if (rusPiece) capitals.push({ honor: true, name: HE ? 'ליובאוויטש' : 'Lubavitch', city: HE ? 'מחוז סמולנסק, רוסיה' : 'Smolensk region, Russia', lat: 54.8352, lon: 30.9632, piece: rusPiece });
+  if (rusPiece) {
+    const lub = { honor: true, name: 'Lubavitch', city: 'Smolensk region, Russia', lat: 54.8352, lon: 30.9632, piece: rusPiece };
+    dual(lub, 'name', () => ['ליובאוויטש']);
+    dual(lub, 'city', () => ['מחוז סמולנסק, רוסיה']);
+    capitals.push(lub);
+  }
   const capitalOfCenter = new Map(capitals.filter((c) => c.centerId).map((c) => [c.centerId, c]));
   // Bigger cities are labelled first and from further out. A city with many centers counts as big even when
   // GeoNames doesn't know it (Thornhill), so weigh each center as 5,000 people.
   const cities = cityFile.map((c) => ({ ...c, piece: c.piece || c.region })).filter((c) => pieceById.has(c.piece))
     .map((c) => ({ ...c, texts: [c.name], weight: Math.max(c.pop, c.centers * 5000) }))
     .sort((a, b) => b.weight - a.weight);
+  // every name, in both languages
+  {
+    const hs = (s) => heData.shetachim[s.id];
+    for (const s of shetachById.values()) {
+      const englishHead = s.headShliach || '';
+      const words = englishHead.trim().split(/\s+/);
+      const personal = !s.headTitle && words.length > 2 && !/[;—]|\b(family|of)\b/i.test(englishHead);
+      const enTitle = s.headTitle;
+      s._enHead = englishHead;
+      dual(s, 'name', (h) => hs(s) && [hs(s).name]);
+      dual(s, 'short', (h) => hs(s) && [hs(s).short]);
+      dual(s, 'headShliach', (h) => hs(s) && [hs(s).headShliach]);
+      dual(s, 'lastName', (h) => hs(s) && [hs(s).lastName]);
+      dual(s, 'headTitle', (h) => hs(s) && [hs(s).headTitle || (enTitle && (HE_TEXT[enTitle] || enTitle))]);
+      // first and last name only, for someone with middle names: as in English, by the English name's word count
+      dual(s, 'firstLast', (h) => hs(s) && [personal ? `${hs(s).headShliach.split(/\s+/)[0]} ${hs(s).lastName}` : null]);
+    }
+    // a center: its own Hebrew name where chabad.org has one, its kind and city in Hebrew
+    const byId = new Map();
+    for (const f of centersGeo.features) for (const c of f.properties.centers) {
+      byId.set(c.id, c);
+      const enType = c.type, enCity = c.city;
+      dual(c, 'name', () => (isHebrew(c.nativeName) ? [c.nativeName] : null));
+      dual(c, 'type', () => (enType && HE_TEXT[enType] ? [HE_TEXT[enType]] : null));
+      dual(c, 'city', (h) => (enCity && h.cities[enCity] ? [h.cities[enCity]] : null));
+    }
+    // a capital: its center's Hebrew name; its city; a disputed shetach's claimant, the same place in the Hebrew list
+    for (const cap of capitals) {
+      if (cap.honor) continue;
+      const enName = cap.name, enCity = cap.city, enFor = cap.for, s = cap.s;
+      const center = byId.get(cap.centerId);
+      dual(cap, 'name', () => (center && isHebrew(center.nativeName) ? [center.nativeName] : null));
+      dual(cap, 'city', (h) => (enCity && h.cities[enCity] ? [h.cities[enCity]] : null));
+      dual(cap, 'for', (h) => {
+        const he = hs(s);
+        if (!enFor || !he) return null;
+        const names = (list) => (list || '').replace(/^.*?—\s*/, '').split(/;\s*/);
+        const i = names(s._enHead || '').indexOf(enFor);
+        return i >= 0 ? [names(he.headShliach)[i] || enFor] : null;
+      });
+    }
+    for (const g of topo.objects.areas.geometries) {
+      dual(g.properties, 'name', (h) => (h.areas[g.properties.state] ? [h.areas[g.properties.state]] : null)); // (state isn't translated)
+      dual(g.properties, 'abbr', (h) => (h.areas[g.properties.state] ? [''] : null));
+    }
+    for (const c of cities) { const en = c.name; dual(c, 'name', (h) => (h.cities[en] ? [h.cities[en]] : null)); }
+  }
   const CITY_DENSITY = 2500; // a city is a candidate once weight >= CITY_DENSITY / (screen pixels per km)²
 
   // Neighbours never share a colour; colours are spread evenly. Worked out once, so they stay put across views.
@@ -1941,6 +1982,50 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => { syncSheet(); if (phone() !== wasPhone) { wasPhone = phone(); apply(); } }, 150);
   });
+
+  // The language switch: the page, the panel and the map's names change over in place.
+  let rtlAsked = false;
+  async function setLanguage(lang) {
+    const he = lang === 'he';
+    if (he === HE) return;
+    if (he) {
+      await loadHebrew();
+      // right-to-left shaping for the map's Hebrew names, loaded the first time Hebrew is shown
+      if (!rtlAsked && window.maplibregl) {
+        rtlAsked = true;
+        try { if (maplibregl.getRTLTextPluginStatus() === 'unavailable') await withTimeout(Promise.resolve(maplibregl.setRTLTextPlugin(RTL_PLUGIN, false)), 10000, 'rtl'); } catch (e) { /* the names still show */ }
+      }
+    }
+    HE = he;
+    try { localStorage.setItem('shetachim-lang', lang); } catch (e) { /* not remembered, still switched */ }
+    const q = new URLSearchParams(location.search);
+    q.delete('lang');
+    history.replaceState(null, '', `${location.pathname}${q.toString() ? `?${q}` : ''}${location.hash}`);
+    document.documentElement.lang = lang;
+    document.documentElement.dir = he ? 'rtl' : 'ltr';
+    document.title = he ? 'מפת שטחי חב״ד' : 'Chabad Shetachim Map';
+    pageWords();
+    showThemeButton();
+    $('#panel-toggle').textContent = tr($('#panel').classList.contains('collapsed') ? 'Options' : 'Close');
+    $('#view-name').textContent = tr(V.view.name);
+    const regular = tr(V.view.world ? 'Countries' : 'States');
+    document.querySelectorAll('[data-name="borders"] [data-value="regular"], [data-name="lighter"] [data-value="regular"]').forEach((btn) => { btn.textContent = regular; });
+    syncSheet();
+    if (!glOK) return;
+    baseLanguage();
+    // the map's own names: worked out again in this language
+    for (const sets of SETS.values()) for (const S of [sets.M, sets.F]) if (S) { S.labelCache.clear(); S.namesShown = null; }
+    for (const S of [V.M, V.F]) {
+      if (!S) continue;
+      const set = (n, d) => map.getSource(n + S.sfx).setData(d);
+      set('cities', cityData(S));
+      set('caps', capData(S));
+      if (S.flat) set('seas', seaData(S));
+    }
+    apply();
+    if (pinned) showCard(pinned, lastPoint, true); else hideCard();
+  }
+  $('#lang-toggle').addEventListener('click', () => setLanguage(HE ? 'en' : 'he'));
 
   // ---------- start ----------
   syncSheet();

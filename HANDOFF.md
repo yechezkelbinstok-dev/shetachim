@@ -170,6 +170,13 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
     a touch small. A short form stays on behind the full name, at the same spot, so there's never a gap.
   - Political zooms 7 steps in.
   - Before porting anything else, re-read the rules in this file: the old page's rules carry over.
+- LANGUAGE SWITCH (Oct 7, the owner: "should be seamless"): no reload. Every name holds both languages through
+  `dual(obj, field, he)`, a getter that reads `HE`. `setLanguage()` loads he.json the first time Hebrew is asked for,
+  plus the RTL plugin. It then swaps the page words (`pageWords`, which remembers each text's English), flips
+  dir/lang, and works the map names out again. Never mutate names in place again.
+- HEBREW STREET MAP: places, seas and sights show only with a Hebrew name; street names keep their signed name.
+- Small islands are kept down to 3 km² (build `-filter-islands`). At 40 km², Agios Efstratios and Bozcaada showed
+  uncoloured on the street map.
 - Oct 7: the new map IS the main page now (web/index.html). The old D3 page is kept at web/old.html; web/next.html just forwards to the main page. Edit web/index.html from now on.
 
 ## LATEST (Sept 30 – Oct 1) — read before "RIGHT NOW" below

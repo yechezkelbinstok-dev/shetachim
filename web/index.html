@@ -1370,7 +1370,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     add({ id: 'out-line', type: 'line', source: 'outside-lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
     if (!flat && physicalOK) {
       map.addLayer({ id: 'st-line-casing', type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
-      for (const kind of ['shetach', 'inner']) map.addLayer({ id: `st-line-${kind}`, type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
+      for (const kind of ['coast', 'shetach', 'inner']) map.addLayer({ id: `st-line-${kind}`, type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
     }
     // what a tap can land on (invisible), the outline of the area a card is about, the dots
     add({ id: 'pick', type: 'fill', source: 'areas', paint: { 'fill-opacity': 0 } });
@@ -1617,6 +1617,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const shetachLines = state.borders !== 'regular';
       map.setFilter('st-line-shetach', ['all', a, b, ['==', ['get', 'sh'], 0], ['!', ['has', 'tr']]]);
       map.setFilter('st-line-inner', ['all', a, b, ['has', 'tr']]);
+      // the open edge of an area: its coast, and where it reaches out over the water to the international line (Ontario
+      // in the Great Lakes) the maritime border; thin, as the old page drew it (it went missing Oct 5, the owner noticed).
+      // Not the lake edges inside one shetach (Essex's water, Michigan on both sides: lk).
+      map.setFilter('st-line-coast', ['any', ['all', a, ['!', ['has', 'cb']], ['!', ['has', 'lk']]], ['all', b, ['!', a]]]);
+      show('st-line-coast', physOn);
+      paint('st-line-coast', 'line-color', PHYS.ink);
+      paint('st-line-coast', 'line-width', ['interpolate', ['linear'], ['zoom'], 2, 0.6, 6, 0.9, 10, 1.2]);
+      paint('st-line-coast', 'line-opacity', 0.4);
       map.setFilter('st-line-casing', ['all', a, b, ['==', ['get', 'sh'], 0]]);
       const fadeOut = (v) => ['interpolate', ['linear'], ['zoom'], 9, v, 12, 0];
       const BORDER = 'hsl(258, 28%, 44%)';

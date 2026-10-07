@@ -149,7 +149,9 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
   OpenFreeMap's liberty style. Names, cities and capitals are the engine's own symbol layers, each name pre-sized per zoom
   (s0..s14) at its area's pole of inaccessibility.
 - PHYSICAL: **no shetach tints or fills at all** (owner, Oct 7: the tints made it "look like a political map"; it must be a
-  proper physical map: the land's own greens, deserts, relief). Shetachim show only as purple cased borders that fade out by z12.
+  proper physical map: the land's own greens, deserts, relief). Shetachim show only as purple cased borders that fade out by z12. **The thin maritime line stays** (`st-line-coast`:
+  every open edge, so the coasts and, where an area reaches over the water, the international line in the Great Lakes;
+  it went missing Oct 5 and the owner noticed Oct 7).
   **Tinted** (fourth map, owner Oct 7): the physical map with the soft shetach tints, for whoever wants it.
   Map switches are instant: names of the other way of drawing are worked out in idle time (`warmNames`), label
   outlines are thinned to ~500 points a ring (`partsOf`), and there is no held picture of the old map (`preserveDrawingBuffer` off; owner: the freeze "should not exist"). The map's

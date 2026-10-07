@@ -306,12 +306,12 @@ Later in the same round:
   is the thin "maritime" line on the physical map. A land-only Essex left Ontario's water wrapped round it (a wedge of
   Ontario's colour along the Detroit River and western Lake Erie, and a border that went into Lake St Clair and back).
   So the shape (`data/shapes/essex-county-on.geojson`) is the Essex/Chatham-Kent land line (GADM lo-res Admin2)
-  carried on through the water: across Lake St Clair straight to the elbow where the St Clair River border turns west
-  along the delta's South Channel (so the Michigan–Ontario line runs on from the river unbroken and nearly straight —
-  the owner rejected the version ending at the channel's mouth, which left a sharp spike of Ontario along the
-  channel), and across Lake Erie due south to the international boundary. Essex takes the Canadian water on its side
+  carried on through the water: across Lake St Clair straight to the St Clair River where its last bend south-west
+  begins (-82.518, 42.618) (owner, Oct 7: ending at the South Channel elbow still made a V, "pointy"; this way the
+  river and the lake line run on nearly straight, and the delta's western islands, Walpole Island, go with Essex; he
+  had earlier rejected ending at the channel's mouth, a sharp spike of Ontario), and across Lake Erie due south to the international boundary. Essex takes the Canadian water on its side
   (Detroit River, Lake St Clair west of that line, western Lake Erie with Pelee Island); past the boundary the shape
-  runs on over US ground, which a shape never cuts (only CA-ON's land). The elbow point is read off the built map
+  runs on over US ground, which a shape never cuts (only CA-ON's land). The river point is read off the built map
   (`web/data/geo.json`, the Ontario / Michigan arc); if the land data changes, check it's still on that border.
   The shape's `"lakeEdges": true` marks the piece's open edges (the international line round Essex's water, Michigan's
   on both sides) as lake edges, `lk` in the tiles: the physical map draws them only in States/Both border modes, not

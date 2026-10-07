@@ -163,13 +163,19 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
   standard, because the physical imagery only comes in Web Mercator.
   NE_SCALE = 0.075 keeps the flat world small inside the engine's world, because the engine won't zoom out past its
   world filling the screen (a phone's height too) and we need room to fit the map beside the panel.
-- THREE MAPS (Oct 6, the owner's design after rejecting a snap, a bending morph and a corner button). Map: Political |
-  Streets | Physical.
+- MAPS (Oct 6, the owner's design after rejecting a snap, a bending morph and a corner button; Tinted added Oct 7): Map:
+  Political | Streets | Physical | Tinted.
   - Political: our own drawing, Natural Earth where the view has it (world, continents), standard for country views.
     No street map, and only 5 zoom steps in from the framed view (POLITICAL_DEPTH).
   - Streets: the shetachim over the street map, standard, all the way in.
   - Physical: terrain.
-  - Never switch projection on your own. Changing maps cross-fades a canvas snapshot (0.28 s).
+  - Never switch projection on your own. Changing maps is instant (no snapshot).
+- **Alaska and Hawaii boxes** (political map; restored Oct 7, the new engine had dropped them): USA view, Alaska and
+  Hawaii in boxes off the south-west, as the old page had (`boxedFor`, `INSET_DEF`, a third set `boxed` per view: the
+  standard projection outside the boxes, each boxed state in its own conic projection; areas, lines, land projected
+  piece by piece, points by `near`). "Alaska: In a box / In place" (More options, USA view only). **US & Canada: Alaska
+  stays attached to BC in its place** (owner, Oct 7), only Hawaii boxed; framed from 180° so mainland Alaska is in view.
+  The street and physical maps always have them in place.
 - BLUE SEA option (More options): off gives a quiet grey sea, on the political map only.
 - **Land outside the view / no shetach** (political, owner's first rule; fixed Oct 7, the new engine had drawn every
   country as ordinary land: Greenland, Antarctica, Canada in the USA view): faded (`land-all`, 40%) under the blue sea, not

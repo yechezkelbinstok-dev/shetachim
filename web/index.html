@@ -342,7 +342,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const phone = () => PHONE_MQ.matches;
   const coarse = () => window.matchMedia('(pointer: coarse)').matches;
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const state = { empty: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true, sea: true };
+  const state = { alaska: 'box', empty: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true, sea: true };
   if (!phone()) $('#panel').classList.remove('collapsed');
 
   // ---------- data ----------
@@ -595,7 +595,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const WORLD = [...new Set(['US', 'CA', ...EUROPE, ...FSU, ...ASIA, ...MIDEAST, ...AFRICA, ...OCEANIA, ...LATAM])];
   const mercator = () => d3.geoMercator();
   const VIEWS = {
-    na: { name: 'United States & Canada', countries: ['US', 'CA'], insets: ['US-AK', 'US-HI'], projection: () => d3.geoConicEqualArea().parallels([30, 58]).rotate([96, 0]) },
+    na: { name: 'United States & Canada', countries: ['US', 'CA'], insets: ['US-HI'], projection: () => d3.geoConicEqualArea().parallels([30, 58]).rotate([96, 0]) },
     us: { name: 'United States', countries: ['US'], insets: ['US-AK', 'US-HI'], projection: () => d3.geoConicEqualArea().parallels([29.5, 45.5]).rotate([96, 0]) },
     ca: { name: 'Canada', countries: ['CA'], insets: [], projection: () => d3.geoConicEqualArea().parallels([49, 62]).rotate([96, 0]) },
     world: { name: 'World', countries: WORLD, projection: () => d3.geoNaturalEarth1() },
@@ -610,10 +610,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   };
   VIEWS.world.frame = [[-168, -56], [190, 78]]; // a world map centred on the Atlantic, not across the Pacific
   for (const v of Object.values(VIEWS)) { v.insets = v.insets || []; v.world = !['na', 'us', 'ca'].some((k) => VIEWS[k] === v); }
-  const INSETS = {
-    'US-AK': { share: 0.2, aspect: 0.7, projection: () => d3.geoConicEqualArea().parallels([55, 65]).rotate([154, 0]) },
-    'US-HI': { share: 0.13, aspect: 0.62, projection: () => d3.geoConicEqualArea().parallels([8, 18]).rotate([157, 0]) },
-  };
+  // Which states go in boxes (political map, "Alaska: In a box"): the USA view, Alaska and Hawaii; US & Canada only Hawaii
+  // (owner, Oct 7: there Alaska stays attached to BC, in its place)
+  VIEWS.us.boxes = ['US-AK', 'US-HI'];
+  VIEWS.na.boxes = ['US-HI'];
+  VIEWS.na.boxScale = 1.7; // (the map is smaller there, so Hawaii's box is bigger)
 
   const STAR = d3.symbol(d3.symbolStar, 55)(); // about 14px across
   const WORLD_STAR = d3.symbol(d3.symbolStar, 150)(); // 770: about 23px across
@@ -694,6 +695,43 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function flatFor(view) {
     if (!view.world || view === VIEWS.israel) return null;
     return d3.geoNaturalEarth1().rotate([-(view.lon ?? 11), 0]).scale(NE_SCALE).translate([0.5, 0.5]).precision(0);
+  }
+  // Alaska and Hawaii in boxes (the political map of a view that has them, "Alaska: In a box", the default; the old
+  // page's corner boxes): everything else in the standard projection, each of them in its own (conic, as atlases draw
+  // them) fitted into a box off the lower 48's south-west. Areas and lines are projected piece by piece (`S.boxes`);
+  // a point (a dot, a city, a capital) goes in a box if it's in that state's stretch of the globe.
+  const MERC = d3.geoMercator().scale(1 / (2 * Math.PI)).translate([0.5, 0.5]).precision(0);
+  const INSET_DEF = {
+    'US-AK': { name: 'Alaska', proj: () => d3.geoConicEqualArea().rotate([154, 0]).center([-2, 58.5]).parallels([55, 65]), top: 31, w: 0.27,
+      // (the mainland west of 141°W and the Aleutians; the panhandle, 54.6–60°N to 130°W: no Canadian town with a center there)
+      near: ([lon, lat]) => (lat > 51 && (lon < -141 || lon > 170)) || (lon < -129.9 && lon >= -141 && lat >= 54.6 && lat < 60) },
+    'US-HI': { name: 'Hawaii', proj: () => d3.geoConicEqualArea().rotate([157, 0]).center([-3, 19.9]).parallels([8, 18]), fit: [[-160.6, 18.8], [-154.7, 22.4]], top: 28.6, w: 0.11,
+      near: ([lon, lat]) => lat > 18 && lat < 23 && lon < -154 && lon > -161 },
+  };
+  function boxedFor(view) {
+    const W = mx(-66.9) - mx(-125); // the lower 48's width, world units
+    const boxes = [];
+    let x = mx(-127);
+    for (const st of view.boxes || []) {
+      const d = INSET_DEF[st], gs = pieces.filter((g) => g.properties.state === st);
+      if (!d || !gs.length) continue;
+      const geom = topojson.merge(topo, gs);
+      const pad = 0.004 * W, w = d.w * W * (view.boxScale || 1);
+      const proj = d.proj().precision(0);
+      const fitTo = d.fit ? { type: 'MultiPoint', coordinates: d.fit } : geom; // (Hawaii: the main islands, not the chain out to Midway)
+      proj.fitWidth(w - 2 * pad, { type: 'Feature', geometry: fitTo, properties: {} });
+      const [[bx0, by0], [bx1, by1]] = d3.geoPath(proj).bounds(fitTo);
+      const h = by1 - by0 + 2 * pad, y = my(d.top);
+      proj.translate([proj.translate()[0] + x + pad - bx0, proj.translate()[1] + y + pad - by0]);
+      boxes.push({ st, name: d.name, proj, geom, near: d.near, rect: [[x, y], [x + w, y + h]] });
+      x += w + 0.012 * W;
+    }
+    const pick = (p) => boxes.find((b) => b.near(p));
+    const P2 = (p) => { const b = pick(p); return b ? b.proj(p) : MERC(p); };
+    P2.stream = (sink) => MERC.stream(sink);
+    P2.invert = (q) => MERC.invert(q);
+    P2.boxes = boxes;
+    return P2;
   }
   const fake = ([x, y]) => [unlon(x), unlat(y)];
   // a point as the engine should get it
@@ -1018,6 +1056,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   let V = null, map = null, glOK = false, hoverPiece = null;
   const SETS = new Map();
   let allLand = null; // every piece's land, merged once (a flat view's land, with the land no shetach covers)
+  let landNoBoxes = null; // the same less Alaska and Hawaii (the boxed political map's land in place)
   // run fn with S's projection in force (P, projGeom and unitsPerKm follow it)
   function within(S, fn) {
     const keep = [PROJ, PROJ_FINE];
@@ -1025,15 +1064,34 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     try { return fn(); } finally { [PROJ, PROJ_FINE] = keep; }
   }
   function buildSet(view, framedGeoms, flat) {
-    const proj = flat ? flatFor(view) : null;
-    const S = { proj, fine: proj && flatFor(view).precision(1e-5), sfx: flat ? '-f' : '', flat, labelCache: new Map(), capCity: new Map(), outside: null };
+    const boxed = flat === 'boxed';
+    const proj = boxed ? boxedFor(view) : flat ? flatFor(view) : null;
+    const S = { proj, fine: proj && (boxed ? proj : flatFor(view).precision(1e-5)), sfx: flat ? '-f' : '', flat: !!flat, boxed, labelCache: new Map(), capCity: new Map(), outside: null };
     return within(S, () => {
       const main = V.main;
-      if (!flat) {
+      // Alaska and Hawaii in their boxes: a geometry made of pieces is projected in parts, the rest in place and each
+      // boxed state in its own box (make: the pieces' lon/lat geometry)
+      const boxes = (proj && proj.boxes) || [];
+      const boxOf = (g) => boxes.find((b) => b.st === g.properties.state);
+      const withProj = (pr, fn) => { const k = PROJ; PROJ = pr; try { return fn(); } finally { PROJ = k; } };
+      const projPieces = (gs, make) => {
+        if (!boxes.length) return projGeom(make(gs));
+        // (the rest is in the standard projection, which is the engine's own: no projecting needed)
+        const parts = [make(gs.filter((g) => !boxOf(g)))];
+        for (const b of boxes) { const sub = gs.filter((g) => boxOf(g) === b); if (sub.length) parts.push(withProj(b.proj, () => projGeom(make(sub)))); }
+        const got = parts.filter(Boolean);
+        if (!got.length) return null;
+        const type = got[0].type;
+        return { type, coordinates: got.filter((g) => g.type === type).flatMap((g) => g.coordinates) };
+      };
+      const merged = (gs) => topojson.merge(topo, gs);
+      if (!flat || boxed) { // (boxed: the standard projection outside the boxes, so framed the same way, across 180° too)
         if (view.frame) S.bounds = view.frame;
         else {
           const b = d3.geoBounds(topojson.feature(topo, collection(framedGeoms)));
-          S.bounds = b[0][0] > b[1][0] ? [[b[0][0], b[0][1]], [b[1][0] + 360, b[1][1]]] : b; // across the 180° line
+          S.bounds = b[0][0] > b[1][0] ? (view.boxes && view.boxes.length && !view.insets.includes('US-AK')
+            ? [[-180, b[0][1]], [b[1][0], b[1][1]]] // (US & Canada, Alaska attached: framed from 180°, the far Aleutians a pan away)
+            : [[b[0][0], b[0][1]], [b[1][0] + 360, b[1][1]]]) : b; // across the 180° line
         }
       } else {
         // the frame (or the view's land), its edges bent by the projection
@@ -1042,31 +1100,42 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         for (let i = 0; i <= 40; i++) { const t = i / 40; pts.push(P(w + (east - w) * t, so), P(w + (east - w) * t, n), P(w, so + (n - so) * t), P(east, so + (n - so) * t)); }
         S.bounds = view === VIEWS.world ? flatBounds(projGeom({ type: 'Sphere' })) : flatBounds({ coordinates: pts.filter(Boolean) });
       }
+      if (boxed) {
+        // the boxes are framed with the rest
+        S.boxFeatures = boxes.map((b) => {
+          const [[x0, y0], [x1, y1]] = b.rect, ring = [[x0, y0], [x1, y0], [x1, y1], [x0, y1], [x0, y0]].map(fake);
+          return feature({ type: 'Polygon', coordinates: [ring] }, { name: b.name, st: b.st });
+        });
+        if (boxes.length) S.bounds = flatBounds({ coordinates: [...S.bounds, ...S.boxFeatures.flatMap((f) => f.geometry.coordinates[0])] });
+        S.boxFeatures.push(...boxes.map((b) => feature({ type: 'Point', coordinates: fake(b.rect[0]) }, { name: b.name })));
+      }
       // all the land (the political map has no street map to show it)
       if (!allLand) allLand = topojson.merge(topo, pieces);
-      S.land = flat ? feature(projGeom(allLand)) : feature(allLand);
+      if (boxes.length && !landNoBoxes) landNoBoxes = merged(pieces.filter((g) => !boxOf(g)));
+      S.land = flat ? feature(boxes.length ? projPieces(pieces, (gs) => (gs.some(boxOf) ? merged(gs) : landNoBoxes)) : projGeom(allLand)) : feature(allLand);
       // the view's own land only (owner's first rule: show only the shetachim, never the countries around them; the
       // rest of the world's land only with "Rest of the world")
       const viewLand = topojson.merge(topo, main);
-      S.landView = flat ? feature(projGeom(viewLand)) : feature(viewLand);
+      S.landView = flat ? feature(boxes.length ? projPieces(main, merged) : projGeom(viewLand)) : feature(viewLand);
       // the areas as the engine gets them: all of them as they are, or the view's own, flat
-      S.areas = flat ? fc(areaFeatures.filter((f) => view.countries.includes(f.properties.country)).map((f) => feature(projGeom(f.geometry), f.properties)).filter((f) => f.geometry))
+      const boxOfArea = (f) => boxes.find((b) => b.st === f.properties.state);
+      S.areas = flat ? fc(areaFeatures.filter((f) => view.countries.includes(f.properties.country)).map((f) => { const b = boxOfArea(f); return b ? feature(withProj(b.proj, () => projGeom(f.geometry)), f.properties) : boxes.length ? f : feature(projGeom(f.geometry), f.properties); }).filter((f) => f.geometry))
         : fc(areaFeatures);
       const key = (g) => groupOf(g.properties.shetach) || '';
-      const lineFeature = (lines, k) => feature(projGeom({ type: 'MultiLineString', coordinates: lines }) || { type: 'MultiLineString', coordinates: [] }, { k });
+      const lineFeature = (filter, k) => feature(projPieces(main, (gs) => ({ type: 'MultiLineString', coordinates: meshLines(gs, filter) })) || { type: 'MultiLineString', coordinates: [] }, { k });
       S.mesh = fc([
-        lineFeature(meshLines(main, (a, b) => a === b), 'coast'),
-        lineFeature(meshLines(main, (a, b) => a.properties.state !== b.properties.state && a.properties.country === b.properties.country), 'regular'),
-        lineFeature(meshLines(main, (a, b) => a.properties.country !== b.properties.country), 'country'),
-        lineFeature(meshLines(main, (a, b) => a !== b && key(a) !== key(b)), 'shetach'),
-        lineFeature(meshLines(main, (a, b) => a !== b && key(a) && key(a) === key(b) && a.properties.shetach !== b.properties.shetach), 'inner'),
+        lineFeature((a, b) => a === b, 'coast'),
+        lineFeature((a, b) => a.properties.state !== b.properties.state && a.properties.country === b.properties.country, 'regular'),
+        lineFeature((a, b) => a.properties.country !== b.properties.country, 'country'),
+        lineFeature((a, b) => a !== b && key(a) !== key(b), 'shetach'),
+        lineFeature((a, b) => a !== b && key(a) && key(a) === key(b) && a.properties.shetach !== b.properties.shetach, 'inner'),
       ]);
       // merged areas: shetachim and the blank parts of states, and states (for States borders)
       S.regions = [...d3.group(main.filter(shetachOf), shetachOf)].map(([s, gs]) => {
         const core = (s.labelState && gs.filter((g) => g.properties.state === s.labelState)) || (s.labelCentre && gs.filter((g) => g.properties.state === s.labelCentre));
-        return { s, gs, geometry: projGeom(topojson.merge(topo, gs)), core: core && core.length && core.length < gs.length ? projGeom(topojson.merge(topo, core)) : null };
+        return { s, gs, geometry: projPieces(gs, merged), core: core && core.length && core.length < gs.length ? projPieces(core, merged) : null };
       });
-      S.states = [...d3.group(main, (g) => g.properties.state)].map(([st, gs]) => ({ st, p: gs[0].properties, gs, geometry: projGeom(topojson.merge(topo, gs)) }));
+      S.states = [...d3.group(main, (g) => g.properties.state)].map(([st, gs]) => ({ st, p: gs[0].properties, gs, geometry: projPieces(gs, merged) }));
       return S;
     });
   }
@@ -1082,8 +1151,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     V.caps = capitals.filter((c) => (c.honor ? view.world : mainIds.has(c.piece)));
     V.cities = cities.filter((c) => mainIds.has(c.piece));
     // (each view's two ways of drawing are worked out once, and kept for coming back to it)
-    if (!SETS.has(state.view)) SETS.set(state.view, { M: buildSet(view, framedGeoms, false), F: flatFor(view) ? buildSet(view, framedGeoms, true) : null });
-    Object.assign(V, SETS.get(state.view));
+    // (a view with Alaska and Hawaii: its political map has them in boxes, unless "In place")
+    const boxes = !flatFor(view) && (view.boxes || []).length && state.alaska === 'box';
+    const setKey = `${state.view}|${boxes ? 'box' : ''}`;
+    if (!SETS.has(setKey)) SETS.set(setKey, { M: buildSet(view, framedGeoms, false), F: flatFor(view) ? buildSet(view, framedGeoms, true) : boxes ? buildSet(view, framedGeoms, 'boxed') : null });
+    Object.assign(V, SETS.get(setKey));
     V.cur = wantedSet();
     const shownIds = new Set(shown.map((g) => g.properties.id));
     const viewDots = dots.filter((d) => shownIds.has(d.piece));
@@ -1359,12 +1431,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function addOverlay(sfx) {
     const flat = sfx === '-f', id = (n) => n + sfx;
     const src = (n) => map.addSource(id(n), { type: 'geojson', data: n === 'areas' && !flat ? fc(areaFeatures) : EMPTY, tolerance: n === 'names' ? 0 : 0.25 });
-    for (const n of ['land-all', 'land', 'areas', 'mesh', 'outside', 'outside-lines', 'hover-area', 'hover-dot', 'dots', 'names', 'cities', 'caps', 'seas']) src(n);
+    for (const n of ['boxes', 'land-all', 'land', 'areas', 'mesh', 'outside', 'outside-lines', 'hover-area', 'hover-dot', 'dots', 'names', 'cities', 'caps', 'seas']) src(n);
     const add = (layer, before) => map.addLayer({ ...layer, id: id(layer.id), source: id(layer.source) }, flat ? undefined : before);
     const under = physicalOK ? waterBefore : undefined, over = physicalOK ? lineBefore : undefined;
     // the land (flat: there's no street map), the land no shetach covers (Rest of the world), the shetachim
     // the land outside the view, faded (the owner's first rule: never the countries around as if they were on the map)
     add({ id: 'land-all', type: 'fill', source: 'land-all', paint: { 'fill-antialias': false } }, under);
+    // Alaska and Hawaii's boxes (political, USA view): a solid ground over whatever's under it, a frame, the name
+    add({ id: 'box-bg', type: 'fill', source: 'boxes', filter: ['==', ['geometry-type'], 'Polygon'], paint: { 'fill-antialias': false } }, under);
     add({ id: 'land', type: 'fill', source: 'land', paint: { 'fill-antialias': false } }, under);
     add({ id: 'out-fill', type: 'fill', source: 'outside', paint: { 'fill-antialias': false } }, under);
     add({ id: 'fill', type: 'fill', source: 'areas', paint: { 'fill-antialias': false } }, under);
@@ -1375,6 +1449,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       add({ id: `line-${kind}`, type: 'line', source: 'mesh', filter: ['==', ['get', 'k'], kind === 'casing' ? 'shetach' : kind], layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
     }
     add({ id: 'out-line', type: 'line', source: 'outside-lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
+    add({ id: 'box-line', type: 'line', source: 'boxes', filter: ['==', ['geometry-type'], 'Polygon'] }, over);
+    add({ id: 'box-name', type: 'symbol', source: 'boxes', filter: ['==', ['geometry-type'], 'Point'],
+      layout: { 'text-field': ['upcase', ['get', 'name']], 'text-font': F_REG, 'text-size': 10, 'text-letter-spacing': 0.12, 'text-anchor': 'top-left', 'text-offset': [0.5, 0.45], 'text-allow-overlap': true, 'text-ignore-placement': true } }, over);
     if (!flat && physicalOK) {
       map.addLayer({ id: 'st-line-casing', type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
       for (const kind of ['coast', 'shetach', 'inner']) map.addLayer({ id: `st-line-${kind}`, type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
@@ -1461,7 +1538,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // how far out and in the map may zoom (the political map only so far in), and whether it repeats sideways (a flat
   // world doesn't)
   function limits() {
-    map.setRenderWorldCopies(!V.cur.flat);
+    map.setRenderWorldCopies(!V.cur.flat || !!V.cur.boxed); // (a boxed map is standard outside its boxes: Alaska's Aleutians past 180°)
     const fit = V.cur.zFit ?? 0;
     map.setMinZoom(Math.max(0, fit - 1.5));
     map.setMaxZoom(political() ? Math.min(MAX_Z, fit + POLITICAL_DEPTH) : MAX_Z);
@@ -1499,6 +1576,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       set('caps', capData(S));
       set('land', fc([state.empty ? S.land : S.landView]));
       set('land-all', fc([S.land]));
+      set('boxes', fc(S.boxFeatures || []));
       if (S.flat) set('seas', seaData(S));
     }
     frameView(animate && prev && !prev.flat);
@@ -1544,6 +1622,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     $('#app').classList.toggle('physical', isPhysical());
     $('#colors-ctl').hidden = state.base === 'physical';
     $('#lighter-row').hidden = state.borders !== 'both';
+    $('#alaska-ctl').hidden = !(state.view === 'us' && political()); // (the USA view's political map: Alaska and Hawaii in boxes or in place)
     if (!glOK || !V) return;
     const pal = palette(), G = pal.ground;
     setLegendDot(pal);
@@ -1581,6 +1660,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       // fills: shetachim (blank parts of states stay land), or every state with States borders; strong zoomed out, and
       // see-through at street level so the streets show
       show(id('land'), on && !street);
+      for (const n of ['box-bg', 'box-line', 'box-name']) show(id(n), on && !street && !!T.boxed);
+      paint(id('box-bg'), 'fill-color', G.water);
+      paint(id('box-line'), 'line-color', G.grey);
+      paint(id('box-line'), 'line-width', 1);
+      paint(id('box-line'), 'line-opacity', 0.6);
+      paint(id('box-name'), 'text-color', G.grey);
       paint(id('land'), 'fill-color', G.land);
       show(id('land-all'), on && !street && !state.empty);
       paint(id('land-all'), 'fill-color', G.land);
@@ -1905,7 +1990,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     $('#base-msg').hidden = true;
     pressed(name, b.dataset.value);
     state[name] = b.dataset.value;
-    if (name === 'view') { hideCard(); showView(true); return; }
+    if (name === 'view' || name === 'alaska') { hideCard(); showView(name === 'view'); return; }
     if (name === 'base' && glOK) {
       // at the view as framed, the other look framed too (the physical world isn't flat); closer in, the same place
       const framed = V.cur.zFit != null && map.getZoom() < V.cur.zFit + 0.75;

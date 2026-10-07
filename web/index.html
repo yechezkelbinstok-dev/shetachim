@@ -243,6 +243,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           <button type="button" data-value="political" aria-pressed="true">Political</button>
           <button type="button" data-value="streets" aria-pressed="false">Streets</button>
           <button type="button" data-value="physical" aria-pressed="false">Physical</button>
+          <button type="button" data-value="tinted" aria-pressed="false">Tinted</button>
         </div>
         <p id="base-msg" class="note" role="status" hidden></p>
       </fieldset>
@@ -371,7 +372,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     Africa: 'אפריקה', Oceania: 'אוקיאניה', 'Latin America': 'אמריקה הלטינית', 'US & Canada': 'ארה״ב וקנדה', USA: 'ארה״ב', Canada: 'קנדה',
     'United States & Canada': 'ארצות הברית וקנדה', 'United States': 'ארצות הברית', 'Former Soviet Union': 'ברית המועצות לשעבר',
     'Latin America & Caribbean': 'אמריקה הלטינית והאיים הקריביים',
-    Map: 'מפה', Physical: 'פיזית', Political: 'מדינית', Borders: 'גבולות', States: 'מדינות', Countries: 'ארצות', Both: 'שניהם',
+    Map: 'מפה', Physical: 'פיזית', Tinted: 'פיזית צבועה', Political: 'מדינית', Borders: 'גבולות', States: 'מדינות', Countries: 'ארצות', Both: 'שניהם',
     'Lighter:': 'בהיר יותר:', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', Off: 'ללא',
     'More options': 'אפשרויות נוספות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Rest of the world': 'שאר העולם', 'Blue sea': 'ים כחול', Streets: 'רחובות',
     Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד', Dots: 'נקודות', Solid: 'מלאות', 'See-through': 'שקופות', Classic: 'קלאסיות',
@@ -1210,7 +1211,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const GREY_SEA = { light: { water: '#e3e7e3', coast: '#c2c9c2', seaText: '#7a837d' }, dark: { water: '#101619', coast: '#2c3539', seaText: '#7d878c' } };
   function palette() {
     const css = getComputedStyle(document.documentElement), v = (n) => css.getPropertyValue(n).trim();
-    const physical = state.base === 'physical';
+    const physical = isPhysical();
     const dark = !physical && theme() === 'dark', c = DOT_COLORS[state.dotColor] || DOT_COLORS.navy;
     return {
       c: d3.range(8).map((i) => v(`--c${i + 1}`)), plain: v('--plain'), empty: v('--empty'), bg: v('--bg'), ground: { ...GROUND[dark ? 'dark' : 'light'], ...(state.sea ? {} : GREY_SEA[dark ? 'dark' : 'light']) }, dark,
@@ -1295,7 +1296,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       container: 'basemap', style, attributionControl: false, renderWorldCopies: true, dragRotate: false, pitchWithRotate: false, touchPitch: false,
       maxZoom: MAX_Z, fadeDuration: 250, pixelRatio: Math.min(window.devicePixelRatio || 1, 2),
       cancelPendingTileRequestsWhileZooming: false, maxTileCacheSize: 600, maxTileCacheZoomLevels: 10,
-      preserveDrawingBuffer: true, // (the picture that fades out when changing between flat and street map)
     });
     map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: 'Boundaries: US Census, GADM, Natural Earth' }), 'top-right');
     map.touchZoomRotate.disableRotation();
@@ -1410,7 +1410,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const DOT_COLORS = { gold: ['#e0a400', '#ffc531'], red: ['#c8102e', '#ff6b5e'], black: ['#1a1a1a', '#f2f2f2'], navy: ['#163e74', '#8db5ee'], green: ['#16784a', '#5fd38f'], purple: ['#6b2fa3', '#c89cff'] };
   function setLegendDot(pal) {
     const lg = $('.legend-dot');
-    if (lg) { lg.style.background = pal.dotSolid; lg.style.boxShadow = `0 0 0 1px ${theme() === 'dark' && state.base !== 'physical' ? '#0f1518' : state.dotColor === 'gold' ? '#4a3500' : 'transparent'}`; }
+    if (lg) { lg.style.background = pal.dotSolid; lg.style.boxShadow = `0 0 0 1px ${theme() === 'dark' && !isPhysical() ? '#0f1518' : state.dotColor === 'gold' ? '#4a3500' : 'transparent'}`; }
   }
   // What the map's edges must keep clear of: the options panel beside it on a desktop, the closed bar under it on a phone.
   function framePadding() {
@@ -1433,91 +1433,19 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
   const kmScale = (S, ll, z) => 512 * 2 ** z * within(S, () => unitsPerKm(ll[0], ll[1])); // screen px per km
   function spanKm(S, ll, z) { const c = map.getContainer(); return Math.sqrt(c.clientWidth * c.clientHeight) / kmScale(S, ll, z); }
-  const political = () => state.base === 'political' || !physicalOK; // (no street map loaded: political only)
+  const political = () => state.base === 'political' || !physicalOK;
+  const isPhysical = () => state.base === 'physical' || state.base === 'tinted'; // Tinted: the physical map with shetach tints // (no street map loaded: political only)
   const wantedSet = () => (political() && V.F ? V.F : V.M);
-  // Change to S, keeping the place at the centre where it is and the scale there the same; the old picture fades out
-  // over the new one, quickly, once the new one has drawn.
+  // Change to S, keeping the place at the centre where it is and the scale there the same, at once (no held picture of
+  // the old map: the owner wants no delay at all when maps change).
   function setMode(S) {
     if (!S || S === V.cur) return;
     const ll = centreLL() || [0, 0], z = map.getZoom();
     const zTo = z + Math.log2(kmScale(V.cur, ll, 0) / kmScale(S, ll, 0));
-    const snap = still ? false : fadeStart();
     V.cur = S;
     limits();
     apply();
     map.jumpTo({ center: within(S, () => P(ll[0], ll[1])) || map.getCenter(), zoom: zTo });
-    if (snap) fadeRun();
-  }
-
-  // ---------- the fade between flat and street map ----------
-  const FD = { canvas: null, gl: null, prog: null, tex: null, buf: null, raf: 0 };
-  function fadeGL() {
-    if (FD.gl) return FD.gl;
-    const c = document.createElement('canvas');
-    c.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;display:none';
-    map.getCanvasContainer().after(c);
-    const gl = c.getContext('webgl', { premultipliedAlpha: true, alpha: true });
-    if (!gl) return null;
-    const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
-    const prog = gl.createProgram();
-    gl.attachShader(prog, sh(gl.VERTEX_SHADER, 'attribute vec2 a; varying vec2 v; void main() { v = a; gl_Position = vec4(a.x * 2.0 - 1.0, 1.0 - a.y * 2.0, 0.0, 1.0); }'));
-    gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, 'precision mediump float; uniform sampler2D t; uniform float o; varying vec2 v; void main() { gl_FragColor = texture2D(t, v) * o; }'));
-    gl.linkProgram(prog);
-    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return null;
-    FD.tex = gl.createTexture();
-    gl.bindTexture(gl.TEXTURE_2D, FD.tex);
-    for (const [k, v] of [[gl.TEXTURE_MIN_FILTER, gl.LINEAR], [gl.TEXTURE_MAG_FILTER, gl.LINEAR], [gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE], [gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE]]) gl.texParameteri(gl.TEXTURE_2D, k, v);
-    FD.buf = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, FD.buf);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1]), gl.STATIC_DRAW);
-    Object.assign(FD, { canvas: c, gl, prog });
-    return gl;
-  }
-  // the picture on screen, held over the map while it changes
-  function fadeStart() {
-    const gl = fadeGL();
-    if (!gl) return false;
-    cancelAnimationFrame(FD.raf);
-    gl.bindTexture(gl.TEXTURE_2D, FD.tex);
-    try { gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, map.getCanvas()); } catch (e) { return false; }
-    const dpr = Math.min(window.devicePixelRatio || 1, 2), c = FD.canvas, box = map.getContainer();
-    c.width = Math.round(box.clientWidth * dpr); c.height = Math.round(box.clientHeight * dpr);
-    gl.viewport(0, 0, c.width, c.height);
-    gl.useProgram(FD.prog);
-    gl.bindBuffer(gl.ARRAY_BUFFER, FD.buf);
-    const loc = gl.getAttribLocation(FD.prog, 'a');
-    gl.enableVertexAttribArray(loc);
-    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-    gl.enable(gl.BLEND);
-    gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
-    fadeDraw(1);
-    c.style.display = 'block';
-    return true;
-  }
-  function fadeDraw(o) {
-    const gl = FD.gl;
-    gl.clearColor(0, 0, 0, 0);
-    gl.clear(gl.COLOR_BUFFER_BIT);
-    gl.uniform1f(gl.getUniformLocation(FD.prog, 'o'), o);
-    gl.drawArrays(gl.TRIANGLES, 0, 6);
-  }
-  // ... then, once the new map has drawn (its streets loaded, or a moment at most), faded out
-  function fadeRun() {
-    const T = 280;
-    let start = 0;
-    const go = () => { if (!start) start = performance.now(); };
-    map.once('idle', go);
-    const giveUp = performance.now() + 900;
-    const step = (now) => {
-      if (!start && now > giveUp) go();
-      if (start) {
-        const k = Math.min(1, (now - start) / T);
-        fadeDraw(1 - k * k * (3 - 2 * k));
-        if (k >= 1) { FD.canvas.style.display = 'none'; return; }
-      }
-      FD.raf = requestAnimationFrame(step);
-    };
-    FD.raf = requestAnimationFrame(step);
   }
 
   // how far out and in the map may zoom (the political map only so far in), and whether it repeats sideways (a flat
@@ -1594,14 +1522,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
   // Everything the options decide: which look, which fills and lines, the names, dots, cities and capitals.
   function apply() {
-    $('#app').classList.toggle('physical', state.base === 'physical');
+    $('#app').classList.toggle('physical', isPhysical());
     $('#colors-ctl').hidden = state.base === 'physical';
     $('#lighter-row').hidden = state.borders !== 'both';
     if (!glOK || !V) return;
     const pal = palette(), G = pal.ground;
     setLegendDot(pal);
     drawIcons(pal);
-    const physical = state.base === 'physical' && physicalOK;
+    const physical = isPhysical() && physicalOK;
     const S = V.cur, street = !political(); // the street map shows (streets, physical), or our own land and sea (political)
     const show = (id, on) => { if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', on ? 'visible' : 'none'); };
     const paint = (id, prop, value) => { if (map.getLayer(id)) map.setPaintProperty(id, prop, value); };
@@ -1693,9 +1621,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       paint('st-line-casing', 'line-color', '#ffffff');
       paint('st-line-casing', 'line-width', ['interpolate', ['linear'], ['zoom'], 2, 3, 6, 4.5, 10, 6]);
       paint('st-line-casing', 'line-opacity', fadeOut(0.55));
-      // no tint: a physical map shows the land itself (greens, deserts, relief); the shetachim are only their borders
-      // (owner, Oct 7: tints made it look like a political map)
-      show('st-tint', false);
+      // Physical: no tint, the land itself (greens, deserts, relief) with the shetachim's borders only (owner, Oct 7: tints
+      // made it look like a political map). Tinted, the fourth map: the same with each shetach softly tinted.
+      show('st-tint', physOn && shetachLines && state.base === 'tinted');
       map.setFilter('st-tint', ['all', inView, ['>=', ['get', 'cs'], 0]]);
       paint('st-tint', 'fill-color', state.color === 'plain' ? '#ffffff' : ['match', ['get', 'cs'], ...PHYS_TINTS.flatMap((c, i) => [i, c]), '#ffffff']);
       paint('st-tint', 'fill-opacity', ['interpolate', ['linear'], ['zoom'], 0, lightS ? 0.22 : 0.42, 6, lightS ? 0.2 : 0.36, 9, 0.22, 11, 0.08, 12, 0]);
@@ -1938,7 +1866,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const b = e.target.closest('button');
     if (!b) return;
     const name = seg.dataset.name;
-    if (name === 'base' && b.dataset.value === 'physical' && glOK && !physicalOK) {
+    if (name === 'base' && /^(physical|tinted)$/.test(b.dataset.value) && glOK && !physicalOK) {
       $('#base-msg').hidden = false;
       $('#base-msg').className = 'error';
       $('#base-msg').textContent = tr("The physical map couldn't load.");
@@ -1952,11 +1880,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       // at the view as framed, the other look framed too (the physical world isn't flat); closer in, the same place
       const framed = V.cur.zFit != null && map.getZoom() < V.cur.zFit + 0.75;
       if (framed) {
-        // the old map fades out over the new one, framed
-        const snap = !still && fadeStart();
         apply();
         frameView(false);
-        if (snap) fadeRun();
       } else { apply(); setMode(wantedSet()); }
       limits();
       return;

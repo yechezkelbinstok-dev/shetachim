@@ -149,7 +149,9 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
   OpenFreeMap's liberty style. Names, cities and capitals are the engine's own symbol layers, each name pre-sized per zoom
   (s0..s14) at its area's pole of inaccessibility.
 - PHYSICAL: **no shetach tints or fills at all** (owner, Oct 7: the tints made it "look like a political map"; it must be a
-  proper physical map: the land's own greens, deserts, relief). Shetachim show only as purple cased borders that fade out by z12. The map's
+  proper physical map: the land's own greens, deserts, relief). Shetachim show only as purple cased borders that fade out by z12.
+  **Tinted** (fourth map, owner Oct 7): the physical map with the soft shetach tints, for whoever wants it.
+  Map switches are instant: no held picture of the old map (`preserveDrawingBuffer` off; owner: the freeze "should not exist"). The map's
   own boundaries and city names stay. Don't go back to ink lines or a fade drawn over the map ("custom low quality lines").
 - PROJECTION: the owner hates Mercator. He chose "flat when zoomed out only", with Natural Earth (or Robinson), NEVER
   Equal Earth. The political map's world and continent views are in Natural Earth, centred on the view's `lon`:

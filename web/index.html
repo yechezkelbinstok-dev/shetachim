@@ -581,7 +581,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // Each view shows only its own countries (ISO alpha-3 outside the US and Canada) and fills the screen with them.
   // lon: the middle longitude, so a region crossing the 180° line (Russia's far east, New Zealand's Chatham
   // Islands) stays in one piece; wrap: the physical map repeats the world sideways there.
-  const EUROPE = ['AND', 'AUT', 'BLR', 'BEL', 'LUX', 'BGR', 'HRV', 'CYP', 'XNC', 'CZE', 'DNK', 'EST', 'FIN', 'FRA', 'DEU', 'GRC', 'ALB', 'BIH', 'XKO', 'MKD', 'HUN', 'ISL', 'IRL', 'ITA', 'SMR', 'VAT', 'SVN', 'LVA', 'LTU', 'MLT', 'MDA', 'MCO', 'LIE', 'MNE', 'NLD', 'NOR', 'POL', 'PRT', 'ROU', 'SRB', 'SVK', 'ESP', 'SWE', 'CHE', 'UKR', 'GBR'];
+  const EUROPE = ['AND', 'AUT', 'BLR', 'BEL', 'LUX', 'BGR', 'HRV', 'CYP', 'XNC', 'CZE', 'DNK', 'EST', 'FIN', 'FRA', 'DEU', 'GRC', 'ALB', 'BIH', 'XKO', 'MKD', 'HUN', 'ISL', 'IRL', 'ITA', 'SMR', 'VAT', 'SVN', 'LVA', 'LTU', 'MLT', 'MDA', 'MCO', 'LIE', 'MNE', 'NLD', 'NOR', 'POL', 'PRT', 'ROU', 'SRB', 'SVK', 'ESP', 'SWE', 'CHE', 'UKR', 'GBR', 'IMN'];
   const FSU = ['RUS', 'MNG', 'UKR', 'BLR', 'MDA', 'EST', 'LVA', 'LTU', 'ARM', 'AZE', 'GEO', 'KAZ', 'KGZ', 'UZB', 'TJK'];
   const ASIA = ['IND', 'NPL', 'LKA', 'CHN', 'HKG', 'MAC', 'JPN', 'KOR', 'TWN', 'THA', 'LAO', 'MMR', 'KHM', 'VNM', 'PHL', 'SGP', 'MYS', 'IDN'];
   const MIDEAST = ['ISR', 'TUR', 'ARE', 'QAT', 'SAU'];
@@ -1334,6 +1334,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       baseLanguage();
       if (BASE.has('building-3d')) BASE.set('building-3d', 'none');
       if (map.getLayer('building')) map.setLayerZoomRange('building', 13, 24);
+      if (map.getLayer('label_other')) map.setLayerZoomRange('label_other', 13, 24); // neighbourhoods, at street level only (hamlets otherwise)
       // the physical look's richer natural colours
       const phys = (id, prop, value) => { if (BASE_PAINT.has(id)) BASE_PAINT.set(id, { ...BASE_PAINT.get(id), [prop]: value }); };
       if (map.getLayer('natural_earth')) map.setLayerZoomRange('natural_earth', 0, 12);
@@ -1620,6 +1621,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       // the street map's own borders on the physical map; the political one draws its own (they match the shetachim's)
       if (on && layer.sourceLayer === 'boundary') on = physical && state.borders !== 'shetach';
       if (on && layer.type === 'symbol' && layer.sourceLayer === 'place' && /country|state|continent/.test(id)) on = false; // the shetachim's names instead
+      // towns: only ours, the ones with a center (the street map's own would name every town, centers or not)
+      if (on && layer.type === 'symbol' && layer.sourceLayer === 'place' && /^label_(city|city_capital|town|village)$/.test(id)) on = false;
       show(id, on);
       if (layer.sourceLayer === 'boundary') paint(id, 'line-opacity', lightR ? 0.35 : (BASE_PAINT.get(id) || {})['line-opacity'] ?? 1);
     }
@@ -1728,7 +1731,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       paint(id('seas'), 'text-halo-color', G.water);
       paint(id('seas'), 'text-halo-width', 1);
       show(id('names'), on && state.labels !== 'off');
-      show(id('cities'), on && state.cities && !street);
+      show(id('cities'), on && state.cities);
       show(id('caps'), on && state.capitals);
       show(id('cap-names'), on && state.capitals && !street);
       show(id('honor'), on);

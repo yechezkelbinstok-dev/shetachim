@@ -59,7 +59,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
   Cloncurry and the Gulf — 37 whole ABS LGAs (2022) dissolved into `data/shapes/north-queensland.geojson` (Mackay,
   Whitsunday, Burdekin, Townsville, Charters Towers, Cairns, Douglas, Cook, Torres, the Cape and Gulf councils, Mount
   Isa, Cloncurry, McKinlay, Richmond, Flinders…). Isaac (Moranbah, Clermont), Winton, Boulia, Rockhampton and south
-  stay with RARA. **The Isle of Man is in the UK** (`IMN` in its territory).
+  stay with RARA. **The Isle of Man is in the UK** (`IMN` in its territory, and in the page's `EUROPE` list, or it isn't drawn at all: Oct 7 it was missing there).
 - **Mexico is one shetach under Yosef Mayzlesh** (Oct 2, the owner: "entire Mexico is Mayzlish"; Rabbi Yosef
   Mayzlesh, Chabad of Bosques — Rabbi Mendel Mayzlesh runs Chabad Lubavitch Mexico City). The earlier Mexican
   shetachim (Baja California, Sinaloa, Nayarit with western Jalisco, Jalisco, Bajío, Nuevo León, Chiapas, the Mexican
@@ -672,3 +672,11 @@ The owner got very angry at the first version. The lessons:
   in both Political and Physical.
 - Keep the fade's GeoJSON source at `tolerance: 0`: with MapLibre's default simplification, its
   holes break in some tiles and cover parts of the shetachim.
+
+## Oct 7 (owner)
+- **Towns named on every map (political, streets, physical) are only ours: towns with a center.** The street map's own
+  city/town/village labels are hidden; its other place labels (neighbourhoods) only from zoom 13.
+- **Hebrew: English-style nicknames are written as the proper name** (data/hebrew/first-names.json and the head
+  shluchim): Mendy → מענדל, Zalmy → זלמן, Benjy → בנימין, Moishy → משה, Mordy → מרדכי, Hershy → הערשל, Laivy → לייב,
+  Getzy → געצל, Avremi → אברמל, Shuey → יהושע, Effy → אפרים. Nicknames Hebrew uses itself stay (יוסי, פיני, חזקי, שמולי, קוטי,
+  and women's names like מושקי, חני).

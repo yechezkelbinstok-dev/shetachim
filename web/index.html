@@ -337,7 +337,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const fmt = d3.format(',');
   const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
-  const phone = () => window.matchMedia('(max-width: 760px)').matches;
+  const PHONE_MQ = window.matchMedia('(max-width: 760px)');
+  const phone = () => PHONE_MQ.matches;
   const coarse = () => window.matchMedia('(pointer: coarse)').matches;
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const state = { empty: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true, sea: true };
@@ -750,7 +751,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function partsOf(geometry) {
     const polys = geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.type === 'MultiPolygon' ? geometry.coordinates : [];
     return polys.map((p) => {
-      const rings = p.map((ring) => ring.map(([lon, lat]) => [mx(lon), my(lat)]));
+      // (at most ~500 points a ring: where a name goes doesn't need every bend of a coast, and full detail made the
+      // first switch to the street map take seconds)
+      const rings = p.map((ring) => { const k = Math.max(1, Math.floor(ring.length / 500)); return ring.filter((_, i) => i % k === 0 || i === ring.length - 1).map(([lon, lat]) => [mx(lon), my(lat)]); });
       return { rings, area: Math.max(0, ringArea(rings[0]) - d3.sum(rings.slice(1), ringArea)) };
     }).filter((q) => q.area > 0).sort((a, b) => b.area - a.area);
   }
@@ -1493,6 +1496,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     frameView(animate && prev && !prev.flat);
     setOutside();
     apply();
+    warmNames();
+  }
+  // The names of the view's other way of drawing (the street maps' when the political map shows, and back), worked out
+  // while the page is idle, so changing maps has nothing left to work out and is instant.
+  function warmNames() {
+    const idle = window.requestIdleCallback || ((f) => setTimeout(f, 800));
+    idle(() => { for (const T of [V.M, V.F]) if (T && T !== V.cur && state.labels !== 'off') labelData(T); }, { timeout: 3000 });
   }
   // The land no shetach covers: flat, it's land like any other (there's no street map to show it); with Rest of the
   // world it's greyed, with its borders.

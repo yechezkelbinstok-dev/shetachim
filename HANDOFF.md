@@ -14,11 +14,13 @@ between two Claude accounts when usage limits run out; whichever session picks t
   The owner wants it *sure*: Suriname had Merkos Shlichus seders in Paramaribo (Pesach 2025) but no shliach is named as
   responsible (Rabbi Super of St. Lucia only helped with the bochurim's stopover), so it stays blank until one is. Only truly uninhabited stretches are left out (the Yukon and
   NWT only partly in Alberta). French Guiana: no Chabad activity found (Oct 5), so no shetach yet.
-- **Head shliach names are never shortened to the last name alone** — not on the live map, not in the SVGs. Only the
-  full name (one line or two), or, for someone with middle names, first + last name ("Yosef Yitzchak Aharonov" →
-  "Yosef Aharonov") until zoomed in; where neither fits, no name. Families and leadership entries ("Alevsky family",
-  "Hanholo of Chabad Lubavitch UK") are never shortened. (`shetachLabel`/`firstAndLast` in the page; `nameForms` in
-  scripts/export-svg.mjs.) The separate "Last name" label mode stays as an explicit choice.
+- **Head shliach names are never shortened** — not on the live map, not in the SVGs, never to the last name alone
+  (owner, Oct 7: there is no "Last name" label mode any more). Where the full name doesn't fit on one line or two,
+  no name. **Middle names are left out of the data itself** unless part of the first name (Sholom Ber, Menachem
+  Mendel, Yosef Yitzchak, Shneur Zalman) or the man is usually called by it (Yitzchok Meyer Lipszyc, Gershon Meir
+  Burshtein, Aryeh Zeev Raskin, as the press names them). Oct 7: Yaakov Biderman, Chaim Azimov, Yeshaya Cohen, Yosef
+  Kantor, Chaim Shaikevitz (that last one unconfirmed: found no usage either way). Same in data/hebrew/shetachim.json.
+  Families and leadership entries ("Alevsky family", "Hanholo of Chabad Lubavitch UK") are never shortened.
 - **Alberta's name sits on Alberta itself** in every label mode (`labelState: "CA-AB"`: the page keeps the name within
   that state's part while it's on screen — it used to only aim there, and the two-line head-shliach name drifted up
   into the territories' strip). The Alberta shetach's territories part ends at **110°W** (the Alberta–Saskatchewan
@@ -47,7 +49,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
   colour, with a dashed border between them (page mesh `inner`, tile edges `tr`, SVG dashed path); named plainly
   "India"; in the head modes Kantor's name again over India in italics and smaller (`secondary` labels; Hebrew, which has no italics:
   Heebo Regular slanted by hand on the posters, oblique on the page; at most 85% of his main name on the posters), his main name on Thailand–Myanmar–Laos as before;
-  India's card: "Overseen by Yosef Chaim Kantor" (בהנהגת …) (Oct 5; the owner rejected "Together with the Thailand shetach", "Under the auspices of", and "Head shliach" + "Also head shliach of Thailand" — don't quote his own words onto the page). (`noCentralLeadership: true` remains for a shetach without a head.) Israel's name on the world poster goes beside the map with a short leader (`ASIDE_NAMES`);
+  India's card: "Overseen by Yosef Kantor" (בהנהגת …) (Oct 5; the owner rejected "Together with the Thailand shetach", "Under the auspices of", and "Head shliach" + "Also head shliach of Thailand" — don't quote his own words onto the page). (`noCentralLeadership: true` remains for a shetach without a head.) Israel's name on the world poster goes beside the map with a short leader (`ASIDE_NAMES`);
   Hawaii's runs across its islands (`SEA_NAMES` 'chain'). The US & Canada names maps use short leaders to the nearest
   water (`aside`, only the Boston/Cape Cod knot stacked), not one column far out in the Atlantic.
 - **North Queensland** (Ari Rubin; capital Chabad of Northern Queensland, Cairns): Mackay and north, Mount Isa,
@@ -100,9 +102,10 @@ built by `node scripts/build-hebrew.mjs` (run after `npm run build`; it stops an
 from the hand-written lists in `data/hebrew/`: `shetachim.json` (name, short forms, head shliach, headTitle הנהלה),
 `areas.json` (every state/country code; from Natural Earth's Hebrew names, fixed by hand), `cities.json` (map cities,
 centers' towns, capitals' towns). Israel's shetach is "ארץ הקודש", the view "ארץ ישראל"; Judea and Samaria stays Israel.
-Centers show chabad.org's own Hebrew name where it has one (920 do); the rest keep their names; center types are
-translated in the page (`HE_TEXT`). "Last name" mode uses the Hebrew surname (שם טוב is two words; the build works
-it out by the English name's word count). The name SVGs have Hebrew copies (`world-names-he`, `na-names-he` in
+Centers show chabad.org's own Hebrew name where it has one (920 do); the rest (and capitals) from
+data/hebrew/centers.json, translated by hand; center types are translated in the page (`HE_TEXT`). A town two places
+share is keyed "Name|REGION" in data/hebrew/cities.json (Naples|US-FL נייפלס vs Naples נאפולי). The Hebrew surname
+(`lastName`, for "<name> family" lines; שם טוב is two words) is worked out by the English name's word count. The name SVGs have Hebrew copies (`world-names-he`, `na-names-he` in
 export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn right to left (`visual()`).
 
 ## PERSONNEL — collected Oct 3, NOT YET BUILT (do this next)
@@ -204,7 +207,7 @@ Done in this round:
   (a name may cross a gulf or strait), or blocked (another area, outside the hull, off screen, under the panel, a
   capital's star, a name already placed). Summed-area tables answer "is this box clear" in four lookups; a distance
   transform prunes centres. **Form**: the full name at the biggest size it fits (two lines if ≥15% bigger), else the
-  other way of setting it, else each short form in turn; head-shliach mode's short form is the last name. **Size**:
+  other way of setting it, else each short form in turn; head-shliach mode has no short form. **Size**:
   what the area's land on screen calls for (`capFor`: 5 + 0.14·√area px, 9–36 px on phones, 9–46 on desktop), and no
   more than 88% of the most that fits (`BREATHE`), so names aren't pressed against edges; never under 9 px (8 for
   short forms). **Place**: most room on every side (up to ~1.4 letters), near the visible part's centre of mass, on
@@ -475,7 +478,7 @@ with things drawn on top. It starts with the US and Canada, then covers the worl
 - Colorful (political-map colors) or Plain (one color) fills.
 - A faint dot for every Chabad center (from the chabad.org locator). Listings at the same address
   are merged into one dot.
-- Labels: head shliach full name / last name only / shetach name / off.
+- Labels: shetach name / head shliach / off (no last-name mode, owner Oct 7).
 - Views: US & Canada, only USA, only Canada. Each view **shows only that area and fills the
   screen**. Later there will be continent views for the world.
 - Zoom and pan.
@@ -540,7 +543,7 @@ The owner got very angry at the first version. The lessons:
     and the map's city names are hidden while our cities are on. The map's colors on the
     physical map are always the light ones. Switching modes keeps the place you were looking at.
   - Borders: Shetachim / States / Both (+ Lighter swap); Colors: Colorful / Plain (political only)
-  - Labels: Shetach name (default) / Head shliach / Last name / Off. Each label is centred inside its
+  - Labels: Shetach name (default) / Head shliach / Off. Each label is centred inside its
     shetach and never reaches into another one (it may hang over water a little). Where the text doesn't
     fit on one line it tries two, then the shetach's short form (`short` in the data; by default its
     states' abbreviations joined, like KS-MO or MB-SK), else no label. Labels slide sideways past a

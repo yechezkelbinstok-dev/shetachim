@@ -264,7 +264,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         <div class="seg" data-name="labels">
           <button type="button" data-value="name" aria-pressed="true">Shetach name</button>
           <button type="button" data-value="full" aria-pressed="false">Head shliach</button>
-          <button type="button" data-value="last" aria-pressed="false">Last name</button>
           <button type="button" data-value="off" aria-pressed="false">Off</button>
         </div>
       </fieldset>
@@ -373,7 +372,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'United States & Canada': 'ארצות הברית וקנדה', 'United States': 'ארצות הברית', 'Former Soviet Union': 'ברית המועצות לשעבר',
     'Latin America & Caribbean': 'אמריקה הלטינית והאיים הקריביים',
     Map: 'מפה', Physical: 'פיזית', Political: 'מדינית', Borders: 'גבולות', States: 'מדינות', Countries: 'ארצות', Both: 'שניהם',
-    'Lighter:': 'בהיר יותר:', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', 'Last name': 'שם משפחה', Off: 'ללא',
+    'Lighter:': 'בהיר יותר:', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', Off: 'ללא',
     'More options': 'אפשרויות נוספות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Rest of the world': 'שאר העולם', 'Blue sea': 'ים כחול', Streets: 'רחובות',
     Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד', Dots: 'נקודות', Solid: 'מלאות', 'See-through': 'שקופות', Classic: 'קלאסיות',
     'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
@@ -496,8 +495,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const hs = (s) => heData.shetachim[s.id];
     for (const s of shetachById.values()) {
       const englishHead = s.headShliach || '';
-      const words = englishHead.trim().split(/\s+/);
-      const personal = !s.headTitle && words.length > 2 && !/[;—]|\b(family|of)\b/i.test(englishHead);
       const enTitle = s.headTitle;
       s._enHead = englishHead;
       dual(s, 'name', (h) => hs(s) && [hs(s).name]);
@@ -505,8 +502,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       dual(s, 'headShliach', (h) => hs(s) && [hs(s).headShliach]);
       dual(s, 'lastName', (h) => hs(s) && [hs(s).lastName]);
       dual(s, 'headTitle', (h) => hs(s) && [hs(s).headTitle || (enTitle && (HE_TEXT[enTitle] || enTitle))]);
-      // first and last name only, for someone with middle names: as in English, by the English name's word count
-      dual(s, 'firstLast', (h) => hs(s) && [personal ? `${hs(s).headShliach.split(/\s+/)[0]} ${hs(s).lastName}` : null]);
     }
     // a center: its own Hebrew name where chabad.org has one, its kind and city in Hebrew
     // A town name two places share (Naples, Italy and Florida) is spelled by region: the nearest map city of that name.
@@ -833,15 +828,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const p = s.territoryOf && shetachById.get(s.territoryOf);
     if (state.labels === 'name') return { text: s.name, short: [].concat(s.short || [])[0] || null, kind: '' };
     const who = p || s;
-    const person = state.labels === 'last' ? who.lastName : who.headShliach;
+    const person = who.headShliach;
     if (!person) return s.noCentralLeadership ? null : { text: s.name, short: [].concat(s.short || [])[0] || null, kind: 'miss' };
-    return { text: person, short: state.labels === 'full' ? firstAndLast(who) : null, kind: p ? 'sec' : '' };
-  }
-  function firstAndLast(s) {
-    if (s.firstLast !== undefined) return s.firstLast;
-    const words = (s.headShliach || '').trim().split(/\s+/);
-    if (s.headTitle || words.length < 3 || /[;—]|\b(family|of)\b/i.test(s.headShliach)) return null;
-    return `${words[0]} ${words[words.length - 1]}`;
+    // a head shliach's name is never cut down (no last name alone, no dropped middle name: the data keeps a middle
+    // name only where it's part of how he's called, "Sholom Ber"); where it doesn't fit, one line or two, else none
+    return { text: person, short: null, kind: p ? 'sec' : '' };
   }
   // A name on two lines, split at the space or hyphen that makes the lines most even.
   function twoLines(text) {

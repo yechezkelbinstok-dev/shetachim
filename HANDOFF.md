@@ -8,6 +8,26 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## IMMEDIATE CONTINUATION (Oct 7, handed off mid-task — do this first)
+The owner asked (Oct 7): **(1) add the Israeli-controlled parts of Lebanon and Syria to Israel, the same way as Gaza**
+(part of Israel, no line between); **(2) fix Gaza's edge — it was "a weird rough border, not a precise one" for the
+Orange Line.**
+- Done for (2), committed but **not yet rebuilt or live**: the two OSM areas (Yellow Line, Orange Line) didn't quite
+  meet, leaving 6 sliver holes and 10 slivers (all under 0.2 km²) along the seam — drawn as grey notches/specks inside
+  Israel. `data/shapes/gaza-held.geojson` is now one clean polygon (slivers given to it, holes filled; 207.3 km²) and
+  `gaza-rest.geojson` one piece (135.5 km²). Note: if `scripts/gaza-line.mjs` is re-run it regenerates the slivers —
+  add the same cleanup to the script (dissolve held + rest pieces under 1 km², drop holes). Also **Israel is now drawn
+  at 100 m** (`FINE` in the build, was 800 m), so the line's real bends survive simplification.
+- **Next steps:** `npm run build`, check Gaza in the Israel view zoomed in (political + physical), `npm run svg` and
+  `node scripts/svg-png.mjs`, then push to `claude/bold-albattani-aqfnj9`. (A screenshot run in the last session showed
+  "console Error" lines in the Israel view — check whether that's the test harness or real.)
+- **(1) is not started.** It needs OpenStreetMap (www.openstreetmap.org, and overpass-api.de to search), which the
+  last session's environment blocked. Find OSM areas for the zones Israel holds — in Syria (the former UNDOF buffer
+  zone, the Syrian side of Mount Hermon and positions beyond, since Dec 2024) and southern Lebanon — the way
+  `scripts/gaza-line.mjs` uses the Yellow/Orange Line ways; cut them from GADM's Syria/Lebanon (`.cache/gadm-hi-SYR-0`,
+  `gadm-hi-LBN-0`), add the held parts to Israel's land in `worldLand()` like `GAZA_HELD`, keep the rest as outside land.
+  Record the OSM way ids/versions in the shape files and here. Syria itself stays in no shetach ("never Syria").
+
 ## OWNER'S STANDING RULES (Oct 1) — never undo these
 - **Any Chabad activity in a country puts it in a shetach** (Oct 5): visiting bochurim, a shliach who serves it from next
   door, holiday trips — the country goes to the shetach of the shliach responsible (Mongolia is Russia's; Guyana is the Caribbean's).

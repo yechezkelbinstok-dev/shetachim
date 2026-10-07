@@ -714,3 +714,14 @@ Cambodia, Mongolia, Isle of Man), dark theme (physical stays light), Hebrew pane
 Known differences left as they are: fewer town names at the framed views than the old page (the engine shows a town
 only where it has room); capital stars a little smaller; Hebrew India name lighter and smaller but not slanted (the
 engine can't slant Hebrew); Victoria's disputed name doesn't fit at the Oceania view (the old page didn't fit it either).
+
+## SWEEP 2 (Oct 7) — automated card check (5,963 cards × English/Hebrew), every view × desktop/phone, every option
+Fixed: Hebrew area cards' "Capital:" line was English (they read the raw data, not the bilingual capitals); Friendship
+Circle; two mixed-language chabad.org names (now from data/hebrew/centers.json); continent views' faded land had
+spikes where the far-side seam cuts land (land across the seam is left out there, `crossing`); the language button
+lost every other tap while the first switch loaded (taps now queue); PNG posters were stale since Oct 3 (run
+`node scripts/svg-png.mjs` after every `npm run svg`); Zoom in on Alaska in US & Canada zoomed out to the world.
+English cards: 0 problems. Hebrew cards: only acronyms left in Latin letters (UCLA, MIT, SUNY, JRCC, RARA…), on purpose.
+**Gaza (owner, Oct 7): Israel's edge there should follow the line Israel actually holds now** (the yellow line as it
+ended up, ~60–64% of Gaza per April–May 2026 reporting, the "orange line"), not the Gaza boundary — NOT DONE: no
+published geometry of it found (Wikipedia, OCHA/HDX, news give only percentages); waiting on the owner for a map or source.

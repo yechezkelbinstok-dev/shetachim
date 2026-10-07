@@ -129,10 +129,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 .legend-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #163e74; }
 .legend-ring { display: inline-block; width: 7px; height: 7px; border-radius: 50%; border: 1.5px solid var(--ink); background: var(--halo); }
 .legend-star { width: 12px; height: 12px; fill: var(--ink); }
-#more > summary { cursor: pointer; font: 600 10.5px var(--font-map); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); list-style: none; padding: 2px 0; }
-#more > summary::-webkit-details-marker { display: none; }
-#more > summary::after { content: '▾'; margin-left: 6px; font-size: 11px; }
-#more[open] > summary::after { content: '▴'; }
+#views { margin-top: 6px; }
+#views[open] > .seg { margin-top: 6px; }
+#more > summary, #views > summary { cursor: pointer; font: 600 10.5px var(--font-map); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); list-style: none; padding: 2px 0; }
+#more > summary::-webkit-details-marker, #views > summary::-webkit-details-marker { display: none; }
+#more > summary::after, #views > summary::after { content: '▾'; margin-inline-start: 6px; font-size: 11px; }
+#more[open] > summary::after, #views[open] > summary::after { content: '▴'; }
 .more-body { display: flex; flex-direction: column; gap: 14px; padding-top: 10px; }
 .more-body .checks { display: flex; flex-direction: column; gap: 7px; }
 .legend-sea { display: inline-block; width: 12px; height: 10px; border-radius: 2px; background: #a9c7f2; }
@@ -224,6 +226,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         <legend>Show</legend>
         <div class="seg" data-name="view">
           <button type="button" data-value="world" aria-pressed="true">World</button>
+        </div>
+        <!-- the other views only when asked for (owner, Oct 7: the default is the whole world) -->
+        <details id="views">
+        <summary>Regions &amp; countries</summary>
+        <div class="seg" data-name="view">
           <button type="button" data-value="europe" aria-pressed="false">Europe</button>
           <button type="button" data-value="fsu" aria-pressed="false">FSU</button>
           <button type="button" data-value="israel" aria-pressed="false">Israel</button>
@@ -238,6 +245,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           <button type="button" data-value="us" aria-pressed="false">USA</button>
           <button type="button" data-value="ca" aria-pressed="false">Canada</button>
         </div>
+        </details>
       </fieldset>
       <fieldset class="ctl">
         <legend>Map</legend>
@@ -377,7 +385,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'Latin America & Caribbean': 'אמריקה הלטינית והאיים הקריביים',
     Map: 'מפה', Physical: 'פיזית', Tinted: 'פיזית צבועה', Political: 'מדינית', Borders: 'גבולות', States: 'מדינות', Countries: 'ארצות', Both: 'שניהם',
     'Lighter:': 'בהיר יותר:', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', Off: 'ללא',
-    'More options': 'אפשרויות נוספות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Rest of the world': 'שאר העולם', 'Blue sea': 'ים כחול', Streets: 'רחובות',
+    'More options': 'אפשרויות נוספות', 'Regions & countries': 'אזורים ומדינות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Rest of the world': 'שאר העולם', 'Blue sea': 'ים כחול', Streets: 'רחובות',
     Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד', Dots: 'נקודות', Solid: 'מלאות', 'See-through': 'שקופות', Classic: 'קלאסיות',
     'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
     'Download maps (SVG, PNG)': 'הורדת מפות (SVG, PNG)', 'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
@@ -1842,7 +1850,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function zoomToArea(pieceId) {
     const S = V.cur, area = areaOf(S, pieceId);
     if (!area || !area.geometry) return;
-    const b = S.flat ? flatBounds(area.geometry) : d3.geoBounds(feature(area.geometry));
+    const b = S.flat && !S.boxed ? flatBounds(area.geometry) : d3.geoBounds(feature(area.geometry)); // (boxed: standard outside the boxes, Alaska across 180°)
     const bounds = b[0][0] > b[1][0] ? [[b[0][0], b[0][1]], [b[1][0] + 360, b[1][1]]] : b;
     map.fitBounds(bounds, { padding: framePadding(), duration: still ? 0 : 900, maxZoom: 12 });
   }
@@ -2048,6 +2056,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
   const syncSheet = () => document.documentElement.style.setProperty('--sheet', `${$('#panel').getBoundingClientRect().height}px`);
   $('#more').addEventListener('toggle', syncSheet);
+  $('#views').addEventListener('toggle', syncSheet);
   $('#panel-toggle').addEventListener('click', () => {
     const panel = $('#panel');
     const open = panel.classList.toggle('collapsed') === false;

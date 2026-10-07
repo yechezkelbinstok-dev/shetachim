@@ -99,6 +99,7 @@ const FROM_NATURAL_EARTH = ['CPV'];
 const ISRAEL_EXTRA = { url: `${GADM}/Admin1/gadm36_PSE_1.json`, cache: 'gadm-hi-ISR-judea-samaria.json', region: 'West Bank' };
 // The same file's other region, Gaza, isn't in any shetach: it's only land outside the map, under its own name.
 const GAZA = { region: 'Gaza', code: 'GAZA', name: 'Gaza' };
+const GAZA_HELD = path.join(ROOT, 'data', 'shapes', 'gaza-held.geojson'), GAZA_REST = path.join(ROOT, 'data', 'shapes', 'gaza-rest.geojson');
 // The British Sovereign Base Areas on Cyprus, by Natural Earth code: Akrotiri (WSB) and Dhekelia (ESB).
 const CYPRUS_EXTRA = ['WSB', 'ESB'];
 // Countries a shetach list divides by state, like the US and Canada: each state is its own area (MX-JAL), with
@@ -783,7 +784,9 @@ async function worldLand(data, levels) {
     else if (WORLD_PREFIX.has(m[1])) divided.add(WORLD_PREFIX.get(m[1]));
   }
   const outside = GADM_ALL.filter((c) => !whole.has(c) && !divided.has(c));
-  const spec = JSON.stringify({ v: 5, whole: [...whole].sort(), divided: [...divided].sort(), levels: [...levels].sort(), outside });
+  // (the Gaza line is part of the world's land: a new line means new land)
+  const gazaLine = fs.existsSync(GAZA_HELD) ? createHash('sha1').update(fs.readFileSync(GAZA_HELD)).digest('hex').slice(0, 10) : '';
+  const spec = JSON.stringify({ v: 5, whole: [...whole].sort(), divided: [...divided].sort(), levels: [...levels].sort(), outside, gazaLine });
   const file = path.join(CACHE, `world-${createHash('sha1').update(spec).digest('hex').slice(0, 10)}.json`);
   if (!fs.existsSync(file)) {
     const dir = fs.mkdtempSync(path.join(CACHE, 'world-')), files = [], missing = [];
@@ -811,6 +814,9 @@ async function worldLand(data, levels) {
           const extra = readJSON(await download(ISRAEL_EXTRA.url, ISRAEL_EXTRA.cache)).features.filter((f) => f.properties.NAME_1 === ISRAEL_EXTRA.region);
           if (!extra.length) throw new Error('Judea and Samaria is missing from its GADM file');
           features.push(...extra.map((f) => featureOf(f.geometry, props('Israel'))));
+          // the part of Gaza Israel holds, up to the line as it actually runs now (owner, Oct 7): data/shapes/gaza-held,
+          // made by scripts/gaza-line.mjs from OpenStreetMap's "Yellow Line" and "Orange Line"
+          if (fs.existsSync(GAZA_HELD)) features.push(...readJSON(GAZA_HELD).features.map((f) => featureOf(f.geometry, props('Israel'))));
         }
         if (code === 'CYP') {
           // Cyprus includes the British Sovereign Base Areas (owner, Oct 1): GADM has no file for them, so they're
@@ -828,7 +834,9 @@ async function worldLand(data, levels) {
       const name = GADM_NAME_FIX[code] || gj.features[0]?.properties.NAME_0 || gj.features[0]?.properties.Name || code;
       write(`outside-${code}`, gj.features.map((f) => featureOf(f.geometry, { state: code, name, abbr: code, country: code, outside: true })));
     }
-    const gaza = readJSON(await download(ISRAEL_EXTRA.url, ISRAEL_EXTRA.cache)).features.filter((f) => f.properties.NAME_1 === GAZA.region);
+    // (the rest of Gaza, beyond that line; all of it if the line hasn't been made)
+    const gaza = fs.existsSync(GAZA_REST) ? readJSON(GAZA_REST).features
+      : readJSON(await download(ISRAEL_EXTRA.url, ISRAEL_EXTRA.cache)).features.filter((f) => f.properties.NAME_1 === GAZA.region);
     write('outside-gaza', gaza.map((f) => featureOf(f.geometry, { state: GAZA.code, name: GAZA.name, abbr: GAZA.code, country: GAZA.code, outside: true })));
     for (const iso3 of divided) {
       console.log(`world: ${iso3} states`);

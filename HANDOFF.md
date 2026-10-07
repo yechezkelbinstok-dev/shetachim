@@ -722,6 +722,10 @@ spikes where the far-side seam cuts land (land across the seam is left out there
 lost every other tap while the first switch loaded (taps now queue); PNG posters were stale since Oct 3 (run
 `node scripts/svg-png.mjs` after every `npm run svg`); Zoom in on Alaska in US & Canada zoomed out to the world.
 English cards: 0 problems. Hebrew cards: only acronyms left in Latin letters (UCLA, MIT, SUNY, JRCC, RARA…), on purpose.
-**Gaza (owner, Oct 7): Israel's edge there should follow the line Israel actually holds now** (the yellow line as it
-ended up, ~60–64% of Gaza per April–May 2026 reporting, the "orange line"), not the Gaza boundary — NOT DONE: no
-published geometry of it found (Wikipedia, OCHA/HDX, news give only percentages); waiting on the owner for a map or source.
+**Gaza (owner, Oct 7): Israel's edge there follows the line Israel actually holds now**, not the Gaza boundary (the
+Yellow Line as it ended up, plus the Orange Line strip added from late April 2026). Source: OpenStreetMap, which keeps
+both as areas edited as the line moves, from IDF maps: "Yellow Line" (way 1313327399, v41, Aug 16 2026) and "Orange
+Line" (way 1541663246, v4, Sept 24 2026). `node scripts/gaza-line.mjs` fetches them, cuts GADM's Gaza along their
+union and writes data/shapes/gaza-held.geojson (part of Israel, no line between) and gaza-rest.geojson (land outside the
+map); then `npm run build`. Oct 7: 207.5 km² held, 60% of GADM's Gaza outline (Israel's own May figure was 60%; Reuters
+reported at least 64%). Re-run when the line moves (check the ways' history on openstreetmap.org).

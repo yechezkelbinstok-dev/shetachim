@@ -748,7 +748,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // a point as the engine should get it
   const P = (lon, lat) => { if (!PROJ) return [lon, lat]; const p = PROJ([lon, lat]); return p ? fake(p) : null; };
   // A geometry (lon/lat) projected flat, clipped at the projection's edge, as the engine should get it.
-  function projGeom(geometry) {
+  function projGeom(geometry, fine) {
     if (!PROJ || !geometry) return geometry;
     const rings = [], lines = [], pts = [];
     let cur = null, poly = false;
@@ -763,7 +763,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       polygonStart() { poly = true; }, polygonEnd() { poly = false; }, sphere() {},
     };
     // the world's outline is only its corners until it's bent along the projection's curved edge (the data is dense already)
-    const proj = geometry.type === 'Sphere' ? PROJ_FINE : PROJ;
+    // (fine: land cut by the projection's edge follows the edge's curve, not a straight chord — the Sphere, and land)
+    const proj = geometry.type === 'Sphere' || fine ? PROJ_FINE || PROJ : PROJ;
     d3.geoStream(geometry.type === 'Sphere' ? geometry : { type: 'Feature', geometry, properties: {} }, proj.stream(sink));
     if (rings.length) {
       // outer rings wind one way, holes the other: each hole goes with the smallest outer ring around it
@@ -1067,6 +1068,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   let V = null, map = null, glOK = false, hoverPiece = null;
   const SETS = new Map();
   let allLand = null; // every piece's land, merged once (a flat view's land, with the land no shetach covers)
+  const PIECE_BOUNDS = new Map();
+  // whether lon/lat bounds reach across a flat view's seam, the meridian opposite its centre
+  function crossing(view, [[w], [e]]) {
+    const seam = ((view.lon ?? 11) + 360) % 360 - 180; // opposite the centre, in -180..180
+    const inside = (x) => (w <= e ? x >= w && x <= e : x >= w || x <= e);
+    return inside(seam) || inside(seam + 360) || inside(seam - 360) || (e - w + 360) % 360 > 300;
+  }
   let landNoBoxes = null; // the same less Alaska and Hawaii (the boxed political map's land in place)
   // run fn with S's projection in force (P, projGeom and unitsPerKm follow it)
   function within(S, fn) {
@@ -1125,7 +1133,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       // all the land (the political map has no street map to show it)
       if (!allLand) allLand = topojson.merge(topo, pieces);
       if (boxes.length && !landNoBoxes) landNoBoxes = merged(pieces.filter((g) => !boxOf(g)));
-      S.land = flat ? feature(boxes.length ? projPieces(pieces, (gs) => (gs.some(boxOf) ? merged(gs) : landNoBoxes)) : projGeom(allLand)) : feature(allLand);
+      // (a continent view's world is cut at the far side, 180° from its centre: land across that seam, at the very edge,
+      // came out as thin spikes, so it's left out of the faded background there; the whole world view has no such cut)
+      const crossesSeam = (g) => crossing(view, PIECE_BOUNDS.get(g) || (PIECE_BOUNDS.set(g, d3.geoBounds(topojson.feature(topo, g))), PIECE_BOUNDS.get(g)));
+      S.land = flat ? feature(boxes.length ? projPieces(pieces, (gs) => (gs.some(boxOf) ? merged(gs) : landNoBoxes))
+        : view === VIEWS.world ? projGeom(allLand, true) : projGeom(merged(pieces.filter((g) => !crossesSeam(g))), true)) : feature(allLand);
       // the view's own land only (owner's first rule: show only the shetachim, never the countries around them; the
       // rest of the world's land only with "Rest of the world")
       const viewLand = topojson.merge(topo, main);
@@ -1629,7 +1641,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       let so = o;
       if (o && S.flat) {
         if (!S.outside) {
-          S.outside = within(S, () => ({ fill: fc(o.fill.features.map((f) => feature(projGeom(f.geometry), f.properties)).filter((f) => f.geometry)),
+          S.outside = within(S, () => ({ fill: fc(o.fill.features.filter((f) => V.view === VIEWS.world || !crossing(V.view, d3.geoBounds(f))).map((f) => feature(projGeom(f.geometry, true), f.properties)).filter((f) => f.geometry)),
             coast: feature(projGeom(o.coast.geometry) || { type: 'MultiLineString', coordinates: [] }, o.coast.properties),
             borders: feature(projGeom(o.borders.geometry) || { type: 'MultiLineString', coordinates: [] }, o.borders.properties) }));
         }

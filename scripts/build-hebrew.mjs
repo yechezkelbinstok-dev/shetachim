@@ -51,7 +51,9 @@ for (const [k, v] of Object.entries(cityNames)) if (k.includes('|')) out.cities[
 const centerNames = read('data', 'hebrew', 'centers.json');
 out.centers = {};
 for (const c of [...centers, ...shetachim.map((s) => s.capital).filter((c) => c && c.name)]) {
-  if (!c.name || /[\u0590-\u05FF]/.test(c.nativeName || '')) continue;
+  // (chabad.org's own Hebrew name is used, unless it's mixed with Latin letters: "Schule בית כנסת")
+  const native = c.nativeName || '';
+  if (!c.name || (/[\u0590-\u05FF]/.test(native) && !/[A-Za-z]{3}/.test(native))) continue;
   if (centerNames[c.name] !== undefined) out.centers[c.name] = centerNames[c.name]; else missing.push(`center ${c.name}`);
 }
 // people on the centers' cards: first names word by word, last names whole, and their positions (a pair is the

@@ -399,7 +399,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     "Teachers' Seminary": 'סמינר למורות', 'Yeshivah Gedolah': 'ישיבה גדולה', 'Jewish Learning Institute': 'JLI – המכון ללימודי יהדות', Publications: 'פרסומים',
     'Jewish Community Center': 'מרכז קהילתי יהודי', 'Tzivos Hashem Chapter': 'סניף צבאות השם', Orphanage: 'בית יתומים', Mikveh: 'מקווה', 'Mikveh (for men)': 'מקווה גברים',
     'Russian Jewry Center': 'מרכז ליהודי רוסיה', 'Publishing House': 'הוצאה לאור', 'Educational Resource Center': 'מרכז חומרי לימוד', 'Rabbinic Council': 'ועד רבנים',
-    'Soup Kitchen': 'בית תמחוי', 'Overnight Camp': 'קייטנה עם לינה', 'TV / Radio Programs': 'תוכניות טלוויזיה ורדיו', 'Friendship Circle': 'Friendship Circle – מעגל ידידות',
+    'Soup Kitchen': 'בית תמחוי', 'Overnight Camp': 'קייטנה עם לינה', 'TV / Radio Programs': 'תוכניות טלוויזיה ורדיו', 'Friendship Circle': 'מעגל ידידות',
     'Charitable Foundation': 'קרן צדקה', "Women's Group": 'קבוצת נשים', Cheder: 'חדר', "Children's Club": 'מועדון ילדים', 'Youth Center': 'מרכז נוער', Kashrut: 'כשרות',
     'Hebrew High': 'תיכון ללימודי יהדות', 'Day Camp': 'קייטנה', Restaurant: 'מסעדה', 'Senior Club & Study': 'מועדון גיל הזהב', 'Teen Club': 'מועדון נוער', Internet: 'אינטרנט',
     'Young Professionals': 'צעירים', Cemetery: 'בית עלמין', 'Semichah Program': 'תוכנית סמיכה', 'Israeli Center': 'מרכז לישראלים', 'Judaica/Gift Shop': 'חנות יודאיקה',
@@ -534,7 +534,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       byId.set(c.id, c);
       const enType = c.type, enCity = c.city, enName = c.name, [lon, lat] = f.geometry.coordinates;
       centerAt.set(c.id, [lon, lat]);
-      dual(c, 'name', (h) => (isHebrew(c.nativeName) ? [c.nativeName] : h.centers && h.centers[enName] ? [h.centers[enName]] : null));
+      // chabad.org's own Hebrew name, unless it's mixed with Latin letters (then ours)
+      dual(c, 'name', (h) => (h.centers && h.centers[enName] ? [h.centers[enName]] : isHebrew(c.nativeName) ? [c.nativeName] : null));
       dual(c, 'type', () => (enType && HE_TEXT[enType] ? [HE_TEXT[enType]] : null));
       dual(c, 'city', (h) => heCity(h, enCity, lon, lat));
     }
@@ -1966,7 +1967,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       return `<span class="kicker">${areaKind(p)}</span><h2>${esc(p.name)}</h2>${part}
         <div class="foot"><span class="meta">${count(centersInState(p.state))}</span>${zoomBtn}</div>`;
     }
-    const caps = s.capitals || (s.capital ? [s.capital] : []);
+    // (the page's capitals, which hold both languages: name, town and claimant in Hebrew too)
+    const caps = capitals.filter((c) => !c.honor && c.s === s);
     // "Capital: …", or for a disputed shetach "Capital (Chaim Tzvi Groner): …", one per claimant
     const capital = caps.map((c) => `<p>${tr('Capital')}${c.for ? ` (${esc(c.for)})` : ''}: ${esc(c.name)}${c.city ? `, ${esc(c.city)}` : ''}</p>`).join('');
     // a family at the head (Alevsky, Pinson, Blumenfeld): "Shluchim: Alevsky family" (they are the shluchim there)

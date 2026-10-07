@@ -500,6 +500,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       dual(s, 'name', (h) => hs(s) && [hs(s).name]);
       dual(s, 'short', (h) => hs(s) && [hs(s).short]);
       dual(s, 'headShliach', (h) => hs(s) && [hs(s).headShliach]);
+      dual(s, 'mapName', (h) => hs(s) && [hs(s).mapName]);
       dual(s, 'lastName', (h) => hs(s) && [hs(s).lastName]);
       dual(s, 'headTitle', (h) => hs(s) && [hs(s).headTitle || (enTitle && (HE_TEXT[enTitle] || enTitle))]);
     }
@@ -828,10 +829,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const p = s.territoryOf && shetachById.get(s.territoryOf);
     if (state.labels === 'name') return { text: s.name, short: [].concat(s.short || [])[0] || null, kind: '' };
     const who = p || s;
-    const person = who.headShliach;
+    const person = who.mapName || who.headShliach;
     if (!person) return s.noCentralLeadership ? null : { text: s.name, short: [].concat(s.short || [])[0] || null, kind: 'miss' };
-    // a head shliach's name is never cut down (no last name alone, no dropped middle name: the data keeps a middle
-    // name only where it's part of how he's called, "Sholom Ber"); where it doesn't fit, one line or two, else none
+    // a head shliach's name is never cut down further (no last name alone): mapName leaves out a middle name he isn't
+    // called by, else the full name; where it doesn't fit, one line or two, else none. Cards keep the full name.
     return { text: person, short: null, kind: p ? 'sec' : '' };
   }
   // A name on two lines, split at the space or hyphen that makes the lines most even.

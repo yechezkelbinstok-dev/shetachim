@@ -16,7 +16,8 @@ between two Claude accounts when usage limits run out; whichever session picks t
   NWT only partly in Alberta). French Guiana: no Chabad activity found (Oct 5), so no shetach yet.
 - **Head shliach names are never shortened** — not on the live map, not in the SVGs, never to the last name alone
   (owner, Oct 7: there is no "Last name" label mode any more). Where the full name doesn't fit on one line or two,
-  no name. **Middle names are left out of the data itself** unless part of the first name (Sholom Ber, Menachem
+  no name. **Middle names are left out on the map and posters** (`mapName` in data/shetachim.json, `mapHead` in the
+  Hebrew list; the cards always show the full `headShliach`) unless part of the first name (Sholom Ber, Menachem
   Mendel, Yosef Yitzchak, Shneur Zalman) or the man is usually called by it (Yitzchok Meyer Lipszyc, Gershon Meir
   Burshtein, Aryeh Zeev Raskin, as the press names them). Oct 7: Yaakov Biderman, Chaim Azimov, Yeshaya Cohen, Yosef
   Kantor, Chaim Shaikevitz (that last one unconfirmed: found no usage either way). Same in data/hebrew/shetachim.json.
@@ -51,7 +52,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
   colour, with a dashed border between them (page mesh `inner`, tile edges `tr`, SVG dashed path); named plainly
   "India"; in the head modes Kantor's name again over India in italics and smaller (`secondary` labels; Hebrew, which has no italics:
   Heebo Regular slanted by hand on the posters, oblique on the page; at most 85% of his main name on the posters), his main name on Thailand–Myanmar–Laos as before;
-  India's card: "Overseen by Yosef Kantor" (בהנהגת …) (Oct 5; the owner rejected "Together with the Thailand shetach", "Under the auspices of", and "Head shliach" + "Also head shliach of Thailand" — don't quote his own words onto the page). (`noCentralLeadership: true` remains for a shetach without a head.) Israel's name on the world poster goes beside the map with a short leader (`ASIDE_NAMES`);
+  India's card: "Overseen by Yosef Chaim Kantor" (בהנהגת …) (Oct 5; the owner rejected "Together with the Thailand shetach", "Under the auspices of", and "Head shliach" + "Also head shliach of Thailand" — don't quote his own words onto the page). (`noCentralLeadership: true` remains for a shetach without a head.) Israel's name on the world poster goes beside the map with a short leader (`ASIDE_NAMES`);
   Hawaii's runs across its islands (`SEA_NAMES` 'chain'). The US & Canada names maps use short leaders to the nearest
   water (`aside`, only the Boston/Cape Cod knot stacked), not one column far out in the Atlantic.
 - **North Queensland** (Ari Rubin; capital Chabad of Northern Queensland, Cairns): Mackay and north, Mount Isa,

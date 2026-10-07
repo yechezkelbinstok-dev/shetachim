@@ -31,7 +31,7 @@ for (const s of shetachim) {
   if (/^משפחת /.test(h.head)) lastName = h.head.replace(/^משפחת /, '');
   else if (/;/.test(h.head)) lastName = h.head.split(/\s+—\s+/).pop().split(/;\s*/).map((n) => n.trim().split(/\s+/).pop()).join('; ');
   else if (!s.headTitle && words.length > 1) lastName = hw.slice(words.length - 1).join(' ');
-  out.shetachim[s.id] = { name: h.name, short: h.short || [], headShliach: h.head, lastName, ...(h.headTitle ? { headTitle: h.headTitle } : {}) };
+  out.shetachim[s.id] = { name: h.name, short: h.short || [], headShliach: h.head, ...(h.mapHead ? { mapName: h.mapHead } : {}), lastName, ...(h.headTitle ? { headTitle: h.headTitle } : {}) };
 }
 for (const g of [...geo.objects.areas.geometries, ...world.objects.areas.geometries]) {
   const st = g.properties.state;

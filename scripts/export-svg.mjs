@@ -310,7 +310,7 @@ function evenLines(words, n) {
   return best.lines;
 }
 function nameForms(s) {
-  const name = s.headShliach.trim();
+  const name = (s.mapName || s.headShliach).trim();
   if (/;/.test(name)) {
     const lines = name.split(/;\s*|\s+—\s+/).map((l, i, all) => (i === 0 && name.includes(' — ') ? `${l} —` : l)).filter(Boolean);
     return { full: [lines], offshore: name };
@@ -438,7 +438,7 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
   for (const [id, gs] of byShetachOf(list)) {
     // a territory of another shetach (India, of Thailand's): that shetach's head, his name in italics
     const s0 = shetachById.get(id), parent = s0 && s0.territoryOf && shetachById.get(s0.territoryOf);
-    const s = parent ? { ...s0, headShliach: parent.headShliach, lastName: parent.lastName, headTitle: parent.headTitle, italic: true } : s0;
+    const s = parent ? { ...s0, headShliach: parent.headShliach, mapName: parent.mapName, lastName: parent.lastName, headTitle: parent.headTitle, italic: true } : s0;
     if (!s.headShliach || (only && !only.includes(id))) continue;
     // labelState: the name goes on that state's part of the shetach (Alberta, not the territories' strip north of it)
     const core = s.labelState ? gs.filter((g) => g.properties.state === s.labelState) : [];
@@ -911,7 +911,7 @@ for (const [name, m] of Object.entries(MAPS)) {
   HEBREW = !!m.he;
   for (const [id, e] of english) {
     const h = HEBREW && HE_DATA.shetachim[id];
-    shetachById.set(id, h ? { ...e, headShliach: h.headShliach, lastName: h.lastName, headTitle: h.headTitle } : e);
+    shetachById.set(id, h ? { ...e, headShliach: h.headShliach, mapName: h.mapName, lastName: h.lastName, headTitle: h.headTitle } : e);
   }
   if (!m.source && topo !== baseTopo) { topo = baseTopo; arcLL = arcsOf(topo); }
   if (m.source) {

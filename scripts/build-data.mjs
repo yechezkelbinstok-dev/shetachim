@@ -1230,8 +1230,8 @@ async function main() {
     // capital: the (first) capital; capitals: all of them (a disputed shetach has one per claimant)
     // noCentralLeadership: no head shliach (India): the card says so, the map shows no head name there
     // territoryOf: a territory of another shetach (India, of Thailand's): its colour, lighter, a dashed border between
-    shetachim: shetachData.shetachim.map(({ id, name, short, headShliach, headTitle, lastName, noCentralLeadership, territoryOf, capital, labelState, labelCentre, labelAt }) => ({
-      id, name, short, headShliach, headTitle, lastName, noCentralLeadership, territoryOf, capital: [].concat(capital || [])[0], capitals: capital ? [].concat(capital) : undefined, labelState, labelCentre, labelAt })),
+    shetachim: shetachData.shetachim.map(({ id, name, short, headShliach, mapName, headTitle, lastName, noCentralLeadership, territoryOf, capital, labelState, labelCentre, labelAt }) => ({
+      id, name, short, headShliach, mapName, headTitle, lastName, noCentralLeadership, territoryOf, capital: [].concat(capital || [])[0], capitals: capital ? [].concat(capital) : undefined, labelState, labelCentre, labelAt })),
   };
   fs.writeFileSync(path.join(OUT, 'shetachim.json'), `${JSON.stringify(forPage, null, 1)}\n`);
 

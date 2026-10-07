@@ -29,7 +29,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
   into the territories' strip). The Alberta shetach's territories part ends at **110°W** (the Alberta–Saskatchewan
   line carried up to 63°N; `data/shapes/north-to-63.geojson`); the NWT east of it is in no shetach and left off.
 - **Judea and Samaria is Israel** (see below); Peru is the **Blumenfeld family** (Tunisia: Pinson family, Northeast
-  Ohio: Alevsky family; each has `lastName` so Last-name mode shows the surname, not "family").
+  Ohio: Alevsky family; each has `lastName`, for the cards' "<name> family" line).
 - Ohio: Northeast Ohio (Alevsky family), Central Ohio (Areyah Kaltmann), **Southern** Ohio (Sholom Ber Kalmanson; not
   "Western"), the Toledo area in Michigan. Capitals: Chabad of Cleveland, Chabad of Columbus, and Chabad of Southern
   Ohio's office (7380 Laurel Oak Lane, Amberley Village; hand-added in `data/extra-centers.json`).
@@ -698,3 +698,15 @@ The owner got very angry at the first version. The lessons:
   shluchim): Mendy → מענדל, Zalmy → זלמן, Benjy → בנימין, Moishy → משה, Mordy → מרדכי, Hershy → הערשל, Laivy → לייב,
   Getzy → געצל, Avremi → אברמל, Shuey → יהושע, Effy → אפרים. Nicknames Hebrew uses itself stay (יוסי, פיני, חזקי, שמולי, קוטי,
   and women's names like מושקי, חני).
+
+## AUDIT (Oct 7) — the new engine checked against every rule above and the old page
+Found and fixed: Isle of Man not drawn; Kaplan/Lower Balkans names; physical map tinted like a political one (now
+Physical + a separate Tinted); the Great Lakes maritime line gone from the physical map; the political map drawing every
+country as land (now faded / gone, the first rule); Alaska and Hawaii boxes gone; neighbours' names hiding each other
+(BC, Labrador); a frozen picture on every map switch; town labels without centers; English box captions in Hebrew.
+Checked and as the rules say: cards (770, families, Leadership, Overseen by, Disputed capitals), India dashed border
+and secondary name, Alberta and Western Pennsylvania placement, data rules (no Syria, Suriname/French Guiana blank,
+Cambodia, Mongolia, Isle of Man), dark theme (physical stays light), Hebrew panel and names, phone panel.
+Known differences left as they are: fewer town names at the framed views than the old page (the engine shows a town
+only where it has room); capital stars a little smaller; Hebrew India name lighter and smaller but not slanted (the
+engine can't slant Hebrew); Victoria's disputed name doesn't fit at the Oceania view (the old page didn't fit it either).

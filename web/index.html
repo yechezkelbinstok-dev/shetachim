@@ -509,21 +509,35 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       dual(s, 'firstLast', (h) => hs(s) && [personal ? `${hs(s).headShliach.split(/\s+/)[0]} ${hs(s).lastName}` : null]);
     }
     // a center: its own Hebrew name where chabad.org has one, its kind and city in Hebrew
-    const byId = new Map();
+    // A town name two places share (Naples, Italy and Florida) is spelled by region: the nearest map city of that name.
+    const townsByName = new Map();
+    for (const t of cityFile) (townsByName.get(t.name) || townsByName.set(t.name, []).get(t.name)).push(t);
+    const heCity = (h, en, lon, lat) => {
+      if (!en) return null;
+      const towns = townsByName.get(en);
+      if (towns && lon != null) {
+        const t = towns.reduce((a, b) => ((b.lon - lon) ** 2 + (b.lat - lat) ** 2 < (a.lon - lon) ** 2 + (a.lat - lat) ** 2 ? b : a));
+        if (h.cities[`${en}|${t.region}`]) return [h.cities[`${en}|${t.region}`]];
+      }
+      return h.cities[en] ? [h.cities[en]] : null;
+    };
+    const byId = new Map(), centerAt = new Map();
     for (const f of centersGeo.features) for (const c of f.properties.centers) {
       byId.set(c.id, c);
-      const enType = c.type, enCity = c.city;
-      dual(c, 'name', () => (isHebrew(c.nativeName) ? [c.nativeName] : null));
+      const enType = c.type, enCity = c.city, enName = c.name, [lon, lat] = f.geometry.coordinates;
+      centerAt.set(c.id, [lon, lat]);
+      dual(c, 'name', (h) => (isHebrew(c.nativeName) ? [c.nativeName] : h.centers && h.centers[enName] ? [h.centers[enName]] : null));
       dual(c, 'type', () => (enType && HE_TEXT[enType] ? [HE_TEXT[enType]] : null));
-      dual(c, 'city', (h) => (enCity && h.cities[enCity] ? [h.cities[enCity]] : null));
+      dual(c, 'city', (h) => heCity(h, enCity, lon, lat));
     }
     // a capital: its center's Hebrew name; its city; a disputed shetach's claimant, the same place in the Hebrew list
     for (const cap of capitals) {
       if (cap.honor) continue;
       const enName = cap.name, enCity = cap.city, enFor = cap.for, s = cap.s;
       const center = byId.get(cap.centerId);
-      dual(cap, 'name', () => (center && isHebrew(center.nativeName) ? [center.nativeName] : null));
-      dual(cap, 'city', (h) => (enCity && h.cities[enCity] ? [h.cities[enCity]] : null));
+      const [lon, lat] = centerAt.get(cap.centerId) || [];
+      dual(cap, 'name', (h) => (center && isHebrew(center.nativeName) ? [center.nativeName] : h.centers && h.centers[enName] ? [h.centers[enName]] : null));
+      dual(cap, 'city', (h) => heCity(h, enCity, lon, lat));
       dual(cap, 'for', (h) => {
         const he = hs(s);
         if (!enFor || !he) return null;
@@ -536,7 +550,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       dual(g.properties, 'name', (h) => (h.areas[g.properties.state] ? [h.areas[g.properties.state]] : null)); // (state isn't translated)
       dual(g.properties, 'abbr', (h) => (h.areas[g.properties.state] ? [''] : null));
     }
-    for (const c of cities) { const en = c.name; dual(c, 'name', (h) => (h.cities[en] ? [h.cities[en]] : null)); }
+    for (const c of cities) { const en = c.name, k = `${en}|${c.region}`; dual(c, 'name', (h) => (h.cities[k] ? [h.cities[k]] : h.cities[en] ? [h.cities[en]] : null)); }
   }
   const CITY_DENSITY = 2500; // a city is a candidate once weight >= CITY_DENSITY / (screen pixels per km)²
 

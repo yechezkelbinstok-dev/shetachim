@@ -45,6 +45,15 @@ for (const name of [...cities.map((c) => c.name), ...centers.map((c) => c.city),
   if (cityNames[name]) out.cities[name] = cityNames[name];
   else missing.push(`city ${name}`);
 }
+// a town whose name is shared by two places spelled differently in Hebrew ("Naples|US-FL"): the map's region decides
+for (const [k, v] of Object.entries(cityNames)) if (k.includes('|')) out.cities[k] = v;
+// centers' own names, where chabad.org gives none in Hebrew
+const centerNames = read('data', 'hebrew', 'centers.json');
+out.centers = {};
+for (const c of [...centers, ...shetachim.map((s) => s.capital).filter((c) => c && c.name)]) {
+  if (!c.name || /[\u0590-\u05FF]/.test(c.nativeName || '')) continue;
+  if (centerNames[c.name] !== undefined) out.centers[c.name] = centerNames[c.name]; else missing.push(`center ${c.name}`);
+}
 // people on the centers' cards: first names word by word, last names whole, and their positions (a pair is the
 // man's and the woman's form)
 const firstNames = read('data', 'hebrew', 'first-names.json');
@@ -65,4 +74,4 @@ if (missing.length) {
   process.exit(1);
 }
 fs.writeFileSync(path.join(ROOT, 'web', 'data', 'he.json'), JSON.stringify(out));
-console.log(`web/data/he.json: ${Object.keys(out.shetachim).length} shetachim, ${Object.keys(out.areas).length} areas, ${Object.keys(out.cities).length} cities, ${Object.keys(out.first).length + Object.keys(out.last).length} name parts, ${Object.keys(out.positions).length} positions`);
+console.log(`web/data/he.json: ${Object.keys(out.shetachim).length} shetachim, ${Object.keys(out.areas).length} areas, ${Object.keys(out.cities).length} cities, ${Object.keys(out.first).length + Object.keys(out.last).length} name parts, ${Object.keys(out.positions).length} positions, ${Object.keys(out.centers).length} centers`);

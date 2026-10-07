@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <!-- page head -->
 <title>Chabad Shetachim Map</title>
+<meta name="robots" content="noindex">
 <link rel="icon" href="data:,">
 <script>try { const t = localStorage.getItem('shetachim-theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
 <script>// Hebrew (?lang=he, or picked before): the whole page right to left
@@ -65,54 +66,12 @@ html, body { height: 100%; margin: 0; }
 [hidden] { display: none !important; }
 body { background: var(--bg); color: var(--ink); font: 14px/1.4 var(--font-ui); overflow: hidden; }
 #app { position: relative; height: 100%; overflow: hidden; }
-#basemap, #map, #canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
-#canvas { pointer-events: none; }
-#map { display: block; touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; }
-#map:active { cursor: grabbing; }
-.physical #map { pointer-events: none; }
-#app:not(.physical) #basemap { visibility: hidden; }
-.physical #canvas, .physical .l-insets { display: none; }
+#basemap { position: absolute; inset: 0; width: 100%; height: 100%; }
 button, input { font: inherit; color: inherit; }
 button:focus-visible, input:focus-visible, a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-/* ---- map ---- (areas, borders and dots are drawn on #canvas; names, cities, capitals and the Alaska/Hawaii boxes in #map) */
-.dot { fill: var(--map-dot); fill-opacity: .42; pointer-events: none; }
-.no-dots .dot { display: none; }
-
-.lab { paint-order: stroke; stroke: var(--map-halo); stroke-opacity: .7; stroke-linejoin: round; text-anchor: middle; dominant-baseline: central; pointer-events: none;
-  font-family: var(--font-map); font-weight: 700; letter-spacing: .01em; fill: var(--map-ink); }
-.lab-missing { fill: var(--map-missing); font-weight: 500; }
-/* the head's name over a territory of his shetach (Kantor's over India): the same name, in italics (Hebrew: lighter) */
-/* a territory's head name (Kantor's over India): italic and slate blue, never mistaken for his main name */
-.lab-secondary { font-style: italic; fill: var(--map-secondary); }
-html[lang="he"] .lab-secondary { font-style: oblique 14deg; font-weight: 400; }
-.physical .lab { stroke-opacity: .9; }
-
-/* the map's own text is placed by its left/centre edge, whatever the page's direction (Hebrew is right to left) */
-#map, #canvas { direction: ltr; }
-/* cities with shluchim and shetach capitals: drawn in screen space, over everything else */
-.mk { pointer-events: none; }
-.mk-city { fill: var(--map-halo); stroke: var(--map-ink); stroke-width: 1.4; }
-.mk-honor { fill: var(--map-ink); stroke: var(--map-halo); stroke-width: 1.4; paint-order: stroke; }
-.mk-cap { fill: var(--map-ink); stroke: var(--map-halo); stroke-width: 1.3; stroke-linejoin: round; paint-order: stroke; }
-.mk-lab { font: 500 12px var(--font-ui); fill: var(--map-ink); dominant-baseline: central;
-  paint-order: stroke; stroke: var(--map-halo); stroke-width: 3px; stroke-opacity: .8; stroke-linejoin: round; }
-.physical .mk-lab { stroke-opacity: .95; }
-/* a city big on screen: the name on the city itself, no dot (as on Google Maps) */
-.mk-lab-big { font-weight: 600; }
-.mk-lab.mk-lab-honor { font-style: italic; font-weight: 600; font-size: 13.5px; letter-spacing: .02em; }
-
-.l-insets { transition: opacity .25s; }
-.l-insets.away { opacity: 0; pointer-events: none; } /* zoomed in: the boxes go (they only make sense at the whole view) */
-.inset-frame { fill: var(--bg); fill-opacity: .94; stroke: var(--panel-line); } /* solid enough that the map doesn't show through when zoomed in */
-.inset-land { fill: var(--fill); stroke: var(--map-ink); stroke-width: 1; }
-.borders-regular .inset-land { fill: var(--fill-u); }
-.plain .inset-land { fill: var(--plain); }
-.inset-caption { font: 600 10.5px var(--font-map); letter-spacing: .06em; text-transform: uppercase; fill: var(--map-ink); }
-.inset-caption.lab-missing { fill: var(--map-missing); font-weight: 500; }
-
-/* ---- physical map (MapLibre): only the rules this page uses ---- */
-.maplibregl-map { position: absolute; overflow: hidden; -webkit-tap-highlight-color: transparent; font: 12px/18px var(--font-ui); }
+/* ---- the map (MapLibre): only the rules this page uses ---- */
+.maplibregl-map { position: absolute; inset: 0; overflow: hidden; -webkit-tap-highlight-color: transparent; font: 12px/18px var(--font-ui); }
 .maplibregl-canvas { position: absolute; left: 0; top: 0; }
 .maplibregl-canvas-container.maplibregl-interactive { cursor: grab; }
 .maplibregl-canvas-container.maplibregl-interactive:active { cursor: grabbing; }
@@ -176,6 +135,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #more[open] > summary::after { content: '▴'; }
 .more-body { display: flex; flex-direction: column; gap: 14px; padding-top: 10px; }
 .more-body .checks { display: flex; flex-direction: column; gap: 7px; }
+.legend-sea { display: inline-block; width: 12px; height: 10px; border-radius: 2px; background: #a9c7f2; }
 .legend-empty { display: inline-block; width: 12px; height: 10px; border-radius: 2px; background: var(--empty); border: 1px solid var(--map-ink); opacity: .7; }
 .downloads { font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none; }
 .downloads:hover { text-decoration: underline; }
@@ -237,9 +197,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 </head>
 <body>
 <div id="app">
-  <div id="basemap"></div>
-  <canvas id="canvas" aria-hidden="true"></canvas>
-  <svg id="map" role="img" aria-label="Map of Chabad shetachim and centers"></svg>
+  <div id="basemap" role="img" aria-label="Map of Chabad shetachim and centers"></div>
 
   <aside id="panel" class="collapsed" aria-label="Map options">
     <header class="p-head">
@@ -282,8 +240,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       <fieldset class="ctl">
         <legend>Map</legend>
         <div class="seg" data-name="base">
-          <button type="button" data-value="physical" aria-pressed="false">Physical</button>
           <button type="button" data-value="political" aria-pressed="true">Political</button>
+          <button type="button" data-value="streets" aria-pressed="false">Streets</button>
+          <button type="button" data-value="physical" aria-pressed="false">Physical</button>
         </div>
         <p id="base-msg" class="note" role="status" hidden></p>
       </fieldset>
@@ -317,6 +276,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           <label class="check" for="show-cities"><input type="checkbox" id="show-cities" checked> <span class="legend-ring" aria-hidden="true"></span> Cities with shluchim</label>
           <label class="check" for="show-capitals"><input type="checkbox" id="show-capitals" checked> <svg class="legend-star" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path id="star-shape"/></svg> Shetach capitals</label>
           <label class="check" for="show-empty"><input type="checkbox" id="show-empty"> <span class="legend-empty" aria-hidden="true"></span> Rest of the world</label>
+          <label class="check" for="show-sea" id="sea-row"><input type="checkbox" id="show-sea" checked> <span class="legend-sea" aria-hidden="true"></span> Blue sea</label>
           </div>
         <fieldset class="ctl" id="dots-ctl">
           <legend>Dots</legend>
@@ -369,6 +329,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.js"></script>
 <script>
 (async function () {
   'use strict';
@@ -379,7 +340,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const phone = () => window.matchMedia('(max-width: 760px)').matches;
   const coarse = () => window.matchMedia('(pointer: coarse)').matches;
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const state = { empty: false, alaska: 'box', view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true };
+  const state = { empty: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true, sea: true };
   if (!phone()) $('#panel').classList.remove('collapsed');
 
   // ---------- data ----------
@@ -413,7 +374,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'Latin America & Caribbean': 'אמריקה הלטינית והאיים הקריביים',
     Map: 'מפה', Physical: 'פיזית', Political: 'מדינית', Borders: 'גבולות', States: 'מדינות', Countries: 'ארצות', Both: 'שניהם',
     'Lighter:': 'בהיר יותר:', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', 'Last name': 'שם משפחה', Off: 'ללא',
-    'More options': 'אפשרויות נוספות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Rest of the world': 'שאר העולם',
+    'More options': 'אפשרויות נוספות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Rest of the world': 'שאר העולם', 'Blue sea': 'ים כחול', Streets: 'רחובות',
     Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד', Dots: 'נקודות', Solid: 'מלאות', 'See-through': 'שקופות', Classic: 'קלאסיות',
     'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
     'Download maps (SVG, PNG)': 'הורדת מפות (SVG, PNG)', 'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
@@ -587,260 +548,392 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     europe: { name: 'Europe', countries: EUROPE, lon: 12, frame: [[-24.5, 34.5], [44.5, 71.2]], projection: () => d3.geoConicEqualArea().parallels([40, 62]).rotate([-12, 0]) },
     fsu: { name: 'Former Soviet Union', countries: FSU, lon: 95, wrap: true, projection: () => d3.geoConicEqualArea().parallels([45, 65]).rotate([-95, 0]) },
     israel: { name: 'Israel', countries: ['ISR'], projection: mercator },
-    mideast: { name: 'Middle East', countries: MIDEAST, projection: mercator },
+    mideast: { name: 'Middle East', countries: MIDEAST, lon: 45, projection: mercator },
     asia: { name: 'Asia', countries: ASIA, lon: 105, projection: () => d3.geoMercator().rotate([-105, 0]) },
     africa: { name: 'Africa', countries: AFRICA, lon: 17, projection: () => d3.geoAzimuthalEqualArea().rotate([-17, 5]) },
     oceania: { name: 'Oceania', countries: OCEANIA, lon: 150, wrap: true, projection: () => d3.geoConicEqualArea().parallels([-18, -40]).rotate([-150, 0]) },
     latam: { name: 'Latin America & Caribbean', countries: LATAM, lon: -80, projection: () => d3.geoAzimuthalEqualArea().rotate([80, 10]) },
   };
+  VIEWS.world.frame = [[-168, -56], [190, 78]]; // a world map centred on the Atlantic, not across the Pacific
   for (const v of Object.values(VIEWS)) { v.insets = v.insets || []; v.world = !['na', 'us', 'ca'].some((k) => VIEWS[k] === v); }
   const INSETS = {
     'US-AK': { share: 0.2, aspect: 0.7, projection: () => d3.geoConicEqualArea().parallels([55, 65]).rotate([154, 0]) },
     'US-HI': { share: 0.13, aspect: 0.62, projection: () => d3.geoConicEqualArea().parallels([8, 18]).rotate([157, 0]) },
   };
 
-  // ---------- svg ----------
-  const svg = d3.select('#map');
-  const canvas = $('#canvas'), ctx = canvas.getContext('2d');
-  let DPR = 1;
-  const gLabels = svg.append('g'); // screen space: text stays crisp at any zoom
-  const gMarks = svg.append('g'); // cities and capitals, also screen space
-  const gInsets = svg.append('g').attr('class', 'l-insets');
-
   const STAR = d3.symbol(d3.symbolStar, 55)(); // about 14px across
   const WORLD_STAR = d3.symbol(d3.symbolStar, 150)(); // 770: about 23px across
-  // Lubavitch: a small solid dot, its name in italics, as a map marks a historic place
-  const HONOR_MARK = 'M3.2,0A3.2,3.2 0 1,1 -3.2,0A3.2,3.2 0 1,1 3.2,0Z';
   $('#star-shape').setAttribute('d', STAR);
 
-  // T maps projected points to the screen. On the political map it's the d3 zoom; on the physical map it
-  // follows the MapLibre camera, with the same projection-at-zoom-1 coordinates, so labels work the same.
-  let W = 0, H = 0, T = d3.zoomIdentity, V = null, labels = [], tree = null, insetBoxes = [], insetOrigin = [0, 0], marks = [];
-  let projection = null, geoPath = null;
+  // ---------- the map: MapLibre for both looks ----------
+  // Political and physical are two looks of one MapLibre map: the political one hides the street map and draws the
+  // shetachim in colour; the physical one shows OpenFreeMap's terrain with our borders over it. Names, cities, capitals
+  // and dots are the map's own symbol layers either way, so the map engine places them, keeps them from overlapping,
+  // fades them in and out, and moves them with the map at full speed, as on any map site.
+  const GL_STYLE = 'https://tiles.openfreemap.org/styles/liberty';
+  const GLYPHS = 'https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf';
+  const F_BOLD = ['Noto Sans Bold'], F_REG = ['Noto Sans Regular'], F_IT = ['Noto Sans Italic'];
+  const EMPTY = { type: 'FeatureCollection', features: [] };
+  const fc = (features) => ({ type: 'FeatureCollection', features });
+  const feature = (geometry, properties = {}) => ({ type: 'Feature', geometry, properties });
+  const withTimeout = (promise, ms, what) => Promise.race([promise, new Promise((_, reject) => setTimeout(() => reject(new Error(what)), ms))]);
   const measure = document.createElement('canvas').getContext('2d');
+  const MAX_Z = 18.5;
 
-  function insets() {
-    const panel = $('#panel'), r = panel.getBoundingClientRect();
-    // On a phone the map is framed above the bar the options sheet closes to (not the open sheet, which just covers it),
-    // so opening the sheet never moves the map; the Alaska and Hawaii boxes sit just above that bar.
-    const bar = $('#panel .p-head').getBoundingClientRect().height + (parseFloat(getComputedStyle(panel).paddingBottom) || 0) + 1;
-    return phone() ? { l: 16, t: 16, r: 16, b: bar + 12 } : { l: r.right + 16, t: 16, r: 64, b: 16 };
-  }
+  // Web Mercator in "world units" (the whole world is 1×1; at zoom z it's 512·2^z pixels across), for sizing names.
+  const mx = (lon) => (lon + 180) / 360;
+  const my = (lat) => { const s = Math.sin((clamp(lat, -85, 85) * Math.PI) / 180); return 0.5 - Math.log((1 + s) / (1 - s)) / (4 * Math.PI); };
+  const unlon = (x) => x * 360 - 180;
+  const unlat = (y) => (Math.atan(Math.sinh(Math.PI * (1 - 2 * y))) * 180) / Math.PI;
+  const PX = (z) => 512 * 2 ** z; // pixels per world unit at zoom z
 
-  // ---------- geometry ----------
-  // The topology's arcs as [lon, lat, lon, lat, …]. Long straight stretches get extra points, so they bend with
-  // the projection like everything else.
-  const arcLL = (() => {
-    const [kx, ky] = topo.transform.scale, [dx, dy] = topo.transform.translate;
-    return topo.arcs.map((arc) => {
-      const out = [];
-      let x = 0, y = 0, px = 0, py = 0;
-      arc.forEach(([ax, ay], i) => {
-        x += ax; y += ay;
-        const lon = x * kx + dx, lat = y * ky + dy;
-        if (i) {
-          const n = Math.ceil(Math.max(Math.abs(lon - px), Math.abs(lat - py)) / 0.5);
-          for (let j = 1; j < n; j++) out.push(px + ((lon - px) * j) / n, py + ((lat - py) * j) / n);
+  // Polylabel (the pole of inaccessibility): the point inside a polygon farthest from its edges, and that distance.
+  function pointToPolygonDist(x, y, rings) {
+    let inside = false, min = Infinity;
+    for (const ring of rings) {
+      for (let i = 0, len = ring.length, j = len - 1; i < len; j = i++) {
+        const a = ring[i], b = ring[j];
+        if ((a[1] > y) !== (b[1] > y) && x < ((b[0] - a[0]) * (y - a[1])) / (b[1] - a[1]) + a[0]) inside = !inside;
+        let px = b[0], py = b[1], dx = a[0] - px, dy = a[1] - py;
+        if (dx !== 0 || dy !== 0) {
+          const t = ((x - px) * dx + (y - py) * dy) / (dx * dx + dy * dy);
+          if (t > 1) { px = a[0]; py = a[1]; } else if (t > 0) { px += dx * t; py += dy * t; }
         }
-        out.push(lon, lat);
-        px = lon; py = lat;
-      });
-      return out;
-    });
-  })();
-  // Polygons crossing the 180° line come split along it; that cut isn't a coast or a border, so it's never drawn.
-  const onSeam = (i) => { const a = arcLL[i]; for (let j = 0; j < a.length; j += 2) if (Math.abs(a[j]) < 179.99) return false; return true; };
-  const arcsOf = (g, out = new Set()) => { const walk = (a) => (Array.isArray(a) ? a.forEach(walk) : out.add(a < 0 ? ~a : a)); walk(g.arcs || []); return out; };
-
-  // Visvalingam weights: each point's weight is the area (map pixels², zoom 1) of the triangle it makes with its
-  // neighbours as the line is simplified; a zoom level draws only the points big enough to see at that zoom.
-  function weights(xy) {
-    const n = xy.length / 2, w = new Float32Array(n).fill(Infinity);
-    if (n < 3) return w;
-    const prev = new Int32Array(n), next = new Int32Array(n), val = new Float64Array(n), at = new Int32Array(n).fill(-1), heap = [];
-    for (let i = 0; i < n; i++) { prev[i] = i - 1; next[i] = i + 1; }
-    const tri = (i) => { const a = prev[i], b = next[i]; return Math.abs((xy[2 * a] - xy[2 * i]) * (xy[2 * b + 1] - xy[2 * i + 1]) - (xy[2 * b] - xy[2 * i]) * (xy[2 * a + 1] - xy[2 * i + 1])) / 2; };
-    const swap = (i, j) => { const a = heap[i], b = heap[j]; heap[i] = b; heap[j] = a; at[b] = i; at[a] = j; };
-    const up = (i) => { while (i > 0) { const p = (i - 1) >> 1; if (val[heap[p]] <= val[heap[i]]) break; swap(i, p); i = p; } };
-    const down = (i) => { for (;;) { const l = 2 * i + 1, r = l + 1; let m = i; if (l < heap.length && val[heap[l]] < val[heap[m]]) m = l; if (r < heap.length && val[heap[r]] < val[heap[m]]) m = r; if (m === i) break; swap(i, m); i = m; } };
-    const set = (i, v) => { val[i] = v; up(at[i]); down(at[i]); };
-    for (let i = 1; i < n - 1; i++) { val[i] = tri(i); at[i] = heap.length; heap.push(i); up(heap.length - 1); }
-    let max = 0;
-    while (heap.length) {
-      const i = heap[0], last = heap.pop();
-      if (heap.length) { heap[0] = last; at[last] = 0; down(0); }
-      at[i] = -1;
-      max = Math.max(max, val[i]);
-      w[i] = max;
-      const p = prev[i], q = next[i];
-      next[p] = q; prev[q] = p;
-      if (p > 0) set(p, tri(p));
-      if (q < n - 1) set(q, tri(q));
-    }
-    return w;
-  }
-
-  // An area to fill or outline: its polygons as rings of arcs, each polygon with its box (map pixels, zoom 1) and a
-  // Path2D per zoom level, made when first needed.
-  function drawable(ma) {
-    const polys = (ma.type === 'Polygon' ? [ma.arcs] : ma.type === 'MultiPolygon' ? ma.arcs : []).map((rings) => {
-      let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
-      for (const a of rings[0]) {
-        const xy = V.xy[a < 0 ? ~a : a];
-        for (let j = 0; j < xy.length; j += 2) { if (xy[j] < x0) x0 = xy[j]; if (xy[j] > x1) x1 = xy[j]; if (xy[j + 1] < y0) y0 = xy[j + 1]; if (xy[j + 1] > y1) y1 = xy[j + 1]; }
-      }
-      return { rings, box: [x0, y0, x1, y1], paths: [] };
-    });
-    return { polys };
-  }
-  // A polygon's rings as points (map pixels, zoom 1), for labels and hit tests.
-  function ringsOf(poly) {
-    return poly.rings.map((ring) => {
-      const pts = [];
-      ring.forEach((a, k) => {
-        const rev = a < 0, xy = V.xy[rev ? ~a : a], n = xy.length / 2;
-        for (let s = k ? 1 : 0; s < n; s++) { const j = rev ? n - 1 - s : s; pts.push([xy[2 * j], xy[2 * j + 1]]); }
-      });
-      return pts;
-    });
-  }
-  const LEVELS = 8;
-  const levelFor = (k) => clamp(Math.ceil(Math.log2(k) - 1e-9), 0, LEVELS - 1);
-  const minWeight = (L) => 0.25 / 4 ** L; // screen pixels² a point's triangle must cover to be drawn (at 2^L)
-  function traceArcs(path, arcs, L, close) {
-    const t = minWeight(L);
-    let first = true;
-    for (const a of arcs) {
-      const rev = a < 0, i = rev ? ~a : a, xy = V.xy[i], w = V.w[i], n = w.length;
-      for (let s = first ? 0 : 1; s < n; s++) {
-        const j = rev ? n - 1 - s : s;
-        if (w[j] < t) continue;
-        if (first) { path.moveTo(xy[2 * j], xy[2 * j + 1]); first = false; } else path.lineTo(xy[2 * j], xy[2 * j + 1]);
+        dx = x - px; dy = y - py;
+        min = Math.min(min, dx * dx + dy * dy);
       }
     }
-    if (close) path.closePath();
+    return (inside ? 1 : -1) * Math.sqrt(min);
   }
-  function polyPath(poly, L) {
-    if (!poly.paths[L]) { const p = new Path2D(); for (const ring of poly.rings) traceArcs(p, ring, L, true); poly.paths[L] = p; }
-    return poly.paths[L];
+  function polylabel(rings, precision) {
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    for (const [x, y] of rings[0]) { if (x < x0) x0 = x; if (y < y0) y0 = y; if (x > x1) x1 = x; if (y > y1) y1 = y; }
+    const w = x1 - x0, h = y1 - y0, size = Math.min(w, h);
+    if (!(size > 0)) return { x: x0, y: y0, d: 0 };
+    const cell = (x, y, half) => { const d = pointToPolygonDist(x, y, rings); return { x, y, half, d, max: d + half * Math.SQRT2 }; };
+    const queue = [];
+    for (let x = x0; x < x1; x += size) for (let y = y0; y < y1; y += size) queue.push(cell(x + size / 2, y + size / 2, size / 2));
+    let best = cell(x0 + w / 2, y0 + h / 2, 0);
+    let guard = 0;
+    while (queue.length && guard++ < 4000) {
+      let bi = 0;
+      for (let i = 1; i < queue.length; i++) if (queue[i].max > queue[bi].max) bi = i;
+      const c = queue.splice(bi, 1)[0];
+      if (c.d > best.d) best = c;
+      if (c.max - best.d <= precision) continue;
+      const h2 = c.half / 2;
+      queue.push(cell(c.x - h2, c.y - h2, h2), cell(c.x + h2, c.y - h2, h2), cell(c.x - h2, c.y + h2, h2), cell(c.x + h2, c.y + h2, h2));
+    }
+    return { x: best.x, y: best.y, d: Math.max(0, best.d) };
+  }
+  // ---------- flat projection for the political map's world and continent views ----------
+  // The engine draws in Web Mercator. For the political map zoomed out (the world, the continents) the shapes are put
+  // into Natural Earth first, centred on the view, and handed to the engine already flat: each projected point becomes the
+  // longitude and latitude Web Mercator would draw at that spot, so the engine shows Natural Earth while zooming,
+  // placing names and picking exactly as before. Country views, and the physical map (its imagery only comes in Web
+  // Mercator), stay standard.
+  // Natural Earth's world is ~5.47 units wide at scale 1, so about 0.41 of the engine's world: the engine won't zoom out
+  // past its own world filling the screen (a phone's height, too), and the flat world has to fit beside the panel, or
+  // above a phone's bar, with room to centre it, at that zoom.
+  const NE_SCALE = 0.075;
+  let PROJ = null, PROJ_FINE = null; // the current flat projection (output in world units), or null for standard; and one that bends lines
+  function flatFor(view) {
+    if (!view.world || view === VIEWS.israel) return null;
+    return d3.geoNaturalEarth1().rotate([-(view.lon ?? 11), 0]).scale(NE_SCALE).translate([0.5, 0.5]).precision(0);
+  }
+  const fake = ([x, y]) => [unlon(x), unlat(y)];
+  // a point as the engine should get it
+  const P = (lon, lat) => { if (!PROJ) return [lon, lat]; const p = PROJ([lon, lat]); return p ? fake(p) : null; };
+  // A geometry (lon/lat) projected flat, clipped at the projection's edge, as the engine should get it.
+  function projGeom(geometry) {
+    if (!PROJ || !geometry) return geometry;
+    const rings = [], lines = [], pts = [];
+    let cur = null, poly = false;
+    const sink = {
+      point(x, y) { if (cur) cur.push([x, y]); else pts.push([x, y]); },
+      lineStart() { cur = []; },
+      lineEnd() {
+        if (poly) { if (cur.length > 2) { const a = cur[0], b = cur[cur.length - 1]; if (a[0] !== b[0] || a[1] !== b[1]) cur.push(a); rings.push(cur); } }
+        else if (cur.length > 1) lines.push(cur);
+        cur = null;
+      },
+      polygonStart() { poly = true; }, polygonEnd() { poly = false; }, sphere() {},
+    };
+    // the world's outline is only its corners until it's bent along the projection's curved edge (the data is dense already)
+    const proj = geometry.type === 'Sphere' ? PROJ_FINE : PROJ;
+    d3.geoStream(geometry.type === 'Sphere' ? geometry : { type: 'Feature', geometry, properties: {} }, proj.stream(sink));
+    if (rings.length) {
+      // outer rings wind one way, holes the other: each hole goes with the smallest outer ring around it
+      const signed = (r) => { let a = 0; for (let i = 0, j = r.length - 1; i < r.length; j = i++) a += (r[j][0] + r[i][0]) * (r[j][1] - r[i][1]); return a; };
+      const big = d3.greatest(rings, (r) => Math.abs(signed(r)));
+      const outerSign = Math.sign(signed(big));
+      const outers = rings.filter((r) => Math.sign(signed(r)) === outerSign).map((r) => ({ r, a: Math.abs(signed(r)), holes: [] }));
+      for (const h of rings.filter((r) => Math.sign(signed(r)) !== outerSign)) {
+        const host = outers.filter((o) => d3.polygonContains(o.r, h[0])).sort((a, b) => a.a - b.a)[0];
+        if (host) host.holes.push(h);
+      }
+      return { type: 'MultiPolygon', coordinates: outers.map((o) => [o.r, ...o.holes].map((r) => r.map(fake))) };
+    }
+    if (lines.length) return { type: 'MultiLineString', coordinates: lines.map((l) => l.map(fake)) };
+    if (pts.length) return { type: 'Point', coordinates: fake(pts[0]) };
+    return null;
+  }
+  // world units per km at a place (for when a city has room): the projection's scale there, or Mercator's
+  function unitsPerKm(lon, lat) {
+    if (!PROJ) return 1 / (40075 * Math.cos((lat * Math.PI) / 180));
+    const a = PROJ([lon, lat]), b = PROJ([lon + 0.05, lat]), c = PROJ([lon, lat + 0.05]);
+    if (!a || !b || !c) return 1 / 40075;
+    return Math.sqrt((Math.hypot(b[0] - a[0], b[1] - a[1]) / (0.05 * 111.32 * Math.cos((lat * Math.PI) / 180))) * (Math.hypot(c[0] - a[0], c[1] - a[1]) / (0.05 * 111.32)));
+  }
+  // a plain box around a geometry's coordinates (flat views: no wrapping)
+  function flatBounds(geometry) {
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    const walk = (c) => { if (typeof c[0] === 'number') { if (c[0] < x0) x0 = c[0]; if (c[0] > x1) x1 = c[0]; if (c[1] < y0) y0 = c[1]; if (c[1] > y1) y1 = c[1]; } else c.forEach(walk); };
+    walk(geometry.coordinates);
+    return [[x0, y0], [x1, y1]];
   }
 
-  // Borders by kind, in cells of a grid over the map, so only the cells on screen are drawn.
-  const GRID = 12;
-  function meshCells(main, filter) {
-    const mesh = topojson.meshArcs(topo, collection(main), filter);
-    const [bx0, by0, bx1, by1] = V.extent, cw = (bx1 - bx0) / GRID || 1, ch = (by1 - by0) / GRID || 1;
-    const cells = new Map();
-    for (const line of mesh.arcs) {
-      for (const a of line) {
-        const i = a < 0 ? ~a : a;
-        if (onSeam(i)) continue;
-        const xy = V.xy[i];
-        let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
-        for (let j = 0; j < xy.length; j += 2) { if (xy[j] < x0) x0 = xy[j]; if (xy[j] > x1) x1 = xy[j]; if (xy[j + 1] < y0) y0 = xy[j + 1]; if (xy[j + 1] > y1) y1 = xy[j + 1]; }
-        const key = clamp(Math.floor(((x0 + x1) / 2 - bx0) / cw), 0, GRID - 1) * GRID + clamp(Math.floor(((y0 + y1) / 2 - by0) / ch), 0, GRID - 1);
-        let c = cells.get(key);
-        if (!c) cells.set(key, (c = { arcs: [], box: [Infinity, Infinity, -Infinity, -Infinity], paths: [] }));
-        c.arcs.push(i);
-        c.box = [Math.min(c.box[0], x0), Math.min(c.box[1], y0), Math.max(c.box[2], x1), Math.max(c.box[3], y1)];
+  const ringArea = (ring) => { let a = 0; for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) a += (ring[j][0] + ring[i][0]) * (ring[j][1] - ring[i][1]); return Math.abs(a) / 2; };
+  // a merged area's polygons in world units, biggest first, each with its area
+  function partsOf(geometry) {
+    const polys = geometry.type === 'Polygon' ? [geometry.coordinates] : geometry.type === 'MultiPolygon' ? geometry.coordinates : [];
+    return polys.map((p) => {
+      const rings = p.map((ring) => ring.map(([lon, lat]) => [mx(lon), my(lat)]));
+      return { rings, area: Math.max(0, ringArea(rings[0]) - d3.sum(rings.slice(1), ringArea)) };
+    }).filter((q) => q.area > 0).sort((a, b) => b.area - a.area);
+  }
+
+  // ---------- names: what each says, and how big it can be at each zoom ----------
+  const LABEL_MIN = 9; // px: smaller than this, a name isn't shown
+  const labelMax = () => (phone() ? 22 : 26); // as big as map sites name a region, no bigger
+  // an em of the map's bold font, per character (Noto Sans Bold), measured once per text
+  function emWidth(text, weight = 700) {
+    measure.font = `${weight} 100px "Noto Sans", "Inter", "Heebo", sans-serif`;
+    return measure.measureText(text).width / 100 + 0.01 * text.length;
+  }
+  const ZS = d3.range(0, 15); // the zooms sizes are worked out for (the map interpolates between them)
+  // How big a name may be at zoom z where it sits at a point dist (world units) from its area's edge, in an area of
+  // total size area (world units²): no bigger than the area calls for, and fitting in the room around its point.
+  // The whole name fits in the clear circle around its spot (its box's diagonal no longer than the circle's width,
+  // with a little leeway), so it stays inside its own area and two neighbours' names never overlap.
+  function sizeAt(z, { dist, area }, wEm, lines) {
+    const px = PX(z), room = 2.2 * dist * px;
+    const want = clamp(5 + 0.15 * Math.sqrt(area) * px, 9, labelMax());
+    return Math.min(want, room / Math.hypot(wEm * 1.04, lines * 1.15));
+  }
+  // The text a shetach's name has in the current mode, with its short form (shown where the full one has no room yet).
+  function labelTexts(s) {
+    const p = s.territoryOf && shetachById.get(s.territoryOf);
+    if (state.labels === 'name') return { text: s.name, short: [].concat(s.short || [])[0] || null, kind: '' };
+    const who = p || s;
+    const person = state.labels === 'last' ? who.lastName : who.headShliach;
+    if (!person) return s.noCentralLeadership ? null : { text: s.name, short: [].concat(s.short || [])[0] || null, kind: 'miss' };
+    return { text: person, short: state.labels === 'full' ? firstAndLast(who) : null, kind: p ? 'sec' : '' };
+  }
+  function firstAndLast(s) {
+    if (s.firstLast !== undefined) return s.firstLast;
+    const words = (s.headShliach || '').trim().split(/\s+/);
+    if (s.headTitle || words.length < 3 || /[;—]|\b(family|of)\b/i.test(s.headShliach)) return null;
+    return `${words[0]} ${words[words.length - 1]}`;
+  }
+  // A name on two lines, split at the space or hyphen that makes the lines most even.
+  function twoLines(text) {
+    let best = null;
+    for (let i = 1; i < text.length - 1; i++) {
+      if (text[i] !== ' ' && text[i] !== '-') continue;
+      const lines = [text.slice(0, text[i] === '-' ? i + 1 : i), text.slice(i + 1)];
+      const worst = Math.max(emWidth(lines[0]), emWidth(lines[1]));
+      if (!best || worst < best.worst) best = { worst, lines };
+    }
+    return best;
+  }
+  // A text's stops: its size at each zoom, the zoom from which it's big enough to show, and its wording (one line or two).
+  function sized(text, spot, sec) {
+    const one = { text, w: emWidth(text), lines: 1 };
+    const two = twoLines(text);
+    const forms = [one, ...(two ? [{ text: two.lines.join('\n'), w: two.worst, lines: 2 }] : [])];
+    // the same words on one line beat two unless two lines are clearly bigger (15%)
+    const at = (f, z) => sizeAt(z, spot, f.w, f.lines) * (sec || 1);
+    const zRef = ZS.find((z) => at(one, z) >= LABEL_MIN) ?? 14;
+    const pick = forms.length > 1 && at(forms[1], zRef) > at(one, zRef) * 1.15 ? forms[1] : one;
+    const raw = ZS.map((z) => at(pick, z));
+    let minz = 24;
+    for (let i = 0; i < ZS.length; i++) {
+      if (raw[i] >= LABEL_MIN) {
+        const prev = i ? raw[i - 1] : 0;
+        minz = i ? ZS[i - 1] + (LABEL_MIN - prev) / Math.max(0.01, raw[i] - prev) : 0;
+        break;
       }
     }
-    return [...cells.values()];
+    // Once shown, a name grows gently as the map zooms in (at most 40% a step, as names do on map sites), up to what
+    // its area allows; this also keeps the map's collision boxes, sized for the step ahead, close to the real name.
+    const sizes = [];
+    raw.forEach((v, i) => { sizes.push(Math.round((i && raw[i - 1] >= LABEL_MIN ? Math.min(v, sizes[i - 1] * 1.4) : v) * 10) / 10); });
+    return { text: pick.text, sizes, minz };
   }
-  function cellPath(cell, L) {
-    if (!cell.paths[L]) { const p = new Path2D(); for (const i of cell.arcs) traceArcs(p, [i], L, false); cell.paths[L] = p; }
-    return cell.paths[L];
-  }
-
-  // opts.focus: {ll, k} to keep looking at the same place (switching maps); opts.keep: leave the physical map's camera alone.
-  function layout(opts = {}) {
-    W = svg.node().clientWidth;
-    H = svg.node().clientHeight;
-    DPR = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = Math.round(W * DPR);
-    canvas.height = Math.round(H * DPR);
-    document.documentElement.style.setProperty('--sheet', `${$('#panel').getBoundingClientRect().height}px`);
-    const view = VIEWS[state.view];
-    const physical = state.base === 'physical';
-    const shown = pieces.filter((g) => view.countries.includes(g.properties.country));
-    // Alaska in its own box, or in its real place (the Alaska option); Hawaii is always boxed. The physical map has both in place.
-    const boxed = view.insets.filter((st) => !(st === 'US-AK' && state.alaska === 'place'));
-    const insetStates = physical ? [] : boxed;
-    const main = shown.filter((g) => !insetStates.includes(g.properties.state));
-    const framed = shown.filter((g) => !boxed.includes(g.properties.state)); // both maps frame the same area
-    V = { view, physical, shown, main, index: {}, insetPieces: shown.filter((g) => insetStates.includes(g.properties.state)) };
-
-    const p = insets();
-    // On a phone the boxes get their own strip under the map (a desktop's continent leaves room beside the panel).
-    const pFit = { ...p };
-    if (phone() && V.insetPieces.length) pFit.b += Math.max(...V.insetPieces.map((g) => { const sp = INSETS[g.properties.state]; return clamp((W - p.l - p.r) * sp.share, 80, 260) * sp.aspect; })) + 10;
-    // frame: a lon/lat box to fill the screen with instead of every island (Europe without the Azores and Canaries)
-    const target = view.frame ? d3.geoGraticule().extent(view.frame).outline() : topojson.feature(topo, collection(framed));
-    projection = (physical ? d3.geoMercator().rotate([-(view.lon || 0), 0]) : view.projection()).fitExtent([[pFit.l, pFit.t], [W - pFit.r, H - pFit.b]], target);
-    geoPath = d3.geoPath(projection);
-    if (physical) V.zFit = Math.log2((2 * Math.PI * projection.scale()) / 512); // MapLibre zoom of the framed view
-
-    // Every arc the view draws, projected once (map pixels at zoom 1), with its points' weights.
-    V.xy = []; V.w = [];
-    let ex0 = Infinity, ey0 = Infinity, ex1 = -Infinity, ey1 = -Infinity;
-    const viewArcs = new Set();
-    for (const g of main) arcsOf(g, viewArcs);
-    for (const i of viewArcs) {
-      const ll = arcLL[i], xy = new Float32Array(ll.length);
-      for (let j = 0; j < ll.length; j += 2) {
-        const q = projection([ll[j], ll[j + 1]]);
-        xy[j] = q[0]; xy[j + 1] = q[1];
-        if (q[0] < ex0) ex0 = q[0]; if (q[0] > ex1) ex1 = q[0]; if (q[1] < ey0) ey0 = q[1]; if (q[1] > ey1) ey1 = q[1];
-      }
-      V.xy[i] = xy;
-      if (!physical) V.w[i] = weights(xy);
+  // The spot a name goes: its area's main part's pole of inaccessibility (Alberta: Alberta's part; India: the labelAt
+  // point), or, for a chain of islands (the Caribbean), the middle of the chain over the water.
+  function spotsFor(geometry, coreGeometry, labelAt) {
+    const parts = partsOf(geometry);
+    if (!parts.length) return [];
+    const total = d3.sum(parts, (q) => q.area);
+    const own = coreGeometry ? partsOf(coreGeometry) : parts;
+    if (labelAt) {
+      const at = P(labelAt[0], labelAt[1]), x = mx(at[0]), y = my(at[1]);
+      const host = own.find((q) => pointToPolygonDist(x, y, q.rings) > 0) || own[0];
+      return [{ x, y, dist: Math.max(pointToPolygonDist(x, y, host.rings), polylabel(host.rings, 1e-6).d * 0.6), area: total, main: true }];
     }
-    V.extent = [ex0, ey0, ex1, ey1];
+    const pts = parts.flatMap((q) => q.rings[0]);
+    const hull = d3.polygonHull(pts);
+    const hullArea = hull ? ringArea(hull) : 0;
+    if (parts.length > 2 && hullArea > 0 && total < 0.35 * hullArea && parts[0].area < 0.6 * total) {
+      const [cx, cy] = d3.polygonCentroid(hull);
+      return [{ x: cx, y: cy, dist: Math.sqrt(hullArea / Math.PI) * 0.55, area: total, main: true, sea: true }];
+    }
+    const spots = [];
+    const main = own[0], pl = polylabel(main.rings, Math.sqrt(main.area) / 400);
+    spots.push({ x: pl.x, y: pl.y, dist: pl.d, area: total, main: true, part: main });
+    // other big pieces another country keeps apart (the Lower Balkans' two halves): a name on each
+    for (const q of parts.slice(1)) {
+      if (q.area < parts[0].area * 0.25) break;
+      const p2 = polylabel(q.rings, Math.sqrt(q.area) / 400);
+      if (Math.hypot(p2.x - pl.x, p2.y - pl.y) < 4 * Math.max(pl.d, p2.d)) continue;
+      spots.push({ x: p2.x, y: p2.y, dist: p2.d, area: total, part: q });
+    }
+    return spots;
+  }
+  // A big area seen up close repeats its name across its land: a grid of spots about a screen apart at each zoom step,
+  // shown from that step on (the map's own collision keeps them from crowding).
+  function repeatsFor(spot) {
+    if (!spot.part) return [];
+    const out = [], q = spot.part;
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    for (const [x, y] of q.rings[0]) { if (x < x0) x0 = x; if (y < y0) y0 = y; if (x > x1) x1 = x; if (y > y1) y1 = y; }
+    for (const z of [5, 7, 9]) {
+      const step = 1100 / PX(z);
+      if (x1 - x0 < step * 1.6 && y1 - y0 < step * 1.6) continue;
+      for (let x = x0 + step / 2; x < x1; x += step) {
+        for (let y = y0 + step / 2; y < y1; y += step) {
+          const d = pointToPolygonDist(x, y, q.rings);
+          if (d < step * 0.12 || Math.hypot(x - spot.x, y - spot.y) < step * 0.8) continue;
+          out.push({ x, y, dist: Math.min(d, step * 0.45), area: spot.area, fromZ: z, toZ: z === 9 ? 30 : z + 2, rep: 1 });
+        }
+      }
+      if (out.length > 120) break;
+    }
+    return out;
+  }
 
-    // Shetachim, the blank parts of states, and states (for States borders): each merged, with its polygons.
-    const area = (gs, extra) => { const ma = topojson.mergeArcs(topo, gs); const d = drawable(ma); return { ...extra, g: gs[0], ma, ...d, polysXY: d.polys.map(ringsOf) }; };
-    V.regions = [...d3.group(main.filter(shetachOf), shetachOf)].map(([s, gs]) => {
-      const r = area(gs, { s, color: shetachColor(groupOf(s.id)), territory: !!s.territoryOf });
-      // labelState: the part of the shetach its name belongs on (Alberta, not the territories' narrow strip north of it)
-      const core = s.labelState && gs.filter((g) => g.properties.state === s.labelState);
-      if (core && core.length && core.length < gs.length) r.coreXY = area(core, {}).polysXY;
-      // labelCentre: softer — the name aims at that state's part (Western Pennsylvania's Pennsylvania, not its West
-      // Virginia) but may run a little past it
-      const lean = s.labelCentre && gs.filter((g) => g.properties.state === s.labelCentre);
-      if (lean && lean.length && lean.length < gs.length) { r.coreXY = area(lean, {}).polysXY; r.soft = true; }
-      return r;
-    });
-    V.blanks = [...d3.group(main.filter((g) => !shetachOf(g)), (g) => g.properties.state)].map(([st, gs]) => area(gs, { st }));
-    V.states = [...d3.group(main, (g) => g.properties.state)].map(([st, gs]) => area(gs, { st, p: gs[0].properties, color: stateColor(st) }));
-    if (!physical) {
+  // ---------- what the map draws, worked out per view and options ----------
+  // every piece once, as GeoJSON, with what the fill and the cards need
+  const areaFeatures = topojson.feature(topo, collection(pieces)).features.map((f, i) => {
+    const g = pieces[i], s = shetachOf(g), p = g.properties;
+    return feature(f.geometry, { id: p.id, country: p.country, state: p.state, shetach: p.shetach || '', cs: s ? shetachColor(groupOf(s.id)) : -1, cu: stateColor(p.state) });
+  });
+  // Lines from the topology, without the cut along the 180° line (polygons crossing it come split there; that cut is
+  // neither a coast nor a border).
+  function meshLines(geoms, filter) {
+    const m = topojson.mesh(topo, collection(geoms), filter), out = [];
+    for (const line of m.coordinates) {
+      let cur = [];
+      for (let i = 0; i < line.length; i++) {
+        const p = line[i], q = line[i - 1];
+        if (q && Math.abs(p[0]) >= 179.99 && Math.abs(q[0]) >= 179.99) { if (cur.length > 1) out.push(cur); cur = [p]; continue; }
+        cur.push(p);
+      }
+      if (cur.length > 1) out.push(cur);
+    }
+    return out;
+  }
+  // the land no shetach covers (the "Rest of the world" option), loaded the first time it's asked for
+  let outside = null, outsideLoading = false;
+  function outsideData() {
+    if (outside) return outside;
+    if (!outsideLoading) {
+      outsideLoading = true;
+      get('data/outside.json').then((t) => {
+        const obj = t.objects[Object.keys(t.objects)[0]];
+        const ms = (filter) => { const m = topojson.mesh(t, obj, filter); return m.coordinates.filter((l) => !l.every((p) => Math.abs(p[0]) >= 179.99)); };
+        outside = {
+          fill: topojson.feature(t, obj),
+          coast: feature({ type: 'MultiLineString', coordinates: ms((a, b) => a === b) }, { k: 'coast' }),
+          borders: feature({ type: 'MultiLineString', coordinates: ms((a, b) => a !== b) }, { k: 'regular' }),
+        };
+        if (map && V) { setOutside(); }
+      }).catch(() => {});
+    }
+    return null;
+  }
+
+  // The view: its pieces, dots, cities and capitals, and two ways of drawing it: standard (M) and, for the world and
+  // continents, flat in Natural Earth (F). The map shows F zoomed out and M from country level in, switching between them
+  // as you zoom (see setMode).
+  let V = null, map = null, glOK = false, hoverPiece = null;
+  const SETS = new Map();
+  let allLand = null; // every piece's land, merged once (a flat view's land, with the land no shetach covers)
+  // run fn with S's projection in force (P, projGeom and unitsPerKm follow it)
+  function within(S, fn) {
+    const keep = [PROJ, PROJ_FINE];
+    PROJ = S.proj; PROJ_FINE = S.fine;
+    try { return fn(); } finally { [PROJ, PROJ_FINE] = keep; }
+  }
+  function buildSet(view, framedGeoms, flat) {
+    const proj = flat ? flatFor(view) : null;
+    const S = { proj, fine: proj && flatFor(view).precision(1e-5), sfx: flat ? '-f' : '', flat, labelCache: new Map(), capCity: new Map(), outside: null };
+    return within(S, () => {
+      const main = V.main;
+      if (!flat) {
+        if (view.frame) S.bounds = view.frame;
+        else {
+          const b = d3.geoBounds(topojson.feature(topo, collection(framedGeoms)));
+          S.bounds = b[0][0] > b[1][0] ? [[b[0][0], b[0][1]], [b[1][0] + 360, b[1][1]]] : b; // across the 180° line
+        }
+      } else {
+        // the frame (or the view's land), its edges bent by the projection
+        const [[w, so], [e, n]] = view.frame || d3.geoBounds(topojson.feature(topo, collection(framedGeoms))), pts = [];
+        const east = e < w ? e + 360 : e;
+        for (let i = 0; i <= 40; i++) { const t = i / 40; pts.push(P(w + (east - w) * t, so), P(w + (east - w) * t, n), P(w, so + (n - so) * t), P(east, so + (n - so) * t)); }
+        S.bounds = view === VIEWS.world ? flatBounds(projGeom({ type: 'Sphere' })) : flatBounds({ coordinates: pts.filter(Boolean) });
+      }
+      // all the land (the political map has no street map to show it)
+      if (!allLand) allLand = topojson.merge(topo, pieces);
+      S.land = flat ? feature(projGeom(allLand)) : feature(allLand);
+      // the areas as the engine gets them: all of them as they are, or the view's own, flat
+      S.areas = flat ? fc(areaFeatures.filter((f) => view.countries.includes(f.properties.country)).map((f) => feature(projGeom(f.geometry), f.properties)).filter((f) => f.geometry))
+        : fc(areaFeatures);
       const key = (g) => groupOf(g.properties.shetach) || '';
-      V.mesh = {
-        coast: meshCells(main, (a, b) => a === b),
-        regular: meshCells(main, (a, b) => a.properties.state !== b.properties.state && a.properties.country === b.properties.country),
-        country: meshCells(main, (a, b) => a.properties.country !== b.properties.country),
-        shetach: meshCells(main, (a, b) => a !== b && key(a) !== key(b)),
-        // between a territory and its shetach (India and Thailand's): dashed
-        inner: meshCells(main, (a, b) => a !== b && key(a) && key(a) === key(b) && a.properties.shetach !== b.properties.shetach),
-      };
-    }
-
+      const lineFeature = (lines, k) => feature(projGeom({ type: 'MultiLineString', coordinates: lines }) || { type: 'MultiLineString', coordinates: [] }, { k });
+      S.mesh = fc([
+        lineFeature(meshLines(main, (a, b) => a === b), 'coast'),
+        lineFeature(meshLines(main, (a, b) => a.properties.state !== b.properties.state && a.properties.country === b.properties.country), 'regular'),
+        lineFeature(meshLines(main, (a, b) => a.properties.country !== b.properties.country), 'country'),
+        lineFeature(meshLines(main, (a, b) => a !== b && key(a) !== key(b)), 'shetach'),
+        lineFeature(meshLines(main, (a, b) => a !== b && key(a) && key(a) === key(b) && a.properties.shetach !== b.properties.shetach), 'inner'),
+      ]);
+      // merged areas: shetachim and the blank parts of states, and states (for States borders)
+      S.regions = [...d3.group(main.filter(shetachOf), shetachOf)].map(([s, gs]) => {
+        const core = (s.labelState && gs.filter((g) => g.properties.state === s.labelState)) || (s.labelCentre && gs.filter((g) => g.properties.state === s.labelCentre));
+        return { s, gs, geometry: projGeom(topojson.merge(topo, gs)), core: core && core.length && core.length < gs.length ? projGeom(topojson.merge(topo, core)) : null };
+      });
+      S.states = [...d3.group(main, (g) => g.properties.state)].map(([st, gs]) => ({ st, p: gs[0].properties, gs, geometry: projGeom(topojson.merge(topo, gs)) }));
+      return S;
+    });
+  }
+  function viewData() {
+    const view = VIEWS[state.view];
+    const shown = pieces.filter((g) => view.countries.includes(g.properties.country));
+    const main = shown;
     const mainIds = new Set(main.map((g) => g.properties.id));
+    // framed: the view's whole land, except Alaska and Hawaii (in their places, a pan away) and a view's own frame
+    const framedGeoms = shown.filter((g) => !view.insets.includes(g.properties.state));
+    V = { view, shown, main, mainIds };
     V.dots = dots.filter((d) => mainIds.has(d.piece));
-    for (const d of V.dots) [d.x, d.y] = projection([d.lon, d.lat]);
-    tree = d3.quadtree(V.dots, (d) => d.x, (d) => d.y);
-    V.caps = capitals.filter((c) => (c.honor ? view.world : mainIds.has(c.piece))); // Lubavitch shows in every world view
+    V.caps = capitals.filter((c) => (c.honor ? view.world : mainIds.has(c.piece)));
     V.cities = cities.filter((c) => mainIds.has(c.piece));
-    for (const c of [...V.caps, ...V.cities]) [c.x, c.y] = projection([c.lon, c.lat]);
-    const ui = getComputedStyle(document.documentElement).getPropertyValue('--font-ui');
-    measure.font = `500 ${MARK_FONT}px ${ui}`;
-    for (const c of V.cities) if (!c.widths) c.widths = c.texts.map((t) => measure.measureText(t).width);
-    const [lon0, lat0] = projection.invert([W / 2, H / 2]);
-    const a = projection([lon0, lat0]), b = projection([lon0, lat0 + 1]);
-    V.pxPerKm = Math.hypot(b[0] - a[0], b[1] - a[1]) / 111.2; // at zoom 1
-
-    for (const r of [...V.regions, ...V.states]) r.anchor = anchorFor(r.polysXY);
-    drawInsets(p);
-
+    // (each view's two ways of drawing are worked out once, and kept for coming back to it)
+    if (!SETS.has(state.view)) SETS.set(state.view, { M: buildSet(view, framedGeoms, false), F: flatFor(view) ? buildSet(view, framedGeoms, true) : null });
+    Object.assign(V, SETS.get(state.view));
+    V.cur = wantedSet();
     const shownIds = new Set(shown.map((g) => g.properties.id));
     const viewDots = dots.filter((d) => shownIds.has(d.piece));
     $('#view-name').textContent = tr(view.name);
@@ -849,1215 +942,689 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     $('#st-shetachim').textContent = fmt(new Set(shown.map((g) => g.properties.shetach).filter(Boolean)).size);
     $('#st-centers').textContent = fmt(d3.sum(viewDots, (d) => d.centers.length));
     $('#st-dots').textContent = fmt(viewDots.length);
-
-    const start = opts.focus ? transformFor(opts.focus) : d3.zoomIdentity;
-    if (physical) {
-      mapgl.resize();
-      mapgl.setRenderWorldCopies(!!view.wrap);
-      mapgl.setMinZoom(Math.max(-2, V.zFit - 1.5)); // MapLibre allows down to -2 (it still fills the screen height with the world)
-      dataGL();
-      if (!opts.keep) mapgl.jumpTo(cameraFor(start));
-      syncCamera();
-    } else {
-      zoom.translateExtent([[-W * 0.5, -H * 0.5], [W * 1.5, H * 1.5]]);
-      svg.call(zoom.transform, zoom.constrain()(start, [[0, 0], [W, H]], zoom.translateExtent()));
-    }
-    requestDraw();
   }
 
-  // Where the middle of the screen is, and how far in from the framed view: survives switching maps.
-  function focusNow() {
-    return { ll: projection.invert(T.invert([W / 2, H / 2])), k: T.k };
-  }
-  function transformFor({ ll, k }) {
-    const pt = ll && projection(ll);
-    if (!pt || !pt.every(Number.isFinite)) return d3.zoomIdentity;
-    if (!V.physical) k = clamp(k, 1, 60);
-    return d3.zoomIdentity.translate(W / 2 - k * pt[0], H / 2 - k * pt[1]).scale(k);
-  }
-
-  // ---------- Alaska and Hawaii boxes ----------
-  function drawInsets(p) {
-    gInsets.selectAll('*').remove();
-    insetBoxes = [];
-    let x = p.l;
-    for (const g of V.insetPieces) {
-      const spec = INSETS[g.properties.state];
-      const w = clamp((W - p.l - p.r) * spec.share, 80, 260), h = w * spec.aspect, y = H - p.b - h;
-      const feature = topojson.feature(topo, g);
-      const proj = spec.projection().fitExtent([[x + 6, y + 18], [x + w - 6, y + h - 6]], feature);
-      const box = { piece: g, x, y, w, h, proj, dots: dots.filter((d) => d.piece === g.properties.id) };
-      const s = shetachOf(g);
-      const group = gInsets.append('g');
-      group.append('rect').attr('class', 'inset-frame').attr('x', x).attr('y', y).attr('width', w).attr('height', h).attr('rx', 6);
-      group.append('path').datum(feature).attr('class', 'inset-land')
-        .style('--fill', s ? cssColor(shetachColor(s.id)) : 'none').style('--fill-u', cssColor(stateColor(g.properties.state))).attr('d', d3.geoPath(proj));
-      box.caption = group.append('text').attr('class', 'inset-caption').attr('x', x + 8).attr('y', y + 13);
-      group.selectAll('circle').data(box.dots).join('circle').attr('class', 'dot')
-        .attr('cx', (d) => proj([d.lon, d.lat])[0]).attr('cy', (d) => proj([d.lon, d.lat])[1])
-        .attr('r', (d) => dotBase(d) * 1.1);
-      insetBoxes.push(box);
-      x += w + 10;
-    }
-    insetOrigin = [p.l, H - p.b];
-    gInsets.style('transform-origin', `${insetOrigin[0]}px ${insetOrigin[1]}px`);
-  }
-
-  // ---------- labels ----------
-  // An area's biggest polygon's area, and a bbox over every polygon (even small ones), so placeLabels can tell when the
-  // whole area doesn't fit on screen and works from what does.
-  function anchorFor(polys) {
-    const area = d3.max(polys, (rings) => Math.abs(d3.polygonArea(rings[0])));
-    if (!(area > 0)) return null;
-    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
-    for (const poly of polys) for (const [x, y] of poly[0]) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
-    return { area, bbox: [x0, y0, x1, y1] };
-  }
-
-  // A shetach in pieces that other land keeps apart (Bosnia and the rest of the Lower Balkans, with Montenegro and
-  // Serbia between) gets its name on each big piece, so each is labelled and both read as one shetach; pieces only
-  // water keeps apart (islands, the two sides of a gulf) share one label, which may cross the water. A piece counts
-  // as big from a tenth of the biggest; smaller ones go with the nearest big one. Labels keep the shetach's one size.
-  function labelClusters(r, id, ix) {
-    const polys = r.polysXY.map((rings) => ({ rings, area: Math.abs(d3.polygonArea(rings[0])), c: d3.polygonCentroid(rings[0]) }));
-    const max = d3.max(polys, (q) => q.area);
-    const big = polys.filter((q) => q.area >= max * 0.1);
-    if (r.coreXY) return [{ polys: r.polysXY, a: r.anchor, core: r.coreXY, soft: r.soft }];
-    if (big.length < 2) return [{ polys: r.polysXY, a: r.anchor }];
-    const ownerAt = (x, y) => {
-      for (const [other, xs] of crossings(ix, y)) for (let i = 0; i + 1 < xs.length; i += 2) if (x >= xs[i] && x <= xs[i + 1]) return other;
-      return null;
+  // The names for the view in the current label mode: one feature per spot, each with its size at every zoom.
+  function labelData(S) {
+    if (state.labels === 'off') return EMPTY;
+    const ck = `${state.labels}|${state.borders === 'regular' ? 'r' : 's'}|${phone() ? 'p' : 'd'}`;
+    if (S.labelCache.has(ck)) return S.labelCache.get(ck);
+    const out = [];
+    const add = (spot, t, extra) => {
+      const props = { ...extra };
+      const full = sized(t.text, spot, extra.secScale);
+      const short = t.short && t.short !== t.text ? sized(t.short, spot, extra.secScale) : null;
+      // DISPUTED: "Disputed" in italics, the names upright (two parts, one text)
+      const put = (s, minz, maxz) => {
+        const m = DISPUTED.exec(s.text.replace('\n', ' '));
+        out.push(feature({ type: 'Point', coordinates: [unlon(spot.x), unlat(spot.y)] }, {
+          ...props, t: m ? '' : s.text, pre: m ? m[1] : '', rest: m ? m[2] : '',
+          ...Object.fromEntries(s.sizes.map((v, i) => [`s${i}`, v])), minz: Math.max(minz, spot.fromZ || 0), maxz: Math.min(maxz, spot.toZ || 30),
+          rank: Math.round(-Math.sqrt(spot.area) * 1e5) + (spot.rep ? 1e6 : 0), rep: spot.rep || 0,
+        }));
+      };
+      if (short && short.minz < full.minz) put(short, short.minz, full.minz);
+      put(full, full.minz, 30);
     };
-    // apart: where the straight line between their middles leaves the shetach, it's mostly over someone else's land
-    const apart = (a, b) => {
-      let land = 0, water = 0;
-      for (let t = 1; t < 48; t++) {
-        const o = ownerAt(a.c[0] + ((b.c[0] - a.c[0]) * t) / 48, a.c[1] + ((b.c[1] - a.c[1]) * t) / 48);
-        if (o === null) water++; else if (o !== id) land++;
-      }
-      return land > water;
-    };
-    const root = big.map((_, i) => i), find = (i) => (root[i] === i ? i : (root[i] = find(root[i])));
-    for (let i = 0; i < big.length; i++) for (let j = i + 1; j < big.length; j++) if (!apart(big[i], big[j])) root[find(j)] = find(i);
-    const groups = new Map();
-    for (const q of polys) {
-      let bi = big.indexOf(q);
-      if (bi < 0) bi = d3.minIndex(big, (b) => Math.hypot(b.c[0] - q.c[0], b.c[1] - q.c[1]));
-      const g = find(bi);
-      if (!groups.has(g)) groups.set(g, []);
-      groups.get(g).push(q.rings);
-    }
-    if (groups.size < 2) return [{ polys: r.polysXY, a: r.anchor }];
-    return [...groups.values()].map((ps) => ({ polys: ps, a: { ...anchorFor(ps), area: r.anchor.area } }));
-  }
-
-  // The edges of the labelled areas filed by height, so where a horizontal line crosses them is quick to find.
-  function edgeIndex(areas) {
-    let y0 = Infinity, y1 = -Infinity;
-    for (const r of areas) for (const rings of r.polysXY) for (const pt of rings[0]) { y0 = Math.min(y0, pt[1]); y1 = Math.max(y1, pt[1]); }
-    const n = Math.max(1, Math.ceil((y1 - y0) / 2)), step = (y1 - y0) / n || 1, bands = Array.from({ length: n }, () => []);
-    areas.forEach((r, id) => {
-      for (const rings of r.polysXY) for (const ring of rings) for (let i = 1; i < ring.length; i++) {
-        const a = ring[i - 1], b = ring[i];
-        if (a[1] === b[1]) continue;
-        const lo = Math.max(0, Math.floor((Math.min(a[1], b[1]) - y0) / step)), hi = Math.min(n - 1, Math.floor((Math.max(a[1], b[1]) - y0) / step));
-        for (let k = lo; k <= hi; k++) bands[k].push(id, a[0], a[1], b[0], b[1]);
-      }
-    });
-    return { y0, step, n, bands };
-  }
-  function labelIndex() {
-    const mode = state.borders === 'regular' ? 'regular' : 'shetach';
-    return V.index[mode] || (V.index[mode] = edgeIndex(mode === 'regular' ? V.states : [...V.regions, ...V.blanks]));
-  }
-
-  // Where the line at map height y is inside each area: area → [in, out, in, out, …] (map x, in order).
-  function crossings(ix, y) {
-    const out = new Map(), k = Math.floor((y - ix.y0) / ix.step);
-    if (!(k >= 0 && k < ix.n)) return out;
-    const band = ix.bands[k];
-    for (let i = 0; i < band.length; i += 5) {
-      const ay = band[i + 2], by = band[i + 4];
-      if ((ay > y) === (by > y)) continue;
-      const id = band[i], x = band[i + 1] + ((y - ay) / (by - ay)) * (band[i + 3] - band[i + 1]);
-      const xs = out.get(id);
-      if (xs) xs.push(x); else out.set(id, [x]);
-    }
-    for (const xs of out.values()) xs.sort((a, b) => a - b);
-    return out;
-  }
-
-  // What a shetach's label says in the current mode; the short forms are for where it has no room. A head shliach is
-  // never shortened to his last name (the owner's rule): the full name, or, for someone with middle names, just the
-  // first and last name ("Yosef Yitzchak Aharonov" → "Yosef Aharonov"); where neither fits, no name until zoomed in.
-  // Leadership entries and families ("Hanholo of Chabad Lubavitch UK", "Pinson family") are never shortened.
-  function shetachLabel(s) {
-    // a territory of another shetach (India, of Thailand's): by name, its own name; in the head-shliach modes that
-    // shetach's head again, in italics (`secondary`)
-    const p = s.territoryOf && shetachById.get(s.territoryOf);
-    if (p) {
-      if (state.labels === 'name') return { text: s.name, short: s.short, missing: false };
-      const head = state.labels === 'last' ? p.lastName : p.headShliach;
-      return head ? { text: head, short: state.labels === 'full' ? firstAndLast(p) : null, missing: false, secondary: true } : null;
-    }
-    if (state.labels === 'name') return { text: s.name, short: s.short, missing: false };
-    const person = state.labels === 'last' ? s.lastName : s.headShliach;
-    if (!person && s.noCentralLeadership) return null; // no head shliach to name: the shetach is left blank
-    if (!person) return { text: s.name, short: s.short, missing: true };
-    return { text: person, short: state.labels === 'full' ? firstAndLast(s) : null, missing: false };
-  }
-  function firstAndLast(s) {
-    if (s.firstLast !== undefined) return s.firstLast;
-    const words = (s.headShliach || '').trim().split(/\s+/);
-    if (s.headTitle || words.length < 3 || /[;—]|\b(family|of)\b/i.test(s.headShliach)) return null;
-    return `${words[0]} ${words[words.length - 1]}`;
-  }
-
-  // A name on two lines, split at the space or hyphen that makes the lines most even.
-  function twoLines(text) {
-    let best = null;
-    for (let i = 1; i < text.length - 1; i++) {
-      if (text[i] !== ' ' && text[i] !== '-') continue;
-      const lines = [text.slice(0, text[i] === '-' ? i + 1 : i), text.slice(i + 1)];
-      const worst = Math.max(lines[0].length, lines[1].length);
-      if (!best || worst <= best.worst) best = { worst, lines };
-    }
-    return best && best.lines;
-  }
-
-  const MARK_FONT = 12;
-  const LINE = 1.2; // line height of two-line labels, in font sizes
-  const GLYPH = 0.95; // how tall a line of letters really is, in font sizes
-  function buildLabels() {
-    labels = [];
-    levelCache = new Map();
-    if (state.labels !== 'off') {
-      if (state.borders === 'regular') V.states.forEach((r, id) => { if (r.anchor) labels.push({ text: r.p.name, short: r.p.abbr, missing: false, a: r.anchor, id, r }); });
-      else {
-        const ix = labelIndex();
-        V.regions.forEach((r, id) => {
-          const sl = r.anchor && shetachLabel(r.s);
-          if (!sl) return; // no label (a head-shliach mode where the shetach has no central leadership: India)
-          for (const cl of r.clusters || (r.clusters = labelClusters(r, id, ix))) labels.push({ ...sl, a: cl.a, id, r, cl });
-        });
-      }
-    }
-    // Each label's forms, most wanted first: the name on one line, on two, then each short form in turn (The Carolinas
-    // → Carolinas → Car.), with how wide and tall each is per pixel of font size.
-    const family = getComputedStyle(document.documentElement).getPropertyValue('--font-map');
-    for (const L of labels) {
-      measure.font = `${L.missing ? 500 : 700} 100px ${family}`;
-      const unit = (t) => (measure.measureText(t).width + 0.01 * 100 * t.length) / 100; // letter-spacing .01em
-      // height: the letters themselves (capitals and descenders, about 0.95 em), plus a line's pitch for a second line
-      const form = (lines, kind) => ({ lines, kind, wu: d3.max(lines, unit), hu: GLYPH + (lines.length - 1) * LINE });
-      const two = twoLines(L.text);
-      L.forms = [form([L.text], 'name'), ...(two ? [form(two, 'two')] : []),
-        ...[].concat(L.short || []).filter((t) => t && t !== L.text).map((t) => form([t], 'short'))];
-    }
-    labels.sort((a, b) => b.a.area - a.a.area);
-    for (const box of insetBoxes) {
-      const g = box.piece, s = shetachOf(g);
-      const L = state.labels === 'off' ? null : state.borders === 'regular' || !s ? { text: g.properties.name, missing: false } : shetachLabel(s);
-      box.caption.text(L ? L.text : '').classed('lab-missing', !!(L && L.missing));
-    }
-  }
-
-  const overlaps = (box, boxes) => boxes.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1]);
-
-  // Capital stars on screen now. They shrink when the whole map is small (a phone, zoomed out).
-  const STAR_FULL = 0.19; // screen pixels per km at which stars are full size (a desktop's whole-map view)
-  function starsNow(m = 12) { // m: px beyond the screen's edges (names are laid out a screen beyond them)
-    const f = clamp((V.pxPerKm * T.k) / STAR_FULL, 0.55, 1), out = [];
-    for (const c of V.caps) {
-      if (!state.capitals && !c.honor) continue;
-      const [sx, sy] = T.apply([c.x, c.y]);
-      if (sx < -m || sx > W + m || sy < -m || sy > H + m) continue;
-      const r = (c.world ? 11 : c.honor ? 4 : 7) * f;
-      out.push({ kind: 'cap', c, f, r, sx, sy, box: [sx - r, sy - r, sx + r, sy + r] });
-    }
-    return out;
-  }
-
-  // The panel and zoom buttons, in map-screen coordinates: nothing is placed under them.
-  // An Alaska/Hawaii box as it is now on screen (it shrinks toward its corner when zoomed in).
-  function insetRect(b) {
-    const sc = T.k > 1.3 ? 0.6 : 1, [ox, oy] = insetOrigin;
-    return [ox + (b.x - ox) * sc, oy + (b.y - oy) * sc, ox + (b.x + b.w - ox) * sc, oy + (b.y + b.h - oy) * sc];
-  }
-  function coveredRects() {
-    const app = $('#app').getBoundingClientRect();
-    const rects = [...document.querySelectorAll('#panel, #zoomctl')].map((el) => {
-      const r = el.getBoundingClientRect();
-      return [r.left - app.left, r.top - app.top, r.right - app.left, r.bottom - app.top];
-    });
-    if (!V.physical) for (const b of insetBoxes) rects.push(insetRect(b));
-    return rects;
-  }
-
-  // How much of a w×h label centred at screen (cx, cy) lies on its own area me (0-1), checked along five rows through
-  // the label; null if it comes within gap px of any other area. Water is fine: a label may cross a gulf or a strait
-  // between two parts of its own shetach.
-  const ROWS = [0, -0.42, 0.42, -0.21, 0.21]; // in label heights
-  function ownShare(ix, me, cx, cy, w, h, gap = 2) {
-    const k = T.k, x0 = cx - w / 2, x1 = cx + w / 2;
-    let on = 0;
-    for (const t of ROWS) {
-      for (const [id, xs] of crossings(ix, (cy + t * h - T.y) / k)) {
-        for (let i = 0; i + 1 < xs.length; i += 2) {
-          const a = T.x + xs[i] * k, b = T.x + xs[i + 1] * k;
-          if (id === me) on += Math.max(0, Math.min(x1, b) - Math.max(x0, a));
-          else if (a < x1 + gap && b > x0 - gap) return null;
+    within(S, () => {
+      if (state.borders === 'regular') {
+        for (const r of S.states) {
+          for (const spot of spotsFor(r.geometry, null, null)) {
+            add(spot, { text: r.p.name, short: r.p.abbr || null }, { kind: '' });
+            if (spot.main) for (const rp of repeatsFor(spot)) add(rp, { text: r.p.name, short: null }, { kind: '' });
+          }
+        }
+      } else {
+        // territories (India) after their shetach, so the head's name over a territory is kept smaller than his main one
+        const regions = [...S.regions].sort((a, b) => !!a.s.territoryOf - !!b.s.territoryOf);
+        for (const r of regions) {
+          const t = labelTexts(r.s);
+          if (!t) continue;
+          const spots = spotsFor(r.geometry, r.core, r.s.labelAt || null);
+          const sec = t.kind === 'sec';
+          for (const spot of spots) {
+            const extra = { kind: t.kind, sid: r.s.id };
+            if (sec) extra.secScale = 0.85;
+            add(spot, t, extra);
+            if (spot.main && !sec) for (const rp of repeatsFor(spot)) add(rp, { text: t.text, short: null }, extra);
+          }
         }
       }
-    }
-    return on / (w * ROWS.length);
+    });
+    const data = fc(out);
+    S.labelCache.set(ck, data);
+    return data;
   }
 
-  // A ring clipped to a box (Sutherland–Hodgman; the box is convex, the ring needn't be).
-  function clipRing(ring, [bx0, by0, bx1, by1]) {
-    const sides = [
-      [(q) => q[0] >= bx0, (a, b) => [bx0, a[1] + ((bx0 - a[0]) * (b[1] - a[1])) / (b[0] - a[0])]],
-      [(q) => q[0] <= bx1, (a, b) => [bx1, a[1] + ((bx1 - a[0]) * (b[1] - a[1])) / (b[0] - a[0])]],
-      [(q) => q[1] >= by0, (a, b) => [a[0] + ((by0 - a[1]) * (b[0] - a[0])) / (b[1] - a[1]), by0]],
-      [(q) => q[1] <= by1, (a, b) => [a[0] + ((by1 - a[1]) * (b[0] - a[0])) / (b[1] - a[1]), by1]],
-    ];
-    let pts = ring;
-    for (const [inside, cut] of sides) {
+  // The zoom from which something shows once the map has a given number of screen pixels per km there.
+  const zoomFor = (pxPerKm, lon, lat) => Math.log2(pxPerKm / (512 * unitsPerKm(lon, lat)));
+  // Cities: each from the zoom at which there's room for it (a city's people per screen pixel, as before), biggest first.
+  function cityData(S) {
+    return within(S, () => {
+      S.capCity.clear();
       const out = [];
-      for (let i = 0; i < pts.length; i++) {
-        const a = pts[i], b = pts[(i + 1) % pts.length], ai = inside(a), bi = inside(b);
-        if (ai) out.push(a);
-        if (ai !== bi) out.push(cut(a, b));
-      }
-      pts = out;
-      if (pts.length < 3) return [];
-    }
-    return pts;
-  }
-
-  // The part of an area on screen: its land's area and centre of mass (in a gulf, for land wrapped around one), and the
-  // convex hull around it all, which a label mustn't leave. Map pixels; tiny outlying islands don't stretch the hull.
-  // An area's polygons with only the points that show at this zoom (no two within about half a screen pixel), made
-  // once per zoom level: the outlines a label needs, at a fraction of the work.
-  function polysAt(polys) {
-    const L = levelFor(T.k), cache = polys.simple || (polys.simple = []);
-    if (cache[L]) return cache[L];
-    const tol = 0.5 / 2 ** L;
-    return (cache[L] = polys.map((rings) => rings.map((ring) => {
-      const out = [ring[0]];
-      let [px, py] = ring[0];
-      for (let i = 1; i < ring.length; i++) {
-        const [x, y] = ring[i];
-        if (Math.abs(x - px) + Math.abs(y - py) < tol && i < ring.length - 1) continue;
-        out.push(ring[i]);
-        px = x; py = y;
-      }
-      return out;
-    })));
-  }
-  function visiblePart(allPolys, box) {
-    const parts = [], polys = polysAt(allPolys);
-    for (const rings of polys) {
-      const outer = box ? clipRing(rings[0], box) : rings[0];
-      if (outer.length < 3) continue;
-      const holes = rings.slice(1).map((r) => (box ? clipRing(r, box) : r)).filter((r) => r.length >= 3);
-      const area = Math.abs(d3.polygonArea(outer)) - d3.sum(holes, (h) => Math.abs(d3.polygonArea(h)));
-      if (area > 0) parts.push({ rings: [outer, ...holes], area, c: d3.polygonCentroid(outer) });
-    }
-    if (!parts.length) return null;
-    parts.sort((a, b) => b.area - a.area);
-    const total = d3.sum(parts, (q) => q.area);
-    const big = parts.filter((q) => q.area >= total * 0.01);
-    const hull = d3.polygonHull(big.flatMap((q) => q.rings[0])) || parts[0].rings[0];
-    const hullArea = Math.abs(d3.polygonArea(hull));
-    // Islands strung across a sea (the Caribbean, Indonesia), with land on little of their hull and no one piece most of
-    // it: the name goes in the middle of the whole spread, sized for it, rather than wherever the biggest island pulls
-    // the land's centre. (Ecuador and the Galápagos aren't that: the mainland is nearly all of it.)
-    const spread = hullArea > 0 && total / hullArea < 0.35 && parts[0].area < total * 0.6;
-    return {
-      area: spread ? Math.max(total, hullArea * 0.6) : total,
-      centre: spread ? d3.polygonCentroid(hull)
-        : [d3.sum(big, (q) => q.c[0] * q.area) / d3.sum(big, (q) => q.area), d3.sum(big, (q) => q.c[1] * q.area) / d3.sum(big, (q) => q.area)],
-      hull,
-    };
-  }
-
-  // ---------- label placement ----------
-  // Every area's name sized and placed as a cartographer would: the full name wherever it fits at a readable size (on
-  // two lines when that's clearly bigger), else its short forms in turn; as big as the area's size on screen calls for
-  // and as fits, a little under the most that fits so it has room to breathe; and where it has the most room on every
-  // side, near the middle of what's on screen of the area. Room is read off a grid laid over the area: each cell is
-  // the area's own land, water inside the hull around its land (a name may cross a gulf or a strait), or blocked —
-  // another area, outside the hull, off screen, under the panel, a capital's star or a name placed before it.
-  // Biggest areas first.
-  const LABEL_MIN = 9, SHORT_MIN = 8; // px: names never smaller; short forms a little smaller still
-  const BREATHE = 0.88; // a name is set this much under the most that fits, so it isn't pressed against its edges
-  const labelMax = () => (phone() ? 36 : 46);
-  // the size an area's name calls for, from its land's size on screen: bigger areas, bigger names
-  const capFor = (areaPx) => clamp(5 + Math.sqrt(areaPx) * 0.14, LABEL_MIN, labelMax());
-  const padFor = (size) => Math.max(1, size * 0.12); // room kept clear around a name
-
-  // A polygon's extent along the line at height y (screen px).
-  function spanAt(poly, y) {
-    let lo = Infinity, hi = -Infinity;
-    for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
-      const [x1, y1] = poly[j], [x2, y2] = poly[i];
-      if ((y1 > y) === (y2 > y)) continue;
-      const x = x1 + ((y - y1) / (y2 - y1)) * (x2 - x1);
-      if (x < lo) lo = x;
-      if (x > hi) hi = x;
-    }
-    return [lo, hi];
-  }
-
-  // The grid over an area's hull on screen: blocked and water cells, their running totals (so any rectangle's count
-  // is four lookups), and each cell's distance in cells to the nearest blocked one.
-  const EDGE = 4; // px kept clear of the screen's edge
-  function labelGrid(id, hull, ix, obstacles) {
-    const k = T.k;
-    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
-    for (const [x, y] of hull) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
-    x0 = Math.max(x0, EDGE); y0 = Math.max(y0, EDGE); x1 = Math.min(x1, W - EDGE); y1 = Math.min(y1, H - EDGE);
-    if (x1 - x0 < 10 || y1 - y0 < 8) return null;
-    const cs = Math.max(1, (x1 - x0) / 60, (y1 - y0) / 60);
-    const nx = Math.ceil((x1 - x0) / cs), ny = Math.ceil((y1 - y0) / cs), n = nx * ny;
-    const blocked = new Uint8Array(n), water = new Uint8Array(n);
-    // cells whose middle is in [a, b] (own land), or that touch it at all (another area: the margin errs on the safe side)
-    const centred = (a, b) => [Math.max(0, Math.ceil((a - x0) / cs - 0.5)), Math.min(nx - 1, Math.floor((b - x0) / cs - 0.5))];
-    const touched = (a, b) => [Math.max(0, Math.floor((a - x0) / cs)), Math.min(nx - 1, Math.floor((b - x0) / cs))];
-    for (let j = 0; j < ny; j++) {
-      const y = y0 + (j + 0.5) * cs, row = j * nx, [hl, hr] = spanAt(hull, y);
-      for (let i = 0; i < nx; i++) { const x = x0 + (i + 0.5) * cs; if (x >= hl && x <= hr) water[row + i] = 1; else blocked[row + i] = 1; }
-      const cr = crossings(ix, (y - T.y) / k), own = cr.get(id);
-      if (own) for (let q = 0; q + 1 < own.length; q += 2) {
-        const [i0, i1] = centred(T.x + own[q] * k, T.x + own[q + 1] * k);
-        for (let i = i0; i <= i1; i++) { blocked[row + i] = 0; water[row + i] = 0; }
-      }
-      for (const [other, xs] of cr) {
-        if (other === id) continue;
-        for (let q = 0; q + 1 < xs.length; q += 2) {
-          const [i0, i1] = touched(T.x + xs[q] * k, T.x + xs[q + 1] * k);
-          for (let i = i0; i <= i1; i++) { blocked[row + i] = 1; water[row + i] = 0; }
-        }
-      }
-    }
-    for (const b of obstacles) {
-      if (b[2] < x0 || b[0] > x1 || b[3] < y0 || b[1] > y1) continue;
-      const [i0, i1] = touched(b[0], b[2]);
-      const j0 = Math.max(0, Math.floor((b[1] - y0) / cs)), j1 = Math.min(ny - 1, Math.floor((b[3] - y0) / cs));
-      for (let j = j0; j <= j1; j++) blocked.fill(1, j * nx + i0, j * nx + i1 + 1);
-    }
-    const sat = (a) => {
-      const t = new Int32Array((nx + 1) * (ny + 1));
-      for (let j = 0; j < ny; j++) { let run = 0; for (let i = 0; i < nx; i++) { run += a[j * nx + i]; t[(j + 1) * (nx + 1) + i + 1] = t[j * (nx + 1) + i + 1] + run; } }
-      return t;
-    };
-    // chessboard distance to the nearest blocked cell (the grid's edge counts as blocked)
-    const dt = new Int16Array(n);
-    for (let c = 0; c < n; c++) dt[c] = blocked[c] ? 0 : 32000;
-    const at = (i, j) => (i < 0 || j < 0 || i >= nx || j >= ny ? 0 : dt[j * nx + i]);
-    for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) {
-      const c = j * nx + i;
-      if (dt[c]) dt[c] = Math.min(dt[c], at(i - 1, j) + 1, at(i - 1, j - 1) + 1, at(i, j - 1) + 1, at(i + 1, j - 1) + 1);
-    }
-    for (let j = ny - 1; j >= 0; j--) for (let i = nx - 1; i >= 0; i--) {
-      const c = j * nx + i;
-      if (dt[c]) dt[c] = Math.min(dt[c], at(i + 1, j) + 1, at(i + 1, j + 1) + 1, at(i, j + 1) + 1, at(i - 1, j + 1) + 1);
-    }
-    return { x0, y0, cs, nx, ny, blocked, dt, B: sat(blocked), WT: sat(water) };
-  }
-
-  // One label: which form, what size, where; null if nothing fits.
-  function placeOne(L, part, ix, obstacles) {
-    const k = T.k, hull = part.hull.map((pt) => T.apply(pt)), [ax, ay] = T.apply(part.centre);
-    const g = labelGrid(L.id, hull, ix, obstacles);
-    if (!g) return null;
-    const { x0, y0, cs, nx, ny, blocked, dt, B, WT } = g;
-    const cx = (c) => x0 + ((c % nx) + 0.5) * cs, cy = (c) => y0 + (Math.floor(c / nx) + 0.5) * cs;
-    const cells = (b) => [Math.floor((b[0] - x0) / cs), Math.floor((b[1] - y0) / cs), Math.floor((b[2] - x0) / cs), Math.floor((b[3] - y0) / cs)];
-    const sum = (t, [i0, j0, i1, j1]) => t[(j1 + 1) * (nx + 1) + i1 + 1] - t[j0 * (nx + 1) + i1 + 1] - t[(j1 + 1) * (nx + 1) + i0] + t[j0 * (nx + 1) + i0];
-    const clear = (b) => { const r = cells(b); return r[0] >= 0 && r[1] >= 0 && r[2] < nx && r[3] < ny && sum(B, r) === 0; };
-    const boxAt = (c, w, h, m) => [cx(c) - w / 2 - m, cy(c) - h / 2 - m, cx(c) + w / 2 + m, cy(c) + h / 2 + m];
-    // the free cells, and how far each is from the middle of what's on screen (sideways counts a little less)
-    const d2 = new Float32Array(nx * ny), order = [];
-    for (let c = 0; c < nx * ny; c++) {
-      if (blocked[c]) continue;
-      const dx = cx(c) - ax, dy = (cy(c) - ay) * 1.3;
-      d2[c] = dx * dx + dy * dy;
-      order.push(c);
-    }
-    const need = (w, h) => Math.max(0, Math.floor(Math.min(w, h) / 2 / cs) - 1); // a centre any nearer the blocked can't hold it
-    const fitsAt = (f, s) => {
-      const w = f.wu * s, h = f.hu * s, m = padFor(s), dmin = need(w, h);
-      for (const c of order) if (dt[c] >= dmin && clear(boxAt(c, w, h, m))) return true;
-      return false;
-    };
-    // the biggest size from lo up to hi at which a form fits anywhere (0 if not even at lo)
-    const biggest = (f, lo, hi) => {
-      if (!fitsAt(f, lo)) return 0;
-      if (fitsAt(f, hi)) return hi;
-      let a = lo, b = hi;
-      for (let t = 0; t < 6; t++) { const mid = (a + b) / 2; if (fitsAt(f, mid)) a = mid; else b = mid; }
-      return a;
-    };
-    // the head's name over a territory (Kantor's over India) is the lesser one: smaller than his main name
-    const cap = Math.min(capFor(part.area * k * k) * (L.secondary ? 0.55 : 1), L.maxPx || Infinity), top = Math.max(LABEL_MIN, L.maxPx ? cap : cap / BREATHE);
-    // the forms to try, in order, each with the most it fits at: the name (on two lines when they're clearly bigger),
-    // the other way of setting the name, then each short form
-    const one = L.forms[0], two = L.forms.find((f) => f.kind === 'two');
-    const s1 = biggest(one, LABEL_MIN, top), s2 = two ? biggest(two, LABEL_MIN, top) : 0;
-    const tries = s1 && !(s2 > s1 * 1.15) ? [[one, s1], [two, s2]] : [[two, s2], [one, s1]]; // two lines only when clearly bigger
-    const tried = tries.filter(([f, sz]) => f && sz).map(([f, sz]) => [f, sz, LABEL_MIN]);
-    for (const f of L.forms.filter((x) => x.kind === 'short')) tried.push([f, null, SHORT_MIN]);
-    // where it has the most room on every side (up to about a letter's height), near the middle, on land rather than water
-    const spotAt = (form, s) => {
-      const w = form.wu * s, h = form.hu * s, m = padFor(s), dmin = need(w, h), cands = [];
-      for (const c of order) {
-        if (dt[c] < dmin) continue;
-        if (!clear(boxAt(c, w, h, m))) continue;
-        let room = m;
-        for (const e of [0.3, 0.6, 1, 1.4]) { if (clear(boxAt(c, w, h, m + e * s))) room = m + e * s; else break; }
-        const r = cells(boxAt(c, w, h, 0)), wet = sum(WT, r) / ((r[2] - r[0] + 1) * (r[3] - r[1] + 1));
-        cands.push({ c, score: Math.min(room, s * 1.4) - (part.aim ? 1 : 0.3) * Math.sqrt(d2[c]) - wet * s * 0.8 });
-      }
-      cands.sort((a, b) => b.score - a.score);
-      for (const { c } of cands.slice(0, 40)) {
-        const x = cx(c), y = cy(c);
-        if (ownShare(ix, L.id, x, y, w, h, m) === null) continue; // the grid's verdict, checked exactly against the borders
-        return { form, size: s, x, y, box: [x - w / 2 - 3, y - h / 2 - 2, x + w / 2 + 3, y + h / 2 + 2] };
-      }
-      return null;
-    };
-    for (const [form, known, min] of tried) {
-      const most = known || biggest(form, min, Math.max(min, top));
-      if (!most) continue;
-      for (const s of new Set([Math.max(min, Math.min(cap, most * BREATHE)), most])) {
-        const spot = spotAt(form, s);
-        if (spot) return spot;
-      }
-    }
-    return null;
-  }
-
-  // Names as a map website sets them (Google Maps): for each zoom step, every name has one place and size on the whole
-  // map, worked out once; moving the map only slides them along and shows the ones on screen, and they're set again only
-  // when the zoom reaches another step. A big shetach seen up close repeats its name across its land (one per tile of
-  // about a screen), so it's never without one; those repeats are worked out as their tiles first come into view and
-  // then kept.
-  const LEVEL_STEPS = 2; // zoom steps per doubling
-  const tileSize = () => Math.max(340, 0.6 * Math.min(W, H)); // px on screen: the spacing of a big shetach's repeated names
-  let levelCache = new Map();
-  const levelOf = (k) => Math.floor(Math.log2(k) * LEVEL_STEPS + 1e-6);
-  // run fn as if the map were drawn whole at zoom step lv (no screen edge, panel or boxes in the way)
-  function atLevel(lv, fn) {
-    const kL = 2 ** (lv / LEVEL_STEPS);
-    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
-    for (const L of labels) { const b = L.a.bbox; x0 = Math.min(x0, b[0]); y0 = Math.min(y0, b[1]); x1 = Math.max(x1, b[2]); y1 = Math.max(y1, b[3]); }
-    if (!(x1 > x0)) return null;
-    const saved = [T, W, H];
-    T = d3.zoomIdentity.translate(EDGE + 8 - x0 * kL, EDGE + 8 - y0 * kL).scale(kL);
-    W = (x1 - x0) * kL + 2 * (EDGE + 8); H = (y1 - y0) * kL + 2 * (EDGE + 8);
-    try { return fn(kL); } finally { [T, W, H] = saved; }
-  }
-  // a placement, kept in map pixels
-  let placeSeq = 0;
-  const toMap = (L, spot) => ({ L, id: L.id, uid: ++placeSeq, show: spot.form, px: spot.size, k0: T.k, mx: (spot.x - T.x) / T.k, my: (spot.y - T.y) / T.k,
-    box: [(spot.box[0] - T.x) / T.k, (spot.box[1] - T.y) / T.k, (spot.box[2] - T.x) / T.k, (spot.box[3] - T.y) / T.k],
-    missing: L.missing, secondary: L.secondary });
-  const toScreen = (b) => [T.x + b[0] * T.k, T.y + b[1] * T.k, T.x + b[2] * T.k, T.y + b[3] * T.k];
-  function levelLayout(lv) {
-    if (levelCache.has(lv)) return levelCache.get(lv);
-    const TILE = tileSize(), APART = Math.max(W, H) * 1.05; // repeats at least a screen apart: never two on one screen
-    const out = atLevel(lv, (k) => {
-      const ix = labelIndex(), stars = starsNow().map((st) => st.box), placed = [], todo = [];
-      for (const L of labels) {
-        const cl = L.cl || L.r, polys = L.cl ? L.cl.polys : L.r.polysXY;
-        if (!cl.whole) cl.whole = visiblePart(polys, null);
-        if (!cl.whole) continue;
-        const part = { ...cl.whole };
-        if (L.cl && L.cl.core) {
-          // the name goes on the shetach's main part (Alberta's name on Alberta itself, never up in the territories' strip)
-          const core = L.cl.coreWhole || (L.cl.coreWhole = visiblePart(L.cl.core, null));
-          if (core && core.area * k * k > 500) { part.centre = core.centre; if (!L.cl.soft) part.hull = core.hull; part.area = Math.max(core.area, part.area * 0.5); }
-        }
-        // labelAt: the spot the name aims for (Kantor's over the middle of mainland India)
-        const at = L.r.s && L.r.s.labelAt && (!L.cl || L.r.clusters.length === 1) ? projection(L.r.s.labelAt) : null;
-        if (at) { part.centre = at; part.aim = true; }
-        todo.push({ L, part });
-      }
-      // the biggest choose first; a territory's head name (Kantor's over India) after his main one, and smaller than it
-      todo.sort((a, b) => !!a.L.secondary - !!b.L.secondary || b.part.area - a.part.area);
-      for (const { L, part } of todo) {
-        if (L.secondary) {
-          const main = placed.find((q) => q.L.r.s && q.L.r.s.id === L.r.s.territoryOf);
-          if (!main) continue; // only beside his main name
-          L.maxPx = main.px * 0.85;
-        }
-        const spot = placeOne(L, part, ix, [...stars, ...placed.map((q) => toScreen(q.box))]);
-        if (spot) placed.push(toMap(L, spot));
-      }
-      return { lv, placed, tiles: new Map(), stars, TILE, APART };
-    });
-    levelCache.set(lv, out);
-    return out;
-  }
-  // the repeated names of big shetachim in the tiles now in view (each tile worked out once per step)
-  function levelRepeats(lay, view) {
-    const { TILE, APART } = lay, kL = 2 ** (lay.lv / LEVEL_STEPS), size = TILE / kL;
-    const i0 = Math.floor(view[0] / size), i1 = Math.floor(view[2] / size), j0 = Math.floor(view[1] / size), j1 = Math.floor(view[3] / size);
-    const fresh = [];
-    for (let i = i0; i <= i1; i++) for (let j = j0; j <= j1; j++) if (!lay.tiles.has(`${i},${j}`)) fresh.push([i, j]);
-    if (!fresh.length) return;
-    atLevel(lay.lv, (k) => {
-      const ix = labelIndex();
-      for (const [i, j] of fresh) {
-        const box = [i * size, j * size, (i + 1) * size, (j + 1) * size], got = [];
-        lay.tiles.set(`${i},${j}`, got);
-        for (const L of labels) {
-          const b = L.a.bbox;
-          if (b[2] < box[0] || b[0] > box[2] || b[3] < box[1] || b[1] > box[3]) continue;
-          if ((b[2] - b[0]) * k < TILE * 1.2 && (b[3] - b[1]) * k < TILE * 1.2) continue; // only shetachim bigger than a screen
-          const mine = [...lay.placed, ...[...lay.tiles.values()].flat()].filter((q) => q.L === L);
-          const cx = (box[0] + box[2]) / 2, cy = (box[1] + box[3]) / 2;
-          if (mine.some((q) => Math.hypot(q.mx - cx, q.my - cy) * k < APART * 0.8)) continue; // its name is near already
-          const part = visiblePart(L.cl ? L.cl.polys : L.r.polysXY, box);
-          if (!part || part.area * k * k < TILE * TILE * 0.15) continue; // little of it in this tile
-          const all = [...lay.placed, ...[...lay.tiles.values()].flat()];
-          const spot = placeOne(L, part, ix, [...lay.stars, ...all.map((q) => toScreen(q.box))]);
-          if (!spot) continue;
-          const q = toMap(L, spot);
-          if (!mine.some((o) => Math.hypot(o.mx - q.mx, o.my - q.my) * k < APART)) got.push(q); // not on one screen with another of its names
-        }
-      }
-    });
-  }
-
-  // Like a map site: the names are in place a screen beyond every edge, so panning slides them in already there (the
-  // screen's edge clips them); while the map moves they're refreshed every few frames, not only when it stops; and the
-  // zoom steps either side are worked out in idle time, so a zoom swaps names in without a stall.
-  // While the map moves (moving), only what's already worked out is used: a zoom step not yet laid out keeps the last
-  // one's names, and new repeat tiles wait, so a gesture never waits on layout; it all catches up when the map stops.
-  let moving = false, shownLevel = null;
-  function placeLabels() {
-    const M = Math.max(W, H), covered = V.physical || T.k > 1.3 ? [] : insetBoxes.map(insetRect), stars = starsNow(M), k = T.k;
-    const lv = levelOf(k);
-    const lay = moving && !levelCache.has(lv) && levelCache.has(shownLevel) ? levelCache.get(shownLevel) : levelLayout(lv);
-    if (lay) shownLevel = lay.lv;
-    const shown = [];
-    if (lay) {
-      if (!moving) levelRepeats(lay, [(-M - T.x) / k, (-M - T.y) / k, (W + M - T.x) / k, (H + M - T.y) / k]);
-      // within a screen of the view, and not over the Alaska/Hawaii boxes (the panel simply covers what's under it)
-      for (const q of [...lay.placed, ...[...lay.tiles.values()].flat()]) {
-        const [sx, sy] = T.apply([q.mx, q.my]);
-        const hw = ((q.box[2] - q.box[0]) * q.k0) / 2, hh = ((q.box[3] - q.box[1]) * q.k0) / 2;
-        const b = [sx - hw, sy - hh, sx + hw, sy + hh];
-        if (b[2] < -M || b[0] > W + M || b[3] < -M || b[1] > H + M || overlaps(b, covered)) continue;
-        shown.push({ q, b });
-      }
-    }
-    const boxes = shown.map((x) => x.b);
-    // keyed by placement, so names already on screen are left as they are (rewriting text is what costs)
-    gLabels.selectAll('text').data(shown.map((x) => x.q), (q) => q.uid).join((enter) => enter.append('text')
-      .attr('class', (L) => (L.missing ? 'lab lab-missing' : L.secondary ? 'lab lab-secondary' : 'lab'))
-      .each(function (L) {
-        const n = L.show.lines.length;
-        d3.select(this).selectAll('tspan').data(L.show.lines).join('tspan')
-          .attr('x', 0).attr('dy', (t, i) => `${i ? LINE : (-(n - 1) / 2) * LINE}em`)
-          .each(function (t) { // "Disputed" in italics, the names upright
-            const m = DISPUTED.exec(t), el = d3.select(this).text(m ? null : t);
-            if (m) { el.append('tspan').attr('font-style', 'italic').text(m[1]); el.append('tspan').text(m[2]); }
-          });
-      }));
-    placeMarks(boxes, stars, covered, M);
-    moveLabels();
-    prefetchLevels();
-  }
-  // the zoom steps either side of this one, worked out while the browser is idle
-  const idle = window.requestIdleCallback || ((f) => setTimeout(f, 60));
-  function prefetchLevels() {
-    const lv = levelOf(T.k);
-    for (const d of [1, -1]) if (lv + d >= 0 && lv + d <= levelOf(60) && !levelCache.has(lv + d)) idle(() => { if (labels.length && !moving) levelLayout(lv + d); });
-  }
-  // while the map moves: names refreshed at most every 120 ms (cheap — each zoom step's layout is already worked out)
-  let liveTimer = 0, liveLast = 0;
-  function livePlace() {
-    const wait = 250 - (performance.now() - liveLast);
-    if (liveTimer) return;
-    liveTimer = setTimeout(() => { liveTimer = 0; liveLast = performance.now(); placeLabels(); }, Math.max(0, wait));
-  }
-
-  function placeMarks(boxes, stars, covered, M = 0) {
-    const taken = [...boxes, ...covered];
-    // Right of the marker, else left, above, below; the whole label on screen and clear of everything placed so far.
-    const spot = (sx, sy, gap, w) => {
-      const h = MARK_FONT + 2;
-      for (const [dx, dy, anchor] of [[gap, 0, 'start'], [-gap, 0, 'end'], [0, -gap - h / 2, 'middle'], [0, gap + h / 2, 'middle']]) {
-        const x0 = anchor === 'start' ? sx + dx : anchor === 'end' ? sx + dx - w : sx - w / 2;
-        const box = [x0 - 2, sy + dy - h / 2, x0 + w + 2, sy + dy + h / 2];
-        if (box[0] >= -M && box[2] <= W + M && box[1] >= -M && box[3] <= H + M && !overlaps(box, taken)) return { dx, dy, anchor, box };
-      }
-      return null;
-    };
-    marks = [];
-    taken.push(...stars.map((st) => st.box));
-    for (const st of stars) if (st.c.honor) { // Lubavitch's name beside its mark, before any city's
-      measure.font = `italic 600 13.5px ${getComputedStyle(document.documentElement).getPropertyValue('--font-ui')}`;
-      const at = spot(st.sx, st.sy, st.r + 3, measure.measureText(st.c.name).width);
-      if (at) { taken.push(at.box); st.at = at; st.text = st.c.name; }
-    }
-    // As on Google Maps: a city is a dot with its name beside it until it's big on screen; then the dot goes and the name
-    // sits on the city itself (above its star if it has one). No city outlines here, so its size comes from its
-    // population: about 4 km across for 100,000 people, 12 km for a million, at most 30 km.
-    const cityKm = (c) => clamp(0.012 * Math.sqrt(c.pop || c.centers * 5000), 1.5, 30);
-    const BIG_PX = 22; // half-width on screen from which a city counts as big
-    if (state.cities) {
-      const px = V.pxPerKm * T.k, least = CITY_DENSITY / (px * px);
       for (const c of V.cities) {
-        if (c.weight < least) break;
-        const [sx, sy] = T.apply([c.x, c.y]);
-        if (sx < -M || sx > W + M || sy < -M || sy > H + M) continue;
-        const ring = [sx - 4, sy - 4, sx + 4, sy + 4];
-        // A city right at a capital's star is marked by the star, with the city's name beside it.
-        const star = stars.find((st) => !st.city && overlaps(ring, [st.box]));
-        const big = cityKm(c) * px >= BIG_PX;
-        if (big && !star) {
-          const w = c.widths[0] * 1.08, h = MARK_FONT + 3, box = [sx - w / 2 - 2, sy - h / 2, sx + w / 2 + 2, sy + h / 2];
-          if (box[0] < -M || box[2] > W + M || box[1] < -M || box[3] > H + M || overlaps(box, taken)) continue;
-          taken.push(box);
-          marks.push({ kind: 'city', c, at: { dx: 0, dy: 0, anchor: 'middle', box }, text: c.texts[0], big: true });
-          continue;
+        const minz = zoomFor(Math.sqrt(CITY_DENSITY / Math.max(1, c.weight)), c.lon, c.lat);
+        // a city at a capital's star: the star marks it, with the city's name beside the star
+        const star = V.caps.find((cap) => !cap.honor && Math.abs(cap.lat - c.lat) < 0.08 && Math.abs(cap.lon - c.lon) < 0.12);
+        if (star) { S.capCity.set(star, { name: c.name, minz: clamp(minz, 0, 16) }); continue; }
+        const at = P(c.lon, c.lat);
+        if (at) out.push(feature({ type: 'Point', coordinates: at }, { name: c.name, minz: clamp(minz, 0, 16), rank: -c.weight, i: V.cities.indexOf(c) }));
+      }
+      return fc(out);
+    });
+  }
+  // Capitals' stars (always), their cities' names (from when the city has room), and Lubavitch, named once the map is
+  // close enough to show a region (not across the whole world).
+  function capData(S) {
+    return within(S, () => fc(V.caps.map((c, i) => {
+      const city = S.capCity.get(c);
+      const minz = c.honor ? zoomFor(0.07, c.lon, c.lat) : city ? city.minz : 0;
+      return feature({ type: 'Point', coordinates: P(c.lon, c.lat) },
+        { i, world: !!c.world, honor: !!c.honor, name: c.honor ? c.name : city ? city.name : '', minz, rank: c.world ? 0 : c.honor ? 1 : 2 });
+    }).filter((f) => f.geometry.coordinates)));
+  }
+  function dotData(S) {
+    return within(S, () => fc(V.dots.map((d, i) => feature({ type: 'Point', coordinates: P(d.lon, d.lat) }, { l: Math.log2(d.centers.length), i })).filter((f) => f.geometry.coordinates)));
+  }
+  // The seas and oceans (a flat view has no street map to name them), each from when it has room.
+  const SEAS = [
+    ['Pacific Ocean', 'האוקיינוס השקט', -145, 2, 0], ['Pacific Ocean', 'האוקיינוס השקט', 168, 8, 0], ['Atlantic Ocean', 'האוקיינוס האטלנטי', -40, 30, 0],
+    ['Atlantic Ocean', 'האוקיינוס האטלנטי', -14, -28, 0], ['Indian Ocean', 'האוקיינוס ההודי', 80, -22, 0], ['Arctic Ocean', 'אוקיינוס הקרח הצפוני', -10, 80, 0],
+    ['Southern Ocean', 'האוקיינוס הדרומי', 40, -60, 0],
+    ['Mediterranean Sea', 'הים התיכון', 17.5, 34.6, 1], ['Caribbean Sea', 'הים הקריבי', -75, 14.5, 1], ['Gulf of Mexico', 'מפרץ מקסיקו', -90.5, 25, 1],
+    ['Black Sea', 'הים השחור', 34, 43.3, 1], ['Red Sea', 'ים סוף', 38.3, 20.3, 1], ['Arabian Sea', 'ים ערב', 64, 15, 1], ['Bay of Bengal', 'מפרץ בנגל', 89, 15, 1],
+    ['South China Sea', 'ים סין הדרומי', 114, 13, 1], ['Tasman Sea', 'ים טסמן', 160, -38, 1], ['Coral Sea', 'ים האלמוגים', 156, -16, 1],
+    ['Hudson Bay', 'מפרץ הדסון', -85.5, 60, 1], ['North Sea', 'הים הצפוני', 3, 56, 1], ['Baltic Sea', 'הים הבלטי', 19.3, 57.6, 1],
+    ['Bering Sea', 'ים ברינג', -178, 58, 1], ['Sea of Okhotsk', 'ים אוחוטסק', 150, 54.5, 1], ['Philippine Sea', 'הים הפיליפיני', 133, 18, 1],
+    ['Gulf of Guinea', 'מפרץ גינאה', 2.5, 0.5, 1], ['Labrador Sea', 'ים לברדור', -54, 59, 1], ['Norwegian Sea', 'הים הנורווגי', 2, 68, 1],
+  ];
+  function seaData(S) {
+    return within(S, () => fc(SEAS.map(([en, he, lon, lat, tier]) => {
+      const at = P(lon, lat);
+      return at && feature({ type: 'Point', coordinates: at }, { name: HE ? he : en, tier, minz: zoomFor(tier ? 0.05 : 0.022, lon, lat) });
+    }).filter(Boolean)));
+  }
+
+  // ---------- the map itself ----------
+  const RTL_PLUGIN = new URL('lib/mapbox-gl-rtl-text.js', location.href).href; // right-to-left text (Hebrew), from @mapbox/mapbox-gl-rtl-text 0.3.0, kept here
+  const BASE = new Map(); // the street map's own layers, with the visibility each came with
+  const BASE_PAINT = new Map(); // ... and the paint each came with
+  let physicalOK = false, waterBefore = null, lineBefore = null;
+  // colours the map draws with: the theme's (CSS), except on the physical map, which is always light
+  const PHYS_TINTS = ['#e6c84a', '#8fc46a', '#e48a7e', '#7fa8de', '#eea25a', '#ad8fd0', '#5fbfae', '#c9b27e'];
+  const PHYS = { ink: '#1e2b32', halo: '#ffffff', dot: '#163e74', accent: '#1d4f8f', missing: '#6b7780', secondary: '#3d5f8f' };
+  // The political map's land and sea, the street map's own (light) or a night version of it (dark).
+  const GROUND = { light: { land: '#f8f4f0', water: '#a9c7f2', coast: '#8fb2e4', border: '#ffffff', grey: 'hsl(248,2%,50%)' },
+    dark: { land: '#1c2226', water: '#14273a', coast: '#20384f', border: '#0c1114', grey: 'hsl(210,8%,52%)' } };
+  // the political map's sea without the blue (More options): a quiet grey, the coast a shade darker
+  const GREY_SEA = { light: { water: '#e3e7e3', coast: '#c2c9c2', seaText: '#7a837d' }, dark: { water: '#101619', coast: '#2c3539', seaText: '#7d878c' } };
+  function palette() {
+    const css = getComputedStyle(document.documentElement), v = (n) => css.getPropertyValue(n).trim();
+    const physical = state.base === 'physical';
+    const dark = !physical && theme() === 'dark', c = DOT_COLORS[state.dotColor] || DOT_COLORS.navy;
+    return {
+      c: d3.range(8).map((i) => v(`--c${i + 1}`)), plain: v('--plain'), empty: v('--empty'), bg: v('--bg'), ground: { ...GROUND[dark ? 'dark' : 'light'], ...(state.sea ? {} : GREY_SEA[dark ? 'dark' : 'light']) }, dark,
+      ink: physical ? PHYS.ink : v('--ink'), halo: physical ? PHYS.halo : v('--halo'), accent: physical ? PHYS.accent : v('--accent'),
+      missing: physical ? PHYS.missing : v('--missing'), secondary: physical ? PHYS.secondary : v('--map-secondary'),
+      dot: physical ? PHYS.dot : v('--dot'), dotSolid: c[dark ? 1 : 0], dotEdge: dark ? '#0f1518' : state.dotColor === 'gold' ? '#4a3500' : '#ffffff',
+    };
+  }
+  // The street map in the look asked for: as it comes (physical), with the political map's land and sea (light), or at
+  // night (dark): every colour it has turned dark, roads a little lighter than the land, names light.
+  let baseLook = null;
+  function lookBase(look, ground) {
+    const key = look === 'physical' ? look : `${look}|${ground.water}`;
+    if (key === baseLook || !physicalOK) return;
+    baseLook = key;
+    const g = look === 'physical' ? null : ground;
+    const dim = (fn) => { const walk = (v) => (typeof v === 'string' && d3.color(v) ? fn(d3.hsl(v)) : Array.isArray(v) ? v.map(walk) : v); return walk; };
+    const shade = (l0, l1, sat) => dim((c) => { const h = isNaN(c.h) ? 210 : c.h; return d3.hsl(h, (isNaN(c.s) ? 0 : c.s) * sat, l0 + (l1 - l0) * c.l, c.opacity).formatRgb(); });
+    for (const [id, paint] of BASE_PAINT) {
+      const layer = map.getLayer(id);
+      if (!layer) continue;
+      for (const [prop, value] of Object.entries(paint)) {
+        let v = value;
+        if (g) {
+          if (id === 'background') v = g.land;
+          else if (id === 'water' && prop === 'fill-color') v = g.water;
+          else if (id.startsWith('waterway') && prop === 'line-color') v = g.water;
+          else if (g.seaText && /water_name|waterway_line_label/.test(id) && prop === 'text-color') v = g.seaText;
+          else if (look === 'dark' && /color/.test(prop)) {
+            const sl = layer.sourceLayer;
+            if (prop === 'text-color') v = dim((c) => d3.hsl(c.h || 0, (c.s || 0) * 0.5, 0.8).formatRgb())(value);
+            else if (prop === 'text-halo-color') v = 'rgba(16,21,24,0.85)';
+            else if (sl === 'transportation') v = shade(0.2, 0.32, 0.25)(value);
+            else if (sl === 'boundary') v = shade(0.45, 0.62, 0.2)(value);
+            else v = shade(0.12, 0.2, 0.35)(value);
+          }
         }
-        if (star) {
-          const at = big ? (() => { const h = MARK_FONT + 2, w = c.widths[0] * 1.08, dy = -star.r - 3 - h / 2, box = [star.sx - w / 2 - 2, star.sy + dy - h / 2, star.sx + w / 2 + 2, star.sy + dy + h / 2]; return overlaps(box, taken) ? spot(star.sx, star.sy, star.r + 2, c.widths[0]) : { dx: 0, dy, anchor: 'middle', box, big: true }; })()
-            : spot(star.sx, star.sy, star.r + 2, c.widths[0]);
-          if (!at) continue;
-          star.city = c;
-          taken.push(at.box);
-          marks.push({ kind: 'city', c, at, text: c.texts[0], anchor: star.c });
-          continue;
-        }
-        if (overlaps(ring, taken)) continue;
-        const at = spot(sx, sy, 6, c.widths[0]);
-        if (!at) continue;
-        taken.push(ring, at.box);
-        marks.push({ kind: 'city', c, at, text: c.texts[0] });
+        map.setPaintProperty(id, prop, v);
       }
     }
-    marks.push(...stars); // drawn last, on top
-    // a mark that's the same as before (same place, same side for its name) keeps its element
-    const key = (m) => `${m.kind}|${m.kind === 'cap' ? m.c.id || m.c.name : m.c.name}|${m.f || ''}|${m.at ? [m.at.dx, m.at.dy, m.at.anchor, !!(m.big || m.at.big)].join() : ''}|${!!m.anchor}`;
-    const keep = new Map();
-    gMarks.selectAll('g').each(function (m) { keep.set(key(m), this); });
-    for (const m of marks) {
-      const old = keep.get(key(m));
-      if (old) { keep.delete(key(m)); d3.select(old).datum(m).raise(); continue; }
-      const g = gMarks.append('g').attr('class', 'mk').datum(m);
-      if (m.kind === 'cap') g.append('path').attr('class', m.c.honor ? 'mk-honor' : 'mk-cap').attr('d', m.c.honor ? HONOR_MARK : m.c.world ? WORLD_STAR : STAR).attr('transform', `scale(${m.f})`);
-      else if (!m.anchor && !m.big) g.append('circle').attr('class', 'mk-city').attr('r', 3);
-      if (m.at) g.append('text').attr('class', m.c && m.c.honor ? 'mk-lab mk-lab-honor' : m.big || m.at.big ? 'mk-lab mk-lab-big' : 'mk-lab').attr('x', m.at.dx).attr('y', m.at.dy).attr('text-anchor', m.at.anchor).text(m.text);
+  }
+  // The little pictures the map draws: a capital's star, 770's bigger star, Lubavitch's dot.
+  const icons = new Map(); // which colours each icon was drawn in
+  function drawIcons(pal) {
+    const make = (name, size, paint) => {
+      const r = 2, c = document.createElement('canvas');
+      c.width = c.height = size * r;
+      const g = c.getContext('2d');
+      g.scale(r, r);
+      g.translate(size / 2, size / 2);
+      paint(g);
+      const img = g.getImageData(0, 0, c.width, c.height);
+      const key = `${pal.ink}|${pal.halo}|${pal.dark}`;
+      if (map.hasImage(name) && icons.get(name) === key) return; // unchanged
+      if (map.hasImage(name)) map.removeImage(name);
+      map.addImage(name, img, { pixelRatio: r });
+      icons.set(name, key);
+    };
+    const star = (g, d) => { const p = new Path2D(d); g.lineJoin = 'round'; g.lineWidth = 2.4; g.strokeStyle = pal.halo; g.stroke(p); g.fillStyle = pal.ink; g.fill(p); };
+    // a city: a small grey dot with a light rim, as map sites mark towns
+    make('city', 10, (g) => { g.beginPath(); g.arc(0, 0, 2.6, 0, 2 * Math.PI); g.fillStyle = pal.dark ? '#c9d1d6' : '#5b6166'; g.fill(); g.lineWidth = 1.2; g.strokeStyle = pal.halo; g.stroke(); });
+    make('star', 20, (g) => star(g, STAR));
+    make('star-world', 30, (g) => star(g, WORLD_STAR));
+    make('honor', 12, (g) => { g.beginPath(); g.arc(0, 0, 3.2, 0, 2 * Math.PI); g.lineWidth = 2.4; g.strokeStyle = pal.halo; g.stroke(); g.fillStyle = pal.ink; g.fill(); });
+  }
+
+  async function startMap() {
+    if (!window.maplibregl) throw new Error('the map library did not load');
+    // Hebrew: the right-to-left text support, loaded before the map starts, so every layer's Hebrew is shaped from the first
+    if (HE) { try { await withTimeout(Promise.resolve(maplibregl.setRTLTextPlugin(RTL_PLUGIN, false)), 10000, 'rtl'); } catch (e) { /* the names still show */ } }
+    let liberty = null;
+    try { liberty = await withTimeout(fetch(GL_STYLE).then((r) => r.json()), 12000, 'the street map took too long'); } catch (e) { liberty = null; }
+    const style = { version: 8, glyphs: GLYPHS, sources: { ...(liberty ? liberty.sources : {}) }, layers: [{ id: 'pol-bg', type: 'background', paint: { 'background-color': GROUND.light.water } }] };
+    if (liberty && liberty.sprite) style.sprite = liberty.sprite;
+    for (const l of liberty ? liberty.layers : []) {
+      BASE.set(l.id, (l.layout && l.layout.visibility) || 'visible');
+      BASE_PAINT.set(l.id, l.paint || {});
+      style.layers.push({ ...l, layout: { ...(l.layout || {}), visibility: 'none' } });
     }
-    for (const el of keep.values()) el.remove();
+    physicalOK = !!liberty;
+    map = new maplibregl.Map({
+      container: 'basemap', style, attributionControl: false, renderWorldCopies: true, dragRotate: false, pitchWithRotate: false, touchPitch: false,
+      maxZoom: MAX_Z, fadeDuration: 250, pixelRatio: Math.min(window.devicePixelRatio || 1, 2),
+      cancelPendingTileRequestsWhileZooming: false, maxTileCacheSize: 600, maxTileCacheZoomLevels: 10,
+      preserveDrawingBuffer: true, // (the picture that fades out when changing between flat and street map)
+    });
+    map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: 'Boundaries: US Census, GADM, Natural Earth' }), 'top-right');
+    map.touchZoomRotate.disableRotation();
+    map.keyboard.disableRotation();
+    await withTimeout(new Promise((resolve, reject) => { map.once('load', resolve); map.once('error', (e) => { if (!map.loaded()) reject(e.error || new Error('map error')); }); }), 30000, 'the map took too long');
+    const layers = map.getStyle().layers;
+    const lastRoad = layers.map((l) => l.type === 'line' && l['source-layer'] === 'transportation').lastIndexOf(true);
+    lineBefore = (layers.find((l, i) => i > lastRoad && l.type === 'symbol') || {}).id;
+    waterBefore = (layers.find((l) => ['water', 'waterway'].includes(l['source-layer'])) || {}).id;
+    addLayers();
   }
 
-  function moveLabels() {
-    gLabels.selectAll('text').each(function (L) {
-      const [sx, sy] = T.apply([L.mx, L.my]);
-      const px = L.px; // names keep their size while the map zooms, as on a map site; the next zoom step swaps them
-      this.setAttribute('transform', `translate(${sx},${sy})`);
-      if (this.__px !== px) { this.__px = px; this.style.fontSize = `${px}px`; this.style.strokeWidth = `${Math.max(2, px * 0.2)}px`; }
-    });
-    gMarks.selectAll('g').each(function (m) {
-      const at = m.anchor || m.c;
-      const [sx, sy] = T.apply([at.x, at.y]);
-      this.setAttribute('transform', `translate(${sx},${sy})`);
-    });
+  // Our layers, once per way of drawing: standard ('' — among the street map's layers) and flat ('-f' — on their own
+  // over the sea). Only the current one is shown.
+  function addLayers() {
+    if (physicalOK) {
+      map.addSource('st', { type: 'vector', tiles: [fresh(`${new URL('.', location.href).href}tiles/{z}/{x}/{y}.pbf`)], minzoom: 0, maxzoom: 6 });
+      // place names in English (Latin letters), or Hebrew
+      const latin = ['coalesce', ['get', 'name:en'], ['get', 'name_en'], ['get', 'name:latin'], ['get', 'name']];
+      for (const l of map.getStyle().layers) {
+        if (BASE.has(l.id) && l.type === 'symbol' && l.layout && /"name/.test(JSON.stringify(l.layout['text-field'] || ''))) map.setLayoutProperty(l.id, 'text-field', HE ? ['coalesce', ['get', 'name:he'], ...latin.slice(1)] : latin);
+      }
+      if (BASE.has('building-3d')) BASE.set('building-3d', 'none');
+      if (map.getLayer('building')) map.setLayerZoomRange('building', 13, 24);
+      // the physical look's richer natural colours
+      const phys = (id, prop, value) => { if (BASE_PAINT.has(id)) BASE_PAINT.set(id, { ...BASE_PAINT.get(id), [prop]: value }); };
+      if (map.getLayer('natural_earth')) map.setLayerZoomRange('natural_earth', 0, 12);
+      phys('natural_earth', 'raster-opacity', ['interpolate', ['linear'], ['zoom'], 0, 0.95, 5, 0.9, 7, 0.75, 9, 0.5, 11, 0.25, 12, 0]);
+      phys('natural_earth', 'raster-saturation', 0.15);
+      phys('landcover_wood', 'fill-color', 'hsl(100, 38%, 62%)');
+      phys('landcover_wood', 'fill-opacity', ['interpolate', ['linear'], ['zoom'], 6, 0.35, 10, 0.6]);
+      phys('landcover_grass', 'fill-opacity', 0.5);
+      phys('park', 'fill-color', '#c9e2b3');
+    }
+    for (const sfx of ['', '-f']) addOverlay(sfx);
+    glOK = true;
+  }
+  function addOverlay(sfx) {
+    const flat = sfx === '-f', id = (n) => n + sfx;
+    const src = (n) => map.addSource(id(n), { type: 'geojson', data: n === 'areas' && !flat ? fc(areaFeatures) : EMPTY, tolerance: n === 'names' ? 0 : 0.25 });
+    for (const n of ['land', 'areas', 'mesh', 'outside', 'outside-lines', 'hover-area', 'hover-dot', 'dots', 'names', 'cities', 'caps', 'seas']) src(n);
+    const add = (layer, before) => map.addLayer({ ...layer, id: id(layer.id), source: id(layer.source) }, flat ? undefined : before);
+    const under = physicalOK ? waterBefore : undefined, over = physicalOK ? lineBefore : undefined;
+    // the land (flat: there's no street map), the land no shetach covers (Rest of the world), the shetachim
+    add({ id: 'land', type: 'fill', source: 'land', paint: { 'fill-antialias': false } }, under);
+    add({ id: 'out-fill', type: 'fill', source: 'outside', paint: { 'fill-antialias': false } }, under);
+    add({ id: 'fill', type: 'fill', source: 'areas', paint: { 'fill-antialias': false } }, under);
+    // physical: each shetach as a soft tint under the water and relief
+    if (!flat && physicalOK) map.addLayer({ id: 'st-tint', type: 'fill', source: 'areas', paint: { 'fill-antialias': false } }, under);
+    // lines: (flat) the coast and the countries' and states' borders, as the street map draws its own; the shetachim's
+    for (const kind of ['coast', 'regular', 'country', 'casing', 'shetach', 'inner']) {
+      add({ id: `line-${kind}`, type: 'line', source: 'mesh', filter: ['==', ['get', 'k'], kind === 'casing' ? 'shetach' : kind], layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
+    }
+    add({ id: 'out-line', type: 'line', source: 'outside-lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
+    if (!flat && physicalOK) {
+      map.addLayer({ id: 'st-line-casing', type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
+      for (const kind of ['shetach', 'inner']) map.addLayer({ id: `st-line-${kind}`, type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
+    }
+    // what a tap can land on (invisible), the outline of the area a card is about, the dots
+    add({ id: 'pick', type: 'fill', source: 'areas', paint: { 'fill-opacity': 0 } });
+    add({ id: 'hover-area', type: 'line', source: 'hover-area', layout: { 'line-join': 'round' }, paint: { 'line-width': 2.5 } });
+    add({ id: 'dots', type: 'circle', source: 'dots' });
+    add({ id: 'hover-dot', type: 'circle', source: 'hover-dot', paint: { 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-width': 2 } });
+    // Names. The map places a layer higher up first, so Lubavitch and the capitals come first, then the shetachim's
+    // names, then cities where there's room left; within a layer, the biggest first.
+    if (flat) {
+      add({ id: 'seas', type: 'symbol', source: 'seas', filter: ['>=', ['zoom'], ['get', 'minz']],
+        layout: { 'text-field': ['get', 'name'], 'text-font': F_IT, 'text-size': ['case', ['==', ['get', 'tier'], 0], 12.5, 10.5], 'text-letter-spacing': ['case', ['==', ['get', 'tier'], 0], 0.18, 0.06],
+          'text-max-width': 7, 'symbol-sort-key': ['get', 'tier'], 'text-padding': 4 } });
+    }
+    // a capital's star: always shown, and never in the way of a name (names sit over it, so it's under them)
+    add({ id: 'caps', type: 'symbol', source: 'caps', filter: ['!', ['get', 'honor']],
+      layout: { 'icon-image': ['case', ['get', 'world'], 'star-world', 'star'], 'icon-allow-overlap': true, 'icon-ignore-placement': true, 'symbol-sort-key': ['get', 'rank'] } });
+    add({ id: 'cities', type: 'symbol', source: 'cities', filter: ['>=', ['zoom'], ['get', 'minz']],
+      layout: { 'icon-image': 'city', 'text-field': ['get', 'name'], 'text-font': F_REG, 'text-size': 11.5, 'symbol-sort-key': ['get', 'rank'], 'text-padding': 3,
+        'icon-padding': 0, 'text-variable-anchor': ['left', 'right', 'top', 'bottom'], 'text-radial-offset': 0.55, 'text-justify': 'auto' } });
+    // a capital's city name, after the shetachim's names (they're placed first)
+    add({ id: 'cap-names', type: 'symbol', source: 'caps', filter: ['all', ['!', ['get', 'honor']], ['!=', ['get', 'name'], ''], ['>=', ['zoom'], ['get', 'minz']]],
+      layout: { 'text-field': ['get', 'name'], 'text-font': F_REG, 'text-size': 11.5, 'text-variable-anchor': ['left', 'right', 'top', 'bottom'],
+        'text-radial-offset': ['case', ['get', 'world'], 1.1, 0.8], 'text-justify': 'auto', 'symbol-sort-key': ['get', 'rank'], 'text-padding': 2 } });
+    add({ id: 'names', type: 'symbol', source: 'names', filter: ['all', ['>=', ['zoom'], ['get', 'minz']], ['<', ['zoom'], ['get', 'maxz']]],
+      layout: {
+        'text-field': ['case', ['!=', ['get', 'pre'], ''], ['format', ['get', 'pre'], { 'text-font': ['literal', F_IT] }, ['get', 'rest'], {}], ['get', 't']],
+        'text-font': ['case', ['==', ['get', 'kind'], 'sec'], ['literal', F_IT], ['==', ['get', 'kind'], 'miss'], ['literal', F_REG], ['literal', F_BOLD]],
+        'text-size': ['interpolate', ['linear'], ['zoom'], ...ZS.flatMap((z) => [z, ['get', `s${z}`]])],
+        'text-max-width': 100, 'text-line-height': 1.15, 'text-letter-spacing': 0.01, 'symbol-sort-key': ['get', 'rank'], 'text-padding': 2,
+      } });
+    add({ id: 'honor', type: 'symbol', source: 'caps', filter: ['all', ['get', 'honor'], ['>=', ['zoom'], ['get', 'minz']]],
+      layout: { 'icon-image': 'honor', 'icon-allow-overlap': true, 'text-allow-overlap': true, 'text-field': ['get', 'name'], 'text-font': F_IT, 'text-size': 13,
+        'text-letter-spacing': 0.02, 'text-variable-anchor': ['left', 'right', 'top'], 'text-radial-offset': 0.6, 'text-justify': 'auto' } });
   }
 
-  // ---------- drawing (political map) ----------
-  // Dot styles (More options): solid (the default: small, opaque and deep red, so a cluster reads as one), see-through
-  // (the same, as faded as classic) and classic (the first dots: bigger, navy and faded). Radius at the framed view: a + b·log2(centers there).
+  // ---------- views and options on the map ----------
+  // Dot styles (More options): solid (the default), see-through, classic. Radius at the framed view: a + b·log2(centers there).
   const DOT_STYLES = { solid: { a: 1.05, b: 0.35, alpha: 1, color: 'dotSolid' }, faded: { a: 1.05, b: 0.35, alpha: 0.42, color: 'dotSolid' }, classic: { a: 1.9, b: 0.55, alpha: 0.42, color: 'dot' } };
   const dotStyle = () => DOT_STYLES[state.dotStyle] || DOT_STYLES.solid;
-  // Dot colour (More options) for the solid and see-through dots: [light map, dark map]. Each dot has a thin edge — dark
-  // under gold (so it shows on the yellow shetachim), white under the darker colours, the background on the dark map.
   const DOT_COLORS = { gold: ['#e0a400', '#ffc531'], red: ['#c8102e', '#ff6b5e'], black: ['#1a1a1a', '#f2f2f2'], navy: ['#163e74', '#8db5ee'], green: ['#16784a', '#5fd38f'], purple: ['#6b2fa3', '#c89cff'] };
-  function setDotColors() {
-    const dark = !V.physical && theme() === 'dark', c = DOT_COLORS[state.dotColor] || DOT_COLORS.navy;
-    const app = $('#app');
-    app.style.setProperty('--map-dot-solid', c[dark ? 1 : 0]);
-    app.style.setProperty('--map-dot-edge', dark ? '#0f1518' : state.dotColor === 'gold' ? '#4a3500' : '#ffffff');
+  function setLegendDot(pal) {
     const lg = $('.legend-dot');
-    if (lg) { lg.style.background = c[dark ? 1 : 0]; lg.style.boxShadow = `0 0 0 1px ${dark ? '#0f1518' : state.dotColor === 'gold' ? '#4a3500' : 'transparent'}`; }
+    if (lg) { lg.style.background = pal.dotSolid; lg.style.boxShadow = `0 0 0 1px ${theme() === 'dark' && state.base !== 'physical' ? '#0f1518' : state.dotColor === 'gold' ? '#4a3500' : 'transparent'}`; }
   }
-  const dotBase = (d) => { const st = dotStyle(); return st.a + st.b * Math.log2(d.centers.length); };
-  const dotRadius = (d, k) => dotBase(d) * Math.pow(k, 0.35); // screen pixels
-  let pal = null, hover = null, drawQueued = 0;
-  function readPalette() {
-    const css = getComputedStyle($('#map'));
-    const v = (name) => css.getPropertyValue(name).trim();
-    pal = { c: d3.range(8).map((i) => v(`--c${i + 1}`)), plain: v('--plain'), empty: v('--empty'), ink: v('--map-ink'), halo: v('--map-halo'), dot: v('--map-dot'), dotSolid: v('--map-dot-solid'), dotEdge: v('--map-dot-edge'), accent: v('--map-accent') };
-  }
-  // Land no shetach covers (data/outside.json, loaded the first time it's asked for), as paths for the view: only the
-  // countries near what the view shows, so a conic projection isn't asked to draw the far side of the world.
-  let emptyGeo = null, emptyTopo = null, emptyLoading = false;
-  function emptyPaths() {
-    if (!emptyGeo) {
-      if (!emptyLoading) { emptyLoading = true; get('data/outside.json').then((t) => { emptyTopo = t; emptyGeo = topojson.feature(t, t.objects[Object.keys(t.objects)[0]]).features; requestDraw(); }).catch(() => {}); }
-      return [];
+  // What the map's edges must keep clear of: the options panel beside it on a desktop, the closed bar under it on a phone.
+  function framePadding() {
+    const panel = $('#panel'), r = panel.getBoundingClientRect(), app = $('#app').getBoundingClientRect();
+    if (phone()) {
+      const bar = $('#panel .p-head').getBoundingClientRect().height + (parseFloat(getComputedStyle(panel).paddingBottom) || 0) + 1;
+      return { top: 16, left: 16, right: 16, bottom: bar + 12 };
     }
-    if (V.emptyPaths) return V.emptyPaths;
-    const ll = [];
-    for (let i = 0; i <= 4; i++) for (let j = 0; j <= 4; j++) { const q = projection.invert([(W * i) / 4, (H * j) / 4]); if (q && isFinite(q[0]) && isFinite(q[1])) ll.push(q); }
-    const lon0 = d3.min(ll, (q) => q[0]) - 25, lon1 = d3.max(ll, (q) => q[0]) + 25, lat0 = d3.min(ll, (q) => q[1]) - 15, lat1 = d3.max(ll, (q) => q[1]) + 15;
-    const near = (f) => { const [[a, b], [c, d]] = d3.geoBounds(f); return a > c || (c >= lon0 && a <= lon1 && d >= lat0 && b <= lat1); };
-    // and the shetachim outside this view (Canada and Mexico around the US), one shape per country, so the grey reads as
-    // the land around the view rather than holes in it
-    const inView = new Set(V.main), boxed = new Set(V.insetPieces), byCountry = new Map();
-    for (const g of pieces) if (!inView.has(g) && !boxed.has(g)) (byCountry.get(g.properties.country) || byCountry.set(g.properties.country, []).get(g.properties.country)).push(g);
-    const others = [...byCountry.values()].map((gs) => ({ type: 'Feature', geometry: topojson.merge(topo, gs) }));
-    V.emptyPaths = [...emptyGeo, ...others].filter(near).map((f) => new Path2D(geoPath(f) || ''));
-    // its outline alone, with no borders between countries inside it (for the Shetachim borders setting)
-    const geoms = emptyTopo.objects[Object.keys(emptyTopo.objects)[0]].geometries.filter((g, i) => near(emptyGeo[i]));
-    V.emptyCoast = new Path2D(geoPath(topojson.merge(emptyTopo, geoms)) || '');
-    return V.emptyPaths;
-  }
-  function requestDraw() { if (!drawQueued) drawQueued = requestAnimationFrame(draw); }
-  function draw() {
-    drawQueued = 0;
-    if (!V || V.physical) return;
-    if (!pal) readPalette();
-    const k = T.k, L = levelFor(k);
-    ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.setTransform(DPR * k, 0, 0, DPR * k, DPR * T.x, DPR * T.y);
-    const vx0 = -T.x / k, vy0 = -T.y / k, vx1 = (W - T.x) / k, vy1 = (H - T.y) / k;
-    const seen = (b) => b[2] >= vx0 && b[0] <= vx1 && b[3] >= vy0 && b[1] <= vy1;
-
-    // the rest of the world (the option): plain, under everything, its coasts faint; borders between its countries
-    // only when the borders setting shows countries
-    if (state.empty) {
-      const paths = emptyPaths();
-      ctx.globalAlpha = 1;
-      ctx.fillStyle = pal.empty;
-      for (const p2 of paths) ctx.fill(p2, 'evenodd');
-      ctx.strokeStyle = pal.ink;
-      ctx.globalAlpha = 0.35;
-      ctx.lineWidth = 0.8 / k;
-      if (state.borders !== 'shetach') for (const p2 of paths) ctx.stroke(p2);
-      else if (V.emptyCoast) ctx.stroke(V.emptyCoast);
-    }
-    // fills: shetachim (blank parts of states stay unfilled), or states with States borders
-    const fillAlpha = state.borders === 'both' && state.lighter === 'shetach' ? 0.55 : 1;
-    for (const r of state.borders === 'regular' ? V.states : V.regions) {
-      ctx.globalAlpha = fillAlpha;
-      ctx.fillStyle = state.color === 'plain' ? pal.plain : pal.c[r.color];
-      for (const poly of r.polys) if (seen(poly.box)) ctx.fill(polyPath(poly, L), 'evenodd');
-    }
-    // borders
-    const both = state.borders === 'both', lightR = both && state.lighter === 'regular', lightS = both && state.lighter === 'shetach';
-    ctx.strokeStyle = pal.ink;
-    ctx.lineJoin = 'round';
-    ctx.lineCap = 'round';
-    for (const [kind, width, on, alpha, dash] of [
-      ['coast', 1.1, true, 1],
-      ['regular', 1, state.borders !== 'shetach', lightR ? 0.35 : 1, both ? [2, 3] : null],
-      ['country', 1.8, state.borders !== 'shetach', lightR ? 0.35 : 1],
-      ['shetach', 1.3, state.borders !== 'regular', lightS ? 0.3 : 1],
-      ['inner', 1.1, state.borders !== 'regular', lightS ? 0.3 : 0.85, [4, 3]],
-    ]) {
-      if (!on) continue;
-      ctx.globalAlpha = alpha;
-      ctx.lineWidth = width / k;
-      ctx.setLineDash(dash ? dash.map((d) => d / k) : []);
-      for (const cell of V.mesh[kind]) if (seen(cell.box)) ctx.stroke(cellPath(cell, L));
-    }
-    ctx.setLineDash([]);
-    // the outline of the area a card is about
-    if (hover && hover.area) {
-      ctx.globalAlpha = 1;
-      ctx.strokeStyle = pal.accent;
-      ctx.lineWidth = 2.5 / k;
-      for (const poly of hover.area.polys) if (seen(poly.box)) ctx.stroke(polyPath(poly, L));
-    }
-    // dots, in screen pixels
-    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-    if (state.dots) {
-      const f = Math.pow(k, 0.35), st = dotStyle();
-      ctx.globalAlpha = st.alpha;
-      ctx.fillStyle = pal[st.color];
-      ctx.beginPath();
-      for (const d of V.dots) {
-        const x = T.x + d.x * k, y = T.y + d.y * k, r = dotBase(d) * f;
-        if (x < -r || y < -r || x > W + r || y > H + r) continue;
-        ctx.moveTo(x + r, y);
-        ctx.arc(x, y, r, 0, 2 * Math.PI);
-      }
-      // solid dots get a thin dark edge, so dots side by side still read as separate ones and gold shows on yellow
-      if (st.alpha === 1) { ctx.strokeStyle = pal.dotEdge; ctx.lineWidth = 0.6; ctx.stroke(); }
-      ctx.fill();
-      if (hover && hover.dot) {
-        ctx.globalAlpha = 1;
-        ctx.strokeStyle = pal.accent;
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.arc(T.x + hover.dot.x * k, T.y + hover.dot.y * k, dotRadius(hover.dot, k) + 2.5, 0, 2 * Math.PI);
-        ctx.stroke();
-      }
-    }
-    ctx.globalAlpha = 1;
+    return { top: 16, left: Math.max(16, r.right - app.left + 16), right: 64, bottom: 16 };
   }
 
-  // Which area a point (map pixels, zoom 1) is in — a state with States borders, else a shetach or the blank part
-  // of a state — as one of its pieces (all a card needs).
-  function pieceAtMap(x, y) {
-    for (const r of state.borders === 'regular' ? V.states : [...V.regions, ...V.blanks]) {
-      for (let i = 0; i < r.polys.length; i++) {
-        const b = r.polys[i].box;
-        if (x < b[0] || x > b[2] || y < b[1] || y > b[3]) continue;
-        let inside = false;
-        for (const ring of r.polysXY[i]) if (d3.polygonContains(ring, [x, y])) inside = !inside;
-        if (inside) return r.g;
-      }
-    }
-    return null;
+  // Three maps (Map in the panel): political — our own drawing, flat (Natural Earth) where the view has it, as far in as a
+  // political map makes sense; streets — the shetachim over the street map, standard, all the way in; physical — terrain.
+  const POLITICAL_DEPTH = 6; // zoom steps in from the framed view the political map allows (64×, as far as the old map's 60×)
+  function centreLL() {
+    const c = map.getCenter();
+    if (!V.cur.flat) return [((c.lng + 540) % 360) - 180, c.lat];
+    const ll = V.cur.proj.invert([mx(c.lng), my(c.lat)]);
+    return ll && isFinite(ll[0]) && Math.abs(ll[0]) <= 180 ? ll : null;
   }
-
-  // ---------- zoom (political map) ----------
-  let frame = 0;
-  const zoom = d3.zoom().scaleExtent([1, 60])
-    .on('start', (e) => { moving = true; if (e.sourceEvent && !pinned) hideCard(); })
-    .on('zoom', (e) => {
-      if (V && V.physical) return; // the physical map moves itself (syncCamera)
-      T = e.transform;
-      requestDraw();
-      if (!frame) frame = requestAnimationFrame(() => { frame = 0; moveLabels(); gInsets.classed('away', T.k > 1.3); });
-      livePlace();
-    // (the boxes' size changes with the zoom, so the names around them are placed again when it ends)
-    })
-    .on('end', () => { moving = false; if (!V.physical) placeLabels(); });
-  svg.call(zoom);
-
-  // Move either map to zoom transform t.
-  function setView(t, ms) {
-    if (V.physical) {
-      const cam = cameraFor(t);
-      if (ms && !still) mapgl.easeTo({ ...cam, duration: ms }); else mapgl.jumpTo(cam);
-    } else {
-      (ms && !still ? svg.transition().duration(ms) : svg).call(zoom.transform, t);
-    }
-  }
-  function zoomToBounds([[x0, y0], [x1, y1]]) {
-    const p = insets();
-    const w = W - p.l - p.r, h = H - p.b - p.t;
-    const k = clamp(0.9 / Math.max((x1 - x0) / w, (y1 - y0) / h), 1, 60);
-    setView(d3.zoomIdentity.translate(p.l + w / 2 - (k * (x0 + x1)) / 2, p.t + h / 2 - (k * (y0 + y1)) / 2).scale(k), 750);
-  }
-  function zoomBy(factor) {
-    if (V.physical) (factor > 1 ? mapgl.zoomIn : mapgl.zoomOut).call(mapgl, { duration: still ? 0 : 300 });
-    else svg.transition().duration(still ? 0 : 300).call(zoom.scaleBy, factor);
-  }
-  $('#zin').addEventListener('click', () => zoomBy(1.7));
-  $('#zout').addEventListener('click', () => zoomBy(1 / 1.7));
-  $('#zreset').addEventListener('click', () => setView(d3.zoomIdentity, 600));
-
-  // ---------- physical map (MapLibre GL + OpenFreeMap tiles, loaded the first time it's picked) ----------
-  // A full map (land cover and relief, water, roads, places) with our borders, names, cities and dots on it.
-  const GL_JS = 'https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.js';
-  const GL_STYLE = 'https://tiles.openfreemap.org/styles/liberty';
-  const EMPTY = { type: 'FeatureCollection', features: [] };
-  const FADE = '#eef0ec'; // over land outside the shown shetachim
-  let mapgl = null, glStarting = null;
-
-  function loadScript(src) {
-    return new Promise((resolve, reject) => {
-      const s = document.createElement('script');
-      s.src = src;
-      s.onload = resolve;
-      s.onerror = () => reject(new Error('the map library did not load'));
-      document.head.appendChild(s);
-    });
-  }
-  const withTimeout = (promise, ms, what) => Promise.race([promise, new Promise((_, reject) => setTimeout(() => reject(new Error(what)), ms))]);
-
-  // Resolves once the style has loaded; rejects if the library, WebGL or the tiles are unavailable.
-  function startGL() {
-    if (glStarting) return glStarting;
-    glStarting = (async () => {
-      if (!window.maplibregl) await withTimeout(loadScript(GL_JS), 20000, 'the map library took too long');
-      const m = new maplibregl.Map({
-        container: 'basemap', style: GL_STYLE, attributionControl: false, renderWorldCopies: false,
-        dragRotate: false, pitchWithRotate: false, touchPitch: false, maxZoom: 18.5, fadeDuration: 150,
-        // phones draw at up to 3x; 2x looks the same on a map and is under half the pixels to fill each frame
-        pixelRatio: Math.min(window.devicePixelRatio || 1, 2),
-        // tiles keep loading through a zoom (not cancelled and started again when it ends, which showed as squares
-        // filling in afterwards), and more of them are kept, so going back to a place doesn't load it again
-        cancelPendingTileRequestsWhileZooming: false, maxTileCacheSize: 600, maxTileCacheZoomLevels: 10,
-      });
-      mapgl = m;
-      m.addControl(new maplibregl.AttributionControl({ compact: true }), 'top-right');
-      m.touchZoomRotate.disableRotation();
-      m.keyboard.disableRotation();
-      m.on('style.load', () => { addOverlay(); if (V && V.physical) { dataGL(); styleGL(); } });
-      let styled = false;
-      await withTimeout(new Promise((resolve, reject) => {
-        m.once('style.load', () => { styled = true; resolve(); });
-        m.on('error', (e) => { if (!styled) reject(e.error || new Error('map error')); });
-      }), 20000, 'the map took too long');
-      mapgl.on('move', syncCamera);
-      // names catch up fully once the map has been still for a moment (a pinch or a run of wheel steps has short pauses)
-      let settle = 0;
-      mapgl.on('moveend', () => { clearTimeout(settle); settle = setTimeout(() => { if (mapgl.isMoving()) return; moving = false; if (V.physical) placeLabels(); }, 150); });
-      mapgl.on('movestart', () => { clearTimeout(settle); moving = true; if (!pinned) hideCard(); });
-      mapgl.on('idle', prefetchAround);
-      mapgl.on('mousemove', (e) => {
-        if (!V.physical || pinned || e.originalEvent.buttons) return;
-        const hit = pickAt(e.point.x, e.point.y, false);
-        if (hit) showCard(hit, e.originalEvent, false); else hideCard();
-      });
-      mapgl.on('mouseout', () => { if (!pinned) hideCard(); });
-      mapgl.on('click', (e) => {
-        if (!V.physical) return;
-        const hit = pickAt(e.point.x, e.point.y, e.originalEvent.pointerType === 'touch' || coarse());
-        if (!hit) { hideCard(); return; }
-        pinned = hit;
-        showCard(hit, e.originalEvent, true);
-      });
-    })();
-    glStarting.catch(() => {
-      if (mapgl) mapgl.remove();
-      mapgl = null;
-      glStarting = null;
-    });
-    return glStarting;
-  }
-
-  const glReady = () => mapgl && mapgl.getSource('st-dots');
-
-  // Once the map is still, the tiles just beyond the screen (half a screen each way, and the next zoom in) are fetched
-  // in the background, so panning or zooming into them finds them ready instead of filling in square by square.
-  const prefetched = new Set();
-  function prefetchAround() {
-    if (!mapgl || !V || !V.physical) return;
-    const b = mapgl.getBounds(), z0 = mapgl.getZoom();
-    const w = b.getEast() - b.getWest(), h = b.getNorth() - b.getSouth();
-    const west = b.getWest() - w / 2, east = b.getEast() + w / 2;
-    const north = Math.min(85, b.getNorth() + h / 2), south = Math.max(-85, b.getSouth() - h / 2);
-    const tx = (lon, z) => Math.floor(((lon + 180) / 360) * 2 ** z);
-    const ty = (lat, z) => { const r = (lat * Math.PI) / 180; return Math.floor(((1 - Math.log(Math.tan(r) + 1 / Math.cos(r)) / Math.PI) / 2) * 2 ** z); };
-    const urls = [];
-    for (const id of ['openmaptiles', 'st']) {
-      const src = mapgl.getSource(id);
-      const tpl = src && (src.tiles || (src._options && src._options.tiles) || [])[0];
-      if (!tpl) continue;
-      const max = src.maxzoom ?? 14;
-      for (const dz of [0, 1]) {
-        const z = Math.max(0, Math.min(max, Math.floor(z0) + dz)), n = 2 ** z;
-        const x0 = tx(Math.max(-180, west), z), x1 = tx(Math.min(179.999, east), z), y0 = ty(north, z), y1 = ty(south, z);
-        if ((x1 - x0 + 1) * (y1 - y0 + 1) > 80) continue; // a whole-world view: nothing worth guessing
-        for (let x = x0; x <= x1; x++) for (let y = Math.max(0, y0); y <= Math.min(n - 1, y1); y++) urls.push(tpl.replace('{z}', z).replace('{x}', x).replace('{y}', y));
-      }
-    }
-    for (const u of urls) if (!prefetched.has(u)) { prefetched.add(u); fetch(u, { priority: 'low' }).catch(() => {}); }
-  }
-
-  // Our layers: borders over the streets but under the map's own labels; a fade over land outside the shown
-  // shetachim (under the water, so seas stay blue) and a lighter one over everything outside; the dots and
-  // the hover rings on top. Names, cities and capitals stay in the SVG.
-  function addOverlay() {
-    if (mapgl.getSource('st-dots')) return;
-    const layers = mapgl.getStyle().layers;
-    const lastRoad = layers.map((l) => l.type === 'line' && l['source-layer'] === 'transportation').lastIndexOf(true);
-    const lineBefore = (layers.find((l, i) => i > lastRoad && l.type === 'symbol') || {}).id;
-    const waterBefore = (layers.find((l) => ['water', 'waterway'].includes(l['source-layer'])) || {}).id;
-    // Borders and the land to fade come as ready-made tiles (the build's web/tiles/): each zoom's tiles are already
-    // simplified for it and only the ones on screen load, so a phone never handles the whole world at once.
-    mapgl.addSource('st', { type: 'vector', tiles: [fresh(`${new URL('.', location.href).href}tiles/{z}/{x}/{y}.pbf`)], minzoom: 0, maxzoom: 6 });
-    mapgl.addSource('st-hover-area', { type: 'geojson', data: EMPTY });
-    for (const id of ['st-dots', 'st-hover-dot']) mapgl.addSource(id, { type: 'geojson', data: EMPTY });
-    mapgl.addLayer({ id: 'st-fade-land', type: 'fill', source: 'st', 'source-layer': 'land', paint: { 'fill-color': FADE, 'fill-opacity': 0.72, 'fill-antialias': false } }, waterBefore);
-    mapgl.addLayer({ id: 'st-line-casing', type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' },
-      paint: { 'line-color': '#ffffff', 'line-width': 4.5, 'line-opacity': 0.5 } }, lineBefore);
-    for (const kind of ['coast', 'lake', 'regular', 'country', 'shetach', 'inner']) {
-      mapgl.addLayer({ id: `st-line-${kind}`, type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, lineBefore);
-    }
-    mapgl.addLayer({ id: 'st-fade-top', type: 'fill', source: 'st', 'source-layer': 'land', paint: { 'fill-color': FADE, 'fill-opacity': 0.3, 'fill-antialias': false } });
-    // Place names in English (Latin letters) rather than each country's own script.
-    const latin = ['coalesce', ['get', 'name:en'], ['get', 'name_en'], ['get', 'name:latin'], ['get', 'name']];
-    for (const l of layers) {
-      if (l.type === 'symbol' && l.layout && /"name/.test(JSON.stringify(l.layout['text-field'] || ''))) mapgl.setLayoutProperty(l.id, 'text-field', latin);
-    }
-    // Buildings flat at every zoom: the map can't tilt, so the 3D ones only cost drawing time.
-    if (mapgl.getLayer('building-3d')) mapgl.setLayoutProperty('building-3d', 'visibility', 'none');
-    if (mapgl.getLayer('building')) mapgl.setLayerZoomRange('building', 13, 24);
-    mapgl.addLayer({ id: 'st-hover-area', type: 'line', source: 'st-hover-area', paint: { 'line-width': 2.5 } });
-    mapgl.addLayer({ id: 'st-dots', type: 'circle', source: 'st-dots' });
-    mapgl.addLayer({ id: 'st-hover-dot', type: 'circle', source: 'st-hover-dot', paint: { 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-width': 2 } });
-
-    // Richer natural colours: the Natural Earth relief (greens, desert tans, ice) stays strong out to the
-    // state level and fades out under the streets, and woods and grass read as green further in.
-    const set = (id, prop, value) => { if (mapgl.getLayer(id)) mapgl.setPaintProperty(id, prop, value); };
-    if (mapgl.getLayer('natural_earth')) {
-      mapgl.setLayerZoomRange('natural_earth', 0, 12);
-      set('natural_earth', 'raster-opacity', ['interpolate', ['linear'], ['zoom'], 0, 0.95, 5, 0.9, 7, 0.75, 9, 0.5, 11, 0.25, 12, 0]);
-      set('natural_earth', 'raster-saturation', 0.15);
-    }
-    set('landcover_wood', 'fill-color', 'hsl(100, 38%, 62%)');
-    set('landcover_wood', 'fill-opacity', ['interpolate', ['linear'], ['zoom'], 6, 0.35, 10, 0.6]);
-    set('landcover_grass', 'fill-opacity', 0.5);
-    set('park', 'fill-color', '#c9e2b3');
-  }
-
-  const feature = (geometry, properties = {}) => ({ type: 'Feature', geometry, properties });
-
-  // Which tiles' land and borders the view uses: land outside its countries is faded (c is '' for land that's never
-  // shown); a border is drawn by kind when both sides are in the view, and as an outline where only one side is.
-  function dataGL() {
-    if (!glReady()) return;
-    const set = (id, data) => mapgl.getSource(id).setData(data);
-    const fc = (features) => ({ type: 'FeatureCollection', features });
-    const list = ['literal', V.view.countries];
-    const a = ['in', ['get', 'ca'], list], b = ['all', ['has', 'cb'], ['in', ['get', 'cb'], list]];
-    // lake: an open edge that's the international boundary in the lakes inside one shetach (Essex County's water,
-    // Michigan's on both sides), drawn with the country borders rather than as a maritime line.
-    const lake = ['has', 'lk'];
-    const filters = {
-      coast: ['any', ['all', a, ['!', b], ['!', lake]], ['all', b, ['!', a]]],
-      lake: ['all', a, lake],
-      regular: ['all', a, b, ['==', ['get', 'ss'], 0], ['==', ['get', 'ca'], ['get', 'cb']]],
-      country: ['all', a, b, ['!=', ['get', 'ca'], ['get', 'cb']]],
-      shetach: ['all', a, b, ['==', ['get', 'sh'], 0], ['!', ['has', 'tr']]],
-      inner: ['all', a, b, ['has', 'tr']], // a territory and its shetach (India and Thailand's): dashed
-    };
-    for (const [kind, f] of Object.entries(filters)) mapgl.setFilter(`st-line-${kind}`, f);
-    mapgl.setFilter('st-line-casing', filters.shetach);
-    const faded = ['!', ['in', ['get', 'c'], list]];
-    mapgl.setFilter('st-fade-land', faded);
-    mapgl.setFilter('st-fade-top', faded);
-    set('st-dots', fc(V.dots.map((d) => feature({ type: 'Point', coordinates: [d.lon, d.lat] }, { l: Math.log2(d.centers.length) }))));
-    set('st-hover-area', EMPTY);
-    set('st-hover-dot', EMPTY);
-  }
-
-  // Paint and visibility for the current options; mirrors the CSS rules of the political map.
-  function styleGL() {
-    if (!glReady()) return;
-    const css = getComputedStyle($('#map'));
-    const v = (name) => css.getPropertyValue(name).trim();
-    const paint = (id, prop, value) => mapgl.setPaintProperty(id, prop, value);
-    const show = (id, on) => mapgl.setLayoutProperty(id, 'visibility', on ? 'visible' : 'none');
-    const both = state.borders === 'both';
-    const lightS = both && state.lighter === 'shetach', lightR = both && state.lighter === 'regular';
-    const ink = v('--map-ink');
-    const line = (kind, on, width, opacity) => {
-      show(`st-line-${kind}`, on);
-      paint(`st-line-${kind}`, 'line-color', ink);
-      paint(`st-line-${kind}`, 'line-width', width);
-      paint(`st-line-${kind}`, 'line-opacity', opacity);
-    };
-    line('coast', true, 0.8, 0.35);
-    line('lake', state.borders !== 'shetach', 0.8, 0.35);
-    line('regular', state.borders !== 'shetach', 1.2, lightR ? 0.35 : 0.8);
-    line('country', state.borders !== 'shetach', 2, lightR ? 0.35 : 0.9);
-    line('shetach', state.borders !== 'regular', 2, lightS ? 0.3 : 0.9);
-    line('inner', state.borders !== 'regular', 1.6, lightS ? 0.3 : 0.85);
-    paint('st-line-inner', 'line-dasharray', [3, 2]);
-    show('st-line-casing', state.borders !== 'regular' && !lightS);
-    paint('st-line-regular', 'line-dasharray', both ? [2, 2] : [1, 0]);
-    // Same sizes as the political map: grows with zoom like k^0.35, and stops growing at 60x the framed view.
-    const ds = dotStyle(), r = (dz) => ['*', ['+', ds.a, ['*', ds.b, ['get', 'l']]], 2 ** (0.35 * dz)];
-    const radius = ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], V.zFit - 2, r(-2), V.zFit + Math.log2(60), r(Math.log2(60))];
-    show('st-dots', state.dots);
-    paint('st-dots', 'circle-radius', radius);
-    paint('st-dots', 'circle-color', v(ds.color === 'dot' ? '--map-dot' : '--map-dot-solid'));
-    paint('st-dots', 'circle-opacity', ds.alpha === 1 ? 1 : ds.alpha + 0.1);
-    paint('st-dots', 'circle-stroke-width', ds.alpha === 1 ? 0.6 : 0);
-    paint('st-dots', 'circle-stroke-color', v('--map-dot-edge'));
-    paint('st-hover-dot', 'circle-radius', radius);
-    paint('st-hover-dot', 'circle-stroke-color', v('--map-accent'));
-    paint('st-hover-area', 'line-color', v('--map-accent'));
-    // The map's own borders and state and country names always give way to ours; its city names do
-    // while our cities are on.
-    for (const layer of mapgl.getStyle().layers) {
-      if (layer['source-layer'] === 'boundary') show(layer.id, false);
-      if (layer.type !== 'symbol' || layer['source-layer'] !== 'place') continue;
-      show(layer.id, !(/country|state|continent/.test(layer.id) || state.cities));
-    }
-  }
-
-  // T from the MapLibre camera (no rotation or tilt, so it's a plain scale and shift of the projection).
-  function syncCamera() {
-    if (!V || !V.physical || !mapgl) return;
-    const c = mapgl.getCenter(), k = 2 ** (mapgl.getZoom() - V.zFit);
-    const [cx, cy] = projection([c.lng, c.lat]);
-    T = d3.zoomIdentity.translate(W / 2 - k * cx, H / 2 - k * cy).scale(k);
-    if (!frame) frame = requestAnimationFrame(() => { frame = 0; moveLabels(); });
-    livePlace();
-  }
-  function cameraFor(t) {
-    const [lng, lat] = projection.invert(t.invert([W / 2, H / 2]));
-    return { center: [lng, lat], zoom: V.zFit + Math.log2(t.k) };
-  }
-
-  async function setBase(value) {
-    const msg = $('#base-msg');
-    if (value === state.base) { if (msg.className === 'note') msg.hidden = true; return; }
-    if (value === 'physical') {
-      msg.hidden = false;
-      msg.className = 'note';
-      msg.textContent = tr('Loading…');
-      try {
-        await startGL();
-      } catch (err) {
-        pressed('base', 'political');
-        msg.className = 'error';
-        msg.textContent = tr(/webgl/i.test(String(err && err.message)) ? "This browser can't show the physical map." : "The physical map couldn't load.");
-        return;
-      }
-      // switched back while it loaded, or a second click already finished the switch
-      if (state.base === 'physical' || !$('.seg[data-name="base"] [data-value="physical"]').matches('[aria-pressed="true"]')) { msg.hidden = true; return; }
-    }
-    msg.hidden = true;
-    const focus = focusNow();
-    hideCard();
-    state.base = value;
-    layout({ focus });
+  const kmScale = (S, ll, z) => 512 * 2 ** z * within(S, () => unitsPerKm(ll[0], ll[1])); // screen px per km
+  function spanKm(S, ll, z) { const c = map.getContainer(); return Math.sqrt(c.clientWidth * c.clientHeight) / kmScale(S, ll, z); }
+  const political = () => state.base === 'political' || !physicalOK; // (no street map loaded: political only)
+  const wantedSet = () => (political() && V.F ? V.F : V.M);
+  // Change to S, keeping the place at the centre where it is and the scale there the same; the old picture fades out
+  // over the new one, quickly, once the new one has drawn.
+  function setMode(S) {
+    if (!S || S === V.cur) return;
+    const ll = centreLL() || [0, 0], z = map.getZoom();
+    const zTo = z + Math.log2(kmScale(V.cur, ll, 0) / kmScale(S, ll, 0));
+    const snap = still ? false : fadeStart();
+    V.cur = S;
+    limits();
     apply();
+    map.jumpTo({ center: within(S, () => P(ll[0], ll[1])) || map.getCenter(), zoom: zTo });
+    if (snap) fadeRun();
+  }
+
+  // ---------- the fade between flat and street map ----------
+  const FD = { canvas: null, gl: null, prog: null, tex: null, buf: null, raf: 0 };
+  function fadeGL() {
+    if (FD.gl) return FD.gl;
+    const c = document.createElement('canvas');
+    c.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;display:none';
+    map.getCanvasContainer().after(c);
+    const gl = c.getContext('webgl', { premultipliedAlpha: true, alpha: true });
+    if (!gl) return null;
+    const sh = (type, src) => { const s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; };
+    const prog = gl.createProgram();
+    gl.attachShader(prog, sh(gl.VERTEX_SHADER, 'attribute vec2 a; varying vec2 v; void main() { v = a; gl_Position = vec4(a.x * 2.0 - 1.0, 1.0 - a.y * 2.0, 0.0, 1.0); }'));
+    gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, 'precision mediump float; uniform sampler2D t; uniform float o; varying vec2 v; void main() { gl_FragColor = texture2D(t, v) * o; }'));
+    gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return null;
+    FD.tex = gl.createTexture();
+    gl.bindTexture(gl.TEXTURE_2D, FD.tex);
+    for (const [k, v] of [[gl.TEXTURE_MIN_FILTER, gl.LINEAR], [gl.TEXTURE_MAG_FILTER, gl.LINEAR], [gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE], [gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE]]) gl.texParameteri(gl.TEXTURE_2D, k, v);
+    FD.buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, FD.buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1]), gl.STATIC_DRAW);
+    Object.assign(FD, { canvas: c, gl, prog });
+    return gl;
+  }
+  // the picture on screen, held over the map while it changes
+  function fadeStart() {
+    const gl = fadeGL();
+    if (!gl) return false;
+    cancelAnimationFrame(FD.raf);
+    gl.bindTexture(gl.TEXTURE_2D, FD.tex);
+    try { gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, map.getCanvas()); } catch (e) { return false; }
+    const dpr = Math.min(window.devicePixelRatio || 1, 2), c = FD.canvas, box = map.getContainer();
+    c.width = Math.round(box.clientWidth * dpr); c.height = Math.round(box.clientHeight * dpr);
+    gl.viewport(0, 0, c.width, c.height);
+    gl.useProgram(FD.prog);
+    gl.bindBuffer(gl.ARRAY_BUFFER, FD.buf);
+    const loc = gl.getAttribLocation(FD.prog, 'a');
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+    gl.enable(gl.BLEND);
+    gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
+    fadeDraw(1);
+    c.style.display = 'block';
+    return true;
+  }
+  function fadeDraw(o) {
+    const gl = FD.gl;
+    gl.clearColor(0, 0, 0, 0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
+    gl.uniform1f(gl.getUniformLocation(FD.prog, 'o'), o);
+    gl.drawArrays(gl.TRIANGLES, 0, 6);
+  }
+  // ... then, once the new map has drawn (its streets loaded, or a moment at most), faded out
+  function fadeRun() {
+    const T = 280;
+    let start = 0;
+    const go = () => { if (!start) start = performance.now(); };
+    map.once('idle', go);
+    const giveUp = performance.now() + 900;
+    const step = (now) => {
+      if (!start && now > giveUp) go();
+      if (start) {
+        const k = Math.min(1, (now - start) / T);
+        fadeDraw(1 - k * k * (3 - 2 * k));
+        if (k >= 1) { FD.canvas.style.display = 'none'; return; }
+      }
+      FD.raf = requestAnimationFrame(step);
+    };
+    FD.raf = requestAnimationFrame(step);
+  }
+
+  // how far out and in the map may zoom (the political map only so far in), and whether it repeats sideways (a flat
+  // world doesn't)
+  function limits() {
+    map.setRenderWorldCopies(!V.cur.flat);
+    const fit = V.cur.zFit ?? 0;
+    map.setMinZoom(Math.max(0, fit - 1.5));
+    map.setMaxZoom(political() ? Math.min(MAX_Z, fit + POLITICAL_DEPTH) : MAX_Z);
+  }
+  // The camera for the whole view (flat, where the view has it), and from it the zoom the dots are sized for.
+  function frameView(animate) {
+    const S = wantedSet(), was = V.cur;
+    for (const T of [V.M, V.F]) {
+      if (!T) continue;
+      const cam = map.cameraForBounds(T.bounds, { padding: framePadding() });
+      if (cam) T.zFit = cam.zoom;
+    }
+    const cam = map.cameraForBounds(S.bounds, { padding: framePadding() });
+    if (!cam) return;
+    V.cur = S;
+    limits();
+    if (was !== S) apply();
+    if (animate && !still && was === S && !S.flat) map.flyTo({ ...cam, bearing: 0, duration: 900, essential: true });
+    else map.jumpTo(cam);
+  }
+
+  // A new view: its data into the map, framed.
+  function showView(animate) {
+    const prev = V && V.cur;
+    viewData();
+    if (!glOK) return;
+    for (const S of [V.M, V.F]) {
+      if (!S) continue;
+      const set = (n, d) => map.getSource(n + S.sfx).setData(d);
+      S.namesShown = null; // (the sources held another view's)
+      set('areas', S.areas);
+      set('mesh', S.mesh);
+      set('dots', dotData(S));
+      set('cities', cityData(S));
+      set('caps', capData(S));
+      set('land', fc([S.land]));
+      if (S.flat) set('seas', seaData(S));
+    }
+    frameView(animate && prev && !prev.flat);
+    setOutside();
+    apply();
+  }
+  // The land no shetach covers: flat, it's land like any other (there's no street map to show it); with Rest of the
+  // world it's greyed, with its borders.
+  function setOutside() {
+    if (!glOK || !V) return;
+    const o = outsideData();
+    const key = `${!!o}|${state.empty}|${state.borders}`;
+    if (V.outsideKey === key) return;
+    if (o) V.outsideKey = key;
+    for (const S of [V.M, V.F]) {
+      if (!S) continue;
+      let so = o;
+      if (o && S.flat) {
+        if (!S.outside) {
+          S.outside = within(S, () => ({ fill: fc(o.fill.features.map((f) => feature(projGeom(f.geometry), f.properties)).filter((f) => f.geometry)),
+            coast: feature(projGeom(o.coast.geometry) || { type: 'MultiLineString', coordinates: [] }, o.coast.properties),
+            borders: feature(projGeom(o.borders.geometry) || { type: 'MultiLineString', coordinates: [] }, o.borders.properties) }));
+        }
+        so = S.outside;
+      }
+      if (so) map.getSource(`land${S.sfx}`).setData(fc([S.land, ...so.fill.features]));
+      map.getSource(`outside${S.sfx}`).setData(so && state.empty ? so.fill : EMPTY);
+      const lines = so ? [so.coast].concat(state.empty && state.borders !== 'shetach' ? [so.borders] : []) : [];
+      map.getSource(`outside-lines${S.sfx}`).setData(fc(lines));
+    }
+  }
+
+  // Everything the options decide: which look, which fills and lines, the names, dots, cities and capitals.
+  function apply() {
+    $('#app').classList.toggle('physical', state.base === 'physical');
+    $('#colors-ctl').hidden = state.base === 'physical';
+    $('#lighter-row').hidden = state.borders !== 'both';
+    if (!glOK || !V) return;
+    const pal = palette(), G = pal.ground;
+    setLegendDot(pal);
+    drawIcons(pal);
+    const physical = state.base === 'physical' && physicalOK;
+    const S = V.cur, street = !political(); // the street map shows (streets, physical), or our own land and sea (political)
+    const show = (id, on) => { if (map.getLayer(id)) map.setLayoutProperty(id, 'visibility', on ? 'visible' : 'none'); };
+    const paint = (id, prop, value) => { if (map.getLayer(id)) map.setPaintProperty(id, prop, value); };
+    const both = state.borders === 'both', lightS = both && state.lighter === 'shetach', lightR = both && state.lighter === 'regular';
+    const regular = state.borders === 'regular';
+    const inView = ['in', ['get', 'country'], ['literal', V.view.countries]];
+    // the street map: its own look for each of ours
+    lookBase(physical ? 'physical' : pal.dark ? 'dark' : 'light', G);
+    $('#sea-row').hidden = physical;
+    setOutside();
+    show('pol-bg', !street);
+    paint('pol-bg', 'background-color', G.water);
+    for (const [id, vis] of BASE) {
+      const layer = map.getLayer(id);
+      let on = street && vis !== 'none';
+      if (on && !physical && (id === 'natural_earth' || layer.sourceLayer === 'landcover' || id === 'park_outline')) on = false; // a political map isn't green
+      // the street map's own borders on the physical map; the political one draws its own (they match the shetachim's)
+      if (on && layer.sourceLayer === 'boundary') on = physical && state.borders !== 'shetach';
+      if (on && layer.type === 'symbol' && layer.sourceLayer === 'place' && /country|state|continent/.test(id)) on = false; // the shetachim's names instead
+      show(id, on);
+      if (layer.sourceLayer === 'boundary') paint(id, 'line-opacity', lightR ? 0.35 : (BASE_PAINT.get(id) || {})['line-opacity'] ?? 1);
+    }
+    if (!V.F) for (const l of map.getStyle().layers) if (l.id.endsWith('-f')) show(l.id, false); // (left from a flat view before)
+    for (const T of [V.M, V.F]) {
+      if (!T) continue;
+      const on = T === S, id = (n) => n + T.sfx, flat = T.flat;
+      const polOn = on && !physical;
+      // fills: shetachim (blank parts of states stay land), or every state with States borders; strong zoomed out, and
+      // see-through at street level so the streets show
+      show(id('land'), on && !street);
+      paint(id('land'), 'fill-color', G.land);
+      show(id('fill'), polOn);
+      map.setFilter(id('fill'), regular ? inView : ['all', inView, ['>=', ['get', 'cs'], 0]]);
+      paint(id('fill'), 'fill-color', state.color === 'plain' ? pal.plain : ['match', ['get', regular ? 'cu' : 'cs'], ...pal.c.flatMap((c, i) => [i, c]), pal.plain]);
+      const k = lightS ? 0.6 : 1;
+      paint(id('fill'), 'fill-opacity', !street ? 0.92 * k : ['interpolate', ['linear'], ['zoom'], 5, 0.9 * k, 7, 0.78 * k, 10, 0.5 * k, 13, 0.3 * k]);
+      show(id('out-fill'), polOn && state.empty);
+      paint(id('out-fill'), 'fill-color', pal.empty);
+      paint(id('out-fill'), 'fill-opacity', street ? 0.7 : 1);
+      // lines: shetach borders light against the colours (as map sites draw region borders); countries' and states'
+      // borders grey; the coast a darker sea (flat only: the street map has its own)
+      const w = (a, b, c) => ['interpolate', ['linear'], ['zoom'], 2, a, 6, b, 12, c];
+      for (const [kind, onK, color, width, alpha, dash] of [
+        ['coast', !street, G.coast, 0.6, 1],
+        ['regular', state.borders !== 'shetach', G.grey, w(0.5, 0.8, 1.4), lightR ? 0.3 : 0.6, [2, 2]],
+        ['country', state.borders !== 'shetach', G.grey, w(0.7, 1.1, 1.8), lightR ? 0.4 : 0.85],
+        ['casing', !regular, G.border, w(1.2, 2.2, 3.6), lightS ? 0.45 : 0.95],
+        ['shetach', false],
+        ['inner', !regular, G.border, w(0.6, 1, 1.6), lightS ? 0.4 : 0.85, [3, 2]],
+      ]) {
+        const lid = id(`line-${kind}`);
+        show(lid, polOn && onK);
+        if (!onK) continue;
+        paint(lid, 'line-color', color);
+        paint(lid, 'line-width', width);
+        paint(lid, 'line-opacity', alpha);
+        paint(lid, 'line-dasharray', dash || [1, 0]);
+      }
+      show(id('out-line'), polOn);
+      paint(id('out-line'), 'line-color', G.grey);
+      paint(id('out-line'), 'line-width', 0.7);
+      paint(id('out-line'), 'line-opacity', ['match', ['get', 'k'], 'coast', 0, 0.6]);
+      // (the coast of the land no shetach covers, political: same as ours)
+      if (!street) paint(id('out-line'), 'line-color', ['match', ['get', 'k'], 'coast', G.coast, G.grey]), paint(id('out-line'), 'line-opacity', ['match', ['get', 'k'], 'coast', 1, 0.6]);
+      map.setFilter(id('pick'), inView);
+      show(id('pick'), on);
+    }
+    // physical (standard only): shetach borders where both sides are in the view, and the tints
+    if (physicalOK) {
+      const physOn = physical && S === V.M;
+      const list = ['literal', V.view.countries];
+      const a = ['in', ['get', 'ca'], list], b = ['all', ['has', 'cb'], ['in', ['get', 'cb'], list]];
+      const shetachLines = state.borders !== 'regular';
+      map.setFilter('st-line-shetach', ['all', a, b, ['==', ['get', 'sh'], 0], ['!', ['has', 'tr']]]);
+      map.setFilter('st-line-inner', ['all', a, b, ['has', 'tr']]);
+      map.setFilter('st-line-casing', ['all', a, b, ['==', ['get', 'sh'], 0]]);
+      const fadeOut = (v) => ['interpolate', ['linear'], ['zoom'], 9, v, 12, 0];
+      const BORDER = 'hsl(258, 28%, 44%)';
+      for (const lid of ['st-line-shetach', 'st-line-inner']) {
+        show(lid, physOn && shetachLines);
+        paint(lid, 'line-color', BORDER);
+        paint(lid, 'line-width', ['interpolate', ['linear'], ['zoom'], 2, 1, 6, 1.7, 10, 2.6]);
+        paint(lid, 'line-opacity', fadeOut(lightS ? 0.4 : 0.85));
+      }
+      paint('st-line-inner', 'line-dasharray', [3, 2]);
+      show('st-line-casing', physOn && shetachLines && !lightS);
+      paint('st-line-casing', 'line-color', '#ffffff');
+      paint('st-line-casing', 'line-width', ['interpolate', ['linear'], ['zoom'], 2, 3, 6, 4.5, 10, 6]);
+      paint('st-line-casing', 'line-opacity', fadeOut(0.55));
+      // the tint: by shetach (blank parts of states untinted); none with States borders, where the map's own lines say it
+      show('st-tint', physOn && shetachLines);
+      map.setFilter('st-tint', ['all', inView, ['>=', ['get', 'cs'], 0]]);
+      paint('st-tint', 'fill-color', state.color === 'plain' ? '#ffffff' : ['match', ['get', 'cs'], ...PHYS_TINTS.flatMap((c, i) => [i, c]), '#ffffff']);
+      paint('st-tint', 'fill-opacity', ['interpolate', ['linear'], ['zoom'], 0, lightS ? 0.22 : 0.42, 6, lightS ? 0.2 : 0.36, 9, 0.22, 11, 0.08, 12, 0]);
+    }
+    // dots: as before, growing with zoom like k^0.35 from the framed view, up to 60× it
+    const ds = dotStyle();
+    for (const T of [V.M, V.F]) {
+      if (!T) continue;
+      const on = T === S, id = (n) => n + T.sfx;
+      const zf = T.zFit ?? 2, r = (dz) => ['*', ['+', ds.a, ['*', ds.b, ['get', 'l']]], 2 ** (0.35 * dz)];
+      const radius = ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], zf - 2, r(-2), zf + Math.log2(60), r(Math.log2(60))];
+      show(id('dots'), on && state.dots);
+      paint(id('dots'), 'circle-radius', radius);
+      paint(id('dots'), 'circle-color', ds.color === 'dot' ? pal.dot : pal.dotSolid);
+      paint(id('dots'), 'circle-opacity', ds.alpha === 1 ? 1 : ds.alpha + 0.1);
+      paint(id('dots'), 'circle-stroke-width', ds.alpha === 1 ? 0.6 : 0);
+      paint(id('dots'), 'circle-stroke-color', pal.dotEdge);
+      show(id('hover-dot'), on);
+      show(id('hover-area'), on);
+      paint(id('hover-dot'), 'circle-radius', ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], zf - 2, ['+', r(-2), 2.5], zf + Math.log2(60), ['+', r(Math.log2(60)), 2.5]]);
+      paint(id('hover-dot'), 'circle-stroke-color', pal.accent);
+      paint(id('hover-area'), 'line-color', pal.accent);
+      // names, cities, capitals: in the street map's way (dark grey with a soft white halo); on the street map its own
+      // cities, which ours would only double
+      // the names of the way it's drawn now at once; the other's when the map is idle (it's ready by the time it's needed)
+      if (on) setNames(T);
+      else setTimeout(() => { if (V && (T === V.M || T === V.F)) setNames(T); }, 600);
+      for (const lid of ['names', 'cities', 'cap-names', 'honor']) {
+        paint(id(lid), 'text-color', lid === 'names' ? ['case', ['==', ['get', 'kind'], 'miss'], pal.missing, ['==', ['get', 'kind'], 'sec'], pal.secondary, pal.ink] : lid === 'cities' || lid === 'cap-names' ? (pal.dark ? '#c9d1d6' : '#333333') : pal.ink);
+        paint(id(lid), 'text-halo-color', pal.halo);
+        paint(id(lid), 'text-halo-width', lid === 'names' ? 1.6 : 1.2);
+        paint(id(lid), 'text-halo-blur', 0.8);
+      }
+      show(id('seas'), on && T.flat);
+      paint(id('seas'), 'text-color', G.seaText || (pal.dark ? '#7f9cc0' : '#4a6390'));
+      paint(id('seas'), 'text-halo-color', G.water);
+      paint(id('seas'), 'text-halo-width', 1);
+      show(id('names'), on && state.labels !== 'off');
+      show(id('cities'), on && state.cities && !street);
+      show(id('caps'), on && state.capitals);
+      show(id('cap-names'), on && state.capitals && !street);
+      show(id('honor'), on);
+      const zs = T.zFit ?? 2;
+      map.setLayoutProperty(id('caps'), 'icon-size', ['interpolate', ['linear'], ['zoom'], zs, phone() ? 0.42 : 0.6, zs + 3, 1]);
+    }
+    if (pinned) showCard(pinned, lastPoint, true);
+  }
+
+  function setNames(T) {
+    const data = labelData(T);
+    if (T.namesShown === data) return;
+    T.namesShown = data;
+    map.getSource(`names${T.sfx}`).setData(data);
   }
 
   // ---------- hover and tap ----------
   const card = $('#card');
   let pinned = null, lastPoint = { clientX: 0, clientY: 0 };
-
-  // What's under a screen point: a capital star, a dot, a city, or an area.
-  function pickAt(mx, my, touch, target) {
-    const reach = touch ? 14 : 8;
-    const box = !V.physical && T.k <= 1.3 && insetBoxes.find((b) => { const [x0, y0, x1, y1] = insetRect(b); return mx >= x0 && mx <= x1 && my >= y0 && my <= y1; });
-    if (box) {
-      if (state.dots) {
-        const near = d3.least(box.dots, (d) => { const [x, y] = box.proj([d.lon, d.lat]); return Math.hypot(x - mx, y - my); });
-        if (near) { const [x, y] = box.proj([near.lon, near.lat]); if (Math.hypot(x - mx, y - my) <= reach) return { dot: near }; }
-      }
-      return target && target.classList.contains('inset-land') ? { piece: box.piece.properties } : null;
-    }
-    const where = (m) => T.apply(m.anchor ? [m.anchor.x, m.anchor.y] : [m.c.x, m.c.y]);
-    const near = (list, extra = 0) => d3.least(list.filter((m) => { const [x, y] = where(m); return Math.hypot(x - mx, y - my) <= reach + extra; }),
-      (m) => { const [x, y] = where(m); return Math.hypot(x - mx, y - my); });
-    const cap = near(marks.filter((m) => m.kind === 'cap'), 3);
-    if (cap) return { capital: cap.c };
-    if (state.dots && tree) {
-      const [x, y] = T.invert([mx, my]);
-      const d = tree.find(x, y, reach / T.k);
-      if (d) return { dot: d };
-    }
-    const city = near(marks.filter((m) => m.kind === 'city' && !m.anchor));
-    if (city) return { city: city.c };
-    const [x, y] = T.invert([mx, my]);
-    const g = pieceAtMap(x, y);
-    return g ? { piece: g.properties } : null;
+  // What's under a point on screen: Lubavitch or a capital, a dot, a city, or an area.
+  function pickAt(point, touch) {
+    const reach = touch ? 14 : 8, sfx = V.cur.sfx;
+    const box = [[point.x - reach, point.y - reach], [point.x + reach, point.y + reach]];
+    const q = (ids) => map.queryRenderedFeatures(box, { layers: ids.map((id) => id + sfx).filter((id) => map.getLayer(id) && map.getLayoutProperty(id, 'visibility') !== 'none') });
+    const nearest = (fs) => d3.least(fs, (f) => { const p = map.project(f.geometry.coordinates); return Math.hypot(p.x - point.x, p.y - point.y); });
+    let f = nearest(q(['honor', 'caps']));
+    if (f) return { capital: V.caps[f.properties.i] };
+    f = nearest(q(['dots']));
+    if (f) return { dot: V.dots[f.properties.i] };
+    f = nearest(q(['cities']));
+    if (f) return { city: V.cities[f.properties.i] };
+    const a = map.queryRenderedFeatures(point, { layers: [`pick${sfx}`] })[0];
+    return a ? { piece: pieceById.get(a.properties.id).properties } : null;
   }
-  function pick(event) {
-    const [mx, my] = d3.pointer(event, svg.node());
-    return pickAt(mx, my, event.pointerType === 'touch', event.target);
+  // The area a card is about: its state with States borders, else its shetach or the blank part of its state.
+  function areaOf(S, pieceId) {
+    const g = pieceById.get(pieceId), s = shetachOf(g);
+    if (state.borders === 'regular') return S.states.find((r) => r.st === g.properties.state);
+    if (s) return S.regions.find((r) => r.s === s);
+    const gs = V.main.filter((x) => !shetachOf(x) && x.properties.state === g.properties.state);
+    return gs.length ? { geometry: within(S, () => projGeom(topojson.merge(topo, gs))) } : null;
+  }
+  function highlight(hit) {
+    if (!glOK) return;
+    const S = V.cur;
+    const dot = hit && (hit.dot || (hit.capital && dotOfCenter.get(hit.capital.centerId)));
+    const area = hit && hit.piece && V.mainIds.has(hit.piece.id) ? areaOf(S, hit.piece.id) : null;
+    map.getSource(`hover-dot${S.sfx}`).setData(dot && state.dots && V.mainIds.has(dot.piece) ? feature({ type: 'Point', coordinates: within(S, () => P(dot.lon, dot.lat)) }, { l: Math.log2(dot.centers.length) }) : EMPTY);
+    map.getSource(`hover-area${S.sfx}`).setData(area && area.geometry ? feature(area.geometry) : EMPTY);
+  }
+  // Zoom to an area (in the way it's drawn now).
+  function zoomToArea(pieceId) {
+    const S = V.cur, area = areaOf(S, pieceId);
+    if (!area || !area.geometry) return;
+    const b = S.flat ? flatBounds(area.geometry) : d3.geoBounds(feature(area.geometry));
+    const bounds = b[0][0] > b[1][0] ? [[b[0][0], b[0][1]], [b[1][0] + 360, b[1][1]]] : b;
+    map.fitBounds(bounds, { padding: framePadding(), duration: still ? 0 : 900, maxZoom: 12 });
   }
 
   const headHTML = (t) => { const m = DISPUTED.exec(t || ''); return m ? `<em>${esc(m[1])}</em>${esc(m[2])}` : esc(t); };
@@ -2154,6 +1721,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       <div class="foot"><span class="meta">${count(centersInShetach(s))}</span>${zoomBtn}</div>`;
   }
 
+
   function showCard(hit, event, pin) {
     card.innerHTML = (hit.dot ? dotHTML(hit.dot) : hit.capital ? capitalHTML(hit.capital) : hit.city ? cityHTML(hit.city) : areaHTML(hit.piece)) +
       '<button type="button" class="close" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>';
@@ -2162,7 +1730,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     card.classList.toggle('world', !!(hit.capital && (hit.capital.world || hit.capital.honor))); // 770 and Lubavitch: the special card
     lastPoint = { clientX: event.clientX, clientY: event.clientY };
     if (!phone()) {
-      const app = $('#app').getBoundingClientRect();
+      const app = $('#app').getBoundingClientRect(), W = app.width, H = app.height;
       const cw = card.offsetWidth, ch = card.offsetHeight;
       let x = event.clientX - app.left + 14, y = event.clientY - app.top + 14;
       if (x + cw > W - 8) x = event.clientX - app.left - cw - 14;
@@ -2177,51 +1745,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     pinned = null;
     highlight(null);
   }
-
-  // The area a card is about: its state, its shetach, or the blank part of its state.
-  function areaOf(pieceId) {
-    const g = pieceById.get(pieceId), s = shetachOf(g);
-    if (state.borders === 'regular') return V.states.find((r) => r.st === g.properties.state);
-    if (s) return V.regions.find((r) => r.s === s);
-    return V.blanks.find((r) => r.st === g.properties.state);
-  }
-  const boxOf = (r) => r.polys.reduce(([a, b, c, d], { box }) => [Math.min(a, box[0]), Math.min(b, box[1]), Math.max(c, box[2]), Math.max(d, box[3])], [Infinity, Infinity, -Infinity, -Infinity]);
-  function highlight(hit) {
-    const dot = hit && (hit.dot || (hit.capital && dotOfCenter.get(hit.capital.centerId)));
-    const onMain = (id) => V.main.some((g) => g.properties.id === id);
-    const area = hit && hit.piece && onMain(hit.piece.id) ? areaOf(hit.piece.id) : null;
-    if (V.physical) {
-      if (!glReady()) return;
-      mapgl.getSource('st-hover-dot').setData(dot && state.dots && onMain(dot.piece) ? feature({ type: 'Point', coordinates: [dot.lon, dot.lat] }, { l: Math.log2(dot.centers.length) }) : EMPTY);
-      mapgl.getSource('st-hover-area').setData(area ? feature(topojson.feature(topo, area.ma).geometry) : EMPTY);
-      return;
-    }
-    hover = dot && dot.x !== undefined && onMain(dot.piece) ? { dot } : area ? { area } : null;
-    requestDraw();
-  }
-
-  svg.on('pointermove', (e) => {
-    if (pinned || e.pointerType === 'touch' || e.buttons) return;
-    const hit = pick(e);
-    if (hit) showCard(hit, e, false);
-    else hideCard();
-  });
-  svg.on('pointerleave', () => { if (!pinned) hideCard(); });
-  svg.on('click', (e) => {
-    if (e.defaultPrevented) return;
-    const hit = pick(e);
-    if (!hit) { hideCard(); return; }
-    pinned = hit;
-    showCard(hit, e, true);
-  });
   card.addEventListener('click', (e) => {
     if (e.target.closest('.close')) { hideCard(); return; }
     const z = e.target.closest('.zoomto');
-    if (z) {
-      const area = areaOf(z.dataset.piece);
-      hideCard();
-      if (area) { const [x0, y0, x1, y1] = boxOf(area); zoomToBounds([[x0, y0], [x1, y1]]); }
-    }
+    if (z) { hideCard(); zoomToArea(z.dataset.piece); }
   });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideCard(); });
 
@@ -2229,34 +1756,37 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function pressed(name, value) {
     document.querySelectorAll(`.seg[data-name="${name}"] button`).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.value === value)));
   }
-  function apply() {
-    svg.attr('class', `borders-${state.borders} lighter-${state.lighter}${state.color === 'plain' ? ' plain' : ''}${state.dots ? '' : ' no-dots'}`);
-    $('#app').classList.toggle('physical', V.physical);
-    $('#colors-ctl').hidden = V.physical;
-    $('#alaska-ctl').hidden = V.physical || !V.view.insets.includes('US-AK');
-    gInsets.attr('class', `l-insets${T.k > 1.3 ? ' away' : ''}`);
-    $('#lighter-row').hidden = state.borders !== 'both';
-    setDotColors();
-    if (V.physical) styleGL();
-    const ds = dotStyle(); // the Alaska/Hawaii boxes' dots, in the chosen style
-    gInsets.selectAll('circle.dot').attr('r', (d) => dotBase(d) * 1.1).style('fill', `var(${ds.color === 'dot' ? '--map-dot' : '--map-dot-solid'})`).style('fill-opacity', ds.alpha).style('stroke', ds.alpha === 1 ? 'var(--map-dot-edge)' : 'none').style('stroke-width', 0.8);
-    readPalette();
-    requestDraw();
-    buildLabels();
-    placeLabels();
-    if (pinned) showCard(pinned, lastPoint, true);
-  }
   document.querySelectorAll('.seg').forEach((seg) => seg.addEventListener('click', (e) => {
     const b = e.target.closest('button');
     if (!b) return;
     const name = seg.dataset.name;
+    if (name === 'base' && b.dataset.value === 'physical' && glOK && !physicalOK) {
+      $('#base-msg').hidden = false;
+      $('#base-msg').className = 'error';
+      $('#base-msg').textContent = tr("The physical map couldn't load.");
+      return;
+    }
+    $('#base-msg').hidden = true;
     pressed(name, b.dataset.value);
-    if (name === 'base') { setBase(b.dataset.value); return; }
     state[name] = b.dataset.value;
-    if (name === 'view' || name === 'alaska') { hideCard(); layout(); }
+    if (name === 'view') { hideCard(); showView(true); return; }
+    if (name === 'base' && glOK) {
+      // at the view as framed, the other look framed too (the physical world isn't flat); closer in, the same place
+      const framed = V.cur.zFit != null && map.getZoom() < V.cur.zFit + 0.75;
+      if (framed) {
+        // the old map fades out over the new one, framed
+        const snap = !still && fadeStart();
+        apply();
+        frameView(false);
+        if (snap) fadeRun();
+      } else { apply(); setMode(wantedSet()); }
+      limits();
+      return;
+    }
     apply();
   }));
-  $('#show-empty').addEventListener('change', (e) => { state.empty = e.target.checked; requestDraw(); });
+  $('#show-empty').addEventListener('change', (e) => { state.empty = e.target.checked; apply(); });
+  $('#show-sea').addEventListener('change', (e) => { state.sea = e.target.checked; apply(); });
   for (const [id, key] of [['#show-dots', 'dots'], ['#show-cities', 'cities'], ['#show-capitals', 'capitals']]) {
     $(id).addEventListener('change', (e) => { state[key] = e.target.checked; apply(); });
   }
@@ -2275,36 +1805,65 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     document.documentElement.dataset.theme = next;
     try { localStorage.setItem('shetachim-theme', next); } catch (e) { /* not remembered, still switched */ }
     showThemeButton();
-    setDotColors();
-    readPalette();
-    requestDraw();
+    apply();
   });
-  darkQuery.addEventListener('change', () => { showThemeButton(); setDotColors(); readPalette(); requestDraw(); });
+  darkQuery.addEventListener('change', () => { showThemeButton(); apply(); });
   showThemeButton();
 
-  $('#more').addEventListener('toggle', () => { // the panel's height changed: the zoom buttons and the free map area follow
-    document.documentElement.style.setProperty('--sheet', `${$('#panel').getBoundingClientRect().height}px`);
-    placeLabels();
-  });
-
+  const syncSheet = () => document.documentElement.style.setProperty('--sheet', `${$('#panel').getBoundingClientRect().height}px`);
+  $('#more').addEventListener('toggle', syncSheet);
   $('#panel-toggle').addEventListener('click', () => {
     const panel = $('#panel');
     const open = panel.classList.toggle('collapsed') === false;
     $('#panel-toggle').setAttribute('aria-expanded', String(open));
     $('#panel-toggle').textContent = tr(open ? 'Close' : 'Options');
-    document.documentElement.style.setProperty('--sheet', `${panel.getBoundingClientRect().height}px`);
-    placeLabels(); // names keep clear of the sheet
+    syncSheet();
+  });
+  $('#zin').addEventListener('click', () => map && map.zoomIn({ duration: still ? 0 : 300 }));
+  $('#zout').addEventListener('click', () => map && map.zoomOut({ duration: still ? 0 : 300 }));
+  $('#zreset').addEventListener('click', () => { hideCard(); if (map) frameView(true); });
+  let resizeTimer = 0, wasPhone = phone();
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => { syncSheet(); if (phone() !== wasPhone) { wasPhone = phone(); apply(); } }, 150);
   });
 
-  let resizeTimer = 0;
-  window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(() => { layout({ keep: V.physical }); apply(); }, 150); });
-
-  await Promise.race([document.fonts ? document.fonts.ready : Promise.resolve(), new Promise((r) => setTimeout(r, 1500))]);
-  layout();
-  apply();
-  // The political map is the default; the physical one loads quietly behind it, so picking it is instant
-  // (if it can't load, picking it says so then).
-  setTimeout(() => startGL().catch(() => {}), 300);
+  // ---------- start ----------
+  syncSheet();
+  viewData();
+  try {
+    await startMap();
+  } catch (err) {
+    $('#panel').classList.remove('collapsed');
+    $('#load-error').hidden = false;
+    $('#load-error').textContent = HE ? `המפה לא נטענה (${err.message}). נסו לטעון את הדף מחדש.` : `The map didn't load (${err.message}). Reload the page to try again.`;
+    return;
+  }
+  map.on('mousemove', (e) => {
+    if (pinned || e.originalEvent.buttons) return;
+    const hit = pickAt(e.point, false);
+    map.getCanvas().style.cursor = hit && !hit.piece ? 'pointer' : '';
+    if (hit) showCard(hit, e.originalEvent, false); else hideCard();
+  });
+  map.getCanvas().addEventListener('mouseleave', () => { if (!pinned) hideCard(); });
+  map.on('click', (e) => {
+    const touch = e.originalEvent.pointerType === 'touch' || coarse();
+    const hit = pickAt(e.point, touch);
+    if (!hit) { hideCard(); return; }
+    pinned = hit;
+    showCard(hit, e.originalEvent, true);
+  });
+  map.on('movestart', (e) => { if (e.originalEvent && !pinned) hideCard(); });
+  showView(false);
+  // the credits start folded on a phone (an (i) to open them), as map sites do
+  if (phone()) { const at = document.querySelector('.maplibregl-ctrl-attrib'); if (at) at.classList.remove('maplibregl-compact-show'); }
+  // ready: for tests and anyone curious
+  window.__map = map;
+  window.__dbg = { labelData, V: () => V, dotData, spotsFor, partsOf, polylabel, unlon, unlat, PX, setMode, centreLL, spanKm,
+    zoomTo: (st) => zoomToArea(pieces.find((g) => g.properties.state === st).properties.id),
+    at: (lon, lat) => map.jumpTo({ center: within(V.cur, () => P(lon, lat)) }),
+    go: (lon, lat, z) => { V.cur = V.M; limits(); apply(); map.jumpTo({ center: [lon, lat], zoom: z }); } }; // go: a standard place and zoom (the map then picks flat or standard)
+  document.documentElement.dataset.ready = '1';
 })();
 </script>
 </body>

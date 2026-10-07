@@ -159,7 +159,7 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
   - Physical: terrain.
   - Never switch projection on your own. Changing maps cross-fades a canvas snapshot (0.28 s).
 - BLUE SEA option (More options): off gives a quiet grey sea, on the political map only.
-- When the owner approves, next.html replaces index.html.
+- Oct 7: the new map IS the main page now (web/index.html). The old D3 page is kept at web/old.html; web/next.html just forwards to the main page. Edit web/index.html from now on.
 
 ## LATEST (Sept 30 – Oct 1) — read before "RIGHT NOW" below
 

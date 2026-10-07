@@ -9,11 +9,21 @@ More detail is in `docs/PLAN.md`.
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
 ## OWNER'S STANDING RULES (Oct 1) — never undo these
-- **Head shliach names are never shortened to the last name alone** — not on the live map, not in the SVGs. Only the
-  full name (one line or two), or, for someone with middle names, first + last name ("Yosef Yitzchak Aharonov" →
-  "Yosef Aharonov") until zoomed in; where neither fits, no name. Families and leadership entries ("Alevsky family",
-  "Hanholo of Chabad Lubavitch UK") are never shortened. (`shetachLabel`/`firstAndLast` in the page; `nameForms` in
-  scripts/export-svg.mjs.) The separate "Last name" label mode stays as an explicit choice.
+- **Any Chabad activity in a country puts it in a shetach** (Oct 5): visiting bochurim, a shliach who serves it from next
+  door, holiday trips — the country goes to the shetach of the shliach responsible (Mongolia is Russia's; Guyana is the Caribbean's).
+  The owner wants it *sure*: Suriname had Merkos Shlichus seders in Paramaribo (Pesach 2025) but no shliach is named as
+  responsible (Rabbi Super of St. Lucia only helped with the bochurim's stopover), so it stays blank until one is. Only truly uninhabited stretches are left out (the Yukon and
+  NWT only partly in Alberta). French Guiana: no Chabad activity found (Oct 5), so no shetach yet.
+- **Head shliach names are never shortened** — not on the live map, not in the SVGs, never to the last name alone
+  (owner, Oct 7: there is no "Last name" label mode any more). Where the full name doesn't fit on one line or two,
+  no name. **Middle names are left out on the map and posters** (`mapName` in data/shetachim.json, `mapHead` in the
+  Hebrew list; the cards always show the full `headShliach`) unless part of the first name (Sholom Ber, Menachem
+  Mendel, Yosef Yitzchak, Shneur Zalman) or the man is usually called by it (Yitzchok Meyer Lipszyc, Gershon Meir
+  Burshtein, Aryeh Zeev Raskin, as the press names them). Oct 7: Yaakov Biderman, Chaim Azimov, Yeshaya Cohen, Yosef
+  Kantor, Chaim Shaikevitz (that last one unconfirmed: found no usage either way). Same in data/hebrew/shetachim.json.
+  Families and leadership entries ("Alevsky family", "Hanholo of Chabad Lubavitch UK") are never shortened.
+  **Cards keep everyone's full name exactly as chabad.org lists it** (owner, Oct 7): the middle-name rule is for the
+  map's head shliach labels and posters only; double names like Chaya Mushka, Devorah Leah count as one first name.
 - **Alberta's name sits on Alberta itself** in every label mode (`labelState: "CA-AB"`: the page keeps the name within
   that state's part while it's on screen — it used to only aim there, and the two-line head-shliach name drifted up
   into the territories' strip). The Alberta shetach's territories part ends at **110°W** (the Alberta–Saskatchewan
@@ -33,7 +43,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
   (`gold-coast-lga`) is part of the Victoria shetach; the separate Gold Coast shetach (Nir Gurevitch) is gone.
   Victoria (disputed) has a capital per claimant: Groner — Yeshivah Centre; Gutnick — Chabad House of Caulfield;
   Serebryanski — Merkos L'inyonei Chinuch (`capital` is a list with `for`). "Disputed" is set in italics.
-- **"Land with no shetach"** (More options checkbox, off by default): the political map draws land no shetach covers
+- **"Rest of the world"** (More options checkbox, off by default; was "Land with no shetach" — the owner, Oct 5: never that wording; borders between its countries only with the Countries or Both borders setting): the political map draws land no shetach covers
   (`web/data/outside.json`, written by the build) and the land outside the current view in plain grey (`--empty`).
 - **Cambodia is fully part of Kantor's Thailand shetach** (Oct 2; territory THA, LAO, MMR, KHM; the separate Cambodia
   shetach under Bentzion Butman is gone, also from data/global-shetach-list.txt and data/hebrew/).
@@ -42,14 +52,14 @@ between two Claude accounts when usage limits run out; whichever session picks t
   colour, with a dashed border between them (page mesh `inner`, tile edges `tr`, SVG dashed path); named plainly
   "India"; in the head modes Kantor's name again over India in italics and smaller (`secondary` labels; Hebrew, which has no italics:
   Heebo Regular slanted by hand on the posters, oblique on the page; at most 85% of his main name on the posters), his main name on Thailand–Myanmar–Laos as before;
-  India's card: "Under the auspices of: Yosef Chaim Kantor" (בחסות; the owner found "Together with the Thailand shetach" odd). (`noCentralLeadership: true` remains for a shetach without a head.) Israel's name on the world poster goes beside the map with a short leader (`ASIDE_NAMES`);
+  India's card: "Overseen by Yosef Chaim Kantor" (בהנהגת …) (Oct 5; the owner rejected "Together with the Thailand shetach", "Under the auspices of", and "Head shliach" + "Also head shliach of Thailand" — don't quote his own words onto the page). (`noCentralLeadership: true` remains for a shetach without a head.) Israel's name on the world poster goes beside the map with a short leader (`ASIDE_NAMES`);
   Hawaii's runs across its islands (`SEA_NAMES` 'chain'). The US & Canada names maps use short leaders to the nearest
   water (`aside`, only the Boston/Cape Cod knot stacked), not one column far out in the Atlantic.
 - **North Queensland** (Ari Rubin; capital Chabad of Northern Queensland, Cairns): Mackay and north, Mount Isa,
   Cloncurry and the Gulf — 37 whole ABS LGAs (2022) dissolved into `data/shapes/north-queensland.geojson` (Mackay,
   Whitsunday, Burdekin, Townsville, Charters Towers, Cairns, Douglas, Cook, Torres, the Cape and Gulf councils, Mount
   Isa, Cloncurry, McKinlay, Richmond, Flinders…). Isaac (Moranbah, Clermont), Winton, Boulia, Rockhampton and south
-  stay with RARA. **The Isle of Man is in the UK** (`IMN` in its territory).
+  stay with RARA. **The Isle of Man is in the UK** (`IMN` in its territory, and in the page's `EUROPE` list, or it isn't drawn at all: Oct 7 it was missing there).
 - **Mexico is one shetach under Yosef Mayzlesh** (Oct 2, the owner: "entire Mexico is Mayzlish"; Rabbi Yosef
   Mayzlesh, Chabad of Bosques — Rabbi Mendel Mayzlesh runs Chabad Lubavitch Mexico City). The earlier Mexican
   shetachim (Baja California, Sinaloa, Nayarit with western Jalisco, Jalisco, Bajío, Nuevo León, Chiapas, the Mexican
@@ -95,9 +105,10 @@ built by `node scripts/build-hebrew.mjs` (run after `npm run build`; it stops an
 from the hand-written lists in `data/hebrew/`: `shetachim.json` (name, short forms, head shliach, headTitle הנהלה),
 `areas.json` (every state/country code; from Natural Earth's Hebrew names, fixed by hand), `cities.json` (map cities,
 centers' towns, capitals' towns). Israel's shetach is "ארץ הקודש", the view "ארץ ישראל"; Judea and Samaria stays Israel.
-Centers show chabad.org's own Hebrew name where it has one (920 do); the rest keep their names; center types are
-translated in the page (`HE_TEXT`). "Last name" mode uses the Hebrew surname (שם טוב is two words; the build works
-it out by the English name's word count). The name SVGs have Hebrew copies (`world-names-he`, `na-names-he` in
+Centers show chabad.org's own Hebrew name where it has one (920 do); the rest (and capitals) from
+data/hebrew/centers.json, translated by hand; center types are translated in the page (`HE_TEXT`). A town two places
+share is keyed "Name|REGION" in data/hebrew/cities.json (Naples|US-FL נייפלס vs Naples נאפולי). The Hebrew surname
+(`lastName`, for "<name> family" lines; שם טוב is two words) is worked out by the English name's word count. The name SVGs have Hebrew copies (`world-names-he`, `na-names-he` in
 export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn right to left (`visual()`).
 
 ## PERSONNEL — collected Oct 3, NOT YET BUILT (do this next)
@@ -113,6 +124,81 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
   4,220) and carries no relationships or `included`, so personnel is only per center.
 - Merged into `claude/bold-albattani-aqfnj9` and built (Oct 3); the cards follow the owner's rule (see "Shluchim on
   center cards" above). `web/personnel.html` was removed (the Node fetcher replaces the browser collector).
+
+## LUBAVITCH (Oct 5, the owner: "something honorary for the original Lubavitch")
+- At Lyubavichi, Smolensk region (54.8352, 30.9632): a small dot and the name *Lubavitch* in italics, as maps mark a
+  historic place; card (owner, Oct 7): a really big "Lubavitch" as the heading, then "Seat of the Rebbeim, 1813–1915" under it (he took out the "Birthplace of Chabad-Lubavitch" kicker); under it, its own section, the center there: Hatzer Raboteinu Nesieinu B'Lubavitch (חצר רבותינו נשיאינו בליובאוויטש, opened 2008 near the graves), shliach Gavriel Gordon (owner, Oct 7; not on chabad.org's locator), in the special card like 770's (accent border and kicker) — he rejected every wording Claude made up, so ask him before changing it. Shown in every world view even with
+  capitals off, its name placed before any city's (`honor: true` in the page's capitals list; `HONOR_MARK`).
+  The owner rejected a gold ring and a card with a paragraph of history ("AI generated") — keep it understated.
+  Keep it in the map-engine rebuild.
+- Never Syria (Oct 5: "ridiculous", hardly any Jews there).
+
+## CARD WORDING (Oct 5)
+- A family at the head (Alevsky, Pinson, Blumenfeld): "Shluchim: Alevsky family" (שלוחים:) — keep the "Label: name"
+  form; the owner rejected "Led by the Alevsky family" (a sentence, no colon).
+
+## PERFORMANCE (Oct 5) — keep it this way
+- The owner: panning and zooming the physical map was "so so bad" (low FPS). Causes: names were rebuilt from scratch every
+  120 ms while moving (all texts, tspans and city marks recreated), new zoom-step layouts (200–500 ms) ran mid-gesture,
+  and MapLibre drew at the phone's full 3x pixel ratio. Now: keyed joins keep existing labels and marks while moving,
+  `moving` holds new layout work until the map is still (150 ms after moveend), live refresh every 250 ms, pixelRatio
+  capped at 2, 3D buildings off. Don't reintroduce per-frame DOM rebuilding.
+
+## NEW MAP ENGINE — web/next.html (Oct 5, in progress; web/index.html is still the main page)
+- The owner asked for the map to feel like a real map site, not a custom project. next.html runs on MapLibre GL with
+  OpenFreeMap's liberty style. Names, cities and capitals are the engine's own symbol layers, each name pre-sized per zoom
+  (s0..s14) at its area's pole of inaccessibility.
+- PHYSICAL: **no shetach tints or fills at all** (owner, Oct 7: the tints made it "look like a political map"; it must be a
+  proper physical map: the land's own greens, deserts, relief). Shetachim show only as purple cased borders that fade out by z12. **The thin maritime line stays** (`st-line-coast`:
+  every open edge, so the coasts and, where an area reaches over the water, the international line in the Great Lakes;
+  it went missing Oct 5 and the owner noticed Oct 7).
+  **Tinted** (fourth map, owner Oct 7): the physical map with the soft shetach tints, for whoever wants it.
+  Map switches are instant: names of the other way of drawing are worked out in idle time (`warmNames`), label
+  outlines are thinned to ~500 points a ring (`partsOf`), and there is no held picture of the old map (`preserveDrawingBuffer` off; owner: the freeze "should not exist"). The map's
+  own boundaries and city names stay. Don't go back to ink lines or a fade drawn over the map ("custom low quality lines").
+- PROJECTION: the owner hates Mercator. He chose "flat when zoomed out only", with Natural Earth (or Robinson), NEVER
+  Equal Earth. The political map's world and continent views are in Natural Earth, centred on the view's `lon`:
+  shapes are projected with d3 and handed to the engine as the lon/lat Web Mercator would draw at that spot
+  (`flatFor`, `projGeom`, `P`). Country views (USA, Canada, US & Canada, Israel) and the whole physical map stay
+  standard, because the physical imagery only comes in Web Mercator.
+  NE_SCALE = 0.075 keeps the flat world small inside the engine's world, because the engine won't zoom out past its
+  world filling the screen (a phone's height too) and we need room to fit the map beside the panel.
+- MAPS (Oct 6, the owner's design after rejecting a snap, a bending morph and a corner button; Tinted added Oct 7): Map:
+  Political | Streets | Physical | Tinted.
+  - Political: our own drawing, Natural Earth where the view has it (world, continents), standard for country views.
+    No street map, and only 5 zoom steps in from the framed view (POLITICAL_DEPTH).
+  - Streets: the shetachim over the street map, standard, all the way in.
+  - Physical: terrain.
+  - Never switch projection on your own. Changing maps is instant (no snapshot).
+- **Alaska and Hawaii boxes** (political map; restored Oct 7, the new engine had dropped them): USA view, Alaska and
+  Hawaii in boxes off the south-west, as the old page had (`boxedFor`, `INSET_DEF`, a third set `boxed` per view: the
+  standard projection outside the boxes, each boxed state in its own conic projection; areas, lines, land projected
+  piece by piece, points by `near`). "Alaska: In a box / In place" (More options, USA view only). **US & Canada: Alaska
+  stays attached to BC in its place** (owner, Oct 7), only Hawaii boxed; framed from 180° so mainland Alaska is in view.
+  The street and physical maps always have them in place.
+- BLUE SEA option (More options): off gives a quiet grey sea, on the political map only.
+- **Land outside the view / no shetach** (political, owner's first rule; fixed Oct 7, the new engine had drawn every
+  country as ordinary land: Greenland, Antarctica, Canada in the USA view): faded (`land-all`, 40%) under the blue sea, not
+  drawn at all on the grey sea; full grey with its borders only with Rest of the world.
+- NAMES ON THE NEW ENGINE (Oct 7):
+  - A name sits where its whole box fits biggest inside its area (`fitBox`), as near the middle as possible, at most
+    10% smaller for being central. That replaced the circle rule, which left names off-centre and too small in long
+    shapes.
+  - Split shetachim: big pieces (a tenth of the biggest or more) that OTHER LAND keeps apart each get the name (Lower
+    Balkans: Bosnia and Albania-to-northern-Greece, the "Kaplan problem"). Pieces only water keeps apart (Michigan)
+    share one name (`landBetween`).
+  - MapLibre evaluates zoom in filters at WHOLE zoom steps, so a name may show from the whole step before it fits,
+    a touch small. A short form stays on behind the full name, at the same spot, so there's never a gap.
+  - Political zooms 7 steps in.
+  - Before porting anything else, re-read the rules in this file: the old page's rules carry over.
+- LANGUAGE SWITCH (Oct 7, the owner: "should be seamless"): no reload. Every name holds both languages through
+  `dual(obj, field, he)`, a getter that reads `HE`. `setLanguage()` loads he.json the first time Hebrew is asked for,
+  plus the RTL plugin. It then swaps the page words (`pageWords`, which remembers each text's English), flips
+  dir/lang, and works the map names out again. Never mutate names in place again.
+- HEBREW STREET MAP: places, seas and sights show only with a Hebrew name; street names keep their signed name.
+- Small islands are kept down to 3 km² (build `-filter-islands`). At 40 km², Agios Efstratios and Bozcaada showed
+  uncoloured on the street map.
+- Oct 7: the new map IS the main page now (web/index.html). The old D3 page is kept at web/old.html; web/next.html just forwards to the main page. Edit web/index.html from now on.
 
 ## LATEST (Sept 30 – Oct 1) — read before "RIGHT NOW" below
 
@@ -139,7 +225,7 @@ Done in this round:
   (a name may cross a gulf or strait), or blocked (another area, outside the hull, off screen, under the panel, a
   capital's star, a name already placed). Summed-area tables answer "is this box clear" in four lookups; a distance
   transform prunes centres. **Form**: the full name at the biggest size it fits (two lines if ≥15% bigger), else the
-  other way of setting it, else each short form in turn; head-shliach mode's short form is the last name. **Size**:
+  other way of setting it, else each short form in turn; head-shliach mode has no short form. **Size**:
   what the area's land on screen calls for (`capFor`: 5 + 0.14·√area px, 9–36 px on phones, 9–46 on desktop), and no
   more than 88% of the most that fits (`BREATHE`), so names aren't pressed against edges; never under 9 px (8 for
   short forms). **Place**: most room on every side (up to ~1.4 letters), near the visible part's centre of mass, on
@@ -231,12 +317,12 @@ Later in the same round:
   is the thin "maritime" line on the physical map. A land-only Essex left Ontario's water wrapped round it (a wedge of
   Ontario's colour along the Detroit River and western Lake Erie, and a border that went into Lake St Clair and back).
   So the shape (`data/shapes/essex-county-on.geojson`) is the Essex/Chatham-Kent land line (GADM lo-res Admin2)
-  carried on through the water: across Lake St Clair straight to the elbow where the St Clair River border turns west
-  along the delta's South Channel (so the Michigan–Ontario line runs on from the river unbroken and nearly straight —
-  the owner rejected the version ending at the channel's mouth, which left a sharp spike of Ontario along the
-  channel), and across Lake Erie due south to the international boundary. Essex takes the Canadian water on its side
+  carried on through the water: across Lake St Clair straight to the St Clair River where its last bend south-west
+  begins (-82.518, 42.618) (owner, Oct 7: ending at the South Channel elbow still made a V, "pointy"; this way the
+  river and the lake line run on nearly straight, and the delta's western islands, Walpole Island, go with Essex; he
+  had earlier rejected ending at the channel's mouth, a sharp spike of Ontario), and across Lake Erie due south to the international boundary. Essex takes the Canadian water on its side
   (Detroit River, Lake St Clair west of that line, western Lake Erie with Pelee Island); past the boundary the shape
-  runs on over US ground, which a shape never cuts (only CA-ON's land). The elbow point is read off the built map
+  runs on over US ground, which a shape never cuts (only CA-ON's land). The river point is read off the built map
   (`web/data/geo.json`, the Ontario / Michigan arc); if the land data changes, check it's still on that border.
   The shape's `"lakeEdges": true` marks the piece's open edges (the international line round Essex's water, Michigan's
   on both sides) as lake edges, `lk` in the tiles: the physical map draws them only in States/Both border modes, not
@@ -247,7 +333,7 @@ Later in the same round:
   `notShown`). New panel option **Alaska: In a box / In place** (political map, views with Alaska; default box; the physical
   map is always in place). The page is titled **Chabad Shetachim** (was plain "Shetachim").
 - Alberta's name is centred on Alberta proper (`labelState: "CA-AB"` in the data), not the territories' strip, while Alberta is on screen (>500 px²).
-- Alaska/Hawaii boxes (political map): on a phone the map is framed above the *closed* bar plus a strip for the boxes (opening the sheet never moves the map; names re-place around it); the boxes shrink to 60% when zoomed in, never vanish, have a solid background, and names/cities keep clear of them.
+- Alaska/Hawaii boxes (political map): on a phone the map is framed above the *closed* bar plus a strip for the boxes (opening the sheet never moves the map; names re-place around it); the boxes fade out once zoomed in (Oct 5, the owner was confused by the shrunken ones left on top of the map) and come back at the whole view, have a solid background, and names/cities keep clear of them.
 - Panel: Show, Map, Borders, Labels up front; **More options** (a collapsed `<details id="more">`) holds the Chabad centers / cities / capitals checkboxes, Alaska, Colors. New rarely-used options go there.
 - **Upper Midwest** (owner, Oct 1): North and South Dakota joined Minnesota under Moshe Feller; the shetach is now
   "Upper Midwest" (id `upper-midwest`, territory US-MN, US-ND, US-SD). The North Dakota (Yonah Grossman) and South
@@ -410,7 +496,7 @@ with things drawn on top. It starts with the US and Canada, then covers the worl
 - Colorful (political-map colors) or Plain (one color) fills.
 - A faint dot for every Chabad center (from the chabad.org locator). Listings at the same address
   are merged into one dot.
-- Labels: head shliach full name / last name only / shetach name / off.
+- Labels: shetach name / head shliach / off (no last-name mode, owner Oct 7).
 - Views: US & Canada, only USA, only Canada. Each view **shows only that area and fills the
   screen**. Later there will be continent views for the world.
 - Zoom and pan.
@@ -475,7 +561,7 @@ The owner got very angry at the first version. The lessons:
     and the map's city names are hidden while our cities are on. The map's colors on the
     physical map are always the light ones. Switching modes keeps the place you were looking at.
   - Borders: Shetachim / States / Both (+ Lighter swap); Colors: Colorful / Plain (political only)
-  - Labels: Shetach name (default) / Head shliach / Last name / Off. Each label is centred inside its
+  - Labels: Shetach name (default) / Head shliach / Off. Each label is centred inside its
     shetach and never reaches into another one (it may hang over water a little). Where the text doesn't
     fit on one line it tries two, then the shetach's short form (`short` in the data; by default its
     states' abbreviations joined, like KS-MO or MB-SK), else no label. Labels slide sideways past a
@@ -601,3 +687,11 @@ The owner got very angry at the first version. The lessons:
   in both Political and Physical.
 - Keep the fade's GeoJSON source at `tolerance: 0`: with MapLibre's default simplification, its
   holes break in some tiles and cover parts of the shetachim.
+
+## Oct 7 (owner)
+- **Towns named on every map (political, streets, physical) are only ours: towns with a center.** The street map's own
+  city/town/village labels are hidden; its other place labels (neighbourhoods) only from zoom 13.
+- **Hebrew: English-style nicknames are written as the proper name** (data/hebrew/first-names.json and the head
+  shluchim): Mendy → מענדל, Zalmy → זלמן, Benjy → בנימין, Moishy → משה, Mordy → מרדכי, Hershy → הערשל, Laivy → לייב,
+  Getzy → געצל, Avremi → אברמל, Shuey → יהושע, Effy → אפרים. Nicknames Hebrew uses itself stay (יוסי, פיני, חזקי, שמולי, קוטי,
+  and women's names like מושקי, חני).

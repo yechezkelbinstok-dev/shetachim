@@ -748,7 +748,7 @@ async function buildGeo(data) {
     '-o pieces.json format=geojson ' +
     `-simplify variable interval="${rough}.includes(state) ? 2500 : ${fine}.includes(state) ? 100 : country === 'US' ? 400 : 800" keep-shapes ` +
     `-each "size = this.area < 2e9 ? 'small' : 'big'" -split size ` +
-    '-filter-islands min-area=40km2 remove-empty target=big ' +
+    '-filter-islands min-area=3km2 remove-empty target=big ' +
     '-merge-layers target=big,small force name=areas -filter-fields id,state,name,abbr,country,shetach,outside,lake ' +
     '-o world.json format=topojson quantization=100000 ' +
     '-filter "!outside" -filter-fields id,state,name,abbr,country,shetach ' +
@@ -1230,8 +1230,8 @@ async function main() {
     // capital: the (first) capital; capitals: all of them (a disputed shetach has one per claimant)
     // noCentralLeadership: no head shliach (India): the card says so, the map shows no head name there
     // territoryOf: a territory of another shetach (India, of Thailand's): its colour, lighter, a dashed border between
-    shetachim: shetachData.shetachim.map(({ id, name, short, headShliach, headTitle, lastName, noCentralLeadership, territoryOf, capital, labelState, labelCentre, labelAt }) => ({
-      id, name, short, headShliach, headTitle, lastName, noCentralLeadership, territoryOf, capital: [].concat(capital || [])[0], capitals: capital ? [].concat(capital) : undefined, labelState, labelCentre, labelAt })),
+    shetachim: shetachData.shetachim.map(({ id, name, short, headShliach, mapName, headTitle, lastName, noCentralLeadership, territoryOf, capital, labelState, labelCentre, labelAt }) => ({
+      id, name, short, headShliach, mapName, headTitle, lastName, noCentralLeadership, territoryOf, capital: [].concat(capital || [])[0], capitals: capital ? [].concat(capital) : undefined, labelState, labelCentre, labelAt })),
   };
   fs.writeFileSync(path.join(OUT, 'shetachim.json'), `${JSON.stringify(forPage, null, 1)}\n`);
 

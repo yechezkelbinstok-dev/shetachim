@@ -293,9 +293,9 @@ function rasterize(list, projection, cell, gw, gh) {
   return { owner, ids };
 }
 
-// The ways a head shliach's name may be set, fullest first: the whole name; on two lines (first names / last name);
-// for someone with more than one first name, just the first and last name, on one line or two ("Yosef Yitzchak
-// Aharonov" → "Yosef Aharonov"). Never the last name alone (the owner's rule): a name too small for these goes beside
+// The ways a head shliach's name may be set, fullest first: the whole name; on two lines (first names / last name).
+// Never shortened (the owner's rule): a middle name left in the data is part of how he's called ("Sholom Ber",
+// "Yosef Yitzchak"), and the last name alone is never shown. A name too small for these goes beside
 // the map with a leader line. Leadership entries and families ("Hanholo of Chabad Lubavitch UK", "Pinson family") are
 // never shortened; a list of several names ("Disputed — A; B; C") goes one name per line. offshore: the form used
 // beside the map.
@@ -310,7 +310,7 @@ function evenLines(words, n) {
   return best.lines;
 }
 function nameForms(s) {
-  const name = s.headShliach.trim();
+  const name = (s.mapName || s.headShliach).trim();
   if (/;/.test(name)) {
     const lines = name.split(/;\s*|\s+—\s+/).map((l, i, all) => (i === 0 && name.includes(' — ') ? `${l} —` : l)).filter(Boolean);
     return { full: [lines], offshore: name };
@@ -319,17 +319,17 @@ function nameForms(s) {
   const personal = !s.headTitle && words.length > 1 && !/\b(family|of)\b|^(משפחת|הנהלת) /i.test(name);
   // a Hebrew last name may be two words (שם טוב): as many as the Hebrew list's last name has
   const lastN = s.lastName && HEBREW ? s.lastName.split(/\s+/).length : 1;
-  const first = words[0], last = words.slice(-lastN).join(' ');
+  const last = words.slice(-lastN).join(' ');
   const full = [[name]];
   if (personal) {
     if (words.length > lastN) full.push([words.slice(0, -lastN).join(' '), last]);
-    if (words.length > lastN + 1) full.push([`${first} ${last}`], [first, last]);
+    // never shortened further: a middle name left in the data is part of how he's called ("Sholom Ber")
   } else if (words.length > 1) {
     // a family or a leadership name: broken into the most even two lines, and three for a long one
     full.push(evenLines(words, 2));
     if (words.length > 3) full.push(evenLines(words, 3));
   }
-  return { full, offshore: personal && words.length > lastN + 1 ? `${first} ${last}` : name };
+  return { full, offshore: name };
 }
 
 // Each shetach's head shliach, centred in its shetach: the biggest size (up to a cap that grows with the area) at which
@@ -438,7 +438,7 @@ function labels(list, projection, { offshore = false, aside = null, box = null, 
   for (const [id, gs] of byShetachOf(list)) {
     // a territory of another shetach (India, of Thailand's): that shetach's head, his name in italics
     const s0 = shetachById.get(id), parent = s0 && s0.territoryOf && shetachById.get(s0.territoryOf);
-    const s = parent ? { ...s0, headShliach: parent.headShliach, lastName: parent.lastName, headTitle: parent.headTitle, italic: true } : s0;
+    const s = parent ? { ...s0, headShliach: parent.headShliach, mapName: parent.mapName, lastName: parent.lastName, headTitle: parent.headTitle, italic: true } : s0;
     if (!s.headShliach || (only && !only.includes(id))) continue;
     // labelState: the name goes on that state's part of the shetach (Alberta, not the territories' strip north of it)
     const core = s.labelState ? gs.filter((g) => g.properties.state === s.labelState) : [];
@@ -911,7 +911,7 @@ for (const [name, m] of Object.entries(MAPS)) {
   HEBREW = !!m.he;
   for (const [id, e] of english) {
     const h = HEBREW && HE_DATA.shetachim[id];
-    shetachById.set(id, h ? { ...e, headShliach: h.headShliach, lastName: h.lastName, headTitle: h.headTitle } : e);
+    shetachById.set(id, h ? { ...e, headShliach: h.headShliach, mapName: h.mapName, lastName: h.lastName, headTitle: h.headTitle } : e);
   }
   if (!m.source && topo !== baseTopo) { topo = baseTopo; arcLL = arcsOf(topo); }
   if (m.source) {

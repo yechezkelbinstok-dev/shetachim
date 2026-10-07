@@ -127,7 +127,7 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
 
 ## LUBAVITCH (Oct 5, the owner: "something honorary for the original Lubavitch")
 - At Lyubavichi, Smolensk region (54.8352, 30.9632): a small dot and the name *Lubavitch* in italics, as maps mark a
-  historic place; card (the owner's words, Oct 5): "Birthplace of Chabad-Lubavitch" (ערש חב״ד-ליובאוויטש) over "Lubavitch", then "Seat of the Rebbeim, 1813–1915", in the special card like 770's (accent border and kicker) — he rejected every wording Claude made up, so ask him before changing it. Shown in every world view even with
+  historic place; card (owner, Oct 7): a really big "Lubavitch" as the heading, then "Seat of the Rebbeim, 1813–1915" under it (he took out the "Birthplace of Chabad-Lubavitch" kicker), in the special card like 770's (accent border and kicker) — he rejected every wording Claude made up, so ask him before changing it. Shown in every world view even with
   capitals off, its name placed before any city's (`honor: true` in the page's capitals list; `HONOR_MARK`).
   The owner rejected a gold ring and a card with a paragraph of history ("AI generated") — keep it understated.
   Keep it in the map-engine rebuild.
@@ -171,6 +171,9 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
   - Physical: terrain.
   - Never switch projection on your own. Changing maps cross-fades a canvas snapshot (0.28 s).
 - BLUE SEA option (More options): off gives a quiet grey sea, on the political map only.
+- **Land outside the view / no shetach** (political, owner's first rule; fixed Oct 7, the new engine had drawn every
+  country as ordinary land: Greenland, Antarctica, Canada in the USA view): faded (`land-all`, 40%) under the blue sea, not
+  drawn at all on the grey sea; full grey with its borders only with Rest of the world.
 - NAMES ON THE NEW ENGINE (Oct 7):
   - A name sits where its whole box fits biggest inside its area (`fitBox`), as near the middle as possible, at most
     10% smaller for being central. That replaced the circle rule, which left names off-centre and too small in long

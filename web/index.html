@@ -160,6 +160,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card h2 { margin: 0 0 4px; margin-inline-end: 22px; font: 700 16px/1.25 var(--font-ui); text-wrap: balance; }
 #card .kicker { display: block; font: 600 10px var(--font-map); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
 #card .kicker-world { color: var(--accent); font-weight: 700; }
+#card h2.honor-h { font-size: 30px; line-height: 1.1; margin-bottom: 6px; } /* Lubavitch: just the name, big (owner, Oct 7) */
 #card.world { border-color: var(--accent); box-shadow: var(--shadow), 0 0 0 1px var(--accent); }
 #card ul { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
 #card li { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
@@ -1044,6 +1045,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       // all the land (the political map has no street map to show it)
       if (!allLand) allLand = topojson.merge(topo, pieces);
       S.land = flat ? feature(projGeom(allLand)) : feature(allLand);
+      // the view's own land only (owner's first rule: show only the shetachim, never the countries around them; the
+      // rest of the world's land only with "Rest of the world")
+      const viewLand = topojson.merge(topo, main);
+      S.landView = flat ? feature(projGeom(viewLand)) : feature(viewLand);
       // the areas as the engine gets them: all of them as they are, or the view's own, flat
       S.areas = flat ? fc(areaFeatures.filter((f) => view.countries.includes(f.properties.country)).map((f) => feature(projGeom(f.geometry), f.properties)).filter((f) => f.geometry))
         : fc(areaFeatures);
@@ -1354,10 +1359,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function addOverlay(sfx) {
     const flat = sfx === '-f', id = (n) => n + sfx;
     const src = (n) => map.addSource(id(n), { type: 'geojson', data: n === 'areas' && !flat ? fc(areaFeatures) : EMPTY, tolerance: n === 'names' ? 0 : 0.25 });
-    for (const n of ['land', 'areas', 'mesh', 'outside', 'outside-lines', 'hover-area', 'hover-dot', 'dots', 'names', 'cities', 'caps', 'seas']) src(n);
+    for (const n of ['land-all', 'land', 'areas', 'mesh', 'outside', 'outside-lines', 'hover-area', 'hover-dot', 'dots', 'names', 'cities', 'caps', 'seas']) src(n);
     const add = (layer, before) => map.addLayer({ ...layer, id: id(layer.id), source: id(layer.source) }, flat ? undefined : before);
     const under = physicalOK ? waterBefore : undefined, over = physicalOK ? lineBefore : undefined;
     // the land (flat: there's no street map), the land no shetach covers (Rest of the world), the shetachim
+    // the land outside the view, faded (the owner's first rule: never the countries around as if they were on the map)
+    add({ id: 'land-all', type: 'fill', source: 'land-all', paint: { 'fill-antialias': false } }, under);
     add({ id: 'land', type: 'fill', source: 'land', paint: { 'fill-antialias': false } }, under);
     add({ id: 'out-fill', type: 'fill', source: 'outside', paint: { 'fill-antialias': false } }, under);
     add({ id: 'fill', type: 'fill', source: 'areas', paint: { 'fill-antialias': false } }, under);
@@ -1490,7 +1497,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       set('dots', dotData(S));
       set('cities', cityData(S));
       set('caps', capData(S));
-      set('land', fc([S.land]));
+      set('land', fc([state.empty ? S.land : S.landView]));
+      set('land-all', fc([S.land]));
       if (S.flat) set('seas', seaData(S));
     }
     frameView(animate && prev && !prev.flat);
@@ -1504,8 +1512,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const idle = window.requestIdleCallback || ((f) => setTimeout(f, 800));
     idle(() => { for (const T of [V.M, V.F]) if (T && T !== V.cur && state.labels !== 'off') labelData(T); }, { timeout: 3000 });
   }
-  // The land no shetach covers: flat, it's land like any other (there's no street map to show it); with Rest of the
-  // world it's greyed, with its borders.
+  // The land no shetach covers, and the land outside the view: only faded under the sea's blue, gone on a grey sea
+  // (the owner's first rule: show only the shetachim); with Rest of the world it's greyed, with its coast and borders.
   function setOutside() {
     if (!glOK || !V) return;
     const o = outsideData();
@@ -1523,9 +1531,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         }
         so = S.outside;
       }
-      if (so) map.getSource(`land${S.sfx}`).setData(fc([S.land, ...so.fill.features]));
+      map.getSource(`land${S.sfx}`).setData(fc(state.empty ? [S.land, ...(so ? so.fill.features : [])] : [S.landView]));
+      map.getSource(`land-all${S.sfx}`).setData(fc([S.land, ...(so ? so.fill.features : [])]));
       map.getSource(`outside${S.sfx}`).setData(so && state.empty ? so.fill : EMPTY);
-      const lines = so ? [so.coast].concat(state.empty && state.borders !== 'shetach' ? [so.borders] : []) : [];
+      const lines = so && state.empty ? [so.coast].concat(state.borders !== 'shetach' ? [so.borders] : []) : [];
       map.getSource(`outside-lines${S.sfx}`).setData(fc(lines));
     }
   }
@@ -1573,6 +1582,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       // see-through at street level so the streets show
       show(id('land'), on && !street);
       paint(id('land'), 'fill-color', G.land);
+      show(id('land-all'), on && !street && !state.empty);
+      paint(id('land-all'), 'fill-color', G.land);
+      paint(id('land-all'), 'fill-opacity', state.sea ? 0.4 : 0);
       show(id('fill'), polOn);
       map.setFilter(id('fill'), regular ? inView : ['all', inView, ['>=', ['get', 'cs'], 0]]);
       paint(id('fill'), 'fill-color', state.color === 'plain' ? pal.plain : ['match', ['get', regular ? 'cu' : 'cs'], ...pal.c.flatMap((c, i) => [i, c]), pal.plain]);
@@ -1809,7 +1821,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
 
   function capitalHTML(c) {
-    if (c.honor) return `<span class="kicker kicker-world">${HE ? 'ערש חב״ד-ליובאוויטש' : 'Birthplace of Chabad-Lubavitch'}</span><h2>${esc(c.name)}</h2>
+    if (c.honor) return `<h2 class="honor-h">${esc(c.name)}</h2>
       <p class="meta">${HE ? 'מקום מושב הרביים, תקע״ג–תרע״ה' : 'Seat of the Rebbeim, 1813–1915'}</p>`;
     return `<span class="kicker${c.world ? ' kicker-world' : ''}">${capKicker(c)}</span><h2>${esc(c.name)}</h2>
       ${c.city ? `<p>${esc(c.city)}</p>` : ''}${personnelHTML(c.center && c.center.personnel)}${chabadLink(c.center)}
@@ -2024,7 +2036,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   if (phone()) { const at = document.querySelector('.maplibregl-ctrl-attrib'); if (at) at.classList.remove('maplibregl-compact-show'); }
   // ready: for tests and anyone curious
   window.__map = map;
-  window.__dbg = { showCard: (hit) => showCard(hit, { clientX: 400, clientY: 300 }, true), labelData, V: () => V, dotData, spotsFor, partsOf, polylabel, unlon, unlat, PX, setMode, centreLL, spanKm,
+  window.__dbg = { map: () => map, showCard: (hit) => showCard(hit, { clientX: 400, clientY: 300 }, true), labelData, V: () => V, dotData, spotsFor, partsOf, polylabel, unlon, unlat, PX, setMode, centreLL, spanKm,
     zoomTo: (st) => zoomToArea(pieces.find((g) => g.properties.state === st).properties.id),
     at: (lon, lat) => map.jumpTo({ center: within(V.cur, () => P(lon, lat)) }),
     go: (lon, lat, z) => { V.cur = V.M; limits(); apply(); map.jumpTo({ center: [lon, lat], zoom: z }); } }; // go: a standard place and zoom (the map then picks flat or standard)

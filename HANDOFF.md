@@ -15,7 +15,7 @@ seamless, just a direct continuation". So: pick up the task below as if nothing 
 **State of the repo.** All work is committed and pushed to BOTH branches (`ccr-c5d54bf4-ssoreh`, the session's own, and
 the live site's `claude/bold-albattani-aqfnj9`, fast-forward). Commits this round, oldest first: d0d681d Israel's held
 ground (Gaza/Lebanon/Syria from the owner's KML) · a24dc2d occupied Ukraine + Crimea → Lazar's Russia shetach · 2fab177
-posters · 0fce460 **SPEED** (see the SPEED section below) · the commit after it: **Countries mode + Rest of the world**
+posters · 0fce460 **SPEED** (see the SPEED section below) · f0af3aa **Countries mode + Rest of the world**
 (requests 1, 2, 3 and 5 of the five the owner parked; see "COUNTRIES MODE AND THE REST OF THE WORLD" below). Check with
 `git log --oneline -8`. Deploy = push to `claude/bold-albattani-aqfnj9` (GitHub Pages serves it, ~1–2 min). After every
 finished step: commit, push both branches, tell the owner in plain words (he follows on his phone).

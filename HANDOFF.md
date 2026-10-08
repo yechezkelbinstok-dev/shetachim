@@ -84,10 +84,28 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   and outlines every country of it, its territories too (Kantor: Thailand with India, Laos, Cambodia, Myanmar);
   `shetachArea` merges the group's pieces once per view (`S.groupAreas`); "Zoom in" fits the whole shetach. A tap
   anywhere else is the country's card, as before. Checked: Bentolila, Kantor, Zarchi (English and Hebrew), stress → no errors.
-- **Next:** (14) India's added centers
-  link to their Chabad of India pages; research (15) Qatar — how far Eli Chitrik's Qatar is under his father Mendy
-  Chitrik's Turkey, and whether there's a physical center in Doha (like Jewish KSA in Riyadh); (16) Bahrain — any Chabad
-  presence and under whom. Then ask the owner what's next.
+- **Next (Oct 8, where the second window stopped — weekly usage limit):**
+  - **(14) India's added centers → a link to each one's Chabad of India page** (owner: "you know how most centers have a
+    link to their chabad.org entry, the same should be for these Chabad India ones"). IN PROGRESS, no code yet. The 13
+    `extra-india-*` entries in data/extra-centers.json (Kochi's is from chabadcochin.com) have no `url` field yet. Both
+    sites are behind a Cloudflare challenge here: indiakoshertravel.com/Chabad_india and chabadindia.com (→
+    chabadindia.org) answer curl and WebFetch with 403 "Just a moment…"; headless Chromium through the proxy gets a
+    "Privacy error" (the proxy's CA isn't trusted by it); chabadcochin.com is refused by the egress proxy. Next step: find
+    each house's page address by web search (or ask the owner to paste the links, as he sent the pages before), add a
+    `url` per entry, and on the dot's card show "Open on Chabad of India" / "לדף בחב״ד הודו" where chabad.org centers
+    show their chabad.org link (look for how the card builds that link in web/index.html, dotHTML / the center row).
+  - **(15) Qatar research** (owner: is Eli Chitrik's Qatar under his father Mendy Chitrik's Turkey enough to group them;
+    is there a physical center in Doha, like Jewish KSA in Riyadh). Found so far (not yet reported to the owner): Eli
+    Chitrik (Mendy's son) has served Doha since the 2022 World Cup; July 2026 the Emir received Mendy Chitrik's delegation
+    with Eli, and Mendy thanked the Emir on X for enabling Eli's service; 2026 reports call Eli Qatar's chief rabbi. No
+    physical center confirmed yet. Still to check: does Eli live there year-round (family, children born there), any
+    address/website (e.g. kosherinqatar), how far it's run from Turkey. Report with sources; change no data without the
+    owner's decision.
+  - **(16) Bahrain research** (owner: any Chabad presence, under whom). Found so far: no resident shliach; visiting Chabad
+    rabbis Dec 2022; the community is led by Ebrahim Nonoo; Levi Shemtov (Washington) has historical ties. Still to
+    check: who's responsible (UAE's Levi Duchman? Mendy Chitrik via the Alliance of Rabbis in Islamic States?). By the
+    owner's rule any Chabad activity puts a country in that shliach's shetach — report and propose, don't change data.
+  - Then report to the owner in plain words and ask what's next.
 
 **Testing tools (all in scripts/, Playwright + headless Chromium at /opt/pw-browsers):** `node scripts/screenshot.mjs
 <outdir> view:base:device:theme[:clicks]` (now waits for `__dbg.settled()`; fetches the real OpenFreeMap style, tiles and

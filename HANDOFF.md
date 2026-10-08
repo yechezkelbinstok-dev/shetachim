@@ -78,7 +78,13 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   own lines are their own pieces (`mesh:held`, a feature per pair of states with `a`, `b`; on the tiles `sa`/`sb`), so a
   pick only changes filters (`israelSide`, `nameFilter`, the fill's `heldShown`), nothing is worked out again.
 - Posters regenerated from the current data (checked point by point: no line inside Israel).
-- **Next:** (13) in Countries mode, tapping a head shliach's name outlines his whole shetach; (14) India's added centers
+- **Tapping a head shliach's name in Countries mode outlines his whole shetach** (owner, Oct 8: "if I clicked Bentolila's
+  actual name it would show an outline around his countries"): with Countries borders and Head shliach labels, a tap on
+  a name (`names`/`names-alt` features carry `sid`) gives the shetach's own card (`shetachHTML`, split out of `areaHTML`)
+  and outlines every country of it, its territories too (Kantor: Thailand with India, Laos, Cambodia, Myanmar);
+  `shetachArea` merges the group's pieces once per view (`S.groupAreas`); "Zoom in" fits the whole shetach. A tap
+  anywhere else is the country's card, as before. Checked: Bentolila, Kantor, Zarchi (English and Hebrew), stress → no errors.
+- **Next:** (14) India's added centers
   link to their Chabad of India pages; research (15) Qatar — how far Eli Chitrik's Qatar is under his father Mendy
   Chitrik's Turkey, and whether there's a physical center in Doha (like Jewish KSA in Riyadh); (16) Bahrain — any Chabad
   presence and under whom. Then ask the owner what's next.

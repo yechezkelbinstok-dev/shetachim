@@ -2327,6 +2327,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (f) return { dot: V.dots[f.properties.i] };
     f = nearest(q(['cities']));
     if (f) return { city: V.cities[f.properties.i] };
+    // Countries with Head shliach names: a head's name stands for his whole shetach (owner, Oct 8: tapping Bentolila's
+    // name outlines all his countries)
+    if (state.borders === 'regular' && state.labels === 'full') {
+      f = nearest(q(['names', 'names-alt']).filter((x) => shetachById.has(x.properties.sid)));
+      if (f) return { shetach: shetachById.get(f.properties.sid) };
+    }
     const a = map.queryRenderedFeatures(point, { layers: [`pick${sfx}`] })[0];
     return a ? { piece: pieceById.get(a.properties.id).properties } : null;
   }
@@ -2354,13 +2360,23 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (!glOK) return;
     const S = V.cur;
     const dot = hit && (hit.dot || (hit.capital && dotOfCenter.get(hit.capital.centerId)));
-    const area = hit && hit.piece && V.mainIds.has(hit.piece.id) ? areaOf(S, hit.piece.id) : null;
+    const area = hit && hit.shetach ? shetachArea(S, hit.shetach) : hit && hit.piece && V.mainIds.has(hit.piece.id) ? areaOf(S, hit.piece.id) : null;
     map.getSource(`hover-dot${S.sfx}`).setData(dot && state.dots && V.mainIds.has(dot.piece) ? feature({ type: 'Point', coordinates: within(S, () => P(dot.lon, dot.lat)) }, { l: Math.log2(dot.centers.length) }) : EMPTY);
     map.getSource(`hover-area${S.sfx}`).setData(area && area.geometry ? feature(area.geometry) : EMPTY);
   }
   // Zoom to an area (in the way it's drawn now).
-  function zoomToArea(pieceId) {
-    const S = V.cur, area = areaOf(S, pieceId);
+  function zoomToArea(pieceId) { zoomTo(areaOf(V.cur, pieceId)); }
+  // A shetach with its territories (Thailand with India): one outline round all its countries, worked out once a set
+  function shetachArea(S, s) {
+    const top = groupOf(s.id), gs = V.main.filter((g) => groupOf(g.properties.shetach) === top);
+    if (!gs.length) return null;
+    if (gs.every((g) => g.properties.shetach === s.id)) return S.regions.find((r) => r.s === s) || null;
+    S.groupAreas = S.groupAreas || new Map();
+    if (!S.groupAreas.has(top)) S.groupAreas.set(top, { geometry: within(S, () => projGeom(topojson.merge(topo, gs))) });
+    return S.groupAreas.get(top);
+  }
+  function zoomTo(area) {
+    const S = V.cur;
     if (!area || !area.geometry) return;
     const b = S.flat && !S.boxed ? flatBounds(area.geometry) : d3.geoBounds(feature(area.geometry)); // (boxed: standard outside the boxes, Alaska across 180°)
     const bounds = b[0][0] > b[1][0] ? [[b[0][0], b[0][1]], [b[1][0] + 360, b[1][1]]] : b;
@@ -2495,6 +2511,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       return `<span class="kicker">${areaKind(p)}</span><h2>${esc(p.name)}</h2>${part}
         <div class="foot"><span class="meta">${count(centers)}</span>${zoomBtn}</div>`;
     }
+    return shetachHTML(s, zoomBtn);
+  }
+  // A shetach's card: its head (or "Overseen by" for a territory, "Shluchim: … family"), its capital(s), its centers
+  function shetachHTML(s, zoomBtn) {
     // (the page's capitals, which hold both languages: name, town and claimant in Hebrew too)
     const caps = capitals.filter((c) => !c.honor && c.s === s);
     // "Capital: …", or for a disputed shetach "Capital (Chaim Tzvi Groner): …", one per claimant
@@ -2510,7 +2530,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
 
   function showCard(hit, event, pin) {
-    card.innerHTML = (hit.dot ? dotHTML(hit.dot) : hit.capital ? capitalHTML(hit.capital) : hit.city ? cityHTML(hit.city) : areaHTML(hit.piece)) +
+    card.innerHTML = (hit.dot ? dotHTML(hit.dot) : hit.capital ? capitalHTML(hit.capital) : hit.city ? cityHTML(hit.city)
+      : hit.shetach ? shetachHTML(hit.shetach, `<button type="button" class="zoomto" data-shetach="${esc(hit.shetach.id)}">${tr('Zoom in')}</button>`)
+      : areaHTML(hit.piece)) +
       '<button type="button" class="close" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>';
     card.hidden = false;
     card.classList.toggle('pinned', pin);
@@ -2535,7 +2557,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   card.addEventListener('click', (e) => {
     if (e.target.closest('.close')) { hideCard(); return; }
     const z = e.target.closest('.zoomto');
-    if (z) { hideCard(); zoomToArea(z.dataset.piece); }
+    if (z) { hideCard(); if (z.dataset.shetach) zoomTo(shetachArea(V.cur, shetachById.get(z.dataset.shetach))); else zoomToArea(z.dataset.piece); }
   });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideCard(); });
 

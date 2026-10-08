@@ -165,6 +165,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 .more-body .checks { display: flex; flex-direction: column; gap: 7px; }
 .legend-sea { display: inline-block; width: 12px; height: 10px; border-radius: 2px; background: #a9c7f2; }
 .legend-empty { display: inline-block; width: 12px; height: 10px; border-radius: 2px; background: var(--empty); border: 1px solid var(--map-ink); opacity: .7; }
+.legend-rest { display: inline-block; width: 12px; height: 10px; border-radius: 2px; background: linear-gradient(90deg, var(--empty) 42%, var(--map-ink) 42% 58%, var(--empty) 58%); border: 1px solid var(--map-ink); opacity: .7; }
 .downloads { font-size: 13px; font-weight: 500; color: var(--accent); text-decoration: none; }
 .downloads:hover { text-decoration: underline; }
 .note { margin: 0; font-size: 13px; color: var(--muted); }
@@ -313,6 +314,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           <label class="check" for="show-cities"><input type="checkbox" id="show-cities" checked> <span class="legend-ring" aria-hidden="true"></span> Cities with shluchim</label>
           <label class="check" for="show-capitals"><input type="checkbox" id="show-capitals" checked> <svg class="legend-star" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path id="star-shape"/></svg> Shetach capitals</label>
           <label class="check" for="show-empty"><input type="checkbox" id="show-empty"> <span class="legend-empty" aria-hidden="true"></span> Rest of the world</label>
+          <label class="check" for="show-rest-borders"><input type="checkbox" id="show-rest-borders"> <span class="legend-rest" aria-hidden="true"></span> Borders of the rest of the world</label>
           <label class="check" for="show-sea" id="sea-row"><input type="checkbox" id="show-sea" checked> <span class="legend-sea" aria-hidden="true"></span> Blue sea</label>
           </div>
         <fieldset class="ctl" id="dots-ctl">
@@ -379,7 +381,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const phone = () => PHONE_MQ.matches;
   const coarse = () => window.matchMedia('(pointer: coarse)').matches;
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const state = { alaska: 'box', empty: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true, sea: true };
+  const state = { alaska: 'box', empty: false, restBorders: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true, sea: true };
+  // the rest of the world shown (Rest of the world, or its borders, which show it too)
+  const rest = () => state.empty || state.restBorders;
   if (!phone()) $('#panel').classList.remove('collapsed');
 
   // ---------- data ----------
@@ -440,7 +444,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'Latin America & Caribbean': 'אמריקה הלטינית והאיים הקריביים',
     Map: 'מפה', Physical: 'פיזית', Tinted: 'פיזית צבועה', Political: 'מדינית', Borders: 'גבולות', States: 'מדינות', Countries: 'ארצות', Both: 'שניהם',
     'Lighter:': 'בהיר יותר:', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', Off: 'ללא',
-    'More options': 'אפשרויות נוספות', 'Regions & countries': 'אזורים ומדינות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Rest of the world': 'שאר העולם', 'Blue sea': 'ים כחול', Streets: 'רחובות',
+    'More options': 'אפשרויות נוספות', 'Regions & countries': 'אזורים ומדינות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Rest of the world': 'שאר העולם', 'Borders of the rest of the world': 'גבולות שאר העולם', 'Held by Israel': 'בשליטת ישראל', 'Blue sea': 'ים כחול', Streets: 'רחובות',
     Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד', Dots: 'נקודות', Solid: 'מלאות', 'See-through': 'שקופות', Classic: 'קלאסיות',
     'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
     'Download maps (SVG, PNG)': 'הורדת מפות (SVG, PNG)', 'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
@@ -1479,7 +1483,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     };
     // the areas to name, in order (territories, India, after their shetach, so the head's name over a territory is kept
     // smaller than his main one), and each one's names
-    const regular = state.borders === 'regular';
+    // (Countries: the countries' and states' names; with Head shliach the shetachim's heads, over the countries' borders)
+    const regular = state.borders === 'regular' && state.labels !== 'full';
     const items = regular ? [...S.states] : [...S.regions];
     // (a step a name: a big area's names, repeats and all, held the page up for a fifth of a second and more)
     const name = regular ? function* (r) {
@@ -1835,6 +1840,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     add({ id: 'box-name', type: 'symbol', source: 'boxes', filter: ['==', ['geometry-type'], 'Point'],
       layout: { 'text-field': ['upcase', ['get', 'name']], 'text-font': F_REG, 'text-size': 10, 'text-letter-spacing': 0.12, 'text-anchor': 'top-left', 'text-offset': [0.5, 0.45], 'text-allow-overlap': true, 'text-ignore-placement': true } }, over);
     if (!flat && physicalOK) {
+      // (the countries' and states' borders under the shetachim's)
+      for (const kind of ['state', 'country']) map.addLayer({ id: `st-line-${kind}`, type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
       map.addLayer({ id: 'st-line-casing', type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
       for (const kind of ['coast', 'shetach', 'inner']) map.addLayer({ id: `st-line-${kind}`, type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
     }
@@ -1990,21 +1997,21 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (!S.made.has('areas')) { prep(S, 'areas').then(() => feedSet(S), failed); return; }
     if (!areasShown(S)) { feed(S, 'areas', 'areas', () => S.made.get('areas')); setNames(S); }
     // the lines shown: the coast (not over the street map, which has its own), the shetachim's borders, and with States
-    // or Both the countries' and states' (the physical map's borders are its tiles')
+    // or Both the countries' and states' (over the street maps those come from the tiles: st-line-country, -state)
     const street = !political(), kinds = isPhysical() && physicalOK ? [] : [...(street ? [] : ['coast']),
-      ...(state.borders !== 'regular' ? ['shetach', 'inner'] : []), ...(state.borders !== 'shetach' ? ['country', 'regular'] : [])];
+      ...(state.borders !== 'regular' ? ['shetach', 'inner'] : []), ...(state.borders !== 'shetach' && !street ? ['country', 'regular'] : [])];
     const missing = kinds.find((k) => !S.made.has(`mesh:${k}`));
     if (missing) { prep(S, `mesh:${missing}`).then(() => feedSet(S), failed); return; }
     if (kinds.length) feed(S, 'mesh', `mesh|${kinds}`, () => fc(kinds.map((k) => S.made.get(`mesh:${k}`))));
     // (Rest of the world on a flat continent or a boxed map: all the land, the shetachim's round the view too)
-    if (state.empty && !S.wholeAreas) {
+    if (rest() && !S.wholeAreas) {
       if (!S.made.has('land')) { prep(S, 'land').then(() => feedSet(S), failed); return; }
       feed(S, 'land', 'land', () => S.made.get('land'));
     }
     const kind = S.flat ? 'lo' : 'hi';
     if (!OUTSIDE[kind].done) { outsideReady(kind).then(() => feedSet(S)); return; }
     // the land round the view, faded; or with Rest of the world the land no shetach covers, greyed, with its lines
-    for (const [n, what] of state.empty ? [['outside', 'outFill'], ['outside-lines', 'outLines']] : [['land-all', 'landAll']]) {
+    for (const [n, what] of rest() ? [['outside', 'outFill'], ['outside-lines', 'outLines']] : [['land-all', 'landAll']]) {
       if (!S.made.has(what)) { prep(S, what).then(() => feedSet(S), failed); return; }
       feed(S, n, what, () => S.made.get(what));
     }
@@ -2060,8 +2067,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const layer = map.getLayer(id);
       let on = street && vis !== 'none';
       if (on && !physical && (id === 'natural_earth' || layer.sourceLayer === 'landcover' || id === 'park_outline')) on = false; // a political map isn't green
-      // the street map's own borders on the physical map; the political one draws its own (they match the shetachim's)
-      if (on && layer.sourceLayer === 'boundary') on = physical && state.borders !== 'shetach';
+      // the street map's own borders never: the countries' and states' come from our tiles (st-line-country, -state),
+      // as the political map draws them (the street map's drew the 1949 lines through Israel, and no states zoomed out)
+      if (on && layer.sourceLayer === 'boundary') on = false;
       if (on && layer.type === 'symbol' && layer.sourceLayer === 'place' && /country|state|continent/.test(id)) on = false; // the shetachim's names instead
       // towns: only ours, the ones with a center (the street map's own would name every town, centers or not)
       if (on && layer.type === 'symbol' && layer.sourceLayer === 'place' && /^label_(city|city_capital|town|village)$/.test(id)) on = false;
@@ -2076,13 +2084,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       // fills: shetachim (blank parts of states stay land), or every state with States borders; strong zoomed out, and
       // see-through at street level so the streets show
       show(id('land-view'), on && !street);
-      map.setFilter(id('land-view'), state.empty ? null : inView);
+      map.setFilter(id('land-view'), rest() ? null : inView);
       paint(id('land-view'), 'fill-color', G.land);
-      show(id('land'), on && !street && state.empty && !T.wholeAreas);
+      show(id('land'), on && !street && rest() && !T.wholeAreas);
       // the land round the view, faded: its colour mixed with the sea's (drawn see-through, a shape that overlaps itself
       // where it's simplified zoomed out showed a lighter patch, Tamaulipas in the USA view)
       const faded = d3.interpolateRgb(G.water, G.land)(0.4);
-      show(id('land-rest'), on && !street && !state.empty);
+      show(id('land-rest'), on && !street && !rest());
       map.setFilter(id('land-rest'), ['!', inView]);
       paint(id('land-rest'), 'fill-color', faded);
       paint(id('land-rest'), 'fill-opacity', state.sea ? 1 : 0);
@@ -2096,7 +2104,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       map.setLayoutProperty(id('box-name'), 'text-anchor', HE ? 'top-right' : 'top-left');
       map.setLayoutProperty(id('box-name'), 'text-offset', HE ? [-0.5, 0.45] : [0.5, 0.45]);
       paint(id('land'), 'fill-color', G.land);
-      show(id('land-all'), on && !street && !state.empty);
+      show(id('land-all'), on && !street && !rest());
       paint(id('land-all'), 'fill-color', faded);
       paint(id('land-all'), 'fill-opacity', state.sea ? 1 : 0);
       show(id('fill'), polOn);
@@ -2104,7 +2112,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       paint(id('fill'), 'fill-color', state.color === 'plain' ? pal.plain : ['match', ['get', regular ? 'cu' : 'cs'], ...pal.c.flatMap((c, i) => [i, c]), pal.plain]);
       const k = lightS ? 0.6 : 1;
       paint(id('fill'), 'fill-opacity', !street ? 0.92 * k : ['interpolate', ['linear'], ['zoom'], 5, 0.9 * k, 7, 0.78 * k, 10, 0.5 * k, 13, 0.3 * k]);
-      show(id('out-fill'), polOn && state.empty);
+      show(id('out-fill'), polOn && rest());
       paint(id('out-fill'), 'fill-color', pal.empty);
       paint(id('out-fill'), 'fill-opacity', street ? 0.7 : 1);
       // lines: shetach borders light against the colours (as map sites draw region borders); countries' and states'
@@ -2112,8 +2120,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const w = (a, b, c) => ['interpolate', ['linear'], ['zoom'], 2, a, 6, b, 12, c];
       for (const [kind, onK, color, width, alpha, dash] of [
         ['coast', !street, G.coast, 0.6, 1],
-        ['regular', state.borders !== 'shetach', G.grey, w(0.5, 0.8, 1.4), lightR ? 0.3 : 0.6, [2, 2]],
-        ['country', state.borders !== 'shetach', G.grey, w(0.7, 1.1, 1.8), lightR ? 0.4 : 0.85],
+        ['regular', state.borders !== 'shetach' && !street, G.grey, w(0.5, 0.8, 1.4), lightR ? 0.3 : 0.6, [2, 2]],
+        ['country', state.borders !== 'shetach' && !street, G.grey, w(0.7, 1.1, 1.8), lightR ? 0.4 : 0.85],
         ['casing', !regular, G.border, w(1.2, 2.2, 3.6), lightS ? 0.45 : 0.95],
         ['shetach', false],
         ['inner', !regular, G.border, w(0.6, 1, 1.6), lightS ? 0.4 : 0.85, [3, 2]],
@@ -2126,8 +2134,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         paint(lid, 'line-opacity', alpha);
         paint(lid, 'line-dasharray', dash || [1, 0]);
       }
-      show(id('out-line'), polOn && state.empty);
-      map.setFilter(id('out-line'), state.borders === 'shetach' ? ['==', ['get', 'k'], 'coast'] : null); // (countries' borders with States or Both)
+      show(id('out-line'), polOn && rest());
+      map.setFilter(id('out-line'), state.borders === 'shetach' && !state.restBorders ? ['==', ['get', 'k'], 'coast'] : null); // (its countries' borders with Countries, Both, or its borders option)
       paint(id('out-line'), 'line-color', G.grey);
       paint(id('out-line'), 'line-width', 0.7);
       paint(id('out-line'), 'line-opacity', ['match', ['get', 'k'], 'coast', 0, 0.6]);
@@ -2139,6 +2147,22 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // physical (standard only): the shetachim's borders, and the tints
     if (physicalOK) {
       const physOn = physical && S === V.M;
+      // Countries and Both, over the street maps (streets, physical): every country's and state's border, our own (the
+      // tiles'), as the political map draws them; with Shetachim, those of the rest of the world when its borders are
+      // asked for (owner, Oct 7: the countries no shetach covers seen as ordinary countries)
+      const baseOn = street && S === V.M, countries = state.borders !== 'shetach';
+      const countryEdge = ['all', ['has', 'nb'], ['!=', ['get', 'na'], ['get', 'nb']]];
+      map.setFilter('st-line-country', countries ? countryEdge : ['all', countryEdge, ['any', ['==', ['get', 'ca'], ''], ['==', ['get', 'cb'], '']]]);
+      show('st-line-country', baseOn && (countries || state.restBorders));
+      paint('st-line-country', 'line-color', 'hsl(248, 1%, 41%)');
+      paint('st-line-country', 'line-width', ['interpolate', ['linear'], ['zoom'], 3, 1, 5, 1.2, 12, 3]);
+      paint('st-line-country', 'line-opacity', lightR ? 0.45 : ['interpolate', ['linear'], ['zoom'], 0, 0.5, 4, 1]);
+      map.setFilter('st-line-state', ['all', ['has', 'nb'], ['==', ['get', 'na'], ['get', 'nb']], ['==', ['get', 'ss'], 0]]);
+      show('st-line-state', baseOn && countries);
+      paint('st-line-state', 'line-color', 'hsl(0, 0%, 52%)');
+      paint('st-line-state', 'line-width', ['interpolate', ['linear'], ['zoom'], 3, 0.7, 7, 1, 11, 2]);
+      paint('st-line-state', 'line-dasharray', [2, 2]);
+      paint('st-line-state', 'line-opacity', lightR ? 0.4 : 0.85);
       const list = ['literal', V.view.countries];
       const a = ['in', ['get', 'ca'], list], b = ['all', ['has', 'cb'], ['in', ['get', 'cb'], list]];
       const shetachLines = state.borders !== 'regular';
@@ -2364,7 +2388,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       <div class="foot"><span class="meta">${count(c.centers)} · ${shetachLine(c.piece)}</span></div>`;
   }
 
-  const areaKind = (p) => tr(p.country === 'CA' ? 'Province' : p.state.includes('-') ? 'State' : 'Country');
+  const areaKind = (p) => tr(p.state.startsWith('HELD-') ? 'Held by Israel' : p.country === 'CA' ? 'Province' : p.state.includes('-') ? 'State' : 'Country');
   function areaHTML(p) {
     const g = pieceById.get(p.id), s = shetachOf(g);
     const inMain = V.main.includes(g);
@@ -2450,6 +2474,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     apply();
   }));
   $('#show-empty').addEventListener('change', (e) => { state.empty = e.target.checked; apply(); });
+  // (owner, Oct 7: with Shetachim borders too, the countries no shetach covers can be seen as ordinary countries, each
+  // with its borders; on the political map that shows the rest of the world as well)
+  $('#show-rest-borders').addEventListener('change', (e) => { state.restBorders = e.target.checked; apply(); });
   $('#show-sea').addEventListener('change', (e) => { state.sea = e.target.checked; apply(); });
   for (const [id, key] of [['#show-dots', 'dots'], ['#show-cities', 'cities'], ['#show-capitals', 'capitals']]) {
     $(id).addEventListener('change', (e) => { state[key] = e.target.checked; apply(); });

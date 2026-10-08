@@ -106,6 +106,14 @@ const GAZA = { region: 'Gaza', code: 'GAZA', name: 'Gaza' };
 // made by scripts/held-lines.mjs from the owner's IDF control map (data/idf-control.kml): in Gaza, southern Lebanon
 // (with Har Dov) and Syria (the former UNDOF buffer zone with the Syrian summit of Mount Hermon, and beyond).
 const HELD = { gaza: GAZA.code, lebanon: 'LBN', syria: 'SYR' };
+// Each held part is an area of its own, in Israel's shetach and Israel's country: the Shetachim map draws no line
+// between it and Israel, the Countries map shows it apart, as held (owner, Oct 7: "not integrated into Israel fully
+// though as is the case by shetachim"). (Its Hebrew name is in data/hebrew/areas.json.)
+const HELD_AREA = {
+  gaza: { state: 'HELD-GAZA', name: 'Israeli-held Gaza', abbr: '' },
+  lebanon: { state: 'HELD-LBN', name: 'Israeli-held Lebanon', abbr: '' },
+  syria: { state: 'HELD-SYR', name: 'Israeli-held Syria', abbr: '' },
+};
 const heldFile = (place, side) => {
   const file = path.join(ROOT, 'data', 'shapes', `${place}-${side}.geojson`);
   return fs.existsSync(file) ? file : null;
@@ -168,7 +176,7 @@ const ROUGH = ['US-AK']; // drawn small in an inset, so simplified harder
 // States cut by a boundary shape (Brisbane's councils, the City of Gold Coast, Essex County, Ukraine's occupation line) and
 // Israel (the lines it holds in Gaza, Lebanon and Syria; owner Oct 7: "precise, not rough"): drawn at 100 m, so the line
 // follows the boundary closely when zoomed in, not the 800 m used for whole countries.
-const FINE = ['AU-QLD', 'CA-ON', 'ISR', 'UKR'];
+const FINE = ['AU-QLD', 'CA-ON', 'ISR', 'UKR', ...Object.values(HELD_AREA).map((a) => a.state)];
 
 // ---------- downloads ----------
 
@@ -648,6 +656,9 @@ async function buildGeo(data) {
   const areaIds = new Set([...usMeta.keys(), ...caAreas.map((f) => f.properties.state), ...worldAreas.map((f) => f.properties.state)]);
   const { claims, problems } = readClaims(data, areaIds, counties, regionNames);
   problems.unshift(...levelProblems);
+  // Israel's held ground goes with Israel, in whichever shetach Israel is
+  const israel = claims.find((c) => c.state === 'ISR' && c.kind === 'state');
+  if (israel) for (const a of Object.values(HELD_AREA)) if (areaIds.has(a.state)) claims.push({ ...israel, state: a.state });
   const byState = new Map();
   for (const c of claims) {
     if (!byState.has(c.state)) byState.set(c.state, []);
@@ -808,7 +819,7 @@ async function worldLand(data, levels) {
   const lines = createHash('sha1');
   for (const place of Object.keys(HELD)) for (const side of ['held', 'rest']) if (heldFile(place, side)) lines.update(fs.readFileSync(heldFile(place, side)));
   const heldLines = lines.digest('hex').slice(0, 10);
-  const spec = JSON.stringify({ v: 5, whole: [...whole].sort(), divided: [...divided].sort(), levels: [...levels].sort(), outside, heldLines });
+  const spec = JSON.stringify({ v: 6, whole: [...whole].sort(), divided: [...divided].sort(), levels: [...levels].sort(), outside, heldLines });
   const file = path.join(CACHE, `world-${createHash('sha1').update(spec).digest('hex').slice(0, 10)}.json`);
   if (!fs.existsSync(file)) {
     const dir = fs.mkdtempSync(path.join(CACHE, 'world-')), files = [], missing = [];
@@ -838,7 +849,7 @@ async function worldLand(data, levels) {
           features.push(...extra.map((f) => featureOf(f.geometry, props('Israel'))));
           // the parts of Gaza, Lebanon and Syria Israel holds, up to the lines as they actually run now (`HELD`)
           for (const place of Object.keys(HELD)) {
-            if (heldFile(place, 'held')) features.push(...readJSON(heldFile(place, 'held')).features.map((f) => featureOf(f.geometry, props('Israel'))));
+            if (heldFile(place, 'held')) features.push(...readJSON(heldFile(place, 'held')).features.map((f) => featureOf(f.geometry, { ...HELD_AREA[place], country: code })));
           }
         }
         if (code === 'CYP') {
@@ -999,15 +1010,20 @@ function writeTiles(topo, parentOf = new Map()) {
   const sides = arcs.map(() => []);
   const visit = (rings, gi) => { for (const ring of rings) for (const a of ring) sides[a < 0 ? ~a : a].push(gi); };
   geoms.forEach((g, gi) => { if (g.type === 'Polygon') visit(g.arcs, gi); else if (g.type === 'MultiPolygon') for (const poly of g.arcs) visit(poly, gi); });
+  // ca, cb: each side's country, '' where no shetach covers it; na, nb: each side's country all the same (the countries'
+  // and states' borders the physical map draws itself with Countries: the street map's own drew the 1949 lines through
+  // Israel and no states zoomed out); ss: one state both sides; sh: one shetach; tr: a territory's border with its
+  // shetach (India); lk: a lake's edge inside a shetach. Borders between two lands no shetach covers are kept too.
   const code = (p) => (p.outside ? '' : p.country);
   const lines = [];
   arcs.forEach((coords, i) => {
     const [a, b] = sides[i].map((gi) => geoms[gi].properties);
-    if (!a || (b && code(a) === '' && code(b) === '')) return;
+    if (!a) return;
     if (!b && coords.every(([x]) => Math.abs(x) > 179.99)) return; // the cut along 180°, not a coast
     const group = (p) => parentOf.get(p.shetach) || p.shetach || '';
     const tr = b && a.shetach !== b.shetach && group(a) === group(b) && group(a) !== '';
-    const props = b ? { ca: code(a), cb: code(b), ss: a.state === b.state ? 1 : 0, sh: (a.shetach || '') === (b.shetach || '') ? 1 : 0, ...(tr ? { tr: 1 } : {}) } : { ca: code(a), ...(a.lake ? { lk: 1 } : {}) };
+    const props = b ? { ca: code(a), cb: code(b), na: a.country, nb: b.country, ss: a.state === b.state ? 1 : 0, sh: (a.shetach || '') === (b.shetach || '') ? 1 : 0, ...(tr ? { tr: 1 } : {}) }
+      : { ca: code(a), na: a.country, ...(a.lake ? { lk: 1 } : {}) };
     lines.push(featureOf({ type: 'LineString', coordinates: coords }, props));
   });
   const byCode = new Map();

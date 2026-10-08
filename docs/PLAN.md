@@ -126,6 +126,8 @@ Open questions:
   between them in any border mode, together with the ground it holds beyond them now (the owner's IDF
   control map, data/idf-control.kml): in Gaza, in southern Lebanon (and Har Dov) and in Syria (the former
   UNDOF buffer zone with the Syrian summit of Mount Hermon, and beyond). Centers there are all tagged as Israel.
+  (Since Oct 8 the held parts are areas of their own in Israel's shetach: still no line on the Shetachim map; on the
+  Countries map each is shown apart, as "Israeli-held Gaza/Lebanon/Syria", with a dashed line against Israel.)
 - Continent views get their own projections (Europe, Israel, FSU, Latin America, Oceania,
   Africa, Asia) so each fills the screen.
 - Label density is the main design work there (Europe, Israel).

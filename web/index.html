@@ -185,6 +185,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   padding: 10px 12px; font-size: 14px; pointer-events: none;
 }
 #card.pinned { pointer-events: auto; }
+/* a head shliach's shetach with its territories (Kantor: Thailand, then India): separate cards, one under the other */
+#card.stack { background: transparent; border: 0; box-shadow: none; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+#card.stack > .part { background: var(--panel); border: 1px solid var(--panel-line); border-radius: 10px; box-shadow: var(--shadow); padding: 10px 12px; }
 #card.pinned > ul:first-child > li:first-child, #card.pinned > .kicker:first-child { padding-inline-end: 26px; }
 #card h2 { margin: 0 0 4px; margin-inline-end: 22px; font: 700 16px/1.25 var(--font-ui); text-wrap: balance; }
 #card .kicker { display: block; font: 600 10px var(--font-map); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
@@ -2532,14 +2535,24 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
 
 
+  // A head shliach's name tapped: his shetach's card, and under it a card for each territory of it in the view (owner,
+  // Oct 8: Kantor → Thailand's card on top, India's under it). "Zoom in" on the first fits them all, on a territory's itself.
+  function shetachCards(s) {
+    const top = shetachById.get(groupOf(s.id)) || s;
+    const inView = (x) => V.main.some((g) => g.properties.shetach === x.id);
+    const group = [top, ...[...shetachById.values()].filter((x) => x.territoryOf === top.id && inView(x))];
+    const zoom = (x, i) => `<button type="button" class="zoomto" data-shetach="${esc(x.id)}"${i ? ' data-own="1"' : ''}>${tr('Zoom in')}</button>`;
+    return group.length > 1 ? group.map((x, i) => `<div class="part">${shetachHTML(x, zoom(x, i))}</div>`).join('') : shetachHTML(s, zoom(s, 0));
+  }
   function showCard(hit, event, pin) {
     card.innerHTML = (hit.dot ? dotHTML(hit.dot) : hit.capital ? capitalHTML(hit.capital) : hit.city ? cityHTML(hit.city)
-      : hit.shetach ? shetachHTML(hit.shetach, `<button type="button" class="zoomto" data-shetach="${esc(hit.shetach.id)}">${tr('Zoom in')}</button>`)
+      : hit.shetach ? shetachCards(hit.shetach)
       : areaHTML(hit.piece)) +
       '<button type="button" class="close" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>';
     card.hidden = false;
     card.classList.toggle('pinned', pin);
     card.classList.toggle('world', !!(hit.capital && (hit.capital.world || hit.capital.honor))); // 770 and Lubavitch: the special card
+    card.classList.toggle('stack', !!card.querySelector(':scope > .part'));
     lastPoint = { clientX: event.clientX, clientY: event.clientY };
     if (!phone()) {
       const app = $('#app').getBoundingClientRect(), W = app.width, H = app.height;
@@ -2560,7 +2573,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   card.addEventListener('click', (e) => {
     if (e.target.closest('.close')) { hideCard(); return; }
     const z = e.target.closest('.zoomto');
-    if (z) { hideCard(); if (z.dataset.shetach) zoomTo(shetachArea(V.cur, shetachById.get(z.dataset.shetach))); else zoomToArea(z.dataset.piece); }
+    if (z) {
+      hideCard();
+      const s = z.dataset.shetach && shetachById.get(z.dataset.shetach);
+      if (s) zoomTo(z.dataset.own ? V.cur.regions.find((r) => r.s === s) : shetachArea(V.cur, s)); else zoomToArea(z.dataset.piece);
+    }
   });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') hideCard(); });
 

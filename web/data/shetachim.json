@@ -29,6 +29,76 @@
   "ZMB": "5626382",
   "KHM": "992232"
  },
+ "partNames": {
+  "CA-ON": {
+   "michigan": [
+    "Essex County (Windsor)",
+    "מחוז אסקס (וינדזור)"
+   ],
+   "ontario": [
+    "Rest of Ontario",
+    "שאר אונטריו"
+   ]
+  },
+  "US-OH": {
+   "michigan": [
+    "Toledo area",
+    "אזור טולידו"
+   ]
+  },
+  "US-PA": {
+   "pennsylvania": [
+    "Eastern Pennsylvania",
+    "מזרח פנסילבניה"
+   ]
+  },
+  "US-MA": {
+   "connecticut": [
+    "Western Massachusetts",
+    "מערב מסצ׳וסטס"
+   ]
+  },
+  "AU-QLD": {
+   "victoria": [
+    "Gold Coast",
+    "גולד קוסט"
+   ],
+   "rara": [
+    "Rest of Queensland",
+    "שאר קווינסלנד"
+   ]
+  },
+  "GRC": {
+   "lower-balkans": [
+    "Northern Greece",
+    "צפון יוון"
+   ],
+   "greece": [
+    "Rest of Greece",
+    "שאר יוון"
+   ]
+  },
+  "ITA": {
+   "slovenia": [
+    "Trieste",
+    "טריאסטה"
+   ],
+   "italy": [
+    "Rest of Italy",
+    "שאר איטליה"
+   ]
+  },
+  "UKR": {
+   "russia": [
+    "Russian-held areas",
+    "האזורים שבשליטת רוסיה"
+   ],
+   "ukraine": [
+    "Rest of Ukraine",
+    "שאר אוקראינה"
+   ]
+  }
+ },
  "shetachim": [
   {
    "id": "west-coast",

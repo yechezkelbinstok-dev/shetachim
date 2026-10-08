@@ -2401,10 +2401,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return g ? esc(g.properties.name) : '';
   }
   // "Central Africa · Shlomo Bentolila" (a territory like India: its parent's head)
-  function shetachWithHead(s, withHead = true) {
+  function shetachWithHead(s, withHead = true, label = s.name) {
     const head = (s.territoryOf && shetachById.get(s.territoryOf) || s).headShliach;
-    return withHead && head ? `${esc(s.name)} · ${headHTML(head)}` : esc(s.name);
+    return withHead && head ? `${esc(label)} · ${headHTML(head)}` : esc(label);
   }
+  // On a state several shetachim share, each line names its part of the state (owner, Oct 8: Ontario's card says "Essex
+  // County · Berel Shemtov", not "Michigan · …"), from data/shetachim.json `partNames`; else the shetach's own name
+  // already says it (Northeast Ohio, Long Island)
+  const partName = (state, s) => { const n = (shetachFile.partNames || {})[state]; const v = n && n[s.id]; return v ? v[HE ? 1 : 0] || v[0] : s.name; };
   // A country's own head shliach, where its shetach spans several countries (Kenya in Central Africa): the first living
   // man listed at its national center on chabad.org (data/country-heads.json names the center; the owner, Oct 7: "who is
   // head shliach of that country, with head of shetach on top of him")
@@ -2513,7 +2517,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const inState = [...new Set(pieces.filter(shownAs).map(shetachOf).filter(Boolean))];
       const centers = d3.sum(pieces, (x) => (shownAs(x) ? centersIn.get(x.properties.id) || 0 : 0));
       // each shetach covering it, with its head; then the country's own head shliach where its shetach spans several
-      const part = state.borders === 'regular' ? inState.map((x) => `<p>${shetachWithHead(x)}</p>`).join('') + countryHeadHTML(p, inState) : '';
+      const part = state.borders === 'regular' ? inState.map((x) => `<p>${shetachWithHead(x, true, inState.length > 1 ? partName(p.state, x) : x.name)}</p>`).join('') + countryHeadHTML(p, inState) : '';
       return `<span class="kicker">${areaKind(p)}</span><h2>${esc(p.name)}</h2>${part}
         <div class="foot"><span class="meta">${count(centers)}</span>${zoomBtn}</div>`;
     }

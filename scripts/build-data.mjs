@@ -1305,6 +1305,8 @@ async function main() {
   const forPage = {
     notShown: shetachData.notShown || [],
     countryHeads,
+    // what part of a split state each shetach has, for its card in Countries mode ([English, Hebrew]; Essex County)
+    partNames: Object.fromEntries(Object.entries(shetachData.partNames || {}).filter(([k]) => !k.startsWith('_'))),
     // capital: the (first) capital; capitals: all of them (a disputed shetach has one per claimant)
     // noCentralLeadership: no head shliach (India): the card says so, the map shows no head name there
     // territoryOf: a territory of another shetach (India, of Thailand's): its colour, lighter, a dashed border between

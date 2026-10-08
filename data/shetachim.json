@@ -2269,5 +2269,76 @@
   "notShownWhenBlank": [
     "CA-NT",
     "CA-YT"
-  ]
+  ],
+  "partNames": {
+    "_about": "On a split state's card in Countries mode (owner, Oct 8: tapping Ontario, not \"Michigan · Shemtov\" but \"Essex · Shemtov\"): what part of the state each shetach has, [English, Hebrew]. A shetach whose own name already says the part (Northeast Ohio, Long Island, Western Pennsylvania) needs no entry.",
+    "CA-ON": {
+      "michigan": [
+        "Essex County (Windsor)",
+        "מחוז אסקס (וינדזור)"
+      ],
+      "ontario": [
+        "Rest of Ontario",
+        "שאר אונטריו"
+      ]
+    },
+    "US-OH": {
+      "michigan": [
+        "Toledo area",
+        "אזור טולידו"
+      ]
+    },
+    "US-PA": {
+      "pennsylvania": [
+        "Eastern Pennsylvania",
+        "מזרח פנסילבניה"
+      ]
+    },
+    "US-MA": {
+      "connecticut": [
+        "Western Massachusetts",
+        "מערב מסצ׳וסטס"
+      ]
+    },
+    "AU-QLD": {
+      "victoria": [
+        "Gold Coast",
+        "גולד קוסט"
+      ],
+      "rara": [
+        "Rest of Queensland",
+        "שאר קווינסלנד"
+      ]
+    },
+    "GRC": {
+      "lower-balkans": [
+        "Northern Greece",
+        "צפון יוון"
+      ],
+      "greece": [
+        "Rest of Greece",
+        "שאר יוון"
+      ]
+    },
+    "ITA": {
+      "slovenia": [
+        "Trieste",
+        "טריאסטה"
+      ],
+      "italy": [
+        "Rest of Italy",
+        "שאר איטליה"
+      ]
+    },
+    "UKR": {
+      "russia": [
+        "Russian-held areas",
+        "האזורים שבשליטת רוסיה"
+      ],
+      "ukraine": [
+        "Rest of Ukraine",
+        "שאר אוקראינה"
+      ]
+    }
+  }
 }

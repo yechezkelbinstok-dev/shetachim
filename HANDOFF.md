@@ -18,7 +18,8 @@ ground (Gaza/Lebanon/Syria from the owner's KML) · a24dc2d occupied Ukraine + C
 posters · 0fce460 **SPEED** (see the SPEED section below) · f0af3aa **Countries mode + Rest of the world**
 (requests 1, 2, 3 and 5 of the five the owner parked; see "COUNTRIES MODE AND THE REST OF THE WORLD" below); then, in a
 second window (branch `claude/exciting-euler-o7vx0z`, also pushed to the live one): the country cards (request 4) and
-the held ground's colour on the Countries map — see DONE below. Check with
+the held ground's colour on the Countries map — see DONE below; then, back here (third window): 846c65e India links,
+f6f02b9 Kantor's stacked cards, and the split-state part names + the Ukraine speck fix (the commit after it). Check with
 `git log --oneline -8`. Deploy = push to `claude/bold-albattani-aqfnj9` (GitHub Pages serves it, ~1–2 min). After every
 finished step: commit, push both branches, tell the owner in plain words (he follows on his phone).
 
@@ -102,7 +103,25 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
     there, e.g. a funeral, and is ARIS's vice president; ARIS, Mendy Chitrik's, names Bahrain in its scope; Levi Shemtov
     helped Israel–Bahrain ties in the 2000s). No shliach named as responsible, so by the owner's "sure" rule it stays blank
     until he decides (UAE's Duchman is the likeliest if he wants it in a shetach).
-  - Next: whatever the owner answers on Qatar/Bahrain and the India links.
+  - **Bahrain, the owner's follow-up ("any more Duchman–Bahrain evidence besides that one funeral, and how strong is
+    it?")**: answered — the funeral is one undetailed line (Yeshiva World News, Oct 2020, echoed by Anash; Wikipedia cites
+    it), no date or name of the deceased given; a claim that Duchman led a 2016 businessmen's trip there is unverified;
+    the 2021 Gulf association (Nonoo quoted) points to the community itself, not Chabad. Weak: Bahrain stays blank.
+  - **Kantor's card (owner: "two separate cards top to bottom, Thailand on top, India under it")**: tapping a head
+    shliach's name gives one card per shetach in his group, stacked (`shetachCards`, `#card.stack`): the shetach on top,
+    then each of its territories in view, each with its own Zoom in (a territory zooms to its own area). f6f02b9.
+  - **Split states/countries say which part each shetach has** (owner: "on Ontario, rather than just Michigan · Shemtov,
+    say Essex · Shemtov … same for Ohio, maybe Toledo … what part of that state is controlled by who"): Countries-mode
+    cards name each shetach's part where several share one state: `partNames` in data/shetachim.json
+    (`{ state: { shetachId: [English, Hebrew] } }`, the build copies it into web/data/shetachim.json; `partName` in
+    web/index.html; a shetach not listed keeps its own name). Now: Ontario → Essex County (Windsor) · Berel Shemtov /
+    Rest of Ontario · Zalman Grossbaum; Ohio → Toledo area · Berel Shemtov (the others keep their names: Northeast Ohio,
+    Central Ohio, Southern Ohio); Pennsylvania → Western Pennsylvania / Eastern Pennsylvania; Massachusetts → Western
+    Massachusetts (Connecticut's); Queensland → Gold Coast (Victoria's) / Rest of Queensland; Greece → Northern Greece /
+    Rest of Greece; Italy → Trieste / Rest of Italy; Ukraine → Russian-held areas / Rest of Ukraine. When a new split
+    state appears, add its parts there.
+  - **The speck in Russia east of Ukraine** — fixed, see OCCUPIED UKRAINE below (occupation-line.mjs).
+  - Next: whatever the owner answers on Qatar and the India links.
 
 **Testing tools (all in scripts/, Playwright + headless Chromium at /opt/pw-browsers):** `node scripts/screenshot.mjs
 <outdir> view:base:device:theme[:clicks]` (now waits for `__dbg.settled()`; fetches the real OpenFreeMap style, tiles and
@@ -178,7 +197,12 @@ are no longer used.
   data/shapes/ukraine-occupied.geojson; the Russia shetach claims `{ "state": "UKR", "shape": "ukraine-occupied" }`
   (Ukraine is cut along it; UKR is drawn at 100 m, `FINE`). Map of Oct 5, 2026: 116,800 km² (from the Kinburn Spit and the
   left bank of the Dnepr to the Lugansk region, plus small pockets along the Sumy and Kharkov borders). **Re-run when the
-  line moves**, then `npm run build`.
+  line moves**, then `npm run build`. Since Oct 8 the script also needs `.cache/gadm-hi-UKR-0.json` (made by a first
+  `npm run build`): DeepStateMap's line doesn't follow GADM's Ukraine–Russia border exactly, so cutting Ukraine along it
+  left bits of Ukraine stranded behind the line — the owner saw one, a 190 km² speck of Ukraine's colour inside Russia
+  near the Lugansk border ("what the hell is going on here"). Every piece of Ukraine left over that touches the held land
+  and isn't the main body of Ukraine is now given to the held land (Oct 6 map: 268 such bits, 117,064 km² held in all);
+  the two small pieces Ukraine keeps apart from its main body (0.7 and 9.2 km², far from the front) are real.
 - What was found per center (Oct 7, before the owner's go-ahead): **Crimea** — Simferopol, Sevastopol, Yevpatoria and
   Yalta are on FJC Russia's community list (feor.ru); chabad.org has Rabbi Yechezkel Lazar at Simferopol; Lipszyc left in
   2014. **Lugansk** — led by Shneur Zalman Nekhaenko, "representative of the Chief Rabbi of Russia in the new regions"

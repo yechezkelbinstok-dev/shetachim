@@ -576,7 +576,7 @@ function readClaims(data, areaIds, counties, regionNames) {
           else problems.push(`${s.id}: no level-${level} region "${r}" in ${t.country}`);
         }
       } else if (t.shape && onState(s, t.state)) {
-        if (fs.existsSync(path.join(SHAPES, `${t.shape}.geojson`))) add(s, 'shape', t.state, { shape: t.shape });
+        if (fs.existsSync(path.join(SHAPES, `${t.shape}.geojson`))) add(s, 'shape', t.state, { shape: t.shape, ...(t.countriesAs ? { as: t.countriesAs } : {}) });
         else problems.push(`${s.id}: no shape file data/shapes/${t.shape}.geojson`);
       } else if (t.towns && onState(s, t.state)) {
         for (const town of t.towns) add(s, 'town', t.state, { town: townKey(town), townName: town });
@@ -751,6 +751,8 @@ async function buildGeo(data) {
     p.shetach = best ? best.shetach : null;
     p.byShape = !!(best && best.kind === 'shape');
     p.lake = !!(best && best.kind === 'shape' && lakeShapes.has(best.shape));
+    // as: the country this piece is part of on the Countries map, where that isn't its own (occupied Ukraine: Russia)
+    p.as = (best && best.as) || '';
   }
   const absorbed = absorbSlivers(mosaic.filter((f) => shapeStates.includes(f.properties.state)));
   if (absorbed) console.log(`${absorbed} slivers along shape edges given to the shape beside them`);
@@ -759,7 +761,7 @@ async function buildGeo(data) {
   const lakePieces = new Set(mosaic.filter((f) => f.properties.lake).map((f) => pieceOf(f.properties)));
   for (const f of mosaic) {
     const p = f.properties, piece = pieceOf(p);
-    f.properties = { piece, state: p.state, name: p.name, abbr: p.abbr, country: p.country, shetach: p.shetach, outside: !!p.outside || (!p.shetach && leaveOff.includes(p.state)), lake: lakePieces.has(piece) };
+    f.properties = { piece, state: p.state, name: p.name, abbr: p.abbr, country: p.country, shetach: p.shetach, as: p.as || '', outside: !!p.outside || (!p.shetach && leaveOff.includes(p.state)), lake: lakePieces.has(piece) };
   }
 
   // Small islands are dropped to keep the page light, except from areas that are small altogether (Bermuda, the
@@ -771,17 +773,17 @@ async function buildGeo(data) {
   // same) and not simplified any further, so it meets the shetachim point for point. It used to be thinned to 40% on a
   // coarser grid, which left strips of bare sea up to a kilometre wide between them (Israel's lines, Oct 7).
   const out = await mapshaper.applyCommands(
-    '-i mosaic.json -dissolve piece copy-fields=state,name,abbr,country,shetach,outside,lake -rename-fields id=piece -rename-layers areas ' +
+    '-i mosaic.json -dissolve piece copy-fields=state,name,abbr,country,shetach,as,outside,lake -rename-fields id=piece -rename-layers areas ' +
     '-o pieces.json format=geojson ' +
     `-simplify variable interval="${rough}.includes(state) ? 2500 : ${fine}.includes(state) ? 100 : country === 'US' ? 400 : 800" keep-shapes ` +
     `-each "size = this.area < 2e9 ? 'small' : 'big'" -split size ` +
     '-filter-islands min-area=3km2 remove-empty target=big ' +
-    '-merge-layers target=big,small force name=areas -filter-fields id,state,name,abbr,country,shetach,outside,lake ' +
+    '-merge-layers target=big,small force name=areas -filter-fields id,state,name,abbr,country,shetach,as,outside,lake ' +
     '-o world.json format=topojson quantization=100000 ' +
     '-rectangle bbox=-180,-90,180,90 name=frame + ' +
     '-filter "outside" target=areas + name=outside -dissolve country copy-fields=name target=outside ' +
     '-o outside.json format=topojson quantization=200000 target=outside,frame ' +
-    '-filter "!outside" target=areas -filter-fields id,state,name,abbr,country,shetach target=areas ' +
+    '-filter "!outside" target=areas -filter-fields id,state,name,abbr,country,shetach,as target=areas ' +
     '-o geo.json format=topojson quantization=200000 target=areas,frame',
     { 'mosaic.json': collectionOf(mosaic) },
   );
@@ -1022,7 +1024,12 @@ function writeTiles(topo, parentOf = new Map()) {
     if (!b && coords.every(([x]) => Math.abs(x) > 179.99)) return; // the cut along 180°, not a coast
     const group = (p) => parentOf.get(p.shetach) || p.shetach || '';
     const tr = b && a.shetach !== b.shetach && group(a) === group(b) && group(a) !== '';
-    const props = b ? { ca: code(a), cb: code(b), na: a.country, nb: b.country, ss: a.state === b.state ? 1 : 0, sh: (a.shetach || '') === (b.shetach || '') ? 1 : 0, ...(tr ? { tr: 1 } : {}) }
+    // pa, pb: each side's country on the Countries map, where a side is shown as another country's (occupied Ukraine:
+    // Russia); sa, sb: the states either side of Israel's own lines (Israel and its held ground, which the page shows
+    // apart or as part of Israel, each as the owner picks)
+    const props = b ? { ca: code(a), cb: code(b), na: a.country, nb: b.country, ss: a.state === b.state ? 1 : 0, sh: (a.shetach || '') === (b.shetach || '') ? 1 : 0, ...(tr ? { tr: 1 } : {}),
+      ...(a.as || b.as ? { pa: a.as || a.country, pb: b.as || b.country } : {}),
+      ...(a.country === 'ISR' && b.country === 'ISR' && a.state !== b.state ? { sa: a.state, sb: b.state } : {}) }
       : { ca: code(a), na: a.country, ...(a.lake ? { lk: 1 } : {}) };
     lines.push(featureOf({ type: 'LineString', coordinates: coords }, props));
   });

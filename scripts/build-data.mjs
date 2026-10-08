@@ -319,6 +319,8 @@ function normalize(raw, extra = false) {
     personnel: extra && raw.personnel ? raw.personnel : undefined, // an unlisted center's rabbi, from its own listing
     pageId: raw.pageId || undefined, // an unlisted dot that shares a chabad.org page with a listed one
     ...(extra && raw.slug ? { slug: raw.slug } : {}),
+    // an unlisted center's own page elsewhere (Chabad of India's directory): linked on its card
+    ...(extra && raw.url ? { url: raw.url, site: raw.site, siteHe: raw.siteHe } : {}),
   };
 }
 

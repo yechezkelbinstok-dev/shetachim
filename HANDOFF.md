@@ -8,7 +8,7 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
-## ▶ WHERE WE ARE — READ THIS FIRST (Oct 8; continued in a second window after the first ran out of usage)
+## ▶ WHERE WE ARE — READ THIS FIRST (Oct 8; a second window, then back on the first account for a third)
 The owner (Oct 8): "usage about to run out … I'm going to continue this in a different window … it needs to be extremely
 seamless, just a direct continuation". So: pick up the task below as if nothing happened; don't re-ask what's settled here.
 
@@ -84,28 +84,25 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   and outlines every country of it, its territories too (Kantor: Thailand with India, Laos, Cambodia, Myanmar);
   `shetachArea` merges the group's pieces once per view (`S.groupAreas`); "Zoom in" fits the whole shetach. A tap
   anywhere else is the country's card, as before. Checked: Bentolila, Kantor, Zarchi (English and Hebrew), stress → no errors.
-- **Next (Oct 8, where the second window stopped — weekly usage limit):**
-  - **(14) India's added centers → a link to each one's Chabad of India page** (owner: "you know how most centers have a
-    link to their chabad.org entry, the same should be for these Chabad India ones"). IN PROGRESS, no code yet. The 13
-    `extra-india-*` entries in data/extra-centers.json (Kochi's is from chabadcochin.com) have no `url` field yet. Both
-    sites are behind a Cloudflare challenge here: indiakoshertravel.com/Chabad_india and chabadindia.com (→
-    chabadindia.org) answer curl and WebFetch with 403 "Just a moment…"; headless Chromium through the proxy gets a
-    "Privacy error" (the proxy's CA isn't trusted by it); chabadcochin.com is refused by the egress proxy. Next step: find
-    each house's page address by web search (or ask the owner to paste the links, as he sent the pages before), add a
-    `url` per entry, and on the dot's card show "Open on Chabad of India" / "לדף בחב״ד הודו" where chabad.org centers
-    show their chabad.org link (look for how the card builds that link in web/index.html, dotHTML / the center row).
-  - **(15) Qatar research** (owner: is Eli Chitrik's Qatar under his father Mendy Chitrik's Turkey enough to group them;
-    is there a physical center in Doha, like Jewish KSA in Riyadh). Found so far (not yet reported to the owner): Eli
-    Chitrik (Mendy's son) has served Doha since the 2022 World Cup; July 2026 the Emir received Mendy Chitrik's delegation
-    with Eli, and Mendy thanked the Emir on X for enabling Eli's service; 2026 reports call Eli Qatar's chief rabbi. No
-    physical center confirmed yet. Still to check: does Eli live there year-round (family, children born there), any
-    address/website (e.g. kosherinqatar), how far it's run from Turkey. Report with sources; change no data without the
-    owner's decision.
-  - **(16) Bahrain research** (owner: any Chabad presence, under whom). Found so far: no resident shliach; visiting Chabad
-    rabbis Dec 2022; the community is led by Ebrahim Nonoo; Levi Shemtov (Washington) has historical ties. Still to
-    check: who's responsible (UAE's Levi Duchman? Mendy Chitrik via the Alliance of Rabbis in Islamic States?). By the
-    owner's rule any Chabad activity puts a country in that shliach's shetach — report and propose, don't change data.
-  - Then report to the owner in plain words and ask what's next.
+- **Done (Oct 8, third window, back on the first account):**
+  - **(14) India's added centers link to their page**: each `extra-india-*` entry in data/extra-centers.json has `url`,
+    `site`, `siteHe` (the build passes them on for unlisted centers); the dot's card shows "Open on Chabad of India" /
+    "לדף בחב״ד הודו" where chabad.org centers show their chabad.org link (`chabadLink` in web/index.html). The 13 from the
+    directory link to the directory itself, https://indiakoshertravel.com/Chabad_india (each house's own page couldn't be
+    found: the site is behind Cloudflare here, web search doesn't index it, the Wayback Machine refused); Kochi links to
+    https://chabadcochin.com/. **If the owner sends each house's own link, replace `url` per entry and `npm run build`.**
+  - **(15) Qatar — reported to the owner, no data changed** (Qatar is already its own shetach, Eli Chitrik): Eli (Mendy's
+    son) has served Qatar since the 2022 World Cup (Mendy kashered the Qatar Airways kitchen and left Eli to supervise;
+    @kosherinqatar); July 28, 2026 the Emir received Mendy's ARIS delegation with Eli at Lusail Palace, Mendy thanking him
+    for "enabling my son, Rabbi Eliyahu Chitrik, to serve the Jewish community" (anash.org, collive, Jewish Insider); one
+    source (Wikipedia) calls Eli Qatar's chief rabbi. No permanent Chabad house or address found (unlike Riyadh's), nothing
+    on where he lives, no Doha center in chabad.org's data. Whether to group Qatar under Turkey is the owner's call.
+  - **(16) Bahrain — reported, no data changed**: no resident rabbi (World Jewish Congress), ~36–50 Jews led by Ebrahim
+    Nonoo; Chabad only visiting (two visiting Chabad rabbis for Herzog's Dec 2022 visit; Levi Duchman of the UAE has gone
+    there, e.g. a funeral, and is ARIS's vice president; ARIS, Mendy Chitrik's, names Bahrain in its scope; Levi Shemtov
+    helped Israel–Bahrain ties in the 2000s). No shliach named as responsible, so by the owner's "sure" rule it stays blank
+    until he decides (UAE's Duchman is the likeliest if he wants it in a shetach).
+  - Next: whatever the owner answers on Qatar/Bahrain and the India links.
 
 **Testing tools (all in scripts/, Playwright + headless Chromium at /opt/pw-browsers):** `node scripts/screenshot.mjs
 <outdir> view:base:device:theme[:clicks]` (now waits for `__dbg.settled()`; fetches the real OpenFreeMap style, tiles and

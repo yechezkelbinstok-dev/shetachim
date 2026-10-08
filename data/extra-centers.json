@@ -1,5 +1,5 @@
 {
-  "about": "Centers that exist but are not listed on chabad.org. precision: 'exact' = real location, 'area' = rough spot in the right neighbourhood, 'city' = city centre (address unknown). note is shown on the dot's card. fixes: corrections to chabad.org's own listings, by center id (city, lat, lon).",
+  "about": "Centers that exist but are not listed on chabad.org. precision: 'exact' = real location, 'area' = rough spot in the right neighbourhood, 'city' = city centre (address unknown). note is shown on the dot's card. url, site, siteHe: the center's own page elsewhere (a center not on chabad.org), linked on its card as \"Open on <site>\" / \"לדף ב<siteHe>\". fixes: corrections to chabad.org's own listings, by center id (city, lat, lon).",
   "centers": [
     {
       "id": "extra-riyadh",
@@ -54,7 +54,10 @@
           "firstName": "Akiva",
           "lastName": "Sudri"
         }
-      ]
+      ],
+      "url": "https://indiakoshertravel.com/Chabad_india",
+      "site": "Chabad of India",
+      "siteHe": "חב״ד הודו"
     },
     {
       "id": "extra-india-south-delhi",
@@ -71,7 +74,10 @@
           "firstName": "Shneor",
           "lastName": "Kupchik"
         }
-      ]
+      ],
+      "url": "https://indiakoshertravel.com/Chabad_india",
+      "site": "Chabad of India",
+      "siteHe": "חב״ד הודו"
     },
     {
       "id": "extra-india-pushkar",
@@ -88,7 +94,10 @@
           "firstName": "Shimshon",
           "lastName": "Goldshtein"
         }
-      ]
+      ],
+      "url": "https://indiakoshertravel.com/Chabad_india",
+      "site": "Chabad of India",
+      "siteHe": "חב״ד הודו"
     },
     {
       "id": "extra-india-manali",
@@ -105,7 +114,10 @@
           "firstName": "Chezi",
           "lastName": "Naparstak"
         }
-      ]
+      ],
+      "url": "https://indiakoshertravel.com/Chabad_india",
+      "site": "Chabad of India",
+      "siteHe": "חב״ד הודו"
     },
     {
       "id": "extra-india-kasol",
@@ -127,7 +139,10 @@
           "firstName": "Yoel",
           "lastName": "Kaflin"
         }
-      ]
+      ],
+      "url": "https://indiakoshertravel.com/Chabad_india",
+      "site": "Chabad of India",
+      "siteHe": "חב״ד הודו"
     },
     {
       "id": "extra-india-rishikesh",
@@ -144,7 +159,10 @@
           "firstName": "Zoar",
           "lastName": "David"
         }
-      ]
+      ],
+      "url": "https://indiakoshertravel.com/Chabad_india",
+      "site": "Chabad of India",
+      "siteHe": "חב״ד הודו"
     },
     {
       "id": "extra-india-hampi",
@@ -161,7 +179,10 @@
           "firstName": "Moti",
           "lastName": "Gromach"
         }
-      ]
+      ],
+      "url": "https://indiakoshertravel.com/Chabad_india",
+      "site": "Chabad of India",
+      "siteHe": "חב״ד הודו"
     },
     {
       "id": "extra-india-varanasi",
@@ -178,7 +199,10 @@
           "firstName": "Shmoel",
           "lastName": "Izhar"
         }
-      ]
+      ],
+      "url": "https://indiakoshertravel.com/Chabad_india",
+      "site": "Chabad of India",
+      "siteHe": "חב״ד הודו"
     },
     {
       "id": "extra-india-goa-palolem",
@@ -195,7 +219,10 @@
           "firstName": "Roi",
           "lastName": "Marili"
         }
-      ]
+      ],
+      "url": "https://indiakoshertravel.com/Chabad_india",
+      "site": "Chabad of India",
+      "siteHe": "חב״ד הודו"
     },
     {
       "id": "extra-india-goa-anjuna",
@@ -205,7 +232,10 @@
       "lon": 73.744,
       "precision": "city",
       "note": "Address not known; placed at the town",
-      "source": "Chabad of India's own directory (indiakoshertravel.com/Chabad_india, pages sent by the owner, Oct 2026); not on chabad.org"
+      "source": "Chabad of India's own directory (indiakoshertravel.com/Chabad_india, pages sent by the owner, Oct 2026); not on chabad.org",
+      "url": "https://indiakoshertravel.com/Chabad_india",
+      "site": "Chabad of India",
+      "siteHe": "חב״ד הודו"
     },
     {
       "id": "extra-india-pune",
@@ -222,7 +252,10 @@
           "firstName": "Betzalel",
           "lastName": "Kupchik"
         }
-      ]
+      ],
+      "url": "https://indiakoshertravel.com/Chabad_india",
+      "site": "Chabad of India",
+      "siteHe": "חב״ד הודו"
     },
     {
       "id": "extra-india-kodaikanal",
@@ -239,7 +272,10 @@
           "firstName": "Ran",
           "lastName": "Shamir"
         }
-      ]
+      ],
+      "url": "https://indiakoshertravel.com/Chabad_india",
+      "site": "Chabad of India",
+      "siteHe": "חב״ד הודו"
     },
     {
       "id": "extra-india-kasar-devi",
@@ -256,7 +292,10 @@
           "firstName": "Tal",
           "lastName": "Ramot"
         }
-      ]
+      ],
+      "url": "https://indiakoshertravel.com/Chabad_india",
+      "site": "Chabad of India",
+      "siteHe": "חב״ד הודו"
     },
     {
       "id": "extra-india-kochi",
@@ -266,7 +305,10 @@
       "lon": 76.2597,
       "precision": "area",
       "note": "Synagogue Lane, Jew Town, Mattancherry (by the Paradesi Synagogue); the dot is a rough spot",
-      "source": "chabadcochin.com contact listing (via search, Oct 2026); not on chabad.org or the Chabad of India directory"
+      "source": "chabadcochin.com contact listing (via search, Oct 2026); not on chabad.org or the Chabad of India directory",
+      "url": "https://chabadcochin.com/",
+      "site": "Chabad House Cochin",
+      "siteHe": "בית חב״ד קוצ׳ין"
     },
     {
       "id": "extra-yerevan",

@@ -2385,7 +2385,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
   const headHTML = (t) => { const m = DISPUTED.exec(t || ''); return m ? `<em>${esc(m[1])}</em>${esc(m[2])}` : esc(t); };
   const count = (n) => (HE ? (n === 1 ? 'מוסד אחד' : `${fmt(n)} מוסדות`) : `${fmt(n)} ${n === 1 ? 'center' : 'centers'}`);
-  const chabadLink = (c) => (c && c.slug ? `<a href="https://www.chabad.org/jewish-centers/${esc(c.pageId || c.id)}/${esc(c.slug)}" target="_blank" rel="noopener">${tr('Open on chabad.org')}</a>` : '');
+  // a center's page: chabad.org's, or, for one not listed there, its own elsewhere (Chabad of India's directory: owner,
+  // Oct 8, "the same should be for these Chabad India ones")
+  const chabadLink = (c) => (c && c.slug ? `<a href="https://www.chabad.org/jewish-centers/${esc(c.pageId || c.id)}/${esc(c.slug)}" target="_blank" rel="noopener">${tr('Open on chabad.org')}</a>`
+    : c && c.url && /^https:\/\//.test(c.url) ? `<a href="${esc(c.url)}" target="_blank" rel="noopener">${HE ? `לדף ב${esc(c.siteHe || c.site)}` : `Open on ${esc(c.site || new URL(c.url).hostname)}`}</a>` : '');
   // withHead: false just names the shetach whose territory this is, without implying its head shliach
   // runs the place — used for 770, which sits in New York City's territory but isn't Tzach's to run.
   function shetachLine(pieceId, withHead = true) {

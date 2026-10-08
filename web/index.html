@@ -10,6 +10,32 @@
 <script>try { const t = localStorage.getItem('shetachim-theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
 <script>// Hebrew (?lang=he, or picked before): the whole page right to left
 try { const q = new URLSearchParams(location.search).get('lang'); if (q) localStorage.setItem('shetachim-lang', q); if ((q || localStorage.getItem('shetachim-lang')) === 'he') { document.documentElement.lang = 'he'; document.documentElement.dir = 'rtl'; document.title = 'מפת שטחי חב״ד'; } } catch (e) {}</script>
+<script>// The map's data and the street map's style, asked for at once, while the page and the map library still load.
+// Every data file is checked with the site each time (an unchanged one then comes from the browser's cache, a new
+// version at once: never an old map after an update). With ?v= in the address (the refresh button) all of it is
+// fetched anew, and so is every other site file the page asks for (fresh()).
+window.EARLY = (() => {
+  const v = new URLSearchParams(location.search).get('v');
+  const fresh = (url) => (v ? `${url}${url.includes('?') ? '&' : '?'}v=${encodeURIComponent(v)}` : url);
+  const files = new Map();
+  const bytes = (url) => {
+    if (!files.has(url)) {
+      const got = fetch(fresh(url), { cache: v ? 'reload' : 'no-cache' }).then((r) => {
+        if (!r.ok) throw new Error(`${url} (${r.status})`);
+        return r.arrayBuffer().then((buf) => ({ buf, etag: r.headers.get('etag') || r.headers.get('last-modified') || '' }));
+      });
+      got.catch(() => {}); // (whoever reads it hears of a failure)
+      files.set(url, got);
+    }
+    return files.get(url);
+  };
+  ['data/geo.json', 'data/centers.geojson', 'data/shetachim.json', 'data/cities.json', 'data/outside-lo.json'].forEach(bytes);
+  if (document.documentElement.lang === 'he') bytes('data/he.json');
+  const style = fetch('https://tiles.openfreemap.org/styles/liberty').then((r) => r.json());
+  style.catch(() => {});
+  return { v, fresh, bytes, style };
+})();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..800;1,14..32,400&family=Heebo:wght@400..800&display=swap">
@@ -344,6 +370,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 <script>
 (async function () {
   'use strict';
+  const SCRIPT = document.currentScript; // (this code, for the fingerprint the names are kept under)
   const $ = (s) => document.querySelector(s);
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const fmt = d3.format(',');
@@ -357,21 +384,48 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
   // ---------- data ----------
   // The refresh button reloads the page as ?v=<time>: a new address no cache has (the browser's or GitHub's), and every
-  // data file and map tile is asked for with the same ?v=, so all of it comes fresh from the site.
-  const BUST = new URLSearchParams(location.search).get('v');
-  const fresh = (url) => (BUST ? `${url}${url.includes('?') ? '&' : '?'}v=${encodeURIComponent(BUST)}` : url);
+  // data file and map tile is asked for with the same ?v=, so all of it comes fresh from the site. (The files themselves
+  // were asked for at the top of the page: EARLY.)
+  const { v: BUST, fresh } = window.EARLY;
   $('#refresh').addEventListener('click', () => { location.replace(`${location.pathname}?v=${Date.now()}${location.hash}`); });
-  const get = (url) => fetch(fresh(url), BUST ? { cache: 'reload' } : undefined).then((r) => { if (!r.ok) throw new Error(`${url} (${r.status})`); return r.json(); });
-  let topo, centersGeo, shetachFile;
+  const decoder = new TextDecoder();
+  const versions = new Map(); // each file's version (its ETag), for the map tiles' address (tileVersion)
+  const get = (url) => window.EARLY.bytes(url).then(({ buf, etag }) => { versions.set(url, etag); return JSON.parse(decoder.decode(buf)); });
+  // the map tiles are built with the data files: a short fingerprint of their versions ('' when the site gives none)
+  function tileVersion() {
+    const t = ['data/geo.json', 'data/shetachim.json'].map((f) => versions.get(f) || '').join('|');
+    if (t === '|') return '';
+    let h = 2166136261;
+    for (let i = 0; i < t.length; i++) h = Math.imul(h ^ t.charCodeAt(i), 16777619);
+    return (h >>> 0).toString(36);
+  }
+  let topo, centersGeo, shetachFile, cityFile;
   try {
-    [topo, centersGeo, shetachFile] = await Promise.all([get('data/geo.json'), get('data/centers.geojson'), get('data/shetachim.json')]);
+    [topo, centersGeo, shetachFile, cityFile] = await Promise.all([get('data/geo.json'), get('data/centers.geojson'), get('data/shetachim.json'), get('data/cities.json').catch(() => [])]);
   } catch (err) {
     $('#panel').classList.remove('collapsed');
     $('#load-error').hidden = false;
     $('#load-error').textContent = document.documentElement.lang === 'he' ? `נתוני המפה לא נטענו (${err.message}). נסו לטעון את הדף מחדש.` : `The map data didn't load (${err.message}). Reload the page to try again.`;
     return;
   }
-  const cityFile = await get('data/cities.json').catch(() => []);
+  // The topology's points as plain lon/lat, decoded once (every shape made from it later is quicker to make), to a
+  // millionth of a degree (a tenth of a metre; the shapes are as they were, and shorter to hand to the map).
+  function decodeArcs(t) {
+    if (!t.transform) return t;
+    const { scale: [kx, ky], translate: [dx, dy] } = t.transform;
+    for (const arc of t.arcs) {
+      let x = 0, y = 0;
+      for (const p of arc) { x += p[0]; y += p[1]; p[0] = Math.round((x * kx + dx) * 1e6) / 1e6; p[1] = Math.round((y * ky + dy) * 1e6) / 1e6; }
+    }
+    delete t.transform;
+    return t;
+  }
+  decodeArcs(topo);
+  // Hebrew: the map's right-to-left text support, asked for from the start (the map waits for it before it starts)
+  const RTL_PLUGIN = new URL('lib/mapbox-gl-rtl-text.js', location.href).href; // right-to-left text (Hebrew), from @mapbox/mapbox-gl-rtl-text 0.3.0, kept here
+  let rtlLoad = null;
+  const loadRTL = () => Promise.race([Promise.resolve(maplibregl.setRTLTextPlugin(RTL_PLUGIN, false)), new Promise((r) => setTimeout(r, 10000))]).catch(() => { /* the names still show */ });
+  if (document.documentElement.lang === 'he' && window.maplibregl) rtlLoad = loadRTL();
 
   // ---------- Hebrew ----------
   // The page in Hebrew (the switch in the header, or ?lang=he): every word on it, and the names of the
@@ -503,8 +557,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const cities = cityFile.map((c) => ({ ...c, piece: c.piece || c.region })).filter((c) => pieceById.has(c.piece))
     .map((c) => ({ ...c, texts: [c.name], weight: Math.max(c.pop, c.centers * 5000) }))
     .sort((a, b) => b.weight - a.weight);
-  // every name, in both languages
-  {
+  // every name, in both languages (set up the first time Hebrew is shown: English needs none of it)
+  let bilingualDone = false;
+  function bilingual() {
+    if (bilingualDone) return;
+    bilingualDone = true;
     const hs = (s) => heData.shetachim[s.id];
     for (const s of shetachById.values()) {
       const englishHead = s.headShliach || '';
@@ -562,14 +619,16 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     }
     for (const c of cities) { const en = c.name, k = `${en}|${c.region}`; dual(c, 'name', (h) => (h.cities[k] ? [h.cities[k]] : h.cities[en] ? [h.cities[en]] : null)); }
   }
+  if (HE) bilingual();
   const CITY_NAMES_END = 13.5; // zoom from which a city's name gives way to the street map's own (neighbourhoods, streets)
   const CITY_DENSITY = 2500; // a city is a candidate once weight >= CITY_DENSITY / (screen pixels per km)²
 
   // Neighbours never share a colour; colours are spread evenly. Worked out once, so they stay put across views.
+  let NEIGHBOURS = null; // (which pieces touch which, worked out once for both colourings)
   function colorize(keyOf) {
     const adj = new Map();
     const touch = (k) => adj.get(k) || adj.set(k, new Set()).get(k);
-    topojson.neighbors(pieces).forEach((list, i) => {
+    (NEIGHBOURS || (NEIGHBOURS = topojson.neighbors(pieces))).forEach((list, i) => {
       const a = keyOf(pieces[i]);
       if (a == null) return;
       touch(a);
@@ -637,7 +696,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // shetachim in colour; the physical one shows OpenFreeMap's terrain with our borders over it. Names, cities, capitals
   // and dots are the map's own symbol layers either way, so the map engine places them, keeps them from overlapping,
   // fades them in and out, and moves them with the map at full speed, as on any map site.
-  const GL_STYLE = 'https://tiles.openfreemap.org/styles/liberty';
   const GLYPHS = 'https://tiles.openfreemap.org/fonts/{fontstack}/{range}.pbf';
   const F_BOLD = ['Noto Sans Bold'], F_REG = ['Noto Sans Regular'], F_IT = ['Noto Sans Italic'];
   const EMPTY = { type: 'FeatureCollection', features: [] };
@@ -672,24 +730,57 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     }
     return (inside ? 1 : -1) * Math.sqrt(min);
   }
+  // whether a point is inside rings (cheaper than its distance, when that's all that's wanted)
+  function insideRings(x, y, rings) {
+    let c = false;
+    for (const r of rings) for (let i = 0, j = r.length - 1; i < r.length; j = i++) { const a = r[i], b = r[j]; if ((a[1] > y) !== (b[1] > y) && x < ((b[0] - a[0]) * (y - a[1])) / (b[1] - a[1]) + a[0]) c = !c; }
+    return c;
+  }
+  const POLES = new WeakMap(); // (each polygon's pole worked out once a precision: a name's spot and its box both ask)
   function polylabel(rings, precision) {
+    const known = POLES.get(rings) || POLES.set(rings, new Map()).get(rings);
+    if (!known.has(precision)) known.set(precision, polylabelRaw(rings, precision));
+    return known.get(precision);
+  }
+  function polylabelRaw(rings, precision) {
     let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
     for (const [x, y] of rings[0]) { if (x < x0) x0 = x; if (y < y0) y0 = y; if (x > x1) x1 = x; if (y > y1) y1 = y; }
     const w = x1 - x0, h = y1 - y0, size = Math.min(w, h);
     if (!(size > 0)) return { x: x0, y: y0, d: 0 };
     const cell = (x, y, half) => { const d = pointToPolygonDist(x, y, rings); return { x, y, half, d, max: d + half * Math.SQRT2 }; };
-    const queue = [];
-    for (let x = x0; x < x1; x += size) for (let y = y0; y < y1; y += size) queue.push(cell(x + size / 2, y + size / 2, size / 2));
+    // the cells to look in, the most promising first (a heap)
+    const heap = [];
+    const push = (c) => {
+      let i = heap.push(c) - 1;
+      while (i > 0) { const up = (i - 1) >> 1; if (heap[up].max >= c.max) break; heap[i] = heap[up]; i = up; }
+      heap[i] = c;
+    };
+    const pop = () => {
+      const top = heap[0], last = heap.pop(), n = heap.length;
+      if (n) {
+        let i = 0;
+        for (;;) {
+          const l = 2 * i + 1, r = l + 1;
+          let m = i, mv = last.max;
+          if (l < n && heap[l].max > mv) { m = l; mv = heap[l].max; }
+          if (r < n && heap[r].max > mv) m = r;
+          if (m === i) break;
+          heap[i] = heap[m];
+          i = m;
+        }
+        heap[i] = last;
+      }
+      return top;
+    };
+    for (let x = x0; x < x1; x += size) for (let y = y0; y < y1; y += size) push(cell(x + size / 2, y + size / 2, size / 2));
     let best = cell(x0 + w / 2, y0 + h / 2, 0);
     let guard = 0;
-    while (queue.length && guard++ < 4000) {
-      let bi = 0;
-      for (let i = 1; i < queue.length; i++) if (queue[i].max > queue[bi].max) bi = i;
-      const c = queue.splice(bi, 1)[0];
+    while (heap.length && guard++ < 4000) {
+      const c = pop();
       if (c.d > best.d) best = c;
       if (c.max - best.d <= precision) continue;
       const h2 = c.half / 2;
-      queue.push(cell(c.x - h2, c.y - h2, h2), cell(c.x + h2, c.y - h2, h2), cell(c.x - h2, c.y + h2, h2), cell(c.x + h2, c.y + h2, h2));
+      push(cell(c.x - h2, c.y - h2, h2)); push(cell(c.x + h2, c.y - h2, h2)); push(cell(c.x - h2, c.y + h2, h2)); push(cell(c.x + h2, c.y + h2, h2));
     }
     return { x: best.x, y: best.y, d: Math.max(0, best.d) };
   }
@@ -745,7 +836,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     P2.boxes = boxes;
     return P2;
   }
-  const fake = ([x, y]) => [unlon(x), unlat(y)];
+  // (to a hundred-thousandth of a degree, a few metres: shorter to hand to the engine)
+  const fake = ([x, y]) => [Math.round(unlon(x) * 1e5) / 1e5, Math.round(unlat(y) * 1e5) / 1e5];
   // a point as the engine should get it
   const P = (lon, lat) => { if (!PROJ) return [lon, lat]; const p = PROJ([lon, lat]); return p ? fake(p) : null; };
   // A geometry (lon/lat) projected flat, clipped at the projection's edge, as the engine should get it.
@@ -814,9 +906,15 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const LABEL_MIN = 9; // px: smaller than this, a name isn't shown
   const labelMax = () => (phone() ? 22 : 26); // as big as map sites name a region, no bigger
   // an em of the map's bold font, per character (Noto Sans Bold), measured once per text
+  const EM = new Map(); // (each text measured once; again once a font has loaded)
+  if (document.fonts) document.fonts.addEventListener('loadingdone', () => EM.clear());
   function emWidth(text, weight = 700) {
-    measure.font = `${weight} 100px "Noto Sans", "Inter", "Heebo", sans-serif`;
-    return measure.measureText(text).width / 100 + 0.01 * text.length;
+    const k = `${weight}|${text}`;
+    if (!EM.has(k)) {
+      measure.font = `${weight} 100px "Noto Sans", "Inter", "Heebo", sans-serif`;
+      EM.set(k, measure.measureText(text).width / 100 + 0.01 * text.length);
+    }
+    return EM.get(k);
   }
   const ZS = d3.range(0, 15); // the zooms sizes are worked out for (the map interpolates between them)
   // How big a name may be at zoom z where it sits at a point dist (world units) from its area's edge, in an area of
@@ -978,17 +1076,19 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // thirds of the room at its roomiest point; otherwise the spot on the way from the middle to the roomiest point
   // where there first is.
   // Whether the way from a to b, where it leaves the area's own pieces, is mostly other land (not sea).
-  let LAND = null; // the land of the map being labelled, in world units
+  let LAND = null; // the land of the map being labelled, in world units (a function: worked out the first time it's asked for)
+  const boxOfRing = (ring) => { let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity; for (const [x, y] of ring) { if (x < x0) x0 = x; if (y < y0) y0 = y; if (x > x1) x1 = x; if (y > y1) y1 = y; } return [x0, y0, x1, y1]; };
   function landBetween(a, b, own) {
-    if (!LAND) return false;
-    const inParts = (list, x, y) => list.some((q) => x >= q.box[0] && x <= q.box[2] && y >= q.box[1] && y <= q.box[3] && pointToPolygonDist(x, y, q.rings) > 0);
-    let land = 0, sea = 0;
+    const land = LAND && LAND();
+    if (!land) return false;
+    const inParts = (list, x, y) => list.some((q) => { const bx = q.box || (q.box = boxOfRing(q.rings[0])); return x >= bx[0] && x <= bx[2] && y >= bx[1] && y <= bx[3] && insideRings(x, y, q.rings); });
+    let onLand = 0, sea = 0;
     for (let i = 1; i < 40; i++) {
       const x = a.x + ((b.x - a.x) * i) / 40, y = a.y + ((b.y - a.y) * i) / 40;
-      if (own.some((q) => pointToPolygonDist(x, y, q.rings) > 0)) continue;
-      if (inParts(LAND, x, y)) land++; else sea++;
+      if (inParts(own, x, y)) continue;
+      if (inParts(land, x, y)) onLand++; else sea++;
     }
-    return land > sea;
+    return onLand > sea;
   }
   function centred(part) {
     const pl = polylabel(part.rings, Math.sqrt(part.area) / 400);
@@ -1023,15 +1123,20 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
 
   // ---------- what the map draws, worked out per view and options ----------
-  // every piece once, as GeoJSON, with what the fill and the cards need
-  const areaFeatures = topojson.feature(topo, collection(pieces)).features.map((f, i) => {
+  // every piece once, as GeoJSON, with what the fill and the cards need (worked out the first time it's wanted)
+  let AREAS = null;
+  const areaFeatures = () => AREAS || (AREAS = topojson.feature(topo, collection(pieces)).features.map((f, i) => {
     const g = pieces[i], s = shetachOf(g), p = g.properties;
     return feature(f.geometry, { id: p.id, country: p.country, state: p.state, shetach: p.shetach || '', cs: s ? shetachColor(groupOf(s.id)) : -1, cu: stateColor(p.state) });
-  });
+  }));
   // Lines from the topology, without the cut along the 180° line (polygons crossing it come split there; that cut is
-  // neither a coast nor a border).
-  function meshLines(geoms, filter) {
+  // neither a coast nor a border). Each kind of line of a set of pieces once (a view's flat and standard maps share them).
+  const MESHES = new Map();
+  function meshLines(geoms, filter, kind) {
+    const k = kind && `${kind}|${geoms.length}|${geoms.map((g) => g.properties.id).join('|')}`;
+    if (k && MESHES.has(k)) return MESHES.get(k);
     const m = topojson.mesh(topo, collection(geoms), filter), out = [];
+    if (k) MESHES.set(k, out);
     for (const line of m.coordinates) {
       let cur = [];
       for (let i = 0; i < line.length; i++) {
@@ -1043,24 +1148,23 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     }
     return out;
   }
-  // the land no shetach covers (the "Rest of the world" option), loaded the first time it's asked for
-  let outside = null, outsideLoading = false;
-  function outsideData() {
-    if (outside) return outside;
-    if (!outsideLoading) {
-      outsideLoading = true;
-      get('data/outside.json').then((t) => {
-        const obj = t.objects[Object.keys(t.objects)[0]];
-        const ms = (filter) => { const m = topojson.mesh(t, obj, filter); return m.coordinates.filter((l) => !l.every((p) => Math.abs(p[0]) >= 179.99)); };
-        outside = {
-          fill: topojson.feature(t, obj),
-          coast: feature({ type: 'MultiLineString', coordinates: ms((a, b) => a === b) }, { k: 'coast' }),
-          borders: feature({ type: 'MultiLineString', coordinates: ms((a, b) => a !== b) }, { k: 'regular' }),
-        };
-        if (map && V) { setOutside(); }
-      }).catch(() => {});
-    }
-    return null;
+  // the land no shetach covers (the faded land round a view, and the "Rest of the world" option), loaded the first time
+  // it's asked for: light for the flat (zoomed-out) maps, full detail for the standard ones, where it meets the shetachim
+  // point for point; its coast and borders only once Rest of the world wants them. Resolves with it (null if it didn't load).
+  const OUTSIDE = { lo: { file: 'data/outside-lo.json' }, hi: { file: 'data/outside.json' } };
+  function outsideReady(kind) {
+    const o = OUTSIDE[kind];
+    return o.ready || (o.ready = get(o.file).then((t) => {
+      decodeArcs(t);
+      const obj = t.objects[Object.keys(t.objects)[0]];
+      const ms = (filter) => { const m = topojson.mesh(t, obj, filter); return m.coordinates.filter((l) => !l.every((p) => Math.abs(p[0]) >= 179.99)); };
+      let coast = null, borders = null;
+      o.data = {
+        fill: topojson.feature(t, obj),
+        get coast() { return coast || (coast = feature({ type: 'MultiLineString', coordinates: ms((a, b) => a === b) }, { k: 'coast' })); },
+        get borders() { return borders || (borders = feature({ type: 'MultiLineString', coordinates: ms((a, b) => a !== b) }, { k: 'regular' })); },
+      };
+    }).catch(() => {}).then(() => { o.done = true; return o.data || null; }));
   }
 
   // The view: its pieces, dots, cities and capitals, and two ways of drawing it: standard (M) and, for the world and
@@ -1077,45 +1181,144 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return inside(seam) || inside(seam + 360) || inside(seam - 360) || (e - w + 360) % 360 > 300;
   }
   let landNoBoxes = null; // the same less Alaska and Hawaii (the boxed political map's land in place)
+  // pieces merged into one outline, each set of pieces once (the flat and the standard map of a view, and the views, share them)
+  const MERGED = new Map();
+  function mergedPieces(gs) {
+    const k = gs.map((g) => g.properties.id).join('|');
+    let m = MERGED.get(k);
+    if (!m) MERGED.set(k, (m = topojson.merge(topo, gs)));
+    return m;
+  }
   // run fn with S's projection in force (P, projGeom and unitsPerKm follow it)
   function within(S, fn) {
     const keep = [PROJ, PROJ_FINE];
     PROJ = S.proj; PROJ_FINE = S.fine;
     try { return fn(); } finally { [PROJ, PROJ_FINE] = keep; }
   }
-  function buildSet(view, framedGeoms, flat) {
+  // ---------- work a slice at a time ----------
+  // A set's heavy shapes (S.makers: generators that yield between steps) are each worked out once, when first wanted:
+  // at once (got), or a slice at a time between frames (prep, a promise), so the map draws and moves meanwhile (worked
+  // out in one go, the world's held the page up for seconds, a blank map meanwhile). Both share the one piece of work.
+  const tick = (() => { // the next slice, as soon as the page has had its turn (setTimeout would wait 4 ms more)
+    const ch = new MessageChannel(), q = [];
+    ch.port1.onmessage = () => { const f = q.shift(); if (f) f(); };
+    return (f) => { q.push(f); ch.port2.postMessage(0); };
+  })();
+  const budget = () => (map && map.isMoving() ? 4 : 12); // ms of work a slice (less while the map moves)
+  function job(S, what) {
+    let j = S.jobs.get(what);
+    if (!j) S.jobs.set(what, (j = { it: S.makers[what](), done: false, value: undefined }));
+    return j;
+  }
+  // one step of the work (in S's projection); true once it's done
+  function stepJob(S, what, j) {
+    if (j.done) return true;
+    const r = within(S, () => j.it.next());
+    if (!r.done) return false;
+    j.done = true;
+    j.value = r.value;
+    S.made.set(what, r.value);
+    return true;
+  }
+  function got(S, what) {
+    if (S.made.has(what)) return S.made.get(what);
+    const j = job(S, what);
+    while (!stepJob(S, what, j));
+    return j.value;
+  }
+  // (inside a maker: another of the set's shapes, a step at a time)
+  function* need(S, what) {
+    if (S.made.has(what)) return S.made.get(what);
+    const j = job(S, what);
+    while (!stepJob(S, what, j)) yield;
+    return j.value;
+  }
+  // The work waiting, the most urgent first: what's shown before its names, its names before the land round it.
+  const RANK = { areas: 0, 'mesh:shetach': 1, 'mesh:coast': 1, 'mesh:inner': 1, 'mesh:country': 1, 'mesh:regular': 1, land: 3, outFill: 4, outLines: 4, landAll: 5 };
+  const rankOf = (what) => (what.startsWith('names|') ? 2 : RANK[what] ?? 6);
+  const WAITING = [];
+  function prep(S, what) {
+    if (S.made.has(what)) return Promise.resolve(S.made.get(what));
+    const j = job(S, what);
+    return j.promise || (j.promise = new Promise((resolve, reject) => {
+      const rank = rankOf(what);
+      let i = WAITING.findIndex((w) => w.rank > rank);
+      if (i < 0) i = WAITING.length;
+      WAITING.splice(i, 0, { S, what, j, rank, resolve, reject });
+      if (WAITING.length === 1) tick(work);
+    }));
+  }
+  function work() {
+    const end = performance.now() + budget();
+    while (WAITING.length) {
+      const w = WAITING[0];
+      let done;
+      try { done = stepJob(w.S, w.what, w.j); } catch (e) { WAITING.shift(); w.reject(e); continue; }
+      if (done) { WAITING.shift(); w.resolve(w.j.value); }
+      if (performance.now() > end) break;
+    }
+    if (WAITING.length) tick(work);
+  }
+  // projGeom a polygon (or a few hundred lines) at a time
+  function* projSliced(geometry, fine) {
+    if (!geometry || geometry.type !== 'MultiPolygon') return projGeom(geometry, fine);
+    const out = [];
+    for (const poly of geometry.coordinates) {
+      const g = projGeom({ type: 'Polygon', coordinates: poly }, fine);
+      if (g) for (const q of g.coordinates) out.push(q);
+      yield;
+    }
+    return out.length ? { type: 'MultiPolygon', coordinates: out } : null;
+  }
+  function* projLines(lines) {
+    const out = [];
+    for (let i = 0; i < lines.length; i += 300) {
+      const g = projGeom({ type: 'MultiLineString', coordinates: lines.slice(i, i + 300) });
+      if (g) for (const l of g.coordinates) out.push(l);
+      yield;
+    }
+    return { type: 'MultiLineString', coordinates: out };
+  }
+  const VIEW_BOUNDS = new Map(); // a view's land's lon/lat bounds, worked out once
+  const viewBounds = (view, framedGeoms) => VIEW_BOUNDS.get(view) || VIEW_BOUNDS.set(view, d3.geoBounds(topojson.feature(topo, collection(framedGeoms)))).get(view);
+
+  // A way of drawing the view: its frame and its areas' outlines at once, its heavy shapes when first wanted (makers)
+  function buildSet(view, framedGeoms, flat, id) {
     const boxed = flat === 'boxed';
     const proj = boxed ? boxedFor(view) : flat ? flatFor(view) : null;
-    const S = { proj, fine: proj && (boxed ? proj : flatFor(view).precision(1e-5)), sfx: flat ? '-f' : '', flat: !!flat, boxed, labelCache: new Map(), capCity: new Map(), outside: null };
-    return within(S, () => {
-      const main = V.main;
-      // Alaska and Hawaii in their boxes: a geometry made of pieces is projected in parts, the rest in place and each
-      // boxed state in its own box (make: the pieces' lon/lat geometry)
-      const boxes = (proj && proj.boxes) || [];
-      const boxOf = (g) => boxes.find((b) => b.st === g.properties.state);
-      const withProj = (pr, fn) => { const k = PROJ; PROJ = pr; try { return fn(); } finally { PROJ = k; } };
-      const projPieces = (gs, make) => {
-        if (!boxes.length) return projGeom(make(gs));
-        // (the rest is in the standard projection, which is the engine's own: no projecting needed)
-        const parts = [make(gs.filter((g) => !boxOf(g)))];
-        for (const b of boxes) { const sub = gs.filter((g) => boxOf(g) === b); if (sub.length) parts.push(withProj(b.proj, () => projGeom(make(sub)))); }
-        const got = parts.filter(Boolean);
-        if (!got.length) return null;
-        const type = got[0].type;
-        return { type, coordinates: got.filter((g) => g.type === type).flatMap((g) => g.coordinates) };
-      };
-      const merged = (gs) => topojson.merge(topo, gs);
+    const S = { id, view, proj, fine: proj && (boxed ? proj : flatFor(view).precision(1e-5)), sfx: flat ? '-f' : '', flat: !!flat, boxed, capCity: new Map(), made: new Map(), jobs: new Map() };
+    const main = V.main;
+    // Alaska and Hawaii in their boxes: a geometry made of pieces is projected in parts, the rest in place and each
+    // boxed state in its own box (make: the pieces' lon/lat geometry)
+    const boxes = (proj && proj.boxes) || [];
+    // whether the areas the engine gets are all the land there is (the standard maps, and the whole world flat): then
+    // the land is drawn from them; a flat continent's or a boxed map's are its own only, the world's land a shape of its own
+    S.wholeAreas = !flat || (view === VIEWS.world && !boxes.length);
+    const boxOf = (g) => boxes.find((b) => b.st === g.properties.state);
+    const withProj = (pr, fn) => { const k = PROJ; PROJ = pr; try { return fn(); } finally { PROJ = k; } };
+    const projPieces = (gs, make) => {
+      if (!boxes.length) return projGeom(make(gs));
+      // (the rest is in the standard projection, which is the engine's own: no projecting needed)
+      const parts = [make(gs.filter((g) => !boxOf(g)))];
+      for (const b of boxes) { const sub = gs.filter((g) => boxOf(g) === b); if (sub.length) parts.push(withProj(b.proj, () => projGeom(make(sub)))); }
+      const got = parts.filter(Boolean);
+      if (!got.length) return null;
+      const type = got[0].type;
+      return { type, coordinates: got.filter((g) => g.type === type).flatMap((g) => g.coordinates) };
+    };
+    const merged = mergedPieces;
+    within(S, () => {
       if (!flat || boxed) { // (boxed: the standard projection outside the boxes, so framed the same way, across 180° too)
         if (view.frame) S.bounds = view.frame;
         else {
-          const b = d3.geoBounds(topojson.feature(topo, collection(framedGeoms)));
+          const b = viewBounds(view, framedGeoms);
           S.bounds = b[0][0] > b[1][0] ? (view.boxes && view.boxes.length && !view.insets.includes('US-AK')
             ? [[-180, b[0][1]], [b[1][0], b[1][1]]] // (US & Canada, Alaska attached: framed from 180°, the far Aleutians a pan away)
             : [[b[0][0], b[0][1]], [b[1][0] + 360, b[1][1]]]) : b; // across the 180° line
         }
       } else {
         // the frame (or the view's land), its edges bent by the projection
-        const [[w, so], [e, n]] = view.frame || d3.geoBounds(topojson.feature(topo, collection(framedGeoms))), pts = [];
+        const [[w, so], [e, n]] = view.frame || viewBounds(view, framedGeoms), pts = [];
         const east = e < w ? e + 360 : e;
         for (let i = 0; i <= 40; i++) { const t = i / 40; pts.push(P(w + (east - w) * t, so), P(w + (east - w) * t, n), P(w, so + (n - so) * t), P(east, so + (n - so) * t)); }
         S.bounds = view === VIEWS.world ? flatBounds(projGeom({ type: 'Sphere' })) : flatBounds({ coordinates: pts.filter(Boolean) });
@@ -1131,39 +1334,97 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         S.boxFeatures.push(...boxes.flatMap((b) => [feature({ type: 'Point', coordinates: fake(b.rect[0]) }, { name: b.name, lang: 'en' }),
           feature({ type: 'Point', coordinates: fake([b.rect[1][0], b.rect[0][1]]) }, { name: b.he, lang: 'he' })]));
       }
-      // all the land (the political map has no street map to show it)
-      if (!allLand) allLand = topojson.merge(topo, pieces);
-      if (boxes.length && !landNoBoxes) landNoBoxes = merged(pieces.filter((g) => !boxOf(g)));
-      // (a continent view's world is cut at the far side, 180° from its centre: land across that seam, at the very edge,
-      // came out as thin spikes, so it's left out of the faded background there; the whole world view has no such cut)
-      const crossesSeam = (g) => crossing(view, PIECE_BOUNDS.get(g) || (PIECE_BOUNDS.set(g, d3.geoBounds(topojson.feature(topo, g))), PIECE_BOUNDS.get(g)));
-      S.land = flat ? feature(boxes.length ? projPieces(pieces, (gs) => (gs.some(boxOf) ? merged(gs) : landNoBoxes))
-        : view === VIEWS.world ? projGeom(allLand, true) : projGeom(merged(pieces.filter((g) => !crossesSeam(g))), true)) : feature(allLand);
-      // the view's own land only (owner's first rule: show only the shetachim, never the countries around them; the
-      // rest of the world's land only with "Rest of the world")
-      const viewLand = topojson.merge(topo, main);
-      S.landView = flat ? feature(boxes.length ? projPieces(main, merged) : projGeom(viewLand)) : feature(viewLand);
-      // the areas as the engine gets them: all of them as they are, or the view's own, flat
-      const boxOfArea = (f) => boxes.find((b) => b.st === f.properties.state);
-      S.areas = flat ? fc(areaFeatures.filter((f) => view.countries.includes(f.properties.country)).map((f) => { const b = boxOfArea(f); return b ? feature(withProj(b.proj, () => projGeom(f.geometry)), f.properties) : boxes.length ? f : feature(projGeom(f.geometry), f.properties); }).filter((f) => f.geometry))
-        : fc(areaFeatures);
-      const key = (g) => groupOf(g.properties.shetach) || '';
-      const lineFeature = (filter, k) => feature(projPieces(main, (gs) => ({ type: 'MultiLineString', coordinates: meshLines(gs, filter) })) || { type: 'MultiLineString', coordinates: [] }, { k });
-      S.mesh = fc([
-        lineFeature((a, b) => a === b, 'coast'),
-        lineFeature((a, b) => a.properties.state !== b.properties.state && a.properties.country === b.properties.country, 'regular'),
-        lineFeature((a, b) => a.properties.country !== b.properties.country, 'country'),
-        lineFeature((a, b) => a !== b && key(a) !== key(b), 'shetach'),
-        lineFeature((a, b) => a !== b && key(a) && key(a) === key(b) && a.properties.shetach !== b.properties.shetach, 'inner'),
-      ]);
-      // merged areas: shetachim and the blank parts of states, and states (for States borders)
-      S.regions = [...d3.group(main.filter(shetachOf), shetachOf)].map(([s, gs]) => {
-        const core = (s.labelState && gs.filter((g) => g.properties.state === s.labelState)) || (s.labelCentre && gs.filter((g) => g.properties.state === s.labelCentre));
-        return { s, gs, geometry: projPieces(gs, merged), core: core && core.length && core.length < gs.length ? projPieces(core, merged) : null };
-      });
-      S.states = [...d3.group(main, (g) => g.properties.state)].map(([st, gs]) => ({ st, p: gs[0].properties, gs, geometry: projPieces(gs, merged) }));
-      return S;
     });
+    // merged areas: shetachim and the blank parts of states, and states (for States borders); each outline only worked
+    // out when a name or a card first needs it (all of them up front held up the first view by seconds)
+    const lazy = (make) => { let g; return () => (g === undefined ? (g = within(S, make)) : g); };
+    S.regions = [...d3.group(main.filter(shetachOf), shetachOf)].map(([s, gs]) => {
+      const core = (s.labelState && gs.filter((g) => g.properties.state === s.labelState)) || (s.labelCentre && gs.filter((g) => g.properties.state === s.labelCentre));
+      const whole = lazy(() => projPieces(gs, merged)), part = core && core.length && core.length < gs.length ? lazy(() => projPieces(core, merged)) : null;
+      return { s, gs, get geometry() { return whole(); }, get core() { return part ? part() : null; } };
+    });
+    S.states = [...d3.group(main, (g) => g.properties.state)].map(([st, gs]) => {
+      const whole = lazy(() => projPieces(gs, merged));
+      return { st, p: gs[0].properties, gs, get geometry() { return whole(); } };
+    });
+    // (a continent view's world is cut at the far side, 180° from its centre: land across that seam, at the very edge,
+    // came out as thin spikes, so it's left out of the faded background there; the whole world view has no such cut)
+    const crossesSeam = (g) => crossing(view, PIECE_BOUNDS.get(g) || (PIECE_BOUNDS.set(g, d3.geoBounds(topojson.feature(topo, g))), PIECE_BOUNDS.get(g)));
+    const key = (g) => groupOf(g.properties.shetach) || '';
+    const KINDS = [
+      ['coast', (a, b) => a === b],
+      ['regular', (a, b) => a.properties.state !== b.properties.state && a.properties.country === b.properties.country],
+      ['country', (a, b) => a.properties.country !== b.properties.country],
+      ['shetach', (a, b) => a !== b && key(a) !== key(b)],
+      ['inner', (a, b) => a !== b && key(a) && key(a) === key(b) && a.properties.shetach !== b.properties.shetach],
+    ];
+    const outside = () => OUTSIDE[flat ? 'lo' : 'hi'].data;
+    S.makers = {
+      // the areas as the engine gets them: all of them as they are, or the view's own, flat
+      *areas() {
+        if (!flat) return fc(areaFeatures());
+        const out = [];
+        for (const f of areaFeatures()) {
+          if (!view.countries.includes(f.properties.country)) continue;
+          const b = boxes.find((x) => x.st === f.properties.state);
+          const g = b ? withProj(b.proj, () => projGeom(f.geometry)) : boxes.length ? f.geometry : projGeom(f.geometry);
+          if (g) out.push(b || !boxes.length ? feature(g, f.properties) : f);
+          yield;
+        }
+        return fc(out);
+      },
+      // all the land (a flat continent's or a boxed map's areas are its own only: the faded land round it, and Rest of the world)
+      *land() {
+        if (!allLand) allLand = mergedPieces(pieces);
+        if (!flat) return feature(allLand);
+        if (boxes.length) {
+          if (!landNoBoxes) landNoBoxes = merged(pieces.filter((g) => !boxOf(g)));
+          return feature(projPieces(pieces, (gs) => (gs.some(boxOf) ? merged(gs) : landNoBoxes)));
+        }
+        const g = view === VIEWS.world ? allLand : merged(pieces.filter((x) => !crossesSeam(x)));
+        yield;
+        return feature(yield* projSliced(g, true));
+      },
+      // the lines, each kind its own (only those shown are worked out and handed over): coasts, states' and countries'
+      // borders, the shetachim's
+      ...Object.fromEntries(KINDS.map(([k, filter]) => [`mesh:${k}`, function* () {
+        const make = (gs) => ({ type: 'MultiLineString', coordinates: meshLines(gs, filter, k) });
+        let g;
+        if (flat && !boxes.length) { const m = make(main); yield; g = yield* projLines(m.coordinates); }
+        else g = projPieces(main, make);
+        return feature(g || { type: 'MultiLineString', coordinates: [] }, { k });
+      }])),
+      // the land no shetach covers (worked out once it has loaded)
+      *outFill() {
+        const o = outside();
+        if (!o) return EMPTY;
+        if (!flat) return o.fill;
+        const out = [];
+        for (const f of o.fill.features) {
+          if (view !== VIEWS.world && crossing(view, d3.geoBounds(f))) continue;
+          const g = projGeom(f.geometry, true);
+          if (g) out.push(feature(g, f.properties));
+          yield;
+        }
+        return fc(out);
+      },
+      // its coast and borders (Rest of the world)
+      *outLines() {
+        const o = outside();
+        if (!o) return EMPTY;
+        const line = (f) => feature((flat ? projGeom(f.geometry) : f.geometry) || { type: 'MultiLineString', coordinates: [] }, f.properties);
+        const coast = line(o.coast);
+        yield;
+        return fc([coast, line(o.borders)]);
+      },
+      // the land round the view, faded: the land no shetach covers, and a flat continent's or a boxed map's rest of the
+      // world (the others draw it from their areas)
+      *landAll() {
+        const land = S.wholeAreas ? null : yield* need(S, 'land'), fill = yield* need(S, 'outFill');
+        return fc([...(land ? [land] : []), ...fill.features]);
+      },
+    };
+    return S;
   }
   function viewData() {
     const view = VIEWS[state.view];
@@ -1180,7 +1441,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // (a view with Alaska and Hawaii: its political map has them in boxes, unless "In place")
     const boxes = !flatFor(view) && (view.boxes || []).length && state.alaska === 'box';
     const setKey = `${state.view}|${boxes ? 'box' : ''}`;
-    if (!SETS.has(setKey)) SETS.set(setKey, { M: buildSet(view, framedGeoms, false), F: flatFor(view) ? buildSet(view, framedGeoms, true) : boxes ? buildSet(view, framedGeoms, 'boxed') : null });
+    if (!SETS.has(setKey)) SETS.set(setKey, { M: buildSet(view, framedGeoms, false, `${setKey}|standard`), F: flatFor(view) ? buildSet(view, framedGeoms, true, `${setKey}|flat`) : boxes ? buildSet(view, framedGeoms, 'boxed', `${setKey}|boxed`) : null });
     Object.assign(V, SETS.get(setKey));
     V.cur = wantedSet();
     const shownIds = new Set(shown.map((g) => g.properties.id));
@@ -1193,11 +1454,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     $('#st-dots').textContent = fmt(viewDots.length);
   }
 
-  // The names for the view in the current label mode: one feature per spot, each with its size at every zoom.
-  function labelData(S) {
+  // The names for the view in the current label mode: one feature per spot, each with its size at every zoom. Worked out
+  // a few areas a step (S's job names|<mode>), between frames, so the map shows and moves at once and its names follow.
+  const labelKey = () => `${HE ? 'he' : 'en'}|${state.labels}|${state.borders === 'regular' ? 'r' : 's'}|${phone() ? 'p' : 'd'}`;
+  function* namesOf(S, ck) {
     if (state.labels === 'off') return EMPTY;
-    const ck = `${state.labels}|${state.borders === 'regular' ? 'r' : 's'}|${phone() ? 'p' : 'd'}`;
-    if (S.labelCache.has(ck)) return S.labelCache.get(ck);
     const out = [];
     const add = (spot, t, extra) => {
       const props = { ...extra };
@@ -1216,40 +1477,127 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       if (short && short.minz < full.minz) put(short, short.minz, full.minz + 3, 5e5);
       put(full, full.minz, 30);
     };
-    within(S, () => {
-      if (!S.landParts) S.landParts = partsOf(S.land.geometry).map((q) => {
-        let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
-        for (const [x, y] of q.rings[0]) { if (x < x0) x0 = x; if (y < y0) y0 = y; if (x > x1) x1 = x; if (y > y1) y1 = y; }
-        return { ...q, box: [x0, y0, x1, y1] };
-      });
-      LAND = S.landParts;
-      if (state.borders === 'regular') {
-        for (const r of S.states) {
-          for (const spot of spotsFor(r.geometry, null, null)) {
-            add(spot, { text: r.p.name, short: r.p.abbr || null }, { kind: '' });
-            if (spot.main) for (const rp of repeatsFor(spot)) add(rp, { text: r.p.name, short: null }, { kind: '' });
-          }
-        }
-      } else {
-        // territories (India) after their shetach, so the head's name over a territory is kept smaller than his main one
-        const regions = [...S.regions].sort((a, b) => !!a.s.territoryOf - !!b.s.territoryOf);
-        for (const r of regions) {
-          const t = labelTexts(r.s);
-          if (!t) continue;
-          const spots = spotsFor(r.geometry, r.core, r.s.labelAt || null);
-          const sec = t.kind === 'sec';
-          for (const spot of spots) {
-            const extra = { kind: t.kind, sid: r.s.id };
-            if (sec) extra.secScale = 0.85;
-            add(spot, t, extra);
-            if (spot.main && !sec) for (const rp of repeatsFor(spot)) add(rp, { text: t.text, short: null }, extra);
-          }
-        }
+    // the areas to name, in order (territories, India, after their shetach, so the head's name over a territory is kept
+    // smaller than his main one), and each one's names
+    const regular = state.borders === 'regular';
+    const items = regular ? [...S.states] : [...S.regions];
+    // (a step a name: a big area's names, repeats and all, held the page up for a fifth of a second and more)
+    const name = regular ? function* (r) {
+      for (const spot of spotsFor(r.geometry, null, null)) {
+        yield;
+        add(spot, { text: r.p.name, short: r.p.abbr || null }, { kind: '' });
+        if (spot.main) for (const rp of repeatsFor(spot)) { yield; add(rp, { text: r.p.name, short: null }, { kind: '' }); }
       }
+    } : function* (r) {
+      const t = labelTexts(r.s);
+      if (!t) return;
+      const spots = spotsFor(r.geometry, r.core, r.s.labelAt || null);
+      const sec = t.kind === 'sec';
+      for (const spot of spots) {
+        yield;
+        const extra = { kind: t.kind, sid: r.s.id };
+        if (sec) extra.secScale = 0.85;
+        add(spot, t, extra);
+        if (spot.main && !sec) for (const rp of repeatsFor(spot)) { yield; add(rp, { text: t.text, short: null }, extra); }
+      }
+    };
+    // the biggest areas first (the names shown first, zoomed out), territories after their shetach; and those done so
+    // far shown every so often, so the names come in as they're worked out
+    const areas = yield* need(S, 'areas'), size = new Map();
+    for (const f of areas.features) size.set(f.properties.id, d3.sum(f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates, (q) => ringArea(q[0])));
+    const big = new Map(items.map((r) => [r, d3.sum(r.gs, (g) => size.get(g.properties.id) || 0)]));
+    items.sort((a, b) => (regular ? 0 : !!a.s.territoryOf - !!b.s.territoryOf) || big.get(b) - big.get(a));
+    let shown = performance.now();
+    for (const r of items) {
+      yield;
+      if (labelKey() !== ck) return null; // (the language or the label mode changed meanwhile: given up)
+      LAND = () => S.landParts || (S.landParts = landParts(areas));
+      const steps = name(r);
+      while (!steps.next().done) {
+        yield;
+        if (labelKey() !== ck) return null;
+        LAND = () => S.landParts || (S.landParts = landParts(areas)); // (another set's names may have run meanwhile)
+      }
+      if (performance.now() - shown > 700 && S === V.cur && glOK && areasShown(S)) { shown = performance.now(); feed(S, 'names', `some|${ck}|${out.length}`, () => fc(out.slice())); }
+    }
+    return fc(out);
+  }
+  // the map's land in world units, from its areas (all but the smallest islands)
+  function landParts(areas) {
+    const parts = [];
+    for (const f of areas.features) {
+      const polys = f.geometry.type === 'Polygon' ? [f.geometry.coordinates] : f.geometry.coordinates;
+      for (const poly of polys) {
+        const [x0, y0, x1, y1] = boxOfRing(poly[0]);
+        if (x1 - x0 < 0.05 && y1 - y0 < 0.05) continue;
+        for (const q of partsOf({ type: 'Polygon', coordinates: poly })) parts.push({ ...q, box: boxOfRing(q.rings[0]) });
+      }
+    }
+    return parts;
+  }
+  // the names are measured in the page's own font (Inter; Heebo for Hebrew), so they wait for it (3 s at most)
+  const fontsReady = document.fonts && document.fonts.load ? Promise.race([
+    Promise.all([document.fonts.load('700 100px Inter', 'Ab'), document.fonts.load('700 100px Heebo', '\u05d0\u05d1')]).catch(() => {}),
+    new Promise((r) => setTimeout(r, 3000)),
+  ]) : Promise.resolve();
+  // S's names in the current mode, a slice at a time (null if the mode changed before they were done)
+  function namesFor(S) {
+    const ck = labelKey(), what = `names|${ck}`;
+    if (S.made.has(what)) return Promise.resolve(S.made.get(what));
+    if (!S.makers[what]) S.makers[what] = () => namesOf(S, ck);
+    return fontsReady.then(() => {
+      const kept = keptNames(S, ck);
+      if (kept) { S.made.set(what, kept); return kept; }
+      return prep(S, what).then((data) => {
+        if (data === null) { S.made.delete(what); S.jobs.delete(what); } else keepNames(S, ck, data);
+        return data;
+      });
     });
-    const data = fc(out);
-    S.labelCache.set(ck, data);
-    return data;
+  }
+  // A view's names take seconds to work out, so they're kept in the browser for the next visit (coming back to the page,
+  // reloading it), under a fingerprint of this page's code, the data files' versions and whether the font had loaded:
+  // a new version of any of them never shows old names (they're worked out again, and older ones cleared).
+  const NAMES_KEY = 'shetachim-names|';
+  const PAGE_PRINT = (() => {
+    const t = [...document.scripts].map((x) => x.src).join('|') + (SCRIPT ? SCRIPT.text : String(Math.random()));
+    let h = 2166136261;
+    for (let i = 0; i < t.length; i++) h = Math.imul(h ^ t.charCodeAt(i), 16777619);
+    return (h >>> 0).toString(36);
+  })();
+  function namesPrint() {
+    const files = ['data/geo.json', 'data/shetachim.json', ...(HE ? ['data/he.json'] : [])].map((f) => versions.get(f));
+    if (files.some((v) => !v)) return null; // (the site gave no version for a file: nothing kept)
+    const font = document.fonts && document.fonts.check ? document.fonts.check(`700 16px ${HE ? 'Heebo' : 'Inter'}`) : '';
+    return `${PAGE_PRINT}|${files.join('|')}|${font}`;
+  }
+  function keptNames(S, ck) {
+    const print = namesPrint();
+    if (!print) return null;
+    try {
+      const got = localStorage.getItem(`${NAMES_KEY}${print}|${S.id}|${ck}`);
+      return got ? JSON.parse(got) : null;
+    } catch (e) { return null; }
+  }
+  function keepNames(S, ck, data) {
+    const print = namesPrint();
+    if (!print) return;
+    const idle = window.requestIdleCallback || ((f) => setTimeout(f, 500));
+    idle(() => {
+      try {
+        // (names kept under another fingerprint are out of date: cleared first)
+        for (let i = localStorage.length - 1; i >= 0; i--) {
+          const k = localStorage.key(i);
+          if (k && k.startsWith(NAMES_KEY) && !k.startsWith(`${NAMES_KEY}${print}|`)) localStorage.removeItem(k);
+        }
+        localStorage.setItem(`${NAMES_KEY}${print}|${S.id}|${ck}`, JSON.stringify(data));
+      } catch (e) { /* full, or not allowed: worked out again next time */ }
+    });
+  }
+  // and all at once (tests)
+  function labelData(S) {
+    const ck = labelKey(), what = `names|${ck}`;
+    if (!S.makers[what]) S.makers[what] = () => namesOf(S, ck);
+    return got(S, what) || EMPTY;
   }
 
   // The zoom from which something shows once the map has a given number of screen pixels per km there.
@@ -1307,9 +1655,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
 
   // ---------- the map itself ----------
-  let rtlLoad = null;
-  const loadRTL = () => withTimeout(Promise.resolve(maplibregl.setRTLTextPlugin(RTL_PLUGIN, false)), 10000, 'rtl').catch(() => { /* the names still show */ });
-  const RTL_PLUGIN = new URL('lib/mapbox-gl-rtl-text.js', location.href).href; // right-to-left text (Hebrew), from @mapbox/mapbox-gl-rtl-text 0.3.0, kept here
   const BASE = new Map(); // the street map's own layers, with the visibility each came with
   const BASE_PAINT = new Map(); // ... and the paint each came with
   let physicalOK = false, waterBefore = null, lineBefore = null;
@@ -1369,15 +1714,15 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const icons = new Map(); // which colours each icon was drawn in
   function drawIcons(pal) {
     const make = (name, size, paint) => {
+      const key = `${pal.ink}|${pal.halo}|${pal.dark}`;
+      if (map.hasImage(name) && icons.get(name) === key) return; // unchanged (drawn again, it held up every change of option)
       const r = 2, c = document.createElement('canvas');
       c.width = c.height = size * r;
-      const g = c.getContext('2d');
+      const g = c.getContext('2d', { willReadFrequently: true }); // (read back below: drawn in memory, not on the graphics chip)
       g.scale(r, r);
       g.translate(size / 2, size / 2);
       paint(g);
       const img = g.getImageData(0, 0, c.width, c.height);
-      const key = `${pal.ink}|${pal.halo}|${pal.dark}`;
-      if (map.hasImage(name) && icons.get(name) === key) return; // unchanged
       if (map.hasImage(name)) map.removeImage(name);
       map.addImage(name, img, { pixelRatio: r });
       icons.set(name, key);
@@ -1393,9 +1738,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   async function startMap() {
     if (!window.maplibregl) throw new Error('the map library did not load');
     // Hebrew: the right-to-left text support, loaded before the map starts, so every layer's Hebrew is shaped from the first
-    if (HE) await (rtlLoad = loadRTL());
+    if (HE) await (rtlLoad || (rtlLoad = loadRTL()));
     let liberty = null;
-    try { liberty = await withTimeout(fetch(GL_STYLE).then((r) => r.json()), 12000, 'the street map took too long'); } catch (e) { liberty = null; }
+    try { liberty = await withTimeout(window.EARLY.style, 12000, 'the street map took too long'); } catch (e) { liberty = null; }
     const style = { version: 8, glyphs: GLYPHS, sources: { ...(liberty ? liberty.sources : {}) }, layers: [{ id: 'pol-bg', type: 'background', paint: { 'background-color': GROUND.light.water } }] };
     if (liberty && liberty.sprite) style.sprite = liberty.sprite;
     for (const l of liberty ? liberty.layers : []) {
@@ -1441,7 +1786,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // over the sea). Only the current one is shown.
   function addLayers() {
     if (physicalOK) {
-      map.addSource('st', { type: 'vector', tiles: [fresh(`${new URL('.', location.href).href}tiles/{z}/{x}/{y}.pbf`)], minzoom: 0, maxzoom: 6 });
+      // (asked for under the data's version: tiles of a new build never come from a cache)
+      const tiles = `${new URL('.', location.href).href}tiles/{z}/{x}/{y}.pbf`, tv = tileVersion();
+      map.addSource('st', { type: 'vector', tiles: [BUST || !tv ? fresh(tiles) : `${tiles}?v=${tv}`], minzoom: 0, maxzoom: 6 });
       // place names in English (Latin letters), or Hebrew
       baseLanguage();
       if (BASE.has('building-3d')) BASE.set('building-3d', 'none');
@@ -1462,16 +1809,19 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
   function addOverlay(sfx) {
     const flat = sfx === '-f', id = (n) => n + sfx;
-    const src = (n) => map.addSource(id(n), { type: 'geojson', data: n === 'areas' && !flat ? fc(areaFeatures) : EMPTY, tolerance: n === 'names' ? 0 : 0.25 });
+    const src = (n) => map.addSource(id(n), { type: 'geojson', data: EMPTY, tolerance: n === 'names' ? 0 : 0.25 });
     for (const n of ['boxes', 'land-all', 'land', 'areas', 'mesh', 'outside', 'outside-lines', 'hover-area', 'hover-dot', 'dots', 'names', 'cities', 'caps', 'seas']) src(n);
     const add = (layer, before) => map.addLayer({ ...layer, id: id(layer.id), source: id(layer.source) }, flat ? undefined : before);
     const under = physicalOK ? waterBefore : undefined, over = physicalOK ? lineBefore : undefined;
     // the land (flat: there's no street map), the land no shetach covers (Rest of the world), the shetachim
     // the land outside the view, faded (the owner's first rule: never the countries around as if they were on the map)
     add({ id: 'land-all', type: 'fill', source: 'land-all', paint: { 'fill-antialias': false } }, under);
+    add({ id: 'land-rest', type: 'fill', source: 'areas', paint: { 'fill-antialias': false } }, under); // (the shetachim round the view)
     // Alaska and Hawaii's boxes (political, USA view): a solid ground over whatever's under it, a frame, the name
     add({ id: 'box-bg', type: 'fill', source: 'boxes', filter: ['==', ['geometry-type'], 'Polygon'], paint: { 'fill-antialias': false } }, under);
     add({ id: 'land', type: 'fill', source: 'land', paint: { 'fill-antialias': false } }, under);
+    // the view's land: its areas, in the land's colour (under the shetachim's, and where an area has no shetach)
+    add({ id: 'land-view', type: 'fill', source: 'areas', paint: { 'fill-antialias': false } }, under);
     add({ id: 'out-fill', type: 'fill', source: 'outside', paint: { 'fill-antialias': false } }, under);
     add({ id: 'fill', type: 'fill', source: 'areas', paint: { 'fill-antialias': false } }, under);
     // physical: each shetach as a soft tint under the water and relief
@@ -1606,56 +1956,81 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const prev = V && V.cur;
     viewData();
     if (!glOK) return;
-    for (const S of [V.M, V.F]) {
-      if (!S) continue;
-      const set = (n, d) => map.getSource(n + S.sfx).setData(d);
-      S.namesShown = null; // (the sources held another view's)
-      set('areas', S.areas);
-      set('mesh', S.mesh);
-      set('dots', dotData(S));
-      set('cities', cityData(S));
-      set('caps', capData(S));
-      set('land', fc([state.empty ? S.land : S.landView]));
-      set('land-all', fc([S.land]));
-      set('boxes', fc(S.boxFeatures || []));
-      if (S.flat) set('seas', seaData(S));
-    }
     frameView(animate && prev && !prev.flat);
-    setOutside();
     apply();
     warmNames();
   }
-  // The names of the view's other way of drawing (the street maps' when the political map shows, and back), worked out
-  // while the page is idle, so changing maps has nothing left to work out and is instant.
-  function warmNames() {
-    const idle = window.requestIdleCallback || ((f) => setTimeout(f, 800));
-    idle(() => { for (const T of [V.M, V.F]) if (T && T !== V.cur && state.labels !== 'off') labelData(T); }, { timeout: 3000 });
+  // What each of the map's sources holds: [set, what]. A source is handed data only when that changes (the map copies
+  // all it's handed: the world's shapes, handed over again and again, took it seconds).
+  const FED = new Map();
+  function feed(S, n, what, make) {
+    const id = n + S.sfx, was = FED.get(id);
+    if (was && was[0] === S && was[1] === what) return;
+    FED.set(id, [S, what]);
+    map.getSource(id).setData(make());
+    if (window.__feedLog) window.__feedLog.push([id, what, Math.round(performance.now())]); // (tests: when each came)
   }
-  // The land no shetach covers, and the land outside the view: only faded under the sea's blue, gone on a grey sea
-  // (the owner's first rule: show only the shetachim); with Rest of the world it's greyed, with its coast and borders.
-  function setOutside() {
-    if (!glOK || !V) return;
-    const o = outsideData();
-    const key = `${!!o}|${state.empty}|${state.borders}`;
-    if (V.outsideKey === key) return;
-    if (o) V.outsideKey = key;
-    for (const S of [V.M, V.F]) {
-      if (!S) continue;
-      let so = o;
-      if (o && S.flat) {
-        if (!S.outside) {
-          S.outside = within(S, () => ({ fill: fc(o.fill.features.filter((f) => V.view === VIEWS.world || !crossing(V.view, d3.geoBounds(f))).map((f) => feature(projGeom(f.geometry, true), f.properties)).filter((f) => f.geometry)),
-            coast: feature(projGeom(o.coast.geometry) || { type: 'MultiLineString', coordinates: [] }, o.coast.properties),
-            borders: feature(projGeom(o.borders.geometry) || { type: 'MultiLineString', coordinates: [] }, o.borders.properties) }));
-        }
-        so = S.outside;
-      }
-      map.getSource(`land${S.sfx}`).setData(fc(state.empty ? [S.land, ...(so ? so.fill.features : [])] : [S.landView]));
-      map.getSource(`land-all${S.sfx}`).setData(fc([S.land, ...(so ? so.fill.features : [])]));
-      map.getSource(`outside${S.sfx}`).setData(so && state.empty ? so.fill : EMPTY);
-      const lines = so && state.empty ? [so.coast].concat(state.borders !== 'shetach' ? [so.borders] : []) : [];
-      map.getSource(`outside-lines${S.sfx}`).setData(fc(lines));
+  // (tests: data-drawn once everything of the shown map is handed over, its names too)
+  function markDrawn() {
+    const S = V.cur, names = FED.get(`names${S.sfx}`);
+    if (S.fedAll && names && names[0] === S && names[1].startsWith('names|')) document.documentElement.dataset.drawn = '1';
+  }
+  // The shown map's data: the dots, cities and capitals at once (they're quick), then the shetachim, their lines and the
+  // land, each as soon as it's worked out (a slice at a time), then the land round the view once its file is in. The
+  // view's other way of drawing is only handed over when it's shown.
+  function feedSet(S) {
+    if (!glOK || S !== V.cur) return;
+    const lang = HE ? 'he' : 'en';
+    const failed = (e) => console.error(e);
+    feed(S, 'boxes', 'boxes', () => fc(S.boxFeatures || []));
+    feed(S, 'dots', 'dots', () => dotData(S));
+    feed(S, 'cities', `cities|${lang}`, () => cityData(S));
+    feed(S, 'caps', `caps|${lang}`, () => capData(S));
+    if (S.flat) feed(S, 'seas', `seas|${lang}`, () => seaData(S));
+    if (!S.made.has('areas')) { prep(S, 'areas').then(() => feedSet(S), failed); return; }
+    if (!areasShown(S)) { feed(S, 'areas', 'areas', () => S.made.get('areas')); setNames(S); }
+    // the lines shown: the coast (not over the street map, which has its own), the shetachim's borders, and with States
+    // or Both the countries' and states' (the physical map's borders are its tiles')
+    const street = !political(), kinds = isPhysical() && physicalOK ? [] : [...(street ? [] : ['coast']),
+      ...(state.borders !== 'regular' ? ['shetach', 'inner'] : []), ...(state.borders !== 'shetach' ? ['country', 'regular'] : [])];
+    const missing = kinds.find((k) => !S.made.has(`mesh:${k}`));
+    if (missing) { prep(S, `mesh:${missing}`).then(() => feedSet(S), failed); return; }
+    if (kinds.length) feed(S, 'mesh', `mesh|${kinds}`, () => fc(kinds.map((k) => S.made.get(`mesh:${k}`))));
+    // (Rest of the world on a flat continent or a boxed map: all the land, the shetachim's round the view too)
+    if (state.empty && !S.wholeAreas) {
+      if (!S.made.has('land')) { prep(S, 'land').then(() => feedSet(S), failed); return; }
+      feed(S, 'land', 'land', () => S.made.get('land'));
     }
+    const kind = S.flat ? 'lo' : 'hi';
+    if (!OUTSIDE[kind].done) { outsideReady(kind).then(() => feedSet(S)); return; }
+    // the land round the view, faded; or with Rest of the world the land no shetach covers, greyed, with its lines
+    for (const [n, what] of state.empty ? [['outside', 'outFill'], ['outside-lines', 'outLines']] : [['land-all', 'landAll']]) {
+      if (!S.made.has(what)) { prep(S, what).then(() => feedSet(S), failed); return; }
+      feed(S, n, what, () => S.made.get(what));
+    }
+    S.fedAll = true;
+    markDrawn();
+  }
+  // The prep of a set's first shapes, in the order they're shown (the page starts on this while the map loads)
+  const prepSet = (S) => { prep(S, 'areas').catch((e) => console.error(e)); for (const k of ['shetach', 'coast', 'inner']) prep(S, `mesh:${k}`).catch((e) => console.error(e)); };
+  // The names of the view's other way of drawing (the street maps' when the political map shows, and back), worked out
+  // while the page is idle, so changing maps has nothing left to work out and is instant: a slice at a time, only while
+  // the map stands still, so it never gets in the way of moving it.
+  function warmNames() {
+    const idle = window.requestIdleCallback || ((f) => setTimeout(() => { const t0 = performance.now(); f({ didTimeout: false, timeRemaining: () => Math.max(0, 10 - (performance.now() - t0)) }); }, 300));
+    const work = (deadline) => {
+      for (const T of [V.M, V.F]) {
+        if (!T || T === V.cur || state.labels === 'off') continue;
+        const ck = labelKey(), what = `names|${ck}`;
+        if (T.made.has(what)) continue;
+        if (!T.makers[what]) T.makers[what] = () => namesOf(T, ck);
+        const j = job(T, what);
+        while (!(map && map.isMoving()) && deadline.timeRemaining() > 4) if (stepJob(T, what, j)) break;
+        if (j.done && j.value === null) { T.made.delete(what); T.jobs.delete(what); return; } // (the mode changed: warmed when shown)
+        if (!j.done) { idle(work, { timeout: 3000 }); return; }
+      }
+    };
+    fontsReady.then(() => idle(work, { timeout: 3000 }));
   }
 
   // Everything the options decide: which look, which fills and lines, the names, dots, cities and capitals.
@@ -1678,7 +2053,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // the street map: its own look for each of ours
     lookBase(physical ? 'physical' : pal.dark ? 'dark' : 'light', G);
     $('#sea-row').hidden = physical;
-    setOutside();
+    feedSet(S);
     show('pol-bg', !street);
     paint('pol-bg', 'background-color', G.water);
     for (const [id, vis] of BASE) {
@@ -1700,7 +2075,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const polOn = on && !physical;
       // fills: shetachim (blank parts of states stay land), or every state with States borders; strong zoomed out, and
       // see-through at street level so the streets show
-      show(id('land'), on && !street);
+      show(id('land-view'), on && !street);
+      map.setFilter(id('land-view'), state.empty ? null : inView);
+      paint(id('land-view'), 'fill-color', G.land);
+      show(id('land'), on && !street && state.empty && !T.wholeAreas);
+      // the land round the view, faded: its colour mixed with the sea's (drawn see-through, a shape that overlaps itself
+      // where it's simplified zoomed out showed a lighter patch, Tamaulipas in the USA view)
+      const faded = d3.interpolateRgb(G.water, G.land)(0.4);
+      show(id('land-rest'), on && !street && !state.empty);
+      map.setFilter(id('land-rest'), ['!', inView]);
+      paint(id('land-rest'), 'fill-color', faded);
+      paint(id('land-rest'), 'fill-opacity', state.sea ? 1 : 0);
       for (const n of ['box-bg', 'box-line', 'box-name']) show(id(n), on && !street && !!T.boxed);
       paint(id('box-bg'), 'fill-color', G.water);
       paint(id('box-line'), 'line-color', G.grey);
@@ -1712,8 +2097,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       map.setLayoutProperty(id('box-name'), 'text-offset', HE ? [-0.5, 0.45] : [0.5, 0.45]);
       paint(id('land'), 'fill-color', G.land);
       show(id('land-all'), on && !street && !state.empty);
-      paint(id('land-all'), 'fill-color', G.land);
-      paint(id('land-all'), 'fill-opacity', state.sea ? 0.4 : 0);
+      paint(id('land-all'), 'fill-color', faded);
+      paint(id('land-all'), 'fill-opacity', state.sea ? 1 : 0);
       show(id('fill'), polOn);
       map.setFilter(id('fill'), regular ? inView : ['all', inView, ['>=', ['get', 'cs'], 0]]);
       paint(id('fill'), 'fill-color', state.color === 'plain' ? pal.plain : ['match', ['get', regular ? 'cu' : 'cs'], ...pal.c.flatMap((c, i) => [i, c]), pal.plain]);
@@ -1741,7 +2126,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         paint(lid, 'line-opacity', alpha);
         paint(lid, 'line-dasharray', dash || [1, 0]);
       }
-      show(id('out-line'), polOn);
+      show(id('out-line'), polOn && state.empty);
+      map.setFilter(id('out-line'), state.borders === 'shetach' ? ['==', ['get', 'k'], 'coast'] : null); // (countries' borders with States or Both)
       paint(id('out-line'), 'line-color', G.grey);
       paint(id('out-line'), 'line-width', 0.7);
       paint(id('out-line'), 'line-opacity', ['match', ['get', 'k'], 'coast', 0, 0.6]);
@@ -1750,23 +2136,26 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       map.setFilter(id('pick'), inView);
       show(id('pick'), on);
     }
-    // physical (standard only): shetach borders where both sides are in the view, and the tints
+    // physical (standard only): the shetachim's borders, and the tints
     if (physicalOK) {
       const physOn = physical && S === V.M;
       const list = ['literal', V.view.countries];
       const a = ['in', ['get', 'ca'], list], b = ['all', ['has', 'cb'], ['in', ['get', 'cb'], list]];
       const shetachLines = state.borders !== 'regular';
-      map.setFilter('st-line-shetach', ['all', a, b, ['==', ['get', 'sh'], 0], ['!', ['has', 'tr']]]);
+      // every land border of a shetach in the view, also where the other side is land no shetach covers or a shetach
+      // outside the view (owner, Oct 7: Bulgaria had a proper border and Israel, with no shetach round it, almost none)
+      const edge = ['all', ['has', 'cb'], ['any', a, b], ['==', ['get', 'sh'], 0]];
+      map.setFilter('st-line-shetach', ['all', edge, ['!', ['has', 'tr']]]);
       map.setFilter('st-line-inner', ['all', a, b, ['has', 'tr']]);
       // the open edge of an area: its coast, and where it reaches out over the water to the international line (Ontario
       // in the Great Lakes) the maritime border; thin, as the old page drew it (it went missing Oct 5, the owner noticed).
       // Not the lake edges inside one shetach (Essex's water, Michigan on both sides: lk).
-      map.setFilter('st-line-coast', ['any', ['all', a, ['!', ['has', 'cb']], ['!', ['has', 'lk']]], ['all', b, ['!', a]]]);
+      map.setFilter('st-line-coast', ['all', a, ['!', ['has', 'cb']], ['!', ['has', 'lk']]]);
       show('st-line-coast', physOn);
       paint('st-line-coast', 'line-color', PHYS.ink);
       paint('st-line-coast', 'line-width', ['interpolate', ['linear'], ['zoom'], 2, 0.6, 6, 0.9, 10, 1.2]);
       paint('st-line-coast', 'line-opacity', 0.4);
-      map.setFilter('st-line-casing', ['all', a, b, ['==', ['get', 'sh'], 0]]);
+      map.setFilter('st-line-casing', edge);
       const fadeOut = (v) => ['interpolate', ['linear'], ['zoom'], 9, v, 12, 0];
       const BORDER = 'hsl(258, 28%, 44%)';
       for (const lid of ['st-line-shetach', 'st-line-inner']) {
@@ -1831,11 +2220,15 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (pinned) showCard(pinned, lastPoint, true);
   }
 
+  // whether S's areas are on the map yet (its names wait for them: names over an empty sea looked broken)
+  const areasShown = (S) => { const f = FED.get(`areas${S.sfx}`); return !!f && f[0] === S; };
   function setNames(T) {
-    const data = labelData(T);
-    if (T.namesShown === data) return;
-    T.namesShown = data;
-    map.getSource(`names${T.sfx}`).setData(data);
+    const what = `names|${labelKey()}`;
+    if (T.made.has(what) && areasShown(T)) { feed(T, 'names', what, () => T.made.get(what) || EMPTY); markDrawn(); return; }
+    if (T.made.has(what)) return; // (handed over with the areas: feedSet)
+    // (not worked out yet: no names for now rather than another view's or mode's, and these as soon as they're ready)
+    feed(T, 'names', 'none', () => EMPTY);
+    namesFor(T).then((data) => { if (data && T === V.cur) setNames(T); }, (e) => console.error(e));
   }
 
   // ---------- hover and tap ----------
@@ -2110,6 +2503,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       // right-to-left shaping for the map's Hebrew names, loaded the first time Hebrew is shown
       // right-to-left shaping for the map's Hebrew names, loaded the first time Hebrew is shown (a tap meanwhile waits)
       await (rtlLoad || (rtlLoad = loadRTL()));
+      bilingual();
     }
     HE = he;
     try { localStorage.setItem('shetachim-lang', lang); } catch (e) { /* not remembered, still switched */ }
@@ -2128,15 +2522,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     syncSheet();
     if (!glOK) return;
     baseLanguage();
-    // the map's own names: worked out again in this language
-    for (const sets of SETS.values()) for (const S of [sets.M, sets.F]) if (S) { S.labelCache.clear(); S.namesShown = null; }
-    for (const S of [V.M, V.F]) {
-      if (!S) continue;
-      const set = (n, d) => map.getSource(n + S.sfx).setData(d);
-      set('cities', cityData(S));
-      set('caps', capData(S));
-      if (S.flat) set('seas', seaData(S));
-    }
+    // the map's own names, cities, capitals and seas in this language (apply hands them over again)
     apply();
     if (pinned) showCard(pinned, lastPoint, true); else hideCard();
   }
@@ -2146,6 +2532,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // ---------- start ----------
   syncSheet();
   viewData();
+  prepSet(V.cur); // (the first shapes are worked out while the map starts)
   try {
     await startMap();
   } catch (err) {
@@ -2177,7 +2564,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   window.__dbg = { map: () => map, showCard: (hit) => showCard(hit, { clientX: 400, clientY: 300 }, true), labelData, V: () => V, dotData, spotsFor, partsOf, polylabel, unlon, unlat, PX, setMode, centreLL, spanKm,
     zoomTo: (st) => zoomToArea(pieces.find((g) => g.properties.state === st).properties.id),
     at: (lon, lat) => map.jumpTo({ center: within(V.cur, () => P(lon, lat)) }),
-    go: (lon, lat, z) => { V.cur = V.M; limits(); apply(); map.jumpTo({ center: [lon, lat], zoom: z }); } }; // go: a standard place and zoom (the map then picks flat or standard)
+    go: (lon, lat, z) => { V.cur = V.M; limits(); apply(); map.jumpTo({ center: [lon, lat], zoom: z }); }, // go: a standard place and zoom (the map then picks flat or standard)
+    // settled: nothing left to work out or hand over for the map shown, its names included, and the map has drawn it
+    settled: () => { const n = FED.get(`names${V.cur.sfx}`); return !WAITING.length && !!V.cur.fedAll && map.loaded() && (state.labels === 'off' || (!!n && n[0] === V.cur && n[1] === `names|${labelKey()}`)); } };
   document.documentElement.dataset.ready = '1';
 })();
 </script>

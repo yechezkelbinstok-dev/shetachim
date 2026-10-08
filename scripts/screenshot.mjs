@@ -48,9 +48,22 @@ for (const spec of specs) {
       const file = w && path.join(REPO, 'node_modules', '@fontsource', fam, 'files', `${fam}-${fam === 'heebo' ? 'hebrew' : 'latin'}-${w}-normal.woff2`);
       return file && fs.existsSync(file) ? route.fulfill({ status: 200, contentType: 'font/woff2', body: fs.readFileSync(file) }) : route.abort();
     }
-    if (url.host === 'tiles.openfreemap.org' && url.pathname.startsWith('/styles/')) {
+    // OpenFreeMap (the street map's style, tiles, sprites and the map's fonts) is reachable from the sandbox now: fetched
+    // for real, each file kept in .cache/ofm for the next run. DEMO=1: MapLibre's demo style instead, as before.
+    if (url.host === 'tiles.openfreemap.org' && process.env.DEMO && url.pathname.startsWith('/styles/')) {
       const style = await (await fetch(`${DEMO}/style.json`)).json();
       return route.fulfill({ status: 200, contentType: 'application/json', body: JSON.stringify(style) });
+    }
+    if (url.host === 'tiles.openfreemap.org') {
+      const file = path.join(REPO, '.cache', 'ofm', decodeURIComponent(url.pathname).replace(/\/$/, '') + (/\.\w+$/.test(url.pathname) ? '' : '.json'));
+      const type = /\.png$/.test(file) ? 'image/png' : /\.pbf$/.test(file) ? 'application/x-protobuf' : 'application/json';
+      if (!fs.existsSync(file)) {
+        const r = await fetch(url.href).catch(() => null);
+        if (!r || !r.ok) return route.fulfill({ status: r ? r.status : 502, body: '' });
+        fs.mkdirSync(path.dirname(file), { recursive: true });
+        fs.writeFileSync(file, Buffer.from(await r.arrayBuffer()));
+      }
+      return route.fulfill({ status: 200, contentType: type, body: fs.readFileSync(file) });
     }
     if (url.host === 'demotiles.maplibre.org') {
       const r = await fetch(`${DEMO}${url.pathname}`);
@@ -76,6 +89,9 @@ for (const spec of specs) {
     else await page.evaluate(([n, v]) => document.querySelector(`.seg[data-name="${n}"] [data-value="${v}"]`).click(), [name, value]);
   }
   await page.waitForTimeout(900);
+  // (the page works its shapes and names out a slice at a time: wait till it's done)
+  await page.waitForFunction(() => window.__dbg && window.__dbg.settled && window.__dbg.settled(), null, { timeout: 90000 }).catch(() => errors.push(`${spec}: never settled`));
+  await page.waitForTimeout(400);
   const stats = await page.evaluate(() => ['#view-name', '#st-shetachim', '#st-centers', '#st-dots', '#base-msg'].map((s) => document.querySelector(s).textContent).join(' | '));
   const file = path.join(out, `${spec.replace(/[:/,=]/g, '_')}.png`);
   await page.screenshot({ path: file });

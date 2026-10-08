@@ -83,6 +83,62 @@ are no longer used.
   places near Slavyansk (48.93, 37.69), about 14 km on the Ukrainian side, stays Ukraine's. Kherson, Zaporozhye, Kharkov
   stay Ukraine's.
 
+## SPEED (Oct 8, done) — the first view at once, no long blank map, never an old map after an update
+The owner (Oct 7): coming back to the page, or reloading it, showed only the blue sea "for a long time"; panning and
+zooming were painful at the start; "whatever you institute to fix this should not make that when the page gets updated
+it keeps old stuff". Measured with `node scripts/profile.mjs phone 4` (a slow phone): the page was ready after 26 s, one
+15-second freeze (every shape of the world projected, handed to the map engine twice or three times, all the names
+worked out in one go). Now: the shetachim show at ~5 s on that slow phone (~1.6 s on a desktop), their borders a second
+later, the names come in biggest first and are all there by ~11 s (4 s desktop); a reload shows shetachim and names
+together at ~4.4 s (1.2 s desktop); no freeze over ~0.6 s, so the map moves from the first moment. How:
+- **Asked for at once** (`EARLY`, a small script at the top of the page): the data files and the street map's style are
+  fetched while the map library still loads. **Every data file is checked with the site on each load** (`cache:
+  'no-cache'`: an unchanged file comes from the browser's cache after a quick check, a new one at once), and the physical
+  map's tiles are asked for under the data's version (`tileVersion()`, from the files' ETags) — so an update shows on the
+  next load, never an old map. The refresh button (`?v=`) still fetches everything anew.
+- **A slice at a time** (`prep`/`got`/`need`, `S.makers`): each set's heavy shapes (areas, each kind of line, the land,
+  the land no shetach covers, the names) are generators worked out once each, ~12 ms at a time between frames (4 ms
+  while the map moves), the most urgent first (`RANK`: areas, then lines, then names, then the land round the view).
+  `got(S, what)` works one out at once when code needs it now. **Don't add work that runs in one go at startup.**
+- **Handed over once** (`feed`): a source gets new data only when what it shows changes (`FED`); the map engine copies
+  (stringifies) everything it's handed, which was most of the freeze. The view's other way of drawing (the standard map
+  under the street map, while the flat political one shows) is only handed over when it's shown. Only the lines shown are
+  worked out (`mesh:<kind>`: coast, shetach, inner; country and regular with Countries/States/Both).
+- **The land is drawn from the areas** (`land-view`, `land-rest`: the areas source in the land's colour) instead of
+  merging the world's land into one outline (1 s+ on the phone); a flat continent's or the boxed USA's land round the view
+  still is one shape (`land`, only for the faded rest of the world and Rest of the world). The faded land is a solid
+  colour mixed with the sea's (see-through, a simplified shape overlapping itself showed a lighter patch: Tamaulipas).
+- **Names**: biggest areas first, shown every ~0.7 s as they come; held back until the areas are on the map; label
+  placement much quicker (a heap in `polylabel`, each pole once, `emWidth` measured once, cheap inside tests); they wait
+  for the page's font to load (3 s at most) so they're measured right. **Kept in the browser for the next visit**
+  (localStorage `shetachim-names|<fingerprint>|<set>|<mode>`): the fingerprint is this page's code (all its scripts),
+  the data files' ETags and whether the font had loaded, so a new version of the page or the data never shows old names;
+  older entries are cleared when new ones are kept. No ETag from the site, no keeping.
+- Smaller: the topology decoded once to plain lon/lat (`decodeArcs`, to 1e-6°); flat coordinates rounded to 1e-5°
+  (shorter to hand over); the Hebrew name setup only when Hebrew is shown (`bilingual()`); neighbours worked out once for
+  both colourings; icons not redrawn on every option change; the RTL plugin asked for at the start; the root
+  `index.html` forwards by script (at once, keeping `?lang=he`).
+- `web/data/outside-lo.json` (new, from the build): the land no shetach covers, light, for the flat maps; the standard
+  maps use the full `outside.json` (it meets the shetachim point for point).
+- Testing: `window.__dbg.settled()` is true once nothing is left to work out or hand over for the map shown (names
+  included); `data-drawn="1"` on `<html>` once the first view is complete; `window.__feedLog` (if a test sets it to [])
+  records when each source got its data. `scripts/screenshot.mjs` waits for `settled()`. **OpenFreeMap is reachable from
+  the sandbox now (Oct 8)**: screenshot.mjs and profile.mjs fetch its style, tiles, sprites and fonts for real (kept in
+  `.cache/ofm`), so screenshots show the real physical map and the map's names (before, its fonts were blocked and no
+  names showed in screenshots at all); `DEMO=1` for MapLibre's demo style as before.
+- Physical map (owner, Oct 7): **every land border of a shetach gets the purple border**, also where the other side has no
+  shetach (Israel's against Egypt and Jordan; before, only borders between two shetachim had it).
+
+## OWNER'S REQUESTS WAITING (Oct 7; set aside for the speed work at his word: "put all this to the side") — do next
+1. **Head shliach labels in Countries mode too** (today the option is only for Shetachim borders); there a name may
+   cross country borders.
+2. **Countries mode, Israel**: Judea and Samaria is Israel — no line there, one country; the held parts of Gaza,
+   Lebanon and Syria shown as held, but **not** fully part of Israel (unlike the Shetachim map, where they are).
+3. **Shetachim mode: an option to show the countries with no shetach as ordinary bordered countries.**
+4. **Country cards: the country's own head shliach**, with the shetach's head above him (needs research for the
+   countries of a multi-country shetach: who heads each country).
+5. **Countries mode: the US states, Canadian provinces/territories and Australian states each shown as its own area.**
+
 ## OWNER'S STANDING RULES (Oct 1) — never undo these
 - **Any Chabad activity in a country puts it in a shetach** (Oct 5): visiting bochurim, a shliach who serves it from next
   door, holiday trips — the country goes to the shetach of the shliach responsible (Mongolia is Russia's; Guyana is the Caribbean's).
@@ -762,10 +818,10 @@ The owner got very angry at the first version. The lessons:
 - Testing: headless Chromium is at `/opt/pw-browsers`, and the global `playwright` package is
   installed. Chromium doesn't trust the proxy CA, so serve the repo with `page.route`, answer
   cdnjs URLs from local npm copies (`npm install d3@7.9.0 topojson@3.0.2 maplibre-gl@4.7.1` in a
-  scratch folder), and fetch anything else with `curl` inside the route handler. For the physical
-  map, answer `tiles.openfreemap.org/styles/liberty` with MapLibre's demo style
-  (`raw.githubusercontent.com/maplibre/demotiles/gh-pages/style.json`, its tiles and fonts from
-  the same branch). WebGL needs `--use-angle=swiftshader --enable-unsafe-swiftshader`.
+  scratch folder), and fetch anything else with `curl` inside the route handler. OpenFreeMap
+  (`tiles.openfreemap.org`: the style, tiles, sprites, fonts) is reachable now (Oct 8): scripts/screenshot.mjs
+  fetches it for real (`DEMO=1`: MapLibre's demo style, as before it was). WebGL needs `--use-angle=swiftshader
+  --enable-unsafe-swiftshader`.
   Never disable TLS checks.
 - Check a desktop (1400×860) and a phone (390×844) viewport, in light and dark, after changes,
   in both Political and Physical.

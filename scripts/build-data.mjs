@@ -17,7 +17,8 @@
 //   web/data/centers.geojson            one point per location (centers at the same spot merged)
 //   web/data/cities.json                every city on the map with at least one center, biggest first
 //   data/world-all.json                 like geo.json, plus every country no shetach covers (outside: true), for the SVG export
-//   web/data/outside.json               the land no shetach covers, for the political map's "Land with no shetach" option
+//   web/data/outside.json               the land no shetach covers (the faded land round a view, "Rest of the world")
+//   web/data/outside-lo.json            the same, light, for the flat (zoomed-out) maps
 //   data/report.md                      counts and data problems worth a look
 //
 // Boundary files are downloaded once into .cache/ (Natural Earth; US Census counties, towns and tracts; GADM).
@@ -777,6 +778,11 @@ async function buildGeo(data) {
   // The whole world, land no shetach covers included (marked outside), for the world names SVG (scripts/export-svg.mjs).
   fs.writeFileSync(at('data', 'world-all.json'), out['world.json']);
   fs.writeFileSync(path.join(OUT, 'outside.json'), out['outside.json']);
+  // and a light copy for the flat (zoomed-out) maps, where full detail is more than a screen can show and only slows the
+  // page down: thinned to 40% on a coarser grid, as outside.json used to be
+  const lo = await mapshaper.applyCommands('-i world.json -filter "outside" -dissolve country copy-fields=name ' +
+    '-simplify 40% keep-shapes -o outside-lo.json format=topojson quantization=50000', { 'world.json': out['world.json'] });
+  fs.writeFileSync(path.join(OUT, 'outside-lo.json'), lo['outside-lo.json']);
   writeTiles(JSON.parse(out['world.json']), new Map(data.shetachim.filter((x) => x.territoryOf).map((x) => [x.id, x.territoryOf])));
   const pieces = JSON.parse(out['pieces.json']).features.filter((f) => !f.properties.outside);
   const byStateCount = count(pieces, (f) => f.properties.state);

@@ -8,7 +8,7 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
-## ▶ WHERE WE ARE — READ THIS FIRST (Oct 8; the last session ran out of usage mid-task: continue exactly from here)
+## ▶ WHERE WE ARE — READ THIS FIRST (Oct 8; continued in a second window after the first ran out of usage)
 The owner (Oct 8): "usage about to run out … I'm going to continue this in a different window … it needs to be extremely
 seamless, just a direct continuation". So: pick up the task below as if nothing happened; don't re-ask what's settled here.
 
@@ -16,7 +16,9 @@ seamless, just a direct continuation". So: pick up the task below as if nothing 
 the live site's `claude/bold-albattani-aqfnj9`, fast-forward). Commits this round, oldest first: d0d681d Israel's held
 ground (Gaza/Lebanon/Syria from the owner's KML) · a24dc2d occupied Ukraine + Crimea → Lazar's Russia shetach · 2fab177
 posters · 0fce460 **SPEED** (see the SPEED section below) · f0af3aa **Countries mode + Rest of the world**
-(requests 1, 2, 3 and 5 of the five the owner parked; see "COUNTRIES MODE AND THE REST OF THE WORLD" below). Check with
+(requests 1, 2, 3 and 5 of the five the owner parked; see "COUNTRIES MODE AND THE REST OF THE WORLD" below); then, in a
+second window (branch `claude/exciting-euler-o7vx0z`, also pushed to the live one): the country cards (request 4) and
+the held ground's colour on the Countries map — see DONE below. Check with
 `git log --oneline -8`. Deploy = push to `claude/bold-albattani-aqfnj9` (GitHub Pages serves it, ~1–2 min). After every
 finished step: commit, push both branches, tell the owner in plain words (he follows on his phone).
 
@@ -31,52 +33,41 @@ shetach)" → **IN PROGRESS, below**. (d) "states and territories of usa Canada 
 in the country view" → done (they always were on the political map; now the street and physical maps draw them too).
 (e) He said "No deal with that after, go to what you were doing before please the speed problems" — i.e. speed first,
 then (b)–(d); speed is done.
+(f) Oct 8: "in the country's map … the three occupied territories … should just be a lighter version of whatever Israel
+happens to be … with like maybe dashed line separation" → done. (g) "the thing with head shliachs name being across
+multiple countries in the country's view" → already so; checked.
 
-**IN PROGRESS: country cards with the country's own head shliach (request c).** Nothing of it is in the code yet. What's
-settled:
-- *Where it shows*: the area card in Countries mode (`areaHTML`, the `state.borders === 'regular' || !s` branch, today
-  only kicker + name + the shetachim's names + centers). New card: kicker (Country / State / Province / Held by Israel),
-  name, then **each shetach covering it with its head on top** ("Central Africa · Shlomo Bentolila", via `headHTML`; a
-  territory like India: its parent's head, as `shetachLine` does), then **"Head shliach in Kenya: Rabbi Levi Yitzchak
-  Notik"** (Hebrew: `השליח הראשי ב<country>: …`; names through `personName()` so Hebrew works), then centers + Zoom in.
-  No country line where the shetach's own head is based in that country (DRC → Bentolila), or where the country is the
-  whole shetach, or where it has no center of its own (the shetach's head serves it).
-- *Data plan*: new `data/country-heads.json` → `{ "note": "...", "heads": { "<ISO3>": { "title", "firstName",
-  "lastName", "center", "city", "centerId" } } }`; the build adds it to web/data/shetachim.json as `countryHeads` (in
-  `forPage`, end of build-data.mjs `main()`); the page reads `shetachFile.countryHeads`. Then `npm run build` (~5 min),
-  `npm run hebrew` if names need Hebrew, screenshot a few cards (Kenya, Luxembourg, Nigeria, Cayman, DRC, Benin), stress
-  test, commit, push both.
-- *Rule used (the owner's own rule for who a center's shliach is)*: the first living man listed at the country's own
-  center on chabad.org (web/data/centers.geojson `personnel`). Only chabad.org's current listing counts — never invent.
-- *The 14 shetachim spanning several countries* and what the listing gives (computed from geo.json + centers.geojson):
-  **belgium** (Slavaticki, Antwerp): LUX → Rabbi Mendel Edelman (Chabad Lubavitch du Luxembourg). **caribbean**
-  (Mendel Zarchi, Puerto Rico): ABW Ahron Blasberg · BHS Sholom Bluming · BLM Yitzchok Gurewitch · BMU Chaim Birnhack ·
-  BRB Eli Chaikin · CUW Refoel Silver · CYM Berel Pewzner · DOM **Shimon Pelman** (Chabad-Lubavitch of Dominican
-  Republic, Santo Domingo — not Daniel Silco of Puerto Plata, a regional house) · GRD Boruch Rozmarin · JAM Yaakov Y.
-  Raskin · LCA Avraham Super · SXM Moishe Chanowitz · TCA Shmulik Berkowitz · VIR Asher Federman; no center: AIA ATG BES
-  CUB DMA GLP GUY HTI KNA MAF MSR MTQ TTO VCT VGB. **central-africa** (Shlomo Bentolila, Kinshasa): AGO Levi Yitzchak
-  Chekly (listing spells "Levi itshak") · CIV Yerachmiel Bensaid · GHA Yisroel Noach Majesky · KEN Levi Yitzchak Notik ·
-  NGA **Israel Uzan** (Chabad Lubavitch of Nigeria, Abuja — Mendy Sternbach is "Chief Rabbi of Lagos", a city) · RWA
-  Chaim Bar Sela · TZA Shimon Menachem Aziza · UGA Moshe Raskin · ZMB Mendy Hertzel; no center: BEN BFA CMR COG ERI ETH
-  GAB GIN GNQ LBR MLI NAM NER SEN SLE ZWE. **china** (Mordechai Avtzon, Hong Kong): HKG is his; mainland CHN has 10
-  centers and no one country-level head found (Beijing Shimon Freundlich, Shanghai Shalom D. Greenberg…) → no line unless
-  the owner names one; MAC none. **lower-balkans** (Yoel Kaplan): ALB is his (Chief Rabbi of Albania since Dec 2010,
-  serving from Thessaloniki; chabad.org/lubavitch.com) → no extra line; BIH MKD XKO none; GRC is split (greece + lower
-  balkans). **italy**: SMR VAT none. **slovenia** (Ariel Haddad, "Chabad of Trieste and Slovenia", Trieste): SVN no
-  center of its own → no line. **switzerland** (Mendel Rosenfeld, Zurich): LIE none. **singapore** (Mordechai Abergel):
-  IDN MYS none. **thailand** (Yosef Chaim Kantor, Bangkok): KHM Bentzion Butman; LAO MMR none. **united-kingdom**: IMN
-  none. **uzbekistan** (Shaikevitz): TJK none. **russia** (Lazar): MNG none. **west-coast**: MEX is split.
-  Countries split between shetachim (UKR, GRC, ITA, MEX, AUS, US, CA): the card lists each shetach with its head; no
-  separate country head.
-- *Web research done (Oct 8) for countries with no listed center*: Albania — Kaplan (above). Ethiopia — Rabbi Eliyahu
-  Chabib ran Chabad Ethiopia in Addis Ababa ~2013–18 (SAJR; Israeli embassy page), not on chabad.org now. Laos — a Chabad
-  House in Luang Prabang, Rabbi Sholom Glitzenstein (~2015–16, "Chabad's 92nd country", JTA/Times of Israel), not on
-  chabad.org now. Cameroon, Macau, Indonesia — no shliach found. Following the "don't invent" rule these get no line;
-  if the owner wants past or unlisted shluchim shown, ask him once.
+**DONE (Oct 8, continued in a second window, branch `claude/exciting-euler-o7vx0z` + the live one): country cards
+with the country's own head shliach (request c).** In Countries mode an area's card is: kicker (Country / State /
+Province / Held by Israel), name, then **each shetach covering it with its head** ("Central Africa · Shlomo Bentolila";
+a territory like India: its parent's head; a split country lists each: Ukraine → Russia · Berel Lazar, Ukraine · Meir
+Stambler), then, where the shetach spans several countries, **"Head shliach in Kenya: Levi Yitzchak Notik"** (Hebrew
+"השליח הראשי בקניה: …", the article dropped after ב: ברפובליקה הדומיניקנית; English "in the Bahamas / the Cayman
+Islands / the Dominican Republic"), then centers + Zoom in. Names without titles, as on every card.
+- Data: `data/country-heads.json` → `heads: { ISO3: "<chabad.org center id>" }` (25 countries: Luxembourg; Aruba,
+  Bahamas, St Barths, Bermuda, Barbados, Curaçao, Cayman, Dominican Republic, Grenada, Jamaica, St Lucia, Sint Maarten,
+  Turks and Caicos, US Virgin Islands; Angola, Côte d'Ivoire, Ghana, Kenya, Nigeria, Rwanda, Tanzania, Uganda, Zambia;
+  Cambodia). The build checks each (center on the map, in that country, not the shetach's flagship; a warning if it
+  lists no living man) and writes `countryHeads` into web/data/shetachim.json; the page shows the center's **first living
+  man listed** (the owner's rule for any center) from centers.geojson, so the name follows chabad.org and its Hebrew comes
+  from data/hebrew (`countryHeadHTML` in web/index.html). No line where the shetach's head is based there (DRC, Puerto
+  Rico, Thailand, Hong Kong), where the country is a whole shetach, split between shetachim, or has no center of its own
+  (Benin, Albania — Kaplan's own, Mainland China — no country-level head on chabad.org, Laos, Myanmar…). The picks were
+  re-checked against the listing (Oct 8): every one is the first living man at that country's own national center
+  (Dominican Republic: Santo Domingo's, not Puerto Plata's; Nigeria: Abuja's, not the Lagos city rabbi).
+- **Israel's held ground on the Countries map (owner, Oct 8): a lighter shade of Israel's own colour, not colours of
+  their own**, set apart by the dashed line (the line between two states of one country; on the street/physical maps
+  `st-line-state`, also dashed). `colourState()` gives HELD-* Israel's colour index; the fill tints it 55% toward the
+  land's colour (`tint` in `apply`: paler in light mode, fainter in dark, where a "lighter" one would outshine Israel).
+- **Head shliach names across several countries in Countries mode** (the owner asked again, Oct 8): already so since
+  f0af3aa — with Countries borders and Head shliach labels the names are the shetachim's (Shlomo Bentolila once across
+  Central Africa, over the countries' borders). Checked in screenshots.
+- Checked: cards in English and Hebrew (Kenya, Luxembourg, Nigeria, Cayman, Dominican Republic, DRC, Benin, Cambodia,
+  Ukraine, Greece, India, China, Albania, Puerto Rico, held Gaza), close-ups of the dashed lines, `node scripts/stress.mjs`
+  → no errors.
 
-**Then (after the country cards):** update docs/PLAN.md (its Israel bullet still says "no line between them in any border
-mode" — now the held parts get a dashed line in Countries mode only), check `npm run svg` output is unchanged by the held
-areas (it merges shetachim, so it should be), and ask the owner what's next.
+**Next:** check `npm run svg` output is unchanged by the held areas (it merges shetachim, so it should be), then ask the
+owner what's next.
 
 **Testing tools (all in scripts/, Playwright + headless Chromium at /opt/pw-browsers):** `node scripts/screenshot.mjs
 <outdir> view:base:device:theme[:clicks]` (now waits for `__dbg.settled()`; fetches the real OpenFreeMap style, tiles and
@@ -220,13 +211,14 @@ together at ~4.4 s (1.2 s desktop); no freeze over ~0.6 s, so the map moves from
    street and physical maps drew the street map's own borders, with the 1949 lines through Israel). **The held parts of
    Gaza, Lebanon and Syria are areas of their own** (build: `HELD_AREA`, states `HELD-GAZA`, `HELD-LBN`, `HELD-SYR`,
    named "Israeli-held Gaza/Lebanon/Syria", Hebrew "עזה/לבנון/סוריה בשליטת ישראל"; country ISR, shetach Israel's):
-   the Shetachim map draws no line between them and Israel (fully part of it, as before); the Countries map gives each
-   its own colour and name and a dashed line against Israel (state style), and its card says "Held by Israel".
+   the Shetachim map draws no line between them and Israel (fully part of it, as before); the Countries map shows each
+   in a lighter shade of Israel's colour (owner, Oct 8; first each had a colour of its own), with its own name and a
+   dashed line against Israel (state style), and its card says "Held by Israel".
 3. **"Borders of the rest of the world"** (More options, new): with Shetachim borders too, the countries no shetach
    covers are shown as ordinary countries with their borders (political: the rest of the world in grey, with its
    countries' borders; physical and streets: their borders over the street map). `state.restBorders`; `rest()` is
    "Rest of the world or its borders".
-4. **Country cards: the country's own head shliach** under the shetach's head — see COUNTRY HEADS below.
+4. **Country cards: the country's own head shliach** under the shetach's head — done Oct 8, see WHERE WE ARE above.
 5. **States drawn on every map with Countries**: the political map always drew the US states, Canadian provinces and
    territories, Australian (and Mexican) states each in its own colour with dashed borders; **the street and physical
    maps now draw every country's and state's border themselves** (`st-line-country`, `st-line-state`, from our tiles;

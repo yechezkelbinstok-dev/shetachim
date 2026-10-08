@@ -653,7 +653,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // a territory (India, of Thailand's shetach) takes the colour of the shetach it belongs to
   const groupOf = (id) => (id && shetachById.get(id) && shetachById.get(id).territoryOf) || id;
   const shetachColor = colorize((g) => groupOf(g.properties.shetach) || null);
-  const stateColor = colorize((g) => g.properties.state);
+  // (the held parts of Gaza, Lebanon and Syria take Israel's colour, lighter, on the Countries map: owner, Oct 8)
+  const colourState = (st) => (st.startsWith('HELD-') ? 'ISR' : st);
+  const stateColor = colorize((g) => colourState(g.properties.state));
 
   // ---------- views ----------
   // Each view shows only its own countries (ISO alpha-3 outside the US and Canada) and fills the screen with them.
@@ -1131,7 +1133,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   let AREAS = null;
   const areaFeatures = () => AREAS || (AREAS = topojson.feature(topo, collection(pieces)).features.map((f, i) => {
     const g = pieces[i], s = shetachOf(g), p = g.properties;
-    return feature(f.geometry, { id: p.id, country: p.country, state: p.state, shetach: p.shetach || '', cs: s ? shetachColor(groupOf(s.id)) : -1, cu: stateColor(p.state) });
+    return feature(f.geometry, { id: p.id, country: p.country, state: p.state, shetach: p.shetach || '', cs: s ? shetachColor(groupOf(s.id)) : -1, cu: stateColor(colourState(p.state)), held: p.state.startsWith('HELD-') ? 1 : 0 });
   }));
   // Lines from the topology, without the cut along the 180° line (polygons crossing it come split there; that cut is
   // neither a coast nor a border). Each kind of line of a set of pieces once (a view's flat and standard maps share them).
@@ -2109,7 +2111,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       paint(id('land-all'), 'fill-opacity', state.sea ? 1 : 0);
       show(id('fill'), polOn);
       map.setFilter(id('fill'), regular ? inView : ['all', inView, ['>=', ['get', 'cs'], 0]]);
-      paint(id('fill'), 'fill-color', state.color === 'plain' ? pal.plain : ['match', ['get', regular ? 'cu' : 'cs'], ...pal.c.flatMap((c, i) => [i, c]), pal.plain]);
+      // Countries: Israel's held ground in a lighter shade of Israel's own colour (a tint toward the land's colour, as
+      // atlases show held or administered ground), set apart by a dashed line (the `regular` line between Israel and it)
+      const tint = (c) => d3.interpolateRgb(c, G.land)(0.55);
+      const byColour = (cols, plain) => ['match', ['get', regular ? 'cu' : 'cs'], ...cols.flatMap((c, i) => [i, c]), plain];
+      const fillColour = state.color === 'plain' ? pal.plain : byColour(pal.c, pal.plain);
+      paint(id('fill'), 'fill-color', !regular ? fillColour
+        : ['case', ['==', ['get', 'held'], 1], state.color === 'plain' ? tint(pal.plain) : byColour(pal.c.map(tint), tint(pal.plain)), fillColour]);
       const k = lightS ? 0.6 : 1;
       paint(id('fill'), 'fill-opacity', !street ? 0.92 * k : ['interpolate', ['linear'], ['zoom'], 5, 0.9 * k, 7, 0.78 * k, 10, 0.5 * k, 13, 0.3 * k]);
       show(id('out-fill'), polOn && rest());
@@ -2306,10 +2314,29 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function shetachLine(pieceId, withHead = true) {
     const g = pieceById.get(pieceId);
     const s = g && shetachOf(g);
-    const p = s && s.territoryOf && shetachById.get(s.territoryOf);
-    if (p) return withHead && p.headShliach ? `${esc(s.name)} · ${headHTML(p.headShliach)}` : esc(s.name);
-    if (s) return withHead && s.headShliach ? `${esc(s.name)} · ${headHTML(s.headShliach)}` : esc(s.name);
+    if (s) return shetachWithHead(s, withHead);
     return g ? esc(g.properties.name) : '';
+  }
+  // "Central Africa · Shlomo Bentolila" (a territory like India: its parent's head)
+  function shetachWithHead(s, withHead = true) {
+    const head = (s.territoryOf && shetachById.get(s.territoryOf) || s).headShliach;
+    return withHead && head ? `${esc(s.name)} · ${headHTML(head)}` : esc(s.name);
+  }
+  // A country's own head shliach, where its shetach spans several countries (Kenya in Central Africa): the first living
+  // man listed at its national center on chabad.org (data/country-heads.json names the center; the owner, Oct 7: "who is
+  // head shliach of that country, with head of shetach on top of him")
+  const countryHeads = shetachFile.countryHeads || {};
+  // "in Kenya" in Hebrew: ב + the name, the article dropped where the name has one (ברפובליקה הדומיניקנית)
+  const heIn = (name) => `ב${/^ה(רפובליקה|אמירויות|פיליפינים|ממלכה|איים|וותיקן)/.test(name) ? name.slice(1) : name}`;
+  function countryHeadHTML(p, shetachim) {
+    const id = countryHeads[p.state];
+    if (!id || shetachim.length !== 1) return '';
+    const d = dotOfCenter.get(id), c = d && d.centers.find((x) => x.id === id);
+    const man = c && (c.personnel || []).find((x) => !x.isDeceased && isMale(x));
+    if (!man) return '';
+    // ("in the Bahamas", "in the Cayman Islands", "in the Dominican Republic")
+    const the = /(Islands|Republic|Bahamas|Netherlands|Kingdom|States|Emirates|Philippines)$/.test(p.name) ? 'the ' : '';
+    return `<p>${HE ? `השליח הראשי ${esc(heIn(p.name))}` : `Head shliach in ${the}${esc(p.name)}`}: ${esc(personName(man))}</p>`;
   }
 
   // A shetach's flagship center; 770 (world HQ) gets its own wording rather than "of New York City".
@@ -2395,7 +2422,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const zoomBtn = inMain ? `<button type="button" class="zoomto" data-piece="${esc(p.id)}">${tr('Zoom in')}</button>` : '';
     if (state.borders === 'regular' || !s) {
       const inState = [...new Set(pieces.filter((x) => x.properties.state === p.state).map(shetachOf).filter(Boolean))];
-      const part = state.borders === 'regular' && inState.length ? `<p>${esc(inState.map((x) => x.name).join(', '))}</p>` : '';
+      // each shetach covering it, with its head; then the country's own head shliach where its shetach spans several
+      const part = state.borders === 'regular' ? inState.map((x) => `<p>${shetachWithHead(x)}</p>`).join('') + countryHeadHTML(p, inState) : '';
       return `<span class="kicker">${areaKind(p)}</span><h2>${esc(p.name)}</h2>${part}
         <div class="foot"><span class="meta">${count(centersInState(p.state))}</span>${zoomBtn}</div>`;
     }

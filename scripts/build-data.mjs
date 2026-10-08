@@ -1274,8 +1274,28 @@ async function main() {
     const shorts = [].concat(s.short || []);
     if (shorts.some((t, i) => t.length >= (i ? shorts[i - 1] : s.name).length)) warnings.push(`${s.id}: short forms should get shorter (${[s.name, ...shorts].join(' → ')})`);
   }
+  // Country cards (Countries mode): each country's own head shliach, where its shetach spans several countries. The data
+  // names each country's national center (data/country-heads.json); the page shows the center's first living man listed
+  // (the owner's rule for any center). Checked here: the center is on the map, in that country, not the shetach's own.
+  const countryHeads = {};
+  const headsFile = at('data', 'country-heads.json');
+  if (fs.existsSync(headsFile)) {
+    const pieceProps = new Map(pieces.map((f) => [f.properties.id, f.properties]));
+    const dotOf = new Map(dots.flatMap((d) => d.centers.map((c) => [String(c.id), d])));
+    const WOMAN = /^(mrs|ms|miss|rebbetzin|rebbitzen|mme|madame|sra|frau)\.?$/i;
+    for (const [iso, id] of Object.entries(readJSON(headsFile).heads)) {
+      const d = dotOf.get(String(id)), c = d && d.centers.find((x) => String(x.id) === String(id)), p = d && pieceProps.get(d.piece ?? d.region);
+      if (!c || !p || p.state !== iso) throw new Error(`data/country-heads.json: ${iso}'s center ${id} ${!c ? 'is not on the map' : `is in ${p ? p.state : 'no area'}, not ${iso}`}`);
+      const s = shetachData.shetachim.find((x) => x.id === p.shetach);
+      if (!s) throw new Error(`data/country-heads.json: ${iso} is in no shetach`);
+      if ([].concat(s.capital || []).some((cap) => String(cap.centerId) === String(id))) throw new Error(`data/country-heads.json: ${iso}'s center is ${s.name}'s own flagship center`);
+      if (!(c.personnel || []).some((x) => !x.isDeceased && !WOMAN.test((x.title || '').trim()))) warnings.push(`country-heads: ${iso}'s center ${id} lists no living man now (no line on its card)`);
+      countryHeads[iso] = String(id);
+    }
+  }
   const forPage = {
     notShown: shetachData.notShown || [],
+    countryHeads,
     // capital: the (first) capital; capitals: all of them (a disputed shetach has one per claimant)
     // noCentralLeadership: no head shliach (India): the card says so, the map shows no head name there
     // territoryOf: a territory of another shetach (India, of Thailand's): its colour, lighter, a dashed border between

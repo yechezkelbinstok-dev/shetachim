@@ -297,6 +297,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           <button type="button" data-value="regular" aria-pressed="true">States</button>
           <button type="button" data-value="shetach" aria-pressed="false">Shetachim</button>
         </div>
+        <!-- Israel's held ground, each shown as held or as part of Israel (Countries, Both; owner, Oct 8: "mix and match") -->
+        <div class="seg" data-multi="joined" id="held-row" hidden>
+          <span class="seg-label">Part of Israel:</span>
+          <button type="button" data-value="HELD-GAZA" aria-pressed="false">Gaza</button>
+          <button type="button" data-value="HELD-LBN" aria-pressed="false">Lebanon</button>
+          <button type="button" data-value="HELD-SYR" aria-pressed="false">Syria</button>
+        </div>
       </fieldset>
       <fieldset class="ctl">
         <legend>Labels</legend>
@@ -381,7 +388,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const phone = () => PHONE_MQ.matches;
   const coarse = () => window.matchMedia('(pointer: coarse)').matches;
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const state = { alaska: 'box', empty: false, restBorders: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true, sea: true };
+  const state = { joined: new Set(), alaska: 'box', empty: false, restBorders: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true, sea: true };
   // the rest of the world shown (Rest of the world, or its borders, which show it too)
   const rest = () => state.empty || state.restBorders;
   if (!phone()) $('#panel').classList.remove('collapsed');
@@ -443,7 +450,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'United States & Canada': 'ארצות הברית וקנדה', 'United States': 'ארצות הברית', 'Former Soviet Union': 'ברית המועצות לשעבר',
     'Latin America & Caribbean': 'אמריקה הלטינית והאיים הקריביים',
     Map: 'מפה', Physical: 'פיזית', Tinted: 'פיזית צבועה', Political: 'מדינית', Borders: 'גבולות', States: 'מדינות', Countries: 'ארצות', Both: 'שניהם',
-    'Lighter:': 'בהיר יותר:', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', Off: 'ללא',
+    'Lighter:': 'בהיר יותר:', 'Part of Israel:': 'חלק מישראל:', Gaza: 'עזה', Lebanon: 'לבנון', Syria: 'סוריה', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', Off: 'ללא',
     'More options': 'אפשרויות נוספות', 'Regions & countries': 'אזורים ומדינות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Rest of the world': 'שאר העולם', 'Borders of the rest of the world': 'גבולות שאר העולם', 'Held by Israel': 'בשליטת ישראל', 'Blue sea': 'ים כחול', Streets: 'רחובות',
     Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד', Dots: 'נקודות', Solid: 'מלאות', 'See-through': 'שקופות', Classic: 'קלאסיות',
     'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
@@ -653,9 +660,22 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // a territory (India, of Thailand's shetach) takes the colour of the shetach it belongs to
   const groupOf = (id) => (id && shetachById.get(id) && shetachById.get(id).territoryOf) || id;
   const shetachColor = colorize((g) => groupOf(g.properties.shetach) || null);
-  // (the held parts of Gaza, Lebanon and Syria take Israel's colour, lighter, on the Countries map: owner, Oct 8)
+  // On the Countries map a piece shown as another country's counts as that country (occupied Ukraine is Russia's, as on
+  // the Shetachim map: owner, Oct 8; `as` from the build); a whole country's state is its country code
+  const polCountry = (p) => p.as || p.country;
+  const polState = (p) => p.as || p.state;
+  // Israel's held ground (Gaza, Lebanon, Syria): shown as held (a lighter Israel, a dashed line), or, each as the viewer
+  // picks ("Part of Israel"), fully part of Israel; state.joined holds those shown as part of it
+  const joinedState = (st) => (state.joined.has(st) ? 'ISR' : st);
+  // (a line's side, given by its state code in property f, that is Israel or shown as part of it)
+  const israelSide = (f) => ['any', ['==', ['get', f], 'ISR'], ['in', ['get', f], ['literal', [...state.joined]]]];
+  // the names shown: those for this zoom (alt: short forms and repeats, which give way), less an area's own name where
+  // it's shown as part of Israel (st: a state's name on the Countries map)
+  const nameFilter = (alt) => ['all', ['>=', ['zoom'], ['get', 'minz']], ['<', ['zoom'], ['get', 'maxz']], ['==', ['get', 'alt'], alt],
+    ['!', ['in', ['coalesce', ['get', 'st'], ''], ['literal', [...state.joined]]]]];
+  // (the held parts take Israel's colour, lighter where shown as held: owner, Oct 8)
   const colourState = (st) => (st.startsWith('HELD-') ? 'ISR' : st);
-  const stateColor = colorize((g) => colourState(g.properties.state));
+  const stateColor = colorize((g) => colourState(polState(g.properties)));
 
   // ---------- views ----------
   // Each view shows only its own countries (ISO alpha-3 outside the US and Canada) and fills the screen with them.
@@ -1133,7 +1153,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   let AREAS = null;
   const areaFeatures = () => AREAS || (AREAS = topojson.feature(topo, collection(pieces)).features.map((f, i) => {
     const g = pieces[i], s = shetachOf(g), p = g.properties;
-    return feature(f.geometry, { id: p.id, country: p.country, state: p.state, shetach: p.shetach || '', cs: s ? shetachColor(groupOf(s.id)) : -1, cu: stateColor(colourState(p.state)), held: p.state.startsWith('HELD-') ? 1 : 0 });
+    return feature(f.geometry, { id: p.id, country: p.country, state: p.state, shetach: p.shetach || '', cs: s ? shetachColor(groupOf(s.id)) : -1, cu: stateColor(colourState(polState(p))), held: p.state.startsWith('HELD-') ? 1 : 0 });
   }));
   // Lines from the topology, without the cut along the 180° line (polygons crossing it come split there; that cut is
   // neither a coast nor a border). Each kind of line of a set of pieces once (a view's flat and standard maps share them).
@@ -1240,7 +1260,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return j.value;
   }
   // The work waiting, the most urgent first: what's shown before its names, its names before the land round it.
-  const RANK = { areas: 0, 'mesh:shetach': 1, 'mesh:coast': 1, 'mesh:inner': 1, 'mesh:country': 1, 'mesh:regular': 1, land: 3, outFill: 4, outLines: 4, landAll: 5 };
+  const RANK = { areas: 0, 'mesh:shetach': 1, 'mesh:coast': 1, 'mesh:inner': 1, 'mesh:country': 1, 'mesh:regular': 1, 'mesh:held': 1, land: 3, outFill: 4, outLines: 4, landAll: 5 };
   const rankOf = (what) => (what.startsWith('names|') ? 2 : RANK[what] ?? 6);
   const WAITING = [];
   function prep(S, what) {
@@ -1349,9 +1369,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const whole = lazy(() => projPieces(gs, merged)), part = core && core.length && core.length < gs.length ? lazy(() => projPieces(core, merged)) : null;
       return { s, gs, get geometry() { return whole(); }, get core() { return part ? part() : null; } };
     });
-    S.states = [...d3.group(main, (g) => g.properties.state)].map(([st, gs]) => {
+    // (grouped as the Countries map shows them: occupied Ukraine with Russia; named by that country's own piece, also
+    // where it isn't in the view: the Europe view has Russia's part of Ukraine but not Russia)
+    S.states = [...d3.group(main, (g) => polState(g.properties))].map(([st, gs]) => {
       const whole = lazy(() => projPieces(gs, merged));
-      return { st, p: gs[0].properties, gs, get geometry() { return whole(); } };
+      const own = gs.find((g) => g.properties.state === st) || pieces.find((g) => g.properties.state === st) || gs[0];
+      return { st, p: own.properties, gs, get geometry() { return whole(); } };
     });
     // (a continent view's world is cut at the far side, 180° from its centre: land across that seam, at the very edge,
     // came out as thin spikes, so it's left out of the faded background there; the whole world view has no such cut)
@@ -1359,8 +1382,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const key = (g) => groupOf(g.properties.shetach) || '';
     const KINDS = [
       ['coast', (a, b) => a === b],
-      ['regular', (a, b) => a.properties.state !== b.properties.state && a.properties.country === b.properties.country],
-      ['country', (a, b) => a.properties.country !== b.properties.country],
+      // (Israel's own lines, against its held ground, are `held`: shown or not, each as the viewer picks)
+      ['regular', (a, b) => polState(a.properties) !== polState(b.properties) && polCountry(a.properties) === polCountry(b.properties) && polCountry(a.properties) !== 'ISR'],
+      ['country', (a, b) => polCountry(a.properties) !== polCountry(b.properties)],
       ['shetach', (a, b) => a !== b && key(a) !== key(b)],
       ['inner', (a, b) => a !== b && key(a) && key(a) === key(b) && a.properties.shetach !== b.properties.shetach],
     ];
@@ -1400,6 +1424,22 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         else g = projPieces(main, make);
         return feature(g || { type: 'MultiLineString', coordinates: [] }, { k });
       }])),
+      // Israel's own lines: between Israel and each held area (and between two held areas), each its own feature with
+      // the states either side (a, b), so showing an area as part of Israel only hides its line
+      *['mesh:held']() {
+        const isr = main.filter((g) => g.properties.country === 'ISR');
+        const states = [...new Set(isr.map((g) => g.properties.state))].sort(), out = [];
+        for (let i = 0; i < states.length; i++) for (let j = i + 1; j < states.length; j++) {
+          const [a, b] = [states[i], states[j]];
+          const filter = (x, y) => x !== y && [x.properties.state, y.properties.state].sort().join() === `${a},${b}`;
+          const make = (gs) => ({ type: 'MultiLineString', coordinates: meshLines(gs, filter, `held:${a}|${b}`) });
+          let g;
+          if (flat && !boxes.length) { const m = make(isr); yield; g = yield* projLines(m.coordinates); }
+          else g = projPieces(isr, make);
+          if (g && g.coordinates.length) out.push(feature(g, { k: 'held', a, b }));
+        }
+        return out;
+      },
       // the land no shetach covers (worked out once it has loaded)
       *outFill() {
         const o = outside();
@@ -1492,8 +1532,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const name = regular ? function* (r) {
       for (const spot of spotsFor(r.geometry, null, null)) {
         yield;
-        add(spot, { text: r.p.name, short: r.p.abbr || null }, { kind: '' });
-        if (spot.main) for (const rp of repeatsFor(spot)) { yield; add(rp, { text: r.p.name, short: null }, { kind: '' }); }
+        add(spot, { text: r.p.name, short: r.p.abbr || null }, { kind: '', st: r.st });
+        if (spot.main) for (const rp of repeatsFor(spot)) { yield; add(rp, { text: r.p.name, short: null }, { kind: '', st: r.st }); }
       }
     } : function* (r) {
       const t = labelTexts(r.s);
@@ -1834,7 +1874,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // physical: each shetach as a soft tint under the water and relief
     if (!flat && physicalOK) map.addLayer({ id: 'st-tint', type: 'fill', source: 'areas', paint: { 'fill-antialias': false } }, under);
     // lines: (flat) the coast and the countries' and states' borders, as the street map draws its own; the shetachim's
-    for (const kind of ['coast', 'regular', 'country', 'casing', 'shetach', 'inner']) {
+    for (const kind of ['coast', 'regular', 'held', 'country', 'casing', 'shetach', 'inner']) {
       add({ id: `line-${kind}`, type: 'line', source: 'mesh', filter: ['==', ['get', 'k'], kind === 'casing' ? 'shetach' : kind], layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
     }
     add({ id: 'out-line', type: 'line', source: 'outside-lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
@@ -1882,9 +1922,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       'text-size': ['interpolate', ['linear'], ['zoom'], ...ZS.flatMap((z) => [z, ['get', `s${z}`]])],
       'text-max-width': 100, 'text-line-height': 1.15, 'text-letter-spacing': 0.01, 'symbol-sort-key': ['get', 'rank'], 'text-padding': 2,
     };
-    const inZoom = ['all', ['>=', ['zoom'], ['get', 'minz']], ['<', ['zoom'], ['get', 'maxz']]];
-    add({ id: 'names-alt', type: 'symbol', source: 'names', filter: ['all', inZoom, ['==', ['get', 'alt'], 1]], layout: nameLayout });
-    add({ id: 'names', type: 'symbol', source: 'names', filter: ['all', inZoom, ['==', ['get', 'alt'], 0]], layout: { ...nameLayout, 'text-allow-overlap': true } });
+    add({ id: 'names-alt', type: 'symbol', source: 'names', filter: nameFilter(1), layout: nameLayout });
+    add({ id: 'names', type: 'symbol', source: 'names', filter: nameFilter(0), layout: { ...nameLayout, 'text-allow-overlap': true } });
     add({ id: 'honor', type: 'symbol', source: 'caps', filter: ['all', ['get', 'honor'], ['>=', ['zoom'], ['get', 'minz']]],
       layout: { 'icon-image': 'honor', 'icon-allow-overlap': true, 'text-allow-overlap': true, 'text-field': ['get', 'name'], 'text-font': F_IT, 'text-size': 13,
         'text-letter-spacing': 0.02, 'text-variable-anchor': ['left', 'right', 'top'], 'text-radial-offset': 0.6, 'text-justify': 'auto' } });
@@ -2001,10 +2040,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // the lines shown: the coast (not over the street map, which has its own), the shetachim's borders, and with States
     // or Both the countries' and states' (over the street maps those come from the tiles: st-line-country, -state)
     const street = !political(), kinds = isPhysical() && physicalOK ? [] : [...(street ? [] : ['coast']),
-      ...(state.borders !== 'regular' ? ['shetach', 'inner'] : []), ...(state.borders !== 'shetach' && !street ? ['country', 'regular'] : [])];
+      ...(state.borders !== 'regular' ? ['shetach', 'inner'] : []), ...(state.borders !== 'shetach' && !street ? ['country', 'regular', 'held'] : [])];
     const missing = kinds.find((k) => !S.made.has(`mesh:${k}`));
     if (missing) { prep(S, `mesh:${missing}`).then(() => feedSet(S), failed); return; }
-    if (kinds.length) feed(S, 'mesh', `mesh|${kinds}`, () => fc(kinds.map((k) => S.made.get(`mesh:${k}`))));
+    if (kinds.length) feed(S, 'mesh', `mesh|${kinds}`, () => fc(kinds.flatMap((k) => [].concat(S.made.get(`mesh:${k}`)))));
     // (Rest of the world on a flat continent or a boxed map: all the land, the shetachim's round the view too)
     if (rest() && !S.wholeAreas) {
       if (!S.made.has('land')) { prep(S, 'land').then(() => feedSet(S), failed); return; }
@@ -2047,6 +2086,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     $('#app').classList.toggle('physical', isPhysical());
     $('#colors-ctl').hidden = state.base === 'physical';
     $('#lighter-row').hidden = state.borders !== 'both';
+    $('#held-row').hidden = state.borders === 'shetach' || !VIEWS[state.view].countries.includes('ISR');
     $('#alaska-ctl').hidden = !(state.view === 'us' && political()); // (the USA view's political map: Alaska and Hawaii in boxes or in place)
     if (!glOK || !V) return;
     const pal = palette(), G = pal.ground;
@@ -2116,8 +2156,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const tint = (c) => d3.interpolateRgb(c, G.land)(0.55);
       const byColour = (cols, plain) => ['match', ['get', regular ? 'cu' : 'cs'], ...cols.flatMap((c, i) => [i, c]), plain];
       const fillColour = state.color === 'plain' ? pal.plain : byColour(pal.c, pal.plain);
+      // (an area picked to be shown as part of Israel is in Israel's own colour)
+      const heldShown = ['all', ['==', ['get', 'held'], 1], ['!', ['in', ['get', 'state'], ['literal', [...state.joined]]]]];
       paint(id('fill'), 'fill-color', !regular ? fillColour
-        : ['case', ['==', ['get', 'held'], 1], state.color === 'plain' ? tint(pal.plain) : byColour(pal.c.map(tint), tint(pal.plain)), fillColour]);
+        : ['case', heldShown, state.color === 'plain' ? tint(pal.plain) : byColour(pal.c.map(tint), tint(pal.plain)), fillColour]);
       const k = lightS ? 0.6 : 1;
       paint(id('fill'), 'fill-opacity', !street ? 0.92 * k : ['interpolate', ['linear'], ['zoom'], 5, 0.9 * k, 7, 0.78 * k, 10, 0.5 * k, 13, 0.3 * k]);
       show(id('out-fill'), polOn && rest());
@@ -2129,6 +2171,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       for (const [kind, onK, color, width, alpha, dash] of [
         ['coast', !street, G.coast, 0.6, 1],
         ['regular', state.borders !== 'shetach' && !street, G.grey, w(0.5, 0.8, 1.4), lightR ? 0.3 : 0.6, [2, 2]],
+        ['held', state.borders !== 'shetach' && !street, G.grey, w(0.5, 0.8, 1.4), lightR ? 0.3 : 0.6, [2, 2]],
         ['country', state.borders !== 'shetach' && !street, G.grey, w(0.7, 1.1, 1.8), lightR ? 0.4 : 0.85],
         ['casing', !regular, G.border, w(1.2, 2.2, 3.6), lightS ? 0.45 : 0.95],
         ['shetach', false],
@@ -2142,6 +2185,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         paint(lid, 'line-opacity', alpha);
         paint(lid, 'line-dasharray', dash || [1, 0]);
       }
+      // Israel's own lines: only where a side is shown as held (none between Israel and what's shown as part of it)
+      map.setFilter(id('line-held'), ['all', ['==', ['get', 'k'], 'held'], ['!', ['all', israelSide('a'), israelSide('b')]]]);
+      map.setFilter(id('names'), nameFilter(0));
+      map.setFilter(id('names-alt'), nameFilter(1));
       show(id('out-line'), polOn && rest());
       map.setFilter(id('out-line'), state.borders === 'shetach' && !state.restBorders ? ['==', ['get', 'k'], 'coast'] : null); // (its countries' borders with Countries, Both, or its borders option)
       paint(id('out-line'), 'line-color', G.grey);
@@ -2159,13 +2206,15 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       // tiles'), as the political map draws them; with Shetachim, those of the rest of the world when its borders are
       // asked for (owner, Oct 7: the countries no shetach covers seen as ordinary countries)
       const baseOn = street && S === V.M, countries = state.borders !== 'shetach';
-      const countryEdge = ['all', ['has', 'nb'], ['!=', ['get', 'na'], ['get', 'nb']]];
+      // (as the Countries map shows them: a piece shown as another country's, occupied Ukraine, is that country's: pa, pb)
+      const countryEdge = ['all', ['has', 'nb'], ['!=', ['coalesce', ['get', 'pa'], ['get', 'na']], ['coalesce', ['get', 'pb'], ['get', 'nb']]]];
       map.setFilter('st-line-country', countries ? countryEdge : ['all', countryEdge, ['any', ['==', ['get', 'ca'], ''], ['==', ['get', 'cb'], '']]]);
       show('st-line-country', baseOn && (countries || state.restBorders));
       paint('st-line-country', 'line-color', 'hsl(248, 1%, 41%)');
       paint('st-line-country', 'line-width', ['interpolate', ['linear'], ['zoom'], 3, 1, 5, 1.2, 12, 3]);
       paint('st-line-country', 'line-opacity', lightR ? 0.45 : ['interpolate', ['linear'], ['zoom'], 0, 0.5, 4, 1]);
-      map.setFilter('st-line-state', ['all', ['has', 'nb'], ['==', ['get', 'na'], ['get', 'nb']], ['==', ['get', 'ss'], 0]]);
+      map.setFilter('st-line-state', ['all', ['has', 'nb'], ['==', ['get', 'na'], ['get', 'nb']], ['==', ['get', 'ss'], 0],
+        ['!', ['all', ['has', 'sa'], israelSide('sa'), israelSide('sb')]]]); // (none between Israel and what's shown as part of it)
       show('st-line-state', baseOn && countries);
       paint('st-line-state', 'line-color', 'hsl(0, 0%, 52%)');
       paint('st-line-state', 'line-width', ['interpolate', ['linear'], ['zoom'], 3, 0.7, 7, 1, 11, 2]);
@@ -2284,7 +2333,19 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // The area a card is about: its state with States borders, else its shetach or the blank part of its state.
   function areaOf(S, pieceId) {
     const g = pieceById.get(pieceId), s = shetachOf(g);
-    if (state.borders === 'regular') return S.states.find((r) => r.st === g.properties.state);
+    if (state.borders === 'regular') {
+      const st = joinedState(polState(g.properties));
+      // Israel with what's shown as part of it: one outline round them all
+      if (st === 'ISR' && state.joined.size) {
+        const key = [...state.joined].sort().join();
+        if (!S.israelJoined || S.israelJoined.key !== key) {
+          const gs = V.main.filter((x) => x.properties.country === 'ISR' && joinedState(x.properties.state) === 'ISR');
+          S.israelJoined = { key, geometry: within(S, () => projGeom(topojson.merge(topo, gs))) };
+        }
+        return S.israelJoined;
+      }
+      return S.states.find((r) => r.st === st);
+    }
     if (s) return S.regions.find((r) => r.s === s);
     const gs = V.main.filter((x) => !shetachOf(x) && x.properties.state === g.properties.state);
     return gs.length ? { geometry: within(S, () => projGeom(topojson.merge(topo, gs))) } : null;
@@ -2421,11 +2482,18 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const inMain = V.main.includes(g);
     const zoomBtn = inMain ? `<button type="button" class="zoomto" data-piece="${esc(p.id)}">${tr('Zoom in')}</button>` : '';
     if (state.borders === 'regular' || !s) {
-      const inState = [...new Set(pieces.filter((x) => x.properties.state === p.state).map(shetachOf).filter(Boolean))];
+      // as the Countries map shows it: occupied Ukraine is Russia's, a held area shown as part of Israel is Israel's
+      // (that country's own card, its centers all of what the map shows as it)
+      const pst = state.borders === 'regular' ? joinedState(polState(p)) : p.state;
+      const own = pst !== p.state && pieces.find((x) => x.properties.state === pst);
+      if (own) p = own.properties;
+      const shownAs = (x) => (state.borders === 'regular' ? joinedState(polState(x.properties)) : x.properties.state) === p.state;
+      const inState = [...new Set(pieces.filter(shownAs).map(shetachOf).filter(Boolean))];
+      const centers = d3.sum(pieces, (x) => (shownAs(x) ? centersIn.get(x.properties.id) || 0 : 0));
       // each shetach covering it, with its head; then the country's own head shliach where its shetach spans several
       const part = state.borders === 'regular' ? inState.map((x) => `<p>${shetachWithHead(x)}</p>`).join('') + countryHeadHTML(p, inState) : '';
       return `<span class="kicker">${areaKind(p)}</span><h2>${esc(p.name)}</h2>${part}
-        <div class="foot"><span class="meta">${count(centersInState(p.state))}</span>${zoomBtn}</div>`;
+        <div class="foot"><span class="meta">${count(centers)}</span>${zoomBtn}</div>`;
     }
     // (the page's capitals, which hold both languages: name, town and claimant in Hebrew too)
     const caps = capitals.filter((c) => !c.honor && c.s === s);
@@ -2475,7 +2543,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function pressed(name, value) {
     document.querySelectorAll(`.seg[data-name="${name}"] button`).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.value === value)));
   }
+  // "Part of Israel": each held area on its own (several may be on at once)
+  $('#held-row').addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    const st = b.dataset.value, on = !state.joined.has(st);
+    if (on) state.joined.add(st); else state.joined.delete(st);
+    b.setAttribute('aria-pressed', String(on));
+    apply();
+  });
   document.querySelectorAll('.seg').forEach((seg) => seg.addEventListener('click', (e) => {
+    if (seg.dataset.multi) return; // (its own handler)
     const b = e.target.closest('button');
     if (!b) return;
     const name = seg.dataset.name;

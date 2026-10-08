@@ -66,8 +66,22 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   Ukraine, Greece, India, China, Albania, Puerto Rico, held Gaza), close-ups of the dashed lines, `node scripts/stress.mjs`
   → no errors.
 
-**Next:** check `npm run svg` output is unchanged by the held areas (it merges shetachim, so it should be), then ask the
-owner what's next.
+**Also done (Oct 8, second window):**
+- **Occupied Ukraine is Russia on the Countries map too** (owner: "fully integrated as part of Russia as they are in the
+  shetach map"): the claim in data/shetachim.json has `"countriesAs": "RUS"`; the build passes it on as the piece's `as`
+  (geo.json, world-all.json) and as `pa`/`pb` on the tiles' lines; the page's `polCountry`/`polState` group it with
+  Russia (colour, the country line along the front line, no line on the old border, Russia's name over both — in the
+  Europe view, which has no Russia, the occupied part alone is named Russia — and Russia's card).
+- **"Part of Israel: Gaza · Lebanon · Syria"** (Borders, with Countries or Both, in views with Israel; owner: "mix and
+  match"): each held area, picked, is drawn as Israel (Israel's colour, no dashed line, no name of its own, Israel's card
+  and outline); not picked, as held (lighter, dashed, its own name and "Held by Israel" card). `state.joined`; Israel's
+  own lines are their own pieces (`mesh:held`, a feature per pair of states with `a`, `b`; on the tiles `sa`/`sb`), so a
+  pick only changes filters (`israelSide`, `nameFilter`, the fill's `heldShown`), nothing is worked out again.
+- Posters regenerated from the current data (checked point by point: no line inside Israel).
+- **Next:** (13) in Countries mode, tapping a head shliach's name outlines his whole shetach; (14) India's added centers
+  link to their Chabad of India pages; research (15) Qatar — how far Eli Chitrik's Qatar is under his father Mendy
+  Chitrik's Turkey, and whether there's a physical center in Doha (like Jewish KSA in Riyadh); (16) Bahrain — any Chabad
+  presence and under whom. Then ask the owner what's next.
 
 **Testing tools (all in scripts/, Playwright + headless Chromium at /opt/pw-browsers):** `node scripts/screenshot.mjs
 <outdir> view:base:device:theme[:clicks]` (now waits for `__dbg.settled()`; fetches the real OpenFreeMap style, tiles and

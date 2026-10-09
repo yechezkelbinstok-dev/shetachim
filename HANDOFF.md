@@ -91,7 +91,9 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
     "לדף בחב״ד הודו" where chabad.org centers show their chabad.org link (`chabadLink` in web/index.html). The 13 from the
     directory link to the directory itself, https://indiakoshertravel.com/Chabad_india (each house's own page couldn't be
     found: the site is behind Cloudflare here, web search doesn't index it, the Wayback Machine refused); Kochi links to
-    https://chabadcochin.com/. **If the owner sends each house's own link, replace `url` per entry and `npm run build`.**
+    https://chabadcochin.com/. **Oct 9: the owner sent the directory page (saved as .mht); each house now links to its own
+    page there** (`https://www.indiakoshertravel.com/Chabad_<place>`; both Goa dots, Palolem and Anjuna, to the one Goa
+    page). The directory's Mumbai, Bangalore and Dharamsala are chabad.org centers and keep their chabad.org links.
   - **(15) Qatar — reported to the owner, no data changed** (Qatar is already its own shetach, Eli Chitrik): Eli (Mendy's
     son) has served Qatar since the 2022 World Cup (Mendy kashered the Qatar Airways kitchen and left Eli to supervise;
     @kosherinqatar); July 28, 2026 the Emir received Mendy's ARIS delegation with Eli at Lusail Palace, Mendy thanking him
@@ -121,7 +123,7 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
     Rest of Greece; Italy → Trieste / Rest of Italy; Ukraine → Russian-held areas / Rest of Ukraine. When a new split
     state appears, add its parts there.
   - **The speck in Russia east of Ukraine** — fixed, see OCCUPIED UKRAINE below (occupation-line.mjs).
-  - Next: whatever the owner answers on Qatar and the India links.
+  - Next: whatever the owner answers on Qatar.
 
 **Testing tools (all in scripts/, Playwright + headless Chromium at /opt/pw-browsers):** `node scripts/screenshot.mjs
 <outdir> view:base:device:theme[:clicks]` (now waits for `__dbg.settled()`; fetches the real OpenFreeMap style, tiles and
@@ -383,7 +385,7 @@ with `?lang=he` (remembered); the page goes right to left, Heebo for Hebrew lett
 built by `node scripts/build-hebrew.mjs` (run after `npm run build`; it stops and lists anything without a Hebrew name)
 from the hand-written lists in `data/hebrew/`: `shetachim.json` (name, short forms, head shliach, headTitle הנהלה),
 `areas.json` (every state/country code; from Natural Earth's Hebrew names, fixed by hand), `cities.json` (map cities,
-centers' towns, capitals' towns). Israel's shetach is "ארץ הקודש", the view "ארץ ישראל"; Judea and Samaria stays Israel.
+centers' towns, capitals' towns). Israel's shetach is "ארץ ישראל" (short "א״י"; owner, Oct 9: not "ארץ הקודש"), the view too; Judea and Samaria stays Israel.
 Centers show chabad.org's own Hebrew name where it has one (920 do); the rest (and capitals) from
 data/hebrew/centers.json, translated by hand; center types are translated in the page (`HE_TEXT`). A town two places
 share is keyed "Name|REGION" in data/hebrew/cities.json (Naples|US-FL נייפלס vs Naples נאפולי). The Hebrew surname

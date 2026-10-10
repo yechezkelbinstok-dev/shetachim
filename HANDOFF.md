@@ -158,8 +158,15 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   Checked with nothing new to add: the Caribbean (chabad.org already has Martinique — under France on the map — and the
   other island houses; nothing found on Antigua, St Kitts, Trinidad, Anguilla, BVI, Dominica, St Vincent, Bonaire, Haiti;
   Punta Cana is served from Santo Domingo), Colombia, Venezuela, Paraguay, Guyana, Suriname, Chile beyond Santiago and
-  Pucón, Costa Rica, Nicaragua, Panama beyond the above, and Mexico's inland cities. Next: the rest of the world, country
-  by country, as the owner directs.
+  Pucón, Costa Rica, Nicaragua, Panama beyond the above, and Mexico's inland cities.
+  Second pass (Oct 10, owner: "was your sweep a proper sweep? … we can't revisit this area afterwards"): Brazil checked
+  rabbi by rabbi against Chabadpedia's São Paulo/Rio list (the map has all of them, spelled differently) → added Beit
+  Chabad Brooklin, São Paulo (Yacov Gerenstadt, Rua Flórida 1269); each Caribbean island searched on its own (nothing
+  new: Bonaire is served from Curaçao, Trinidad gets summer visits only, Guadeloupe has a non-Chabad community);
+  Chile, Uruguay, Mexico City in Spanish (nothing new; Mexico had 11 rabbis at the 2024 Kinus, all on the map);
+  Playa del Carmen's second site (chabadplaya.org) is at the same corner as the center on the map, so not added.
+  Couldn't reach: Beit Chabad Brazil's own site (connection refused), Enlace Judío (403), Chabadpedia (blocked).
+  Next: the rest of the world, country by country — the owner says Africa next, only when he says.
 - **Posters (SVG/PNG downloads) still show Northeast Ohio's "Alevsky family" and Belarus as its own shetach** for Northeast Ohio: the owner said to stop with the posters
   (Oct 10); regenerate them only when he asks.
 

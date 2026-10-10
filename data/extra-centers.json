@@ -728,6 +728,26 @@
           "lastName": "Cohen"
         }
       ]
+    },
+    {
+      "id": "extra-brazil-sao-paulo-brooklin",
+      "name": "Beit Chabad Brooklin",
+      "city": "São Paulo",
+      "lat": -23.60965,
+      "lon": -46.69076,
+      "precision": "exact",
+      "note": "Rua Flórida 1269, Brooklin",
+      "source": "chabadbrooklin.com.br; Chabadpedia (São Paulo: Rabbi Yaakov Grinstein, Brooklin); Brazil's registry of organizations (Sinagoga Beit Chabad Brooklin); location from OpenStreetMap; not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Yacov",
+          "lastName": "Gerenstadt"
+        }
+      ],
+      "url": "https://chabadbrooklin.com.br/",
+      "site": "Beit Chabad Brooklin",
+      "siteHe": "בית חב״ד ברוקלין"
     }
   ],
   "fixes": {

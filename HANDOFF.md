@@ -217,7 +217,9 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   2017, invited by the community, came from Sochi), Croatia (Pinchas Zaklas, 2004), Serbia (Yehoshua Kaminetzky, 2008,
   appointed by Merkos — Rabbi Kotlarsky), Ireland (Zalman Lent, from Manchester 2000, the Dublin congregation's rabbi),
   Iceland (Avi Feldman, 2018), Slovenia (Ariel Haddad in Trieste, appointed by the Rebbe; Chabad Italia lists Chabad
-  Trieste — the owner's list keeps him a separate shetach with the Trieste panhandle), Lugano (Yaakov Tzvi Kantor; no
+  Trieste — so on Oct 10 the owner folded Slovenia into Italy's shetach: "Just do it". The Trieste panhandle is back in
+  Italy; Haddad stays Slovenia's head on its country card through `servedFrom` in data/country-heads.json, which lets a
+  head's center sit outside the country when it is in the same shetach), Lugano (Yaakov Tzvi Kantor; no
   tie to Milan found).
 - **Europe sweep (Oct 10; owner: "Europe next, excluding the really big networks like UK, France, Russia" — also left out:
   Ukraine, 114 listings; "be meticulous", and "actual legitimate manual individual research into each country on its
@@ -862,7 +864,8 @@ geometry. Built, and checked in headless Chromium on desktop (political map, lig
     `{ "country": "GRC", "level": 2, "regions": [...] }`, GADM region names). Mount Athos is its own GADM region,
     not part of Central Macedonia, so as the list is written it stays with Greece (a small Greece piece at the tip of
     Chalkidiki) — worth a question to the owner if it looks odd.
-  - Italy / Slovenia: the Trieste panhandle = the Province of Trieste (GADM ITA level 2 "Trieste") → Slovenia.
+  - Italy / Slovenia: was the Trieste panhandle (GADM ITA level 2 "Trieste") → Slovenia; since Oct 10 Slovenia is
+    part of Italy's shetach, so no split is needed.
   - Ukraine / Crimea: Crimea and Sevastopol (GADM UKR level 1) → Crimea. (Since Oct 7 Crimea and occupied Ukraine are
     Lazar's: see "OCCUPIED UKRAINE AND CRIMEA" at the top.)
   - **Israel = one area**: Israel, Judea and Samaria (the West Bank) and the Golan Heights, as the list says. GADM's

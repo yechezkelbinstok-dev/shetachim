@@ -1292,9 +1292,14 @@ async function main() {
     const pieceProps = new Map(pieces.map((f) => [f.properties.id, f.properties]));
     const dotOf = new Map(dots.flatMap((d) => d.centers.map((c) => [String(c.id), d])));
     const WOMAN = /^(mrs|ms|miss|rebbetzin|rebbitzen|mme|madame|sra|frau)\.?$/i;
-    for (const [iso, id] of Object.entries(readJSON(headsFile).heads)) {
+    // servedFrom: a country with no center of its own whose head serves it from next door, in the same shetach (Slovenia,
+    // from Trieste)
+    const { heads, servedFrom = {} } = readJSON(headsFile);
+    for (const [iso, id] of Object.entries(heads)) {
       const d = dotOf.get(String(id)), c = d && d.centers.find((x) => String(x.id) === String(id)), p = d && pieceProps.get(d.piece ?? d.region);
-      if (!c || !p || p.state !== iso) throw new Error(`data/country-heads.json: ${iso}'s center ${id} ${!c ? 'is not on the map' : `is in ${p ? p.state : 'no area'}, not ${iso}`}`);
+      const own = pieces.find((f) => f.properties.state === iso);
+      const fromNextDoor = servedFrom[iso] && own && p && p.shetach === own.properties.shetach;
+      if (!c || !p || (p.state !== iso && !fromNextDoor)) throw new Error(`data/country-heads.json: ${iso}'s center ${id} ${!c ? 'is not on the map' : `is in ${p ? p.state : 'no area'}, not ${iso}`}`);
       const s = shetachData.shetachim.find((x) => x.id === p.shetach);
       if (!s) throw new Error(`data/country-heads.json: ${iso} is in no shetach`);
       if ([].concat(s.capital || []).some((cap) => String(cap.centerId) === String(id))) throw new Error(`data/country-heads.json: ${iso}'s center is ${s.name}'s own flagship center`);

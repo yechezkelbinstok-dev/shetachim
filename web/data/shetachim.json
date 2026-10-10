@@ -30,7 +30,8 @@
   "KHM": "992232",
   "BLR": "117882",
   "AND": "6518150",
-  "MCO": "1949364"
+  "MCO": "1949364",
+  "SVN": "118457"
  },
  "partNames": {
   "CA-ON": {
@@ -1827,28 +1828,6 @@
      "city": "Milan",
      "lat": 45.47149,
      "lon": 9.20999
-    }
-   ]
-  },
-  {
-   "id": "slovenia",
-   "name": "Slovenia",
-   "short": "Slov.",
-   "headShliach": "Ariel Haddad",
-   "capital": {
-    "centerId": "118457",
-    "name": "Chabad of Trieste and Slovenjia",
-    "city": "Trieste",
-    "lat": 45.64919,
-    "lon": 13.77427
-   },
-   "capitals": [
-    {
-     "centerId": "118457",
-     "name": "Chabad of Trieste and Slovenjia",
-     "city": "Trieste",
-     "lat": 45.64919,
-     "lon": 13.77427
     }
    ]
   },

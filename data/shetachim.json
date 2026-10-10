@@ -1164,29 +1164,11 @@
       "territory": [
         "ITA",
         "SMR",
-        "VAT"
+        "VAT",
+        "SVN"
       ],
       "capital": {
         "centerId": "117862"
-      }
-    },
-    {
-      "id": "slovenia",
-      "name": "Slovenia",
-      "short": "Slov.",
-      "headShliach": "Ariel Haddad",
-      "territory": [
-        "SVN",
-        {
-          "country": "ITA",
-          "level": 2,
-          "regions": [
-            "Trieste"
-          ]
-        }
-      ],
-      "capital": {
-        "centerId": "118457"
       }
     },
     {

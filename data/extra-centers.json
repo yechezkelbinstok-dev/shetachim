@@ -326,6 +326,31 @@
           "lastName": "Burshtein"
         }
       ]
+    },
+    {
+      "id": "extra-bolivia-la-paz",
+      "name": "Beit Chabad La Paz",
+      "city": "La Paz",
+      "lat": -16.49661,
+      "lon": -68.14002,
+      "precision": "exact",
+      "note": "Calle Santa Cruz 414, corner of Illampu, opposite Hostal El Lobo",
+      "source": "Chabad of Bolivia (chabadofbolivia.com); shluchim from the Chabad houses list on latini.co.il and Chabad press (ynet, Chabad Info); location from OpenStreetMap (node 4581570490, Casa Jabad); not on chabad.org (Oct 2026)",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Itzik",
+          "lastName": "Kupchik"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Chaya",
+          "lastName": "Kupchik"
+        }
+      ],
+      "url": "https://www.chabadofbolivia.com/",
+      "site": "Chabad of Bolivia",
+      "siteHe": "חב״ד בוליביה"
     }
   ],
   "fixes": {

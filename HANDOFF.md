@@ -138,6 +138,11 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   (2020) call Lazar "Head Shliach of the former Soviet Union" (Kazakhstan's Cohen accepted his authority); Chabadpedia:
   Belarus's shluchim work in coordination with Lazar, Ukraine's don't. The owner chose NOT to move the other former Soviet
   countries (Kazakhstan, Armenia, Georgia, Azerbaijan, Uzbekistan, Moldova, Kyrgyzstan, the Baltics) — leave them as they are.
+- **Bolivia (Oct 10, owner: "I know there is center(s)")**: added Beit Chabad La Paz (Itzik and Chaya Kupchik; Calle
+  Santa Cruz 414 at Illampu, opposite Hostal El Lobo; OpenStreetMap node 4581570490; chabadofbolivia.com) as
+  `extra-bolivia-la-paz`, and made it Bolivia's capital (it had none). Not added: a "Chabad" in Santa Cruz de la Sierra
+  (Traveling Rabbi: not under Chabad's umbrella, no address) and the seasonal house in Rurrenabaque (Shuki Gur; the place
+  was earlier run by Aharon Freiman, whom Chabad said it didn't recognise; no current sign it operates).
 - **Posters (SVG/PNG downloads) still show Northeast Ohio's "Alevsky family" and Belarus as its own shetach** for Northeast Ohio: the owner said to stop with the posters
   (Oct 10); regenerate them only when he asks.
 

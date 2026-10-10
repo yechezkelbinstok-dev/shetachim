@@ -151,6 +151,7 @@
 {"name":"Indianapolis","region":"US-IN","country":"US","lat":39.76838,"lon":-86.15804,"pop":829718,"centers":1,"piece":"US-IN:indiana"},
 {"name":"Charlotte","region":"US-NC","country":"US","lat":35.22709,"lon":-80.84313,"pop":827097,"centers":4,"piece":"US-NC:the-carolinas"},
 {"name":"Valencia","region":"ESP","country":"ESP","lat":39.46975,"lon":-0.37739,"pop":814208,"centers":1,"piece":"ESP:spain"},
+{"name":"La Paz","region":"BOL","country":"BOL","lat":-16.5,"lon":-68.15,"pop":812799,"centers":1,"piece":"BOL:bolivia"},
 {"name":"Ottawa","region":"CA-ON","country":"CA","lat":45.41117,"lon":-75.69812,"pop":812129,"centers":10,"piece":"CA-ON:ontario"},
 {"name":"Jerusalem","region":"ISR","country":"ISR","lat":31.76904,"lon":35.21633,"pop":801000,"centers":100,"piece":"ISR:israel"},
 {"name":"Zaporozhye","region":"UKR","country":"UKR","lat":47.82289,"lon":35.19031,"pop":796217,"centers":7,"piece":"UKR:ukraine"},

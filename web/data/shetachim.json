@@ -27,7 +27,8 @@
   "TZA": "6664214",
   "UGA": "3972088",
   "ZMB": "5626382",
-  "KHM": "992232"
+  "KHM": "992232",
+  "BLR": "117882"
  },
  "partNames": {
   "CA-ON": {
@@ -1462,28 +1463,6 @@
      "city": "Vienna",
      "lat": 48.22837,
      "lon": 16.37935
-    }
-   ]
-  },
-  {
-   "id": "belarus",
-   "name": "Belarus",
-   "short": "Bela.",
-   "headShliach": "Shneur Deitch",
-   "capital": {
-    "centerId": "117882",
-    "name": "Chabad Lubavitch of Minsk",
-    "city": "Minsk",
-    "lat": 53.92279,
-    "lon": 27.55947
-   },
-   "capitals": [
-    {
-     "centerId": "117882",
-     "name": "Chabad Lubavitch of Minsk",
-     "city": "Minsk",
-     "lat": 53.92279,
-     "lon": 27.55947
     }
    ]
   },

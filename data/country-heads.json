@@ -1,5 +1,5 @@
 {
- "note": "Country cards (Countries mode): the head shliach of a country inside a shetach that spans several countries, shown under the shetach's own head (owner, Oct 7: 'who is head shliach of that country with head of shetach on top of him'). Each country gives the chabad.org center id of its own national center; the person shown is the owner's rule for any center: the first living man listed there on chabad.org (web/data/centers.geojson personnel), so it follows chabad.org's listing and its Hebrew comes from data/hebrew. Not listed: a country where the shetach's head is based (DRC, Puerto Rico, Thailand…), a country that is a whole shetach, a country split between shetachim, and a country with no center of its own on chabad.org (the shetach's head serves it). Two picks (Oct 8): the Dominican Republic's national center in Santo Domingo, not the regional house in Puerto Plata; Nigeria's national center in Abuja, not the Lagos city rabbi. Albania is Yoel Kaplan's own (Chief Rabbi of Albania, from Thessaloniki), so no line. Mainland China has ten centers and no country-level head on chabad.org, so none until the owner names one.",
+ "note": "Country cards (Countries mode): the head shliach of a country inside a shetach that spans several countries, shown under the shetach's own head (owner, Oct 7: 'who is head shliach of that country with head of shetach on top of him'). Each country gives the chabad.org center id of its own national center; the person shown is the owner's rule for any center: the first living man listed there on chabad.org (web/data/centers.geojson personnel), so it follows chabad.org's listing and its Hebrew comes from data/hebrew. Not listed: a country where the shetach's head is based (DRC, Puerto Rico, Thailand…), a country that is a whole shetach, a country split between shetachim, and a country with no center of its own on chabad.org (the shetach's head serves it). Two picks (Oct 8): the Dominican Republic's national center in Santo Domingo, not the regional house in Puerto Plata; Nigeria's national center in Abuja, not the Lagos city rabbi. Albania is Yoel Kaplan's own (Chief Rabbi of Albania, from Thessaloniki), so no line. Belarus (Oct 10): the owner put it in Lazar's Russia shetach (Chabadpedia: Belarus's shluchim work in coordination with Lazar); Shneur Deitch, Chabad of Minsk, is its own head. Mainland China has ten centers and no country-level head on chabad.org, so none until the owner names one.",
  "heads": {
   "LUX": "321552",
   "ABW": "2399960",
@@ -25,6 +25,7 @@
   "TZA": "6664214",
   "UGA": "3972088",
   "ZMB": "5626382",
-  "KHM": "992232"
+  "KHM": "992232",
+  "BLR": "117882"
  }
 }

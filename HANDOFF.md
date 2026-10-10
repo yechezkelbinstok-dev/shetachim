@@ -133,7 +133,12 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   is his deputy; Kaminetzky is the Federation's chief rabbi and head shliach of Dnepr (Stambler first came to Dnepr as
   one of his shluchim). Chabadpedia's "each shliach in Ukraine works on his own" is about Or Avner/Lazar (Russia and
   Belarus coordinate with Lazar, Ukraine doesn't), not about Ukraine having no head. Don't split Ukraine.
-- **Posters (SVG/PNG downloads) still say "Alevsky family"** for Northeast Ohio: the owner said to stop with the posters
+- **Belarus is in Lazar's Russia shetach (owner, Oct 10: "only add Belarus to Lazar")**, with Shneur Deitch (Chabad of
+  Minsk, 117882) as its own head on the country card (`data/country-heads.json` BLR). Researched Oct 10: COLlive/Anash
+  (2020) call Lazar "Head Shliach of the former Soviet Union" (Kazakhstan's Cohen accepted his authority); Chabadpedia:
+  Belarus's shluchim work in coordination with Lazar, Ukraine's don't. The owner chose NOT to move the other former Soviet
+  countries (Kazakhstan, Armenia, Georgia, Azerbaijan, Uzbekistan, Moldova, Kyrgyzstan, the Baltics) — leave them as they are.
+- **Posters (SVG/PNG downloads) still show Northeast Ohio's "Alevsky family" and Belarus as its own shetach** for Northeast Ohio: the owner said to stop with the posters
   (Oct 10); regenerate them only when he asks.
 
 **Testing tools (all in scripts/, Playwright + headless Chromium at /opt/pw-browsers):** `node scripts/screenshot.mjs

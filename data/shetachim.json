@@ -939,18 +939,6 @@
       }
     },
     {
-      "id": "belarus",
-      "name": "Belarus",
-      "short": "Bela.",
-      "headShliach": "Shneur Deitch",
-      "territory": [
-        "BLR"
-      ],
-      "capital": {
-        "centerId": "117882"
-      }
-    },
-    {
       "id": "belgium",
       "name": "Belgium",
       "short": "Belg.",
@@ -1351,6 +1339,7 @@
       "territory": [
         "RUS",
         "MNG",
+        "BLR",
         {
           "state": "UKR",
           "shape": "ukraine-occupied",

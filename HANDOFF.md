@@ -155,8 +155,11 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   and each house's own site. Left out (unconfirmed): Cochabamba (a Conservative community, no Chabad tie found),
   "Chabad Hazon Ish" Santiago, San Marcos La Laguna (founded 2024 by the Pisac couple, status unknown), Olivos
   (Chabadpedia only), Florianópolis and Cuba (seasonal only), Huaraz and Baños ("Jewish houses", not Chabad).
-  Next: the Caribbean islands, then the rest of the world, country by country. Scratch notes were in the session's
-  latam-findings.md.
+  Checked with nothing new to add: the Caribbean (chabad.org already has Martinique — under France on the map — and the
+  other island houses; nothing found on Antigua, St Kitts, Trinidad, Anguilla, BVI, Dominica, St Vincent, Bonaire, Haiti;
+  Punta Cana is served from Santo Domingo), Colombia, Venezuela, Paraguay, Guyana, Suriname, Chile beyond Santiago and
+  Pucón, Costa Rica, Nicaragua, Panama beyond the above, and Mexico's inland cities. Next: the rest of the world, country
+  by country, as the owner directs.
 - **Posters (SVG/PNG downloads) still show Northeast Ohio's "Alevsky family" and Belarus as its own shetach** for Northeast Ohio: the owner said to stop with the posters
   (Oct 10); regenerate them only when he asks.
 

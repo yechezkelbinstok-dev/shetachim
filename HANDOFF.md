@@ -125,6 +125,17 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   - **The speck in Russia east of Ukraine** — fixed, see OCCUPIED UKRAINE below (occupation-line.mjs).
   - Next: whatever the owner answers on Qatar.
 
+- **Ukraine's head shliach stays Meir Stambler (checked Oct 10, the owner asked whether it's Kaminetzky, or whether Ukraine
+  has no head at all, like Ohio's separate regions).** There IS a national framework between the city head shluchim and
+  Merkos: the Federation of Jewish Communities of Ukraine (Dnepr, since 1999, ~178 communities; its directory lists the
+  city rabbis: Odessa's Wolff, Dnepr's Kaminetzky, Zaporozhye's Ehrentreu, Kiev's Kedem, Nikolayev's Gottlieb). Anash.org
+  (Jul 25, 2025 and again later) calls Stambler "head shliach and chairman of the Jewish communities in Ukraine"; Rutman
+  is his deputy; Kaminetzky is the Federation's chief rabbi and head shliach of Dnepr (Stambler first came to Dnepr as
+  one of his shluchim). Chabadpedia's "each shliach in Ukraine works on his own" is about Or Avner/Lazar (Russia and
+  Belarus coordinate with Lazar, Ukraine doesn't), not about Ukraine having no head. Don't split Ukraine.
+- **Posters (SVG/PNG downloads) still say "Alevsky family"** for Northeast Ohio: the owner said to stop with the posters
+  (Oct 10); regenerate them only when he asks.
+
 **Testing tools (all in scripts/, Playwright + headless Chromium at /opt/pw-browsers):** `node scripts/screenshot.mjs
 <outdir> view:base:device:theme[:clicks]` (now waits for `__dbg.settled()`; fetches the real OpenFreeMap style, tiles and
 fonts — reachable since Oct 8 — cached in .cache/ofm); `node scripts/profile.mjs phone 4` (RELOAD=1 for a reload too);

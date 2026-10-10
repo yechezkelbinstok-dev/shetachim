@@ -302,16 +302,19 @@ together at ~4.4 s (1.2 s desktop); no freeze over ~0.6 s, so the map moves from
   Mendel, Yosef Yitzchak, Shneur Zalman) or the man is usually called by it (Yitzchok Meyer Lipszyc, Gershon Meir
   Burshtein, Aryeh Zeev Raskin, as the press names them). Oct 7: Yaakov Biderman, Chaim Azimov, Yeshaya Cohen, Yosef
   Kantor, Chaim Shaikevitz (that last one unconfirmed: found no usage either way). Same in data/hebrew/shetachim.json.
-  Families and leadership entries ("Alevsky family", "Hanholo of Chabad Lubavitch UK") are never shortened.
+  Families and leadership entries ("Pinson family", "Hanholo of Chabad Lubavitch UK") are never shortened.
   **Cards keep everyone's full name exactly as chabad.org lists it** (owner, Oct 7): the middle-name rule is for the
   map's head shliach labels and posters only; double names like Chaya Mushka, Devorah Leah count as one first name.
 - **Alberta's name sits on Alberta itself** in every label mode (`labelState: "CA-AB"`: the page keeps the name within
   that state's part while it's on screen — it used to only aim there, and the two-line head-shliach name drifted up
   into the territories' strip). The Alberta shetach's territories part ends at **110°W** (the Alberta–Saskatchewan
   line carried up to 63°N; `data/shapes/north-to-63.geojson`); the NWT east of it is in no shetach and left off.
-- **Judea and Samaria is Israel** (see below); Peru is the **Blumenfeld family** (Tunisia: Pinson family, Northeast
-  Ohio: Alevsky family; each has `lastName`, for the cards' "<name> family" line).
-- Ohio: Northeast Ohio (Alevsky family), Central Ohio (Areyah Kaltmann), **Southern** Ohio (Sholom Ber Kalmanson; not
+- **Judea and Samaria is Israel** (see below); Peru is the **Blumenfeld family** (Tunisia: Pinson family; each has `lastName`, for the cards'
+  "<name> family" line). Northeast Ohio was the Alevsky family until Oct 10 (now Zushe Greenberg, below).
+- Ohio: Northeast Ohio (**Zushe Greenberg** since Oct 10 — the owner: "let's do Greenberg for the Ohio area". Rabbi
+  Leibel Alevsky, its head shliach for 50+ years, passed away Apr 20, 2026; nothing published names a successor; Greenberg,
+  his son-in-law, Solon Chabad since 1991, is the family's senior shliach and gave the keynote at the June 2026 kinus in
+  his memory. The capital stays Chabad of Cleveland, the owner's pick), Central Ohio (Areyah Kaltmann), **Southern** Ohio (Sholom Ber Kalmanson; not
   "Western"), the Toledo area in Michigan. Capitals: Chabad of Cleveland, Chabad of Columbus, and Chabad of Southern
   Ohio's office (7380 Laurel Oak Lane, Amberley Village; hand-added in `data/extra-centers.json`).
 - Before changing anything on the live map, check what the other account last did (`git log` on
@@ -415,7 +418,7 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
 - Never Syria (Oct 5: "ridiculous", hardly any Jews there).
 
 ## CARD WORDING (Oct 5)
-- A family at the head (Alevsky, Pinson, Blumenfeld): "Shluchim: Alevsky family" (שלוחים:) — keep the "Label: name"
+- A family at the head (Pinson, Blumenfeld): "Shluchim: Pinson family" (שלוחים:) — keep the "Label: name"
   form; the owner rejected "Led by the Alevsky family" (a sentence, no colon).
 
 ## PERFORMANCE (Oct 5) — keep it this way
@@ -655,7 +658,7 @@ Later in the same round:
   (so the Marblehead peninsula isn't cut off on Toledo's side), the Southern–Central border is one straight line; the
   lines are carried out past Ohio's outline so every bit of shore and island falls cleanly on one side, the
   Central–Northeast border a few straight segments that keep Central's big bulge east into the Alevsky shetach (made
-  by straightening the shared lines and re-tiling; no center changes region vs the original map). Regions: **Northeast Ohio** (`northeast-ohio`, "Alevsky family"; Cleveland, Akron,
+  by straightening the shared lines and re-tiling; no center changes region vs the original map). Regions: **Northeast Ohio** (`northeast-ohio`, then "Alevsky family", Zushe Greenberg since Oct 10; Cleveland, Akron,
   Youngstown, Canton, east and south to Athens and Marietta), **Central Ohio** (`central-ohio`, Areyah Kaltmann;
   Columbus, south to Portsmouth/Ironton), **Southern Ohio** (`southern-ohio`, Sholom Ber Kalmanson; Cincinnati,
   Dayton, Springfield, Lima), and the **Toledo area joins Michigan** (Berel Shemtov) as part of the `michigan`

@@ -2529,7 +2529,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const caps = capitals.filter((c) => !c.honor && c.s === s);
     // "Capital: …", or for a disputed shetach "Capital (Chaim Tzvi Groner): …", one per claimant
     const capital = caps.map((c) => `<p>${tr('Capital')}${c.for ? ` (${esc(c.for)})` : ''}: ${esc(c.name)}${c.city ? `, ${esc(c.city)}` : ''}</p>`).join('');
-    // a family at the head (Alevsky, Pinson, Blumenfeld): "Shluchim: Alevsky family" (they are the shluchim there)
+    // a family at the head (Pinson, Blumenfeld): "Shluchim: Pinson family" (they are the shluchim there)
     return `<h2>${esc(s.name)}</h2>
       ${s.territoryOf && shetachById.get(s.territoryOf) ? (() => { const p = shetachById.get(s.territoryOf); return `<p>${HE ? 'בהנהגת' : 'Overseen by'} ${headHTML(p.headShliach)}</p>`; })()
         : s.noCentralLeadership ? `<p>${tr('No centralized leadership')}</p>`

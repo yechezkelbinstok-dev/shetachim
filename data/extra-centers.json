@@ -1020,6 +1020,88 @@
       "url": "https://chabadbarcelona.org/en/judaism/950/",
       "site": "Chabad of Barcelona",
       "siteHe": "חב״ד ברצלונה"
+    },
+    {
+      "id": "extra-cyprus-latchi",
+      "name": "Chabad of Latchi",
+      "city": "Latchi",
+      "lat": 35.03405,
+      "lon": 32.41253,
+      "precision": "exact",
+      "note": "Akamantos Avenue, Latchi (Polis Chrysochous); opened 2025 — its site says it is moving to a new building",
+      "source": "chabadlatchi.com (founded 2025 by Rabbi Mendy and Mrs. Esty Lipsker; its own Google Maps pin); Chabad Cyprus lists it among its houses; COL (launch evening, 2025); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Mendy",
+          "lastName": "Lipsker"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Esty",
+          "lastName": "Lipsker"
+        }
+      ],
+      "url": "https://chabadlatchi.com/en/",
+      "site": "Chabad of Latchi",
+      "siteHe": "חב״ד לאצ׳י"
+    },
+    {
+      "id": "extra-cyprus-nicosia",
+      "name": "Chabad of Nicosia",
+      "city": "Nicosia",
+      "lat": 35.15595,
+      "lon": 33.33255,
+      "precision": "area",
+      "note": "Lapithou 11, Egkomi (Nicosia); the dot is on the street",
+      "source": "chabadcyprus.com (Chabad of Nicosia, Lapithou 11, Egkomi Lefkosias 2410; \"New Shluchim for Nicosia\": Rabbi and Mrs. Menachem Mendel Raskin; its site: contact Rabbi Mendy); the city house, apart from chabad.org's Chabad on Campus Nicosia",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Menachem Mendel",
+          "lastName": "Raskin"
+        }
+      ],
+      "url": "https://www.chabadcyprus.com/templates/articlecco_cdo/aid/3221955/jewish/Chabad-of-Nicosia.htm",
+      "site": "Chabad of Cyprus",
+      "siteHe": "חב״ד קפריסין"
+    },
+    {
+      "id": "extra-germany-mainz",
+      "name": "Chabad Mainz",
+      "city": "Mainz",
+      "lat": 49.99952,
+      "lon": 8.27363,
+      "precision": "city",
+      "note": "Mainz; no address published — the dot is the city centre",
+      "source": "chabad.de (Chabad Germany's own list of its centres: Mainz, Sholiashkenazi1@gmail.com); Chabadpedia (Chabad of Mainz under the shliach Rabbi Sholom Dovber Ashkenazi, son of Rabbi Meir Ashkenazi of Kfar Chabad); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Sholom Dovber",
+          "lastName": "Ashkenazi"
+        }
+      ]
+    },
+    {
+      "id": "extra-germany-berlin-steglitz",
+      "name": "Chabad Steglitz",
+      "city": "Berlin",
+      "lat": 52.4568,
+      "lon": 13.32093,
+      "precision": "area",
+      "note": "Steglitz, Berlin; the address isn't published — the dot is the district's centre (Rathaus Steglitz)",
+      "source": "chabadberlin.de/en/judaism/724 (Chabad Steglitz, Rabbi Shmuel Segal: Shabbat meals each Friday night and Saturday); Jüdische Allgemeine, Feb 2025 (Chabad Berlin's seven synagogues include Steglitz); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Shmuel",
+          "lastName": "Segal"
+        }
+      ],
+      "url": "https://chabadberlin.de/en/judaism/724/",
+      "site": "Chabad of Berlin",
+      "siteHe": "חב״ד ברלין"
     }
   ],
   "fixes": {

@@ -236,6 +236,18 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
     chabad.org listing (no one named) now shows Shalom Ber and Rivka Libersohn (Enfoque Judío, Jun 2026) via a
     personnel-only fix (fixes may now carry personnel; one without lat keeps the approx flag). Nothing found: Málaga,
     Mallorca, Alicante/Costa Blanca, Gran Canaria (served from Tenerife), Seville, Granada, Bilbao, Melilla, Ceuta.
+  - Portugal: nothing to add (the Zayantz "Chabad for Israelis" in Lisbon — COL, Jan 2025, under Rosenfeld — has no
+    published address; chabad.org lists them at Casa Chabad Cascais; no house in Madeira or the Azores).
+  - Greece: nothing to add (Corfu, Santorini, Paros: summer visits or Athens deliveries; the island houses were
+    recruited by Hendel). Malta: nothing to add (Chabad of Malta is the Sliema synagogue).
+  - Cyprus: added Chabad of Latchi (Polis Chrysochous, Mendy and Esty Lipsker, 2025, its site's pin) and Chabad of
+    Nicosia (Lapithou 11, Egkomi, Menachem Mendel Raskin — Chabad Cyprus's city house, apart from chabad.org's campus
+    center). Northern Cyprus is active (Torah dedication, Apr 2025).
+  - Germany: chabad.de's own list of its centres matches the map except Mainz → added (Sholom Dovber Ashkenazi,
+    Chabadpedia; no address, city dot). Berlin: chabadberlin.de lists seven houses; Steglitz (Shmuel Segal) wasn't on
+    the map → added (address unpublished, dot at Rathaus Steglitz); Kudamm (Dovid Teichtal) and the Russian speakers'
+    centre (Pavlotsky) give the Münstersche Str. 6 address; Bet Nachum (Spandauer Damm, Feb 2025) is in Ruhwaldpark
+    with the yeshiva already on the map. Nothing in Leipzig, Stuttgart, Heidelberg, Wiesbaden, Bonn, Rostock, Münster.
 - **Rest of the world (grey land) is on by default** (owner, Oct 10): `state.empty: true` and the checkbox starts checked.
 - **Posters (SVG/PNG downloads) still show Northeast Ohio's "Alevsky family" and Belarus as its own shetach** for Northeast Ohio: the owner said to stop with the posters
   (Oct 10); regenerate them only when he asks.

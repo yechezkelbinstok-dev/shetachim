@@ -809,10 +809,47 @@
       "lon": 39.2992,
       "precision": "area",
       "note": "Nungwi, Zanzibar; the dot is the village centre",
-      "source": "chabadzanzibar.com (events listed for 2026); Chabad.org and JNS (2018: founded by Rabbi Shneor and Mushka Shmulevitz, under Chabad of Central Africa); not on chabad.org",
+      "source": "chabadzanzibar.com/en/chabad-house (Rabbi Mendi and Mrs. Levana Neeman, shluchim); Chabadpedia (הרב מנחם מענדל נאמן); Chabad.org and JNS (2018: founded by Rabbi Shneor and Mushka Shmulevitz, under Chabad of Central Africa); tryit.co.il (Imane Lodge, Nungwi); not on chabad.org",
       "url": "https://chabadzanzibar.com/en/",
       "site": "Chabad of Zanzibar",
-      "siteHe": "חב״ד זנזיבר"
+      "siteHe": "חב״ד זנזיבר",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Mendi",
+          "lastName": "Neeman"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Levana",
+          "lastName": "Neeman"
+        }
+      ]
+    },
+    {
+      "id": "extra-tanzania-arusha",
+      "name": "Chabad of Arusha Tanzania",
+      "city": "Arusha",
+      "lat": -3.3696248,
+      "lon": 36.7002321,
+      "precision": "exact",
+      "note": "9 Mawandammo Road, Arusha",
+      "source": "chabadtanzania.com/en (address and map pin; founded 2021 by Rabbi Mashiach and Mrs. Yachal Kopachik); Chabadpedia (Tanzania: three Chabad houses, Zanzibar, Dar es Salaam, Arusha); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Mashiach",
+          "lastName": "Kopachik"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Yachal",
+          "lastName": "Kopachik"
+        }
+      ],
+      "url": "https://chabadtanzania.com/en/",
+      "site": "Chabad of Arusha",
+      "siteHe": "חב״ד ארושה"
     },
     {
       "id": "extra-ethiopia-addis-ababa",

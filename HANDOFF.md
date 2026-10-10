@@ -184,14 +184,19 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   Jabad Colegiales — closed 2018, left out. Latin America is closed. Next: Africa, only when the owner says.
 - **Africa sweep (Oct 10; South Africa excluded — the owner: "that's its own thing", to be done separately).** Added:
   Chabad of Namibia (Windhoek, Yosef and Mushka Rahimi, 20 Arians Street — OpenStreetMap gives Simón Bolívar Street,
-  Luxury Hill), Chabad House Zanzibar (Nungwi; founded 2018 by the Shmulevitzes, current rabbi not found), Chabad of
-  Ethiopia (Addis Ababa, Kirkos, Eliyahu and Devorah Chaviv) and its shul at Bole International Airport. All fall in
-  Bentolila's Central Africa shetach. Checked, nothing to add: Kenya beyond Nairobi; Tanzania's Aziza house is in Dar es
+  Luxury Hill), Chabad House Zanzibar (Nungwi; founded 2018 by the Shmulevitzes; now Rabbi Mendi and Mrs. Levana Neeman —
+  chabadzanzibar.com/en/chabad-house, Chabadpedia "מנחם מענדל נאמן"; tryit.co.il says Imane Lodge, which no map has, so the
+  dot stays on the village centre), Chabad of Arusha Tanzania (Rabbi Mashiach and Mrs. Yachal Kopachik, since 2021,
+  9 Mawandammo Road — exact pin from chabadtanzania.com's own map), Chabad of Ethiopia (Addis Ababa, Kirkos, Eliyahu and
+  Devorah Chaviv) and its shul at Bole International Airport. All fall in Bentolila's Central Africa shetach. Checked, nothing to add: Kenya beyond Nairobi; Tanzania's Aziza house is in Dar es
   Salaam (Chabad.org, Jun 2025), as the map has it; Cameroon, Gabon, Congo-Brazzaville, Equatorial Guinea, Sierra Leone
   — visits only (jewishafrica.com "Our Locations"); Senegal — a center announced May 2026, not yet open;
   Zimbabwe, Mozambique, Madagascar, Malawi, Eswatini, Lesotho, Egypt, Algeria, Djerba — nothing found; Botswana and the
   Seychelles — visiting rabbis only; Morocco — every listed Chabad site (Casablanca, Marrakech, Fès, Meknès, Agadir,
-  Kénitra, Rabat, Tangier) is already on the map. Leads the owner could send as PDFs: Chabadpedia's אפריקה and טנזניה pages.
+  Kénitra, Rabat, Tangier) is already on the map. Final sweep (Oct 10): every chabad.org center in Africa outside South
+  Africa already carries its shluchim; Lubumbashi (a shul, not Chabad), Livingstone (served from Lusaka), Benin, Togo,
+  Cape Verde, Djibouti — nothing to add. **Africa is closed except South Africa** (its own pass, when the owner says;
+  chabadsouthafrica.org is behind a Cloudflare challenge, so PDFs of its pages would help).
 - **Posters (SVG/PNG downloads) still show Northeast Ohio's "Alevsky family" and Belarus as its own shetach** for Northeast Ohio: the owner said to stop with the posters
   (Oct 10); regenerate them only when he asks.
 

@@ -1179,6 +1179,97 @@
       "url": "https://chabadamsterdamcenter.com/en/judaism/1207/",
       "site": "Chabad of Amsterdam",
       "siteHe": "חב״ד אמסטרדם"
+    },
+    {
+      "id": "extra-hungary-budapest-castle",
+      "name": "Buda Castle Synagogue (Budavári Zsinagóga)",
+      "city": "Budapest",
+      "lat": 47.50439,
+      "lon": 19.03137,
+      "precision": "exact",
+      "note": "Táncsics Mihály utca 26, Buda Castle — a medieval prayer house reopened by EMIH in 2018",
+      "source": "EMIH (zsido.com, \"Zsinagógáink, közösségeink\": Budavári Zsinagóga, Táncsics Mihály utca 26; Faith Asher, its rabbi); JTA/xpatloop 2018 (reconsecrated, led by Rabbi Asher Faith); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Asher",
+          "lastName": "Faith"
+        }
+      ],
+      "url": "https://zsido.com/bemutatkozas/zsinagogaink-kozossegeink/",
+      "site": "EMIH",
+      "siteHe": "EMIH"
+    },
+    {
+      "id": "extra-hungary-budapest-zsilip",
+      "name": "ZSILIP Jewish Community Center",
+      "city": "Budapest",
+      "lat": 47.51433,
+      "lon": 19.0476,
+      "precision": "exact",
+      "note": "Újpesti rakpart 1, Újlipótváros (XIII) — synagogue, mikvah and community centre, opened 2019",
+      "source": "EMIH (zsido.com: ZSILIP közösségi központ és zsinagóga, Újpesti rkp. 1); emih.org leadership page and hvg.hu 2019 (Rabbi Shmuel and Sosi Glitzenstein lead it); not on chabad.org",
+      "center-type": {
+        "name": "Jewish Community Center"
+      },
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Shmuel",
+          "lastName": "Glitzenstein"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Sosi",
+          "lastName": "Glitzenstein"
+        }
+      ],
+      "url": "https://zsido.com/bemutatkozas/zsinagogaink-kozossegeink/",
+      "site": "EMIH",
+      "siteHe": "EMIH"
+    },
+    {
+      "id": "extra-hungary-budapest-nagyfuvaros",
+      "name": "Nagyfuvaros Street Synagogue",
+      "city": "Budapest",
+      "lat": 47.49398,
+      "lon": 19.07761,
+      "precision": "exact",
+      "note": "Nagy Fuvaros utca 4, Józsefváros (VIII)",
+      "source": "EMIH (zsido.com: Nagyfuvaros utcai zsinagóga, Nagyfuvaros u. 4; emih.org leadership page: Rabbi Chaim Shaul Glitzenstein, its rabbi — earlier Szeged's); OpenStreetMap (the synagogue); not on chabad.org",
+      "center-type": {
+        "name": "Synagogue"
+      },
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Chaim Shaul",
+          "lastName": "Glitzenstein"
+        }
+      ],
+      "url": "https://zsido.com/szaz-esztendos-a-nagy-fuvaros-utcai-zsinagoga/",
+      "site": "EMIH",
+      "siteHe": "EMIH"
+    },
+    {
+      "id": "extra-bulgaria-bansko",
+      "name": "Chabad Bansko",
+      "city": "Bansko",
+      "lat": 41.82366,
+      "lon": 23.48114,
+      "precision": "area",
+      "note": "In the Platinum Hotel & Casino, ul. Georgi Nastev 2, Bansko; open in the ski season (mid-December to the end of March); the dot is on the street",
+      "source": "chabadbulgaria.org (Chabad House Bansko, at its permanent place in the Platinum hotel; 2025–26 season from 14 Dec 2025; minyanim, classes, Shabbat meals); run by Chabad of Bulgaria — the same as chabad.org lists for Sunny Beach; not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Yosef",
+          "lastName": "Salamon"
+        }
+      ],
+      "url": "https://www.chabadbulgaria.org/templates/articlecco_cdo/aid/4622042/jewish/-.htm",
+      "site": "Chabad of Bulgaria",
+      "siteHe": "חב״ד בולגריה"
     }
   ],
   "fixes": {

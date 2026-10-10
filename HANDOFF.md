@@ -257,6 +257,15 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   - Netherlands: added Chabad House Amstelveen (Prof. J.H. Bavincklaan 5, by the Adagio hotel; Chabad Amsterdam's
     tourist and Israeli centre). Every name on chabad.nl's and Go2Torah's lists is on the map.
   - Belgium, Luxembourg, Liechtenstein, Gibraltar: nothing to add.
+  - Denmark, Sweden, Norway, Finland, Iceland, Ireland: nothing to add (all houses found are on the map).
+  - Hungary: EMIH (Chabad-led; zsido.com "Zsinagógáink, közösségeink") lists synagogues the map lacked → added the Buda
+    Castle Synagogue (Táncsics Mihály u. 26, Asher Faith), ZSILIP (Újpesti rakpart 1, Shmuel and Sosi Glitzenstein —
+    same spot as CKids) and the Nagyfuvaros utca synagogue (Chaim Shaul Glitzenstein). Not added: Teleki tér shtiebel
+    (Hurwitz serves it, but it isn't Chabad's), Szeged's EMIH centre (yeshiva students, no shliach), Keszthely
+    (community, no rabbi).
+  - Bulgaria: added Chabad Bansko (winter ski season, Platinum hotel, run by Chabad of Bulgaria — Salamon, as chabad.org
+    has Sunny Beach). Poland, Czechia, Slovakia, Romania: nothing to add (Prague 2's "Jewish Center", nusach Chabad, is
+    independent; Bucharest's Pipera centre was the Orgads', now in Cluj; Iași: Chabad Romania is still seeking a couple).
 - **Rest of the world (grey land) is on by default** (owner, Oct 10): `state.empty: true` and the checkbox starts checked.
 - **Posters (SVG/PNG downloads) still show Northeast Ohio's "Alevsky family" and Belarus as its own shetach** for Northeast Ohio: the owner said to stop with the posters
   (Oct 10); regenerate them only when he asks.

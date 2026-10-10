@@ -2322,10 +2322,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const card = $('#card');
   let pinned = null, lastPoint = { clientX: 0, clientY: 0 };
   // What's under a point on screen: Lubavitch or a capital, a dot, a city, or an area. Only what the tap is really on,
-  // or a finger's width from: a wide reach round everything made taps on the empty land between them open a local center
-  // or a city instead of the area (owner, Oct 10, in Israel: Kiryat Shmona and nearby centers, not Eretz Yisroel).
+  // or a finger's width from (a city: only its name): a wide reach round everything made taps on the empty land between
+  // them open a local center or a city instead of the area (owner, Oct 10, in Israel: Kiryat Shmona and nearby centers,
+  // not Eretz Yisroel).
   function pickAt(point, touch) {
-    const slop = touch ? 4 : 2, near = touch ? 8 : 5, sfx = V.cur.sfx;
+    const slop = touch ? 10 : 4, near = touch ? 15 : 7, sfx = V.cur.sfx; // (a finger: 4 / 8 was too tight to hit a center, owner Oct 10)
     const box = [[point.x - 32, point.y - 32], [point.x + 32, point.y + 32]]; // candidates only; the tests below decide
     const q = (ids, at = box) => map.queryRenderedFeatures(at, { layers: ids.map((id) => id + sfx).filter((id) => map.getLayer(id) && map.getLayoutProperty(id, 'visibility') !== 'none') });
     const dist = (f) => { const p = map.project(f.geometry.coordinates); return Math.hypot(p.x - point.x, p.y - point.y); };
@@ -2340,9 +2341,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const dotR = (x) => (ds.a + ds.b * x.properties.l) * 2 ** (0.35 * dz);
     f = nearest(q(['dots']).filter((x) => dist(x) <= Math.max(dotR(x) + slop, near)));
     if (f) return { dot: V.dots[f.properties.i] };
-    // a city: on its name or its little ring
-    const onCity = under(['cities']);
-    f = nearest(q(['cities']).filter((x) => onCity.has(x.properties.i) || dist(x) <= near));
+    // a city: on its name only (a big city's name too) — not its little ring or round it, where its centers are, which
+    // made a center hard to tap (owner, Oct 10: "if you tap a city's name it should actually show it")
+    f = nearest(q(['cities', 'cities-big'], point).filter((x) => x.layer.id.startsWith('cities-big') || dist(x) > 6));
     if (f) return { city: V.cities[f.properties.i] };
     // Countries with Head shliach names: a head's name stands for his whole shetach (owner, Oct 8: tapping Bentolila's
     // name outlines all his countries) — on the name itself

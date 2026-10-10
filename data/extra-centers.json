@@ -1,5 +1,5 @@
 {
-  "about": "Centers that exist but are not listed on chabad.org. precision: 'exact' = real location, 'area' = rough spot in the right neighbourhood, 'city' = city centre (address unknown). note is shown on the dot's card. url, site, siteHe: the center's own page elsewhere (a center not on chabad.org), linked on its card as \"Open on <site>\" / \"לדף ב<siteHe>\". fixes: corrections to chabad.org's own listings, by center id (city, lat, lon).",
+  "about": "Centers that exist but are not listed on chabad.org. precision: 'exact' = real location, 'area' = rough spot in the right neighbourhood, 'city' = city centre (address unknown). note is shown on the dot's card. url, site, siteHe: the center's own page elsewhere (a center not on chabad.org), linked on its card as \"Open on <site>\" / \"לדף ב<siteHe>\". center-type: {name} as chabad.org's types (Mikveh, Jewish Community Center…), shown on the card. fixes: corrections to chabad.org's own listings, by center id (city, lat, lon; or personnel where chabad.org lists no one — a fix without lat keeps the listing's approx flag).",
   "centers": [
     {
       "id": "extra-riyadh",
@@ -889,6 +889,137 @@
           "lastName": "Chaviv"
         }
       ]
+    },
+    {
+      "id": "extra-italy-milan-chai-center",
+      "name": "Chai Center Milano",
+      "city": "Milan",
+      "lat": 45.46413,
+      "lon": 9.13431,
+      "precision": "area",
+      "note": "Via Nicolò Alunno, Milan (Bande Nere); opened 18 June 2026; the dot is on the street",
+      "source": "Chabad Italia (chabad.it/news/chai-center-milano-inaugurazione, Jul 2026: Chabad Milano's new 1,400 m² community centre in via Alunno, inaugurated 3 Tammuz; founded by Mrs. Freida and Rav Sendy Wilshanski, Rav Tzemach and Federico Musso); not on chabad.org",
+      "center-type": {
+        "name": "Jewish Community Center"
+      },
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Sender",
+          "lastName": "Wilschansky"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Freidel",
+          "lastName": "Wilschansky"
+        },
+        {
+          "title": "Rabbi",
+          "firstName": "Tzemach",
+          "lastName": "Mizrachi"
+        }
+      ],
+      "url": "https://www.chabad.it/news/chai-center-milano-inaugurazione",
+      "site": "Chabad Italia",
+      "siteHe": "חב״ד איטליה"
+    },
+    {
+      "id": "extra-spain-madrid-central",
+      "name": "Chabad of Central Madrid",
+      "city": "Madrid",
+      "lat": 40.41988,
+      "lon": -3.69831,
+      "precision": "exact",
+      "note": "Calle de la Reina 33, Chueca (near the Gran Vía)",
+      "source": "chabadmadrid.com (new Bet Chabad in the centre of Madrid, Rabbi Zalman Goldstein; its own Google Maps pin); Chabadinfo 2017 (Rabbi Shneur and Shoshi Goldstein, additional shluchim to Madrid); Enfoque Judío, Jun 2026 (Madrid led today by Zalman Goldstein, son of Rabbi Yitzchok Goldstein); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Zalman",
+          "lastName": "Goldstein"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Shoshi",
+          "lastName": "Goldstein"
+        }
+      ],
+      "url": "https://chabadmadrid.com/",
+      "site": "Chabad of Central Madrid",
+      "siteHe": "חב״ד מרכז מדריד"
+    },
+    {
+      "id": "extra-spain-girona",
+      "name": "Chabad of Girona",
+      "city": "Girona",
+      "lat": 41.98708,
+      "lon": 2.82494,
+      "precision": "exact",
+      "note": "Carrer de la Força 29, in the old Jewish quarter (Barri Vell)",
+      "source": "lubavitch.com/centers/3422505 (Chabad of Girona, Carrer de la Forca 29 — not in the chabad.org data the map is built from); Chabad.org 2017 and Times of Israel 2019 (Rabbi Avrohom and Chana Rosenberg; opened 2016 in a former antique shop); Enfoque Judío, Jun 2026 (one of Jabad's eight centres in Spain)",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Avrohom",
+          "lastName": "Rosenberg"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Chana",
+          "lastName": "Rosenberg"
+        }
+      ],
+      "url": "https://www.lubavitch.com/centers/3422505",
+      "site": "Lubavitch.com",
+      "siteHe": "אתר ליובאוויטש"
+    },
+    {
+      "id": "extra-spain-barcelona-call",
+      "name": "Chabad of Barcelona – Jewish Quarter",
+      "city": "Barcelona",
+      "lat": 41.38317,
+      "lon": 2.17581,
+      "precision": "exact",
+      "note": "Carrer de Sant Honorat 9, in the Call (the old Jewish quarter): Chabad's visitor point, Judaica shop and coffee corner",
+      "source": "chabadbarcelona.org (\"Chabad center in the heart of the Jewish neighborhood\", Judaica shop coffee corner, Sun–Thu 10–20, Fri 10–14); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Dovid M. M.",
+          "lastName": "Libersohn"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Nechama Dina",
+          "lastName": "Libersohn"
+        }
+      ],
+      "url": "https://chabadbarcelona.org/en/attraction/1295/",
+      "site": "Chabad of Barcelona",
+      "siteHe": "חב״ד ברצלונה"
+    },
+    {
+      "id": "extra-spain-barcelona-mikvah",
+      "name": "Women's Mikvah Barcelona",
+      "city": "Barcelona",
+      "lat": 41.38876,
+      "lon": 2.14083,
+      "precision": "exact",
+      "note": "Carrer de Bordeus 25, next to the Chabad House; visits by appointment",
+      "source": "chabadbarcelona.org/en/judaism/950 (a new women's mikvah, next to the Chabad House, attendant Rebbetzin Nechama); not on chabad.org",
+      "center-type": {
+        "name": "Mikveh"
+      },
+      "personnel": [
+        {
+          "title": "Mrs.",
+          "firstName": "Nechama Dina",
+          "lastName": "Libersohn"
+        }
+      ],
+      "url": "https://chabadbarcelona.org/en/judaism/950/",
+      "site": "Chabad of Barcelona",
+      "siteHe": "חב״ד ברצלונה"
     }
   ],
   "fixes": {
@@ -907,6 +1038,21 @@
       "lat": 54.71107,
       "lon": 20.50496,
       "why": "chabad.org places it near Sovetsk; its address, Saltykova-Shchedrina 2, 236006, is in Kaliningrad (OpenStreetMap)"
+    },
+    "7303611": {
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Shalom Ber",
+          "lastName": "Libersohn"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Rivka",
+          "lastName": "Libersohn"
+        }
+      ],
+      "why": "chabad.org lists no one; Enfoque Judío (14 Jun 2026): the new Bet Jabad in Sant Cugat is run by Rabbi Shalom Ber Libersohn and his wife Rivka (son of Barcelona's Rabbi David Libersohn); its address isn't published"
     }
   }
 }

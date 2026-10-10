@@ -197,6 +197,23 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   Africa already carries its shluchim; Lubumbashi (a shul, not Chabad), Livingstone (served from Lusaka), Benin, Togo,
   Cape Verde, Djibouti — nothing to add. **Africa is closed except South Africa** (its own pass, when the owner says;
   chabadsouthafrica.org is behind a Cloudflare challenge, so PDFs of its pages would help).
+- **Europe sweep (Oct 10; owner: "Europe next, excluding the really big networks like UK, France, Russia" — also left out:
+  Ukraine, 114 listings; "be meticulous", and "actual legitimate manual individual research into each country on its
+  own", not just databases).** Country by country, in the map's Europe view. Method per country: news of new shluchim
+  (Chabadinfo, COL, Lubavitch.com, Anash), each house's own site and Google Maps pin, local-language and Hebrew searches
+  city by city, and lubavitch.com's directory (it lists some centers the chabad.org data lacks, e.g. Girona).
+  - Italy: added Chai Center Milano (via Alunno, opened 18 Jun 2026; Wilschansky, Mizrachi — chabad.it). Checked, nothing
+    to add: Turin (only a dead chabadturin.com, a bare "Chabad of Torino" Facebook page and a directory line with no
+    shliach), Genoa (Chabadpedia only), Sicily (an unreliable Israeli guide; Palermo's synagogue is Shavei Israel's),
+    Sardinia (Porto Cervo summer pop-up), Puglia/Capri/Amalfi (served by Chabad Napoli), Camaiore (Gan Israel camp),
+    Calabria, Padua, the Dolomites. chabad.it also lists Gan Chaya, Beteavon and Biblioteca Yad Eliyahu — programs at
+    centers already on the map.
+  - Spain: added Chabad of Central Madrid (Calle de la Reina 33, Zalman and Shoshi Goldstein), Chabad of Girona (Carrer de
+    la Força 29, Avrohom and Chana Rosenberg — on lubavitch.com, id 3422505, not in the chabad.org data), Chabad of
+    Barcelona's Jewish Quarter visitor point (Sant Honorat 9) and its women's mikvah (Bordeus 25); Sant Cugat's
+    chabad.org listing (no one named) now shows Shalom Ber and Rivka Libersohn (Enfoque Judío, Jun 2026) via a
+    personnel-only fix (fixes may now carry personnel; one without lat keeps the approx flag). Nothing found: Málaga,
+    Mallorca, Alicante/Costa Blanca, Gran Canaria (served from Tenerife), Seville, Granada, Bilbao, Melilla, Ceuta.
 - **Rest of the world (grey land) is on by default** (owner, Oct 10): `state.empty: true` and the checkbox starts checked.
 - **Posters (SVG/PNG downloads) still show Northeast Ohio's "Alevsky family" and Belarus as its own shetach** for Northeast Ohio: the owner said to stop with the posters
   (Oct 10); regenerate them only when he asks.

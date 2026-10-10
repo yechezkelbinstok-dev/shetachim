@@ -351,6 +351,383 @@
       "url": "https://www.chabadofbolivia.com/",
       "site": "Chabad of Bolivia",
       "siteHe": "חב״ד בוליביה"
+    },
+    {
+      "id": "extra-peru-pisac",
+      "name": "Chabad Pisac",
+      "city": "Pisac",
+      "lat": -13.42105,
+      "lon": -71.8505,
+      "precision": "area",
+      "note": "Branch of Chabad Cusco, opened 2025; the dot is the town centre",
+      "source": "COLlive and CrownHeights.info (Chabad House Opens in Pisac, Peru), COL (Feb 2026), muchiler.co.il Chabad houses directory (Oct 2026); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Menachem Mendel",
+          "lastName": "Tzikvashvili"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Chaya Mushka",
+          "lastName": "Tzikvashvili"
+        }
+      ]
+    },
+    {
+      "id": "extra-ecuador-quito",
+      "name": "Casa Jabad Ecuador",
+      "city": "Quito",
+      "lat": -0.1975,
+      "lon": -78.4808,
+      "precision": "area",
+      "note": "Jiménez de la Espada N32-98 y González Suárez; the dot is a rough spot",
+      "source": "jabad.org.ec; lubavitch.com (Passover in Quito…, 2008: Chabad representatives to Ecuador since 2004); Chabadpedia; muchiler.co.il Chabad houses directory (Oct 2026); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Tomer",
+          "lastName": "Rotem"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Rivka",
+          "lastName": "Rotem"
+        }
+      ],
+      "url": "https://www.jabad.org.ec/",
+      "site": "Jabad Ecuador",
+      "siteHe": "חב״ד אקוודור"
+    },
+    {
+      "id": "extra-argentina-mendoza",
+      "name": "Jabad Mendoza",
+      "city": "Godoy Cruz",
+      "lat": -32.90816,
+      "lon": -68.84487,
+      "precision": "exact",
+      "note": "Tucumán 72, Godoy Cruz (Mendoza)",
+      "source": "jabadmendoza.org; Chabadpedia; muchiler.co.il Chabad houses directory (Oct 2026); location from OpenStreetMap; not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Uriel",
+          "lastName": "Lapidus"
+        }
+      ],
+      "url": "http://www.jabadmendoza.org/",
+      "site": "Jabad Mendoza",
+      "siteHe": "חב״ד מנדוסה"
+    },
+    {
+      "id": "extra-argentina-ushuaia",
+      "name": "Chabad Ushuaia",
+      "city": "Ushuaia",
+      "lat": -54.80731,
+      "lon": -68.30841,
+      "precision": "city",
+      "note": "Opened December 2025, no permanent address yet; placed at the city centre",
+      "source": "muchiler.co.il Chabad houses directory (Oct 2026); not on chabad.org"
+    },
+    {
+      "id": "extra-argentina-vicente-lopez",
+      "name": "Beit Jabad Vicente López",
+      "city": "Vicente López",
+      "lat": -34.52576,
+      "lon": -58.4749,
+      "precision": "city",
+      "note": "Address not listed; placed at the town centre",
+      "source": "Jabad Argentina's own list (jabad.org.ar/centros); rabbi from Chabadpedia; not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Menachem Mendel",
+          "lastName": "Kapelushnik"
+        }
+      ]
+    },
+    {
+      "id": "extra-argentina-avellaneda",
+      "name": "Beit Iaacov",
+      "city": "Avellaneda",
+      "lat": -34.6685,
+      "lon": -58.3581,
+      "precision": "exact",
+      "note": "Florencio Varela 151, Avellaneda",
+      "source": "Jabad Argentina's own list (jabad.org.ar/centros); location from OpenStreetMap; not on chabad.org"
+    },
+    {
+      "id": "extra-argentina-yerba-buena",
+      "name": "Beit Jabad Kehilá de Yerba Buena",
+      "city": "Yerba Buena",
+      "lat": -26.81516,
+      "lon": -65.28342,
+      "precision": "area",
+      "note": "Av. Aconquija 1071, Yerba Buena (Tucumán); the dot is on the avenue",
+      "source": "Jabad Argentina's own list (jabad.org.ar/centros); not on chabad.org"
+    },
+    {
+      "id": "extra-argentina-beit-jana",
+      "name": "Beit Jana – Centro Integral para la Mujer Judía",
+      "city": "Buenos Aires",
+      "lat": -34.60093,
+      "lon": -58.40681,
+      "precision": "exact",
+      "note": "Ecuador 780, Buenos Aires",
+      "source": "Jabad Argentina's own list (jabad.org.ar/centros); location from OpenStreetMap; not on chabad.org"
+    },
+    {
+      "id": "extra-argentina-ieshiva-anoji",
+      "name": "Ieshiva Anoji",
+      "city": "Buenos Aires",
+      "lat": -34.59629,
+      "lon": -58.41,
+      "precision": "exact",
+      "note": "Agüero 1146, Buenos Aires",
+      "source": "Jabad Argentina's own list (jabad.org.ar/centros); location from OpenStreetMap; not on chabad.org"
+    },
+    {
+      "id": "extra-argentina-fundacion",
+      "name": "La Fundación de Jabad",
+      "city": "Buenos Aires",
+      "lat": -34.60051,
+      "lon": -58.41143,
+      "precision": "exact",
+      "note": "Tucumán 3238, Buenos Aires",
+      "source": "Jabad Argentina's own list (jabad.org.ar/centros); location from OpenStreetMap; not on chabad.org",
+      "url": "https://lafundaciondejabad.org.ar/",
+      "site": "La Fundación de Jabad",
+      "siteHe": "הקרן של חב״ד"
+    },
+    {
+      "id": "extra-argentina-belgrano-beit-menajem",
+      "name": "Jabad Beit Menajem Belgrano",
+      "city": "Buenos Aires",
+      "lat": -34.55939,
+      "lon": -58.45719,
+      "precision": "exact",
+      "note": "Olazábal 2287, Belgrano",
+      "source": "Jabad Argentina's own list (jabad.org.ar/centros); location from OpenStreetMap (mapped there as Jabad Beit Menajem Belgrano); not on chabad.org"
+    },
+    {
+      "id": "extra-uruguay-punta-del-este",
+      "name": "Jabad Punta del Este",
+      "city": "Punta del Este",
+      "lat": -34.96323,
+      "lon": -54.944,
+      "precision": "city",
+      "note": "No address listed (arrival arranged by WhatsApp); placed at the town centre",
+      "source": "jabad.org.uy/punta; muchiler.co.il Chabad houses directory (Oct 2026); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Eliezer",
+          "lastName": "Shemtov"
+        }
+      ],
+      "url": "http://jabad.org.uy/punta",
+      "site": "Jabad Uruguay",
+      "siteHe": "חב״ד אורוגוואי"
+    },
+    {
+      "id": "extra-brazil-itacare",
+      "name": "Chabad Itacaré",
+      "city": "Itacaré",
+      "lat": -14.27813,
+      "lon": -38.99497,
+      "precision": "area",
+      "note": "Rua João Coutinho 9; the dot is on the street",
+      "source": "muchiler.co.il Chabad houses directory (Oct 2026); location from OpenStreetMap; not on chabad.org"
+    },
+    {
+      "id": "extra-mexico-isla-mujeres",
+      "name": "Chabad Isla Mujeres",
+      "city": "Isla Mujeres",
+      "lat": 21.25751,
+      "lon": -86.74799,
+      "precision": "exact",
+      "note": "Av. Hidalgo y Calle Abasolo, Centro",
+      "source": "chabadisla.com; Chabadpedia; muchiler.co.il Chabad houses directory (Oct 2026); location from OpenStreetMap (Jabad Isla Mujeres); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Moti",
+          "lastName": "Cohen"
+        }
+      ],
+      "url": "http://chabadisla.com/",
+      "site": "Chabad Isla Mujeres",
+      "siteHe": "חב״ד איסלה מוחרס"
+    },
+    {
+      "id": "extra-mexico-puerto-escondido",
+      "name": "Chabad Puerto Escondido",
+      "city": "Puerto Escondido",
+      "lat": 15.87047,
+      "lon": -97.08036,
+      "precision": "area",
+      "note": "Calle Zicatela F13, Fracc. Los Delfines; the dot is on the street",
+      "source": "Chabadpedia; muchiler.co.il Chabad houses directory (Oct 2026); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Dani",
+          "lastName": "Vinderbaum"
+        }
+      ]
+    },
+    {
+      "id": "extra-mexico-bacalar",
+      "name": "Chabad Bacalar",
+      "city": "Bacalar",
+      "lat": 18.68061,
+      "lon": -88.3896,
+      "precision": "area",
+      "note": "Calle 26 between 7 and 9, the blue house; the dot is on the street",
+      "source": "chabadofbacalar.com; muchiler.co.il Chabad houses directory (Oct 2026); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Yisrael",
+          "lastName": "Orian"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Esty",
+          "lastName": "Orian"
+        }
+      ],
+      "url": "https://chabadofbacalar.com/",
+      "site": "Chabad Bacalar",
+      "siteHe": "חב״ד בקלאר"
+    },
+    {
+      "id": "extra-mexico-holbox",
+      "name": "Chabad Holbox",
+      "city": "Holbox",
+      "lat": 21.52213,
+      "lon": -87.37831,
+      "precision": "city",
+      "note": "Address not listed; placed at the village centre",
+      "source": "muchiler.co.il Chabad houses directory (Oct 2026); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Akiva",
+          "lastName": "Harari"
+        }
+      ]
+    },
+    {
+      "id": "extra-mexico-merida",
+      "name": "Chabad Merida",
+      "city": "Mérida",
+      "lat": 21.02822,
+      "lon": -89.58157,
+      "precision": "area",
+      "note": "Calle 23 #339, Col. Montecarlo; the dot is on the street",
+      "source": "muchiler.co.il Chabad houses directory (Oct 2026); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Ezra",
+          "lastName": "Chaimes"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Libi",
+          "lastName": "Chaimes"
+        }
+      ]
+    },
+    {
+      "id": "extra-guatemala-san-pedro",
+      "name": "Chabad San Pedro",
+      "city": "San Pedro La Laguna",
+      "lat": 14.6928,
+      "lon": -91.2714,
+      "precision": "area",
+      "note": "Village centre near the main pier (Lake Atitlán); the dot is a rough spot",
+      "source": "chabadpedro.com; muchiler.co.il Chabad houses directory (Oct 2026); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Avrumi",
+          "lastName": "Meiri"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Sarah",
+          "lastName": "Meiri"
+        }
+      ],
+      "url": "https://chabadpedro.com/",
+      "site": "Chabad San Pedro",
+      "siteHe": "חב״ד סן פדרו"
+    },
+    {
+      "id": "extra-belize-san-pedro",
+      "name": "Chabad Belize",
+      "city": "San Pedro",
+      "lat": 17.91259,
+      "lon": -87.9717,
+      "precision": "area",
+      "note": "Hurricane St, San Pedro, Ambergris Caye; the dot is on the street",
+      "source": "muchiler.co.il Chabad houses directory (Oct 2026); not on chabad.org"
+    },
+    {
+      "id": "extra-honduras-roatan",
+      "name": "Chabad Roatan",
+      "city": "Roatán",
+      "lat": 16.30467,
+      "lon": -86.59286,
+      "precision": "city",
+      "note": "Address given only on request, for safety; placed at West End",
+      "source": "muchiler.co.il Chabad houses directory (Oct 2026); not on chabad.org"
+    },
+    {
+      "id": "extra-el-salvador-el-tunco",
+      "name": "Chabad El Salvador",
+      "city": "El Tunco",
+      "lat": 13.49751,
+      "lon": -89.38288,
+      "precision": "exact",
+      "note": "Off the Carretera del Litoral at El Tunco",
+      "source": "Chabadpedia; muchiler.co.il Chabad houses directory (Oct 2026); location from OpenStreetMap (Chabad El Salvador); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Yudi",
+          "lastName": "Brod"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Mushka",
+          "lastName": "Brod"
+        }
+      ]
+    },
+    {
+      "id": "extra-panama-traveler",
+      "name": "Beit Chabad Panama – Chabad for the Traveler",
+      "city": "Panama City",
+      "lat": 8.9781,
+      "lon": -79.5114,
+      "precision": "area",
+      "note": "Ana Gloria building, 4th floor, Punta Paitilla; the dot is a rough spot",
+      "source": "Chabadpedia (Panama City: Rabbi Pinchas Cohen); muchiler.co.il Chabad houses directory (Oct 2026); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Pinchas",
+          "lastName": "Cohen"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Chani",
+          "lastName": "Cohen"
+        }
+      ]
     }
   ],
   "fixes": {

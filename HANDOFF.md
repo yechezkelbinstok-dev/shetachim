@@ -143,6 +143,20 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   `extra-bolivia-la-paz`, and made it Bolivia's capital (it had none). Not added: a "Chabad" in Santa Cruz de la Sierra
   (Traveling Rabbi: not under Chabad's umbrella, no address) and the seasonal house in Rurrenabaque (Shuki Gur; the place
   was earlier run by Aharon Freiman, whom Chabad said it didn't recognise; no current sign it operates).
+- **Latin America sweep for Chabad centers chabad.org's locator lacks (owner, Oct 10: "chabad.org's locator misses official
+  Chabad centers all around the world, so those need to be added via manual research", country by country, Latin America
+  first, then the whole world).** Added Oct 10 to `data/extra-centers.json` (23): Peru — Pisac (Tzikvashvili, Cusco's
+  branch); Ecuador — Quito (Tomer Rotem); Argentina — Mendoza, Ushuaia (opened Dec 2025), and from Jabad Argentina's own
+  list (jabad.org.ar/centros) Vicente López, Avellaneda (Beit Iaacov), Yerba Buena, Beit Jana, Ieshiva Anoji, La
+  Fundación de Jabad, Beit Menajem Belgrano; Uruguay — Punta del Este; Brazil — Itacaré; Mexico — Isla Mujeres, Puerto
+  Escondido, Bacalar, Holbox, Mérida; Guatemala — San Pedro La Laguna; Belize — San Pedro; Honduras — Roatán; El
+  Salvador — El Tunco; Panama — Chabad for the Traveler (Pinchas Cohen). Sources: muchiler.co.il's Chabad directory,
+  esta-center.co.il, latini.co.il, the owner's PDF of Chabadpedia's "בתי חב"ד בעולם" (a lead only: it misses a lot),
+  and each house's own site. Left out (unconfirmed): Cochabamba (a Conservative community, no Chabad tie found),
+  "Chabad Hazon Ish" Santiago, San Marcos La Laguna (founded 2024 by the Pisac couple, status unknown), Olivos
+  (Chabadpedia only), Florianópolis and Cuba (seasonal only), Huaraz and Baños ("Jewish houses", not Chabad).
+  Next: the Caribbean islands, then the rest of the world, country by country. Scratch notes were in the session's
+  latam-findings.md.
 - **Posters (SVG/PNG downloads) still show Northeast Ohio's "Alevsky family" and Belarus as its own shetach** for Northeast Ohio: the owner said to stop with the posters
   (Oct 10); regenerate them only when he asks.
 

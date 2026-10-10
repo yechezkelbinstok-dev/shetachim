@@ -172,7 +172,16 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   no Chabad house found. The owner's CrawlForge account (key kept outside the repo, ~/.config/crawlforge/key, in that
   session only) got Enlace Judío's Kinus article (only Mayzlesh, Binyamini, Druk named — all on the map) but not
   Chabadpedia (blocks its IPs), chabad.org.br, jabadchile.org or jabad.org.uy (Cloudflare challenge, even in stealth
-  mode). Latin America is closed. Next: Africa, only when the owner says.
+  mode). The owner then sent Chabadpedia's Argentina, Mexico and Brazil pages and Jabad Uruguay's "Donde Estamos" page:
+  Argentina and Mexico add nothing; Brazil's list is on the map (Alto de Pinheiros = "Sinagoga Beit Menachem", Pompeia =
+  Tsemach Tsedec) except Botafogo — found and added (Beit Lubavitch Botafogo, Rua São Clemente 155, Rabbi Israel
+  Kaczala, a branch of Beit Lubavitch Rio) — and "Beit Chabad Tijuca" (Eliyahu Kapraw), no trace anywhere, left out;
+  Itacaré's rabbi named (Nehorai Yitzchak Tamsit); Uruguay lists only Montevideo and Punta del Este (now placed at
+  Parada 13 corner of Londres). Owner (Oct 10): with no address, dig until one is found — done: Pisac on Plaza
+  Constitución, San Pedro La Laguna from its Plus Code. Still town-level after digging (no address published anywhere
+  found): Ushuaia, Vicente López, Holbox, Panama's traveler house (Ana Gloria building, Paitilla), and Roatán (address
+  given only on request, for safety). Jabad Argentina's archive list (archivo.jabad.org.ar/batei-jabad) also names Beit
+  Jabad Colegiales — closed 2018, left out. Latin America is closed. Next: Africa, only when the owner says.
 - **Posters (SVG/PNG downloads) still show Northeast Ohio's "Alevsky family" and Belarus as its own shetach** for Northeast Ohio: the owner said to stop with the posters
   (Oct 10); regenerate them only when he asks.
 

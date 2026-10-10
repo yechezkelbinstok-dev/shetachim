@@ -359,8 +359,8 @@
       "lat": -13.42105,
       "lon": -71.8505,
       "precision": "area",
-      "note": "Branch of Chabad Cusco, opened 2025; the dot is the town centre",
-      "source": "COLlive and CrownHeights.info (Chabad House Opens in Pisac, Peru), COL (Feb 2026), muchiler.co.il Chabad houses directory (Oct 2026); not on chabad.org",
+      "note": "Plaza Constitución (the main square), Pisac; the dot is on the square",
+      "source": "COLlive and CrownHeights.info (Chabad House Opens in Pisac, Peru), COL (Feb 2026), muchiler.co.il Chabad houses directory (Oct 2026); not on chabad.org; address from chabadpisac.org",
       "personnel": [
         {
           "title": "Rabbi",
@@ -513,11 +513,11 @@
       "id": "extra-uruguay-punta-del-este",
       "name": "Jabad Punta del Este",
       "city": "Punta del Este",
-      "lat": -34.96323,
-      "lon": -54.944,
-      "precision": "city",
-      "note": "No address listed (arrival arranged by WhatsApp); placed at the town centre",
-      "source": "jabad.org.uy/punta; muchiler.co.il Chabad houses directory (Oct 2026); not on chabad.org",
+      "lat": -34.935,
+      "lon": -54.9495,
+      "precision": "area",
+      "note": "Parada 13 corner of Londres (Playa Mansa side); the dot is a rough spot",
+      "source": "Jabad Uruguay's own page (Donde Estamos, jabad.org.uy, sent by the owner Oct 2026); muchiler.co.il Chabad houses directory; not on chabad.org",
       "personnel": [
         {
           "title": "Rabbi",
@@ -537,7 +537,14 @@
       "lon": -38.99497,
       "precision": "area",
       "note": "Rua João Coutinho 9; the dot is on the street",
-      "source": "muchiler.co.il Chabad houses directory (Oct 2026); location from OpenStreetMap; not on chabad.org"
+      "source": "Chabadpedia (Brazil page); muchiler.co.il Chabad houses directory (Oct 2026); location from OpenStreetMap; not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Nehorai Yitzchak",
+          "lastName": "Tamsit"
+        }
+      ]
     },
     {
       "id": "extra-mexico-isla-mujeres",
@@ -644,11 +651,11 @@
       "id": "extra-guatemala-san-pedro",
       "name": "Chabad San Pedro",
       "city": "San Pedro La Laguna",
-      "lat": 14.6928,
-      "lon": -91.2714,
-      "precision": "area",
-      "note": "Village centre near the main pier (Lake Atitlán); the dot is a rough spot",
-      "source": "chabadpedro.com; muchiler.co.il Chabad houses directory (Oct 2026); not on chabad.org",
+      "lat": 14.69445,
+      "lon": -91.27365,
+      "precision": "exact",
+      "note": "Village centre near the main pier (Plus Code MPVG+QGF, San Pedro La Laguna)",
+      "source": "chabadpedro.com; muchiler.co.il Chabad houses directory (Oct 2026); not on chabad.org; location from its Plus Code (goKosher listing)",
       "personnel": [
         {
           "title": "Rabbi",
@@ -748,6 +755,26 @@
       "url": "https://chabadbrooklin.com.br/",
       "site": "Beit Chabad Brooklin",
       "siteHe": "בית חב״ד ברוקלין"
+    },
+    {
+      "id": "extra-brazil-rio-botafogo",
+      "name": "Beit Lubavitch Botafogo",
+      "city": "Rio de Janeiro",
+      "lat": -22.95183,
+      "lon": -43.19539,
+      "precision": "area",
+      "note": "Rua São Clemente 155, Botafogo; the dot is on the street",
+      "source": "Chabadpedia's Brazil page (sent by the owner: Beit Chabad Botafogo, Rabbi Israel Katala); its Facebook and Instagram pages (Beit Lubavitch Botafogo, under Rabbi Israel Kaczala); a branch of Beit Lubavitch Rio; not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Israel",
+          "lastName": "Kaczala"
+        }
+      ],
+      "url": "https://www.instagram.com/beitbotafogo/",
+      "site": "Instagram",
+      "siteHe": "אינסטגרם"
     }
   ],
   "fixes": {

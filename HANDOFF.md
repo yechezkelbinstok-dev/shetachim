@@ -189,7 +189,9 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   Bentolila's Central Africa shetach. Checked, nothing to add: Kenya beyond Nairobi; Tanzania's Aziza house is in Dar es
   Salaam (Chabad.org, Jun 2025), as the map has it; Cameroon, Gabon, Congo-Brazzaville, Equatorial Guinea, Sierra Leone
   — visits only (jewishafrica.com "Our Locations"); Senegal — a center announced May 2026, not yet open;
-  Zimbabwe, Mozambique, Madagascar, Malawi, Eswatini, Lesotho, Egypt, Algeria, Djerba — nothing found.
+  Zimbabwe, Mozambique, Madagascar, Malawi, Eswatini, Lesotho, Egypt, Algeria, Djerba — nothing found; Botswana and the
+  Seychelles — visiting rabbis only; Morocco — every listed Chabad site (Casablanca, Marrakech, Fès, Meknès, Agadir,
+  Kénitra, Rabat, Tangier) is already on the map. Leads the owner could send as PDFs: Chabadpedia's אפריקה and טנזניה pages.
 - **Posters (SVG/PNG downloads) still show Northeast Ohio's "Alevsky family" and Belarus as its own shetach** for Northeast Ohio: the owner said to stop with the posters
   (Oct 10); regenerate them only when he asks.
 

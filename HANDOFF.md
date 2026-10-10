@@ -248,6 +248,15 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
     the map → added (address unpublished, dot at Rathaus Steglitz); Kudamm (Dovid Teichtal) and the Russian speakers'
     centre (Pavlotsky) give the Münstersche Str. 6 address; Bet Nachum (Spandauer Damm, Feb 2025) is in Ruhwaldpark
     with the yeshiva already on the map. Nothing in Leipzig, Stuttgart, Heidelberg, Wiesbaden, Bonn, Rostock, Münster.
+  - Austria: added the Chabad Seminary of Austria (Zalman and Blumi Raskin; moved into the Chabad House building,
+    Taborstraße 20a, May 2026 — COLlive). lubavitch.com also lists "Chabad Lubavitch House-Salzburg" (Dovid Nussbaum,
+    Schwarzparkstrasse 11) — an older listing: Nussbaum runs Lungau (on the map) and Gruzman has Salzburg; not added.
+  - Switzerland: added Beit Yossef in Crans-Montana (Levi Yitzchak Pevzner, Rue Centrale 35 — the synagogue beside the
+    bar of the Jan 1, 2026 fire). Bern's shliach (Marilus) is chabad.org's Biel/Bienne listing. Lausanne, Davos,
+    St. Moritz, Gstaad: nothing permanent found.
+  - Netherlands: added Chabad House Amstelveen (Prof. J.H. Bavincklaan 5, by the Adagio hotel; Chabad Amsterdam's
+    tourist and Israeli centre). Every name on chabad.nl's and Go2Torah's lists is on the map.
+  - Belgium, Luxembourg, Liechtenstein, Gibraltar: nothing to add.
 - **Rest of the world (grey land) is on by default** (owner, Oct 10): `state.empty: true` and the checkbox starts checked.
 - **Posters (SVG/PNG downloads) still show Northeast Ohio's "Alevsky family" and Belarus as its own shetach** for Northeast Ohio: the owner said to stop with the posters
   (Oct 10); regenerate them only when he asks.

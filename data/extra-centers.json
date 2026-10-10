@@ -1102,6 +1102,83 @@
       "url": "https://chabadberlin.de/en/judaism/724/",
       "site": "Chabad of Berlin",
       "siteHe": "חב״ד ברלין"
+    },
+    {
+      "id": "extra-austria-vienna-seminary",
+      "name": "Chabad Seminary of Austria",
+      "city": "Vienna",
+      "lat": 48.21623,
+      "lon": 16.38084,
+      "precision": "exact",
+      "note": "In the Chabad House building, Taborstraße 20a (since May 2026; before that two years in a castle in Lower Austria)",
+      "source": "COLlive, 31 May 2026 (\"Chabad Seminary In Austria Moves to Vienna\": into the Chabad House building, led by Rabbi Zalman and Mrs. Blumi Raskin under Chabad Institutions Austria, headed by Rabbi Yaakov Biderman); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Zalman",
+          "lastName": "Raskin"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Blumi",
+          "lastName": "Raskin"
+        }
+      ],
+      "url": "https://collive.com/chabad-seminary-in-austria-moves-to-vienna/",
+      "site": "COLlive",
+      "siteHe": "COLlive"
+    },
+    {
+      "id": "extra-switzerland-crans-montana",
+      "name": "Beit Yossef – Chabad of Crans-Montana",
+      "city": "Crans-Montana",
+      "lat": 46.30803,
+      "lon": 7.46849,
+      "precision": "exact",
+      "note": "Rue Centrale 35, Crans-Montana: the synagogue of the Beit Yossef Jewish Community of Crans-Montana and Valais",
+      "source": "Chabad Info (Rabbi Levi Yitzchak Pevzner, the Rebbe's shliach in Crans-Montana, son of Geneva's Rabbi Mendel Pevzner); Lubavitch.com, 7 Jan 2026 (Beit Yossef synagogue, next door to Le Constellation); jewisheurope.org (Rue Centrale); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Levi Yitzchak",
+          "lastName": "Pevzner"
+        }
+      ]
+    },
+    {
+      "id": "extra-netherlands-amstelveen",
+      "name": "Chabad House Amstelveen",
+      "city": "Amstelveen",
+      "lat": 52.31846,
+      "lon": 4.87087,
+      "precision": "exact",
+      "note": "Professor J.H. Bavincklaan 5, Amstelveen — the entrance is on the right of the Adagio hotel's main entrance",
+      "source": "chabadamsterdamcenter.com/en/judaism/1207 (Chabad Amstelveen, a branch of Chabad Amsterdam's Tourist & Israeli Center: Rabbi Akiva Camissar, Dovi Pinkovitch); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Akiva",
+          "lastName": "Camissar"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Taiby",
+          "lastName": "Camissar"
+        },
+        {
+          "title": "Rabbi",
+          "firstName": "Yitzhak Dov",
+          "lastName": "Pinkovitch"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Chaya Mushka",
+          "lastName": "Pinkovitch"
+        }
+      ],
+      "url": "https://chabadamsterdamcenter.com/en/judaism/1207/",
+      "site": "Chabad of Amsterdam",
+      "siteHe": "חב״ד אמסטרדם"
     }
   ],
   "fixes": {

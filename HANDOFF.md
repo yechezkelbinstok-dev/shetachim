@@ -182,6 +182,14 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   found): Ushuaia, Vicente López, Holbox, Panama's traveler house (Ana Gloria building, Paitilla), and Roatán (address
   given only on request, for safety). Jabad Argentina's archive list (archivo.jabad.org.ar/batei-jabad) also names Beit
   Jabad Colegiales — closed 2018, left out. Latin America is closed. Next: Africa, only when the owner says.
+- **Africa sweep (Oct 10; South Africa excluded — the owner: "that's its own thing", to be done separately).** Added:
+  Chabad of Namibia (Windhoek, Yosef and Mushka Rahimi, 20 Arians Street — OpenStreetMap gives Simón Bolívar Street,
+  Luxury Hill), Chabad House Zanzibar (Nungwi; founded 2018 by the Shmulevitzes, current rabbi not found), Chabad of
+  Ethiopia (Addis Ababa, Kirkos, Eliyahu and Devorah Chaviv) and its shul at Bole International Airport. All fall in
+  Bentolila's Central Africa shetach. Checked, nothing to add: Kenya beyond Nairobi; Tanzania's Aziza house is in Dar es
+  Salaam (Chabad.org, Jun 2025), as the map has it; Cameroon, Gabon, Congo-Brazzaville, Equatorial Guinea, Sierra Leone
+  — visits only (jewishafrica.com "Our Locations"); Senegal — a center announced May 2026, not yet open;
+  Zimbabwe, Mozambique, Madagascar, Malawi, Eswatini, Lesotho, Egypt, Algeria, Djerba — nothing found.
 - **Posters (SVG/PNG downloads) still show Northeast Ohio's "Alevsky family" and Belarus as its own shetach** for Northeast Ohio: the owner said to stop with the posters
   (Oct 10); regenerate them only when he asks.
 

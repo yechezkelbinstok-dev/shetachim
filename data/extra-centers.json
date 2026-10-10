@@ -775,6 +775,83 @@
       "url": "https://www.instagram.com/beitbotafogo/",
       "site": "Instagram",
       "siteHe": "אינסטגרם"
+    },
+    {
+      "id": "extra-namibia-windhoek",
+      "name": "Chabad of Namibia",
+      "city": "Windhoek",
+      "lat": -22.57377,
+      "lon": 17.10228,
+      "precision": "area",
+      "note": "20 Arians Street, Windhoek (Luxury Hill); the dot is on the street",
+      "source": "chabadnamibia.com; Chabad Info (Chabad of Namibia, director Rabbi Yosef Rahimi; opened 2021); location from OpenStreetMap; not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Yosef",
+          "lastName": "Rahimi"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Mushka",
+          "lastName": "Rahimi"
+        }
+      ],
+      "url": "https://chabadnamibia.com/",
+      "site": "Chabad of Namibia",
+      "siteHe": "חב״ד נמיביה"
+    },
+    {
+      "id": "extra-tanzania-zanzibar",
+      "name": "Chabad House Zanzibar",
+      "city": "Nungwi",
+      "lat": -5.72723,
+      "lon": 39.2992,
+      "precision": "area",
+      "note": "Nungwi, Zanzibar; the dot is the village centre",
+      "source": "chabadzanzibar.com (events listed for 2026); Chabad.org and JNS (2018: founded by Rabbi Shneor and Mushka Shmulevitz, under Chabad of Central Africa); not on chabad.org",
+      "url": "https://chabadzanzibar.com/en/",
+      "site": "Chabad of Zanzibar",
+      "siteHe": "חב״ד זנזיבר"
+    },
+    {
+      "id": "extra-ethiopia-addis-ababa",
+      "name": "Chabad of Ethiopia",
+      "city": "Addis Ababa",
+      "lat": 9.00263,
+      "lon": 38.75797,
+      "precision": "area",
+      "note": "Kirkos sub-city, Addis Ababa; the dot is a rough spot",
+      "source": "Chabad Info (Shabbos preparations at the Addis Ababa Chabad House, 2025; campus groundbreaking); Israel's embassy in Addis Ababa (Chabad in Ethiopia); founded 2013; not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Eliyahu",
+          "lastName": "Chaviv"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Devorah",
+          "lastName": "Chaviv"
+        }
+      ]
+    },
+    {
+      "id": "extra-ethiopia-bole-airport",
+      "name": "Chabad Shul at Bole International Airport",
+      "city": "Addis Ababa",
+      "lat": 8.97919,
+      "lon": 38.79658,
+      "precision": "area",
+      "note": "At Addis Ababa Bole International Airport",
+      "source": "Chabad Info (new Sefer Torah dedicated to the shul at Addis Ababa's airport, 2024; run by Chabad of Ethiopia); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Eliyahu",
+          "lastName": "Chaviv"
+        }
+      ]
     }
   ],
   "fixes": {

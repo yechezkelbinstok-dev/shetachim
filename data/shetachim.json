@@ -914,18 +914,6 @@
       }
     },
     {
-      "id": "andorra",
-      "name": "Andorra",
-      "short": "And.",
-      "headShliach": "Kuty Kalmenson",
-      "territory": [
-        "AND"
-      ],
-      "capital": {
-        "centerId": "6518150"
-      }
-    },
-    {
       "id": "austria",
       "name": "Austria",
       "short": "Aus.",
@@ -1060,7 +1048,9 @@
       "short": "Fr.",
       "headShliach": "Mendy Azimov",
       "territory": [
-        "FRA"
+        "FRA",
+        "AND",
+        "MCO"
       ],
       "capital": {
         "centerId": "330228"
@@ -1245,18 +1235,6 @@
       ],
       "capital": {
         "centerId": "117940"
-      }
-    },
-    {
-      "id": "monaco",
-      "name": "Monaco",
-      "short": "Mon.",
-      "headShliach": "Tanhoum Matusof",
-      "territory": [
-        "MCO"
-      ],
-      "capital": {
-        "centerId": "1949364"
       }
     },
     {

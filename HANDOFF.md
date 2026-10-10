@@ -197,6 +197,28 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   Africa already carries its shluchim; Lubumbashi (a shul, not Chabad), Livingstone (served from Lusaka), Benin, Togo,
   Cape Verde, Djibouti — nothing to add. **Africa is closed except South Africa** (its own pass, when the owner says;
   chabadsouthafrica.org is behind a Cloudflare challenge, so PDFs of its pages would help).
+- **Taps pick only what they're really on (owner, Oct 10: tapping empty land in Israel opened Kiryat Shmona, or a
+  local center, instead of Eretz Yisroel).** `pickAt` used a ±14 px box (±8 with a mouse) round everything, so the
+  wide box round a city's name and every dot within ~20 px caught taps meant for the area. Now: a dot only within its
+  drawn radius (same formula as its paint) + 4 px (2 with a mouse), at least 8 px (5); a capital's star or a city only
+  when the tap is on its star/name or within 8 px (5) of its point; a head shliach's name only when tapped on. A grid of
+  taps over Israel on a phone: everything ≥ ~9 px from a dot now opens Eretz Yisroel.
+- **Andorra and Monaco are in France's shetach (owner, Oct 10: "Andorra is clearly a French subject (based on who brought
+  the shluchim there)"; "Not just Andorra also Monaco!").** Andorra: Rabbi Haim Hilel Matusof of Chabad of Toulouse
+  served it for decades and looked for a couple to live there (Chabad.org/JPost on the Kalmensons, 2024). Monaco: Rabbi
+  Tanhoum Matusof is the son of Rabbi Yehuda Leib Matusof, shliach of Cannes and the southern Riviera, and began in
+  Monaco beside his father's region (Chabadpedia). France's territory is FRA, AND, MCO; both countries keep their own
+  head on the country card (`data/country-heads.json`: AND → Chabad of Andorra, MCO → Chabad Lubavitch of Monaco);
+  the owner's list (`data/global-shetach-list.txt`) and data/hebrew/shetachim.json updated to match. The owner asked for
+  a European sweep for any other country, or part of one, that is really under another country's head — in progress:
+  checked so far with no change: Luxembourg (stays with Belgium, as the list has it; Mendel Edelman, from Paris, since
+  2005 — nothing found on who sent him), Northern Cyprus (Chaim Hillel Azimov, since 2008; no tie to Raskin or Turkey
+  found; a 2024 Mako report says the house closed for security), Malta (Chaim Segal, 2012), Montenegro (Ari Edelkopf,
+  2017, invited by the community, came from Sochi), Croatia (Pinchas Zaklas, 2004), Serbia (Yehoshua Kaminetzky, 2008,
+  appointed by Merkos — Rabbi Kotlarsky), Ireland (Zalman Lent, from Manchester 2000, the Dublin congregation's rabbi),
+  Iceland (Avi Feldman, 2018), Slovenia (Ariel Haddad in Trieste, appointed by the Rebbe; Chabad Italia lists Chabad
+  Trieste — the owner's list keeps him a separate shetach with the Trieste panhandle), Lugano (Yaakov Tzvi Kantor; no
+  tie to Milan found).
 - **Europe sweep (Oct 10; owner: "Europe next, excluding the really big networks like UK, France, Russia" — also left out:
   Ukraine, 114 listings; "be meticulous", and "actual legitimate manual individual research into each country on its
   own", not just databases).** Country by country, in the map's Europe view. Method per country: news of new shluchim

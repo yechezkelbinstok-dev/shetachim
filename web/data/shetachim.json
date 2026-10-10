@@ -28,7 +28,9 @@
   "UGA": "3972088",
   "ZMB": "5626382",
   "KHM": "992232",
-  "BLR": "117882"
+  "BLR": "117882",
+  "AND": "6518150",
+  "MCO": "1949364"
  },
  "partNames": {
   "CA-ON": {
@@ -1422,28 +1424,6 @@
    ]
   },
   {
-   "id": "andorra",
-   "name": "Andorra",
-   "short": "And.",
-   "headShliach": "Kuty Kalmenson",
-   "capital": {
-    "centerId": "6518150",
-    "name": "Chabad of Andorra",
-    "city": "Andorra la Vella",
-    "lat": 42.50632,
-    "lon": 1.52184
-   },
-   "capitals": [
-    {
-     "centerId": "6518150",
-     "name": "Chabad of Andorra",
-     "city": "Andorra la Vella",
-     "lat": 42.50632,
-     "lon": 1.52184
-    }
-   ]
-  },
-  {
    "id": "austria",
    "name": "Austria",
    "short": "Aus.",
@@ -1957,28 +1937,6 @@
      "city": "Kishinev",
      "lat": 47.02301,
      "lon": 28.84242
-    }
-   ]
-  },
-  {
-   "id": "monaco",
-   "name": "Monaco",
-   "short": "Mon.",
-   "headShliach": "Tanhoum Matusof",
-   "capital": {
-    "centerId": "1949364",
-    "name": "Chabad Lubavitch of Monaco",
-    "city": "Monte Carlo",
-    "lat": 43.74013,
-    "lon": 7.42288
-   },
-   "capitals": [
-    {
-     "centerId": "1949364",
-     "name": "Chabad Lubavitch of Monaco",
-     "city": "Monte Carlo",
-     "lat": 43.74013,
-     "lon": 7.42288
     }
    ]
   },

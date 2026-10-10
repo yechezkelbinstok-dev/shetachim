@@ -278,6 +278,21 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
     Bălţi → Beltsy). Belarus, Estonia, Latvia, Lithuania: nothing to add.
   Europe (outside the UK, France, Russia, Ukraine) is done.
 - **Rest of the world (grey land) is on by default** (owner, Oct 10): `state.empty: true` and the checkbox starts checked.
+- **Shluchim murdered al kiddush Hashem: HY"D, at the top of their center (owner, Oct 10: "Tzvi Kogan isn't obm or AH
+  he's HY"D … all shluchim who were martyred al kiddush hashem (the Holtzbergs, Schlanger, and anyone else) … should
+  also be prominently featured on their center").** data/extra-centers.json `hyd`, by center id: the build marks each
+  person passed away with `hyd` (adding them to the center's people when chabad.org doesn't list them) and gives the
+  center a `memorial` line; the card shows a shaded block right under the center's name — "Rabbi Gavriel Holtzberg
+  HY"D / Mrs. Rivka Holtzberg HY"D", then "Murdered al kiddush Hashem in the Mumbai terror attack, November 2008"
+  (Hebrew: הרב / הרבנית … הי״ד, the Hebrew year) — and leaves them out of the folded "Deceased" list (still obm / ע״ה
+  for everyone else). On the map: the Holtzbergs (Chabad-Lubavitch of Mumbai, 2008), Zvi Kogan (Chabad of the UAE,
+  2024), Eli Schlanger and Yaakov Levitan (Chabad of Bondi — its chabad.org listing, "Bondi Beach Friends of Refugees
+  of Eastern Europe", Yehoram Ulman's — the Chanukah attack, Dec 2025; Levitan was its general manager and the Sydney
+  Beth Din's secretary) and Moshe Krivitski (Chabad Synagogue Nachal Beka, Be'er Sheva, the March 2022 attack).
+  Searched for others (English and Hebrew news, Chabad's own sites): none found who served a center on the map. Left
+  out: Rabbi Mendel Deitsch (beaten and robbed in Zhitomir, 2016, died of his wounds — the motive is disputed and he
+  had no center there) and the 1956 Kfar Chabad attack's students and teacher (not shluchim of a center). Hebrew
+  surnames as Chabad's Hebrew sites write them: שלאנגר, קרביצקי, לויטן.
 - **Posters (SVG/PNG downloads) still show Northeast Ohio's "Alevsky family" and Belarus as its own shetach** for Northeast Ohio: the owner said to stop with the posters
   (Oct 10); regenerate them only when he asks.
 
@@ -451,6 +466,8 @@ together at ~4.4 s (1.2 s desktop); no freeze over ~0.6 s, so the map moves from
   NWT only partly in Alberta). French Guiana: no Chabad activity found (Oct 5), so no shetach yet.
 - **Old Russian city names only** (owner, Oct 7), in messages to him as on the map: Lugansk, Zaporozhye, Kiev, Dnepr,
   Kharkov, Nikolaev, Slavyansk — never the Ukrainian forms (`UA_NAMES` in the build does it for the map's towns).
+- **Shluchim murdered al kiddush Hashem are HY"D / הי״ד, never obm / ע״ה** (owner, Oct 10), and shown at the top of
+  their center's card: data/extra-centers.json `hyd` (see Oct 10 above). Add anyone new there.
 - **Head shliach names are never shortened** — not on the live map, not in the SVGs, never to the last name alone
   (owner, Oct 7: there is no "Last name" label mode any more). Where the full name doesn't fit on one line or two,
   no name. **Middle names are left out on the map and posters** (`mapName` in data/shetachim.json, `mapHead` in the

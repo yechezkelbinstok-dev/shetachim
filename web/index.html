@@ -207,6 +207,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card .personnel summary { cursor: pointer; font-size: 12px; color: var(--accent); list-style: none; }
 #card .personnel summary::-webkit-details-marker { display: none; }
 #card .personnel .pother { font-size: 13px; margin-top: 3px; padding-left: 10px; }
+#card .memorial { margin: 5px 0 3px; padding: 5px 9px; border-inline-start: 3px solid var(--ink); background: var(--accent-soft); border-radius: 4px; }
+#card .memorial .mem-name { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+#card .memorial .mem-note { font-size: 12px; color: var(--muted); margin-top: 2px; }
 #card a { color: var(--accent); font-size: 13px; }
 #card .foot { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--panel-line); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 10px; }
 #card .close { position: absolute; top: 6px; inset-inline-end: 6px; width: 26px; height: 26px; border: 0; border-radius: 6px; background: transparent; cursor: pointer; display: none; }
@@ -2460,7 +2463,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (h === undefined) return pos;
     return Array.isArray(h) ? h[isMale(p) ? 0 : 1] : h;
   };
-  const personName = (p) => `${[firstOf(p), lastOf(p)].filter(Boolean).join(' ')}${p.isDeceased ? (HE ? ' ע״ה' : ' obm') : ''}`;
+  // shluchim murdered al kiddush Hashem (hyd, data/extra-centers.json): HY"D / הי״ד instead
+  const personName = (p) => `${[firstOf(p), lastOf(p)].filter(Boolean).join(' ')}${p.isDeceased ? (p.hyd ? (HE ? ' הי״ד' : ' HY"D') : HE ? ' ע״ה' : ' obm') : ''}`;
   // The center in Lubavitch (opened 2008 near the Rebbeim's graves; not on chabad.org's locator, so given here), shown
   // on Lubavitch's card as a center of its own, under a divider
   const LUBAVITCH_CENTER_PEOPLE = [{ title: 'Rabbi', firstName: 'Gavriel', lastName: 'Gordon', position: 'Director', isDirector: true, isDeceased: false }];
@@ -2475,9 +2479,22 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const others = living.filter((p) => p !== primary && !(woman && !widowed && p === woman)); // under "<name> family" she's still listed
     const more = others.length
       ? `<details class="personnel"><summary>+${others.length} ${HE ? 'נוספים' : 'more'}</summary>${others.map((p) => `<div class="pother">${personLine(p)}</div>`).join('')}</details>` : '';
-    const obm = passed.length
-      ? `<details class="personnel"><summary>${HE ? 'נפטרו' : 'Deceased'} (${passed.length})</summary>${passed.map((p) => `<div class="pother">${personLine(p)}</div>`).join('')}</details>` : '';
+    const obmList = passed.filter((p) => !p.hyd); // (the kedoshim are at the top of the center, in memorialHTML)
+    const obm = obmList.length
+      ? `<details class="personnel"><summary>${HE ? 'נפטרו' : 'Deceased'} (${obmList.length})</summary>${obmList.map((p) => `<div class="pother">${personLine(p)}</div>`).join('')}</details>` : '';
     return `${head ? `<p class="person">${head}</p>` : ''}${more}${obm}`;
+  }
+
+  // A center's shluchim murdered al kiddush Hashem, at the top of its entry (owner, Oct 10: "prominently featured on
+  // their center"), with their titles: "Rabbi Gavriel Holtzberg HY"D" / "הרב גבריאל הולצברג הי״ד"
+  const HE_TITLE = { rabbi: 'הרב', 'mrs.': 'הרבנית', rebbetzin: 'הרבנית' };
+  function memorialHTML(c) {
+    const kedoshim = (c && c.personnel || []).filter((p) => p.hyd);
+    if (!kedoshim.length) return '';
+    const title = (p) => (HE ? HE_TITLE[(p.title || '').trim().toLowerCase()] : p.title) || '';
+    const names = kedoshim.map((p) => `<div class="mem-name">${esc([title(p), personName(p)].filter(Boolean).join(' '))}</div>`).join('');
+    const note = c.memorial && (HE ? c.memorial.he : c.memorial.en);
+    return `<div class="memorial">${names}${note ? `<div class="mem-note">${esc(note)}</div>` : ''}</div>`;
   }
 
   function dotHTML(d) {
@@ -2487,7 +2504,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       return `<li>
         <strong>${esc(c.name)}</strong>
         <span class="meta">${esc([c.type, c.city].filter(Boolean).join(' · '))}</span>
-        ${personnelHTML(c.personnel)}
+        ${memorialHTML(c)}${personnelHTML(c.personnel)}
         ${cap ? `<span class="flag${cap.world ? ' flag-world' : ''}">${capKicker(cap)}</span>` : ''}
         ${chabadLink(c)}
       </li>`;
@@ -2503,7 +2520,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         <span class="meta">${esc([HE ? 'מרכז מורשת' : 'Heritage center', HE ? 'ליובאוויטש' : 'Lubavitch'].join(' · '))}</span>
         ${personnelHTML(LUBAVITCH_CENTER_PEOPLE)}</li></ul></div>`;
     return `<span class="kicker${c.world ? ' kicker-world' : ''}">${capKicker(c)}</span><h2${c.world ? ' class="honor-h"' : ''}>${esc(c.name)}</h2>
-      ${c.city ? `<p>${esc(c.city)}</p>` : ''}${personnelHTML(c.center && c.center.personnel)}${chabadLink(c.center)}
+      ${c.city ? `<p>${esc(c.city)}</p>` : ''}${memorialHTML(c.center)}${personnelHTML(c.center && c.center.personnel)}${chabadLink(c.center)}
       <div class="foot"><span class="meta">${shetachLine(c.piece, !c.world)}</span></div>`;
   }
 

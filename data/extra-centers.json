@@ -1,5 +1,5 @@
 {
-  "about": "Centers that exist but are not listed on chabad.org. precision: 'exact' = real location, 'area' = rough spot in the right neighbourhood, 'city' = city centre (address unknown). note is shown on the dot's card. url, site, siteHe: the center's own page elsewhere (a center not on chabad.org), linked on its card as \"Open on <site>\" / \"לדף ב<siteHe>\". center-type: {name} as chabad.org's types (Mikveh, Jewish Community Center…), shown on the card. fixes: corrections to chabad.org's own listings, by center id (city, lat, lon; or personnel where chabad.org lists no one — a fix without lat keeps the listing's approx flag).",
+  "about": "Centers that exist but are not listed on chabad.org. precision: 'exact' = real location, 'area' = rough spot in the right neighbourhood, 'city' = city centre (address unknown). note is shown on the dot's card. url, site, siteHe: the center's own page elsewhere (a center not on chabad.org), linked on its card as \"Open on <site>\" / \"לדף ב<siteHe>\". center-type: {name} as chabad.org's types (Mikveh, Jewish Community Center…), shown on the card. fixes: corrections to chabad.org's own listings, by center id (city, lat, lon; or personnel where chabad.org lists no one — a fix without lat keeps the listing's approx flag). hyd: shluchim murdered al kiddush Hashem, by center id: each person is marked passed away with HY\"D / הי״ד instead of obm / ע״ה (added to the center's people if chabad.org doesn't list them), and shown at the top of the center's card with memorial / memorialHe.",
   "centers": [
     {
       "id": "extra-riyadh",
@@ -1402,5 +1402,41 @@
       ],
       "why": "chabad.org lists no one; Enfoque Judío (14 Jun 2026): the new Bet Jabad in Sant Cugat is run by Rabbi Shalom Ber Libersohn and his wife Rivka (son of Barcelona's Rabbi David Libersohn); its address isn't published"
     }
-  }
+  },
+  "hyd": [
+    {
+      "center": "118651",
+      "people": [
+        { "title": "Rabbi", "firstName": "Gavriel", "lastName": "Holtzberg" },
+        { "title": "Mrs.", "firstName": "Rivka", "lastName": "Holtzberg" }
+      ],
+      "memorial": "Murdered al kiddush Hashem in the Mumbai terror attack, November 2008",
+      "memorialHe": "נרצחו על קידוש השם בפיגוע במומבאי, תשס״ט",
+      "why": "the founding shluchim of Chabad-Lubavitch of Mumbai (Nariman House), killed there with four guests on 26 Nov 2008 (chabad.org/4191218; JTA, 26 Nov 2014)"
+    },
+    {
+      "center": "4920073",
+      "people": [{ "title": "Rabbi", "firstName": "Zvi", "lastName": "Kogan" }],
+      "memorial": "Murdered al kiddush Hashem by terrorists in the UAE, November 2024",
+      "memorialHe": "נרצח על קידוש השם בידי מחבלים באיחוד האמירויות, תשפ״ה",
+      "why": "Chabad emissary in the UAE, abducted in Dubai and murdered, Nov 2024 (chabad.org/6676031); chabad.org lists him here as passed away; the owner: HY\"D, not obm"
+    },
+    {
+      "center": "117754",
+      "people": [
+        { "title": "Rabbi", "firstName": "Eli", "lastName": "Schlanger" },
+        { "title": "Rabbi", "firstName": "Yaakov", "lastName": "Levitan" }
+      ],
+      "memorial": "Murdered al kiddush Hashem in the Bondi Beach Chanukah attack, December 2025",
+      "memorialHe": "נרצחו על קידוש השם בפיגוע בחנוכה בחוף בונדי, תשפ״ו",
+      "why": "Chabad of Bondi (Rabbi Yehoram Ulman's): Eli Schlanger, its assistant rabbi, who organised the Chanukah by the Sea event (chabad.org/7165875), and Yaakov Levitan, Chabad Bondi's general manager and secretary of the Sydney Beth Din (The JC; Times of Israel), both killed 14 Dec 2025; chabad.org's listing here still had Schlanger as living"
+    },
+    {
+      "center": "119016",
+      "people": [{ "title": "Rabbi", "firstName": "Moshe", "lastName": "Krivitski" }],
+      "memorial": "Murdered al kiddush Hashem in a terror attack in Be'er Sheva, March 2022",
+      "memorialHe": "נרצח על קידוש השם בפיגוע בבאר שבע, תשפ״ב",
+      "why": "Chabad emissary in Nachal Beka who ran the Colel Chabad soup kitchen; killed in the 22 Mar 2022 Be'er Sheva attack (chabad.org/5468664; COL: הרב משה קרביצקי הי\"ד)"
+    }
+  ]
 }

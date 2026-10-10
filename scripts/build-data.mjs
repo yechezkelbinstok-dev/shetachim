@@ -1177,6 +1177,21 @@ async function main() {
   const personnelById = fs.existsSync(personnelFile) ? new Map(Object.entries(readJSON(personnelFile).personnel || {})) : new Map();
   for (const c of centers) { const p = personnelById.get(c.id); if (p && p.length) c.personnel = p; }
   if (personnelById.size) console.log(`personnel: ${personnelById.size} of ${centers.length} centers`);
+  // Shluchim murdered al kiddush Hashem (extra-centers.json "hyd", by center): passed away, HY"D after the name instead
+  // of obm, added to the center's people where chabad.org doesn't list them, and a memorial line on the center's card
+  const centerById = new Map(centers.map((c) => [c.id, c]));
+  for (const h of extrasData.hyd || []) {
+    const c = centerById.get(h.center);
+    if (!c) throw new Error(`hyd: no center ${h.center}`);
+    const key = (p) => `${(p.firstName || '').trim()} ${(p.lastName || '').trim()}`;
+    c.personnel = (c.personnel || []).map((p) => ({ ...p }));
+    for (const who of h.people) {
+      const p = c.personnel.find((x) => key(x) === key(who));
+      if (p) Object.assign(p, { isDeceased: true, hyd: true });
+      else c.personnel.push({ ...who, position: null, isDirector: false, isDeceased: true, hyd: true });
+    }
+    c.memorial = { en: h.memorial, he: h.memorialHe };
+  }
 
   console.log('building map geometry…');
   const shetachData = readJSON(at('data', 'shetachim.json'));

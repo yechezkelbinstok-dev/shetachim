@@ -197,6 +197,7 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   Africa already carries its shluchim; Lubumbashi (a shul, not Chabad), Livingstone (served from Lusaka), Benin, Togo,
   Cape Verde, Djibouti — nothing to add. **Africa is closed except South Africa** (its own pass, when the owner says;
   chabadsouthafrica.org is behind a Cloudflare challenge, so PDFs of its pages would help).
+- **Rest of the world (grey land) is on by default** (owner, Oct 10): `state.empty: true` and the checkbox starts checked.
 - **Posters (SVG/PNG downloads) still show Northeast Ohio's "Alevsky family" and Belarus as its own shetach** for Northeast Ohio: the owner said to stop with the posters
   (Oct 10); regenerate them only when he asks.
 

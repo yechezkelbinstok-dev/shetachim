@@ -323,7 +323,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           <label class="check" for="show-dots"><input type="checkbox" id="show-dots" checked> <span class="legend-dot" aria-hidden="true"></span> Chabad centers</label>
           <label class="check" for="show-cities"><input type="checkbox" id="show-cities" checked> <span class="legend-ring" aria-hidden="true"></span> Cities with shluchim</label>
           <label class="check" for="show-capitals"><input type="checkbox" id="show-capitals" checked> <svg class="legend-star" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path id="star-shape"/></svg> Shetach capitals</label>
-          <label class="check" for="show-empty"><input type="checkbox" id="show-empty"> <span class="legend-empty" aria-hidden="true"></span> Rest of the world</label>
+          <label class="check" for="show-empty"><input type="checkbox" id="show-empty" checked> <span class="legend-empty" aria-hidden="true"></span> Rest of the world</label>
           <label class="check" for="show-rest-borders"><input type="checkbox" id="show-rest-borders"> <span class="legend-rest" aria-hidden="true"></span> Borders of the rest of the world</label>
           <label class="check" for="show-sea" id="sea-row"><input type="checkbox" id="show-sea" checked> <span class="legend-sea" aria-hidden="true"></span> Blue sea</label>
           </div>
@@ -391,7 +391,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const phone = () => PHONE_MQ.matches;
   const coarse = () => window.matchMedia('(pointer: coarse)').matches;
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const state = { joined: new Set(), alaska: 'box', empty: false, restBorders: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true, sea: true };
+  const state = { joined: new Set(), alaska: 'box', empty: true, restBorders: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true, sea: true };
   // the rest of the world shown (Rest of the world, or its borders, which show it too)
   const rest = () => state.empty || state.restBorders;
   if (!phone()) $('#panel').classList.remove('collapsed');

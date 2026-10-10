@@ -166,7 +166,13 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   Chile, Uruguay, Mexico City in Spanish (nothing new; Mexico had 11 rabbis at the 2024 Kinus, all on the map);
   Playa del Carmen's second site (chabadplaya.org) is at the same corner as the center on the map, so not added.
   Couldn't reach: Beit Chabad Brazil's own site (connection refused), Enlace Judío (403), Chabadpedia (blocked).
-  Next: the rest of the world, country by country — the owner says Africa next, only when he says.
+  Final pass (Oct 10): the backpacker trail town by town (Huacachina, Máncora, Arequipa, Iquitos; El Calafate, El
+  Chaltén, Puerto Iguazú, Puerto Natales; Jericoacoara, Ilha Grande, Paraty, Florianópolis; Santa Marta, Minca,
+  Palomino; Sayulita, Mazunte, Oaxaca; Caye Caulker, Utila, Ometepe, Puerto Viejo, Uyuni, Sucre, Cuenca, Galápagos) —
+  no Chabad house found. The owner's CrawlForge account (key kept outside the repo, ~/.config/crawlforge/key, in that
+  session only) got Enlace Judío's Kinus article (only Mayzlesh, Binyamini, Druk named — all on the map) but not
+  Chabadpedia (blocks its IPs), chabad.org.br, jabadchile.org or jabad.org.uy (Cloudflare challenge, even in stealth
+  mode). Latin America is closed. Next: Africa, only when the owner says.
 - **Posters (SVG/PNG downloads) still show Northeast Ohio's "Alevsky family" and Belarus as its own shetach** for Northeast Ohio: the owner said to stop with the posters
   (Oct 10); regenerate them only when he asks.
 

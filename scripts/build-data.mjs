@@ -300,7 +300,7 @@ const UA_NAMES = {
 };
 const uaName = (n) => UA_NAMES[n] || n;
 // GeoNames' local spellings, as the Chabad houses there write them
-const CITY_NAMES = { Chisinau: 'Kishinev', Mykolayiv: 'Nikolayev', Köln: 'Cologne', Göteborg: 'Gothenburg', Cochin: 'Kochi', 'Rishīkesh': 'Rishikesh', 'Kodaikānāl': 'Kodaikanal', 'Manāli': 'Manali' };
+const CITY_NAMES = { Chisinau: 'Kishinev', Bender: 'Bendery', 'Bălţi': 'Beltsy', Mykolayiv: 'Nikolayev', Köln: 'Cologne', Göteborg: 'Gothenburg', Cochin: 'Kochi', 'Rishīkesh': 'Rishikesh', 'Kodaikānāl': 'Kodaikanal', 'Manāli': 'Manali' };
 
 function normalize(raw, extra = false) {
   const c = raw.coordinates || {};

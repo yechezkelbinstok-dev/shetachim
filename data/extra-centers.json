@@ -1270,6 +1270,104 @@
       "url": "https://www.chabadbulgaria.org/templates/articlecco_cdo/aid/4622042/jewish/-.htm",
       "site": "Chabad of Bulgaria",
       "siteHe": "חב״ד בולגריה"
+    },
+    {
+      "id": "extra-montenegro-budva",
+      "name": "Chabad of Budva",
+      "city": "Budva",
+      "lat": 42.28132,
+      "lon": 18.85844,
+      "precision": "exact",
+      "note": "Dukley Hotel & Resort, Jadranski put, Zavala Peninsula, Budva",
+      "source": "chabad-montenegro.com/bud (Chabad of Budva: founded by Rabbi Edelkopf in 2022; Rabbi Eliezer and Rebbetzin Chaya Ehrenfeld since 2023; traveler centre, Shabbat meals, prayers); not on chabad.org (chabad.org lists the Ehrenfelds under Podgorica)",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Eliezer",
+          "lastName": "Ehrenfeld"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Chaya",
+          "lastName": "Ehrenfeld"
+        }
+      ],
+      "url": "https://chabad-montenegro.com/bud/en/",
+      "site": "Chabad of Montenegro",
+      "siteHe": "חב״ד מונטנגרו"
+    },
+    {
+      "id": "extra-albania-tirana",
+      "name": "Chabad Jewish Center of Albania",
+      "city": "Tirana",
+      "lat": 41.29412,
+      "lon": 19.85253,
+      "precision": "exact",
+      "note": "Rruga Helmut Kohl, Tirana — the Chabad house and its synagogue",
+      "source": "chabadalbania.com (Chabad of Albania, Helmut Kohl 1, Tirana; Rabbi Yoel Kaplan, Rabbi of Albania); OpenStreetMap (\"Chabad Jewish Center of Albania - Synagogue\"); PassportNews, May 2025 (the new Chabad house in Tirana, run by Rabbi Yoel Kaplan and his wife); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Yoel",
+          "lastName": "Kaplan"
+        },
+        {
+          "title": "Mrs.",
+          "firstName": "Ruth",
+          "lastName": "Kaplan"
+        }
+      ]
+    },
+    {
+      "id": "extra-moldova-bendery",
+      "name": "Chabad of Transnistria – Bendery Synagogue",
+      "city": "Bendery",
+      "lat": 46.82211,
+      "lon": 29.48287,
+      "precision": "exact",
+      "note": "ul. Suvorova 30, Bendery — the synagogue of the Bendery Jewish community and Chabad-Lubavitch; Chabad of Transnistria also serves Tiraspol",
+      "source": "kishinev.org contacts (Chabad Moldova: \"Хабад Приднестровья – Раввин Мендел Гоцель\"); Russian Jewish Encyclopedia (Bendery's rabbi since 2023: Mendel Gotzel; a synagogue operates); ru.wikipedia (\"Бендерская еврейская синагога и община Хабад — Любавич\", ul. Suvorova 30); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Mendel",
+          "lastName": "Gotzel"
+        }
+      ]
+    },
+    {
+      "id": "extra-moldova-beltsy",
+      "name": "Chabad of Beltsy",
+      "city": "Beltsy",
+      "lat": 47.7624,
+      "lon": 27.9286,
+      "precision": "city",
+      "note": "Beltsy (Bălți); no address published — the dot is the town centre",
+      "source": "kishinev.org contacts (Chabad Moldova: \"Хабад Бельцов – Раввин Мендел Аксельрод\"); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Mendel",
+          "lastName": "Axelrod"
+        }
+      ]
+    },
+    {
+      "id": "extra-moldova-airport",
+      "name": "Chabad of Kishinev Airport",
+      "city": "Kishinev",
+      "lat": 46.92963,
+      "lon": 28.93758,
+      "precision": "area",
+      "note": "At Kishinev (Chișinău) International Airport",
+      "source": "kishinev.org contacts (Chabad Moldova: \"Хабад аэропорта – Раввин Шмуэль Залманов\"); Chabadpedia (Moldova: a Chabad house at the airport); not on chabad.org",
+      "personnel": [
+        {
+          "title": "Rabbi",
+          "firstName": "Shmuel",
+          "lastName": "Zalmanov"
+        }
+      ]
     }
   ],
   "fixes": {

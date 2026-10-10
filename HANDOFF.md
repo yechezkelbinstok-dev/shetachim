@@ -266,6 +266,15 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   - Bulgaria: added Chabad Bansko (winter ski season, Platinum hotel, run by Chabad of Bulgaria — Salamon, as chabad.org
     has Sunny Beach). Poland, Czechia, Slovakia, Romania: nothing to add (Prague 2's "Jewish Center", nusach Chabad, is
     independent; Bucharest's Pipera centre was the Orgads', now in Cluj; Iași: Chabad Romania is still seeking a couple).
+  - Balkans: added Chabad of Budva (Dukley hotel, Eliezer and Chaya Ehrenfeld, since 2023 — chabad-montenegro.com/bud)
+    and Albania's first dot, the Chabad Jewish Center of Albania in Tirana (Rruga Helmut Kohl, OpenStreetMap node;
+    Yoel Kaplan). Nothing in Kosovo, North Macedonia, Bosnia, Ljubljana (Haddad serves Slovenia from Trieste),
+    Dubrovnik (a 2019 summer listing only), Novi Sad.
+  - Moldova (kishinev.org's contacts): added Chabad of Transnistria at the Bendery synagogue (ul. Suvorova 30, Mendel
+    Gotzel, Bendery's rabbi since 2023), Chabad of Beltsy (Mendel Axelrod; no address, city dot) and the Kishinev
+    airport Chabad (Shmuel Zalmanov). Their towns keep the Russian names like Kishinev (`CITY_NAMES`: Bender → Bendery,
+    Bălţi → Beltsy). Belarus, Estonia, Latvia, Lithuania: nothing to add.
+  Europe (outside the UK, France, Russia, Ukraine) is done.
 - **Rest of the world (grey land) is on by default** (owner, Oct 10): `state.empty: true` and the checkbox starts checked.
 - **Posters (SVG/PNG downloads) still show Northeast Ohio's "Alevsky family" and Belarus as its own shetach** for Northeast Ohio: the owner said to stop with the posters
   (Oct 10); regenerate them only when he asks.

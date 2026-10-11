@@ -590,6 +590,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       dual(s, 'mapName', (h) => hs(s) && [hs(s).mapName]);
       dual(s, 'lastName', (h) => hs(s) && [hs(s).lastName]);
       dual(s, 'headTitle', (h) => hs(s) && [hs(s).headTitle || (enTitle && (HE_TEXT[enTitle] || enTitle))]);
+      if (s.vaad) dual(s, 'vaad', (h) => hs(s) && hs(s).vaad ? [hs(s).vaad] : null);
     }
     // a center: its own Hebrew name where chabad.org has one, its kind and city in Hebrew
     // A town name two places share (Naples, Italy and Florida) is spelled by region: the nearest map city of that name.
@@ -949,6 +950,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return EM.get(k);
   }
   const ZS = d3.range(0, 15); // the zooms sizes are worked out for (the map interpolates between them)
+  const SUB_SCALE = 0.62; // a name's sub-line (a vaad under its head shliach), against the name's own size
   // How big a name may be at zoom z where it sits at a point dist (world units) from its area's edge, in an area of
   // total size area (world units²): no bigger than the area calls for, and fitting in the room around its point.
   // The whole name fits in the clear circle around its spot (its box's diagonal no longer than the circle's width,
@@ -1019,7 +1021,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (!person) return s.noCentralLeadership ? null : { text: s.name, short: [].concat(s.short || [])[0] || null, kind: 'miss' };
     // a head shliach's name is never cut down further (no last name alone): mapName leaves out a middle name he isn't
     // called by, else the full name; where it doesn't fit, one line or two, else none. Cards keep the full name.
-    return { text: person, short: null, kind: p ? 'sec' : '' };
+    // A vaad with real power beside him (owner, Oct 11: Florida, New Jersey) is named under his name, smaller.
+    return { text: person, sub: who.vaad || null, short: null, kind: p ? 'sec' : '' };
   }
   // A name on two lines, split at the space or hyphen that makes the lines most even.
   function twoLines(text) {
@@ -1033,16 +1036,23 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return best;
   }
   // A text's stops: its size at each zoom, the zoom from which it's big enough to show, and its wording (one line or two).
-  function sized(text, spot, sec) {
+  // sub: a smaller line under it (a vaad under its head shliach's name), itself on one line or two.
+  function sized(text, spot, sec, sub) {
     const one = { text, w: emWidth(text), lines: 1 };
     const two = twoLines(text);
-    const forms = [one, ...(two ? [{ text: two.lines.join('\n'), w: two.worst, lines: 2 }] : [])];
+    let forms = [one, ...(two ? [{ text: two.lines.join('\n'), w: two.worst, lines: 2 }] : [])];
+    if (sub) {
+      const subTwo = twoLines(sub);
+      const subs = [{ text: sub, w: emWidth(sub, 400), lines: 1 }, ...(subTwo ? [{ text: subTwo.lines.join('\n'), w: subTwo.worst, lines: 2 }] : [])];
+      forms = forms.flatMap((f) => subs.map((u) => ({ text: f.text, sub: u.text, w: Math.max(f.w, u.w * SUB_SCALE), lines: f.lines + u.lines * SUB_SCALE })));
+    }
     // A name's own place in its area (not a repeat): where its whole box fits biggest, as near the middle as can be
     // (at most a tenth smaller for being central), so a long name in a long area isn't held to the room in a circle.
     if (spot.part && !spot.rep) for (const f of forms) f.fit = fitBox(spot.part, f.w * 1.04, f.lines * 1.15);
     const at = (f, z) => (f.fit ? Math.min(wantAt(z, spot), f.fit.k * PX(z)) : sizeAt(z, spot, f.w, f.lines)) * (sec || 1);
-    const zRef = ZS.find((z) => at(one, z) >= LABEL_MIN) ?? 14;
-    const pick = forms.length > 1 && at(forms[1], zRef) > at(one, zRef) * 1.15 ? forms[1] : one;
+    const zRef = ZS.find((z) => at(forms[0], z) >= LABEL_MIN) ?? 14;
+    // the fewest lines, unless more lines let the name be over 15% bigger
+    const pick = forms.slice(1).reduce((best, f) => (at(f, zRef) > at(best, zRef) * 1.15 ? f : best), forms[0]);
     const raw = ZS.map((z) => at(pick, z));
     let minz = 24;
     for (let i = 0; i < ZS.length; i++) {
@@ -1063,7 +1073,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       if (i >= 0) sizes[i] = Math.max(sizes[i], LABEL_MIN - 1.5);
       minz = zf;
     }
-    return { text: pick.text, sizes, minz, x: pick.fit ? pick.fit.x : spot.x, y: pick.fit ? pick.fit.y : spot.y };
+    return { text: pick.text, sub: pick.sub, sizes, minz, x: pick.fit ? pick.fit.x : spot.x, y: pick.fit ? pick.fit.y : spot.y };
   }
   // The spot a name goes: its area's main part's pole of inaccessibility (Alberta: Alberta's part; India: the labelAt
   // point), or, for a chain of islands (the Caribbean), the middle of the chain over the water.
@@ -1520,14 +1530,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const out = [];
     const add = (spot, t, extra) => {
       const props = { ...extra };
-      const full = sized(t.text, spot, extra.secScale);
+      const full = sized(t.text, spot, extra.secScale, t.sub);
       const short = t.short && t.short !== t.text ? sized(t.short, spot, extra.secScale) : null;
       if (short) { short.x = full.x; short.y = full.y; } // (same place, so the short form only shows where the full one can't)
       // DISPUTED: "Disputed" in italics, the names upright (two parts, one text)
       const put = (s, minz, maxz, after = 0) => {
         const m = DISPUTED.exec(s.text.replace('\n', ' '));
         out.push(feature({ type: 'Point', coordinates: [unlon(s.x), unlat(s.y)] }, {
-          ...props, t: m ? '' : s.text, pre: m ? m[1] : '', rest: m ? m[2] : '',
+          ...props, t: m ? '' : s.text, sub: s.sub || '', pre: m ? m[1] : '', rest: m ? m[2] : '',
           ...Object.fromEntries(s.sizes.map((v, i) => [`s${i}`, v])), minz: Math.max(minz, spot.fromZ || 0), maxz: Math.min(maxz, spot.toZ || 30),
           rank: Math.round(-Math.sqrt(spot.area) * 1e5) + (spot.rep ? 1e6 : 0) + after, rep: spot.rep || 0, alt: after || spot.rep ? 1 : 0,
         }));
@@ -1557,7 +1567,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         const extra = { kind: t.kind, sid: r.s.id };
         if (sec) extra.secScale = 0.85;
         add(spot, t, extra);
-        if (spot.main && !sec) for (const rp of repeatsFor(spot)) { yield; add(rp, { text: t.text, short: null }, extra); }
+        if (spot.main && !sec) for (const rp of repeatsFor(spot)) { yield; add(rp, { text: t.text, sub: t.sub, short: null }, extra); }
       }
     };
     // the biggest areas first (the names shown first, zoomed out), territories after their shetach; and those done so
@@ -1944,7 +1954,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // really clash; the engine's boxes, sized for the next whole zoom step, made neighbours hide each other: British
     // Columbia's name under Alberta's, Oct 7); short forms and repeats (`alt`) only where there's room, placed after
     const nameLayout = {
-      'text-field': ['case', ['!=', ['get', 'pre'], ''], ['format', ['get', 'pre'], { 'text-font': ['literal', F_IT] }, ['get', 'rest'], {}], ['get', 't']],
+      'text-field': ['case', ['!=', ['get', 'pre'], ''], ['format', ['get', 'pre'], { 'text-font': ['literal', F_IT] }, ['get', 'rest'], {}],
+        ['!=', ['coalesce', ['get', 'sub'], ''], ''], ['format', ['get', 't'], {}, '\n', {}, ['get', 'sub'], { 'font-scale': SUB_SCALE, 'text-font': ['literal', F_REG] }], ['get', 't']],
       'text-font': ['case', ['==', ['get', 'kind'], 'sec'], ['literal', F_IT], ['==', ['get', 'kind'], 'miss'], ['literal', F_REG], ['literal', F_BOLD]],
       'text-size': ['interpolate', ['linear'], ['zoom'], ...ZS.flatMap((z) => [z, ['get', `s${z}`]])],
       'text-max-width': 100, 'text-line-height': 1.15, 'text-letter-spacing': 0.01, 'symbol-sort-key': ['get', 'rank'], 'text-padding': 2,
@@ -2440,8 +2451,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
   // "Central Africa · Shlomo Bentolila" (a territory like India: its parent's head)
   function shetachWithHead(s, withHead = true, label = s.name) {
-    const head = (s.territoryOf && shetachById.get(s.territoryOf) || s).headShliach;
-    return withHead && head ? `${esc(label)} · ${headHTML(head)}` : esc(label);
+    const who = s.territoryOf && shetachById.get(s.territoryOf) || s, head = who.headShliach;
+    return withHead && head ? `${esc(label)} · ${headHTML(head)}${who.vaad ? ` · ${esc(who.vaad)}` : ''}` : esc(label);
   }
   // On a state several shetachim share, each line names its part of the state (owner, Oct 8: Ontario's card says "Essex
   // County · Berel Shemtov", not "Michigan · …"), from data/shetachim.json `partNames`; else the shetach's own name
@@ -2586,7 +2597,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       ${s.territoryOf && shetachById.get(s.territoryOf) ? (() => { const p = shetachById.get(s.territoryOf); return `<p>${HE ? 'בהנהגת' : 'Overseen by'} ${headHTML(p.headShliach)}</p>`; })()
         : s.noCentralLeadership ? `<p>${tr('No centralized leadership')}</p>`
         : s.headShliach && / family$|^משפחת /.test(s.headShliach) ? `<p>${HE ? 'שלוחים' : 'Shluchim'}: ${headHTML(s.headShliach)}</p>`
-        : s.headShliach ? `<p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>` : ''}${capital}
+        : s.headShliach ? `<p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>${s.vaad ? `<p>${tr('Leadership')}: ${esc(s.vaad)}</p>` : ''}` : ''}${capital}
       <div class="foot"><span class="meta">${count(centersInShetach(s))}</span>${zoomBtn}</div>`;
   }
 

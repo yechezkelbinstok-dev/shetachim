@@ -161,6 +161,48 @@ between two Claude accounts when usage limits run out; whichever session picks t
     rabbi is Avraham Kozma, not known as Chabad) and Albania (Kaplan, chief rabbi since 2010): Lower Balkans.
     lubavitch.com calls Kaplan "Chabad representative to Thessaloniki and the Lower Balkans".
   - Serbia: Kaminetzky (2008, sent through Merkos/Kotlarsky), Belgrade only.
+- **Chabadpedia is readable now (owner added the Firecrawl connector, Oct 11).** `firecrawl_scrape` on
+  `https://chabadpedia.co.il/wiki/<title>` (basic proxy, no stealth needed, 1 credit a page; the site has no
+  robots.txt). Its search works the same way: `https://chabadpedia.co.il/index.php?search=<Hebrew>&fulltext=1`. Plain
+  fetches from this machine still get Cloudflare's "you have been blocked" (it blocks the cloud IP). In a session
+  without Firecrawl, give the owner the links, as the standing rule says.
+- **Balkans, the owner's Chabadpedia PDFs (Oct 11):** Edelkopf: Montenegro's shliach since 5778 and chief rabbi since
+  5780; Budva's house is "under Rabbi Edelkopf's Chabad house"; no word of Kaplan. Kaplan: "shliach in Thessaloniki,
+  chief rabbi of Albania and the Balkan states"; revived Judaism in Macedonia, Kosovo, Montenegro and Albania. Zaklas:
+  "head shliach of Croatia" (Zagreb, 5764). No change.
+- **Vaads (owner, Oct 11: "places that have vaads that actually have real power like Florida and New Jersey should
+  have it listed under the head shliach same as UK just with both").** There's a new `vaad` field in shetachim.json,
+  with Hebrew `vaad` in data/hebrew/shetachim.json (build-hebrew stops if it's missing). It shows in three places:
+  - the card: "Leadership: …" under "Head shliach: …";
+  - the one-line mentions: "Florida · Benjy Korf · Vaad Hashluchim of Florida";
+  - the Head shliach labels: a smaller second line (`SUB_SCALE` 0.62, regular weight, one or two lines, whichever is
+    bigger) under the name. `sized()` takes the sub-line and picks among the forms.
+
+  Set for two shetachim:
+  - **Florida, "Vaad Hashluchim of Florida" / "ועד השלוחים בפלורידה".** Rabbi Avrohom Korf's letter (Feb 2020) named
+    seven shluchim, chaired by Sholom Ber Dubov, "to represent me in all aspects of Shlichus" and said he "will defer
+    all decisions to them and will accept their decisions as final" (Anash, COLlive). Korf passed away 11 Tammuz
+    5785; Merkos named his son Ben-Zion (Benjy) at the regional kinus, Aug 2025.
+  - **New Jersey, "Vaad Hashluchim of New Jersey" / "ועד השלוחים בניו ג׳רזי".** Rabbi Moshe Herson passed away in
+    2025; Merkos named Mendy Herson head "with the support of a Vaad". Five members elected by over 90% of NJ shluchim
+    families, June 2025, for 3-year terms; there was an earlier NJ vaad from about 2010.
+
+  Not set (not like those two):
+  - Illinois: Merkos appointed a vaad in 2014 only to guide Meir Moscowitz "during the first year".
+  - Long Island: Vaad Rabonei Lubavitch, a rabbinical court.
+  - The CIS's Vaad Hashluchim: an umbrella for all the ex-Soviet countries, chaired by Lazar himself.
+  - Ukraine's vaad: no page on it.
+  - Jerusalem's elected vaad: a city inside Israel's shetach.
+  - Victoria: three joint heads, already on the map as "Disputed".
+
+  Also fixed:
+  - Florida's Hebrew head was "בנימין קורף": Benjy is Ben-Zion, so now "בן־ציון קארף" (the maqaf keeps the last
+    name right).
+  - Korf → קארף everywhere, as Chabadpedia and COL spell the family.
+- **Rabbi Yisroel Rubin, head shliach of Eastern New York (Albany), passed away on the night of Shemini Atzeres 5787
+  (Oct 4–5, 2026), aged 78** (Arutz Sheva, 5 Oct 2026). He's marked `isDeceased` in the people data at both his
+  centers (Chabad of the Capital District 117663, Maimonides Hebrew Day School 119060). The shetach's head line still
+  says "Yisroel Rubin": no successor named yet; asked the owner.
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked
@@ -619,7 +661,7 @@ together at ~4.4 s (1.2 s desktop); no freeze over ~0.6 s, so the map moves from
 
 ## OWNER'S STANDING RULES (Oct 1) — never undo these
 - **When a site is blocked (Chabadpedia, archives), ALWAYS give the owner the exact links to check** (owner, Oct 11, in
-  capitals). Chabadpedia search links work for any title: `https://chabadpedia.co.il/index.php?search=<Hebrew>` goes to
+  capitals; Chabadpedia itself now reads through the Firecrawl connector — see Oct 11 below). Chabadpedia search links work for any title: `https://chabadpedia.co.il/index.php?search=<Hebrew>` goes to
   the page; add `&fulltext=1` for every mention. Don't search for Chabadpedia pages yourself; the owner turned that down.
 - **Any Chabad activity in a country puts it in a shetach** (Oct 5): visiting bochurim, a shliach who serves it from next
   door, holiday trips — the country goes to the shetach of the shliach responsible (Mongolia is Russia's; Guyana is the Caribbean's).

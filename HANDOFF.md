@@ -42,6 +42,17 @@ between two Claude accounts when usage limits run out; whichever session picks t
   Loubavitch is run by him and his brother Levi Yitzchak (Neuilly, board member). Illinois — Meir Shimon Moscowitz
   appointed head shliach by Merkos (Apr 2014), with a vaad (majority vote, first year) and his brother Yosef Shmuel
   as executive director. My read: one head each; the map's "Meir Moscowitz" drops "Shimon" (rule: never shorten).
+- **Canada + Europe jurisdiction sweep, part 2 (Oct 11; owner: "digging into the shetachim in Canada [and] Europe … any
+  multi country shetachim or with parts of countries"):** one real lead, waiting on the owner: **Ottawa** — COLlive
+  (25 Oct 2025, the Finkelstein Chabad Centre opening) calls Rabbi Dovid Hayes (in Ottawa since 1977) "Head Shliach of
+  Ottawa", and lubavitch.com calls Zalman Grossbaum "head emissary of Southern Ontario" — so Ottawa (Eastern Ontario?)
+  may be its own shetach; the list has all Ontario under Grossbaum. Confirmed as is: Yukon/NWT south of 63° are
+  Alberta's (Matusof's roving rabbis' first trip to Whitehorse and Yellowknife, July 2026). Saskatchewan: Raphael Kats
+  (Saskatoon, since 2011, also serves Regina) — no source says whether he's under Altein or Matusof; stays as the list
+  has it. No Chabad found (nothing to change): Gatineau/Outaouais, Northern Ireland (Belfast's Brackman left 2013; Chabad
+  Ireland is Dublin only), Gibraltar, Jersey/Guernsey, Faroe (a 2015 note: Iceland's student rabbis found Jews "as far
+  as the Faroe Islands" — too thin), Greenland, Ceuta/Melilla (Melilla's rav, Aharon Peretz, is RCE, not Chabad),
+  Abkhazia, Tahiti. French Guiana: WJC says its ~40 Jews are "aided by Chabad", branch not named.
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

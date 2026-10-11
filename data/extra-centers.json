@@ -1,5 +1,5 @@
 {
-  "about": "Centers that exist but are not listed on chabad.org. precision: 'exact' = real location, 'area' = rough spot in the right neighbourhood, 'city' = city centre (address unknown). note is shown on the dot's card. url, site, siteHe: the center's own page elsewhere (a center not on chabad.org), linked on its card as \"Open on <site>\" / \"לדף ב<siteHe>\". center-type: {name} as chabad.org's types (Mikveh, Jewish Community Center…), shown on the card. fixes: corrections to chabad.org's own listings, by center id (city, lat, lon; or personnel where chabad.org lists no one — a fix without lat keeps the listing's approx flag). hyd: shluchim murdered al kiddush Hashem, by center id: each person is marked passed away with HY\"D / הי״ד instead of obm / ע״ה (added to the center's people if chabad.org doesn't list them), and shown at the top of the center's card with memorial / memorialHe. passed: shluchim who passed away since chabad.org's listing, by center id: each person is marked passed away (obm / ע״ה); why says where that's from.",
+  "about": "Centers that exist but are not listed on chabad.org. precision: 'exact' = real location, 'area' = rough spot in the right neighbourhood, 'city' = city centre (address unknown). note is shown on the dot's card. url, site, siteHe: the center's own page elsewhere (a center not on chabad.org), linked on its card as \"Open on <site>\" / \"לדף ב<siteHe>\". center-type: {name} as chabad.org's types (Mikveh, Jewish Community Center…), shown on the card. fixes: corrections to chabad.org's own listings, by center id (city, lat, lon; or personnel where chabad.org lists no one — a fix without lat keeps the listing's approx flag). hyd: shluchim murdered al kiddush Hashem, by center id: each person is marked passed away with HY\"D / הי״ד instead of obm / ע״ה (added to the center's people if chabad.org doesn't list them), and shown at the top of the center's card with memorial / memorialHe.",
   "centers": [
     {
       "id": "extra-riyadh",
@@ -1437,13 +1437,6 @@
       "memorial": "Murdered al kiddush Hashem in a terror attack in Be'er Sheva, March 2022",
       "memorialHe": "נרצח על קידוש השם בפיגוע בבאר שבע, תשפ״ב",
       "why": "Chabad emissary in Nachal Beka who ran the Colel Chabad soup kitchen; killed in the 22 Mar 2022 Be'er Sheva attack (chabad.org/5468664; COL: הרב משה קרביצקי הי\"ד)"
-    }
-  ],
-  "passed": [
-    {
-      "center": "117789",
-      "people": [{ "title": "Rabbi", "firstName": "Shmuel", "lastName": "Altein" }],
-      "why": "Rabbi Shmuly Altein of Chabad of Winnipeg passed away 3 Tammuz 5786 (18 Jun 2026), aged 43: Chabadpedia (Avrohom Altein's page, footnote), The CJN (13 Jul 2026), Chabad of Winnipeg's shloshim notice (chabadwinnipeg.org/7423561); chabad.org still lists him (Oct 2026)"
     }
   ]
 }

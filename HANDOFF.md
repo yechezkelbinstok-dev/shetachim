@@ -131,8 +131,9 @@ between two Claude accounts when usage limits run out; whichever session picks t
   Manitoba" (Winnipeg since Tammuz 5732); Wineberg founded Chabad of Vancouver in winter 5735, BC's shliach (Yosef Hecht
   came the summer before on Merkos Shlichus). Neither page mentions any activity in the provinces' north, so the lines
   stand. The Altein page's footnote: his son **Rabbi Shmuly Altein passed away 3 Tammuz 5786** (18 Jun 2026; The CJN,
-  Chabad of Winnipeg's shloshim notice). chabad.org still lists him, so there is a new `passed` list in
-  extra-centers.json (by center, like `hyd`, but obm): the build marks the person `isDeceased`.
+  Chabad of Winnipeg's shloshim notice). chabad.org still lists him as living, so he's marked `isDeceased: true` by
+  hand in data/raw/chabad-personnel.json (center 117789), like every other passed-away person (owner: the same as all
+  the others, no separate list). A fresh personnel fetch would undo it until chabad.org updates: set it again.
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

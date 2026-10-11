@@ -249,6 +249,18 @@ between two Claude accounts when usage limits run out; whichever session picks t
     Chabad house; Cambodia has only Phnom Penh (Siem Reap gets Seders only, per jewishcambodia.com); Myanmar's Chabad
     (the Raitports, Yangon, 2018) is gone — chabad.org lists nothing there. Background: since Sept 2026 the Thai
     government is probing Chabad sites (Phuket Patong: building violations; Bangkok: no real problems).
+  - Sweep: **Philippines, Vietnam, Singapore, Malaysia, Indonesia** (Oct 11). The Philippines had NO dots — chabad.org
+    lists nothing there — so added all eight houses of Chabad of the Philippines (chabad.ph; chabadinfo Oct 7: "8
+    Chabad Houses"): Manila/Makati (Yosef Yitzchak Levy, the head; now the shetach's capital), BGC/Taguig (Berel
+    Ceitlin), El Nido (Moishi Notik), Siargao (Mendel Spindler), Cebu (Mendy Axelrod), Boracay (Daniel Moskovitz),
+    Bohol/Panglao (Baruch Kirshenzft, the site's spelling), Clark (Shmulik Avraham, since May 2026). Pins from each
+    house's own map link where it has one. Vietnam: its four houses (Ho Chi Minh City, Hanoi, Hoi An, Sapa) are all on
+    the map. Singapore: one listing (Abergel and Rivni) covers it. Malaysia: none. Indonesia: "Chabad Bali"
+    (chabadbali.org, a contact form only, no names) and a 2018 traveler's blog about a Chabad family in Seminyak whose
+    address isn't published for security; no shliach could be confirmed, so not added — owner to check:
+    https://chabadbali.org/ and https://www.lametayel.co.il/posts/l044qr .
+  - Research tools: plain WebSearch/WebFetch first; Firecrawl (paid credits) only for sites they can't reach, like
+    Chabadpedia and chabad.org (owner, Oct 11).
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

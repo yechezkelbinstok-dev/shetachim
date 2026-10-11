@@ -77,6 +77,18 @@ between two Claude accounts when usage limits run out; whichever session picks t
   web.archive.org and archive.ph are refused by the session's egress policy itself ("Blocked by egress policy"), not
   just the environment's settings, and WebFetch refuses web.archive.org too. A GitHub Action to fetch them on GitHub's
   servers was refused as routing around that policy (Oct 11) — don't retry it; the owner can paste pages instead.
+- **Faroe Islands → Iceland's shetach (owner, Oct 11: Iceland's Chabad found Jews "as far as the Faroe Islands" means
+  Iceland serves them, as Alberta has Yellowknife and Whitehorse).** Territory ["ISL","FRO"]; FRO added to the page's
+  EUROPE view list (a shetach country missing from those lists is drawn as plain land, not filled — checked: none other).
+- **Suriname (owner asked which shliach the Pesach students worked with):** none. Pesach 2025's four students (Deren,
+  Winner, Zakilkowski, Elberg) were sent by Merkos 302 (Mendy Kotlarsky); Avromy Super (St Lucia) only linked them to a
+  Jew in Trinidad on their stopover; their route was planned via Curaçao (no shliach named). Stays blank.
+- **Ontario split (owner, Oct 11: "we're going to split Ontario into two … do research on how much to give each"):**
+  Chabadpedia (the owner's PDFs): Grossbaum sent to Toronto in 1974 (תשל"ד), "as of 2014 about fifty shluchim under him
+  throughout the province of Ontario". Between Toronto and Ottawa the only Chabad is Kingston's campus house (Sruly and
+  Esti Simon, since 2010 — before that they worked in Ottawa for a local Chabad rabbi). No Chabad found in Cornwall,
+  Brockville, Pembroke, Perth, Peterborough, Barrie, Sudbury, Thunder Bay. City-of-Ottawa shape drafted (GADM level 2,
+  scratchpad); waiting on the owner's choice of how far east Ontario goes to Hayes.
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

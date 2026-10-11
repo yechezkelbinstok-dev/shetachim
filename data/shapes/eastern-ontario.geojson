@@ -5,18 +5,18 @@
    "type": "Feature",
    "properties": {
     "name": "Eastern Ontario",
-    "source": "Eastern Ontario (owner, Oct 11: option A, then \"the boundary shouldn't be a staircase\" \u2014 and of two straight lines tried, he liked this one better): everything east of one straight line from the Ottawa River just past the Renfrew/Nipissing corner (-78.45715, 46.35735) south-south-east to Lake Ontario, reaching the shore at the Bay of Quinte by Belleville (about -77.42) and running on to (-77.13682, 43.6) in the lake. So Ottawa, the Ottawa Valley, Kingston, Napanee, Belleville and Prince Edward County. The shape runs on over Quebec, the US and the lake, which it never cuts: only the province's own land (CA-ON) is."
+    "source": "Eastern Ontario (owner, Oct 11: option A; then \"the boundary shouldn't be a staircase\"; then \"make the Ottawa - Ontario border straight vertical like most boundaries\"): everything east of 77.9\u00b0W \u2014 the middle of the slanted line he had liked (Ottawa River at the Renfrew/Nipissing corner to the Bay of Quinte), so the two sides keep about the same land. It meets the Ottawa River above Rolphton and Lake Ontario by Brighton: Ottawa, the Ottawa Valley, Kingston, Belleville, Trenton and Prince Edward County are east of it; Peterborough and Cobourg west. The shape runs on over Quebec, the US and the lake, which it never cuts: only the province's own land (CA-ON) is."
    },
    "geometry": {
     "type": "Polygon",
     "coordinates": [
      [
       [
-       -78.45715,
-       46.35735
+       -77.9,
+       46.6
       ],
       [
-       -77.13682,
+       -77.9,
        43.6
       ],
       [
@@ -25,11 +25,11 @@
       ],
       [
        -73.5,
-       46.35735
+       46.6
       ],
       [
-       -78.45715,
-       46.35735
+       -77.9,
+       46.6
       ]
      ]
     ]

@@ -216,6 +216,31 @@ between two Claude accounts when usage limits run out; whichever session picks t
     (`lastName` Rubin), shown as "Shluchim: Rubin family".
   - When Merkos names a successor (Florida's and New Jersey's came at the shloshim or a month after, so expect around
     early November 2026), put his name in. The eldest son is Mendel.
+- **Every shetach has a capital again (owner, Oct 11: "Why are a bunch of capitals missing???").**
+  - Eight had none; India needs none, being Thailand's territory.
+  - The world ones now use the owner's own `data/world-flagship-centers.txt`, which named them all. They had lacked a
+    star only because chabad.org's data lacks those centers. Hand-added (extra-centers.json):
+    - Sri Lanka: Chabad of Sri Lanka, 70 Green Path, Colombo; exact, from OSM.
+    - New Zealand: Chabad of New Zealand, 788 Remuera Rd, Auckland.
+    - Belize: Chabad House Belize, moved to Mullet St, San Pedro, per its own site, with the Belhamous.
+    - Honduras: Chabad Roatan, with Rabbi Naftali Reichman; the capital is named "Chabad of Honduras", as Turkey's is.
+    - Panama: Beth El Synagogue, Calle Winston Churchill, Paitilla; Rabbi Ari Laine, Chabad's director in Panama and
+      chief Ashkenazi rabbi.
+    - Qatar: "No fixed public center, Doha", as the owner's file says, so the star is at Doha.
+  - US: Upstate New York is Chabad House of Buffalo (117976, Getzville; Gurary); Eastern New York is Chabad of the
+    Capital District (117663, Albany).
+  - Also added Sri Lanka's other four Chabad houses from chabadsrilanka.org: Weligama, Hiriketiya, Arugam Bay and
+    Ella. Before this the shetach had no dots at all.
+- **STANDING RULE (owner, Oct 11): any Chabad center found that isn't on the map gets added**, with a source, a
+  precision and Hebrew, wherever it turns up.
+- **Back burner (owner, Oct 11):** the Gaspé peninsula should be in Quebec's shetach. It's north of the 47°N line, so
+  it's grey now; carve it back in with a shape.
+- **World center sweep (owner, Oct 11 night: "do the entire world … country by country … don't stop"; start with
+  Thailand; leave the huge networks like the UK for later).** Already swept: Latin America, Africa (not South Africa)
+  and Europe (not UK, France, Russia, Ukraine), all Oct 10; India (Chabad of India's directory). Per country: the map's
+  centers there; then Chabadpedia's country and city pages (Firecrawl), the national Chabad site and directories,
+  Hebrew traveler directories, and news. Add what's missing; build, Hebrew, commit and push after each country or two.
+  Progress is listed below as "Sweep:" lines.
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

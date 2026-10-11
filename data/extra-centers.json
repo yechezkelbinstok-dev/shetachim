@@ -674,13 +674,17 @@
     },
     {
       "id": "extra-belize-san-pedro",
-      "name": "Chabad Belize",
+      "name": "Chabad House Belize",
       "city": "San Pedro",
-      "lat": 17.91259,
-      "lon": -87.9717,
+      "lat": 17.90875,
+      "lon": -87.97808,
       "precision": "area",
-      "note": "Hurricane St, San Pedro, Ambergris Caye; the dot is on the street",
-      "source": "muchiler.co.il Chabad houses directory (Oct 2026); not on chabad.org"
+      "note": "Mullet Street, San Pedro, Ambergris Caye — the first and only Jewish institution in Belize, founded 2016; the dot is on the street",
+      "source": "chabadbelize.org (its own site, Oct 2026); the muchiler.co.il directory had Hurricane St; not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Menahem Mendel", "lastName": "Belhamou" }, { "title": "Mrs.", "firstName": "Hadar", "lastName": "Belhamou" }],
+      "url": "https://chabadbelize.org/",
+      "site": "Chabad House Belize",
+      "siteHe": "בית חב״ד בליז"
     },
     {
       "id": "extra-honduras-roatan",
@@ -690,7 +694,90 @@
       "lon": -86.59286,
       "precision": "city",
       "note": "Address given only on request, for safety; placed at West End",
-      "source": "muchiler.co.il Chabad houses directory (Oct 2026); not on chabad.org"
+      "source": "muchiler.co.il Chabad houses directory (Oct 2026); Rabbi Naftali Reichman announced the Chabad house and Jewish community center in Roatán (Roatán Momento Informativo); not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Naftali", "lastName": "Reichman" }]
+    },
+    {
+      "id": "extra-panama-beth-el",
+      "name": "Beth El Synagogue",
+      "city": "Panama City",
+      "lat": 8.97272,
+      "lon": -79.51648,
+      "precision": "area",
+      "note": "Calle Winston Churchill, Punta Paitilla; the Ashkenazi synagogue (1955), whose rabbi, Ari Laine, is Chabad's director in Panama and the chief Ashkenazi rabbi; the dot is on the street",
+      "source": "the owner's flagship list (Panama — Beth El Synagogue); chabad.org (Ari Laine, director of Chabad in Panama); gobeyond.pa, Turismo Judaico; not on chabad.org's centers",
+      "personnel": [{ "title": "Rabbi", "firstName": "Ari", "lastName": "Laine" }]
+    },
+    {
+      "id": "extra-chabad-new-zealand",
+      "name": "Chabad of New Zealand",
+      "city": "Auckland",
+      "lat": -36.87669,
+      "lon": 174.82512,
+      "precision": "exact",
+      "note": "788 Remuera Road, Remuera (the house Chabad Hebrew NZ also works from)",
+      "source": "totallyjewishtravel.com listing (pin) and chabad.nz; chabad.org.il's branch list has an older address, 74 Queen Street; not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Menachem Mendel", "lastName": "Goldstein" }],
+      "url": "https://chabad.nz/",
+      "site": "chabad.nz",
+      "siteHe": "chabad.nz"
+    },
+    {
+      "id": "extra-sri-lanka-colombo",
+      "name": "Chabad of Sri Lanka",
+      "city": "Colombo",
+      "lat": 6.91166,
+      "lon": 79.85541,
+      "precision": "exact",
+      "note": "70 Green Path (Ananda Coomaraswamy Mawatha), Colombo 7 — Chabad of Colombo, the first house of Sri Lanka's network (Rabbi Mendy Crombie, since 2005)",
+      "source": "chabadsrilanka.org (Oct 2026); OpenStreetMap (Chabad House, 70 Ananda Coomaraswamy Mawatha); not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Mendy", "lastName": "Crombie" }],
+      "url": "https://chabadcolombo.com/",
+      "site": "Chabad of Colombo",
+      "siteHe": "חב״ד קולומבו"
+    },
+    {
+      "id": "extra-sri-lanka-weligama",
+      "name": "Chabad of Weligama",
+      "city": "Weligama",
+      "lat": 5.97669,
+      "lon": 80.43109,
+      "precision": "area",
+      "note": "17 Buhari Masjid Rd; travelers' center; the dot is on the road",
+      "source": "chabadsrilanka.org (Oct 2026); not on chabad.org",
+      "url": "https://chabadweligama.com/",
+      "site": "Chabad of Weligama",
+      "siteHe": "חב״ד וליגמה"
+    },
+    {
+      "id": "extra-sri-lanka-hiriketiya",
+      "name": "Chabad of Hiriketiya",
+      "city": "Hiriketiya",
+      "lat": 5.96427,
+      "lon": 80.70758,
+      "precision": "area",
+      "note": "New Tangalle Rd, Dikwella; travelers' center; the dot is by the bay",
+      "source": "chabadsrilanka.org (Oct 2026); not on chabad.org"
+    },
+    {
+      "id": "extra-sri-lanka-arugam-bay",
+      "name": "Chabad of Arugam Bay",
+      "city": "Arugam Bay",
+      "lat": 6.85354,
+      "lon": 81.8304,
+      "precision": "area",
+      "note": "Panama Rd; travelers' center; the dot is on the road",
+      "source": "chabadsrilanka.org (Oct 2026); not on chabad.org"
+    },
+    {
+      "id": "extra-sri-lanka-ella",
+      "name": "Chabad of Ella",
+      "city": "Ella",
+      "lat": 6.87361,
+      "lon": 81.04899,
+      "precision": "city",
+      "note": "Club Villa, Ella; travelers' center; placed at the town",
+      "source": "chabadsrilanka.org (Oct 2026); not on chabad.org"
     },
     {
       "id": "extra-el-salvador-el-tunco",

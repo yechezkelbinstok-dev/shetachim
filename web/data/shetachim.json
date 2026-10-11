@@ -1060,7 +1060,23 @@
     "Upstate NY",
     "UNY"
    ],
-   "headShliach": "Nosson Gurary"
+   "headShliach": "Nosson Gurary",
+   "capital": {
+    "centerId": "117976",
+    "name": "Chabad House of Buffalo",
+    "city": "Getzville",
+    "lat": 43.01114,
+    "lon": -78.78038
+   },
+   "capitals": [
+    {
+     "centerId": "117976",
+     "name": "Chabad House of Buffalo",
+     "city": "Getzville",
+     "lat": 43.01114,
+     "lon": -78.78038
+    }
+   ]
   },
   {
    "id": "eastern-new-york",
@@ -1070,7 +1086,23 @@
     "ENY"
    ],
    "headShliach": "Rubin family",
-   "lastName": "Rubin"
+   "lastName": "Rubin",
+   "capital": {
+    "centerId": "117663",
+    "name": "Chabad of the Capital District",
+    "city": "Albany",
+    "lat": 42.65963,
+    "lon": -73.79373
+   },
+   "capitals": [
+    {
+     "centerId": "117663",
+     "name": "Chabad of the Capital District",
+     "city": "Albany",
+     "lat": 42.65963,
+     "lon": -73.79373
+    }
+   ]
   },
   {
    "id": "maine",
@@ -2418,7 +2450,23 @@
    "id": "sri-lanka",
    "name": "Sri Lanka",
    "short": "Sri L.",
-   "headShliach": "Mendy Crombie"
+   "headShliach": "Mendy Crombie",
+   "capital": {
+    "centerId": "extra-sri-lanka-colombo",
+    "name": "Chabad of Sri Lanka",
+    "city": "Colombo",
+    "lat": 6.91166,
+    "lon": 79.85541
+   },
+   "capitals": [
+    {
+     "centerId": "extra-sri-lanka-colombo",
+     "name": "Chabad of Sri Lanka",
+     "city": "Colombo",
+     "lat": 6.91166,
+     "lon": 79.85541
+    }
+   ]
   },
   {
    "id": "china",
@@ -2675,7 +2723,21 @@
   {
    "id": "qatar",
    "name": "Qatar",
-   "headShliach": "Eli Chitrik"
+   "headShliach": "Eli Chitrik",
+   "capital": {
+    "name": "No fixed public center",
+    "city": "Doha",
+    "lat": 25.2854,
+    "lon": 51.531
+   },
+   "capitals": [
+    {
+     "name": "No fixed public center",
+     "city": "Doha",
+     "lat": 25.2854,
+     "lon": 51.531
+    }
+   ]
   },
   {
    "id": "saudi-arabia",
@@ -3062,7 +3124,23 @@
    "id": "new-zealand",
    "name": "New Zealand",
    "short": "NZ",
-   "headShliach": "Menachem Mendel Goldstein"
+   "headShliach": "Menachem Mendel Goldstein",
+   "capital": {
+    "centerId": "extra-chabad-new-zealand",
+    "name": "Chabad of New Zealand",
+    "city": "Auckland",
+    "lat": -36.8767,
+    "lon": 174.82512
+   },
+   "capitals": [
+    {
+     "centerId": "extra-chabad-new-zealand",
+     "name": "Chabad of New Zealand",
+     "city": "Auckland",
+     "lat": -36.8767,
+     "lon": 174.82512
+    }
+   ]
   },
   {
    "id": "new-caledonia",
@@ -3115,7 +3193,23 @@
    "id": "belize",
    "name": "Belize",
    "short": "Bel.",
-   "headShliach": "Mendel Belhamou"
+   "headShliach": "Mendel Belhamou",
+   "capital": {
+    "centerId": "extra-belize-san-pedro",
+    "name": "Chabad House Belize",
+    "city": "San Pedro",
+    "lat": 17.90875,
+    "lon": -87.97808
+   },
+   "capitals": [
+    {
+     "centerId": "extra-belize-san-pedro",
+     "name": "Chabad House Belize",
+     "city": "San Pedro",
+     "lat": 17.90875,
+     "lon": -87.97808
+    }
+   ]
   },
   {
    "id": "guatemala",
@@ -3163,7 +3257,23 @@
    "id": "honduras",
    "name": "Honduras",
    "short": "Hond.",
-   "headShliach": "Naftali Reichman"
+   "headShliach": "Naftali Reichman",
+   "capital": {
+    "centerId": "extra-honduras-roatan",
+    "name": "Chabad of Honduras",
+    "city": "Roatán",
+    "lat": 16.30467,
+    "lon": -86.59286
+   },
+   "capitals": [
+    {
+     "centerId": "extra-honduras-roatan",
+     "name": "Chabad of Honduras",
+     "city": "Roatán",
+     "lat": 16.30467,
+     "lon": -86.59286
+    }
+   ]
   },
   {
    "id": "nicaragua",
@@ -3216,7 +3326,23 @@
    "id": "panama",
    "name": "Panama",
    "short": "Pan.",
-   "headShliach": "Ari Laine"
+   "headShliach": "Ari Laine",
+   "capital": {
+    "centerId": "extra-panama-beth-el",
+    "name": "Beth El Synagogue",
+    "city": "Panama City",
+    "lat": 8.97272,
+    "lon": -79.51648
+   },
+   "capitals": [
+    {
+     "centerId": "extra-panama-beth-el",
+     "name": "Beth El Synagogue",
+     "city": "Panama City",
+     "lat": 8.97272,
+     "lon": -79.51648
+    }
+   ]
   },
   {
    "id": "argentina",

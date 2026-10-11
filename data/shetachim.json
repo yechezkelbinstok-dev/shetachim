@@ -603,7 +603,8 @@
           ],
           "name": "Allegany, Broome, Cattaraugus, Cayuga, Chautauqua, Chemung, Chenango, Cortland, Erie, Genesee, Herkimer, Jefferson, Lewis, Livingston, Madison, Monroe, Niagara, Oneida, Onondaga, Ontario, Orleans, Oswego, Schuyler, Seneca, Steuben, St. Lawrence, Tioga, Tompkins, Wayne, Wyoming, Yates"
         }
-      ]
+      ],
+      "capital": { "centerId": "117976" }
     },
     {
       "id": "eastern-new-york",
@@ -642,7 +643,8 @@
           ],
           "name": "Albany, Clinton, Columbia, Delaware, Dutchess, Essex, Franklin, Fulton, Greene, Hamilton, Montgomery, Orange, Otsego, Putnam, Rensselaer, Saratoga, Schenectady, Schoharie, Sullivan, Ulster, Warren, Washington"
         }
-      ]
+      ],
+      "capital": { "centerId": "117663" }
     },
     {
       "id": "maine",
@@ -1532,7 +1534,8 @@
       "headShliach": "Mendy Crombie",
       "territory": [
         "LKA"
-      ]
+      ],
+      "capital": { "centerId": "extra-sri-lanka-colombo" }
     },
     {
       "id": "china",
@@ -1698,7 +1701,8 @@
       "headShliach": "Eli Chitrik",
       "territory": [
         "QAT"
-      ]
+      ],
+      "capital": { "name": "No fixed public center", "city": "Doha", "lat": 25.2854, "lon": 51.531 }
     },
     {
       "id": "saudi-arabia",
@@ -1955,7 +1959,8 @@
       "headShliach": "Menachem Mendel Goldstein",
       "territory": [
         "NZL"
-      ]
+      ],
+      "capital": { "centerId": "extra-chabad-new-zealand" }
     },
     {
       "id": "new-caledonia",
@@ -2020,7 +2025,8 @@
       "headShliach": "Mendel Belhamou",
       "territory": [
         "BLZ"
-      ]
+      ],
+      "capital": { "centerId": "extra-belize-san-pedro" }
     },
     {
       "id": "guatemala",
@@ -2056,7 +2062,8 @@
       "headShliach": "Naftali Reichman",
       "territory": [
         "HND"
-      ]
+      ],
+      "capital": { "centerId": "extra-honduras-roatan", "name": "Chabad of Honduras" }
     },
     {
       "id": "nicaragua",
@@ -2092,7 +2099,8 @@
       "headShliach": "Ari Laine",
       "territory": [
         "PAN"
-      ]
+      ],
+      "capital": { "centerId": "extra-panama-beth-el" }
     },
     {
       "id": "argentina",

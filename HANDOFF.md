@@ -279,6 +279,18 @@ between two Claude accounts when usage limits run out; whichever session picks t
     and holds Shabbat in a hotel while it looks for a new place — move the dot when it reopens (heritagefl.com,
     Jan 16, 2026). Kazakhstan: Chabadpedia's 7 cities = the map's. Uzbekistan, Kyrgyzstan, Georgia, Armenia,
     Azerbaijan: nothing new found; Tajikistan, Turkmenistan: no Chabad.
+  - Sweep: **Middle East** (Oct 11): nothing to add. UAE: Dubai and Abu Dhabi on the map (Mendel Duchman's "Chabad of
+    Downtown Dubai" is still a fundraising plan; he's listed at the Dubai center). Turkey: Chabadpedia and the news
+    know only Istanbul (Chitrik). Northern Cyprus: its house (648321, Karaoglanoglu) is on the map — country code XNC.
+    Saudi Arabia (Riyadh) and Qatar as before; Bahrain stays blank (see 16); Oman, Kuwait, Jordan, Iraq, Lebanon: no
+    Chabad. Cyprus was swept with Europe. Hong Kong: Chabad of Hong Kong's "third couple" (the Birnhacks) works inside
+    it (Hebrew school, CYP), not a separate house. **Asia is done** except Israel and Russia's Asian part (huge networks).
+  - Sweep: **Oceania** (Oct 11): nothing to add. New Zealand: Auckland ×3 and Wellington ×2 on the map; the South
+    Island houses (Christchurch, razed in the 2011 quake; Queenstown, Rabbi Shmuel Kopel, Jan 2012; "Chabad Nelson, 54
+    Seymour Ave" on a 2019 chabad.nz page) show no sign of life since — not added. Australia outside Sydney and
+    Melbourne: Chabad of RARA's own directory (Byron, Hunter & Central Coast, Cairns, Sunshine Coast, Perth, Tasmania)
+    and Adelaide, Canberra, Brisbane, Gold Coast are all on the map. New Caledonia on the map; Fiji, Guam, Tahiti, PNG:
+    visits only. The Caribbean was swept twice with Latin America (Oct 10).
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

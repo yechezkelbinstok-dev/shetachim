@@ -305,6 +305,17 @@ between two Claude accounts when usage limits run out; whichever session picks t
     depth earlier), Greece (chabad.gr's own branch list: Athens, Thessaloniki, Rhodes, Crete, Mykonos), Portugal
     (Cascais, Porto, Algarve; Lisbon and Belmonte have activity but no separate house), Malta, Austria, Switzerland;
     Germany, Italy, Spain stand on the Oct 10 city-by-city checks below.
+  - Sweep: **South Africa** (Oct 11; left out of the Africa sweep as "its own thing"): nothing to add — 28 on the map
+    (Johannesburg incl. Fourways 2008 and Greenstone 2016, Cape Town, West Coast, Stellenbosch, Umhlanga). Durban proper,
+    Gqeberha, East London, Bloemfontein: no Chabad house found; Pretoria has a mikveh and the Pretoria Hebrew
+    Congregation. **Owner to check:** the Rabbinical College of Pretoria (Chabad yeshiva since 2001, Dayan Gidon Fox,
+    Rabbi Chaim Finkelstein) — last news is a 2020/21 smicha class (sajr.co.za/?p=24277); not added without a sign
+    it still runs.
+  - Sweep: **Canada outside Ontario and Quebec** (Oct 11): nothing to add. BC 13, Alberta 3 (Calgary, Edmonton,
+    Canmore — Chabad Alberta's "sixteen shluchim" are the couples and staff inside those three listings), Saskatchewan 2,
+    Manitoba 4, Halifax, St. John's. New Brunswick, PEI, the territories, northern Alberta: roving-rabbi visits only.
+  - **What's left of the world sweep:** only the big networks the owner set aside — Ukraine, Russia, the UK, France,
+    Israel, Sydney/Melbourne, Ontario/Quebec, the US.
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

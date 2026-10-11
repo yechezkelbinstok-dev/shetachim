@@ -8,6 +8,19 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 11: Gaza's beach slivers fixed
+- Owner's screenshots (Israel view, zoomed in): a grey strip ~100 m wide between Israel and the sea at **Zikim** (north
+  end of Gaza, 0.33 km²) and at **Rafah** (south end, by Egypt, 0.12 km²). Cause: the IDF-control map stops just short
+  of GADM's coastline, and the strip is joined to the rest of Gaza's main body, so the sliver rule (loose pieces only)
+  never saw it. `scripts/held-lines.mjs` now cuts strips of the rest narrower than 300 m (`THIN_M` 150) off as pieces
+  of their own and gives them to the held part **only where they run along the place's own edge** (coast or border),
+  so narrow gaps between two IDF zones stay. (mapshaper's `-buffer` doesn't shrink polygons: the shrink is done by
+  erasing a band around the outline, `-lines -buffer`.) Gaza: 196.2 km² held (was 195.7), 147.4 the rest.
+- Rerunning held-lines today gives Lebanon and Syria small differences (±0.3–0.9 km²) even without the new rule, so
+  only the Gaza shapes were rewritten; Lebanon/Syria shapes are the Oct 7 ones. Check before replacing them.
+- Branch note: this session's own branch is `claude/sharp-lamport-rouesl`; pushed there and to the live
+  `claude/bold-albattani-aqfnj9`.
+
 ## ▶ LATEST (Oct 10, end of window — usage ran out): pick up here
 - **Done, this commit (not stress-tested yet — run `timeout 900 node scripts/stress.mjs`):** (1) taps: a city opens its
   card only when its NAME is tapped (the `cities` and `cities-big` layers, not the ring or round it) — owner: "if you tap

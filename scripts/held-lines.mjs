@@ -40,6 +40,7 @@ const PLACES = {
 };
 const CLOSE_M = 60;
 const SLIVER_KM2 = 25;
+const THIN_M = 150; // strips of the rest narrower than 2·THIN_M are cut off as pieces of their own (see below)
 const KEEP = { Rmeish: [35.3679, 33.0752], 'Ain Ebel': [35.4031, 33.1093] };
 const UA = { 'User-Agent': 'shetachim-map (github.com/yechezkelbinstok-dev/shetachim)' };
 const fc = (features) => ({ type: 'FeatureCollection', features });
@@ -123,15 +124,34 @@ for (const [place, p] of Object.entries(PLACES)) {
   if (!src.length) throw new Error(`${place} is missing from its GADM file`);
   const input = { 'place.json': fc(src.map((f) => feature(f.geometry))), 'zones.json': fc([...idf.features, ...(p.golan ? [golan.area] : [])]) };
   const held = await run('-i place.json -clip zones.json -dissolve', input);
-  const rest = await run('-i place.json -erase zones.json -dissolve', input);
+  const whole = await run('-i place.json -erase zones.json -dissolve', input);
+  // Where the owner's map stops just short of the coast or a border, the rest keeps a thin strip there, joined to its
+  // main body so the sliver rule below doesn't see it (owner, Oct 11: Gaza's beach at Zikim and at Rafah, ~100 m wide,
+  // grey between Israel and the sea). Strips narrower than 2·THIN_M are cut off as pieces of their own (the rest shrunk
+  // by THIN_M and grown back is what's left without them; hairlines from that round trip, under 10 m wide on average,
+  // are ignored), so the ones against the held part go to it like any other sliver. (mapshaper's -buffer doesn't shrink
+  // a polygon, so the rest is shrunk by taking away a band THIN_M wide either side of its outline.)
+  const band = await run(`-i rest.json -lines -buffer ${THIN_M}`, { 'rest.json': whole });
+  const shrunk = await run('-i rest.json -erase band.json', { 'rest.json': whole, 'band.json': band });
+  const opened = shrunk.features.length ? await run(`-i shrunk.json -buffer ${THIN_M} -clip rest.json`, { 'shrunk.json': shrunk, 'rest.json': whole }) : fc([]);
+  const thin = (opened.features.length ? await run('-i rest.json -erase opened.json -explode -each "w=2*this.area/this.perimeter"', { 'rest.json': whole, 'opened.json': opened }) : fc([]))
+    .features.filter((f) => f.properties.w > 10).map((f) => feature(f.geometry, { thin: true }));
+  const rest = thin.length ? fc([...(await run('-i rest.json -erase thin.json', { 'rest.json': whole, 'thin.json': fc(thin) })).features, ...thin]) : whole;
   // every piece on its own, sharing edges where they meet (TopoJSON arcs)
-  const pieces = fc([...held.features.map((f) => feature(f.geometry, { side: 'held' })), ...rest.features.map((f) => feature(f.geometry, { side: 'rest' }))]);
+  const pieces = fc([...held.features.map((f) => feature(f.geometry, { side: 'held' })), ...rest.features.map((f) => feature(f.geometry, { side: 'rest', thin: !!f.properties?.thin }))]
+    .filter((f) => f.geometry)); // (cutting the strips off can leave an empty feature)
   const topo = JSON.parse((await mapshaper.applyCommands('-i pieces.json -explode -each "km=this.area/1e6" -o out.json format=topojson', { 'pieces.json': pieces }))['out.json']);
-  const geoms = Object.values(topo.objects)[0].geometries;
+  const geoms = Object.values(topo.objects)[0].geometries.filter((g) => g.arcs);
   const arcsOf = (g) => new Set((g.type === 'Polygon' ? g.arcs : g.arcs.flat()).flat().map((a) => (a < 0 ? ~a : a)));
   const heldArcs = new Set(geoms.filter((g) => g.properties.side === 'held').flatMap((g) => [...arcsOf(g)]));
   const main = geoms.filter((g) => g.properties.side === 'rest').reduce((a, g) => (!a || g.properties.km > a.properties.km ? g : a), null);
-  const pockets = geoms.filter((g) => g.properties.side === 'rest' && g !== main && [...arcsOf(g)].some((a) => heldArcs.has(a)));
+  // a strip cut off above counts only where it runs along the place's own edge (an arc no other piece uses: the coast or
+  // a border), so narrow gaps between two of the IDF's zones stay as they are
+  const uses = new Map();
+  for (const g of geoms) for (const a of arcsOf(g)) uses.set(a, (uses.get(a) || 0) + 1);
+  const onEdge = (g) => [...arcsOf(g)].some((a) => uses.get(a) === 1);
+  const pockets = geoms.filter((g) => g.properties.side === 'rest' && g !== main && [...arcsOf(g)].some((a) => heldArcs.has(a)) &&
+    (!g.properties.thin || onEdge(g)));
   const slivers = pockets.filter((g) => g.properties.km < SLIVER_KM2 && !kept(topoFeature(topo, g).geometry).length);
   for (const g of slivers) g.properties.side = 'held';
   const stays = pockets.filter((g) => !slivers.includes(g)).map((g) => {

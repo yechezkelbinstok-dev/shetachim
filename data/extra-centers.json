@@ -1694,6 +1694,32 @@
       "url": "https://feor.ru/administrative-units/volzhsky/",
       "site": "FEOR",
       "siteHe": "פדרציית הקהילות היהודיות של רוסיה"
+    },
+    {
+      "id": "extra-moscow-izmailovo",
+      "name": "Tzemach Tzedek – Beit Chabad Izmailovo",
+      "city": "Moscow",
+      "lat": 55.78664,
+      "lon": 37.74052,
+      "precision": "exact",
+      "note": "ul. Tkatskaya 46, Sokolinaya Gora; FEOR-registered Chabad community of Izmailovo and Sokolinaya Gora (memoc.org)",
+      "source": "feor.ru/moskva — FEOR's list of Moscow communities (Oct 2026); OpenStreetMap (Tkatskaya 46); not on chabad.org",
+      "url": "https://feor.ru/moskva",
+      "site": "FEOR",
+      "siteHe": "פדרציית הקהילות היהודיות של רוסיה"
+    },
+    {
+      "id": "extra-moscow-chistye-prudy",
+      "name": "Chabad Center on Chistye Prudy",
+      "city": "Moscow",
+      "lat": 55.76323,
+      "lon": 37.63306,
+      "precision": "area",
+      "note": "ul. Myasnitskaya 13, bldg 20, by Chistye Prudy; FEOR-registered Chabad community; the dot is on no. 13's courtyard buildings",
+      "source": "feor.ru/moskva — FEOR's list of Moscow communities (Oct 2026); OpenStreetMap (Myasnitskaya 13); not on chabad.org",
+      "url": "https://feor.ru/moskva",
+      "site": "FEOR",
+      "siteHe": "פדרציית הקהילות היהודיות של רוסיה"
     }
   ],
   "fixes": {

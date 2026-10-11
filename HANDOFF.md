@@ -316,6 +316,17 @@ between two Claude accounts when usage limits run out; whichever session picks t
     Manitoba 4, Halifax, St. John's. New Brunswick, PEI, the territories, northern Alberta: roving-rabbi visits only.
   - **What's left of the world sweep:** only the big networks the owner set aside — Ukraine, Russia, the UK, France,
     Israel, Sydney/Melbourne, Ontario/Quebec, the US.
+  - Sweep: **Ukraine** (Oct 11): Chabadpedia's list of Ukraine's shluchim (Dnipro, Kyiv, Khmelnytskyi, Kharkiv,
+    Kherson, Odesa, Zhytomyr, Kremenchuk, Haditch, Poltava, Chernivtsi, Lviv, Mykolaiv, Cherkasy, Berdychiv) is all on
+    the map. Added Kyiv's Brodsky Synagogue (Shota Rustaveli 13 — Rabbi Moshe Reuven Azman; Chabadpedia lists him among
+    Kyiv's shluchim; not on chabad.org) with a `review` flag (FJC Ukraine's own Kyiv center is Markovitch's).
+  - Sweep: **Russia** (Oct 11): FEOR's site, all 128 community pages (feor.ru/administrative-units/...): 47 name a rabbi;
+    44 of those cities were on the map. Added Tula (Rabbi Shimshon Romanovsky, "shliach and rabbi in Tula since Nov
+    2015", ul. Lenina 12), Tver (Rabbi Yehoshua Rosenzweig, the synagogue at Pushkinskaya 22) and Volzhsky (Rabbi Ariel
+    Eliezer Triger, since 2007). FEOR's Moscow list (feor.ru/moskva): added Tzemach Tzedek – Beit Chabad Izmailovo
+    (Tkatskaya 46) and the Chabad Center on Chistye Prudy (Myasnitskaya 13) — no rabbi named, so none shown; the rest
+    of Moscow's FEOR communities are on the map (the Sephardic and Mountain Jews' communities aren't Chabad). FEOR
+    communities without a named rabbi are lay-led and not added.
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

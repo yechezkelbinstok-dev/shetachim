@@ -291,15 +291,20 @@ between two Claude accounts when usage limits run out; whichever session picks t
     Melbourne: Chabad of RARA's own directory (Byron, Hunter & Central Coast, Cairns, Sunshine Coast, Perth, Tasmania)
     and Adelaide, Canberra, Brisbane, Gold Coast are all on the map. New Caledonia on the map; Fiji, Guam, Tahiti, PNG:
     visits only. The Caribbean was swept twice with Latin America (Oct 10).
-  - **Europe RE-SWEEP (owner, Oct 11: "I don't believe there ever was a proper full Europe sweep") — IN PROGRESS.**
-    Done so far: Nordics (chabad.se lists Gothenburg, Stockholm, Malmö; Denmark: Copenhagen + Aarhus/Jylland; Oslo,
-    Helsinki, Reykjavik — all on the map), Ireland (Dublin/Rathmines only), Netherlands (27 on the map), Luxembourg.
-    Belgium: added the European Jewish Community Centre (EJCC, Rue du Cornet 22, Brussels — Rabbi Avi Tawil; set up
-    by Chabad's Rabbinical Center of Europe in 2003) with a `review` flag (its site doesn't say Chabad); nothing in
-    Liège, Ghent, Knokke, Waterloo, Namur, Charleroi, Leuven. NEXT: Baltics and Belarus (Chabadpedia's בלארוס, לטביה,
-    ליטא, אסטוניה pages; Vitebsk, Gomel, Pinsk, Daugavpils, Šiauliai, Tartu), then Poland, Czechia, Slovakia, Hungary,
-    Romania, Bulgaria, Moldova, the Balkans, then Germany, Austria, Switzerland, Italy, Spain, Portugal, Greece, Malta,
-    Cyprus — each country on its own: national Chabad site, Chabadpedia, local-language and Hebrew searches, news.
+  - **Europe RE-SWEEP (owner, Oct 11: "I don't believe there ever was a proper full Europe sweep") — DONE Oct 11.**
+    Each country on its own (national Chabad site, Chabadpedia, local-language and Hebrew searches, news), on top of the
+    Oct 10 pass recorded below. Added: Brussels' European Jewish Community Centre (EJCC, Rue du Cornet 22 — Rabbi Avi
+    Tawil; set up by Chabad's Rabbinical Center of Europe in 2003) with a `review` flag (its site doesn't say Chabad).
+    Confirmed, nothing missing: Nordics (chabad.se: Gothenburg, Stockholm, Malmö; Denmark: Copenhagen + Aarhus; Oslo,
+    Helsinki, Reykjavik), Ireland (Dublin/Rathmines), Netherlands, Luxembourg, Belgium (nothing in Liège, Ghent, Knokke,
+    Waterloo, Namur, Charleroi, Leuven), Belarus (Chabadpedia: Minsk, Brest, Grodno, Mogilev, Bobruisk), Latvia
+    (chabad.lv: Riga, Jurmala), Lithuania (Vilnius, Kaunas, Klaipeda — a 2025 Chabad report says the last two have no
+    full-time rabbi; kept as chabad.org has them), Estonia (Tallinn), Poland (Chabadpedia and news: Warsaw, Kraków,
+    Katowice only; a tour site's "Wrocław" is unsupported), Czechia (Prague; Brno had only 2016 student outreach by
+    Rabbi David Edri, no house), Slovakia, Romania, Bulgaria, Moldova, Hungary (EMIH's list), the Balkans (researched in
+    depth earlier), Greece (chabad.gr's own branch list: Athens, Thessaloniki, Rhodes, Crete, Mykonos), Portugal
+    (Cascais, Porto, Algarve; Lisbon and Belmonte have activity but no separate house), Malta, Austria, Switzerland;
+    Germany, Italy, Spain stand on the Oct 10 city-by-city checks below.
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

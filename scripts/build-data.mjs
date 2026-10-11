@@ -194,11 +194,23 @@ async function download(url, name) {
 const cached = (name) => download(SOURCES[name], path.basename(new URL(SOURCES[name]).pathname));
 const censusLayer = (kind, fips) => download(`${CENSUS}/${fips}/${kind}.json`, `${kind}-${fips}.json`);
 
+// Land the Census outlines leave out as water (data/shapes/land-fixes.geojson: the west end of Sandusky Bay, from
+// OpenStreetMap), each piece merged into the county beside it (its GEOID), so it's in that county's shetach.
+const LAND_FIXES = at('data', 'shapes', 'land-fixes.geojson');
+const BORDER_WATER = at('data', 'shapes', 'ontario-border-water.geojson');
 async function countiesGeoJSON() {
-  const out = path.join(CACHE, 'us-counties.geojson');
+  const fixes = fs.existsSync(LAND_FIXES) ? fs.readFileSync(LAND_FIXES) : Buffer.alloc(0);
+  const out = path.join(CACHE, `us-counties-${createHash('md5').update(fixes).digest('hex').slice(0, 8)}.geojson`);
   if (!fs.existsSync(out)) {
     const src = await cached('counties');
-    await mapshaper.runCommands(`-i "${src}" -filter-fields GEOID,NAME,STUSPS -o "${out}" format=geojson`);
+    const plain = path.join(CACHE, 'us-counties.geojson');
+    if (!fs.existsSync(plain)) await mapshaper.runCommands(`-i "${src}" -filter-fields GEOID,NAME,STUSPS -o "${plain}" format=geojson`);
+    const all = readJSON(plain);
+    const patches = fixes.length ? JSON.parse(fixes).features : [];
+    const ids = new Set(patches.map((f) => f.properties.GEOID));
+    const fixed = ids.size ? JSON.parse((await mapshaper.applyCommands('-i in.json -dissolve2 GEOID copy-fields=NAME,STUSPS -o out.json format=geojson',
+      { 'in.json': collectionOf([...all.features.filter((f) => ids.has(f.properties.GEOID)), ...patches]) }))['out.json']).features : [];
+    fs.writeFileSync(out, JSON.stringify(collectionOf([...all.features.filter((f) => !ids.has(f.properties.GEOID)), ...fixed])));
   }
   return out;
 }
@@ -633,6 +645,16 @@ async function buildGeo(data) {
       const abbr = CA_PROVINCES[f.properties.NAME_1], state = `CA-${abbr}`;
       return featureOf(f.geometry, { state, name: f.properties.NAME_1, abbr, country: 'CA', ...(notShown.includes(state) ? { outside: true } : {}) });
     });
+  // GADM's Ontario runs out into the Great Lakes and border rivers to the international line; its share of that water
+  // (data/shapes/ontario-border-water.geojson, from OpenStreetMap) is taken off, so Ontario — and Essex County, in
+  // the Michigan shetach — ends at the shore like the US side (owner, Oct 10: "the Michigan outline border shouldn't
+  // be maritime … it should be the regular land like any other place").
+  if (fs.existsSync(BORDER_WATER)) {
+    const on = caAreas.find((f) => f.properties.state === 'CA-ON');
+    const cut = JSON.parse((await mapshaper.applyCommands('-i on.json -erase water.json -o out.json format=geojson',
+      { 'on.json': collectionOf([on]), 'water.json': fs.readFileSync(BORDER_WATER, 'utf8') }))['out.json']).features[0];
+    on.geometry = cut.geometry;
+  }
 
   const counties = readJSON(await countiesGeoJSON());
   const usCounties = counties.features

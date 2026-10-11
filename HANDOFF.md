@@ -21,31 +21,23 @@ between two Claude accounts when usage limits run out; whichever session picks t
 - Branch note: this session's own branch is `claude/sharp-lamport-rouesl`; pushed there and to the live
   `claude/bold-albattani-aqfnj9`.
 
-## ▶ LATEST (Oct 10, end of window — usage ran out): pick up here
-- **Done, this commit (not stress-tested yet — run `timeout 900 node scripts/stress.mjs`):** (1) taps: a city opens its
-  card only when its NAME is tapped (the `cities` and `cities-big` layers, not the ring or round it) — owner: "if you tap
-  cities name it should actually show it"; (2) the reach round a center for a finger is back up (`slop` 10, `near` 15;
-  4 / 8 was "almost impossible to tap a center"); (3) Chabad of Namibia moved to the house, 20 Arians St (OSM: Simón
-  Bolívar St) at the Stein St corner, Luxury Hill (-22.57432, 17.10104), from the owner's Google Maps screenshot.
-- **Open, owner's asks (in order):**
-  - **Fix every center without a proper location.** My 43 hand-added `area`/`city` centers in data/extra-centers.json
-    (list: `precision != "exact"`) — pin each to its building where an address is public (Nominatim, the center's own
-    site's Google Maps link via scratchpad mapslink.sh — but check it: Namibia's site link was an OLD spot in Auasblick).
-    Then the 543 chabad.org listings flagged approximate (224 US, 156 Israel, …) — many are hidden on purpose for
-    security; ask the owner before pinning those.
-  - **Michigan / Ohio near Sandusky Bay (owner's screenshot, circled):** (a) land at Muddy Creek Bay (≈ -83.02, 41.45),
-    between Toledo (Michigan shetach, `ohio-toledo` shape) and Northeast Ohio (Greenberg, `ohio-northeast`), is in no
-    shetach — the shapes' straight border (-83.0197) meets the Census Ohio coast badly there; give that land to the
-    shapes (sliver rule / extend shapes). (b) **"the Michigan outline border shouldn't be maritime — it should be the
-    regular land like any other place"**: Essex County's shape (`lakeEdges`, "with its waters", see the Essex note
-    below) makes Michigan's shetach fill the Detroit River, Lake St Clair's Canadian part and western Lake Erie out to
-    the international line. Owner wants the outline on the coast: clip the Essex piece to land for drawing (data may
-    still know the water's shetach), without bringing back the Ontario-coloured wedge round it (the reason waters were
-    added, Oct 1/7) — i.e. Ontario's lake water must not show there either.
-  - Editor (manual shetach/center editing + AI Hebrew): owner hasn't picked option 1 (change list sent to Claude) or
-    2 (Publish button → GitHub Action build). Waiting on him.
-- Test helper: scratchpad `shot.mjs` (phone screenshot; fetches fonts/street map through curl — without them no city
-  names render and city taps can't be tested).
+## ▶ LATEST (Oct 11): what's open
+- **Done Oct 11:** (1) the white screen on coming back to the browser: the phone drops the map's WebGL context;
+  `webglcontextrestored` now clears every source's tiles and the icon atlas so they're remade, and if the context never
+  comes back the page reloads (tested by forcing a loss with WEBGL_lose_context: the old page went blank, the new one
+  comes back whole). (2) **Ontario ends at the shore**: `data/shapes/ontario-border-water.geojson` (OSM water, z9, the
+  parts along the US border, cut to GADM's Ontario: Great Lakes, St Clair/Detroit/Niagara/St Lawrence, Lake of the
+  Woods…) is erased from CA-ON in the build, so Essex County (Michigan shetach) and all of Ontario stop at the coast
+  (owner: "the Michigan outline border shouldn't be maritime"); Essex's shape lost `lakeEdges`. (3) **Muddy Creek Bay
+  land**: `data/shapes/land-fixes.geojson` (land the Census 1:500k county outlines treat as water, from OSM) is merged
+  into the county beside it (GEOID) in `countiesGeoJSON()` (cache file name carries the fixes' hash). (4) **Toledo /
+  Northeast Ohio line moved to 83.06°W** (owner: "just make -83.06 the NE ohio - Michigan border"), in ohio-toledo,
+  ohio-northeast and ohio-central (the corner at 41.03°N).
+- **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
+  streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
+  ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked
+  option 1 or 2. Test helper: scratchpad `shot.mjs`; OSM water from tiles: scratchpad `mi/water.mjs` (mapshaper
+  `-dissolve2` merges tile pieces in seconds; shapely's unary_union on 46k pieces took >15 min).
 
 ## ▶ WHERE WE ARE — READ THIS FIRST (Oct 8; a second window, then back on the first account for a third)
 The owner (Oct 8): "usage about to run out … I'm going to continue this in a different window … it needs to be extremely

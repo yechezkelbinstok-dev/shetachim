@@ -1640,6 +1640,60 @@
       "site": "EJCC",
       "siteHe": "אתר EJCC",
       "review": "Chabad-founded (Rabbinical Center of Europe, 2003) and run by Rabbi Avi Tawil (executive director, ejcc.eu), but its own site never says Chabad; owner to confirm it belongs on the map."
+    },
+    {
+      "id": "extra-kyiv-brodsky",
+      "name": "Brodsky Synagogue",
+      "city": "Kiev",
+      "lat": 50.43856,
+      "lon": 30.5205,
+      "precision": "exact",
+      "note": "Shota Rustaveli St 13, Kyiv's great synagogue (1898), returned to the Jewish community in 1997 and run by Chabad; Rabbi Moshe Reuven Azman's community",
+      "source": "Chabadpedia (אוקראינה: Kyiv's shluchim are Azman, Markovitch, Vishedski); JTA and J. Weekly (2000 reopening, 'overseen by Chabad'); OpenStreetMap (Синагога Бродського); not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Moshe Reuven", "lastName": "Azman" }],
+      "review": "Rabbi Moshe Reuven Azman (styled Chief Rabbi of Ukraine) heads it; chabad.org doesn't list it — Chabad of Ukraine's own Kyiv center (FJC) is Markovitch's, on the map. Owner to confirm."
+    },
+    {
+      "id": "extra-russia-tula",
+      "name": "Jewish Community of Tula",
+      "city": "Tula",
+      "lat": 54.19929,
+      "lon": 37.60695,
+      "precision": "exact",
+      "note": "ul. Lenina 12; FEOR community; Rabbi Shimshon Romanovsky, shliach and rabbi in Tula since November 2015",
+      "source": "feor.ru/administrative-units/tula (Oct 2026); OpenStreetMap (ul. Lenina 12); not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Shimshon", "lastName": "Romanovsky" }],
+      "url": "https://feor.ru/administrative-units/tula/",
+      "site": "FEOR",
+      "siteHe": "פדרציית הקהילות היהודיות של רוסיה"
+    },
+    {
+      "id": "extra-russia-tver",
+      "name": "Jewish Community of Tver",
+      "city": "Tver",
+      "lat": 56.85561,
+      "lon": 35.91998,
+      "precision": "exact",
+      "note": "ul. Pushkinskaya 22, the synagogue; FEOR community",
+      "source": "feor.ru/administrative-units/tver (Oct 2026); OpenStreetMap (synagogue, Pushkinskaya 22); not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Yehoshua", "lastName": "Rosenzweig" }],
+      "url": "https://feor.ru/administrative-units/tver/",
+      "site": "FEOR",
+      "siteHe": "פדרציית הקהילות היהודיות של רוסיה"
+    },
+    {
+      "id": "extra-russia-volzhsky",
+      "name": "Jewish Community of Volzhsky",
+      "city": "Volzhsky",
+      "lat": 48.80553,
+      "lon": 44.75521,
+      "precision": "area",
+      "note": "ul. Raboche-Krestyanskaya 8a; FEOR community; Rabbi Ariel Eliezer Triger, rabbi of Volzhsky since 2007 (also head of FEOR's regional development department); the dot is on the street",
+      "source": "feor.ru/administrative-units/volzhsky (Oct 2026); OpenStreetMap (Raboche-Krestyanskaya St, Volzhsky); not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Ariel Eliezer", "lastName": "Triger" }],
+      "url": "https://feor.ru/administrative-units/volzhsky/",
+      "site": "FEOR",
+      "siteHe": "פדרציית הקהילות היהודיות של רוסיה"
     }
   ],
   "fixes": {

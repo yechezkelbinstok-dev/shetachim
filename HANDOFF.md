@@ -134,6 +134,33 @@ between two Claude accounts when usage limits run out; whichever session picks t
   Chabad of Winnipeg's shloshim notice). chabad.org still lists him as living, so he's marked `isDeceased: true` by
   hand in data/raw/chabad-personnel.json (center 117789), like every other passed-away person (owner: the same as all
   the others, no separate list). A fresh personnel fetch would undo it until chabad.org updates: set it again.
+- **Balkans, researched again (owner, Oct 11: "Croatia and Montenegro maybe sharing a head, unclarity about Bosnia,
+  unclarity about Slovenia… proper deep research").** No change: the map already matches.
+  - Croatia: Pinny Zaklas (Zagreb, since 2004), with Chabad of Dubrovnik as its summer branch.
+  - Montenegro: Ari Edelkopf (Podgorica, since 2017), with Budva (Ehrenfeld, 2023) under him.
+    - The "shared head" is Rabbi Luciano Moše Prelević, the Zagreb Jewish Community's chief rabbi (trained in a
+      Sephardic yeshiva in Jerusalem, not Chabad). He was the Jewish Community of Montenegro's chief rabbi from
+      2012/13 to 2017. In 2020 that community (now the liberal congregation of Nina Ofner Bokan) removed Edelkopf and
+      named Prelević again; the Montenegro government still calls Prelević chief rabbi (gov.me, 2023 and 2024).
+      Sources: JZCG's statements on borba.me and aktuelno.me; JTA, 7 Aug 2026.
+    - Edelkopf runs the separate "Religious Jewish Community of Montenegro" and also uses the chief rabbi title.
+    - Kaplan link: Yoel Kaplan founded that community in 2010-11 and ran the first seders in Podgorica (COL 2011:
+      Zaklas and Kaminetzky helped). Edelkopf came in 2017 "with Kaplan's blessing" (Hebrew Wikipedia, יהדות
+      מונטנגרו; no source given there). Kept as its own shetach, as the owner's list has it: Edelkopf has his own
+      shliach under him and is chabad.org's and FJC's "Chabad of Montenegro".
+    - FJC (Lazar's federation) has donation pages for Chabad of Serbia and of Montenegro, as it does for Moldova,
+      Latvia and Estonia: an umbrella, not a reason to merge them into Russia.
+  - Bosnia: no Chabad house, and no resident rabbi in Sarajevo since 1968 (cantor Igor Kožemjakin leads, per
+    Hadassah, Oct 2025); only Merkos summer students (2000, 2008). Kaplan's Oct 2026 write-up (kore.co.il 222220) says
+    his work "expanded to North Macedonia, Montenegro, Bosnia and Herzegovina and Kosovo". So Bosnia stays in Lower
+    Balkans. Nothing ties it to Zagreb or Belgrade.
+  - Slovenia: no Chabad house. Ariel Haddad (Chabad of Trieste and Slovenia) has been chief rabbi since 1999, comes
+    to Ljubljana several times a month and opened the 2021 synagogue (run with the Graz community). It stays in
+    Italy's shetach, with Haddad on its country card.
+  - Kosovo (Kaplan, since 2011; honorary title 2020), North Macedonia (Kaplan's seders; the Skopje community's own
+    rabbi is Avraham Kozma, not known as Chabad) and Albania (Kaplan, chief rabbi since 2010): Lower Balkans.
+    lubavitch.com calls Kaplan "Chabad representative to Thessaloniki and the Lower Balkans".
+  - Serbia: Kaminetzky (2008, sent through Merkos/Kotlarsky), Belgrade only.
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

@@ -1276,7 +1276,6 @@
   {
    "id": "british-columbia",
    "name": "British Columbia",
-   "short": "BC",
    "headShliach": "Yitzchok Wineberg",
    "capital": {
     "centerId": "117788",
@@ -1343,7 +1342,6 @@
   {
    "id": "ontario",
    "name": "Ontario",
-   "short": "ON",
    "headShliach": "Zalman Grossbaum",
    "capital": {
     "centerId": "117797",
@@ -1387,7 +1385,6 @@
   {
    "id": "quebec",
    "name": "Quebec",
-   "short": "QC",
    "headShliach": "Berel Mochkin",
    "capital": {
     "centerId": "117801",
@@ -1435,8 +1432,7 @@
   },
   {
    "id": "newfoundland-and-labrador",
-   "name": "Newfoundland and Labrador",
-   "short": "NL",
+   "name": "Newfoundland",
    "headShliach": "Chanan Chernitsky",
    "capital": {
     "centerId": "3610901",

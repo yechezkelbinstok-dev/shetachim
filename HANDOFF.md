@@ -97,6 +97,29 @@ between two Claude accounts when usage limits run out; whichever session picks t
   Bay, Kenora) — none found; Ontario's recorded Merkos visits are all Southern Ontario (1969; Elmira/Waterloo 2011).
 - **Caribbean name sized by its spread (owner, Oct 11: the tiny "Caribbean" over the sea):** `labelWide: true` on the
   caribbean shetach, as the Maritimes (its labelAt spot was sized by Cuba's room; it was that small before today too).
+- **Canada's far north is grey (owner, Oct 11: "Go ahead with those lines").** Searched for any Chabad activity, roving
+  trips included, in each province's north. The northernmost activity found:
+  - Saskatchewan: Prince Albert (53.2°N, roving 2019).
+  - Manitoba: Winnipeg only.
+  - Ontario: Ottawa and Haliburton's camp.
+  - Quebec: Quebec City (46.8°N).
+  - BC: Whistler and Salmon Arm (50.7°N).
+  - Newfoundland and Labrador: St. John's only, nothing in Labrador.
+  - Alberta: roving trips to Fort McMurray, Whitehorse and Yellowknife.
+
+  Each province is now a shape claim with straight lines; north of the line is `outside` (CA-ON, CA-QC, CA-MB, CA-SK,
+  CA-BC and CA-NL were added to `notShownWhenBlank`):
+  - Ontario: `ontario-south-of-46-5`, south of 46.5°N and west of Ottawa's 77.9°W, minus Essex. Sudbury and North Bay
+    are in.
+  - Quebec: `south-of-47`.
+  - BC: `south-of-51`.
+  - Manitoba: `south-of-51`. Saskatchewan: `south-of-54`. Both are in the one manitoba-saskatchewan shetach.
+  - Newfoundland: `newfoundland-island`, the island, Port au Port and the islands near it, but not Labrador. The
+    shetach is renamed "Newfoundland" / "ניופאונדלנד".
+  - Alberta: stays whole, plus the Yukon and NWT south of 63°N, as before.
+
+  No centre changed shetach. Sources include chabad.org's Saskatchewan and sub-Arctic roving rabbi reports, and
+  lubavitch.com's "Where the continent ends" (Newfoundland).
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

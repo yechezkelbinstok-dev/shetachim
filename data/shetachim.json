@@ -824,7 +824,11 @@
       "name": "British Columbia",
       "headShliach": "Yitzchok Wineberg",
       "territory": [
-        "CA-BC"
+        {
+          "state": "CA-BC",
+          "shape": "south-of-51",
+          "name": "British Columbia south of 51°N"
+        }
       ],
       "capital": {
         "centerId": "117788"
@@ -859,8 +863,16 @@
       "short": "MB-SK",
       "headShliach": "Avrohom Altein",
       "territory": [
-        "CA-MB",
-        "CA-SK"
+        {
+          "state": "CA-MB",
+          "shape": "south-of-51",
+          "name": "Manitoba south of 51°N"
+        },
+        {
+          "state": "CA-SK",
+          "shape": "south-of-54",
+          "name": "Saskatchewan south of 54°N"
+        }
       ],
       "capital": {
         "centerId": "117789"
@@ -871,7 +883,11 @@
       "name": "Ontario",
       "headShliach": "Zalman Grossbaum",
       "territory": [
-        "CA-ON"
+        {
+          "state": "CA-ON",
+          "shape": "ontario-south-of-46-5",
+          "name": "Ontario south of 46.5°N"
+        }
       ],
       "capital": {
         "centerId": "117797"
@@ -898,7 +914,11 @@
       "name": "Quebec",
       "headShliach": "Berel Mochkin",
       "territory": [
-        "CA-QC"
+        {
+          "state": "CA-QC",
+          "shape": "south-of-47",
+          "name": "Quebec south of 47°N"
+        }
       ],
       "capital": {
         "centerId": "117801"
@@ -922,10 +942,14 @@
     },
     {
       "id": "newfoundland-and-labrador",
-      "name": "Newfoundland and Labrador",
+      "name": "Newfoundland",
       "headShliach": "Chanan Chernitsky",
       "territory": [
-        "CA-NL"
+        {
+          "state": "CA-NL",
+          "shape": "newfoundland-island",
+          "name": "The island of Newfoundland"
+        }
       ],
       "capital": {
         "centerId": "3610901"
@@ -2238,6 +2262,12 @@
     }
   ],
   "notShownWhenBlank": [
+    "CA-ON",
+    "CA-QC",
+    "CA-MB",
+    "CA-SK",
+    "CA-BC",
+    "CA-NL",
     "CA-NT",
     "CA-YT"
   ],

@@ -241,6 +241,14 @@ between two Claude accounts when usage limits run out; whichever session picks t
   centers there; then Chabadpedia's country and city pages (Firecrawl), the national Chabad site and directories,
   Hebrew traveler directories, and news. Add what's missing; build, Hebrew, commit and push after each country or two.
   Progress is listed below as "Sweep:" lines.
+  - Sweep: **Thailand, Laos, Cambodia, Myanmar** (Oct 11). Added Bangkok's Even Chen Synagogue (Sephardic; Silom,
+    Hilton Garden Inn; Rabbi David Hadad; jewishthailand.com). Checked and left out: Laos's only house (Luang Prabang,
+    the Belinows) — Chabad Thailand's own page says "Updated June 2026: Chabad Laos is closed"
+    (jewishthailand.com/templates/articlecco_cdo/aid/913657); Krabi's "Beit Hillel" in Ao Nang is a kosher restaurant
+    with a prayer room led by a layman, raided by Thai police Oct 1 (ynet.co.il/judaism/article/hkjc009o5mg), not a
+    Chabad house; Cambodia has only Phnom Penh (Siem Reap gets Seders only, per jewishcambodia.com); Myanmar's Chabad
+    (the Raitports, Yangon, 2018) is gone — chabad.org lists nothing there. Background: since Sept 2026 the Thai
+    government is probing Chabad sites (Phuket Patong: building violations; Bangkok: no real problems).
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

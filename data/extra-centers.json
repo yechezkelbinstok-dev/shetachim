@@ -1455,6 +1455,20 @@
           "lastName": "Zalmanov"
         }
       ]
+    },
+    {
+      "id": "extra-bangkok-even-chen",
+      "name": "Even Chen Synagogue",
+      "city": "Bangkok",
+      "lat": 13.72318,
+      "lon": 100.51852,
+      "precision": "exact",
+      "note": "Bangkok's Sephardic synagogue, fourth floor of the Hilton Garden Inn Bangkok Silom, 320 Silom Rd, in the gem district; one of Chabad of Thailand's three Bangkok synagogues",
+      "source": "jewishthailand.com (Chabad of Thailand), Even Chen Synagogue page (Oct 2026); OpenStreetMap (Hilton Garden Inn Bangkok Silom); not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "David", "lastName": "Hadad" }],
+      "url": "https://www.jewishthailand.com/templates/articlecco_cdo/aid/6436923/jewish/Even-Chen-Synagogue.htm",
+      "site": "Jewish Thailand",
+      "siteHe": "חב״ד תאילנד"
     }
   ],
   "fixes": {

@@ -127,6 +127,12 @@ between two Claude accounts when usage limits run out; whichever session picks t
   the icon atlas but not MapLibre's line atlas, so every line layer (shetach borders, coast) drew nothing. It now sets
   `style.lineAtlas.texture = null` too. Test: lose and restore the WebGL context (WEBGL_lose_context) and screenshot;
   scratchpad `shotlost.mjs`.
+- **Chabadpedia, Altein and Wineberg pages (owner's PDFs, Oct 11):** Avrohom Altein is "head shliach of the state of
+  Manitoba" (Winnipeg since Tammuz 5732); Wineberg founded Chabad of Vancouver in winter 5735, BC's shliach (Yosef Hecht
+  came the summer before on Merkos Shlichus). Neither page mentions any activity in the provinces' north, so the lines
+  stand. The Altein page's footnote: his son **Rabbi Shmuly Altein passed away 3 Tammuz 5786** (18 Jun 2026; The CJN,
+  Chabad of Winnipeg's shloshim notice). chabad.org still lists him, so there is a new `passed` list in
+  extra-centers.json (by center, like `hyd`, but obm): the build marks the person `isDeceased`.
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

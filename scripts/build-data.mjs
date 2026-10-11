@@ -1204,10 +1204,10 @@ async function main() {
   // Shluchim murdered al kiddush Hashem (extra-centers.json "hyd", by center): passed away, HY"D after the name instead
   // of obm, added to the center's people where chabad.org doesn't list them, and a memorial line on the center's card
   const centerById = new Map(centers.map((c) => [c.id, c]));
+  const key = (p) => `${(p.firstName || '').trim()} ${(p.lastName || '').trim()}`;
   for (const h of extrasData.hyd || []) {
     const c = centerById.get(h.center);
     if (!c) throw new Error(`hyd: no center ${h.center}`);
-    const key = (p) => `${(p.firstName || '').trim()} ${(p.lastName || '').trim()}`;
     c.personnel = (c.personnel || []).map((p) => ({ ...p }));
     for (const who of h.people) {
       const p = c.personnel.find((x) => key(x) === key(who));
@@ -1215,6 +1215,17 @@ async function main() {
       else c.personnel.push({ ...who, position: null, isDirector: false, isDeceased: true, hyd: true });
     }
     c.memorial = { en: h.memorial, he: h.memorialHe };
+  }
+  // Shluchim who passed away since chabad.org's listing (extra-centers.json "passed", by center): obm after the name
+  for (const d of extrasData.passed || []) {
+    const c = centerById.get(d.center);
+    if (!c) throw new Error(`passed: no center ${d.center}`);
+    c.personnel = (c.personnel || []).map((p) => ({ ...p }));
+    for (const who of d.people) {
+      const p = c.personnel.find((x) => key(x) === key(who));
+      if (!p) throw new Error(`passed: ${key(who)} is not listed at center ${d.center}`);
+      p.isDeceased = true;
+    }
   }
 
   console.log('building map geometry…');

@@ -89,8 +89,10 @@ between two Claude accounts when usage limits run out; whichever session picks t
   Esti Simon, since 2010 — before that they worked in Ottawa for a local Chabad rabbi). No Chabad found in Cornwall,
   Brockville, Pembroke, Perth, Peterborough, Barrie, Sudbury, Thunder Bay. **Done (owner chose A):** new shetach
   `ottawa` — Ottawa · Dovid Hayes, capital Chabad Lubavitch of Ottawa (119209) — territory the shape
-  `data/shapes/eastern-ontario.geojson`: the census divisions Ottawa, Prescott and Russell, Stormont-Dundas-Glengarry,
-  Leeds and Grenville, Lanark, Renfrew and Frontenac (Kingston), GADM level 2; Ontario (Grossbaum) keeps the rest,
+  `data/shapes/eastern-ontario.geojson`: everything east of one straight line (owner: "the boundary shouldn't be a
+  staircase"; of two lines tried he chose this one) from the Ottawa River just past the Renfrew/Nipissing corner
+  (-78.457, 46.357) to Lake Ontario at the Bay of Quinte by Belleville (~-77.42) — so Kingston, Napanee, Belleville and
+  Prince Edward County are Ottawa's too (no Chabad between Belleville and Kingston); Ontario (Grossbaum) keeps the rest,
   Northern Ontario included. partNames CA-ON: "Eastern Ontario (Ottawa, Kingston)". Northern Ontario: searched for any
   roving/visiting Chabad (Timmins, Kapuskasing, Kirkland Lake, Cochrane, Sudbury, North Bay, Sault Ste Marie, Thunder
   Bay, Kenora) — none found; Ontario's recorded Merkos visits are all Southern Ontario (1969; Elmira/Waterloo 2011).

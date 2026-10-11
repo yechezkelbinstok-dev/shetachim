@@ -70,6 +70,10 @@ between two Claude accounts when usage limits run out; whichever session picks t
   Rabbi Avromy Super of Chabad of St Lucia (chabad.org, Aug 2025) — already in the Caribbean shetach. Nearest
   Chabad houses: Martinique (Reouven Naparstek, Caribbean); Suriname only gets Merkos Pesach bochurim. French Guiana
   stays blank.
+- **Reading Chabadpedia (Oct 11):** it's behind Cloudflare (403 even via CrawlForge stealth). `scripts/chabadpedia.py
+  "<title>" …` reads it through the Wayback Machine (newest copy, or asks web.archive.org/save for one first) and prints
+  the article text. Needs `web.archive.org` in the environment's allowed domains (asked the owner, Oct 11); archive.org's
+  availability API already works (Toronto and Grossbaum pages have copies; Ottawa has none yet). Untested until allowed.
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

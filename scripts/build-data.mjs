@@ -651,7 +651,9 @@ async function buildGeo(data) {
   // be maritime … it should be the regular land like any other place").
   if (fs.existsSync(BORDER_WATER)) {
     const on = caAreas.find((f) => f.properties.state === 'CA-ON');
-    const cut = JSON.parse((await mapshaper.applyCommands('-i on.json -erase water.json -o out.json format=geojson',
+    // (a thread of Ontario the water just misses along the border line — a long, thin leftover — is dropped)
+    const cut = JSON.parse((await mapshaper.applyCommands('-i on.json -erase water.json -explode ' +
+      '-filter "this.area > 5e6 || this.area / (this.perimeter * this.perimeter) > 0.006" -dissolve state -o out.json format=geojson',
       { 'on.json': collectionOf([on]), 'water.json': fs.readFileSync(BORDER_WATER, 'utf8') }))['out.json']).features[0];
     on.geometry = cut.geometry;
   }

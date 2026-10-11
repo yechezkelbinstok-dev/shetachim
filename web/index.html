@@ -2249,12 +2249,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       map.setFilter('st-line-inner', ['all', a, b, ['has', 'tr']]);
       // the open edge of an area: its coast, and where it reaches out over the water to the international line (Ontario
       // in the Great Lakes) the maritime border; thin, as the old page drew it (it went missing Oct 5, the owner noticed).
-      // Not the lake edges inside one shetach (Essex's water, Michigan on both sides: lk).
+      // Not the lake edges inside one shetach (lk; none since Oct 11, when Ontario's border water was taken off).
       map.setFilter('st-line-coast', ['all', a, ['!', ['has', 'cb']], ['!', ['has', 'lk']]]);
       show('st-line-coast', physOn);
       paint('st-line-coast', 'line-color', PHYS.ink);
       paint('st-line-coast', 'line-width', ['interpolate', ['linear'], ['zoom'], 2, 0.6, 6, 0.9, 10, 1.2]);
-      paint('st-line-coast', 'line-opacity', 0.4);
+      // faded out close in, where the street map's own shore is drawn and our coarser coast (Census, GADM) would show as
+      // stray lines across rivers and bays (owner, Oct 11: Belle Isle in the Detroit River)
+      paint('st-line-coast', 'line-opacity', ['interpolate', ['linear'], ['zoom'], 8, 0.4, 11, 0]);
       map.setFilter('st-line-casing', edge);
       const fadeOut = (v) => ['interpolate', ['linear'], ['zoom'], 9, v, 12, 0];
       const BORDER = 'hsl(258, 28%, 44%)';

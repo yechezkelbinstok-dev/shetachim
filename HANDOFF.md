@@ -33,6 +33,15 @@ between two Claude accounts when usage limits run out; whichever session picks t
   into the county beside it (GEOID) in `countiesGeoJSON()` (cache file name carries the fixes' hash). (4) **Toledo /
   Northeast Ohio line moved to 83.06°W** (owner: "just make -83.06 the NE ohio - Michigan border"), in ohio-toledo,
   ohio-northeast and ohio-central (the corner at 41.03°N).
+- **Stray lines (Oct 11, owner's screenshot of Lake St Clair):** threads of Ontario left along the border line where the
+  water just missed it are dropped in the build (`-explode -filter` area > 5 km² or area/perimeter² > 0.006; Long Point
+  and the Thousand Islands stay); the coast line fades out from zoom 8 to 11 on the street/physical map, where the
+  street map's own shore is drawn and our coarser coast showed as lines across rivers (Belle Isle).
+- **France / Illinois "shared leadership"** (owner asked, from a COLlive article; researched Oct 11, waiting on his
+  call): France — Mendel (Menachem Mendel) Azimov succeeded his father in 2014/5775 as head shliach of Paris; Beth
+  Loubavitch is run by him and his brother Levi Yitzchak (Neuilly, board member). Illinois — Meir Shimon Moscowitz
+  appointed head shliach by Merkos (Apr 2014), with a vaad (majority vote, first year) and his brother Yosef Shmuel
+  as executive director. My read: one head each; the map's "Meir Moscowitz" drops "Shimon" (rule: never shorten).
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

@@ -1068,17 +1068,23 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // The spot a name goes: its area's main part's pole of inaccessibility (Alberta: Alberta's part; India: the labelAt
   // point), or, for a chain of islands (the Caribbean), the middle of the chain over the water.
   const SPOTS = new WeakMap(); // (each area's spots worked out once: its parts keep what fits where)
-  function spotsFor(geometry, coreGeometry, labelAt) {
-    if (!SPOTS.has(geometry)) SPOTS.set(geometry, spotsOf(geometry, coreGeometry, labelAt));
+  function spotsFor(geometry, coreGeometry, labelAt, wide) {
+    if (!SPOTS.has(geometry)) SPOTS.set(geometry, spotsOf(geometry, coreGeometry, labelAt, wide));
     return SPOTS.get(geometry);
   }
-  function spotsOf(geometry, coreGeometry, labelAt) {
+  function spotsOf(geometry, coreGeometry, labelAt, wide) {
     const parts = partsOf(geometry);
     if (!parts.length) return [];
     const total = d3.sum(parts, (q) => q.area);
     const own = coreGeometry ? partsOf(coreGeometry) : parts;
     if (labelAt) {
       const at = P(labelAt[0], labelAt[1]), x = mx(at[0]), y = my(at[1]);
+      // labelWide: a name across the whole area, sized by its spread, over land and water alike (the Maritimes:
+      // New Brunswick, Nova Scotia and PEI round their straits — owner, Oct 11: "should straddle the shetach more")
+      if (wide) {
+        const hull = d3.polygonHull(parts.flatMap((q) => q.rings[0]));
+        return [{ x, y, dist: Math.sqrt((hull ? ringArea(hull) : total) / Math.PI) * 0.5, area: total, main: true, sea: true }];
+      }
       const host = own.find((q) => pointToPolygonDist(x, y, q.rings) > 0) || own[0];
       return [{ x, y, dist: Math.max(pointToPolygonDist(x, y, host.rings), polylabel(host.rings, 1e-6).d * 0.6), area: total, main: true }];
     }
@@ -1544,7 +1550,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     } : function* (r) {
       const t = labelTexts(r.s);
       if (!t) return;
-      const spots = spotsFor(r.geometry, r.core, r.s.labelAt || null);
+      const spots = spotsFor(r.geometry, r.core, r.s.labelAt || null, r.s.labelWide);
       const sec = t.kind === 'sec';
       for (const spot of spots) {
         yield;

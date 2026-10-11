@@ -893,7 +893,8 @@
       "name": "Maritimes",
       "short": "Mar.",
       "headShliach": "Mendel Feldman",
-      "labelAt": [-64.45, 46.0],
+      "labelAt": [-64.1, 46.1],
+      "labelWide": true,
       "territory": [
         "CA-NS",
         "CA-NB",

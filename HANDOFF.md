@@ -245,8 +245,8 @@ between two Claude accounts when usage limits run out; whichever session picks t
     Hilton Garden Inn; Rabbi David Hadad; jewishthailand.com). Checked and left out: Laos's only house (Luang Prabang,
     the Belinows) — Chabad Thailand's own page says "Updated June 2026: Chabad Laos is closed"
     (jewishthailand.com/templates/articlecco_cdo/aid/913657); Krabi's "Beit Hillel" in Ao Nang is a kosher restaurant
-    with a prayer room led by a layman, raided by Thai police Oct 1 (ynet.co.il/judaism/article/hkjc009o5mg), not a
-    Chabad house; Cambodia has only Phnom Penh (Siem Reap gets Seders only, per jewishcambodia.com); Myanmar's Chabad
+    with a prayer room led by a layman, raided by Thai police Oct 1 (ynet.co.il/judaism/article/hkjc009o5mg) — left out
+    (owner: blatant); Cambodia has only Phnom Penh (Siem Reap gets Seders only, per jewishcambodia.com); Myanmar's Chabad
     (the Raitports, Yangon, 2018) is gone — chabad.org lists nothing there. Background: since Sept 2026 the Thai
     government is probing Chabad sites (Phuket Patong: building violations; Bangkok: no real problems).
   - Sweep: **Philippines, Vietnam, Singapore, Malaysia, Indonesia** (Oct 11). The Philippines had NO dots — chabad.org
@@ -257,10 +257,28 @@ between two Claude accounts when usage limits run out; whichever session picks t
     house's own map link where it has one. Vietnam: its four houses (Ho Chi Minh City, Hanoi, Hoi An, Sapa) are all on
     the map. Singapore: one listing (Abergel and Rivni) covers it. Malaysia: none. Indonesia: "Chabad Bali"
     (chabadbali.org, a contact form only, no names) and a 2018 traveler's blog about a Chabad family in Seminyak whose
-    address isn't published for security; no shliach could be confirmed, so not added — owner to check:
+    address isn't published for security; no shliach could be confirmed — added at city level and FLAGGED for review:
     https://chabadbali.org/ and https://www.lametayel.co.il/posts/l044qr .
   - Research tools: plain WebSearch/WebFetch first; Firecrawl (paid credits) only for sites they can't reach, like
     Chabadpedia and chabad.org (owner, Oct 11).
+  - **Possible "mushrooms" (owner, Oct 11):** only a blatant case is left out (like Krabi's Beit Hillel: a layman
+    running a meshichist prayer room he calls a Chabad house). Anything else doubtful — a network outside the country's
+    official Chabad, a house whose shliach can't be confirmed — goes ON the map with a `review` field (why, with links;
+    not shown on the card) in data/extra-centers.json, and is listed here for the owner to review. **To review:**
+    `extra-tokyo-edery` and `extra-kyoto-edery` (Rabbi Binyomin Edery's network, not on chabad.org; Japan's head is
+    Sudakevich), `extra-bali` (no shliach confirmed). Find them all: grep '"review"' data/extra-centers.json.
+  - Sweep: **Japan, Korea, China, Hong Kong, Macau, Taiwan, Mongolia** (Oct 11): nothing to add. Japan: chabad.org
+    lists Tokyo (Sudakevich, the head), Kobe/Kansai and Takayama — all on the map. Added and FLAGGED for review: Rabbi
+    Binyomin Edery's separate network (Chabad House Tokyo in Omori, Ota-ku; "Chabad Kyoto", run by Moti Grumach —
+    chabadjapan.org), which chabad.org doesn't list; its Sendai work was 2011 tsunami relief, not a house. The official Chabad of Kyoto (the
+    Posners, 2019) seems gone: jewishkyoto.com is dead and chabad.org doesn't list it. China (Chabadpedia's list:
+    Beijing, Shanghai ×2, Guangzhou, Shenzhen ×2, Foshan, Yiwu, Chengdu) all on the map; Ningbo and Pudong closed in
+    2020. Korea: Seoul only. Taiwan: Taipei only. Macau, Mongolia: none.
+  - Sweep: **Nepal, Central Asia, Caucasus** (Oct 11): nothing to add. Nepal: Kathmandu and Pokhara on the map; the
+    Kathmandu house was forced out of its Thamel building in Jan 2026 (landlord demanded the Hebrew signs come down)
+    and holds Shabbat in a hotel while it looks for a new place — move the dot when it reopens (heritagefl.com,
+    Jan 16, 2026). Kazakhstan: Chabadpedia's 7 cities = the map's. Uzbekistan, Kyrgyzstan, Georgia, Armenia,
+    Azerbaijan: nothing new found; Tajikistan, Turkmenistan: no Chabad.
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

@@ -953,7 +953,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // total size area (world units²): no bigger than the area calls for, and fitting in the room around its point.
   // The whole name fits in the clear circle around its spot (its box's diagonal no longer than the circle's width,
   // with a little leeway), so it stays inside its own area and two neighbours' names never overlap.
-  const wantAt = (z, { area }) => clamp(5 + 0.15 * Math.sqrt(area) * PX(z), 9, labelMax());
+  const wantAt = (z, { area, wide }) => clamp(5 + 0.15 * Math.sqrt(area) * PX(z), 9, labelMax() * (wide ? 1.6 : 1)); // (labelWide: up to 1.6×)
   function sizeAt(z, spot, wEm, lines) {
     const room = 2.2 * spot.dist * PX(z);
     return Math.min(wantAt(z, spot), room / Math.hypot(wEm * 1.04, lines * 1.15));
@@ -1055,7 +1055,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // Once shown, a name grows gently as the map zooms in (at most 35% a step, as names do on map sites), up to what
     // its area allows; this also keeps the map's collision boxes, sized for the step ahead, close to the real name.
     const sizes = [];
-    raw.forEach((v, i) => { sizes.push(Math.round((i && raw[i - 1] >= LABEL_MIN ? Math.min(v, sizes[i - 1] * 1.35) : v) * 10) / 10); });
+    raw.forEach((v, i) => { sizes.push(Math.round((i && raw[i - 1] >= LABEL_MIN && !spot.wide ? Math.min(v, sizes[i - 1] * 1.35) : v) * 10) / 10); });
     // The map checks when a name may show only at whole zoom steps (4, 5, …), so one that has room from 4.4 would stay
     // hidden until 5: it starts at the whole step before instead, a touch small there and growing to its size by 4.4.
     if (minz > 0 && minz < 24 && minz % 1) {
@@ -1082,8 +1082,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       // labelWide: a name across the whole area, sized by its spread, over land and water alike (the Maritimes:
       // New Brunswick, Nova Scotia and PEI round their straits — owner, Oct 11: "should straddle the shetach more")
       if (wide) {
-        const hull = d3.polygonHull(parts.flatMap((q) => q.rings[0]));
-        return [{ x, y, dist: Math.sqrt((hull ? ringArea(hull) : total) / Math.PI) * 0.5, area: total, main: true, sea: true }];
+        const hull = d3.polygonHull(parts.flatMap((q) => q.rings[0])), span = hull ? ringArea(hull) : total; // (size by the span too)
+        return [{ x, y, dist: Math.sqrt(span / Math.PI) * 0.6, area: span, main: true, sea: true, wide: true }];
       }
       const host = own.find((q) => pointToPolygonDist(x, y, q.rings) > 0) || own[0];
       return [{ x, y, dist: Math.max(pointToPolygonDist(x, y, host.rings), polylabel(host.rings, 1e-6).d * 0.6), area: total, main: true }];

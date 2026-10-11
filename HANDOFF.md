@@ -53,6 +53,23 @@ between two Claude accounts when usage limits run out; whichever session picks t
   Ireland is Dublin only), Gibraltar, Jersey/Guernsey, Faroe (a 2015 note: Iceland's student rabbis found Jews "as far
   as the Faroe Islands" — too thin), Greenland, Ceuta/Melilla (Melilla's rav, Aharon Peretz, is RCE, not Chabad),
   Abkhazia, Tahiti. French Guiana: WJC says its ~40 Jews are "aided by Chabad", branch not named.
+- **Ottawa, dug further (Oct 11, waiting on the owner):** Rabbi Dovid Hayes — "Head Shliach of Ottawa" in COLlive both in
+  Aug 2010 (A Yeshiva in Canada's Capital) and Oct 2025; Executive Director of Chabad Lubavitch of Ottawa (chabad.org
+  119209); in Ottawa since 1977, before Grossbaum reached Toronto (1980). Grossbaum's own body is "Chabad Lubavitch of
+  Southern Ontario" (chabad.ca staff page: "Director of Chabad Lubavitch of southern Ontario"; lubavitch.com: "head
+  emissary of Southern Ontario, which encompasses the city of Toronto"), though COLlive 2010 / COL 2005 call him head
+  shliach of Ontario, and Ottawa's and Kingston's shluchim come to his Ontario kinus (Hayes emceed it, 2010). My read:
+  Ottawa is its own head shliach, as some US states have several. Ottawa's centres on the map: Chabad Lubavitch of
+  Ottawa (Hayes), Congregation Lubavitch (Botnick, rov), Jewish Youth Library (Caytak), Wellington West (Moshe Caytak),
+  Westboro, Centrepointe (Mendelsohn), Torah Centre (Blum), Kanata (Gershzon), Rohr Chabad (Boyarsky). Kingston has
+  only a campus Chabad (Simon). If split: a shape cutting CA-ON (like Essex) — city of Ottawa, or Eastern Ontario.
+  Chabadpedia (co.il and .com) is behind Cloudflare even for CrawlForge stealth (403, IP reputation).
+- **French Guiana, dug further (Oct 11):** no Chabad branch can be named. The "aided by the Chabad organization" line
+  comes from the World Jewish Congress page coded GY (Guyana), which mixes Guyana with French Guiana (Cayenne's 1992
+  refounding, a Cayenne address); the Jewish Virtual Library copies it without a name. Guyana itself is overseen by
+  Rabbi Avromy Super of Chabad of St Lucia (chabad.org, Aug 2025) — already in the Caribbean shetach. Nearest
+  Chabad houses: Martinique (Reouven Naparstek, Caribbean); Suriname only gets Merkos Pesach bochurim. French Guiana
+  stays blank.
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

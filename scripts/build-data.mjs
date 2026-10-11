@@ -1190,7 +1190,7 @@ async function main() {
   const centers = [...raw.map((r) => normalize(r)), ...extras.map((e) => normalize(toRaw(e), true))];
   for (const c of centers) {
     const fix = fixes[c.id];
-    if (fix) { const { why, ...f } = fix; Object.assign(c, f, 'lat' in f ? { approx: undefined } : {}); } // (a fix with no position, e.g. only personnel, keeps the listing's approx flag)
+    if (fix) { const { why, ...f } = fix; Object.assign(c, f, 'lat' in f && !f.approx ? { approx: undefined } : {}); } // (a fix with no position, e.g. only personnel, keeps the listing's approx flag; one moved only to the right town says approx: true)
   }
   const bad = centers.filter((c) => !Number.isFinite(c.lat) || !Number.isFinite(c.lon));
   if (bad.length) console.warn(`${bad.length} centers have no coordinates and are skipped`);

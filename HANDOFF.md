@@ -266,7 +266,11 @@ between two Claude accounts when usage limits run out; whichever session picks t
     official Chabad, a house whose shliach can't be confirmed — goes ON the map with a `review` field (why, with links;
     not shown on the card) in data/extra-centers.json, and is listed here for the owner to review. **To review:**
     `extra-tokyo-edery` and `extra-kyoto-edery` (Rabbi Binyomin Edery's network, not on chabad.org; Japan's head is
-    Sudakevich), `extra-bali` (no shliach confirmed). Find them all: grep '"review"' data/extra-centers.json.
+    Sudakevich), `extra-bali` (no shliach confirmed), `extra-brussels-ejcc` (its site doesn't say Chabad),
+    `extra-kyiv-brodsky` (Azman; Chabad of Ukraine's Kyiv center is Markovitch's), `extra-fr-annemasse` (Rabbi David
+    Szmul) and `extra-fr-reims` (the Abourmads) — neither on chabad.org nor in Chabad of France's directory —
+    `extra-fr-paris-20e-monte-cristo` (the directory's "Rav P. Pachter" may be out of date). Find them all:
+    grep '"review"' data/extra-centers.json.
   - Sweep: **Japan, Korea, China, Hong Kong, Macau, Taiwan, Mongolia** (Oct 11): nothing to add. Japan: chabad.org
     lists Tokyo (Sudakevich, the head), Kobe/Kansai and Takayama — all on the map. Added and FLAGGED for review: Rabbi
     Binyomin Edery's separate network (Chabad House Tokyo in Omori, Ota-ku; "Chabad Kyoto", run by Moti Grumach —
@@ -315,7 +319,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
     Canmore — Chabad Alberta's "sixteen shluchim" are the couples and staff inside those three listings), Saskatchewan 2,
     Manitoba 4, Halifax, St. John's. New Brunswick, PEI, the territories, northern Alberta: roving-rabbi visits only.
   - **What's left of the world sweep:** only the big networks the owner set aside — Ukraine, Russia, the UK, France,
-    Israel, Sydney/Melbourne, Ontario/Quebec, the US.
+    Israel, Sydney/Melbourne, Ontario/Quebec, the US. (Ukraine, Russia, the UK and France are done — see below.)
   - Sweep: **Ukraine** (Oct 11): Chabadpedia's list of Ukraine's shluchim (Dnipro, Kyiv, Khmelnytskyi, Kharkiv,
     Kherson, Odesa, Zhytomyr, Kremenchuk, Haditch, Poltava, Chernivtsi, Lviv, Mykolaiv, Cherkasy, Berdychiv) is all on
     the map. Added Kyiv's Brodsky Synagogue (Shota Rustaveli 13 — Rabbi Moshe Reuven Azman; Chabadpedia lists him among
@@ -337,6 +341,46 @@ between two Claude accounts when usage limits run out; whichever session picks t
     Longjumeau, Colombes, Aulnay, Arcueil, Montmagny) were on chabad.org only as personnel of the "Beit Loubavitch
     Centre Siège" listing (330228), so they showed at the Paris HQ. Dots: exact where the delegate's address geocoded
     (5), on the street where only the street did (6), the town where no address is published (12).
+  - Sweep: **France — the rest** (Oct 11). Sources: Chabad of France's own directory (Lichka / Merkos France,
+    loubavitchfrance.fr/en/city/…, 144 towns, 243 entries), the Consistoire de France's community map (its public API),
+    the French association register (recherche-entreprises.api.gouv.fr, every active "Habad/Loubavitch/Chabad"
+    association), Habad Lyon's site (habadlyon.info) and Beth Loubavitch's delegate list again. Every house was geocoded
+    to its house number (IGN geocoder, data.geopf.fr) and matched to the map by name and distance. Added 36:
+    - Provinces: Aix-en-Provence (Rabbi Asher Geribi, at chabad.org only under the Paris HQ), Le Cannet (Levi Gurevitch,
+      Chabad of Cannes' branch), Marseille 4e (Avraham Chayo), Marseille 9e Mazargues (Schneor Zalman Assouline), Aubagne
+      (Moshe Maimon Farouz), Plan-de-Cuques "Canton Vert" (Tsemach Menachem Nisilevitch) — the last three listed on
+      chabad.org only as staff of other Marseille houses — Villeurbanne "Beth Habad Charpennes" (no rabbi named), and,
+      **flagged for review**, Annemasse (Rabbi David Szmul) and Reims (Eitan and Guéoula Abourmad, opened ~2023), which
+      neither chabad.org nor the directory lists.
+    - Paris: 9e Chaptal (Shalom Mendel Asseraf), 10e Lariboisière (Raphael Lebar), 10e Est (Baruch Sebag), 10e Ouest
+      (Reuven Halimi), 11e Ouest (Israel Yossef Altabe), 12e Ouest/Beccaria (Yisrael Nisenbaum), 17e Courcelles (Mendi
+      Habib), 17e Monceau (Ygal Elmkies), 19e Nord/rue Haxo (Israel Ouaki), 19e Quai de la Seine (Yosef Katan), 20e
+      Monte-Cristo (**review**: the directory's "Rav P. Pachter" — Chabadpedia speaks of Rabbi Pinchas Gedalia Pachter in
+      the past tense, so no rabbi shown). All but Monte-Cristo are on chabad.org only as staff of another listing.
+    - Suburbs: Aubervilliers–André Karman (Eliezer Nisilevitch), Châtillon (Tsion Mimoun), Neuilly–Paul Chatrousse (David
+      Zaoui), Sarcelles Flanades, Arnouville and Goussainville (all three David Habib), Le Plessis-Trévise, Mandres-les-Roses,
+      Neuilly-Plaisance (Shalom Dovber Journo), Noisy-le-Sec, Saint-Maurice Plateau (Levi Itshak Basanger), Sevran, Villejuif
+      (Levi Itshak Zerbib), Villeneuve-la-Garenne, Ivry-sur-Seine (Menahem Mendel Meir Assouline), Alfortville–Quai
+      (Menashe Schoukroun). Where the directory gives only an initial that no other source completes (Y. Elfassy,
+      M. Edery, Y. Chiche, Y. Altabé, M. Asseraf) the card shows the name in the note and lists no rabbi.
+    - Fixed chabad.org locations: Beth Habad Gournay (4080686, placed in the Indre → Gournay-sur-Marne, still approximate),
+      Clichy-la-Garenne (431269, given a Yerres address → 32 rue Fernand Pelloutier, Clichy), Montgolfier (5776866, placed
+      in central France → 127 rue du Maréchal Leclerc, Saint-Maurice 94), Kehilat Chnéor (4669173, town only → 17 rue du
+      Clos Bénard, Aubervilliers). Upgraded my own Antony, Nanterre, Verrières, Palaiseau, Montmagny, Chaville,
+      Pierrefitte and Ris-Orangis dots to the directory's street addresses. (build-data.mjs: a fix may now say
+      approx: true.)
+    - Checked, not added: Paris Expo – Porte de Versailles (a delegate's role at the exhibition centre, Rabbi Shmuel
+      Touboul — not a house); Megève (a winter synagogue run by Chabad of St-Tropez); Nancy (an association "Beth Habad
+      Loubavitch Nancy", 43 bd Georges Clemenceau, registered 2011 — no sign of a shliach or activity found); Craponne
+      (an association registered 2020 at a layman's address) and Dardilly (registered Jan 2026); registry-only
+      associations in Issy-les-Moulineaux ("Beth Loubavitch 92 Sud"), Romainville ("Bas Pays"), Paris 17 ("Épinettes",
+      "Ternes-Maillot") and Garges-lès-Gonesse ("Lubavitch House", 1994) — no rabbi or activity found. Guadeloupe,
+      French Guiana, Mayotte, Tahiti: nothing found; Réunion and St-Barth are on the map.
+    - **Owner to check:** Marseille 5e (chabad.org 3103889, 7 rue Crillon) lists Rabbi Tzemach Gansburg, but Chabad of
+      France's directory and Marseille 7e's own list give Rav Baruch Bard at that address, and a new association, "Le
+      Beth Habad du 5e de Marseille", was registered there in Jan 2026 — likely a change of shliach; not changed.
+    - Many chabad.org listings in the Paris region sit 1–3 km from their directory address (Versailles, Massy, Rueil,
+      Sceaux, Villiers-sur-Marne…) — left alone; they belong to the open "proper location" item below.
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

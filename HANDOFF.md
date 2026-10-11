@@ -269,7 +269,8 @@ between two Claude accounts when usage limits run out; whichever session picks t
     Sudakevich), `extra-bali` (no shliach confirmed), `extra-brussels-ejcc` (its site doesn't say Chabad),
     `extra-kyiv-brodsky` (Azman; Chabad of Ukraine's Kyiv center is Markovitch's), `extra-fr-annemasse` (Rabbi David
     Szmul) and `extra-fr-reims` (the Abourmads) — neither on chabad.org nor in Chabad of France's directory —
-    `extra-fr-paris-20e-monte-cristo` (the directory's "Rav P. Pachter" may be out of date). Find them all:
+    `extra-fr-paris-20e-monte-cristo` (the directory's "Rav P. Pachter" may be out of date), `extra-il-misgav` (same
+    director and phone as the Highway 6 house; Lev Misgav's exact spot not found). Find them all:
     grep '"review"' data/extra-centers.json.
   - Sweep: **Japan, Korea, China, Hong Kong, Macau, Taiwan, Mongolia** (Oct 11): nothing to add. Japan: chabad.org
     lists Tokyo (Sudakevich, the head), Kobe/Kansai and Takayama — all on the map. Added and FLAGGED for review: Rabbi
@@ -319,7 +320,8 @@ between two Claude accounts when usage limits run out; whichever session picks t
     Canmore — Chabad Alberta's "sixteen shluchim" are the couples and staff inside those three listings), Saskatchewan 2,
     Manitoba 4, Halifax, St. John's. New Brunswick, PEI, the territories, northern Alberta: roving-rabbi visits only.
   - **What's left of the world sweep:** only the big networks the owner set aside — Ukraine, Russia, the UK, France,
-    Israel, Sydney/Melbourne, Ontario/Quebec, the US. (Ukraine, Russia, the UK and France are done — see below.)
+    Israel, Sydney/Melbourne, Ontario/Quebec, the US. (Ukraine, Russia, the UK, France and Sydney/Melbourne are done;
+    Israel was stopped partway at the owner's word; Ontario/Quebec is started — see below.)
   - Sweep: **Ukraine** (Oct 11): Chabadpedia's list of Ukraine's shluchim (Dnipro, Kyiv, Khmelnytskyi, Kharkiv,
     Kherson, Odesa, Zhytomyr, Kremenchuk, Haditch, Poltava, Chernivtsi, Lviv, Mykolaiv, Cherkasy, Berdychiv) is all on
     the map. Added Kyiv's Brodsky Synagogue (Shota Rustaveli 13 — Rabbi Moshe Reuven Azman; Chabadpedia lists him among
@@ -381,6 +383,57 @@ between two Claude accounts when usage limits run out; whichever session picks t
       Beth Habad du 5e de Marseille", was registered there in Jan 2026 — likely a change of shliach; not changed.
     - Many chabad.org listings in the Paris region sit 1–3 km from their directory address (Versailles, Massy, Rueil,
       Sceaux, Villiers-sur-Marne…) — left alone; they belong to the open "proper location" item below.
+  - Sweep: **Sydney and Melbourne** (Oct 11): nothing to add. Wikipedia's list of Chabad houses and JewishGen's
+    community pages for both cities, checked against the map; every house is on it (Rose Bay's is Rabbi Alon Hazi's,
+    471111).
+  - Sweep: **Israel** (Oct 11; STOPPED partway at the owner's word). Source: Tzeirei Agudat Chabad's directory of
+    Israel's Chabad houses (chabad.org.il/IsraeliBranchs, category 60 — 396 entries; behind Cloudflare, so read through
+    Firecrawl), compared with the map's 956 Israeli listings by town, neighborhood, rabbi's surname and street address
+    (chabad.org's addresses read from lubavitch.com's mirror, lubavitch.com/centers/<id>). 81 entries had no match;
+    their branch pages (Item.asp?ArticleID=<n>&CategoryID=60) were read. Added 40 (source and link on each card):
+    - On chabad.org only as staff of the town's main listing, so they had no dot of their own (26): Holon — Kiryat
+      Eilon/H-300 (Menachem Mendel Steinberger), Wolfson Medical Center (Levi Mendelson), HaMifdeh (Yona Har-Tzvi),
+      Kiryat Avoda (Meir Halperin; chabad.org has him at the Chief Rabbinate), Rasco A (Menachem Mendel Butman), Rasco B
+      (Shalom Dov Ber Belinow), Shikun Vatikim–Neve Remez (Shmuel Raskin); Be'er Sheva Ramot (Yosef Yitzchak Slavin);
+      Beit Shemesh Shaar HaIr (Menachem Mendel Rivkin); Bnei Yehuda in the Golan (Menachem Mendel Gorelik); Hadera
+      HaOtzar (Moshe Dov Brod); Mazkeret Batya Bar Lev (Yoseph Glitsenstein); Netivot's Neta'im–Givat Shifra–Shalom
+      Bonayich (Avraham Yifrach); Netanya — Agamim (Refael Leviev), Givat HaIrusim (Elyasaf Leviov), Kiryat HaSharon
+      (Levi Yitzchak Tiechtel), Center-West (Mordechai Gelbstein), Youth (Chen Avraham Sudar), Ramat Chen (Shalom
+      Dovber Attal), Ramat Poleg–Ir Yamim (Shneor Zalman Brod); Poriya Medical Center (Eliyahu Kramer); Kiryat Ata
+      Givat Alonim (Reuven Diskin); Kiryat Yam — Neighborhood B (Mendy Bruk), Psagot Yam (Moshe Bistritzky); Rechovot —
+      Science Quarter (Yisrael Bindman), Givati–Givat HaAhava (Yitzchak Nov).
+    - Not on chabad.org at all (14): Beit Shemesh Lev HaIr (Menachem Lipsh), Hanaton (Dov Aharonovitz), Highway 6 — the
+      Dor Alon station northbound between the Nitzanei Oz and Baqa interchanges (Shmuel Rosenberg), Beit Zayit–Motza
+      Illit (5 Yechiel Steinberg St; the directory names no director, so none shown), Misgav (Shmuel Rosenberg —
+      **review**, see the list above), Netanya for Russian speakers (Menachem Mendel Teichman), Ora–Aminadav
+      (Menachem Mendel Weber; chabad.org's Even Sapir house next door is Rabbi Aharon Weber's), Havatzelet HaSharon and
+      the interchange villages (Shai Ben Odiz, Tzukei Yam), Safed's Oranim neighborhood (Avraham Menachem Rabinovitz),
+      Caesarea Industrial Park (Shmuel Zalmanovitz), West Kiryat Chaim (Yisrael Kut), Rechovot's HaHolandit (Moshe
+      Tvardovich), Rishon Lezion's Neve Hadarim (Yinon Sasson), Shiloh (Yoni Admoni).
+    - Dots: exact where the house number or the place itself (hospital, gas station) geocoded (7), on the street or
+      the neighborhood where only that did (29), the town where no address is published (Holon's HaMifdeh and three
+      Netanya houses).
+    - Fixed: Chabad of Alon Shvut (7523084) — its address is 19 HaEgoz St, Alon Shvut, but chabad.org's pin was at
+      Alon in the Binyamin hills, 27 km away.
+    - Checked, already on the map under another name: Haifa HaRamot = Ramot Technion (695701); the Dead Sea = 469674
+      (already at Ein Bokek); Jerusalem's English speakers = Baka (1157449); Navon station = Chabad of Eged (118444);
+      Kochav Yair–Tzur Yigal; Kiryat Ono Kiryon (118145); Rishon's Neot Ashlim (576927); HIT (4140234); Kfar HaOranim
+      (581510); Chevel Aza at Nitzan (118117); Netanya Smilansky = Netanya-Merkaz (118450, 13 Smilansky); Netanya
+      Wingate = "Beit Chabad Beit Berl" (4615274, Rabbi Ariel Rosenthal, Netanya); East Kiryat Chaim (117937); Kiryat
+      Bialik's HaParpar = the Krayot youth center (2745138, Nili St); Kiryat Motzkin's old neighborhood = Chabad of the
+      Krayot (117933, 2 Yissachar Kaplan); Ashkelon's Shapira = Beit Chabad of Ashkelon (118032, Rabbi Gurelick, same
+      fax). Tzach's regional/central entries and its "activity coordinators" (מנהל פעילות) aren't houses — not added.
+    - Not done (stopped): directory entries the first pass matched by town or neighborhood weren't re-checked house by
+      house, and no other Israeli source (Chabadpedia, local sites) was read. The directory's pages are undated; a few
+      may be out of date. Scratchpad isr/ holds the scraped directory (tzach.json, items.json).
+  - Sweep: **Ontario and Quebec** (started Oct 11). Toronto: UJA Federation's community directory (jewishtoronto.com/
+    directory, 91 pages) against the map — added Armour Heights Jewish Centre – Beth Joseph Chabad (3995 Bathurst St,
+    North York; its site ahjewish.com is on Chabad's ChabadSuite; runs Torah Tots; no rabbi named, so none shown).
+    **Open: Chabad Niagara Falls USA (6624274) counts in Ontario.** Its address, 332 Prospect St, Niagara Falls NY, is
+    on the US side, but the map tags countries with Natural Earth's 1:10m border, which at the falls runs at least
+    800 m east of the real one — even the true spot lands in Canada. Moving the dot can't fix it; it needs the
+    border fix (the "US-side border water" item). Not yet checked: Montreal (Federation CJA's directory) and the rest
+    of Ontario and Quebec.
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

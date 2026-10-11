@@ -1625,6 +1625,21 @@
       "site": "Chabad Bali",
       "siteHe": "חב״ד באלי",
       "review": "Couldn't confirm a shliach. chabadbali.org is only a contact form and a donation link, no names; a 2018 blog describes a small Chabad house in Seminyak run by a Chabad family ('Oren'); an Israeli travel site (goldentour.co.il, May 2026) says 'Rabbi Mendy Gurary, Gang Pool 18, Kuta', but Mendy Gurary is the rabbi of Chabad Israeli Center Atlanta, so that looks wrong. Indonesia is in the Singapore shetach (Abergel)."
+    },
+    {
+      "id": "extra-brussels-ejcc",
+      "name": "European Jewish Community Centre",
+      "city": "Brussels",
+      "lat": 50.83789,
+      "lon": 4.38295,
+      "precision": "exact",
+      "note": "Rue du Cornet 22, Etterbeek, in the European Quarter; programs for EU officials, diplomats and young professionals",
+      "source": "ejcc.eu (Oct 2026); Brussels Times (May 15, 2026: 22 years in the European Quarter); lubavitch.com (2003: set up by Chabad's Rabbinical Center of Europe — Rabbis Moshe Garelik and Levi Matusof); not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Avi", "lastName": "Tawil" }],
+      "url": "https://www.ejcc.eu/",
+      "site": "EJCC",
+      "siteHe": "אתר EJCC",
+      "review": "Chabad-founded (Rabbinical Center of Europe, 2003) and run by Rabbi Avi Tawil (executive director, ejcc.eu), but its own site never says Chabad; owner to confirm it belongs on the map."
     }
   ],
   "fixes": {

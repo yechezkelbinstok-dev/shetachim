@@ -87,8 +87,13 @@ between two Claude accounts when usage limits run out; whichever session picks t
   Chabadpedia (the owner's PDFs): Grossbaum sent to Toronto in 1974 (תשל"ד), "as of 2014 about fifty shluchim under him
   throughout the province of Ontario". Between Toronto and Ottawa the only Chabad is Kingston's campus house (Sruly and
   Esti Simon, since 2010 — before that they worked in Ottawa for a local Chabad rabbi). No Chabad found in Cornwall,
-  Brockville, Pembroke, Perth, Peterborough, Barrie, Sudbury, Thunder Bay. City-of-Ottawa shape drafted (GADM level 2,
-  scratchpad); waiting on the owner's choice of how far east Ontario goes to Hayes.
+  Brockville, Pembroke, Perth, Peterborough, Barrie, Sudbury, Thunder Bay. **Done (owner chose A):** new shetach
+  `ottawa` — Ottawa · Dovid Hayes, capital Chabad Lubavitch of Ottawa (119209) — territory the shape
+  `data/shapes/eastern-ontario.geojson`: the census divisions Ottawa, Prescott and Russell, Stormont-Dundas-Glengarry,
+  Leeds and Grenville, Lanark, Renfrew and Frontenac (Kingston), GADM level 2; Ontario (Grossbaum) keeps the rest,
+  Northern Ontario included. partNames CA-ON: "Eastern Ontario (Ottawa, Kingston)". Northern Ontario: searched for any
+  roving/visiting Chabad (Timmins, Kapuskasing, Kirkland Lake, Cochrane, Sudbury, North Bay, Sault Ste Marie, Thunder
+  Bay, Kenora) — none found; Ontario's recorded Merkos visits are all Southern Ontario (1969; Elmira/Waterloo 2011).
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

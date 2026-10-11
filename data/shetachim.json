@@ -878,6 +878,22 @@
       }
     },
     {
+      "id": "ottawa",
+      "name": "Ottawa",
+      "short": "Ott.",
+      "headShliach": "Dovid Hayes",
+      "territory": [
+        {
+          "state": "CA-ON",
+          "shape": "eastern-ontario",
+          "name": "Eastern Ontario (Ottawa, the Ottawa Valley, Kingston)"
+        }
+      ],
+      "capital": {
+        "centerId": "119209"
+      }
+    },
+    {
       "id": "quebec",
       "name": "Quebec",
       "headShliach": "Berel Mochkin",
@@ -2230,6 +2246,10 @@
       "michigan": [
         "Essex County (Windsor)",
         "מחוז אסקס (וינדזור)"
+      ],
+      "ottawa": [
+        "Eastern Ontario (Ottawa, Kingston)",
+        "מזרח אונטריו (אוטווה, קינגסטון)"
       ],
       "ontario": [
         "Rest of Ontario",

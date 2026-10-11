@@ -39,6 +39,10 @@
     "Essex County (Windsor)",
     "מחוז אסקס (וינדזור)"
    ],
+   "ottawa": [
+    "Eastern Ontario (Ottawa, Kingston)",
+    "מזרח אונטריו (אוטווה, קינגסטון)"
+   ],
    "ontario": [
     "Rest of Ontario",
     "שאר אונטריו"
@@ -1355,6 +1359,28 @@
      "city": "Thornhill",
      "lat": 43.79879,
      "lon": -79.44527
+    }
+   ]
+  },
+  {
+   "id": "ottawa",
+   "name": "Ottawa",
+   "short": "Ott.",
+   "headShliach": "Dovid Hayes",
+   "capital": {
+    "centerId": "119209",
+    "name": "Chabad Lubavitch of Ottawa",
+    "city": "Ottawa",
+    "lat": 45.37894,
+    "lon": -75.74195
+   },
+   "capitals": [
+    {
+     "centerId": "119209",
+     "name": "Chabad Lubavitch of Ottawa",
+     "city": "Ottawa",
+     "lat": 45.37894,
+     "lon": -75.74195
     }
    ]
   },

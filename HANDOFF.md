@@ -327,6 +327,16 @@ between two Claude accounts when usage limits run out; whichever session picks t
     (Tkatskaya 46) and the Chabad Center on Chistye Prudy (Myasnitskaya 13) — no rabbi named, so none shown; the rest
     of Moscow's FEOR communities are on the map (the Sephardic and Mountain Jews' communities aren't Chabad). FEOR
     communities without a named rabbi are lay-led and not added.
+  - Sweep: **UK** (Oct 11): nothing to add. Checked chabad.org.uk's "London and Regions" list and its campus and
+    community lists, plus JCR-UK's community pages, against the map; every house is on it.
+  - Sweep: **France — Paris region** (Oct 11): Beth Loubavitch's own list of its Île-de-France delegates
+    (loubavitch.fr/etude/delegues, 139 delegates) against the map. Added the 23 delegations that had no dot in their own
+    town: Paris 5e, Paris 16e (south), Maurepas, Verrières-le-Buisson, Nanterre, Antony, Bois-Colombes, Chaville,
+    Rosny-sous-Bois, Bondy, Le Bourget, Pierrefitte, Créteil (north), Fresnes, Le Kremlin-Bicêtre, Ermont, Palaiseau,
+    Ris-Orangis, Longjumeau, Colombes, Aulnay-sous-Bois, Arcueil, Montmagny. Seven of them (Palaiseau, Ris-Orangis,
+    Longjumeau, Colombes, Aulnay, Arcueil, Montmagny) were on chabad.org only as personnel of the "Beit Loubavitch
+    Centre Siège" listing (330228), so they showed at the Paris HQ. Dots: exact where the delegate's address geocoded
+    (5), on the street where only the street did (6), the town where no address is published (12).
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

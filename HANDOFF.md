@@ -107,19 +107,26 @@ between two Claude accounts when usage limits run out; whichever session picks t
   - Newfoundland and Labrador: St. John's only, nothing in Labrador.
   - Alberta: roving trips to Fort McMurray, Whitehorse and Yellowknife.
 
-  Each province is now a shape claim with straight lines; north of the line is `outside` (CA-ON, CA-QC, CA-MB, CA-SK,
-  CA-BC and CA-NL were added to `notShownWhenBlank`):
-  - Ontario: `ontario-south-of-46-5`, south of 46.5°N and west of Ottawa's 77.9°W, minus Essex. Sudbury and North Bay
-    are in.
-  - Quebec: `south-of-47`.
-  - BC: `south-of-51`.
-  - Manitoba: `south-of-51`. Saskatchewan: `south-of-54`. Both are in the one manitoba-saskatchewan shetach.
+  Each province is a shape claim with straight lines; north of the line is `outside` (CA-ON, CA-QC, CA-MB, CA-SK and
+  CA-NL are in `notShownWhenBlank`). After the owner's changes the same day:
+  - Ontario: `ontario-south-of-47`, south of 47°N and west of Ottawa's 77.9°W, minus Essex.
+  - Quebec: `south-of-47`. The owner wanted Quebec's line on Ontario's parallel; 46.5°N would have cut out Quebec
+    City's two centres (46.8°N), so both are at 47°N, one straight line.
+  - Manitoba and Saskatchewan: one rectangle, `south-of-54` for both provinces (the owner drew it). Its east side is
+    Manitoba's straight border with Ontario, carried on north at 95.15°W, so the slanted NE corner of Manitoba is grey.
+  - BC: whole again (owner: "restore bc - i don't like the enclave"; its grey north sat between Alaska and Alberta's
+    Yukon). Northern BC research found no Chabad: no centre north of Whistler; Prince George (about 180 Jews) never
+    had a synagogue or rabbi (Eli Klasner, 2023); no roving trip on record.
   - Newfoundland: `newfoundland-island`, the island, Port au Port and the islands near it, but not Labrador. The
     shetach is renamed "Newfoundland" / "ניופאונדלנד".
   - Alberta: stays whole, plus the Yukon and NWT south of 63°N, as before.
 
   No centre changed shetach. Sources include chabad.org's Saskatchewan and sub-Arctic roving rabbi reports, and
   lubavitch.com's "Where the continent ends" (Newfoundland).
+- **Borders gone after returning to the browser (owner, Oct 11):** the context-loss fix (webglcontextrestored) reset
+  the icon atlas but not MapLibre's line atlas, so every line layer (shetach borders, coast) drew nothing. It now sets
+  `style.lineAtlas.texture = null` too. Test: lose and restore the WebGL context (WEBGL_lose_context) and screenshot;
+  scratchpad `shotlost.mjs`.
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked
@@ -577,6 +584,9 @@ together at ~4.4 s (1.2 s desktop); no freeze over ~0.6 s, so the map moves from
    covers (before, only borders touching a shetach were in the tiles).
 
 ## OWNER'S STANDING RULES (Oct 1) — never undo these
+- **When a site is blocked (Chabadpedia, archives), ALWAYS give the owner the exact links to check** (owner, Oct 11, in
+  capitals). Chabadpedia search links work for any title: `https://chabadpedia.co.il/index.php?search=<Hebrew>` goes to
+  the page; add `&fulltext=1` for every mention. Don't search for Chabadpedia pages yourself; the owner turned that down.
 - **Any Chabad activity in a country puts it in a shetach** (Oct 5): visiting bochurim, a shliach who serves it from next
   door, holiday trips — the country goes to the shetach of the shliach responsible (Mongolia is Russia's; Guyana is the Caribbean's).
   The owner wants it *sure*: Suriname had Merkos Shlichus seders in Paramaribo (Pesach 2025) but no shliach is named as

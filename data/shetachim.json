@@ -824,11 +824,7 @@
       "name": "British Columbia",
       "headShliach": "Yitzchok Wineberg",
       "territory": [
-        {
-          "state": "CA-BC",
-          "shape": "south-of-51",
-          "name": "British Columbia south of 51°N"
-        }
+        "CA-BC"
       ],
       "capital": {
         "centerId": "117788"
@@ -865,8 +861,8 @@
       "territory": [
         {
           "state": "CA-MB",
-          "shape": "south-of-51",
-          "name": "Manitoba south of 51°N"
+          "shape": "south-of-54",
+          "name": "Manitoba south of 54°N"
         },
         {
           "state": "CA-SK",
@@ -885,8 +881,8 @@
       "territory": [
         {
           "state": "CA-ON",
-          "shape": "ontario-south-of-46-5",
-          "name": "Ontario south of 46.5°N"
+          "shape": "ontario-south-of-47",
+          "name": "Ontario south of 47°N"
         }
       ],
       "capital": {
@@ -2266,7 +2262,6 @@
     "CA-QC",
     "CA-MB",
     "CA-SK",
-    "CA-BC",
     "CA-NL",
     "CA-NT",
     "CA-YT"

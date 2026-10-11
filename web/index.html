@@ -1817,11 +1817,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     map.touchZoomRotate.disableRotation();
     map.keyboard.disableRotation();
     // Back on the page after the phone dropped the map's graphics memory (owner, Oct 11: "whenever I go out of the
-    // browser then back, it is all white"): MapLibre makes a new painter but keeps the tiles and icon atlas made for
-    // the old one, so they're all made again; if the memory never comes back, the page reloads.
+    // browser then back, it is all white"): MapLibre makes a new painter but keeps the tiles, icon atlas and line
+    // atlas made for the old one, so they're all made again (without the line atlas every border and the coast were
+    // gone, owner, Oct 11); if the memory never comes back, the page reloads.
     map.on('webglcontextrestored', () => {
       const st = map.style;
       if (st.imageManager) { st.imageManager.atlasTexture = null; st.imageManager.dirty = true; }
+      if (st.lineAtlas) st.lineAtlas.texture = null;
       for (const sc of Object.values(st.sourceCaches || {})) { sc.clearTiles(); sc.reload(); }
       map.triggerRepaint();
     });

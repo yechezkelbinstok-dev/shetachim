@@ -200,9 +200,22 @@ between two Claude accounts when usage limits run out; whichever session picks t
     name right).
   - Korf → קארף everywhere, as Chabadpedia and COL spell the family.
 - **Rabbi Yisroel Rubin, head shliach of Eastern New York (Albany), passed away on the night of Shemini Atzeres 5787
-  (Oct 4–5, 2026), aged 78** (Arutz Sheva, 5 Oct 2026). He's marked `isDeceased` in the people data at both his
-  centers (Chabad of the Capital District 117663, Maimonides Hebrew Day School 119060). The shetach's head line still
-  says "Yisroel Rubin": no successor named yet; asked the owner.
+  (Oct 4–5, 2026), aged 78** (Arutz Sheva, 5 Oct 2026; Chabadpedia ישראל רובין). He's marked `isDeceased` at both his
+  centers (Chabad of the Capital District 117663, Maimonides Hebrew Day School 119060). The owner asked for the likely
+  successor ("there's usually even before someone passes away a probable successor").
+  - What I found: none named yet, and no son stood in for him publicly, even after his stroke in summer 2022.
+    - Capital Chabad's own page still lists only Rabbi Israel and Rochel Rubin; Rochel still leads the Maimonides
+      School.
+    - No son holds a post at the main center (chabad.org, lubavitch.com).
+    - The 2024 fiftieth-anniversary event was organized by Rabbi Mordechai Rubin (Colonie, the youngest) with Mrs.
+      Raizy Rubin (wife of the eldest, Rabbi Mendel), at Mendel's Shabbos House (UAlbany).
+    - Five sons and a son-in-law are shluchim in the region: Mendel (UAlbany), Abba (Saratoga Springs), Yossi (Clifton
+      Park), Shmuly (Union College), Mordechai (Colonie), and Mendy Mathless (University Heights Chabad, Camp Gan
+      Israel). Simmy is in Albany with no listed post.
+  - So, per the owner ("just do the Pinson–Blumenfeld precedent"), the head is **"Rubin family" / "משפחת רובין"**
+    (`lastName` Rubin), shown as "Shluchim: Rubin family".
+  - When Merkos names a successor (Florida's and New Jersey's came at the shloshim or a month after, so expect around
+    early November 2026), put his name in. The eldest son is Mendel.
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

@@ -202,6 +202,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card .meta, #card p { color: var(--muted); font-size: 13px; margin: 0; }
 #card .flag { font-size: 12.5px; font-style: italic; color: var(--muted); }
 #card .flag-world { color: var(--accent); font-weight: 600; font-style: normal; }
+.legend-mushroom { vertical-align: -2px; flex: none; }
+#card .kicker-mushroom { color: #b3261e; font-weight: 700; letter-spacing: 0.06em; }
+:root[data-theme="dark"] #card .kicker-mushroom { color: #f2857a; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #card .kicker-mushroom { color: #f2857a; } }
 #card .person { font-size: 13px; margin: 2px 0 0; }
 #card .personnel { margin: 2px 0 0; pointer-events: auto; }
 #card .personnel summary { cursor: pointer; font-size: 12px; color: var(--accent); list-style: none; }
@@ -326,7 +330,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           <label class="check" for="show-dots"><input type="checkbox" id="show-dots" checked> <span class="legend-dot" aria-hidden="true"></span> Chabad centers</label>
           <label class="check" for="show-cities"><input type="checkbox" id="show-cities" checked> <span class="legend-ring" aria-hidden="true"></span> Cities with shluchim</label>
           <label class="check" for="show-capitals"><input type="checkbox" id="show-capitals" checked> <svg class="legend-star" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path id="star-shape"/></svg> Shetach capitals</label>
-          <label class="check" for="show-mushrooms"><input type="checkbox" id="show-mushrooms"> <span class="legend-dot" aria-hidden="true"></span> Mushrooms</label>
+          <label class="check" for="show-mushrooms"><input type="checkbox" id="show-mushrooms"> <svg class="legend-mushroom" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M1.5 8.2C1.5 4.6 4.4 2 8 2s6.5 2.6 6.5 6.2c0 .5-.4.8-.9.8H2.4c-.5 0-.9-.3-.9-.8z" fill="#c0392b"/><circle cx="5.2" cy="5.6" r="1.1" fill="#fff"/><circle cx="9.4" cy="4.4" r="0.9" fill="#fff"/><circle cx="11.4" cy="7" r="0.8" fill="#fff"/><path d="M6.2 9h3.6l.5 4.6c.1.8-.5 1.4-1.3 1.4H7c-.8 0-1.4-.6-1.3-1.4z" fill="#efe3cf" stroke="#8a7a62" stroke-width=".6"/></svg> Mushrooms</label>
           <label class="check" for="show-empty"><input type="checkbox" id="show-empty" checked> <span class="legend-empty" aria-hidden="true"></span> Rest of the world</label>
           <label class="check" for="show-rest-borders"><input type="checkbox" id="show-rest-borders"> <span class="legend-rest" aria-hidden="true"></span> Borders of the rest of the world</label>
           <label class="check" for="show-sea" id="sea-row"><input type="checkbox" id="show-sea" checked> <span class="legend-sea" aria-hidden="true"></span> Blue sea</label>
@@ -468,7 +472,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'Latin America & Caribbean': 'אמריקה הלטינית והאיים הקריביים',
     Map: 'מפה', Physical: 'פיזית', Tinted: 'פיזית צבועה', Political: 'מדינית', Borders: 'גבולות', States: 'מדינות', Countries: 'ארצות', Both: 'שניהם',
     'Lighter:': 'בהיר יותר:', 'Part of Israel:': 'חלק מישראל:', Gaza: 'עזה', Lebanon: 'לבנון', Syria: 'סוריה', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', Off: 'ללא',
-    'More options': 'אפשרויות נוספות', 'Regions & countries': 'אזורים ומדינות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', Mushrooms: 'פטריות', 'Rest of the world': 'שאר העולם', 'Borders of the rest of the world': 'גבולות שאר העולם', 'Held by Israel': 'בשליטת ישראל', 'Blue sea': 'ים כחול', Streets: 'רחובות',
+    'More options': 'אפשרויות נוספות', 'Regions & countries': 'אזורים ומדינות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', Mushrooms: 'פטריות', Mushroom: 'פטרייה', 'Rest of the world': 'שאר העולם', 'Borders of the rest of the world': 'גבולות שאר העולם', 'Held by Israel': 'בשליטת ישראל', 'Blue sea': 'ים כחול', Streets: 'רחובות',
     Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד', Dots: 'נקודות', Solid: 'מלאות', 'See-through': 'שקופות', Classic: 'קלאסיות',
     'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
     'Download maps (SVG, PNG)': 'הורדת מפות (SVG, PNG)', 'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
@@ -1713,7 +1717,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     }).filter((f) => f.geometry.coordinates)));
   }
   function dotData(S) {
-    return within(S, () => fc(V.dots.map((d, i) => feature({ type: 'Point', coordinates: P(d.lon, d.lat) }, { l: Math.log2(d.centers.length), i })).filter((f) => f.geometry.coordinates)));
+    return within(S, () => fc(V.dots.map((d, i) => feature({ type: 'Point', coordinates: P(d.lon, d.lat) }, { l: Math.log2(d.centers.length), i, m: d.centers.every((c) => c.mushroom) ? 1 : 0 })).filter((f) => f.geometry.coordinates)));
   }
   // The seas and oceans (a flat view has no street map to name them), each from when it has room.
   const SEAS = [
@@ -1740,6 +1744,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   let physicalOK = false, waterBefore = null, lineBefore = null;
   // colours the map draws with: the theme's (CSS), except on the physical map, which is always light
   const PHYS_TINTS = ['#e6c84a', '#8fc46a', '#e48a7e', '#7fa8de', '#eea25a', '#ad8fd0', '#5fbfae', '#c9b27e'];
+  const MUSHROOM_DOT = '#c0392b'; // mushrooms' dots (owner, Oct 12: "clearly singled out")
   const PHYS = { ink: '#1e2b32', halo: '#ffffff', dot: '#163e74', accent: '#1d4f8f', missing: '#6b7780', secondary: '#3d5f8f' };
   // The political map's land and sea, the street map's own (light) or a night version of it (dark).
   const GROUND = { light: { land: '#f8f4f0', water: '#a9c7f2', coast: '#8fb2e4', border: '#ffffff', grey: 'hsl(248,2%,50%)' },
@@ -2317,7 +2322,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const radius = ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], zf - 2, r(-2), zf + Math.log2(60), r(Math.log2(60))];
       show(id('dots'), on && state.dots);
       paint(id('dots'), 'circle-radius', radius);
-      paint(id('dots'), 'circle-color', ds.color === 'dot' ? pal.dot : pal.dotSolid);
+      paint(id('dots'), 'circle-color', ['case', ['==', ['get', 'm'], 1], state.dotColor === 'red' ? '#e67e22' : MUSHROOM_DOT, ds.color === 'dot' ? pal.dot : pal.dotSolid]); // a mushroom's dot stands out
       paint(id('dots'), 'circle-opacity', ds.alpha === 1 ? 1 : ds.alpha + 0.1);
       paint(id('dots'), 'circle-stroke-width', ds.alpha === 1 ? 0.6 : 0);
       paint(id('dots'), 'circle-stroke-color', pal.dotEdge);
@@ -2548,6 +2553,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const items = d.centers.map((c) => {
       const cap = capitalOfCenter.get(c.id);
       return `<li>
+        ${c.mushroom ? `<span class="kicker kicker-mushroom">${tr('Mushroom')}</span>` : ''}
         <strong>${esc(c.name)}</strong>
         <span class="meta">${esc([c.type, c.city].filter(Boolean).join(' · '))}</span>
         ${memorialHTML(c)}${personnelHTML(c.personnel)}
@@ -2556,7 +2562,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       </li>`;
     }).join('');
     const head = n > 1 ? `<span class="kicker">${HE ? `${n} מוסדות בכתובת זו` : `${n} listings at this address`}</span><h2>${esc(d.centers[0].city || tr('Same address'))}</h2>` : '';
-    return `${head}<ul>${items}</ul><div class="foot"><span class="meta">${shetachLine(d.piece)}</span></div>`;
+    // a mushroom isn't under the shetach's head: its card names no head shliach (owner, Oct 12)
+    return `${head}<ul>${items}</ul><div class="foot"><span class="meta">${shetachLine(d.piece, !d.centers.some((c) => c.mushroom))}</span></div>`;
   }
 
   function capitalHTML(c) {

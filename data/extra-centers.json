@@ -1583,36 +1583,6 @@
       "siteHe": "חב״ד פיליפינים"
     },
     {
-      "id": "extra-tokyo-edery",
-      "name": "Chabad House Tokyo",
-      "city": "Tokyo",
-      "lat": 35.59333,
-      "lon": 139.72502,
-      "precision": "exact",
-      "note": "18-21 Sanno, Ota-ku (Omori); the house's own Waze pin",
-      "source": "chabadjapan.org (Oct 2026, footer 2025)",
-      "personnel": [{ "title": "Rabbi", "firstName": "Binyomin", "lastName": "Edery" }],
-      "url": "https://www.chabadjapan.org/",
-      "site": "Chabad Tokyo Japan",
-      "siteHe": "חב״ד טוקיו",
-      "review": "Rabbi Binyomin Edery's own network ('Chabad House of Japan', in Tokyo since 1999; he is called chief rabbi of Japan). chabad.org doesn't list it; Chabad of Japan's head shliach is Mendi Sudakevich (118403, on the map). The Canadian Jewish News: Tokyo has two Chabad centres that 'don't talk to each other' (https://thecjn.ca/news/tale-two-chabads-tokyo)."
-    },
-    {
-      "id": "extra-kyoto-edery",
-      "name": "Chabad Kyoto",
-      "city": "Kyoto",
-      "lat": 34.9858,
-      "lon": 135.7588,
-      "precision": "city",
-      "note": "'a few minutes' drive from Kyoto Station'; the address isn't published; the dot is the station",
-      "source": "chabadjapan.org's Chabad Kyoto page (Oct 2026); donorbox.org/chabadkyoto",
-      "personnel": [{ "title": "Rabbi", "firstName": "Moti", "lastName": "Grumach" }],
-      "url": "https://chabadjapan.org/%d7%97%d7%91%d7%93-%d7%a7%d7%99%d7%95%d7%98%d7%95-%d7%94%d7%a7%d7%94%d7%99%d7%9c%d7%94-%d7%94%d7%99%d7%94%d7%95%d7%93%d7%99%d7%aa-chabad-jewish-kyoto/",
-      "site": "Chabad Tokyo Japan",
-      "siteHe": "חב״ד טוקיו",
-      "review": "Part of Edery's network (founded by him Dec 2015; run by Rabbi Moti and Libi Grumach since 2019); not on chabad.org. Chabad of Japan's own Kyoto house (Rabbi Dovid and Chaya Mushka Posner, 2019 — https://www.chabad.org/news/article_cdo/aid/4339883) seems closed: jewishkyoto.com no longer exists and chabad.org doesn't list Kyoto."
-    },
-    {
       "id": "extra-bali",
       "name": "Chabad Bali",
       "city": "Bali",

@@ -270,13 +270,16 @@ between two Claude accounts when usage limits run out; whichever session picks t
     running a meshichist prayer room he calls a Chabad house). Anything else doubtful — a network outside the country's
     official Chabad, a house whose shliach can't be confirmed — goes ON the map with a `review` field (why, with links;
     not shown on the card) in data/extra-centers.json, and is listed here for the owner to review. **To review:**
-    `extra-tokyo-edery` and `extra-kyoto-edery` (Rabbi Binyomin Edery's network, not on chabad.org; Japan's head is
-    Sudakevich), `extra-bali` (no shliach confirmed), `extra-brussels-ejcc` (its site doesn't say Chabad),
+    `extra-bali` (no shliach confirmed), `extra-brussels-ejcc` (its site doesn't say Chabad),
     `extra-kyiv-brodsky` (Azman; Chabad of Ukraine's Kyiv center is Markovitch's), `extra-fr-annemasse` (Rabbi David
     Szmul) and `extra-fr-reims` (the Abourmads) — neither on chabad.org nor in Chabad of France's directory —
     `extra-fr-paris-20e-monte-cristo` (the directory's "Rav P. Pachter" may be out of date), `extra-il-misgav` (same
     director and phone as the Highway 6 house; Lev Misgav's exact spot not found). Find them all:
     grep '"review"' data/extra-centers.json.
+  - **Oct 12 (owner): Edery's Tokyo and Kyoto houses REMOVED** — "he's a mushroom". World posters regenerated
+    (`npm run svg` per map + `node scripts/svg-png.mjs`); the old names poster's speck east of Ukraine (a leftover from
+    before occupied Ukraine joined Russia's shetach) is gone, and a world scan for tiny pieces stranded inside another
+    shetach finds only real enclaves (Büsingen, Baarle, Llívia, the Armenia/Azerbaijan and Fergana exclaves).
   - Sweep: **Japan, Korea, China, Hong Kong, Macau, Taiwan, Mongolia** (Oct 11): nothing to add. Japan: chabad.org
     lists Tokyo (Sudakevich, the head), Kobe/Kansai and Takayama — all on the map. Added and FLAGGED for review: Rabbi
     Binyomin Edery's separate network (Chabad House Tokyo in Omori, Ota-ku; "Chabad Kyoto", run by Moti Grumach —

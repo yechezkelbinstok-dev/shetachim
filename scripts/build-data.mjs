@@ -328,6 +328,7 @@ function normalize(raw, extra = false) {
     lon: c.longitude,
     approx: !!raw['location-is-approximate'] || undefined,
     unlisted: extra || undefined,
+    mushroom: (extra && raw.mushroom && true) || undefined, // not under the country's official Chabad: shown only with Mushrooms on
     note: raw.note || undefined,
     personnel: extra && raw.personnel ? raw.personnel : undefined, // an unlisted center's rabbi, from its own listing
     pageId: raw.pageId || undefined, // an unlisted dot that shares a chabad.org page with a listed one
@@ -439,6 +440,7 @@ function buildCities(dots) {
       if (!groups.has(key)) groups.set(key, { region: d.region, country: d.country, names: [], at: [] });
       groups.get(key).names.push(c.city);
       groups.get(key).at.push(d);
+      if (c.mushroom) groups.get(key).mushrooms = (groups.get(key).mushrooms || 0) + 1;
     }
   }
   const median = (xs) => {
@@ -497,12 +499,12 @@ function buildCities(dots) {
     const mid = { lat: median(g.at.map((d) => d.lat)), lon: median(g.at.map((d) => d.lon)) };
     let p = match(g, mid), keepName = false;
     if (!p) { const f = fallback(g, mid); if (f) ({ p, keepName } = f); }
-    if (p && byPlace.has(p.cityId)) { byPlace.get(p.cityId).centers += g.names.length; continue; }
+    if (p && byPlace.has(p.cityId)) { const b = byPlace.get(p.cityId); b.centers += g.names.length; if (g.mushrooms) b.mushrooms = (b.mushrooms || 0) + g.mushrooms; continue; }
     const [lon, lat] = p ? p.loc.coordinates : [mid.lon, mid.lat];
     const city = {
       name: p && !keepName ? (CITY_NAMES[p.name] || p.name).replace(/ Township$| \(.*\)$/, '') : count(g.names, (n) => n)[0][0],
       region: g.region, country: g.country, lat: +lat.toFixed(5), lon: +lon.toFixed(5),
-      pop: p ? p.population : 0, centers: g.names.length, unmatched: p ? undefined : true,
+      pop: p ? p.population : 0, centers: g.names.length, mushrooms: g.mushrooms, unmatched: p ? undefined : true,
     };
     if (p) byPlace.set(p.cityId, city);
     cities.push(city);

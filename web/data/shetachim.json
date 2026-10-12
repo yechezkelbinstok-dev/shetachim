@@ -3367,23 +3367,7 @@
    "id": "bolivia",
    "name": "Bolivia",
    "short": "Bol.",
-   "headShliach": "Itzik Kupchik",
-   "capital": {
-    "centerId": "extra-bolivia-la-paz",
-    "name": "Beit Chabad La Paz",
-    "city": "La Paz",
-    "lat": -16.49661,
-    "lon": -68.14002
-   },
-   "capitals": [
-    {
-     "centerId": "extra-bolivia-la-paz",
-     "name": "Beit Chabad La Paz",
-     "city": "La Paz",
-     "lat": -16.49661,
-     "lon": -68.14002
-    }
-   ]
+   "noCentralLeadership": true
   },
   {
    "id": "brazil",

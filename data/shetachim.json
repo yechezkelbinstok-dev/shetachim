@@ -2105,13 +2105,10 @@
       "id": "bolivia",
       "name": "Bolivia",
       "short": "Bol.",
-      "headShliach": "Itzik Kupchik",
+      "noCentralLeadership": true,
       "territory": [
         "BOL"
-      ],
-      "capital": {
-        "centerId": "extra-bolivia-la-paz"
-      }
+      ]
     },
     {
       "id": "brazil",

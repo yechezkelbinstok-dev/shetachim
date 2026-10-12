@@ -270,12 +270,38 @@ between two Claude accounts when usage limits run out; whichever session picks t
     running a meshichist prayer room he calls a Chabad house). Anything else doubtful — a network outside the country's
     official Chabad, a house whose shliach can't be confirmed — goes ON the map with a `review` field (why, with links;
     not shown on the card) in data/extra-centers.json, and is listed here for the owner to review. **To review:**
-    `extra-bali` (no shliach confirmed), `extra-brussels-ejcc` (its site doesn't say Chabad),
-    `extra-kyiv-brodsky` (Azman; Chabad of Ukraine's Kyiv center is Markovitch's), `extra-fr-annemasse` (Rabbi David
-    Szmul) and `extra-fr-reims` (the Abourmads) — neither on chabad.org nor in Chabad of France's directory —
     `extra-fr-paris-20e-monte-cristo` (the directory's "Rav P. Pachter" may be out of date), `extra-il-misgav` (same
     director and phone as the Highway 6 house; Lev Misgav's exact spot not found). Find them all:
     grep '"review"' data/extra-centers.json.
+  - **MUSHROOMS (owner, Oct 12).** A center outside official Chabad (not a Merkos-recognised shliach) carries
+    `"mushroom": "<evidence>"` in data/extra-centers.json; it is left off the map (dots, city counts) unless the new
+    Options checkbox "Mushrooms (outside official Chabad)" / "פטריות (מחוץ לחב״ד הרשמי)" is on (remembered in
+    localStorage `shetachim-mushrooms`; switching it reloads the page). Build: `mushroom: true` on the center,
+    `mushrooms: n` on its city. **Bolivia**: Itzik Kupchik is no longer head shliach (owner) — Bolivia has no head and
+    no capital (`noCentralLeadership`); his La Paz house is a mushroom. (India stays under Kantor, as decided long ago.)
+    **Mushroom scan (Oct 12) — every added center not on chabad.org and not from an official national list (77),
+    researched one by one; the owner wants no "unsure" ones.** Official = positive evidence of recognition: on
+    chabad.org (staff or listing) or Tzach's world directory (chabad.org.il/Branchs, a mirror of the official list),
+    the country's official network, the head shliach himself, or Merkos/Chabad press calling them shluchim. Result:
+    - **Mushrooms (24)** (the evidence is in each center's `mushroom` text): Bolivia La Paz (owner); the Kupchik family —
+      Pune (Betzalel: "I am not a shaliach Chabad, which is a movement", YWN 2010), South Delhi (Shneor), Arusha
+      (Moshiach; Tanzania's official Chabad is Aziza's in Dar es Salaam); India's other backpacker houses in the
+      Kupchik-led network (chabadindia770.com) that no official list has — Delhi Main Bazaar, Pushkar, Kasol, Rishikesh,
+      Hampi, Varanasi, Goa-Palolem, Kodaikanal, Kasar Devi, Kochi; Mexico's beach houses outside Chabad of Mexico —
+      Isla Mujeres, Bacalar, Holbox, Puerto Escondido (Vinderbaum, also Kasol's), Mérida; Itacaré (not in Beit Chabad do
+      Brasil); Ushuaia (no trace of recognition anywhere); Panama's "Chabad for the Traveler" (Pinchas Cohen styles
+      himself Chabad Panama's director; the official one is Laine's, with Karniel's traveller house on chabad.org);
+      Bali (WUPJ 2018: no rabbi, run by a lay couple); Kyiv's Brodsky Synagogue (Azman: "not part of Chabad's structure
+      in the country", JTA; FJC's Chabad rabbis called his election illegitimate).
+    - **Official (53)**: the shetach head himself (Armenia, Belize, Bulgaria, El Salvador, Honduras, Panama Beth El,
+      Philippines ×8, Sri Lanka ×5, Uruguay, Albania); the country's official network (Thailand, Germany ×2, Austria,
+      Cyprus, Spain ×3, Italy, Amsterdam, Montenegro, Switzerland, Riyadh, Abu Dhabi, Istanbul, Southern Ohio); on
+      chabad.org/Tzach's list — Pisac (Cusco's staff), Rio Botafogo (Kaczala, staff of Beit Lubavitch Rio), Annemasse
+      (Szmul, staff of Habad Genève), São Paulo Brooklin and India's Manali and Goa-Anjuna (Tzach's world directory);
+      Merkos/Chabad press — Zanzibar (chabad.org), Quito and Brussels EJCC (lubavitch.com), Ethiopia ×2 and Guatemala's
+      San Pedro (Chabad Info: "the local shliach"), Namibia (Rabbi Silberhaft: "the Official Chabad Shaliach to
+      Namibia"), Mendoza (Jabad Argentina's own list of interior centers), Reims (Loubavitch Étudiants' "Chabad En Campus
+      Reims avec Eitan Abourmad"), Armour Heights (registered as Beth Joseph Chabad; rabbi Yehuda Zarchi, now on its card).
   - **Oct 12 (owner): Edery's Tokyo and Kyoto houses REMOVED** — "he's a mushroom". World posters regenerated
     (`npm run svg` per map + `node scripts/svg-png.mjs`); the old names poster's speck east of Ukraine (a leftover from
     before occupied Ukraine joined Russia's shetach) is gone, and a world scan for tiny pieces stranded inside another

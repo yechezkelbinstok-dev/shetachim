@@ -70,13 +70,14 @@ const gadmFile = (iso3, level) => download(`${GADM}/Admin${level}/gadm36_${iso3}
 const GADM_NAME_FIX = {
   MCO: 'Monaco', SWZ: 'Eswatini', MKD: 'North Macedonia', CPV: 'Cabo Verde', REU: 'Réunion', MAC: 'Macau', VIR: 'U.S. Virgin Islands',
   COD: 'DR Congo', COG: 'Republic of the Congo', BLM: 'Saint Barthélemy', MAF: 'Saint Martin',
+  KOR: 'Korea',
 };
 // A country's short label, where its name is long and there's a real, familiar short form. Nowhere is an ISO code
 // used as a label: a country without one here simply has no short form (its name shows where it fits).
 const COUNTRY_SHORT = {
   GBR: 'UK', ARE: 'UAE', COD: 'DRC', COG: 'Congo', CAF: 'CAR', BIH: 'Bosnia', CZE: 'Czechia', DOM: 'Dom. Rep.', TTO: 'Trinidad',
   VCT: 'St. Vincent', KNA: 'St. Kitts', ATG: 'Antigua', STP: 'São Tomé', BES: 'Bonaire', TCA: 'Turks & Caicos', VGB: 'BVI', VIR: 'USVI',
-  GNQ: 'Eq. Guinea', ZAF: 'S. Africa', KOR: 'S. Korea', SSD: 'S. Sudan', SAU: 'Saudi', NZL: 'NZ', MKD: 'N. Macedonia', XNC: 'N. Cyprus',
+  GNQ: 'Eq. Guinea', ZAF: 'S. Africa', SSD: 'S. Sudan', SAU: 'Saudi', NZL: 'NZ', MKD: 'N. Macedonia', XNC: 'N. Cyprus',
   BFA: 'Burkina', CYM: 'Cayman', BLM: 'St. Barth', MAF: 'St. Martin', LCA: 'St. Lucia', SXM: 'St. Maarten', VAT: 'Vatican',
   NCL: 'N. Caledonia', PRI: 'PR', CIV: 'Ivory Coast', SLE: 'S. Leone', GNB: 'G.-Bissau', LKA: 'Sri Lanka', SLV: 'El Salvador',
 };

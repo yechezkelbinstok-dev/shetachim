@@ -1311,7 +1311,6 @@
   {
    "id": "british-columbia",
    "name": "British Columbia",
-   "short": "BC",
    "headShliach": "Yitzchok Wineberg",
    "capital": {
     "centerId": "117788",
@@ -2513,11 +2512,7 @@
   },
   {
    "id": "south-korea",
-   "name": "South Korea",
-   "short": [
-    "S. Korea",
-    "S. Kor."
-   ],
+   "name": "Korea",
    "headShliach": "Osher Litzman",
    "capital": {
     "centerId": "665144",

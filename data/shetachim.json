@@ -829,7 +829,7 @@
       "name": "British Columbia",
       "headShliach": "Yitzchok Wineberg",
       "territory": [
-        "CA-BC"
+        { "state": "CA-BC", "shape": "west-south-of-54", "name": "British Columbia south of 54°N" }
       ],
       "capital": {
         "centerId": "117788"
@@ -840,16 +840,10 @@
       "name": "Alberta",
       "headShliach": "Menachem Matusof",
       "territory": [
-        "CA-AB",
         {
-          "state": "CA-NT",
-          "shape": "north-to-63",
-          "name": "Northwest Territories south of 63°N"
-        },
-        {
-          "state": "CA-YT",
-          "shape": "north-to-63",
-          "name": "Yukon south of 63°N"
+          "state": "CA-AB",
+          "shape": "west-south-of-54",
+          "name": "Alberta south of 54°N"
         }
       ],
       "capital": {
@@ -1564,11 +1558,7 @@
     },
     {
       "id": "south-korea",
-      "name": "South Korea",
-      "short": [
-        "S. Korea",
-        "S. Kor."
-      ],
+      "name": "Korea",
       "headShliach": "Osher Litzman",
       "territory": [
         "KOR"
@@ -2266,6 +2256,8 @@
     }
   ],
   "notShownWhenBlank": [
+    "CA-BC",
+    "CA-AB",
     "CA-ON",
     "CA-QC",
     "CA-MB",

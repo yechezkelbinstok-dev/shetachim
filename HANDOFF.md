@@ -120,6 +120,11 @@ between two Claude accounts when usage limits run out; whichever session picks t
   - Newfoundland: `newfoundland-island`, the island, Port au Port and the islands near it, but not Labrador. The
     shetach is renamed "Newfoundland" / "ניופאונדלנד".
   - Alberta: stays whole, plus the Yukon and NWT south of 63°N, as before.
+  - **Changed Oct 12 (owner changed his mind):** BC and Alberta now end at 54°N, the same line as
+    Manitoba-Saskatchewan (shape `west-south-of-54`); Alberta no longer takes the Yukon/NWT strip, and the north of
+    BC and Alberta, the Yukon and the NWT are all left off the map (notShownWhenBlank). No centre is lost: Edmonton
+    (53.5°N) is the furthest north. Also renamed South Korea → Korea / קוריאה (shetach, country label, the owner's
+    list and the flagship list).
 
   No centre changed shetach. Sources include chabad.org's Saskatchewan and sub-Arctic roving rabbi reports, and
   lubavitch.com's "Where the continent ends" (Newfoundland).

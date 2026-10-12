@@ -1,0 +1,39 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "name": "British Columbia and Alberta south of 54°N",
+    "source": "Owner, Oct 12: BC's and Alberta's northern border is the same line as Manitoba-Saskatchewan's, 54°N; north of it is land in no shetach. Only the province's own land is cut by it. The furthest-north centre in either province is Edmonton (53.5°N). Alberta no longer takes the Yukon and NWT south of 63°N."
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -140,
+       47
+      ],
+      [
+       -109,
+       47
+      ],
+      [
+       -109,
+       54
+      ],
+      [
+       -140,
+       54
+      ],
+      [
+       -140,
+       47
+      ]
+     ]
+    ]
+   }
+  }
+ ]
+}

@@ -426,6 +426,13 @@ between two Claude accounts when usage limits run out; whichever session picks t
     - Not done (stopped): directory entries the first pass matched by town or neighborhood weren't re-checked house by
       house, and no other Israeli source (Chabadpedia, local sites) was read. The directory's pages are undated; a few
       may be out of date. Scratchpad isr/ holds the scraped directory (tzach.json, items.json).
+  - **Fixed Oct 12 (owner caught it): 16 listings stacked on one point.** chabad.org pins 16 listings — Beitar Illit ×4,
+    Efrat ×3, Karmei Tzur, Kedumim, Elon Moreh, Yitzhar, Susya, Nili, Modi'in Illit, Ma'ale Adumim's Gan Chabad and
+    Merhavia — on one stand-in point in the Negev near Yeruham, which the map showed as one dot by Beitar Illit's label.
+    Each now has a fix in data/extra-centers.json: its street where chabad.org gives one, else its town (approx).
+    Also two listings whose street is named Jerusalem (Safed's Beit Levi Yitzchak yeshiva, Kiryat Malachi's Kfar
+    Warburg) were pinned in Jerusalem — moved. **Check for this after every build:** any dot whose centers name 3+
+    different towns is a stack (only Modi'in's three spellings remain, which is correct).
   - Sweep: **Ontario and Quebec** (started Oct 11). Toronto: UJA Federation's community directory (jewishtoronto.com/
     directory, 91 pages) against the map — added Armour Heights Jewish Centre – Beth Joseph Chabad (3995 Bathurst St,
     North York; its site ahjewish.com is on Chabad's ChabadSuite; runs Torah Tots; no rabbi named, so none shown).

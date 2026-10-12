@@ -275,7 +275,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
     grep '"review"' data/extra-centers.json.
   - **MUSHROOMS (owner, Oct 12).** A center outside official Chabad (not a Merkos-recognised shliach) carries
     `"mushroom": "<evidence>"` in data/extra-centers.json; it is left off the map (dots, city counts) unless the new
-    Options checkbox "Mushrooms (outside official Chabad)" / "פטריות (מחוץ לחב״ד הרשמי)" is on (remembered in
+    Options checkbox "Mushrooms" / "פטריות" is on (owner: just "Mushrooms", no explanation) (remembered in
     localStorage `shetachim-mushrooms`; switching it reloads the page). Build: `mushroom: true` on the center,
     `mushrooms: n` on its city. **Bolivia**: Itzik Kupchik is no longer head shliach (owner) — Bolivia has no head and
     no capital (`noCentralLeadership`); his La Paz house is a mushroom. (India stays under Kantor, as decided long ago.)

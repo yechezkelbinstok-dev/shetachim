@@ -2556,6 +2556,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         ${c.mushroom ? `<span class="kicker kicker-mushroom">${tr('Mushroom')}</span>` : ''}
         <strong>${esc(c.name)}</strong>
         <span class="meta">${esc([c.type, c.city].filter(Boolean).join(' · '))}</span>
+        ${c.mushroom && c.network ? `<p class="network">${HE ? 'רשת' : 'Network'}: ${esc(HE ? c.networkHe || c.network : c.network)}</p>` : ''}
         ${memorialHTML(c)}${personnelHTML(c.personnel)}
         ${cap ? `<span class="flag${cap.world ? ' flag-world' : ''}">${capKicker(cap)}</span>` : ''}
         ${chabadLink(c)}

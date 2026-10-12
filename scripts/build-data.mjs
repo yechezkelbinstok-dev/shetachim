@@ -329,6 +329,8 @@ function normalize(raw, extra = false) {
     approx: !!raw['location-is-approximate'] || undefined,
     unlisted: extra || undefined,
     mushroom: (extra && raw.mushroom && true) || undefined, // not under the country's official Chabad: shown only with Mushrooms on
+    network: (extra && raw.mushroom && raw.network) || undefined, // a mushroom's network, both languages (its card says whose it is)
+    networkHe: (extra && raw.mushroom && raw.networkHe) || undefined,
     note: raw.note || undefined,
     personnel: extra && raw.personnel ? raw.personnel : undefined, // an unlisted center's rabbi, from its own listing
     pageId: raw.pageId || undefined, // an unlisted dot that shares a chabad.org page with a listed one

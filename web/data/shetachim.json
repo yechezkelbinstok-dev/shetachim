@@ -809,7 +809,6 @@
    "headShliach": "Benjy Korf",
    "vaad": "Vaad Hashluchim of Florida",
    "vaadFirst": true,
-   "vaadNote": "Elected February 2023 (273 shluchim voted)",
    "vaadMembers": [
      {"firstName": "Yosef", "lastName": "Raichik", "town": "Boynton Beach", "role": "Head"},
      {"firstName": "Yossie", "lastName": "Biston", "town": "Parkland"},
@@ -936,13 +935,12 @@
    "headShliach": "Mendy Herson",
    "vaad": "Vaad Hashluchim of New Jersey",
    "vaadFirst": true,
-   "vaadNote": "Elected June 2025 for three years (over 90% of shluchim families voted)",
    "vaadMembers": [
      {"firstName": "Shalom", "lastName": "Lubin", "town": "Florham Park"},
      {"firstName": "Avi", "lastName": "Richler", "town": "Mullica Hill"},
      {"firstName": "Sholly", "lastName": "Leverton", "town": "West Windsor"},
      {"firstName": "Moshe", "lastName": "Gourarie", "town": "Toms River"},
-     {"firstName": "Ephraim", "lastName": "Simon", "town": "Teaneck", "role": "One-year term"}
+     {"firstName": "Ephraim", "lastName": "Simon", "town": "Teaneck"}
    ],
    "capital": {
     "centerId": "117657",

@@ -2079,7 +2079,15 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function limits() {
     map.setRenderWorldCopies(!V.cur.flat || !!V.cur.boxed); // (a boxed map is standard outside its boxes: Alaska's Aleutians past 180°)
     const fit = V.cur.zFit ?? 0;
-    map.setMinZoom(Math.max(0, fit - 1.5));
+    // A region (US & Canada, FSU…) stays the region: out only a little past its frame, and held near it when dragged
+    // (owner, Oct 13: "why does the whole world show when in US and Canada or FSU etc view"); the World view as before.
+    const regional = V.view !== VIEWS.world;
+    map.setMinZoom(Math.max(0, fit - (regional ? 0.35 : 1.5)));
+    const b = V.cur.bounds;
+    if (regional && b && b[0][0] >= -180 && b[1][0] <= 180) {
+      const px = (b[1][0] - b[0][0]) * 0.6, py = (b[1][1] - b[0][1]) * 0.6;
+      map.setMaxBounds([[Math.max(-180, b[0][0] - px), Math.max(-85, b[0][1] - py)], [Math.min(180, b[1][0] + px), Math.min(85, b[1][1] + py)]]);
+    } else map.setMaxBounds(null);
     map.setMaxZoom(political() ? Math.min(MAX_Z, fit + POLITICAL_DEPTH) : MAX_Z);
   }
   // The camera for the whole view (flat, where the view has it), and from it the zoom the dots are sized for.
@@ -2658,8 +2666,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return shetachHTML(s, zoomBtn);
   }
   // A vaad on a shetach's card: "Leadership: …", which opens to its members and their towns (owner, Oct 13)
-  const VAAD_ROLE_HE = { Head: 'יו״ר', Alternate: 'ממלא מקום', 'One-year term': 'לשנה אחת' };
-  const VAAD_NOTE_HE = { florida: 'נבחר בפברואר 2023 (273 שלוחים הצביעו)', 'new-jersey': 'נבחר ביוני 2025 לשלוש שנים (מעל 90% ממשפחות השלוחים הצביעו)' };
+  const VAAD_ROLE_HE = { Head: 'יו״ר', Alternate: 'ממלא מקום' };
   function vaadHTML(s) {
     const line = `${tr('Leadership')}: ${esc(s.vaad)}`;
     if (!s.vaadMembers || !s.vaadMembers.length) return `<p>${line}</p>`;
@@ -2669,8 +2676,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       return heData.cities[t] || t;
     };
     const items = s.vaadMembers.map((m) => `<li>${esc(personName(m))}${m.role ? ` <span class="meta">(${esc(HE ? VAAD_ROLE_HE[m.role] || m.role : m.role)})</span>` : ''}<span class="meta"> · ${esc(town(m.town))}</span></li>`).join('');
-    const note = s.vaadNote ? `<p class="meta">${esc(HE ? VAAD_NOTE_HE[s.id] || s.vaadNote : s.vaadNote)}</p>` : '';
-    return `<details class="vaad"><summary>${line}</summary><ul>${items}</ul>${note}</details>`;
+    return `<details class="vaad"><summary>${line}</summary><ul>${items}</ul></details>`;
   }
   // A shetach's card: its head (or "Overseen by" for a territory, "Shluchim: … family"), its capital(s), its centers
   function shetachHTML(s, zoomBtn) {

@@ -8,12 +8,18 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 13: a region stays the region
+- Owner: "why does the whole world show when in US and Canada or FSU etc view". `limits()`: in every view but World
+  the map zooms out only 0.35 past its frame (was 1.5) and `setMaxBounds` keeps it within the frame plus 60% each
+  way (skipped for frames crossing ±180°: FSU, Oceania). World is unchanged.
+
 ## ▶ Oct 13: the vaads' members
 - Owner: "I could expand in each of the respective vaads to see the members of the vaad and their town". The card's
   "Leadership: Vaad…" line is now a `<details>` (`vaadHTML`) that opens to the members, each with their town (from
-  their own center in the chabad.org data), and when they were chosen. Data: `vaadMembers` and `vaadNote` in
-  data/shetachim.json (and web/data/shetachim.json; the build passes them through); Hebrew comes from he.json's first,
-  last and city names, roles and notes from `VAAD_ROLE_HE` / `VAAD_NOTE_HE` in the page.
+  their own center in the chabad.org data). Data: `vaadMembers` in data/shetachim.json (and web/data/shetachim.json; the
+  build passes it through); Hebrew comes from he.json's first, last and city names, roles from `VAAD_ROLE_HE`.
+  Owner (Oct 13): no election info on the card, and no member singled out (Simon's "one-year term" label removed;
+  he stays listed like the others until the owner says otherwise). Only Head (Raichik) and Alternate (Dubov) remain.
   - **Florida** (owner: "Florida had a more recent election" than Korf's 2020 appointed seven): elected Feb 2023, 273
     shluchim voting, 93% turnout (anash.org/new-members-elected-to-floridas-vaad-hashluchim, Feb 28 2023): Yosef
     Raichik (head; crownheights.info, Aug 15 2023: "the newly elected head of the Vaad Hashluchim of Florida"),

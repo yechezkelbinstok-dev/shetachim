@@ -9,11 +9,14 @@ More detail is in `docs/PLAN.md`.
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
 ## ▶ Oct 13: the Rebbe on 770's card
-- Owner: "make the Lubavitcher Rebbe … the main person (DO NOT put obm, you can do ZY"A instead and its hebrew
-  equivalent)", then "Don't just put him like any shliach. He's the Rebbe". `rebbeHTML`: a block of its own at the top
-  of the card for 770 (center 117678, `WORLD_HQ`): on the dot's card under the address title, with the headquarters'
-  listing moved first; on the world-HQ capital card under the big title. "The Lubavitcher Rebbe / ZY"A",
-  "הרבי מליובאוויטש / זי״ע". Never "obm" / ע״ה for the Rebbe. The people listed at 770 stay as they were, below.
+- Owner, after two tries they didn't like (a shliach-style line, then a boxed block): "reverted to how it was before when
+  it was hq by itself (maybe with a tiny expander to view all the many listings there) and the Rebbe as the leader. And
+  no not in his own box, he should be the leader tho and def bigger than other shluchim."
+- Now: 770's dot opens the world-HQ capital card (`showCard`). Under its title is `rebbeHTML` (center 117678,
+  `WORLD_HQ`): a plain line, 18px bold, bigger than the people listed. English: "The Lubavitcher Rebbe Shlita".
+  Hebrew: "אדמו״ר הרבי מליובאוויטש זצוקללה״ה נבג״מ זי״ע" (owner's wording: the shortened אדמו״ר, then
+  those titles after). Never "obm" / ע״ה for the Rebbe. The other listings at the address sit in a small
+  "N more listings at this address" expander (`details.at-address`).
 
 ## ▶ Oct 13: Israel's board, under Aharonov
 - Owner: "for Israel add leadership but in that case it's BELOW aharonov since aharonov wields real power as head

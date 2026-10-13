@@ -231,9 +231,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card li strong { font-weight: 500; }
 #card .meta, #card p { color: var(--muted); font-size: 13px; margin: 0; }
 #card .flag { font-size: 12.5px; font-style: italic; color: var(--muted); }
-/* the Rebbe on 770's card: its own block, above everyone listed there */
-#card .rebbe { margin: 8px 0 10px; padding: 10px 12px; border: 1px solid var(--accent); border-radius: 8px; background: var(--accent-soft);
-  color: var(--ink); font: 700 19px/1.25 var(--font-map); letter-spacing: .01em; text-align: center; text-wrap: balance; }
+/* the Rebbe on 770's card: its leader, bigger than a shliach's line */
+#card .rebbe { margin: 4px 0 2px; color: var(--ink); font: 700 18px/1.25 var(--font-map); }
+#card details.at-address .pother { margin-top: 4px; }
 #card .flag-world { color: var(--accent); font-weight: 600; font-style: normal; }
 .legend-mushroom { vertical-align: -2px; flex: none; }
 #card .kicker-mushroom { color: #b3261e; font-weight: 700; letter-spacing: 0.06em; }
@@ -2583,12 +2583,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // on Lubavitch's card as a center of its own, under a divider
   const LUBAVITCH_CENTER_PEOPLE = [{ title: 'Rabbi', firstName: 'Gavriel', lastName: 'Gordon', position: 'Director', isDirector: true, isDeceased: false }];
   const personLine = (p) => { const pos = positionOf(p); return `${esc(personName(p))}${pos ? ` <span class="meta">· ${esc(pos)}</span>` : ''}`; };
-  // 770, Chabad Lubavitch Headquarters: the Rebbe, above everything else on its card and set apart from the people
-  // listed there — not a shliach's line (owner, Oct 13: "Don't just put him like any shliach. He's the Rebbe"); never
-  // "obm": ZY"A / זי״ע
+  // 770, Chabad Lubavitch Headquarters: the Rebbe as its leader, first and bigger than any shliach's line (owner,
+  // Oct 13: "the Rebbe as the leader … def bigger than other shluchim", not in a box of his own)
   const WORLD_HQ = '117678';
-  const rebbeHTML = (c) => (c && c.id === WORLD_HQ
-    ? `<div class="rebbe" lang="${HE ? 'he' : 'en'}">${HE ? 'הרבי מליובאוויטש<br>זי״ע' : 'The Lubavitcher Rebbe<br>ZY"A'}</div>` : '');
+  const rebbeHTML = (c) => (c && c.id === WORLD_HQ ? `<p class="rebbe">${HE ? 'אדמו״ר הרבי מליובאוויטש זצוקללה״ה נבג״מ זי״ע' : 'The Lubavitcher Rebbe Shlita'}</p>` : '');
   function personnelHTML(list) {
     if (!list || !list.length) return '';
     const living = list.filter((p) => !p.isDeceased), passed = list.filter((p) => p.isDeceased);
@@ -2619,10 +2617,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
   function dotHTML(d) {
     const n = d.centers.length;
-    // 770: the Rebbe at the top of the card, then the headquarters' own listing first
-    const hq = d.centers.find((c) => c.id === WORLD_HQ);
-    const list = hq ? [hq, ...d.centers.filter((c) => c !== hq)] : d.centers;
-    const items = list.map((c) => {
+    const items = d.centers.map((c) => {
       const cap = capitalOfCenter.get(c.id);
       return `<li>
         ${c.mushroom ? `<span class="kicker kicker-mushroom">${tr('Mushroom')}</span>` : ''}
@@ -2636,7 +2631,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     }).join('');
     const head = n > 1 ? `<span class="kicker">${HE ? `${n} מוסדות בכתובת זו` : `${n} listings at this address`}</span><h2>${esc(d.centers[0].city || tr('Same address'))}</h2>` : '';
     // a mushroom isn't under the shetach's head: its card names no head shliach (owner, Oct 12)
-    return `${head}${rebbeHTML(hq)}<ul>${items}</ul><div class="foot"><span class="meta">${shetachLine(d.piece, !d.centers.some((c) => c.mushroom))}</span></div>`;
+    return `${head}<ul>${items}</ul><div class="foot"><span class="meta">${shetachLine(d.piece, !d.centers.some((c) => c.mushroom))}</span></div>`;
   }
 
   function capitalHTML(c) {
@@ -2645,8 +2640,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       <div class="subcard"><ul><li><strong>${HE ? 'חצר רבותינו נשיאינו בליובאוויטש' : "Hatzer Raboteinu Nesieinu B'Lubavitch"}</strong>
         <span class="meta">${esc([HE ? 'מרכז מורשת' : 'Heritage center', HE ? 'ליובאוויטש' : 'Lubavitch'].join(' · '))}</span>
         ${personnelHTML(LUBAVITCH_CENTER_PEOPLE)}</li></ul></div>`;
+    // 770: the headquarters by itself, the Rebbe as its leader, and the many other listings at the address folded away
+    const others = c.world ? ((dotOfCenter.get(c.centerId) || {}).centers || []).filter((x) => x.id !== c.centerId) : [];
+    const atAddress = others.length ? `<details class="personnel at-address"><summary>${HE ? `${others.length} מוסדות נוספים בכתובת זו` : `${others.length} more listings at this address`}</summary>
+      ${others.map((x) => `<div class="pother"><strong>${esc(x.name)}</strong>${x.type ? ` <span class="meta">· ${esc(x.type)}</span>` : ''} ${chabadLink(x)}</div>`).join('')}</details>` : '';
     return `<span class="kicker${c.world ? ' kicker-world' : ''}">${capKicker(c)}</span><h2${c.world ? ' class="honor-h"' : ''}>${esc(c.name)}</h2>${rebbeHTML(c.center)}
-      ${c.city ? `<p>${esc(c.city)}</p>` : ''}${memorialHTML(c.center)}${personnelHTML(c.center && c.center.personnel)}${chabadLink(c.center)}
+      ${c.city ? `<p>${esc(c.city)}</p>` : ''}${memorialHTML(c.center)}${personnelHTML(c.center && c.center.personnel)}${chabadLink(c.center)}${atAddress}
       <div class="foot"><span class="meta">${shetachLine(c.piece, !c.world)}</span></div>`;
   }
 
@@ -2721,6 +2720,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return group.length > 1 ? group.map((x, i) => `<div class="part">${shetachHTML(x, zoom(x, i))}</div>`).join('') : shetachHTML(s, zoom(s, 0));
   }
   function showCard(hit, event, pin) {
+    if (hit.dot && hit.dot.centers.some((c) => c.id === WORLD_HQ)) { const w = capitals.find((x) => x.world); if (w) hit = { capital: w }; }
     card.innerHTML = (hit.dot ? dotHTML(hit.dot) : hit.capital ? capitalHTML(hit.capital) : hit.city ? cityHTML(hit.city)
       : hit.shetach ? shetachCards(hit.shetach)
       : areaHTML(hit.piece)) +

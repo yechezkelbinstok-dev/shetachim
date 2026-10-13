@@ -212,7 +212,13 @@
       "name": "Illinois",
       "headShliach": "Meir Moscowitz",
       "territory": [
-        "US-IL"
+        "US-IL",
+        {
+          "counties": [
+            "19163"
+          ],
+          "name": "Scott County, Iowa (Davenport, Bettendorf: the Iowa side of the Quad Cities)"
+        }
       ],
       "capital": {
         "centerId": "117610"
@@ -2314,6 +2320,16 @@
       "michigan": [
         "Toledo area",
         "אזור טולידו"
+      ]
+    },
+    "US-IA": {
+      "illinois": [
+        "Quad Cities (Davenport, Bettendorf)",
+        "אזור קוואד סיטיז (דבנפורט, בטנדורף)"
+      ],
+      "iowa": [
+        "Rest of Iowa",
+        "שאר איווה"
       ]
     },
     "US-PA": {

@@ -1,6 +1,6 @@
 // Screenshots of the map (testing only; see HANDOFF.md): node scripts/screenshot.mjs <outdir> <spec>...   spec = view:base:device:theme[:clicks]
 // device: desktop | phone; base: political | streets | physical | tinted; theme: light | dark; clicks, comma-separated:
-// <seg>=<value> (borders=both), check=<id>, more, wait=<ms>, go=<lon>/<lat>/<zoom>, type=<search text>, tab=all|last, pick=<n>
+// <seg>=<value> (borders=both), check=<id>, more, wait=<ms>, go=<lon>/<lat>/<zoom>, type=<search text>, tab=all|last, pick=<n>, lose
 // e.g. israel:physical:desktop:light:go=35.6/33.25/9
 import fs from 'node:fs';
 import path from 'node:path';
@@ -88,6 +88,13 @@ for (const spec of specs) {
     // type=<text>: into the search bar (its results open); pick=<n>: the n-th result (1 = the first), then the flight to it
     else if (name === 'type') { await page.fill('#search-q', decodeURIComponent(value)); await page.waitForTimeout(300); }
     else if (name === 'tab') { await page.focus('#search-q'); await page.click(`#search-results [data-mode="${value}"]`); await page.waitForTimeout(200); }
+    // lose: the phone dropping the map's graphics memory (WEBGL_lose_context), then giving it back; the page reloads
+    else if (name === 'lose') {
+      await page.evaluate(() => new Promise((r) => { const ext = window.__map.painter.context.gl.getExtension('WEBGL_lose_context'); ext.loseContext(); setTimeout(() => { ext.restoreContext(); r(); }, 600); }));
+      await page.waitForTimeout(1500);
+      await page.waitForFunction(() => document.querySelector('#st-dots').textContent !== '–', null, { timeout: 60000 });
+      await page.waitForTimeout(4000);
+    }
     else if (name === 'pick') { await page.click(`#search-results .hit[data-i="${+value - 1}"]`); await page.waitForTimeout(2500); }
     else if (name === 'more') await page.evaluate(() => { document.querySelector('#more').open = true; });
     else await page.evaluate(([n, v]) => document.querySelector(`.seg[data-name="${n}"] [data-value="${v}"]`).click(), [name, value]);

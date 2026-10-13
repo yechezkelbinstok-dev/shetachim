@@ -1886,20 +1886,15 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: 'Boundaries: US Census, GADM, Natural Earth, OpenStreetMap, DeepStateMap' }), 'top-right');
     map.touchZoomRotate.disableRotation();
     map.keyboard.disableRotation();
-    // Back on the page after the phone dropped the map's graphics memory (owner, Oct 11: "whenever I go out of the
-    // browser then back, it is all white"): MapLibre makes a new painter but keeps the tiles, icon atlas and line
-    // atlas made for the old one, so they're all made again (without the line atlas every border and the coast were
-    // gone, owner, Oct 11); if the memory never comes back, the page reloads.
-    map.on('webglcontextrestored', () => {
-      const st = map.style;
-      if (st.imageManager) { st.imageManager.atlasTexture = null; st.imageManager.dirty = true; }
-      if (st.lineAtlas) st.lineAtlas.texture = null;
-      for (const sc of Object.values(st.sourceCaches || {})) { sc.clearTiles(); sc.reload(); }
-      map.triggerRepaint();
-    });
+    // Back on the page after the phone dropped the map's graphics memory. Patching the map up in place (Oct 11: fresh
+    // tiles, icon and line atlases) still left textures mixed up — letters of the font drawn as the shetachim's fill,
+    // blurred tiles (owner, Oct 13 screenshots) — so the page now reloads instead, and comes back where it was:
+    // the view, the options, the place and zoom, a family ringed in the search (saveResume / resume below).
+    map.on('webglcontextlost', () => saveResume());
+    map.on('webglcontextrestored', () => reloadHere());
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState !== 'visible') return;
-      setTimeout(() => { const gl = map.painter && map.painter.context.gl; if (gl && gl.isContextLost()) location.reload(); }, 3000);
+      setTimeout(() => { const gl = map.painter && map.painter.context.gl; if (gl && gl.isContextLost()) reloadHere(); }, 1500);
     });
     await withTimeout(new Promise((resolve, reject) => { map.once('load', resolve); map.once('error', (e) => { if (!map.loaded()) reject(e.error || new Error('map error')); }); }), 30000, 'the map took too long');
     const layers = map.getStyle().layers;
@@ -2869,6 +2864,52 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (hit) showCard(hit, e.originalEvent, false); else hideCard();
   });
   map.getCanvas().addEventListener('mouseleave', () => { if (!pinned) hideCard(); });
+  // ---------- coming back after the graphics memory was dropped (see webglcontextlost above) ----------
+  const RESUME = 'shetachim-resume';
+  let reloading = false, resumeSaved = null;
+  function saveResume() {
+    try {
+      if (!V || !V.cur) return;
+      resumeSaved = { t: Date.now(), state: { ...state, joined: [...state.joined] }, ll: centreLL(), zoom: map.getZoom(), flat: V.cur === V.F, mark: marked ? marked.en : null };
+      sessionStorage.setItem(RESUME, JSON.stringify(resumeSaved));
+    } catch (e) { /* not kept: the page starts afresh */ }
+  }
+  function reloadHere() {
+    if (reloading) return;
+    reloading = true;
+    if (!resumeSaved) saveResume(); // (saved when the memory went, while the map could still say where it was)
+    location.reload();
+  }
+  // the same clicks a person would make, so each option does all it does; then the place, then the ringed family
+  function resume(r) {
+    const st = r.state || {};
+    const click = (sel) => { const b = document.querySelector(sel); if (b) b.click(); };
+    for (const n of ['view', 'base', 'borders', 'lighter', 'color', 'labels', 'alaska', 'dotStyle', 'dotColor']) {
+      if (st[n] != null && st[n] !== state[n]) click(`.seg[data-name="${n}"] [data-value="${st[n]}"]`);
+    }
+    for (const [id, k] of [['#show-dots', 'dots'], ['#show-cities', 'cities'], ['#show-capitals', 'capitals'], ['#show-sea', 'sea'], ['#show-empty', 'empty'], ['#show-rest-borders', 'restBorders']]) {
+      const el = $(id);
+      if (el && typeof st[k] === 'boolean' && el.checked !== st[k]) el.click();
+    }
+    for (const j of st.joined || []) if (!state.joined.has(j)) click(`#held-row [data-value="${j}"]`);
+    if (glOK && r.ll && Number.isFinite(r.zoom)) {
+      const S = r.flat ? V.F : V.M;
+      if (S && S !== V.cur) { V.cur = S; limits(); apply(); }
+      map.stop();
+      map.jumpTo({ center: within(V.cur, () => P(r.ll[0], r.ll[1])) || map.getCenter(), zoom: r.zoom });
+    }
+    if (r.mark) {
+      buildSearch();
+      const f = searchFamilies.find((x) => x.en === r.mark);
+      if (f) {
+        marked = f;
+        searchWords();
+        $('#mark-chip').hidden = false;
+        showMark();
+      }
+    }
+  }
+
   // ---------- search (owner, Oct 13): shluchim, Chabad houses, cities and shetachim, in English and Hebrew ----------
   // Every name is matched in both languages (Hebrew once it's been loaded); a pick goes there (into the world view when
   // the current one doesn't have it) and opens the same card a tap would.
@@ -3074,6 +3115,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   });
   map.on('movestart', (e) => { if (e.originalEvent && !pinned) hideCard(); });
   showView(false);
+  try {
+    const r = JSON.parse(sessionStorage.getItem(RESUME) || 'null');
+    sessionStorage.removeItem(RESUME);
+    if (r && Date.now() - r.t < 60 * 60e3) resume(r);
+  } catch (e) { /* a fresh start */ }
   // the credits start folded on a phone (an (i) to open them), as map sites do
   if (phone()) { const at = document.querySelector('.maplibregl-ctrl-attrib'); if (at) at.classList.remove('maplibregl-compact-show'); }
   // ready: for tests and anyone curious

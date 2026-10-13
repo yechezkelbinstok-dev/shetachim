@@ -8,6 +8,14 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 13: coming back to the page
+- Owner's phone screenshots after returning to the browser: the font's letters drawn as a shetach's fill, blurred
+  tiles. The Oct 11 in-place repair after a lost WebGL context (fresh tiles, icon and line atlases) wasn't enough.
+  Now: on `webglcontextlost` the page saves where it was (`saveResume`: options, centre, zoom, flat or standard,
+  the ringed family) to sessionStorage, and on `webglcontextrestored` (or still lost 1.5 s after coming back) it
+  reloads; at startup `resume()` clicks the same options, jumps to the place and rings the family again.
+  Test: `scripts/screenshot.mjs` action `lose`.
+
 ## ▶ Oct 13: search
 - Owner: "Search function add for shluchim, chabad houses, etc". A search bar at the top of the map (`#search`; phone:
   full width at the top, desktop: right of the panel). It matches shetachim (name, head shliach), shluchim (everyone in

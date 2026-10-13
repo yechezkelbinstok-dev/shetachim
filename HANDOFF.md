@@ -39,7 +39,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
   no not in his own box, he should be the leader tho and def bigger than other shluchim."
 - Now: 770's dot opens the world-HQ capital card (`showCard`). Under its title is `rebbeHTML` (center 117678,
   `WORLD_HQ`): a plain line, 18px bold, bigger than the people listed. English: "The Lubavitcher Rebbe, zy"a" (owner: no Shlita in English).
-  Hebrew: "אדמו״ר הרבי מליובאוויטש זצוקללה״ה נבג״מ זי״ע". His role goes before the name with a colon, as a shetach's "Head shliach: …" does: "Leader:" / "נשיא הדור:", the same size as the name (semi-bold, grey; owner: smaller was "way too small") (owner: "He needs to be specified
+  Hebrew: "כ״ק אדמו״ר מליובאוויטש זצוקללה״ה נבג״מ זי״ע" (owner asked for the proper כ״ק אדמו״ר form; the Lubavitch Rebbeim are "כ״ק אדמו״ר … זי״ע" too). His role goes before the name with a colon, as a shetach's "Head shliach: …" does: "Leader:" / "נשיא הדור:", the same size as the name (semi-bold, grey; owner: smaller was "way too small") (owner: "He needs to be specified
   as the leader much like a shliach is a head shliach and krinsky is director") (owner's wording: the shortened אדמו״ר, then
   those titles after). Never "obm" / ע״ה for the Rebbe. The other listings at the address sit in a small
   "N more listings at this address" expander (`details.at-address`).

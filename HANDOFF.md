@@ -8,6 +8,19 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 13: the UK's and NYC's boards
+- Owner: "What about the board for the NYC metro and the UK board". Where the head is a board (`headTitle`
+  "Leadership"), the head line itself opens to `vaadMembers` (`membersHTML`). Members' towns are those of their own
+  centers in the chabad.org data.
+  - **UK, Hanholo of Chabad Lubavitch UK**: chabad.org.uk "Our Team" (aid 2806809) lists them by initial; first names
+    matched to UK centers: Yeremiyahu Angyalfi (Leeds), Shmuel Arkush (Birmingham), Nissan Dovid Dubov, Menachem Junik,
+    Dovid Katz, Mendy Korer, Shmuel Lew (London; "S Lew", not in the locator data), Pesach Efune (Brighton), Yehuda Pink
+    (Solihull), Leivi Sudak (Edgware), Bentzi Sudak (London), Aryeh M. Sufrin (Woodford Green, `townHe` given),
+    Yitzchok Tzvi Sufrin ("I H Sufrin", London).
+  - **NYC, Tzach**: the Vaad of Tzach thanked at the NY kinus (anash.org, Apr 23 2026): Kasriel Kastel, Shlomo
+    Friedman (Brooklyn), Sholom Tenenbaum (no center found, no town shown), Tuvia Teldon (Commack), Leibel
+    Baumgarten (East Hampton).
+
 ## ▶ Oct 13: a region stays the region
 - Owner: "why does the whole world show when in US and Canada or FSU etc view". `limits()`: in every view but World
   the map zooms out only 0.35 past its frame (was 1.5) and `setMaxBounds` keeps it within the frame plus 60% each

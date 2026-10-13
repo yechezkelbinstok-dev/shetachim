@@ -2667,17 +2667,20 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
   // A vaad on a shetach's card: "Leadership: …", which opens to its members and their towns (owner, Oct 13)
   const VAAD_ROLE_HE = { Head: 'יו״ר', Alternate: 'ממלא מקום' };
-  function vaadHTML(s) {
-    const line = `${tr('Leadership')}: ${esc(s.vaad)}`;
+  // a board's members (a vaad, or a board at the head: the UK's Hanholo, NYC's Tzach), under a line that opens to them
+  function membersHTML(s, line) {
     if (!s.vaadMembers || !s.vaadMembers.length) return `<p>${line}</p>`;
-    const town = (t) => {
-      if (!HE || !heData || !heData.cities) return t;
-      for (const st of s.states) if (heData.cities[`${t}|${st}`]) return heData.cities[`${t}|${st}`];
-      return heData.cities[t] || t;
+    const town = (m) => {
+      if (!m.town) return '';
+      if (!HE || !heData || !heData.cities) return m.town;
+      if (m.townHe) return m.townHe;
+      for (const st of s.states) if (heData.cities[`${m.town}|${st}`]) return heData.cities[`${m.town}|${st}`];
+      return heData.cities[m.town] || m.town;
     };
-    const items = s.vaadMembers.map((m) => `<li>${esc(personName(m))}${m.role ? ` <span class="meta">(${esc(HE ? VAAD_ROLE_HE[m.role] || m.role : m.role)})</span>` : ''}<span class="meta"> · ${esc(town(m.town))}</span></li>`).join('');
+    const items = s.vaadMembers.map((m) => `<li>${esc(personName(m))}${m.role ? ` <span class="meta">(${esc(HE ? VAAD_ROLE_HE[m.role] || m.role : m.role)})</span>` : ''}${m.town ? `<span class="meta"> · ${esc(town(m))}</span>` : ''}</li>`).join('');
     return `<details class="vaad"><summary>${line}</summary><ul>${items}</ul></details>`;
   }
+  const vaadHTML = (s) => membersHTML(s, `${tr('Leadership')}: ${esc(s.vaad)}`);
   // A shetach's card: its head (or "Overseen by" for a territory, "Shluchim: … family"), its capital(s), its centers
   function shetachHTML(s, zoomBtn) {
     // (the page's capitals, which hold both languages: name, town and claimant in Hebrew too)
@@ -2690,6 +2693,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         : s.noCentralLeadership ? `<p>${tr('No centralized leadership')}</p>`
         : s.headShliach && / family$|^משפחת /.test(s.headShliach) ? `<p>${HE ? 'שלוחים' : 'Shluchim'}: ${headHTML(s.headShliach)}</p>`
         : s.headShliach && s.vaad && s.vaadFirst ? `${vaadHTML(s)}<p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>`
+        : s.headShliach && !s.vaad && s.vaadMembers ? membersHTML(s, `${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}`)
         : s.headShliach ? `<p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>${s.vaad ? vaadHTML(s) : ''}` : ''}${capital}
       <div class="foot"><span class="meta">${count(centersInShetach(s))}</span>${zoomBtn}</div>`;
   }

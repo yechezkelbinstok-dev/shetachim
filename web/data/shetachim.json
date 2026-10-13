@@ -1031,6 +1031,13 @@
    "short": "NYC",
    "headShliach": "Tzach",
    "headTitle": "Leadership",
+   "vaadMembers": [
+     {"firstName": "Kasriel", "lastName": "Kastel", "town": "Brooklyn"},
+     {"firstName": "Shlomo", "lastName": "Friedman", "town": "Brooklyn"},
+     {"firstName": "Sholom", "lastName": "Tenenbaum"},
+     {"firstName": "Tuvia", "lastName": "Teldon", "town": "Commack"},
+     {"firstName": "Leibel", "lastName": "Baumgarten", "town": "East Hampton"}
+   ],
    "capital": {
     "centerId": "117678",
     "world": true,
@@ -2292,6 +2299,21 @@
    "short": "UK",
    "headShliach": "Hanholo of Chabad Lubavitch UK",
    "headTitle": "Leadership",
+   "vaadMembers": [
+     {"firstName": "Yeremiyahu", "lastName": "Angyalfi", "town": "Leeds"},
+     {"firstName": "Shmuel", "lastName": "Arkush", "town": "Birmingham"},
+     {"firstName": "Nissan Dovid", "lastName": "Dubov", "town": "London"},
+     {"firstName": "Pesach", "lastName": "Efune", "town": "Brighton"},
+     {"firstName": "Menachem", "lastName": "Junik", "town": "London"},
+     {"firstName": "Dovid", "lastName": "Katz", "town": "London"},
+     {"firstName": "Mendy", "lastName": "Korer", "town": "London"},
+     {"firstName": "Shmuel", "lastName": "Lew", "town": "London"},
+     {"firstName": "Yehuda", "lastName": "Pink", "town": "Solihull"},
+     {"firstName": "Leivi", "lastName": "Sudak", "town": "Edgware"},
+     {"firstName": "Bentzi", "lastName": "Sudak", "town": "London"},
+     {"firstName": "Aryeh M.", "lastName": "Sufrin", "town": "Woodford Green", "townHe": "וודפורד גרין"},
+     {"firstName": "Yitzchok Tzvi", "lastName": "Sufrin", "town": "London"}
+   ],
    "capital": {
     "centerId": "117824",
     "name": "Chabad Lubavitch UK Hdqts.",

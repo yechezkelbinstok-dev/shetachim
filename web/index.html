@@ -1069,6 +1069,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // a head shliach's name is never cut down further (no last name alone): mapName leaves out a middle name he isn't
     // called by, else the full name; where it doesn't fit, one line or two, else none. Cards keep the full name.
     // A vaad with real power beside him (owner, Oct 11: Florida, New Jersey) is named under his name, smaller.
+    // Where the vaad is the main thing (owner, Oct 13: Florida, New Jersey, vaadFirst), the label is the vaad, his name under it.
+    if (who.vaad && who.vaadFirst) return { text: who.vaad, sub: person, short: null, kind: p ? 'sec' : '' };
     return { text: person, sub: who.vaad || null, short: null, kind: p ? 'sec' : '' };
   }
   // A name on two lines, split at the space or hyphen that makes the lines most even.
@@ -2500,6 +2502,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // "Central Africa · Shlomo Bentolila" (a territory like India: its parent's head)
   function shetachWithHead(s, withHead = true, label = s.name) {
     const who = s.territoryOf && shetachById.get(s.territoryOf) || s, head = who.headShliach;
+    if (withHead && head && who.vaad && who.vaadFirst) return `${esc(label)} · ${esc(who.vaad)} · ${headHTML(head)}`;
     return withHead && head ? `${esc(label)} · ${headHTML(head)}${who.vaad ? ` · ${esc(who.vaad)}` : ''}` : esc(label);
   }
   // On a state several shetachim share, each line names its part of the state (owner, Oct 8: Ontario's card says "Essex
@@ -2648,6 +2651,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       ${s.territoryOf && shetachById.get(s.territoryOf) ? (() => { const p = shetachById.get(s.territoryOf); return `<p>${HE ? 'בהנהגת' : 'Overseen by'} ${headHTML(p.headShliach)}</p>`; })()
         : s.noCentralLeadership ? `<p>${tr('No centralized leadership')}</p>`
         : s.headShliach && / family$|^משפחת /.test(s.headShliach) ? `<p>${HE ? 'שלוחים' : 'Shluchim'}: ${headHTML(s.headShliach)}</p>`
+        : s.headShliach && s.vaad && s.vaadFirst ? `<p>${tr('Leadership')}: ${esc(s.vaad)}</p><p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>`
         : s.headShliach ? `<p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>${s.vaad ? `<p>${tr('Leadership')}: ${esc(s.vaad)}</p>` : ''}` : ''}${capital}
       <div class="foot"><span class="meta">${count(centersInShetach(s))}</span>${zoomBtn}</div>`;
   }
@@ -2873,6 +2877,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     }
     for (const d of dots) for (const c of d.centers) {
       out.push({ kind: 'center', d, c, text: both(() => [c.name, c.city, c.nativeName].join(' ')) });
+      // who runs it: its directors, and the shliach the card shows (first living man, else the first woman)
+      const living = (c.personnel || []).filter((p) => !p.isDeceased);
+      const primary = living.find(isMale) || living.find((p) => p.lastName);
+      const runners = [...new Set([...living.filter((p) => p.isDirector), ...(primary ? [primary] : [])])].filter((p) => p.lastName);
+      if (runners.length) {
+        const lasts = runners.map((p) => both(() => lastOf(p))).join(' ').split(' ');
+        out.push({ kind: 'runby', d, c, runners, lasts });
+      }
       const seen = new Set();
       for (const p of c.personnel || []) {
         const k = `${p.firstName}|${p.lastName}`;
@@ -2895,14 +2907,32 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const words = q.split(' ');
     // a name that starts with what's typed first, then a word in it that does, then anywhere
     const score = (t) => (t.startsWith(q) ? 0 : t.includes(` ${words[0]}`) ? 1 : 2);
-    const found = buildSearch().filter((it) => words.every((w) => it.text.includes(w)));
+    const index = buildSearch();
+    const found = index.filter((it) => it.text && words.every((w) => it.text.includes(w)));
     let html = '';
+    // a last name typed (owner, Oct 13: "input a last name and then see all chabad houses run by a person with that
+    // last name"): every center run by someone of that name, all of them, before the people themselves
+    const runby = words.length === 1 && q.length >= 2 ? index.filter((it) => it.kind === 'runby' && it.lasts.some((l) => l.startsWith(q))) : [];
+    if (runby.length) {
+      // a last name in both languages, folded, to tell whose it is
+      const lastBoth = (p) => { const was = HE; HE = false; const en = fold(lastOf(p)); HE = !!heData; const he = heData ? fold(lastOf(p)) : ''; HE = was; return [en, he]; };
+      const named = (p) => lastBoth(p).some((l) => l.split(' ').some((w) => w.startsWith(q)));
+      const names = [...new Set(runby.flatMap((it) => it.runners.filter(named).map(lastOf)))];
+      const who = names.slice(0, 3).join(', ') + (names.length > 3 ? '…' : '');
+      html += `<li class="grp" role="presentation">${HE ? `בתי חב״ד בניהול ${esc(who)} (${runby.length})` : `Chabad houses run by ${esc(who)} (${runby.length})`}</li>`;
+      runby.sort((x, y) => String(x.c.city).localeCompare(String(y.c.city)) || String(x.c.name).localeCompare(String(y.c.name)));
+      for (const it of runby) {
+        const sub = [it.runners.filter(named).map(personName).join(', '), it.c.city].filter(Boolean).join(' · ');
+        html += `<li class="hit" role="option" id="sr-${searchHits.length}" data-i="${searchHits.length}" aria-selected="false"><b>${esc(it.c.name)}</b><span>${esc(sub)}</span></li>`;
+        searchHits.push(it);
+      }
+    }
     for (const [kind, max, en, he] of GROUPS) {
       const list = found.filter((it) => it.kind === kind).sort((a, b) => score(a.text) - score(b.text) || a.text.localeCompare(b.text)).slice(0, max);
       if (!list.length) continue;
       html += `<li class="grp" role="presentation">${HE ? he : en}</li>`;
       for (const it of list) {
-        const [title, sub] = it.kind === 'shetach' ? [it.s.name, it.s.headShliach ? `${tr('Head shliach')}: ${it.s.headShliach}` : '']
+        const [title, sub] = it.kind === 'shetach' ? [it.s.name, [it.s.vaad && it.s.vaadFirst ? it.s.vaad : '', it.s.headShliach ? `${tr('Head shliach')}: ${it.s.headShliach}` : ''].filter(Boolean).join(' · ')]
           : it.kind === 'person' ? [personName(it.p), [it.c.name, it.c.city].filter(Boolean).join(' · ')]
           : it.kind === 'center' ? [it.c.name, [it.c.type, it.c.city].filter(Boolean).join(' · ')]
           : [it.city.name, count(it.city.centers)];

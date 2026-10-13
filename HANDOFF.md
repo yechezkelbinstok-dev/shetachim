@@ -8,6 +8,12 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 13: smaller capital stars when zoomed out
+- Owner (screenshot of the world view zoomed to the Americas): "I hate how when you zoom out it shows these way to massive
+  stars". The `caps` icon-size went by the view's own fit (`zFit` to `zFit`+3), so in the world view, whose fit is far
+  out, a continent already had stars at 0.6–0.75. Now it goes by the map's zoom itself: 0.3 at zoom 1, 0.38 at 2, 0.48
+  at 3.5, 0.62 at 5, 0.85 at 7, full size at 9, in every view.
+
 ## ▶ Oct 13: the Silberbergs of London, Ontario shown as "Spencer"
 - Owner: show the Silberberg couple (Mordechai and Nechamie) as "Rabbi Spencer and Mrs. Spencer", a family nickname
   (it isn't online; don't "correct" it back). A new `rename` fix in data/extra-centers.json (by center: 119816 Chabad at

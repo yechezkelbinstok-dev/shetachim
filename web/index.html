@@ -2419,8 +2419,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       show(id('caps'), on && state.capitals);
       show(id('cap-names'), on && state.capitals && !street);
       show(id('honor'), on);
-      const zs = T.zFit ?? 2;
-      map.setLayoutProperty(id('caps'), 'icon-size', ['interpolate', ['linear'], ['zoom'], zs, phone() ? 0.42 : 0.6, zs + 3, 1]);
+      // by how far in the map is, not by the view's own fit: zoomed out on a continent the stars were far too big
+      // (owner, Oct 13: "way too massive stars"); full size only at about state level
+      map.setLayoutProperty(id('caps'), 'icon-size', ['interpolate', ['linear'], ['zoom'], 1, 0.3, 2, 0.38, 3.5, 0.48, 5, 0.62, 7, 0.85, 9, 1]);
     }
     if (pinned) showCard(pinned, lastPoint, true);
   }

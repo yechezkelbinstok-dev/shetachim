@@ -8,6 +8,14 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 13: Long Island is part of New York City's shetach
+- Owner: "add long island to the NYC shetach". Nassau and Suffolk (36059, 36103) moved into `new-york-city`'s
+  territory; the `long-island` shetach (Tuvia Teldon, capital 117681) is gone, from data/hebrew/shetachim.json and
+  web/data/he.json too. Teldon is on Tzach's board already. Rebuilt.
+- Tzach's board: the owner asked about Goldman as chairman and Butman as director. Both have passed away (Rabbi Moshe
+  Pesach Goldman, chairman/secretary, Sept 2025; Rabbi Shmuel Butman, director, July 2024). The board stays the April
+  2026 kinus list; no current chairman or director found. Asked the owner.
+
 ## ▶ Oct 13: the Rebbeim on Lubavitch's card
 - Owner: "put all the Rebbeim that reigned from Lubavitch … by the Lubavitch listing". `LUBAVITCH_REBBEIM` /
   `rebbeimHTML` on the honor card: "Rebbeim in Lubavitch:" / "נשיאי חב״ד בליובאוויטש:", then the Mitteler Rebbe

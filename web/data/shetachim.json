@@ -810,14 +810,48 @@
    "vaad": "Vaad Hashluchim of Florida",
    "vaadFirst": true,
    "vaadMembers": [
-     {"firstName": "Yosef", "lastName": "Raichik", "town": "Boynton Beach", "role": "Head"},
-     {"firstName": "Yossie", "lastName": "Biston", "town": "Parkland"},
-     {"firstName": "Berl", "lastName": "Goldman", "town": "Gainesville"},
-     {"firstName": "Eli", "lastName": "Lipskar", "town": "Miami"},
-     {"firstName": "Zalman", "lastName": "Levitin", "town": "Palm Beach"},
-     {"firstName": "Meir", "lastName": "Kessler", "town": "Boca Raton"},
-     {"firstName": "Fishel", "lastName": "Zaklos", "town": "Naples"},
-     {"firstName": "Sholom", "lastName": "Dubov", "town": "Maitland", "role": "Alternate"}
+    {
+     "firstName": "Yosef",
+     "lastName": "Raichik",
+     "town": "Boynton Beach",
+     "role": "Head"
+    },
+    {
+     "firstName": "Yossie",
+     "lastName": "Biston",
+     "town": "Parkland"
+    },
+    {
+     "firstName": "Berl",
+     "lastName": "Goldman",
+     "town": "Gainesville"
+    },
+    {
+     "firstName": "Eli",
+     "lastName": "Lipskar",
+     "town": "Miami"
+    },
+    {
+     "firstName": "Zalman",
+     "lastName": "Levitin",
+     "town": "Palm Beach"
+    },
+    {
+     "firstName": "Meir",
+     "lastName": "Kessler",
+     "town": "Boca Raton"
+    },
+    {
+     "firstName": "Fishel",
+     "lastName": "Zaklos",
+     "town": "Naples"
+    },
+    {
+     "firstName": "Sholom",
+     "lastName": "Dubov",
+     "town": "Maitland",
+     "role": "Alternate"
+    }
    ],
    "capital": {
     "centerId": "117598",
@@ -936,11 +970,31 @@
    "vaad": "Vaad Hashluchim of New Jersey",
    "vaadFirst": true,
    "vaadMembers": [
-     {"firstName": "Shalom", "lastName": "Lubin", "town": "Florham Park"},
-     {"firstName": "Avi", "lastName": "Richler", "town": "Mullica Hill"},
-     {"firstName": "Sholly", "lastName": "Leverton", "town": "West Windsor"},
-     {"firstName": "Moshe", "lastName": "Gourarie", "town": "Toms River"},
-     {"firstName": "Ephraim", "lastName": "Simon", "town": "Teaneck"}
+    {
+     "firstName": "Shalom",
+     "lastName": "Lubin",
+     "town": "Florham Park"
+    },
+    {
+     "firstName": "Avi",
+     "lastName": "Richler",
+     "town": "Mullica Hill"
+    },
+    {
+     "firstName": "Sholly",
+     "lastName": "Leverton",
+     "town": "West Windsor"
+    },
+    {
+     "firstName": "Moshe",
+     "lastName": "Gourarie",
+     "town": "Toms River"
+    },
+    {
+     "firstName": "Ephraim",
+     "lastName": "Simon",
+     "town": "Teaneck"
+    }
    ],
    "capital": {
     "centerId": "117657",
@@ -1032,11 +1086,30 @@
    "headShliach": "Tzach",
    "headTitle": "Leadership",
    "vaadMembers": [
-     {"firstName": "Kasriel", "lastName": "Kastel", "town": "Brooklyn"},
-     {"firstName": "Shlomo", "lastName": "Friedman", "town": "Brooklyn"},
-     {"firstName": "Sholom", "lastName": "Tenenbaum"},
-     {"firstName": "Tuvia", "lastName": "Teldon", "town": "Commack"},
-     {"firstName": "Leibel", "lastName": "Baumgarten", "town": "East Hampton"}
+    {
+     "firstName": "Kasriel",
+     "lastName": "Kastel",
+     "town": "Brooklyn"
+    },
+    {
+     "firstName": "Shlomo",
+     "lastName": "Friedman",
+     "town": "Brooklyn"
+    },
+    {
+     "firstName": "Sholom",
+     "lastName": "Tenenbaum"
+    },
+    {
+     "firstName": "Tuvia",
+     "lastName": "Teldon",
+     "town": "Commack"
+    },
+    {
+     "firstName": "Leibel",
+     "lastName": "Baumgarten",
+     "town": "East Hampton"
+    }
    ],
    "capital": {
     "centerId": "117678",
@@ -1054,28 +1127,6 @@
      "city": "Brooklyn",
      "lat": 40.66897,
      "lon": -73.94282
-    }
-   ]
-  },
-  {
-   "id": "long-island",
-   "name": "Long Island",
-   "short": "LI",
-   "headShliach": "Tuvia Teldon",
-   "capital": {
-    "centerId": "117681",
-    "name": "Lubavitch of Long Island",
-    "city": "Commack",
-    "lat": 40.83535,
-    "lon": -73.26695
-   },
-   "capitals": [
-    {
-     "centerId": "117681",
-     "name": "Lubavitch of Long Island",
-     "city": "Commack",
-     "lat": 40.83535,
-     "lon": -73.26695
     }
    ]
   },
@@ -2300,19 +2351,72 @@
    "headShliach": "Hanholo of Chabad Lubavitch UK",
    "headTitle": "Leadership",
    "vaadMembers": [
-     {"firstName": "Yeremiyahu", "lastName": "Angyalfi", "town": "Leeds"},
-     {"firstName": "Shmuel", "lastName": "Arkush", "town": "Birmingham"},
-     {"firstName": "Nissan Dovid", "lastName": "Dubov", "town": "London"},
-     {"firstName": "Pesach", "lastName": "Efune", "town": "Brighton"},
-     {"firstName": "Menachem", "lastName": "Junik", "town": "London"},
-     {"firstName": "Dovid", "lastName": "Katz", "town": "London"},
-     {"firstName": "Mendy", "lastName": "Korer", "town": "London"},
-     {"firstName": "Shmuel", "lastName": "Lew", "town": "London"},
-     {"firstName": "Yehuda", "lastName": "Pink", "town": "Solihull"},
-     {"firstName": "Leivi", "lastName": "Sudak", "town": "Edgware"},
-     {"firstName": "Bentzi", "lastName": "Sudak", "town": "London"},
-     {"firstName": "Aryeh M.", "lastName": "Sufrin", "town": "Woodford Green", "townHe": "וודפורד גרין"},
-     {"firstName": "Yitzchok Tzvi", "lastName": "Sufrin", "town": "London"}
+    {
+     "firstName": "Yeremiyahu",
+     "lastName": "Angyalfi",
+     "town": "Leeds"
+    },
+    {
+     "firstName": "Shmuel",
+     "lastName": "Arkush",
+     "town": "Birmingham"
+    },
+    {
+     "firstName": "Nissan Dovid",
+     "lastName": "Dubov",
+     "town": "London"
+    },
+    {
+     "firstName": "Pesach",
+     "lastName": "Efune",
+     "town": "Brighton"
+    },
+    {
+     "firstName": "Menachem",
+     "lastName": "Junik",
+     "town": "London"
+    },
+    {
+     "firstName": "Dovid",
+     "lastName": "Katz",
+     "town": "London"
+    },
+    {
+     "firstName": "Mendy",
+     "lastName": "Korer",
+     "town": "London"
+    },
+    {
+     "firstName": "Shmuel",
+     "lastName": "Lew",
+     "town": "London"
+    },
+    {
+     "firstName": "Yehuda",
+     "lastName": "Pink",
+     "town": "Solihull"
+    },
+    {
+     "firstName": "Leivi",
+     "lastName": "Sudak",
+     "town": "Edgware"
+    },
+    {
+     "firstName": "Bentzi",
+     "lastName": "Sudak",
+     "town": "London"
+    },
+    {
+     "firstName": "Aryeh M.",
+     "lastName": "Sufrin",
+     "town": "Woodford Green",
+     "townHe": "וודפורד גרין"
+    },
+    {
+     "firstName": "Yitzchok Tzvi",
+     "lastName": "Sufrin",
+     "town": "London"
+    }
    ],
    "capital": {
     "centerId": "117824",
@@ -2699,9 +2803,20 @@
    "headShliach": "Yosef Yitzchak Aharonov",
    "vaad": "Vaad of Tzeirei Agudas Chabad",
    "vaadMembers": [
-     {"firstName": "Arik", "lastName": "Lipsker", "town": "Rechovot"},
-     {"firstName": "Gershon Chanoch", "lastName": "Shnur", "town": "Ganei Tikva"},
-     {"firstName": "Michael Yosef", "lastName": "Dor"}
+    {
+     "firstName": "Arik",
+     "lastName": "Lipsker",
+     "town": "Rechovot"
+    },
+    {
+     "firstName": "Gershon Chanoch",
+     "lastName": "Shnur",
+     "town": "Ganei Tikva"
+    },
+    {
+     "firstName": "Michael Yosef",
+     "lastName": "Dor"
+    }
    ],
    "capital": {
     "centerId": "118095",

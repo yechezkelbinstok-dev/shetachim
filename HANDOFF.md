@@ -8,6 +8,13 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 13: the Silberbergs of London, Ontario shown as "Spencer"
+- Owner: show the Silberberg couple (Mordechai and Nechamie) as "Rabbi Spencer and Mrs. Spencer", a family nickname
+  (it isn't online; don't "correct" it back). A new `rename` fix in data/extra-centers.json (by center: 119816 Chabad at
+  Western, 117792 Friends of Lubavitch London), applied in scripts/build-data.mjs after chabad.org's personnel are
+  joined (a plain `personnel` fix would be overwritten there). firstName "Rabbi" / "Mrs.", lastName "Spencer";
+  Hebrew הרב / הרבנית / ספנסר added to data/hebrew/*-names.json. web/data was edited to match, no rebuild.
+
 ## ▶ Oct 13: a vaad's alternate, set apart
 - Owner: "The alternate member of the vaad shouldn't have the same prominence as everyone else". In `membersHTML`, a
   member with `role: "Alternate"` (Florida's Sholom Dubov) comes last, under a dashed line, smaller and grey.

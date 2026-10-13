@@ -1206,6 +1206,11 @@ async function main() {
   const personnelById = fs.existsSync(personnelFile) ? new Map(Object.entries(readJSON(personnelFile).personnel || {})) : new Map();
   for (const c of centers) { const p = personnelById.get(c.id); if (p && p.length) c.personnel = p; }
   if (personnelById.size) console.log(`personnel: ${personnelById.size} of ${centers.length} centers`);
+  // fixes' "rename": show a listed person under another name ("First Last" -> {firstName, lastName}), after the join above
+  for (const c of centers) {
+    const ren = (fixes[c.id] || {}).rename;
+    if (ren && c.personnel) c.personnel = c.personnel.map((x) => { const to = ren[`${x.firstName} ${x.lastName}`]; return to ? { ...x, ...to } : x; });
+  }
   // Shluchim murdered al kiddush Hashem (extra-centers.json "hyd", by center): passed away, HY"D after the name instead
   // of obm, added to the center's people where chabad.org doesn't list them, and a memorial line on the center's card
   const centerById = new Map(centers.map((c) => [c.id, c]));

@@ -556,32 +556,16 @@
             "36081",
             "36085",
             "36119",
-            "36087"
+            "36087",
+            "36059",
+            "36103"
           ],
-          "name": "Bronx, Brooklyn, Manhattan, Queens, Staten Island, Westchester and Rockland"
+          "name": "Bronx, Brooklyn, Manhattan, Queens, Staten Island, Westchester, Rockland, Nassau and Suffolk"
         }
       ],
       "capital": {
         "centerId": "117678",
         "world": true
-      }
-    },
-    {
-      "id": "long-island",
-      "name": "Long Island",
-      "short": "LI",
-      "headShliach": "Tuvia Teldon",
-      "territory": [
-        {
-          "counties": [
-            "36059",
-            "36103"
-          ],
-          "name": "Nassau and Suffolk counties"
-        }
-      ],
-      "capital": {
-        "centerId": "117681"
       }
     },
     {

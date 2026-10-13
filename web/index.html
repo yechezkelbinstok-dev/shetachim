@@ -137,6 +137,14 @@ button:focus-visible, input:focus-visible, a:focus-visible, summary:focus-visibl
 #search-results .hit[aria-selected="true"], #search-results .hit:hover { background: var(--accent-soft); }
 #search-results .hit b { font-weight: 600; }
 #search-results .hit span { color: var(--muted); font-size: 13px; }
+#search-results .tabs { display: flex; gap: 6px; padding: 6px 10px 4px; }
+#search-results .tabs button { border: 1px solid var(--panel-line); background: transparent; color: inherit; border-radius: 999px; padding: 3px 12px; font: 500 13px var(--font-ui); cursor: pointer; }
+#search-results .tabs button[aria-selected="true"] { background: var(--accent); border-color: var(--accent); color: var(--panel); }
+#mark-chip { display: inline-flex; align-items: center; gap: 6px; margin-top: 6px; padding: 4px 6px 4px 12px; background: #e8590c; color: #fff; border-radius: 999px;
+  box-shadow: var(--shadow); font: 500 13px var(--font-ui); max-width: 100%; }
+#mark-chip[hidden] { display: none; }
+#mark-chip span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#mark-chip button { flex: none; width: 22px; height: 22px; border: 0; border-radius: 999px; background: rgb(255 255 255 / .2); color: inherit; cursor: pointer; display: grid; place-items: center; }
 #search-results .none { padding: 10px 14px; color: var(--muted); font-size: 14px; }
 @media (max-width: 760px) {
   #search { top: 12px; left: 12px; right: 56px; width: auto; }
@@ -404,6 +412,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       <button id="search-clear" type="button" hidden><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
     </div>
     <ul id="search-results" role="listbox" hidden></ul>
+    <div id="mark-chip" hidden><span id="mark-chip-text"></span><button id="mark-chip-x" type="button"><svg viewBox="0 0 16 16" width="12" height="12" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button></div>
   </div>
 
   <div id="zoomctl" role="group" aria-label="Zoom">
@@ -1779,6 +1788,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // colours the map draws with: the theme's (CSS), except on the physical map, which is always light
   const PHYS_TINTS = ['#e6c84a', '#8fc46a', '#e48a7e', '#7fa8de', '#eea25a', '#ad8fd0', '#5fbfae', '#c9b27e'];
   const MUSHROOM_DOT = '#c0392b'; // mushrooms' dots (owner, Oct 12: "clearly singled out")
+  const MARK = '#e8590c'; // a family's houses picked in the search: rings in a colour nothing else on the map uses
   const PHYS = { ink: '#1e2b32', halo: '#ffffff', dot: '#163e74', accent: '#1d4f8f', missing: '#6b7780', secondary: '#3d5f8f' };
   // The political map's land and sea, the street map's own (light) or a night version of it (dark).
   const GROUND = { light: { land: '#f8f4f0', water: '#a9c7f2', coast: '#8fb2e4', border: '#ffffff', grey: 'hsl(248,2%,50%)' },
@@ -1944,7 +1954,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function addOverlay(sfx) {
     const flat = sfx === '-f', id = (n) => n + sfx;
     const src = (n) => map.addSource(id(n), { type: 'geojson', data: EMPTY, tolerance: n === 'names' ? 0 : 0.25 });
-    for (const n of ['boxes', 'land-all', 'land', 'areas', 'mesh', 'outside', 'outside-lines', 'hover-area', 'hover-dot', 'dots', 'names', 'cities', 'caps', 'seas']) src(n);
+    for (const n of ['boxes', 'land-all', 'land', 'areas', 'mesh', 'outside', 'outside-lines', 'hover-area', 'hover-dot', 'mark', 'dots', 'names', 'cities', 'caps', 'seas']) src(n);
     const add = (layer, before) => map.addLayer({ ...layer, id: id(layer.id), source: id(layer.source) }, flat ? undefined : before);
     const under = physicalOK ? waterBefore : undefined, over = physicalOK ? lineBefore : undefined;
     // the land (flat: there's no street map), the land no shetach covers (Rest of the world), the shetachim
@@ -1979,6 +1989,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     add({ id: 'hover-area', type: 'line', source: 'hover-area', layout: { 'line-join': 'round' }, paint: { 'line-width': 2.5 } });
     add({ id: 'dots', type: 'circle', source: 'dots' });
     add({ id: 'hover-dot', type: 'circle', source: 'hover-dot', paint: { 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-width': 2 } });
+    // a family's houses picked in the search (owner, Oct 13): a bright ring round each
+    add({ id: 'mark', type: 'circle', source: 'mark', paint: { 'circle-stroke-width': 2.5, 'circle-opacity': 0.35 } });
     // Names. The map places a layer higher up first, so Lubavitch and the capitals come first, then the shetachim's
     // names, then cities where there's room left; within a layer, the biggest first.
     if (flat) {
@@ -2095,6 +2107,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     frameView(animate && prev && !prev.flat);
     apply();
     warmNames();
+    showMark();
   }
   // What each of the map's sources holds: [set, what]. A source is handed data only when that changes (the map copies
   // all it's handed: the world's shapes, handed over again and again, took it seconds).
@@ -2364,6 +2377,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       show(id('hover-area'), on);
       paint(id('hover-dot'), 'circle-radius', ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], zf - 2, ['+', r(-2), 2.5], zf + Math.log2(60), ['+', r(Math.log2(60)), 2.5]]);
       paint(id('hover-dot'), 'circle-stroke-color', pal.accent);
+      show(id('mark'), on);
+      paint(id('mark'), 'circle-radius', ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], zf - 2, ['+', r(-2), 4], zf + Math.log2(60), ['+', r(Math.log2(60)), 5]]);
+      paint(id('mark'), 'circle-color', MARK);
+      paint(id('mark'), 'circle-stroke-color', MARK);
       paint(id('hover-area'), 'line-color', pal.accent);
       // names, cities, capitals: in the street map's way (dark grey with a soft white halo); on the street map its own
       // cities, which ours would only double
@@ -2858,9 +2875,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const sq = $('#search-q'), sres = $('#search-results'), sclear = $('#search-clear');
   const fold = (t) => String(t || '').toLowerCase().normalize('NFD').replace(/[̀-֑ͯ-ׇ]/g, '')
     .replace(/[׳״'"`’‘.,()\-\/·]/g, ' ').replace(/\s+/g, ' ').trim();
-  let searchIndex = null, searchKey = '', searchHits = [], searchSel = -1;
+  let searchIndex = null, searchKey = '', searchHits = [], searchSel = -1, searchFamilies = [], searchMode = 'all', marked = null;
   function searchWords() {
-    sq.placeholder = HE ? 'חיפוש שלוחים, בתי חב״ד, ערים, שטחים' : 'Search shluchim, Chabad houses, cities…';
+    sq.placeholder = searchMode === 'last' ? (HE ? 'שם משפחה…' : 'Last name…') : HE ? 'חיפוש שלוחים, בתי חב״ד, ערים, שטחים' : 'Search shluchim, Chabad houses, cities…';
+    $('#mark-chip-x').setAttribute('aria-label', HE ? 'ביטול הסימון' : 'Clear the highlight');
+    if (marked) $('#mark-chip-text').textContent = HE ? `${marked.centers.size} בתי חב״ד בניהול ${marked.he || marked.en}` : `${marked.centers.size} Chabad ${marked.centers.size === 1 ? 'house' : 'houses'} run by ${marked.en}`;
     sq.setAttribute('aria-label', HE ? 'חיפוש' : 'Search');
     sclear.setAttribute('aria-label', HE ? 'ניקוי' : 'Clear');
   }
@@ -2871,6 +2890,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const was = HE;
     const both = (fn) => { HE = false; const en = fn(); let he = ''; if (heData) { HE = true; he = fn(); } HE = was; return fold(`${en} ${he}`); };
     const out = [];
+    const families = new Map();
     for (const s of shetachById.values()) {
       if (!pieces.some((g) => g.properties.shetach === s.id)) continue;
       out.push({ kind: 'shetach', s, text: both(() => [s.name, s.headShliach, s.short, s.lastName].join(' ')) });
@@ -2881,9 +2901,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const living = (c.personnel || []).filter((p) => !p.isDeceased);
       const primary = living.find(isMale) || living.find((p) => p.lastName);
       const runners = [...new Set([...living.filter((p) => p.isDirector), ...(primary ? [primary] : [])])].filter((p) => p.lastName);
-      if (runners.length) {
-        const lasts = runners.map((p) => both(() => lastOf(p))).join(' ').split(' ');
-        out.push({ kind: 'runby', d, c, runners, lasts });
+      for (const p of runners) {
+        HE = false; const en = lastOf(p); let he = ''; if (heData) { HE = true; he = lastOf(p); } HE = was;
+        const key = fold(en);
+        if (!key) continue;
+        const f = families.get(key) || families.set(key, { en, he, text: fold(`${en} ${he}`), dots: new Set(), centers: new Set() }).get(key);
+        f.dots.add(d);
+        f.centers.add(c);
       }
       const seen = new Set();
       for (const p of c.personnel || []) {
@@ -2895,6 +2919,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     }
     for (const city of cities) out.push({ kind: 'city', city, text: both(() => city.name) });
     searchKey = key;
+    searchFamilies = [...families.values()];
     return (searchIndex = out);
   }
   const GROUPS = [['shetach', 5, 'Shetachim', 'שטחים'], ['person', 15, 'Shluchim', 'שלוחים'], ['center', 15, 'Centers', 'מוסדות'], ['city', 6, 'Cities', 'ערים']];
@@ -2903,30 +2928,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     sclear.hidden = !sq.value;
     searchHits = [];
     searchSel = -1;
-    if (!q) { sres.hidden = true; sq.setAttribute('aria-expanded', 'false'); return; }
+    if (searchMode === 'last') { lastNameResults(q); return; }
+    if (!q) { showResults(''); return; }
     const words = q.split(' ');
     // a name that starts with what's typed first, then a word in it that does, then anywhere
     const score = (t) => (t.startsWith(q) ? 0 : t.includes(` ${words[0]}`) ? 1 : 2);
     const index = buildSearch();
     const found = index.filter((it) => it.text && words.every((w) => it.text.includes(w)));
     let html = '';
-    // a last name typed (owner, Oct 13: "input a last name and then see all chabad houses run by a person with that
-    // last name"): every center run by someone of that name, all of them, before the people themselves
-    const runby = words.length === 1 && q.length >= 2 ? index.filter((it) => it.kind === 'runby' && it.lasts.some((l) => l.startsWith(q))) : [];
-    if (runby.length) {
-      // a last name in both languages, folded, to tell whose it is
-      const lastBoth = (p) => { const was = HE; HE = false; const en = fold(lastOf(p)); HE = !!heData; const he = heData ? fold(lastOf(p)) : ''; HE = was; return [en, he]; };
-      const named = (p) => lastBoth(p).some((l) => l.split(' ').some((w) => w.startsWith(q)));
-      const names = [...new Set(runby.flatMap((it) => it.runners.filter(named).map(lastOf)))];
-      const who = names.slice(0, 3).join(', ') + (names.length > 3 ? '…' : '');
-      html += `<li class="grp" role="presentation">${HE ? `בתי חב״ד בניהול ${esc(who)} (${runby.length})` : `Chabad houses run by ${esc(who)} (${runby.length})`}</li>`;
-      runby.sort((x, y) => String(x.c.city).localeCompare(String(y.c.city)) || String(x.c.name).localeCompare(String(y.c.name)));
-      for (const it of runby) {
-        const sub = [it.runners.filter(named).map(personName).join(', '), it.c.city].filter(Boolean).join(' · ');
-        html += `<li class="hit" role="option" id="sr-${searchHits.length}" data-i="${searchHits.length}" aria-selected="false"><b>${esc(it.c.name)}</b><span>${esc(sub)}</span></li>`;
-        searchHits.push(it);
-      }
-    }
     for (const [kind, max, en, he] of GROUPS) {
       const list = found.filter((it) => it.kind === kind).sort((a, b) => score(a.text) - score(b.text) || a.text.localeCompare(b.text)).slice(0, max);
       if (!list.length) continue;
@@ -2940,10 +2949,59 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         searchHits.push(it);
       }
     }
-    sres.innerHTML = html || `<li class="none">${HE ? 'לא נמצא' : 'Nothing found'}</li>`;
+    showResults(html || `<li class="none">${HE ? 'לא נמצא' : 'Nothing found'}</li>`);
+  }
+  // The dropdown: two tabs on top (everything, or last names), then the results.
+  function showResults(html) {
+    const tab = (m, en, he) => `<button type="button" role="tab" data-mode="${m}" aria-selected="${searchMode === m}">${HE ? he : en}</button>`;
+    sres.innerHTML = `<li class="tabs" role="presentation">${tab('all', 'All', 'הכל')}${tab('last', 'Last name', 'שם משפחה')}</li>${html}`;
     sres.hidden = false;
     sq.setAttribute('aria-expanded', 'true');
   }
+  // Last name (owner, Oct 13): "a separate place … search, click the last name, then it shows on the map highlighted all
+  // those ones". Each last name of someone who runs a center (a living director, or the shliach the card shows), with
+  // how many houses; a pick rings every one of them on the map.
+  function lastNameResults(q) {
+    buildSearch();
+    if (!q) { showResults(`<li class="none">${HE ? 'הקלידו שם משפחה' : 'Type a last name'}</li>`); return; }
+    const list = searchFamilies.filter((f) => f.text.split(' ').some((w) => w.startsWith(q)))
+      .sort((a, b) => (fold(a.en).startsWith(q) || fold(a.he).startsWith(q) ? 0 : 1) - (fold(b.en).startsWith(q) || fold(b.he).startsWith(q) ? 0 : 1) || b.centers.size - a.centers.size)
+      .slice(0, 30);
+    let html = '';
+    for (const f of list) {
+      const n = f.centers.size;
+      html += `<li class="hit" role="option" id="sr-${searchHits.length}" data-i="${searchHits.length}" aria-selected="false"><b>${esc(HE && f.he ? f.he : f.en)}</b><span>${HE ? (n === 1 ? 'בית חב״ד אחד' : `${n} בתי חב״ד`) : `${n} Chabad ${n === 1 ? 'house' : 'houses'}`}</span></li>`;
+      searchHits.push({ kind: 'family', f });
+    }
+    showResults(html || `<li class="none">${HE ? 'לא נמצא' : 'Nothing found'}</li>`);
+  }
+  // Ring a family's houses on the map, and frame them (switching to World if the view doesn't have them all).
+  function markFamily(f) {
+    marked = f;
+    closeSearch();
+    sq.blur();
+    hideCard();
+    const ds = [...f.dots];
+    if (!ds.every((d) => V.mainIds.has(d.piece))) { pressed('view', 'world'); state.view = 'world'; showView(false); }
+    showMark();
+    $('#mark-chip-text').textContent = HE ? `${f.centers.size} בתי חב״ד בניהול ${f.he || f.en}` : `${f.centers.size} Chabad ${f.centers.size === 1 ? 'house' : 'houses'} run by ${f.en}`;
+    $('#mark-chip').hidden = false;
+    if (!glOK) return;
+    const pts = ds.map((d) => within(V.cur, () => P(d.lon, d.lat))).filter(Boolean);
+    if (!pts.length) return;
+    const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1]);
+    const pad = 0.02;
+    map.fitBounds([[Math.min(...xs) - pad, Math.min(...ys) - pad], [Math.max(...xs) + pad, Math.max(...ys) + pad]], { padding: framePadding(), duration: still ? 0 : 1200, maxZoom: 11 });
+  }
+  function showMark() {
+    if (!glOK) return;
+    for (const T of [V.M, V.F]) {
+      if (!T || !map.getSource(`mark${T.sfx}`)) continue;
+      const ds = marked && T === V.cur ? [...marked.dots].filter((d) => V.mainIds.has(d.piece)) : [];
+      map.getSource(`mark${T.sfx}`).setData({ type: 'FeatureCollection', features: ds.map((d) => feature({ type: 'Point', coordinates: within(T, () => P(d.lon, d.lat)) }, { l: Math.log2(d.centers.length) })) });
+    }
+  }
+  function clearMark() { marked = null; $('#mark-chip').hidden = true; showMark(); }
   function selectHit(i) {
     searchSel = i;
     sres.querySelectorAll('.hit').forEach((el) => el.setAttribute('aria-selected', String(+el.dataset.i === i)));
@@ -2952,6 +3010,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
   function closeSearch() { sres.hidden = true; sq.setAttribute('aria-expanded', 'false'); }
   function goToHit(it) {
+    if (it.kind === 'family') { markFamily(it.f); return; }
     closeSearch();
     sq.blur();
     const shown = it.kind === 'shetach' ? V.main.some((g) => g.properties.shetach === it.s.id) : V.mainIds.has(it.d ? it.d.piece : it.city.piece);
@@ -2978,7 +3037,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     });
   }
   sq.addEventListener('input', runSearch);
-  sq.addEventListener('focus', () => { if (sq.value) runSearch(); });
+  sq.addEventListener('focus', runSearch);
   sq.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
       e.preventDefault();
@@ -2989,7 +3048,20 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     } else if (e.key === 'Escape') { e.stopPropagation(); closeSearch(); sq.blur(); }
   });
   sres.addEventListener('pointerdown', (e) => e.preventDefault()); // (keeps the field focused until the pick is made)
-  sres.addEventListener('click', (e) => { const el = e.target.closest('.hit'); if (el) goToHit(searchHits[+el.dataset.i]); });
+  sres.addEventListener('click', (e) => {
+    const t = e.target.closest('[data-mode]');
+    if (t) {
+      searchMode = t.dataset.mode;
+      sq.placeholder = searchMode === 'last' ? (HE ? 'שם משפחה…' : 'Last name…') : '';
+      if (searchMode !== 'last') searchWords();
+      runSearch();
+      sq.focus();
+      return;
+    }
+    const el = e.target.closest('.hit');
+    if (el) goToHit(searchHits[+el.dataset.i]);
+  });
+  $('#mark-chip-x').addEventListener('click', clearMark);
   sclear.addEventListener('click', () => { sq.value = ''; runSearch(); sq.focus(); });
   document.addEventListener('pointerdown', (e) => { if (!e.target.closest('#search')) closeSearch(); });
 

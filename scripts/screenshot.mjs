@@ -1,6 +1,6 @@
 // Screenshots of the map (testing only; see HANDOFF.md): node scripts/screenshot.mjs <outdir> <spec>...   spec = view:base:device:theme[:clicks]
 // device: desktop | phone; base: political | streets | physical | tinted; theme: light | dark; clicks, comma-separated:
-// <seg>=<value> (borders=both), check=<id>, more, wait=<ms>, go=<lon>/<lat>/<zoom>, type=<search text>, pick=<n>
+// <seg>=<value> (borders=both), check=<id>, more, wait=<ms>, go=<lon>/<lat>/<zoom>, type=<search text>, tab=all|last, pick=<n>
 // e.g. israel:physical:desktop:light:go=35.6/33.25/9
 import fs from 'node:fs';
 import path from 'node:path';
@@ -87,6 +87,7 @@ for (const spec of specs) {
     else if (name === 'go') await page.evaluate(([lon, lat, z]) => new Promise((r) => { window.__dbg.go(+lon, +lat, +z); setTimeout(r, 1500); }), value.split('/'));
     // type=<text>: into the search bar (its results open); pick=<n>: the n-th result (1 = the first), then the flight to it
     else if (name === 'type') { await page.fill('#search-q', decodeURIComponent(value)); await page.waitForTimeout(300); }
+    else if (name === 'tab') { await page.focus('#search-q'); await page.click(`#search-results [data-mode="${value}"]`); await page.waitForTimeout(200); }
     else if (name === 'pick') { await page.click(`#search-results .hit[data-i="${+value - 1}"]`); await page.waitForTimeout(2500); }
     else if (name === 'more') await page.evaluate(() => { document.querySelector('#more').open = true; });
     else await page.evaluate(([n, v]) => document.querySelector(`.seg[data-name="${n}"] [data-value="${v}"]`).click(), [name, value]);

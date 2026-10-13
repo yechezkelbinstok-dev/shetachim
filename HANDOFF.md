@@ -14,10 +14,12 @@ between two Claude accounts when usage limits run out; whichever session picks t
   a center's personnel), centers (name, city, chabad.org's Hebrew name) and cities, in English and Hebrew alike (the
   Hebrew side once he.json is loaded); the index is built on first use (`buildSearch`). Picking a result flies there and
   opens the same card a tap would; a result outside the current view switches to World first. Arrow keys / Enter work.
-- **Last name → every house he runs** (owner, Oct 13: "input a last name and then see all chabad houses run by a person
-  with that last name"): a one-word query that starts a last name lists, first, every center run by someone of that
-  name, all of them ("Chabad houses run by Cunin (18)"). "Runs" = a living director, or the shliach the card shows
-  (first living man, else the first woman). Items of kind `runby` in `buildSearch`.
+- **Last name → his houses on the map** (owner, Oct 13: "a separate place to do it where you search, click the last name
+  then it shows on the map highlighted all those ones" — NOT rows in the normal results; that first try was reverted).
+  The search dropdown has two tabs, All / Last name. Last name lists each last name of someone who runs a center (a
+  living director, or the shliach the card shows: first living man, else the first woman) with how many houses; a pick
+  rings every one of them in orange (`mark` layer, `MARK` colour), frames them (World if the view lacks some) and shows
+  a chip "31 Chabad houses run by Shemtov ✕" under the bar that clears it. `searchFamilies`, `markFamily`, `showMark`.
 - **Vaad first in Florida and New Jersey** (owner, Oct 13): `vaadFirst: true` in data/shetachim.json (and the build's
   copy, web/data/shetachim.json; the build passes it through). Card: "Leadership: Vaad…" then "Head shliach: …";
   one-line mentions "Florida · Vaad… · Benjy Korf"; Head shliach labels on the map: the vaad, his name under it.

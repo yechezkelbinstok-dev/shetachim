@@ -14,7 +14,8 @@ between two Claude accounts when usage limits run out; whichever session picks t
   no not in his own box, he should be the leader tho and def bigger than other shluchim."
 - Now: 770's dot opens the world-HQ capital card (`showCard`). Under its title is `rebbeHTML` (center 117678,
   `WORLD_HQ`): a plain line, 18px bold, bigger than the people listed. English: "The Lubavitcher Rebbe Shlita".
-  Hebrew: "אדמו״ר הרבי מליובאוויטש זצוקללה״ה נבג״מ זי״ע" (owner's wording: the shortened אדמו״ר, then
+  Hebrew: "אדמו״ר הרבי מליובאוויטש זצוקללה״ה נבג״מ זי״ע". Then his role, as Krinsky's line has "Director": "· Leader" / "· נשיא" (owner: "He needs to be specified
+  as the leader much like a shliach is a head shliach and krinsky is director") (owner's wording: the shortened אדמו״ר, then
   those titles after). Never "obm" / ע״ה for the Rebbe. The other listings at the address sit in a small
   "N more listings at this address" expander (`details.at-address`).
 

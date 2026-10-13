@@ -8,6 +8,12 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 13: the Quad Cities are Illinois's
+- Owner: "the quad cities shliach is under Illinois … you can figure out" how far into Iowa. Illinois's territory adds
+  Scott County, Iowa (19163: Davenport, Bettendorf), the Iowa side of the Quad Cities; Rock Island and Moline were
+  Illinois's already. The one center there is Chabad Lubavitch of Quad Cities, Bettendorf (Cadaner). Muscatine and
+  Clinton counties stay Iowa's (no centers). Illinois now needs `short: "IL"`; partNames gives US-IA's parts.
+
 ## ▶ Oct 13: Long Island is part of New York City's shetach
 - Owner: "add long island to the NYC shetach". Nassau and Suffolk (36059, 36103) moved into `new-york-city`'s
   territory; the `long-island` shetach (Tuvia Teldon, capital 117681) is gone, from data/hebrew/shetachim.json and

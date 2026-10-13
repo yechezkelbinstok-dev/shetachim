@@ -2590,7 +2590,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // 770, Chabad Lubavitch Headquarters: the Rebbe as its leader, first and bigger than any shliach's line (owner,
   // Oct 13: "the Rebbe as the leader … def bigger than other shluchim", not in a box of his own)
   const WORLD_HQ = '117678';
-  const rebbeHTML = (c) => (c && c.id === WORLD_HQ ? `<p class="rebbe"><span class="role">${HE ? 'נשיא הדור:' : 'Leader:'}</span> ${HE ? 'כ״ק אדמו״ר מליובאוויטש זצוקללה״ה נבג״מ זי״ע' : 'The Lubavitcher Rebbe, zy"a'}</p>` : '');
+  const rebbeHTML = (c) => (c && c.id === WORLD_HQ ? `<p class="rebbe"><span class="role">${HE ? 'נשיא הדור:' : 'Leader:'}</span> ${HE ? 'כ״ק אדמו״ר נשיא דורנו זצוקללה״ה נבג״מ זי״ע' : 'The Lubavitcher Rebbe, zy"a'}</p>` : '');
   function personnelHTML(list) {
     if (!list || !list.length) return '';
     const living = list.filter((p) => !p.isDeceased), passed = list.filter((p) => p.isDeceased);
@@ -2644,7 +2644,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     ['The Mitteler Rebbe', 'Rabbi DovBer', 'כ״ק אדמו״ר האמצעי', 'רבי דובער', '1813–1827', 'תקע״ג–תקפ״ח'],
     ['The Tzemach Tzedek', 'Rabbi Menachem Mendel', 'כ״ק אדמו״ר הצמח צדק', 'רבי מנחם מענדל', '1827–1866', 'תקפ״ח–תרכ״ו', true],
     ['The Rebbe Maharash', 'Rabbi Shmuel', 'כ״ק אדמו״ר מהר״ש', 'רבי שמואל', '1866–1882', 'תרכ״ו–תרמ״ג', true],
-    ['The Rebbe Rashab', 'Rabbi Sholom DovBer', 'כ״ק אדמו״ר מהורש״ב', 'רבי שלום דובער', '1882–1915', 'תרמ״ג–תרע״ה'],
+    ['The Rebbe Rashab', 'Rabbi Sholom DovBer', 'כ״ק אדמו״ר הרש״ב', 'רבי שלום דובער', '1882–1915', 'תרמ״ג–תרע״ה'],
   ];
   const rebbeimHTML = () => `<p class="rebbe"><span class="role">${HE ? 'נשיאי חב״ד בליובאוויטש:' : 'Rebbeim in Lubavitch:'}</span></p><ol class="rebbeim">${
     LUBAVITCH_REBBEIM.map(([en, enName, he, heName, years, heYears, ohel]) => `<li><strong>${HE ? `${he} זי״ע` : `${en}, zy"a`}</strong>

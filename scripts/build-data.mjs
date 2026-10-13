@@ -818,7 +818,7 @@ async function buildGeo(data) {
     '-o geo.json format=topojson quantization=200000 target=areas,frame',
     { 'mosaic.json': collectionOf(mosaic) },
   );
-  fs.writeFileSync(path.join(OUT, 'geo.json'), out['geo.json']);
+  fs.writeFileSync(path.join(OUT, 'geo.json'), withLandEdges(out['geo.json'], out['outside.json']));
   // The whole world, land no shetach covers included (marked outside), for the world names SVG (scripts/export-svg.mjs).
   fs.writeFileSync(at('data', 'world-all.json'), out['world.json']);
   fs.writeFileSync(path.join(OUT, 'outside.json'), out['outside.json']);
@@ -1092,6 +1092,38 @@ function writeTiles(topo, parentOf = new Map()) {
     bytes += buf.length;
   }
   console.log(`tiles: ${n} files, ${(bytes / 1e6).toFixed(1)} MB (${lines.length} edges, ${land.length} land groups)`);
+}
+
+// geo.json's open edges (an area with nothing of the map's beside it) are coasts, except where the land no shetach covers
+// is on the other side: there the political map draws a border like any other (owner, Oct 13: "Why are there not
+// proper borders when there's no other territory bordering it"). outside.json is on the same grid and meets the
+// shetachim point for point, so a segment of an open edge that's also one of outside.json's borders against the
+// land of the map. Kept as topo.landEdges: { arc index: [[first point, last point], …] }, points of the arc as stored.
+function withLandEdges(geoText, outsideText) {
+  const geo = JSON.parse(geoText), out = JSON.parse(outsideText);
+  const abs = (t) => t.arcs.map((arc) => { let x = 0, y = 0; return arc.map(([a, b]) => [(x += a), (y += b)]); });
+  const key = (p, q) => (p[0] < q[0] || (p[0] === q[0] && p[1] < q[1]) ? `${p}|${q}` : `${q}|${p}`);
+  const segs = new Set();
+  for (const arc of abs(out)) for (let i = 1; i < arc.length; i++) segs.add(key(arc[i - 1], arc[i]));
+  const uses = new Map();
+  const visit = (rings) => { for (const ring of rings) for (const a of ring) { const i = a < 0 ? ~a : a; uses.set(i, (uses.get(i) || 0) + 1); } };
+  for (const g of geo.objects.areas.geometries) { if (g.type === 'Polygon') visit(g.arcs); else if (g.type === 'MultiPolygon') for (const poly of g.arcs) visit(poly); }
+  const arcs = abs(geo), edges = {};
+  let n = 0;
+  arcs.forEach((arc, i) => {
+    if (uses.get(i) !== 1) return;
+    const runs = [];
+    for (let j = 1; j < arc.length; j++) {
+      if (!segs.has(key(arc[j - 1], arc[j]))) continue;
+      const last = runs[runs.length - 1];
+      if (last && last[1] === j - 1) last[1] = j; else runs.push([j - 1, j]);
+      n++;
+    }
+    if (runs.length) edges[i] = runs;
+  });
+  geo.landEdges = edges;
+  console.log(`land edges: ${Object.keys(edges).length} arcs, ${n} segments next to land no shetach covers`);
+  return JSON.stringify(geo);
 }
 
 // Area in km² of a GeoJSON (Multi)Polygon, whichever way its rings wind.

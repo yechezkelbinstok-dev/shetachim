@@ -98,6 +98,7 @@ for (const spec of specs) {
     else if (name === 'open') { await page.click(decodeURIComponent(value)); await page.waitForTimeout(300); } // open=<selector>: click it (a card's details)
     else if (name === 'pick') { await page.click(`#search-results .hit[data-i="${+value - 1}"]`); await page.waitForTimeout(2500); }
     else if (name === 'honor') { await page.evaluate(() => window.__dbg.showCard({ capital: window.__dbg.capitals().find((c) => c.honor) })); await page.waitForTimeout(300); } // Lubavitch's card
+    else if (name === 'eval') console.log('eval:', JSON.stringify(await page.evaluate(decodeURIComponent(value)))); // eval=<js expression>, printed
     else if (name === 'more') await page.evaluate(() => { document.querySelector('#more').open = true; });
     else await page.evaluate(([n, v]) => document.querySelector(`.seg[data-name="${n}"] [data-value="${v}"]`).click(), [name, value]);
   }
@@ -106,7 +107,7 @@ for (const spec of specs) {
   await page.waitForFunction(() => window.__dbg && window.__dbg.settled && window.__dbg.settled(), null, { timeout: 90000 }).catch(() => errors.push(`${spec}: never settled`));
   await page.waitForTimeout(400);
   const stats = await page.evaluate(() => ['#view-name', '#st-shetachim', '#st-centers', '#st-dots', '#base-msg'].map((s) => document.querySelector(s).textContent).join(' | '));
-  const file = path.join(out, `${spec.replace(/[:/,=]/g, '_')}.png`);
+  const file = path.join(out, `${spec.replace(/[:/,=]/g, '_').slice(0, 120)}.png`);
   await page.screenshot({ path: file });
   console.log(`${spec}: ${stats}`);
   await ctx.close();

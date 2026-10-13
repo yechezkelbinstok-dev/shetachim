@@ -8,6 +8,16 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 13: a border where a shetach meets land no shetach covers (political map) — NOT LIVE YET, owner to confirm
+- Owner (screenshot: Saudi Arabia, Turkey, Central Africa against grey land): "Why are there not proper borders when
+  there's no other territory bordering it". The political map only drew a thin coast line there (geo.json's open edges
+  are all "coast"; the physical map got its purple border on such edges Oct 7, from the tiles). Build:
+  `withLandEdges` writes geo.json's `landEdges` ({arc: [[first, last point], …]}), the parts of open edges that are also
+  outside.json's borders (same grid, point for point); web/data/geo.json got it without a rebuild. Page: mesh kind
+  `edge` (`landEdgeLines`), layer `line-edge`, drawn grey (G.grey, 0.8–2 px) — the shetachim's white border can't be
+  seen against the grey land (tried). The owner stressed: don't change the existing white borders (unchanged). Waiting
+  on the owner's OK to push it live. screenshot.mjs gained `eval=<js>`.
+
 ## ▶ Oct 13: smaller capital stars when zoomed out
 - Owner (screenshot of the world view zoomed to the Americas): "I hate how when you zoom out it shows these way to massive
   stars". The `caps` icon-size went by the view's own fit (`zFit` to `zFit`+3), so in the world view, whose fit is far

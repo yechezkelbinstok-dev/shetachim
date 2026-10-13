@@ -8,6 +8,14 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 13: the Rebbeim on Lubavitch's card
+- Owner: "put all the Rebbeim that reigned from Lubavitch … by the Lubavitch listing". `LUBAVITCH_REBBEIM` /
+  `rebbeimHTML` on the honor card: "Rebbeim in Lubavitch:" / "נשיאי חב״ד בליובאוויטש:", then the Mitteler Rebbe
+  (1813–1827), the Tzemach Tzedek (1827–1866, ohel there), the Rebbe Maharash (1866–1882, ohel there), the Rebbe Rashab
+  (1882–1915), each with zy"a / זי״ע, his name and years (Hebrew years in Hebrew). The Alter Rebbe (Liadi) and the
+  Frierdiker Rebbe (Rebbe from 1920, after Lubavitch was left) aren't on it. Screenshot it with the `honor` action
+  (`world:political:phone:light:honor=1`).
+
 ## ▶ Oct 13: the Rebbe on 770's card
 - Owner, after two tries they didn't like (a shliach-style line, then a boxed block): "reverted to how it was before when
   it was hq by itself (maybe with a tiny expander to view all the many listings there) and the Rebbe as the leader. And

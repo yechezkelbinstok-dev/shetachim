@@ -234,6 +234,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 /* the Rebbe on 770's card: its leader, bigger than a shliach's line */
 #card .rebbe { margin: 4px 0 2px; color: var(--ink); font: 700 18px/1.25 var(--font-map); }
 #card .rebbe .role { white-space: nowrap; font-weight: 600; color: var(--muted); }
+#card ol.rebbeim { margin: 2px 0 10px; padding: 0; list-style: none; }
+#card ol.rebbeim li { margin: 0 0 6px; font: 600 16px/1.3 var(--font-map); color: var(--ink); }
+#card ol.rebbeim li .meta { display: block; font: 400 13px/1.3 var(--font-ui, inherit); }
 #card details.at-address .pother { margin-top: 4px; }
 #card .flag-world { color: var(--accent); font-weight: 600; font-style: normal; }
 .legend-mushroom { vertical-align: -2px; flex: none; }
@@ -2635,9 +2638,20 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return `${head}<ul>${items}</ul><div class="foot"><span class="meta">${shetachLine(d.piece, !d.centers.some((c) => c.mushroom))}</span></div>`;
   }
 
+  // The Rebbeim who led from Lubavitch, on its card (owner, Oct 13): the Mitteler Rebbe came in 1813, the Rebbe Rashab
+  // left in 1915; the Tzemach Tzedek and the Rebbe Maharash are buried there
+  const LUBAVITCH_REBBEIM = [
+    ['The Mitteler Rebbe', 'Rabbi DovBer', 'אדמו״ר האמצעי', 'רבי דובער', '1813–1827', 'תקע״ג–תקפ״ח'],
+    ['The Tzemach Tzedek', 'Rabbi Menachem Mendel', 'אדמו״ר הצמח צדק', 'רבי מנחם מענדל', '1827–1866', 'תקפ״ח–תרכ״ו', true],
+    ['The Rebbe Maharash', 'Rabbi Shmuel', 'אדמו״ר מהר״ש', 'רבי שמואל', '1866–1882', 'תרכ״ו–תרמ״ג', true],
+    ['The Rebbe Rashab', 'Rabbi Sholom DovBer', 'אדמו״ר מהורש״ב', 'רבי שלום דובער', '1882–1915', 'תרמ״ג–תרע״ה'],
+  ];
+  const rebbeimHTML = () => `<p class="rebbe"><span class="role">${HE ? 'נשיאי חב״ד בליובאוויטש:' : 'Rebbeim in Lubavitch:'}</span></p><ol class="rebbeim">${
+    LUBAVITCH_REBBEIM.map(([en, enName, he, heName, years, heYears, ohel]) => `<li><strong>${HE ? `${he} זי״ע` : `${en}, zy"a`}</strong>
+      <span class="meta">${esc([HE ? heName : enName, HE ? heYears : years, ohel ? (HE ? 'האוהל כאן' : 'ohel here') : ''].filter(Boolean).join(' · '))}</span></li>`).join('')}</ol>`;
   function capitalHTML(c) {
     if (c.honor) return `<h2 class="honor-h">${esc(c.name)}</h2>
-      <p class="meta">${HE ? 'מקום מושב הרביים, תקע״ג–תרע״ה' : 'Seat of the Rebbeim, 1813–1915'}</p>
+      <p class="meta">${HE ? 'מקום מושב הרביים, תקע״ג–תרע״ה' : 'Seat of the Rebbeim, 1813–1915'}</p>${rebbeimHTML()}
       <div class="subcard"><ul><li><strong>${HE ? 'חצר רבותינו נשיאינו בליובאוויטש' : "Hatzer Raboteinu Nesieinu B'Lubavitch"}</strong>
         <span class="meta">${esc([HE ? 'מרכז מורשת' : 'Heritage center', HE ? 'ליובאוויטש' : 'Lubavitch'].join(' · '))}</span>
         ${personnelHTML(LUBAVITCH_CENTER_PEOPLE)}</li></ul></div>`;
@@ -3167,7 +3181,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   if (phone()) { const at = document.querySelector('.maplibregl-ctrl-attrib'); if (at) at.classList.remove('maplibregl-compact-show'); }
   // ready: for tests and anyone curious
   window.__map = map;
-  window.__dbg = { map: () => map, showCard: (hit) => showCard(hit, { clientX: 400, clientY: 300 }, true), labelData, V: () => V, dotData, spotsFor, partsOf, polylabel, unlon, unlat, PX, setMode, centreLL, spanKm,
+  window.__dbg = { capitals: () => capitals, map: () => map, showCard: (hit) => showCard(hit, { clientX: 400, clientY: 300 }, true), labelData, V: () => V, dotData, spotsFor, partsOf, polylabel, unlon, unlat, PX, setMode, centreLL, spanKm,
     zoomTo: (st) => zoomToArea(pieces.find((g) => g.properties.state === st).properties.id),
     at: (lon, lat) => map.jumpTo({ center: within(V.cur, () => P(lon, lat)) }),
     go: (lon, lat, z) => { V.cur = V.M; limits(); apply(); map.jumpTo({ center: [lon, lat], zoom: z }); }, // go: a standard place and zoom (the map then picks flat or standard)

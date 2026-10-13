@@ -249,6 +249,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card .close { position: absolute; top: 6px; inset-inline-end: 6px; width: 26px; height: 26px; border: 0; border-radius: 6px; background: transparent; cursor: pointer; display: none; }
 #card.pinned .close { display: grid; place-items: center; }
 #card .close:hover { background: var(--accent-soft); }
+#card details.vaad { color: var(--muted); font-size: 13px; margin: 0; }
+#card details.vaad summary { cursor: pointer; color: var(--muted); }
+#card details.vaad summary::marker { color: var(--accent); }
+#card details.vaad ul { margin: 4px 0 4px; padding-inline-start: 16px; gap: 3px; }
+#card details.vaad li { display: block; color: var(--ink); }
 #card .zoomto { border: 1px solid var(--panel-line); background: transparent; border-radius: 999px; padding: 2px 10px; font-size: 13px; cursor: pointer; }
 #card .zoomto:hover { border-color: var(--accent); }
 
@@ -2652,6 +2657,21 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     }
     return shetachHTML(s, zoomBtn);
   }
+  // A vaad on a shetach's card: "Leadership: …", which opens to its members and their towns (owner, Oct 13)
+  const VAAD_ROLE_HE = { Head: 'יו״ר', Alternate: 'ממלא מקום', 'One-year term': 'לשנה אחת' };
+  const VAAD_NOTE_HE = { florida: 'נבחר בפברואר 2023 (273 שלוחים הצביעו)', 'new-jersey': 'נבחר ביוני 2025 לשלוש שנים (מעל 90% ממשפחות השלוחים הצביעו)' };
+  function vaadHTML(s) {
+    const line = `${tr('Leadership')}: ${esc(s.vaad)}`;
+    if (!s.vaadMembers || !s.vaadMembers.length) return `<p>${line}</p>`;
+    const town = (t) => {
+      if (!HE || !heData || !heData.cities) return t;
+      for (const st of s.states) if (heData.cities[`${t}|${st}`]) return heData.cities[`${t}|${st}`];
+      return heData.cities[t] || t;
+    };
+    const items = s.vaadMembers.map((m) => `<li>${esc(personName(m))}${m.role ? ` <span class="meta">(${esc(HE ? VAAD_ROLE_HE[m.role] || m.role : m.role)})</span>` : ''}<span class="meta"> · ${esc(town(m.town))}</span></li>`).join('');
+    const note = s.vaadNote ? `<p class="meta">${esc(HE ? VAAD_NOTE_HE[s.id] || s.vaadNote : s.vaadNote)}</p>` : '';
+    return `<details class="vaad"><summary>${line}</summary><ul>${items}</ul>${note}</details>`;
+  }
   // A shetach's card: its head (or "Overseen by" for a territory, "Shluchim: … family"), its capital(s), its centers
   function shetachHTML(s, zoomBtn) {
     // (the page's capitals, which hold both languages: name, town and claimant in Hebrew too)
@@ -2663,8 +2683,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       ${s.territoryOf && shetachById.get(s.territoryOf) ? (() => { const p = shetachById.get(s.territoryOf); return `<p>${HE ? 'בהנהגת' : 'Overseen by'} ${headHTML(p.headShliach)}</p>`; })()
         : s.noCentralLeadership ? `<p>${tr('No centralized leadership')}</p>`
         : s.headShliach && / family$|^משפחת /.test(s.headShliach) ? `<p>${HE ? 'שלוחים' : 'Shluchim'}: ${headHTML(s.headShliach)}</p>`
-        : s.headShliach && s.vaad && s.vaadFirst ? `<p>${tr('Leadership')}: ${esc(s.vaad)}</p><p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>`
-        : s.headShliach ? `<p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>${s.vaad ? `<p>${tr('Leadership')}: ${esc(s.vaad)}</p>` : ''}` : ''}${capital}
+        : s.headShliach && s.vaad && s.vaadFirst ? `${vaadHTML(s)}<p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>`
+        : s.headShliach ? `<p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>${s.vaad ? vaadHTML(s) : ''}` : ''}${capital}
       <div class="foot"><span class="meta">${count(centersInShetach(s))}</span>${zoomBtn}</div>`;
   }
 

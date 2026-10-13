@@ -8,6 +8,22 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 13: the vaads' members
+- Owner: "I could expand in each of the respective vaads to see the members of the vaad and their town". The card's
+  "Leadership: Vaad…" line is now a `<details>` (`vaadHTML`) that opens to the members, each with their town (from
+  their own center in the chabad.org data), and when they were chosen. Data: `vaadMembers` and `vaadNote` in
+  data/shetachim.json (and web/data/shetachim.json; the build passes them through); Hebrew comes from he.json's first,
+  last and city names, roles and notes from `VAAD_ROLE_HE` / `VAAD_NOTE_HE` in the page.
+  - **Florida** (owner: "Florida had a more recent election" than Korf's 2020 appointed seven): elected Feb 2023, 273
+    shluchim voting, 93% turnout (anash.org/new-members-elected-to-floridas-vaad-hashluchim, Feb 28 2023): Yosef
+    Raichik (head; crownheights.info, Aug 15 2023: "the newly elected head of the Vaad Hashluchim of Florida"),
+    Boynton Beach · Yossie Biston, Parkland · Berl Goldman, Gainesville · Eli Lipskar, Miami (The Shul of Downtown)
+    · Zalman Levitin, Palm Beach · Meir Kessler, Boca Raton · Fishel Zaklos, Naples; alternate Sholom Dubov, Maitland.
+    No term length given; if there's been a newer election, replace them.
+  - **New Jersey**: elected June 2025, 3-year terms (collive.com/new-vaad-hashluchim-elected-in-new-jersey): Shalom
+    Lubin, Florham Park · Avi Richler, Mullica Hill · Sholly Leverton, West Windsor · Moshe Gourarie, Toms River;
+    Ephraim Simon, Teaneck, for a one-year term (so it may have ended by June 2026 — ask the owner).
+
 ## ▶ Oct 13: coming back to the page
 - Owner's phone screenshots after returning to the browser: the font's letters drawn as a shetach's fill, blurred
   tiles. The Oct 11 in-place repair after a lost WebGL context (fresh tiles, icon and line atlases) wasn't enough.

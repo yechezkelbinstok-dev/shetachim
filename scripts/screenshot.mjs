@@ -95,6 +95,7 @@ for (const spec of specs) {
       await page.waitForFunction(() => document.querySelector('#st-dots').textContent !== '–', null, { timeout: 60000 });
       await page.waitForTimeout(4000);
     }
+    else if (name === 'open') { await page.click(decodeURIComponent(value)); await page.waitForTimeout(300); } // open=<selector>: click it (a card's details)
     else if (name === 'pick') { await page.click(`#search-results .hit[data-i="${+value - 1}"]`); await page.waitForTimeout(2500); }
     else if (name === 'more') await page.evaluate(() => { document.querySelector('#more').open = true; });
     else await page.evaluate(([n, v]) => document.querySelector(`.seg[data-name="${n}"] [data-value="${v}"]`).click(), [name, value]);

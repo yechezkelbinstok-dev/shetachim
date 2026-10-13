@@ -2697,6 +2697,12 @@
    "name": "Israel",
    "short": "Isr.",
    "headShliach": "Yosef Yitzchak Aharonov",
+   "vaad": "Vaad of Tzeirei Agudas Chabad",
+   "vaadMembers": [
+     {"firstName": "Arik", "lastName": "Lipsker", "town": "Rechovot"},
+     {"firstName": "Gershon Chanoch", "lastName": "Shnur", "town": "Ganei Tikva"},
+     {"firstName": "Michael Yosef", "lastName": "Dor"}
+   ],
    "capital": {
     "centerId": "118095",
     "name": "Tzerei Agudat Chabad H.Q. Israel",

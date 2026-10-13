@@ -8,6 +8,15 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 13: Israel's board, under Aharonov
+- Owner: "for Israel add leadership but in that case it's BELOW aharonov since aharonov wields real power as head
+  shliach". Israel now has `vaad` "Vaad of Tzeirei Agudas Chabad" / "ועד צעירי אגודת חב״ד" (Hebrew in
+  data/hebrew/shetachim.json and, without a rebuild, web/data/he.json) with no `vaadFirst`, so the card reads Head
+  shliach: Aharonov, then Leadership (opens to the members); the Head shliach label has it as the smaller line under
+  his name. Members from Chabadpedia (Firecrawl), "חברי הנהלת צעירי חב״ד כיום (תשפ״ד)", חברי ועד: Arik Lipsker
+  (Rechovot), Gershon Chanoch Shnur (Ganei Tikva, runs its Chabad house), Michael Yosef Dor (educator, no town).
+  The compliance officers and auditors on that list (the authorities' representatives) are left out.
+
 ## ▶ Oct 13: the UK's and NYC's boards
 - Owner: "What about the board for the NYC metro and the UK board". Where the head is a board (`headTitle`
   "Leadership"), the head line itself opens to `vaadMembers` (`membersHTML`). Members' towns are those of their own

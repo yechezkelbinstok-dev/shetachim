@@ -231,6 +231,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card li strong { font-weight: 500; }
 #card .meta, #card p { color: var(--muted); font-size: 13px; margin: 0; }
 #card .flag { font-size: 12.5px; font-style: italic; color: var(--muted); }
+/* the Rebbe on 770's card: its own block, above everyone listed there */
+#card .rebbe { margin: 8px 0 10px; padding: 10px 12px; border: 1px solid var(--accent); border-radius: 8px; background: var(--accent-soft);
+  color: var(--ink); font: 700 19px/1.25 var(--font-map); letter-spacing: .01em; text-align: center; text-wrap: balance; }
 #card .flag-world { color: var(--accent); font-weight: 600; font-style: normal; }
 .legend-mushroom { vertical-align: -2px; flex: none; }
 #card .kicker-mushroom { color: #b3261e; font-weight: 700; letter-spacing: 0.06em; }
@@ -2580,6 +2583,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // on Lubavitch's card as a center of its own, under a divider
   const LUBAVITCH_CENTER_PEOPLE = [{ title: 'Rabbi', firstName: 'Gavriel', lastName: 'Gordon', position: 'Director', isDirector: true, isDeceased: false }];
   const personLine = (p) => { const pos = positionOf(p); return `${esc(personName(p))}${pos ? ` <span class="meta">· ${esc(pos)}</span>` : ''}`; };
+  // 770, Chabad Lubavitch Headquarters: the Rebbe, above everything else on its card and set apart from the people
+  // listed there — not a shliach's line (owner, Oct 13: "Don't just put him like any shliach. He's the Rebbe"); never
+  // "obm": ZY"A / זי״ע
+  const WORLD_HQ = '117678';
+  const rebbeHTML = (c) => (c && c.id === WORLD_HQ
+    ? `<div class="rebbe" lang="${HE ? 'he' : 'en'}">${HE ? 'הרבי מליובאוויטש<br>זי״ע' : 'The Lubavitcher Rebbe<br>ZY"A'}</div>` : '');
   function personnelHTML(list) {
     if (!list || !list.length) return '';
     const living = list.filter((p) => !p.isDeceased), passed = list.filter((p) => p.isDeceased);
@@ -2610,7 +2619,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
   function dotHTML(d) {
     const n = d.centers.length;
-    const items = d.centers.map((c) => {
+    // 770: the Rebbe at the top of the card, then the headquarters' own listing first
+    const hq = d.centers.find((c) => c.id === WORLD_HQ);
+    const list = hq ? [hq, ...d.centers.filter((c) => c !== hq)] : d.centers;
+    const items = list.map((c) => {
       const cap = capitalOfCenter.get(c.id);
       return `<li>
         ${c.mushroom ? `<span class="kicker kicker-mushroom">${tr('Mushroom')}</span>` : ''}
@@ -2624,7 +2636,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     }).join('');
     const head = n > 1 ? `<span class="kicker">${HE ? `${n} מוסדות בכתובת זו` : `${n} listings at this address`}</span><h2>${esc(d.centers[0].city || tr('Same address'))}</h2>` : '';
     // a mushroom isn't under the shetach's head: its card names no head shliach (owner, Oct 12)
-    return `${head}<ul>${items}</ul><div class="foot"><span class="meta">${shetachLine(d.piece, !d.centers.some((c) => c.mushroom))}</span></div>`;
+    return `${head}${rebbeHTML(hq)}<ul>${items}</ul><div class="foot"><span class="meta">${shetachLine(d.piece, !d.centers.some((c) => c.mushroom))}</span></div>`;
   }
 
   function capitalHTML(c) {
@@ -2633,7 +2645,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       <div class="subcard"><ul><li><strong>${HE ? 'חצר רבותינו נשיאינו בליובאוויטש' : "Hatzer Raboteinu Nesieinu B'Lubavitch"}</strong>
         <span class="meta">${esc([HE ? 'מרכז מורשת' : 'Heritage center', HE ? 'ליובאוויטש' : 'Lubavitch'].join(' · '))}</span>
         ${personnelHTML(LUBAVITCH_CENTER_PEOPLE)}</li></ul></div>`;
-    return `<span class="kicker${c.world ? ' kicker-world' : ''}">${capKicker(c)}</span><h2${c.world ? ' class="honor-h"' : ''}>${esc(c.name)}</h2>
+    return `<span class="kicker${c.world ? ' kicker-world' : ''}">${capKicker(c)}</span><h2${c.world ? ' class="honor-h"' : ''}>${esc(c.name)}</h2>${rebbeHTML(c.center)}
       ${c.city ? `<p>${esc(c.city)}</p>` : ''}${memorialHTML(c.center)}${personnelHTML(c.center && c.center.personnel)}${chabadLink(c.center)}
       <div class="foot"><span class="meta">${shetachLine(c.piece, !c.world)}</span></div>`;
   }

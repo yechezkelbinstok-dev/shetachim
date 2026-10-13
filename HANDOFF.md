@@ -8,6 +8,13 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 13: the Rebbe on 770's card
+- Owner: "make the Lubavitcher Rebbe … the main person (DO NOT put obm, you can do ZY"A instead and its hebrew
+  equivalent)", then "Don't just put him like any shliach. He's the Rebbe". `rebbeHTML`: a block of its own at the top
+  of the card for 770 (center 117678, `WORLD_HQ`): on the dot's card under the address title, with the headquarters'
+  listing moved first; on the world-HQ capital card under the big title. "The Lubavitcher Rebbe / ZY"A",
+  "הרבי מליובאוויטש / זי״ע". Never "obm" / ע״ה for the Rebbe. The people listed at 770 stay as they were, below.
+
 ## ▶ Oct 13: Israel's board, under Aharonov
 - Owner: "for Israel add leadership but in that case it's BELOW aharonov since aharonov wields real power as head
   shliach". Israel now has `vaad` "Vaad of Tzeirei Agudas Chabad" / "ועד צעירי אגודת חב״ד" (Hebrew in

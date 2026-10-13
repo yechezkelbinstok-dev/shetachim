@@ -261,6 +261,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card details.vaad summary::marker { color: var(--accent); }
 #card details.vaad ul { margin: 4px 0 4px; padding-inline-start: 16px; gap: 3px; }
 #card details.vaad li { display: block; color: var(--ink); }
+#card details.vaad li.alt { margin-top: 6px; padding-top: 5px; border-top: 1px dashed var(--panel-line); color: var(--muted); font-size: 12px; }
+#card details.vaad li.alt .meta { font-size: 12px; }
 #card .zoomto { border: 1px solid var(--panel-line); background: transparent; border-radius: 999px; padding: 2px 10px; font-size: 13px; cursor: pointer; }
 #card .zoomto:hover { border-color: var(--accent); }
 
@@ -2703,7 +2705,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       for (const st of s.states) if (heData.cities[`${m.town}|${st}`]) return heData.cities[`${m.town}|${st}`];
       return heData.cities[m.town] || m.town;
     };
-    const items = s.vaadMembers.map((m) => `<li>${esc(personName(m))}${m.role ? ` <span class="meta">(${esc(HE ? VAAD_ROLE_HE[m.role] || m.role : m.role)})</span>` : ''}${m.town ? `<span class="meta"> · ${esc(town(m))}</span>` : ''}</li>`).join('');
+    // an alternate isn't a full member (owner, Oct 13: "shouldn't have the same prominence"): after the members, apart,
+    // smaller and grey
+    const alt = (m) => m.role === 'Alternate';
+    const item = (m) => `<li${alt(m) ? ' class="alt"' : ''}>${esc(personName(m))}${m.role ? ` <span class="meta">(${esc(HE ? VAAD_ROLE_HE[m.role] || m.role : m.role)})</span>` : ''}${m.town ? `<span class="meta"> · ${esc(town(m))}</span>` : ''}</li>`;
+    const items = [...s.vaadMembers.filter((m) => !alt(m)), ...s.vaadMembers.filter(alt)].map(item).join('');
     return `<details class="vaad"><summary>${line}</summary><ul>${items}</ul></details>`;
   }
   const vaadHTML = (s) => membersHTML(s, `${tr('Leadership')}: ${esc(s.vaad)}`);

@@ -8,6 +8,10 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 13: a vaad's alternate, set apart
+- Owner: "The alternate member of the vaad shouldn't have the same prominence as everyone else". In `membersHTML`, a
+  member with `role: "Alternate"` (Florida's Sholom Dubov) comes last, under a dashed line, smaller and grey.
+
 ## ▶ Oct 13: the Quad Cities are Illinois's
 - Owner: "the quad cities shliach is under Illinois … you can figure out" how far into Iowa. Illinois's territory adds
   Scott County, Iowa (19163: Davenport, Bettendorf), the Iowa side of the Quad Cities; Rock Island and Moline were

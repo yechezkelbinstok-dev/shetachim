@@ -8,6 +8,16 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 13: search
+- Owner: "Search function add for shluchim, chabad houses, etc". A search bar at the top of the map (`#search`; phone:
+  full width at the top, desktop: right of the panel). It matches shetachim (name, head shliach), shluchim (everyone in
+  a center's personnel), centers (name, city, chabad.org's Hebrew name) and cities, in English and Hebrew alike (the
+  Hebrew side once he.json is loaded); the index is built on first use (`buildSearch`). Picking a result flies there and
+  opens the same card a tap would; a result outside the current view switches to World first. Arrow keys / Enter work.
+- Not searchable: neighbourhoods (Crown Heights finds nothing; chabad.org's city for it is Brooklyn) and street
+  addresses (the locator export has none).
+- Test helper: `scripts/screenshot.mjs` takes `type=<text>` and `pick=<n>`.
+
 ## ▶ Oct 11: Gaza's beach slivers fixed
 - Owner's screenshots (Israel view, zoomed in): a grey strip ~100 m wide between Israel and the sea at **Zikim** (north
   end of Gaza, 0.33 km²) and at **Rafah** (south end, by Egypt, 0.12 km²). Cause: the IDF-control map stops just short

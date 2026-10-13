@@ -120,6 +120,28 @@ button:focus-visible, input:focus-visible, a:focus-visible, summary:focus-visibl
 .maplibregl-ctrl-attrib-button::-webkit-details-marker { display: none; }
 .maplibregl-ctrl-attrib.maplibregl-compact .maplibregl-ctrl-attrib-button { display: block; }
 
+/* ---- search: a bar at the top of the map (owner, Oct 13: "search function for shluchim, chabad houses, etc") ---- */
+#search { position: absolute; z-index: 4; top: 16px; left: 322px; width: min(380px, calc(100% - 400px)); }
+#search .bar { display: flex; align-items: center; gap: 6px; height: 40px; padding: 0 6px 0 12px; background: var(--panel); border: 1px solid var(--panel-line);
+  border-radius: 999px; box-shadow: var(--shadow); }
+#search .bar:focus-within { border-color: var(--accent); }
+#search .bar > svg { flex: none; width: 17px; height: 17px; fill: none; stroke: var(--muted); stroke-width: 1.8; stroke-linecap: round; }
+#search-q { flex: 1; min-width: 0; height: 100%; border: 0; outline: 0; background: transparent; color: inherit; font: 15px var(--font-ui); }
+#search-q::-webkit-search-cancel-button { display: none; }
+#search-clear { flex: none; width: 28px; height: 28px; border: 0; border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer; display: grid; place-items: center; }
+#search-clear:hover { background: var(--accent-soft); }
+#search-results { margin: 6px 0 0; padding: 4px 0; list-style: none; max-height: min(60vh, 460px); overflow: auto; background: var(--panel);
+  border: 1px solid var(--panel-line); border-radius: 12px; box-shadow: var(--shadow); }
+#search-results .grp { padding: 8px 14px 2px; font: 600 11px var(--font-ui); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+#search-results .hit { display: flex; flex-direction: column; gap: 1px; padding: 7px 14px; cursor: pointer; }
+#search-results .hit[aria-selected="true"], #search-results .hit:hover { background: var(--accent-soft); }
+#search-results .hit b { font-weight: 600; }
+#search-results .hit span { color: var(--muted); font-size: 13px; }
+#search-results .none { padding: 10px 14px; color: var(--muted); font-size: 14px; }
+@media (max-width: 760px) {
+  #search { top: 12px; left: 12px; right: 56px; width: auto; }
+}
+
 /* ---- options panel ---- */
 #panel {
   position: absolute; z-index: 3; top: 16px; left: 16px; width: 290px; max-height: calc(100% - 32px); overflow: auto;
@@ -373,6 +395,16 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       <a id="downloads" class="downloads" href="download.html">Download maps (SVG, PNG)</a>
     </div>
   </aside>
+
+  <div id="search" role="search">
+    <div class="bar">
+      <svg viewBox="0 0 18 18" aria-hidden="true"><circle cx="7.5" cy="7.5" r="5.5"/><path d="M11.6 11.6L16 16"/></svg>
+      <input id="search-q" type="search" autocomplete="off" spellcheck="false" enterkeyhint="search"
+        role="combobox" aria-expanded="false" aria-controls="search-results" aria-autocomplete="list">
+      <button id="search-clear" type="button" hidden><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
+    </div>
+    <ul id="search-results" role="listbox" hidden></ul>
+  </div>
 
   <div id="zoomctl" role="group" aria-label="Zoom">
     <button id="zin" type="button" aria-label="Zoom in"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg></button>
@@ -2780,6 +2812,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     document.documentElement.dir = he ? 'rtl' : 'ltr';
     document.title = he ? 'מפת שטחי חב״ד' : 'Chabad Shetachim Map';
     pageWords();
+    searchWords();
+    if (sq.value) runSearch();
     showThemeButton();
     $('#panel-toggle').textContent = tr($('#panel').classList.contains('collapsed') ? 'Options' : 'Close');
     $('#view-name').textContent = tr(V.view.name);
@@ -2814,6 +2848,121 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (hit) showCard(hit, e.originalEvent, false); else hideCard();
   });
   map.getCanvas().addEventListener('mouseleave', () => { if (!pinned) hideCard(); });
+  // ---------- search (owner, Oct 13): shluchim, Chabad houses, cities and shetachim, in English and Hebrew ----------
+  // Every name is matched in both languages (Hebrew once it's been loaded); a pick goes there (into the world view when
+  // the current one doesn't have it) and opens the same card a tap would.
+  const sq = $('#search-q'), sres = $('#search-results'), sclear = $('#search-clear');
+  const fold = (t) => String(t || '').toLowerCase().normalize('NFD').replace(/[̀-֑ͯ-ׇ]/g, '')
+    .replace(/[׳״'"`’‘.,()\-\/·]/g, ' ').replace(/\s+/g, ' ').trim();
+  let searchIndex = null, searchKey = '', searchHits = [], searchSel = -1;
+  function searchWords() {
+    sq.placeholder = HE ? 'חיפוש שלוחים, בתי חב״ד, ערים, שטחים' : 'Search shluchim, Chabad houses, cities…';
+    sq.setAttribute('aria-label', HE ? 'חיפוש' : 'Search');
+    sclear.setAttribute('aria-label', HE ? 'ניקוי' : 'Clear');
+  }
+  searchWords();
+  function buildSearch() {
+    const key = `${!!heData}`;
+    if (searchIndex && searchKey === key) return searchIndex;
+    const was = HE;
+    const both = (fn) => { HE = false; const en = fn(); let he = ''; if (heData) { HE = true; he = fn(); } HE = was; return fold(`${en} ${he}`); };
+    const out = [];
+    for (const s of shetachById.values()) {
+      if (!pieces.some((g) => g.properties.shetach === s.id)) continue;
+      out.push({ kind: 'shetach', s, text: both(() => [s.name, s.headShliach, s.short, s.lastName].join(' ')) });
+    }
+    for (const d of dots) for (const c of d.centers) {
+      out.push({ kind: 'center', d, c, text: both(() => [c.name, c.city, c.nativeName].join(' ')) });
+      const seen = new Set();
+      for (const p of c.personnel || []) {
+        const k = `${p.firstName}|${p.lastName}`;
+        if (seen.has(k) || !(p.firstName || p.lastName)) continue;
+        seen.add(k);
+        out.push({ kind: 'person', d, c, p, text: both(() => `${firstOf(p)} ${lastOf(p)}`) });
+      }
+    }
+    for (const city of cities) out.push({ kind: 'city', city, text: both(() => city.name) });
+    searchKey = key;
+    return (searchIndex = out);
+  }
+  const GROUPS = [['shetach', 5, 'Shetachim', 'שטחים'], ['person', 15, 'Shluchim', 'שלוחים'], ['center', 15, 'Centers', 'מוסדות'], ['city', 6, 'Cities', 'ערים']];
+  function runSearch() {
+    const q = fold(sq.value);
+    sclear.hidden = !sq.value;
+    searchHits = [];
+    searchSel = -1;
+    if (!q) { sres.hidden = true; sq.setAttribute('aria-expanded', 'false'); return; }
+    const words = q.split(' ');
+    // a name that starts with what's typed first, then a word in it that does, then anywhere
+    const score = (t) => (t.startsWith(q) ? 0 : t.includes(` ${words[0]}`) ? 1 : 2);
+    const found = buildSearch().filter((it) => words.every((w) => it.text.includes(w)));
+    let html = '';
+    for (const [kind, max, en, he] of GROUPS) {
+      const list = found.filter((it) => it.kind === kind).sort((a, b) => score(a.text) - score(b.text) || a.text.localeCompare(b.text)).slice(0, max);
+      if (!list.length) continue;
+      html += `<li class="grp" role="presentation">${HE ? he : en}</li>`;
+      for (const it of list) {
+        const [title, sub] = it.kind === 'shetach' ? [it.s.name, it.s.headShliach ? `${tr('Head shliach')}: ${it.s.headShliach}` : '']
+          : it.kind === 'person' ? [personName(it.p), [it.c.name, it.c.city].filter(Boolean).join(' · ')]
+          : it.kind === 'center' ? [it.c.name, [it.c.type, it.c.city].filter(Boolean).join(' · ')]
+          : [it.city.name, count(it.city.centers)];
+        html += `<li class="hit" role="option" id="sr-${searchHits.length}" data-i="${searchHits.length}" aria-selected="false"><b>${esc(title)}</b>${sub ? `<span>${esc(sub)}</span>` : ''}</li>`;
+        searchHits.push(it);
+      }
+    }
+    sres.innerHTML = html || `<li class="none">${HE ? 'לא נמצא' : 'Nothing found'}</li>`;
+    sres.hidden = false;
+    sq.setAttribute('aria-expanded', 'true');
+  }
+  function selectHit(i) {
+    searchSel = i;
+    sres.querySelectorAll('.hit').forEach((el) => el.setAttribute('aria-selected', String(+el.dataset.i === i)));
+    const el = sres.querySelector(`[data-i="${i}"]`);
+    if (el) { el.scrollIntoView({ block: 'nearest' }); sq.setAttribute('aria-activedescendant', el.id); }
+  }
+  function closeSearch() { sres.hidden = true; sq.setAttribute('aria-expanded', 'false'); }
+  function goToHit(it) {
+    closeSearch();
+    sq.blur();
+    const shown = it.kind === 'shetach' ? V.main.some((g) => g.properties.shetach === it.s.id) : V.mainIds.has(it.d ? it.d.piece : it.city.piece);
+    if (!shown) { pressed('view', 'world'); state.view = 'world'; hideCard(); showView(false); }
+    if (!glOK) return;
+    const r = map.getContainer().getBoundingClientRect();
+    if (it.kind === 'shetach') {
+      pinned = { shetach: it.s };
+      showCard(pinned, { clientX: r.left + r.width / 2, clientY: r.top + r.height / 3 }, true);
+      zoomTo(shetachArea(V.cur, it.s));
+      return;
+    }
+    const [lon, lat] = it.d ? [it.d.lon, it.d.lat] : [it.city.lon, it.city.lat];
+    const at = within(V.cur, () => P(lon, lat));
+    if (!at) return;
+    const hit = it.d ? { dot: it.d } : { city: it.city };
+    hideCard();
+    const zoom = Math.min(14, Math.max(map.getZoom(), (V.cur.zFit ?? 2) + (it.city ? 5 : 7)));
+    map.flyTo({ center: at, zoom, duration: still ? 0 : 1400 });
+    map.once('moveend', () => {
+      const pt = map.project(at);
+      pinned = hit;
+      showCard(hit, { clientX: r.left + pt.x, clientY: r.top + pt.y }, true);
+    });
+  }
+  sq.addEventListener('input', runSearch);
+  sq.addEventListener('focus', () => { if (sq.value) runSearch(); });
+  sq.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (searchHits.length) selectHit((searchSel + (e.key === 'ArrowDown' ? 1 : searchHits.length - 1) + (searchSel < 0 && e.key === 'ArrowUp' ? 1 : 0)) % searchHits.length);
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (searchHits.length) goToHit(searchHits[Math.max(0, searchSel)]);
+    } else if (e.key === 'Escape') { e.stopPropagation(); closeSearch(); sq.blur(); }
+  });
+  sres.addEventListener('pointerdown', (e) => e.preventDefault()); // (keeps the field focused until the pick is made)
+  sres.addEventListener('click', (e) => { const el = e.target.closest('.hit'); if (el) goToHit(searchHits[+el.dataset.i]); });
+  sclear.addEventListener('click', () => { sq.value = ''; runSearch(); sq.focus(); });
+  document.addEventListener('pointerdown', (e) => { if (!e.target.closest('#search')) closeSearch(); });
+
   map.on('click', (e) => {
     const touch = e.originalEvent.pointerType === 'touch' || coarse();
     const hit = pickAt(e.point, touch);

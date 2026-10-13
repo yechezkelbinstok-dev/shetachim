@@ -1,6 +1,6 @@
 // Screenshots of the map (testing only; see HANDOFF.md): node scripts/screenshot.mjs <outdir> <spec>...   spec = view:base:device:theme[:clicks]
 // device: desktop | phone; base: political | streets | physical | tinted; theme: light | dark; clicks, comma-separated:
-// <seg>=<value> (borders=both), check=<id>, more, wait=<ms>, go=<lon>/<lat>/<zoom>
+// <seg>=<value> (borders=both), check=<id>, more, wait=<ms>, go=<lon>/<lat>/<zoom>, type=<search text>, pick=<n>
 // e.g. israel:physical:desktop:light:go=35.6/33.25/9
 import fs from 'node:fs';
 import path from 'node:path';
@@ -85,6 +85,9 @@ for (const spec of specs) {
     else if (name === 'zoom') await page.evaluate(([x, y, k]) => new Promise((r) => { const svg = document.querySelector('#map'); svg.dispatchEvent(new WheelEvent('wheel', { clientX: +x, clientY: +y, deltaY: -Math.log2(+k) * 500, bubbles: true })); setTimeout(r, 800); }), value.split('/'));
     // go=lon/lat/zoom: the map engine's camera to a place (the page's __dbg.go; zoom= above was the old page's)
     else if (name === 'go') await page.evaluate(([lon, lat, z]) => new Promise((r) => { window.__dbg.go(+lon, +lat, +z); setTimeout(r, 1500); }), value.split('/'));
+    // type=<text>: into the search bar (its results open); pick=<n>: the n-th result (1 = the first), then the flight to it
+    else if (name === 'type') { await page.fill('#search-q', decodeURIComponent(value)); await page.waitForTimeout(300); }
+    else if (name === 'pick') { await page.click(`#search-results .hit[data-i="${+value - 1}"]`); await page.waitForTimeout(2500); }
     else if (name === 'more') await page.evaluate(() => { document.querySelector('#more').open = true; });
     else await page.evaluate(([n, v]) => document.querySelector(`.seg[data-name="${n}"] [data-value="${v}"]`).click(), [name, value]);
   }

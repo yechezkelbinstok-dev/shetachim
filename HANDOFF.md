@@ -12,6 +12,9 @@ between two Claude accounts when usage limits run out; whichever session picks t
 - Owner: "add long island to the NYC shetach". Nassau and Suffolk (36059, 36103) moved into `new-york-city`'s
   territory; the `long-island` shetach (Tuvia Teldon, capital 117681) is gone, from data/hebrew/shetachim.json and
   web/data/he.json too. Teldon is on Tzach's board already. Rebuilt.
+- Renamed (owner: "now that it isn't just the metro decide on a better shetach name"): "Greater New York" / "ניו
+  יורק רבתי", short "Greater NY" (Hebrew short stays נ״י); id still `new-york-city`. Edited in data/ and web/data/
+  directly, no rebuild needed (names aren't in geo.json or the tiles).
 - Tzach's board: the owner asked about Goldman as chairman and Butman as director. Both have passed away (Rabbi Moshe
   Pesach Goldman, chairman/secretary, Sept 2025; Rabbi Shmuel Butman, director, July 2024). The board stays the April
   2026 kinus list; no current chairman or director found. Asked the owner.

@@ -8,15 +8,14 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
-## ▶ Oct 13: a border where a shetach meets land no shetach covers (political map) — NOT LIVE YET, owner to confirm
+## ▶ Oct 13: a border where a shetach meets land no shetach covers (political map)
 - Owner (screenshot: Saudi Arabia, Turkey, Central Africa against grey land): "Why are there not proper borders when
   there's no other territory bordering it". The political map only drew a thin coast line there (geo.json's open edges
   are all "coast"; the physical map got its purple border on such edges Oct 7, from the tiles). Build:
   `withLandEdges` writes geo.json's `landEdges` ({arc: [[first, last point], …]}), the parts of open edges that are also
   outside.json's borders (same grid, point for point); web/data/geo.json got it without a rebuild. Page: mesh kind
   `edge` (`landEdgeLines`), layer `line-edge`, drawn grey (G.grey, 0.8–2 px) — the shetachim's white border can't be
-  seen against the grey land (tried). The owner stressed: don't change the existing white borders (unchanged). Waiting
-  on the owner's OK to push it live. screenshot.mjs gained `eval=<js>`.
+  seen against the grey land (tried). The owner stressed: don't change the existing white borders (unchanged). Live. screenshot.mjs gained `eval=<js>`.
 
 ## ▶ Oct 13: smaller capital stars when zoomed out
 - Owner (screenshot of the world view zoomed to the Americas): "I hate how when you zoom out it shows these way to massive
@@ -1066,6 +1065,8 @@ together at ~4.4 s (1.2 s desktop); no freeze over ~0.6 s, so the map moves from
    covers (before, only borders touching a shetach were in the tiles).
 
 ## OWNER'S STANDING RULES (Oct 1) — never undo these
+- **Push every change live without asking** (owner, Oct 14: "stop asking me for permission to push stuff! Permanently!"):
+  commit, push the work branch, then fast-forward the live branch (`claude/bold-albattani-aqfnj9`), every time.
 - **When a site is blocked (Chabadpedia, archives), ALWAYS give the owner the exact links to check** (owner, Oct 11, in
   capitals; Chabadpedia itself now reads through the Firecrawl connector — see Oct 11 below). Chabadpedia search links work for any title: `https://chabadpedia.co.il/index.php?search=<Hebrew>` goes to
   the page; add `&fulltext=1` for every mention. Don't search for Chabadpedia pages yourself; the owner turned that down.

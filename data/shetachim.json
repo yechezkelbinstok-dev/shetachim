@@ -215,10 +215,12 @@
       "territory": [
         "US-IL",
         {
-          "counties": [
-            "19163"
+          "state": "US-IA",
+          "towns": [
+            "Davenport",
+            "Pleasant Valley@19163"
           ],
-          "name": "Scott County, Iowa (Davenport, Bettendorf: the Iowa side of the Quad Cities)"
+          "name": "Davenport and Pleasant Valley Township (Bettendorf), Iowa: the Iowa side of the Quad Cities"
         }
       ],
       "capital": {

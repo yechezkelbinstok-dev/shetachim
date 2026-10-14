@@ -598,7 +598,8 @@ function readClaims(data, areaIds, counties, regionNames) {
         if (fs.existsSync(path.join(SHAPES, `${t.shape}.geojson`))) add(s, 'shape', t.state, { shape: t.shape, ...(t.countriesAs ? { as: t.countriesAs } : {}) });
         else problems.push(`${s.id}: no shape file data/shapes/${t.shape}.geojson`);
       } else if (t.towns && onState(s, t.state)) {
-        for (const town of t.towns) add(s, 'town', t.state, { town: townKey(town), townName: town });
+        // ("Name@county FIPS" where the state has more than one town of that name: Iowa's Pleasant Valley townships)
+        for (const town of t.towns) { const [n, cty] = town.split('@'); add(s, 'town', t.state, { town: townKey(n) + (cty ? `@${cty}` : ''), townName: town }); }
       } else if (t.tracts && onState(s, t.state)) {
         for (const tract of t.tracts) add(s, 'tract', t.state, { tract });
       } else if ((t.westOf !== undefined || t.eastOf !== undefined) && onState(s, t.state)) {
@@ -715,7 +716,7 @@ async function buildGeo(data) {
     const has = (kind) => cs.some((c) => c.kind === kind);
     if (has('town') || has('tract')) {
       const towns = readJSON(await censusLayer('county-subdivision', fips)).features;
-      const known = new Set(towns.map((f) => townKey(f.properties.NAME)));
+      const known = new Set(towns.flatMap((f) => [townKey(f.properties.NAME), `${townKey(f.properties.NAME)}@${f.properties.STATEFP}${f.properties.COUNTYFP}`]));
       for (const c of cs) if (c.kind === 'town' && !known.has(c.town)) problems.push(`${c.shetach}: no town "${c.townName}" in ${state}`);
       land.push(...towns.map((f) => featureOf(f.geometry, {
         [`${P}town`]: townKey(f.properties.NAME), county: f.properties.STATEFP + f.properties.COUNTYFP, state, name: meta.name, abbr: meta.abbr, country: 'US',
@@ -774,7 +775,7 @@ async function buildGeo(data) {
         || (c.kind === 'county' && c.county === p.county)
         || (c.kind === 'region' && c.region === p[`region${c.regionLevel}`])
         || (P && c.kind === 'band' && p[`${P}mid`] != null && p[`${P}mid`] >= c.from && p[`${P}mid`] <= c.to)
-        || (P && c.kind === 'town' && p[`${P}town`] === c.town)
+        || (P && c.kind === 'town' && (p[`${P}town`] === c.town || `${p[`${P}town`]}@${p.county}` === c.town))
         || (P && c.kind === 'shape' && p[`${P}shape`] === c.shape)
         || (P && c.kind === 'tract' && p[`${P}tract`] === c.tract);
       if (hit && (!best || c.level > best.level)) best = c;

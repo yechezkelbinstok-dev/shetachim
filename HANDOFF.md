@@ -39,6 +39,9 @@ between two Claude accounts when usage limits run out; whichever session picks t
   Scott County, Iowa (19163: Davenport, Bettendorf), the Iowa side of the Quad Cities; Rock Island and Moline were
   Illinois's already. The one center there is Chabad Lubavitch of Quad Cities, Bettendorf (Cadaner). Muscatine and
   Clinton counties stay Iowa's (no centers). Illinois now needs `short: "IL"`; partNames gives US-IA's parts.
+- Then (owner, Oct 14: "Too much sticking into Iowa no?"): only Davenport (city) and Pleasant Valley Township (Bettendorf,
+  Riverdale), not all of Scott County. A town claim can now name its county, `"Pleasant Valley@19163"` (Iowa has seven
+  Pleasant Valley townships). A full `npm run build` takes about 5 minutes now, not the 20–40 once noted.
 
 ## ▶ Oct 13: Long Island is part of New York City's shetach
 - Owner: "add long island to the NYC shetach". Nassau and Suffolk (36059, 36103) moved into `new-york-city`'s

@@ -8,6 +8,41 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 19: seven more mushrooms (30 now); Ocean City is Kaplan's
+- Owner: "Find more mushrooms in the world" ("a mushroom will never be in the chabad directory … you have to do
+  research"). Researched on the open web; Chabad's own directories were used only to rule a house official. Added to
+  data/extra-centers.json (hidden unless Mushrooms is on), each with its evidence in `mushroom`:
+  - **Japan**: Rabbi Binyomin Edery's two houses, Chabad House Tokyo (Omori) and Chabad Kyoto (Moti Grumach). The owner
+    took them off on Oct 12 ("he's a mushroom") 40 minutes before the Mushrooms option existed; back now as mushrooms,
+    network "Rabbi Binyomin Edery".
+  - **Ukraine**: Anatevka, Rabbi Moshe Reuven Azman's refugee settlement by Hnativka, west of Kyiv (synagogue, mikveh,
+    schools; OpenStreetMap hamlet). Forward (2015): Azman "broke with the Chabad-Lubavitch Hassidic movement in the 1990s
+    to start his own operation". With his Brodsky Synagogue he now has two places, so both carry network "Rabbi Moshe
+    Reuven Azman".
+  - **India**: Chabad House Jaipur (Betzalel and Rachel Kupchik, since Elul 5784, Kupchik family) REPLACES the Pune
+    house — Beis Moshiach on Chabad.info (Dec 9, 2024): they left Pune after 27 years, "the shlichus in Pune has
+    ended". Chabad Leh, Ladakh (Rabbi Ohad Marciano) — on Chabadpedia's India list and in a traveller's comment on
+    chabad.org (Aug 2025), not in the Chabad of India directory.
+  - **US**: Chabad of Westboro, Westborough MA (Rabbi Michoel Green, 54 South St) — Central Massachusetts Chabad
+    dismissed him Jan 2021 and Chabad removed the house from its database (AP, WBUR); it runs on as an independent shul
+    (IRS filing May 2025). Chabad of Colorado Springs Jewish Community (Rabbi Boaz Vituk, 6062 Hollow Tree Ct) —
+    Chabad's spokesman Motti Seligson (Gazette, Mar 2023): "He is not a representative of ours".
+  - Checked, NOT added: Poway (still on chabad.org), Melbourne's Chabad of the CBD (on chabad.org, no personnel since
+    Herzog's 2013 ouster), Atlanta's Chabad Intown (on chabad.org), UCSD's Hadjadj (no Chabad-named center since 2022),
+    East Brunswick (a 2018 case, gone), Santiago's "Chazon Ish" (muchiler: a Haredi community "including Chabad", no
+    address), the Kupchik sons' work in Israel (Neot Peres in Haifa, Petah Tikva, Beit Shemesh: no house found), and
+    Krabi's Beit Hillel (a layman's prayer room in a kosher restaurant; ruled out by the owner Oct 11 — ask before adding).
+  - Chabadpedia's India page (Oct 2026) also says Varanasi closed in the COVID period and Manali is now run by Rabbi
+    Chagai Magen; the map keeps the Chabad of India directory's data (the owner's pages) — for the owner to decide.
+- **Ocean City, Maryland is Kaplan's, not Vogel's** (owner asked): Chabad Lubavitch Center of Eastern Shore (Rabbi Noam
+  Shimon Cohen) — COLlive (May 14, 2025): Rabbi Shmuel Kaplan, "the Head Shliach of Maryland", calls the Cohens "the
+  local Shluchim" (their son-in-law joined Mesivta Lubavitch of Baltimore, appointed by Kaplan). Already in Maryland on
+  the map; nothing changed.
+- Tools in this account: WebFetch can't resolve any host and curl to most sites is blocked; WebSearch works. Firecrawl
+  (paid; owner: use it only when needed): a markdown scrape costs 1 credit, a "query" scrape 5, a search 2–4; Nominatim
+  and the US Census geocoder work through it (1 credit each).
+- The rebuild moved a few coast points (snapping), nothing else; posters don't use centers, so not regenerated.
+
 ## ▶ Oct 13: a border where a shetach meets land no shetach covers (political map)
 - Owner (screenshot: Saudi Arabia, Turkey, Central Africa against grey land): "Why are there not proper borders when
   there's no other territory bordering it". The political map only drew a thin coast line there (geo.json's open edges
@@ -411,7 +446,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
     grep '"review"' data/extra-centers.json.
   - **MUSHROOMS (owner, Oct 12).** A center outside official Chabad (not a Merkos-recognised shliach) carries
     `"mushroom": "<evidence>"` in data/extra-centers.json; it is left off the map (dots, city counts) unless the new
-    Options checkbox "Mushrooms" / "פטריות" is on (owner: just "Mushrooms", no explanation), with a mushroom icon; a mushroom's dot is red (orange when the Red dot colour is picked), its card opens with a red "MUSHROOM" / "פטרייה" label and names no head shliach (the foot shows only the shetach's name); under the label, "Network: …" / "רשת: …" from its `network`/`networkHe` (Kupchik family ×14 — Bolivia, Pune, South Delhi, Arusha, the Chabad of India directory's houses, Puerto Escondido, whose rabbi also runs Kasol; Mashiach Jabad Mexico — Mérida). Owner, Oct 12: only name a network where the house really is part of one — the others have no Network line.) (remembered in
+    Options checkbox "Mushrooms" / "פטריות" is on (owner: just "Mushrooms", no explanation), with a mushroom icon; a mushroom's dot is red (orange when the Red dot colour is picked), its card opens with a red "MUSHROOM" / "פטרייה" label and names no head shliach (the foot shows only the shetach's name); under the label, "Network: …" / "רשת: …" from its `network`/`networkHe` (Kupchik family ×14 — Bolivia, Jaipur (was Pune until Oct 19), South Delhi, Arusha, the Chabad of India directory's houses, Puerto Escondido, whose rabbi also runs Kasol; Mashiach Jabad Mexico — Mérida; since Oct 19 Rabbi Binyomin Edery — Tokyo, Kyoto; Rabbi Moshe Reuven Azman — Brodsky, Anatevka). Owner, Oct 12: only name a network where the house really is part of one — the others have no Network line.) (remembered in
     localStorage `shetachim-mushrooms`; switching it reloads the page). Build: `mushroom: true` on the center,
     `mushrooms: n` on its city. **Bolivia**: Itzik Kupchik is no longer head shliach (owner) — Bolivia has no head and
     no capital (`noCentralLeadership`); his La Paz house is a mushroom. (India stays under Kantor, as decided long ago.)
@@ -429,6 +464,8 @@ between two Claude accounts when usage limits run out; whichever session picks t
       himself Chabad Panama's director; the official one is Laine's, with Karniel's traveller house on chabad.org);
       Bali (WUPJ 2018: no rabbi, run by a lay couple); Kyiv's Brodsky Synagogue (Azman: "not part of Chabad's structure
       in the country", JTA; FJC's Chabad rabbis called his election illegitimate).
+      **Oct 19: 30** — Pune closed (now Jaipur); added Tokyo, Kyoto, Anatevka, Leh, Westborough, Colorado Springs (see
+      the Oct 19 section at the top).
     - **Official (53)**: the shetach head himself (Armenia, Belize, Bulgaria, El Salvador, Honduras, Panama Beth El,
       Philippines ×8, Sri Lanka ×5, Uruguay, Albania); the country's official network (Thailand, Germany ×2, Austria,
       Cyprus, Spain ×3, Italy, Amsterdam, Montenegro, Switzerland, Riyadh, Abu Dhabi, Istanbul, Southern Ohio); on
@@ -438,7 +475,8 @@ between two Claude accounts when usage limits run out; whichever session picks t
       San Pedro (Chabad Info: "the local shliach"), Namibia (Rabbi Silberhaft: "the Official Chabad Shaliach to
       Namibia"), Mendoza (Jabad Argentina's own list of interior centers), Reims (Loubavitch Étudiants' "Chabad En Campus
       Reims avec Eitan Abourmad"), Armour Heights (registered as Beth Joseph Chabad; rabbi Yehuda Zarchi, now on its card).
-  - **Oct 12 (owner): Edery's Tokyo and Kyoto houses REMOVED** — "he's a mushroom". World posters regenerated
+  - **Oct 12 (owner): Edery's Tokyo and Kyoto houses REMOVED** — "he's a mushroom" (back on Oct 19 as mushrooms, once
+    the Mushrooms option existed). World posters regenerated
     (`npm run svg` per map + `node scripts/svg-png.mjs`); the old names poster's speck east of Ukraine (a leftover from
     before occupied Ukraine joined Russia's shetach) is gone, and a world scan for tiny pieces stranded inside another
     shetach finds only real enclaves (Büsingen, Baarle, Llívia, the Armenia/Azerbaijan and Fergana exclaves).

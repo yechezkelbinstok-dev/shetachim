@@ -40,6 +40,33 @@
       "source": "Address from the owner; location from Overture Maps addresses (release 2026-09-23.1)"
     },
     {
+      "id": "extra-us-westborough",
+      "name": "Chabad of Westboro",
+      "city": "Westborough",
+      "lat": 42.26746,
+      "lon": -71.61193,
+      "precision": "exact",
+      "note": "54 South Street; Rabbi Green's shul for some 20 years, independent since 2021",
+      "source": "Yellow Pages, MapQuest and GoKosher listings (54 South St); IRS Form 990 for 2022, filed May 2025 (ProPublica: Lubavitch Chabad of Westborough Inc, Rabbi Michael Green, president); his newsletter westbororabbi.substack.com (services in the shul, weekly Torah class); US Census geocoder; not on chabad.org, whose Chabad of the Boroughs (Rabbi Mendel Fogelman, Worcester) now covers the town",
+      "personnel": [{ "title": "Rabbi", "firstName": "Michoel", "lastName": "Green" }],
+      "mushroom": "Central Massachusetts Chabad (Rabbi Mendel Fogelman) dismissed Rabbi Michoel Green as its shliach on Jan 27, 2021, and Chabad-Lubavitch ended his status and removed his center from its database of recognized Chabad houses (AP, WBUR, Boston Globe, Feb 2021). He kept it running as an independent, incorporated shul that takes no Chabad funding."
+    },
+    {
+      "id": "extra-us-colorado-springs-vituk",
+      "name": "Chabad of Colorado Springs Jewish Community",
+      "city": "Colorado Springs",
+      "lat": 38.92018,
+      "lon": -104.78768,
+      "precision": "exact",
+      "note": "6062 Hollow Tree Ct. (the center's own map link); in 2023 it met in a storefront on North Academy Boulevard",
+      "source": "jewishcs.org (Oct 2026: address, phone, Shabbat services); Colorado Springs Gazette (Mar 26, 2023); Colorado Politics (Jun 2, 2025); not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Boaz", "lastName": "Vituk" }],
+      "url": "https://www.jewishcs.org/",
+      "site": "Chabad of Colorado Springs Jewish Community",
+      "siteHe": "חב״ד הקהילה היהודית קולורדו ספרינגס",
+      "mushroom": "Chabad-Lubavitch's spokesman, Rabbi Motti Seligson (Colorado Springs Gazette, Mar 26, 2023): \"We don't have a Chabad rabbi by that name anywhere around the world. He is not a representative of ours.\" Vituk answers that there are \"various shades of Chabad\"; his site says \"We are not sponsored by any other organization.\" The city's official Chabad is Rabbi Moshe Liberow's Chabad Lubavitch of Southern Colorado."
+    },
+    {
       "id": "extra-india-delhi",
       "name": "Chabad New Delhi – Main Bazaar",
       "city": "New Delhi",
@@ -262,25 +289,19 @@
       "siteHe": "חב״ד הודו"
     },
     {
-      "id": "extra-india-pune",
-      "name": "Chabad of Pune",
-      "city": "Pune",
-      "lat": 18.5395,
-      "lon": 73.8935,
-      "precision": "area",
-      "note": "22 North Main Road, Koregaon Park; the dot is a rough spot",
-      "source": "Chabad of India's own directory (indiakoshertravel.com/Chabad_india, pages sent by the owner, Oct 2026); not on chabad.org",
+      "id": "extra-india-jaipur",
+      "name": "Chabad House Jaipur",
+      "city": "Jaipur",
+      "lat": 26.9167,
+      "lon": 75.8167,
+      "precision": "city",
+      "note": "Opened in Elul 5784 (September 2024) in a rented apartment; no address published; the dot is the city",
+      "source": "Beis Moshiach magazine on Chabad.info (Dec 9, 2024: the Kupchiks left Pune after 27 years and opened in Jaipur); Chabadpedia (הודו; אלתר בצלאל קופצ'יק); not on chabad.org. Replaces the Pune house of Chabad of India's directory, which they closed",
       "personnel": [
-        {
-          "title": "Rabbi",
-          "firstName": "Betzalel",
-          "lastName": "Kupchik"
-        }
+        { "title": "Rabbi", "firstName": "Betzalel", "lastName": "Kupchik" },
+        { "title": "Mrs.", "firstName": "Rachel", "lastName": "Kupchik" }
       ],
-      "url": "https://www.indiakoshertravel.com/Chabad_Puna",
-      "site": "Chabad of India",
-      "siteHe": "חב״ד הודו",
-      "mushroom": "Rabbi Betzalel Kupchik, in his own words (Yeshiva World News, 14 Feb 2010): \"I am not a shaliach Chabad, which is a movement, but shaliach of the Rebbe Melech HaMoshiach\"; readers there call him unofficial, \"a 'Mushroom'\". Chabadpedia: since moved to Jaipur. Same family as Bolivia's Itzik Kupchik (owner: a mushroom).",
+      "mushroom": "Rabbi Betzalel Kupchik, in his own words (Yeshiva World News, 14 Feb 2010): \"I am not a shaliach Chabad, which is a movement, but shaliach of the Rebbe Melech HaMoshiach\"; readers there call him unofficial, \"a 'Mushroom'\". Beis Moshiach (Dec 2024): he and his wife closed Pune (\"the shlichus in Pune has ended\") and opened Jaipur as shluchim of \"the Rebbe Melech HaMoshiach\". Same family as Bolivia's Itzik Kupchik (owner: a mushroom).",
       "network": "Kupchik family",
       "networkHe": "משפחת קופצ׳יק"
     },
@@ -343,6 +364,18 @@
       "site": "Chabad House Cochin",
       "siteHe": "בית חב״ד קוצ׳ין",
       "mushroom": "India's backpacker houses outside Merkos: neither chabad.org nor Tzach's world directory lists it (they list only Mumbai, Bangalore, Dharamsala, Manali and Goa-Anjuna in India); it belongs to the Kupchik-led network (chabadindia770.com — contacts Kupchik and Scharf; Chabadpedia calls Betzalel Kupchik its head), and Kupchik says he is 'not a shaliach Chabad, which is a movement' (YWN, 2010)."
+    },
+    {
+      "id": "extra-india-leh",
+      "name": "Chabad Leh",
+      "city": "Leh",
+      "lat": 34.1642,
+      "lon": 77.5848,
+      "precision": "city",
+      "note": "Leh, Ladakh, about 3,500 m up in the Himalaya; no address published; the dot is the town",
+      "source": "Chabadpedia (הודו: \"לה, לדאק – הרב אוהד מרציאנו\", Oct 2026); a traveller on chabad.org (Aug 2025) on \"the Chabad House in Leh\"; not on chabad.org's directory or the Chabad of India directory",
+      "personnel": [{ "title": "Rabbi", "firstName": "Ohad", "lastName": "Marciano" }],
+      "mushroom": "India's backpacker houses outside Merkos: neither chabad.org nor Tzach's world directory lists it (they list only Mumbai, Bangalore, Dharamsala, Manali and Goa-Anjuna in India); known only from Chabadpedia's list of India's houses (which calls Betzalel Kupchik India's chief shliach) and from travellers."
     },
     {
       "id": "extra-yerevan",
@@ -1649,6 +1682,40 @@
       "mushroom": "No shliach: WUPJ (Oct 2018) — 'The Chabad house has no rabbi there either, and it is run by a young couple who inherited some money and later became Orthodox'; not in any official list."
     },
     {
+      "id": "extra-tokyo-edery",
+      "name": "Chabad House Tokyo",
+      "city": "Tokyo",
+      "lat": 35.59333,
+      "lon": 139.72502,
+      "precision": "exact",
+      "note": "18-21 Sanno, Ota-ku (Omori); the house's own Waze pin",
+      "source": "chabadjapan.org (Oct 2026, footer 2025); not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Binyomin", "lastName": "Edery" }],
+      "url": "https://www.chabadjapan.org/",
+      "site": "Chabad Tokyo Japan",
+      "siteHe": "חב״ד טוקיו",
+      "mushroom": "Owner, Oct 12: Edery is a mushroom (his two houses were taken off the map before the Mushrooms option existed). Rabbi Binyomin Edery's own network, in Tokyo since 1999, isn't on chabad.org; Chabad of Japan's head shliach is Mendi Sudakevich (chabad.org 118403). The Canadian Jewish News: Tokyo has two Chabad centres that 'don't talk to each other' (thecjn.ca/news/tale-two-chabads-tokyo).",
+      "network": "Rabbi Binyomin Edery",
+      "networkHe": "הרב בנימין אדרי"
+    },
+    {
+      "id": "extra-kyoto-edery",
+      "name": "Chabad Kyoto",
+      "city": "Kyoto",
+      "lat": 34.9858,
+      "lon": 135.7588,
+      "precision": "city",
+      "note": "'a few minutes' drive from Kyoto Station'; the address isn't published; the dot is the station",
+      "source": "chabadjapan.org's Chabad Kyoto page (Oct 2026); donorbox.org/chabadkyoto; not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Moti", "lastName": "Grumach" }],
+      "url": "https://chabadjapan.org/%d7%97%d7%91%d7%93-%d7%a7%d7%99%d7%95%d7%98%d7%95-%d7%94%d7%a7%d7%94%d7%99%d7%9c%d7%94-%d7%94%d7%99%d7%94%d7%95%d7%93%d7%99%d7%aa-chabad-jewish-kyoto/",
+      "site": "Chabad Tokyo Japan",
+      "siteHe": "חב״ד טוקיו",
+      "mushroom": "Part of Rabbi Binyomin Edery's network (owner, Oct 12: Edery is a mushroom): founded by him in December 2015 and run by Rabbi Moti and Libi Grumach since 2019 (chabadjapan.org); not on chabad.org. Chabad of Japan's own Kyoto house (the Posners, 2019) seems closed — chabad.org lists nothing in Kyoto.",
+      "network": "Rabbi Binyomin Edery",
+      "networkHe": "הרב בנימין אדרי"
+    },
+    {
       "id": "extra-brussels-ejcc",
       "name": "European Jewish Community Centre",
       "city": "Brussels",
@@ -1672,7 +1739,23 @@
       "note": "Shota Rustaveli St 13, Kyiv's great synagogue (1898), returned to the Jewish community in 1997 and run by Chabad; Rabbi Moshe Reuven Azman's community",
       "source": "Chabadpedia (אוקראינה: Kyiv's shluchim are Azman, Markovitch, Vishedski); JTA and J. Weekly (2000 reopening, 'overseen by Chabad'); OpenStreetMap (Синагога Бродського); not on chabad.org",
       "personnel": [{ "title": "Rabbi", "firstName": "Moshe Reuven", "lastName": "Azman" }],
-      "mushroom": "Rabbi Moshe Reuven Azman: JTA (2008) — \"a self-professed Lubavitcher who is not part of Chabad's structure in the country\"; over 30 FJC Chabad rabbis called his 2005 election as chief rabbi illegitimate (WJC). Ukraine's official Chabad (FJC, Stambler) has Markovitch's center in Kyiv."
+      "mushroom": "Rabbi Moshe Reuven Azman: JTA (2008) — \"a self-professed Lubavitcher who is not part of Chabad's structure in the country\"; over 30 FJC Chabad rabbis called his 2005 election as chief rabbi illegitimate (WJC). Ukraine's official Chabad (FJC, Stambler) has Markovitch's center in Kyiv.",
+      "network": "Rabbi Moshe Reuven Azman",
+      "networkHe": "הרב משה ראובן אזמן"
+    },
+    {
+      "id": "extra-ukraine-anatevka",
+      "name": "Anatevka",
+      "city": "Anatevka",
+      "lat": 50.38626,
+      "lon": 30.20486,
+      "precision": "area",
+      "note": "Rabbi Azman's settlement for Jewish refugees (2015), by Hnativka west of Kyiv: synagogue, mikveh, schools (Mitzvah 613, a cheder, a girls' school) and a kosher hotel; the dot is the settlement",
+      "source": "Wikipedia (Anatevka, Ukraine); the Forward (July 2015); Algemeiner (Feb 2022: shelters 250 families); OpenStreetMap (hamlet Anatevka, relation 9649072); not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Moshe Reuven", "lastName": "Azman" }],
+      "mushroom": "Rabbi Moshe Reuven Azman's own settlement: the Forward (2015) — Azman \"broke with the Chabad-Lubavitch Hassidic movement in the 1990s to start his own operation\"; JTA (2008) — \"a self-professed Lubavitcher who is not part of Chabad's structure in the country\". Same rabbi as Kyiv's Brodsky Synagogue.",
+      "network": "Rabbi Moshe Reuven Azman",
+      "networkHe": "הרב משה ראובן אזמן"
     },
     {
       "id": "extra-russia-tula",

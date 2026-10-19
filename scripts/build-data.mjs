@@ -1265,12 +1265,15 @@ async function main() {
   const { pieces, split } = await buildGeo(shetachData);
 
   console.log('tagging centers…');
-  const countryIdx = index(readJSON(await cached('countries')).features);
+  const countryFeatures = readJSON(await cached('countries')).features;
+  const countryIdx = index(countryFeatures);
   const regionIdx = index(readJSON(await cached('admin1')).features.filter((f) => UNIT_COUNTRIES.includes(f.properties.adm0_a3)));
   const countyIdx = index(readJSON(await countiesGeoJSON()).features);
   // Every state/province, not just the split ones, in case a shetach's shape ends up needing it.
   const pieceIdx = new Map([...new Set(pieces.map((f) => f.properties.state))].map((state) => [state, index(pieces.filter((f) => f.properties.state === state))]));
   const shetachOfPiece = new Map(pieces.map((f) => [f.properties.id, f.properties.shetach]));
+  const unitIdx = index(pieces.filter((f) => UNIT_ISO.includes(f.properties.country)));
+  const countryNames = new Map(countryFeatures.map((f) => [f.properties.ISO_A2_EH, f.properties.NAME]));
   const worldPieces = pieces.filter((f) => !UNIT_ISO.includes(f.properties.country));
   const worldIdx = index(worldPieces);
   const worldIdxOf = new Map([...new Set(worldPieces.map((f) => f.properties.country))].map((c) => [c, index(worldPieces.filter((f) => f.properties.country === c))]));
@@ -1324,6 +1327,16 @@ async function main() {
     if ((dot.country === 'US' && !dot.region) || dot.country === 'CA') {
       const region = locate(regionIdx, x, y);
       if (region) dot.region = region.f.properties.iso_3166_2;
+    }
+    // Natural Earth's 1:10m border can run a kilometre off along the rivers (it gives downtown Niagara Falls, NY, to
+    // Ontario): where the map's own areas put the point inside another state or province, they decide.
+    const drawn = locate(unitIdx, x, y);
+    if (drawn && drawn.km === 0 && drawn.f.properties.state !== dot.region) {
+      const p = drawn.f.properties;
+      Object.assign(dot, { country: p.country, countryName: countryNames.get(p.country) || dot.countryName, region: p.state });
+      delete dot.county; delete dot.countyName;
+      const county = p.country === 'US' && locate(countyIdx, x, y);
+      if (county && county.km === 0) Object.assign(dot, { county: county.f.properties.GEOID, countyName: county.f.properties.NAME });
     }
     dot.piece = pieceAt(dot.region, x, y);
   }

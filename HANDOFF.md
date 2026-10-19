@@ -8,6 +8,50 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 19 (later): six US mushrooms — the Hudson Valley's Borensteins and Buffalo's independents (36 now)
+- Owner: "Research to find more mushrooms … They say upstate NY (inc east NY) is a big mushroom breeding ground …
+  look into it more in the usa". Method: chabad.org's own list for the two upstate shetachim (71 centers) against
+  every IRS-registered "Chabad"/"Lubavitch" organization (ProPublica's nonprofit API, read with WebFetch: 411 in NY,
+  1,631 in the US, compared town by town with chabad.org), plus news searches; then each lead on the open web.
+- **Eastern NY (the Rubins' shetach): Rabbi Yacov Borenstein's two houses**, network "Rabbi Yacov Borenstein":
+  - Chabad of Mid-Hudson Valley, 63 Vassar Rd, Poughkeepsie (IRS since 1991; GoDaven; a new building opened Sept 2022,
+    Mid Hudson News). Times Herald-Record (Jun 8, 2006): Chabad's leaders call him a "renegade" they fired years ago;
+    a letter told him and three other rabbis (not named) they could no longer use the Chabad-Lubavitch name.
+  - Chabad Goshen (it also calls itself Chabad of Orange County), 203 Main St, Goshen, his nephew Rabbi Meir and
+    Rivkie Borenstein (jewishgoshen.com; events through 2025). Zalman Shmotkin (Times Herald-Record, May 28, 2006):
+    "The only authorized Chabad-Lubavitch representatives in Orange County are Rabbi Pesach and Chana Burston".
+  - His 2005–06 centers in New Paltz and Woodstock: no trace now (the official ones there are Plotkin's and Karczag's).
+- **Upstate NY (Gurary's shetach): Buffalo's independents** (not on chabad.org; chabadbuffalo.com's own history says
+  "the Greenbergs' work separated from Rabbi Gurary's organization" in 1993 and has gone on independently since; its
+  line that each Buffalo institution "operates independently" covers the official ones too, so it isn't evidence):
+  - Rabbi Heschel Greenberg's Jewish Discovery Center, 831 Maple Rd, Williamsville (in Buffalo since 1972; its own
+    site doesn't say Chabad). No network line.
+  - The Labkovski family, network "Labkovski family": Center for Jewish Life – Chabad Buffalo, 757 Hopkins Rd,
+    Williamsville (Laizer and Chani, in Buffalo since 1995, first with the Greenbergs); Chabad Downtown Buffalo,
+    409 Franklin St (Mendy and Chaya Mushka, 2021); Niagara Falls USA Shul – Chabad, 770 Ashland Ave — a second
+    "Chabad Niagara Falls USA" beside the official one (Rabbi Yehuda Lorber's, chabad.org 6624274). Their Clarence
+    branch has no address yet (left out). The evidence here is structural (the 1993 split, 30 years off chabad.org,
+    the rival Niagara Falls name); no Chabad statement was found — the owner may want to look.
+  - Not mushrooms: Ohr Temimim day school (a 2008 merger with the official Torah Temimah; the Lorbers teach there),
+    the Saranac Ave shul (Mendel Gurary = the official Chabad of the Southtowns).
+- **Fix: Chabad Niagara Falls USA (Lorber) was a dot in Ontario.** Moved to its own address, 332 Prospect St, Niagara
+  Falls NY (fixes in data/extra-centers.json) — but it stayed Ontario's: the build tags US/Canada dots by Natural
+  Earth's 1:10m country outline, which gives downtown Niagara Falls to Canada. So `tag()` in scripts/build-data.mjs now
+  checks the map's own areas: where a point is inside another drawn state or province, that decides (`unitIdx`). Of
+  1,773 US/Canada dots this was the only one tagged differently from where the map draws it.
+- Checked, NOT added: Chicago's "Moshiach Center" (6738 N. California; a meshichist shul in 2013 reports, no trace
+  since), Woodstock's "Rock 'n Roll Rabbi" Yisroel Gootblatt (one undated article, c. 2009), Star Lake's
+  Congregation Yeshivas Lubavitch (funded by Tomchei Tmimim: official), "Chabad of Greater Hazleton" (a fundraiser
+  for a future house), the IRS's Florida "Beis Moshiach"/"770 Moshiach Community Center" names and Milwaukee's
+  "Moshiach Center of Riverwest" (no center found), West New York's "Yeshiva Gedolah Lubavitch" (a 2013 letter only),
+  West Bloomfield's Bais Chabad Torah Center (on chabad.org), Oberlin's Rabbi Elkan (replaced; no center of his own).
+- **For the owner, not changed:** Rabbi Yisroel Rubin of Albany (Eastern NY's "Rubin family") passed away on Shemini
+  Atzeret 5787, Oct 2–3, 2026 (JNS, Oct 6); chabad.org's data on the map was fetched Oct 3 and may still list him
+  as living on the Capital District card.
+- Tools here: WebFetch and WebSearch both work (ProPublica's API, the US Census geocoder, news sites); per the owner,
+  Firecrawl only when they can't reach a page (now a standing rule below). `npm run build` must run with
+  `NODE_USE_ENV_PROXY=1` (Node's fetch ignores HTTPS_PROXY otherwise); a fresh container downloads ~1 GB into .cache.
+
 ## ▶ Oct 19: seven more mushrooms (30 now); Ocean City is Kaplan's
 - Owner: "Find more mushrooms in the world" ("a mushroom will never be in the chabad directory … you have to do
   research"). Researched on the open web; Chabad's own directories were used only to rule a house official. Added to
@@ -446,7 +490,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
     grep '"review"' data/extra-centers.json.
   - **MUSHROOMS (owner, Oct 12).** A center outside official Chabad (not a Merkos-recognised shliach) carries
     `"mushroom": "<evidence>"` in data/extra-centers.json; it is left off the map (dots, city counts) unless the new
-    Options checkbox "Mushrooms" / "פטריות" is on (owner: just "Mushrooms", no explanation), with a mushroom icon; a mushroom's dot is red (orange when the Red dot colour is picked), its card opens with a red "MUSHROOM" / "פטרייה" label and names no head shliach (the foot shows only the shetach's name); under the label, "Network: …" / "רשת: …" from its `network`/`networkHe` (Kupchik family ×14 — Bolivia, Jaipur (was Pune until Oct 19), South Delhi, Arusha, the Chabad of India directory's houses, Puerto Escondido, whose rabbi also runs Kasol; Mashiach Jabad Mexico — Mérida; since Oct 19 Rabbi Binyomin Edery — Tokyo, Kyoto; Rabbi Moshe Reuven Azman — Brodsky, Anatevka). Owner, Oct 12: only name a network where the house really is part of one — the others have no Network line.) (remembered in
+    Options checkbox "Mushrooms" / "פטריות" is on (owner: just "Mushrooms", no explanation), with a mushroom icon; a mushroom's dot is red (orange when the Red dot colour is picked), its card opens with a red "MUSHROOM" / "פטרייה" label and names no head shliach (the foot shows only the shetach's name); under the label, "Network: …" / "רשת: …" from its `network`/`networkHe` (Kupchik family ×14 — Bolivia, Jaipur (was Pune until Oct 19), South Delhi, Arusha, the Chabad of India directory's houses, Puerto Escondido, whose rabbi also runs Kasol; Mashiach Jabad Mexico — Mérida; since Oct 19 Rabbi Binyomin Edery — Tokyo, Kyoto; Rabbi Moshe Reuven Azman — Brodsky, Anatevka; Rabbi Yacov Borenstein — Poughkeepsie, Goshen; Labkovski family — Williamsville, Downtown Buffalo, Niagara Falls). Owner, Oct 12: only name a network where the house really is part of one — the others have no Network line.) (remembered in
     localStorage `shetachim-mushrooms`; switching it reloads the page). Build: `mushroom: true` on the center,
     `mushrooms: n` on its city. **Bolivia**: Itzik Kupchik is no longer head shliach (owner) — Bolivia has no head and
     no capital (`noCentralLeadership`); his La Paz house is a mushroom. (India stays under Kantor, as decided long ago.)
@@ -465,7 +509,8 @@ between two Claude accounts when usage limits run out; whichever session picks t
       Bali (WUPJ 2018: no rabbi, run by a lay couple); Kyiv's Brodsky Synagogue (Azman: "not part of Chabad's structure
       in the country", JTA; FJC's Chabad rabbis called his election illegitimate).
       **Oct 19: 30** — Pune closed (now Jaipur); added Tokyo, Kyoto, Anatevka, Leh, Westborough, Colorado Springs (see
-      the Oct 19 section at the top).
+      the Oct 19 section at the top). **Then 36**: Poughkeepsie, Goshen, and Buffalo's Jewish Discovery Center,
+      Center for Jewish Life, Chabad Downtown and Niagara Falls shul (the "Oct 19 (later)" section at the top).
     - **Official (53)**: the shetach head himself (Armenia, Belize, Bulgaria, El Salvador, Honduras, Panama Beth El,
       Philippines ×8, Sri Lanka ×5, Uruguay, Albania); the country's official network (Thailand, Germany ×2, Austria,
       Cyprus, Spain ×3, Italy, Amsterdam, Montenegro, Switzerland, Riyadh, Abu Dhabi, Istanbul, Southern Ohio); on
@@ -1108,6 +1153,9 @@ together at ~4.4 s (1.2 s desktop); no freeze over ~0.6 s, so the map moves from
 ## OWNER'S STANDING RULES (Oct 1) — never undo these
 - **Push every change live without asking** (owner, Oct 14: "stop asking me for permission to push stuff! Permanently!"):
   commit, push the work branch, then fast-forward the live branch (`claude/bold-albattani-aqfnj9`), every time.
+- **Research with the regular WebSearch/WebFetch first; Firecrawl only when they can't reach a page** (owner, Oct 19:
+  "you have firecrawl access but only use it if your regular unlimited web fetch doesn't able to access smth").
+  Firecrawl costs credits; WebFetch doesn't.
 - **When a site is blocked (Chabadpedia, archives), ALWAYS give the owner the exact links to check** (owner, Oct 11, in
   capitals; Chabadpedia itself now reads through the Firecrawl connector — see Oct 11 below). Chabadpedia search links work for any title: `https://chabadpedia.co.il/index.php?search=<Hebrew>` goes to
   the page; add `&fulltext=1` for every mention. Don't search for Chabadpedia pages yourself; the owner turned that down.

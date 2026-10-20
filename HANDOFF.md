@@ -8,6 +8,10 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 20: network names without "Rabbi"
+- Owner: "Why the hell does rabbi preface all the networks take that shit out". Networks are now just the name
+  ("Yosef Carlebach", "Binyomin Edery", "Moshe Reuven Azman", "Yacov Borenstein"; Hebrew without הרב). Keep it so.
+
 ## ▶ Oct 19–20: twelve US mushrooms — the Hudson Valley's Borensteins, Buffalo's independents, Lauderhill's 770 Moshiach Center, central New Jersey's Carlebach network (42 now)
 - Owner: "Research to find more mushrooms … They say upstate NY (inc east NY) is a big mushroom breeding ground …
   look into it more in the usa". Method: chabad.org's own list for the two upstate shetachim (71 centers) against
@@ -15,7 +19,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
   1,631 in the US, compared town by town with chabad.org), plus news searches; then each lead on the open web. Every
   finding then went to an independent skeptic told to refute it (a workflow: on chabad.org after all? Merkos/Chabad
   press calling them shluchim? Merkos programs? closed? quotes and addresses re-read).
-- **Eastern NY (the Rubins' shetach): Rabbi Yacov Borenstein's two houses**, network "Rabbi Yacov Borenstein" — both
+- **Eastern NY (the Rubins' shetach): Rabbi Yacov Borenstein's two houses**, network "Yacov Borenstein" — both
   survived the skeptics:
   - Chabad of Mid-Hudson Valley, 63 Vassar Rd, Poughkeepsie (chabadmidhudsonvalley.com; IRS since 1991; new building
     Sept 2022; he and Hindy lit Dutchess County's menorah with the County Executive, Dec 2024). Times Herald-Record
@@ -81,7 +85,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
   (likely official), Milwaukee's "Congregation Moshiach Now" (Milchtein; IRS only), and IRS-only names (Beit Mashiach
   LA, Team Moshiach, Mechon Mashiach, Project Yechi, Cong Beit Aharon Moshiach Center of Ridgewood). The international
   mushroom networks (Kupchik, Edery, Azman, Mashiach Jabad Mexico) have no US house.
-- **New Jersey: Rabbi Yosef Carlebach's "Chabad of Central New Jersey"**, network "Rabbi Yosef Carlebach" (found by the
+- **New Jersey: Rabbi Yosef Carlebach's "Chabad of Central New Jersey"**, network "Yosef Carlebach" (found by the
   news/courts sweep, then checked by hand): NJ Jewish News (Debra Rubin, Mar 27, 2019) — Rutgers Chabad is "the hub of
   10 affiliated Chabad houses in central Jersey"; "They are not affiliated with the several dozen other Chabad-Lubavitch
   centers in New Jersey", "which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown".
@@ -123,10 +127,10 @@ between two Claude accounts when usage limits run out; whichever session picks t
   data/extra-centers.json (hidden unless Mushrooms is on), each with its evidence in `mushroom`:
   - **Japan**: Rabbi Binyomin Edery's two houses, Chabad House Tokyo (Omori) and Chabad Kyoto (Moti Grumach). The owner
     took them off on Oct 12 ("he's a mushroom") 40 minutes before the Mushrooms option existed; back now as mushrooms,
-    network "Rabbi Binyomin Edery".
+    network "Binyomin Edery".
   - **Ukraine**: Anatevka, Rabbi Moshe Reuven Azman's refugee settlement by Hnativka, west of Kyiv (synagogue, mikveh,
     schools; OpenStreetMap hamlet). Forward (2015): Azman "broke with the Chabad-Lubavitch Hassidic movement in the 1990s
-    to start his own operation". With his Brodsky Synagogue he now has two places, so both carry network "Rabbi Moshe
+    to start his own operation". With his Brodsky Synagogue he now has two places, so both carry network "Moshe
     Reuven Azman".
   - **India**: Chabad House Jaipur (Betzalel and Rachel Kupchik, since Elul 5784, Kupchik family) REPLACES the Pune
     house — Beis Moshiach on Chabad.info (Dec 9, 2024): they left Pune after 27 years, "the shlichus in Pune has
@@ -555,7 +559,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
     grep '"review"' data/extra-centers.json.
   - **MUSHROOMS (owner, Oct 12).** A center outside official Chabad (not a Merkos-recognised shliach) carries
     `"mushroom": "<evidence>"` in data/extra-centers.json; it is left off the map (dots, city counts) unless the new
-    Options checkbox "Mushrooms" / "פטריות" is on (owner: just "Mushrooms", no explanation), with a mushroom icon; a mushroom's dot is red (orange when the Red dot colour is picked), its card opens with a red "MUSHROOM" / "פטרייה" label and names no head shliach (the foot shows only the shetach's name); under the label, "Network: …" / "רשת: …" from its `network`/`networkHe` (Kupchik family ×14 — Bolivia, Jaipur (was Pune until Oct 19), South Delhi, Arusha, the Chabad of India directory's houses, Puerto Escondido, whose rabbi also runs Kasol; Mashiach Jabad Mexico — Mérida; since Oct 19 Rabbi Binyomin Edery — Tokyo, Kyoto; Rabbi Moshe Reuven Azman — Brodsky, Anatevka; Rabbi Yacov Borenstein — Poughkeepsie, Goshen; Labkovski family — Williamsville, Downtown Buffalo; Rabbi Yosef Carlebach — Rutgers, Monroe, the Brunswicks, Ocean, Long Branch, Colts Neck). Owner, Oct 12: only name a network where the house really is part of one — the others have no Network line.) (remembered in
+    Options checkbox "Mushrooms" / "פטריות" is on (owner: just "Mushrooms", no explanation), with a mushroom icon; a mushroom's dot is red (orange when the Red dot colour is picked), its card opens with a red "MUSHROOM" / "פטרייה" label and names no head shliach (the foot shows only the shetach's name); under the label, "Network: …" / "רשת: …" from its `network`/`networkHe` (Kupchik family ×14 — Bolivia, Jaipur (was Pune until Oct 19), South Delhi, Arusha, the Chabad of India directory's houses, Puerto Escondido, whose rabbi also runs Kasol; Mashiach Jabad Mexico — Mérida; since Oct 19 Binyomin Edery — Tokyo, Kyoto; Moshe Reuven Azman — Brodsky, Anatevka; Yacov Borenstein — Poughkeepsie, Goshen; Labkovski family — Williamsville, Downtown Buffalo; Yosef Carlebach — Rutgers, Monroe, the Brunswicks, Ocean, Long Branch, Colts Neck). Owner, Oct 12: only name a network where the house really is part of one — the others have no Network line.) (remembered in
     localStorage `shetachim-mushrooms`; switching it reloads the page). Build: `mushroom: true` on the center,
     `mushrooms: n` on its city. **Bolivia**: Itzik Kupchik is no longer head shliach (owner) — Bolivia has no head and
     no capital (`noCentralLeadership`); his La Paz house is a mushroom. (India stays under Kantor, as decided long ago.)

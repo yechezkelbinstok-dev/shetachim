@@ -189,6 +189,124 @@
       "mushroom": "A meshichist house: opened in 1993 by Rabbi Mordechai (Motti) Anati, who called himself \"שליח הרבי מלך המשיח\" (Chabad.fm, 2003), on the Rebbe's personal blessing rather than an appointment — Anash.org's obituary (Jul 28, 2020) calls him only \"a Chabad activist in Fort Lauderdale\". Its yeshiva is \"Melech HaMoshiach\" and its weekly \"Moshiach Time\"; the meshichist World Chabad Center for Greeting Moshiach's Rabbi Menachem Mendel Hendel visited in 2018 (Chabad.info). After 33 years, with about $3M a year, it isn't on chabad.org. Florida's head shliach is Rabbi Benjy Korf; Lauderhill's official Chabad, the Synagogue of Inverrary (Rabbi Aron Lieberman, chabad.org 117596), is 290 m away."
     },
     {
+      "id": "extra-us-new-brunswick-rutgers",
+      "name": "Chabad House at Rutgers",
+      "city": "New Brunswick",
+      "lat": 40.50434,
+      "lon": -74.45315,
+      "precision": "exact",
+      "note": "170 College Avenue, on the Rutgers campus: the hub of Chabad of Central New Jersey, for some 7,000 Jewish students",
+      "source": "its own site, chabadnj.org (Oct 2026); Jewish Link (2025–26: Rabbi Yosef Carlebach executive director, Rabbi Baruch Goodman campus director; a $2M dinner); US Census geocoder; not on chabad.org",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Yosef", "lastName": "Carlebach" },
+        { "title": "Rabbi", "firstName": "Baruch", "lastName": "Goodman" }
+      ],
+      "url": "https://chabadnj.org/",
+      "site": "Chabad at Rutgers",
+      "siteHe": "חב״ד בראטגרס",
+      "mushroom": "NJ Jewish News (Debra Rubin, Mar 27, 2019) on Rabbi Yosef Carlebach's network, the Rutgers Chabad House and its affiliates: \"They are not affiliated with the several dozen other Chabad-Lubavitch centers in New Jersey\", \"which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown\" (the head shliach's headquarters). None of its houses is on chabad.org, not even Rutgers. Against: Carlebach says the Rebbe sent him to Rutgers in 1978 (Jewish Link, 2018), and ChabadInfo calls him a shliach.",
+      "network": "Rabbi Yosef Carlebach",
+      "networkHe": "הרב יוסף קרליבך"
+    },
+    {
+      "id": "extra-us-monroe-nj-spritzer",
+      "name": "Chabad House of Monroe",
+      "city": "Monroe Township",
+      "lat": 40.3193,
+      "lon": -74.47151,
+      "precision": "exact",
+      "note": "324 Applegarth Road; daily services and a mikvah (2023)",
+      "source": "its own site, jewishmonroe.com (Oct 2026); Rutgers Chabad's list of its affiliates (chabadnj.org); Middlesex County synagogue directory (founded 2002); IRS (Chabad House of Monroe, 2003); US Census geocoder; not on chabad.org",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Yehuda", "lastName": "Spritzer" }
+      ],
+      "url": "https://jewishmonroe.com/",
+      "site": "Chabad House of Monroe",
+      "siteHe": "בית חב״ד מונרו",
+      "mushroom": "NJ Jewish News (Debra Rubin, Mar 27, 2019) on Rabbi Yosef Carlebach's network, the Rutgers Chabad House and its affiliates: \"They are not affiliated with the several dozen other Chabad-Lubavitch centers in New Jersey\", \"which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown\" (the head shliach's headquarters). None of its houses is on chabad.org, not even Rutgers. And Monroe's official Chabad (Rabbi Eliezer Zaklikovsky, chabad.org 118587), on its own site: \"There is only one authorized Chabad center in Monroe\"; \"Anyone else using the 'Chabad' name is sadly operating in direct defiance of Chabad's structure.\" Against: Carlebach says the Rebbe sent him to Rutgers in 1978 (Jewish Link, 2018), and ChabadInfo calls him a shliach.",
+      "network": "Rabbi Yosef Carlebach",
+      "networkHe": "הרב יוסף קרליבך"
+    },
+    {
+      "id": "extra-us-south-brunswick-carlebach",
+      "name": "Chabad of North & South Brunswick",
+      "city": "South Brunswick",
+      "lat": 40.39165,
+      "lon": -74.59201,
+      "precision": "exact",
+      "note": "4100 Route 27 (Princeton mail): a daily minyan, Hebrew school and Shabbat services",
+      "source": "its own site, southbrunswickchabad.com (© 2026); Rutgers Chabad's list of its affiliates (chabadnj.org); US Census geocoder; not on chabad.org",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Mendy", "lastName": "Carlebach" }
+      ],
+      "url": "https://southbrunswickchabad.com/",
+      "site": "Chabad of North & South Brunswick",
+      "siteHe": "חב״ד צפון ודרום ברנזוויק",
+      "mushroom": "NJ Jewish News (Debra Rubin, Mar 27, 2019) on Rabbi Yosef Carlebach's network, the Rutgers Chabad House and its affiliates: \"They are not affiliated with the several dozen other Chabad-Lubavitch centers in New Jersey\", \"which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown\" (the head shliach's headquarters). None of its houses is on chabad.org, not even Rutgers. The area's official Chabad is Rabbi Levi Azimov's Chabad of South Brunswick (chabad.org 118527). Against: Carlebach says the Rebbe sent him to Rutgers in 1978 (Jewish Link, 2018), and ChabadInfo calls him a shliach.",
+      "network": "Rabbi Yosef Carlebach",
+      "networkHe": "הרב יוסף קרליבך"
+    },
+    {
+      "id": "extra-us-ocean-nj-sons-of-israel",
+      "name": "Chabad of Greater Monmouth County – Congregation Sons of Israel",
+      "city": "Ocean",
+      "lat": 40.25129,
+      "lon": -74.05335,
+      "precision": "area",
+      "note": "Poplar Place, Wayside, beside Hillel Yeshiva: the Schottenfeld-Feingold Synagogue of Congregation Sons of Israel (founded in Asbury Park); the dot is the yeshiva's spot next door",
+      "source": "its own site, chabadgmc.com (Oct 2026: 1 Poplar Place, Ocean; events through Oct 2026); Rutgers Chabad's list of its affiliates (chabadnj.org); NJ Jewish News (the new building beside Hillel Yeshiva); OpenStreetMap; not on chabad.org",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Yosef", "lastName": "Carlebach" },
+        { "title": "Rabbi", "firstName": "Moshe", "lastName": "Carlebach" }
+      ],
+      "url": "https://chabadgmc.com/",
+      "site": "Chabad of Greater Monmouth County",
+      "siteHe": "חב״ד מחוז מונמות׳ רבתי",
+      "mushroom": "NJ Jewish News (Debra Rubin, Mar 27, 2019) on Rabbi Yosef Carlebach's network, the Rutgers Chabad House and its affiliates: \"They are not affiliated with the several dozen other Chabad-Lubavitch centers in New Jersey\", \"which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown\" (the head shliach's headquarters). None of its houses is on chabad.org, not even Rutgers. Against: Carlebach says the Rebbe sent him to Rutgers in 1978 (Jewish Link, 2018), and ChabadInfo calls him a shliach.",
+      "network": "Rabbi Yosef Carlebach",
+      "networkHe": "הרב יוסף קרליבך"
+    },
+    {
+      "id": "extra-us-long-branch-shore",
+      "name": "Chabad of the Shore",
+      "city": "Long Branch",
+      "lat": 40.28396,
+      "lon": -73.98436,
+      "precision": "exact",
+      "note": "620 Ocean Avenue; it also runs the Pier Village Shabbat minyan and Chabad at Monmouth University",
+      "source": "its own site, chabadshore.com (© 2026; pages updated Oct 2026); Rutgers Chabad's list of its affiliates (chabadnj.org); Monmouth County synagogue directory (founded 2002); US Census geocoder; not on chabad.org",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Laibel", "lastName": "Schapiro" },
+        { "title": "Rabbi", "firstName": "Yaakov", "lastName": "Greenberg" },
+        { "title": "Rabbi", "firstName": "Sholom", "lastName": "Marasow" }
+      ],
+      "url": "https://chabadshore.com/",
+      "site": "Chabad of the Shore",
+      "siteHe": "חב״ד החוף",
+      "mushroom": "NJ Jewish News (Debra Rubin, Mar 27, 2019) on Rabbi Yosef Carlebach's network, the Rutgers Chabad House and its affiliates: \"They are not affiliated with the several dozen other Chabad-Lubavitch centers in New Jersey\", \"which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown\" (the head shliach's headquarters). None of its houses is on chabad.org, not even Rutgers. Against: Carlebach says the Rebbe sent him to Rutgers in 1978 (Jewish Link, 2018), and ChabadInfo calls him a shliach.",
+      "network": "Rabbi Yosef Carlebach",
+      "networkHe": "הרב יוסף קרליבך"
+    },
+    {
+      "id": "extra-us-colts-neck-carlebach",
+      "name": "Chabad of Colts Neck",
+      "city": "Colts Neck",
+      "lat": 40.28761,
+      "lon": -74.17237,
+      "precision": "city",
+      "note": "Address not published (PO Box 112); the dot is the township",
+      "source": "its own site, chabadcn.com (Sukkot 2026 event); Rutgers Chabad's list of its affiliates (chabadnj.org); IRS (Chabad of North Monmouth County, 2013); not on chabad.org",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Ephraim", "lastName": "Carlebach" }
+      ],
+      "url": "https://chabadcn.com/",
+      "site": "Chabad of Colts Neck",
+      "siteHe": "חב״ד קולטס נק",
+      "mushroom": "NJ Jewish News (Debra Rubin, Mar 27, 2019) on Rabbi Yosef Carlebach's network, the Rutgers Chabad House and its affiliates: \"They are not affiliated with the several dozen other Chabad-Lubavitch centers in New Jersey\", \"which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown\" (the head shliach's headquarters). None of its houses is on chabad.org, not even Rutgers. Against: Carlebach says the Rebbe sent him to Rutgers in 1978 (Jewish Link, 2018), and ChabadInfo calls him a shliach.",
+      "network": "Rabbi Yosef Carlebach",
+      "networkHe": "הרב יוסף קרליבך"
+    },
+    {
       "id": "extra-india-delhi",
       "name": "Chabad New Delhi – Main Bazaar",
       "city": "New Delhi",

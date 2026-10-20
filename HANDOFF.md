@@ -8,7 +8,7 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
-## ▶ Oct 19–20: six US mushrooms — the Hudson Valley's Borensteins, Buffalo's independents, Lauderhill's 770 Moshiach Center (36 now)
+## ▶ Oct 19–20: twelve US mushrooms — the Hudson Valley's Borensteins, Buffalo's independents, Lauderhill's 770 Moshiach Center, central New Jersey's Carlebach network (42 now)
 - Owner: "Research to find more mushrooms … They say upstate NY (inc east NY) is a big mushroom breeding ground …
   look into it more in the usa". Method: chabad.org's own list for the two upstate shetachim (71 centers) against
   every IRS-registered "Chabad"/"Lubavitch" organization (ProPublica's nonprofit API, read with WebFetch: 411 in NY,
@@ -81,9 +81,35 @@ between two Claude accounts when usage limits run out; whichever session picks t
   (likely official), Milwaukee's "Congregation Moshiach Now" (Milchtein; IRS only), and IRS-only names (Beit Mashiach
   LA, Team Moshiach, Mechon Mashiach, Project Yechi, Cong Beit Aharon Moshiach Center of Ridgewood). The international
   mushroom networks (Kupchik, Edery, Azman, Mashiach Jabad Mexico) have no US house.
-- **Unfinished:** three of the four sweeps (news/court cases, a town-by-town upstate NY pass, directory differencing
-  outside NY) were cut off by a session limit on Oct 20 and should be rerun; the 2006 letter's "three other rabbis"
-  are still unnamed.
+- **New Jersey: Rabbi Yosef Carlebach's "Chabad of Central New Jersey"**, network "Rabbi Yosef Carlebach" (found by the
+  news/courts sweep, then checked by hand): NJ Jewish News (Debra Rubin, Mar 27, 2019) — Rutgers Chabad is "the hub of
+  10 affiliated Chabad houses in central Jersey"; "They are not affiliated with the several dozen other Chabad-Lubavitch
+  centers in New Jersey", "which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown".
+  Monroe's official Chabad (Zaklikovsky, 118587) on its own site: "There is only one authorized Chabad center in
+  Monroe"; "Anyone else using the 'Chabad' name is sadly operating in direct defiance of Chabad's structure." chabad.org
+  has no center in New Brunswick at all and none of these rabbis in NJ; nothing shows a reconciliation since Rabbi Moshe
+  Herson's death (Jan 2025). Against (in each `mushroom` text): Carlebach says the Rebbe sent him to Rutgers in 1978.
+  Added from the network's own affiliate list (chabadnj.org/community-links), each with 2026 activity on its own site:
+  Chabad House at Rutgers (170 College Ave, New Brunswick), Chabad House of Monroe (324 Applegarth Rd; Spritzer),
+  Chabad of North & South Brunswick (4100 Route 27; Mendy Carlebach), Chabad of Greater Monmouth County – Congregation
+  Sons of Israel (Poplar Place, Ocean, beside Hillel Yeshiva — `area`; Yosef and Moshe Carlebach), Chabad of the Shore
+  (620 Ocean Ave, Long Branch; Schapiro, Greenberg, Marasow), Chabad of Colts Neck (PO box only — `city`; Ephraim
+  Carlebach). Left out: East Brunswick (the Majeskis, youth work, no premises) and Bradley Beach (the Krauses, from
+  their home, 2025) — add them when they have a place. Hebrew spelling of Carlebach: קרליבך (as the map already has it).
+- From the news/courts sweep, checked, not added: Marina del Rey's Living Judaism Center (Naparstek, fired by Cunin
+  2002; the building is now the official Chabad of the Marina), San Francisco's Schneerson Center (Rabbi Bentzion Pil;
+  Cunin 1996: "You have nothing to do with Chabad Lubavitch" — but it doesn't call itself Chabad), Chabad of Gramercy
+  Park (Rotenstreich; Chapter 11 in 2025, no center found), Stamford (Shemtov; a property case, still on chabad.org),
+  Northwestern's Tannenbaum Chabad House (on chabad.org), Fort Lauderdale's Downtown Jewish Center (on chabad.org now),
+  IYYUN / Chabad of Carroll Gardens (Pinson; on chabad.org), Kingston PA's Wyoming Valley Yeshiva (not Chabad-named),
+  Colonie NY's Rabbi Yaakov Weiss (suspended by Rubin in 2008; no center).
+- The town-by-town upstate/eastern NY sweep (Catskills, Hudson Valley, Capital Region, western and northern NY, the
+  Poconos and western New England fringe) found nothing new beyond the Borensteins and Buffalo: only official houses
+  and empty IRS shells (Chabad of Hunter, of Lackawaxen, Bet Chabad Stroudsburg, Pottsville's Beit Hatalmud, Chabad of
+  Greater Danbury, Tomchei Temimim Lubavitch Monticello), a YellowPages-only "Chabad of Franklin County" (Greenfield
+  MA) and a summer-colony shul (Congregation Iched Anash, Monticello). The 2006 letter's "three other rabbis" remain
+  unnamed. **Unfinished:** the directory-differencing sweep outside NY (GoDaven, OU, federation directories) was cut
+  off twice by session limits; rerun it.
 - **For the owner, not changed:** Rabbi Yisroel Rubin of Albany (Eastern NY's "Rubin family") passed away on Shemini
   Atzeret 5787, Oct 2–3, 2026 (JNS, Oct 6); chabad.org's data on the map was fetched Oct 3 and may still list him
   as living on the Capital District card.
@@ -529,7 +555,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
     grep '"review"' data/extra-centers.json.
   - **MUSHROOMS (owner, Oct 12).** A center outside official Chabad (not a Merkos-recognised shliach) carries
     `"mushroom": "<evidence>"` in data/extra-centers.json; it is left off the map (dots, city counts) unless the new
-    Options checkbox "Mushrooms" / "פטריות" is on (owner: just "Mushrooms", no explanation), with a mushroom icon; a mushroom's dot is red (orange when the Red dot colour is picked), its card opens with a red "MUSHROOM" / "פטרייה" label and names no head shliach (the foot shows only the shetach's name); under the label, "Network: …" / "רשת: …" from its `network`/`networkHe` (Kupchik family ×14 — Bolivia, Jaipur (was Pune until Oct 19), South Delhi, Arusha, the Chabad of India directory's houses, Puerto Escondido, whose rabbi also runs Kasol; Mashiach Jabad Mexico — Mérida; since Oct 19 Rabbi Binyomin Edery — Tokyo, Kyoto; Rabbi Moshe Reuven Azman — Brodsky, Anatevka; Rabbi Yacov Borenstein — Poughkeepsie, Goshen; Labkovski family — Williamsville, Downtown Buffalo). Owner, Oct 12: only name a network where the house really is part of one — the others have no Network line.) (remembered in
+    Options checkbox "Mushrooms" / "פטריות" is on (owner: just "Mushrooms", no explanation), with a mushroom icon; a mushroom's dot is red (orange when the Red dot colour is picked), its card opens with a red "MUSHROOM" / "פטרייה" label and names no head shliach (the foot shows only the shetach's name); under the label, "Network: …" / "רשת: …" from its `network`/`networkHe` (Kupchik family ×14 — Bolivia, Jaipur (was Pune until Oct 19), South Delhi, Arusha, the Chabad of India directory's houses, Puerto Escondido, whose rabbi also runs Kasol; Mashiach Jabad Mexico — Mérida; since Oct 19 Rabbi Binyomin Edery — Tokyo, Kyoto; Rabbi Moshe Reuven Azman — Brodsky, Anatevka; Rabbi Yacov Borenstein — Poughkeepsie, Goshen; Labkovski family — Williamsville, Downtown Buffalo; Rabbi Yosef Carlebach — Rutgers, Monroe, the Brunswicks, Ocean, Long Branch, Colts Neck). Owner, Oct 12: only name a network where the house really is part of one — the others have no Network line.) (remembered in
     localStorage `shetachim-mushrooms`; switching it reloads the page). Build: `mushroom: true` on the center,
     `mushrooms: n` on its city. **Bolivia**: Itzik Kupchik is no longer head shliach (owner) — Bolivia has no head and
     no capital (`noCentralLeadership`); his La Paz house is a mushroom. (India stays under Kantor, as decided long ago.)
@@ -548,8 +574,9 @@ between two Claude accounts when usage limits run out; whichever session picks t
       Bali (WUPJ 2018: no rabbi, run by a lay couple); Kyiv's Brodsky Synagogue (Azman: "not part of Chabad's structure
       in the country", JTA; FJC's Chabad rabbis called his election illegitimate).
       **Oct 19: 30** — Pune closed (now Jaipur); added Tokyo, Kyoto, Anatevka, Leh, Westborough, Colorado Springs (see
-      the Oct 19 section at the top). **Then 36**: Poughkeepsie, Goshen, Buffalo's Jewish Discovery Center, Center
-      for Jewish Life and Chabad Downtown, and Lauderhill's 770 Moshiach Center (the "Oct 19–20" section at the top).
+      the Oct 19 section at the top). **Then 42**: Poughkeepsie, Goshen, Buffalo's Jewish Discovery Center, Center
+      for Jewish Life and Chabad Downtown, Lauderhill's 770 Moshiach Center, and six houses of Rabbi Yosef Carlebach's
+      central New Jersey network (the "Oct 19–20" section at the top).
     - **Official (53)**: the shetach head himself (Armenia, Belize, Bulgaria, El Salvador, Honduras, Panama Beth El,
       Philippines ×8, Sri Lanka ×5, Uruguay, Albania); the country's official network (Thailand, Germany ×2, Austria,
       Cyprus, Spain ×3, Italy, Amsterdam, Montenegro, Switzerland, Riyadh, Abu Dhabi, Istanbul, Southern Ohio); on

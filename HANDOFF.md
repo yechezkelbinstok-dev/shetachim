@@ -8,32 +8,62 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
-## ▶ Oct 19 (later): six US mushrooms — the Hudson Valley's Borensteins and Buffalo's independents (36 now)
+## ▶ Oct 19–20: six US mushrooms — the Hudson Valley's Borensteins, Buffalo's independents, Lauderhill's 770 Moshiach Center (36 now)
 - Owner: "Research to find more mushrooms … They say upstate NY (inc east NY) is a big mushroom breeding ground …
   look into it more in the usa". Method: chabad.org's own list for the two upstate shetachim (71 centers) against
   every IRS-registered "Chabad"/"Lubavitch" organization (ProPublica's nonprofit API, read with WebFetch: 411 in NY,
-  1,631 in the US, compared town by town with chabad.org), plus news searches; then each lead on the open web.
-- **Eastern NY (the Rubins' shetach): Rabbi Yacov Borenstein's two houses**, network "Rabbi Yacov Borenstein":
-  - Chabad of Mid-Hudson Valley, 63 Vassar Rd, Poughkeepsie (IRS since 1991; GoDaven; a new building opened Sept 2022,
-    Mid Hudson News). Times Herald-Record (Jun 8, 2006): Chabad's leaders call him a "renegade" they fired years ago;
-    a letter told him and three other rabbis (not named) they could no longer use the Chabad-Lubavitch name.
-  - Chabad Goshen (it also calls itself Chabad of Orange County), 203 Main St, Goshen, his nephew Rabbi Meir and
-    Rivkie Borenstein (jewishgoshen.com; events through 2025). Zalman Shmotkin (Times Herald-Record, May 28, 2006):
-    "The only authorized Chabad-Lubavitch representatives in Orange County are Rabbi Pesach and Chana Burston".
+  1,631 in the US, compared town by town with chabad.org), plus news searches; then each lead on the open web. Every
+  finding then went to an independent skeptic told to refute it (a workflow: on chabad.org after all? Merkos/Chabad
+  press calling them shluchim? Merkos programs? closed? quotes and addresses re-read).
+- **Eastern NY (the Rubins' shetach): Rabbi Yacov Borenstein's two houses**, network "Rabbi Yacov Borenstein" — both
+  survived the skeptics:
+  - Chabad of Mid-Hudson Valley, 63 Vassar Rd, Poughkeepsie (chabadmidhudsonvalley.com; IRS since 1991; new building
+    Sept 2022; he and Hindy lit Dutchess County's menorah with the County Executive, Dec 2024). Times Herald-Record
+    (Jun 8, 2006, reprinted by CrownHeights.info and VIN): "Chabad leaders say Yakov Borenstein is a renegade and
+    irritant they fired several years ago for outlandish behavior"; a letter about June 1, 2006 said he and three
+    other rabbis (not named) "can no longer use the Chabad-Lubavitch name". His defence, a 2004 Crown Heights Beth Din
+    letter: "a neighborhood panel with no jurisdiction over Chabad" (Shmotkin). He styled himself "Chabad's regional
+    director" (YWN 2009); his site's "Affiliate Branches" page claims Chabad of New Paltz (Plotkin's address) and the
+    Chabad House of Eastern Orange County (Serebryanski's phone, 845-565-3816) — both official on chabad.org now; a
+    past tie, for the owner to know.
+  - **For the owner: chabad.org still lists his mikvah**, "Mikvah Ma'ayan Chaya" (120141, no staff), 114 m from his
+    center — his own site books it through Hindy Borenstein. It shows on the map as an official dot. Probably a stale
+    listing from before he was fired; left as it is (the owner's rule: on chabad.org = official).
+  - Chabad Goshen (it also calls itself Chabad of Orange County), 203 Main St, his nephew Rabbi Meir and Rivkie
+    Borenstein (jewishgoshen.com; The Chronicle through Purim 2026). Zalman Shmotkin (Times Herald-Record, May 28,
+    2006): "The only authorized Chabad-Lubavitch representatives in Orange County are Rabbi Pesach and Chana Burston".
   - His 2005–06 centers in New Paltz and Woodstock: no trace now (the official ones there are Plotkin's and Karczag's).
-- **Upstate NY (Gurary's shetach): Buffalo's independents** (not on chabad.org; chabadbuffalo.com's own history says
-  "the Greenbergs' work separated from Rabbi Gurary's organization" in 1993 and has gone on independently since; its
-  line that each Buffalo institution "operates independently" covers the official ones too, so it isn't evidence):
-  - Rabbi Heschel Greenberg's Jewish Discovery Center, 831 Maple Rd, Williamsville (in Buffalo since 1972; its own
-    site doesn't say Chabad). No network line.
-  - The Labkovski family, network "Labkovski family": Center for Jewish Life – Chabad Buffalo, 757 Hopkins Rd,
-    Williamsville (Laizer and Chani, in Buffalo since 1995, first with the Greenbergs); Chabad Downtown Buffalo,
-    409 Franklin St (Mendy and Chaya Mushka, 2021); Niagara Falls USA Shul – Chabad, 770 Ashland Ave — a second
-    "Chabad Niagara Falls USA" beside the official one (Rabbi Yehuda Lorber's, chabad.org 6624274). Their Clarence
-    branch has no address yet (left out). The evidence here is structural (the 1993 split, 30 years off chabad.org,
-    the rival Niagara Falls name); no Chabad statement was found — the owner may want to look.
+    lubavitch.com also lists "Chabad on Cedar", 17 E Cedar St, Poughkeepsie (Boruch and Chaya Zelouf, 4018120) — not in
+    chabad.org's Sept 2026 locator and its pages are dead; probably closed, not added.
+- **Upstate NY (Gurary's shetach): Buffalo's independents — the weakest of the set; the owner may want to rule.**
+  Rabbi Heschel Greenberg came in 1972 as one of Gurary's shluchim; in 1993 "the Greenbergs' work separated from Rabbi
+  Gurary's organization" and "continued … independently" (the Labkovski family's own history, chabadbuffalo.com).
+  None of these is on chabad.org, and Merkos's 2022 story on 50 years of Chabad in Buffalo names only the Gurarys.
+  Counter-evidence, recorded in each `mushroom` text: ChabadInfo (2019) called Greenberg "a Shliach in Buffalo"; COLlive
+  (2022) called Mendy and Chaya Mushka Labkowski "Chabad Shluchim"; the Center for Jewish Life runs JLI courses and
+  CTeen events (its own listings; no Merkos listing could be confirmed). Kept as mushrooms because in the US chabad.org
+  is Merkos's own near-complete directory, and 30 years off it and outside the head shliach's organization is the
+  heart of the owner's definition; if the owner counts that press or JLI as recognition, all three go.
+  - Jewish Discovery Center, 831 Maple Rd, Williamsville (Greenberg; its own site doesn't use the Chabad name). No
+    network line.
+  - Network "Labkovski family": Center for Jewish Life – Chabad Buffalo, 757 Hopkins Rd, Williamsville (Laizer and
+    Chani, in Buffalo since 1995; its own organization since 2021); Chabad Downtown Buffalo (its own name: the Chabad
+    Center for Jewish Life of Buffalo), 409 Franklin St (Mendy and Chaya Mushka, 2021).
+  - **Dropped after the skeptics:** their "Chabad Niagara Falls USA" shul at 770 Ashland Ave — the family's own page
+    says it is still "working to establish" it ("not yet a permanent daily Niagara Falls minyan"); the Buffalo Jewish
+    Federation calls Lorber's "the official Chabad of Niagara Falls USA" (Dec 2025). Add it if it opens. Also left out:
+    a Clarence branch (two different couples named, no address).
   - Not mushrooms: Ohr Temimim day school (a 2008 merger with the official Torah Temimah; the Lorbers teach there),
     the Saranac Ave shul (Mendel Gurary = the official Chabad of the Southtowns).
+- **Florida: the 770 Moshiach Center, Lauderhill** (4538 Inverrary Blvd; Chabadpedia: בית משיח 770 (פלורידה), a Chabad
+  house for Hebrew speakers, about 100 families, its own 770 replica finished 5786). Found by the meshichist sweep —
+  my IRS pass had missed it ("770 Moshiach Community Center Inc"). Opened in 1993 by Rabbi Mordechai (Motti) Anati,
+  "שליח הרבי מלך המשיח" in his own words, on the Rebbe's blessing; Anash.org's obituary (2020) calls him only "a Chabad
+  activist"; now Rabbi Daniel Shahino (שהינו). Yeshiva "Melech HaMoshiach", weekly "Moshiach Time"; Rabbi Hendel of the
+  World Chabad Center for Greeting Moshiach visited in 2018. Not on chabad.org after 33 years and ~$3M a year; the
+  official Synagogue of Inverrary – Chabad (Lieberman) is 290 m away. No network line. Its satellites "Di Shtetl" and
+  the "Rashbi" shul (Rabbi Itamar Taktuk) have no address — not added. Chabadpedia: the yeshiva was once supervised by
+  Rabbi Shneur Zalman Labkowski, rosh yeshiva at 770.
 - **Fix: Chabad Niagara Falls USA (Lorber) was a dot in Ontario.** Moved to its own address, 332 Prospect St, Niagara
   Falls NY (fixes in data/extra-centers.json) — but it stayed Ontario's: the build tags US/Canada dots by Natural
   Earth's 1:10m country outline, which gives downtown Niagara Falls to Canada. So `tag()` in scripts/build-data.mjs now
@@ -45,6 +75,15 @@ between two Claude accounts when usage limits run out; whichever session picks t
   for a future house), the IRS's Florida "Beis Moshiach"/"770 Moshiach Community Center" names and Milwaukee's
   "Moshiach Center of Riverwest" (no center found), West New York's "Yeshiva Gedolah Lubavitch" (a 2013 letter only),
   West Bloomfield's Bais Chabad Torah Center (on chabad.org), Oberlin's Rabbi Elkan (replaced; no center of his own).
+  From the meshichist sweep: Hollywood FL's "HaNefesh HaElokit" center (Nasrati, Elishevitz; Chabadpedia, undated),
+  Tomchei Temimim Poconos and its summer "Camp Gan Israel Machane Moshiach" (Hendel's; a yeshiva and a camp, not a
+  house), Springfield MO's Rabbi Yosef Yitzchak Avichzer (Chabadpedia only, unverified), Springfield IL's Mendy Turen
+  (likely official), Milwaukee's "Congregation Moshiach Now" (Milchtein; IRS only), and IRS-only names (Beit Mashiach
+  LA, Team Moshiach, Mechon Mashiach, Project Yechi, Cong Beit Aharon Moshiach Center of Ridgewood). The international
+  mushroom networks (Kupchik, Edery, Azman, Mashiach Jabad Mexico) have no US house.
+- **Unfinished:** three of the four sweeps (news/court cases, a town-by-town upstate NY pass, directory differencing
+  outside NY) were cut off by a session limit on Oct 20 and should be rerun; the 2006 letter's "three other rabbis"
+  are still unnamed.
 - **For the owner, not changed:** Rabbi Yisroel Rubin of Albany (Eastern NY's "Rubin family") passed away on Shemini
   Atzeret 5787, Oct 2–3, 2026 (JNS, Oct 6); chabad.org's data on the map was fetched Oct 3 and may still list him
   as living on the Capital District card.
@@ -490,7 +529,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
     grep '"review"' data/extra-centers.json.
   - **MUSHROOMS (owner, Oct 12).** A center outside official Chabad (not a Merkos-recognised shliach) carries
     `"mushroom": "<evidence>"` in data/extra-centers.json; it is left off the map (dots, city counts) unless the new
-    Options checkbox "Mushrooms" / "פטריות" is on (owner: just "Mushrooms", no explanation), with a mushroom icon; a mushroom's dot is red (orange when the Red dot colour is picked), its card opens with a red "MUSHROOM" / "פטרייה" label and names no head shliach (the foot shows only the shetach's name); under the label, "Network: …" / "רשת: …" from its `network`/`networkHe` (Kupchik family ×14 — Bolivia, Jaipur (was Pune until Oct 19), South Delhi, Arusha, the Chabad of India directory's houses, Puerto Escondido, whose rabbi also runs Kasol; Mashiach Jabad Mexico — Mérida; since Oct 19 Rabbi Binyomin Edery — Tokyo, Kyoto; Rabbi Moshe Reuven Azman — Brodsky, Anatevka; Rabbi Yacov Borenstein — Poughkeepsie, Goshen; Labkovski family — Williamsville, Downtown Buffalo, Niagara Falls). Owner, Oct 12: only name a network where the house really is part of one — the others have no Network line.) (remembered in
+    Options checkbox "Mushrooms" / "פטריות" is on (owner: just "Mushrooms", no explanation), with a mushroom icon; a mushroom's dot is red (orange when the Red dot colour is picked), its card opens with a red "MUSHROOM" / "פטרייה" label and names no head shliach (the foot shows only the shetach's name); under the label, "Network: …" / "רשת: …" from its `network`/`networkHe` (Kupchik family ×14 — Bolivia, Jaipur (was Pune until Oct 19), South Delhi, Arusha, the Chabad of India directory's houses, Puerto Escondido, whose rabbi also runs Kasol; Mashiach Jabad Mexico — Mérida; since Oct 19 Rabbi Binyomin Edery — Tokyo, Kyoto; Rabbi Moshe Reuven Azman — Brodsky, Anatevka; Rabbi Yacov Borenstein — Poughkeepsie, Goshen; Labkovski family — Williamsville, Downtown Buffalo). Owner, Oct 12: only name a network where the house really is part of one — the others have no Network line.) (remembered in
     localStorage `shetachim-mushrooms`; switching it reloads the page). Build: `mushroom: true` on the center,
     `mushrooms: n` on its city. **Bolivia**: Itzik Kupchik is no longer head shliach (owner) — Bolivia has no head and
     no capital (`noCentralLeadership`); his La Paz house is a mushroom. (India stays under Kantor, as decided long ago.)
@@ -509,8 +548,8 @@ between two Claude accounts when usage limits run out; whichever session picks t
       Bali (WUPJ 2018: no rabbi, run by a lay couple); Kyiv's Brodsky Synagogue (Azman: "not part of Chabad's structure
       in the country", JTA; FJC's Chabad rabbis called his election illegitimate).
       **Oct 19: 30** — Pune closed (now Jaipur); added Tokyo, Kyoto, Anatevka, Leh, Westborough, Colorado Springs (see
-      the Oct 19 section at the top). **Then 36**: Poughkeepsie, Goshen, and Buffalo's Jewish Discovery Center,
-      Center for Jewish Life, Chabad Downtown and Niagara Falls shul (the "Oct 19 (later)" section at the top).
+      the Oct 19 section at the top). **Then 36**: Poughkeepsie, Goshen, Buffalo's Jewish Discovery Center, Center
+      for Jewish Life and Chabad Downtown, and Lauderhill's 770 Moshiach Center (the "Oct 19–20" section at the top).
     - **Official (53)**: the shetach head himself (Armenia, Belize, Bulgaria, El Salvador, Honduras, Panama Beth El,
       Philippines ×8, Sri Lanka ×5, Uruguay, Albania); the country's official network (Thailand, Germany ×2, Austria,
       Cyprus, Spain ×3, Italy, Amsterdam, Montenegro, Switzerland, Riyadh, Abu Dhabi, Istanbul, Southern Ohio); on
@@ -689,11 +728,13 @@ between two Claude accounts when usage limits run out; whichever session picks t
   - Sweep: **Ontario and Quebec** (started Oct 11). Toronto: UJA Federation's community directory (jewishtoronto.com/
     directory, 91 pages) against the map — added Armour Heights Jewish Centre – Beth Joseph Chabad (3995 Bathurst St,
     North York; its site ahjewish.com is on Chabad's ChabadSuite; runs Torah Tots; no rabbi named, so none shown).
-    **Open: Chabad Niagara Falls USA (6624274) counts in Ontario.** Its address, 332 Prospect St, Niagara Falls NY, is
-    on the US side, but the map tags countries with Natural Earth's 1:10m border, which at the falls runs at least
-    800 m east of the real one — even the true spot lands in Canada. Moving the dot can't fix it; it needs the
-    border fix (the "US-side border water" item). Not yet checked: Montreal (Federation CJA's directory) and the rest
-    of Ontario and Quebec.
+    **Fixed Oct 19: Chabad Niagara Falls USA (6624274) counted in Ontario** — Natural Earth's 1:10m border runs at
+    least 800 m east of the real one at the falls; the dot is now at its address (332 Prospect St) and the build lets
+    the map's own areas decide (see the Oct 19–20 section at the top). **Open:** Ontario's own Chabad Niagara
+    (Rabbi Zalman and Perla Zaltzman, since 2005, Jewish Welcome Centre at 6417 Main St; chabad.org News called them
+    "Niagara Emissaries") isn't in chabad.org's Sept 2026 locator, and nothing dated 2024–26 confirms it still runs
+    (COR notice 2016, CJN c. 2022) — so it isn't on the map; for the owner. Not yet checked: Montreal (Federation
+    CJA's directory) and the rest of Ontario and Quebec.
 - **Open:** fix every center without a proper location — my 43 hand-added `area`/`city` centers (Nominatim only finds
   streets for most; needs each center's own site / Google pin — check pins: Namibia's site link was an old spot), then
   ask the owner about the 543 chabad.org approximate listings (often hidden on purpose). Editor: owner hasn't picked

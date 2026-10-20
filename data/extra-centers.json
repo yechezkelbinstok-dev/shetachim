@@ -74,9 +74,15 @@
       "lon": -73.87498,
       "precision": "exact",
       "note": "63 Vassar Road; its new building, the Sanderson and Osofsky Chabad Center, opened in September 2022",
-      "source": "IRS exempt-organization record (Chabad Lubavitch of Mid-Hudson Valley, 63 Vassar Rd, exempt since 1991); GoDaven (Chabad of Mid-Hudson Valley, Rabbi Yacov Borenstein); Mid Hudson News (Sep 19, 2022: the new building's ribbon-cutting); US Census geocoder; not on chabad.org",
-      "personnel": [{ "title": "Rabbi", "firstName": "Yacov", "lastName": "Borenstein" }],
-      "mushroom": "Chabad's leaders call Rabbi Yacov Borenstein a \"renegade\" they fired years ago, and in June 2006 a letter told him and three other rabbis they could no longer use the Chabad-Lubavitch name (Times Herald-Record, Jun 8, 2006); Ulster County's Rabbi Yitzchok Hecht says he was dismissed in the 1990s. He runs it all the same, with his nephew's Chabad in Goshen. Dutchess County's official Chabad is Rabbi Hanoch Hecht's (Rhinebeck), with Chabad at Vassar and at Marist.",
+      "source": "its own site, chabadmidhudsonvalley.com (63 Vassar Rd); IRS exempt-organization record (Chabad Lubavitch of Mid-Hudson Valley, exempt since 1991); Mid Hudson News (Sep 19, 2022: the new building's ribbon-cutting; Dec 31, 2024: the Borensteins light Dutchess County's menorah with County Executive Sue Serino); US Census geocoder; not on chabad.org, which lists only his mikvah (Mikvah Ma'ayan Chaya, 120141, no staff) 114 m away",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Yacov", "lastName": "Borenstein" },
+        { "title": "Mrs.", "firstName": "Hindy", "lastName": "Borenstein" }
+      ],
+      "url": "http://www.chabadmidhudsonvalley.com/",
+      "site": "Chabad of Mid-Hudson Valley",
+      "siteHe": "חב״ד עמק ההדסון התיכון",
+      "mushroom": "Times Herald-Record (Jun 8, 2006, reprinted by CrownHeights.info and VIN): \"Chabad leaders say Yakov Borenstein is a renegade and irritant they fired several years ago for outlandish behavior\", and a letter said he and three other rabbis \"can no longer use the Chabad-Lubavitch name\". He disputes ever being fired and relies on a 2004 Crown Heights Beth Din letter, which Chabad's spokesman called \"a neighborhood panel with no jurisdiction over Chabad\". He runs it all the same, with his nephew's Chabad in Goshen. Dutchess County's official Chabad: Rabbi Hanoch Hecht's (Rhinebeck), Beacon, and Chabad at Vassar and at Marist.",
       "network": "Rabbi Yacov Borenstein",
       "networkHe": "הרב יעקב בורנשטיין"
     },
@@ -88,7 +94,7 @@
       "lon": -74.32037,
       "precision": "exact",
       "note": "203 Main Street, the old Goshen Public Library (1918), its synagogue since 2020; it also calls itself Chabad of Orange County",
-      "source": "jewishgoshen.com (Oct 2026: Rabbi Meir and Rivkie Borenstein, 203 Main St); The Chronicle, Goshen (2020: the library bought; events through 2025); US Census geocoder; not on chabad.org",
+      "source": "jewishgoshen.com (Oct 2026: Rabbi Meir and Rivkie Borenstein, 203 Main St); The Chronicle, Goshen (2020: the library bought; events through Purim 2026); News 12 Hudson Valley (Sep 2025); US Census geocoder; not on chabad.org",
       "personnel": [
         { "title": "Rabbi", "firstName": "Meir", "lastName": "Borenstein" },
         { "title": "Mrs.", "firstName": "Rivkie", "lastName": "Borenstein" }
@@ -108,7 +114,7 @@
       "lon": -78.73939,
       "precision": "exact",
       "note": "757 Hopkins Road, Amherst, its home since 2000: a shul, Hebrew school, the Chai Early Childhood Center and Kosher Meals on Wheels",
-      "source": "jewishbuffalo.com and chabadbuffalo.com (Oct 2026); Buffalo Jewish Federation's community directory; Buffalo News (2026: the building's expansion approved); US Census geocoder; not on chabad.org",
+      "source": "jewishbuffalo.com and chabadbuffalo.com (Oct 2026); Buffalo Jewish Federation's directory and calendar (a course here Oct 26 – Nov 30, 2026); Buffalo News (2026: the building's expansion approved); IRS (Center For Jewish Life Inc, 2022); US Census geocoder; not on chabad.org",
       "personnel": [
         { "title": "Rabbi", "firstName": "Laizer", "lastName": "Labkovski" },
         { "title": "Mrs.", "firstName": "Chani", "lastName": "Labkovski" },
@@ -120,7 +126,7 @@
       "url": "https://www.jewishbuffalo.com/",
       "site": "Center for Jewish Life",
       "siteHe": "המרכז לחיים יהודיים",
-      "mushroom": "Outside Upstate New York's official Chabad (head shliach Rabbi Nosson Gurary's Chabad House of Buffalo): the Labkovskis came in 1995 to direct Rabbi Heschel Greenberg's Jewish Discovery Center with him, after \"the Greenbergs' work separated from Rabbi Gurary's organization\" in 1993 (chabadbuffalo.com's own history of Chabad in Buffalo). After 30 years none of their places is on chabad.org, and they run a second \"Chabad Niagara Falls USA\" beside the official one (Rabbi Yehuda Lorber's).",
+      "mushroom": "Outside Upstate New York's official Chabad (head shliach Rabbi Nosson Gurary's Chabad House of Buffalo): the Labkovskis came in 1995 to direct the Jewish Discovery Center with Rabbi Heschel Greenberg, two years after \"the Greenbergs' work separated from Rabbi Gurary's organization\" (the family's own history, chabadbuffalo.com); after 30 years none of their places is on chabad.org, and they announce a second \"Chabad Niagara Falls USA\" (770 Ashland Ave, not yet open) beside the one the Buffalo Jewish Federation calls \"the official Chabad of Niagara Falls USA\" (Rabbi Yehuda Lorber's, Dec 2025). Against: it runs JLI courses and CTeen events, Merkos programs (its own listings).",
       "network": "Labkovski family",
       "networkHe": "משפחת לבקובסקי"
     },
@@ -132,7 +138,7 @@
       "lon": -78.87319,
       "precision": "exact",
       "note": "409 Franklin Street; also Chabad Young Professionals Buffalo; opened in 2021 as the Chabad Center for Jewish Life of Buffalo",
-      "source": "chabadbuffalo.com (Oct 2026); Buffalo Jewish Federation's community directory (then at 1016 Lafayette Ave); US Census geocoder; not on chabad.org",
+      "source": "chabadbuffalo.com (Oct 2026: its own name is the Chabad Center for Jewish Life of Buffalo; High Holiday programs 2026); Buffalo Jewish Federation's community directory (then at 1016 Lafayette Ave); IRS (Chabad Jewish Center of Buffalo Inc); US Census geocoder; not on chabad.org",
       "personnel": [
         { "title": "Rabbi", "firstName": "Mendy", "lastName": "Labkowski" },
         { "title": "Mrs.", "firstName": "Chaya Mushka", "lastName": "Labkowski" }
@@ -140,27 +146,7 @@
       "url": "https://www.chabadbuffalo.com/",
       "site": "Chabad Buffalo",
       "siteHe": "חב״ד באפלו",
-      "mushroom": "Part of the Labkovski family's Buffalo network, outside Upstate New York's official Chabad (Rabbi Nosson Gurary's): the family's work grew out of the Jewish Discovery Center after its 1993 split from Rabbi Gurary's organization (chabadbuffalo.com's own history of Chabad in Buffalo); none of their places is on chabad.org.",
-      "network": "Labkovski family",
-      "networkHe": "משפחת לבקובסקי"
-    },
-    {
-      "id": "extra-us-niagara-falls-labkovski",
-      "name": "Niagara Falls USA Shul – Chabad",
-      "city": "Niagara Falls",
-      "lat": 43.0992,
-      "lon": -79.05414,
-      "precision": "exact",
-      "note": "770 Ashland Avenue; a daily minyan",
-      "source": "jewishbuffalo.com (Niagara Falls USA Shul – Chabad) and chabadbuffalo.com (Chabad Niagara Falls USA: Rabbi Laizer and Chani Labkovski), Oct 2026; US Census geocoder; not on chabad.org",
-      "personnel": [
-        { "title": "Rabbi", "firstName": "Laizer", "lastName": "Labkovski" },
-        { "title": "Mrs.", "firstName": "Chani", "lastName": "Labkovski" }
-      ],
-      "url": "https://www.jewishbuffalo.com/niagarafallschabadshul",
-      "site": "Center for Jewish Life",
-      "siteHe": "המרכז לחיים יהודיים",
-      "mushroom": "The Labkovski family's, outside Upstate New York's official Chabad, under the same name as the city's official Chabad: Rabbi Yehuda and Yehudis Lorber's Chabad Niagara Falls USA (chabad.org 6624274; Merkos's lubavitch.com, May 2025). Their network grew out of the Jewish Discovery Center's 1993 split from Rabbi Nosson Gurary's Chabad House of Buffalo.",
+      "mushroom": "Rabbi Mendy Labkowski's, opened in 2021: part of the Labkovski family's Buffalo network outside Upstate New York's official Chabad (Rabbi Nosson Gurary's), which grew out of the Jewish Discovery Center's 1993 split from Rabbi Gurary's organization (chabadbuffalo.com's own history); none of their places is on chabad.org. Against: COLlive (May 15, 2022) called the couple \"Chabad Shluchim\".",
       "network": "Labkovski family",
       "networkHe": "משפחת לבקובסקי"
     },
@@ -171,8 +157,8 @@
       "lat": 42.99096,
       "lon": -78.75665,
       "precision": "exact",
-      "note": "831 Maple Road (its learning center; the office is at 212 Exeter Road): a shul and the Institute for Jewish Studies",
-      "source": "jewishdiscovery.org (Oct 2026); Buffalo Jewish Federation's directory and calendar (831 Maple Road); chabadbuffalo.com's history of Chabad in Buffalo; US Census geocoder; not on chabad.org",
+      "note": "831 Maple Road, Suite 110 (its learning center; the Federation's directory also gives an office at 212 Exeter Road): a shul, a daily minyan and the Institute for Jewish Studies",
+      "source": "jewishdiscovery.org (Oct 2026: \"53+ years of service since 1972\"); Buffalo Jewish Federation's directory and calendar (weekly classes at 831 Maple Road, Oct – Dec 2026); chabadbuffalo.com's history of Chabad in Buffalo; US Census geocoder; not on chabad.org",
       "personnel": [
         { "title": "Rabbi", "firstName": "Heschel", "lastName": "Greenberg" },
         { "title": "Mrs.", "firstName": "Lea", "lastName": "Greenberg" },
@@ -182,7 +168,25 @@
       "url": "https://jewishdiscovery.org/",
       "site": "Jewish Discovery Center",
       "siteHe": "מרכז הגילוי היהודי",
-      "mushroom": "Rabbi Heschel Greenberg came to Buffalo in 1972 to work with Rabbi Nosson Gurary's Chabad House (Gurary is now Upstate New York's head shliach); in 1993 \"the Greenbergs' work separated from Rabbi Gurary's organization\" and has gone on independently through the Jewish Discovery Center (chabadbuffalo.com's history of Chabad in Buffalo). Not on chabad.org."
+      "mushroom": "Rabbi Heschel Greenberg came to Buffalo in 1972 as one of Rabbi Nosson Gurary's shluchim (Gurary is now Upstate New York's head shliach); in 1993, \"after more than two decades of working as part of the Chabad House of Buffalo, ... the Greenbergs' work separated from Rabbi Gurary's organization\", and they \"continued their activities independently through the Jewish Discovery Center\" (the Labkovski family's history, chabadbuffalo.com). Not on chabad.org, and Merkos's story on 50 years of Chabad in Buffalo (lubavitch.com, Jan 2022) names only the Gurarys. Against: ChabadInfo (May 2019) still called him \"a Shliach in Buffalo\", and the center's own site doesn't use the Chabad name."
+    },
+    {
+      "id": "extra-us-lauderhill-770-moshiach",
+      "name": "770 Moshiach Center",
+      "city": "Lauderhill",
+      "lat": 26.18093,
+      "lon": -80.23979,
+      "precision": "exact",
+      "note": "4538 Inverrary Blvd: a Chabad house for Hebrew speakers in its own copy of 770's building (finished 2025–26), with mikvaot, the \"Melech HaMoshiach\" semicha yeshiva and a mitzvah tank; about 100 families",
+      "source": "its own site, moshiachcenter770.com (Oct 2026: 4538 Inverrary Blvd; Rabbi Daniel and Rebbetzin Orna Shahino); Chabadpedia (בית משיח 770 (פלורידה)); IRS (770 Moshiach Community Center Inc, since 2003; 2023 revenue $3.3M); US Census geocoder; not on chabad.org",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Daniel", "lastName": "Shahino" },
+        { "title": "Mrs.", "firstName": "Orna", "lastName": "Shahino" }
+      ],
+      "url": "https://moshiachcenter770.com/",
+      "site": "770 Moshiach Center",
+      "siteHe": "בית משיח 770",
+      "mushroom": "A meshichist house: opened in 1993 by Rabbi Mordechai (Motti) Anati, who called himself \"שליח הרבי מלך המשיח\" (Chabad.fm, 2003), on the Rebbe's personal blessing rather than an appointment — Anash.org's obituary (Jul 28, 2020) calls him only \"a Chabad activist in Fort Lauderdale\". Its yeshiva is \"Melech HaMoshiach\" and its weekly \"Moshiach Time\"; the meshichist World Chabad Center for Greeting Moshiach's Rabbi Menachem Mendel Hendel visited in 2018 (Chabad.info). After 33 years, with about $3M a year, it isn't on chabad.org. Florida's head shliach is Rabbi Benjy Korf; Lauderhill's official Chabad, the Synagogue of Inverrary (Rabbi Aron Lieberman, chabad.org 117596), is 290 m away."
     },
     {
       "id": "extra-india-delhi",

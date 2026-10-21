@@ -8,6 +8,21 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 21: every view in its own projection (political map)
+- Owner: "It's meant to be diff maps for the diff views like FSU should be an FSU projection for example, us Canada as
+  well etc etc etc". The political map now draws each view in its own projection (`VIEWS[*].projection`, `flatFor`):
+  USA conic equal-area 29.5/45.5 (the US atlas Albers), US & Canada 30/58, Canada 49/77 (Statistics Canada's
+  parallels), all centred on 96°W; Europe conic 40/62; FSU conic 45/65 at 95°E; Israel transverse Mercator on its
+  grid's meridian (35.2°E); Middle East conic 20/38 at 45°E; Asia conic 5/38 at 105°E; Africa and Latin America
+  azimuthal equal-area; Oceania conic −18/−40 at 150°E; World Natural Earth (unchanged). Before, only the world and
+  continents were flat, all in Natural Earth, and the country views (USA, Canada, US & Canada, Israel) were Mercator.
+- The Alaska/Hawaii boxes now sit beside the conic lower 48 (`boxedFor`: the view's projection outside the boxes,
+  placed from the lower 48's own drawn width). A flat view without a `frame` is framed on its land as drawn (a
+  conic bends a lon/lat box far past the land). Country views fade the land round them at full detail (`outKind`).
+- Street, Physical and Tinted stay Web Mercator: their imagery only comes that way (the engine can't reproject it).
+- Seen while checking, older than this change: Canada's north (no shetach there) is missing from the land data, so
+  it draws as sea (Canada and US & Canada views); the Israel view comes in about a zoom step tighter than its frame.
+
 ## ▶ Oct 20: network names without "Rabbi"
 - Owner: "Why the hell does rabbi preface all the networks take that shit out". Networks are now just the name
   ("Yosef Carlebach", "Binyomin Edery", "Moshe Reuven Azman", "Yacov Borenstein"; Hebrew without הרב). Keep it so.
@@ -1386,7 +1401,8 @@ export-svg.mjs → `*-he.svg/png`, on the download page): Heebo outlines, drawn 
   outlines are thinned to ~500 points a ring (`partsOf`), and there is no held picture of the old map (`preserveDrawingBuffer` off; owner: the freeze "should not exist"). The map's
   own boundaries and city names stay. Don't go back to ink lines or a fade drawn over the map ("custom low quality lines").
 - PROJECTION: the owner hates Mercator. He chose "flat when zoomed out only", with Natural Earth (or Robinson), NEVER
-  Equal Earth. The political map's world and continent views are in Natural Earth, centred on the view's `lon`:
+  Equal Earth. **Since Oct 21 every view's political map is in its own projection** (see the Oct 21 section at the
+  top; the rest of this bullet is the older state). The political map's world and continent views are in Natural Earth, centred on the view's `lon`:
   shapes are projected with d3 and handed to the engine as the lon/lat Web Mercator would draw at that spot
   (`flatFor`, `projGeom`, `P`). Country views (USA, Canada, US & Canada, Israel) and the whole physical map stay
   standard, because the physical imagery only comes in Web Mercator.

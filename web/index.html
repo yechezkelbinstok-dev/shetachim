@@ -767,18 +767,21 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const CARIBBEAN = ['AIA', 'ATG', 'ABW', 'BHS', 'BRB', 'BES', 'VGB', 'CYM', 'CUB', 'CUW', 'DMA', 'DOM', 'GRD', 'GLP', 'HTI', 'JAM', 'MTQ', 'MSR', 'PRI', 'BLM', 'KNA', 'LCA', 'MAF', 'VCT', 'SXM', 'TTO', 'TCA', 'VIR', 'BMU'];
   const LATAM = ['MEX', 'BLZ', 'GTM', 'SLV', 'HND', 'NIC', 'CRI', 'PAN', 'ARG', 'BOL', 'BRA', 'CHL', 'COL', 'ECU', 'PRY', 'PER', 'URY', 'VEN', 'GUY', ...CARIBBEAN];
   const WORLD = [...new Set(['US', 'CA', ...EUROPE, ...FSU, ...ASIA, ...MIDEAST, ...AFRICA, ...OCEANIA, ...LATAM])];
-  const mercator = () => d3.geoMercator();
+  // Each view in its own projection (the political map; owner, Oct 21: "diff maps for the diff views like FSU should be
+  // an FSU projection"): the US, Canada and Europe in the conics their atlases use, the FSU in a conic along Russia,
+  // Israel in its own grid's transverse Mercator, Africa and Latin America azimuthal; the world in Natural Earth.
+  // `lon` is the projection's central meridian (the seam is opposite it).
   const VIEWS = {
-    na: { name: 'United States & Canada', countries: ['US', 'CA'], insets: ['US-HI'], projection: () => d3.geoConicEqualArea().parallels([30, 58]).rotate([96, 0]) },
-    us: { name: 'United States', countries: ['US'], insets: ['US-AK', 'US-HI'], projection: () => d3.geoConicEqualArea().parallels([29.5, 45.5]).rotate([96, 0]) },
-    ca: { name: 'Canada', countries: ['CA'], insets: [], projection: () => d3.geoConicEqualArea().parallels([49, 62]).rotate([96, 0]) },
-    world: { name: 'World', countries: WORLD, projection: () => d3.geoNaturalEarth1() },
+    na: { name: 'United States & Canada', countries: ['US', 'CA'], insets: ['US-HI'], lon: -96, projection: () => d3.geoConicEqualArea().parallels([30, 58]).rotate([96, 0]) },
+    us: { name: 'United States', countries: ['US'], insets: ['US-AK', 'US-HI'], lon: -96, projection: () => d3.geoConicEqualArea().parallels([29.5, 45.5]).rotate([96, 0]) },
+    ca: { name: 'Canada', countries: ['CA'], insets: [], lon: -96, projection: () => d3.geoConicEqualArea().parallels([49, 77]).rotate([96, 0]) },
+    world: { name: 'World', countries: WORLD, lon: 11, projection: () => d3.geoNaturalEarth1().rotate([-11, 0]) },
     europe: { name: 'Europe', countries: EUROPE, lon: 12, frame: [[-24.5, 34.5], [44.5, 71.2]], projection: () => d3.geoConicEqualArea().parallels([40, 62]).rotate([-12, 0]) },
     fsu: { name: 'Former Soviet Union', countries: FSU, lon: 95, wrap: true, projection: () => d3.geoConicEqualArea().parallels([45, 65]).rotate([-95, 0]) },
-    israel: { name: 'Israel', countries: ['ISR'], projection: mercator },
-    mideast: { name: 'Middle East', countries: MIDEAST, lon: 45, projection: mercator },
-    asia: { name: 'Asia', countries: ASIA, lon: 105, projection: () => d3.geoMercator().rotate([-105, 0]) },
-    africa: { name: 'Africa', countries: AFRICA, lon: 17, projection: () => d3.geoAzimuthalEqualArea().rotate([-17, 5]) },
+    israel: { name: 'Israel', countries: ['ISR'], lon: 35.2, projection: () => d3.geoTransverseMercator().rotate([-35.2044, 0]) },
+    mideast: { name: 'Middle East', countries: MIDEAST, lon: 45, projection: () => d3.geoConicEqualArea().parallels([20, 38]).rotate([-45, 0]) },
+    asia: { name: 'Asia', countries: ASIA, lon: 105, projection: () => d3.geoConicEqualArea().parallels([5, 38]).rotate([-105, 0]) },
+    africa: { name: 'Africa', countries: AFRICA, lon: 17, projection: () => d3.geoAzimuthalEqualArea().rotate([-17, -2]) },
     oceania: { name: 'Oceania', countries: OCEANIA, lon: 150, wrap: true, projection: () => d3.geoConicEqualArea().parallels([-18, -40]).rotate([-150, 0]) },
     latam: { name: 'Latin America & Caribbean', countries: LATAM, lon: -80, projection: () => d3.geoAzimuthalEqualArea().rotate([80, 10]) },
   };
@@ -887,26 +890,22 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     }
     return { x: best.x, y: best.y, d: Math.max(0, best.d) };
   }
-  // ---------- flat projection for the political map's world and continent views ----------
-  // The engine draws in Web Mercator. For the political map zoomed out (the world, the continents) the shapes are put
-  // into Natural Earth first, centred on the view, and handed to the engine already flat: each projected point becomes the
-  // longitude and latitude Web Mercator would draw at that spot, so the engine shows Natural Earth while zooming,
-  // placing names and picking exactly as before. Country views, and the physical map (its imagery only comes in Web
-  // Mercator), stay standard.
+  // ---------- flat projection: each view's political map in its own projection ----------
+  // The engine draws in Web Mercator. For the political map the shapes are put into the view's own projection first
+  // (VIEWS: Natural Earth for the world, a conic for the FSU, the US's own conic...), centred on the view, and handed to
+  // the engine already flat: each projected point becomes the longitude and latitude Web Mercator would draw at that
+  // spot, so the engine shows the view's projection while zooming, placing names and picking exactly as before. The
+  // street and physical maps (their imagery only comes in Web Mercator) stay standard.
   // Natural Earth's world is ~5.47 units wide at scale 1, so about 0.41 of the engine's world: the engine won't zoom out
   // past its own world filling the screen (a phone's height, too), and the flat world has to fit beside the panel, or
   // above a phone's bar, with room to centre it, at that zoom.
   const NE_SCALE = 0.075;
   let PROJ = null, PROJ_FINE = null; // the current flat projection (output in world units), or null for standard; and one that bends lines
-  function flatFor(view) {
-    if (!view.world || view === VIEWS.israel) return null;
-    return d3.geoNaturalEarth1().rotate([-(view.lon ?? 11), 0]).scale(NE_SCALE).translate([0.5, 0.5]).precision(0);
-  }
+  const flatFor = (view) => view.projection().scale(NE_SCALE).translate([0.5, 0.5]).precision(0);
   // Alaska and Hawaii in boxes (the political map of a view that has them, "Alaska: In a box", the default; the old
-  // page's corner boxes): everything else in the standard projection, each of them in its own (conic, as atlases draw
+  // page's corner boxes): everything else in the view's own projection, each of them in its own (conic, as atlases draw
   // them) fitted into a box off the lower 48's south-west. Areas and lines are projected piece by piece (`S.boxes`);
   // a point (a dot, a city, a capital) goes in a box if it's in that state's stretch of the globe.
-  const MERC = d3.geoMercator().scale(1 / (2 * Math.PI)).translate([0.5, 0.5]).precision(0);
   const INSET_DEF = {
     'US-AK': { name: 'Alaska', he: 'אלסקה', proj: () => d3.geoConicEqualArea().rotate([154, 0]).center([-2, 58.5]).parallels([55, 65]), top: 31, w: 0.27,
       // (the mainland west of 141°W and the Aleutians; the panhandle, 54.6–60°N to 130°W: no Canadian town with a center there)
@@ -915,9 +914,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       near: ([lon, lat]) => lat > 18 && lat < 23 && lon < -154 && lon > -161 },
   };
   function boxedFor(view) {
-    const W = mx(-66.9) - mx(-125); // the lower 48's width, world units
+    const base = flatFor(view);
+    // the lower 48 in it, world units
+    const [[l48x0], [l48x1]] = d3.geoPath(base).bounds(topojson.merge(topo, pieces.filter((g) => g.properties.country === 'US' && !INSET_DEF[g.properties.state])));
+    const W = l48x1 - l48x0;
     const boxes = [];
-    let x = mx(-127);
+    let x = l48x0 - 0.01 * W;
     for (const st of view.boxes || []) {
       const d = INSET_DEF[st], gs = pieces.filter((g) => g.properties.state === st);
       if (!d || !gs.length) continue;
@@ -927,16 +929,19 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const fitTo = d.fit ? { type: 'MultiPoint', coordinates: d.fit } : geom; // (Hawaii: the main islands, not the chain out to Midway)
       proj.fitWidth(w - 2 * pad, { type: 'Feature', geometry: fitTo, properties: {} });
       const [[bx0, by0], [bx1, by1]] = d3.geoPath(proj).bounds(fitTo);
-      const h = by1 - by0 + 2 * pad, y = my(d.top);
+      const h = by1 - by0 + 2 * pad, y = base([-117, d.top])[1]; // (its top at that latitude below California)
       proj.translate([proj.translate()[0] + x + pad - bx0, proj.translate()[1] + y + pad - by0]);
       boxes.push({ st, name: d.name, he: d.he, proj, geom, near: d.near, rect: [[x, y], [x + w, y + h]] });
       x += w + 0.012 * W;
     }
     const pick = (p) => boxes.find((b) => b.near(p));
-    const P2 = (p) => { const b = pick(p); return b ? b.proj(p) : MERC(p); };
-    P2.stream = (sink) => MERC.stream(sink);
-    P2.invert = (q) => MERC.invert(q);
+    const P2 = (p) => { const b = pick(p); return b ? b.proj(p) : base(p); };
+    P2.stream = (sink) => base.stream(sink);
+    P2.invert = (q) => base.invert(q);
     P2.boxes = boxes;
+    // (and one that bends lines, for the land round the view: see projGeom's fine)
+    const bent = flatFor(view).precision(1e-5);
+    P2.fine = Object.assign((p) => P2(p), { stream: (sink) => bent.stream(sink), invert: P2.invert, boxes });
     return P2;
   }
   // (to a hundred-thousandth of a degree, a few metres: shorter to hand to the engine)
@@ -1308,7 +1313,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const inside = (x) => (w <= e ? x >= w && x <= e : x >= w || x <= e);
     return inside(seam) || inside(seam + 360) || inside(seam - 360) || (e - w + 360) % 360 > 300;
   }
-  let landNoBoxes = null; // the same less Alaska and Hawaii (the boxed political map's land in place)
   // pieces merged into one outline, each set of pieces once (the flat and the standard map of a view, and the views, share them)
   const MERGED = new Map();
   function mergedPieces(gs) {
@@ -1414,7 +1418,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function buildSet(view, framedGeoms, flat, id) {
     const boxed = flat === 'boxed';
     const proj = boxed ? boxedFor(view) : flat ? flatFor(view) : null;
-    const S = { id, view, proj, fine: proj && (boxed ? proj : flatFor(view).precision(1e-5)), sfx: flat ? '-f' : '', flat: !!flat, boxed, capCity: new Map(), made: new Map(), jobs: new Map() };
+    const S = { id, view, proj, fine: proj && (boxed ? proj.fine : flatFor(view).precision(1e-5)), sfx: flat ? '-f' : '', flat: !!flat, boxed, capCity: new Map(), made: new Map(), jobs: new Map() };
     const main = V.main;
     // Alaska and Hawaii in their boxes: a geometry made of pieces is projected in parts, the rest in place and each
     // boxed state in its own box (make: the pieces' lon/lat geometry)
@@ -1426,8 +1430,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const withProj = (pr, fn) => { const k = PROJ; PROJ = pr; try { return fn(); } finally { PROJ = k; } };
     const projPieces = (gs, make) => {
       if (!boxes.length) return projGeom(make(gs));
-      // (the rest is in the standard projection, which is the engine's own: no projecting needed)
-      const parts = [make(gs.filter((g) => !boxOf(g)))];
+      // (the rest in the view's projection, each boxed state in its box's)
+      const rest = gs.filter((g) => !boxOf(g)), parts = [rest.length ? projGeom(make(rest)) : null];
       for (const b of boxes) { const sub = gs.filter((g) => boxOf(g) === b); if (sub.length) parts.push(withProj(b.proj, () => projGeom(make(sub)))); }
       const got = parts.filter(Boolean);
       if (!got.length) return null;
@@ -1436,7 +1440,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     };
     const merged = mergedPieces;
     within(S, () => {
-      if (!flat || boxed) { // (boxed: the standard projection outside the boxes, so framed the same way, across 180° too)
+      if (!flat) {
         if (view.frame) S.bounds = view.frame;
         else {
           const b = viewBounds(view, framedGeoms);
@@ -1444,12 +1448,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
             ? [[-180, b[0][1]], [b[1][0], b[1][1]]] // (US & Canada, Alaska attached: framed from 180°, the far Aleutians a pan away)
             : [[b[0][0], b[0][1]], [b[1][0] + 360, b[1][1]]]) : b; // across the 180° line
         }
-      } else {
-        // the frame (or the view's land), its edges bent by the projection
-        const [[w, so], [e, n]] = view.frame || viewBounds(view, framedGeoms), pts = [];
+      } else if (view === VIEWS.world) S.bounds = flatBounds(projGeom({ type: 'Sphere' }));
+      else if (view.frame) {
+        // the frame, its edges bent by the projection
+        const [[w, so], [e, n]] = view.frame, pts = [];
         const east = e < w ? e + 360 : e;
         for (let i = 0; i <= 40; i++) { const t = i / 40; pts.push(P(w + (east - w) * t, so), P(w + (east - w) * t, n), P(w, so + (n - so) * t), P(east, so + (n - so) * t)); }
-        S.bounds = view === VIEWS.world ? flatBounds(projGeom({ type: 'Sphere' })) : flatBounds({ coordinates: pts.filter(Boolean) });
+        S.bounds = flatBounds({ coordinates: pts.filter(Boolean) });
+      } else {
+        // the view's land as drawn (a conic bends a lon/lat box's edges far past the land)
+        const [a, b] = d3.geoPath({ stream: (sink) => PROJ.stream(sink) }).bounds(topojson.feature(topo, collection(framedGeoms)));
+        S.bounds = flatBounds({ coordinates: [fake(a), fake(b)] });
       }
       if (boxed) {
         // the boxes are framed with the rest
@@ -1491,7 +1500,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       ['inner', (a, b) => a !== b && key(a) && key(a) === key(b) && a.properties.shetach !== b.properties.shetach],
       ['edge', null], // against the land no shetach covers (landEdgeLines)
     ];
-    const outside = () => OUTSIDE[flat ? 'lo' : 'hi'].data;
+    // (the land no shetach covers: light on the world and continents, full detail on a country, zoomed in further)
+    S.outKind = flat && view.world && view !== VIEWS.israel ? 'lo' : 'hi';
+    const outside = () => OUTSIDE[S.outKind].data;
     S.makers = {
       // the areas as the engine gets them: all of them as they are, or the view's own, flat
       *areas() {
@@ -1500,8 +1511,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         for (const f of areaFeatures()) {
           if (!view.countries.includes(f.properties.country)) continue;
           const b = boxes.find((x) => x.st === f.properties.state);
-          const g = b ? withProj(b.proj, () => projGeom(f.geometry)) : boxes.length ? f.geometry : projGeom(f.geometry);
-          if (g) out.push(b || !boxes.length ? feature(g, f.properties) : f);
+          const g = b ? withProj(b.proj, () => projGeom(f.geometry)) : projGeom(f.geometry);
+          if (g) out.push(feature(g, f.properties));
           yield;
         }
         return fc(out);
@@ -1511,8 +1522,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         if (!allLand) allLand = mergedPieces(pieces);
         if (!flat) return feature(allLand);
         if (boxes.length) {
-          if (!landNoBoxes) landNoBoxes = merged(pieces.filter((g) => !boxOf(g)));
-          return feature(projPieces(pieces, (gs) => (gs.some(boxOf) ? merged(gs) : landNoBoxes)));
+          const rest = pieces.filter((g) => !boxOf(g) && !crossesSeam(g));
+          return feature(projPieces([...rest, ...pieces.filter(boxOf)], (gs) => (gs.some(boxOf) ? merged(gs) : merged(rest))));
         }
         const g = view === VIEWS.world ? allLand : merged(pieces.filter((x) => !crossesSeam(x)));
         yield;
@@ -1561,7 +1572,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       *outLines() {
         const o = outside();
         if (!o) return EMPTY;
-        const line = (f) => feature((flat ? projGeom(f.geometry) : f.geometry) || { type: 'MultiLineString', coordinates: [] }, f.properties);
+        // (fine: a conic makes the South Pole an arc; Antarctica's coast along it, a few points far apart, came out as
+        // straight chords across the map)
+        const line = (f) => feature((flat ? projGeom(f.geometry, true) : f.geometry) || { type: 'MultiLineString', coordinates: [] }, f.properties);
         const coast = line(o.coast);
         yield;
         return fc([coast, line(o.borders)]);
@@ -1588,9 +1601,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     V.cities = cities.filter((c) => mainIds.has(c.piece));
     // (each view's two ways of drawing are worked out once, and kept for coming back to it)
     // (a view with Alaska and Hawaii: its political map has them in boxes, unless "In place")
-    const boxes = !flatFor(view) && (view.boxes || []).length && state.alaska === 'box';
+    const boxes = (view.boxes || []).length && state.alaska === 'box';
     const setKey = `${state.view}|${boxes ? 'box' : ''}`;
-    if (!SETS.has(setKey)) SETS.set(setKey, { M: buildSet(view, framedGeoms, false, `${setKey}|standard`), F: flatFor(view) ? buildSet(view, framedGeoms, true, `${setKey}|flat`) : boxes ? buildSet(view, framedGeoms, 'boxed', `${setKey}|boxed`) : null });
+    if (!SETS.has(setKey)) SETS.set(setKey, { M: buildSet(view, framedGeoms, false, `${setKey}|standard`), F: boxes ? buildSet(view, framedGeoms, 'boxed', `${setKey}|boxed`) : buildSet(view, framedGeoms, true, `${setKey}|flat`) });
     Object.assign(V, SETS.get(setKey));
     V.cur = wantedSet();
     const shownIds = new Set(shown.map((g) => g.properties.id));
@@ -2095,7 +2108,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // how far out and in the map may zoom (the political map only so far in), and whether it repeats sideways (a flat
   // world doesn't)
   function limits() {
-    map.setRenderWorldCopies(!V.cur.flat || !!V.cur.boxed); // (a boxed map is standard outside its boxes: Alaska's Aleutians past 180°)
+    map.setRenderWorldCopies(!V.cur.flat);
     const fit = V.cur.zFit ?? 0;
     // A region (US & Canada, FSU…) stays the region: out only a little past its frame, and held near it when dragged
     // (owner, Oct 13: "why does the whole world show when in US and Canada or FSU etc view"); the World view as before.
@@ -2176,7 +2189,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       if (!S.made.has('land')) { prep(S, 'land').then(() => feedSet(S), failed); return; }
       feed(S, 'land', 'land', () => S.made.get('land'));
     }
-    const kind = S.flat ? 'lo' : 'hi';
+    const kind = S.outKind;
     if (!OUTSIDE[kind].done) { outsideReady(kind).then(() => feedSet(S)); return; }
     // the land round the view, faded; or with Rest of the world the land no shetach covers, greyed, with its lines
     for (const [n, what] of rest() ? [['outside', 'outFill'], ['outside-lines', 'outLines']] : [['land-all', 'landAll']]) {
@@ -2527,7 +2540,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function zoomTo(area) {
     const S = V.cur;
     if (!area || !area.geometry) return;
-    const b = S.flat && !S.boxed ? flatBounds(area.geometry) : d3.geoBounds(feature(area.geometry)); // (boxed: standard outside the boxes, Alaska across 180°)
+    const b = S.flat ? flatBounds(area.geometry) : d3.geoBounds(feature(area.geometry));
     const bounds = b[0][0] > b[1][0] ? [[b[0][0], b[0][1]], [b[1][0] + 360, b[1][1]]] : b;
     map.fitBounds(bounds, { padding: framePadding(), duration: still ? 0 : 900, maxZoom: 12 });
   }

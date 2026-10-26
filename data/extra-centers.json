@@ -3562,7 +3562,6 @@
     }
   ],
   "fixes": {
-    "117678": {"name": "Beis Agudas Chassidei Chabad", "why": "owner (Oct 26, 2026): 770 is \"Beis Agudas Chassidei Chabad instead of Mateh Chabad Lubavitch\" (chabad.org calls it Chabad Lubavitch Headquarters; in Hebrew the map had מטה חב״ד ליובאוויטש)"},
     "119816": {"rename": {"Mordechai Silberberg": {"firstName": "Rabbi", "lastName": "Spencer"}, "Nechamie Silberberg": {"firstName": "Mrs.", "lastName": "Spencer"}}, "why": "owner (Oct 13): the Silberbergs are to be shown as \"Rabbi Spencer and Mrs. Spencer\", the family's nickname"},
     "117792": {"rename": {"Mordechai Silberberg": {"firstName": "Rabbi", "lastName": "Spencer"}, "Nechamie Silberberg": {"firstName": "Mrs.", "lastName": "Spencer"}}, "why": "owner (Oct 13): the Silberbergs are to be shown as \"Rabbi Spencer and Mrs. Spencer\", the family's nickname"},
     "4080686": {

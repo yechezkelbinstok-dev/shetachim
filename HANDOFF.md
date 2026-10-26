@@ -8,7 +8,31 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
-## ▶ Oct 26: Rabbi Mottel Kanelsky's Bris Avrohom network (48 mushrooms now); 770 is "Beis Agudas Chassidei Chabad"
+## ▶ Oct 26: honorary cards for the Rebbeim's towns and ohalim; the phone sheet's close button is an X
+- Owner: a big honorary card like Lubavitch's for "the Frierdiker Rebbe['s] Rostov", Liozna and Liadi for the Alter
+  Rebbe, the Alter Rebbe's ohel in Haditch, the Mitteler Rebbe's ohel, and the Rebbe Rashab's ohel ("it really should
+  be easy to find"). `HONOR_PLACES` (where; `kmPx` = from what scale it shows: Lubavitch from the world view, Rostov,
+  Haditch and Nezhin at 0.3 px/km, Liozna and Liadi at 1.6 so they don't sit on Lubavitch's name) and `HONOR_CARDS`
+  (what the card says) in web/index.html; shown in every world/continent view, like Lubavitch:
+  - **Rostov**: seat of the Rebbeim 1915–1924 (the Rebbe Rashab 1915–1920, the Frierdiker Rebbe 1920–1924); the dot is
+    the Rebbe Rashab's ohel in the Jewish cemetery, 155 Tekucheva St (Chabadpedia: טקוצ'בה 155; Find a Grave:
+    47.23889, 39.72158; BillionGraves: the Jewish-Tatar cemetery on Tekucheva). Not the Brethren cemetery.
+  - **Liozna** (OSM 55.02321, 30.79567): the Alter Rebbe born there 1745, led from there until 1801. **Liadi** (Lyady,
+    Dubrowna district, OSM 54.60162, 31.16877): his seat 1801–1812.
+  - **Haditch** (at chabad.org's Heichel Admur Hazaken, 2122346: 50.36784, 33.97967) and **Nezhin** (the Jewish
+    cemetery, ESJF survey: 51.07398, 31.91745): "Burial place of the Alter Rebbe, Rabbi Schneur Zalman of Liadi, zy"a" /
+    "of the Mitteler Rebbe, Rabbi DovBer, zy"a", with "Histalkus: 24 Teves 5573 (1812)" / "9 Kislev 5588 (1827)".
+  - **Wording (owner, firmly):** a Rebbe resting in a town is shown in his own entry of that town's list, never in a
+    separate list and never with his name twice: "Ohel · Histalkus: 13 Nissan 5626 (1866)" (Hebrew "ציונו הק׳ ·
+    הסתלקות: י״ג ניסן תרכ״ו") — the Tzemach Tzedek and the Rebbe Maharash on Lubavitch's card, the Rebbe Rashab on
+    Rostov's. Rejected: "Buried here:" ("like some list??? more respect") and "His resting place is here" ("horrible").
+- Owner (screenshot of the phone sheet's "סגירה"): "shouldn't this be an x button". The open sheet's button is now a
+  round X (like the theme button; aria-label Close/סגירה); closed, it still says Options (`showPanelToggle`).
+- **770's name: Hebrew only.** The owner meant only the Hebrew ("I meant just the Hebrew for 770"): chabad.org's English
+  "Chabad Lubavitch Headquarters" stays; data/hebrew/centers.json gives it **בית אגודת חסידי חב״ד** (was מטה חב״ד
+  ליובאוויטש). The `fixes` entry that renamed it in English is gone.
+
+## ▶ Oct 26: Rabbi Mottel Kanelsky's Bris Avrohom network (48 mushrooms now)
 - Owner: "Find mendel zaltzman mushroom in NJ and add pls", then "Mottel Kanelski is also a big mushroom head in NJ
   there's a bunch of moisdois under him … find them all". Rabbi Mendel Zaltzman runs Bris Avrohom of Fair Lawn, a
   branch of Rabbi Mordechai (Mottel) Kanelsky's **Bris Avrohom** (founded 1979 in Jersey City; "Founded by the
@@ -26,10 +50,8 @@ between two Claude accounts when usage limits run out; whichever session picks t
     and nothing recent found), "Bris Avrohom of EWR" (Newark Airport: a donation page only), the Brooklyn branch named
     in 2011 and the Old Bridge one (closed by 2011), Cheder Yaldei Menachem (no address; its donations go to Bris
     Avrohom), the Wilanskys (directors in 2019; not confirmed since), the Stop Sign Coffee café in Jersey City.
-- Owner: "Beis Agudas Chassidei Chabad instead of Mateh Chabad Lubavitch". 770's center (chabad.org 117678, "Chabad
-  Lubavitch Headquarters", Hebrew מטה חב״ד ליובאוויטש) is renamed by a `fixes` entry: **Beis Agudas Chassidei Chabad**
-  / בית אגודת חסידי חב״ד, in both languages (the world capital's star and card take the center's name; the card's
-  "World Headquarters" kicker stays). chabad.org's separate listing "Agudas Chassidei Chabad" (118267) is unchanged.
+- Owner: "Beis Agudas Chassidei Chabad instead of Mateh Chabad Lubavitch" — for 770's Hebrew name only (see the
+  section above; first done in both languages by mistake, then put back).
 
 ## ▶ Oct 26: two Florida "Beis Moshiach" mushrooms (44 now); the Mushrooms switch no longer reloads the page
 - Owner: "Add the Hollywood and North Miami Beach Beis Moshiach as mushrooms". Both are known only from the IRS

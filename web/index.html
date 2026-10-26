@@ -625,7 +625,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // without them, each way worked out once, when first wanted.
   // Bigger cities are labelled first and from further out. A city with many centers counts as big even when
   // GeoNames doesn't know it (Thornhill), so weigh each center as 5,000 people.
-  let dots, centersIn, dotOfCenter, cities, bilingualDone = false;
+  let dots, centersIn, mushroomsIn, dotOfCenter, cities, bilingualDone = false;
   const CENTER_SETS = new Map();
   function useCenters() {
     let got = CENTER_SETS.get(mushroomsOn);
@@ -634,19 +634,24 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const ds = (without ? without.features : centersGeo.features)
         .map((f) => ({ lon: f.geometry.coordinates[0], lat: f.geometry.coordinates[1], ...f.properties, piece: f.properties.piece || f.properties.region }))
         .filter((d) => pieceById.has(d.piece));
-      const counts = new Map();
-      for (const d of ds) counts.set(d.piece, (counts.get(d.piece) || 0) + d.centers.length);
+      const counts = new Map(), mush = new Map(); // (centers per piece, and how many of them are mushrooms)
+      for (const d of ds) {
+        counts.set(d.piece, (counts.get(d.piece) || 0) + d.centers.length);
+        const m = d.centers.filter((c) => c.mushroom).length;
+        if (m) mush.set(d.piece, (mush.get(d.piece) || 0) + m);
+      }
       const cs = (without ? without.cities : cityFile).map((c) => ({ ...c, piece: c.piece || c.region })).filter((c) => pieceById.has(c.piece))
         .map((c) => ({ ...c, texts: [c.name], weight: Math.max(c.pop, c.centers * 5000) }))
         .sort((a, b) => b.weight - a.weight);
       if (bilingualDone) cityNames(cs);
-      got = { dots: ds, centersIn: counts, dotOfCenter: new Map(ds.flatMap((d) => d.centers.map((c) => [c.id, d]))), cities: cs };
+      got = { dots: ds, centersIn: counts, mushroomsIn: mush, dotOfCenter: new Map(ds.flatMap((d) => d.centers.map((c) => [c.id, d]))), cities: cs };
       CENTER_SETS.set(mushroomsOn, got);
     }
-    ({ dots, centersIn, dotOfCenter, cities } = got);
+    ({ dots, centersIn, mushroomsIn, dotOfCenter, cities } = got);
   }
   useCenters();
   const centersInShetach = (s) => d3.sum(s.pieces, (g) => centersIn.get(g.properties.id) || 0);
+  const mushroomsInShetach = (s) => d3.sum(s.pieces, (g) => mushroomsIn.get(g.properties.id) || 0);
   const centersInState = (st) => d3.sum(pieces, (g) => (g.properties.state === st ? centersIn.get(g.properties.id) || 0 : 0));
 
   // A capital is a star at the shetach's headquarters (the build worked out where it is); 770 gets a bigger one.
@@ -655,26 +660,34 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const dot = dotOfCenter.get(cap.centerId);
     return { s, ...cap, piece: dot ? dot.piece : s.pieces[0] && s.pieces[0].properties.id, center: dot && dot.centers.find((c) => c.id === cap.centerId) };
   }));
-  // The Rebbeim's towns and resting places, in honour (not centers today): Lubavitch, the town the movement is named for,
-  // seat of the Rebbeim 1813–1915; and (owner, Oct 26) Rostov, 1915–1924, at the Rebbe Rashab's ohel (the Jewish
-  // cemetery, 155 Tekucheva St: Chabadpedia, Find a Grave), the Alter Rebbe's Liozna and Liadi, his ohel in Haditch
-  // (at chabad.org's Heichel Admur Hazaken) and the Mitteler Rebbe's in Nezhin (the Jewish cemetery: ESJF's survey).
-  // Each opens a big card (HONOR_CARDS). kmPx: the scale (px per km) from which it's shown — Lubavitch from the world
-  // view, the others once there's room (Liozna and Liadi, some 25 km either side of Lubavitch, once off its name).
+  // The Rebbeim's towns and resting places, in honour: Lubavitch, the town the movement is named for, seat of the
+  // Rebbeim 1813–1915; and (owner, Oct 26) Rostov, 1915–1924, at the Rebbe Rashab's ohel (the Jewish cemetery, 155
+  // Tekucheva St: Chabadpedia, Find a Grave), the Alter Rebbe's Liozna and Liadi, his resting place in Haditch, the
+  // Mitteler Rebbe's ohel in Nezhin (the Jewish cemetery: ESJF's survey) and the Ohel in Queens. Each opens a big card
+  // (HONOR_CARDS). center: a chabad.org listing that IS the place (the Heichel Admur Hazaken, Ohel Chabad Lubavitch) —
+  // one marker and one card for both, titled with its name, its people in the card, its own dot not drawn (owner: "why
+  // two separate things"); title: the card's name where it isn't the place's. kmPx: the scale (px per km) from which
+  // it's shown — Lubavitch from the world view, the others once there's room (Liozna and Liadi, some 25 km either side
+  // of Lubavitch, once off its name). Shown in every world/continent view, and in the views of its own country.
   const HONOR_PLACES = [
-    { key: 'lubavitch', name: 'Lubavitch', he: 'ליובאוויטש', city: 'Smolensk region, Russia', cityHe: 'מחוז סמולנסק, רוסיה', lat: 54.8352, lon: 30.9632, country: 'RUS', kmPx: 0.07 },
-    { key: 'rostov', name: 'Rostov', he: 'רוסטוב', city: 'The ohel: the Jewish cemetery, 155 Tekucheva Street, Rostov-on-Don, Russia', cityHe: 'האוהל: בית העלמין היהודי, רחוב טקוצ׳בה 155, רוסטוב על הדון, רוסיה', lat: 47.23889, lon: 39.72158, country: 'RUS', kmPx: 0.3 },
-    { key: 'liozna', name: 'Liozna', he: 'ליאזנא', city: 'Vitebsk region, Belarus', cityHe: 'מחוז ויטבסק, בלארוס', lat: 55.02321, lon: 30.79567, country: 'BLR', kmPx: 1.6 },
-    { key: 'liadi', name: 'Liadi', he: 'ליאדי', city: 'Vitebsk region, Belarus', cityHe: 'מחוז ויטבסק, בלארוס', lat: 54.60162, lon: 31.16877, country: 'BLR', kmPx: 1.6 },
-    { key: 'haditch', name: 'Haditch', he: 'האדיטש', city: 'The ohel: Hadiach, Poltava region, Ukraine', cityHe: 'האוהל: גדיאץ׳, מחוז פולטבה, אוקראינה', lat: 50.36784, lon: 33.97967, country: 'UKR', kmPx: 0.3 },
-    { key: 'nezhin', name: 'Nezhin', he: 'ניעזשין', city: 'The ohel: the Jewish cemetery, Nizhyn, Chernihiv region, Ukraine', cityHe: 'האוהל: בית העלמין היהודי, ניז׳ין, מחוז צ׳רניהיב, אוקראינה', lat: 51.07398, lon: 31.91745, country: 'UKR', kmPx: 0.3 },
+    { key: 'lubavitch', name: 'Lubavitch', he: 'ליובאוויטש', lat: 54.8352, lon: 30.9632, country: 'RUS', kmPx: 0.07 },
+    { key: 'rostov', name: 'Rostov', he: 'רוסטוב', lat: 47.23889, lon: 39.72158, country: 'RUS', kmPx: 0.3 },
+    { key: 'liozna', name: 'Liozna', he: 'ליאזנא', lat: 55.02321, lon: 30.79567, country: 'BLR', kmPx: 1.6 },
+    { key: 'liadi', name: 'Liadi', he: 'ליאדי', lat: 54.60162, lon: 31.16877, country: 'BLR', kmPx: 1.6 },
+    { key: 'haditch', name: 'Haditch', he: 'האדיטש', center: '2122346', country: 'UKR', kmPx: 0.3 },
+    { key: 'nezhin', name: 'Nezhin', he: 'נייז׳ין', title: 'Ohel Admur HaEmtzai', titleHe: 'אוהל אדמו״ר האמצעי', lat: 51.07398, lon: 31.91745, country: 'UKR', kmPx: 0.3 },
+    { key: 'ohel', name: 'The Ohel', he: 'האוהל', center: '118002', country: 'US', kmPx: 0.3 },
   ];
+  const HONOR_BY_CENTER = new Map(); // a chabad.org center id -> the honorary place it is
   for (const h of HONOR_PLACES) {
-    const piece = [...pieceById.keys()].find((k) => k.startsWith(`${h.country}:`));
+    const dot = h.center && dotOfCenter.get(h.center);
+    const piece = dot ? dot.piece : [...pieceById.keys()].find((k) => k.startsWith(`${h.country}:`));
     if (!piece) continue;
-    const place = { honor: h.key, name: h.name, city: h.city, lat: h.lat, lon: h.lon, piece, kmPx: h.kmPx };
+    const place = { honor: h.key, name: h.name, lat: dot ? dot.lat : h.lat, lon: dot ? dot.lon : h.lon, piece, country: h.country, kmPx: h.kmPx,
+      center: dot ? dot.centers.find((c) => c.id === h.center) : null, title: h.title };
     dual(place, 'name', () => [h.he]);
-    dual(place, 'city', () => [h.cityHe]);
+    if (h.title) dual(place, 'title', () => [h.titleHe]);
+    if (place.center) HONOR_BY_CENTER.set(h.center, place);
     capitals.push(place);
   }
   const capitalOfCenter = new Map(capitals.filter((c) => c.centerId).map((c) => [c.centerId, c]));
@@ -1634,7 +1647,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const framedGeoms = shown.filter((g) => !view.insets.includes(g.properties.state));
     V = { view, shown, main, mainIds };
     viewCenters();
-    V.caps = capitals.filter((c) => (c.honor ? view.world : mainIds.has(c.piece)));
+    V.caps = capitals.filter((c) => (c.honor ? view.world || view.countries.includes(c.country) : mainIds.has(c.piece)));
     // (each view's two ways of drawing are worked out once, and kept for coming back to it)
     // (a view with Alaska and Hawaii: its political map has them in boxes, unless "In place")
     const boxes = (view.boxes || []).length && state.alaska === 'box';
@@ -1837,7 +1850,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     }).filter((f) => f.geometry.coordinates)));
   }
   function dotData(S) {
-    return within(S, () => fc(V.dots.map((d, i) => feature({ type: 'Point', coordinates: P(d.lon, d.lat) }, { l: Math.log2(d.centers.length), i, m: d.centers.every((c) => c.mushroom) ? 1 : 0 })).filter((f) => f.geometry.coordinates)));
+    // (a center that is an honorary place — the Heichel Admur Hazaken, the Ohel — is that place's marker, not a dot)
+    return within(S, () => fc(V.dots.map((d, i) => (d.centers.every((c) => HONOR_BY_CENTER.has(c.id)) ? null
+      : feature({ type: 'Point', coordinates: P(d.lon, d.lat) }, { l: Math.log2(d.centers.length), i, m: d.centers.every((c) => c.mushroom) ? 1 : 0 }))).filter((f) => f && f.geometry.coordinates)));
   }
   // The seas and oceans (a flat view has no street map to name them), each from when it has room.
   const SEAS = [
@@ -2528,8 +2543,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (f) return { dot: V.dots[f.properties.i] };
     // a city: on its name only (a big city's name too) — not its little ring or round it, where its centers are, which
     // made a center hard to tap (owner, Oct 10: "if you tap a city's name it should actually show it")
-    f = nearest(q(['cities', 'cities-big'], point).filter((x) => x.layer.id.startsWith('cities-big') || dist(x) > 6));
-    if (f) return { city: V.cities[f.properties.i] };
+    if (CITY_CARDS) {
+      f = nearest(q(['cities', 'cities-big'], point).filter((x) => x.layer.id.startsWith('cities-big') || dist(x) > 6));
+      if (f) return { city: V.cities[f.properties.i] };
+    }
     // Countries with Head shliach names: a head's name stands for his whole shetach (owner, Oct 8: tapping Bentolila's
     // name outlines all his countries) — on the name itself
     if (state.borders === 'regular' && state.labels === 'full') {
@@ -2588,6 +2605,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
   const headHTML = (t) => { const m = DISPUTED.exec(t || ''); return m ? `<em>${esc(m[1])}</em>${esc(m[2])}` : esc(t); };
   const count = (n) => (HE ? (n === 1 ? 'מוסד אחד' : `${fmt(n)} מוסדות`) : `${fmt(n)} ${n === 1 ? 'center' : 'centers'}`);
+  // n centers of which m are mushrooms (counted only with Mushrooms on): the centers and the mushrooms apart (owner, Oct 26)
+  const mushCount = (m) => (HE ? (m === 1 ? 'פטרייה אחת' : `${fmt(m)} פטריות`) : `${fmt(m)} ${m === 1 ? 'mushroom' : 'mushrooms'}`);
+  const counts = (n, m) => (m ? `${count(n - m)} · ${mushCount(m)}` : count(n));
   // a center's page: chabad.org's, or, for one not listed there, its own elsewhere (Chabad of India's directory: owner,
   // Oct 8, "the same should be for these Chabad India ones")
   const chabadLink = (c) => (c && c.slug ? `<a href="https://www.chabad.org/jewish-centers/${esc(c.pageId || c.id)}/${esc(c.slug)}" target="_blank" rel="noopener">${tr('Open on chabad.org')}</a>`
@@ -2737,6 +2757,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     ] },
     haditch: { burial: ['Burial place of the Alter Rebbe, Rabbi Schneur Zalman of Liadi, zy"a', 'מקום מנוחתו של כ״ק אדמו״ר הזקן, רבי שניאור זלמן מליאדי, זי״ע'], yahrzeit: ['Histalkus: 24 Teves 5573 (1812)', 'הסתלקות: כ״ד טבת תקע״ג'] },
     nezhin: { burial: ['Burial place of the Mitteler Rebbe, Rabbi DovBer, zy"a', 'מקום מנוחתו של כ״ק אדמו״ר האמצעי, רבי דובער, זי״ע'], yahrzeit: ['Histalkus: 9 Kislev 5588 (1827)', 'הסתלקות: ט׳ כסלו תקפ״ח'] },
+    ohel: { burial: ['Burial place of the Frierdiker Rebbe and the Lubavitcher Rebbe, zy"a', 'מקום מנוחתם של כ״ק אדמו״ר הריי״צ וכ״ק אדמו״ר נשיא דורנו זי״ע'], yahrzeit: ['Histalkus: 10 Shevat 5710 (1950) · 3 Tammuz 5754 (1994)', 'הסתלקות: י׳ שבט תש״י · ג׳ תמוז תשנ״ד'] },
   };
   const rebbeimHTML = ({ title, rebbeim }) => `<p class="rebbe"><span class="role">${HE ? title[1] : title[0]}</span></p><ol class="rebbeim">${
     rebbeim.map(([en, enName, he, heName, years, heYears, rest]) => `<li><strong>${HE ? `${he} זי״ע` : `${en}, zy"a`}</strong>
@@ -2745,11 +2766,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const burialHTML = ({ burial, yahrzeit }) => `<p class="rebbe burial">${esc(HE ? burial[1] : burial[0])}<span class="meta">${esc(HE ? yahrzeit[1] : yahrzeit[0])}</span></p>`;
   function capitalHTML(c) {
     const honor = c.honor && HONOR_CARDS[c.honor];
-    if (honor) return `<h2 class="honor-h">${esc(c.name)}</h2>
+    // (named for its chabad.org listing where it is one — the Heichel Admur Hazaken, Ohel Chabad Lubavitch — whose people
+    // and page are in the same card)
+    if (honor) return `<h2 class="honor-h">${esc(c.title || (c.center && c.center.name) || c.name)}</h2>
       ${honor.seat ? `<p class="meta">${HE ? honor.seat[1] : honor.seat[0]}</p>` : ''}${honor.burial ? burialHTML(honor) : ''}${honor.rebbeim ? rebbeimHTML(honor) : ''}
       ${c.honor === 'lubavitch' ? `<div class="subcard"><ul><li><strong>${HE ? 'חצר רבותינו נשיאינו בליובאוויטש' : "Hatzer Raboteinu Nesieinu B'Lubavitch"}</strong>
         <span class="meta">${esc([HE ? 'מרכז מורשת' : 'Heritage center', HE ? 'ליובאוויטש' : 'Lubavitch'].join(' · '))}</span>
-        ${personnelHTML(LUBAVITCH_CENTER_PEOPLE)}</li></ul></div>` : `<p>${esc(c.city)}</p>`}`;
+        ${personnelHTML(LUBAVITCH_CENTER_PEOPLE)}</li></ul></div>` : ''}
+      ${c.center ? `${personnelHTML(c.center.personnel)}${chabadLink(c.center)}<div class="foot"><span class="meta">${shetachLine(c.piece, true)}</span></div>` : ''}`;
     // 770: the headquarters by itself, the Rebbe as its leader, and the many other listings at the address folded away
     const others = c.world ? ((dotOfCenter.get(c.centerId) || {}).centers || []).filter((x) => x.id !== c.centerId) : [];
     const atAddress = others.length ? `<details class="personnel at-address"><summary>${HE ? `${others.length} מוסדות נוספים בכתובת זו` : `${others.length} more listings at this address`}</summary>
@@ -2759,10 +2783,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       <div class="foot"><span class="meta">${shetachLine(c.piece, !c.world)}</span></div>`;
   }
 
+  // A city's own card (its population, its centers): off since the owner's Oct 26 ("get rid of that useless card");
+  // true brings it back — a tap on a city's name, and a city picked in the search, open it again
+  const CITY_CARDS = false;
   function cityHTML(c) {
     const pop = c.pop ? `<p>${tr('Population')} ${fmt(c.pop)}</p>` : '';
     return `<span class="kicker">${tr('City')}</span><h2>${esc(c.name)}</h2>${pop}
-      <div class="foot"><span class="meta">${count(c.centers)} · ${shetachLine(c.piece)}</span></div>`;
+      <div class="foot"><span class="meta">${counts(c.centers, mushroomsOn ? c.mushrooms || 0 : 0)} · ${shetachLine(c.piece)}</span></div>`;
   }
 
   const areaKind = (p) => tr(p.state.startsWith('HELD-') ? 'Held by Israel' : p.country === 'CA' ? 'Province' : p.state.includes('-') ? 'State' : 'Country');
@@ -2779,10 +2806,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const shownAs = (x) => (state.borders === 'regular' ? joinedState(polState(x.properties)) : x.properties.state) === p.state;
       const inState = [...new Set(pieces.filter(shownAs).map(shetachOf).filter(Boolean))];
       const centers = d3.sum(pieces, (x) => (shownAs(x) ? centersIn.get(x.properties.id) || 0 : 0));
+      const mush = d3.sum(pieces, (x) => (shownAs(x) ? mushroomsIn.get(x.properties.id) || 0 : 0));
       // each shetach covering it, with its head; then the country's own head shliach where its shetach spans several
       const part = state.borders === 'regular' ? inState.map((x) => `<p>${shetachWithHead(x, true, inState.length > 1 ? partName(p.state, x) : x.name)}</p>`).join('') + countryHeadHTML(p, inState) : '';
       return `<span class="kicker">${areaKind(p)}</span><h2>${esc(p.name)}</h2>${part}
-        <div class="foot"><span class="meta">${count(centers)}</span>${zoomBtn}</div>`;
+        <div class="foot"><span class="meta">${counts(centers, mush)}</span>${zoomBtn}</div>`;
     }
     return shetachHTML(s, zoomBtn);
   }
@@ -2820,7 +2848,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         : s.headShliach && s.vaad && s.vaadFirst ? `${vaadHTML(s)}<p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>`
         : s.headShliach && !s.vaad && s.vaadMembers ? membersHTML(s, `${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}`)
         : s.headShliach ? `<p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>${s.vaad ? vaadHTML(s) : ''}` : ''}${capital}
-      <div class="foot"><span class="meta">${count(centersInShetach(s))}</span>${zoomBtn}</div>`;
+      <div class="foot"><span class="meta">${counts(centersInShetach(s), mushroomsInShetach(s))}</span>${zoomBtn}</div>`;
   }
 
 
@@ -3168,7 +3196,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         const [title, sub] = it.kind === 'shetach' ? [it.s.name, [it.s.vaad && it.s.vaadFirst ? it.s.vaad : '', it.s.headShliach ? `${tr('Head shliach')}: ${it.s.headShliach}` : ''].filter(Boolean).join(' · ')]
           : it.kind === 'person' ? [personName(it.p), [it.c.name, it.c.city].filter(Boolean).join(' · ')]
           : it.kind === 'center' ? [it.c.name, [it.c.type, it.c.city].filter(Boolean).join(' · ')]
-          : [it.city.name, count(it.city.centers)];
+          : [it.city.name, counts(it.city.centers, mushroomsOn ? it.city.mushrooms || 0 : 0)];
         html += `<li class="hit" role="option" id="sr-${searchHits.length}" data-i="${searchHits.length}" aria-selected="false"><b>${esc(title)}</b>${sub ? `<span>${esc(sub)}</span>` : ''}</li>`;
         searchHits.push(it);
       }
@@ -3250,11 +3278,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const [lon, lat] = it.d ? [it.d.lon, it.d.lat] : [it.city.lon, it.city.lat];
     const at = within(V.cur, () => P(lon, lat));
     if (!at) return;
-    const hit = it.d ? { dot: it.d } : { city: it.city };
+    const honorary = it.d && it.d.centers.every((c) => HONOR_BY_CENTER.has(c.id)) && HONOR_BY_CENTER.get(it.d.centers[0].id);
+    const hit = honorary ? { capital: honorary } : it.d ? { dot: it.d } : { city: it.city };
     hideCard();
     const zoom = Math.min(14, Math.max(map.getZoom(), (V.cur.zFit ?? 2) + (it.city ? 5 : 7)));
     map.flyTo({ center: at, zoom, duration: still ? 0 : 1400 });
     map.once('moveend', () => {
+      if (hit.city && !CITY_CARDS) return; // (a city: just there, no card)
       const pt = map.project(at);
       pinned = hit;
       showCard(hit, { clientX: r.left + pt.x, clientY: r.top + pt.y }, true);

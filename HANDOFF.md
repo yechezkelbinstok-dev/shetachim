@@ -8,24 +8,40 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
-## ▶ Oct 26: honorary cards for the Rebbeim's towns and ohalim; the phone sheet's close button is an X
-- Owner: a big honorary card like Lubavitch's for "the Frierdiker Rebbe['s] Rostov", Liozna and Liadi for the Alter
-  Rebbe, the Alter Rebbe's ohel in Haditch, the Mitteler Rebbe's ohel, and the Rebbe Rashab's ohel ("it really should
-  be easy to find"). `HONOR_PLACES` (where; `kmPx` = from what scale it shows: Lubavitch from the world view, Rostov,
-  Haditch and Nezhin at 0.3 px/km, Liozna and Liadi at 1.6 so they don't sit on Lubavitch's name) and `HONOR_CARDS`
-  (what the card says) in web/index.html; shown in every world/continent view, like Lubavitch:
-  - **Rostov**: seat of the Rebbeim 1915–1924 (the Rebbe Rashab 1915–1920, the Frierdiker Rebbe 1920–1924); the dot is
-    the Rebbe Rashab's ohel in the Jewish cemetery, 155 Tekucheva St (Chabadpedia: טקוצ'בה 155; Find a Grave:
-    47.23889, 39.72158; BillionGraves: the Jewish-Tatar cemetery on Tekucheva). Not the Brethren cemetery.
-  - **Liozna** (OSM 55.02321, 30.79567): the Alter Rebbe born there 1745, led from there until 1801. **Liadi** (Lyady,
-    Dubrowna district, OSM 54.60162, 31.16877): his seat 1801–1812.
-  - **Haditch** (at chabad.org's Heichel Admur Hazaken, 2122346: 50.36784, 33.97967) and **Nezhin** (the Jewish
-    cemetery, ESJF survey: 51.07398, 31.91745): "Burial place of the Alter Rebbe, Rabbi Schneur Zalman of Liadi, zy"a" /
-    "of the Mitteler Rebbe, Rabbi DovBer, zy"a", with "Histalkus: 24 Teves 5573 (1812)" / "9 Kislev 5588 (1827)".
-  - **Wording (owner, firmly):** a Rebbe resting in a town is shown in his own entry of that town's list, never in a
-    separate list and never with his name twice: "Ohel · Histalkus: 13 Nissan 5626 (1866)" (Hebrew "ציונו הק׳ ·
-    הסתלקות: י״ג ניסן תרכ״ו") — the Tzemach Tzedek and the Rebbe Maharash on Lubavitch's card, the Rebbe Rashab on
-    Rostov's. Rejected: "Buried here:" ("like some list??? more respect") and "His resting place is here" ("horrible").
+## ▶ Oct 26: honorary cards for the Rebbeim's towns and ohalim; Chabad Hebrew names; mushroom counts; no city cards
+- **NAMES (owner, firmly): always the Russian names, never the recent Ukrainian ones** ("KEEP DNEPR … ALWAYS KEEP
+  RUSSIAN NAMES NEVER UKRAINIAN RECENT CHANGES"), in English and Hebrew: Dnepr = דנייפר (not Dnipro/דניפרו, even
+  though Chabadpedia has moved to דניפרו), Kiev, Kharkov, Lvov, Kirovograd, Dneprodzerzhinsk… Khmelnytskyi is now
+  **Proskurov** / פרוסקורוב, its old name (owner: "Chabad calls it after Khmelnitzky yemach shemo????" — it was renamed
+  for him in 1954; build `UA_NAMES`; it used to keep its Ukrainian name). And **Hebrew in Chabad's own spelling**
+  ("רוסטוב על הדון??!! Bro it's just rostov"): checked against Chabadpedia's titles and redirects (its API through
+  Firecrawl; WebFetch and curl are blocked there), data/hebrew/cities.json now has רוסטוב, פטרבורג (not סנקט
+  פטרבורג), ניקולייב, אלמא אטא (Almaty), פולטובה, צ׳רנוביץ׳, בריסק (`Brest|BLR`; other Brests stay ברסט), and גרודנו
+  (no Chabadpedia article; the traditional name, not Belarusian הורודנה); by the Russian rule איבנו-פרנקובסק,
+  אוז׳גורוד, בלאיה צרקוב, בלגורוד-דנסטרובסקי. Chabadpedia's own titles kept as they were: מוהילב, ז׳יטומיר, ברדיצ׳ב,
+  קרמנצ׳וג, האדיטש, ליאזנא, ליאדי, קובנה, וילנה… Other former-Soviet names have no Chabadpedia article and stay.
+- **Honorary places** (`HONOR_PLACES`, `HONOR_CARDS` in web/index.html; big cards like Lubavitch's; shown in every
+  world/continent view and in the views of their own country):
+  - Towns: **Lubavitch**; **Rostov** (seat of the Rebbeim 1915–1924; the dot is the Rebbe Rashab's ohel, the Jewish
+    cemetery at 155 Tekucheva St — Chabadpedia, Find a Grave 47.23889, 39.72158); **Liozna** (born there 1745, led
+    until 1801) and **Liadi** (1801–1812) for the Alter Rebbe (OSM). Each lists the Rebbeim who led there; a Rebbe
+    resting there carries it in his own entry: "Ohel · Histalkus: 13 Nissan 5626 (1866)" / "ציונו הק׳ · הסתלקות: …"
+    (the Tzemach Tzedek and the Rebbe Maharash in Lubavitch, the Rebbe Rashab in Rostov).
+  - Resting places, each titled by the ohel's own name, with "Burial place of …, zy"a" and the histalkus: **Heichel
+    Admur Hazaken** in Haditch (= chabad.org 2122346), **Ohel Admur HaEmtzai** / אוהל אדמו״ר האמצעי in Nezhin (נייז׳ין;
+    the Jewish cemetery, ESJF 51.07398, 31.91745), and **Ohel Chabad Lubavitch** (= chabad.org 118002; map label "The
+    Ohel" / האוהל): "Burial place of the Frierdiker Rebbe and the Lubavitcher Rebbe, zy"a", "Histalkus: 10 Shevat 5710
+    (1950) · 3 Tammuz 5754 (1994)".
+  - **One thing, not two** (owner: "why two separate things"): where the place is a chabad.org listing (`center` in
+    HONOR_PLACES: the Heichel, the Ohel), the honorary card is that listing — titled with its name, its people and
+    chabad.org link in the card, the shetach line at its foot — and its own dot isn't drawn (`HONOR_BY_CENTER`;
+    the counts still count it; a search for it opens the honorary card).
+  - **Wording (owner, firmly):** no address or "region" line at the foot ("address slop"); no "Buried here:" list
+    ("more respect, burial place of …"); no "His resting place is here" ("horrible"); a name never twice.
+- With **Mushrooms** on, a card's count shows the centers and the mushrooms apart — "120 centers · 3 mushrooms" /
+  "120 מוסדות · 3 פטריות" (shetach, country/state cards, city search results; `counts`, `mushroomsIn`).
+- **City cards off** (owner: "get rid of that useless card", kept switchable): `CITY_CARDS = false` in web/index.html;
+  a tap on a city's name opens nothing, a city picked in the search is flown to without a card. `true` brings it back.
 - Owner (screenshot of the phone sheet's "סגירה"): "shouldn't this be an x button". The open sheet's button is now a
   round X (like the theme button; aria-label Close/סגירה); closed, it still says Options (`showPanelToggle`).
 - **770's name: Hebrew only.** The owner meant only the Hebrew ("I meant just the Hebrew for 770"): chabad.org's English

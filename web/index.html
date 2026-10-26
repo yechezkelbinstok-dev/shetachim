@@ -2669,6 +2669,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const firstOf = (p) => (HE ? heFirst(p.firstName) : p.firstName);
   const lastOf = (p) => (HE ? heLast(p.lastName) : p.lastName);
   const positionOf = (p) => {
+    if (p.role) return HE ? p.role[1] : p.role[0]; // (a role given on the page, both languages: the ohalim's caretakers)
     const pos = (p.position || '').trim();
     if (!HE || !pos) return pos;
     const h = heData && heData.positions && heData.positions[pos];
@@ -2754,15 +2755,21 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     rostov: { seat: ['Seat of the Rebbeim, 1915–1924', 'מקום מושב הרביים, תרע״ו–תרפ״ד'], title: ['Rebbeim in Rostov:', 'נשיאי חב״ד ברוסטוב:'], rebbeim: [
       ['The Rebbe Rashab', 'Rabbi Sholom DovBer', 'כ״ק אדמו״ר הרש״ב', 'רבי שלום דובער', '1915–1920', 'תרע״ו–תר״פ', ['2 Nissan 5680 (1920)', 'ב׳ ניסן תר״פ']],
       ['The Frierdiker Rebbe', 'Rabbi Yosef Yitzchak', 'כ״ק אדמו״ר הריי״צ', 'רבי יוסף יצחק', '1920–1924', 'תר״פ–תרפ״ד'],
-    ] },
+    ],
+    // (chabad.org, June 17 2026: "Rabbi Danziger is responsible for maintaining the Rebbe Rashab's resting place")
+    people: [{ title: 'Rabbi', firstName: 'Chaim', lastName: 'Danzinger', role: ["In charge of the Rebbe Rashab's Ohel", 'אחראי על אוהל אדמו״ר הרש״ב'], isDirector: true, isDeceased: false }] },
     liozna: { seat: ["The Alter Rebbe's town: born here in 1745, he led from here until 1801", 'עירו של אדמו״ר הזקן: נולד כאן בתק״ה, ומכאן הנהיג עד תקס״א'], title: ['Rebbe in Liozna:', 'נשיא חב״ד בליאזנא:'], rebbeim: [
       [...ALTER_REBBE, 'until 1801', 'עד תקס״א'],
     ] },
     liadi: { seat: ['Seat of the Alter Rebbe, 1801–1812', 'מקום מושב אדמו״ר הזקן, תקס״א–תקע״ב'], title: ['Rebbe in Liadi:', 'נשיא חב״ד בליאדי:'], rebbeim: [
       [...ALTER_REBBE, '1801–1812', 'תקס״א–תקע״ב'],
     ] },
-    haditch: { burial: ['Burial place of the Alter Rebbe, Rabbi Schneur Zalman of Liadi, zy"a', 'ציון כ״ק אדמו״ר הזקן, רבי שניאור זלמן מליאדי, זי״ע'], yahrzeit: ['Histalkus: 24 Teves 5573 (1812)', 'הסתלקות: כ״ד טבת תקע״ג'] },
-    nezhin: { burial: ['Burial place of the Mitteler Rebbe, Rabbi DovBer, zy"a', 'ציון כ״ק אדמו״ר האמצעי, רבי דובער, זי״ע'], yahrzeit: ['Histalkus: 9 Kislev 5588 (1827)', 'הסתלקות: ט׳ כסלו תקפ״ח'] },
+    // (Rabbi Deitsch, "השליח והאחראי על המקומות הקדושים בהאדיטש ובניעז'ין": JDN, Dec 4 2022; chabad.org lists him at the
+    // Heichel without a position)
+    haditch: { burial: ['Burial place of the Alter Rebbe, Rabbi Schneur Zalman of Liadi, zy"a', 'ציון כ״ק אדמו״ר הזקן, רבי שניאור זלמן מליאדי, זי״ע'], yahrzeit: ['Histalkus: 24 Teves 5573 (1812)', 'הסתלקות: כ״ד טבת תקע״ג'],
+      roles: { Deutsh: ['In charge of the Heichal', 'אחראי על ההיכל'] } },
+    nezhin: { burial: ['Burial place of the Mitteler Rebbe, Rabbi DovBer, zy"a', 'ציון כ״ק אדמו״ר האמצעי, רבי דובער, זי״ע'], yahrzeit: ['Histalkus: 9 Kislev 5588 (1827)', 'הסתלקות: ט׳ כסלו תקפ״ח'],
+      people: [{ title: 'Rabbi', firstName: 'Shneor Zalman', lastName: 'Deutsh', role: ['In charge of the Ohel', 'אחראי על האוהל'], isDirector: true, isDeceased: false }] },
     // (the Rebbe with his whole title, as on 770's card; owner, Oct 26)
     ohel: { burial: ['Burial place of the Frierdiker Rebbe, zy"a, and the Lubavitcher Rebbe, zy"a', 'ציוני כ״ק אדמו״ר הריי״צ זי״ע וכ״ק אדמו״ר נשיא דורנו זצוקללה״ה נבג״מ זי״ע'], yahrzeit: ['Histalkus: 10 Shevat 5710 (1950) · 3 Tammuz 5754 (1994)', 'הסתלקות: י׳ שבט תש״י · ג׳ תמוז תשנ״ד'] },
   };
@@ -2780,7 +2787,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       ${c.honor === 'lubavitch' ? `<div class="subcard"><ul><li><strong>${HE ? 'חצר רבותינו נשיאינו בליובאוויטש' : "Hatzer Raboteinu Nesieinu B'Lubavitch"}</strong>
         <span class="meta">${esc([HE ? 'מרכז מורשת' : 'Heritage center', HE ? 'ליובאוויטש' : 'Lubavitch'].join(' · '))}</span>
         ${personnelHTML(LUBAVITCH_CENTER_PEOPLE)}</li></ul></div>` : ''}
-      ${c.center ? `<div class="staff">${personnelHTML(c.center.personnel)}${chabadLink(c.center)}</div><div class="foot"><span class="meta">${shetachLine(c.piece, true)}</span></div>` : ''}`;
+      ${honor.people ? `<div class="staff">${personnelHTML(honor.people)}</div>` : ''}
+      ${c.center ? `<div class="staff">${personnelHTML((c.center.personnel || []).map((p) => (honor.roles && honor.roles[p.lastName] ? { ...p, role: honor.roles[p.lastName] } : p)))}${chabadLink(c.center)}</div><div class="foot"><span class="meta">${shetachLine(c.piece, true)}</span></div>` : ''}`;
     // 770: the headquarters by itself, the Rebbe as its leader, and the many other listings at the address folded away
     const others = c.world ? ((dotOfCenter.get(c.centerId) || {}).centers || []).filter((x) => x.id !== c.centerId) : [];
     const atAddress = others.length ? `<details class="personnel at-address"><summary>${HE ? `${others.length} מוסדות נוספים בכתובת זו` : `${others.length} more listings at this address`}</summary>

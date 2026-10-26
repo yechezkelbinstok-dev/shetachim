@@ -24,6 +24,18 @@ between two Claude accounts when usage limits run out; whichever session picks t
 - **The ohalim's cards**: the histalkus line is as big as the line above it is bold (15px, ink), and the listing's own
   people (the Ohel's director, Abba Refson) sit under it in `.staff`, at 12px. Owner: "why is abba refson the same size
   as the histalkus's that legit makes no sense".
+- **Every ohel's card names who looks after it** (owner: "do all the ohels have management like the ohel has refson?" …
+  "figure out who runs those and add"). The Ohel in Queens (Abba Refson, director) and Haditch take their people from
+  their chabad.org listings. Rostov's and Nezhin's ohalim have no listing, so `HONOR_CARDS.<key>.people` gives them,
+  each with a `role` in both languages (`positionOf` takes a `role` before chabad.org's position):
+  - **Rostov: Rabbi Chaim Danzinger**, "In charge of the Rebbe Rashab's Ohel". chabad.org, June 17 2026 ("More Than
+    50,000 Visiting Rebbe's Queens Resting Place This Week"): "Rabbi Danziger is responsible for maintaining the Rebbe
+    Rashab's resting place in the southern Russian city". He's also Rostov's shliach (Jewish Community of Rostov).
+  - **Nezhin and Haditch: Rabbi Shneor Zalman Deitsch**, Haditch's shliach. JDN, Dec 4 2022: "הרב שניאור זלמן דייטש,
+    השליח והאחראי על המקומות הקדושים בהאדיטש ובניעז'ין"; JDN, Mar 1 2023: in charge of the holy sites in Ukraine for
+    the Federation of Jewish Communities. chabad.org lists him at the Heichel with no position, so `roles` adds
+    "In charge of the Heichal" there. His Hebrew surname is now דייטש, as JDN spells it (`Deutsh` in last-names.json:
+    chabad.org's spelling, and only his).
 - **Sub-shetachim (regional directors under a head shliach): on a switch of their own.** The owner asked about doing a
   second level of shetachim piece by piece. I suggested drawing them inside the head shliach's shetach, the way India
   sits in Thailand's (`territoryOf`), and the owner said no: "I meant as a separate thing to toggle to see sub shetachim

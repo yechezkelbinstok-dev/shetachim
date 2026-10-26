@@ -239,7 +239,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card ol.rebbeim li .meta { display: block; font: 400 13px/1.3 var(--font-ui, inherit); }
 #card .rebbe.burial { margin: 6px 0 8px; } /* a resting place of the Rebbeim: one line, with respect (owner, Oct 26) */
 #card ol.rebbeim li .rest { display: block; font: 600 13px/1.3 var(--font-ui, inherit); color: var(--ink); } /* his Ohel and histalkus, in his own entry */
-#card .rebbe.burial .meta { display: block; margin-top: 2px; font: 400 13px/1.3 var(--font-ui, inherit); }
+#card .rebbe.burial .meta { display: block; margin-top: 3px; font: 500 15px/1.3 var(--font-ui, inherit); color: var(--ink); } /* the histalkus: part of the line above, not small print */
+#card .staff { margin-top: 12px; } /* the ohel's own people, its director: set apart and smaller than the Rebbeim's lines (owner, Oct 26) */
+#card .staff .person, #card .staff .pother { font-size: 12px; }
 #card details.at-address .pother { margin-top: 4px; }
 #card .flag-world { color: var(--accent); font-weight: 600; font-style: normal; }
 .legend-mushroom { vertical-align: -2px; flex: none; }
@@ -367,8 +369,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       <fieldset class="ctl">
         <legend>Labels</legend>
         <div class="seg" data-name="labels">
-          <button type="button" data-value="name" aria-pressed="true">Shetach name</button>
-          <button type="button" data-value="full" aria-pressed="false">Head shliach</button>
+          <button type="button" data-value="name" aria-pressed="false">Shetach name</button>
+          <button type="button" data-value="full" aria-pressed="true">Head shliach</button>
           <button type="button" data-value="off" aria-pressed="false">Off</button>
         </div>
       </fieldset>
@@ -459,7 +461,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const phone = () => PHONE_MQ.matches;
   const coarse = () => window.matchMedia('(pointer: coarse)').matches;
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const state = { joined: new Set(), alaska: 'box', empty: true, restBorders: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'name', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true, sea: true };
+  const state = { joined: new Set(), alaska: 'box', empty: true, restBorders: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'full', dots: true, dotStyle: 'solid', dotColor: 'navy', cities: true, capitals: true, sea: true };
   // the rest of the world shown (Rest of the world, or its borders, which show it too)
   const rest = () => state.empty || state.restBorders;
   if (!phone()) $('#panel').classList.remove('collapsed');
@@ -812,7 +814,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const FSU = ['RUS', 'MNG', 'UKR', 'BLR', 'MDA', 'EST', 'LVA', 'LTU', 'ARM', 'AZE', 'GEO', 'KAZ', 'KGZ', 'UZB', 'TJK'];
   const ASIA = ['IND', 'NPL', 'LKA', 'CHN', 'HKG', 'MAC', 'JPN', 'KOR', 'TWN', 'THA', 'LAO', 'MMR', 'KHM', 'VNM', 'PHL', 'SGP', 'MYS', 'IDN'];
   const MIDEAST = ['ISR', 'TUR', 'ARE', 'QAT', 'SAU'];
-  const AFRICA = ['MAR', 'TUN', 'ZAF', 'MUS', 'REU', 'AGO', 'BEN', 'BFA', 'CMR', 'COG', 'CIV', 'COD', 'GNQ', 'ERI', 'ETH', 'GAB', 'GHA', 'GIN', 'KEN', 'LBR', 'MLI', 'NAM', 'NER', 'NGA', 'RWA', 'SEN', 'SLE', 'TZA', 'UGA', 'ZMB', 'ZWE'];
+  const AFRICA = ['MAR', 'TUN', 'ZAF', 'MUS', 'REU', 'AGO', 'BEN', 'BFA', 'BDI', 'CMR', 'COG', 'CIV', 'COD', 'GNQ', 'ERI', 'ETH', 'GAB', 'GHA', 'GIN', 'KEN', 'LBR', 'MLI', 'NAM', 'NER', 'NGA', 'RWA', 'SEN', 'SLE', 'TZA', 'TGO', 'UGA', 'ZMB', 'ZWE'];
   const OCEANIA = ['AUS', 'NZL', 'NCL'];
   const CARIBBEAN = ['AIA', 'ATG', 'ABW', 'BHS', 'BRB', 'BES', 'VGB', 'CYM', 'CUB', 'CUW', 'DMA', 'DOM', 'GRD', 'GLP', 'HTI', 'JAM', 'MTQ', 'MSR', 'PRI', 'BLM', 'KNA', 'LCA', 'MAF', 'VCT', 'SXM', 'TTO', 'TCA', 'VIR', 'BMU'];
   const LATAM = ['MEX', 'BLZ', 'GTM', 'SLV', 'HND', 'NIC', 'CRI', 'PAN', 'ARG', 'BOL', 'BRA', 'CHL', 'COL', 'ECU', 'PRY', 'PER', 'URY', 'VEN', 'GUY', ...CARIBBEAN];
@@ -1956,6 +1958,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     make('honor', 12, (g) => { g.beginPath(); g.arc(0, 0, 3.2, 0, 2 * Math.PI); g.lineWidth = 2.4; g.strokeStyle = pal.halo; g.stroke(); g.fillStyle = pal.ink; g.fill(); });
   }
 
+  let visibilityWired = false;
   async function startMap() {
     if (!window.maplibregl) throw new Error('the map library did not load');
     // Hebrew: the right-to-left text support, loaded before the map starts, so every layer's Hebrew is shaped from the first
@@ -1980,14 +1983,16 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     map.keyboard.disableRotation();
     // Back on the page after the phone dropped the map's graphics memory. Patching the map up in place (Oct 11: fresh
     // tiles, icon and line atlases) still left textures mixed up — letters of the font drawn as the shetachim's fill,
-    // blurred tiles (owner, Oct 13 screenshots) — so the page now reloads instead, and comes back where it was:
-    // the view, the options, the place and zoom, a family ringed in the search (saveResume / resume below).
+    // blurred tiles (owner, Oct 13 screenshots) — so a new map takes its place (rebuildMap, below), where it was.
     map.on('webglcontextlost', () => saveResume());
-    map.on('webglcontextrestored', () => reloadHere());
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState !== 'visible') return;
-      setTimeout(() => { const gl = map.painter && map.painter.context.gl; if (gl && gl.isContextLost()) reloadHere(); }, 1500);
-    });
+    map.on('webglcontextrestored', () => rebuildMap());
+    if (!visibilityWired) {
+      visibilityWired = true;
+      document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState !== 'visible') return;
+        setTimeout(() => { const gl = map.painter && map.painter.context.gl; if (gl && gl.isContextLost()) rebuildMap(); }, 1500);
+      });
+    }
     await withTimeout(new Promise((resolve, reject) => { map.once('load', resolve); map.once('error', (e) => { if (!map.loaded()) reject(e.error || new Error('map error')); }); }), 30000, 'the map took too long');
     const layers = map.getStyle().layers;
     const lastRoad = layers.map((l) => l.type === 'line' && l['source-layer'] === 'transportation').lastIndexOf(true);
@@ -2742,7 +2747,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // in Nezhin on his way back from Haditch (9 Kislev 5588, 1827) and is buried there.
   const ALTER_REBBE = ['The Alter Rebbe', 'Rabbi Schneur Zalman', 'כ״ק אדמו״ר הזקן', 'רבי שניאור זלמן'];
   // A Rebbe resting in the town: under his own name in the list, with his yahrzeit (the 7th field; owner, Oct 26: not a
-  // separate list, no name twice); where there's no list (Haditch, Nezhin), one line, burial, said with respect
+  // separate list, no name twice); where there's no list (Haditch, Nezhin, the Ohel), one line, burial, said with
+  // respect — in Hebrew ציון / ציוני (Chabad's word; not מקום מנוחתו, owner, Oct 26)
   const HONOR_CARDS = {
     lubavitch: { seat: ['Seat of the Rebbeim, 1813–1915', 'מקום מושב הרביים, תקע״ג–תרע״ה'], title: ['Rebbeim in Lubavitch:', 'נשיאי חב״ד בליובאוויטש:'], rebbeim: LUBAVITCH_REBBEIM },
     rostov: { seat: ['Seat of the Rebbeim, 1915–1924', 'מקום מושב הרביים, תרע״ו–תרפ״ד'], title: ['Rebbeim in Rostov:', 'נשיאי חב״ד ברוסטוב:'], rebbeim: [
@@ -2755,9 +2761,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     liadi: { seat: ['Seat of the Alter Rebbe, 1801–1812', 'מקום מושב אדמו״ר הזקן, תקס״א–תקע״ב'], title: ['Rebbe in Liadi:', 'נשיא חב״ד בליאדי:'], rebbeim: [
       [...ALTER_REBBE, '1801–1812', 'תקס״א–תקע״ב'],
     ] },
-    haditch: { burial: ['Burial place of the Alter Rebbe, Rabbi Schneur Zalman of Liadi, zy"a', 'מקום מנוחתו של כ״ק אדמו״ר הזקן, רבי שניאור זלמן מליאדי, זי״ע'], yahrzeit: ['Histalkus: 24 Teves 5573 (1812)', 'הסתלקות: כ״ד טבת תקע״ג'] },
-    nezhin: { burial: ['Burial place of the Mitteler Rebbe, Rabbi DovBer, zy"a', 'מקום מנוחתו של כ״ק אדמו״ר האמצעי, רבי דובער, זי״ע'], yahrzeit: ['Histalkus: 9 Kislev 5588 (1827)', 'הסתלקות: ט׳ כסלו תקפ״ח'] },
-    ohel: { burial: ['Burial place of the Frierdiker Rebbe and the Lubavitcher Rebbe, zy"a', 'מקום מנוחתם של כ״ק אדמו״ר הריי״צ וכ״ק אדמו״ר נשיא דורנו זי״ע'], yahrzeit: ['Histalkus: 10 Shevat 5710 (1950) · 3 Tammuz 5754 (1994)', 'הסתלקות: י׳ שבט תש״י · ג׳ תמוז תשנ״ד'] },
+    haditch: { burial: ['Burial place of the Alter Rebbe, Rabbi Schneur Zalman of Liadi, zy"a', 'ציון כ״ק אדמו״ר הזקן, רבי שניאור זלמן מליאדי, זי״ע'], yahrzeit: ['Histalkus: 24 Teves 5573 (1812)', 'הסתלקות: כ״ד טבת תקע״ג'] },
+    nezhin: { burial: ['Burial place of the Mitteler Rebbe, Rabbi DovBer, zy"a', 'ציון כ״ק אדמו״ר האמצעי, רבי דובער, זי״ע'], yahrzeit: ['Histalkus: 9 Kislev 5588 (1827)', 'הסתלקות: ט׳ כסלו תקפ״ח'] },
+    // (the Rebbe with his whole title, as on 770's card; owner, Oct 26)
+    ohel: { burial: ['Burial place of the Frierdiker Rebbe, zy"a, and the Lubavitcher Rebbe, zy"a', 'ציוני כ״ק אדמו״ר הריי״צ זי״ע וכ״ק אדמו״ר נשיא דורנו זצוקללה״ה נבג״מ זי״ע'], yahrzeit: ['Histalkus: 10 Shevat 5710 (1950) · 3 Tammuz 5754 (1994)', 'הסתלקות: י׳ שבט תש״י · ג׳ תמוז תשנ״ד'] },
   };
   const rebbeimHTML = ({ title, rebbeim }) => `<p class="rebbe"><span class="role">${HE ? title[1] : title[0]}</span></p><ol class="rebbeim">${
     rebbeim.map(([en, enName, he, heName, years, heYears, rest]) => `<li><strong>${HE ? `${he} זי״ע` : `${en}, zy"a`}</strong>
@@ -2773,7 +2780,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       ${c.honor === 'lubavitch' ? `<div class="subcard"><ul><li><strong>${HE ? 'חצר רבותינו נשיאינו בליובאוויטש' : "Hatzer Raboteinu Nesieinu B'Lubavitch"}</strong>
         <span class="meta">${esc([HE ? 'מרכז מורשת' : 'Heritage center', HE ? 'ליובאוויטש' : 'Lubavitch'].join(' · '))}</span>
         ${personnelHTML(LUBAVITCH_CENTER_PEOPLE)}</li></ul></div>` : ''}
-      ${c.center ? `${personnelHTML(c.center.personnel)}${chabadLink(c.center)}<div class="foot"><span class="meta">${shetachLine(c.piece, true)}</span></div>` : ''}`;
+      ${c.center ? `<div class="staff">${personnelHTML(c.center.personnel)}${chabadLink(c.center)}</div><div class="foot"><span class="meta">${shetachLine(c.piece, true)}</span></div>` : ''}`;
     // 770: the headquarters by itself, the Rebbe as its leader, and the many other listings at the address folded away
     const others = c.world ? ((dotOfCenter.get(c.centerId) || {}).centers || []).filter((x) => x.id !== c.centerId) : [];
     const atAddress = others.length ? `<details class="personnel at-address"><summary>${HE ? `${others.length} מוסדות נוספים בכתובת זו` : `${others.length} more listings at this address`}</summary>
@@ -3068,13 +3075,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     $('#load-error').textContent = HE ? `המפה לא נטענה (${err.message}). נסו לטעון את הדף מחדש.` : `The map didn't load (${err.message}). Reload the page to try again.`;
     return;
   }
-  map.on('mousemove', (e) => {
-    if (pinned || e.originalEvent.buttons) return;
-    const hit = pickAt(e.point, false);
-    map.getCanvas().style.cursor = hit && !hit.piece ? 'pointer' : '';
-    if (hit) showCard(hit, e.originalEvent, false); else hideCard();
-  });
-  map.getCanvas().addEventListener('mouseleave', () => { if (!pinned) hideCard(); });
+  // (a new map after the graphics memory was dropped is wired the same way: rebuildMap)
+  function wireHover() {
+    map.on('mousemove', (e) => {
+      if (pinned || e.originalEvent.buttons) return;
+      const hit = pickAt(e.point, false);
+      map.getCanvas().style.cursor = hit && !hit.piece ? 'pointer' : '';
+      if (hit) showCard(hit, e.originalEvent, false); else hideCard();
+    });
+    map.getCanvas().addEventListener('mouseleave', () => { if (!pinned) hideCard(); });
+  }
+  wireHover();
   // ---------- coming back after the graphics memory was dropped (see webglcontextlost above) ----------
   const RESUME = 'shetachim-resume';
   let reloading = false, resumeSaved = null;
@@ -3090,6 +3101,33 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     reloading = true;
     if (!resumeSaved) saveResume(); // (saved when the memory went, while the map could still say where it was)
     location.reload();
+  }
+  // A new map in the old one's place, from all the page already has — the data, the shapes worked out, the options,
+  // the names — back where it was (saved when the memory went). The page used to reload for this (Oct 13), which took
+  // a while each time (owner, Oct 26: "why sometimes when I go back to the map it takes a bit"). If it fails, reload.
+  let rebuilding = null;
+  function rebuildMap() {
+    if (rebuilding || reloading) return rebuilding;
+    const was = resumeSaved || {};
+    const ll = was.ll || centreLL(), zoom = Number.isFinite(was.zoom) ? was.zoom : map.getZoom();
+    rebuilding = (async () => {
+      hideCard();
+      try { map.remove(); } catch (e) { /* its memory is gone already */ }
+      FED.clear(); // (what each source held: the new map's sources are empty)
+      for (const sets of SETS.values()) for (const T of [sets.M, sets.F]) if (T) T.fedAll = false;
+      glOK = false;
+      await startMap();
+      wireHover();
+      wireTaps();
+      window.__map = map;
+      limits();
+      apply();
+      if (ll) map.jumpTo({ center: within(V.cur, () => P(ll[0], ll[1])) || map.getCenter(), zoom });
+      showMark();
+      resumeSaved = null;
+      try { sessionStorage.removeItem(RESUME); } catch (e) { /* nothing kept */ }
+    })().catch((e) => { console.error(e); rebuilding = null; reloadHere(); }).finally(() => { rebuilding = null; });
+    return rebuilding;
   }
   // the same clicks a person would make, so each option does all it does; then the place, then the ringed family
   function resume(r) {
@@ -3319,14 +3357,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   sclear.addEventListener('click', () => { sq.value = ''; runSearch(); sq.focus(); });
   document.addEventListener('pointerdown', (e) => { if (!e.target.closest('#search')) closeSearch(); });
 
-  map.on('click', (e) => {
-    const touch = e.originalEvent.pointerType === 'touch' || coarse();
-    const hit = pickAt(e.point, touch);
-    if (!hit) { hideCard(); return; }
-    pinned = hit;
-    showCard(hit, e.originalEvent, true);
-  });
-  map.on('movestart', (e) => { if (e.originalEvent && !pinned) hideCard(); });
+  function wireTaps() {
+    map.on('click', (e) => {
+      const touch = e.originalEvent.pointerType === 'touch' || coarse();
+      const hit = pickAt(e.point, touch);
+      if (!hit) { hideCard(); return; }
+      pinned = hit;
+      showCard(hit, e.originalEvent, true);
+    });
+    map.on('movestart', (e) => { if (e.originalEvent && !pinned) hideCard(); });
+  }
+  wireTaps();
   showView(false);
   try {
     const r = JSON.parse(sessionStorage.getItem(RESUME) || 'null');

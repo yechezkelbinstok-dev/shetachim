@@ -8,6 +8,29 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 26: Burundi and Togo are Bentolila's; names open on Head shliach; coming back rebuilds the map; sub-shetachim on their own switch
+- **Burundi (BDI) and Togo (TGO) are in Central Africa (Bentolila's)**: the owner sent a screenshot of each, Oct 26
+  ("Add to bentolila", "This goes to bentolila as well"). In `data/shetachim.json`, `data/global-shetach-list.txt` and
+  the page's AFRICA view list.
+- **The page opens with the names on Head shliach** (owner: "make head shliach mode the default"): `state.labels = 'full'`,
+  its button pressed in the HTML.
+- **Coming back to the map** (owner: "why sometimes when I go back to the map it takes a bit to re load in"): a phone
+  drops the map's WebGL context while the browser is in the background. Since Oct 13 the page then reloaded, fetching
+  and working out every file again, which was the slow part. Now `rebuildMap()` removes the dead MapLibre map and makes
+  a fresh one from what's already in memory (the feed cache `FED` cleared, each set's `fedAll` reset, the hover and tap
+  handlers wired again, the camera put back where it was). If that fails it falls back to the old reload (`reloadHere`).
+  Test: `scripts/screenshot.mjs` action `lose`. A `window.__mark` set before it was still there after (no reload); the
+  map was loaded with its 180 layers.
+- **The ohalim's cards**: the histalkus line is as big as the line above it is bold (15px, ink), and the listing's own
+  people (the Ohel's director, Abba Refson) sit under it in `.staff`, at 12px. Owner: "why is abba refson the same size
+  as the histalkus's that legit makes no sense".
+- **Sub-shetachim (regional directors under a head shliach): on a switch of their own.** The owner asked about doing a
+  second level of shetachim piece by piece. I suggested drawing them inside the head shliach's shetach, the way India
+  sits in Thailand's (`territoryOf`), and the owner said no: "I meant as a separate thing to toggle to see sub shetachim
+  not in the head shluchim part". So the head-shliach map stays exactly as it is, and the sub-shetachim show only with
+  their own switch. Regions won't cover every shetach. Where no regional director is known, the switch shows nothing
+  new. Pilot: California (the West Coast's regional headquarters), then piece by piece.
+
 ## ▶ Oct 26: honorary cards for the Rebbeim's towns and ohalim; Chabad Hebrew names; mushroom counts; no city cards
 - **NAMES (owner, firmly): always the Russian names, never the recent Ukrainian ones** ("KEEP DNEPR … ALWAYS KEEP
   RUSSIAN NAMES NEVER UKRAINIAN RECENT CHANGES"), in English and Hebrew: Dnepr = דנייפר (not Dnipro/דניפרו, even
@@ -37,7 +60,9 @@ between two Claude accounts when usage limits run out; whichever session picks t
     chabad.org link in the card, the shetach line at its foot — and its own dot isn't drawn (`HONOR_BY_CENTER`;
     the counts still count it; a search for it opens the honorary card).
   - **Wording (owner, firmly):** no address or "region" line at the foot ("address slop"); no "Buried here:" list
-    ("more respect, burial place of …"); no "His resting place is here" ("horrible"); a name never twice.
+    ("more respect, burial place of …"); no "His resting place is here" ("horrible"); a name never twice. Hebrew:
+    ציון / ציוני, not מקום מנוחתו ("is that really a used word in chabad?"): "ציוני כ״ק אדמו״ר הריי״צ זי״ע וכ״ק אדמו״ר
+    נשיא דורנו זצוקללה״ה נבג״מ זי״ע" — **the Rebbe always with his whole title, as on 770's card**, never just זי״ע.
 - With **Mushrooms** on, a card's count shows the centers and the mushrooms apart — "120 centers · 3 mushrooms" /
   "120 מוסדות · 3 פטריות" (shetach, country/state cards, city search results; `counts`, `mushroomsIn`).
 - **City cards off** (owner: "get rid of that useless card", kept switchable): `CITY_CARDS = false` in web/index.html;
@@ -376,6 +401,8 @@ between two Claude accounts when usage limits run out; whichever session picks t
   the ringed family) to sessionStorage, and on `webglcontextrestored` (or still lost 1.5 s after coming back) it
   reloads; at startup `resume()` clicks the same options, jumps to the place and rings the family again.
   Test: `scripts/screenshot.mjs` action `lose`.
+  **Oct 26: it no longer reloads but rebuilds the map from memory (`rebuildMap`, the reload only if that fails); see the
+  top.**
 
 ## ▶ Oct 13: search
 - Owner: "Search function add for shluchim, chabad houses, etc". A search bar at the top of the map (`#search`; phone:

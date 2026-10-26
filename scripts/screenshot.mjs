@@ -88,7 +88,7 @@ for (const spec of specs) {
     // type=<text>: into the search bar (its results open); pick=<n>: the n-th result (1 = the first), then the flight to it
     else if (name === 'type') { await page.fill('#search-q', decodeURIComponent(value)); await page.waitForTimeout(300); }
     else if (name === 'tab') { await page.focus('#search-q'); await page.click(`#search-results [data-mode="${value}"]`); await page.waitForTimeout(200); }
-    // lose: the phone dropping the map's graphics memory (WEBGL_lose_context), then giving it back; the page reloads
+    // lose: the phone dropping the map's graphics memory (WEBGL_lose_context), then giving it back; the map is rebuilt (no reload)
     else if (name === 'lose') {
       await page.evaluate(() => new Promise((r) => { const ext = window.__map.painter.context.gl.getExtension('WEBGL_lose_context'); ext.loseContext(); setTimeout(() => { ext.restoreContext(); r(); }, 600); }));
       await page.waitForTimeout(1500);

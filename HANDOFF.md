@@ -8,6 +8,29 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 26: Rabbi Mottel Kanelsky's Bris Avrohom network (48 mushrooms now); 770 is "Beis Agudas Chassidei Chabad"
+- Owner: "Find mendel zaltzman mushroom in NJ and add pls", then "Mottel Kanelski is also a big mushroom head in NJ
+  there's a bunch of moisdois under him … find them all". Rabbi Mendel Zaltzman runs Bris Avrohom of Fair Lawn, a
+  branch of Rabbi Mordechai (Mottel) Kanelsky's **Bris Avrohom** (founded 1979 in Jersey City; "Founded by the
+  Lubavitcher Rebbe", its site says; it has long served Russian-speaking immigrants). Added, network "Mottel Kanelsky"
+  (מאטל קנלסקי): Bris Avrohom (HQ and its shul Cong. Shomrei Torah – Ohel Yosef Yitzchok, 910 Salem Ave, Hillside;
+  Mordechai and Shterny, Avremi and Chaya Kanelsky), Mikvah Batsheva Chaya Esther (824 Salem Ave, Hillside), Bris
+  Avrohom of Fair Lawn (30-02 Fair Lawn Ave; Mendel and Elke Zaltzman — founded 1993 by his parents; Rabbi Berel
+  Zaltzman passed away in 2026), Bris Avrohom of Jersey City (temporary shul at 24 Van Reipen Ave, Jan 2026; Baruch
+  and Kreina Lepkivker). None is on chabad.org. Evidence (in each `mushroom` text): NJ Jewish News, Jun 8, 2011 —
+  after a challenge by Rabbi Boruch Chazanow and Rabbi Moshe Herson, the Central Committee of Chabad-Lubavitch Rabbis'
+  agreement says his son Rabbi Yossi Kanelsky's new Marlboro center "will not be associated with Chabad-Lubavitch or
+  its affiliates, such as Bris Avrohom". Against: the same article calls Bris Avrohom "affiliated with
+  Chabad-Lubavitch"; the owner rules it a mushroom network.
+  - Not added: Yossi Kanelsky's Marlboro "Center for Jewish Life" (Route 79, 2011; by that agreement not Chabad at all,
+    and nothing recent found), "Bris Avrohom of EWR" (Newark Airport: a donation page only), the Brooklyn branch named
+    in 2011 and the Old Bridge one (closed by 2011), Cheder Yaldei Menachem (no address; its donations go to Bris
+    Avrohom), the Wilanskys (directors in 2019; not confirmed since), the Stop Sign Coffee café in Jersey City.
+- Owner: "Beis Agudas Chassidei Chabad instead of Mateh Chabad Lubavitch". 770's center (chabad.org 117678, "Chabad
+  Lubavitch Headquarters", Hebrew מטה חב״ד ליובאוויטש) is renamed by a `fixes` entry: **Beis Agudas Chassidei Chabad**
+  / בית אגודת חסידי חב״ד, in both languages (the world capital's star and card take the center's name; the card's
+  "World Headquarters" kicker stays). chabad.org's separate listing "Agudas Chassidei Chabad" (118267) is unchanged.
+
 ## ▶ Oct 26: two Florida "Beis Moshiach" mushrooms (44 now); the Mushrooms switch no longer reloads the page
 - Owner: "Add the Hollywood and North Miami Beach Beis Moshiach as mushrooms". Both are known only from the IRS
   (ProPublica's Nonprofit Explorer; no website, news or chabad.org listing found): **Beis Moshiach Hollywood**
@@ -602,7 +625,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
     grep '"review"' data/extra-centers.json.
   - **MUSHROOMS (owner, Oct 12).** A center outside official Chabad (not a Merkos-recognised shliach) carries
     `"mushroom": "<evidence>"` in data/extra-centers.json; it is left off the map (dots, city counts) unless the new
-    Options checkbox "Mushrooms" / "פטריות" is on (owner: just "Mushrooms", no explanation), with a mushroom icon; a mushroom's dot is red (orange when the Red dot colour is picked), its card opens with a red "MUSHROOM" / "פטרייה" label and names no head shliach (the foot shows only the shetach's name); under the label, "Network: …" / "רשת: …" from its `network`/`networkHe` (Kupchik family ×14 — Bolivia, Jaipur (was Pune until Oct 19), South Delhi, Arusha, the Chabad of India directory's houses, Puerto Escondido, whose rabbi also runs Kasol; Mashiach Jabad Mexico — Mérida; since Oct 19 Binyomin Edery — Tokyo, Kyoto; Moshe Reuven Azman — Brodsky, Anatevka; Yacov Borenstein — Poughkeepsie, Goshen; Labkovski family — Williamsville, Downtown Buffalo; Yosef Carlebach — Rutgers, Monroe, the Brunswicks, Ocean, Long Branch, Colts Neck). Owner, Oct 12: only name a network where the house really is part of one — the others have no Network line.) (remembered in
+    Options checkbox "Mushrooms" / "פטריות" is on (owner: just "Mushrooms", no explanation), with a mushroom icon; a mushroom's dot is red (orange when the Red dot colour is picked), its card opens with a red "MUSHROOM" / "פטרייה" label and names no head shliach (the foot shows only the shetach's name); under the label, "Network: …" / "רשת: …" from its `network`/`networkHe` (Kupchik family ×14 — Bolivia, Jaipur (was Pune until Oct 19), South Delhi, Arusha, the Chabad of India directory's houses, Puerto Escondido, whose rabbi also runs Kasol; Mashiach Jabad Mexico — Mérida; since Oct 19 Binyomin Edery — Tokyo, Kyoto; Moshe Reuven Azman — Brodsky, Anatevka; Yacov Borenstein — Poughkeepsie, Goshen; Labkovski family — Williamsville, Downtown Buffalo; Yosef Carlebach — Rutgers, Monroe, the Brunswicks, Ocean, Long Branch, Colts Neck; since Oct 26 Mottel Kanelsky — Bris Avrohom in Hillside (and its mikvah), Fair Lawn, Jersey City). Owner, Oct 12: only name a network where the house really is part of one — the others have no Network line.) (remembered in
     localStorage `shetachim-mushrooms`; switching is instant since Oct 26 — it used to reload the page). Build: `mushroom: true` on the center,
     `mushrooms: n` on its city. **Bolivia**: Itzik Kupchik is no longer head shliach (owner) — Bolivia has no head and
     no capital (`noCentralLeadership`); his La Paz house is a mushroom. (India stays under Kantor, as decided long ago.)
@@ -624,7 +647,8 @@ between two Claude accounts when usage limits run out; whichever session picks t
       the Oct 19 section at the top). **Then 42**: Poughkeepsie, Goshen, Buffalo's Jewish Discovery Center, Center
       for Jewish Life and Chabad Downtown, Lauderhill's 770 Moshiach Center, and six houses of Rabbi Yosef Carlebach's
       central New Jersey network (the "Oct 19–20" section at the top). **Oct 26: 44** — Beis Moshiach Hollywood and
-      Bais Moshiach North Miami Beach (owner).
+      Bais Moshiach North Miami Beach (owner); **then 48** — Rabbi Mottel Kanelsky's Bris Avrohom (Hillside ×2, Fair
+      Lawn, Jersey City).
     - **Official (53)**: the shetach head himself (Armenia, Belize, Bulgaria, El Salvador, Honduras, Panama Beth El,
       Philippines ×8, Sri Lanka ×5, Uruguay, Albania); the country's official network (Thailand, Germany ×2, Austria,
       Cyprus, Spain ×3, Italy, Amsterdam, Montenegro, Switzerland, Riyadh, Abu Dhabi, Istanbul, Southern Ohio); on

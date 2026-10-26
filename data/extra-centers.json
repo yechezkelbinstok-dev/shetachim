@@ -329,6 +329,85 @@
       "networkHe": "יוסף קרליבך"
     },
     {
+      "id": "extra-us-hillside-bris-avrohom",
+      "name": "Bris Avrohom",
+      "city": "Hillside",
+      "lat": 40.68474,
+      "lon": -74.2189,
+      "precision": "exact",
+      "note": "910 Salem Avenue: Bris Avrohom's headquarters and its shul, Congregation Shomrei Torah – Ohel Yosef Yitzchok, with a men's mikvah and Cheder Yaldei Menachem; it has long served Russian-speaking immigrants",
+      "source": "its own site, brisavrohom.org (© 2026: 910 Salem Avenue); Jewish Link (Aug 28, 2019: its directors; Jul 2026: Rabbi Kanelsky and his son Avremy); NJ Jewish News (Jun 8, 2011); IRS (Bris Avrohom, Hillside, EIN 22-2664361); US Census geocoder; not on chabad.org",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Mordechai", "lastName": "Kanelsky" },
+        { "title": "Mrs.", "firstName": "Shterny", "lastName": "Kanelsky" },
+        { "title": "Rabbi", "firstName": "Avremi", "lastName": "Kanelsky" },
+        { "title": "Mrs.", "firstName": "Chaya", "lastName": "Kanelsky" }
+      ],
+      "url": "https://www.brisavrohom.org/",
+      "site": "Bris Avrohom",
+      "siteHe": "ברית אברהם",
+      "mushroom": "Rabbi Mordechai (Mottel) Kanelsky's Bris Avrohom, founded in 1979 (its site: \"Founded by the Lubavitcher Rebbe\"), with its headquarters here and branches in Fair Lawn and Jersey City: none of its houses or rabbis is on chabad.org, and New Jersey's official Chabad is the Rabbinical College of America's network (head shliach Rabbi Mendy Herson); the owner counts it as a mushroom network (Oct 26, 2026). In 2011 the Central Committee of Chabad-Lubavitch Rabbis settled a challenge by Rabbi Boruch Chazanow and Rabbi Moshe Herson to his son Rabbi Yossi Kanelsky's new Marlboro center: it \"will not be associated with Chabad-Lubavitch or its affiliates, such as Bris Avrohom\" (NJ Jewish News, Jun 8, 2011). Against: the same article calls Bris Avrohom \"affiliated with Chabad-Lubavitch\"; its own site and the Jewish Link's reports never call it Chabad.",
+      "network": "Mottel Kanelsky",
+      "networkHe": "מאטל קנלסקי"
+    },
+    {
+      "id": "extra-us-hillside-bris-avrohom-mikvah",
+      "name": "Mikvah Batsheva Chaya Esther",
+      "center-type": { "name": "Mikveh" },
+      "city": "Hillside",
+      "lat": 40.68243,
+      "lon": -74.21809,
+      "precision": "exact",
+      "note": "824 Salem Avenue",
+      "source": "its own site, mikvahhillside.com (Bat Sheva Chaya Esther Mikvah, 824 Salem Ave); Jewish Link (Aug 28, 2019: dedicated in 2006 by Rabbi and Mrs. Kanelsky); US Census geocoder; not on chabad.org",
+      "url": "https://www.mikvahhillside.com/",
+      "site": "Mikvah Hillside",
+      "siteHe": "מקווה הילסייד",
+      "mushroom": "Bris Avrohom's mikvah, dedicated in 2006 by Rabbi and Mrs. Mordechai Kanelsky (Jewish Link, Aug 28, 2019); see Bris Avrohom's headquarters, 250 m away, for why the network is a mushroom. Not on chabad.org.",
+      "network": "Mottel Kanelsky",
+      "networkHe": "מאטל קנלסקי"
+    },
+    {
+      "id": "extra-us-fair-lawn-bris-avrohom",
+      "name": "Bris Avrohom of Fair Lawn",
+      "city": "Fair Lawn",
+      "lat": 40.94124,
+      "lon": -74.11289,
+      "precision": "exact",
+      "note": "30-02 Fair Lawn Avenue: shul, Hebrew school (the Chaya Esther Talmud Torah) and a summer day camp",
+      "source": "its own site, jewishfairlawn.org (events Oct–Dec 2026); Jewish Link (Aug 6, 2026; Aug 28, 2019); IRS (Bris Avrohom of Fair Lawn Inc, EIN 47-4156671); US Census geocoder; not on chabad.org",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Mendel", "lastName": "Zaltzman" },
+        { "title": "Mrs.", "firstName": "Elke", "lastName": "Zaltzman" }
+      ],
+      "url": "https://jewishfairlawn.org/",
+      "site": "Bris Avrohom of Fair Lawn",
+      "siteHe": "ברית אברהם פייר לון",
+      "mushroom": "Part of Rabbi Mordechai (Mottel) Kanelsky's Bris Avrohom (see its Hillside headquarters): founded in 1993 by Rabbi Berel and Rebbetzin Chaya Esther Zaltzman, now led by their son Rabbi Mendel and Elke Zaltzman (Jewish Link, Aug 6, 2026, after Rabbi Berel Zaltzman's passing; it calls Kanelsky \"founder and executive director of Bris Avrohom at large\"). Not on chabad.org, and its site never uses the Chabad name. Fair Lawn's official Chabad is Anshei Lubavitch (Rabbi Levi Neubort, chabad.org 1418905), 3 km away; the owner counts the network as mushrooms (Oct 26, 2026).",
+      "network": "Mottel Kanelsky",
+      "networkHe": "מאטל קנלסקי"
+    },
+    {
+      "id": "extra-us-jersey-city-bris-avrohom",
+      "name": "Bris Avrohom of Jersey City",
+      "city": "Jersey City",
+      "lat": 40.73354,
+      "lon": -74.06037,
+      "precision": "exact",
+      "note": "24 Van Reipen Avenue, by Journal Square: its temporary synagogue (Jan 2026; it was at 35 Cottage Street in 2019); it also runs the kosher Stop Sign Coffee at Mana Contemporary",
+      "source": "Jewish Link (Jan 8, 2026: the temporary synagogue at 24 Van Reipen Ave; Aug 7, 2025; Aug 28, 2019); brisavrohom.org; US Census geocoder; not on chabad.org",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Baruch", "lastName": "Lepkivker" },
+        { "title": "Mrs.", "firstName": "Kreina", "lastName": "Lepkivker" }
+      ],
+      "url": "https://www.brisavrohom.org/",
+      "site": "Bris Avrohom",
+      "siteHe": "ברית אברהם",
+      "mushroom": "Part of Rabbi Mordechai (Mottel) Kanelsky's Bris Avrohom, which began in Jersey City in 1979 (see its Hillside headquarters); Rabbi Baruch Lepkivker directs it (Jewish Link, Jan 8, 2026). Not on chabad.org. Jersey City's official Chabad is Chabad Young Professionals of Hoboken and Jersey City (Rabbi Shmully Levitin, chabad.org 3058083), 2 km away; the owner counts the network as mushrooms (Oct 26, 2026).",
+      "network": "Mottel Kanelsky",
+      "networkHe": "מאטל קנלסקי"
+    },
+    {
       "id": "extra-india-delhi",
       "name": "Chabad New Delhi – Main Bazaar",
       "city": "New Delhi",
@@ -3483,6 +3562,7 @@
     }
   ],
   "fixes": {
+    "117678": {"name": "Beis Agudas Chassidei Chabad", "why": "owner (Oct 26, 2026): 770 is \"Beis Agudas Chassidei Chabad instead of Mateh Chabad Lubavitch\" (chabad.org calls it Chabad Lubavitch Headquarters; in Hebrew the map had מטה חב״ד ליובאוויטש)"},
     "119816": {"rename": {"Mordechai Silberberg": {"firstName": "Rabbi", "lastName": "Spencer"}, "Nechamie Silberberg": {"firstName": "Mrs.", "lastName": "Spencer"}}, "why": "owner (Oct 13): the Silberbergs are to be shown as \"Rabbi Spencer and Mrs. Spencer\", the family's nickname"},
     "117792": {"rename": {"Mordechai Silberberg": {"firstName": "Rabbi", "lastName": "Spencer"}, "Nechamie Silberberg": {"firstName": "Mrs.", "lastName": "Spencer"}}, "why": "owner (Oct 13): the Silberbergs are to be shown as \"Rabbi Spencer and Mrs. Spencer\", the family's nickname"},
     "4080686": {

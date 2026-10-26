@@ -8,6 +8,34 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 26: two Florida "Beis Moshiach" mushrooms (44 now); the Mushrooms switch no longer reloads the page
+- Owner: "Add the Hollywood and North Miami Beach Beis Moshiach as mushrooms". Both are known only from the IRS
+  (ProPublica's Nonprofit Explorer; no website, news or chabad.org listing found): **Beis Moshiach Hollywood**
+  (Beis Moshiach Hollywood Incorporated, EIN 99-3945220, exempt since Aug 2024), 1050 Jefferson St, Hollywood; **Bais
+  Moshiach North Miami Beach** (Bais Moshiach Nmb Inc, EIN 33-3589170, since May 2025), 625 NE 175th St, North Miami
+  Beach (the IRS says Miami Beach; the Census geocoder, North Miami Beach). Placed by the Census geocoder; no network
+  line (nothing ties them to each other or to Lauderhill's 770 Moshiach Center). Hebrew: בית משיח הוליווד, בית משיח
+  צפון מיאמי ביץ׳. They may be home minyanim: if the owner learns more (rabbis, a real address), add it.
+- Owner: "Why when I turn on mushrooms it reloads the whole thing?" The page used to drop the mushrooms from the data
+  at load and reload on every switch. Now the data is kept whole: `useCenters()` works out the dots, the counts per
+  piece, `dotOfCenter` and the cities either way (each once, `CENTER_SETS`), and the switch refreshes the view in place
+  (`viewCenters`, the dots and cities re-fed — their FED keys carry the mode — the search index rebuilt, a ringed
+  family re-ringed). Each city list gets its Hebrew names (`cityNames`).
+- Asked by the owner, then stopped at the owner's word (credits): **Kalmanson.** No report anywhere (English or Hebrew) of his
+  removal or of a new head shliach for Southern Ohio; Chabadpedia (updated with 5786 events: he founded the reopened
+  Yeshiva Gedola in Elul 5785) still calls him the director of Chabad in Southern Ohio and a member of Merkos's Kinus
+  HaShluchim committee. He isn't on chabad.org's or lubavitch.com's directory (a chabad.org bio of him existed in
+  2008); his son's and sons-in-law's houses are. Nothing changed; the owner may send a source.
+- Other unverified leads from the same IRS search, for the owner (not added): Welcome Moshiach Inc (20533 Biscayne
+  Blvd #139, Aventura; c/o Matisyahu H. Abarbanel; $859k revenue in 2022), Temple Beis Moshiaj Inc (825 NE 205th Ter,
+  Miami; 2005, c/o Jay R. Beskin — may not be Chabad), Chabad of Lakewood II Inc (363 Lanes Pond Rd, Howell NJ; since
+  May 2026, c/o Avraham Lebovitz). The owner will give the names of Florida/New Jersey/US mushrooms; wait for them
+  rather than sweeping (the owner stopped a sweep for the credits it used).
+- Tool for a future sweep: GoDaven's API answers plain requests — `https://www.godaven.com/api/V2/shuls/search-all?query=
+  &pagenumber=N&nusach=ari&users_date=&tefillah=&day=&current_time=&todays_day=` with header `app-id:
+  f9XMPE2U7hECnxyvDkQOWfLaLUJl5Fj8vvGpM0fGWpQJfnDz6t` (from its web bundle) lists every Nusach Ari shul (938, 10 a page;
+  also `radius-search?lat=&lng=&distance=`), each with address, coordinates and rabbi — to compare with chabad.org.
+
 ## ▶ Oct 21: every view in its own projection (political map)
 - Owner: "It's meant to be diff maps for the diff views like FSU should be an FSU projection for example, us Canada as
   well etc etc etc". The political map now draws each view in its own projection (`VIEWS[*].projection`, `flatFor`):
@@ -575,7 +603,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
   - **MUSHROOMS (owner, Oct 12).** A center outside official Chabad (not a Merkos-recognised shliach) carries
     `"mushroom": "<evidence>"` in data/extra-centers.json; it is left off the map (dots, city counts) unless the new
     Options checkbox "Mushrooms" / "פטריות" is on (owner: just "Mushrooms", no explanation), with a mushroom icon; a mushroom's dot is red (orange when the Red dot colour is picked), its card opens with a red "MUSHROOM" / "פטרייה" label and names no head shliach (the foot shows only the shetach's name); under the label, "Network: …" / "רשת: …" from its `network`/`networkHe` (Kupchik family ×14 — Bolivia, Jaipur (was Pune until Oct 19), South Delhi, Arusha, the Chabad of India directory's houses, Puerto Escondido, whose rabbi also runs Kasol; Mashiach Jabad Mexico — Mérida; since Oct 19 Binyomin Edery — Tokyo, Kyoto; Moshe Reuven Azman — Brodsky, Anatevka; Yacov Borenstein — Poughkeepsie, Goshen; Labkovski family — Williamsville, Downtown Buffalo; Yosef Carlebach — Rutgers, Monroe, the Brunswicks, Ocean, Long Branch, Colts Neck). Owner, Oct 12: only name a network where the house really is part of one — the others have no Network line.) (remembered in
-    localStorage `shetachim-mushrooms`; switching it reloads the page). Build: `mushroom: true` on the center,
+    localStorage `shetachim-mushrooms`; switching is instant since Oct 26 — it used to reload the page). Build: `mushroom: true` on the center,
     `mushrooms: n` on its city. **Bolivia**: Itzik Kupchik is no longer head shliach (owner) — Bolivia has no head and
     no capital (`noCentralLeadership`); his La Paz house is a mushroom. (India stays under Kantor, as decided long ago.)
     **Mushroom scan (Oct 12) — every added center not on chabad.org and not from an official national list (77),
@@ -595,7 +623,8 @@ between two Claude accounts when usage limits run out; whichever session picks t
       **Oct 19: 30** — Pune closed (now Jaipur); added Tokyo, Kyoto, Anatevka, Leh, Westborough, Colorado Springs (see
       the Oct 19 section at the top). **Then 42**: Poughkeepsie, Goshen, Buffalo's Jewish Discovery Center, Center
       for Jewish Life and Chabad Downtown, Lauderhill's 770 Moshiach Center, and six houses of Rabbi Yosef Carlebach's
-      central New Jersey network (the "Oct 19–20" section at the top).
+      central New Jersey network (the "Oct 19–20" section at the top). **Oct 26: 44** — Beis Moshiach Hollywood and
+      Bais Moshiach North Miami Beach (owner).
     - **Official (53)**: the shetach head himself (Armenia, Belize, Bulgaria, El Salvador, Honduras, Panama Beth El,
       Philippines ×8, Sri Lanka ×5, Uruguay, Albania); the country's official network (Thailand, Germany ×2, Austria,
       Cyprus, Spain ×3, Italy, Amsterdam, Montenegro, Switzerland, Riyadh, Abu Dhabi, Istanbul, Southern Ohio); on

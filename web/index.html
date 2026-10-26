@@ -486,15 +486,16 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return;
   }
   // Mushrooms (owner, Oct 12): centers outside the country's official Chabad (extra-centers.json "mushroom") are left
-  // off unless the Mushrooms option is on (remembered; switching it reloads the page, since every count comes from them).
+  // off unless the Mushrooms option is on (remembered). The data is kept whole and the map's centers are worked out
+  // from it either way (useCenters), so switching is instant (owner, Oct 26: it used to reload the page).
   let mushroomsOn = false;
   try { mushroomsOn = localStorage.getItem('shetachim-mushrooms') === 'on'; } catch (e) {}
-  if (!mushroomsOn) {
-    centersGeo.features = centersGeo.features
+  const withoutMushrooms = () => ({
+    features: centersGeo.features
       .map((f) => ({ ...f, properties: { ...f.properties, centers: f.properties.centers.filter((c) => !c.mushroom) } }))
-      .filter((f) => f.properties.centers.length);
-    cityFile = cityFile.map((c) => (c.mushrooms ? { ...c, centers: c.centers - c.mushrooms } : c)).filter((c) => c.centers > 0);
-  }
+      .filter((f) => f.properties.centers.length),
+    cities: cityFile.map((c) => (c.mushrooms ? { ...c, centers: c.centers - c.mushrooms } : c)).filter((c) => c.centers > 0),
+  });
   // The topology's points as plain lon/lat, decoded once (every shape made from it later is quicker to make), to a
   // millionth of a degree (a tenth of a metre; the shapes are as they were, and shorter to hand to the map).
   function decodeArcs(t) {
@@ -615,14 +616,33 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
   const stateName = new Map(pieces.map((g) => [g.properties.state, g.properties.name]));
 
-  const dots = centersGeo.features
-    .map((f) => ({ lon: f.geometry.coordinates[0], lat: f.geometry.coordinates[1], ...f.properties, piece: f.properties.piece || f.properties.region }))
-    .filter((d) => pieceById.has(d.piece));
-  const centersIn = new Map();
-  for (const d of dots) centersIn.set(d.piece, (centersIn.get(d.piece) || 0) + d.centers.length);
+  // The centers as dots (one per place), how many each piece has, and the cities with shluchim: with the mushrooms or
+  // without them, each way worked out once, when first wanted.
+  // Bigger cities are labelled first and from further out. A city with many centers counts as big even when
+  // GeoNames doesn't know it (Thornhill), so weigh each center as 5,000 people.
+  let dots, centersIn, dotOfCenter, cities, bilingualDone = false;
+  const CENTER_SETS = new Map();
+  function useCenters() {
+    let got = CENTER_SETS.get(mushroomsOn);
+    if (!got) {
+      const without = !mushroomsOn && withoutMushrooms();
+      const ds = (without ? without.features : centersGeo.features)
+        .map((f) => ({ lon: f.geometry.coordinates[0], lat: f.geometry.coordinates[1], ...f.properties, piece: f.properties.piece || f.properties.region }))
+        .filter((d) => pieceById.has(d.piece));
+      const counts = new Map();
+      for (const d of ds) counts.set(d.piece, (counts.get(d.piece) || 0) + d.centers.length);
+      const cs = (without ? without.cities : cityFile).map((c) => ({ ...c, piece: c.piece || c.region })).filter((c) => pieceById.has(c.piece))
+        .map((c) => ({ ...c, texts: [c.name], weight: Math.max(c.pop, c.centers * 5000) }))
+        .sort((a, b) => b.weight - a.weight);
+      if (bilingualDone) cityNames(cs);
+      got = { dots: ds, centersIn: counts, dotOfCenter: new Map(ds.flatMap((d) => d.centers.map((c) => [c.id, d]))), cities: cs };
+      CENTER_SETS.set(mushroomsOn, got);
+    }
+    ({ dots, centersIn, dotOfCenter, cities } = got);
+  }
+  useCenters();
   const centersInShetach = (s) => d3.sum(s.pieces, (g) => centersIn.get(g.properties.id) || 0);
   const centersInState = (st) => d3.sum(pieces, (g) => (g.properties.state === st ? centersIn.get(g.properties.id) || 0 : 0));
-  const dotOfCenter = new Map(dots.flatMap((d) => d.centers.map((c) => [c.id, d])));
 
   // A capital is a star at the shetach's headquarters (the build worked out where it is); 770 gets a bigger one.
   // (a disputed shetach has one per claimant: Victoria)
@@ -639,13 +659,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     capitals.push(lub);
   }
   const capitalOfCenter = new Map(capitals.filter((c) => c.centerId).map((c) => [c.centerId, c]));
-  // Bigger cities are labelled first and from further out. A city with many centers counts as big even when
-  // GeoNames doesn't know it (Thornhill), so weigh each center as 5,000 people.
-  const cities = cityFile.map((c) => ({ ...c, piece: c.piece || c.region })).filter((c) => pieceById.has(c.piece))
-    .map((c) => ({ ...c, texts: [c.name], weight: Math.max(c.pop, c.centers * 5000) }))
-    .sort((a, b) => b.weight - a.weight);
+  // cities' names in both languages (each way of the centers, with or without mushrooms, has its own cities)
+  function cityNames(list) {
+    for (const c of list) { const en = c.name, k = `${en}|${c.region}`; dual(c, 'name', (h) => (h.cities[k] ? [h.cities[k]] : h.cities[en] ? [h.cities[en]] : null)); }
+  }
   // every name, in both languages (set up the first time Hebrew is shown: English needs none of it)
-  let bilingualDone = false;
   function bilingual() {
     if (bilingualDone) return;
     bilingualDone = true;
@@ -705,7 +723,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       dual(g.properties, 'name', (h) => (h.areas[g.properties.state] ? [h.areas[g.properties.state]] : null)); // (state isn't translated)
       dual(g.properties, 'abbr', (h) => (h.areas[g.properties.state] ? [''] : null));
     }
-    for (const c of cities) { const en = c.name, k = `${en}|${c.region}`; dual(c, 'name', (h) => (h.cities[k] ? [h.cities[k]] : h.cities[en] ? [h.cities[en]] : null)); }
+    for (const got of CENTER_SETS.values()) cityNames(got.cities);
   }
   if (HE) bilingual();
   const CITY_NAMES_END = 13.5; // zoom from which a city's name gives way to the street map's own (neighbourhoods, streets)
@@ -1596,9 +1614,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // framed: the view's whole land, except Alaska and Hawaii (in their places, a pan away) and a view's own frame
     const framedGeoms = shown.filter((g) => !view.insets.includes(g.properties.state));
     V = { view, shown, main, mainIds };
-    V.dots = dots.filter((d) => mainIds.has(d.piece));
+    viewCenters();
     V.caps = capitals.filter((c) => (c.honor ? view.world : mainIds.has(c.piece)));
-    V.cities = cities.filter((c) => mainIds.has(c.piece));
     // (each view's two ways of drawing are worked out once, and kept for coming back to it)
     // (a view with Alaska and Hawaii: its political map has them in boxes, unless "In place")
     const boxes = (view.boxes || []).length && state.alaska === 'box';
@@ -1606,12 +1623,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (!SETS.has(setKey)) SETS.set(setKey, { M: buildSet(view, framedGeoms, false, `${setKey}|standard`), F: boxes ? buildSet(view, framedGeoms, 'boxed', `${setKey}|boxed`) : buildSet(view, framedGeoms, true, `${setKey}|flat`) });
     Object.assign(V, SETS.get(setKey));
     V.cur = wantedSet();
-    const shownIds = new Set(shown.map((g) => g.properties.id));
-    const viewDots = dots.filter((d) => shownIds.has(d.piece));
     $('#view-name').textContent = tr(view.name);
     const regular = tr(view.world ? 'Countries' : 'States');
     document.querySelectorAll('[data-name="borders"] [data-value="regular"], [data-name="lighter"] [data-value="regular"]').forEach((btn) => { btn.textContent = regular; });
     $('#st-shetachim').textContent = fmt(new Set(shown.map((g) => g.properties.shetach).filter(Boolean)).size);
+  }
+  // the view's dots and cities (with or without the mushrooms), and its counts in the panel
+  function viewCenters() {
+    V.dots = dots.filter((d) => V.mainIds.has(d.piece));
+    V.cities = cities.filter((c) => V.mainIds.has(c.piece));
+    const shownIds = new Set(V.shown.map((g) => g.properties.id));
+    const viewDots = dots.filter((d) => shownIds.has(d.piece));
     $('#st-centers').textContent = fmt(d3.sum(viewDots, (d) => d.centers.length));
     $('#st-dots').textContent = fmt(viewDots.length);
   }
@@ -2171,8 +2193,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const lang = HE ? 'he' : 'en';
     const failed = (e) => console.error(e);
     feed(S, 'boxes', 'boxes', () => fc(S.boxFeatures || []));
-    feed(S, 'dots', 'dots', () => dotData(S));
-    feed(S, 'cities', `cities|${lang}`, () => cityData(S));
+    feed(S, 'dots', `dots|${mushroomsOn}`, () => dotData(S));
+    feed(S, 'cities', `cities|${lang}|${mushroomsOn}`, () => cityData(S));
     feed(S, 'caps', `caps|${lang}`, () => capData(S));
     if (S.flat) feed(S, 'seas', `seas|${lang}`, () => seaData(S));
     if (!S.made.has('areas')) { prep(S, 'areas').then(() => feedSet(S), failed); return; }
@@ -2850,9 +2872,22 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   $('#show-rest-borders').addEventListener('change', (e) => { state.restBorders = e.target.checked; apply(); });
   $('#show-sea').addEventListener('change', (e) => { state.sea = e.target.checked; apply(); });
   $('#show-mushrooms').checked = mushroomsOn;
+  // (in place: the dots, cities, counts and search change at once, the map stays where it is)
   $('#show-mushrooms').addEventListener('change', (e) => {
-    try { localStorage.setItem('shetachim-mushrooms', e.target.checked ? 'on' : 'off'); } catch (err) { /* not remembered */ }
-    location.reload();
+    mushroomsOn = e.target.checked;
+    try { localStorage.setItem('shetachim-mushrooms', mushroomsOn ? 'on' : 'off'); } catch (err) { /* not remembered */ }
+    useCenters();
+    hideCard(); // (a card may be about a center that's now off the map)
+    viewCenters();
+    if (marked) { // a family's houses ringed: the same family, its houses as they are now
+      const en = marked.en;
+      buildSearch();
+      marked = searchFamilies.find((f) => f.en === en) || null;
+      if (marked) searchWords(); else $('#mark-chip').hidden = true;
+      showMark();
+    }
+    if (!sres.hidden && sq.value) runSearch();
+    apply();
   });
   for (const [id, key] of [['#show-dots', 'dots'], ['#show-cities', 'cities'], ['#show-capitals', 'capitals']]) {
     $(id).addEventListener('change', (e) => { state[key] = e.target.checked; apply(); });
@@ -3015,7 +3050,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
   searchWords();
   function buildSearch() {
-    const key = `${!!heData}`;
+    const key = `${!!heData}|${mushroomsOn}`;
     if (searchIndex && searchKey === key) return searchIndex;
     const was = HE;
     const both = (fn) => { HE = false; const en = fn(); let he = ''; if (heData) { HE = true; he = fn(); } HE = was; return fold(`${en} ${he}`); };

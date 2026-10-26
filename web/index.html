@@ -669,13 +669,15 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // (HONOR_CARDS). center: a chabad.org listing that IS the place (the Heichel Admur Hazaken, Ohel Chabad Lubavitch) —
   // one marker and one card for both, titled with its name, its people in the card, its own dot not drawn (owner: "why
   // two separate things"); title: the card's name where it isn't the place's. kmPx: the scale (px per km) from which
-  // it's shown — Lubavitch from the world view, the others once there's room (Liozna and Liadi, some 25 km either side
-  // of Lubavitch, once off its name). Shown in every world/continent view, and in the views of its own country.
+  // it's shown — Lubavitch from the world view, the others once there's room. Liozna and Liadi, some 25 km either side
+  // of Lubavitch, from the same zoom as the rest (owner, Oct 26: they "only show when you're way zoomed in"), their
+  // names kept off Lubavitch's (anchor: Liozna's above its star, it's to the north; Liadi's below, to the south).
+  // Shown in every world/continent view, and in the views of its own country.
   const HONOR_PLACES = [
     { key: 'lubavitch', name: 'Lubavitch', he: 'ליובאוויטש', lat: 54.8352, lon: 30.9632, country: 'RUS', kmPx: 0.07 },
     { key: 'rostov', name: 'Rostov', he: 'רוסטוב', lat: 47.23889, lon: 39.72158, country: 'RUS', kmPx: 0.3 },
-    { key: 'liozna', name: 'Liozna', he: 'ליאזנא', lat: 55.02321, lon: 30.79567, country: 'BLR', kmPx: 1.6 },
-    { key: 'liadi', name: 'Liadi', he: 'ליאדי', lat: 54.60162, lon: 31.16877, country: 'BLR', kmPx: 1.6 },
+    { key: 'liozna', name: 'Liozna', he: 'ליאזנא', lat: 55.02321, lon: 30.79567, country: 'BLR', kmPx: 0.3, anchor: 'bottom' },
+    { key: 'liadi', name: 'Liadi', he: 'ליאדי', lat: 54.60162, lon: 31.16877, country: 'BLR', kmPx: 0.3, anchor: 'top' },
     { key: 'haditch', name: 'Haditch', he: 'האדיטש', center: '2122346', country: 'UKR', kmPx: 0.3 },
     { key: 'nezhin', name: 'Nezhin', he: 'נייז׳ין', title: 'Ohel Admur HaEmtzai', titleHe: 'אוהל אדמו״ר האמצעי', lat: 51.07398, lon: 31.91745, country: 'UKR', kmPx: 0.3 },
     { key: 'ohel', name: 'The Ohel', he: 'האוהל', center: '118002', country: 'US', kmPx: 0.3 },
@@ -686,7 +688,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const piece = dot ? dot.piece : [...pieceById.keys()].find((k) => k.startsWith(`${h.country}:`));
     if (!piece) continue;
     const place = { honor: h.key, name: h.name, lat: dot ? dot.lat : h.lat, lon: dot ? dot.lon : h.lon, piece, country: h.country, kmPx: h.kmPx,
-      center: dot ? dot.centers.find((c) => c.id === h.center) : null, title: h.title };
+      anchor: h.anchor, center: dot ? dot.centers.find((c) => c.id === h.center) : null, title: h.title };
     dual(place, 'name', () => [h.he]);
     if (h.title) dual(place, 'title', () => [h.titleHe]);
     if (place.center) HONOR_BY_CENTER.set(h.center, place);
@@ -1848,7 +1850,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const city = S.capCity.get(c);
       const minz = c.honor ? zoomFor(c.kmPx, c.lon, c.lat) : city ? city.minz : 0;
       return feature({ type: 'Point', coordinates: P(c.lon, c.lat) },
-        { i, world: !!c.world, honor: !!c.honor, name: c.honor ? c.name : city ? city.name : '', minz, big: city ? city.big : 99, rank: c.world ? 0 : c.honor ? 1 : 2 });
+        { i, world: !!c.world, honor: !!c.honor, name: c.honor ? c.name : city ? city.name : '', minz, big: city ? city.big : 99, rank: c.world ? 0 : c.honor ? 1 : 2, anchor: c.anchor || 'left' });
     }).filter((f) => f.geometry.coordinates)));
   }
   function dotData(S) {
@@ -2118,7 +2120,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     add({ id: 'names', type: 'symbol', source: 'names', filter: nameFilter(0), layout: { ...nameLayout, 'text-allow-overlap': true } });
     add({ id: 'honor', type: 'symbol', source: 'caps', filter: ['all', ['get', 'honor'], ['>=', ['zoom'], ['get', 'minz']]],
       layout: { 'icon-image': 'honor', 'icon-allow-overlap': true, 'text-allow-overlap': true, 'text-field': ['get', 'name'], 'text-font': F_IT, 'text-size': 13,
-        'text-letter-spacing': 0.02, 'text-variable-anchor': ['left', 'right', 'top'], 'text-radial-offset': 0.6, 'text-justify': 'auto' } });
+        // (the name right of the star; Liozna's above it and Liadi's below, off Lubavitch's: HONOR_PLACES' anchor)
+        'text-letter-spacing': 0.02, 'text-anchor': ['get', 'anchor'], 'text-justify': 'auto',
+        'text-offset': ['match', ['get', 'anchor'], 'bottom', ['literal', [0, -0.75]], 'top', ['literal', [0, 0.75]], ['literal', [0.75, 0]]] } });
   }
 
   // ---------- views and options on the map ----------

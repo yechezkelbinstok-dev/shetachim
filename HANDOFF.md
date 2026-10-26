@@ -36,6 +36,10 @@ between two Claude accounts when usage limits run out; whichever session picks t
     the Federation of Jewish Communities. chabad.org lists him at the Heichel with no position, so `roles` adds
     "In charge of the Heichal" there. His Hebrew surname is now דייטש, as JDN spells it (`Deutsh` in last-names.json:
     chabad.org's spelling, and only his).
+- **Liozna and Liadi show from the same zoom as Rostov, Haditch and Nezhin** (owner: "they only show when you're way
+  zoomed in"). They were held back (kmPx 1.6) to keep them off Lubavitch's name, 25 km away. Now they have kmPx 0.3 like
+  the rest, and an `anchor` (HONOR_PLACES): Liozna's name sits above its star (it's north of Lubavitch) and Liadi's below
+  (south), while Lubavitch's stays to the right. The `honor` layer's text-anchor and text-offset follow it.
 - **Sub-shetachim (regional directors under a head shliach): on a switch of their own.** The owner asked about doing a
   second level of shetachim piece by piece. I suggested drawing them inside the head shliach's shetach, the way India
   sits in Thailand's (`territoryOf`), and the owner said no: "I meant as a separate thing to toggle to see sub shetachim

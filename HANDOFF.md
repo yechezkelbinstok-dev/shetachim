@@ -8,6 +8,36 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Oct 26: coming back to the page is quicker: names and shapes kept between visits, kept across updates
+- Owner: "map reload when I revisit page takes WAAAAAAYYYYYY too long", and the map lags when zooming in. (Streets and
+  Tinted looking bad zoomed out: the owner said to drop it, "Forget the damn streets".)
+- **What was slow.** A visit works out each view's shapes in its projection and its names' places (`namesOf`):
+  about 12 s with the CPU slowed 4× (phone-like, `scratchpad` profiling). The names were already kept in localStorage,
+  but under a fingerprint of the whole page's code and the files' ETags. GitHub Pages gives **every** file a new ETag
+  (and Last-Modified) on every deploy, changed or not, so every push threw them away, and every visit after an update
+  started from nothing. The map's own tiles went the same way (`tileVersion`).
+- **Now:**
+  - A file's version (`versions`) is a fingerprint of its contents (SHA-1 via `crypto.subtle`, first 8 bytes), with
+    the ETag as a fallback. Used by `tileVersion`, `namesPrint` and `shapeKey`.
+  - The code fingerprint (`DRAW_PRINT`) covers only the stretch between `// ▼ THE DRAWING ▼` and `// ▲ THE DRAWING ▲`:
+    the colours, views, projections, names and shapes. **Anything that changes how names or shapes come out belongs
+    between those marks.** Edits elsewhere (cards, search, options, Hebrew words) keep what's saved.
+  - The flat maps' shapes (`areas`, `land`, `mesh:*`, and `outFill`, `outLines`, `landAll` under the outside file's
+    version too) are kept in IndexedDB (`shetachim-shapes`). `keepShape` writes when idle; the first write of a visit
+    clears other fingerprints. `keptShapes(S)` reads them back at the start, while the map loads, and when a view is
+    shown. A job stops as soon as its shape is in (`stepJob`). The refresh button (`?v=`) skips both caches.
+  - MapLibre checked every style change against the whole style, serializing all of it each time (hundreds of calls at
+    the start and on every option). `startMap` now wraps `setPaintProperty`, `setLayoutProperty`, `setFilter`,
+    `addLayer` and `addSource` with `{ validate: false }`; MapLibre 4.7.1's own `addLayer`/`addSource` don't pass that
+    on, so the wrappers call `map.style` directly.
+- **Measured** (CPU 4×, phone, world view): first visit, everything drawn at about 12.5 s, as before. Next visit:
+  areas at 3.0 s, everything at 3.8 s (it was about 6 s with the names kept, 12.7 s without). After a simulated deploy
+  (all files re-stamped, a card's code changed) it was still 3.9 s. Screenshots of world, US, FSU and Israel worked
+  out vs read back: no pixel differs by more than 40. `__dbg.keptCount()` counts shapes read back.
+- Still open: the first visit after the drawing code or the shetachim data changes is as slow as before (names take
+  most of it); the zoom lag on a phone couldn't be reproduced here (smooth once settled with the CPU at 4×). It's
+  likely the background work right after the map shows, which a kept visit no longer has.
+
 ## ▶ Oct 26: Burundi and Togo are Bentolila's; names open on Head shliach; coming back rebuilds the map; sub-shetachim on their own switch
 - **Burundi (BDI) and Togo (TGO) are in Central Africa (Bentolila's)**: the owner sent a screenshot of each, Oct 26
   ("Add to bentolila", "This goes to bentolila as well"). In `data/shetachim.json`, `data/global-shetach-list.txt` and

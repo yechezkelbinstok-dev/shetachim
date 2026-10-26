@@ -473,8 +473,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const { v: BUST, fresh } = window.EARLY;
   $('#refresh').addEventListener('click', () => { location.replace(`${location.pathname}?v=${Date.now()}${location.hash}`); });
   const decoder = new TextDecoder();
-  const versions = new Map(); // each file's version (its ETag), for the map tiles' address (tileVersion)
-  const get = (url) => window.EARLY.bytes(url).then(({ buf, etag }) => { versions.set(url, etag); return JSON.parse(decoder.decode(buf)); });
+  // each file's version, for the map tiles' address (tileVersion) and the names and shapes kept between visits: a
+  // fingerprint of its contents (SHA-1's first 8 bytes), or its ETag where the browser can't work one out. (GitHub Pages
+  // gives every file a new ETag on every update, changed or not, so whatever was kept was thrown away each time.)
+  const versions = new Map();
+  const contentPrint = (buf) => (window.crypto && crypto.subtle
+    ? crypto.subtle.digest('SHA-1', buf).then((d) => [...new Uint8Array(d, 0, 8)].map((b) => b.toString(16).padStart(2, '0')).join(''), () => '')
+    : Promise.resolve(''));
+  const get = (url) => window.EARLY.bytes(url).then(({ buf, etag }) => contentPrint(buf).then((print) => { versions.set(url, print || etag); return JSON.parse(decoder.decode(buf)); }));
   // the map tiles are built with the data files: a short fingerprint of their versions ('' when the site gives none)
   function tileVersion() {
     const t = ['data/geo.json', 'data/shetachim.json'].map((f) => versions.get(f) || '').join('|');
@@ -765,6 +771,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const CITY_NAMES_END = 13.5; // zoom from which a city's name gives way to the street map's own (neighbourhoods, streets)
   const CITY_DENSITY = 2500; // a city is a candidate once weight >= CITY_DENSITY / (screen pixels per km)²
 
+  // ▼ THE DRAWING ▼ The shapes and names worked out from here to "▲ THE DRAWING ▲" are kept in the browser for the next
+  // visit, under a fingerprint of this stretch of code and the data files' versions (DRAW_PRINT). Whatever changes how
+  // they come out belongs between the two marks: a change here is a new fingerprint, and they're worked out again;
+  // changes elsewhere on the page (cards, search, options) keep them.
   // Neighbours never share a colour; colours are spread evenly. Worked out once, so they stay put across views.
   let NEIGHBOURS = null; // (which pieces touch which, worked out once for both colourings)
   function colorize(keyOf) {
@@ -1399,11 +1409,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // one step of the work (in S's projection); true once it's done
   function stepJob(S, what, j) {
     if (j.done) return true;
+    // (read back from the browser meanwhile: keptShapes)
+    if (S.made.has(what)) { j.done = true; j.value = S.made.get(what); return true; }
     const r = within(S, () => j.it.next());
     if (!r.done) return false;
     j.done = true;
     j.value = r.value;
     S.made.set(what, r.value);
+    keepShape(S, what, r.value);
     return true;
   }
   function got(S, what) {
@@ -1659,6 +1672,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (!SETS.has(setKey)) SETS.set(setKey, { M: buildSet(view, framedGeoms, false, `${setKey}|standard`), F: boxes ? buildSet(view, framedGeoms, 'boxed', `${setKey}|boxed`) : buildSet(view, framedGeoms, true, `${setKey}|flat`) });
     Object.assign(V, SETS.get(setKey));
     V.cur = wantedSet();
+    keptShapes(V.cur); // (a view's shapes read back from the last visit, if they're kept: the work in hand stops once they're in)
     $('#view-name').textContent = tr(view.name);
     const regular = tr(view.world ? 'Countries' : 'States');
     document.querySelectorAll('[data-name="borders"] [data-value="regular"], [data-name="lighter"] [data-value="regular"]').forEach((btn) => { btn.textContent = regular; });
@@ -1779,17 +1793,21 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // reloading it), under a fingerprint of this page's code, the data files' versions and whether the font had loaded:
   // a new version of any of them never shows old names (they're worked out again, and older ones cleared).
   const NAMES_KEY = 'shetachim-names|';
-  const PAGE_PRINT = (() => {
-    const t = [...document.scripts].map((x) => x.src).join('|') + (SCRIPT ? SCRIPT.text : String(Math.random()));
+  // (the code between the ▼ THE DRAWING ▼ marks, and the libraries': all of it if the marks aren't found. Owner, Oct 26:
+  // coming back took far too long, and with the whole page's code in the fingerprint every update threw them away)
+  const DRAW_PRINT = (() => {
+    const all = SCRIPT ? SCRIPT.text : String(Math.random());
+    const from = all.indexOf('// ▼ THE DRAWING ▼'), to = all.indexOf('// ▲ THE DRAWING ▲');
+    const t = [...document.scripts].map((x) => x.src).join('|') + (from >= 0 && to > from ? all.slice(from, to) : all);
     let h = 2166136261;
     for (let i = 0; i < t.length; i++) h = Math.imul(h ^ t.charCodeAt(i), 16777619);
     return (h >>> 0).toString(36);
   })();
   function namesPrint() {
     const files = ['data/geo.json', 'data/shetachim.json', ...(HE ? ['data/he.json'] : [])].map((f) => versions.get(f));
-    if (files.some((v) => !v)) return null; // (the site gave no version for a file: nothing kept)
+    if (BUST || files.some((v) => !v)) return null; // (no version for a file, or the refresh button's fresh load: nothing kept)
     const font = document.fonts && document.fonts.check ? document.fonts.check(`700 16px ${HE ? 'Heebo' : 'Inter'}`) : '';
-    return `${PAGE_PRINT}|${files.join('|')}|${font}`;
+    return `${DRAW_PRINT}|${files.join('|')}|${font}`;
   }
   function keptNames(S, ck) {
     const print = namesPrint();
@@ -1813,6 +1831,70 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         localStorage.setItem(`${NAMES_KEY}${print}|${S.id}|${ck}`, JSON.stringify(data));
       } catch (e) { /* full, or not allowed: worked out again next time */ }
     });
+  }
+  // The flat maps' shapes, too: the areas and lines in the view's projection take a phone seconds. Kept in IndexedDB (they
+  // are megabytes), under DRAW_PRINT and the versions of the files they're made from, and read back while the map starts.
+  // (the land no shetach covers, and the land round the view made from it, also under that file's version)
+  const SHAPE_JOBS = ['areas', 'land', 'mesh:coast', 'mesh:edge', 'mesh:shetach', 'mesh:inner', 'mesh:country', 'mesh:regular', 'mesh:held'];
+  const OUT_JOBS = ['outFill', 'outLines', 'landAll'];
+  let shapesDB = null, keptRead = 0; // (keptRead: how many were read back, for the tests)
+  const openShapes = () => shapesDB || (shapesDB = new Promise((resolve) => {
+    try {
+      const req = indexedDB.open('shetachim-shapes', 1);
+      req.onupgradeneeded = () => req.result.createObjectStore('shapes');
+      req.onsuccess = () => resolve(req.result);
+      req.onerror = req.onblocked = () => resolve(null);
+    } catch (e) { resolve(null); }
+  }));
+  function shapeKey(S, what) {
+    const files = ['data/geo.json', 'data/shetachim.json', ...(OUT_JOBS.includes(what) ? [OUTSIDE[S.outKind].file] : [])].map((f) => versions.get(f));
+    if (!S.flat || BUST || files.some((v) => !v)) return null; // (no version for a file, or a fresh load asked for: nothing kept)
+    return `${DRAW_PRINT}|${files.join('|')}|${S.id}|${what}`;
+  }
+  // S's kept shapes into S.made (the ones whose files are in); resolves once read, or after half a second at most
+  function keptShapes(S) {
+    const asked = S.keptAsked || (S.keptAsked = new Set()); // (each kept shape asked for once)
+    const keys = [...SHAPE_JOBS, ...OUT_JOBS].filter((w) => !S.made.has(w)).map((w) => [w, shapeKey(S, w)]).filter(([, k]) => k && !asked.has(k));
+    for (const [, k] of keys) asked.add(k);
+    if (!keys.length) return Promise.resolve();
+    const read = openShapes().then((db) => db && new Promise((resolve) => {
+      try {
+        const store = db.transaction('shapes').objectStore('shapes');
+        let left = keys.length;
+        for (const [w, k] of keys) {
+          const req = store.get(k);
+          req.onsuccess = () => { if (req.result && !S.made.has(w)) { S.made.set(w, req.result); keptRead++; } if (!--left) resolve(); };
+          req.onerror = () => { if (!--left) resolve(); };
+        }
+      } catch (e) { resolve(); }
+    }));
+    return Promise.race([read, new Promise((r) => setTimeout(r, 500))]);
+  }
+  // a shape just worked out, kept while the page is idle (and older fingerprints' cleared, once a visit)
+  const KEEP = [];
+  let keepQueued = false, swept = false;
+  function keepShape(S, what, value) {
+    if (!value || value === EMPTY || !(SHAPE_JOBS.includes(what) || OUT_JOBS.includes(what))) return;
+    const k = shapeKey(S, what);
+    if (!k) return;
+    KEEP.push([k, value]);
+    if (keepQueued) return;
+    keepQueued = true;
+    const idle = window.requestIdleCallback || ((f) => setTimeout(f, 500));
+    idle(() => openShapes().then((db) => {
+      keepQueued = false;
+      const batch = KEEP.splice(0);
+      if (!db) return;
+      try {
+        const store = db.transaction('shapes', 'readwrite').objectStore('shapes');
+        for (const [key, v] of batch) store.put(v, key);
+        if (!swept) {
+          swept = true;
+          const req = store.openCursor();
+          req.onsuccess = () => { const c = req.result; if (!c) return; if (!String(c.key).startsWith(`${DRAW_PRINT}|`)) c.delete(); c.continue(); };
+        }
+      } catch (e) { /* full, or not allowed: worked out again next time */ }
+    }), { timeout: 5000 });
   }
   // and all at once (tests)
   function labelData(S) {
@@ -1876,6 +1958,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       return at && feature({ type: 'Point', coordinates: at }, { name: HE ? he : en, tier, minz: zoomFor(tier ? 0.05 : 0.022, lon, lat) });
     }).filter(Boolean)));
   }
+
+  // ▲ THE DRAWING ▲ (see ▼ THE DRAWING ▼)
 
   // ---------- the map itself ----------
   const BASE = new Map(); // the street map's own layers, with the visibility each came with
@@ -1979,7 +2063,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       container: 'basemap', style, attributionControl: false, renderWorldCopies: true, dragRotate: false, pitchWithRotate: false, touchPitch: false,
       maxZoom: MAX_Z, fadeDuration: 250, pixelRatio: Math.min(window.devicePixelRatio || 1, 2),
       cancelPendingTileRequestsWhileZooming: false, maxTileCacheSize: 600, maxTileCacheZoomLevels: 10,
+      validateStyle: false, // (the style and every change to it were checked each time: time a phone notices, at the start and on every option)
     });
+    // MapLibre checks each change to the style against the whole style, writing all of it out each time: hundreds of
+    // times at the start, and again on every option (seconds on a phone). Our layers and sources are known good, so
+    // they go in unchecked (MapLibre 4.7.1's own validate: false; addLayer and addSource don't pass it on themselves).
+    const NO_CHECK = { validate: false };
+    for (const m of ['setPaintProperty', 'setLayoutProperty']) { const f = map[m].bind(map); map[m] = (id, name, value) => f(id, name, value, NO_CHECK); }
+    const setFilter = map.setFilter.bind(map);
+    map.setFilter = (id, filter) => setFilter(id, filter, NO_CHECK);
+    map.addLayer = (layer, before) => { map.style.addLayer(layer, before, NO_CHECK); return map._update(true); };
+    map.addSource = (id, source) => { map.style.addSource(id, source, NO_CHECK); return map._update(true); };
     map.addControl(new maplibregl.AttributionControl({ compact: true, customAttribution: 'Boundaries: US Census, GADM, Natural Earth, OpenStreetMap, DeepStateMap' }), 'top-right');
     map.touchZoomRotate.disableRotation();
     map.keyboard.disableRotation();
@@ -2255,7 +2349,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       feed(S, 'land', 'land', () => S.made.get('land'));
     }
     const kind = S.outKind;
-    if (!OUTSIDE[kind].done) { outsideReady(kind).then(() => feedSet(S)); return; }
+    if (!OUTSIDE[kind].done) { outsideReady(kind).then(() => keptShapes(S)).then(() => feedSet(S)); return; }
     // the land round the view, faded; or with Rest of the world the land no shetach covers, greyed, with its lines
     for (const [n, what] of rest() ? [['outside', 'outFill'], ['outside-lines', 'outLines']] : [['land-all', 'landAll']]) {
       if (!S.made.has(what)) { prep(S, what).then(() => feedSet(S), failed); return; }
@@ -3077,7 +3171,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // ---------- start ----------
   syncSheet();
   viewData();
-  prepSet(V.cur); // (the first shapes are worked out while the map starts)
+  keptShapes(V.cur).then(() => prepSet(V.cur)); // (the first shapes read back, or worked out, while the map starts)
   try {
     await startMap();
   } catch (err) {
@@ -3390,7 +3484,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   if (phone()) { const at = document.querySelector('.maplibregl-ctrl-attrib'); if (at) at.classList.remove('maplibregl-compact-show'); }
   // ready: for tests and anyone curious
   window.__map = map;
-  window.__dbg = { capitals: () => capitals, map: () => map, showCard: (hit) => showCard(hit, { clientX: 400, clientY: 300 }, true), labelData, V: () => V, dotData, spotsFor, partsOf, polylabel, unlon, unlat, PX, setMode, centreLL, spanKm,
+  window.__dbg = { keptCount: () => keptRead, capitals: () => capitals, map: () => map, showCard: (hit) => showCard(hit, { clientX: 400, clientY: 300 }, true), labelData, V: () => V, dotData, spotsFor, partsOf, polylabel, unlon, unlat, PX, setMode, centreLL, spanKm,
     zoomTo: (st) => zoomToArea(pieces.find((g) => g.properties.state === st).properties.id),
     at: (lon, lat) => map.jumpTo({ center: within(V.cur, () => P(lon, lat)) }),
     go: (lon, lat, z) => { V.cur = V.M; limits(); apply(); map.jumpTo({ center: [lon, lat], zoom: z }); }, // go: a standard place and zoom (the map then picks flat or standard)

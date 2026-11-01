@@ -121,7 +121,10 @@ between two Claude accounts when usage limits run out; whichever session picks t
     Mendel Dubrawsky"; 11 houses in Dallas. Dallas, Collin, Denton, Rockwall (not Tarrant: Fort Worth's own).
   - **Howard County — Rabbi Hillel Baron** (Maryland): the Lubavitch Center of Howard County and his family's houses
     (Ellicott City, Clarksville, Laurel); "the 5 Chabad centers in Howard County". Howard.
-  Not regional: Madison (one city's houses). On hold: the Bay Area (the Langers "became the movement's Bay Area
+  - **South Dade — Rabbi Yakov Fellig** (Florida): Chabad of Miami (Coconut Grove, since 1989) and its "13 Branches
+    Across South Dade" (its own site: Downtown Coral Gables, Kendall & Pinecrest, Cutler Bay & Homestead, UM, UM Jackson,
+    West Kendall…). Miami-Dade south of downtown and west of the bay (14 listings).
+  Not regional: Madison (one city's houses), Raleigh, Rockland (Kotlarsky: an executive director, no regional sign). On hold: the Bay Area (the Langers "became the movement's Bay Area
   directors in 1979"; nothing current).
   Still to look at:
   Rockland (Kotlarsky), Westchester, Montgomery County PA (Shaya Deitsch), Essex and Bergen NJ, Passaic (Gurkov),

@@ -8,6 +8,20 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Nov 1: GitHub Pages deploys can lock for ~45 minutes — check that a push actually went live
+- The owner: "I never saw the push". The pushes were on the branch, but GitHub Pages' "pages build and deployment"
+  runs failed: "Deployment request failed for <sha> due to in progress deployment. Please cancel <older sha> first or
+  wait for it to complete." A deploy that already went live (its files served) stayed "in progress" in GitHub's API for
+  about 45 minutes, and every deploy started meanwhile failed. It happened twice on Nov 1 (26ef6ab, then 5061502).
+- **Always check the live site after pushing**, e.g. `curl -sS https://yechezkelbinstok-dev.github.io/shetachim/web/data/sub.json`
+  (or a changed file's Last-Modified), and the newest run's conclusion (GitHub MCP `actions_list` →
+  `list_workflow_runs`; `get_job_logs` with `failed_only` for the error).
+- **To get past it:** wait for the lock to clear, then start a fresh run by pushing a new commit (a real change).
+  Re-running a failed run (`rerun_failed_jobs`) only sat "queued" both times, and a queued re-run can't be cancelled
+  ("Cannot cancel a workflow re-run that has not yet queued"). The Pages REST API (cancel a deployment) needs a token
+  this environment doesn't have (403). Pushes made during a lock aren't lost: the next deploy that goes through carries
+  everything on the branch.
+
 ## ▶ Nov 1: sub-shetachim, on their own switch — the West Coast first
 - Owner (Oct 26): do second-level shetachim piece by piece, "as a separate thing to toggle to see sub shetachim not in
   the head shluchim part" (not drawn into the head-shliach map the way India sits in Thailand's). And: "You have to

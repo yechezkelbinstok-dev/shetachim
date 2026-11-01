@@ -106,6 +106,16 @@ between two Claude accounts when usage limits run out; whichever session picks t
     founded Margate in 1985 under that heading. Broward north of Fort Lauderdale, Palm Beach County south of Boynton.
   - **Inland Empire — Rabbi Sholom Harlig** (West Coast): Chabad of the Inland Empire since 1989, with Chino Hills
     (Mendy Harlig). San Bernardino County (Riverside and Temecula not tied to it by any source).
+  - **Montgomery County (PA) — Rabbi Shaya Deitsch**: Lubavitch of Montgomery County's executive director, who
+    "supervises groups in Rydal and Chestnut Hill" (Philadelphia Inquirer, 2013); Fort Washington, Rydal, Lafayette Hill.
+    The county's houses north of the Main Line (box ∩ county, so not the Main Line's nor Philadelphia's).
+  - **Atlantic County & the Shore — Rabbi Shmuel Rapoport** (New Jersey): "oversees Chabad of Atlantic County, which
+    runs Chabad at the Shore"; his family's Ventnor shul, Stockton University, Wildwood. Atlantic and Cape May.
+  - **Passaic County — Rabbi Michel Gurkov** (New Jersey): the Chabad Center of Passaic County (Wayne) and its
+    branches run by his family (Upper Passaic County in Wanaque, Passaic–Clifton, the preschool). Passaic.
+  Asked of the owner: **Westchester** — Rabbi Velvel Butman was its head shliach ("Executive Regional Director of
+  Chabad Lubavitch of Westchester County", 11 centers), but one source says headquarters removed him; chabad.org now
+  lists Rochel Butman. Camden County (Mangel): a local executive director, no regional sign.
   Still to look at: Dallas,
   Rockland (Kotlarsky), Westchester, Montgomery County PA (Shaya Deitsch), Essex and Bergen NJ, Passaic (Gurkov),
   Camden (Mangel), Atlantic County (Rapoport), Howard County MD (Baron), Madison WI (Matusof), New Haven (Hecht),

@@ -410,6 +410,62 @@
         }
       ],
       "source": "Chabad of the Inland Empire (Rancho Cucamonga), \"since its inception in 1989 under the direction of Rabbi Sholom and Chanie Harlig\" (its own site), with the Chabad Jewish Center of Chino Hills (Rabbi Mendy Harlig, 2020). Its members: the houses in San Bernardino County. Riverside and Temecula aren't in it: no source ties them to it."
+    },
+    {
+      "id": "montgomery-county-pa",
+      "parent": "pennsylvania",
+      "name": "Montgomery County",
+      "nameHe": "מחוז מונטגומרי",
+      "head": "Shaya Deitsch",
+      "headHe": "שעיה דייטש",
+      "capital": "118217",
+      "source": "Lubavitch of Montgomery County (Fort Washington), Rabbi Shaya Deitsch its executive director, who \"also supervises groups in Rydal and Chestnut Hill\" (the Philadelphia Inquirer, 2013); its own site lists the Fort Washington headquarters, Rydal (Rabbi Zushe and Dini Gurevitz) and Lafayette Hill, with a Friendship Circle (jewishmc.com). Its members: Montgomery County's houses north of the Main Line (Fort Washington, Rydal, Lafayette Hill), within the county: not the Main Line's (a network of their own) nor Philadelphia's.",
+      "membersIn": [
+        {
+          "box": [
+            -75.4,
+            40.07,
+            -74.95,
+            40.45
+          ],
+          "county": "42091"
+        }
+      ]
+    },
+    {
+      "id": "atlantic-county",
+      "parent": "new-jersey",
+      "name": "Atlantic County & the Shore",
+      "nameHe": "מחוז אטלנטיק והחוף",
+      "head": "Shmuel Rapoport",
+      "headHe": "שמואל רפופורט",
+      "capital": "117655",
+      "membersIn": [
+        {
+          "counties": [
+            "34001",
+            "34009"
+          ]
+        }
+      ],
+      "source": "Rabbi Shmuel Rapoport \"oversees Chabad of Atlantic County, which runs Chabad at the Shore in Margate\" (Ventnor; chabad.org: its executive director); his family's houses round it: the Ventnor shul (Rabbi Avrohom Rapoport), Chabad of Stockton University (Galloway, Rabbi Meir Rapoport), and Cape May County's programmes in Wildwood (COLlive; the Jewish Link). Its members: the houses in Atlantic and Cape May Counties."
+    },
+    {
+      "id": "passaic-county",
+      "parent": "new-jersey",
+      "name": "Passaic County",
+      "nameHe": "מחוז פסייק",
+      "head": "Michel Gurkov",
+      "headHe": "מיכל גורקוב",
+      "capital": "117992",
+      "membersIn": [
+        {
+          "counties": [
+            "34031"
+          ]
+        }
+      ],
+      "source": "The Chabad Center of Passaic County (Wayne), Rabbi Michel Gurkov, and its branches run by his family: the Chabad Center for Jewish Life of Upper Passaic County (Wanaque, Rabbi Mendy Gurkov, serving North Passaic County), Chabad Passaic Clifton, and its preschool; Rabbi Mayer Gurkov joined it for its preschool and the county's outreach (the Jewish Standard; chabad.org). Its members: the houses in Passaic County."
     }
   ]
 }

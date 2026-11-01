@@ -18,6 +18,15 @@ between two Claude accounts when usage limits run out; whichever session picks t
   labels, the region's name with Shetach name. A tap anywhere in it opens its card: "Sub-shetach", its name, "Regional
   director", its capital (headquarters), its shetach and head ("West Coast · Shlomo Cunin") and its centers (mushrooms
   apart with Mushrooms on). Everything else on the map is as it was.
+- **Borders of their own (owner, Nov 1: "why does it stretch so North why are you using county situations you should
+  be drawing your own borders").** `scripts/build-sub.mjs` draws each region round its member houses: a 3 km disc round
+  each, the gaps between them filled up to 12 km (a morphological closing on a 250 m grid: an exact distance transform,
+  traced with d3-contour and simplified), kept within the areas its members come from (so the Valley stops at the Santa
+  Monica Mountains, Northern Nevada at the state line), cut to the parent shetach's land and split by state. A town an
+  hour away is a part of its own (Ventura; Sierra Vista). `reach`/`join` on an entry change the 3 and 6 km. The build
+  prints the shetach's houses that fall inside a region but aren't its members, to look at. Members: listed
+  (`members`), or the parent's houses in `membersIn` (counties, L.A. Times regions/neighbourhoods, county subdivisions,
+  or `near` a point within `km`), less `exclude`; mushrooms never count; `areas` (Baja) go in whole.
 - **Data:** `data/sub-shetachim.json`, one entry per region with its `parent` shetach, `head`/`headHe`,
   `name`/`nameHe`, `capital` (a chabad.org center id), `territory` and `source`. A territory is made of US counties (Census
   GEOID), whole areas of the map (`area`: the state code in geo.json, e.g. MX-BCN), or L.A. County neighbourhoods
@@ -45,13 +54,24 @@ between two Claude accounts when usage limits run out; whichever session picks t
     not on it either. `ccds` territories (county subdivisions by name in one county) come from
     `.cache/county-subdivision-06.json` (Census 500k).
   - **Southern Nevada — Rabbi Shea Harlig** (capital: Chabad of Southern Nevada). Founded 1990, its affiliated houses
-    around Las Vegas (UNLV special collections; 2014 oral history: "seven Chabad locations"). Clark County.
+    around Las Vegas (UNLV special collections; 2014 oral history: "seven Chabad locations"). Its houses in Clark County.
+  - **Northern Nevada — Rabbi Mendel Cunin** (owner, Nov 1: "Do northern Nevada under Cunin"; capital: Chabad of
+    Northern Nevada, Reno). Its houses in Washoe County, Carson City and Douglas County (Reno, UNR, Carson City,
+    Lake Tahoe at Stateline).
+- **Arizona (Levertov): Tucson — Rabbi Yossie Shemtov** (owner, Nov 1: "Tucson/Vail is Shemtov no?"; capital: Chabad
+  Lubavitch of Tucson). Its houses in Pima and Cochise Counties: Tucson, Oro Valley, Vail, the University of Arizona,
+  and Sierra Vista (Benzion Shemtov) as a part of its own.
+- **Russia (Lazar): Saint Petersburg — Rabbi Mendel Pewzner** (owner, Nov 1: "Peterburg under Pewsner"; capital: the
+  Jewish Community of St. Petersburg, Grand Choral Synagogue). Lazar's houses within 45 km of the city. Moscow: no
+  separate regional head found (the Chief Rabbinate and Lazar's own Marina Roshcha are there), and the owner said to
+  drop it ("forget about Moscow nvm").
 - **Asked of the owner, not drawn:** the South Bay (Rabbi Eli Hecht's bio: "Regional Director of the South Bay area
   ranging from San Pedro to Gardena, Palos Verdes, Redondo Beach and Torrance"; chabad.org now has him as rabbi
   emeritus, Sholom Pinson as director: still a region?); Chabad of the Inland Empire (Rabbi Sholom Harlig, Rancho
   Cucamonga: a region?); whether Ventura, Simi, the Conejo and Santa Clarita are still the Valley's (the list is from
   2004; the owner says it still is); Moorpark, Ojai and the Antelope Valley (left out). No regional layer found for Orange County, Long Beach, the Bay Area,
-  Sacramento or Northern Nevada: those stay Cunin's own.
+  Sacramento: those stay Cunin's own. **Next (owner, Nov 1): "do a full USA sweep and do it all yourself"**: every US
+  shetach's regional directors, found and drawn without being told each one.
 - Tests: `__dbg.tap(lon, lat)` taps a place and shows its card (returns the hit's kind). Checked: the USA, Latin
   America and street maps, light and dark, English and Hebrew, switching off (layers hidden, taps back to the centers
   and the shetach).

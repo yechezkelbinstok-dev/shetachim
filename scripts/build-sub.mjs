@@ -23,6 +23,21 @@ const countyState = new Map(countyFeatures.map((f) => [f.properties.GEOID, `US-$
 const topo = readJSON(ROOT, 'web', 'data', 'geo.json');
 const areaPieces = topo.objects.areas.geometries;
 
+// a state's county subdivisions (Census, 500k), as the main build keeps them: .cache/county-subdivision-<state FIPS>.json
+const CCD_URL = (fips) => `https://raw.githubusercontent.com/uscensusbureau/citysdk/master/v2/GeoJSON/500k/2022/${fips}/county-subdivision.json`;
+const ccdFiles = new Map();
+async function ccds(fips) {
+  if (ccdFiles.has(fips)) return ccdFiles.get(fips);
+  const file = path.join(CACHE, `county-subdivision-${fips}.json`);
+  if (!fs.existsSync(file)) {
+    const r = await fetch(CCD_URL(fips));
+    if (!r.ok) throw new Error(`county subdivisions ${fips}: ${r.status}`);
+    fs.writeFileSync(file, Buffer.from(await r.arrayBuffer()));
+  }
+  ccdFiles.set(fips, readJSON(file).features);
+  return ccdFiles.get(fips);
+}
+
 let hoods = null;
 async function laHoods() {
   if (hoods) return hoods;
@@ -79,6 +94,14 @@ for (const s of data.subShetachim) {
       const gs = areaPieces.filter((g) => g.properties.state === t.area);
       if (!gs.length) throw new Error(`${s.id}: no area ${t.area} in geo.json`);
       put(t.area, polys(topojson.merge(topo, gs)));
+    }
+    // county subdivisions by name, in one county ({ county: GEOID, names: [...] })
+    if (t.ccds) {
+      const fips = t.ccds.county.slice(0, 2), cfp = t.ccds.county.slice(2);
+      const picked = (await ccds(fips)).filter((f) => f.properties.COUNTYFP === cfp && t.ccds.names.includes(f.properties.NAME));
+      const missing = t.ccds.names.filter((n) => !picked.some((f) => f.properties.NAME === n));
+      if (missing.length) throw new Error(`${s.id}: no county subdivision ${missing.join(', ')} in ${t.ccds.county}`);
+      for (const f of picked) put(countyState.get(t.ccds.county), polys(f.geometry));
     }
     if (t.laRegions || t.laHoods) {
       const picked = (await laHoods()).filter((f) => (t.laRegions || []).includes(f.properties.metadata.region) || (t.laHoods || []).includes(f.properties.name));

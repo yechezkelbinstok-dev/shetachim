@@ -9,7 +9,19 @@
       "head": "Yonah Fradkin",
       "headHe": "יונה פרדקין",
       "capital": "117569",
-      "territory": [{ "counties": ["06073"] }, { "area": "MX-BCN" }, { "area": "MX-BCS" }],
+      "territory": [
+        {
+          "counties": [
+            "06073"
+          ]
+        },
+        {
+          "area": "MX-BCN"
+        },
+        {
+          "area": "MX-BCS"
+        }
+      ],
       "source": "Chabadpedia (יונה פרדקין): the Rebbe's shliach in San Diego since 5736, \"המשמש גם כשליח אזורי ומנהל תחתיו מערך מסועף של שלוחי הרבי\", 26 couples under him in San Diego County as of 5782. The Baja peninsula is his too (owner, Oct 26: \"baja peninsula is under fradkin\")."
     },
     {
@@ -20,8 +32,40 @@
       "head": "Mordechai Einbinder",
       "headHe": "מרדכי איינבינדר",
       "capital": "117545",
-      "territory": [{ "counties": ["06111"] }, { "laRegions": ["san-fernando-valley", "northwest-county"] }, { "laHoods": ["Agoura Hills", "Calabasas", "Hidden Hills", "Westlake Village"] }],
-      "source": "Chabad of the Valley (Tarzana). Its staff page (2004) lists its houses across the San Fernando Valley (Encino, Tarzana, Porter Ranch, North Hollywood, Sherman Oaks, Studio City, Woodland Hills, Calabasas, Chatsworth, Northridge, CSUN) and, under it, the Conejo (Rabbi Moshe Bryski, \"Conejo Regional Director\": Agoura, Westlake, Oak Park, Thousand Oaks), Ventura (Rabbi Yakov Latowicz), Simi Valley (Rabbi Noson Gurary) and the Santa Clarita Valley (Rabbi Choni Marozov), each called \"Regional Director\". Its founder, Rabbi Joshua B. Gordon, passed away 29 Shevat 5776 (Chabadpedia). The Jewish Journal (May 2, 2024) calls Rabbi Mordechai Einbinder the \"leader of the sprawling Chabad of the Valley community based in Tarzana\", 32 institutions. Its area here: the L.A. Times' San Fernando Valley and Northwest County regions, the Conejo's L.A. County side (Agoura Hills, Calabasas, Hidden Hills, Westlake Village) and all of Ventura County."
+      "territory": [
+        {
+          "laRegions": [
+            "san-fernando-valley"
+          ]
+        },
+        {
+          "laHoods": [
+            "Calabasas",
+            "Hidden Hills",
+            "Agoura Hills",
+            "Westlake Village",
+            "Santa Clarita",
+            "Stevenson Ranch",
+            "Castaic",
+            "Castaic Canyons",
+            "Val Verde",
+            "Hasley Canyon",
+            "Agua Dulce",
+            "Unincorporated Santa Susana Mountains"
+          ]
+        },
+        {
+          "ccds": {
+            "county": "06111",
+            "names": [
+              "Thousand Oaks",
+              "Simi Valley",
+              "Ventura"
+            ]
+          }
+        }
+      ],
+      "source": "Chabad of the Valley (Tarzana). Its staff page (2004) lists its houses across the San Fernando Valley (Encino, Tarzana, Porter Ranch, North Hollywood, Sherman Oaks, Studio City, Woodland Hills, Calabasas, Chatsworth, Northridge, CSUN) and, under it, the Conejo (Rabbi Moshe Bryski, \"Conejo Regional Director\": Agoura, Westlake, Oak Park, Thousand Oaks), Ventura (Rabbi Yakov Latowicz), Simi Valley (Rabbi Noson Gurary) and the Santa Clarita Valley (Rabbi Choni Marozov), each called \"Regional Director\". Its founder, Rabbi Joshua B. Gordon, passed away 29 Shevat 5776 (Chabadpedia). The Jewish Journal (May 2, 2024) calls Rabbi Mordechai Einbinder the \"leader of the sprawling Chabad of the Valley community based in Tarzana\", 32 institutions. Its area here, the houses on that list (the owner, Nov 1: \"What about that 2004 thing? I'm sure that's still accurate as well\"): the San Fernando Valley (the L.A. Times' region) with Calabasas and Hidden Hills; the Conejo (Agoura Hills and Westlake Village; Ventura County's Thousand Oaks county subdivision: Thousand Oaks, Newbury Park, Oak Park, North Ranch); Simi Valley (its county subdivision); the Santa Clarita Valley (Santa Clarita, Stevenson Ranch, Castaic, Val Verde, Hasley Canyon, Agua Dulce); and Ventura (its county subdivision, a piece of its own past Camarillo and Oxnard). Not Oxnard or Camarillo (the owner, Nov 1: \"Oxnard and Camarillo are way way past the valley\"; each has its own Chabad house, not on the list), nor Moorpark, Ojai or the rest of Ventura County."
     },
     {
       "id": "southern-nevada",
@@ -31,7 +75,13 @@
       "head": "Shea Harlig",
       "headHe": "שעיה הרליג",
       "capital": "117662",
-      "territory": [{ "counties": ["32003"] }],
+      "territory": [
+        {
+          "counties": [
+            "32003"
+          ]
+        }
+      ],
       "source": "Chabad of Southern Nevada, founded in 1990 by Rabbi Shea and Dina Harlig, with its affiliated houses around Las Vegas (Summerlin, Green Valley, the East, Southwest, the Hebrew Center and UNLV: the Chabad Times, April 2000, in UNLV's special collections; a 2014 UNLV oral history: as its director he \"has helped establish seven Chabad locations throughout the community\"). Clark County."
     }
   ]

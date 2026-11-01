@@ -33,15 +33,24 @@ between two Claude accounts when usage limits run out; whichever session picks t
     page lists its Valley houses and, under it, the Conejo (Bryski, "Conejo Regional Director"), Ventura (Latowicz),
     Simi Valley (Gurary) and Santa Clarita (Marozov), each "Regional Director". Rabbi Joshua B. Gordon passed away
     29 Shevat 5776. The Jewish Journal (May 2, 2024) calls Einbinder the "leader of the sprawling Chabad of the Valley
-    community based in Tarzana", 32 institutions. Area: the L.A. Times' San Fernando Valley and Northwest County
-    regions, Agoura Hills, Calabasas, Hidden Hills, Westlake Village, and all of Ventura County.
+    community based in Tarzana", 32 institutions. **Its area is the houses on that list, not all of Ventura County**
+    (owner, Nov 1: "Valley shetach should not be that big at all / Oxnard and Camarillo are way way past the valley";
+    then, when it was cut to the San Fernando Valley alone, "No no not just the SF valley! What about that 2004 thing?
+    I'm sure that's still accurate as well"): the San Fernando Valley (the L.A. Times' region) with Calabasas and
+    Hidden Hills; the Conejo (Agoura Hills, Westlake Village, and Ventura County's Thousand Oaks county subdivision:
+    Thousand Oaks, Newbury Park, Oak Park, North Ranch); Simi Valley (its county subdivision); the Santa Clarita Valley
+    (Santa Clarita, Stevenson Ranch, Castaic, Castaic Canyons, Val Verde, Hasley Canyon, Agua Dulce, the Santa Susana
+    Mountains between); and Ventura (its county subdivision: a piece of its own, past Camarillo and Oxnard). Out:
+    Oxnard (Dov Muchnik's) and Camarillo (Aryeh Lang's), not on the list; Moorpark (Heidingsfeld) and Ojai (Nemtzov),
+    not on it either. `ccds` territories (county subdivisions by name in one county) come from
+    `.cache/county-subdivision-06.json` (Census 500k).
   - **Southern Nevada — Rabbi Shea Harlig** (capital: Chabad of Southern Nevada). Founded 1990, its affiliated houses
     around Las Vegas (UNLV special collections; 2014 oral history: "seven Chabad locations"). Clark County.
 - **Asked of the owner, not drawn:** the South Bay (Rabbi Eli Hecht's bio: "Regional Director of the South Bay area
   ranging from San Pedro to Gardena, Palos Verdes, Redondo Beach and Torrance"; chabad.org now has him as rabbi
   emeritus, Sholom Pinson as director: still a region?); Chabad of the Inland Empire (Rabbi Sholom Harlig, Rancho
   Cucamonga: a region?); whether Ventura, Simi, the Conejo and Santa Clarita are still the Valley's (the list is from
-  2004); the Antelope Valley (left out). No regional layer found for Orange County, Long Beach, the Bay Area,
+  2004; the owner says it still is); Moorpark, Ojai and the Antelope Valley (left out). No regional layer found for Orange County, Long Beach, the Bay Area,
   Sacramento or Northern Nevada: those stay Cunin's own.
 - Tests: `__dbg.tap(lon, lat)` taps a place and shows its card (returns the hit's kind). Checked: the USA, Latin
   America and street maps, light and dark, English and Hebrew, switching off (layers hidden, taps back to the centers

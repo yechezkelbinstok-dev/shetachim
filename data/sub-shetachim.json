@@ -1,5 +1,5 @@
 {
-  "about": "Sub-shetachim: a regional director's area under a head shliach. They show only with the map's Sub-shetachim switch, never on the head shluchim's map (owner, Oct 26: \"I meant as a separate thing to toggle to see sub shetachim not in the head shluchim part\"). Each is drawn with borders of its own, round its member houses (owner, Nov 1: \"why are you using county situations you should be drawing your own borders\"): members are listed (members: chabad.org ids), or are the parent shetach's houses within membersIn (US counties by Census GEOID, L.A. Times neighbourhoods by region or name, county subdivisions by name in one county, or { near: [lon, lat], km }), less exclude; mushrooms never count. areas: whole areas of the map added as they are (the Baja peninsula). reach / join (km, optional): how far round each house it reaches (3), and the gaps it bridges (up to twice 6). Most shetachim have none, and none fills its shetach: the rest stays the head shliach's own. scripts/build-sub.mjs makes web/data/sub.json (npm run build runs it).",
+  "about": "Sub-shetachim: a regional director's area under a head shliach. They show only with the map's Sub-shetachim switch, never on the head shluchim's map (owner, Oct 26: \"I meant as a separate thing to toggle to see sub shetachim not in the head shluchim part\"). Each is drawn with borders of its own, round its member houses (owner, Nov 1: \"why are you using county situations you should be drawing your own borders\"): members are listed (members: chabad.org ids), or are the parent shetach's houses within membersIn (US counties by Census GEOID, L.A. Times neighbourhoods by region or name, county subdivisions by name in one county, { box: [west, south, east, north], county? } (a box, or the part of a county in it), or { near: [lon, lat], km }), less exclude; mushrooms never count. areas: whole areas of the map added as they are (the Baja peninsula). reach / join (km, optional): how far round each house it reaches (3), and the gaps it bridges (up to twice 6). Most shetachim have none, and none fills its shetach: the rest stays the head shliach's own. scripts/build-sub.mjs makes web/data/sub.json (npm run build runs it).",
   "subShetachim": [
     {
       "id": "san-diego-baja",
@@ -133,6 +133,112 @@
         }
       ],
       "source": "The owner, Nov 1: \"Peterburg under Pewsner\". Rabbi Mendel Pewzner, the Jewish Community of St. Petersburg at the Grand Choral Synagogue (chabad.org). Its members: Berel Lazar's shetach's houses within 45 km of the city's centre."
+    },
+    {
+      "id": "long-island",
+      "parent": "new-york-city",
+      "name": "Long Island",
+      "nameHe": "לונג איילנד",
+      "head": "Tuvia Teldon",
+      "headHe": "טוביה טלדון",
+      "capital": "117681",
+      "membersIn": [
+        {
+          "counties": [
+            "36059",
+            "36103"
+          ]
+        }
+      ],
+      "source": "Rabbi Tuvia and Chaya Teldon, regional directors of Chabad Lubavitch of Long Island since 1977 (Anash; COLlive, \"In for the long haul\"); Lubavitch.com (Sept 2025): \"over 29 Chabad rabbis in 23 Chabad centers throughout Long Island\". Its headquarters: Lubavitch of Long Island, Commack. Its members: the houses in Nassau and Suffolk Counties."
+    },
+    {
+      "id": "northwest-new-jersey",
+      "parent": "new-jersey",
+      "name": "Northwest New Jersey",
+      "nameHe": "צפון מערב ניו ג׳רזי",
+      "head": "Asher Herson",
+      "headHe": "אשר הרסון",
+      "capital": "117659",
+      "members": [
+        "117659",
+        "259220",
+        "5837382"
+      ],
+      "membersIn": [
+        {
+          "counties": [
+            "34037",
+            "34041"
+          ]
+        }
+      ],
+      "source": "The Jewish Link: \"Rabbi Asher Herson, regional director of the Chabad Center of Northwest NJ\" (Rockaway); chabad.org lists its branches as \"Chabad of Northwest NJ – Western Region\" (Flanders, Rabbi Yaacov Shusterman) and \"Chabad of Northwest NJ – Berkshire Valley\" (Wharton, Rabbi Levi Naparstek). Its members: those three, and the houses in Sussex and Warren Counties (Chabad of Sussex County)."
+    },
+    {
+      "id": "st-louis",
+      "parent": "kansas-missouri",
+      "name": "St. Louis",
+      "nameHe": "סנט לואיס",
+      "head": "Yosef Landa",
+      "headHe": "יוסף לנדא",
+      "capital": "117648",
+      "membersIn": [
+        {
+          "counties": [
+            "29189",
+            "29510",
+            "29183"
+          ]
+        }
+      ],
+      "source": "chabad.org: \"Chabad of Greater St. Louis Regional Headquarters\", Rabbi Yosef Landa its \"Co-Founder and Regional Director\"; the St. Louis Jewish Light calls him and his wife Shiffy its regional directors. Its members: the houses in St. Louis County, the City of St. Louis and St. Charles County (Chabad of St. Charles County: his son Rabbi Chaim Landa)."
+    },
+    {
+      "id": "northern-virginia",
+      "parent": "virginia",
+      "name": "Northern Virginia",
+      "nameHe": "צפון וירג׳יניה",
+      "head": "Sholom Deitsch",
+      "headHe": "שלום דייטש",
+      "capital": "117733",
+      "membersIn": [
+        {
+          "counties": [
+            "51059",
+            "51013",
+            "51107",
+            "51153",
+            "51510",
+            "51600",
+            "51610",
+            "51683",
+            "51685"
+          ]
+        }
+      ],
+      "source": "JNS: Rabbi Sholom Deitsch, \"regional director of Chabad Lubavitch of Northern Virginia\"; the Washington Jewish Week: he and his wife Chanie opened it in January 1991 and \"expanded to eight more Chabad locations throughout Northern Virginia from 2001 to 2021, including Alexandria, Loudoun County and Springfield\". Its members: the houses in Fairfax, Arlington, Loudoun and Prince William Counties and the cities of Alexandria, Fairfax, Falls Church, Manassas and Manassas Park."
+    },
+    {
+      "id": "south-broward",
+      "parent": "florida",
+      "name": "South Broward",
+      "nameHe": "דרום ברוורד",
+      "head": "Raphael Tennenhaus",
+      "headHe": "רפאל טננהויז",
+      "capital": "117595",
+      "membersIn": [
+        {
+          "box": [
+            -80.9,
+            25.9,
+            -80.0,
+            26.08
+          ],
+          "county": "12011"
+        }
+      ],
+      "source": "Rabbi Raphael Tennenhaus, \"director of Chabad activities in south Broward\"; Chabad of South Broward is headquartered in Hallandale, a network of \"11 Chabad centers in South Broward\" (TorahCafe; the Jewish Press). Its members: Broward County's houses south of Fort Lauderdale (Hallandale Beach, Hollywood, Dania Beach, Davie, Cooper City, Pembroke Pines). Asked of the owner: whether Chabad Lubavitch of Southwest Broward (Rabbi Pinny Andrusier, Cooper City) and his sons' houses are his or a network of their own."
     }
   ]
 }

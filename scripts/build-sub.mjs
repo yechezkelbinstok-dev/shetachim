@@ -74,6 +74,11 @@ async function memberAreas(s) {
       if (missing.length || !picked.length) throw new Error(`${s.id}: no L.A. neighbourhood ${missing.join(', ') || t.laRegions}`);
       for (const f of picked) out.push(...polys(f.geometry));
     }
+    if (t.box) { // { box: [west, south, east, north], county?: GEOID }: a box, or the part of a county in it
+      const [w, so, e, n] = t.box, r = [[[w, so], [e, so], [e, n], [w, n], [w, so]]];
+      if (t.county && !counties.has(t.county)) throw new Error(`${s.id}: no county ${t.county}`);
+      out.push(...(t.county ? polygonClipping.intersection(polys(counties.get(t.county)), r) : [r]));
+    }
     if (t.near) { // { near: [lon, lat], km }: a circle, as a polygon
       const [lon, lat] = t.near, k = 111.32 * Math.cos((lat * Math.PI) / 180), ring = [];
       for (let i = 0; i <= 72; i++) { const a = (i / 72) * 2 * Math.PI; ring.push([lon + (t.km * Math.cos(a)) / k, lat + (t.km * Math.sin(a)) / 110.57]); }

@@ -65,7 +65,32 @@ between two Claude accounts when usage limits run out; whichever session picks t
   Jewish Community of St. Petersburg, Grand Choral Synagogue). Lazar's houses within 45 km of the city. Moscow: no
   separate regional head found (the Chief Rabbinate and Lazar's own Marina Roshcha are there), and the owner said to
   drop it ("forget about Moscow nvm").
-- **Asked of the owner, not drawn:** the South Bay (Rabbi Eli Hecht's bio: "Regional Director of the South Bay area
+- **The USA sweep (owner, Nov 1: "You should do a full USA sweep and do it all yourself"), first pass.** Each US
+  shetach with 15+ houses searched for a regional layer (a "regional director" or a regional headquarters under its
+  head shliach). Found, sourced and drawn:
+  - **Long Island — Rabbi Tuvia Teldon** (New York City's shetach; capital Lubavitch of Long Island, Commack): regional
+    director of Chabad Lubavitch of Long Island since 1977 (Anash; COLlive); "over 29 Chabad rabbis in 23 Chabad
+    centers throughout Long Island" (Lubavitch.com, Sept 2025). Nassau and Suffolk's houses.
+  - **Northwest New Jersey — Rabbi Asher Herson** (New Jersey's; capital Chabad Center of Northwest NJ, Rockaway): "regional
+    director of the Chabad Center of Northwest NJ" (the Jewish Link); its branches on chabad.org, "Chabad of Northwest
+    NJ – Western Region" (Flanders) and "– Berkshire Valley" (Wharton); with Sussex and Warren Counties' houses.
+  - **St. Louis — Rabbi Yosef Landa** (Kansas–Missouri's; capital Chabad of Greater St. Louis Regional Headquarters):
+    chabad.org has him as "Co-Founder and Regional Director"; the St. Louis Jewish Light, regional directors. St. Louis
+    County, the city, St. Charles County.
+  - **Northern Virginia — Rabbi Sholom Deitsch** (Virginia's; capital Chabad Lubavitch of Northern Virginia, Fairfax):
+    "regional director of Chabad Lubavitch of Northern Virginia" (JNS); opened 1991, eight more locations since
+    (Washington Jewish Week). Fairfax, Arlington, Loudoun, Prince William and the cities among them.
+  - **South Broward — Rabbi Raphael Tennenhaus** (Florida's; capital Chabad of South Broward, Hallandale): "director of
+    Chabad activities in south Broward", a network of "11 Chabad centers" (TorahCafe; the Jewish Press). Broward's houses
+    south of Fort Lauderdale.
+  None found (the head shliach is the regional director, the cities have local directors): Texas (Lazaroff, "Texas
+  regional director"), Pennsylvania, Illinois, Maryland, Georgia, Michigan, Colorado, the Carolinas (South Carolina's
+  Epstein: a local director), the rest of New Jersey (Greater Mercer: an executive director), Westchester, Rockland,
+  Staten Island, Queens, Arizona's East Valley, Western Massachusetts (its founder, Hershel Fogelman, passed away; no
+  current director found), Spokane. Cape Cod & the Islands is already a shetach of its own.
+- **Asked of the owner, not drawn:** Parkland's "Regional HQ for North Broward & South Palm Beach" (Biston; chabad.org's
+  own name — which houses?); whether the Andrusiers' Chabad Lubavitch of Southwest Broward is Tennenhaus's or a
+  network of its own; the South Bay (Rabbi Eli Hecht's bio: "Regional Director of the South Bay area
   ranging from San Pedro to Gardena, Palos Verdes, Redondo Beach and Torrance"; chabad.org now has him as rabbi
   emeritus, Sholom Pinson as director: still a region?); Chabad of the Inland Empire (Rabbi Sholom Harlig, Rancho
   Cucamonga: a region?); whether Ventura, Simi, the Conejo and Santa Clarita are still the Valley's (the list is from

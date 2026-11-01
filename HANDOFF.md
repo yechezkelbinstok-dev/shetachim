@@ -124,7 +124,12 @@ between two Claude accounts when usage limits run out; whichever session picks t
   - **South Dade — Rabbi Yakov Fellig** (Florida): Chabad of Miami (Coconut Grove, since 1989) and its "13 Branches
     Across South Dade" (its own site: Downtown Coral Gables, Kendall & Pinecrest, Cutler Bay & Homestead, UM, UM Jackson,
     West Kendall…). Miami-Dade south of downtown and west of the bay (14 listings).
-  Not regional: Madison (one city's houses), Raleigh, Rockland (Kotlarsky: an executive director, no regional sign). On hold: the Bay Area (the Langers "became the movement's Bay Area
+  - **Southwest Florida — Rabbi Yitzchok Minkowitz** (Florida): Chabad Lubavitch of Southwest Florida, "under the
+    leadership of Rabbi Yitzchok Minkowicz", "officially welcomed new emissaries" (Federation Star, June 2025). Lee
+    County (not Naples or Charlotte County: no source ties them to it).
+  - **South Area (south of Boston) — Rabbi Menachem Gurkow** (Eastern Massachusetts): Shaloh House Chabad of the South
+    Area (Stoughton, 1991), serving Canton, Easton, Sharon, Stoughton, and new shluchim for Brockton and Randolph.
+  Not regional: Madison (one city's houses), Harrisburg (the Pewzners: no regional title), Raleigh, Rockland (Kotlarsky: an executive director, no regional sign). On hold: the Bay Area (the Langers "became the movement's Bay Area
   directors in 1979"; nothing current).
   Still to look at:
   Rockland (Kotlarsky), Westchester, Montgomery County PA (Shaya Deitsch), Essex and Bergen NJ, Passaic (Gurkov),

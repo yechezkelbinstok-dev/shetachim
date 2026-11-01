@@ -246,6 +246,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card .flag-world { color: var(--accent); font-weight: 600; font-style: normal; }
 .legend-mushroom { vertical-align: -2px; flex: none; }
 #card .kicker-mushroom { color: #b3261e; font-weight: 700; letter-spacing: 0.06em; }
+#sub-row { margin-top: 8px; }
+.legend-sub { display: inline-block; width: 15px; border-top: 3px dotted #59408f; vertical-align: middle; } /* the sub-shetachim's outline */
+:root[data-theme="dark"] .legend-sub { border-top-color: #c3aef0; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .legend-sub { border-top-color: #c3aef0; } }
 :root[data-theme="dark"] #card .kicker-mushroom { color: #f2857a; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #card .kicker-mushroom { color: #f2857a; } }
 #card .person { font-size: 13px; margin: 2px 0 0; }
@@ -353,6 +357,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           <button type="button" data-value="regular" aria-pressed="false">States</button>
           <button type="button" data-value="both" aria-pressed="false">Both</button>
         </div>
+        <!-- the regional directors' areas under the head shluchim, on a switch of their own (owner, Oct 26) -->
+        <label class="check" for="show-sub" id="sub-row"><input type="checkbox" id="show-sub"> <span class="legend-sub" aria-hidden="true"></span> Sub-shetachim</label>
         <div class="seg" data-name="lighter" id="lighter-row" hidden>
           <span class="seg-label">Lighter:</span>
           <button type="button" data-value="regular" aria-pressed="true">States</button>
@@ -541,7 +547,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'Latin America & Caribbean': 'אמריקה הלטינית והאיים הקריביים',
     Map: 'מפה', Physical: 'פיזית', Tinted: 'פיזית צבועה', Political: 'מדינית', Borders: 'גבולות', States: 'מדינות', Countries: 'ארצות', Both: 'שניהם',
     'Lighter:': 'בהיר יותר:', 'Part of Israel:': 'חלק מישראל:', Gaza: 'עזה', Lebanon: 'לבנון', Syria: 'סוריה', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', Off: 'ללא',
-    'More options': 'אפשרויות נוספות', 'Regions & countries': 'אזורים ומדינות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', Mushrooms: 'פטריות', Mushroom: 'פטרייה', 'Rest of the world': 'שאר העולם', 'Borders of the rest of the world': 'גבולות שאר העולם', 'Held by Israel': 'בשליטת ישראל', 'Blue sea': 'ים כחול', Streets: 'רחובות',
+    'More options': 'אפשרויות נוספות', 'Regions & countries': 'אזורים ומדינות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', Mushrooms: 'פטריות', Mushroom: 'פטרייה', 'Sub-shetachim': 'תת־שטחים', 'Sub-shetach': 'תת־שטח', 'Regional director': 'שליח אזורי', 'Rest of the world': 'שאר העולם', 'Borders of the rest of the world': 'גבולות שאר העולם', 'Held by Israel': 'בשליטת ישראל', 'Blue sea': 'ים כחול', Streets: 'רחובות',
     Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד', Dots: 'נקודות', Solid: 'מלאות', 'See-through': 'שקופות', Classic: 'קלאסיות',
     'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
     'Download maps (SVG, PNG)': 'הורדת מפות (SVG, PNG)', 'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
@@ -1961,6 +1967,65 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
   // ▲ THE DRAWING ▲ (see ▼ THE DRAWING ▼)
 
+  // ---------- sub-shetachim (owner, Oct 26) ----------
+  // A regional director's area under a head shliach (data/sub-shetachim.json, made into web/data/sub.json by
+  // scripts/build-sub.mjs). Shown only with the Sub-shetachim switch, never on the head shluchim's own map (owner: "a
+  // separate thing to toggle to see sub shetachim not in the head shluchim part"): each outlined with a dotted line and
+  // lightly shaded over its shetach, named by its regional director (Head shliach) or by its own name (Shetach name),
+  // with a card of its own. Most shetachim have none, and none fills its shetach: the rest is the head shliach's own.
+  let subOn = false, SUB = null, subLoad = null;
+  try { subOn = localStorage.getItem('shetachim-sub') === 'on'; } catch (e) {}
+  // (each one with its parts, a part a state: a view draws only those in its own countries)
+  const loadSub = () => subLoad || (subLoad = get('data/sub.json')
+    .then((g) => { SUB = [...d3.group(g.features, (f) => f.properties.id).values()].map((fs) => ({ ...fs[0].properties, parts: fs.map((f) => ({ state: f.properties.state, geometry: f.geometry })) })); })
+    .catch((e) => { console.error(e); SUB = []; }));
+  const subPolys = (s) => s.parts.flatMap((p) => (p.geometry.type === 'Polygon' ? [p.geometry.coordinates] : p.geometry.coordinates));
+  const SUB_INK = ['#59408f', '#c3aef0']; // (its outline and names: light map, dark map)
+  // its parts in the view as S draws them (flat: in the view's projection)
+  function subShape(S, s) {
+    const states = new Set(V.main.map((g) => g.properties.state));
+    return within(S, () => {
+      const gs = s.parts.filter((p) => states.has(p.state)).map((p) => (S.flat ? projGeom(p.geometry) : p.geometry)).filter(Boolean);
+      return gs.length ? { type: 'MultiPolygon', coordinates: gs.flatMap((g) => (g.type === 'Polygon' ? [g.coordinates] : g.coordinates)) } : null;
+    });
+  }
+  // and its name's spot: the middle of its biggest part in the view, shown from when that part is some 45 px across
+  function subData(S) {
+    const out = [];
+    for (const s of SUB) {
+      const g = subShape(S, s);
+      if (!g) continue;
+      out.push(feature(g, { id: s.id }));
+      const parts = g.coordinates.map((poly) => poly.map((r) => r.map(([lon, lat]) => [mx(lon), my(lat)])));
+      const big = d3.greatest(parts, (poly) => ringArea(poly[0]));
+      const [x0, y0, x1, y1] = boxOfRing(big[0]);
+      const pole = polylabel(big, Math.max(x1 - x0, y1 - y0) / 400);
+      out.push(feature({ type: 'Point', coordinates: [unlon(pole.x), unlat(pole.y)] },
+        { id: s.id, name: s.name, nameHe: s.nameHe || s.name, head: s.head, headHe: s.headHe || s.head, minz: Math.log2(45 / (512 * Math.max(x1 - x0, 1e-9))) }));
+    }
+    return fc(out);
+  }
+  // the centers in it (and how many are mushrooms, with Mushrooms on), worked out once a mode
+  const SUB_COUNTS = new Map();
+  function subCounts(s) {
+    const k = `${s.id}|${mushroomsOn}`;
+    if (!SUB_COUNTS.has(k)) {
+      const polys = subPolys(s);
+      let n = 0, m = 0;
+      for (const d of dots) if (polys.some((poly) => insideRings(d.lon, d.lat, poly))) { n += d.centers.length; m += d.centers.filter((c) => c.mushroom).length; }
+      SUB_COUNTS.set(k, [n, m]);
+    }
+    return SUB_COUNTS.get(k);
+  }
+  function subHTML(s) {
+    const parent = shetachById.get(s.parent), dot = dotOfCenter.get(s.capital), c = dot && dot.centers.find((x) => x.id === s.capital);
+    const [n, m] = subCounts(s);
+    return `<span class="kicker">${tr('Sub-shetach')}</span><h2>${esc(HE ? s.nameHe || s.name : s.name)}</h2>
+      <p>${tr('Regional director')}: ${esc(HE ? s.headHe || s.head : s.head)}</p>${c ? `<p>${tr('Capital')}: ${esc(c.name)}${c.city ? `, ${esc(c.city)}` : ''}</p>` : ''}
+      ${parent ? `<p class="meta">${shetachWithHead(parent)}</p>` : ''}
+      <div class="foot"><span class="meta">${counts(n, m)}</span></div>`;
+  }
+
   // ---------- the map itself ----------
   const BASE = new Map(); // the street map's own layers, with the visibility each came with
   const BASE_PAINT = new Map(); // ... and the paint each came with
@@ -2142,7 +2207,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function addOverlay(sfx) {
     const flat = sfx === '-f', id = (n) => n + sfx;
     const src = (n) => map.addSource(id(n), { type: 'geojson', data: EMPTY, tolerance: n === 'names' ? 0 : 0.25 });
-    for (const n of ['boxes', 'land-all', 'land', 'areas', 'mesh', 'outside', 'outside-lines', 'hover-area', 'hover-dot', 'mark', 'dots', 'names', 'cities', 'caps', 'seas']) src(n);
+    for (const n of ['boxes', 'land-all', 'land', 'areas', 'mesh', 'outside', 'outside-lines', 'hover-area', 'hover-dot', 'mark', 'dots', 'names', 'cities', 'caps', 'seas', 'sub']) src(n);
     const add = (layer, before) => map.addLayer({ ...layer, id: id(layer.id), source: id(layer.source) }, flat ? undefined : before);
     const under = physicalOK ? waterBefore : undefined, over = physicalOK ? lineBefore : undefined;
     // the land (flat: there's no street map), the land no shetach covers (Rest of the world), the shetachim
@@ -2158,11 +2223,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     add({ id: 'fill', type: 'fill', source: 'areas', paint: { 'fill-antialias': false } }, under);
     // physical: each shetach as a soft tint under the water and relief
     if (!flat && physicalOK) map.addLayer({ id: 'st-tint', type: 'fill', source: 'areas', paint: { 'fill-antialias': false } }, under);
+    // the sub-shetachim (their switch): a light shade over their shetach
+    add({ id: 'sub-fill', type: 'fill', source: 'sub', filter: ['!=', ['geometry-type'], 'Point'], paint: { 'fill-antialias': false } }, under);
     // lines: (flat) the coast and the countries' and states' borders, as the street map draws its own; the shetachim's
     for (const kind of ['coast', 'regular', 'held', 'country', 'edge', 'casing', 'shetach', 'inner']) {
       add({ id: `line-${kind}`, type: 'line', source: 'mesh', filter: ['==', ['get', 'k'], kind === 'casing' ? 'shetach' : kind], layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
     }
     add({ id: 'out-line', type: 'line', source: 'outside-lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
+    add({ id: 'sub-line', type: 'line', source: 'sub', filter: ['!=', ['geometry-type'], 'Point'], layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
     add({ id: 'box-line', type: 'line', source: 'boxes', filter: ['==', ['geometry-type'], 'Polygon'] }, over);
     add({ id: 'box-name', type: 'symbol', source: 'boxes', filter: ['==', ['geometry-type'], 'Point'],
       layout: { 'text-field': ['upcase', ['get', 'name']], 'text-font': F_REG, 'text-size': 10, 'text-letter-spacing': 0.12, 'text-anchor': 'top-left', 'text-offset': [0.5, 0.45], 'text-allow-overlap': true, 'text-ignore-placement': true } }, over);
@@ -2212,6 +2280,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     };
     add({ id: 'names-alt', type: 'symbol', source: 'names', filter: nameFilter(1), layout: nameLayout });
     add({ id: 'names', type: 'symbol', source: 'names', filter: nameFilter(0), layout: { ...nameLayout, 'text-allow-overlap': true } });
+    add({ id: 'sub-names', type: 'symbol', source: 'sub', filter: ['all', ['==', ['geometry-type'], 'Point'], ['>=', ['zoom'], ['get', 'minz']]],
+      layout: { 'text-field': ['get', 'head'], 'text-font': F_BOLD, 'text-size': ['interpolate', ['linear'], ['zoom'], 4, 11, 9, 15], 'text-max-width': 7, 'text-line-height': 1.1, 'text-padding': 2 } });
     add({ id: 'honor', type: 'symbol', source: 'caps', filter: ['all', ['get', 'honor'], ['>=', ['zoom'], ['get', 'minz']]],
       layout: { 'icon-image': 'honor', 'icon-allow-overlap': true, 'text-allow-overlap': true, 'text-field': ['get', 'name'], 'text-font': F_IT, 'text-size': 13,
         // (the name right of the star; Liozna's above it and Liadi's below, off Lubavitch's: HONOR_PLACES' anchor)
@@ -2333,6 +2403,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     feed(S, 'dots', `dots|${mushroomsOn}`, () => dotData(S));
     feed(S, 'cities', `cities|${lang}|${mushroomsOn}`, () => cityData(S));
     feed(S, 'caps', `caps|${lang}`, () => capData(S));
+    if (subOn && !SUB) loadSub().then(() => feedSet(S));
+    feed(S, 'sub', subOn && SUB ? 'sub' : 'off', () => (subOn && SUB ? subData(S) : EMPTY));
     if (S.flat) feed(S, 'seas', `seas|${lang}`, () => seaData(S));
     if (!S.made.has('areas')) { prep(S, 'areas').then(() => feedSet(S), failed); return; }
     if (!areasShown(S)) { feed(S, 'areas', 'areas', () => S.made.get('areas')); setNames(S); }
@@ -2603,6 +2675,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       show(id('caps'), on && state.capitals);
       show(id('cap-names'), on && state.capitals && !street);
       show(id('honor'), on);
+      for (const lid of ['sub-fill', 'sub-line']) show(id(lid), on && subOn);
+      show(id('sub-names'), on && subOn && state.labels !== 'off');
+      paint(id('sub-fill'), 'fill-color', pal.ink);
+      paint(id('sub-fill'), 'fill-opacity', 0.07);
+      paint(id('sub-line'), 'line-color', SUB_INK[pal.dark ? 1 : 0]);
+      paint(id('sub-line'), 'line-width', ['interpolate', ['linear'], ['zoom'], 3, 1.6, 8, 2.6, 12, 3.2]);
+      paint(id('sub-line'), 'line-dasharray', [0.2, 1.8]);
+      paint(id('sub-names'), 'text-color', SUB_INK[pal.dark ? 1 : 0]);
+      paint(id('sub-names'), 'text-halo-color', pal.halo);
+      paint(id('sub-names'), 'text-halo-width', 1.5);
+      if (map.getLayer(id('sub-names'))) map.setLayoutProperty(id('sub-names'), 'text-field', ['get', `${state.labels === 'name' ? 'name' : 'head'}${HE ? 'He' : ''}`]);
       // by how far in the map is, not by the view's own fit: zoomed out on a continent the stars were far too big
       // (owner, Oct 13: "way too massive stars"); full size only at about state level
       map.setLayoutProperty(id('caps'), 'icon-size', ['interpolate', ['linear'], ['zoom'], 1, 0.3, 2, 0.38, 3.5, 0.48, 5, 0.62, 7, 0.85, 9, 1]);
@@ -2656,6 +2739,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       f = nearest(q(['names', 'names-alt'], point).filter((x) => shetachById.has(x.properties.sid)));
       if (f) return { shetach: shetachById.get(f.properties.sid) };
     }
+    // a sub-shetach (its switch on): anywhere in it, its card rather than its shetach's
+    if (subOn && SUB) {
+      const sf = q(['sub-fill'], point)[0], sub = sf && SUB.find((x) => x.id === sf.properties.id);
+      if (sub) return { sub };
+    }
     const a = map.queryRenderedFeatures(point, { layers: [`pick${sfx}`] })[0];
     return a ? { piece: pieceById.get(a.properties.id).properties } : null;
   }
@@ -2683,7 +2771,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (!glOK) return;
     const S = V.cur;
     const dot = hit && (hit.dot || (hit.capital && dotOfCenter.get(hit.capital.centerId)));
-    const area = hit && hit.shetach ? shetachArea(S, hit.shetach) : hit && hit.piece && V.mainIds.has(hit.piece.id) ? areaOf(S, hit.piece.id) : null;
+    const area = hit && hit.shetach ? shetachArea(S, hit.shetach) : hit && hit.sub ? { geometry: subShape(S, hit.sub) }
+      : hit && hit.piece && V.mainIds.has(hit.piece.id) ? areaOf(S, hit.piece.id) : null;
     map.getSource(`hover-dot${S.sfx}`).setData(dot && state.dots && V.mainIds.has(dot.piece) ? feature({ type: 'Point', coordinates: within(S, () => P(dot.lon, dot.lat)) }, { l: Math.log2(dot.centers.length) }) : EMPTY);
     map.getSource(`hover-area${S.sfx}`).setData(area && area.geometry ? feature(area.geometry) : EMPTY);
   }
@@ -2977,7 +3066,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function showCard(hit, event, pin) {
     if (hit.dot && hit.dot.centers.some((c) => c.id === WORLD_HQ)) { const w = capitals.find((x) => x.world); if (w) hit = { capital: w }; }
     card.innerHTML = (hit.dot ? dotHTML(hit.dot) : hit.capital ? capitalHTML(hit.capital) : hit.city ? cityHTML(hit.city)
-      : hit.shetach ? shetachCards(hit.shetach)
+      : hit.shetach ? shetachCards(hit.shetach) : hit.sub ? subHTML(hit.sub)
       : areaHTML(hit.piece)) +
       '<button type="button" class="close" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>';
     card.hidden = false;
@@ -3073,6 +3162,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       showMark();
     }
     if (!sres.hidden && sq.value) runSearch();
+    apply();
+  });
+  $('#show-sub').checked = subOn;
+  $('#show-sub').addEventListener('change', (e) => {
+    subOn = e.target.checked;
+    try { localStorage.setItem('shetachim-sub', subOn ? 'on' : 'off'); } catch (err) { /* not remembered */ }
+    hideCard();
+    feedSet(V.cur); // (the shapes: at once if their file is in, else once it is)
     apply();
   });
   for (const [id, key] of [['#show-dots', 'dots'], ['#show-cities', 'cities'], ['#show-capitals', 'capitals']]) {
@@ -3487,6 +3584,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   window.__dbg = { keptCount: () => keptRead, capitals: () => capitals, map: () => map, showCard: (hit) => showCard(hit, { clientX: 400, clientY: 300 }, true), labelData, V: () => V, dotData, spotsFor, partsOf, polylabel, unlon, unlat, PX, setMode, centreLL, spanKm,
     zoomTo: (st) => zoomToArea(pieces.find((g) => g.properties.state === st).properties.id),
     at: (lon, lat) => map.jumpTo({ center: within(V.cur, () => P(lon, lat)) }),
+    // tap: what a tap at a place lands on, its card shown (the hit's kind returned)
+    tap: (lon, lat) => { const p = map.project(within(V.cur, () => P(lon, lat))), hit = pickAt(p, false); if (hit) showCard(hit, { clientX: p.x, clientY: p.y }, true); return hit && Object.keys(hit)[0]; },
     go: (lon, lat, z) => { V.cur = V.M; limits(); apply(); map.jumpTo({ center: [lon, lat], zoom: z }); }, // go: a standard place and zoom (the map then picks flat or standard)
     // settled: nothing left to work out or hand over for the map shown, its names included, and the map has drawn it
     settled: () => { const n = FED.get(`names${V.cur.sfx}`); return !WAITING.length && !!V.cur.fedAll && map.loaded() && (state.labels === 'off' || (!!n && n[0] === V.cur && n[1] === `names|${labelKey()}`)); } };

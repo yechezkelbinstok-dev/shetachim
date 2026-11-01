@@ -1,0 +1,38 @@
+{
+  "about": "Sub-shetachim: a regional director's area under a head shliach. They show only with the map's Sub-shetachim switch, never on the head shluchim's map (owner, Oct 26: \"I meant as a separate thing to toggle to see sub shetachim not in the head shluchim part\"). Most shetachim have none, and none fills its shetach: the rest stays the head shliach's own. A region goes in only on a source; unclear ones are asked of the owner. territory: US counties (Census GEOID), whole areas of the map (their state code in web/data/geo.json), or L.A. County neighbourhoods (the L.A. Times' Mapping L.A., v6), by region or by name, cut to the county's Census outline. scripts/build-sub.mjs makes web/data/sub.json (npm run build runs it).",
+  "subShetachim": [
+    {
+      "id": "san-diego-baja",
+      "parent": "west-coast",
+      "name": "San Diego & Baja",
+      "nameHe": "סן דייגו ובאחה",
+      "head": "Yonah Fradkin",
+      "headHe": "יונה פרדקין",
+      "capital": "117569",
+      "territory": [{ "counties": ["06073"] }, { "area": "MX-BCN" }, { "area": "MX-BCS" }],
+      "source": "Chabadpedia (יונה פרדקין): the Rebbe's shliach in San Diego since 5736, \"המשמש גם כשליח אזורי ומנהל תחתיו מערך מסועף של שלוחי הרבי\", 26 couples under him in San Diego County as of 5782. The Baja peninsula is his too (owner, Oct 26: \"baja peninsula is under fradkin\")."
+    },
+    {
+      "id": "the-valley",
+      "parent": "west-coast",
+      "name": "The Valley",
+      "nameHe": "עמק סן פרננדו",
+      "head": "Mordechai Einbinder",
+      "headHe": "מרדכי איינבינדר",
+      "capital": "117545",
+      "territory": [{ "counties": ["06111"] }, { "laRegions": ["san-fernando-valley", "northwest-county"] }, { "laHoods": ["Agoura Hills", "Calabasas", "Hidden Hills", "Westlake Village"] }],
+      "source": "Chabad of the Valley (Tarzana). Its staff page (2004) lists its houses across the San Fernando Valley (Encino, Tarzana, Porter Ranch, North Hollywood, Sherman Oaks, Studio City, Woodland Hills, Calabasas, Chatsworth, Northridge, CSUN) and, under it, the Conejo (Rabbi Moshe Bryski, \"Conejo Regional Director\": Agoura, Westlake, Oak Park, Thousand Oaks), Ventura (Rabbi Yakov Latowicz), Simi Valley (Rabbi Noson Gurary) and the Santa Clarita Valley (Rabbi Choni Marozov), each called \"Regional Director\". Its founder, Rabbi Joshua B. Gordon, passed away 29 Shevat 5776 (Chabadpedia). The Jewish Journal (May 2, 2024) calls Rabbi Mordechai Einbinder the \"leader of the sprawling Chabad of the Valley community based in Tarzana\", 32 institutions. Its area here: the L.A. Times' San Fernando Valley and Northwest County regions, the Conejo's L.A. County side (Agoura Hills, Calabasas, Hidden Hills, Westlake Village) and all of Ventura County."
+    },
+    {
+      "id": "southern-nevada",
+      "parent": "west-coast",
+      "name": "Southern Nevada",
+      "nameHe": "דרום נבדה",
+      "head": "Shea Harlig",
+      "headHe": "שעיה הרליג",
+      "capital": "117662",
+      "territory": [{ "counties": ["32003"] }],
+      "source": "Chabad of Southern Nevada, founded in 1990 by Rabbi Shea and Dina Harlig, with its affiliated houses around Las Vegas (Summerlin, Green Valley, the East, Southwest, the Hebrew Center and UNLV: the Chabad Times, April 2000, in UNLV's special collections; a 2014 UNLV oral history: as its director he \"has helped establish seven Chabad locations throughout the community\"). Clark County."
+    }
+  ]
+}

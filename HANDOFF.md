@@ -8,6 +8,45 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Nov 1: sub-shetachim, on their own switch — the West Coast first
+- Owner (Oct 26): do second-level shetachim piece by piece, "as a separate thing to toggle to see sub shetachim not in
+  the head shluchim part" (not drawn into the head-shliach map the way India sits in Thailand's). And: "You have to
+  actually always do it right though for example you probably would have missed that baja peninsula is under fradkin".
+- **The switch:** "Sub-shetachim" (תת־שטחים) under Borders in the panel, off by default, remembered
+  (`localStorage shetachim-sub`). With it on, each regional director's area gets a dotted purple outline (`sub-line`)
+  and a light shade (`sub-fill`) over its shetach, and its name (`sub-names`): the regional director with Head shliach
+  labels, the region's name with Shetach name. A tap anywhere in it opens its card: "Sub-shetach", its name, "Regional
+  director", its capital (headquarters), its shetach and head ("West Coast · Shlomo Cunin") and its centers (mushrooms
+  apart with Mushrooms on). Everything else on the map is as it was.
+- **Data:** `data/sub-shetachim.json`, one entry per region with its `parent` shetach, `head`/`headHe`,
+  `name`/`nameHe`, `capital` (a chabad.org center id), `territory` and `source`. A territory is made of US counties (Census
+  GEOID), whole areas of the map (`area`: the state code in geo.json, e.g. MX-BCN), or L.A. County neighbourhoods
+  (`laRegions`/`laHoods`, from the L.A. Times' Mapping L.A. v6: `.cache/la-county-neighborhoods-v6.geojson`, cut to the
+  county's Census outline). `scripts/build-sub.mjs` (now part of `npm run build`; it can also run alone, after a full
+  build) writes `web/data/sub.json`: one feature per region and state, so a view draws only its own countries' parts
+  (San Diego without Baja on the USA view). Rings are wound d3's way, like the map's areas. Seam slivers are dropped.
+- **The West Coast (Cunin), first three, each on a source:**
+  - **San Diego & Baja — Rabbi Yonah Fradkin** (capital: Chabad S. Diego Headquarters). Chabadpedia: "המשמש גם כשליח
+    אזורי", 26 couples under him in the county (5782). Baja is his (the owner). San Diego County + Baja California + Baja
+    California Sur.
+  - **The Valley — Rabbi Mordechai Einbinder** (capital: Chabad of the Valley Headquarters, Tarzana). Its 2004 staff
+    page lists its Valley houses and, under it, the Conejo (Bryski, "Conejo Regional Director"), Ventura (Latowicz),
+    Simi Valley (Gurary) and Santa Clarita (Marozov), each "Regional Director". Rabbi Joshua B. Gordon passed away
+    29 Shevat 5776. The Jewish Journal (May 2, 2024) calls Einbinder the "leader of the sprawling Chabad of the Valley
+    community based in Tarzana", 32 institutions. Area: the L.A. Times' San Fernando Valley and Northwest County
+    regions, Agoura Hills, Calabasas, Hidden Hills, Westlake Village, and all of Ventura County.
+  - **Southern Nevada — Rabbi Shea Harlig** (capital: Chabad of Southern Nevada). Founded 1990, its affiliated houses
+    around Las Vegas (UNLV special collections; 2014 oral history: "seven Chabad locations"). Clark County.
+- **Asked of the owner, not drawn:** the South Bay (Rabbi Eli Hecht's bio: "Regional Director of the South Bay area
+  ranging from San Pedro to Gardena, Palos Verdes, Redondo Beach and Torrance"; chabad.org now has him as rabbi
+  emeritus, Sholom Pinson as director: still a region?); Chabad of the Inland Empire (Rabbi Sholom Harlig, Rancho
+  Cucamonga: a region?); whether Ventura, Simi, the Conejo and Santa Clarita are still the Valley's (the list is from
+  2004); the Antelope Valley (left out). No regional layer found for Orange County, Long Beach, the Bay Area,
+  Sacramento or Northern Nevada: those stay Cunin's own.
+- Tests: `__dbg.tap(lon, lat)` taps a place and shows its card (returns the hit's kind). Checked: the USA, Latin
+  America and street maps, light and dark, English and Hebrew, switching off (layers hidden, taps back to the centers
+  and the shetach).
+
 ## ▶ Nov 1: Southern Ohio is Rabbi Yisroel Mangel's; Kalmanson's office is a mushroom
 - Owner: "Yisroel Mangel is head shliach of Southern Ohio not kalmanson - in fact kalmansons moised is mushroom (the one
   of the current head shliach you have)". So `southern-ohio` has head shliach **Yisroel Mangel**, and its capital is

@@ -135,7 +135,11 @@ between two Claude accounts when usage limits run out; whichever session picks t
     its yeshiva and Brookdale centre. Monmouth County west of the shore.
   - **East Valley — Rabbi Mendy Deitsch** (Arizona): Chabad of the East Valley (Chandler, 1997) and the Ahwatukee centre
     it opened. Those two only (Mesa, Gilbert, San Tan Valley, ASU: no source makes them its branches).
-  Not regional: Madison (one city's houses), Harrisburg (the Pewzners: no regional title), Raleigh, Rockland (Kotlarsky: an executive director, no regional sign). On hold: the Bay Area (the Langers "became the movement's Bay Area
+  - **Greater New Haven — Rabbi Sheya Hecht** (Connecticut): "the Chabad director for the Greater New Haven area",
+    the Chabad Centers of Greater New Haven (Oxford its "ninth Chabad Center in the Greater New Haven region"). New
+    Haven County south of Waterbury.
+  Not regional: Pinellas (the Adlers: no regional title), the Main Line and Delaware County (no regional director),
+  Madison (one city's houses), Harrisburg (the Pewzners: no regional title), Raleigh, Rockland (Kotlarsky: an executive director, no regional sign). On hold: the Bay Area (the Langers "became the movement's Bay Area
   directors in 1979"; nothing current).
   Still to look at:
   Rockland (Kotlarsky), Westchester, Montgomery County PA (Shaya Deitsch), Essex and Bergen NJ, Passaic (Gurkov),

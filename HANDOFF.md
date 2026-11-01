@@ -8,6 +8,16 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Nov 1: Southern Ohio is Rabbi Yisroel Mangel's; Kalmanson's office is a mushroom
+- Owner: "Yisroel Mangel is head shliach of Southern Ohio not kalmanson - in fact kalmansons moised is mushroom (the one
+  of the current head shliach you have)". So `southern-ohio` has head shliach **Yisroel Mangel**, and its capital is
+  his **Chabad Jewish Center, Cincinnati** (chabad.org 117703, him as director). Rabbi Sholom DovBer Kalmanson's
+  **Chabad of Southern Ohio** office (`extra-chabad-southern-ohio`, 7380 Laurel Oak Lane, Amberley Village; it had been
+  the capital) is a mushroom now, with him on its card. His son's Jewish Discovery Center in Mason (chabad.org 118177)
+  is unchanged: the owner named only Kalmanson's own mosad.
+- Hebrew: ישראל מאנגעל. Chabadpedia's article on the family is titled ניסן מאנגעל (מנגל redirects there), so the
+  surname is מאנגעל for every Mangel on the map (`last-names.json`; also Dayton's Nochum Mangel and Cherry Hill's).
+
 ## ▶ Oct 26: coming back to the page is quicker: names and shapes kept between visits, kept across updates
 - Owner: "map reload when I revisit page takes WAAAAAAYYYYYY too long", and the map lags when zooming in. (Streets and
   Tinted looking bad zoomed out: the owner said to drop it, "Forget the damn streets".)
@@ -157,7 +167,8 @@ between two Claude accounts when usage limits run out; whichever session picks t
   removal or of a new head shliach for Southern Ohio; Chabadpedia (updated with 5786 events: he founded the reopened
   Yeshiva Gedola in Elul 5785) still calls him the director of Chabad in Southern Ohio and a member of Merkos's Kinus
   HaShluchim committee. He isn't on chabad.org's or lubavitch.com's directory (a chabad.org bio of him existed in
-  2008); his son's and sons-in-law's houses are. Nothing changed; the owner may send a source.
+  2008); his son's and sons-in-law's houses are. Nothing changed; the owner may send a source. **Settled Nov 1 by the
+  owner: Yisroel Mangel is the head shliach, and Kalmanson's office is a mushroom (see the top).**
 - Other unverified leads from the same IRS search, for the owner (not added): Welcome Moshiach Inc (20533 Biscayne
   Blvd #139, Aventura; c/o Matisyahu H. Abarbanel; $859k revenue in 2022), Temple Beis Moshiaj Inc (825 NE 205th Ter,
   Miami; 2005, c/o Jay R. Beskin — may not be Chabad), Chabad of Lakewood II Inc (363 Lanes Pond Rd, Howell NJ; since
@@ -1439,8 +1450,9 @@ together at ~4.4 s (1.2 s desktop); no freeze over ~0.6 s, so the map moves from
   Leibel Alevsky, its head shliach for 50+ years, passed away Apr 20, 2026; nothing published names a successor; Greenberg,
   his son-in-law, Solon Chabad since 1991, is the family's senior shliach and gave the keynote at the June 2026 kinus in
   his memory. The capital stays Chabad of Cleveland, the owner's pick), Central Ohio (Areyah Kaltmann), **Southern** Ohio (Sholom Ber Kalmanson; not
-  "Western"), the Toledo area in Michigan. Capitals: Chabad of Cleveland, Chabad of Columbus, and Chabad of Southern
-  Ohio's office (7380 Laurel Oak Lane, Amberley Village; hand-added in `data/extra-centers.json`).
+  "Western"; **Yisroel Mangel since Nov 1**, see the top), the Toledo area in Michigan. Capitals: Chabad of Cleveland, Chabad of Columbus, and Chabad of Southern
+  Ohio's office (7380 Laurel Oak Lane, Amberley Village; hand-added in `data/extra-centers.json`; **since Nov 1 Mangel's
+  Chabad Jewish Center in Cincinnati, Kalmanson's office a mushroom**).
 - Before changing anything on the live map, check what the other account last did (`git log` on
   `claude/bold-albattani-aqfnj9`, and this file) and keep it.
 
@@ -1785,7 +1797,7 @@ Later in the same round:
   Central–Northeast border a few straight segments that keep Central's big bulge east into the Alevsky shetach (made
   by straightening the shared lines and re-tiling; no center changes region vs the original map). Regions: **Northeast Ohio** (`northeast-ohio`, then "Alevsky family", Zushe Greenberg since Oct 10; Cleveland, Akron,
   Youngstown, Canton, east and south to Athens and Marietta), **Central Ohio** (`central-ohio`, Areyah Kaltmann;
-  Columbus, south to Portsmouth/Ironton), **Southern Ohio** (`southern-ohio`, Sholom Ber Kalmanson; Cincinnati,
+  Columbus, south to Portsmouth/Ironton), **Southern Ohio** (`southern-ohio`, Sholom Ber Kalmanson, Yisroel Mangel since Nov 1; Cincinnati,
   Dayton, Springfield, Lima), and the **Toledo area joins Michigan** (Berel Shemtov) as part of the `michigan`
   shetach. The owner let us pick "Northeast" over "Northeastern". The four shapes tile Ohio exactly (union is one
   piece plus the Lake Erie islands; within 0.4% of Census Ohio); only their lines through Ohio are used, Ohio's own

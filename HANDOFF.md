@@ -136,8 +136,9 @@ between two Claude accounts when usage limits run out; whichever session picks t
   - **East Valley — Rabbi Mendy Deitsch** (Arizona): Chabad of the East Valley (Chandler, 1997) and the Ahwatukee centre
     it opened. Those two only (Mesa, Gilbert, San Tan Valley, ASU: no source makes them its branches).
   - **Greater New Haven — Rabbi Sheya Hecht** (Connecticut): "the Chabad director for the Greater New Haven area",
-    the Chabad Centers of Greater New Haven (Oxford its "ninth Chabad Center in the Greater New Haven region"). New
-    Haven County south of Waterbury.
+    the Chabad Centers of Greater New Haven (Oxford its "ninth Chabad Center in the Greater New Haven region"). The
+    South Central Connecticut planning region (09170: Connecticut's 2022 Census units replaced its counties, so 09009
+    no longer exists in the county file).
   Not regional: Pinellas (the Adlers: no regional title), the Main Line and Delaware County (no regional director),
   Madison (one city's houses), Harrisburg (the Pewzners: no regional title), Raleigh, Rockland (Kotlarsky: an executive director, no regional sign). On hold: the Bay Area (the Langers "became the movement's Bay Area
   directors in 1979"; nothing current).

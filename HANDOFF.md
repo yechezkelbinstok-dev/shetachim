@@ -22,9 +22,21 @@ between two Claude accounts when usage limits run out; whichever session picks t
      (mushrooms aside), so the border runs halfway between; the span counts as a house 2 km off (`SPAN`), so a link
      passing near another house doesn't take that house's surroundings and isn't broken by a house farther off.
   4. If its houses still end up apart, the link between them is kept, 3 km wide (none needs it now). Then a 1 km
-     close-and-open (`TIDY`) rounds off spikes and notches (skipped if it would part its houses), holes are filled,
-     and the outline is traced on a softened copy and simplified.
-  5. Cut to the parent's land **in the states its members are in** (not over a state line), split by state; only the
+     close-and-open (`TIDY`) rounds off spikes and notches (skipped if it would part its houses).
+  5. **No gaps to the coast or a state line** (owner, Nov 1, circling Long Island's south shore: "Why the hell massive
+     ass gaps??? Just because there's no center right there doesn't mean borders can't be better"): the shetach's land
+     in the region's states is rasterized; with the region, the water/other states and other houses' land as walls,
+     a closing by `EDGE`/2 (6 km) fills any gap narrower than 12 km (a strip along the coast; a narrow neck like the
+     North and South Forks, all the way out), then a closing by `EDGE` with the coast as a wall rounds the corners so it
+     meets the coast along a front, not a funnel (Rochester on Lake Ontario). Only land **clearly** its own is taken:
+     `CLEAR` (2.5) times nearer its houses than any other house, and within `FILL` (40 km) of them: so the Valley does
+     *not* take the Malibu coast over the hills (nearer Agoura in a straight line than Malibu's house, but Malibu's), and
+     neighbours don't overlap (Bucks and Montgomery County did, with a looser rule). A first try that let it creep on
+     along coasts and state lines gave Rochester wings along the lake, Northern Nevada a run north up the California
+     line and Northern Virginia a run down the Potomac: don't. Then it spills 1.5 km over the edge (cut back to the land
+     after, so the outline is the coast itself), holes are filled, and the outline is traced on a softened copy.
+     The build prints any two regions that overlap (none).
+  6. Cut to the parent's land **in the states its members are in** (not over a state line), split by state; only the
      pieces with its houses in them are kept (and a whole area's main land: the Baja peninsula), so no islets.
   The `membersIn` areas only pick the members now; they never draw the border. The build prints, per region, its
   spots, its longest link, "NOT ONE PIECE" if it isn't, members outside it, and other houses inside it.

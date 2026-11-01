@@ -28,8 +28,12 @@ const CCD_URL = (fips) => `https://raw.githubusercontent.com/uscensusbureau/city
 // it takes to join all its houses into one (so a far house makes a wedge, not a thin arm). SMOOTH: how much its outline is rounded (km). CELL: the grid it's worked out on (km).
 // LINKED: how near a house in a whole area must be to the region's other houses to tie the area to them (km).
 // SPAN: what the land between its houses counts for, against another house nearby: as if a house were this far (km).
-// TIDY: the narrowest spike or notch its outline keeps (km).
-const REACH = 7, LINK = 12, SMOOTH = 6, CELL = 0.25, LINKED = 40, SPAN = 2, TIDY = 1;
+// TIDY: the narrowest spike or notch its outline keeps (km). EDGE: a gap of land narrower than this (km) between it and
+// the coast, a state line or another house's land, nobody else's, is filled in, and so is a neck of land that narrow
+// (Long Island's forks), up to FILL km from its houses (owner, Nov 1: "Why the hell massive ass gaps??? Just because
+// there's no center right there doesn't mean borders can't be better").
+// CLEAR: how many times nearer its houses than any other's that land must be.
+const REACH = 7, LINK = 12, SMOOTH = 6, CELL = 0.25, LINKED = 40, SPAN = 2, TIDY = 1, EDGE = 12, FILL = 40, CLEAR = 2.5;
 
 const data = readJSON(ROOT, 'data', 'sub-shetachim.json');
 // (the counties with the build's fixes; the newest, if there are several)
@@ -161,8 +165,9 @@ function linksOf(km) {
 // them no longer than LINK, or than a third more than the longest link it takes to join them all, and those links),
 // reaching `reach` past it, rounded (a closing by SMOOTH); of that, only the land nearer to one of its houses than to
 // any of `others` (the shetach's other houses: each keeps the land nearer to it, so the border runs halfway between);
-// in one piece without holes, traced smoothly and simplified a little.
-function drawRegion(seeds, others, reach) {
+// then out to the coast, a state line or another house's land where only a thin gap is left (see EDGE: `land` is its
+// shetach's land in its states, as polygons); in one piece without holes, traced smoothly and simplified a little.
+function drawRegion(seeds, others, reach, land) {
   const lat0 = seeds.reduce((a, p) => a + p[1], 0) / seeds.length, lon0 = seeds.reduce((a, p) => a + p[0], 0) / seeds.length;
   const kx = 111.32 * Math.cos((lat0 * Math.PI) / 180), ky = 110.57;
   const toKm = ([lon, lat]) => [(lon - lon0) * kx, (lat - lat0) * ky];
@@ -170,7 +175,7 @@ function drawRegion(seeds, others, reach) {
   const { links, tris, len } = linksOf(km);
   const longest = Math.max(LINK, 1.3 * Math.max(0, ...links.map((e) => e[2])));
   drawRegion.longest = Math.max(0, ...links.map((e) => e[2]));
-  const pad = reach + SMOOTH + 3;
+  const pad = Math.max(reach + SMOOTH, FILL) + 3;
   const xs = km.map((p) => p[0]), ys = km.map((p) => p[1]);
   const x0 = Math.min(...xs) - pad, y0 = Math.min(...ys) - pad, x1 = Math.max(...xs) + pad, y1 = Math.max(...ys) + pad;
   const cell = Math.max(CELL, Math.max(x1 - x0, y1 - y0) / 1600);
@@ -230,10 +235,10 @@ function drawRegion(seeds, others, reach) {
   // (the land between its houses counts as if a house were SPAN km off: a link passing near another house doesn't
   // take that house's own surroundings, nor is it broken by a house farther off)
   const dMine = edt(mm, nx, ny), dOther = cut ? edt(om, nx, ny) : null;
-  const keep = new Uint8Array(n);
+  const keep = new Uint8Array(n), ours = new Uint8Array(n);
   for (let k = 0; k < n; k++) {
-    const mine = Math.min(dMine[k], dSpan[k] + SPAN / cell);
-    keep[k] = (span[k] || band[k] || inGrown[k] * cell >= SMOOTH) && (!dOther || mine <= dOther[k]) ? 1 : 0;
+    ours[k] = !dOther || Math.min(dMine[k], dSpan[k] + SPAN / cell) <= dOther[k] ? 1 : 0;
+    keep[k] = ours[k] && (span[k] || band[k] || inGrown[k] * cell >= SMOOTH) ? 1 : 0;
   }
   // (if that still leaves its houses apart — another's land between them — the link between them stays, 3 km wide)
   const pieceOf = () => { // each kept cell's piece (a number), by flooding from each house in turn
@@ -267,6 +272,42 @@ function drawRegion(seeds, others, reach) {
     const id = flood(m, (k) => k === homes[0]);
     if (homes.every((h) => id[h])) { keep.set(m); break; }
   }
+  // out to the coast, a state line or another house's land, where only a gap narrower than EDGE is left: its shetach's
+  // land in its states, as cells (a scanline fill, even-odd); then the region, the land beyond that and other houses'
+  // land closed together by EDGE/2 (a gap no disc that wide fits in is filled: a strip along the coast, a narrow neck of
+  // land like Long Island's forks; not open country, nor along the coast past its ends), taking only what's clearly
+  // its own (CLEAR times nearer to its houses than to any other: not the Malibu coast over the hills from the Valley,
+  // which is Malibu's), within FILL of its houses, and joined to it
+  const ashore = new Uint8Array(n), rowX = Array.from({ length: ny }, () => []);
+  for (const poly of land) for (const ring of poly) {
+    const pts = ring.map(toKm).map(([x, y]) => [(x - x0) / cell, (y - y0) / cell]);
+    for (let a = 0, b = pts.length - 1; a < pts.length; b = a++) {
+      const [xa, ya] = pts[a], [xb, yb] = pts[b];
+      if (ya === yb) continue;
+      for (let j = Math.max(0, Math.ceil(Math.min(ya, yb))); j < Math.min(ny, Math.ceil(Math.max(ya, yb))); j++) rowX[j].push(xa + ((j - ya) * (xb - xa)) / (yb - ya));
+    }
+  }
+  for (let j = 0; j < ny; j++) {
+    const xr = rowX[j].sort((p, q) => p - q);
+    for (let t = 0; t + 1 < xr.length; t += 2) for (let i = Math.max(0, Math.ceil(xr[t])); i <= Math.min(nx - 1, Math.floor(xr[t + 1])); i++) ashore[j * nx + i] = 1;
+  }
+  const solid = new Uint8Array(n);
+  for (let k = 0; k < n; k++) solid[k] = keep[k] || !ashore[k] || !ours[k] ? 1 : 0;
+  const gaps = shrink(grow(solid, EDGE / 2), EDGE / 2), more = new Uint8Array(n);
+  const free = (k) => ashore[k] && ours[k] && dSpan[k] * cell <= FILL && (!dOther || dOther[k] >= CLEAR * dMine[k]);
+  for (let k = 0; k < n; k++) more[k] = keep[k] || (gaps[k] && free(k)) ? 1 : 0;
+  keep.set(flood(more, (k) => keep[k]));
+  // (and its corners where that meets the region and the coast rounded by EDGE, on the same terms: a front on the coast,
+  // not a funnel)
+  const walled = new Uint8Array(n);
+  for (let k = 0; k < n; k++) walled[k] = keep[k] || !ashore[k] ? 1 : 0;
+  const rounded = shrink(grow(walled, EDGE), EDGE);
+  for (let k = 0; k < n; k++) if (rounded[k] && !keep[k] && free(k)) keep[k] = 1;
+  keep.set(flood(keep, (k) => home[k]));
+  // (and a little over the edge, into the water or the next state, where it's at the edge: the cut to its shetach's land
+  // afterwards then gives the coast itself, not a sliver short of it)
+  const dOut = edt(not(keep), nx, ny);
+  for (let k = 0; k < n; k++) if (!keep[k] && !ashore[k] && dOut[k] * cell <= 1.5) keep[k] = 1;
   // one piece: what's joined to its houses; and no holes (what the grid's edge can't reach is in)
   const joined = flood(keep, (k) => home[k]);
   const outside = flood(not(joined), (k) => { const i = k % nx, j = (k - i) / nx; return i === 0 || j === 0 || i === nx - 1 || j === ny - 1; });
@@ -342,16 +383,23 @@ for (const s of data.subShetachim) {
   const seeds = core.length ? [...core, ...memberDots.filter((d) => inWhole(d) && core.some((c) => kmApart(c, d) <= LINKED))] : memberDots;
   // its shetach's other houses (no member there, and not only mushrooms): each keeps the land nearer to it
   const others = dots.filter((d) => d.shetach === s.parent && !memberDots.includes(d) && d.centers.some((c) => !c.mushroom));
-  const shape = drawRegion(seeds.map((d) => [d.lon, d.lat]), others.map((d) => [d.lon, d.lat]), s.reach ?? REACH);
-  const all = whole.length ? polygonClipping.union(shape, ...whole) : shape;
-  // cut to its shetach's land, in the states its members are in (and its whole areas): not over a state line
+  // its shetach's land in the states its members are in (and its whole areas'): it never crosses a state line
   const states = new Set([...memberDots.map((d) => d.state), ...(s.areas || [])]);
+  const lands = new Map([...states].map((st) => [st, polys(topojson.merge(topo, own.filter((g) => g.properties.state === st)))]).filter(([, ps]) => ps.length));
+  // (just the land round its houses, as far as the drawing can reach)
+  const padKm = Math.max(REACH + SMOOTH, FILL) + 10, mid = seeds.reduce((a, d) => a + d.lat, 0) / seeds.length;
+  const [w, so, e, no] = box([[seeds.map((d) => [d.lon, d.lat])]]), dx = padKm / (111.32 * Math.cos((mid * Math.PI) / 180)), dy = padKm / 110.57;
+  const around = [[[w - dx, so - dy], [e + dx, so - dy], [e + dx, no + dy], [w - dx, no + dy], [w - dx, so - dy]]];
+  const landNear = [...lands.values()].flatMap((ps) => polygonClipping.intersection(ps, around));
+  const shape = drawRegion(seeds.map((d) => [d.lon, d.lat]), others.map((d) => [d.lon, d.lat]), s.reach ?? REACH, landNear);
+  const all = whole.length ? polygonClipping.union(shape, ...whole) : shape;
+  // cut to that land, state by state
   const near = rect(box(all));
   let parts = 0;
   const bits = [];
   for (const st of [...new Set(own.map((g) => g.properties.state))]) {
-    if (!states.has(st)) continue;
-    const land = polygonClipping.intersection(polys(topojson.merge(topo, own.filter((g) => g.properties.state === st))), near);
+    if (!lands.has(st)) continue;
+    const land = polygonClipping.intersection(lands.get(st), near);
     if (!land.length) continue;
     // (only the pieces with its houses in them, and a whole area's main land: no islets or slivers across a bay)
     const part = tidy(polygonClipping.intersection(all, land))
@@ -369,6 +417,14 @@ for (const s of data.subShetachim) {
     .flatMap((d) => d.centers.filter((c) => !c.mushroom && !isMember(c, d)).map((c) => `${c.name} (${c.city || ''}, ${c.id})`));
   const lost = memberDots.filter((d) => !inPolys(d.lon, d.lat, drawn)).flatMap((d) => d.centers.filter((c) => isMember(c, d)).map((c) => `${c.name} (${c.id})`));
   console.log(`${s.id}: ${memberDots.length} spots, longest link ${drawRegion.longest.toFixed(0)} km, ${parts} part${parts === 1 ? '' : 's'}${bits.length ? ` — NOT ONE PIECE: ${bits.join(', ')}` : ''}${lost.length ? `; members outside it (off the coast?): ${lost.join('; ')}` : ''}${strays.length ? `; inside but not members: ${strays.join('; ')}` : ''}`);
+}
+// (two regions over the same land would be a mistake: say so)
+for (let a = 0; a < features.length; a++) for (let b = a + 1; b < features.length; b++) {
+  const fa = features[a], fb = features[b];
+  if (fa.properties.state !== fb.properties.state || fa.properties.id === fb.properties.id) continue;
+  const both = polygonClipping.intersection(fa.geometry.coordinates, fb.geometry.coordinates);
+  const area = both.reduce((t, p) => t + ringArea(p[0]), 0);
+  if (area > 1e-5) console.log(`OVERLAP: ${fa.properties.id} and ${fb.properties.id} share ${(area * 111 * 111 * Math.cos((box(both)[1] * Math.PI) / 180)).toFixed(1)} km²`);
 }
 const outFile = path.join(ROOT, 'web', 'data', 'sub.json');
 fs.writeFileSync(outFile, JSON.stringify({ type: 'FeatureCollection', features }));

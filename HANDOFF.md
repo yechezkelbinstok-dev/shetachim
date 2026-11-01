@@ -116,7 +116,14 @@ between two Claude accounts when usage limits run out; whichever session picks t
   Asked of the owner: **Westchester** — Rabbi Velvel Butman was its head shliach ("Executive Regional Director of
   Chabad Lubavitch of Westchester County", 11 centers), but one source says headquarters removed him; chabad.org now
   lists Rochel Butman. Camden County (Mangel): a local executive director, no regional sign.
-  Still to look at: Dallas,
+  - **Dallas — Rabbi Mendel Dubrawsky** (Texas): "regional director of Chabad-Lubavitch of Dallas"; houses "joining the
+    larger growing network of Chabad Houses under the auspices of Chabad of North Texas and the leadership of Rabbi
+    Mendel Dubrawsky"; 11 houses in Dallas. Dallas, Collin, Denton, Rockwall (not Tarrant: Fort Worth's own).
+  - **Howard County — Rabbi Hillel Baron** (Maryland): the Lubavitch Center of Howard County and his family's houses
+    (Ellicott City, Clarksville, Laurel); "the 5 Chabad centers in Howard County". Howard.
+  Not regional: Madison (one city's houses). On hold: the Bay Area (the Langers "became the movement's Bay Area
+  directors in 1979"; nothing current).
+  Still to look at:
   Rockland (Kotlarsky), Westchester, Montgomery County PA (Shaya Deitsch), Essex and Bergen NJ, Passaic (Gurkov),
   Camden (Mangel), Atlantic County (Rapoport), Howard County MD (Baron), Madison WI (Matusof), New Haven (Hecht),
   the Bay Area, Orange County.

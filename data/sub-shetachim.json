@@ -363,6 +363,53 @@
         }
       ],
       "source": "Chabad Lubavitch of Tampa Bay, Inc. (1988), Rabbi Yossie and Sulha Dubrowski, with its school; its South Tampa branch, Chabad Chai (Rabbi Mendy and Nechama Dina Dubrowski) (IRS; chabadchaicenter.com). Pinellas County has its own Chabad of Pinellas County, so it isn't in it. Its members: the houses in Hillsborough County."
+    },
+    {
+      "id": "north-broward-south-palm-beach",
+      "parent": "florida",
+      "name": "North Broward & South Palm Beach",
+      "nameHe": "צפון ברוורד ודרום פאלם ביץ׳",
+      "head": "Yosef Biston",
+      "headHe": "יוסף ביסטון",
+      "capital": "117591",
+      "membersIn": [
+        {
+          "box": [
+            -80.9,
+            26.19,
+            -80.0,
+            26.75
+          ],
+          "county": "12011"
+        },
+        {
+          "box": [
+            -80.9,
+            26.0,
+            -80.0,
+            26.48
+          ],
+          "county": "12099"
+        }
+      ],
+      "source": "Chabad-Lubavitch of North Broward and South Palm Beach: Rabbi Yosef Biston its \"executive vice president\" (chabad.org), its headquarters chabad.org's \"Chabad of Parkland – Regional HQ for North Broward & South Palm Beach\"; he founded the Chabad Center of Margate in 1985 under that heading (a 2000 Chabad postcard). Its members: Broward County's houses north of Fort Lauderdale (Coral Springs, Parkland, Margate, Coconut Creek, Tamarac, Pompano Beach, Deerfield Beach, Lighthouse Point) and Palm Beach County's south of Boynton Beach (Boca Raton, Delray Beach), as the office's name has it."
+    },
+    {
+      "id": "inland-empire",
+      "parent": "west-coast",
+      "name": "Inland Empire",
+      "nameHe": "אינלנד אמפייר",
+      "head": "Sholom Harlig",
+      "headHe": "שלום הרליג",
+      "capital": "117576",
+      "membersIn": [
+        {
+          "counties": [
+            "06071"
+          ]
+        }
+      ],
+      "source": "Chabad of the Inland Empire (Rancho Cucamonga), \"since its inception in 1989 under the direction of Rabbi Sholom and Chanie Harlig\" (its own site), with the Chabad Jewish Center of Chino Hills (Rabbi Mendy Harlig, 2020). Its members: the houses in San Bernardino County. Riverside and Temecula aren't in it: no source ties them to it."
     }
   ]
 }

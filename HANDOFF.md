@@ -101,7 +101,12 @@ between two Claude accounts when usage limits run out; whichever session picks t
     several centers, his sons' Downtown Sarasota and Bradenton. Sarasota, Manatee.
   - **Tampa — Rabbi Yossie Dubrowski** (Florida): Chabad Lubavitch of Tampa Bay (1988) and its South Tampa branch.
     Hillsborough only (Pinellas has its own Chabad of Pinellas County).
-  Still to look at: North Broward (Denburg; Biston's Parkland "Regional HQ"), Inland Empire (Harlig), Dallas,
+  - **North Broward & South Palm Beach — Rabbi Yosef Biston** (Florida): "executive vice president of Chabad-Lubavitch
+    of North Broward and South Palm Beach" (chabad.org), its HQ chabad.org's "Chabad of Parkland – Regional HQ";
+    founded Margate in 1985 under that heading. Broward north of Fort Lauderdale, Palm Beach County south of Boynton.
+  - **Inland Empire — Rabbi Sholom Harlig** (West Coast): Chabad of the Inland Empire since 1989, with Chino Hills
+    (Mendy Harlig). San Bernardino County (Riverside and Temecula not tied to it by any source).
+  Still to look at: Dallas,
   Rockland (Kotlarsky), Westchester, Montgomery County PA (Shaya Deitsch), Essex and Bergen NJ, Passaic (Gurkov),
   Camden (Mangel), Atlantic County (Rapoport), Howard County MD (Baron), Madison WI (Matusof), New Haven (Hecht),
   the Bay Area, Orange County.

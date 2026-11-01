@@ -83,6 +83,28 @@ between two Claude accounts when usage limits run out; whichever session picks t
   - **South Broward — Rabbi Raphael Tennenhaus** (Florida's; capital Chabad of South Broward, Hallandale): "director of
     Chabad activities in south Broward", a network of "11 Chabad centers" (TorahCafe; the Jewish Press). Broward's houses
     south of Fort Lauderdale.
+  **Second pass (owner: "there's way more regionals than that, keep going").** Candidates from the data itself
+  (houses named for a county or region, and a family's houses clustered round a senior director: a regional director
+  usually places his sons and sons-in-law in its branches), each checked for an umbrella over several houses in an area:
+  - **Greater Orlando — Rabbi Sholom Dubov** (Florida): "Head Shliach to the Greater Orlando Area"; Maitland, Winter
+    Park–Oviedo (Tzviky Dubov), North Orlando (son-in-law Yanky Majesky), Altamonte Springs, "seventh location";
+    shluchim "appointed by Rabbi Dubov" round Central Florida. Orange, Seminole, Osceola.
+  - **Greater Austin — Rabbi Yosef Levertov** (Texas): Chabad of Greater Austin and its six centers (UT, South Austin,
+    YJP/Downtown, Round Rock, Leander), his family's. Travis, Williamson, Hays.
+  - **Greater Mercer County — Rabbi Dovid Dubov** (New Jersey): appointed by the Rabbinical College "to oversee
+    Chabad Lubavitch of Greater Mercer County". Mercer.
+  - **Bucks County — Rabbi Yehuda Shemtov** (Pennsylvania): Lubavitch of Bucks County's executive director, with its
+    branch "Lubavitch of Central Bucks County West". Bucks.
+  - **Staten Island — Rabbi Moshe Katzman** (New York City's): Chabad Lubavitch of Staten Island and the island's
+    houses his family runs (South Shore, Tottenville, the school). Richmond.
+  - **Sarasota & Manatee — Rabbi Chaim Steinmetz** (Florida): Chabad Lubavitch of Sarasota and Manatee Counties,
+    several centers, his sons' Downtown Sarasota and Bradenton. Sarasota, Manatee.
+  - **Tampa — Rabbi Yossie Dubrowski** (Florida): Chabad Lubavitch of Tampa Bay (1988) and its South Tampa branch.
+    Hillsborough only (Pinellas has its own Chabad of Pinellas County).
+  Still to look at: North Broward (Denburg; Biston's Parkland "Regional HQ"), Inland Empire (Harlig), Dallas,
+  Rockland (Kotlarsky), Westchester, Montgomery County PA (Shaya Deitsch), Essex and Bergen NJ, Passaic (Gurkov),
+  Camden (Mangel), Atlantic County (Rapoport), Howard County MD (Baron), Madison WI (Matusof), New Haven (Hecht),
+  the Bay Area, Orange County.
   None found (the head shliach is the regional director, the cities have local directors): Texas (Lazaroff, "Texas
   regional director"), Pennsylvania, Illinois, Maryland, Georgia, Michigan, Colorado, the Carolinas (South Carolina's
   Epstein: a local director), the rest of New Jersey (Greater Mercer: an executive director), Westchester, Rockland,

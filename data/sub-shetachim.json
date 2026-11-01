@@ -1,5 +1,5 @@
 {
-  "about": "Sub-shetachim: a regional director's area under a head shliach. They show only with the map's Sub-shetachim switch, never on the head shluchim's map (owner, Oct 26: \"I meant as a separate thing to toggle to see sub shetachim not in the head shluchim part\"). Each is drawn with borders of its own, round its member houses (owner, Nov 1: \"why are you using county situations you should be drawing your own borders\"): members are listed (members: chabad.org ids), or are the parent shetach's houses within membersIn (US counties by Census GEOID, L.A. Times neighbourhoods by region or name, county subdivisions by name in one county, { box: [west, south, east, north], county? } (a box, or the part of a county in it), or { near: [lon, lat], km }), less exclude; mushrooms never count. areas: whole areas of the map added as they are (the Baja peninsula). reach / join (km, optional): how far round each house it reaches (3), and the gaps it bridges (up to twice 6). Most shetachim have none, and none fills its shetach: the rest stays the head shliach's own. scripts/build-sub.mjs makes web/data/sub.json (npm run build runs it).",
+  "about": "Sub-shetachim: a regional director's area under a head shliach. They show only with the map's Sub-shetachim switch, never on the head shluchim's map (owner, Oct 26: \"I meant as a separate thing to toggle to see sub shetachim not in the head shluchim part\"). Each is ONE piece with borders of its own (owner, Nov 1: \"why are you using county situations you should be drawing your own borders\"; then \"Why the fuck have you made disconnected ones like the valley and inland empires with horrible borders\"): the land its member houses span (the triangles between them and the links joining them all), reaching a little past them, rounded, and cut halfway to any of the shetach's other houses nearby. Members are listed (members: chabad.org ids), or are the parent shetach's houses within membersIn (US counties by Census GEOID, L.A. Times neighbourhoods by region or name, county subdivisions by name in one county, { box: [west, south, east, north], county? } (a box, or the part of a county in it), or { near: [lon, lat], km }), less exclude; mushrooms never count. Those areas only pick the members: they never draw the border. areas: whole areas of the map added as they are (the Baja peninsula). reach (km, optional): how far past its houses it reaches (3). Most shetachim have none, and none fills its shetach: the rest stays the head shliach's own. scripts/build-sub.mjs makes web/data/sub.json (npm run build runs it).",
   "subShetachim": [
     {
       "id": "san-diego-baja",
@@ -30,7 +30,7 @@
       "head": "Mordechai Einbinder",
       "headHe": "מרדכי איינבינדר",
       "capital": "117545",
-      "source": "Chabad of the Valley (Tarzana). Its staff page (2004) lists its houses across the San Fernando Valley (Encino, Tarzana, Porter Ranch, North Hollywood, Sherman Oaks, Studio City, Woodland Hills, Calabasas, Chatsworth, Northridge, CSUN) and, under it, the Conejo (Rabbi Moshe Bryski, \"Conejo Regional Director\": Agoura, Westlake, Oak Park, Thousand Oaks), Ventura (Rabbi Yakov Latowicz), Simi Valley (Rabbi Noson Gurary) and the Santa Clarita Valley (Rabbi Choni Marozov), each called \"Regional Director\". Its founder, Rabbi Joshua B. Gordon, passed away 29 Shevat 5776 (Chabadpedia). The Jewish Journal (May 2, 2024) calls Rabbi Mordechai Einbinder the \"leader of the sprawling Chabad of the Valley community based in Tarzana\", 32 institutions. Its members, the houses on that list (the owner, Nov 1: \"What about that 2004 thing? I'm sure that's still accurate as well\"): those in the San Fernando Valley (the L.A. Times' region), Calabasas and Hidden Hills; the Conejo (Agoura Hills, Westlake Village, and Ventura County's Thousand Oaks county subdivision: Thousand Oaks, Newbury Park, Oak Park, North Ranch); Simi Valley; the Santa Clarita Valley; and Ventura (a part of its own, past Camarillo and Oxnard). Not Oxnard or Camarillo (the owner: \"Oxnard and Camarillo are way way past the valley\"; each has its own house, not on the list), nor Moorpark or Ojai. Drawn round those houses, not the county lines (the owner: \"why does it stretch so North\").",
+      "source": "Chabad of the Valley (Tarzana). Its staff page (2004) lists its houses across the San Fernando Valley (Encino, Tarzana, Porter Ranch, North Hollywood, Sherman Oaks, Studio City, Woodland Hills, Calabasas, Chatsworth, Northridge, CSUN) and, under it, the Conejo (Rabbi Moshe Bryski, \"Conejo Regional Director\": Agoura, Westlake, Oak Park, Thousand Oaks), Ventura (Rabbi Yakov Latowicz), Simi Valley (Rabbi Noson Gurary) and the Santa Clarita Valley (Rabbi Choni Marozov), each called \"Regional Director\". Its founder, Rabbi Joshua B. Gordon, passed away 29 Shevat 5776 (Chabadpedia). The Jewish Journal (May 2, 2024) calls Rabbi Mordechai Einbinder the \"leader of the sprawling Chabad of the Valley community based in Tarzana\", 32 institutions. Its members, the houses on that list (the owner, Nov 1: \"What about that 2004 thing? I'm sure that's still accurate as well\"): those in the San Fernando Valley (the L.A. Times' region), Calabasas and Hidden Hills; the Conejo (Agoura Hills, Westlake Village, and Ventura County's Thousand Oaks county subdivision: Thousand Oaks, Newbury Park, Oak Park, North Ranch); Simi Valley; and the Santa Clarita Valley. Not Oxnard or Camarillo (the owner: \"Oxnard and Camarillo are way way past the valley\"; each has its own house, not on the list), nor Moorpark or Ojai; and so not Ventura either, though the 2004 list has it: it lies beyond Camarillo and Oxnard, and the region is one piece (the owner, Nov 1: \"Why ... disconnected ones like the valley\"), which can't reach it without them. Drawn round those houses, not the county lines (the owner: \"why does it stretch so North\").",
       "membersIn": [
         {
           "laRegions": [
@@ -54,8 +54,7 @@
             "county": "06111",
             "names": [
               "Thousand Oaks",
-              "Simi Valley",
-              "Ventura"
+              "Simi Valley"
             ]
           }
         }
@@ -108,12 +107,11 @@
       "membersIn": [
         {
           "counties": [
-            "04019",
-            "04003"
+            "04019"
           ]
         }
       ],
-      "source": "The owner, Nov 1: \"Tucson/Vail is Shemtov no?\". Chabad Lubavitch of Tucson, Rabbi Yossie Shemtov its executive director (chabad.org), and the houses round it: Chabad on River (Rabbi Ram Bigelman), Chabad of Oro Valley (Rabbi Ephraim Zimmerman), Chabad of Vail (Rabbi Yisroel Shemtov), the University of Arizona's Chabad House (Rabbi Shmulie Shanowitz) and Chabad of Cochise County (Rabbi Benzion Shemtov, Sierra Vista: a part of its own). Its members: the houses in Pima and Cochise Counties."
+      "source": "The owner, Nov 1: \"Tucson/Vail is Shemtov no?\". Chabad Lubavitch of Tucson, Rabbi Yossie Shemtov its executive director (chabad.org), and the houses round it: Chabad on River (Rabbi Ram Bigelman), Chabad of Oro Valley (Rabbi Ephraim Zimmerman), Chabad of Vail (Rabbi Yisroel Shemtov), the University of Arizona's Chabad House (Rabbi Shmulie Shanowitz). Its members: the houses in Pima County. Not Chabad of Cochise County (Rabbi Benzion Shemtov, Sierra Vista), 70 km off across the desert: the region is one piece (owner, Nov 1: \"Why ... disconnected ones\"), and no source makes it Tucson's branch."
     },
     {
       "id": "petersburg",
@@ -271,12 +269,11 @@
         {
           "counties": [
             "48453",
-            "48491",
-            "48209"
+            "48491"
           ]
         }
       ],
-      "source": "Chabad of Greater Austin, directed by Rabbi Yosef and Rochel Levertov, and its branches: \"The six Chabad centers in Austin include Chabad of Austin, the Rohr Chabad Jewish Student Center at the University of Texas at Austin, Chabad of South Austin, Chabad Young Jewish Professionals (YJP) and Downtown Austin, Chabad of Round Rock and Chabad of Leander\", led by his son-in-law and sons (Shalom Austin; Anash). Its members: the houses in Travis, Williamson and Hays Counties."
+      "source": "Chabad of Greater Austin, directed by Rabbi Yosef and Rochel Levertov, and its branches: \"The six Chabad centers in Austin include Chabad of Austin, the Rohr Chabad Jewish Student Center at the University of Texas at Austin, Chabad of South Austin, Chabad Young Jewish Professionals (YJP) and Downtown Austin, Chabad of Round Rock and Chabad of Leander\", led by his son-in-law and sons (Shalom Austin; Anash). Its members: the houses in Travis and Williamson Counties, where those six are. Not San Marcos (Hays County, 40 km south): it isn't one of the six, and it would hang off the region on a long arm (the region is one piece; owner, Nov 1)."
     },
     {
       "id": "greater-mercer",
@@ -402,14 +399,11 @@
       "head": "Sholom Harlig",
       "headHe": "שלום הרליג",
       "capital": "117576",
-      "membersIn": [
-        {
-          "counties": [
-            "06071"
-          ]
-        }
-      ],
-      "source": "Chabad of the Inland Empire (Rancho Cucamonga), \"since its inception in 1989 under the direction of Rabbi Sholom and Chanie Harlig\" (its own site), with the Chabad Jewish Center of Chino Hills (Rabbi Mendy Harlig, 2020). Its members: the houses in San Bernardino County. Riverside and Temecula aren't in it: no source ties them to it."
+      "source": "Chabad of the Inland Empire (Rancho Cucamonga), \"since its inception in 1989 under the direction of Rabbi Sholom and Chanie Harlig\" (its own site), with the Chabad Jewish Center of Chino Hills (Rabbi Mendy Harlig, 2020). Its members: those two. Not Lake Arrowhead & Big Bear (Rabbi Zalmen Bernstein, up in the mountains), Riverside, Temecula or the Claremont colleges: no source ties them to it.",
+      "members": [
+        "117576",
+        "4556577"
+      ]
     },
     {
       "id": "montgomery-county-pa",
@@ -634,6 +628,81 @@
         }
       ],
       "source": "Rabbi Sheya Hecht, \"the Chabad director for the Greater New Haven area\", headmaster of the Southern Connecticut Hebrew Day School in Orange; Rabbi Sheya and Bluma Hecht run the Chabad Centers of Greater New Haven, where Oxford was opened as \"the ninth Chabad Center in the Greater New Haven region\" (MyJewishLearning; COLlive; jewishmilford.com). Its members: the houses of the South Central Connecticut planning region, Connecticut's unit for the area since 2022 (New Haven, Hamden, Orange, Milford, Wallingford, Guilford); not Waterbury's."
+    },
+    {
+      "id": "south-bay",
+      "parent": "west-coast",
+      "name": "South Bay",
+      "nameHe": "סאות׳ ביי",
+      "head": "Eli Hecht",
+      "headHe": "אלי העכט",
+      "capital": "117551",
+      "members": [
+        "117551",
+        "7398257",
+        "117566",
+        "118202",
+        "5696789",
+        "5121985"
+      ],
+      "source": "Chabad of South Bay (Lomita, its first minyan Rosh Hashanah 1973), Rabbi Eli Hecht, whom chabad.org lists as its \"Regional Director\"; his biography: \"Regional Director of the South Bay area ranging from San Pedro to Gardena, Palos Verdes, Redondo Beach and Torrance\" (chabadsb.org, About Rabbi Hecht). Its members: the houses of that area (Lomita, Torrance, Rancho Palos Verdes, Redondo Beach's two, San Pedro)."
+    },
+    {
+      "id": "greater-south-bay",
+      "parent": "west-coast",
+      "name": "Greater South Bay",
+      "nameHe": "סאות׳ ביי רבתי",
+      "head": "Yosef Levin",
+      "headHe": "יוסף לוין",
+      "capital": "117564",
+      "members": [
+        "117564",
+        "1666288",
+        "118538",
+        "5405299",
+        "118585",
+        "1716502",
+        "214924"
+      ],
+      "source": "Chabad of Greater South Bay (Palo Alto, since 1980), Rabbi Yosef and Dena Levin: \"centers in Palo Alto, Sunnyvale, Mountain View and at Stanford University\" (Lubavitch.com, A Silver Anniversary for Chabad of Palo Alto); he \"expanded the South Bay network to five centers\" (J. Weekly); chabad.org lists Chabad of Mountain View's rabbi on its staff. Los Altos Chabad (Rabbi Ezzy and Nechama Schusterman, Mountain View) was \"re-established in 2010 as an affiliate of Chabad Lubavitch of the Chabad of Greater South Bay\" (J. Weekly's directory). Its members: those (Chabad of Greater South Bay and Chabad Palo Alto, Chabad at Stanford, Chabad Jewish Center of Mountain View, Chabad of Sunnyvale, Los Altos Chabad, and the Schustermans' Bay Area Friendship Circle in Palo Alto). Not Silicon Valley's and the Peninsula's other houses (Cupertino, Menlo Park, Redwood City, Portola Valley, Santa Clara, San Jose): no source makes them its branches."
+    },
+    {
+      "id": "northeast-florida",
+      "parent": "florida",
+      "name": "Northeast Florida",
+      "nameHe": "צפון-מזרח פלורידה",
+      "head": "Yoseph Kahanov",
+      "headHe": "יוסף כהנוב",
+      "capital": "117889",
+      "membersIn": [
+        {
+          "counties": [
+            "12031",
+            "12109",
+            "12019",
+            "12089"
+          ]
+        }
+      ],
+      "source": "Rabbi Yoseph and Rivkie Kahanov, \"head Shluchim to North East Florida\", founders and directors of Chabad Lubavitch of Northeast Florida (Jacksonville), and its centers across the region: Chabad of Clay County was \"the fifth Chabad Center to serve the growing Northeast FL region\" (2011), with Chabad of Southside, Chabad at the Beaches and St. Augustine; Amelia Island's shluchim, Rabbi Levi and Mindy Katz, were \"appointed by Rabbi Yosef and Rivkie Kahanov\" (First Coast Chabad; CrownHeights.info; Anash). Its members: the houses of Duval, St. Johns, Clay and Nassau Counties."
+    },
+    {
+      "id": "rochester",
+      "parent": "upstate-new-york",
+      "name": "Rochester",
+      "nameHe": "רוצ׳סטר",
+      "head": "Nechemia Vogel",
+      "headHe": "נחמיה פוגל",
+      "capital": "117693",
+      "membersIn": [
+        {
+          "counties": [
+            "36055",
+            "36051"
+          ]
+        }
+      ],
+      "source": "Rabbi Nechemia Vogel, head shliach to Rochester since 1981 (Chabadpedia), \"director of Chabad of Rochester and regional head shliach\" (Yeshiva World News, on the new shluchim to SUNY Geneseo), at the Kessler Family Chabad Center; the houses round the city under it (the Chabad Times' directory): the Rohr Chabad House at the University of Rochester (his daughter and son-in-law, the Yarases), Chabad Young Professionals (his son Moshe), Chabad of Pittsford, Chabad at RIT, and Chabad of Geneseo at SUNY Geneseo. Its members: the houses of Monroe County and of Livingston County (Geneseo)."
     }
   ]
 }

@@ -8,6 +8,58 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Nov 1 (later): every sub-shetach is ONE piece with clean borders; four more regions
+- Owner: "Why the fuck have you made disconnected ones like the valley and inland empires with horrible borders as
+  well???" The old drawing (a 3 km disc round each house, gaps up to 12 km bridged, clipped to the counties or L.A.
+  neighbourhoods its members came from) left 19 of the 36 regions in bits (San Diego–Baja 36, the Valley, Long Island
+  and Sarasota 5 each…) with jagged clipped edges.
+- **The new drawing (`scripts/build-sub.mjs`, `drawRegion`), on a 250 m grid round the region's houses:**
+  1. *The span:* the Delaunay triangles between its houses, no longer than 12 km (`LINK`) or than 1.3 × the longest
+     link of their minimum spanning tree (so a far house makes a wedge, not an arm), plus those links. Always one
+     piece. A triangle with another of the shetach's houses in it is left out (that house keeps its own land).
+  2. *Reach:* 7 km (`REACH`, or an entry's `reach`) round the span, rounded by a 6 km closing (`SMOOTH`).
+  3. *Its own land only:* each cell goes to whoever is nearer, the region's houses or any other house of the shetach
+     (mushrooms aside), so the border runs halfway between; the span counts as a house 2 km off (`SPAN`), so a link
+     passing near another house doesn't take that house's surroundings and isn't broken by a house farther off.
+  4. If its houses still end up apart, the link between them is kept, 3 km wide (none needs it now). Then a 1 km
+     close-and-open (`TIDY`) rounds off spikes and notches (skipped if it would part its houses), holes are filled,
+     and the outline is traced on a softened copy and simplified.
+  5. Cut to the parent's land **in the states its members are in** (not over a state line), split by state; only the
+     pieces with its houses in them are kept (and a whole area's main land: the Baja peninsula), so no islets.
+  The `membersIn` areas only pick the members now; they never draw the border. The build prints, per region, its
+  spots, its longest link, "NOT ONE PIECE" if it isn't, members outside it, and other houses inside it.
+- **Result:** every region one piece. The one exception is South Dade's Chabad of Key Biscayne (one of Rabbi Fellig's
+  "13 Branches Across South Dade", chabadmiami.com), on its island across the bay.
+- **Membership changes it forced (each in the entry's `source`):** the Valley no longer takes Ventura (beyond
+  Camarillo and Oxnard, which the owner says aren't the Valley; one piece can't reach it); the Inland Empire is its two
+  houses, Rancho Cucamonga and Chino Hills (Lake Arrowhead & Big Bear is Rabbi Zalmen Bernstein's, in only by county);
+  Tucson is Pima County (Sierra Vista's Chabad of Cochise County, 70 km off across the desert, was an arm); Greater
+  Austin is Travis and Williamson (San Marcos isn't one of its six centers, and it was an arm).
+- **Four more regions (third pass of the USA sweep):**
+  - **Rochester — Rabbi Nechemia Vogel** (Upstate NY): head shliach to Rochester since 1981 (Chabadpedia), "director of
+    Chabad of Rochester and regional head shliach" (Yeshiva World News); UR (the Yarases), YP (Moshe Vogel), Pittsford,
+    RIT, Geneseo. Monroe and Livingston Counties.
+  - **Northeast Florida — Rabbi Yoseph Kahanov**: "head Shluchim to North East Florida"; Clay County "the fifth Chabad
+    Center to serve the growing Northeast FL region"; Amelia Island's shluchim "appointed by Rabbi Yosef and Rivkie
+    Kahanov". Duval, St. Johns, Clay, Nassau.
+  - **Greater South Bay — Rabbi Yosef Levin** (Palo Alto, West Coast): "centers in Palo Alto, Sunnyvale, Mountain View
+    and at Stanford University" (Lubavitch.com); Los Altos Chabad "re-established in 2010 as an affiliate of Chabad
+    Lubavitch of the Chabad of Greater South Bay" (J. Weekly). Listed members (7).
+  - **South Bay (L.A.) — Rabbi Eli Hecht**: chabad.org lists him as Chabad of South Bay's "Regional Director"; his bio:
+    "Regional Director of the South Bay area ranging from San Pedro to Gardena, Palos Verdes, Redondo Beach and
+    Torrance". Its six houses.
+  Checked, not regional (no regional title or branches found): Greater Hartford (the Gopins' houses are "separate
+  operations", Jewish Ledger 2011), San Antonio (Block), Tidewater (Margolin), Lehigh Valley (Halperin), Central NY
+  (Rapoport), Orange County NY (Burston), Fort Worth (Mandel), Bergen County (Simon: only Hackensack "initially under
+  the auspices"), Essex County (Klar), the Space Coast (Konikov), Greater Daytona (Ezagui), Seattle's Eastside
+  (Farkash), North Suburban Chicago (Schanowitz), West Orange County CA (Berkowitz). Still asked of the owner:
+  Westchester (Rabbi Velvel Butman, whom the county still calls its Chabad's executive director; chabad.org lists Rochel
+  Butman; one source says headquarters removed him).
+- Checked with screenshots: the Valley, Inland Empire, South Bay and Greater South Bay, San Diego, Northern Nevada, Las
+  Vegas, Tucson and East Valley, Austin, Dallas, St. Louis, Northern Virginia and Howard County, NJ (Passaic, Northwest
+  NJ, Mercer, Western Monmouth, Atlantic), Staten Island, Long Island, New Haven, Philadelphia's two, Rochester, the
+  Florida ones; phone and dark.
+
 ## ▶ Nov 1: GitHub Pages deploys can lock for ~45 minutes — check that a push actually went live
 - The owner: "I never saw the push". The pushes were on the branch, but GitHub Pages' "pages build and deployment"
   runs failed: "Deployment request failed for <sha> due to in progress deployment. Please cancel <older sha> first or
@@ -33,14 +85,10 @@ between two Claude accounts when usage limits run out; whichever session picks t
   director", its capital (headquarters), its shetach and head ("West Coast · Shlomo Cunin") and its centers (mushrooms
   apart with Mushrooms on). Everything else on the map is as it was.
 - **Borders of their own (owner, Nov 1: "why does it stretch so North why are you using county situations you should
-  be drawing your own borders").** `scripts/build-sub.mjs` draws each region round its member houses: a 3 km disc round
-  each, the gaps between them filled up to 12 km (a morphological closing on a 250 m grid: an exact distance transform,
-  traced with d3-contour and simplified), kept within the areas its members come from (so the Valley stops at the Santa
-  Monica Mountains, Northern Nevada at the state line), cut to the parent shetach's land and split by state. A town an
-  hour away is a part of its own (Ventura; Sierra Vista). `reach`/`join` on an entry change the 3 and 6 km. The build
-  prints the shetach's houses that fall inside a region but aren't its members, to look at. Members: listed
-  (`members`), or the parent's houses in `membersIn` (counties, L.A. Times regions/neighbourhoods, county subdivisions,
-  or `near` a point within `km`), less `exclude`; mushrooms never count; `areas` (Baja) go in whole.
+  be drawing your own borders").** Redrawn later the same day as one piece each (see the section above: the span of
+  its houses, 7 km past it, halfway to any other house). Members: listed (`members`), or the parent's houses in
+  `membersIn` (counties, L.A. Times regions/neighbourhoods, county subdivisions, a `box`, or `near` a point within
+  `km`), less `exclude`; mushrooms never count; `areas` (Baja) go in whole.
 - **Data:** `data/sub-shetachim.json`, one entry per region with its `parent` shetach, `head`/`headHe`,
   `name`/`nameHe`, `capital` (a chabad.org center id), `territory` and `source`. A territory is made of US counties (Census
   GEOID), whole areas of the map (`area`: the state code in geo.json, e.g. MX-BCN), or L.A. County neighbourhoods
@@ -156,10 +204,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
   Not regional: Pinellas (the Adlers: no regional title), the Main Line and Delaware County (no regional director),
   Madison (one city's houses), Harrisburg (the Pewzners: no regional title), Raleigh, Rockland (Kotlarsky: an executive director, no regional sign). On hold: the Bay Area (the Langers "became the movement's Bay Area
   directors in 1979"; nothing current).
-  Still to look at:
-  Rockland (Kotlarsky), Westchester, Montgomery County PA (Shaya Deitsch), Essex and Bergen NJ, Passaic (Gurkov),
-  Camden (Mangel), Atlantic County (Rapoport), Howard County MD (Baron), Madison WI (Matusof), New Haven (Hecht),
-  the Bay Area, Orange County.
+  (The rest of this list was worked through: see the newest Nov 1 section.)
   None found (the head shliach is the regional director, the cities have local directors): Texas (Lazaroff, "Texas
   regional director"), Pennsylvania, Illinois, Maryland, Georgia, Michigan, Colorado, the Carolinas (South Carolina's
   Epstein: a local director), the rest of New Jersey (Greater Mercer: an executive director), Westchester, Rockland,
@@ -167,10 +212,8 @@ between two Claude accounts when usage limits run out; whichever session picks t
   current director found), Spokane. Cape Cod & the Islands is already a shetach of its own.
 - **Asked of the owner, not drawn:** Parkland's "Regional HQ for North Broward & South Palm Beach" (Biston; chabad.org's
   own name — which houses?); whether the Andrusiers' Chabad Lubavitch of Southwest Broward is Tennenhaus's or a
-  network of its own; the South Bay (Rabbi Eli Hecht's bio: "Regional Director of the South Bay area
-  ranging from San Pedro to Gardena, Palos Verdes, Redondo Beach and Torrance"; chabad.org now has him as rabbi
-  emeritus, Sholom Pinson as director: still a region?); Chabad of the Inland Empire (Rabbi Sholom Harlig, Rancho
-  Cucamonga: a region?); whether Ventura, Simi, the Conejo and Santa Clarita are still the Valley's (the list is from
+  network of its own; (the South Bay and the Inland Empire are drawn now: chabad.org lists Rabbi Eli Hecht as
+  "Regional Director"; Harlig's two houses); whether Ventura, Simi, the Conejo and Santa Clarita are still the Valley's (the list is from
   2004; the owner says it still is); Moorpark, Ojai and the Antelope Valley (left out). No regional layer found for Orange County, Long Beach, the Bay Area,
   Sacramento: those stay Cunin's own. **Next (owner, Nov 1): "do a full USA sweep and do it all yourself"**: every US
   shetach's regional directors, found and drawn without being told each one.

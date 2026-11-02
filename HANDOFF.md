@@ -51,8 +51,11 @@ between two Claude accounts when usage limits run out; whichever session picks t
     edges), Greater South Bay (one division covers all Silicon Valley), East Valley (the Chandler division would take
     Gilbert's, Mesa's and Tempe's houses).
 - **No lines inside a region:** a region is still stored a part per state (a view draws only its own countries'), but
-  each part's outline now leaves out the edges it shares with another part of it (`outerLines`: an edge whose middle
-  lies on the other part's edge, within 20 m), written as MultiLineString features beside the polygons; the page's
+  each part's outline now leaves out the edges inside the region (`outerLines`: an edge is inside when the land 1.5 km
+  beyond it, on the side away from its part, is in another part of it — not "where it lies on the other part's edge":
+  San Diego County's Census line and the map's own US–Mexico border don't quite meet, so stretches of the border were
+  still drawn, and the owner sent a phone screenshot of it: "The fuck"), written as MultiLineString features beside the
+  polygons; the page's
   `sub-line` layer and the selected outline draw those (`subLine`), the fill the polygons. So San Diego & Baja is one
   shape on the world map, no US–Mexico or BCN–BCS line through it.
 - **The drawing engine, for the drawn ones**, also changed today: beyond the 7 km `REACH` (halfway to any other house)

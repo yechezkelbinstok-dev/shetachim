@@ -441,26 +441,24 @@ for (const s of data.subShetachim) {
 }
 // Each part's outline, less the edges it shares with another part of the same region (a state or national line through
 // it: the US–Mexico border through San Diego & Baja), so a region is drawn as one shape, not cut up by lines inside it
-// (owner, Nov 2: "why tf on the sub shetach is there borders within the Fradkin situation"). The edges are found by
-// their middles lying on the other part's edge (within 20 m), through a grid of 0.05°.
+// (owner, Nov 2: "why tf on the sub shetach is there borders within the Fradkin situation"). An edge is inside when the
+// land just beyond it (1.5 km out, on the side away from its part: rings are wound with the inside on the right) is in
+// another part of it. Not "where its edge lies on the other part's": San Diego County's Census line and the map's own
+// border don't quite meet, and stretches of the border were drawn through Fradkin's region (owner: "The fuck").
 function outerLines(mp, sibs) {
-  const EPS = 2e-4, G = 0.05, grid = new Map(), cellKey = (i, j) => `${i},${j}`;
-  for (const sib of sibs) for (const poly of sib) for (const ring of poly) for (let i = 0; i < ring.length - 1; i++) {
-    const a = ring[i], b = ring[i + 1];
-    for (let gx = Math.floor((Math.min(a[0], b[0]) - EPS) / G); gx <= Math.floor((Math.max(a[0], b[0]) + EPS) / G); gx++) {
-      for (let gy = Math.floor((Math.min(a[1], b[1]) - EPS) / G); gy <= Math.floor((Math.max(a[1], b[1]) + EPS) / G); gy++) {
-        const k = cellKey(gx, gy);
-        if (!grid.has(k)) grid.set(k, []);
-        grid.get(k).push([a, b]);
-      }
-    }
-  }
-  const away = (p, a, b) => { const dx = b[0] - a[0], dy = b[1] - a[1], l2 = dx * dx + dy * dy, u = l2 ? Math.max(0, Math.min(1, ((p[0] - a[0]) * dx + (p[1] - a[1]) * dy) / l2)) : 0; return Math.hypot(p[0] - a[0] - u * dx, p[1] - a[1] - u * dy); };
-  const shared = (a, b) => { const m = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2]; return (grid.get(cellKey(Math.floor(m[0] / G), Math.floor(m[1] / G))) || []).some(([c, d]) => away(m, c, d) < EPS); };
+  const OUT = 1.5;
+  const sibPolys = sibs.flat();
+  const inside = (a, b) => {
+    const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2, kx = 111.32 * Math.cos((my * Math.PI) / 180), ky = 110.57;
+    const dx = (b[0] - a[0]) * kx, dy = (b[1] - a[1]) * ky, l = Math.hypot(dx, dy);
+    if (!l) return false;
+    const px = mx + ((-dy / l) * OUT) / kx, py = my + ((dx / l) * OUT) / ky; // (left of the way it runs: outside its part)
+    return inPolys(px, py, sibPolys);
+  };
   const lines = [];
   for (const poly of mp) for (const ring of poly) {
     const flags = [];
-    for (let i = 0; i < ring.length - 1; i++) flags.push(sibs.length > 0 && shared(ring[i], ring[i + 1]));
+    for (let i = 0; i < ring.length - 1; i++) flags.push(sibPolys.length > 0 && inside(ring[i], ring[i + 1]));
     if (!flags.some(Boolean)) { lines.push(ring); continue; }
     const n = flags.length, start = flags.indexOf(true);
     let run = null;

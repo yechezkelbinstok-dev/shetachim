@@ -1432,13 +1432,10 @@
       "id": "ukraine",
       "name": "Ukraine",
       "short": "Ukr.",
-      "headShliach": "Meir Stambler",
+      "noCentralLeadership": true,
       "territory": [
         "UKR"
-      ],
-      "capital": {
-        "centerId": "249574"
-      }
+      ]
     },
     {
       "id": "united-kingdom",

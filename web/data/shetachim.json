@@ -2336,23 +2336,7 @@
    "id": "ukraine",
    "name": "Ukraine",
    "short": "Ukr.",
-   "headShliach": "Meir Stambler",
-   "capital": {
-    "centerId": "249574",
-    "name": "Federation of Jewish Communities of Ukraine",
-    "city": "Dnepr",
-    "lat": 48.46472,
-    "lon": 35.04618
-   },
-   "capitals": [
-    {
-     "centerId": "249574",
-     "name": "Federation of Jewish Communities of Ukraine",
-     "city": "Dnepr",
-     "lat": 48.46472,
-     "lon": 35.04618
-    }
-   ]
+   "noCentralLeadership": true
   },
   {
    "id": "united-kingdom",

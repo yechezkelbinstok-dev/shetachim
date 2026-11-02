@@ -1975,9 +1975,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // with a card of its own. Most shetachim have none, and none fills its shetach: the rest is the head shliach's own.
   let subOn = false, SUB = null, subLoad = null;
   try { subOn = localStorage.getItem('shetachim-sub') === 'on'; } catch (e) {}
-  // (each one with its parts, a part a state: a view draws only those in its own countries)
+  // (each one with its parts, a part a state: a view draws only those in its own countries; and each part's outline, less
+  // the edges it shares with another part of it, so a region over a state line is outlined as one shape)
   const loadSub = () => subLoad || (subLoad = get('data/sub.json')
-    .then((g) => { SUB = [...d3.group(g.features, (f) => f.properties.id).values()].map((fs) => ({ ...fs[0].properties, parts: fs.map((f) => ({ state: f.properties.state, geometry: f.geometry })) })); })
+    .then((g) => {
+      const lines = new Map(g.features.filter((f) => f.geometry.type === 'MultiLineString').map((f) => [`${f.properties.id}|${f.properties.state}`, f.geometry]));
+      SUB = [...d3.group(g.features.filter((f) => f.geometry.type !== 'MultiLineString'), (f) => f.properties.id).values()]
+        .map((fs) => ({ ...fs[0].properties, parts: fs.map((f) => ({ state: f.properties.state, geometry: f.geometry, line: lines.get(`${f.properties.id}|${f.properties.state}`) })) }));
+    })
     .catch((e) => { console.error(e); SUB = []; }));
   const subPolys = (s) => s.parts.flatMap((p) => (p.geometry.type === 'Polygon' ? [p.geometry.coordinates] : p.geometry.coordinates));
   const SUB_INK = ['#59408f', '#c3aef0']; // (its outline and names: light map, dark map)
@@ -1989,6 +1994,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       return gs.length ? { type: 'MultiPolygon', coordinates: gs.flatMap((g) => (g.type === 'Polygon' ? [g.coordinates] : g.coordinates)) } : null;
     });
   }
+  // its outline in the view (its parts' outer edges)
+  function subLine(S, s) {
+    const states = new Set(V.main.map((g) => g.properties.state));
+    return within(S, () => {
+      const gs = s.parts.filter((p) => p.line && states.has(p.state)).map((p) => (S.flat ? projGeom(p.line) : p.line)).filter(Boolean);
+      return gs.length ? { type: 'MultiLineString', coordinates: gs.flatMap((g) => (g.type === 'LineString' ? [g.coordinates] : g.coordinates)) } : null;
+    });
+  }
   // and its name's spot: the middle of its biggest part in the view, shown from when that part is some 45 px across
   function subData(S) {
     const out = [];
@@ -1996,6 +2009,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const g = subShape(S, s);
       if (!g) continue;
       out.push(feature(g, { id: s.id }));
+      const line = subLine(S, s);
+      if (line) out.push(feature(line, { id: s.id }));
       const parts = g.coordinates.map((poly) => poly.map((r) => r.map(([lon, lat]) => [mx(lon), my(lat)])));
       const big = d3.greatest(parts, (poly) => ringArea(poly[0]));
       const [x0, y0, x1, y1] = boxOfRing(big[0]);
@@ -2224,13 +2239,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // physical: each shetach as a soft tint under the water and relief
     if (!flat && physicalOK) map.addLayer({ id: 'st-tint', type: 'fill', source: 'areas', paint: { 'fill-antialias': false } }, under);
     // the sub-shetachim (their switch): a light shade over their shetach
-    add({ id: 'sub-fill', type: 'fill', source: 'sub', filter: ['!=', ['geometry-type'], 'Point'], paint: { 'fill-antialias': false } }, under);
+    add({ id: 'sub-fill', type: 'fill', source: 'sub', filter: ['==', ['geometry-type'], 'Polygon'], paint: { 'fill-antialias': false } }, under);
     // lines: (flat) the coast and the countries' and states' borders, as the street map draws its own; the shetachim's
     for (const kind of ['coast', 'regular', 'held', 'country', 'edge', 'casing', 'shetach', 'inner']) {
       add({ id: `line-${kind}`, type: 'line', source: 'mesh', filter: ['==', ['get', 'k'], kind === 'casing' ? 'shetach' : kind], layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
     }
     add({ id: 'out-line', type: 'line', source: 'outside-lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
-    add({ id: 'sub-line', type: 'line', source: 'sub', filter: ['!=', ['geometry-type'], 'Point'], layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
+    add({ id: 'sub-line', type: 'line', source: 'sub', filter: ['==', ['geometry-type'], 'LineString'], layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
     add({ id: 'box-line', type: 'line', source: 'boxes', filter: ['==', ['geometry-type'], 'Polygon'] }, over);
     add({ id: 'box-name', type: 'symbol', source: 'boxes', filter: ['==', ['geometry-type'], 'Point'],
       layout: { 'text-field': ['upcase', ['get', 'name']], 'text-font': F_REG, 'text-size': 10, 'text-letter-spacing': 0.12, 'text-anchor': 'top-left', 'text-offset': [0.5, 0.45], 'text-allow-overlap': true, 'text-ignore-placement': true } }, over);
@@ -2771,7 +2786,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (!glOK) return;
     const S = V.cur;
     const dot = hit && (hit.dot || (hit.capital && dotOfCenter.get(hit.capital.centerId)));
-    const area = hit && hit.shetach ? shetachArea(S, hit.shetach) : hit && hit.sub ? { geometry: subShape(S, hit.sub) }
+    const area = hit && hit.shetach ? shetachArea(S, hit.shetach) : hit && hit.sub ? { geometry: subLine(S, hit.sub) }
       : hit && hit.piece && V.mainIds.has(hit.piece.id) ? areaOf(S, hit.piece.id) : null;
     map.getSource(`hover-dot${S.sfx}`).setData(dot && state.dots && V.mainIds.has(dot.piece) ? feature({ type: 'Point', coordinates: within(S, () => P(dot.lon, dot.lat)) }, { l: Math.log2(dot.centers.length) }) : EMPTY);
     map.getSource(`hover-area${S.sfx}`).setData(area && area.geometry ? feature(area.geometry) : EMPTY);

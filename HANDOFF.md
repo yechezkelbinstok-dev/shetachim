@@ -8,6 +8,60 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Nov 2: sub-shetachim outlined region by region (counties, towns, divisions; drawn only where nothing fits); Ukraine has no head shliach
+- **Ukraine (owner, Nov 2: "Ukraine doesn't have a head shliach").** `ukraine` in `data/shetachim.json` is now
+  `noCentralLeadership: true` like Bolivia: no head shliach, no capital star; its card says "No centralized leadership"
+  and the map shows no head name there. (Oct 10 it was kept as Meir Stambler on Anash's "head shliach and chairman of
+  the Jewish communities in Ukraine"; the owner has now ruled.) The Federation of Jewish Communities of Ukraine
+  (249574) stays an ordinary center. Hebrew: `data/hebrew/shetachim.json` lost its `head`.
+- **Owner, Nov 2:** "Why did you shrink so many like southern Nevada for example it's shape was nice before … Way too
+  small in some cases no?"; "why tf on the sub shetach is there borders within the Fradkin situation"; and then: "I think
+  you just have to use your discretion every time because these look horrible so just when you draw them each time
+  individually you just have to think about it"; "Nevada I was just saying it looks better before how you had it as
+  like that part of the state". (The Southern Nevada he liked was the very first version: Clark County, 20,871 km²;
+  the drawn one was 494, then 1,192.)
+- **Now each region says how it's outlined** (`outline` in `data/sub-shetachim.json`; `scripts/build-sub.mjs`):
+  `"areas"`: its member areas themselves, where those are the region: counties, a planning region, or a county's towns
+  or county divisions (`ccds`: `names`, or `except` for all but those; with a `box` to cut them), or L.A. Times
+  neighbourhoods; `"drawn"` (the default): drawn round its houses (the engine below), only where no such lines fit;
+  `"both"`: the two. In "areas" a county's islands of 50 km² or more stay (Shelter Island, Pine Island, Baja's).
+  - **Counties / planning region (19):** San Diego & Baja (San Diego County + both Baja states), Southern Nevada (Clark
+    County), Long Island (Nassau + Suffolk), Staten Island, St. Louis (St. Louis County + City + St. Charles), Northern
+    Virginia, Greater Austin (Travis + Williamson), Mercer, Bucks, Sarasota & Manatee, Tampa (Hillsborough), Atlantic
+    + Cape May, Passaic, Dallas (Dallas, Collin, Denton, Rockwall), Howard, Southwest Florida (Lee), Greater New Haven
+    (South Central CT), Northeast Florida (Duval, St. Johns, Clay, Nassau), Rochester (Monroe + Livingston).
+  - **Parts of counties, by their own lines (13):** Northern Nevada (Washoe south of 40.3°N — below Pyramid Lake, not up to
+    Oregon — + Storey + Carson City + Douglas); Tucson (Pima's Tucson and Marana divisions, not Ajo and the Tohono
+    O'odham Nation); Inland Empire (San Bernardino's Ontario division: Chino, Chino Hills, Ontario, Rancho Cucamonga,
+    Upland, Montclair); South Bay L.A. (L.A. Times neighbourhoods from San Pedro and Palos Verdes to Torrance, Redondo
+    and Gardena); South Broward (Broward's Hallandale Beach, Hollywood, Miramar–Pembroke Pines divisions: not Davie's,
+    so not the Andrusiers' Southwest Broward, still asked of the owner); North Broward & South Palm Beach (Broward's
+    Coral Springs–Margate, Deerfield Beach, Pompano Beach; Palm Beach's Boca Raton, Boynton Beach–Delray Beach, Sunshine
+    Parkway south of 26.48°N, "south of Boynton"); South Dade (Miami-Dade south of the Tamiami Trail and east of Krome
+    Avenue, the urban edge — its divisions don't fit: Kendale Lakes–Tamiami runs up to Miami Lakes, Homestead's far into
+    the Everglades); North Fulton (Fulton's Roswell–Alpharetta division); Western Monmouth (its townships: Manalapan,
+    Englishtown, Freehold ×2, Marlboro, Holmdel, Colts Neck, Millstone, Upper Freehold, Allentown, Roosevelt, Howell,
+    Farmingdale); Montgomery County PA (all its townships but Lower Merion, Narberth — the Main Line's — and
+    Cheltenham, on Philadelphia with its Cheder); Northwest NJ (Sussex + Warren + northwest Morris's townships:
+    Jefferson, Rockaway ×2, Wharton, Dover, Mine Hill, Roxbury, Mount Olive, Netcong, Mount Arlington, Washington,
+    Victory Gardens); Greater Orlando (Orange + Seminole + Osceola's Kissimmee and St. Cloud divisions, not its empty
+    south); South of Boston (its towns: Stoughton, Canton, Sharon, Easton, Randolph, Brockton, with Avon and Holbrook).
+  - **Drawn (4):** the Valley (its neighbourhoods and subdivisions together were a jagged patchwork up to Camarillo's
+    edge; drawn, it stops short of Camarillo, Moorpark and the Malibu coast), Petersburg (`far: 25`: the city and its
+    edges), Greater South Bay (one division covers all Silicon Valley), East Valley (the Chandler division would take
+    Gilbert's, Mesa's and Tempe's houses).
+- **No lines inside a region:** a region is still stored a part per state (a view draws only its own countries'), but
+  each part's outline now leaves out the edges it shares with another part of it (`outerLines`: an edge whose middle
+  lies on the other part's edge, within 20 m), written as MultiLineString features beside the polygons; the page's
+  `sub-line` layer and the selected outline draw those (`subLine`), the fill the polygons. So San Diego & Baja is one
+  shape on the world map, no US–Mexico or BCN–BCS line through it.
+- **The drawing engine, for the drawn ones**, also changed today: beyond the 7 km `REACH` (halfway to any other house)
+  it now goes on over land that's clearly its own, out to `FAR` (50 km, or an entry's `far`): at least `CLEAR` (10 km)
+  nearer its houses than any other house. A margin, not a ratio: a ratio ("twice as near") shut Reno in a 23 km circle
+  because of Chabad of Truckee 35 km off; a margin lets a region go on away from its neighbours.
+- Checked with screenshots: Southern and Northern Nevada, the Valley, the Inland Empire, South Bay, Baja on the world
+  map (one shape), the Florida ones, NJ/NY/Philadelphia, Tucson.
+
 ## ▶ Nov 1 (later): every sub-shetach is ONE piece with clean borders; four more regions
 - Owner: "Why the fuck have you made disconnected ones like the valley and inland empires with horrible borders as
   well???" The old drawing (a 3 km disc round each house, gaps up to 12 km bridged, clipped to the counties or L.A.
@@ -1304,7 +1358,8 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   - **The speck in Russia east of Ukraine** — fixed, see OCCUPIED UKRAINE below (occupation-line.mjs).
   - Next: whatever the owner answers on Qatar.
 
-- **Ukraine's head shliach stays Meir Stambler (checked Oct 10, the owner asked whether it's Kaminetzky, or whether Ukraine
+- **SUPERSEDED Nov 2 — the owner: "Ukraine doesn't have a head shliach" (see the Nov 2 section).** Kept for the record:
+  **Ukraine's head shliach stays Meir Stambler (checked Oct 10, the owner asked whether it's Kaminetzky, or whether Ukraine
   has no head at all, like Ohio's separate regions).** There IS a national framework between the city head shluchim and
   Merkos: the Federation of Jewish Communities of Ukraine (Dnepr, since 1999, ~178 communities; its directory lists the
   city rabbis: Odessa's Wolff, Dnepr's Kaminetzky, Zaporozhye's Ehrentreu, Kiev's Kedem, Nikolayev's Gottlieb). Anash.org

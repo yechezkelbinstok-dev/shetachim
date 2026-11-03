@@ -610,6 +610,14 @@ function readClaims(data, areaIds, counties, regionNames) {
       }
     }
   }
+  // Areas cut out of a shetach and left to none (owner, Nov 3: Monsey and Pomona out of Rockland, Crown Heights out of
+  // Greater New York — "don't make them their own thing just take them out"): a shape no shetach owns, more specific
+  // than the county or town it's in, so it stays blank
+  for (const t of data.blank || []) {
+    if (!t.shape || !areaIds.has(t.state)) { problems.push(`blank: needs a known state and a shape: ${JSON.stringify(t)}`); continue; }
+    if (fs.existsSync(path.join(SHAPES, `${t.shape}.geojson`))) claims.push({ shetach: null, kind: 'shape', level: LEVEL.shape + 0.5, state: t.state, shape: t.shape });
+    else problems.push(`blank: no shape file data/shapes/${t.shape}.geojson`);
+  }
   // Two shetachim may not claim the same thing (overlapping longitude ranges included).
   const seen = new Map();
   for (const c of claims) {

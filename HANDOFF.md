@@ -132,6 +132,23 @@ owner was furious. The rule is also under "Notes for Claude" below.
   Also told him the western line (72.1574°W) still cuts 11 towns (Athol, Barre, Brimfield, Hardwick, Holland, New
   Braintree, Petersham, Phillipston, Royalston, Warren, West Brookfield).
 
+## ▶ Nov 3 (later): Monsey/Pomona and Crown Heights cut out and left blank
+- Owner: "Maybe just carve them out of his shetach but don't make them they're own thing just take them out" (Monsey
+  and Pomona, out of Rockland) and "The same I think for crown heights (Maple-Nostrand-Sterling Pl-Utica)".
+- What was found first: Monsey/Pomona is a Lubavitch community (its own rav, Rabbi Baruch Dov Lesches; community shuls
+  and schools — Chabadpedia), and its shliach is Rabbi Simcha Werner of NCFJE Rockland County ("Chabad of Monsey, under
+  the auspices of its Shliach Rabbi Simcha Werner", CrownHeights.info 2011; COLlive 2021), his son-in-law Rabbi Dovid
+  Weber in Pomona; nothing ties them to Kotlarsky. The map's Monsey listings are schools, yeshivos, a library and
+  Werner's NCFJE — no shuls, no Chabad houses (chabad.org doesn't list the shuls); nothing at all in Pomona.
+- New top-level `blank` in data/shetachim.json: shapes left to no shetach (build-data: a claim with no shetach, more
+  specific than the county it's in). `data/shapes/monsey-pomona.geojson`: the Census places (2022, citysdk) of Monsey,
+  Pomona, Kaser, Viola, New Hempstead, Wesley Hills, Airmont and Spring Valley, gaps filled — the Census "Monsey" alone
+  holds only Heichal Menachem; this takes in all 9 Monsey listings and none of Rockland's 5 Chabad houses (New City,
+  Nyack, Suffern, Nanuet, Stony Point). `data/shapes/crown-heights.geojson`: Sterling Pl–Utica Av–Maple St–Nostrand Av
+  (corners from the Esri geocoder) — 47 listings, 770 among them.
+- 770 is now in no shetach: its world star and card are as before (the card's foot says just "New York"); Greater New
+  York still names it as its capital (the build warns "capital … in an area with no shetach").
+
 ## ▶ Nov 3 (later): Rockland is its own shetach (Rabbi Avremel Kotlarsky)
 - Owner: "I've discovered Rockland is its own top level shetach under Avremel Kotlarsky (you can check this stuff up)
   … I'm fucking pissed you never found this info yourself leads me to believe you may have missed other shit". The

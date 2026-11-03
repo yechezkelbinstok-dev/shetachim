@@ -8,6 +8,36 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Nov 3 (later): regional directors' names centred; Westchester (Mrs. Butman, disputed); Gurkow asked
+- **Owner (phone screenshot, Nuevo León picked): "Why not centered"** — then: "I didn't ask you to fix meyzlitch no I
+  want him centered even with that shetachim!!! I meant the regional heads name!!!". A head shliach's name stays where
+  it always was. A sub-shetach's name (`subData` → `subSpot` in web/index.html) now goes to the middle of the WHOLE
+  region (the area-weighted centre of all its parts — it used to be the pole of its biggest state, so Zalmy Srugo's
+  sat in Chihuahua), if the name fits there: inside its outline by half the name, and clear of its head shliach's name
+  (`headNames`: that name's box as drawn at the zoom where the region is ~250 px across, grown by half the region's
+  name); otherwise the first spot on the way to its roomiest point where it does. It only shows from the zoom where it
+  no longer crosses the head's name (`hits`), and waits for the shetachim's names (the `sub` feed key, `subKey`,
+  includes whether they're done; `setNames` re-feeds it).
+- **build-sub.mjs:** a short (< 25 km) leftover outline stretch whose land 0.5–6 km out is another part of the same
+  region is dropped (11 km of the Chihuahua–Durango line was left inside Nuevo León and pulled its name; a 3-point bit
+  in Baja Sur too).
+- **Westchester** (owner: "add a Westchester sub shetach and head is machlokes between mrs butman and that dude who
+  functionally runs things … (NOT rabbi butman it's someone else)", then "Just do Mrs butman but add disputed I guess",
+  then "Don't make her name shown on the [sub] shetach only if you click it"): `westchester` under Greater New York,
+  Westchester County, capital Chabad Lubavitch of Westchester County (New Rochelle, chabad.org lists Mrs. Rochel
+  Butman); `headDisputed` (the card: "Regional director: Mrs. Rochel Butman (disputed)" / "שלוחה אזורית: הרבנית רחל
+  בוטמן (במחלוקת)"), `headCardOnly` (no name on the map in Head shliach mode). I couldn't find who "functionally runs
+  things" (not on its site, chabad.org, the news, or the Westchester Jewish Council's directory); Rabbi Velvel Butman
+  is still called its executive director / head shliach (Westchester County, Jan 2026; Anash, Apr 2026).
+- **Asked by the owner, answered, nothing changed yet:** "are you 100% sure on the boundaries" (of the Mexican
+  regions) — no: the states come only from his own pre-Oct 2 list; Druk's title (Riviera Maya and Mexican Caribbean)
+  and Raitport's (no shluchim in all Sinaloa) are the only outside confirmations. "are you sure gurkow is under prus and
+  not his own top level jurisdiction?" — Shaloh House is the Gurkov family's own Boston network (Rabbi Moshe Gurkov,
+  "the Rebbe's shliach to Boston" per Chabadpedia, in Boston from 1959, Shaloh in Mattapan, Milton, Brighton; Prus came
+  in 1975), and Rabbi Mendel Gurkow's Shaloh House Chabad of the South Area (Stoughton, 1987–88) is its branch; no
+  source puts it under Prus's Chabad of Eastern Massachusetts. If the owner says top-level, make `south-of-boston` a
+  shetach of its own (like Lipsker's North Shore) instead of a sub-shetach.
+
 ## ▶ Nov 3: Mexico's seven sub-shetachim (Druk and the rest)
 - **Owner:** "Do all the Mexican sub shetachim like druk etc (there's at least 4 I think)". They're the regions of the
   owner's own shetach list from before Oct 2 (when he made all of Mexico one shetach, "entire Mexico is Mayzlish";

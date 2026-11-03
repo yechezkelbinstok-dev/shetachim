@@ -446,7 +446,7 @@ for (const s of data.subShetachim) {
     if (!part.length) continue;
     if (part.length > 1) bits.push(`${st} in ${part.length} pieces (${part.slice(1).map((p) => memberDots.filter((d) => holds(p, d)).flatMap((d) => d.centers.map((c) => `${c.name} ${c.id}`)).join(', ') || 'no houses').join(' | ')})`);
     features.push({ type: 'Feature', geometry: { type: 'MultiPolygon', coordinates: part },
-      properties: { id: s.id, state: st, parent: s.parent, name: s.name, nameHe: s.nameHe, head: s.head, headHe: s.headHe, capital: s.capital } });
+      properties: { id: s.id, state: st, parent: s.parent, name: s.name, nameHe: s.nameHe, head: s.head, headHe: s.headHe, capital: s.capital, ...(s.headDisputed ? { headDisputed: true } : {}), ...(s.headCardOnly ? { headCardOnly: true } : {}) } });
     parts++;
   }
   if (bits.length) broken++;
@@ -485,7 +485,14 @@ function outerLines(mp, sibs) {
     }
     if (run && run.length > 1) lines.push(run);
   }
-  return lines;
+  // (and a short stretch left between two parts where their lines don't quite meet — 11 km of the Chihuahua–Durango line
+  // at the Coahuila tripoint was left inside Nuevo León, and pulled its name there: owner, Nov 3, "Why not centered" —
+  // is inside too when the land a little further out from it, 0.5 to 6 km, is another part of it)
+  const km = (l) => l.slice(1).reduce((t, p, i) => t + Math.hypot((p[0] - l[i][0]) * 111.32 * Math.cos((p[1] * Math.PI) / 180), (p[1] - l[i][1]) * 110.57), 0);
+  return lines.filter((l) => km(l) >= 25 || !l.slice(1).some((p, i) => [0.5, 3, 6].some((d) => {
+    const o = outward(l[i], p, d);
+    return !!o && inPolys(o[0], o[1], sibPolys);
+  })));
 }
 // Lines split into the stretches where test(edge) is false and those where it's true
 function splitLines(lines, test) {

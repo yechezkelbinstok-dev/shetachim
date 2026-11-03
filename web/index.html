@@ -2041,14 +2041,106 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       out.push(feature(g, { id: s.id }));
       const line = subLine(S, s);
       if (line) out.push(feature(line, { id: s.id }));
+      // its name in the middle of the whole region, not of its biggest state (owner, Nov 3: "Why not centered" — Zalmy
+      // Srugo's was in a corner of Nuevo León, the middle of Chihuahua), clear of its head shliach's name, which stays
+      // where it is ("I want him centered even with that shetachim!!! I meant the regional heads name!!!")
       const parts = g.coordinates.map((poly) => poly.map((r) => r.map(([lon, lat]) => [mx(lon), my(lat)])));
-      const big = d3.greatest(parts, (poly) => ringArea(poly[0]));
-      const [x0, y0, x1, y1] = boxOfRing(big[0]);
-      const pole = polylabel(big, Math.max(x1 - x0, y1 - y0) / 400);
-      out.push(feature({ type: 'Point', coordinates: [unlon(pole.x), unlat(pole.y)] },
-        { id: s.id, name: s.name, nameHe: s.nameHe || s.name, head: s.head, headHe: s.headHe || s.head, minz: Math.log2(45 / (512 * Math.max(x1 - x0, 1e-9))) }));
+      const edge = subLine(S, s, true), edges = edge ? edge.coordinates.map((l) => l.map(([lon, lat]) => [mx(lon), my(lat)])) : parts.flat();
+      let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+      for (const poly of parts) { const [a, b, c, d] = boxOfRing(poly[0]); x0 = Math.min(x0, a); y0 = Math.min(y0, b); x1 = Math.max(x1, c); y1 = Math.max(y1, d); }
+      // (placed for the zoom where the region is some 250 px across; shown from when it's some 45 px across and the name
+      // is clear of its head shliach's)
+      const zr = Math.log2(250 / (512 * Math.max(x1 - x0, y1 - y0, 1e-9))), heads = headNames(S, s);
+      const spot = subSpot(parts, edges, [x0, y0, x1, y1], heads.map((hd) => hd.box(zr)), Math.hypot(...heads.mine(zr)) / PX(zr));
+      let minz = Math.log2(45 / (512 * Math.max(x1 - x0, 1e-9)));
+      while (minz < 14 && heads.some((hd) => hd.hits(spot, minz))) minz += 0.25;
+      out.push(feature({ type: 'Point', coordinates: [unlon(spot.x), unlat(spot.y)] },
+        { id: s.id, name: s.name, nameHe: s.nameHe || s.name, head: s.headCardOnly ? '' : s.head, headHe: s.headCardOnly ? '' : s.headHe || s.head, minz }));
     }
     return fc(out);
+  }
+  // (the sub-shetachim's names wait for the shetachim's: they keep clear of them)
+  const subKey = (S) => `sub|${labelKey()}|${S.made.has(`names|${labelKey()}`) ? 'n' : ''}`;
+  // Its shetach's own names (its head shliach's) over it: where its name's middle mustn't go at a zoom (box, world
+  // units: the head's name grown by half the region's name), and whether its name at a spot crosses one at a zoom (hits)
+  function headNames(S, s) {
+    const names = S.made.get(`names|${labelKey()}`);
+    const own = state.labels === 'name' ? (HE ? s.nameHe || s.name : s.name) : s.headCardOnly ? '' : HE ? s.headHe || s.head : s.head;
+    const tw = emWidth(own), rows = tw > 7 ? 2 : 1;
+    const px = (z) => Math.max(11, Math.min(15, 11 + (z - 4) * 0.8)); // (sub-names: 11 px at zoom 4, 15 at 9)
+    const mine = (z) => [(Math.min(tw, 7) * px(z)) / 2, (rows * 1.1 * px(z)) / 2]; // (half the region's name, px)
+    const out = !names || !names.features ? [] : names.features.filter((f) => f.properties.sid === s.parent && !f.properties.alt).map((f) => {
+      const q = f.properties, [lon, lat] = f.geometry.coordinates, hx = mx(lon), hy = my(lat);
+      const lines = String(q.t || `${q.pre || ''}${q.rest || ''}`).split('\n'), subs = q.sub ? String(q.sub).split('\n') : [];
+      const sizeAt = (z) => { const i = Math.max(0, Math.min(13, Math.floor(z))), t = Math.max(0, Math.min(1, z - i)); return (q[`s${i}`] || 0) * (1 - t) + (q[`s${i + 1}`] || 0) * t; };
+      const half = (z) => {
+        const size = sizeAt(z);
+        return [Math.max(...lines.map((l) => emWidth(l) * size), ...subs.map((l) => emWidth(l, 400) * size * SUB_SCALE)) / 2, ((lines.length + subs.length * SUB_SCALE) * 1.15 * size) / 2];
+      };
+      return {
+        box: (z) => { const [w, h] = half(z), [a, b] = mine(z), k = PX(z), hw = (w + a + 4) / k, hh = (h + b + 4) / k; return [hx - hw, hy - hh, hx + hw, hy + hh]; },
+        hits: (p, z) => {
+          if (z < (q.minz || 0) || z >= (q.maxz ?? 30)) return false;
+          const [w, h] = half(z), [a, b] = mine(z), k = PX(z);
+          return Math.abs(p.x - hx) * k < w + a + 2 && Math.abs(p.y - hy) * k < h + b + 2;
+        },
+      };
+    });
+    out.mine = mine;
+    return out;
+  }
+  // Where a region's name goes: its middle (the centre of its whole shape) if it fits there — inside its outline by half
+  // the name (half, world units) and outside the boxes it keeps out of — else the first spot where it fits on the way to
+  // its roomiest point (on ~1500 points of outline at most)
+  function subSpot(parts, lines, [x0, y0, x1, y1], avoid, half) {
+    const thin = (l, k) => l.filter((_, i) => i % k === 0 || i === l.length - 1);
+    const total = lines.reduce((t, l) => t + l.length, 0), k = Math.max(1, Math.ceil(total / 1500));
+    const ls = lines.map((l) => thin(l, k)).filter((l) => l.length > 1);
+    const ps = parts.map((poly) => poly.map((r) => thin(r, Math.max(1, Math.ceil(r.length / 500)))));
+    const room = (x, y) => {
+      let m = Infinity;
+      for (const l of ls) for (let i = 1; i < l.length; i++) {
+        const a = l[i - 1], b = l[i], dx = b[0] - a[0], dy = b[1] - a[1];
+        const t = dx || dy ? Math.max(0, Math.min(1, ((x - a[0]) * dx + (y - a[1]) * dy) / (dx * dx + dy * dy))) : 0;
+        const ex = x - a[0] - t * dx, ey = y - a[1] - t * dy, d2 = ex * ex + ey * ey;
+        if (d2 < m) m = d2;
+      }
+      let d = Math.sqrt(m) * (ps.some((poly) => insideRings(x, y, poly)) ? 1 : -1) - half;
+      for (const [a, b, c, e] of avoid) {
+        const ox = Math.max(a - x, 0, x - c), oy = Math.max(b - y, 0, y - e);
+        d = Math.min(d, ox || oy ? Math.hypot(ox, oy) : -Math.min(x - a, c - x, y - b, e - y));
+      }
+      return d;
+    };
+    // its roomiest point (polylabel's search)
+    const w = x1 - x0, h = y1 - y0, size = Math.min(w, h), precision = Math.max(w, h) / 300;
+    if (!(size > 0)) return { x: x0, y: y0 };
+    const cell = (x, y, half) => { const d = room(x, y); return { x, y, half, d, max: d + half * Math.SQRT2 }; };
+    const heap = [];
+    for (let x = x0; x < x1; x += size) for (let y = y0; y < y1; y += size) heap.push(cell(x + size / 2, y + size / 2, size / 2));
+    let best = cell(x0 + w / 2, y0 + h / 2, 0);
+    for (let guard = 0; heap.length && guard < 3000; guard++) {
+      let bi = 0;
+      for (let i = 1; i < heap.length; i++) if (heap[i].max > heap[bi].max) bi = i;
+      const c = heap[bi];
+      heap[bi] = heap[heap.length - 1];
+      heap.pop();
+      if (c.d > best.d) best = c;
+      if (c.max - best.d <= precision) continue;
+      const q = c.half / 2;
+      heap.push(cell(c.x - q, c.y - q, q), cell(c.x + q, c.y - q, q), cell(c.x - q, c.y + q, q), cell(c.x + q, c.y + q, q));
+    }
+    // its middle: the centre of all its parts, by area
+    let A = 0, cx = 0, cy = 0;
+    for (const poly of parts) { const area = ringArea(poly[0]), [px, py] = d3.polygonCentroid(poly[0]); A += area; cx += area * px; cy += area * py; }
+    if (!(A > 0)) return best;
+    cx /= A; cy /= A;
+    const need = Math.min(0, best.d);
+    for (let t = 0; t <= 1.0001; t += 0.05) {
+      const x = cx + (best.x - cx) * t, y = cy + (best.y - cy) * t;
+      if (room(x, y) >= need) return { x, y };
+    }
+    return best;
   }
   // the centers in it (and how many are mushrooms, with Mushrooms on), worked out once a mode
   const SUB_COUNTS = new Map();
@@ -2066,7 +2158,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const parent = shetachById.get(s.parent), dot = dotOfCenter.get(s.capital), c = dot && dot.centers.find((x) => x.id === s.capital);
     const [n, m] = subCounts(s);
     return `<span class="kicker">${tr('Sub-shetach')}</span><h2>${esc(HE ? s.nameHe || s.name : s.name)}</h2>
-      <p>${tr('Regional director')}: ${esc(HE ? s.headHe || s.head : s.head)}</p>${c ? `<p>${tr('Capital')}: ${esc(c.name)}${c.city ? `, ${esc(c.city)}` : ''}</p>` : ''}
+      <p>${HE && /^Mrs\.? /.test(s.head) ? 'שלוחה אזורית' : tr('Regional director')}: ${esc(HE ? s.headHe || s.head : s.head)}${s.headDisputed ? ` <span class="flag">(${HE ? 'במחלוקת' : 'disputed'})</span>` : ''}</p>${c ? `<p>${tr('Capital')}: ${esc(c.name)}${c.city ? `, ${esc(c.city)}` : ''}</p>` : ''}
       ${parent ? `<p class="meta">${shetachWithHead(parent)}</p>` : ''}
       <div class="foot"><span class="meta">${counts(n, m)}</span></div>`;
   }
@@ -2454,7 +2546,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     feed(S, 'cities', `cities|${lang}|${mushroomsOn}`, () => cityData(S));
     feed(S, 'caps', `caps|${lang}`, () => capData(S));
     if (subOn && !SUB) loadSub().then(() => feedSet(S));
-    feed(S, 'sub', subOn && SUB ? 'sub' : 'off', () => (subOn && SUB ? subData(S) : EMPTY));
+    feed(S, 'sub', subOn && SUB ? subKey(S) : 'off', () => (subOn && SUB ? subData(S) : EMPTY));
     if (S.flat) feed(S, 'seas', `seas|${lang}`, () => seaData(S));
     if (!S.made.has('areas')) { prep(S, 'areas').then(() => feedSet(S), failed); return; }
     if (!areasShown(S)) { feed(S, 'areas', 'areas', () => S.made.get('areas')); setNames(S); }
@@ -2747,7 +2839,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const areasShown = (S) => { const f = FED.get(`areas${S.sfx}`); return !!f && f[0] === S; };
   function setNames(T) {
     const what = `names|${labelKey()}`;
-    if (T.made.has(what) && areasShown(T)) { feed(T, 'names', what, () => T.made.get(what) || EMPTY); markDrawn(); return; }
+    if (T.made.has(what) && areasShown(T)) {
+      feed(T, 'names', what, () => T.made.get(what) || EMPTY);
+      if (subOn && SUB) feed(T, 'sub', subKey(T), () => subData(T)); // (the regions' names keep clear of these)
+      markDrawn();
+      return;
+    }
     if (T.made.has(what)) return; // (handed over with the areas: feedSet)
     // (not worked out yet: no names for now rather than another view's or mode's, and these as soon as they're ready)
     feed(T, 'names', 'none', () => EMPTY);

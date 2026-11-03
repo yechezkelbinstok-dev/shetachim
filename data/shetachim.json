@@ -725,21 +725,8 @@
       "territory": [
         {
           "state": "US-MA",
-          "eastOf": -72.1574,
-          "westOf": -71.24694
-        },
-        {
-          "state": "US-MA",
-          "towns": [
-            "Attleboro",
-            "Bedford",
-            "Billerica",
-            "Dracut",
-            "Foxborough",
-            "Mansfield",
-            "Walpole",
-            "Wellesley"
-          ]
+          "shape": "ma-central",
+          "name": "Massachusetts east of 72.1574°W to the MetroWest and Mansfield (drawn from its towns in data/shapes/ma-towns.json)"
         }
       ],
       "capital": {
@@ -770,24 +757,8 @@
       "territory": [
         {
           "state": "US-MA",
-          "eastOf": -71.24694
-        },
-        {
-          "state": "US-MA",
-          "towns": [
-            "Andover",
-            "Dover",
-            "Lexington",
-            "Methuen",
-            "Needham",
-            "Newton",
-            "Norton",
-            "Rehoboth",
-            "Swansea",
-            "Tewksbury",
-            "Waltham",
-            "Westwood"
-          ]
+          "shape": "ma-eastern",
+          "name": "Boston and eastern Massachusetts (drawn from its towns in data/shapes/ma-towns.json)"
         }
       ],
       "capital": {
@@ -804,18 +775,31 @@
       "territory": [
         {
           "state": "US-MA",
-          "towns": [
-            "Avon",
-            "Brockton",
-            "Easton",
-            "Holbrook",
-            "Randolph",
-            "Stoughton"
-          ]
+          "shape": "ma-south-area",
+          "name": "Stoughton, Easton, Braintree, Brockton, Randolph, Avon, Holbrook (drawn from those towns in data/shapes/ma-towns.json)"
         }
       ],
       "capital": {
         "centerId": "117632"
+      }
+    },
+    {
+      "id": "merrimack-valley",
+      "name": "Merrimack Valley",
+      "short": [
+        "Merrimack V.",
+        "MV"
+      ],
+      "headShliach": "Asher Bronstein",
+      "territory": [
+        {
+          "state": "US-MA",
+          "shape": "ma-merrimack-valley",
+          "name": "The Merrimack Valley and Westford (drawn from its towns in data/shapes/ma-towns.json)"
+        }
+      ],
+      "capital": {
+        "centerId": "117895"
       }
     },
     {

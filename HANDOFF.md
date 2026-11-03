@@ -8,6 +8,130 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+**Research tools (read first).** Plain WebSearch/WebFetch for every lookup; Firecrawl (paid credits) ONLY for a page
+those can't reach. On Nov 3 a session ran every search and page through Firecrawl (~25 searches, ~20 pages) and the
+owner was furious. The rule is also under "Notes for Claude" below.
+
+## ▶ Nov 3 (latest): ugly sub-shetach outlines rounded (`soften`); Northern Nevada's bite filled
+- **Owner** (phone screenshot of Northern Nevada): "Or like this what the fuck is this indentation ugly it hurts 😭";
+  then "sometimes maybe it legitimately does look nice like in the case of north shore or southern Nevada"; and for
+  Northern Nevada: "Maybe just make the bight part of it (n nv)".
+- **Northern Nevada:** its `membersIn` now also takes western Lyon County (Dayton, Mound House, Stagecoach) west of
+  119.3108°W, the line of Douglas County's east edge (`{"box": [...], "county": "32019"}`). No house there; it only fills
+  the bite between Storey, Carson City and Douglas, so the east side is one straight line from Storey's corner down
+  through Douglas. Fernley and Silver Springs stay out (east of the line).
+- **`soften` (km), new in `data/sub-shetachim.json`** (`soften()` in `scripts/build-sub.mjs`): rounds off steps,
+  notches and spikes narrower than about twice that (a closing, then an opening, on a km grid). Water, other states and
+  other shetachim's land count as its own while it's worked out, so coasts and state lines come back exact; a notch
+  is never filled with land nearer another house than its own (North Broward keeps its bite round Lauderdale-by-the-
+  Sea's house); if rounding a spike would lose a house, only the notches are filled. Only where a region asks for it:
+  Tucson 3, North Broward & South Palm Beach 3, Inland Empire 3, Greater New Haven 4, South Bay 2, Greater South Bay 2,
+  Rochester 3. **Not** on Greater Mercer (it pushed 3.4 km² into Western Monmouth: the build prints OVERLAP) or Northern
+  Nevada (filled instead, above). Left as they are on purpose: Southern Nevada (Clark County) and anything else that
+  already looks good.
+- Still a bit odd: Greater South Bay's thin strip along the bay shore and North Broward's barrier-island strip (both
+  real coast), and Greater New Haven's rounded knob (it was a spike).
+- Checked: the sheet of all 43 outlines, Northern Nevada over its counties and on the page; no OVERLAP; the 6
+  "NOT ONE PIECE" notes are the same 6 as before (islands, Mexico).
+
+## ▶ Nov 3 (latest): Massachusetts's inner borders drawn smooth (the North Shore's kept as town lines)
+- **Owner** (phone screenshot of the Merrimack Valley–Prus line at Billerica): "Why there be horrible pointy borders and
+  it's not just there 😭" — then "sometimes maybe it legitimately does look nice like in the case of north shore or
+  southern Nevada those both look good and I'm sure there's others" (and earlier: "I like the not straight"). So: smooth
+  where town lines make spikes and notches, keep what already looks good.
+- **How:** `scripts/ma-shapes.mjs` reads **`data/shapes/ma-towns.json`** (the town-by-town assignment, moved out of
+  shetachim.json: the `towns` lists, the 72.1574°W / 71.24694°W lines for towns not listed, Cape Cod's counties, the
+  North Shore's East Boston tracts) and writes `data/shapes/ma-central|ma-eastern|ma-merrimack-valley|ma-south-area
+  .geojson`, which those four shetachim now claim (`shape`). It lays the towns on a 350 m grid, blurs each shetach's share
+  (~2 km), gives every cell to the strongest, lets each house pull the land round it its own way (so a border bends round
+  a house instead of cutting it off), drops stray bits, then draws each shared border once (steps removed, Chaikin-
+  rounded) so neighbours still meet exactly. Kept exact: the North Shore (`exact`: its town claims stay in shetachim.json
+  and the shapes are cut to its towns), Cape Cod's counties, and Connecticut's straight 72.1574°W line. To change a town:
+  edit ma-towns.json, `node scripts/ma-shapes.mjs`, `npm run build`.
+- **Build fix:** `absorbSlivers` gave any piece under 25 km² touching a shape to that shape — it took Salem and Everett
+  (North Shore towns) into the new shapes. A piece with its own town or tract claim (`ownClaim`) is never a sliver now.
+- Checked: no center anywhere changed shetach (all 4,441 compared with the previous build).
+
+## ▶ Nov 3 (latest): Merrimack Valley a shetach of its own (Rabbi Asher Bronstein); The Valley without Camarillo/Burbank
+- **Owner:** "So yeah I guess bronstein is a head shliach but first verify with research" (after: "Doesn't that mean it's
+  under gurkow if it's his son???" — no: Zalman Gurkow and Faigy Bronstein are Mendel's siblings, not his children).
+  Research (WebSearch/WebFetch): Chabad of North Andover / Anshe Sholom of Haverhill was started in 2013 by Bronstein's
+  son-in-law at his suggestion, "branching off" from Chabad of Merrimack Valley (Wicked Local via CrownHeights.info, Oct
+  1, 2013); Westford is on Merrimack Valley's own list of its houses (chabadmv.com); nothing ties it to Prus; nothing
+  calls Bronstein head shliach either — the same footing as Gurkow's. **New shetach `merrimack-valley`** (Merrimack
+  Valley / עמק מרימק, Asher Bronstein / אשר ברונשטיין, capital 117895, Andover): Andover, North Andover, Haverhill,
+  Methuen, Lawrence, Boxford, Middleton (its houses and North Andover's stated area), Westford (Nashoba Valley) with
+  Chelmsford, Lowell, Dracut, Tyngsborough, Tewksbury between, and the rest of the Merrimack Valley (Amesbury,
+  Georgetown, Groveland, Merrimac, Newbury, Newburyport, Rowley, Salisbury, West Newbury — no houses; left with Prus they
+  would have been cut off from his land). Billerica, Bedford, Wilmington, North Reading stay Prus's (Lexington). Houses:
+  Andover ×2, Haverhill, Westford. 62 shetachim in the US & Canada view now.
+- **The Valley (sub-shetach, Einbinder):** owner: "why the fuck is Camarillo part of it … look into it overall". Checked
+  against Chabad of the Valley's own "Valley Centers" list (28; see its `source`): Chabad of Camarillo (Rabbi Aryeh Lang,
+  pinned on Camarillo's east edge, inside Ventura County's Thousand Oaks division) and Chabad of Burbank (the Kornfelds)
+  aren't on it — both `exclude`d now; the outline stops short of them. Ventura is on its list but stays out (the owner's
+  earlier ruling that Oxnard and Camarillo are "way way past the valley", and a region is one piece). Universal City,
+  Wood Ranch and Canoga Park sit among its houses and stay.
+
+## ▶ Nov 3 (latest): Eastern Massachusetts reviewed house by house; Westford, Norton and the Lowell area moved
+- **Owner:** "I wanna make sure Massachusetts is fully accurate … the eastern clusterfuck. Are there maybe more actual
+  top level that you can verify are top level that aren't included? … are borders fully correct? And should gurkow have
+  a shetach that big with only one moised? And should he not rather be a small enclave? And he's takeh his own shetach
+  despite only having a single moised?" (The western line and Central/Connecticut he assumes are right.)
+- **Changed (data/shetachim.json `towns` claims):**
+  - **Westford → Eastern MA** (Prus). Chabad of Nashoba Valley (Zalman Gurkow, Westford, 2005) is one of the three
+    houses Chabad of Merrimack Valley's own site lists as its network (chabadmv.com "Our Rabbis & Rebbetzins": Andover
+    — Bronstein; Anshe Sholom Chabad of Haverhill / Chabad of North Andover — Borenstein, "a branch of Chabad of
+    Merrimack Valley … serving North Andover, Middleton, and Boxford"; Nashoba Valley), and lubavitch.com lists "Rabbi
+    Chaim Zalman Gurkow" among Merrimack Valley's shluchim. Merrimack Valley is on Prus's side, so Westford goes with it.
+  - With it, so Westford isn't cut off: **Chelmsford, Lowell, Dracut, Tyngsborough** (the Lowell area between Westford
+    and Andover; no houses) and **Billerica, Bedford** (no houses; the other window had given them to Fogelman only
+    because most of each lies west of 71.24694°W; Prus's Lexington house says "We service all of the Suburban North
+    West", jewishlexington.com). Carlisle, Acton, Concord, Littleton, Dunstable stay Central's.
+  - **Norton → Central MA** (Fogelman): Chabad of Mansfield (Yossi Kivman, Fogelman's MetroWest network) holds its
+    annual public menorah lighting on the Norton Town Green (Patch), and its site title names Norton and Wheaton College.
+  - **Taunton stays Eastern MA.** Mansfield's site title and Facebook name Taunton too, but the owner asked "does he do
+    activities there?" — none found (his events: Mansfield, Foxborough, North Attleborough, Norton, Plainville), so no.
+    Rule from this: a town with no house goes by real activity there, not a name in a site title.
+  - House moved: Chabad of Nashoba Valley (118492) → Eastern MA.
+- **Then (owner: "shouldn't he be smaller or does it make sense because of where he has activities? … are you absolutely
+  sure he's 100% top level independent???"; and "I like the not straight" — town lines stay):** his activity, sourced:
+  his own column (ChabadInfo, Jan 3, 2019) — "I am personally involved in such public celebrations in Stoughton,
+  Easton and Braintree"; Shaloh House Chabad's menorah lighting at South Shore Plaza, Braintree (The Patriot Ledger,
+  Nov 23, 2021); his GuideStar profile (Shaloh House Chabad of the South Area, EIN 04-3066566, ruling year 1991) lists
+  Stoughton, Easton, Canton and Sharon as areas served (Canton and Sharon have houses of their own — Horowitz,
+  Wolosow — left as they are). **Braintree → South Area** (Lezell's South Shore list doesn't name it). The South Area
+  is now Stoughton, Easton, Braintree (his events), Brockton, Randolph (his 2026 shluchim's), Avon, Holbrook (between).
+  Not 100% that he's top level: no source calls him head shliach; the case is the NCFJE history, his own appointees and
+  nothing tying him to Prus. Told the owner so.
+- **Gurkow's South Area (first pass): unchanged.** Shaloh House began as Rabbi Moshe Gurkov's branch of NCFJE ("Shaloh") in
+  Mattapan, 1960 (chabad.org obituary by Menachem Posner, Nov 14, 2024: "his 'official' mandate was to educate
+  children"), 15 years before Prus came (10 Kislev 5736, Chabadpedia). Mendel Gurkow founded the Stoughton branch in
+  1987 (shalohhouse.com). The Katzmans were "operating under the auspices of Rabbi Mendel and Mrs. Chana Gurkow"
+  (CrownHeights.info, Nov 12, 2014); the Gordons serve "Stoughton and the South Area, including Brockton and Randolph"
+  (Anash, Jul 30, 2026) — so a one-town enclave would contradict his own appointments. No source calls him head shliach;
+  none puts him under Prus. Easton is named both by his FAQ (the preschool is "most convenient for the Stoughton,
+  Sharon, Canton and Easton communities") and Mansfield's Facebook; left with him.
+- **Checked and left as they are:** Prus — "regional director of Chabad in Eastern Massachusetts … responsible for the
+  establishment of Chabad Houses in Eastern Massachusetts" (chabadboston.org), "more than thirty Chabad House in Eastern
+  Massachusetts" (Chabad of Downtown Boston's history page); his family runs Newton (Shalom Ber), Downtown (Zaklos) and
+  the Brookline Israeli center (Lerner). North Shore — Lipsker's affiliates page (nsjewish.com): Lynn campus, Peabody,
+  Tobin Bridge (Everett), Cape Ann, Beverly-Salem, Wakefield, all inside; "Head shliach of Chabad of the North Shore"
+  (Anash, Aug 2023). Fogelman's MetroWest (chabadnatick.com: "headquarters for Chabads of the Metrowest region,
+  including 26 cities and towns"; its houses Wellesley-Weston, Milford & South, Sudbury/Marlboro/Hudson, Framingham;
+  Milford's site: Milford, Holliston, Franklin, Hopkinton, Millis, Medway, Bellingham, Upton, Hopedale, Whitinsville,
+  Wrentham, Grafton, Medfield, Sherborn) — all already Central's. Harvard Chabad (Zarchi: Harvard, MIT, the medical
+  campus, the International Jewish Student Center; helped start Tufts and Brandeis, eJP Nov 2022; its site also shows a
+  Chabad of Cambridge Crossing, not on chabad.org) — a campus network, under Prus.
+- **No affiliation found:** Acton-Concord (Polter: "serves Acton and Concord and some of its contiguous towns"), Sharon
+  (Wolosow, est. 1986), Canton (Horowitz), South Shore (Lezell), South Coast (Benjaminson). New England Hebrew Academy
+  (founded 1944) and Shaloh House Brighton (the Gurkov family's day school, now Rabbi Dan Rodkin) are institutions older
+  than or apart from Prus; they stay where they sit.
+- **Asked the owner:** is Merrimack Valley (Bronstein, since 1992) a top level of its own? It's a three-house network
+  run by the Gurkov family (Faigy Bronstein and Zalman Gurkow are Rabbi Moshe Gurkov's children — COLlive/Anash
+  obituaries, Nov 2024); nothing ties it to Prus and nothing calls Bronstein a head shliach. Same footing as Gurkow.
+  Also told him the western line (72.1574°W) still cuts 11 towns (Athol, Barre, Brimfield, Hardwick, Holland, New
+  Braintree, Petersham, Phillipston, Royalston, Warren, West Brookfield).
+
 ## ▶ Nov 3 (later): Rockland is its own shetach (Rabbi Avremel Kotlarsky)
 - Owner: "I've discovered Rockland is its own top level shetach under Avremel Kotlarsky (you can check this stuff up)
   … I'm fucking pissed you never found this info yourself leads me to believe you may have missed other shit". The
@@ -186,7 +310,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
     + Cape May, Passaic, Dallas (Dallas, Collin, Denton, Rockwall), Howard, Southwest Florida (Lee), Greater New Haven
     (South Central CT), Northeast Florida (Duval, St. Johns, Clay, Nassau), Rochester (Monroe + Livingston).
   - **Parts of counties, by their own lines (13):** Northern Nevada (Washoe south of 40.3°N — below Pyramid Lake, not up to
-    Oregon — + Storey + Carson City + Douglas); Tucson (Pima's Tucson and Marana divisions, not Ajo and the Tohono
+    Oregon — + Storey + Carson City + Douglas; Nov 3: + western Lyon, see above); Tucson (Pima's Tucson and Marana divisions, not Ajo and the Tohono
     O'odham Nation); Inland Empire (San Bernardino's Ontario division: Chino, Chino Hills, Ontario, Rancho Cucamonga,
     Upland, Montclair); South Bay L.A. (L.A. Times neighbourhoods from San Pedro and Palos Verdes to Torrance, Redondo
     and Gardena); South Broward (Broward's Hallandale Beach, Hollywood, Miramar–Pembroke Pines divisions: not Davie's,

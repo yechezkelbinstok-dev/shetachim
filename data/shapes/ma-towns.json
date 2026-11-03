@@ -1,5 +1,5 @@
 {
-  "about": "Massachusetts's inner borders, town by town: scripts/ma-shapes.mjs reads this, gives every town (or, for a town on a line, every part of it) to a shetach, smooths the borders between them (no town-line spikes or notches; owner, Nov 3: \"Why there be horrible pointy borders\") and writes data/shapes/ma-*.geojson, which data/shetachim.json claims. Change a town here, then run `node scripts/ma-shapes.mjs` and `npm run build`. Towns not listed go by longitude: west of `deren` is Connecticut's shetach (its own band claim, kept exact), between `deren` and `split` Central Massachusetts, east of `split` Eastern Massachusetts. Cape Cod and the Islands keep their three counties exactly. `exact`: shetachim whose town lines stay exactly as they are, not smoothed (owner, Nov 3: \"I liked the north shore borders\"); they keep their town claims in shetachim.json and the shapes round them are cut to them exactly.",
+  "about": "Massachusetts's inner borders, town by town: scripts/ma-shapes.mjs reads this, gives every town to a shetach and writes data/shapes/ma-*.geojson (which data/shetachim.json claims), along the real town lines (owner, Nov 3: \"Look at the North Shore. That's like a proper, nice European border type\" — not smoothed curves, \"so ugly and unsettling\"), except where a town line made a spike or a zigzag: there a straight line between two town corners cuts across (`cuts`; owner: \"Straight can also work sometimes ... a hybrid of straight and not straight\"). Change a town here, then run `node scripts/ma-shapes.mjs` and `npm run build`. Towns not listed go by their middle's longitude: west of `deren` is Connecticut's shetach (its own band claim, kept exact), between `deren` and `split` Central Massachusetts, east of `split` Eastern Massachusetts. A cut's towns are split along its line: left of it (drawn from its first point to its second) to `left`, the rest to `right`. Cape Cod and the Islands keep their three counties exactly. `exact`: shetachim that keep their own town (and tract) claims in shetachim.json (the North Shore); the shapes are cut to them.",
   "deren": -72.1574,
   "split": -71.24694,
   "westOfSplit": "central-massachusetts",
@@ -28,6 +28,7 @@
       "Needham",
       "Newton",
       "Rehoboth",
+      "Seekonk",
       "Swansea",
       "Waltham",
       "Westwood"
@@ -112,6 +113,66 @@
       "25025981600"
     ]
   },
+  "cuts": [
+    {
+      "why": "Prus–Fogelman: Wellesley's corner poked east and Dover west, a zigzag; one nearly vertical line instead, from the Weston/Wellesley/Newton corner down to Medfield's corner on Dover (owner, Nov 3: \"there are many sections that it can just be a vertical line\"). Wellesley Weston Chabad House stays Fogelman's, Needham's Chabad Prus's.",
+      "towns": [
+        "Wellesley",
+        "Needham",
+        "Dover"
+      ],
+      "line": [
+        [
+          -71.26996,
+          42.32809
+        ],
+        [
+          -71.27106,
+          42.21563
+        ]
+      ],
+      "left": "eastern-massachusetts",
+      "right": "central-massachusetts"
+    },
+    {
+      "why": "Prus–Fogelman: Sharon and Foxborough's line made a double spike; a straight line from the Walpole/Foxborough/Sharon corner to the Sharon/Mansfield/Easton corner. Sharon's two houses stay Prus's, Mansfield's Fogelman's.",
+      "towns": [
+        "Sharon",
+        "Foxborough",
+        "Mansfield"
+      ],
+      "line": [
+        [
+          -71.2388,
+          42.1064
+        ],
+        [
+          -71.16868,
+          42.06116
+        ]
+      ],
+      "left": "eastern-massachusetts",
+      "right": "central-massachusetts"
+    },
+    {
+      "why": "Merrimack Valley–Prus: Wilmington's thin prong up into Andover; a straight line across its base, from the Tewksbury/Wilmington/Andover corner to the Andover/North Reading/Wilmington corner.",
+      "towns": [
+        "Wilmington"
+      ],
+      "line": [
+        [
+          -71.16488,
+          42.59802
+        ],
+        [
+          -71.13546,
+          42.59912
+        ]
+      ],
+      "left": "merrimack-valley",
+      "right": "eastern-massachusetts"
+    }
+  ],
   "shapes": {
     "central-massachusetts": "ma-central",
     "eastern-massachusetts": "ma-eastern",

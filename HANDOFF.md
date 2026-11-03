@@ -13,6 +13,28 @@ those can't reach. On Nov 3 a session ran every search and page through Firecraw
 owner was furious. The rule is also under "Notes for Claude" below. (Owner, Nov 3, the other way round: "you have
 fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers WebFetch and curl with 403.)
 
+## ▶ Nov 3 (latest): Massachusetts's borders are real town lines again, with straight cuts — no more curves
+- **Owner:** "I kind of hate how you've redrawn the Eastern Massachusetts situations. Yes, it is true that before they
+  were pointy and horrible, but I hate the weird curviness ... The North Shore feels real"; "with regards to the prus
+  fogelman like I'm sure there are many sections that it can just be a vertical line"; and, when I said "town lines
+  back": "I did not tell you to restore town lines ... Look at the North Shore. That's like a proper, nice European
+  border type ... I want European borders, not African ones ... Straight can also work sometimes ... a hybrid of
+  straight and not straight. But the current weird curves that you do are just so ugly and unsettling."
+- **So:** `scripts/ma-shapes.mjs` no longer blurs a grid or rounds lines (that's what made the blobs). It unions the
+  Census towns by shetach (`mapshaper -dissolve2`), so every border is a real town line, like the North Shore's, except
+  four spots where the town lines made spikes or a zigzag, fixed in `data/shapes/ma-towns.json`:
+  - `cuts` (straight lines between two real town corners; a cut's towns are split along it):
+    - **Wellesley–Needham–Dover** (Prus–Fogelman): Wellesley's corner poked east and Dover west; now one nearly vertical
+      line from the Weston/Wellesley/Newton corner (71.26996°W 42.32809°N) to Medfield's corner on Dover (71.27106°W
+      42.21563°N). Wellesley Weston Chabad House stays Fogelman's, Needham's Chabad Prus's.
+    - **Sharon–Foxborough** (Prus–Fogelman): a double spike; now straight from the Walpole/Foxborough/Sharon corner to
+      the Sharon/Mansfield/Easton corner.
+    - **Wilmington's prong** (Merrimack Valley–Prus): its thin tip up into Andover cut off straight across its base.
+  - **Seekonk** to Eastern Massachusetts (listed): it was a thin strip of Central between Rhode Island and Rehoboth.
+- Checked: no center changed shetach (all 4,441 compared before/after the build); page screenshots, desktop and phone.
+- If the owner wants another stretch straight: add a cut (two town corners — find them as the points two towns share,
+  e.g. with a short Python over `.cache/county-subdivision-25.json`), `node scripts/ma-shapes.mjs`, `npm run build`.
+
 ## ▶ Nov 3 (latest): a top-level sweep after Rockland (nothing changed; one doubt asked)
 - Owner: "I'm fucking pissed you never found this info yourself leads me to believe you may have missed other shit".
   Checked, each against Chabad news and directories, whether a region the map has under another head is its own:
@@ -163,7 +185,7 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
 - Checked: the sheet of all 43 outlines, Northern Nevada over its counties and on the page; no OVERLAP; the 6
   "NOT ONE PIECE" notes are the same 6 as before (islands, Mexico).
 
-## ▶ Nov 3 (latest): Massachusetts's inner borders drawn smooth (the North Shore's kept as town lines)
+## ▶ Nov 3 (later, SUPERSEDED — see "real town lines again" above): Massachusetts's inner borders drawn smooth
 - **Owner** (phone screenshot of the Merrimack Valley–Prus line at Billerica): "Why there be horrible pointy borders and
   it's not just there 😭" — then "sometimes maybe it legitimately does look nice like in the case of north shore or
   southern Nevada those both look good and I'm sure there's others" (and earlier: "I like the not straight"). So: smooth

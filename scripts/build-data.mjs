@@ -614,7 +614,14 @@ function readClaims(data, areaIds, counties, regionNames) {
   // Areas cut out of a shetach and left to none (owner, Nov 3: Monsey and Pomona out of Rockland, Crown Heights out of
   // Greater New York — "don't make them their own thing just take them out"): a shape no shetach owns, more specific
   // than the county or town it's in, so it stays blank
+  // A country can be left blank the same way (owner, Nov 3: "bolivia should get the Monsey treatment"): it stays on the
+  // map, with its centers (the La Paz mushroom), in no shetach.
   for (const t of data.blank || []) {
+    if (t.country) {
+      if (areaIds.has(t.country)) claims.push({ shetach: null, kind: 'state', level: LEVEL.state, state: t.country });
+      else problems.push(`blank: unknown country ${JSON.stringify(t)}`);
+      continue;
+    }
     if (!t.shape || !areaIds.has(t.state)) { problems.push(`blank: needs a known state and a shape: ${JSON.stringify(t)}`); continue; }
     if (fs.existsSync(path.join(SHAPES, `${t.shape}.geojson`))) claims.push({ shetach: null, kind: 'shape', level: LEVEL.shape + 0.5, state: t.state, shape: t.shape });
     else problems.push(`blank: no shape file data/shapes/${t.shape}.geojson`);
@@ -865,6 +872,8 @@ async function worldLand(data, levels) {
     if (!m) whole.add(t);
     else if (WORLD_PREFIX.has(m[1])) divided.add(WORLD_PREFIX.get(m[1]));
   }
+  // (a country left blank, Bolivia: on the map with its centers, in no shetach)
+  for (const t of data.blank || []) if (t.country) whole.add(t.country);
   const outside = GADM_ALL.filter((c) => !whole.has(c) && !divided.has(c));
   // (the held lines are part of the world's land: a new line means new land)
   const lines = createHash('sha1');
@@ -1433,9 +1442,10 @@ async function main() {
     partNames: Object.fromEntries(Object.entries(shetachData.partNames || {}).filter(([k]) => !k.startsWith('_'))),
     // capital: the (first) capital; capitals: all of them (a disputed shetach has one per claimant)
     // noCentralLeadership: no head shliach (India): the card says so, the map shows no head name there
+    // altName: a second name, under the first on the map and the card (Crown Heights: Shchunas HaRebbe)
     // territoryOf: a territory of another shetach (India, of Thailand's): its colour, lighter, a dashed border between
-    shetachim: shetachData.shetachim.map(({ id, name, short, headShliach, mapName, headTitle, vaad, vaadFirst, vaadMembers, lastName, noCentralLeadership, territoryOf, capital, labelState, labelCentre, labelAt, labelWide }) => ({
-      id, name, short, headShliach, mapName, headTitle, vaad, vaadFirst, vaadMembers, lastName, noCentralLeadership, territoryOf, capital: [].concat(capital || [])[0], capitals: capital ? [].concat(capital) : undefined, labelState, labelCentre, labelAt, labelWide })),
+    shetachim: shetachData.shetachim.map(({ id, name, altName, short, headShliach, mapName, headTitle, vaad, vaadFirst, vaadMembers, lastName, noCentralLeadership, territoryOf, capital, labelState, labelCentre, labelAt, labelWide }) => ({
+      id, name, altName, short, headShliach, mapName, headTitle, vaad, vaadFirst, vaadMembers, lastName, noCentralLeadership, territoryOf, capital: [].concat(capital || [])[0], capitals: capital ? [].concat(capital) : undefined, labelState, labelCentre, labelAt, labelWide })),
   };
   fs.writeFileSync(path.join(OUT, 'shetachim.json'), `${JSON.stringify(forPage, null, 1)}\n`);
 

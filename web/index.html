@@ -237,6 +237,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card li strong { font-weight: 500; }
 #card .meta, #card p { color: var(--muted); font-size: 13px; margin: 0; }
 #card .flag { font-size: 12.5px; font-style: italic; color: var(--muted); }
+#card .alt-name { margin: -2px 0 4px; color: var(--ink); font-size: 14px; } /* a second name under the title (Crown Heights: Shchunas HaRebbe) */
 /* the Rebbe on 770's card: its leader, bigger than a shliach's line */
 #card .rebbe { margin: 4px 0 2px; color: var(--ink); font: 700 18px/1.25 var(--font-map); }
 #card .rebbe .role { white-space: nowrap; font-weight: 600; color: var(--muted); }
@@ -746,6 +747,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const enTitle = s.headTitle;
       s._enHead = englishHead;
       dual(s, 'name', (h) => hs(s) && [hs(s).name]);
+      if (s.altName) dual(s, 'altName', (h) => hs(s) && hs(s).altName ? [hs(s).altName] : null);
       dual(s, 'short', (h) => hs(s) && [hs(s).short]);
       dual(s, 'headShliach', (h) => hs(s) && [hs(s).headShliach]);
       dual(s, 'mapName', (h) => hs(s) && [hs(s).mapName]);
@@ -1185,10 +1187,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // The text a shetach's name has in the current mode, with its short form (shown where the full one has no room yet).
   function labelTexts(s) {
     const p = s.territoryOf && shetachById.get(s.territoryOf);
-    if (state.labels === 'name') return { text: s.name, short: [].concat(s.short || [])[0] || null, kind: '' };
+    if (state.labels === 'name') return { text: s.name, sub: s.altName || null, short: [].concat(s.short || [])[0] || null, kind: '' };
     const who = p || s;
     const person = who.mapName || who.headShliach;
-    if (!person) return s.noCentralLeadership ? null : { text: s.name, short: [].concat(s.short || [])[0] || null, kind: 'miss' };
+    if (!person) return s.noCentralLeadership ? null : { text: s.name, sub: s.altName || null, short: [].concat(s.short || [])[0] || null, kind: 'miss' };
     // a head shliach's name is never cut down further (no last name alone): mapName leaves out a middle name he isn't
     // called by, else the full name; where it doesn't fit, one line or two, else none. Cards keep the full name.
     // A vaad with real power beside him (owner, Oct 11: Florida, New Jersey) is named under his name, smaller.
@@ -2158,7 +2160,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const parent = shetachById.get(s.parent), dot = dotOfCenter.get(s.capital), c = dot && dot.centers.find((x) => x.id === s.capital);
     const [n, m] = subCounts(s);
     return `<span class="kicker">${tr('Sub-shetach')}</span><h2>${esc(HE ? s.nameHe || s.name : s.name)}</h2>
-      <p>${HE && /^Mrs\.? /.test(s.head) ? 'שלוחה אזורית' : tr('Regional director')}: ${esc(HE ? s.headHe || s.head : s.head)}${s.headDisputed ? ` <span class="flag">(${HE ? 'במחלוקת' : 'disputed'})</span>` : ''}</p>${c ? `<p>${tr('Capital')}: ${esc(c.name)}${c.city ? `, ${esc(c.city)}` : ''}</p>` : ''}
+      ${s.vaad ? membersHTML({ vaadMembers: s.vaadMembers, states: new Set(s.parts.map((p) => p.state)) }, `${tr('Leadership')}: ${esc(HE ? s.vaadHe || s.vaad : s.vaad)}`) // (a vaad leads it: Queens)
+        : `<p>${HE && /^Mrs\.? /.test(s.head) ? 'שלוחה אזורית' : tr('Regional director')}: ${esc(HE ? s.headHe || s.head : s.head)}${s.headDisputed ? ` <span class="flag">(${HE ? 'במחלוקת' : 'disputed'})</span>` : ''}</p>`}${c ? `<p>${tr('Capital')}: ${esc(c.name)}${c.city ? `, ${esc(c.city)}` : ''}</p>` : ''}
       ${parent ? `<p class="meta">${shetachWithHead(parent)}</p>` : ''}
       <div class="foot"><span class="meta">${counts(n, m)}</span></div>`;
   }
@@ -3199,7 +3202,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // "Capital: …", or for a disputed shetach "Capital (Chaim Tzvi Groner): …", one per claimant
     const capital = caps.map((c) => `<p>${tr('Capital')}${c.for ? ` (${esc(c.for)})` : ''}: ${esc(c.name)}${c.city ? `, ${esc(c.city)}` : ''}</p>`).join('');
     // a family at the head (Pinson, Blumenfeld): "Shluchim: Pinson family" (they are the shluchim there)
-    return `<h2>${esc(s.name)}</h2>
+    return `<h2>${esc(s.name)}</h2>${s.altName ? `<p class="alt-name">${esc(s.altName)}</p>` : ''}
       ${s.territoryOf && shetachById.get(s.territoryOf) ? (() => { const p = shetachById.get(s.territoryOf); return `<p>${HE ? 'בהנהגת' : 'Overseen by'} ${headHTML(p.headShliach)}</p>`; })()
         : s.noCentralLeadership ? `<p>${tr('No centralized leadership')}</p>`
         : s.headShliach && / family$|^משפחת /.test(s.headShliach) ? `<p>${HE ? 'שלוחים' : 'Shluchim'}: ${headHTML(s.headShliach)}</p>`
@@ -3543,7 +3546,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const families = new Map();
     for (const s of shetachById.values()) {
       if (!pieces.some((g) => g.properties.shetach === s.id)) continue;
-      out.push({ kind: 'shetach', s, text: both(() => [s.name, s.headShliach, s.short, s.lastName].join(' ')) });
+      out.push({ kind: 'shetach', s, text: both(() => [s.name, s.altName, s.headShliach, s.short, s.lastName].join(' ')) });
     }
     for (const d of dots) for (const c of d.centers) {
       out.push({ kind: 'center', d, c, text: both(() => [c.name, c.city, c.nativeName].join(' ')) });
@@ -3591,7 +3594,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       if (!list.length) continue;
       html += `<li class="grp" role="presentation">${HE ? he : en}</li>`;
       for (const it of list) {
-        const [title, sub] = it.kind === 'shetach' ? [it.s.name, [it.s.vaad && it.s.vaadFirst ? it.s.vaad : '', it.s.headShliach ? `${tr('Head shliach')}: ${it.s.headShliach}` : ''].filter(Boolean).join(' · ')]
+        const [title, sub] = it.kind === 'shetach' ? [it.s.name, [it.s.altName || '', it.s.vaad && it.s.vaadFirst ? it.s.vaad : '', it.s.headShliach ? `${tr('Head shliach')}: ${it.s.headShliach}` : ''].filter(Boolean).join(' · ')]
           : it.kind === 'person' ? [personName(it.p), [it.c.name, it.c.city].filter(Boolean).join(' · ')]
           : it.kind === 'center' ? [it.c.name, [it.c.type, it.c.city].filter(Boolean).join(' · ')]
           : [it.city.name, counts(it.city.centers, mushroomsOn ? it.city.mushrooms || 0 : 0)];

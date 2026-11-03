@@ -1,5 +1,5 @@
 {
-  "about": "Sub-shetachim: a regional director's area under a head shliach. They show only with the map's Sub-shetachim switch, never on the head shluchim's map (owner, Oct 26: \"I meant as a separate thing to toggle to see sub shetachim not in the head shluchim part\"). Each is ONE piece with borders of its own (owner, Nov 1: \"why are you using county situations you should be drawing your own borders\"; then \"Why the fuck have you made disconnected ones like the valley and inland empires with horrible borders\"): the land its member houses span (the triangles between them and the links joining them all), reaching a little past them, rounded, and cut halfway to any of the shetach's other houses nearby. Members are listed (members: chabad.org ids), or are the parent shetach's houses within membersIn (US counties by Census GEOID, L.A. Times neighbourhoods by region or name, county subdivisions by name in one county, { box: [west, south, east, north], county? } (a box, or the part of a county in it), { near: [lon, lat], km }, { shape } (a shape of data/shapes: western Jalisco) or { state, minus? } (the shetach's area of a state, a Mexican state, less such shapes)), less exclude; mushrooms never count. Its outline (outline) is chosen region by region (owner, Nov 2: \"use your discretion every time ... when you draw them each time individually you just have to think about it\"): \"areas\", its member areas themselves, where those are the region (a county, its towns, its county divisions; ccds take names, or except: all but those, and a box to cut them); \"drawn\" (the default), drawn round its houses where no such lines fit; \"both\". A region over a state or national line is outlined as one shape. areas: whole areas of the map added as they are (the Baja peninsula; the Mexican regions, state by state). A border two regions share is drawn once (sub.json gives the second its copy apart, dup, for its outline when picked). reach / far (km, optional, drawn ones): how far past its houses it reaches whatever's round it (7), and over land clearly its own (50). Most shetachim have none, and none fills its shetach: the rest stays the head shliach's own. scripts/build-sub.mjs makes web/data/sub.json (npm run build runs it).",
+  "about": "Sub-shetachim: a regional director's area under a head shliach. They show only with the map's Sub-shetachim switch, never on the head shluchim's map (owner, Oct 26: \"I meant as a separate thing to toggle to see sub shetachim not in the head shluchim part\"). Each is ONE piece with borders of its own (owner, Nov 1: \"why are you using county situations you should be drawing your own borders\"; then \"Why the fuck have you made disconnected ones like the valley and inland empires with horrible borders\"): the land its member houses span (the triangles between them and the links joining them all), reaching a little past them, rounded, and cut halfway to any of the shetach's other houses nearby. Members are listed (members: chabad.org ids), or are the parent shetach's houses within membersIn (US counties by Census GEOID, L.A. Times neighbourhoods by region or name, county subdivisions by name in one county, { box: [west, south, east, north], county? } (a box, or the part of a county in it), { near: [lon, lat], km }, { shape } (a shape of data/shapes: western Jalisco) or { state, minus? } (the shetach's area of a state, a Mexican state, less such shapes)), less exclude; mushrooms never count. Its outline (outline) is chosen region by region (owner, Nov 2: \"use your discretion every time ... when you draw them each time individually you just have to think about it\"): \"areas\", its member areas themselves, where those are the region (a county, its towns, its county divisions; ccds take names, or except: all but those, and a box to cut them); \"drawn\" (the default), drawn round its houses where no such lines fit; \"both\". A region over a state or national line is outlined as one shape. areas: whole areas of the map added as they are (the Baja peninsula; the Mexican regions, state by state). A border two regions share is drawn once (sub.json gives the second its copy apart, dup, for its outline when picked). reach / far (km, optional, drawn ones): how far past its houses it reaches whatever's round it (7), and over land clearly its own (50). Most shetachim have none, and none fills its shetach: the rest stays the head shliach's own. A vaad may lead one instead of a regional director (Queens, owner, Nov 3): vaad, vaadHe and vaadMembers ({ firstName, lastName, town }), its card's Leadership line opening to them; head / headHe is then the vaad's name on the map. scripts/build-sub.mjs makes web/data/sub.json (npm run build runs it).",
   "subShetachim": [
     {
       "id": "san-diego-baja",
@@ -181,6 +181,32 @@
         }
       ],
       "source": "Rabbi Tuvia and Chaya Teldon, regional directors of Chabad Lubavitch of Long Island since 1977 (Anash; COLlive, \"In for the long haul\"); Lubavitch.com (Sept 2025): \"over 29 Chabad rabbis in 23 Chabad centers throughout Long Island\". Its headquarters: Lubavitch of Long Island, Commack. Its members: the houses in Nassau and Suffolk Counties. Outline: Nassau and Suffolk Counties, the whole island.",
+      "outline": "areas"
+    },
+    {
+      "id": "queens",
+      "parent": "new-york-city",
+      "name": "Queens",
+      "nameHe": "קווינס",
+      "head": "Vaad Hashluchim",
+      "headHe": "ועד השלוחים",
+      "vaad": "Vaad Hashluchim of Queens",
+      "vaadHe": "ועד השלוחים דקווינס",
+      "vaadMembers": [
+        { "firstName": "Yossi", "lastName": "Blesofsky", "town": "Bayside" },
+        { "firstName": "Mendy", "lastName": "Hecht", "town": "Forest Hills" },
+        { "firstName": "Dovi", "lastName": "Steinmetz", "town": "Briarwood" },
+        { "firstName": "Zev", "lastName": "Wineberg", "town": "Long Island City" },
+        { "firstName": "Yerachmiel", "lastName": "Zalmanov", "town": "Oakland Gardens" }
+      ],
+      "membersIn": [
+        {
+          "counties": [
+            "36081"
+          ]
+        }
+      ],
+      "source": "The owner, Nov 3: \"the queens tat shetach with its va'ad\". The Vaad Hashluchim of Queens, an elected body: \"Organized by the duly elected Vaad Hashluchim of Queens\" (CrownHeights.info, July 28 2023, the first Queens Kinus Hashluchim, Adria Hotel, Bayside; \"twenty families of Shluchim serving Queens\"); its members Rabbis Yossi Blesofsky (Chabad of Northeast Queens, Bayside), Mendy Hecht (Chabad of Forest Hills North), Dov(i) Steinmetz (Chabad of Briarwood), Zev Wineberg (chabad.org's spelling; \"Weinberg\" in the article: JCC-Chabad of West Queens, Long Island City, chabad.org's Chabad of Long Island City) and Yerachmiel Zalmanov (Chabad of Eastern Queens) (Queens Jewish Link, Aug 2 2023, \"Inaugural Kinus Held For Queens Shluchim\"). Anash.org: \"the Vaad Hashluchim said\" (June 2023, Soul Encounters) and the second regional Kinus of \"the Shluchim of Queens, representing 20 Chabad Houses\" (Aug 2024); its YouTube channel is \"Vaad Hashluchim of Queens\". No chairman named. Its members: the houses in Queens County. Outline: Queens County.",
       "outline": "areas"
     },
     {

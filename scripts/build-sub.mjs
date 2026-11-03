@@ -513,7 +513,7 @@ for (const s of data.subShetachim) {
     if (!part.length) continue;
     if (part.length > 1) bits.push(`${st} in ${part.length} pieces (${part.slice(1).map((p) => memberDots.filter((d) => holds(p, d)).flatMap((d) => d.centers.map((c) => `${c.name} ${c.id}`)).join(', ') || 'no houses').join(' | ')})`);
     features.push({ type: 'Feature', geometry: { type: 'MultiPolygon', coordinates: part },
-      properties: { id: s.id, state: st, parent: s.parent, name: s.name, nameHe: s.nameHe, head: s.head, headHe: s.headHe, capital: s.capital, ...(s.headDisputed ? { headDisputed: true } : {}), ...(s.headCardOnly ? { headCardOnly: true } : {}) } });
+      properties: { id: s.id, state: st, parent: s.parent, name: s.name, nameHe: s.nameHe, head: s.head, headHe: s.headHe, capital: s.capital, ...(s.headDisputed ? { headDisputed: true } : {}), ...(s.headCardOnly ? { headCardOnly: true } : {}), ...(s.vaad ? { vaad: s.vaad, vaadHe: s.vaadHe, vaadMembers: s.vaadMembers } : {}) } });
     parts++;
   }
   if (bits.length) broken++;

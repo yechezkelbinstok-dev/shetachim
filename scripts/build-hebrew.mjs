@@ -25,7 +25,7 @@ for (const s of shetachim) {
   if (!h) { missing.push(`shetach ${s.id}`); continue; }
   // The last name, for a family's line: the Hebrew name less as many first names as the English one has
   // ("Berel Shemtov" → "שם טוב"); a family's name without "משפחת"; leadership entries whole.
-  if (!s.headShliach) { out.shetachim[s.id] = { name: h.name, short: h.short || [] }; continue; } // no head shliach (India)
+  if (!s.headShliach) { out.shetachim[s.id] = { name: h.name, short: h.short || [], ...(h.altName ? { altName: h.altName } : {}) }; continue; } // no head shliach (India, Crown Heights)
   const words = s.headShliach.trim().split(/\s+/), hw = h.head.trim().split(/\s+/);
   let lastName = h.head;
   if (/^משפחת /.test(h.head)) lastName = h.head.replace(/^משפחת /, '');
@@ -57,13 +57,14 @@ for (const c of [...centers, ...shetachim.map((s) => s.capital).filter((c) => c 
   if (!c.name || (/[\u0590-\u05FF]/.test(native) && !/[A-Za-z]{3}/.test(native))) continue;
   if (centerNames[c.name] !== undefined) out.centers[c.name] = centerNames[c.name]; else missing.push(`center ${c.name}`);
 }
-// people on the centers' cards: first names word by word, last names whole, and their positions (a pair is the
-// man's and the woman's form)
+// people on the centers' cards, and the vaads' members (a shetach's or a sub-shetach's: Queens's): first names word by
+// word, last names whole, and their positions (a pair is the man's and the woman's form)
 const firstNames = read('data', 'hebrew', 'first-names.json');
 const lastNames = read('data', 'hebrew', 'last-names.json');
 const positions = read('data', 'hebrew', 'positions.json');
 out.first = {}; out.last = {}; out.positions = {};
-for (const person of centers.flatMap((c) => c.personnel || [])) {
+const vaadPeople = [...shetachim, ...read('data', 'sub-shetachim.json').subShetachim].flatMap((s) => s.vaadMembers || []);
+for (const person of [...centers.flatMap((c) => c.personnel || []), ...vaadPeople]) {
   for (const w of (person.firstName || '').trim().split(/\s+/).filter(Boolean)) {
     if (firstNames[w] !== undefined) out.first[w] = firstNames[w]; else missing.push(`first name ${w}`);
   }

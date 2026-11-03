@@ -10,7 +10,33 @@ between two Claude accounts when usage limits run out; whichever session picks t
 
 **Research tools (read first).** Plain WebSearch/WebFetch for every lookup; Firecrawl (paid credits) ONLY for a page
 those can't reach. On Nov 3 a session ran every search and page through Firecrawl (~25 searches, ~20 pages) and the
-owner was furious. The rule is also under "Notes for Claude" below.
+owner was furious. The rule is also under "Notes for Claude" below. (Owner, Nov 3, the other way round: "you have
+fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers WebFetch and curl with 403.)
+
+## ▶ Nov 3 (latest): Queens sub-shetach (its Vaad Hashluchim); Crown Heights / Shchunas HaRebbe; the La Paz mushroom back
+- Owner: "You never added the queens tat shetach with its va'ad"; "I meant still have crown heights for Hebrew but also
+  shchunas HaRebbe / You can have the Rebbe's shchunah in English too however it's meant to be spelled"; "what the
+  fuck did you do to the Bolivian mushroom??? … I never said to remove him".
+- **Bolivia / the La Paz mushroom**: taking the `bolivia` shetach out had made Bolivia land outside the map
+  (outside.json), and the page draws only the centers in the map's own pieces, so Kupchik's La Paz mushroom vanished.
+  `blank` now also takes a country (`{ "country": "BOL" }`): on the map, in no shetach (piece `BOL:none`, white like
+  Monsey). Its card: "Country · Bolivia · 0 centers · 1 mushroom". Checked against 883b3d3 (before any of today's
+  Bolivia changes): the same dot under "La Paz", the same counts in Latin America (234 centers, 211 dots).
+- **Crown Heights**: a new field `altName` — "Shchunas HaRebbe"; Hebrew name קראון הייטס, `altName` שכונת הרבי. Shown
+  under the name on the map (smaller), under the title on the card, and in search.
+- **Queens** (sub-shetach `queens`, under Greater New York): led by the **Vaad Hashluchim of Queens**, "an elected
+  body" (Queens Jewish Link, Aug 2 2023, "Inaugural Kinus Held For Queens Shluchim"; CrownHeights.info, July 28 2023,
+  "the duly elected Vaad Hashluchim of Queens"): Rabbis Yossi Blesofsky (Chabad of Northeast Queens, Bayside), Mendy
+  Hecht (Chabad of Forest Hills North), Dovi Steinmetz (Chabad of Briarwood), Zev Wineberg (Chabad of Long Island City;
+  chabad.org's spelling, "Weinberg" in the article) and Yerachmiel Zalmanov (Chabad of Eastern Queens). No chairman
+  named. Anash.org: "the Vaad Hashluchim said" (June 2023) and "the Shluchim of Queens, representing 20 Chabad Houses"
+  (Aug 2024, their second Kinus); their YouTube channel is "Vaad Hashluchim of Queens". The Nov 1 sweep had Queens
+  among "none found" — wrong. Map label (Head shliach): "Vaad Hashluchim" / ועד השלוחים; card: "Leadership: Vaad
+  Hashluchim of Queens", opening to the five and their towns. Members: the 20 houses in Queens County; outline:
+  Queens County; no capital.
+- Sub-shetachim can carry a vaad now (`vaad`, `vaadHe`, `vaadMembers`, through build-sub to the card), and
+  build-hebrew takes the Hebrew names of every vaad's members (shetachim's and sub-shetachim's), not only the people
+  on the centers' cards.
 
 ## ▶ Nov 3 (latest): Crown Heights a shetach with no head; Bolivia in none; Monsey drawn straight
 - Owner: "Actually you can make crown heights it's own thing and just not have a head anything don't even need to put

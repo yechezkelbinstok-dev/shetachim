@@ -184,6 +184,24 @@
       "outline": "areas"
     },
     {
+      "id": "bronx",
+      "parent": "new-york-city",
+      "name": "The Bronx",
+      "nameHe": "הברונקס",
+      "head": "Levi Shemtov",
+      "headHe": "לוי שם טוב",
+      "capital": "117901",
+      "membersIn": [
+        {
+          "counties": [
+            "36005"
+          ]
+        }
+      ],
+      "source": "The owner, Nov 3: \"Doesn't the Bronx have regional leadership\". Rabbi Levi and Sorah Shemtov direct Chabad Lubavitch of the Bronx (\"Chabad of the Bronx\") from Riverdale, since 1992: COLlive (May 2025) signs them \"Chabad Lubavitch of the Bronx, Riverdale, New York\"; CrownHeights.info (Dec 2018, Bronx Jewish Hall of Fame): he \"directs Chabad of the Bronx with his wife, Sarah\", and Chabad of the Bronx was \"commended on a new center that opened before the High Holidays in South Bronx\" (the Mishulovins); Bronx Times (Jan 2023): he was raising funds for a Pelham Parkway Chabad Center and its couple. Its members: the houses in Bronx County. Outline: Bronx County.",
+      "outline": "areas"
+    },
+    {
       "id": "queens",
       "parent": "new-york-city",
       "name": "Queens",

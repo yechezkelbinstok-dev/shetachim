@@ -13,6 +13,18 @@ those can't reach. On Nov 3 a session ran every search and page through Firecraw
 owner was furious. The rule is also under "Notes for Claude" below. (Owner, Nov 3, the other way round: "you have
 fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers WebFetch and curl with 403.)
 
+## ▶ Nov 3 (latest): the Bronx a sub-shetach (Rabbi Levi Shemtov); Chabad of Riverdale's point fixed
+- Owner: "Doesn't the Bronx have regional leadership"; then "Finish the Bronx and push".
+- Sub-shetach `bronx` (The Bronx / הברונקס) under Greater New York: Rabbi Levi Shemtov (לוי שם טוב), who directs
+  Chabad Lubavitch of the Bronx ("Chabad of the Bronx") with his wife from Riverdale since 1992 — COLlive (May 2025)
+  signs them "Chabad Lubavitch of the Bronx, Riverdale, New York"; CrownHeights.info (Dec 2018): "directs Chabad of
+  the Bronx", which was "commended on a new center … in South Bronx" (the Mishulovins); Bronx Times (Jan 2023): raising
+  funds for a Pelham Parkway Chabad Center. Capital: Chabad Lubavitch of Riverdale (117901). Members: the houses in
+  Bronx County (5 centers); outline: Bronx County.
+- Chabad Lubavitch of Riverdale (117901): chabad.org gives only the town, and its approximate point was in the Hudson
+  on the New Jersey side (the map had it in New Jersey's shetach). Moved (`fixes`) to 535 West 246th Street, Fieldston
+  (OpenStreetMap, found through Nominatim; Overpass was unreachable).
+
 ## ▶ Nov 3 (latest): Queens sub-shetach (its Vaad Hashluchim); Crown Heights / Shchunas HaRebbe; the La Paz mushroom back
 - Owner: "You never added the queens tat shetach with its va'ad"; "I meant still have crown heights for Hebrew but also
   shchunas HaRebbe / You can have the Rebbe's shchunah in English too however it's meant to be spelled"; "what the

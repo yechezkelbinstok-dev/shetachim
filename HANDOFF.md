@@ -8,6 +8,13 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Nov 3: Chabad Niagara (Rabbi Zalman Zaltzman) is a mushroom
+- Owner: "Zalman Zaltzman in Niagara mushroom add him pls". Added `extra-ca-niagara-falls` (data/extra-centers.json):
+  Chabad Niagara / Jewish Welcome Centre, 6417 Main St, Niagara Falls, **Ontario** (Esri geocoder 43.08196,
+  -79.08503), Rabbi Zalman and Mrs. Perla Zaltzman (there since 2005, The Canadian Jewish News); not on chabad.org.
+  Hebrew name חב״ד ניאגרה. Across the river, Chabad Niagara Falls USA (Rabbi Yehuda Lorber, 6624274) is official
+  and unchanged. 50 mushroom entries in extra-centers.json now.
+
 ## ▶ Nov 3: the Rebbeim's towns and the mosdos in them, apart; three card sizes
 - **Owner:** "have the city dot for the actual cities prominence but SEPERATELY have the moisdois in them like the
   graves of alter and mitiler Rebbe etc also like chatzer rabboseinu nesinu blbavtch thingy / The significant card for

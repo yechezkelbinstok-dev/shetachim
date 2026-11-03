@@ -60,6 +60,21 @@
       "mushroom": "Central Massachusetts Chabad (Rabbi Mendel Fogelman) dismissed Rabbi Michoel Green as its shliach on Jan 27, 2021, and Chabad-Lubavitch ended his status and removed his center from its database of recognized Chabad houses (AP, WBUR, Boston Globe, Feb 2021). He kept it running as an independent, incorporated shul that takes no Chabad funding."
     },
     {
+      "id": "extra-ca-niagara-falls",
+      "name": "Chabad Niagara",
+      "city": "Niagara Falls",
+      "lat": 43.08196,
+      "lon": -79.08503,
+      "precision": "exact",
+      "note": "6417 Main Street, Niagara Falls, Ontario: the Jewish Welcome Centre, its shul, Shabbat meals for visitors and kosher restaurants",
+      "source": "The Canadian Jewish News (\"The Jewish side of Niagara Falls is booming again\"); Chabad.org news (Chaya Moussia Zaltzman, daughter of the Niagara Falls couple); GoKosher and Totally Jewish Travel listings (6417 Main St); Esri World geocoder; not on chabad.org's directory",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Zalman", "lastName": "Zaltzman" },
+        { "title": "Mrs.", "firstName": "Perla", "lastName": "Zaltzman" }
+      ],
+      "mushroom": "The owner, Nov 3, 2026: \"Zalman Zaltzman in Niagara mushroom\". In Niagara Falls, Ontario since 2005 (The Canadian Jewish News); not on chabad.org's directory. Ontario's head shliach is Rabbi Zalman Grossbaum; across the river, Chabad Niagara Falls USA (Rabbi Yehuda Lorber, chabad.org 6624274) is on the directory."
+    },
+    {
       "id": "extra-us-colorado-springs-vituk",
       "name": "Chabad of Colorado Springs Jewish Community",
       "city": "Colorado Springs",

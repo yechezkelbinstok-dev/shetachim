@@ -1141,6 +1141,31 @@
    ]
   },
   {
+   "id": "rockland",
+   "name": "Rockland",
+   "short": [
+    "Rockland",
+    "Rock."
+   ],
+   "headShliach": "Avremel Kotlarsky",
+   "capital": {
+    "centerId": "117691",
+    "name": "Chabad of Rockland",
+    "city": "New City",
+    "lat": 41.16494,
+    "lon": -73.98942
+   },
+   "capitals": [
+    {
+     "centerId": "117691",
+     "name": "Chabad of Rockland",
+     "city": "New City",
+     "lat": 41.16494,
+     "lon": -73.98942
+    }
+   ]
+  },
+  {
    "id": "upstate-new-york",
    "name": "Upstate New York",
    "short": [

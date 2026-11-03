@@ -8,6 +8,17 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Nov 3 (later): Rockland is its own shetach (Rabbi Avremel Kotlarsky)
+- Owner: "I've discovered Rockland is its own top level shetach under Avremel Kotlarsky (you can check this stuff up)
+  … I'm fucking pissed you never found this info yourself leads me to believe you may have missed other shit". The
+  Nov 1 regional sweep had passed it over ("Kotlarsky: an executive director, no regional sign") — wrong.
+- New shetach `rockland` (Rockland / רוקלנד, Avremel Kotlarsky / אברימל קוטלרסקי, capital Chabad of Rockland, New
+  City, 117691): Rockland County (36087), taken out of Greater New York. Public sources call him executive director of
+  Chabad Lubavitch of Rockland (LinkedIn; The Jewish Standard); none found that says head shliach — the owner's word.
+  15 listings in it (Monsey, New City, Nyack, Spring Valley, Suffern/Montebello, Airmont, Nanuet, Stony Point).
+- Chabad of Ridgewood (6644585, the Denebeims) had chabad.org's approximate point in Rockland; it's Ridgewood, New
+  Jersey (Chabad.info, "New Shluchim to Ridgewood, NJ") — moved to the village's centre (`fixes`), now New Jersey's.
+
 ## ▶ Nov 3 (later): Eastern Massachusetts — further research (nothing changed on the map)
 - `c3e0379` (South Area shetach + Prus–Fogelman border by towns) went live at 09:18 UTC.
 - Deren is "regional director of Chabad Lubavitch for Southern and Western New England" (Anash) — western MA is his.
@@ -415,7 +426,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
     South Central Connecticut planning region (09170: Connecticut's 2022 Census units replaced its counties, so 09009
     no longer exists in the county file).
   Not regional: Pinellas (the Adlers: no regional title), the Main Line and Delaware County (no regional director),
-  Madison (one city's houses), Harrisburg (the Pewzners: no regional title), Raleigh, Rockland (Kotlarsky: an executive director, no regional sign). On hold: the Bay Area (the Langers "became the movement's Bay Area
+  Madison (one city's houses), Harrisburg (the Pewzners: no regional title), Raleigh, Rockland (Kotlarsky: an executive director, no regional sign — wrong: the owner, Nov 3, Rockland is its own shetach). On hold: the Bay Area (the Langers "became the movement's Bay Area
   directors in 1979"; nothing current).
   (The rest of this list was worked through: see the newest Nov 1 section.)
   None found (the head shliach is the regional director, the cities have local directors): Texas (Lazaroff, "Texas

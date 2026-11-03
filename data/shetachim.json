@@ -565,16 +565,35 @@
             "36081",
             "36085",
             "36119",
-            "36087",
             "36059",
             "36103"
           ],
-          "name": "Bronx, Brooklyn, Manhattan, Queens, Staten Island, Westchester, Rockland, Nassau and Suffolk"
+          "name": "Bronx, Brooklyn, Manhattan, Queens, Staten Island, Westchester, Nassau and Suffolk"
         }
       ],
       "capital": {
         "centerId": "117678",
         "world": true
+      }
+    },
+    {
+      "id": "rockland",
+      "name": "Rockland",
+      "short": [
+        "Rockland",
+        "Rock."
+      ],
+      "headShliach": "Avremel Kotlarsky",
+      "territory": [
+        {
+          "counties": [
+            "36087"
+          ],
+          "name": "Rockland County"
+        }
+      ],
+      "capital": {
+        "centerId": "117691"
       }
     },
     {

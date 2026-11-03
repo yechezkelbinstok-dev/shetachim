@@ -12,6 +12,31 @@ between two Claude accounts when usage limits run out; whichever session picks t
 those can't reach. On Nov 3 a session ran every search and page through Firecrawl (~25 searches, ~20 pages) and the
 owner was furious. The rule is also under "Notes for Claude" below.
 
+## ▶ Nov 3 (latest): Crown Heights a shetach with no head; Bolivia in none; Monsey drawn straight
+- Owner: "Actually you can make crown heights it's own thing and just not have a head anything don't even need to put
+  no centralized leadership just have nothing I guess just Crown Heights and you can add in Hebrew Shchunas HaRebbe
+  maybe / Also bolivia should get the Monsey treatmt / Also Monsey looks horrible with those nasty borders and also why
+  do they extend so far north also the borders are just so horrible and pointy etc they should be way more straight".
+- **Crown Heights**: shetach `crown-heights` (Crown Heights / שכונת הרבי), territory `data/shapes/crown-heights.geojson`
+  (Sterling Pl–Utica Av–Maple St–Nostrand Av); no `headShliach`, no `noCentralLeadership`, no capital. The map labels
+  it with its name, in the grey the page gives a shetach with no head named; its card is the name and "47 centers",
+  nothing about leadership. 770 is in it; Greater New York still names 770 as its capital (build warning "capital …
+  is in crown-heights").
+- **Why Crown Heights never showed (also not while it was blank)**: at about 2 km² it was in the data, but build-data's
+  `-filter-islands min-area=3km2` on the big areas took the hole it leaves in Greater New York for an island and filled
+  it (the small areas are split off into a layer of their own before that step), so Greater New York lay over it and
+  its outline counted as a coast. Now a shape's piece under 3 km² (`tiny`, `ISLAND_MIN_KM2`) stays with the big areas
+  for that step. Pieces compared with the previous build: only Greater New York (+1 ring, the hole), Crown Heights
+  (new), the Monsey blank piece and Bolivia (gone) differ.
+- **Bolivia**: the `bolivia` shetach (no central leadership) and its Hebrew entry removed; Bolivia is land no shetach
+  covers (grey, no card), like Guyana. Kupchik's La Paz house is still a mushroom.
+- **Monsey**: `data/shapes/monsey-pomona.geojson` (Census places, up to 41.21°N with Pomona) replaced by
+  `data/shapes/monsey.geojson`: a box 74.098°W–74.036°W, north to 41.150°N, clipped to Rockland County, so its south
+  side is the New Jersey line — four straight sides. All 9 Monsey listings are in it (the northernmost, Mesivta
+  Lubavitch of Monsey, at 41.139°N) and none of Rockland's 5 Chabad houses (New City, Nyack, Suffern/Montebello,
+  Nanuet, Stony Point). Pomona's village (centre about 41.17°N) is outside it now. Blank entry: "Monsey (out of
+  Rockland)".
+
 ## ▶ Nov 3 (latest): ugly sub-shetach outlines rounded (`soften`); Northern Nevada's bite filled
 - **Owner** (phone screenshot of Northern Nevada): "Or like this what the fuck is this indentation ugly it hurts 😭";
   then "sometimes maybe it legitimately does look nice like in the case of north shore or southern Nevada"; and for

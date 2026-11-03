@@ -1166,6 +1166,10 @@
    ]
   },
   {
+   "id": "crown-heights",
+   "name": "Crown Heights"
+  },
+  {
    "id": "upstate-new-york",
    "name": "Upstate New York",
    "short": [
@@ -3592,12 +3596,6 @@
      "lon": -58.41007
     }
    ]
-  },
-  {
-   "id": "bolivia",
-   "name": "Bolivia",
-   "short": "Bol.",
-   "noCentralLeadership": true
   },
   {
    "id": "brazil",

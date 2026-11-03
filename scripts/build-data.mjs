@@ -165,6 +165,7 @@ const STATE_INFO = new Map(Object.values(WORLD_STATES).flatMap((w) => Object.val
 const SHAPES = path.join(ROOT, 'data', 'shapes');
 // A sliver left between a shape and the state's own (differently drawn) coast or border goes to the shape beside it.
 const SLIVER_KM2 = 25;
+const ISLAND_MIN_KM2 = 3; // islands smaller than this are dropped from big areas (2,000 km² and over)
 // An unclaimed island this close to a shape in a state the shapes divide up goes to the nearest one.
 const ISLAND_KM = 25;
 
@@ -803,9 +804,13 @@ async function buildGeo(data) {
   const pieceOf = (p) => `${p.state}:${p.shetach ?? 'none'}`;
   const leaveOff = data.notShownWhenBlank || []; // states whose unclaimed part is left off the map, like notShown ones (the territories north of 63°N)
   const lakePieces = new Set(mosaic.filter((f) => f.properties.lake).map((f) => pieceOf(f.properties)));
+  // A shape's piece smaller than the islands dropped from the big areas below (Crown Heights, inside Greater New York)
+  // goes with the big areas: apart from it, the hole it leaves in the area round it was taken for an island and filled.
+  const shapePieces = new Set(mosaic.filter((f) => f.properties.byShape).map((f) => pieceOf(f.properties))), pieceKm2 = new Map();
+  for (const f of mosaic) { const k = pieceOf(f.properties); if (shapePieces.has(k)) pieceKm2.set(k, (pieceKm2.get(k) || 0) + km2(f.geometry)); }
   for (const f of mosaic) {
     const p = f.properties, piece = pieceOf(p);
-    f.properties = { piece, state: p.state, name: p.name, abbr: p.abbr, country: p.country, shetach: p.shetach, as: p.as || '', outside: !!p.outside || (!p.shetach && leaveOff.includes(p.state)), lake: lakePieces.has(piece) };
+    f.properties = { piece, state: p.state, name: p.name, abbr: p.abbr, country: p.country, shetach: p.shetach, as: p.as || '', outside: !!p.outside || (!p.shetach && leaveOff.includes(p.state)), lake: lakePieces.has(piece), tiny: pieceKm2.get(piece) < ISLAND_MIN_KM2 };
   }
 
   // Small islands are dropped to keep the page light, except from areas that are small altogether (Bermuda, the
@@ -817,11 +822,11 @@ async function buildGeo(data) {
   // same) and not simplified any further, so it meets the shetachim point for point. It used to be thinned to 40% on a
   // coarser grid, which left strips of bare sea up to a kilometre wide between them (Israel's lines, Oct 7).
   const out = await mapshaper.applyCommands(
-    '-i mosaic.json -dissolve piece copy-fields=state,name,abbr,country,shetach,as,outside,lake -rename-fields id=piece -rename-layers areas ' +
+    '-i mosaic.json -dissolve piece copy-fields=state,name,abbr,country,shetach,as,outside,lake,tiny -rename-fields id=piece -rename-layers areas ' +
     '-o pieces.json format=geojson ' +
     `-simplify variable interval="${rough}.includes(state) ? 2500 : ${fine}.includes(state) ? 100 : country === 'US' ? 400 : 800" keep-shapes ` +
-    `-each "size = this.area < 2e9 ? 'small' : 'big'" -split size ` +
-    '-filter-islands min-area=3km2 remove-empty target=big ' +
+    `-each "size = this.area < 2e9 && !tiny ? 'small' : 'big'" -split size ` +
+    `-filter-islands min-area=${ISLAND_MIN_KM2}km2 remove-empty target=big ` +
     '-merge-layers target=big,small force name=areas -filter-fields id,state,name,abbr,country,shetach,as,outside,lake ' +
     '-o world.json format=topojson quantization=100000 ' +
     '-rectangle bbox=-180,-90,180,90 name=frame + ' +

@@ -1,0 +1,124 @@
+{
+  "about": "Massachusetts's inner borders, town by town: scripts/ma-shapes.mjs reads this, gives every town (or, for a town on a line, every part of it) to a shetach, smooths the borders between them (no town-line spikes or notches; owner, Nov 3: \"Why there be horrible pointy borders\") and writes data/shapes/ma-*.geojson, which data/shetachim.json claims. Change a town here, then run `node scripts/ma-shapes.mjs` and `npm run build`. Towns not listed go by longitude: west of `deren` is Connecticut's shetach (its own band claim, kept exact), between `deren` and `split` Central Massachusetts, east of `split` Eastern Massachusetts. Cape Cod and the Islands keep their three counties exactly. `exact`: shetachim whose town lines stay exactly as they are, not smoothed (owner, Nov 3: \"I liked the north shore borders\"); they keep their town claims in shetachim.json and the shapes round them are cut to them exactly.",
+  "deren": -72.1574,
+  "split": -71.24694,
+  "westOfSplit": "central-massachusetts",
+  "eastOfSplit": "eastern-massachusetts",
+  "counties": {
+    "cape-cod-and-the-islands": [
+      "25001",
+      "25007",
+      "25019"
+    ]
+  },
+  "towns": {
+    "central-massachusetts": [
+      "Attleboro",
+      "Foxborough",
+      "Mansfield",
+      "Norton",
+      "Walpole",
+      "Wellesley"
+    ],
+    "eastern-massachusetts": [
+      "Bedford",
+      "Billerica",
+      "Dover",
+      "Lexington",
+      "Needham",
+      "Newton",
+      "Rehoboth",
+      "Swansea",
+      "Waltham",
+      "Westwood"
+    ],
+    "south-area": [
+      "Avon",
+      "Braintree",
+      "Brockton",
+      "Easton",
+      "Holbrook",
+      "Randolph",
+      "Stoughton"
+    ],
+    "merrimack-valley": [
+      "Amesbury",
+      "Andover",
+      "Boxford",
+      "Chelmsford",
+      "Dracut",
+      "Georgetown",
+      "Groveland",
+      "Haverhill",
+      "Lawrence",
+      "Lowell",
+      "Merrimac",
+      "Methuen",
+      "Middleton",
+      "Newbury",
+      "Newburyport",
+      "North Andover",
+      "Rowley",
+      "Salisbury",
+      "Tewksbury",
+      "Tyngsborough",
+      "West Newbury",
+      "Westford"
+    ],
+    "north-shore-of-massachusetts": [
+      "Beverly",
+      "Chelsea",
+      "Danvers",
+      "Essex",
+      "Everett",
+      "Gloucester",
+      "Hamilton",
+      "Ipswich",
+      "Lynn",
+      "Lynnfield",
+      "Malden",
+      "Manchester-by-the-Sea",
+      "Marblehead",
+      "Melrose",
+      "Nahant",
+      "Peabody",
+      "Reading",
+      "Revere",
+      "Rockport",
+      "Salem",
+      "Saugus",
+      "Stoneham",
+      "Swampscott",
+      "Topsfield",
+      "Wakefield",
+      "Wenham",
+      "Winthrop"
+    ]
+  },
+  "tracts": {
+    "north-shore-of-massachusetts": [
+      "25025050101",
+      "25025050200",
+      "25025050300",
+      "25025050400",
+      "25025050500",
+      "25025050600",
+      "25025050700",
+      "25025050901",
+      "25025051000",
+      "25025051101",
+      "25025051200",
+      "25025981300",
+      "25025981600"
+    ]
+  },
+  "shapes": {
+    "central-massachusetts": "ma-central",
+    "eastern-massachusetts": "ma-eastern",
+    "south-area": "ma-south-area",
+    "merrimack-valley": "ma-merrimack-valley"
+  },
+  "exact": [
+    "north-shore-of-massachusetts"
+  ]
+}

@@ -783,6 +783,9 @@ async function buildGeo(data) {
     }
     p.shetach = best ? best.shetach : null;
     p.byShape = !!(best && best.kind === 'shape');
+    // A piece a town or tract is claimed for is never a sliver to give away (the North Shore's small towns beside
+    // Massachusetts's shapes: Salem, Everett, Chelsea).
+    p.ownClaim = !!(best && (best.kind === 'town' || best.kind === 'tract'));
     p.lake = !!(best && best.kind === 'shape' && lakeShapes.has(best.shape));
     // as: the country this piece is part of on the Countries map, where that isn't its own (occupied Ukraine: Russia)
     p.as = (best && best.as) || '';
@@ -1159,7 +1162,7 @@ function absorbSlivers(features) {
   });
   let n = 0;
   features.forEach((f, i) => {
-    if (f.properties.byShape || km2(f.geometry) >= SLIVER_KM2) return;
+    if (f.properties.byShape || f.properties.ownClaim || km2(f.geometry) >= SLIVER_KM2) return;
     const shared = new Map();
     for (const poly of polygonsOf(f.geometry)) for (const ring of poly) {
       for (let j = 1; j < ring.length; j++) {

@@ -12,6 +12,24 @@ between two Claude accounts when usage limits run out; whichever session picks t
 those can't reach. On Nov 3 a session ran every search and page through Firecrawl (~25 searches, ~20 pages) and the
 owner was furious. The rule is also under "Notes for Claude" below.
 
+## ▶ Nov 3 (latest): Massachusetts's inner borders drawn smooth (the North Shore's kept as town lines)
+- **Owner** (phone screenshot of the Merrimack Valley–Prus line at Billerica): "Why there be horrible pointy borders and
+  it's not just there 😭" — then "sometimes maybe it legitimately does look nice like in the case of north shore or
+  southern Nevada those both look good and I'm sure there's others" (and earlier: "I like the not straight"). So: smooth
+  where town lines make spikes and notches, keep what already looks good.
+- **How:** `scripts/ma-shapes.mjs` reads **`data/shapes/ma-towns.json`** (the town-by-town assignment, moved out of
+  shetachim.json: the `towns` lists, the 72.1574°W / 71.24694°W lines for towns not listed, Cape Cod's counties, the
+  North Shore's East Boston tracts) and writes `data/shapes/ma-central|ma-eastern|ma-merrimack-valley|ma-south-area
+  .geojson`, which those four shetachim now claim (`shape`). It lays the towns on a 350 m grid, blurs each shetach's share
+  (~2 km), gives every cell to the strongest, lets each house pull the land round it its own way (so a border bends round
+  a house instead of cutting it off), drops stray bits, then draws each shared border once (steps removed, Chaikin-
+  rounded) so neighbours still meet exactly. Kept exact: the North Shore (`exact`: its town claims stay in shetachim.json
+  and the shapes are cut to its towns), Cape Cod's counties, and Connecticut's straight 72.1574°W line. To change a town:
+  edit ma-towns.json, `node scripts/ma-shapes.mjs`, `npm run build`.
+- **Build fix:** `absorbSlivers` gave any piece under 25 km² touching a shape to that shape — it took Salem and Everett
+  (North Shore towns) into the new shapes. A piece with its own town or tract claim (`ownClaim`) is never a sliver now.
+- Checked: no center anywhere changed shetach (all 4,441 compared with the previous build).
+
 ## ▶ Nov 3 (latest): Merrimack Valley a shetach of its own (Rabbi Asher Bronstein); The Valley without Camarillo/Burbank
 - **Owner:** "So yeah I guess bronstein is a head shliach but first verify with research" (after: "Doesn't that mean it's
   under gurkow if it's his son???" — no: Zalman Gurkow and Faigy Bronstein are Mendel's siblings, not his children).

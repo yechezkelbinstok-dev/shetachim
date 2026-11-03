@@ -2006,9 +2006,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // the edges it shares with another part of it, so a region over a state line is outlined as one shape)
   const loadSub = () => subLoad || (subLoad = get('data/sub.json')
     .then((g) => {
-      const lines = new Map(g.features.filter((f) => f.geometry.type === 'MultiLineString').map((f) => [`${f.properties.id}|${f.properties.state}`, f.geometry]));
+      // (a border two regions share comes once, with the first of them; the other has it apart, dup, for its own outline
+      // when it's picked: two dotted lines on one border read as a solid one)
+      const linesOf = (dup) => new Map(g.features.filter((f) => f.geometry.type === 'MultiLineString' && !!f.properties.dup === dup).map((f) => [`${f.properties.id}|${f.properties.state}`, f.geometry]));
+      const lines = linesOf(false), dups = linesOf(true);
       SUB = [...d3.group(g.features.filter((f) => f.geometry.type !== 'MultiLineString'), (f) => f.properties.id).values()]
-        .map((fs) => ({ ...fs[0].properties, parts: fs.map((f) => ({ state: f.properties.state, geometry: f.geometry, line: lines.get(`${f.properties.id}|${f.properties.state}`) })) }));
+        .map((fs) => ({ ...fs[0].properties, parts: fs.map((f) => { const k = `${f.properties.id}|${f.properties.state}`; return { state: f.properties.state, geometry: f.geometry, line: lines.get(k), dup: dups.get(k) }; }) }));
     })
     .catch((e) => { console.error(e); SUB = []; }));
   const subPolys = (s) => s.parts.flatMap((p) => (p.geometry.type === 'Polygon' ? [p.geometry.coordinates] : p.geometry.coordinates));
@@ -2021,11 +2024,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       return gs.length ? { type: 'MultiPolygon', coordinates: gs.flatMap((g) => (g.type === 'Polygon' ? [g.coordinates] : g.coordinates)) } : null;
     });
   }
-  // its outline in the view (its parts' outer edges)
-  function subLine(S, s) {
+  // its outline in the view (its parts' outer edges; all: with the borders a neighbour draws, for its own when picked)
+  function subLine(S, s, all) {
     const states = new Set(V.main.map((g) => g.properties.state));
     return within(S, () => {
-      const gs = s.parts.filter((p) => p.line && states.has(p.state)).map((p) => (S.flat ? projGeom(p.line) : p.line)).filter(Boolean);
+      const gs = s.parts.filter((p) => states.has(p.state)).flatMap((p) => [p.line, all && p.dup]).filter(Boolean).map((l) => (S.flat ? projGeom(l) : l)).filter(Boolean);
       return gs.length ? { type: 'MultiLineString', coordinates: gs.flatMap((g) => (g.type === 'LineString' ? [g.coordinates] : g.coordinates)) } : null;
     });
   }
@@ -2818,7 +2821,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (!glOK) return;
     const S = V.cur;
     const dot = hit && (hit.dot || (hit.capital && dotOfCenter.get(hit.capital.centerId)));
-    const area = hit && hit.shetach ? shetachArea(S, hit.shetach) : hit && hit.sub ? { geometry: subLine(S, hit.sub) }
+    const area = hit && hit.shetach ? shetachArea(S, hit.shetach) : hit && hit.sub ? { geometry: subLine(S, hit.sub, true) }
       : hit && hit.piece && V.mainIds.has(hit.piece.id) ? areaOf(S, hit.piece.id) : null;
     map.getSource(`hover-dot${S.sfx}`).setData(dot && state.dots && V.mainIds.has(dot.piece) ? feature({ type: 'Point', coordinates: within(S, () => P(dot.lon, dot.lat)) }, { l: Math.log2(dot.centers.length) }) : EMPTY);
     map.getSource(`hover-area${S.sfx}`).setData(area && area.geometry ? feature(area.geometry) : EMPTY);

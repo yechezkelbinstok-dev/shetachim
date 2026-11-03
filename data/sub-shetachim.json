@@ -1,5 +1,5 @@
 {
-  "about": "Sub-shetachim: a regional director's area under a head shliach. They show only with the map's Sub-shetachim switch, never on the head shluchim's map (owner, Oct 26: \"I meant as a separate thing to toggle to see sub shetachim not in the head shluchim part\"). Each is ONE piece with borders of its own (owner, Nov 1: \"why are you using county situations you should be drawing your own borders\"; then \"Why the fuck have you made disconnected ones like the valley and inland empires with horrible borders\"): the land its member houses span (the triangles between them and the links joining them all), reaching a little past them, rounded, and cut halfway to any of the shetach's other houses nearby. Members are listed (members: chabad.org ids), or are the parent shetach's houses within membersIn (US counties by Census GEOID, L.A. Times neighbourhoods by region or name, county subdivisions by name in one county, { box: [west, south, east, north], county? } (a box, or the part of a county in it), or { near: [lon, lat], km }), less exclude; mushrooms never count. Its outline (outline) is chosen region by region (owner, Nov 2: \"use your discretion every time ... when you draw them each time individually you just have to think about it\"): \"areas\", its member areas themselves, where those are the region (a county, its towns, its county divisions; ccds take names, or except: all but those, and a box to cut them); \"drawn\" (the default), drawn round its houses where no such lines fit; \"both\". A region over a state or national line is outlined as one shape. areas: whole areas of the map added as they are (the Baja peninsula). reach / far (km, optional, drawn ones): how far past its houses it reaches whatever's round it (7), and over land clearly its own (50). Most shetachim have none, and none fills its shetach: the rest stays the head shliach's own. scripts/build-sub.mjs makes web/data/sub.json (npm run build runs it).",
+  "about": "Sub-shetachim: a regional director's area under a head shliach. They show only with the map's Sub-shetachim switch, never on the head shluchim's map (owner, Oct 26: \"I meant as a separate thing to toggle to see sub shetachim not in the head shluchim part\"). Each is ONE piece with borders of its own (owner, Nov 1: \"why are you using county situations you should be drawing your own borders\"; then \"Why the fuck have you made disconnected ones like the valley and inland empires with horrible borders\"): the land its member houses span (the triangles between them and the links joining them all), reaching a little past them, rounded, and cut halfway to any of the shetach's other houses nearby. Members are listed (members: chabad.org ids), or are the parent shetach's houses within membersIn (US counties by Census GEOID, L.A. Times neighbourhoods by region or name, county subdivisions by name in one county, { box: [west, south, east, north], county? } (a box, or the part of a county in it), { near: [lon, lat], km }, { shape } (a shape of data/shapes: western Jalisco) or { state, minus? } (the shetach's area of a state, a Mexican state, less such shapes)), less exclude; mushrooms never count. Its outline (outline) is chosen region by region (owner, Nov 2: \"use your discretion every time ... when you draw them each time individually you just have to think about it\"): \"areas\", its member areas themselves, where those are the region (a county, its towns, its county divisions; ccds take names, or except: all but those, and a box to cut them); \"drawn\" (the default), drawn round its houses where no such lines fit; \"both\". A region over a state or national line is outlined as one shape. areas: whole areas of the map added as they are (the Baja peninsula; the Mexican regions, state by state). A border two regions share is drawn once (sub.json gives the second its copy apart, dup, for its outline when picked). reach / far (km, optional, drawn ones): how far past its houses it reaches whatever's round it (7), and over land clearly its own (50). Most shetachim have none, and none fills its shetach: the rest stays the head shliach's own. scripts/build-sub.mjs makes web/data/sub.json (npm run build runs it).",
   "subShetachim": [
     {
       "id": "san-diego-baja",
@@ -842,6 +842,129 @@
         }
       ],
       "source": "Rabbi Nechemia Vogel, head shliach to Rochester since 1981 (Chabadpedia), \"director of Chabad of Rochester and regional head shliach\" (Yeshiva World News, on the new shluchim to SUNY Geneseo), at the Kessler Family Chabad Center; the houses round the city under it (the Chabad Times' directory): the Rohr Chabad House at the University of Rochester (his daughter and son-in-law, the Yarases), Chabad Young Professionals (his son Moshe), Chabad of Pittsford, Chabad at RIT, and Chabad of Geneseo at SUNY Geneseo. Its members: the houses of Monroe County and of Livingston County (Geneseo). Outline: Monroe and Livingston Counties.",
+      "outline": "areas"
+    },
+    {
+      "id": "mexican-caribbean",
+      "parent": "mexico",
+      "name": "Mexican Caribbean",
+      "nameHe": "הקריביים המקסיקניים",
+      "head": "Mendel Druk",
+      "headHe": "מענדל דרוק",
+      "capital": "503725",
+      "areas": [
+        "MX-CAM",
+        "MX-ROO",
+        "MX-YUC"
+      ],
+      "source": "Rabbi Mendel Druk, \"director of Chabad-Lubavitch activities in the Riviera Maya and Mexican Carribean\", who with Rabbi Moshe Kotlarsky appointed Playa del Carmen's shluchim, the Goldbergs (Chabad.org, \"Playing and Praying in Playa del Carmen\", Oct 25, 2010); in Cancún since 2007. The owner's shetach list (data/global-shetach-list.txt before Oct 2, 2026, when the owner made all of Mexico one shetach: \"entire Mexico is Mayzlish\"; its regions are now Rabbi Yosef Mayzlesh's sub-shetachim, owner, Nov 3: \"Do all the Mexican sub shetachim like druk etc\"): Mexican Caribbean — Campeche, Quintana Roo, Yucatán — Mendel Druk. Its members: Cancún (his center, mikvah and CTeen), Playa del Carmen (Goldberg), Tulum (Binyamini), Cozumel (Caplin); the Israeli backpacker houses outside Chabad of Mexico (Isla Mujeres, Holbox, Bacalar, Mérida) are mushrooms and don't count. Outline: the three states.",
+      "outline": "areas"
+    },
+    {
+      "id": "jalisco",
+      "parent": "mexico",
+      "name": "Jalisco",
+      "nameHe": "חליסקו",
+      "head": "Avraham Srugo",
+      "headHe": "אברהם סרוגו",
+      "capital": "7011671",
+      "areas": [
+        "MX-COL"
+      ],
+      "membersIn": [
+        {
+          "state": "MX-JAL",
+          "minus": [
+            "jalisco-costa-norte"
+          ]
+        }
+      ],
+      "source": "The owner's shetach list (data/global-shetach-list.txt before Oct 2, 2026, when the owner made all of Mexico one shetach: \"entire Mexico is Mayzlish\"; its regions are now Rabbi Yosef Mayzlesh's sub-shetachim, owner, Nov 3: \"Do all the Mexican sub shetachim like druk etc\"): Jalisco — Jalisco, Colima — Avraham Srugo. Rabbi Avraham Srugo, \"שליח חב״ד בחליסקו\" for 26 years (Kikar HaShabbat); Chabad of Guadalajara and Chabad of Lake Chapala (Ajijic, with the Suareses) on chabad.org. Jalisco's western coast round Puerto Vallarta is Rabbi Shneur Hecht's (Nayarit). Outline: Jalisco without those six municipalities, and Colima.",
+      "outline": "areas"
+    },
+    {
+      "id": "nayarit",
+      "parent": "mexico",
+      "name": "Nayarit",
+      "nameHe": "נאיאריט",
+      "head": "Shneur Hecht",
+      "headHe": "שניאור העכט",
+      "capital": "3424139",
+      "areas": [
+        "MX-NAY"
+      ],
+      "membersIn": [
+        {
+          "shape": "jalisco-costa-norte"
+        }
+      ],
+      "source": "The owner's shetach list (data/global-shetach-list.txt before Oct 2, 2026, when the owner made all of Mexico one shetach: \"entire Mexico is Mayzlish\"; its regions are now Rabbi Yosef Mayzlesh's sub-shetachim, owner, Nov 3: \"Do all the Mexican sub shetachim like druk etc\"): Nayarit — Shneur Hecht, with western Jalisco round Puerto Vallarta (the municipalities of Puerto Vallarta, Cabo Corrientes, San Sebastián del Oeste, Mascota, Talpa de Allende and Tomatlán: the owner's choice, Oct 2, data/shapes/jalisco-costa-norte.geojson). Rabbi Shneur and Mushkie Hecht founded Chabad of Puerto Vallarta (chabad.org). Outline: Nayarit and those six municipalities.",
+      "outline": "areas"
+    },
+    {
+      "id": "bajio",
+      "parent": "mexico",
+      "name": "Bajío",
+      "nameHe": "באחיו",
+      "head": "Daniel Huebner",
+      "headHe": "דניאל היבנר",
+      "capital": "4251108",
+      "areas": [
+        "MX-AGU",
+        "MX-GUA",
+        "MX-MIC",
+        "MX-QUE",
+        "MX-SLP",
+        "MX-ZAC"
+      ],
+      "source": "The owner's shetach list (data/global-shetach-list.txt before Oct 2, 2026, when the owner made all of Mexico one shetach: \"entire Mexico is Mayzlish\"; its regions are now Rabbi Yosef Mayzlesh's sub-shetachim, owner, Nov 3: \"Do all the Mexican sub shetachim like druk etc\"): Bajío — Aguascalientes, Guanajuato, Michoacán, Querétaro, San Luis Potosí, Zacatecas — Daniel Huebner. Rabbi Daniel and Raizel Huebner, Chabad of San Miguel de Allende (chabad.org; Chabad of SMA Inc). Outline: the six states.",
+      "outline": "areas"
+    },
+    {
+      "id": "nuevo-leon",
+      "parent": "mexico",
+      "name": "Nuevo León",
+      "nameHe": "נואבו לאון",
+      "head": "Zalmy Srugo",
+      "headHe": "זלמן סרוגו",
+      "capital": "7338776",
+      "areas": [
+        "MX-CHH",
+        "MX-COA",
+        "MX-DUR",
+        "MX-NLE",
+        "MX-TAM"
+      ],
+      "source": "The owner's shetach list (data/global-shetach-list.txt before Oct 2, 2026, when the owner made all of Mexico one shetach: \"entire Mexico is Mayzlish\"; its regions are now Rabbi Yosef Mayzlesh's sub-shetachim, owner, Nov 3: \"Do all the Mexican sub shetachim like druk etc\"): Nuevo León — Chihuahua, Coahuila, Durango, Nuevo León, Tamaulipas — Zalmy Srugo. Rabbi Shneor Zalmen Srugo, director of Jabad Monterrey (chabad.org). Outline: the five states.",
+      "outline": "areas"
+    },
+    {
+      "id": "chiapas",
+      "parent": "mexico",
+      "name": "Chiapas",
+      "nameHe": "צ׳יאפס",
+      "head": "Oren Raz",
+      "headHe": "אורן רז",
+      "capital": "7022006",
+      "areas": [
+        "MX-CHP",
+        "MX-TAB"
+      ],
+      "source": "The owner's shetach list (data/global-shetach-list.txt before Oct 2, 2026, when the owner made all of Mexico one shetach: \"entire Mexico is Mayzlish\"; its regions are now Rabbi Yosef Mayzlesh's sub-shetachim, owner, Nov 3: \"Do all the Mexican sub shetachim like druk etc\"): Chiapas — Chiapas, Tabasco — Oren Raz. Rabbi Oren and Einat Raz, Chabad of Chiapas and its mikveh in San Cristóbal de las Casas (chabad.org; Chabadpedia). Outline: the two states.",
+      "outline": "areas"
+    },
+    {
+      "id": "sinaloa",
+      "parent": "mexico",
+      "name": "Sinaloa",
+      "nameHe": "סינלואה",
+      "head": "Chaim Raitport",
+      "headHe": "חיים רייטפורט",
+      "capital": "extra-mexico-mazatlan",
+      "areas": [
+        "MX-SIN"
+      ],
+      "source": "The owner's shetach list (data/global-shetach-list.txt before Oct 2, 2026, when the owner made all of Mexico one shetach: \"entire Mexico is Mayzlish\"; its regions are now Rabbi Yosef Mayzlesh's sub-shetachim, owner, Nov 3: \"Do all the Mexican sub shetachim like druk etc\"): Sinaloa — Chaim Raitport. Rabbi Chaim and Tzirl Raitport, new shluchim to Mazatlán, \"having no shluchim in the entire state\" (COLlive, Aug 2, 2026); not on chabad.org yet (added by hand at the city's point). Outline: the state.",
       "outline": "areas"
     }
   ]

@@ -1093,6 +1093,20 @@
       "networkHe": "משיח חב״ד מקסיקו"
     },
     {
+      "id": "extra-mexico-mazatlan",
+      "name": "Chabad Lubavitch of Mazatlán",
+      "city": "Mazatlán",
+      "lat": 23.2329,
+      "lon": -106.4062,
+      "precision": "city",
+      "note": "Address not known; placed at the city centre",
+      "source": "COLlive (\"New Shluchim to Mazatlan, Mexico\", Aug 2, 2026: Rabbi Chaim and Tzirl Raitport, \"having no shluchim in the entire state\" of Sinaloa); its Charidy campaign (charidy.com/mazatlan); the owner's shetach list (Sinaloa: Chaim Raitport); not on chabad.org yet",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Chaim", "lastName": "Raitport" },
+        { "title": "Mrs.", "firstName": "Tzirl", "lastName": "Raitport" }
+      ]
+    },
+    {
       "id": "extra-guatemala-san-pedro",
       "name": "Chabad San Pedro",
       "city": "San Pedro La Laguna",

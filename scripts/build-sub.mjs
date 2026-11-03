@@ -68,6 +68,14 @@ const polys = (g) => (g.type === 'Polygon' ? [g.coordinates] : g.type === 'Multi
 const inRing = (x, y, r) => { let c = false; for (let i = 0, j = r.length - 1; i < r.length; j = i++) { const a = r[i], b = r[j]; if ((a[1] > y) !== (b[1] > y) && x < ((b[0] - a[0]) * (y - a[1])) / (b[1] - a[1]) + a[0]) c = !c; } return c; };
 const inPolys = (x, y, ps) => ps.some((p) => inRing(x, y, p[0]) && !p.slice(1).some((h) => inRing(x, y, h)));
 
+// a shape of data/shapes, as polygons (all its features together)
+const shapePolys = (name) => {
+  const g = readJSON(ROOT, 'data', 'shapes', `${name}.geojson`);
+  const ps = (g.features || [g]).flatMap((f) => polys(f.geometry || f));
+  if (!ps.length) throw new Error(`data/shapes/${name}.geojson: no polygons`);
+  return polygonClipping.union(...ps.map((p) => [p]));
+};
+
 // The areas a region's members are picked from (membersIn), as polygons
 async function memberAreas(s) {
   const out = [];
@@ -97,6 +105,16 @@ async function memberAreas(s) {
       const [w, so, e, n] = t.box, r = [[[w, so], [e, so], [e, n], [w, n], [w, so]]];
       if (t.county && !counties.has(t.county)) throw new Error(`${s.id}: no county ${t.county}`);
       out.push(...(t.county ? polygonClipping.intersection(polys(counties.get(t.county)), r) : [r]));
+    }
+    // { shape: name }: a shape of data/shapes (western Jalisco, round Puerto Vallarta); { state, minus? }: the parent
+    // shetach's area of a state (a Mexican state), less any such shapes (Jalisco without its western coast)
+    if (t.shape) out.push(...shapePolys(t.shape));
+    if (t.state) {
+      const gs = pieces.filter((g) => g.properties.shetach === s.parent && g.properties.state === t.state);
+      if (!gs.length) throw new Error(`${s.id}: no area ${t.state} in ${s.parent}`);
+      let ps = polys(topojson.merge(topo, gs));
+      for (const m of t.minus || []) ps = polygonClipping.difference(ps, shapePolys(m));
+      out.push(...ps);
     }
     if (t.near) { // { near: [lon, lat], km }: a circle, as a polygon
       const [lon, lat] = t.near, k = 111.32 * Math.cos((lat * Math.PI) / 180), ring = [];
@@ -445,16 +463,15 @@ for (const s of data.subShetachim) {
 // land just beyond it (1.5 km out, on the side away from its part: rings are wound with the inside on the right) is in
 // another part of it. Not "where its edge lies on the other part's": San Diego County's Census line and the map's own
 // border don't quite meet, and stretches of the border were drawn through Fradkin's region (owner: "The fuck").
+// the point 1.5 km out from the middle of an edge, on its left (rings are wound with the inside on the right: outside it)
+const outward = (a, b, km = 1.5) => {
+  const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2, kx = 111.32 * Math.cos((my * Math.PI) / 180), ky = 110.57;
+  const dx = (b[0] - a[0]) * kx, dy = (b[1] - a[1]) * ky, l = Math.hypot(dx, dy);
+  return l ? [mx + ((-dy / l) * km) / kx, my + ((dx / l) * km) / ky] : null;
+};
 function outerLines(mp, sibs) {
-  const OUT = 1.5;
   const sibPolys = sibs.flat();
-  const inside = (a, b) => {
-    const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2, kx = 111.32 * Math.cos((my * Math.PI) / 180), ky = 110.57;
-    const dx = (b[0] - a[0]) * kx, dy = (b[1] - a[1]) * ky, l = Math.hypot(dx, dy);
-    if (!l) return false;
-    const px = mx + ((-dy / l) * OUT) / kx, py = my + ((dx / l) * OUT) / ky; // (left of the way it runs: outside its part)
-    return inPolys(px, py, sibPolys);
-  };
+  const inside = (a, b) => { const o = outward(a, b); return !!o && inPolys(o[0], o[1], sibPolys); };
   const lines = [];
   for (const poly of mp) for (const ring of poly) {
     const flags = [];
@@ -470,13 +487,33 @@ function outerLines(mp, sibs) {
   }
   return lines;
 }
+// Lines split into the stretches where test(edge) is false and those where it's true
+function splitLines(lines, test) {
+  const no = [], yes = [];
+  for (const l of lines) {
+    let run = null, flag = null;
+    for (let i = 0; i < l.length - 1; i++) {
+      const f = test(l[i], l[i + 1]);
+      if (!run || f !== flag) { if (run && run.length > 1) (flag ? yes : no).push(run); run = [l[i]]; flag = f; }
+      run.push(l[i + 1]);
+    }
+    if (run && run.length > 1) (flag ? yes : no).push(run);
+  }
+  return [no, yes];
+}
 const lineFeatures = [];
+// (a border two regions share is drawn once, by the first of them: two dotted lines on one border read as a solid one
+// (the Mexican regions, state against state). The other keeps it apart (dup), for its outline when it's picked.)
+const earlier = [];
 for (const id of new Set(features.map((f) => f.properties.id))) {
   const mine = features.filter((f) => f.properties.id === id);
   for (const f of mine) {
-    lineFeatures.push({ type: 'Feature', geometry: { type: 'MultiLineString', coordinates: outerLines(f.geometry.coordinates, mine.filter((g) => g !== f).map((g) => g.geometry.coordinates)) },
-      properties: { id, state: f.properties.state } });
+    const own = outerLines(f.geometry.coordinates, mine.filter((g) => g !== f).map((g) => g.geometry.coordinates));
+    const [line, dup] = splitLines(own, (a, b) => { const o = outward(a, b); return !!o && inPolys(o[0], o[1], earlier); });
+    lineFeatures.push({ type: 'Feature', geometry: { type: 'MultiLineString', coordinates: line }, properties: { id, state: f.properties.state } });
+    if (dup.length) lineFeatures.push({ type: 'Feature', geometry: { type: 'MultiLineString', coordinates: dup }, properties: { id, state: f.properties.state, dup: true } });
   }
+  earlier.push(...mine.flatMap((f) => f.geometry.coordinates));
 }
 // (two regions over the same land would be a mistake: say so)
 for (let a = 0; a < features.length; a++) for (let b = a + 1; b < features.length; b++) {

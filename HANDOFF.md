@@ -8,6 +8,32 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Nov 3: Mexico's seven sub-shetachim (Druk and the rest)
+- **Owner:** "Do all the Mexican sub shetachim like druk etc (there's at least 4 I think)". They're the regions of the
+  owner's own shetach list from before Oct 2 (when he made all of Mexico one shetach, "entire Mexico is Mayzlish";
+  `git show be276cf^:data/global-shetach-list.txt`), now sub-shetachim under Rabbi Yosef Mayzlesh, each outlined by its
+  states (`areas`, `outline: "areas"`), with the old Hebrew names:
+  - **Mexican Caribbean — Mendel Druk** (Campeche, Quintana Roo, Yucatán; capital Cancún 503725): "director of
+    Chabad-Lubavitch activities in the Riviera Maya and Mexican Carribean" (Chabad.org, Oct 25, 2010). Members Cancún,
+    Playa del Carmen, Tulum, Cozumel; the backpacker mushrooms don't count.
+  - **Jalisco — Avraham Srugo** (Jalisco less its western coast, and Colima; Guadalajara 7011671, Lake Chapala).
+  - **Nayarit — Shneur Hecht** (Nayarit and the six western Jalisco municipalities round Puerto Vallarta, the owner's
+    Oct 2 choice: `data/shapes/jalisco-costa-norte.geojson`, restored from git; capital Puerto Vallarta 3424139).
+  - **Bajío — Daniel Huebner** (Aguascalientes, Guanajuato, Michoacán, Querétaro, San Luis Potosí, Zacatecas; San
+    Miguel de Allende 4251108).
+  - **Nuevo León — Zalmy Srugo** (Chihuahua, Coahuila, Durango, Nuevo León, Tamaulipas; Jabad Monterrey 7338776).
+  - **Chiapas — Oren Raz** (Chiapas, Tabasco; San Cristóbal 7022006).
+  - **Sinaloa — Chaim Raitport**: new shluchim to Mazatlán (COLlive, Aug 2, 2026), not on chabad.org, so added by hand
+    (`extra-mexico-mazatlan`, at the city's point; address not found).
+  - The rest (Mexico City and the centre, Oaxaca, Veracruz, Guerrero…, and **Sonora**, which was Polichenco's with the
+    Baja peninsula in the old list — the peninsula is Fradkin's now) stays Mayzlesh's own.
+- build-sub.mjs: `membersIn` takes `{ shape }` and `{ state, minus }`; and **a border two regions share is drawn once**
+  (the second region's copy goes in sub.json apart, `dup: true`; the page draws only the first and uses both for a
+  picked region's outline). Two dotted lines on one border read as a solid line — the Mexican regions meet state against
+  state; it fixed Bucks/Montgomery, Bucks/Mercer (the Delaware), Passaic/Northwest NJ, Mercer/Western Monmouth and
+  Tampa/Sarasota too.
+- Heads' Hebrew as the page spells them elsewhere: שניאור העכט, דניאל היבנר, זלמן סרוגו.
+
 ## ▶ Nov 3: Chabad Niagara (Rabbi Zalman Zaltzman) is a mushroom
 - Owner: "Zalman Zaltzman in Niagara mushroom add him pls". Added `extra-ca-niagara-falls` (data/extra-centers.json):
   Chabad Niagara / Jewish Welcome Centre, 6417 Main St, Niagara Falls, **Ontario** (Esri geocoder 43.08196,

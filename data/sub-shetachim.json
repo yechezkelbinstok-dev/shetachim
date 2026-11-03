@@ -386,6 +386,25 @@
       "outline": "areas"
     },
     {
+      "id": "south-texas",
+      "parent": "texas",
+      "name": "South Texas",
+      "nameHe": "דרום טקסס",
+      "head": "Chaim Block",
+      "headHe": "חיים בלוק",
+      "capital": "117732",
+      "membersIn": [
+        {
+          "counties": [
+            "48029",
+            "48259"
+          ]
+        }
+      ],
+      "source": "The owner, Nov 3: \"I want all possible sub shatachim\". Chabad Lubavitch of South Texas (San Antonio, 14535 Blanco Rd), Rabbi Chaim and Rivkie Block, sent by the Rebbe in 1985, \"director of the South Texas Chabad-Lubavitch branch since 1985\" (JLI; Benevity's registry, \"Chabad Lubavitch of South Texas Inc\"). Its houses: the Blocks' Chabad Center for Jewish Life & Learning, the Chabad Israeli Center and Chabad of Downtown SA in San Antonio, and Chabad of Boerne (Rabbi Yossi and Malkie Marrus, who \"moved to San Antonio and became the second shluchim there\" with the Blocks and opened Boerne in July 2022, \"serving Boerne, Kendall, Kerr, and Gillespie counties\"; COLlive, SACRD). Its members and outline: Bexar and Kendall Counties (Kerr and Gillespie, which Boerne also serves, left out: no house, and they made it a long L). Not in it: Corpus Christi (Chabad Coastal Bend), the Rio Grande Valley (McAllen) and San Marcos (Austin's) — no source ties them to it.",
+      "outline": "areas"
+    },
+    {
       "id": "greater-mercer",
       "parent": "new-jersey",
       "name": "Greater Mercer County",
@@ -513,6 +532,38 @@
         }
       ],
       "source": "Chabad-Lubavitch of North Broward and South Palm Beach: Rabbi Yosef Biston its \"executive vice president\" (chabad.org), its headquarters chabad.org's \"Chabad of Parkland – Regional HQ for North Broward & South Palm Beach\"; he founded the Chabad Center of Margate in 1985 under that heading (a 2000 Chabad postcard). Its members: Broward County's houses north of Fort Lauderdale (Coral Springs, Parkland, Margate, Coconut Creek, Tamarac, Pompano Beach, Deerfield Beach, Lighthouse Point) and Palm Beach County's south of Boynton Beach (Boca Raton, Delray Beach), as the office's name has it. Members and outline (Nov 2): Broward's Coral Springs–Margate, Deerfield Beach and Pompano Beach county divisions, and Palm Beach County's Boca Raton, Boynton Beach–Delray Beach and Sunshine Parkway divisions south of Boynton (26.48°N, \"south of Boynton\").",
+      "outline": "areas",
+      "soften": 3
+    },
+    {
+      "id": "greater-sacramento",
+      "parent": "west-coast",
+      "name": "Greater Sacramento",
+      "nameHe": "סקרמנטו רבתי",
+      "head": "Mendy Cohen",
+      "headHe": "מענדל כהן",
+      "capital": "117982",
+      "membersIn": [
+        {
+          "box": [
+            -121.9,
+            38.25,
+            -121.0,
+            38.8
+          ],
+          "county": "06067"
+        },
+        {
+          "box": [
+            -121.6,
+            38.7,
+            -120.85,
+            39.0
+          ],
+          "county": "06061"
+        }
+      ],
+      "source": "The owner, Nov 3: \"I want all possible sub shatachim\". Rabbi Mendy Cohen, \"regional Shliach to the Greater Sacramento region\" (COLlive, \"New Shluchim for Youth in Folsom\"), founded Chabad of Sacramento with his wife Dinie in 1994 and \"opened six additional centers in the region\" (CrownHeights.info, the Kinus Hashluchim keynote notice); new shluchim to Elk Grove were appointed by Rabbi Cunin and Rabbi Cohen (Anash), and Folsom's and Lincoln's thank him (COLlive). Its members: the houses in Sacramento County and western Placer County (Folsom, Fair Oaks, Elk Grove, Roseville/Granite Bay, Lincoln, Auburn, and the Sacramento Jewish Academy); Placer cut at 120.85°W and 39.0°N, past Auburn and Lincoln, not up to Lake Tahoe; Sacramento County cut at 38.25°N, without its empty tail down the Delta. Davis, Vacaville, Grass Valley and Stockton stay Cunin's own: no source ties them to it. Outline: those areas.",
       "outline": "areas",
       "soften": 3
     },

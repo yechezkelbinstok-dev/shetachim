@@ -27,11 +27,14 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   - **Called "head shliach" in news, but already settled with the owner as sub-shetachim:** San Diego (Fradkin;
     Chabadpedia: "המשמש גם כשליח אזורי" — under Cunin; the owner: "baja peninsula is under fradkin"), Southern Nevada
     (Harlig), Long Island (Teldon; Tzach's vaad at its kinus), Westchester (Butman).
-  - **Asked of the owner:** St. Louis (Rabbi Yosef Landa): chabad.org's "Chabad of Greater St. Louis Regional
-    Headquarters", "Co-Founder and Regional Director"; one report, "head shliach to Greater St. Louis" — its own
-    shetach, or Wineberg's (as drawn)?
-  - **Sub-shetach candidates, not drawn:** Greater Sacramento (Rabbi Mendy Cohen, "regional Shliach to the Greater
-    Sacramento region", Chabad of Sacramento since 1994); South Texas (the Blocks, San Antonio).
+  - **St. Louis (Rabbi Yosef Landa)** stays a sub-shetach of Wineberg's Kansas–Missouri (owner: "you think St. Louis
+    is its own thing? I doubt that"), though chabad.org calls it "Chabad of Greater St. Louis Regional Headquarters".
+  - **Drawn as sub-shetachim** (owner: "Why wouldn't I want them? The whole point. Is that I want all possible sub
+    shatachim"): **Greater Sacramento** (Rabbi Mendy Cohen, "regional Shliach to the Greater Sacramento region";
+    Sacramento County north of 38.25°N and western Placer, softened; 8 houses) and **South Texas** (Rabbi Chaim Block,
+    Chabad Lubavitch of South Texas; Bexar and Kendall Counties: San Antonio's 3 houses and Boerne). Their sources are
+    in data/sub-shetachim.json. **Standing rule: every regional director with houses under him is a sub-shetach — find
+    and draw them all, don't ask.**
 
 ## ▶ Nov 3 (latest): mushroom icons; the Five Towns named on the map; Ontario is "Southern Ontario"
 - **Owner:** "Now do the mushroom icons and Five Towns" (asked earlier: "add an option that the mushrooms should be

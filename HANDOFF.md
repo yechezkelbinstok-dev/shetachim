@@ -8,40 +8,24 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
-## ▶ NEXT SESSION START HERE (Nov 3, ~09:20 UTC): Eastern Massachusetts still open — owner's questions
-- **First:** check the push of `c3e0379` (South Area shetach + Prus–Fogelman border by towns) actually went live:
-  `curl -sS "https://yechezkelbinstok-dev.github.io/shetachim/web/data/shetachim.json?nc=$RANDOM" | grep -c south-area`
-  (it wasn't yet at 09:13 UTC; Pages deploys can lock — see the Nov 1 section). This HANDOFF commit comes after it.
-- **The owner's latest words (answer these):**
-  - "when your done and everything is pushed (only after push) - you need to go ahead and overall see if Massachusetts
-    is accurate overall" and "if you know of any genuinely new top level jurisdictions that are currently wrongly under a
-    head shliach then that should be fixed as well no?"
-  - Then: "we already know there isn't one head shliach [Chabadpedia's 'under head shliach Rabbi Yehuda Fogelman' for
-    the whole state — ignore] my point is about the borders we currently have now for central and western/Connecticut
-    I'm assuming are correct I mean more the eastern clusterfuck. Like are there maybe more actual top level that you
-    can verify are top level that aren't included? Just as an example but overall are borders fully correct?"
-  - "And should gurkow have a shetach that big with only one moised? And should he not rather be a small enclave? And
-    he's takeh his own shetach despite only having a single moised?" — **answer honestly:** no source calls Gurkow a
-    head shliach or regional director; Shaloh House is the Gurkov family's own network (his father Rabbi Moshe Gurkov,
-    Boston from 1959) and nothing ties it to Prus — that's all. He has ONE house (Stoughton) plus two couples under him
-    (Katzmans 2014, Gordons for Brockton/Randolph). The 6 towns = his center's stated service area (Stoughton, Easton)
-    + the Gordons' (Brockton, Randolph) + Avon/Holbrook between. The owner made him a shetach; whether it should be
-    just Stoughton (an enclave in Prus's) or reverted to a sub-shetach is his call — ask, don't guess.
-- **Central and Western/CT borders: the owner assumes they're correct** (Deren is "regional director of Chabad
-  Lubavitch for Southern and Western New England", Anash — confirms western MA). The work is EASTERN MA:
-  - Confirmed under Prus: the Posners' Chabad House of Greater Boston (since 1985, "joining Head Shliach of Eastern
-    Massachusetts Rabbi Chaim Prus", Anash "New Shluchim to Boston University"); Prus is also "regional director of Chabad
-    of Eastern Massachusetts" (chabadboston.org; Getty caption); founded Lexington (1985).
-  - Possible top-level jurisdictions to verify (none confirmed either way yet): Chabad at Harvard (Rabbi Hirschy Zarchi's
-    network — Harvard, MIT, Cambridge, satellites incl. Brandeis); Chabad Lubavitch of the Merrimack Valley (Rabbi Asher
-    Bronstein, Andover; his son-in-law Zalman Borenstein's North Andover/Haverhill); the South Coast (Benjaminson,
-    Dartmouth); the South Shore (Lezell, Hingham→Plymouth, Quincy YJP); Sharon (Wolosow, since 1980–86); Shaloh House
-    Brighton (Rodkin; Noginski — Chabadpedia lists Noginski as "Boston" shliach). Need a source that names a head
-    shliach / regional director or who appointed them; "a local, independent and financially self-supporting entity"
-    (standard Chabad wording) proves nothing.
-  - Acton (Polter) and Westford (Zalman Gurkow) sit on Fogelman's side unverified (see below).
-  - Chabadpedia also says Rabbi Yaakov Noach Lazaros (Framingham) passed away 1 Iyar 5786 — not confirmed anywhere else
-    yet; chabad.org still lists him. If confirmed, mark him deceased (a `fixes`/hyd-style entry, like Kogan's).
+## ▶ Nov 3 (later): Eastern Massachusetts — further research (nothing changed on the map)
+- `c3e0379` (South Area shetach + Prus–Fogelman border by towns) went live at 09:18 UTC.
+- Deren is "regional director of Chabad Lubavitch for Southern and Western New England" (Anash) — western MA is his.
+- Under Prus: the Posners' Chabad House of Greater Boston (since 1985, "joining Head Shliach of Eastern Massachusetts
+  Rabbi Chaim Prus", Anash, "New Shluchim to Boston University"); Prus is "regional director of Chabad of Eastern
+  Massachusetts" (chabadboston.org; a Getty caption) and founded Lexington (1985).
+- Gurkow: no source calls him a head shliach or regional director. Shaloh House is the Gurkov family's own network
+  (his father Rabbi Moshe Gurkov, in Boston from 1959); nothing found ties it to Prus. One house (Stoughton) and two
+  couples under him (the Katzmans, 2014; the Gordons, for Brockton and Randolph). The South Area's 6 towns are his
+  center's stated service area (Stoughton, Easton), the Gordons' (Brockton, Randolph), and Avon and Holbrook between.
+- No affiliation found yet for: Chabad at Harvard (Rabbi Hirschy Zarchi — Harvard, MIT, Cambridge, satellites incl.
+  Brandeis); Chabad Lubavitch of the Merrimack Valley (Rabbi Asher Bronstein, Andover; his son-in-law Zalman Borenstein
+  in North Andover/Haverhill); the South Coast (Benjaminson, Dartmouth); the South Shore (Lezell, Hingham→Plymouth,
+  Quincy YJP); Sharon (Wolosow, since 1980–86); Shaloh House Brighton (Rodkin; Chabadpedia lists Shlomo Noginski as its
+  "Boston" shliach); Acton (Polter) and Westford (Zalman Gurkow), on Fogelman's side.
+- Chabadpedia's Massachusetts article says the state's houses are "under the head shliach Rabbi Yehuda Fogelman" (the
+  owner: "we already know there isn't one head shliach"), and that Rabbi Yaakov Noach Lazaros (Framingham) passed away
+  1 Iyar 5786 — not found anywhere else; chabad.org still lists him.
 
 ## ▶ Nov 3 (later): Massachusetts re-checked; Gurkow's South Area a shetach of its own
 - **Owner:** "Make him his own shetach — but this research is calling into question in general your previous research
@@ -70,9 +54,8 @@ between two Claude accounts when usage limits run out; whichever session picks t
   Waltham, Needham, Dover (Needham's), Westwood, Andover, Methuen, Tewksbury, Norton, Rehoboth, Swansea; to Fogelman —
   Wellesley, Mansfield, Foxborough, Walpole, Attleboro, Bedford, Billerica, Dracut (the ones with no house by where
   most of the town lies). Houses moved: Brandeis and Needham → Prus; Mansfield → Fogelman; Stoughton → South Area.
-- **Not established, asked of the owner:** Acton (Polter) and Westford (Zalman Gurkow, came from Newton, took over a
-  center Rabbi Mayshe Schwartz ran) are still Fogelman's — nothing ties them to either; if they're Prus's, the north-
-  west (Lowell, Chelmsford, Concord, Lincoln, Bedford, Billerica…) probably goes with them. No affiliation found either
+- **Not established:** Acton (Polter) and Westford (Zalman Gurkow, came from Newton, took over a center Rabbi Mayshe
+  Schwartz ran) are still Fogelman's — nothing ties them to either. No affiliation found either
   for Merrimack Valley (Andover, Haverhill), Sharon, Canton, the South Shore (Lezell, Plymouth/Quincy) or the South
   Coast (Benjaminson, Dartmouth) — all left with Prus. The Western MA line (72.1574°W, Deren's) has no house near it.
 
@@ -103,8 +86,7 @@ between two Claude accounts when usage limits run out; whichever session picks t
   not his own top level jurisdiction?" — Shaloh House is the Gurkov family's own Boston network (Rabbi Moshe Gurkov,
   "the Rebbe's shliach to Boston" per Chabadpedia, in Boston from 1959, Shaloh in Mattapan, Milton, Brighton; Prus came
   in 1975), and Rabbi Mendel Gurkow's Shaloh House Chabad of the South Area (Stoughton, 1987–88) is its branch; no
-  source puts it under Prus's Chabad of Eastern Massachusetts. If the owner says top-level, make `south-of-boston` a
-  shetach of its own (like Lipsker's North Shore) instead of a sub-shetach.
+  source puts it under Prus's Chabad of Eastern Massachusetts. (The owner then made it a shetach of its own: the Massachusetts section above.)
 
 ## ▶ Nov 3: Mexico's seven sub-shetachim (Druk and the rest)
 - **Owner:** "Do all the Mexican sub shetachim like druk etc (there's at least 4 I think)". They're the regions of the

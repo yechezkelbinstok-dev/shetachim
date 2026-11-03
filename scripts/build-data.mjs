@@ -424,6 +424,16 @@ function spellings(name) {
 const CA_ADMIN1 = { '01': 'AB', '02': 'BC', '03': 'MB', '04': 'NB', '05': 'NL', '07': 'NS', '08': 'ON', '09': 'PE', '10': 'QC', '11': 'SK', '12': 'YT', '13': 'NT', '14': 'NU' };
 const regionOf = (g) => `${g.country}-${g.country === 'CA' ? CA_ADMIN1[g.adminCode] : g.adminCode}`;
 
+// A place known by one name though its centers list their villages: one city on the map, its villages' centers
+// counted together, at its own spot (owner, Nov 3: "shouldn't five towns be shown on the map?" — the map had only
+// "Woodmere"; Cedarhurst and Hewlett, Chabad of the Five Towns' own villages, were too small to be named). Its people:
+// its villages' together, about 48,000 (Woodmere, Inwood, Lawrence, Hewlett, Cedarhurst).
+const PLACE_GROUPS = [
+  { name: 'Five Towns', region: 'US-NY', lat: 40.6235, lon: -73.7175, pop: 48500,
+    towns: ['Cedarhurst', 'Lawrence', 'Woodmere', 'North Woodmere', 'Hewlett', 'Hewlett Harbor', 'Hewlett Neck', 'Hewlett Bay Park', 'Woodsburgh', 'Inwood'] },
+];
+const groupOfTown = new Map(PLACE_GROUPS.flatMap((g) => g.towns.map((t) => [`${g.region}|${placeKey(t)}`, g])));
+
 // One entry per city that has a center on the map: at the GeoNames point for that name (nearest within CITY_KM; in
 // the US and Canada, in the same state or province), else at the middle of its centers. Biggest cities first, so
 // the map labels them first.
@@ -440,9 +450,10 @@ function buildCities(dots) {
     if (!d.region || (!UNIT_ISO.includes(d.country) && !d.piece)) continue;
     for (const c of d.centers) {
       if (!c.city) continue;
-      const key = `${d.region}|${placeKey(c.city)}`;
-      if (!groups.has(key)) groups.set(key, { region: d.region, country: d.country, names: [], at: [] });
-      groups.get(key).names.push(c.city);
+      const pg = groupOfTown.get(`${d.region}|${placeKey(c.city)}`);
+      const key = pg ? `${d.region}|group|${pg.name}` : `${d.region}|${placeKey(c.city)}`;
+      if (!groups.has(key)) groups.set(key, { region: d.region, country: d.country, names: [], at: [], place: pg });
+      groups.get(key).names.push(pg ? pg.name : c.city);
       groups.get(key).at.push(d);
       if (c.mushroom) groups.get(key).mushrooms = (groups.get(key).mushrooms || 0) + 1;
     }
@@ -500,6 +511,10 @@ function buildCities(dots) {
   };
   const cities = [], byPlace = new Map(); // one city for "S. Diego" and "San Diego" listings
   for (const g of groups.values()) {
+    if (g.place) { // (a place known by one name: at its own spot, with its own people)
+      cities.push({ name: g.place.name, region: g.region, country: g.country, lat: g.place.lat, lon: g.place.lon, pop: g.place.pop, centers: g.names.length, mushrooms: g.mushrooms });
+      continue;
+    }
     const mid = { lat: median(g.at.map((d) => d.lat)), lon: median(g.at.map((d) => d.lon)) };
     let p = match(g, mid), keepName = false;
     if (!p) { const f = fallback(g, mid); if (f) ({ p, keepName } = f); }

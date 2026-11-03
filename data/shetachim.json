@@ -964,7 +964,11 @@
     },
     {
       "id": "ontario",
-      "name": "Ontario",
+      "name": "Southern Ontario",
+      "short": [
+        "S. Ontario",
+        "S. Ont."
+      ],
       "headShliach": "Zalman Grossbaum",
       "territory": [
         {
@@ -2377,10 +2381,6 @@
       "ottawa": [
         "Eastern Ontario (Ottawa, Kingston)",
         "מזרח אונטריו (אוטווה, קינגסטון)"
-      ],
-      "ontario": [
-        "Rest of Ontario",
-        "שאר אונטריו"
       ]
     },
     "US-OH": {

@@ -13,6 +13,31 @@ those can't reach. On Nov 3 a session ran every search and page through Firecraw
 owner was furious. The rule is also under "Notes for Claude" below. (Owner, Nov 3, the other way round: "you have
 fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers WebFetch and curl with 403.)
 
+## ▶ Nov 3 (latest): mushroom icons; the Five Towns named on the map; Ontario is "Southern Ontario"
+- **Owner:** "Now do the mushroom icons and Five Towns" (asked earlier: "add an option that the mushrooms should be
+  instead of dots little tiny mushroom icons / Also shouldn't five towns be shown on the map?"); "Also Ontario should
+  be Southern Ontario I think no?".
+- **Mushroom marker** (More options, shown only with Mushrooms on): **Dot** (as before) or **Mushroom** — each mushroom
+  drawn as the Mushrooms legend's little mushroom (red cap, white spots, a rim in the map's halo colour; an orange cap
+  with Red dots, as its dot is), 8 px tall when the view is framed, up to 18 px close in (`mush` symbol layer over the
+  dots; the mushroom's own dot stays, unseen, for taps and hovers; the tap and hover rings fit the mushroom). Remembered
+  (`localStorage shetachim-mushroom-look`). Only a dot whose centers are all mushrooms becomes one, as with the red dot.
+- **Five Towns:** the map named only "Woodmere" there (Cedarhurst and Hewlett too small to be named). Now one place,
+  "Five Towns" / "פייב טאונס", with all its villages' centers (Cedarhurst, Lawrence, Woodmere, North Woodmere, Hewlett,
+  the Hewlett villages, Woodsburgh, Inwood: 5 centers now): `PLACE_GROUPS` in scripts/build-data.mjs (its own spot and
+  people, ~48,000). Its centers keep their own towns (search "Cedarhurst" still finds them). Its structure, for the
+  record: Chabad of the Five Towns (Rabbi Zalman Wolowik, Cedarhurst, since the mid-1990s) with its library and
+  preschool, and its branches Chabad of Hewlett (Rabbi Nochem Tenenboim, "a division of the Chabad of the Five Towns")
+  and Chabad of Hewlett Neck & Old Woodmere (his son-in-law Rabbi Mendel Gordon, 2022: "another branch of the Chabad of
+  the Five Towns", LI Herald, Feb 16, 2023). Wolowik is in Rabbi Tuvia Teldon's Long Island region (he made the siyum
+  at the Long Island regional kinus, COLlive, Jul 22, 2015), so it isn't a sub-shetach: the map has no level under a
+  sub-shetach. Valley Stream (Goldshmid) and Far Rockaway (Queens) aren't Five Towns.
+- **Southern Ontario:** `ontario` (Rabbi Zalman Grossbaum) is now "Southern Ontario" / "דרום אונטריו" (short "S. Ontario",
+  "S. Ont."; "ד׳ אונטריו"): his body is Chabad Lubavitch of Southern Ontario, and since Oct 11 the shetach is only south
+  of 47°N and west of Ottawa's 77.9°W anyway. Its "Rest of Ontario" part name is gone (the name says the part).
+- (This session had also built a Queens sub-shetach with its vaad; the other session's, below, was already pushed and
+  is the one kept.)
+
 ## ▶ Nov 3 (latest): the Bronx a sub-shetach (Rabbi Levi Shemtov); Chabad of Riverdale's point fixed
 - Owner: "Doesn't the Bronx have regional leadership"; then "Finish the Bronx and push".
 - Sub-shetach `bronx` (The Bronx / הברונקס) under Greater New York: Rabbi Levi Shemtov (לוי שם טוב), who directs

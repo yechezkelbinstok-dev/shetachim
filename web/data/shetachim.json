@@ -1324,6 +1324,30 @@
    ]
   },
   {
+   "id": "south-area",
+   "name": "South Area",
+   "short": [
+    "S. Area"
+   ],
+   "headShliach": "Mendel Gurkow",
+   "capital": {
+    "centerId": "117632",
+    "name": "Shaloh House Chabad of the South Area",
+    "city": "Stoughton",
+    "lat": 42.13535,
+    "lon": -71.1406
+   },
+   "capitals": [
+    {
+     "centerId": "117632",
+     "name": "Shaloh House Chabad of the South Area",
+     "city": "Stoughton",
+     "lat": 42.13535,
+     "lon": -71.1406
+    }
+   ]
+  },
+  {
    "id": "north-shore-of-massachusetts",
    "name": "North Shore",
    "short": [

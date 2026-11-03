@@ -708,6 +708,19 @@
           "state": "US-MA",
           "eastOf": -72.1574,
           "westOf": -71.24694
+        },
+        {
+          "state": "US-MA",
+          "towns": [
+            "Attleboro",
+            "Bedford",
+            "Billerica",
+            "Dracut",
+            "Foxborough",
+            "Mansfield",
+            "Walpole",
+            "Wellesley"
+          ]
         }
       ],
       "capital": {
@@ -739,10 +752,51 @@
         {
           "state": "US-MA",
           "eastOf": -71.24694
+        },
+        {
+          "state": "US-MA",
+          "towns": [
+            "Andover",
+            "Dover",
+            "Lexington",
+            "Methuen",
+            "Needham",
+            "Newton",
+            "Norton",
+            "Rehoboth",
+            "Swansea",
+            "Tewksbury",
+            "Waltham",
+            "Westwood"
+          ]
         }
       ],
       "capital": {
         "centerId": "1591836"
+      }
+    },
+    {
+      "id": "south-area",
+      "name": "South Area",
+      "short": [
+        "S. Area"
+      ],
+      "headShliach": "Mendel Gurkow",
+      "territory": [
+        {
+          "state": "US-MA",
+          "towns": [
+            "Avon",
+            "Brockton",
+            "Easton",
+            "Holbrook",
+            "Randolph",
+            "Stoughton"
+          ]
+        }
+      ],
+      "capital": {
+        "centerId": "117632"
       }
     },
     {

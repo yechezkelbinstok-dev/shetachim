@@ -8,6 +8,39 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Nov 3 (later): Massachusetts re-checked; Gurkow's South Area a shetach of its own
+- **Owner:** "Make him his own shetach — but this research is calling into question in general your previous research
+  on Massachusetts... is the Prus-Fogelman line even correct now? Are the moisdois on the respective sides of the
+  border all in the correct shetach?????" (and before: "But Mansfield is under prus? ... you're sure all the ones you
+  have for gurkow now are actually under him? ... his shetach should be that large? ... if it's gonna be a full
+  shetach its shape should be properly nicely done ... nicely border fogelman rather than enclave").
+- The MA lines (72.1574°W, 71.24694°W) were the owner's own list (Sep 30), never checked house by house. The
+  71.24694 line cut ~20 towns in two (Newton and Lexington included). What the sources say:
+  - **Fogelman** (Worcester; Shrewsbury) and **the MetroWest network run from Natick** (Rabbi Levi Fogelman: "the
+    headquarters for Chabads of the Metrowest region, including 26 cities and towns" — Wellesley-Weston (Bleich, 2000),
+    Milford & South (Kivman, 2001), Sudbury/Marlboro/Hudson (Freeman, 2006), Framingham (Lazaros; founded by Rabbi
+    Hershel Fogelman in the early 1970s); chabadnatick.com). **Mansfield** (Yossi Kivman, 2005) came out of Milford's
+    Chabad House (Norton Mirror, Jan 2006) → Fogelman's.
+  - **Prus**, "Head Shliach of Eastern Massachusetts" (lubavitch.com), "Chabad representative to Eastern Massachusetts
+    since 1975", founded Kenmore Square (1981) and Lexington (1985, which "services all of the Suburban North West").
+    **Brandeis (Waltham)** is one of Chabad at Harvard's satellite centers → Prus's side. **Needham** (Krinsky: Needham,
+    Dedham, Dover, Westwood) isn't in the Natick network → Prus's side.
+  - **Gurkow** (Shaloh House, Stoughton, 1987–88; the Katzmans 2014 "under the auspices of Rabbi Mendel and Mrs.
+    Chana Gurkow"; the Gordons for "Stoughton and the South Area", Brockton and Randolph). **Sharon** (Wolosow, since
+    1980–86, before Gurkow) and **Canton** (Horowitz's Chabad Chai) aren't his as far as anything shows.
+- **Done:** a new shetach **`south-area`** (South Area / דרום בוסטון, Mendel Gurkow, capital Shaloh House 117632):
+  Stoughton, Easton, Brockton, Randolph, Avon, Holbrook — whole towns, bordering Fogelman's at Easton–Mansfield; the
+  `south-of-boston` sub-shetach is gone. **The Prus–Fogelman border follows town lines now**: the longitude line stays
+  for towns wholly on one side, and every town it crossed is given whole (`towns` claims): to Prus — Newton, Lexington,
+  Waltham, Needham, Dover (Needham's), Westwood, Andover, Methuen, Tewksbury, Norton, Rehoboth, Swansea; to Fogelman —
+  Wellesley, Mansfield, Foxborough, Walpole, Attleboro, Bedford, Billerica, Dracut (the ones with no house by where
+  most of the town lies). Houses moved: Brandeis and Needham → Prus; Mansfield → Fogelman; Stoughton → South Area.
+- **Not established, asked of the owner:** Acton (Polter) and Westford (Zalman Gurkow, came from Newton, took over a
+  center Rabbi Mayshe Schwartz ran) are still Fogelman's — nothing ties them to either; if they're Prus's, the north-
+  west (Lowell, Chelmsford, Concord, Lincoln, Bedford, Billerica…) probably goes with them. No affiliation found either
+  for Merrimack Valley (Andover, Haverhill), Sharon, Canton, the South Shore (Lezell, Plymouth/Quincy) or the South
+  Coast (Benjaminson, Dartmouth) — all left with Prus. The Western MA line (72.1574°W, Deren's) has no house near it.
+
 ## ▶ Nov 3 (later): regional directors' names centred; Westchester (Mrs. Butman, disputed); Gurkow asked
 - **Owner (phone screenshot, Nuevo León picked): "Why not centered"** — then: "I didn't ask you to fix meyzlitch no I
   want him centered even with that shetachim!!! I meant the regional heads name!!!". A head shliach's name stays where

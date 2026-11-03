@@ -1348,6 +1348,31 @@
    ]
   },
   {
+   "id": "merrimack-valley",
+   "name": "Merrimack Valley",
+   "short": [
+    "Merrimack V.",
+    "MV"
+   ],
+   "headShliach": "Asher Bronstein",
+   "capital": {
+    "centerId": "117895",
+    "name": "Chabad Lubavitch Jewish Center of Merrimack Valley",
+    "city": "Andover",
+    "lat": 42.6709,
+    "lon": -71.15156
+   },
+   "capitals": [
+    {
+     "centerId": "117895",
+     "name": "Chabad Lubavitch Jewish Center of Merrimack Valley",
+     "city": "Andover",
+     "lat": 42.6709,
+     "lon": -71.15156
+    }
+   ]
+  },
+  {
    "id": "north-shore-of-massachusetts",
    "name": "North Shore",
    "short": [

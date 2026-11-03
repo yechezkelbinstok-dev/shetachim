@@ -754,23 +754,15 @@
         {
           "state": "US-MA",
           "towns": [
-            "Andover",
             "Bedford",
             "Billerica",
-            "Chelmsford",
             "Dover",
-            "Dracut",
             "Lexington",
-            "Lowell",
-            "Methuen",
             "Needham",
             "Newton",
             "Rehoboth",
             "Swansea",
-            "Tewksbury",
-            "Tyngsborough",
             "Waltham",
-            "Westford",
             "Westwood"
           ]
         }
@@ -802,6 +794,47 @@
       ],
       "capital": {
         "centerId": "117632"
+      }
+    },
+    {
+      "id": "merrimack-valley",
+      "name": "Merrimack Valley",
+      "short": [
+        "Merrimack V.",
+        "MV"
+      ],
+      "headShliach": "Asher Bronstein",
+      "territory": [
+        {
+          "state": "US-MA",
+          "towns": [
+            "Amesbury",
+            "Andover",
+            "Boxford",
+            "Chelmsford",
+            "Dracut",
+            "Georgetown",
+            "Groveland",
+            "Haverhill",
+            "Lawrence",
+            "Lowell",
+            "Merrimac",
+            "Methuen",
+            "Middleton",
+            "Newbury",
+            "Newburyport",
+            "North Andover",
+            "Rowley",
+            "Salisbury",
+            "Tewksbury",
+            "Tyngsborough",
+            "West Newbury",
+            "Westford"
+          ]
+        }
+      ],
+      "capital": {
+        "centerId": "117895"
       }
     },
     {

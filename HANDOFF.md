@@ -12,6 +12,26 @@ between two Claude accounts when usage limits run out; whichever session picks t
 those can't reach. On Nov 3 a session ran every search and page through Firecrawl (~25 searches, ~20 pages) and the
 owner was furious. The rule is also under "Notes for Claude" below.
 
+## ▶ Nov 3 (latest): Merrimack Valley a shetach of its own (Rabbi Asher Bronstein); The Valley without Camarillo/Burbank
+- **Owner:** "So yeah I guess bronstein is a head shliach but first verify with research" (after: "Doesn't that mean it's
+  under gurkow if it's his son???" — no: Zalman Gurkow and Faigy Bronstein are Mendel's siblings, not his children).
+  Research (WebSearch/WebFetch): Chabad of North Andover / Anshe Sholom of Haverhill was started in 2013 by Bronstein's
+  son-in-law at his suggestion, "branching off" from Chabad of Merrimack Valley (Wicked Local via CrownHeights.info, Oct
+  1, 2013); Westford is on Merrimack Valley's own list of its houses (chabadmv.com); nothing ties it to Prus; nothing
+  calls Bronstein head shliach either — the same footing as Gurkow's. **New shetach `merrimack-valley`** (Merrimack
+  Valley / עמק מרימק, Asher Bronstein / אשר ברונשטיין, capital 117895, Andover): Andover, North Andover, Haverhill,
+  Methuen, Lawrence, Boxford, Middleton (its houses and North Andover's stated area), Westford (Nashoba Valley) with
+  Chelmsford, Lowell, Dracut, Tyngsborough, Tewksbury between, and the rest of the Merrimack Valley (Amesbury,
+  Georgetown, Groveland, Merrimac, Newbury, Newburyport, Rowley, Salisbury, West Newbury — no houses; left with Prus they
+  would have been cut off from his land). Billerica, Bedford, Wilmington, North Reading stay Prus's (Lexington). Houses:
+  Andover ×2, Haverhill, Westford. 62 shetachim in the US & Canada view now.
+- **The Valley (sub-shetach, Einbinder):** owner: "why the fuck is Camarillo part of it … look into it overall". Checked
+  against Chabad of the Valley's own "Valley Centers" list (28; see its `source`): Chabad of Camarillo (Rabbi Aryeh Lang,
+  pinned on Camarillo's east edge, inside Ventura County's Thousand Oaks division) and Chabad of Burbank (the Kornfelds)
+  aren't on it — both `exclude`d now; the outline stops short of them. Ventura is on its list but stays out (the owner's
+  earlier ruling that Oxnard and Camarillo are "way way past the valley", and a region is one piece). Universal City,
+  Wood Ranch and Canoga Park sit among its houses and stay.
+
 ## ▶ Nov 3 (latest): Eastern Massachusetts reviewed house by house; Westford, Norton and the Lowell area moved
 - **Owner:** "I wanna make sure Massachusetts is fully accurate … the eastern clusterfuck. Are there maybe more actual
   top level that you can verify are top level that aren't included? … are borders fully correct? And should gurkow have

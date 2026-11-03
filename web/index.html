@@ -560,7 +560,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'Download maps (SVG, PNG)': 'הורדת מפות (SVG, PNG)', 'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
     'Loading…': 'טוען…', "This browser can't show the physical map.": 'הדפדפן הזה לא יכול להציג את המפה הפיזית.', "The physical map couldn't load.": 'המפה הפיזית לא נטענה.',
     'Open on chabad.org': 'לעמוד ב-chabad.org', 'World Headquarters': 'המטה העולמי', 'Same address': 'אותה כתובת', City: 'עיר', Population: 'אוכלוסייה',
-    Province: 'פרובינציה', State: 'מדינה', Country: 'ארץ', Capital: 'בירה', 'No centralized leadership': 'אין הנהגה מרכזית', Leadership: 'הנהלה',
+    Province: 'פרובינציה', State: 'מדינה', Country: 'ארץ', Capital: 'בירה', 'No centralized leadership': 'אין הנהגה מרכזית', Leadership: 'הנהלה', 'Regional leadership': 'הנהלה אזורית',
     // center types (chabad.org's)
     'Chabad House': 'בית חב״ד', 'High School - Girls': 'תיכון לבנות', 'Vocational School': 'בית ספר מקצועי', Preschool: 'גן ילדים', 'Hebrew School': 'תלמוד תורה',
     'Yeshivah Ketanah/Mesivtah': 'ישיבה קטנה', 'Day School': 'בית ספר', 'Yeshivah for Beginners - Men': 'ישיבה למתחילים', Kollel: 'כולל', 'Social Services': 'שירותי רווחה',
@@ -2160,7 +2160,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const parent = shetachById.get(s.parent), dot = dotOfCenter.get(s.capital), c = dot && dot.centers.find((x) => x.id === s.capital);
     const [n, m] = subCounts(s);
     return `<span class="kicker">${tr('Sub-shetach')}</span><h2>${esc(HE ? s.nameHe || s.name : s.name)}</h2>
-      ${s.vaad ? membersHTML({ vaadMembers: s.vaadMembers, states: new Set(s.parts.map((p) => p.state)) }, `${tr('Leadership')}: ${esc(HE ? s.vaadHe || s.vaad : s.vaad)}`) // (a vaad leads it: Queens)
+      ${s.vaad ? membersHTML({ vaadMembers: s.vaadMembers, states: new Set(s.parts.map((p) => p.state)) }, `${tr('Regional leadership')}: ${esc(HE ? s.vaadHe || s.vaad : s.vaad)}`) // (a vaad leads it, as a shetach's vaad is shown: Queens; owner, Nov 3: "regional leadership instead of leadership")
         : `<p>${HE && /^Mrs\.? /.test(s.head) ? 'שלוחה אזורית' : tr('Regional director')}: ${esc(HE ? s.headHe || s.head : s.head)}${s.headDisputed ? ` <span class="flag">(${HE ? 'במחלוקת' : 'disputed'})</span>` : ''}</p>`}${c ? `<p>${tr('Capital')}: ${esc(c.name)}${c.city ? `, ${esc(c.city)}` : ''}</p>` : ''}
       ${parent ? `<p class="meta">${shetachWithHead(parent)}</p>` : ''}
       <div class="foot"><span class="meta">${counts(n, m)}</span></div>`;

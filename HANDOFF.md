@@ -34,6 +34,11 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   among "none found" — wrong. Map label (Head shliach): "Vaad Hashluchim" / ועד השלוחים; card: "Leadership: Vaad
   Hashluchim of Queens", opening to the five and their towns. Members: the 20 houses in Queens County; outline:
   Queens County; no capital.
+- Owner (phone screenshots of the Queens card reading "שליח אזורי: ועד השלוחים"): "THERE IS A CLEAR WAY THAT VAADS
+  AND STUFF ARE DONE … You can just add, like, the word regional leadership instead of leadership". The card's line
+  is now "Regional leadership: Vaad Hashluchim of Queens" / "הנהלה אזורית: ועד השלוחים דקווינס", opening to its
+  members, as a shetach's vaad is shown. ("שליח אזורי: ועד השלוחים" is what the page before 95adb06 makes of the new
+  sub.json: the phone had an older copy of the page with the new data.)
 - Sub-shetachim can carry a vaad now (`vaad`, `vaadHe`, `vaadMembers`, through build-sub to the card), and
   build-hebrew takes the Hebrew names of every vaad's members (shetachim's and sub-shetachim's), not only the people
   on the centers' cards.

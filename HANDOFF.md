@@ -8,6 +8,60 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+**Research tools (read first).** Plain WebSearch/WebFetch for every lookup; Firecrawl (paid credits) ONLY for a page
+those can't reach. On Nov 3 a session ran every search and page through Firecrawl (~25 searches, ~20 pages) and the
+owner was furious. The rule is also under "Notes for Claude" below.
+
+## ▶ Nov 3 (latest): Eastern Massachusetts reviewed house by house; Westford, Norton and the Lowell area moved
+- **Owner:** "I wanna make sure Massachusetts is fully accurate … the eastern clusterfuck. Are there maybe more actual
+  top level that you can verify are top level that aren't included? … are borders fully correct? And should gurkow have
+  a shetach that big with only one moised? And should he not rather be a small enclave? And he's takeh his own shetach
+  despite only having a single moised?" (The western line and Central/Connecticut he assumes are right.)
+- **Changed (data/shetachim.json `towns` claims):**
+  - **Westford → Eastern MA** (Prus). Chabad of Nashoba Valley (Zalman Gurkow, Westford, 2005) is one of the three
+    houses Chabad of Merrimack Valley's own site lists as its network (chabadmv.com "Our Rabbis & Rebbetzins": Andover
+    — Bronstein; Anshe Sholom Chabad of Haverhill / Chabad of North Andover — Borenstein, "a branch of Chabad of
+    Merrimack Valley … serving North Andover, Middleton, and Boxford"; Nashoba Valley), and lubavitch.com lists "Rabbi
+    Chaim Zalman Gurkow" among Merrimack Valley's shluchim. Merrimack Valley is on Prus's side, so Westford goes with it.
+  - With it, so Westford isn't cut off: **Chelmsford, Lowell, Dracut, Tyngsborough** (the Lowell area between Westford
+    and Andover; no houses) and **Billerica, Bedford** (no houses; the other window had given them to Fogelman only
+    because most of each lies west of 71.24694°W; Prus's Lexington house says "We service all of the Suburban North
+    West", jewishlexington.com). Carlisle, Acton, Concord, Littleton, Dunstable stay Central's.
+  - **Norton → Central MA** (Fogelman): Chabad of Mansfield (Yossi Kivman, Fogelman's MetroWest network) holds its
+    annual public menorah lighting on the Norton Town Green (Patch), and its site title names Norton and Wheaton College.
+  - **Taunton stays Eastern MA.** Mansfield's site title and Facebook name Taunton too, but the owner asked "does he do
+    activities there?" — none found (his events: Mansfield, Foxborough, North Attleborough, Norton, Plainville), so no.
+    Rule from this: a town with no house goes by real activity there, not a name in a site title.
+  - House moved: Chabad of Nashoba Valley (118492) → Eastern MA.
+- **Gurkow's South Area: unchanged.** Shaloh House began as Rabbi Moshe Gurkov's branch of NCFJE ("Shaloh") in
+  Mattapan, 1960 (chabad.org obituary by Menachem Posner, Nov 14, 2024: "his 'official' mandate was to educate
+  children"), 15 years before Prus came (10 Kislev 5736, Chabadpedia). Mendel Gurkow founded the Stoughton branch in
+  1987 (shalohhouse.com). The Katzmans were "operating under the auspices of Rabbi Mendel and Mrs. Chana Gurkow"
+  (CrownHeights.info, Nov 12, 2014); the Gordons serve "Stoughton and the South Area, including Brockton and Randolph"
+  (Anash, Jul 30, 2026) — so a one-town enclave would contradict his own appointments. No source calls him head shliach;
+  none puts him under Prus. Easton is named both by his FAQ (the preschool is "most convenient for the Stoughton,
+  Sharon, Canton and Easton communities") and Mansfield's Facebook; left with him.
+- **Checked and left as they are:** Prus — "regional director of Chabad in Eastern Massachusetts … responsible for the
+  establishment of Chabad Houses in Eastern Massachusetts" (chabadboston.org), "more than thirty Chabad House in Eastern
+  Massachusetts" (Chabad of Downtown Boston's history page); his family runs Newton (Shalom Ber), Downtown (Zaklos) and
+  the Brookline Israeli center (Lerner). North Shore — Lipsker's affiliates page (nsjewish.com): Lynn campus, Peabody,
+  Tobin Bridge (Everett), Cape Ann, Beverly-Salem, Wakefield, all inside; "Head shliach of Chabad of the North Shore"
+  (Anash, Aug 2023). Fogelman's MetroWest (chabadnatick.com: "headquarters for Chabads of the Metrowest region,
+  including 26 cities and towns"; its houses Wellesley-Weston, Milford & South, Sudbury/Marlboro/Hudson, Framingham;
+  Milford's site: Milford, Holliston, Franklin, Hopkinton, Millis, Medway, Bellingham, Upton, Hopedale, Whitinsville,
+  Wrentham, Grafton, Medfield, Sherborn) — all already Central's. Harvard Chabad (Zarchi: Harvard, MIT, the medical
+  campus, the International Jewish Student Center; helped start Tufts and Brandeis, eJP Nov 2022; its site also shows a
+  Chabad of Cambridge Crossing, not on chabad.org) — a campus network, under Prus.
+- **No affiliation found:** Acton-Concord (Polter: "serves Acton and Concord and some of its contiguous towns"), Sharon
+  (Wolosow, est. 1986), Canton (Horowitz), South Shore (Lezell), South Coast (Benjaminson). New England Hebrew Academy
+  (founded 1944) and Shaloh House Brighton (the Gurkov family's day school, now Rabbi Dan Rodkin) are institutions older
+  than or apart from Prus; they stay where they sit.
+- **Asked the owner:** is Merrimack Valley (Bronstein, since 1992) a top level of its own? It's a three-house network
+  run by the Gurkov family (Faigy Bronstein and Zalman Gurkow are Rabbi Moshe Gurkov's children — COLlive/Anash
+  obituaries, Nov 2024); nothing ties it to Prus and nothing calls Bronstein a head shliach. Same footing as Gurkow.
+  Also told him the western line (72.1574°W) still cuts 11 towns (Athol, Barre, Brimfield, Hardwick, Holland, New
+  Braintree, Petersham, Phillipston, Royalston, Warren, West Brookfield).
+
 ## ▶ Nov 3 (later): Eastern Massachusetts — further research (nothing changed on the map)
 - `c3e0379` (South Area shetach + Prus–Fogelman border by towns) went live at 09:18 UTC.
 - Deren is "regional director of Chabad Lubavitch for Southern and Western New England" (Anash) — western MA is his.

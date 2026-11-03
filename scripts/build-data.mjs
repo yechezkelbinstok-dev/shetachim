@@ -815,8 +815,11 @@ async function buildGeo(data) {
     p.shetach = best ? best.shetach : null;
     p.byShape = !!(best && best.kind === 'shape');
     // A piece a town or tract is claimed for is never a sliver to give away (the North Shore's small towns beside
-    // Massachusetts's shapes: Salem, Everett, Chelsea).
-    p.ownClaim = !!(best && (best.kind === 'town' || best.kind === 'tract'));
+    // Massachusetts's shapes: Salem, Everett, Chelsea), nor one a band is claimed for: the bits of towns just west of
+    // Deren's straight 72.1574°W line were being given to Fogelman's shape beside them, which made the line zigzag
+    // (owner, Nov 3: "why the fuck did you change the deren fogelman line from straight??? Yk sometimes straight is
+    // correct"). Massachusetts is the only state with both bands and shapes.
+    p.ownClaim = !!(best && (best.kind === 'town' || best.kind === 'tract' || best.kind === 'band'));
     p.lake = !!(best && best.kind === 'shape' && lakeShapes.has(best.shape));
     // as: the country this piece is part of on the Countries map, where that isn't its own (occupied Ukraine: Russia)
     p.as = (best && best.as) || '';

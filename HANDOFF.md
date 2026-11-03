@@ -32,6 +32,14 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
     - **Wilmington's prong** (Merrimack Valley–Prus): its thin tip up into Andover cut off straight across its base.
   - **Seekonk** to Eastern Massachusetts (listed): it was a thin strip of Central between Rhode Island and Rehoboth.
 - Checked: no center changed shetach (all 4,441 compared before/after the build); page screenshots, desktop and phone.
+- **Same night, two fixes (owner):** (1) "why the fuck did you change the deren fogelman line from straight???" — since the
+  smoothing commit (a782626) the 72.1574°W line had zigzagged up to 5 km west: build-data's `absorbSlivers` gave the
+  bits of towns west of the line (pieces under 25 km² of Deren's band claim) to Fogelman's shape beside them. Band
+  pieces are now never absorbed (`ownClaim` includes `band`; MA is the only state with both bands and shapes); the line
+  is one longitude again. (2) Phone screenshot of Billerica–Tewksbury, "YOU DID NOT DO THE POINTY SHIT AGAIN" and "stop
+  trying to solve the pointy issue by using sub municipalities just make your own custom line": a cut, one straight
+  line from the Carlisle/Chelmsford/Billerica corner to the Tewksbury/Wilmington/Andover corner (Billerica's poke north
+  and Tewksbury's tip south gone). Don't use tracts for borders.
 - If the owner wants another stretch straight: add a cut (two town corners — find them as the points two towns share,
   e.g. with a short Python over `.cache/county-subdivision-25.json`), `node scripts/ma-shapes.mjs`, `npm run build`.
 

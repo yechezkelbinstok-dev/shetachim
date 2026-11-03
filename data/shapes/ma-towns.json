@@ -155,6 +155,25 @@
       "right": "central-massachusetts"
     },
     {
+      "why": "Merrimack Valley–Prus: Billerica's corner poked up into Chelmsford and Tewksbury and Tewksbury's tip down between Billerica and Wilmington, a Λ and a V (owner, Nov 3, phone screenshot: \"YOU DID NOT DO THE POINTY SHIT AGAIN\"; \"just make your own custom line\"); one straight line from the Carlisle/Chelmsford/Billerica corner to the Tewksbury/Wilmington/Andover corner, where the Wilmington cut carries on.",
+      "towns": [
+        "Billerica",
+        "Tewksbury"
+      ],
+      "line": [
+        [
+          -71.33254,
+          42.56076
+        ],
+        [
+          -71.16488,
+          42.59802
+        ]
+      ],
+      "left": "merrimack-valley",
+      "right": "eastern-massachusetts"
+    },
+    {
       "why": "Merrimack Valley–Prus: Wilmington's thin prong up into Andover; a straight line across its base, from the Tewksbury/Wilmington/Andover corner to the Andover/North Reading/Wilmington corner.",
       "towns": [
         "Wilmington"

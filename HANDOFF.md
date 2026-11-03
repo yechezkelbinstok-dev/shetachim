@@ -1523,7 +1523,8 @@ Islands / the Dominican Republic"), then centers + Zoom in. Names without titles
   HY"D / Mrs. Rivka Holtzberg HY"D", then "Murdered al kiddush Hashem in the Mumbai terror attack, November 2008"
   (Hebrew: הרב / הרבנית … הי״ד, the Hebrew year) — and leaves them out of the folded "Deceased" list (still obm / ע״ה
   for everyone else). On the map: the Holtzbergs (Chabad-Lubavitch of Mumbai, 2008), Zvi Kogan (Chabad of the UAE,
-  2024), Eli Schlanger and Yaakov Levitan (Chabad of Bondi — its chabad.org listing, "Bondi Beach Friends of Refugees
+  2024 — on its Abu Dhabi dot since Nov 3, owner: "Move the kogan thing from Dubai to Abu Dhabi"; `movedFrom` takes him
+  off the Dubai dot's chabad.org list, so Dubai doesn't show him as obm), Eli Schlanger and Yaakov Levitan (Chabad of Bondi — its chabad.org listing, "Bondi Beach Friends of Refugees
   of Eastern Europe", Yehoram Ulman's — the Chanukah attack, Dec 2025; Levitan was its general manager and the Sydney
   Beth Din's secretary) and Moshe Krivitski (Chabad Synagogue Nachal Beka, Be'er Sheva, the March 2022 attack).
   Searched for others (English and Hebrew news, Chabad's own sites): none found who served a center on the map. Left

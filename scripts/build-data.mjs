@@ -1246,12 +1246,19 @@ async function main() {
     if (ren && c.personnel) c.personnel = c.personnel.map((x) => { const to = ren[`${x.firstName} ${x.lastName}`]; return to ? { ...x, ...to } : x; });
   }
   // Shluchim murdered al kiddush Hashem (extra-centers.json "hyd", by center): passed away, HY"D after the name instead
-  // of obm, added to the center's people where chabad.org doesn't list them, and a memorial line on the center's card
+  // of obm, added to the center's people where chabad.org doesn't list them, and a memorial line on the center's card;
+  // movedFrom: centers whose lists they're taken off, shown at this one instead (Zvi Kogan: chabad.org lists him at the
+  // UAE's page, the Dubai dot; the owner, Nov 3: "Move the kogan thing from Dubai to Abu Dhabi")
   const centerById = new Map(centers.map((c) => [c.id, c]));
   for (const h of extrasData.hyd || []) {
     const c = centerById.get(h.center);
     if (!c) throw new Error(`hyd: no center ${h.center}`);
     const key = (p) => `${(p.firstName || '').trim()} ${(p.lastName || '').trim()}`;
+    for (const from of h.movedFrom || []) {
+      const o = centerById.get(from);
+      if (!o) throw new Error(`hyd: no center ${from}`);
+      o.personnel = (o.personnel || []).filter((p) => !h.people.some((who) => key(p) === key(who)));
+    }
     c.personnel = (c.personnel || []).map((p) => ({ ...p }));
     for (const who of h.people) {
       const p = c.personnel.find((x) => key(x) === key(who));

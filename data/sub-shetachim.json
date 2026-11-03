@@ -316,6 +316,29 @@
       "outline": "areas"
     },
     {
+      "id": "tidewater",
+      "parent": "virginia",
+      "name": "Tidewater",
+      "nameHe": "טיידווטר",
+      "head": "Aaron Margolin",
+      "headHe": "אהרן מרגולין",
+      "capital": "117735",
+      "membersIn": [
+        {
+          "counties": [
+            "51710",
+            "51810",
+            "51550",
+            "51740",
+            "51800",
+            "51650"
+          ]
+        }
+      ],
+      "source": "The owner, Nov 3: \"I want all possible sub shatachim\". Chabad Lubavitch of Tidewater (Norfolk, 1979), Rabbi Aaron (Aron) Margolin its executive director, with his brother-in-law Rabbi Levi Brashevitzky's family (Jewish News VA, \"HAT graduate moves home to serve community as rabbi\"); it serves \"Chesapeake, Hampton, Norfolk, Portsmouth, and Suffolk\" (the Tidewater federation's directory), and his son Rabbi Zalman Margolin moved to Virginia Beach \"to expand Chabad of Tidewater with a new presence near the Virginia Beach Oceanfront\" (Jewish News VA; not on the map yet: its address isn't sure, 210B 54th Street in 2018, 300 Holly Road later). Chabad of Williamsburg (Rabbi Mendy Heber) isn't its. Members and outline: the cities of Norfolk, Virginia Beach, Chesapeake, Portsmouth, Suffolk and Hampton.",
+      "outline": "areas"
+    },
+    {
       "id": "south-broward",
       "parent": "florida",
       "name": "South Broward",
@@ -916,6 +939,22 @@
       "source": "Rabbi Nechemia Vogel, head shliach to Rochester since 1981 (Chabadpedia), \"director of Chabad of Rochester and regional head shliach\" (Yeshiva World News, on the new shluchim to SUNY Geneseo), at the Kessler Family Chabad Center; the houses round the city under it (the Chabad Times' directory): the Rohr Chabad House at the University of Rochester (his daughter and son-in-law, the Yarases), Chabad Young Professionals (his son Moshe), Chabad of Pittsford, Chabad at RIT, and Chabad of Geneseo at SUNY Geneseo. Its members: the houses of Monroe County and of Livingston County (Geneseo). Outline: Monroe and Livingston Counties.",
       "outline": "areas",
       "soften": 3
+    },
+    {
+      "id": "vancouver-island",
+      "parent": "british-columbia",
+      "name": "Vancouver Island",
+      "nameHe": "האי ונקובר",
+      "head": "Meir Kaplan",
+      "headHe": "מאיר קפלן",
+      "capital": "118610",
+      "membersIn": [
+        {
+          "shape": "vancouver-island"
+        }
+      ],
+      "source": "The owner, Nov 3: \"I want all possible sub shatachim\". Rabbi Meir and Chani Kaplan \"were sent to serve the entire island as Chabad Lubavitch emissaries in 2003\" (The CJN, \"Chabad builds Victoria's first new synagogue in 150 years\"), directors of Chabad of Vancouver Island in Victoria; Chabad of Nanaimo and Central Vancouver Island \"was established with the encouragement of Rabbi Kaplan\" by his sister and brother-in-law, Rabbi Bentzi and Blumie Shemtov, in 2015 (Jewish Independent); Chabad on Campus at the University of Victoria, Rabbi Mendy and Mushka Stiefel (née Kaplan). Members and outline: Vancouver Island and the islands by it (data/shapes/vancouver-island.geojson, from the map's British Columbia).",
+      "outline": "areas"
     },
     {
       "id": "mexican-caribbean",

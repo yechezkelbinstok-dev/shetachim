@@ -35,6 +35,19 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
     Chabad Lubavitch of South Texas; Bexar and Kendall Counties: San Antonio's 3 houses and Boerne). Their sources are
     in data/sub-shetachim.json. **Standing rule: every regional director with houses under him is a sub-shetach — find
     and draw them all, don't ask.**
+  - **Then, the same night:** **Vancouver Island** (British Columbia's; Rabbi Meir Kaplan, "sent to serve the entire
+    island" in 2003, with Nanaimo, opened "with the encouragement of Rabbi Kaplan", and the UVic campus house; outline
+    `data/shapes/vancouver-island.geojson`, the island and its islands of 150 km² or more, cut from the map's BC) and
+    **Tidewater** (Virginia's; Rabbi Aaron Margolin's Chabad Lubavitch of Tidewater, Norfolk, serving Chesapeake,
+    Hampton, Norfolk, Portsmouth and Suffolk, his son expanding it to Virginia Beach; one house on the map — the
+    Virginia Beach branch's address isn't sure enough to add it).
+  - **Checked, no regional layer (each house answers to the head directly):** Illinois (Moscowitz; Northwest
+    Suburban Chabad etc. are local), Michigan (Shemtov's ~30 centers), Quebec (Montreal's houses each on their own),
+    Southern Ontario (Grossbaum's satellites), Washington (chabadofseattle.org: one "Regional Office", 25 centers under
+    it), the Bay Area (each house separate; jweekly), Bergen County (Friends of Lubavitch of Bergen County has only
+    Teaneck and the new Hackensack), Union County, the Space Coast, the Lehigh Valley, Weston/West Davie, Plantation,
+    Santa Monica. A family-cluster scan of the data (3+ houses by one surname within 60 km, outside drawn regions)
+    found nothing else regional.
 
 ## ▶ Nov 3 (latest): mushroom icons; the Five Towns named on the map; Ontario is "Southern Ontario"
 - **Owner:** "Now do the mushroom icons and Five Towns" (asked earlier: "add an option that the mushrooms should be

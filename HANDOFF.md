@@ -8,6 +8,37 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ Nov 3: the Rebbeim's towns and the mosdos in them, apart; three card sizes
+- **Owner:** "have the city dot for the actual cities prominence but SEPERATELY have the moisdois in them like the
+  graves of alter and mitiler Rebbe etc also like chatzer rabboseinu nesinu blbavtch thingy / The significant card for
+  the cities is separate from the moisdois". `HONOR_PLACES` (web/index.html) now has a `kind`:
+  - **Towns** (`kind: 'city'`; a dot in a ring, name in italics, as before): Lubavitch, Liozna, Liadi, **Rostov**,
+    **Haditch**, **Nezhin** — the last three now at the town's own point (the map's city list, web/data/cities.json:
+    Rostov-na-Donu, Hadyach, Nizhyn), no longer at the ohel. A town's card is its place in the Rebbeim's history
+    (seat of the Rebbeim, the Rebbeim who led there; Haditch's and Nezhin's: the burial line, as before).
+  - **Mosdos** (`kind: 'mosad'`; a small diamond, name upright, `town`: its town, shown on its card as a kicker),
+    shown from `MOSAD_KMPX` (25 px/km: zoom ~10.3 in the FSU view, and since the map applies a marker's zoom filter
+    at whole zooms only, in effect from zoom 11; a search for one flies at least there, `goToHit`) so they're apart
+    from their town: **Ohel of the Tzemach
+    Tzedek and the Rebbe Maharash** (Lubavitch's Jewish cemetery, ESJF's survey 54.83140, 30.94726; card: "Burial
+    place of …", both histalkus dates); **Hatzer Raboteinu Nesieinu B'Lubavitch** (the heritage center and Gavriel
+    Gordon, moved off Lubavitch's card onto its own; **no exact location found**, so it sits on the village's point
+    and Lubavitch's town marker gives way to it from MOSAD_KMPX: `untilKmPx`); **Ohel of the Rebbe Rashab** in Rostov
+    (the cemetery point that used to be Rostov's; Danzinger moved here from Rostov's card); **Ohel of the Alter
+    Rebbe** in Haditch (= the Heichel Admur Hazaken listing, chabad.org 2122346; card title stays the listing's name);
+    **Ohel of the Mitteler Rebbe** in Nezhin (card title "Ohel Admur HaEmtzai"; Deutsh); **The Ohel** in Queens (no
+    town; shown from kmPx 0.3 as before).
+  - A mosad on its town's spot puts its name on the far side (`anchor: 'right'`).
+- **Card sizes (owner: "only Lubavitch and 770 card situations should be that big the other prominent places should
+  be smaller / Obviously not as small as a random capital or moised but not as big as 770 or Lubavitch"):** three
+  tiers. Big (`#card.world`, `h2.honor-h` 30px, accent ring): 770 and Lubavitch only. Medium (`#card.prominent`,
+  `h2.honor-m` 22px, accent border, the Rebbeim/burial lines one step smaller): every other town and mosad above,
+  the Ohel included. Everything else: the ordinary card. (`showCard` toggles `world` / `prominent`.)
+- Hatzer's wording is still the owner's (Oct 7) — unchanged, only moved; ask him before changing it.
+- Screenshot harness: `scripts/screenshot.mjs` now serves `.js` as JavaScript. Before, the right-to-left text plugin
+  (web/lib/mapbox-gl-rtl-text.js) didn't load in screenshots and every Hebrew map label came out **reversed** — a
+  harness artifact, not the live site (GitHub Pages serves it correctly).
+
 ## ▶ Nov 2: sub-shetachim outlined region by region (counties, towns, divisions; drawn only where nothing fits); Ukraine has no head shliach
 - **Ukraine (owner, Nov 2: "Ukraine doesn't have a head shliach").** `ukraine` in `data/shetachim.json` is now
   `noCentralLeadership: true` like Bolivia: no head shliach, no capital star; its card says "No centralized leadership"
@@ -382,7 +413,9 @@ between two Claude accounts when usage limits run out; whichever session picks t
   אוז׳גורוד, בלאיה צרקוב, בלגורוד-דנסטרובסקי. Chabadpedia's own titles kept as they were: מוהילב, ז׳יטומיר, ברדיצ׳ב,
   קרמנצ׳וג, האדיטש, ליאזנא, ליאדי, קובנה, וילנה… Other former-Soviet names have no Chabadpedia article and stay.
 - **Honorary places** (`HONOR_PLACES`, `HONOR_CARDS` in web/index.html; big cards like Lubavitch's; shown in every
-  world/continent view and in the views of their own country):
+  world/continent view and in the views of their own country). **SUPERSEDED in part (Nov 3, above):** the towns and
+  the ohalim/mosdos are now separate markers and cards, Rostov/Haditch/Nezhin are at the towns, and only Lubavitch
+  and 770 keep the big card.
   - Towns: **Lubavitch**; **Rostov** (seat of the Rebbeim 1915–1924; the dot is the Rebbe Rashab's ohel, the Jewish
     cemetery at 155 Tekucheva St — Chabadpedia, Find a Grave 47.23889, 39.72158); **Liozna** (born there 1745, led
     until 1801) and **Liadi** (1801–1812) for the Alter Rebbe (OSM). Each lists the Rebbeim who led there; a Rebbe

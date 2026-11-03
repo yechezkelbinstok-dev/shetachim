@@ -29,7 +29,7 @@ for (const spec of specs) {
     if (url.host === 'site.test') {
       const file = path.join(REPO, decodeURIComponent(url.pathname));
       if (!fs.existsSync(file)) return route.fulfill({ status: 404, body: '' });
-      const type = file.endsWith('.html') ? 'text/html' : file.endsWith('.json') || file.endsWith('.geojson') ? 'application/json' : 'application/octet-stream';
+      const type = file.endsWith('.html') ? 'text/html' : file.endsWith('.json') || file.endsWith('.geojson') ? 'application/json' : file.endsWith('.js') ? 'text/javascript' : 'application/octet-stream';
       return route.fulfill({ status: 200, contentType: type, body: fs.readFileSync(file) });
     }
     if (url.host === 'cdnjs.cloudflare.com') {

@@ -222,10 +222,16 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card h2 { margin: 0 0 4px; margin-inline-end: 22px; font: 700 16px/1.25 var(--font-ui); text-wrap: balance; }
 #card .kicker { display: block; font: 600 10px var(--font-map); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
 #card .kicker-world { color: var(--accent); font-weight: 700; }
-#card .subcard { margin-top: 12px; padding-top: 10px; border-top: 2px solid var(--panel-line); } /* a center of its own, under Lubavitch */
 #card.world .kicker-world { font-size: 14px; letter-spacing: .06em; margin-bottom: 2px; } /* 770: "World Headquarters" in scale with its big title */
 #card h2.honor-h { font-size: 30px; line-height: 1.1; margin-bottom: 6px; } /* Lubavitch and 770: a big, prominent title (owner, Oct 7) */
 #card.world { border-color: var(--accent); box-shadow: var(--shadow), 0 0 0 1px var(--accent); }
+/* the Rebbeim's other towns and the mosdos in them (owner, Nov 3: "only Lubavitch and 770 card situations should be that
+   big the other prominent places should be smaller … not as small as a random capital or moised"): between the two */
+#card h2.honor-m { font-size: 22px; line-height: 1.15; margin-bottom: 5px; }
+#card.prominent { border-color: var(--accent); }
+#card.prominent .rebbe { font-size: 16px; }
+#card.prominent ol.rebbeim li { font-size: 15px; }
+#card.prominent .rebbe.burial .meta { font-size: 14px; }
 #card ul { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
 #card li { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
 #card li strong { font-weight: 500; }
@@ -674,36 +680,55 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const dot = dotOfCenter.get(cap.centerId);
     return { s, ...cap, piece: dot ? dot.piece : s.pieces[0] && s.pieces[0].properties.id, center: dot && dot.centers.find((c) => c.id === cap.centerId) };
   }));
-  // The Rebbeim's towns and resting places, in honour: Lubavitch, the town the movement is named for, seat of the
-  // Rebbeim 1813–1915; and (owner, Oct 26) Rostov, 1915–1924, at the Rebbe Rashab's ohel (the Jewish cemetery, 155
-  // Tekucheva St: Chabadpedia, Find a Grave), the Alter Rebbe's Liozna and Liadi, his resting place in Haditch, the
-  // Mitteler Rebbe's ohel in Nezhin (the Jewish cemetery: ESJF's survey) and the Ohel in Queens. Each opens a big card
-  // (HONOR_CARDS). center: a chabad.org listing that IS the place (the Heichel Admur Hazaken, Ohel Chabad Lubavitch) —
-  // one marker and one card for both, titled with its name, its people in the card, its own dot not drawn (owner: "why
-  // two separate things"); title: the card's name where it isn't the place's. kmPx: the scale (px per km) from which
-  // it's shown — Lubavitch from the world view, the others once there's room. Liozna and Liadi, some 25 km either side
-  // of Lubavitch, from the same zoom as the rest (owner, Oct 26: they "only show when you're way zoomed in"), their
-  // names kept off Lubavitch's (anchor: Liozna's above its star, it's to the north; Liadi's below, to the south).
-  // Shown in every world/continent view, and in the views of its own country.
+  // The Rebbeim's towns, in honour, and (owner, Nov 3) the mosdos in them, separately: "have the city dot for the actual
+  // cities prominence but SEPERATELY have the moisdois in them like the graves of alter and mitiler Rebbe etc also like
+  // chatzer rabboseinu nesinu". A town (kind: city) is a marker and a card of its place in the Rebbeim's history:
+  // Lubavitch, the town the movement is named for, seat of the Rebbeim 1813–1915; Rostov, 1915–1924; the Alter Rebbe's
+  // Liozna and Liadi; Haditch, where he is buried; Nezhin, where the Mitteler Rebbe is. A mosad (kind: mosad) is a
+  // smaller marker and a card of its own, shown once the map is close enough to tell it from its town (MOSAD_KMPX): the
+  // ohel of the Tzemach Tzedek and the Rebbe Maharash in Lubavitch's Jewish cemetery (ESJF's survey: 54.83140, 30.94726)
+  // and Hatzer Raboteinu Nesieinu there (no exact place found: at the village's point, where the town's own marker gives
+  // way to it), the Rebbe Rashab's ohel in Rostov (the Jewish cemetery, 155 Tekucheva St: Chabadpedia, Find a Grave),
+  // the Heichel Admur Hazaken over the Alter Rebbe's in Haditch, the Mitteler Rebbe's in Nezhin (the Jewish cemetery:
+  // ESJF's survey), and the Ohel in Queens. center: a chabad.org listing that IS the place (the Heichel Admur Hazaken,
+  // Ohel Chabad Lubavitch) — one marker and one card for both, titled with its name, its people in the card, its own dot
+  // not drawn (owner: "why two separate things"); title: the card's name where it isn't the marker's; town: a mosad's
+  // town (its card's kicker). kmPx: the scale (px per km) from which it's shown — Lubavitch from the world view, the
+  // other towns once there's room (Liozna and Liadi, some 25 km either side of Lubavitch, from the same zoom as the rest,
+  // owner, Oct 26; their names kept off Lubavitch's: anchor), a mosad in a town from MOSAD_KMPX; untilKmPx: a town's
+  // marker gives way there to a mosad on the same spot; a mosad's name goes on its far side from its town's (anchor).
+  // Shown in every world/continent view, and in its own country's.
+  const MOSAD_KMPX = 25;
   const HONOR_PLACES = [
-    { key: 'lubavitch', name: 'Lubavitch', he: 'ליובאוויטש', lat: 54.8352, lon: 30.9632, country: 'RUS', kmPx: 0.07 },
-    { key: 'rostov', name: 'Rostov', he: 'רוסטוב', lat: 47.23889, lon: 39.72158, country: 'RUS', kmPx: 0.3 },
-    { key: 'liozna', name: 'Liozna', he: 'ליאזנא', lat: 55.02321, lon: 30.79567, country: 'BLR', kmPx: 0.3, anchor: 'bottom' },
-    { key: 'liadi', name: 'Liadi', he: 'ליאדי', lat: 54.60162, lon: 31.16877, country: 'BLR', kmPx: 0.3, anchor: 'top' },
-    { key: 'haditch', name: 'Haditch', he: 'האדיטש', center: '2122346', country: 'UKR', kmPx: 0.3 },
-    { key: 'nezhin', name: 'Nezhin', he: 'נייז׳ין', title: 'Ohel Admur HaEmtzai', titleHe: 'אוהל אדמו״ר האמצעי', lat: 51.07398, lon: 31.91745, country: 'UKR', kmPx: 0.3 },
-    { key: 'ohel', name: 'The Ohel', he: 'האוהל', center: '118002', country: 'US', kmPx: 0.3 },
+    { key: 'lubavitch', kind: 'city', name: 'Lubavitch', he: 'ליובאוויטש', lat: 54.8352, lon: 30.9632, country: 'RUS', kmPx: 0.07, untilKmPx: MOSAD_KMPX },
+    { key: 'rostov', kind: 'city', name: 'Rostov', he: 'רוסטוב', lat: 47.23135, lon: 39.72328, country: 'RUS', kmPx: 0.3 },
+    { key: 'liozna', kind: 'city', name: 'Liozna', he: 'ליאזנא', lat: 55.02321, lon: 30.79567, country: 'BLR', kmPx: 0.3, anchor: 'bottom' },
+    { key: 'liadi', kind: 'city', name: 'Liadi', he: 'ליאדי', lat: 54.60162, lon: 31.16877, country: 'BLR', kmPx: 0.3, anchor: 'top' },
+    { key: 'haditch', kind: 'city', name: 'Haditch', he: 'האדיטש', lat: 50.37112, lon: 33.99099, country: 'UKR', kmPx: 0.3 },
+    { key: 'nezhin', kind: 'city', name: 'Nezhin', he: 'נייז׳ין', lat: 51.04801, lon: 31.88688, country: 'UKR', kmPx: 0.3 },
+    { key: 'lubavitch-ohel', kind: 'mosad', town: 'lubavitch', name: 'Ohel of the Tzemach Tzedek and the Rebbe Maharash', he: 'אוהל הצמח צדק והמהר״ש',
+      title: 'Ohel of the Tzemach Tzedek and the Rebbe Maharash', titleHe: 'אוהל כ״ק אדמו״ר הצמח צדק וכ״ק אדמו״ר מהר״ש', lat: 54.83140, lon: 30.94726, country: 'RUS', kmPx: MOSAD_KMPX, anchor: 'right' },
+    { key: 'lubavitch-chatzer', kind: 'mosad', town: 'lubavitch', name: 'Hatzer Raboteinu Nesieinu', he: 'חצר רבותינו נשיאינו',
+      title: "Hatzer Raboteinu Nesieinu B'Lubavitch", titleHe: 'חצר רבותינו נשיאינו בליובאוויטש', lat: 54.8352, lon: 30.9632, country: 'RUS', kmPx: MOSAD_KMPX },
+    { key: 'rostov-ohel', kind: 'mosad', town: 'rostov', name: 'Ohel of the Rebbe Rashab', he: 'אוהל אדמו״ר הרש״ב',
+      title: 'Ohel of the Rebbe Rashab', titleHe: 'אוהל כ״ק אדמו״ר הרש״ב', lat: 47.23889, lon: 39.72158, country: 'RUS', kmPx: MOSAD_KMPX },
+    { key: 'haditch-ohel', kind: 'mosad', town: 'haditch', name: 'Ohel of the Alter Rebbe', he: 'אוהל אדמו״ר הזקן', center: '2122346', country: 'UKR', kmPx: MOSAD_KMPX, anchor: 'right' },
+    { key: 'nezhin-ohel', kind: 'mosad', town: 'nezhin', name: 'Ohel of the Mitteler Rebbe', he: 'אוהל אדמו״ר האמצעי',
+      title: 'Ohel Admur HaEmtzai', titleHe: 'אוהל אדמו״ר האמצעי', lat: 51.07398, lon: 31.91745, country: 'UKR', kmPx: MOSAD_KMPX },
+    { key: 'ohel', kind: 'mosad', name: 'The Ohel', he: 'האוהל', center: '118002', country: 'US', kmPx: 0.3 },
   ];
   const HONOR_BY_CENTER = new Map(); // a chabad.org center id -> the honorary place it is
+  const HONOR_TOWN = new Map(); // a town's key -> its place (a mosad's card names its town)
   for (const h of HONOR_PLACES) {
     const dot = h.center && dotOfCenter.get(h.center);
     const piece = dot ? dot.piece : [...pieceById.keys()].find((k) => k.startsWith(`${h.country}:`));
     if (!piece) continue;
-    const place = { honor: h.key, name: h.name, lat: dot ? dot.lat : h.lat, lon: dot ? dot.lon : h.lon, piece, country: h.country, kmPx: h.kmPx,
-      anchor: h.anchor, center: dot ? dot.centers.find((c) => c.id === h.center) : null, title: h.title };
+    const place = { honor: h.key, kind: h.kind, town: h.town, name: h.name, lat: dot ? dot.lat : h.lat, lon: dot ? dot.lon : h.lon, piece, country: h.country, kmPx: h.kmPx,
+      untilKmPx: h.untilKmPx, anchor: h.anchor, center: dot ? dot.centers.find((c) => c.id === h.center) : null, title: h.title };
     dual(place, 'name', () => [h.he]);
     if (h.title) dual(place, 'title', () => [h.titleHe]);
     if (place.center) HONOR_BY_CENTER.set(h.center, place);
+    if (h.kind === 'city') HONOR_TOWN.set(h.key, place);
     capitals.push(place);
   }
   const capitalOfCenter = new Map(capitals.filter((c) => c.centerId).map((c) => [c.centerId, c]));
@@ -1937,8 +1962,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return within(S, () => fc(V.caps.map((c, i) => {
       const city = S.capCity.get(c);
       const minz = c.honor ? zoomFor(c.kmPx, c.lon, c.lat) : city ? city.minz : 0;
+      // (a town of the Rebbeim's marker gives way, close in, to a mosad on its spot: untilKmPx)
+      const until = c.untilKmPx ? zoomFor(c.untilKmPx, c.lon, c.lat) : 99;
       return feature({ type: 'Point', coordinates: P(c.lon, c.lat) },
-        { i, world: !!c.world, honor: !!c.honor, name: c.honor ? c.name : city ? city.name : '', minz, big: city ? city.big : 99, rank: c.world ? 0 : c.honor ? 1 : 2, anchor: c.anchor || 'left' });
+        { i, world: !!c.world, honor: !!c.honor, mosad: c.kind === 'mosad', name: c.honor ? c.name : city ? city.name : '', minz, until, big: city ? city.big : 99, rank: c.world ? 0 : c.honor ? 1 : 2, anchor: c.anchor || 'left' });
     }).filter((f) => f.geometry.coordinates)));
   }
   function dotData(S) {
@@ -2122,6 +2149,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     make('star', 20, (g) => star(g, STAR));
     make('star-world', 30, (g) => star(g, WORLD_STAR));
     make('honor', 12, (g) => { g.beginPath(); g.arc(0, 0, 3.2, 0, 2 * Math.PI); g.lineWidth = 2.4; g.strokeStyle = pal.halo; g.stroke(); g.fillStyle = pal.ink; g.fill(); });
+    make('honor-mosad', 10, (g) => { g.beginPath(); g.moveTo(0, -3.4); g.lineTo(3.4, 0); g.lineTo(0, 3.4); g.lineTo(-3.4, 0); g.closePath(); g.lineJoin = 'round'; g.lineWidth = 2; g.strokeStyle = pal.halo; g.stroke(); g.fillStyle = pal.ink; g.fill(); });
   }
 
   let visibilityWired = false;
@@ -2297,11 +2325,15 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     add({ id: 'names', type: 'symbol', source: 'names', filter: nameFilter(0), layout: { ...nameLayout, 'text-allow-overlap': true } });
     add({ id: 'sub-names', type: 'symbol', source: 'sub', filter: ['all', ['==', ['geometry-type'], 'Point'], ['>=', ['zoom'], ['get', 'minz']]],
       layout: { 'text-field': ['get', 'head'], 'text-font': F_BOLD, 'text-size': ['interpolate', ['linear'], ['zoom'], 4, 11, 9, 15], 'text-max-width': 7, 'text-line-height': 1.1, 'text-padding': 2 } });
-    add({ id: 'honor', type: 'symbol', source: 'caps', filter: ['all', ['get', 'honor'], ['>=', ['zoom'], ['get', 'minz']]],
-      layout: { 'icon-image': 'honor', 'icon-allow-overlap': true, 'text-allow-overlap': true, 'text-field': ['get', 'name'], 'text-font': F_IT, 'text-size': 13,
-        // (the name right of the star; Liozna's above it and Liadi's below, off Lubavitch's: HONOR_PLACES' anchor)
+    // (a town of the Rebbeim: a dot in a ring and its name in italics; a mosad in one, smaller: a diamond and its name, in
+    // two lines at most)
+    add({ id: 'honor', type: 'symbol', source: 'caps', filter: ['all', ['get', 'honor'], ['>=', ['zoom'], ['get', 'minz']], ['<', ['zoom'], ['get', 'until']]],
+      layout: { 'icon-image': ['case', ['get', 'mosad'], 'honor-mosad', 'honor'], 'icon-allow-overlap': true, 'text-allow-overlap': true, 'text-field': ['get', 'name'],
+        'text-font': ['case', ['get', 'mosad'], ['literal', F_REG], ['literal', F_IT]], 'text-size': ['case', ['get', 'mosad'], 12, 13], 'text-max-width': 12,
+        // (the name right of the mark; Liozna's above it and Liadi's below, off Lubavitch's; a mosad on its town's spot
+        // to the left: HONOR_PLACES' anchor)
         'text-letter-spacing': 0.02, 'text-anchor': ['get', 'anchor'], 'text-justify': 'auto',
-        'text-offset': ['match', ['get', 'anchor'], 'bottom', ['literal', [0, -0.75]], 'top', ['literal', [0, 0.75]], ['literal', [0.75, 0]]] } });
+        'text-offset': ['match', ['get', 'anchor'], 'bottom', ['literal', [0, -0.75]], 'top', ['literal', [0, 0.75]], 'right', ['literal', [-0.75, 0]], ['literal', [0.75, 0]]] } });
   }
 
   // ---------- views and options on the map ----------
@@ -2952,26 +2984,36 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // A Rebbe resting in the town: under his own name in the list, with his yahrzeit (the 7th field; owner, Oct 26: not a
   // separate list, no name twice); where there's no list (Haditch, Nezhin, the Ohel), one line, burial, said with
   // respect — in Hebrew ציון / ציוני (Chabad's word; not מקום מנוחתו, owner, Oct 26)
+  const HADITCH_BURIAL = { burial: ['Burial place of the Alter Rebbe, Rabbi Schneur Zalman of Liadi, zy"a', 'ציון כ״ק אדמו״ר הזקן, רבי שניאור זלמן מליאדי, זי״ע'], yahrzeit: ['Histalkus: 24 Teves 5573 (1812)', 'הסתלקות: כ״ד טבת תקע״ג'] };
+  const NEZHIN_BURIAL = { burial: ['Burial place of the Mitteler Rebbe, Rabbi DovBer, zy"a', 'ציון כ״ק אדמו״ר האמצעי, רבי דובער, זי״ע'], yahrzeit: ['Histalkus: 9 Kislev 5588 (1827)', 'הסתלקות: ט׳ כסלו תקפ״ח'] };
   const HONOR_CARDS = {
+    // the towns
     lubavitch: { seat: ['Seat of the Rebbeim, 1813–1915', 'מקום מושב הרביים, תקע״ג–תרע״ה'], title: ['Rebbeim in Lubavitch:', 'נשיאי חב״ד בליובאוויטש:'], rebbeim: LUBAVITCH_REBBEIM },
     rostov: { seat: ['Seat of the Rebbeim, 1915–1924', 'מקום מושב הרביים, תרע״ו–תרפ״ד'], title: ['Rebbeim in Rostov:', 'נשיאי חב״ד ברוסטוב:'], rebbeim: [
       ['The Rebbe Rashab', 'Rabbi Sholom DovBer', 'כ״ק אדמו״ר הרש״ב', 'רבי שלום דובער', '1915–1920', 'תרע״ו–תר״פ', ['2 Nissan 5680 (1920)', 'ב׳ ניסן תר״פ']],
       ['The Frierdiker Rebbe', 'Rabbi Yosef Yitzchak', 'כ״ק אדמו״ר הריי״צ', 'רבי יוסף יצחק', '1920–1924', 'תר״פ–תרפ״ד'],
-    ],
-    // (chabad.org, June 17 2026: "Rabbi Danziger is responsible for maintaining the Rebbe Rashab's resting place")
-    people: [{ title: 'Rabbi', firstName: 'Chaim', lastName: 'Danzinger', role: ["In charge of the Rebbe Rashab's Ohel", 'אחראי על אוהל אדמו״ר הרש״ב'], isDirector: true, isDeceased: false }] },
+    ] },
     liozna: { seat: ["The Alter Rebbe's town: born here in 1745, he led from here until 1801", 'עירו של אדמו״ר הזקן: נולד כאן בתק״ה, ומכאן הנהיג עד תקס״א'], title: ['Rebbe in Liozna:', 'נשיא חב״ד בליאזנא:'], rebbeim: [
       [...ALTER_REBBE, 'until 1801', 'עד תקס״א'],
     ] },
     liadi: { seat: ['Seat of the Alter Rebbe, 1801–1812', 'מקום מושב אדמו״ר הזקן, תקס״א–תקע״ב'], title: ['Rebbe in Liadi:', 'נשיא חב״ד בליאדי:'], rebbeim: [
       [...ALTER_REBBE, '1801–1812', 'תקס״א–תקע״ב'],
     ] },
+    haditch: HADITCH_BURIAL,
+    nezhin: NEZHIN_BURIAL,
+    // the mosdos in them
+    'lubavitch-ohel': { burial: ['Burial place of the Tzemach Tzedek, Rabbi Menachem Mendel, zy"a, and the Rebbe Maharash, Rabbi Shmuel, zy"a', 'ציוני כ״ק אדמו״ר הצמח צדק, רבי מנחם מענדל, זי״ע, וכ״ק אדמו״ר מהר״ש, רבי שמואל, זי״ע'],
+      yahrzeit: ['Histalkus: 13 Nissan 5626 (1866) · 13 Tishrei 5643 (1882)', 'הסתלקות: י״ג ניסן תרכ״ו · י״ג תשרי תרמ״ג'] },
+    // (the center in Lubavitch, opened 2008, not on chabad.org's locator: its wording is the owner's, Oct 7; ask him before
+    // changing it)
+    'lubavitch-chatzer': { place: ['Heritage center · Lubavitch', 'מרכז מורשת · ליובאוויטש'], people: LUBAVITCH_CENTER_PEOPLE },
+    // (chabad.org, June 17 2026: "Rabbi Danziger is responsible for maintaining the Rebbe Rashab's resting place")
+    'rostov-ohel': { burial: ['Burial place of the Rebbe Rashab, Rabbi Sholom DovBer, zy"a', 'ציון כ״ק אדמו״ר הרש״ב, רבי שלום דובער, זי״ע'], yahrzeit: ['Histalkus: 2 Nissan 5680 (1920)', 'הסתלקות: ב׳ ניסן תר״פ'],
+      people: [{ title: 'Rabbi', firstName: 'Chaim', lastName: 'Danzinger', role: ["In charge of the Rebbe Rashab's Ohel", 'אחראי על אוהל אדמו״ר הרש״ב'], isDirector: true, isDeceased: false }] },
     // (Rabbi Deitsch, "השליח והאחראי על המקומות הקדושים בהאדיטש ובניעז'ין": JDN, Dec 4 2022; chabad.org lists him at the
     // Heichel without a position)
-    haditch: { burial: ['Burial place of the Alter Rebbe, Rabbi Schneur Zalman of Liadi, zy"a', 'ציון כ״ק אדמו״ר הזקן, רבי שניאור זלמן מליאדי, זי״ע'], yahrzeit: ['Histalkus: 24 Teves 5573 (1812)', 'הסתלקות: כ״ד טבת תקע״ג'],
-      roles: { Deutsh: ['In charge of the Heichal', 'אחראי על ההיכל'] } },
-    nezhin: { burial: ['Burial place of the Mitteler Rebbe, Rabbi DovBer, zy"a', 'ציון כ״ק אדמו״ר האמצעי, רבי דובער, זי״ע'], yahrzeit: ['Histalkus: 9 Kislev 5588 (1827)', 'הסתלקות: ט׳ כסלו תקפ״ח'],
-      people: [{ title: 'Rabbi', firstName: 'Shneor Zalman', lastName: 'Deutsh', role: ['In charge of the Ohel', 'אחראי על האוהל'], isDirector: true, isDeceased: false }] },
+    'haditch-ohel': { ...HADITCH_BURIAL, roles: { Deutsh: ['In charge of the Heichal', 'אחראי על ההיכל'] } },
+    'nezhin-ohel': { ...NEZHIN_BURIAL, people: [{ title: 'Rabbi', firstName: 'Shneor Zalman', lastName: 'Deutsh', role: ['In charge of the Ohel', 'אחראי על האוהל'], isDirector: true, isDeceased: false }] },
     // (the Rebbe with his whole title, as on 770's card; owner, Oct 26)
     ohel: { burial: ['Burial place of the Frierdiker Rebbe, zy"a, and the Lubavitcher Rebbe, zy"a', 'ציוני כ״ק אדמו״ר הריי״צ זי״ע וכ״ק אדמו״ר נשיא דורנו זצוקללה״ה נבג״מ זי״ע'], yahrzeit: ['Histalkus: 10 Shevat 5710 (1950) · 3 Tammuz 5754 (1994)', 'הסתלקות: י׳ שבט תש״י · ג׳ תמוז תשנ״ד'] },
   };
@@ -2984,11 +3026,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const honor = c.honor && HONOR_CARDS[c.honor];
     // (named for its chabad.org listing where it is one — the Heichel Admur Hazaken, Ohel Chabad Lubavitch — whose people
     // and page are in the same card)
-    if (honor) return `<h2 class="honor-h">${esc(c.title || (c.center && c.center.name) || c.name)}</h2>
-      ${honor.seat ? `<p class="meta">${HE ? honor.seat[1] : honor.seat[0]}</p>` : ''}${honor.burial ? burialHTML(honor) : ''}${honor.rebbeim ? rebbeimHTML(honor) : ''}
-      ${c.honor === 'lubavitch' ? `<div class="subcard"><ul><li><strong>${HE ? 'חצר רבותינו נשיאינו בליובאוויטש' : "Hatzer Raboteinu Nesieinu B'Lubavitch"}</strong>
-        <span class="meta">${esc([HE ? 'מרכז מורשת' : 'Heritage center', HE ? 'ליובאוויטש' : 'Lubavitch'].join(' · '))}</span>
-        ${personnelHTML(LUBAVITCH_CENTER_PEOPLE)}</li></ul></div>` : ''}
+    // (Lubavitch's the big title, like 770's; the other towns' and the mosdos' smaller: honor-m; a mosad's town above it)
+    const town = c.town && HONOR_TOWN.get(c.town);
+    if (honor) return `${town ? `<span class="kicker">${esc(town.name)}</span>` : ''}<h2 class="${c.honor === 'lubavitch' ? 'honor-h' : 'honor-m'}">${esc(c.title || (c.center && c.center.name) || c.name)}</h2>
+      ${honor.seat ? `<p class="meta">${HE ? honor.seat[1] : honor.seat[0]}</p>` : ''}${honor.place ? `<p class="meta">${esc(HE ? honor.place[1] : honor.place[0])}</p>` : ''}${honor.burial ? burialHTML(honor) : ''}${honor.rebbeim ? rebbeimHTML(honor) : ''}
       ${honor.people ? `<div class="staff">${personnelHTML(honor.people)}</div>` : ''}
       ${c.center ? `<div class="staff">${personnelHTML((c.center.personnel || []).map((p) => (honor.roles && honor.roles[p.lastName] ? { ...p, role: honor.roles[p.lastName] } : p)))}${chabadLink(c.center)}</div><div class="foot"><span class="meta">${shetachLine(c.piece, true)}</span></div>` : ''}`;
     // 770: the headquarters by itself, the Rebbe as its leader, and the many other listings at the address folded away
@@ -3086,7 +3127,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       '<button type="button" class="close" aria-label="Close"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>';
     card.hidden = false;
     card.classList.toggle('pinned', pin);
-    card.classList.toggle('world', !!(hit.capital && (hit.capital.world || hit.capital.honor))); // 770 and Lubavitch: the special card
+    card.classList.toggle('world', !!(hit.capital && (hit.capital.world || hit.capital.honor === 'lubavitch'))); // 770 and Lubavitch: the big card
+    card.classList.toggle('prominent', !!(hit.capital && hit.capital.honor && hit.capital.honor !== 'lubavitch')); // the Rebbeim's other towns and their mosdos
     card.classList.toggle('stack', !!card.querySelector(':scope > .part'));
     lastPoint = { clientX: event.clientX, clientY: event.clientY };
     if (!phone()) {
@@ -3537,7 +3579,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const honorary = it.d && it.d.centers.every((c) => HONOR_BY_CENTER.has(c.id)) && HONOR_BY_CENTER.get(it.d.centers[0].id);
     const hit = honorary ? { capital: honorary } : it.d ? { dot: it.d } : { city: it.city };
     hideCard();
-    const zoom = Math.min(14, Math.max(map.getZoom(), (V.cur.zFit ?? 2) + (it.city ? 5 : 7)));
+    // (a mosad of the Rebbeim's — the Heichel in Haditch: close enough for its own marker, apart from its town's; the
+    // map checks a marker's zoom filter at whole zooms only, hence the ceil)
+    const zoom = Math.max(Math.min(14, Math.max(map.getZoom(), (V.cur.zFit ?? 2) + (it.city ? 5 : 7))),
+      honorary && honorary.kind === 'mosad' ? Math.ceil(within(V.cur, () => zoomFor(honorary.kmPx, lon, lat))) + 0.25 : 0);
     map.flyTo({ center: at, zoom, duration: still ? 0 : 1400 });
     map.once('moveend', () => {
       if (hit.city && !CITY_CARDS) return; // (a city: just there, no card)

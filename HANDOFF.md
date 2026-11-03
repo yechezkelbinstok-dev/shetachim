@@ -13,6 +13,26 @@ those can't reach. On Nov 3 a session ran every search and page through Firecraw
 owner was furious. The rule is also under "Notes for Claude" below. (Owner, Nov 3, the other way round: "you have
 fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers WebFetch and curl with 403.)
 
+## ▶ Nov 3 (latest): a top-level sweep after Rockland (nothing changed; one doubt asked)
+- Owner: "I'm fucking pissed you never found this info yourself leads me to believe you may have missed other shit".
+  Checked, each against Chabad news and directories, whether a region the map has under another head is its own:
+  - **Confirmed as the map has it:** Tennessee (Rabbi Levi Klein, "Head Shliach of Tennessee"; Nashville's Rabbi
+    Yitzchok Tiechtel under him — the Williamson County couple was "appointed by Rabbi Levi Klein, Head Shliach of
+    Tennessee, and Rabbi Yitzchok Tiechtel, Shliach to Nashville"); Kansas–Missouri (Rabbi Sholom Ber Wineberg, "head
+    Shliach and director of Chabad of Kansas and Missouri"; JTA: the Kansas City regional office "will serve the states
+    of Missouri and Kansas"); the Carolinas (Groner; South Carolina's Epsteins direct Chabad of South Carolina in
+    Columbia, no regional title); Texas (Lazaroff, "Head Shliach for Chabad Lubavitch of Texas"; the Blocks' Chabad
+    Lubavitch of South Texas is a branch); Alberta (the Matusofs, "Head Shluchim of Alberta"); Orange County, NY (the
+    Burstons' Chabad of Orange County reports to the Albany regional director, so Eastern New York's).
+  - **Called "head shliach" in news, but already settled with the owner as sub-shetachim:** San Diego (Fradkin;
+    Chabadpedia: "המשמש גם כשליח אזורי" — under Cunin; the owner: "baja peninsula is under fradkin"), Southern Nevada
+    (Harlig), Long Island (Teldon; Tzach's vaad at its kinus), Westchester (Butman).
+  - **Asked of the owner:** St. Louis (Rabbi Yosef Landa): chabad.org's "Chabad of Greater St. Louis Regional
+    Headquarters", "Co-Founder and Regional Director"; one report, "head shliach to Greater St. Louis" — its own
+    shetach, or Wineberg's (as drawn)?
+  - **Sub-shetach candidates, not drawn:** Greater Sacramento (Rabbi Mendy Cohen, "regional Shliach to the Greater
+    Sacramento region", Chabad of Sacramento since 1994); South Texas (the Blocks, San Antonio).
+
 ## ▶ Nov 3 (latest): mushroom icons; the Five Towns named on the map; Ontario is "Southern Ontario"
 - **Owner:** "Now do the mushroom icons and Five Towns" (asked earlier: "add an option that the mushrooms should be
   instead of dots little tiny mushroom icons / Also shouldn't five towns be shown on the map?"); "Also Ontario should

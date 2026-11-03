@@ -33,7 +33,17 @@ owner was furious. The rule is also under "Notes for Claude" below.
     activities there?" — none found (his events: Mansfield, Foxborough, North Attleborough, Norton, Plainville), so no.
     Rule from this: a town with no house goes by real activity there, not a name in a site title.
   - House moved: Chabad of Nashoba Valley (118492) → Eastern MA.
-- **Gurkow's South Area: unchanged.** Shaloh House began as Rabbi Moshe Gurkov's branch of NCFJE ("Shaloh") in
+- **Then (owner: "shouldn't he be smaller or does it make sense because of where he has activities? … are you absolutely
+  sure he's 100% top level independent???"; and "I like the not straight" — town lines stay):** his activity, sourced:
+  his own column (ChabadInfo, Jan 3, 2019) — "I am personally involved in such public celebrations in Stoughton,
+  Easton and Braintree"; Shaloh House Chabad's menorah lighting at South Shore Plaza, Braintree (The Patriot Ledger,
+  Nov 23, 2021); his GuideStar profile (Shaloh House Chabad of the South Area, EIN 04-3066566, ruling year 1991) lists
+  Stoughton, Easton, Canton and Sharon as areas served (Canton and Sharon have houses of their own — Horowitz,
+  Wolosow — left as they are). **Braintree → South Area** (Lezell's South Shore list doesn't name it). The South Area
+  is now Stoughton, Easton, Braintree (his events), Brockton, Randolph (his 2026 shluchim's), Avon, Holbrook (between).
+  Not 100% that he's top level: no source calls him head shliach; the case is the NCFJE history, his own appointees and
+  nothing tying him to Prus. Told the owner so.
+- **Gurkow's South Area (first pass): unchanged.** Shaloh House began as Rabbi Moshe Gurkov's branch of NCFJE ("Shaloh") in
   Mattapan, 1960 (chabad.org obituary by Menachem Posner, Nov 14, 2024: "his 'official' mandate was to educate
   children"), 15 years before Prus came (10 Kislev 5736, Chabadpedia). Mendel Gurkow founded the Stoughton branch in
   1987 (shalohhouse.com). The Katzmans were "operating under the auspices of Rabbi Mendel and Mrs. Chana Gurkow"

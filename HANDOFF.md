@@ -8,6 +8,41 @@ More detail is in `docs/PLAN.md`.
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
 
+## ▶ NEXT SESSION START HERE (Nov 3, ~09:20 UTC): Eastern Massachusetts still open — owner's questions
+- **First:** check the push of `c3e0379` (South Area shetach + Prus–Fogelman border by towns) actually went live:
+  `curl -sS "https://yechezkelbinstok-dev.github.io/shetachim/web/data/shetachim.json?nc=$RANDOM" | grep -c south-area`
+  (it wasn't yet at 09:13 UTC; Pages deploys can lock — see the Nov 1 section). This HANDOFF commit comes after it.
+- **The owner's latest words (answer these):**
+  - "when your done and everything is pushed (only after push) - you need to go ahead and overall see if Massachusetts
+    is accurate overall" and "if you know of any genuinely new top level jurisdictions that are currently wrongly under a
+    head shliach then that should be fixed as well no?"
+  - Then: "we already know there isn't one head shliach [Chabadpedia's 'under head shliach Rabbi Yehuda Fogelman' for
+    the whole state — ignore] my point is about the borders we currently have now for central and western/Connecticut
+    I'm assuming are correct I mean more the eastern clusterfuck. Like are there maybe more actual top level that you
+    can verify are top level that aren't included? Just as an example but overall are borders fully correct?"
+  - "And should gurkow have a shetach that big with only one moised? And should he not rather be a small enclave? And
+    he's takeh his own shetach despite only having a single moised?" — **answer honestly:** no source calls Gurkow a
+    head shliach or regional director; Shaloh House is the Gurkov family's own network (his father Rabbi Moshe Gurkov,
+    Boston from 1959) and nothing ties it to Prus — that's all. He has ONE house (Stoughton) plus two couples under him
+    (Katzmans 2014, Gordons for Brockton/Randolph). The 6 towns = his center's stated service area (Stoughton, Easton)
+    + the Gordons' (Brockton, Randolph) + Avon/Holbrook between. The owner made him a shetach; whether it should be
+    just Stoughton (an enclave in Prus's) or reverted to a sub-shetach is his call — ask, don't guess.
+- **Central and Western/CT borders: the owner assumes they're correct** (Deren is "regional director of Chabad
+  Lubavitch for Southern and Western New England", Anash — confirms western MA). The work is EASTERN MA:
+  - Confirmed under Prus: the Posners' Chabad House of Greater Boston (since 1985, "joining Head Shliach of Eastern
+    Massachusetts Rabbi Chaim Prus", Anash "New Shluchim to Boston University"); Prus is also "regional director of Chabad
+    of Eastern Massachusetts" (chabadboston.org; Getty caption); founded Lexington (1985).
+  - Possible top-level jurisdictions to verify (none confirmed either way yet): Chabad at Harvard (Rabbi Hirschy Zarchi's
+    network — Harvard, MIT, Cambridge, satellites incl. Brandeis); Chabad Lubavitch of the Merrimack Valley (Rabbi Asher
+    Bronstein, Andover; his son-in-law Zalman Borenstein's North Andover/Haverhill); the South Coast (Benjaminson,
+    Dartmouth); the South Shore (Lezell, Hingham→Plymouth, Quincy YJP); Sharon (Wolosow, since 1980–86); Shaloh House
+    Brighton (Rodkin; Noginski — Chabadpedia lists Noginski as "Boston" shliach). Need a source that names a head
+    shliach / regional director or who appointed them; "a local, independent and financially self-supporting entity"
+    (standard Chabad wording) proves nothing.
+  - Acton (Polter) and Westford (Zalman Gurkow) sit on Fogelman's side unverified (see below).
+  - Chabadpedia also says Rabbi Yaakov Noach Lazaros (Framingham) passed away 1 Iyar 5786 — not confirmed anywhere else
+    yet; chabad.org still lists him. If confirmed, mark him deceased (a `fixes`/hyd-style entry, like Kogan's).
+
 ## ▶ Nov 3 (later): Massachusetts re-checked; Gurkow's South Area a shetach of its own
 - **Owner:** "Make him his own shetach — but this research is calling into question in general your previous research
   on Massachusetts... is the Prus-Fogelman line even correct now? Are the moisdois on the respective sides of the

@@ -12,6 +12,28 @@ between two Claude accounts when usage limits run out; whichever session picks t
 those can't reach. On Nov 3 a session ran every search and page through Firecrawl (~25 searches, ~20 pages) and the
 owner was furious. The rule is also under "Notes for Claude" below.
 
+## ▶ Nov 3 (latest): ugly sub-shetach outlines rounded (`soften`); Northern Nevada's bite filled
+- **Owner** (phone screenshot of Northern Nevada): "Or like this what the fuck is this indentation ugly it hurts 😭";
+  then "sometimes maybe it legitimately does look nice like in the case of north shore or southern Nevada"; and for
+  Northern Nevada: "Maybe just make the bight part of it (n nv)".
+- **Northern Nevada:** its `membersIn` now also takes western Lyon County (Dayton, Mound House, Stagecoach) west of
+  119.3108°W, the line of Douglas County's east edge (`{"box": [...], "county": "32019"}`). No house there; it only fills
+  the bite between Storey, Carson City and Douglas, so the east side is one straight line from Storey's corner down
+  through Douglas. Fernley and Silver Springs stay out (east of the line).
+- **`soften` (km), new in `data/sub-shetachim.json`** (`soften()` in `scripts/build-sub.mjs`): rounds off steps,
+  notches and spikes narrower than about twice that (a closing, then an opening, on a km grid). Water, other states and
+  other shetachim's land count as its own while it's worked out, so coasts and state lines come back exact; a notch
+  is never filled with land nearer another house than its own (North Broward keeps its bite round Lauderdale-by-the-
+  Sea's house); if rounding a spike would lose a house, only the notches are filled. Only where a region asks for it:
+  Tucson 3, North Broward & South Palm Beach 3, Inland Empire 3, Greater New Haven 4, South Bay 2, Greater South Bay 2,
+  Rochester 3. **Not** on Greater Mercer (it pushed 3.4 km² into Western Monmouth: the build prints OVERLAP) or Northern
+  Nevada (filled instead, above). Left as they are on purpose: Southern Nevada (Clark County) and anything else that
+  already looks good.
+- Still a bit odd: Greater South Bay's thin strip along the bay shore and North Broward's barrier-island strip (both
+  real coast), and Greater New Haven's rounded knob (it was a spike).
+- Checked: the sheet of all 43 outlines, Northern Nevada over its counties and on the page; no OVERLAP; the 6
+  "NOT ONE PIECE" notes are the same 6 as before (islands, Mexico).
+
 ## ▶ Nov 3 (latest): Massachusetts's inner borders drawn smooth (the North Shore's kept as town lines)
 - **Owner** (phone screenshot of the Merrimack Valley–Prus line at Billerica): "Why there be horrible pointy borders and
   it's not just there 😭" — then "sometimes maybe it legitimately does look nice like in the case of north shore or
@@ -277,7 +299,7 @@ owner was furious. The rule is also under "Notes for Claude" below.
     + Cape May, Passaic, Dallas (Dallas, Collin, Denton, Rockwall), Howard, Southwest Florida (Lee), Greater New Haven
     (South Central CT), Northeast Florida (Duval, St. Johns, Clay, Nassau), Rochester (Monroe + Livingston).
   - **Parts of counties, by their own lines (13):** Northern Nevada (Washoe south of 40.3°N — below Pyramid Lake, not up to
-    Oregon — + Storey + Carson City + Douglas); Tucson (Pima's Tucson and Marana divisions, not Ajo and the Tohono
+    Oregon — + Storey + Carson City + Douglas; Nov 3: + western Lyon, see above); Tucson (Pima's Tucson and Marana divisions, not Ajo and the Tohono
     O'odham Nation); Inland Empire (San Bernardino's Ontario division: Chino, Chino Hills, Ontario, Rancho Cucamonga,
     Upland, Montclair); South Bay L.A. (L.A. Times neighbourhoods from San Pedro and Palos Verdes to Torrance, Redondo
     and Gardena); South Broward (Broward's Hallandale Beach, Hollywood, Miramar–Pembroke Pines divisions: not Davie's,

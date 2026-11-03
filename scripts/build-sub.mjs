@@ -358,6 +358,72 @@ function drawRegion(seeds, others, reach, land, far = FAR) {
   }).filter((ring) => ring.length >= 4)).filter((poly) => poly.length);
 }
 
+// A region's outline with its steps, notches and spikes narrower than about 2·r km rounded off (closed, then opened),
+// for a region whose lines are county, town or neighbourhood lines that zigzag (owner, Nov 3: "what the fuck is this
+// indentation ugly it hurts" — Northern Nevada, whose bite was then filled with western Lyon County instead; but
+// "sometimes maybe it legitimately does look nice like ... southern Nevada", so only where a region asks for it:
+// `soften`, in km). Only its inland edges move: water, other states' land
+// and other shetachim's (not `land`) count as its own while it's worked out, and the cut to `land` afterwards gives the
+// coast and the state lines back exactly. Its houses stay in it.
+function soften(mp, r, land, homes, others = []) {
+  if (!mp.length) return mp;
+  const [w, s, e, nn] = box(mp), lat0 = (s + nn) / 2, lon0 = (w + e) / 2;
+  const kx = 111.32 * Math.cos((lat0 * Math.PI) / 180), ky = 110.57, pad = 3 * r + 2;
+  const x0 = (w - lon0) * kx - pad, y0 = (s - lat0) * ky - pad, x1 = (e - lon0) * kx + pad, y1 = (nn - lat0) * ky + pad;
+  const cell = Math.max(CELL, Math.max(x1 - x0, y1 - y0) / 1400);
+  const nx = Math.ceil((x1 - x0) / cell) + 1, ny = Math.ceil((y1 - y0) / cell) + 1, n = nx * ny;
+  const fill = (polys) => { // polygons (lon/lat) as cells: a scanline fill, even-odd
+    const m = new Uint8Array(n), rowX = Array.from({ length: ny }, () => []);
+    for (const poly of polys) for (const ring of poly) {
+      const pts = ring.map(([lon, lat]) => [((lon - lon0) * kx - x0) / cell, ((lat - lat0) * ky - y0) / cell]);
+      for (let a = 0, b = pts.length - 1; a < pts.length; b = a++) {
+        const [xa, ya] = pts[a], [xb, yb] = pts[b];
+        if (ya === yb) continue;
+        for (let j = Math.max(0, Math.ceil(Math.min(ya, yb))); j < Math.min(ny, Math.ceil(Math.max(ya, yb))); j++) rowX[j].push(xa + ((j - ya) * (xb - xa)) / (yb - ya));
+      }
+    }
+    for (let j = 0; j < ny; j++) {
+      const xr = rowX[j].sort((p, q) => p - q);
+      for (let t = 0; t + 1 < xr.length; t += 2) for (let i = Math.max(0, Math.ceil(xr[t])); i <= Math.min(nx - 1, Math.floor(xr[t + 1])); i++) m[j * nx + i] = 1;
+    }
+    return m;
+  };
+  const grow = (m, d) => { const t = edt(not(m), nx, ny), o = new Uint8Array(n); for (let k = 0; k < n; k++) o[k] = t[k] * cell <= d ? 1 : 0; return o; };
+  const shrink = (m, d) => { const t = edt(m, nx, ny), o = new Uint8Array(n); for (let k = 0; k < n; k++) o[k] = t[k] * cell > d ? 1 : 0; return o; };
+  const mine = fill(mp), ashore = fill(land);
+  const near = grow(mine, 3 * r), work = new Uint8Array(n);
+  for (let k = 0; k < n; k++) work[k] = mine[k] || (near[k] && !ashore[k]) ? 1 : 0;
+  let done = grow(shrink(shrink(grow(work, r), r), r), r);
+  const cellOf = (d) => { const i = Math.round(((d.lon - lon0) * kx - x0) / cell), j = Math.round(((d.lat - lat0) * ky - y0) / cell); return i >= 0 && j >= 0 && i < nx && j < ny ? j * nx + i : -1; };
+  const hs = homes.map(cellOf).filter((k) => k >= 0);
+  if (hs.some((k) => !done[k])) done = shrink(grow(work, r), r); // (only the notches, if rounding the spikes would lose a house)
+  // (a notch it fills never takes land nearer to another of its shetach's houses than to its own: a bite round another
+  // house — Lauderdale-by-the-Sea's in North Broward — stays, and it doesn't reach into a neighbouring region)
+  const os = others.map(cellOf).filter((k) => k >= 0);
+  if (os.length) {
+    const hm = new Uint8Array(n).fill(1), om = new Uint8Array(n).fill(1);
+    for (const k of hs) hm[k] = 0;
+    for (const k of os) om[k] = 0;
+    const dH = edt(hm, nx, ny), dO = edt(om, nx, ny);
+    for (let k = 0; k < n; k++) if (done[k] && !mine[k] && ashore[k] && dO[k] < dH[k]) done[k] = 0;
+  }
+  // traced on a softened copy, like a drawn region
+  let f = new Float64Array(n);
+  for (let k = 0; k < n; k++) f[k] = done[k] ? 1 : 0;
+  for (let pass = 0; pass < 3; pass++) {
+    const g = new Float64Array(n), h = new Float64Array(n);
+    for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) { const k = j * nx + i; g[k] = (f[i > 0 ? k - 1 : k] + f[k] + f[i < nx - 1 ? k + 1 : k]) / 3; }
+    for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) { const k = j * nx + i; h[k] = (g[j > 0 ? k - nx : k] + g[k] + g[j < ny - 1 ? k + nx : k]) / 3; }
+    f = h;
+  }
+  const geo = contours().size([nx, ny]).thresholds([0.5])(f)[0];
+  return (geo ? geo.coordinates : []).map((poly) => poly.map((ring) => {
+    const out = simplify(ring.map(([i, j]) => ({ x: x0 + (i - 0.5) * cell, y: y0 + (j - 0.5) * cell })), 0.12, true).map((p) => [lon0 + p.x / kx, lat0 + p.y / ky]);
+    if (out.length && (out[0][0] !== out[out.length - 1][0] || out[0][1] !== out[out.length - 1][1])) out.push(out[0]);
+    return out;
+  }).filter((ring) => ring.length >= 4)).filter((poly) => poly.length);
+}
+
 const round = (v) => Math.round(v * 1e5) / 1e5;
 const signed = (r) => { let a = 0; for (let i = 0; i < r.length - 1; i++) a += r[i][0] * r[i + 1][1] - r[i + 1][0] * r[i][1]; return a / 2; };
 const ringArea = (r) => Math.abs(signed(r));
@@ -429,7 +495,8 @@ for (const s of data.subShetachim) {
   const shapes = [];
   if (outline !== 'areas') shapes.push(drawRegion(seeds.map((d) => [d.lon, d.lat]), others.map((d) => [d.lon, d.lat]), s.reach ?? REACH, landNear, s.far ?? FAR));
   if (outline !== 'drawn') shapes.push(...areas.map((poly) => [poly]));
-  const shape = shapes.filter((g) => g.length).length ? polygonClipping.union(...shapes.filter((g) => g.length)) : [];
+  const joint = shapes.filter((g) => g.length).length ? polygonClipping.union(...shapes.filter((g) => g.length)) : [];
+  const shape = s.soften ? soften(joint, s.soften, [...lands.values()].flat(), memberDots, others) : joint;
   const all = whole.length ? polygonClipping.union(shape, ...whole) : shape;
   // cut to that land, state by state
   const near = rect(box(all));

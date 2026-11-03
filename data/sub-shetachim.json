@@ -107,9 +107,18 @@
             "32510",
             "32005"
           ]
+        },
+        {
+          "box": [
+            -119.75,
+            39.0,
+            -119.3108,
+            39.7
+          ],
+          "county": "32019"
         }
       ],
-      "source": "The owner, Nov 1: \"Do northern Nevada under Cunin\". Chabad of Northern Nevada in Reno, Rabbi Mendel Cunin its director (chabad.org), and the houses round it: Chabad Cares and the Learning Center (Reno), Chabad at UNR, Chabad of Carson City (Rabbi Levi Sputz) and Chabad at Lake Tahoe (Rabbi Mordechai Richler, Stateline). Its members: the houses in Washoe County (south of 40.3°N, below Pyramid Lake: the county runs on 200 km to Oregon, which the owner didn't want: \"why does it stretch so North\"), Storey County, Carson City and Douglas County; those are its outline too.",
+      "source": "The owner, Nov 1: \"Do northern Nevada under Cunin\". Chabad of Northern Nevada in Reno, Rabbi Mendel Cunin its director (chabad.org), and the houses round it: Chabad Cares and the Learning Center (Reno), Chabad at UNR, Chabad of Carson City (Rabbi Levi Sputz) and Chabad at Lake Tahoe (Rabbi Mordechai Richler, Stateline). Its members: the houses in Washoe County (south of 40.3°N, below Pyramid Lake: the county runs on 200 km to Oregon, which the owner didn't want: \"why does it stretch so North\"), Storey County, Carson City and Douglas County; those are its outline too. And western Lyon County (Dayton, Mound House, Stagecoach), west of 119.3108°W, the line of Douglas County's east edge: no house there, but without it the outline had a deep bite between Storey, Carson City and Douglas (the owner, Nov 3: \"Maybe just make the bight part of it\").",
       "outline": "areas"
     },
     {
@@ -132,7 +141,8 @@
         }
       ],
       "source": "The owner, Nov 1: \"Tucson/Vail is Shemtov no?\". Chabad Lubavitch of Tucson, Rabbi Yossie Shemtov its executive director (chabad.org), and the houses round it: Chabad on River (Rabbi Ram Bigelman), Chabad of Oro Valley (Rabbi Ephraim Zimmerman), Chabad of Vail (Rabbi Yisroel Shemtov), the University of Arizona's Chabad House (Rabbi Shmulie Shanowitz). Its members, and its outline: Pima County's Tucson and Marana county divisions (not the county's empty west, Ajo and the Tohono O'odham Nation). Not Chabad of Cochise County (Rabbi Benzion Shemtov, Sierra Vista), 70 km off across the desert: the region is one piece (owner, Nov 1: \"Why ... disconnected ones\"), and no source makes it Tucson's branch.",
-      "outline": "areas"
+      "outline": "areas",
+      "soften": 3
     },
     {
       "id": "petersburg",
@@ -459,7 +469,8 @@
         }
       ],
       "source": "Chabad-Lubavitch of North Broward and South Palm Beach: Rabbi Yosef Biston its \"executive vice president\" (chabad.org), its headquarters chabad.org's \"Chabad of Parkland – Regional HQ for North Broward & South Palm Beach\"; he founded the Chabad Center of Margate in 1985 under that heading (a 2000 Chabad postcard). Its members: Broward County's houses north of Fort Lauderdale (Coral Springs, Parkland, Margate, Coconut Creek, Tamarac, Pompano Beach, Deerfield Beach, Lighthouse Point) and Palm Beach County's south of Boynton Beach (Boca Raton, Delray Beach), as the office's name has it. Members and outline (Nov 2): Broward's Coral Springs–Margate, Deerfield Beach and Pompano Beach county divisions, and Palm Beach County's Boca Raton, Boynton Beach–Delray Beach and Sunshine Parkway divisions south of Boynton (26.48°N, \"south of Boynton\").",
-      "outline": "areas"
+      "outline": "areas",
+      "soften": 3
     },
     {
       "id": "inland-empire",
@@ -484,7 +495,8 @@
           }
         }
       ],
-      "outline": "areas"
+      "outline": "areas",
+      "soften": 3
     },
     {
       "id": "montgomery-county-pa",
@@ -708,7 +720,8 @@
         }
       ],
       "source": "Rabbi Sheya Hecht, \"the Chabad director for the Greater New Haven area\", headmaster of the Southern Connecticut Hebrew Day School in Orange; Rabbi Sheya and Bluma Hecht run the Chabad Centers of Greater New Haven, where Oxford was opened as \"the ninth Chabad Center in the Greater New Haven region\" (MyJewishLearning; COLlive; jewishmilford.com). Its members: the houses of the South Central Connecticut planning region, Connecticut's unit for the area since 2022 (New Haven, Hamden, Orange, Milford, Wallingford, Guilford); not Waterbury's. Outline: the South Central Connecticut planning region.",
-      "outline": "areas"
+      "outline": "areas",
+      "soften": 4
     },
     {
       "id": "south-bay",
@@ -745,7 +758,8 @@
           ]
         }
       ],
-      "outline": "areas"
+      "outline": "areas",
+      "soften": 2
     },
     {
       "id": "greater-south-bay",
@@ -764,7 +778,8 @@
         "1716502",
         "214924"
       ],
-      "source": "Chabad of Greater South Bay (Palo Alto, since 1980), Rabbi Yosef and Dena Levin: \"centers in Palo Alto, Sunnyvale, Mountain View and at Stanford University\" (Lubavitch.com, A Silver Anniversary for Chabad of Palo Alto); he \"expanded the South Bay network to five centers\" (J. Weekly); chabad.org lists Chabad of Mountain View's rabbi on its staff. Los Altos Chabad (Rabbi Ezzy and Nechama Schusterman, Mountain View) was \"re-established in 2010 as an affiliate of Chabad Lubavitch of the Chabad of Greater South Bay\" (J. Weekly's directory). Its members: those (Chabad of Greater South Bay and Chabad Palo Alto, Chabad at Stanford, Chabad Jewish Center of Mountain View, Chabad of Sunnyvale, Los Altos Chabad, and the Schustermans' Bay Area Friendship Circle in Palo Alto). Not Silicon Valley's and the Peninsula's other houses (Cupertino, Menlo Park, Redwood City, Portola Valley, Santa Clara, San Jose): no source makes them its branches. Drawn round its houses (one county division covers all of Silicon Valley)."
+      "source": "Chabad of Greater South Bay (Palo Alto, since 1980), Rabbi Yosef and Dena Levin: \"centers in Palo Alto, Sunnyvale, Mountain View and at Stanford University\" (Lubavitch.com, A Silver Anniversary for Chabad of Palo Alto); he \"expanded the South Bay network to five centers\" (J. Weekly); chabad.org lists Chabad of Mountain View's rabbi on its staff. Los Altos Chabad (Rabbi Ezzy and Nechama Schusterman, Mountain View) was \"re-established in 2010 as an affiliate of Chabad Lubavitch of the Chabad of Greater South Bay\" (J. Weekly's directory). Its members: those (Chabad of Greater South Bay and Chabad Palo Alto, Chabad at Stanford, Chabad Jewish Center of Mountain View, Chabad of Sunnyvale, Los Altos Chabad, and the Schustermans' Bay Area Friendship Circle in Palo Alto). Not Silicon Valley's and the Peninsula's other houses (Cupertino, Menlo Park, Redwood City, Portola Valley, Santa Clara, San Jose): no source makes them its branches. Drawn round its houses (one county division covers all of Silicon Valley).",
+      "soften": 2
     },
     {
       "id": "northeast-florida",
@@ -804,7 +819,8 @@
         }
       ],
       "source": "Rabbi Nechemia Vogel, head shliach to Rochester since 1981 (Chabadpedia), \"director of Chabad of Rochester and regional head shliach\" (Yeshiva World News, on the new shluchim to SUNY Geneseo), at the Kessler Family Chabad Center; the houses round the city under it (the Chabad Times' directory): the Rohr Chabad House at the University of Rochester (his daughter and son-in-law, the Yarases), Chabad Young Professionals (his son Moshe), Chabad of Pittsford, Chabad at RIT, and Chabad of Geneseo at SUNY Geneseo. Its members: the houses of Monroe County and of Livingston County (Geneseo). Outline: Monroe and Livingston Counties.",
-      "outline": "areas"
+      "outline": "areas",
+      "soften": 3
     },
     {
       "id": "mexican-caribbean",

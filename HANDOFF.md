@@ -76,15 +76,30 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   Osdobas), its Torah Academy, Camp Gan Israel and Hebrew school in Melbourne, and the Viera building (2019); appointed
   by the Rebbe in 1990. Members: Brevard County's houses (all his); outline: the county. Vero Beach (Rosenfeld,
   Indian River) left out — nothing ties it to him.
-- **Open (asked the owner, Nov 4):** the Philippines — owner: "there's mushrooms currently blue in phillipines wtf".
-  All 8 houses are Rabbi Yossi Levy's chabad.ph network (Chabadpedia: he recruited them all). For mushroom: chabad.org
-  lists nothing in the Philippines; the Traveling Rabbi blog (c. 2011): Levy's house "is not under the main Chabad
-  umbrella and therefore not listed on chabad.org. They are part of a Chabad organization that operates across mostly
-  Asia and services Israelis" (and a Kupchik son was to open Cebu); 2016 ChabadInfo: "the Rebbe Melech HaMoshiach
-  Shlita's army". Against: Chabadpedia's photo "שלוחי הרבי לפיליפינים ... כינוס השלוחים העולמי תשפ"ו". Proposed: all 8
-  mushrooms (network "Yossi Levy"), the Philippines with no head and no capital like Bolivia — waiting for the owner.
-  Also asked for the Mexican and Boston-area mushrooms he knows of (a new sweep found nothing new: muchiler's 13
-  Mexican houses are all on the map; chabadplaya.org is Goldberg's own pin).
+- **The Philippines: the Bolivia treatment** (owner, Nov 4: "there's mushrooms currently blue in phillipines wtf", then
+  "yes I guess give it the bolivia treatment"). All 8 houses are Rabbi Yossi Levy's chabad.ph network (Chabadpedia: he
+  recruited them all) and are now mushrooms, network "Yossi Levy" / "יוסי לוי": chabad.org lists nothing in the
+  Philippines; the Traveling Rabbi blog (c. 2011): Levy's house "is not under the main Chabad umbrella and therefore not
+  listed on chabad.org. They are part of a Chabad organization that operates across mostly Asia and services Israelis"
+  (and a Kupchik son was to open Cebu); 2016 ChabadInfo: "the Rebbe Melech HaMoshiach Shlita's army". (Against, noted:
+  Chabadpedia's photo "שלוחי הרבי לפיליפינים ... כינוס השלוחים העולמי תשפ"ו".) The `philippines` shetach is gone (and its
+  Hebrew entry); `blank` has `{ "country": "PHL" }`: on the map, white, in no shetach, its dots shown only with
+  Mushrooms on. **Berel Ceitlin (BGC)** — owner asked if he's official: no; Rabbi Shalom DovBer Zaitlin opened BGC in
+  Tishrei 5786 as a branch of Levy's network (ChabadInfo: "joins a growing network of Chabad Houses in the Philippines,
+  under the leadership of Head Shliach, Rabbi Yosef Yitzchak HaLevi Levy"); no Merkos appointment found.
+- **Mushroom sweeps (owner, Nov 4: "there's a ton more Israeli mushrooms in Mexico and also Boston area"; "I'm sure
+  there's mushrooms in Boston - not necessarily Israeli ones")** — nothing new found yet; asked the owner for names.
+  Mexico: muchiler.co.il's directory (13 Mexican houses, all on the map), lametayel, the Chabad Without Borders list
+  (chabadcv.com: only official houses plus "Bet Sara", Estado de México, Rabbi Amijai Suued, since 2011 — not checked
+  yet), town-by-town searches (Valladolid, Sayulita, Oaxaca, Mazunte, Zipolite, Huatulco, Puerto Morelos, Mahahual,
+  Akumal, Chetumal, Palenque). chabadplaya.org is Goldberg's own (chabad.org's pin is at its address, Av. 20). Boston:
+  every Massachusetts nonprofit named Chabad/Lubavitch (ProPublica, 54) matched against the map — the rest are
+  dormant shells (Chabad-Ohr Shalom of the South Shore, Weymouth, 2001, c/o Rabbi A. Brashevitsky; Chabad Fenway –
+  Huntington Avenue, 138 St. Botolph St, filings 2014–17; Congregation Lubavitch … of South Brookline, 1981) or official
+  houses' own (Chabad of Medford = Tufts's Backman; Chabad at Babson = Wellesley-Weston's Bleichs; Peabody's second EIN =
+  Schusterman); news: only Westborough (already a mushroom).
+- **Victoria's disputed heads stay three** (owner, Nov 4: "get rid of hendel from the disputed list pls only groner and
+  gutnick", then a minute later "Nvm keep hendel for now"): Groner, Gutnick and Hendel Serebryanski, unchanged.
 - **Hebrew: Braun is ברוין** (owner, Nov 4: "ברוין is the correct spelling for braun"), not בראון (data/hebrew/last-names.json; Brown stays בראון).
 - **Oxford, CT added** (`extra-us-oxford-ct`): Chabad Jewish Center of Oxford, Rabbi Shmaya and Hadassa Hecht (Sheya's
   son), July 2023, for Oxford, Seymour, Beacon Falls, Southbury, Middlebury; at the town centre (no street address

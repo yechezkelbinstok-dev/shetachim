@@ -1767,18 +1767,6 @@
       }
     },
     {
-      "id": "philippines",
-      "name": "Philippines",
-      "short": "Phil.",
-      "headShliach": "Yossi Levy",
-      "territory": [
-        "PHL"
-      ],
-      "capital": {
-        "centerId": "extra-philippines-manila"
-      }
-    },
-    {
       "id": "singapore",
       "name": "Singapore",
       "short": "Sing.",
@@ -2400,7 +2388,8 @@
   ],
   "blank": [
     { "state": "US-NY", "shape": "monsey", "name": "Monsey (out of Rockland)" },
-    { "country": "BOL", "name": "Bolivia: on the map, with its centers (the La Paz mushroom), in no shetach" }
+    { "country": "BOL", "name": "Bolivia: on the map, with its centers (the La Paz mushroom), in no shetach" },
+    { "country": "PHL", "name": "Philippines: on the map, with its centers (Rabbi Yossi Levy's network, all mushrooms), in no shetach" }
   ],
   "notShownWhenBlank": [
     "CA-BC",

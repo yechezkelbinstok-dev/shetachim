@@ -14,6 +14,16 @@ owner was furious. The rule is also under "Notes for Claude" below. (Owner, Nov 
 fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers WebFetch and curl with 403.)
 
 ## ▶ Nov 4 (latest): mushroom networks on the map; Queens's head named in full; Shchunas HaRebbe taken out
+- **Waiting on the owner: a redesign of every other card** (owner, Nov 4: "maybe there's smth you can do with all the
+  cards overall as well as capital cards (and even mushroom cards seperately) … rn everything is super super plain";
+  then "Show me what your idea is"). A preview was built on a scratch copy of web/index.html (NOT on the page) and sent
+  as before/after pictures: the honorary cards' header for every card, tinted by kind (a center grey-blue with what it
+  is above its name; a flagship navy with its star and a "Zoom in"; a mushroom red with its mushroom, its network in a
+  red box with Show network; a shetach in its own map colour, "Head shliach" small over the name big, its capital with
+  a star, its counts as tiles; a sub-shetach lilac; a country's card grey-blue with tiles); a pin before the town; the
+  people in ink; "Open on chabad.org" as a small button; the shetach's colour as a square in the footer; several at one
+  address as sections. Nothing changes until he says go; then build it into web/index.html, check every card (both
+  languages) and push.
 - **Queens** (owner, Nov 4: "it's va'ad hashluchim of queens not just va'ad hashluchim"): the sub-shetach's head is
   "Vaad Hashluchim of Queens" / "ועד השלוחים דקווינס" (data/sub-shetachim.json `head`, `headHe`), on the map and its card.
 - **Crown Heights** (owner, Nov 4: "take out Shchunas HaRebbe"): its `altName` is gone (data/shetachim.json and

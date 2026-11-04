@@ -105,8 +105,12 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   borders only when a border input changed and otherwise takes ~25 s instead of ~4½ min (details under the build notes
   further down). Proof, all 3,210 output files compared by sha256: a cache-filling full build = the committed files;
   a fast build = that full build; with a test change (a head renamed, a house added) the fast build = `build:full`
-  (FULL=1) with the same change; reverted and fast-built = the original. Not done (explained to the owner): caching
-  region by region (borders are snapped between regions, so riskier) and splitting work across the 4 cores.
+  (FULL=1) with the same change; reverted and fast-built = the original. **Then border changes too** (owner: "is there
+  a way to make where like changing a border isn't minutes upon minutes"; "if there's no compromises"): the land
+  cleanup and the layer union are reused when their exact input is the same, and the dot lookup is ~15× faster.
+  Proof (in a scratch worktree): Cheshire moved from New Haven to Connecticut, fast build (51 s, both reused) =
+  `build:full` (124 s), all 3,210 files; reverted and fast-built (47 s) = the committed files. Not done: caching region
+  by region (borders are snapped between regions) and splitting work across the 4 cores — not needed now.
 - **Hebrew: Braun is ברוין** (owner, Nov 4: "ברוין is the correct spelling for braun"), not בראון (data/hebrew/last-names.json; Brown stays בראון).
 - **Oxford, CT added** (`extra-us-oxford-ct`): Chabad Jewish Center of Oxford, Rabbi Shmaya and Hadassa Hecht (Sheya's
   son), July 2023, for Oxford, Seymour, Beacon Falls, Southbury, Middlebury; at the town centre (no street address
@@ -2867,9 +2871,14 @@ The owner got very angry at the first version. The lessons:
   `.cache/geometry-<key>.json`, after checking that geo.json, outside*.json, world-all.json and the tiles on disk are
   still that redraw's; and where each dot is (country, state, county, piece) is kept too (`.cache/tags-<key>.json`,
   by position), so only new or moved dots are looked up. `npm run build:full` (FULL=1) always redraws and looks
-  everything up again. Times: full ~4½ min, fast ~25 s (build-sub 8 s, build-hebrew 1 s). Proven byte-identical to a
-  full build (see the Nov 4 section at the top). The fast lane's own files must stay out of the fingerprint
-  (`geometry-`/`tags-` are skipped) or every build would redraw.
+  everything up again. A border change (claims only) redraws but reuses the two slowest steps, each kept by a
+  fingerprint of exactly what goes into it: the land cleanup ("snapping neighbouring areas together", `land-<key>`)
+  and the union with the tracts/bands/shapes (`mosaic-<key>`); a change of outlines (a new shape file, a state
+  switched to towns) redoes them. And `contains()` skips polygons whose padded box can't hold the point (same answer):
+  looking up all 3,826 dots went from ~30–55 s to ~3 s. Times: from scratch (FULL=1) ~2 min; a border change ~50 s;
+  no border change ~25 s (build-sub 8 s, build-hebrew 1 s). All proven byte-identical (see the Nov 4 section at the
+  top). The fast lane's own files must stay out of the redraw's fingerprint (`geometry-`, `tags-`, `land-`,
+  `mosaic-` are skipped) or every build would redraw.
 - `scripts/build-data.mjs` (`npm install && npm run build`) builds `web/data/` from:
   - `data/raw/chabad-centers.json`: the chabad.org locator export (4,220 listings) plus
     `data/extra-centers.json`: 4,222 centers → 3,599 dots; 1,967 → 1,763 in the US/CA.

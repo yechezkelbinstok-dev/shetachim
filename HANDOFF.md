@@ -13,7 +13,7 @@ those can't reach. On Nov 3 a session ran every search and page through Firecraw
 owner was furious. The rule is also under "Notes for Claude" below. (Owner, Nov 3, the other way round: "you have
 fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers WebFetch and curl with 403.)
 
-## ▶ Nov 4 (latest): Gurkow's South Area redrawn clean; New Haven its own shetach (Sheya Hecht); Oxford, CT added; two Connecticut sub-shetachim
+## ▶ Nov 4 (latest): Gurkow's South Area redrawn clean; New Haven its own shetach (Sheya Hecht); Oxford, CT added; Connecticut sub-shetachim (Greater Hartford, Eastern CT)
 - **Gurkow (owner: "please make Gurkow shape better it's so nasty and pointy in so many places just all around nasty
   honestly").** `data/shapes/ma-towns.json` has a new **`patches`** list (`scripts/ma-shapes.mjs` applies it last): a
   polygon whose land goes from `from` to `to`, for a straight line that shouldn't cross a whole town (one edge is the new
@@ -51,17 +51,26 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   like a chimney). Middlebury stays New Haven's (Oxford's list). Shelton (Fairfield County) and Middletown (Middlesex)
   stay Deren's. The `greater-new-haven` sub-shetach (South Central planning region) is gone. `partNames` US-CT:
   connecticut = "Rest of Connecticut".
-- **Connecticut sub-shetachim under Deren** (standing rule: every regional director with houses is one): **Northwest
-  Connecticut** (Rabbi Joseph Eisenbach; Litchfield 118238 and Waterbury 150718) and **Eastern Connecticut** (Rabbi
-  Avrohom Sternberg, New London 118000; Chabad of Norwich 6978333, run by his CTeen director Rabbi Aizik Schwei), each
-  drawn round its two houses. **Open — Greater Hartford (Rabbi Yosef Gopin):** "regional director of Chabad of Greater
-  Hartford", sent to Hartford in 1977 to open the first Chabad House in Connecticut (before Deren's Stamford days), says
-  his organisation opened 10 centres in the area; Chabad Chevra at the University of Hartford (Kulek, 2003, "under
-  Gopin's direction") and Farmington Chabad (his son Shaya) are his; Weatogue (Samuels, 1998) and Glastonbury
-  (Wolvovsky, his son-in-law) are his team too — the 2013 New England shluchim gathering in West Hartford was
-  "co-hosted by Rabbis Yosef Gopin, Mendel Samuels, Yosef Wolvovsky, Shaya Gopin and Yosef Kulek" (CrownHeights.info,
-  July 12, 2013; Deren not named); UConn (Shlomo Hecht) unconfirmed. Dig: is Gopin under Deren (a sub-shetach) or his
-  own head (top-level, like New Haven)?
+- **Connecticut sub-shetachim under Deren** (standing rule: every regional director with houses is one):
+  - **Greater Hartford — Rabbi Yosef Gopin** (owner, Nov 4, after the research below: "Alright so he's a tat
+    shetach"; I'd first added Eisenbach's Northwest Connecticut on its own, then found it's Gopin's family network).
+    Members (drawn round them): Chabad House of Greater Hartford 117585 (capital), Chabad Chevra at the University of
+    Hartford 159799 (Kulek, 2003, "an affiliate of Chabad of Greater Hartford", begun under Gopin's direction),
+    Farmington Chabad 6326208 (his son Shaya), Chabad of the Farmington Valley 118334 and its Gan Israel Hebrew School
+    119920 (Weatogue: "In 1998, Rabbi Mendel Samuels was brought in"), Glastonbury 118472 (Wolvovsky, a son-in-law),
+    Chabad Lubavitch of Northwest Connecticut 118238 (Litchfield) and Chabad of Waterbury 150718 (Rabbi Joseph and Mina
+    Eisenbach — Mina is a Gopin daughter; "Chabad expanded farther into Greater Hartford starting in the mid-'90s, when
+    Rabbi Joseph Eisenbach came to Litchfield"). Source: the Jewish Ledger's history of the Gopins (July 6, 2011);
+    Gopin: "We have established 10 centers in the Greater Hartford area" (July 2021). Why under Deren: the Gopins
+    served nearly two years with Deren at UMass Amherst before the Rebbe sent them to Hartford in 1977, and Deren had
+    founded Chabad of Western and Southern New England there c. 1974 (Deren: Merkos "considered me wholly responsible
+    for the entire state of Connecticut", COLlive); no source calls Gopin a head shliach (Anash: "Shliach to
+    Hartford"). Left out: UConn (Shlomo Hecht) and Wesleyan (Levi Schectman), where Gopin's programmes began but no
+    source ties today's houses to him. The 2013 New England shluchim gathering in West Hartford was co-hosted by
+    Gopin, Samuels, Wolvovsky, Shaya Gopin and Kulek (CrownHeights.info). (COLlive, 2010, once called Deren "regional
+    director of Fairfield County".)
+  - **Eastern Connecticut — Rabbi Avrohom Sternberg** (New London 118000; Chabad of Norwich 6978333, run by his CTeen
+    director Rabbi Aizik Schwei), drawn round its two houses.
 - **Oxford, CT added** (`extra-us-oxford-ct`): Chabad Jewish Center of Oxford, Rabbi Shmaya and Hadassa Hecht (Sheya's
   son), July 2023, for Oxford, Seymour, Beacon Falls, Southbury, Middlebury; at the town centre (no street address
   known); site cjcoxford.org. Not on chabad.org yet — the owner: "you think the Chabad.org directory is the only

@@ -38,6 +38,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CACHE = path.join(ROOT, '.cache');
 const OUT = path.join(ROOT, 'web', 'data');
 const at = (...p) => path.join(ROOT, ...p);
+const SCRIPT_HASH = createHash('sha256').update(fs.readFileSync(fileURLToPath(import.meta.url))).digest('hex'); // (in the fast lane's fingerprints)
 
 const NE = 'https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson';
 const SOURCES = {
@@ -254,10 +255,31 @@ function inRing(ring, x, y) {
   return inside;
 }
 
+// Each polygon's box (over all its rings, padded far beyond any rounding), kept per geometry: a point outside it can't be
+// inside any of its rings (no edge crosses its height, or every crossing is on one side of it, an even number), so the
+// polygon is skipped without testing its rings — the same answer, only sooner (a country's islands far from the point).
+const PART_PAD = 1e-9;
+const partBoxCache = new WeakMap();
+function partBoxes(geometry) {
+  let boxes = partBoxCache.get(geometry);
+  if (!boxes) {
+    boxes = polygonsOf(geometry).map((poly) => {
+      let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+      for (const ring of poly) for (const [x, y] of ring) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+      return [x0 - PART_PAD, y0 - PART_PAD, x1 + PART_PAD, y1 + PART_PAD];
+    });
+    partBoxCache.set(geometry, boxes);
+  }
+  return boxes;
+}
+
 function contains(f, x, y) {
-  for (const poly of polygonsOf(f.geometry)) {
+  const polys = polygonsOf(f.geometry), boxes = partBoxes(f.geometry);
+  for (let i = 0; i < polys.length; i++) {
+    const b = boxes[i];
+    if (x < b[0] || x > b[2] || y < b[1] || y > b[3]) continue;
     let inside = false;
-    for (const ring of poly) if (inRing(ring, x, y)) inside = !inside; // holes flip it back
+    for (const ring of polys[i]) if (inRing(ring, x, y)) inside = !inside; // holes flip it back
     if (inside) return true;
   }
   return false;
@@ -795,9 +817,21 @@ async function buildGeo(data) {
   const names = Object.keys(layers);
   const input = {};
   for (const [name, layer] of Object.entries(layers)) input[`${name}.json`] = layer;
-  const mosaic = JSON.parse((await mapshaper.applyCommands(
-    `-i ${names.map((n) => `${n}.json`).join(' ')} combine-files -union target=${names.join(',')} name=mosaic -o mosaic.json format=geojson`, input,
-  ))['mosaic.json']).features.filter((f) => f.properties.state);
+  // (like the cleanup, the union depends only on its layers' outlines, not on the claims: kept by their fingerprint)
+  const unionCmd = `-i ${names.map((n) => `${n}.json`).join(' ')} combine-files -union target=${names.join(',')} name=mosaic -o mosaic.json format=geojson`;
+  const mh = createHash('sha256').update(SCRIPT_HASH).update(unionCmd);
+  for (const n of names) mh.update(n).update(JSON.stringify(layers[n]));
+  const mkey = mh.digest('hex').slice(0, 16), mfile = path.join(CACHE, `mosaic-${mkey}.json`);
+  let mosaicText;
+  if (!process.env.FULL && fs.existsSync(mfile)) {
+    console.log(`mosaic: the same layers as before (${mkey}), so the union is reused`);
+    mosaicText = fs.readFileSync(mfile, 'utf8');
+  } else {
+    mosaicText = (await mapshaper.applyCommands(unionCmd, input))['mosaic.json'];
+    for (const f of fs.readdirSync(CACHE)) if (f.startsWith('mosaic-')) fs.rmSync(path.join(CACHE, f), { force: true });
+    fs.writeFileSync(mfile, mosaicText);
+  }
+  const mosaic = JSON.parse(mosaicText).features.filter((f) => f.properties.state);
 
   for (const f of mosaic) {
     const p = f.properties, P = prefix.get(p.state), cs = byState.get(p.state) || [];
@@ -983,12 +1017,26 @@ async function worldLand(data, levels) {
 // separately (GADM's India and Nepal) don't meet exactly: along a shared border they leave thin gaps and overlaps,
 // which draw as a doubled, broken line. -clean fills the gaps and settles the overlaps, so every border is one
 // shared line. Real water between areas is never filled: it's open to the sea, or far bigger than the threshold.
+// The cleanup depends only on the land itself (every outline that goes in), not on who claims it, and it's the slowest
+// step of a redraw (well over a minute): kept in .cache/land-<key>.json by a fingerprint of exactly the features that go
+// in (and this script), so a border change that moves no outline — towns or counties changing shetach — reuses it
+// (owner, Nov 4: "is there a way to make where like changing a border isn't minutes upon minutes"; "if there's no
+// compromises"). FULL=1 always redoes it.
 async function cleanLand(features) {
   console.log('snapping neighbouring areas together…');
   if (process.env.DUMP_LAND) fs.writeFileSync(process.env.DUMP_LAND, JSON.stringify(collectionOf(features)));
+  const key = createHash('sha256').update(SCRIPT_HASH).update(JSON.stringify(collectionOf(features))).digest('hex').slice(0, 16);
+  const file = path.join(CACHE, `land-${key}.json`);
+  if (!process.env.FULL && fs.existsSync(file)) {
+    console.log(`snapping: the land is the same as before (${key}), so its cleanup is reused`);
+    return readJSON(file);
+  }
   const clean = async (list) => JSON.parse((await mapshaper.applyCommands('-i land.json -clean gap-fill-area=20km2 -o land.json format=geojson', { 'land.json': collectionOf(list) }))['land.json']);
   const once = await clean(features);
-  return closeSeams(once.features) ? clean(once.features) : once;
+  const done = closeSeams(once.features) ? await clean(once.features) : once;
+  for (const f of fs.readdirSync(CACHE)) if (f.startsWith('land-')) fs.rmSync(path.join(CACHE, f), { force: true });
+  fs.writeFileSync(file, JSON.stringify(done));
+  return done;
 }
 
 // A gap -clean can't fill: two areas whose coasts run side by side a few metres apart, with the thin strip between
@@ -1285,7 +1333,7 @@ function geometryKey(data) {
   }));
   for (const f of fs.readdirSync(SHAPES).sort()) { h.update(f); h.update(fs.readFileSync(path.join(SHAPES, f))); }
   for (const f of fs.readdirSync(CACHE).sort()) { // the downloaded boundary files (a new one means new land)
-    if (/^(geometry|tags)-/.test(f)) continue; // (this fast lane's own files)
+    if (/^(geometry|tags|land|mosaic)-/.test(f)) continue; // (the fast lane's own files)
     const st = fs.statSync(path.join(CACHE, f));
     if (st.isFile()) h.update(`${f}:${st.size}`);
   }

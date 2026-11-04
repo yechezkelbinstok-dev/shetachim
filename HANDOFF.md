@@ -71,6 +71,7 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
     director of Fairfield County".)
   - **Eastern Connecticut — Rabbi Avrohom Sternberg** (New London 118000; Chabad of Norwich 6978333, run by his CTeen
     director Rabbi Aizik Schwei), drawn round its two houses.
+- **Hebrew: Braun is ברוין** (owner, Nov 4: "ברוין is the correct spelling for braun"), not בראון (data/hebrew/last-names.json; Brown stays בראון).
 - **Oxford, CT added** (`extra-us-oxford-ct`): Chabad Jewish Center of Oxford, Rabbi Shmaya and Hadassa Hecht (Sheya's
   son), July 2023, for Oxford, Seymour, Beacon Falls, Southbury, Middlebury; at the town centre (no street address
   known); site cjcoxford.org. Not on chabad.org yet — the owner: "you think the Chabad.org directory is the only

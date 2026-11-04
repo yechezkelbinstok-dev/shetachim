@@ -26,6 +26,19 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   languages) and push. **"flagship rather than capital."** (owner, Nov 4, on the preview): the shetach and sub-shetach
   cards say "Flagship: …" / "מוסד מרכזי: …" (not Capital / בירה), and the options' "Shetach capitals" becomes "Shetach
   flagships" / "המוסדות המרכזיים" — in the preview, to go live with it. He also asked to see it in Hebrew (sent).
+  **Then a second, from-scratch preview** (owner: "Did you make it like this only because that's how you made the
+  honorary ones?" — partly, yes: it made everyday cards taller and took the specialness from the honorary ones — then
+  "Just think about it in a from scratch mindset, and then design the cards and show me"): compact, about today's
+  height; no tinted header; the name first and bigger; a badge only for what's special (★ "Florida flagship center"
+  navy; the mushroom mark and "Mushroom" red); the type and town in one muted line; the shliach in ink; the buttons in
+  one row (the page as "chabad.org ↗" / the site's name; a flagship's "Zoom in" to its shetach; a mushroom's "Show
+  network" in red, the network's line marked with a dashed red rule); the shetach it's in as a chip in its map colour
+  (bold name · vaad · head; a mushroom's grey, its area only). Several at one address: compact rows, each page a small
+  round button. A shetach's card: a band of its colour on top, "Shetach" small over its name big, "Head shliach" small
+  over the name big, "★ Flagship: …", its numbers as small tiles with "Zoom in" at the end; a sub-shetach's the same in
+  lilac with its parent as a chip; a country's card the same with each shetach as a chip. Sent in English and Hebrew;
+  waiting on his pick. (Scratch build: a copy of web/index.html patched by a script, not in the repo; rebuild it from
+  this description if it's gone.)
 - **Queens** (owner, Nov 4: "it's va'ad hashluchim of queens not just va'ad hashluchim"): the sub-shetach's head is
   "Vaad Hashluchim of Queens" / "ועד השלוחים דקווינס" (data/sub-shetachim.json `head`, `headHe`), on the map and its card.
 - **Crown Heights** (owner, Nov 4: "take out Shchunas HaRebbe"): its `altName` is gone (data/shetachim.json and

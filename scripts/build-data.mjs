@@ -1260,6 +1260,74 @@ function checkCapitals(data, dots, pieceOf) {
 
 // ---------- main ----------
 
+// ---------- the fast lane ----------
+// The map's geometry (buildGeo: every border, the tiles, the land outside) depends only on the shetachim's claims
+// (territory, territoryOf, blank, notShown, notShownWhenBlank), data/shapes, the boundary files in .cache, this script
+// and the packages: not on names, heads, capitals, centers, mushrooms or Hebrew. So a build whose geometry inputs are
+// what they were at the last redraw reuses that redraw (its pieces, saved in .cache/geometry-<key>.json) instead of
+// drawing the world again (owner, Nov 4: "Definetely the fast lane"), once it has checked that the files the redraw
+// wrote (geo.json, outside*.json, world-all.json, the tiles) are still the ones on disk. FULL=1 always redraws.
+const GEO_FILES = [path.join(OUT, 'geo.json'), path.join(OUT, 'outside.json'), path.join(OUT, 'outside-lo.json'), at('data', 'world-all.json')];
+function hashFiles(files) {
+  const h = createHash('sha256');
+  for (const f of files) { h.update(path.relative(ROOT, f)); h.update(fs.existsSync(f) ? fs.readFileSync(f) : '(none)'); }
+  return h.digest('hex');
+}
+const tileFiles = (dir = TILES) => (fs.existsSync(dir) ? fs.readdirSync(dir, { withFileTypes: true })
+  .flatMap((e) => (e.isDirectory() ? tileFiles(path.join(dir, e.name)) : [path.join(dir, e.name)])) : []).sort();
+function geometryKey(data) {
+  const h = createHash('sha256');
+  h.update(fs.readFileSync(fileURLToPath(import.meta.url))); // this script, all of it (any change to it redraws)
+  h.update(fs.readFileSync(at('package-lock.json')));
+  h.update(JSON.stringify({
+    claims: data.shetachim.map(({ id, territory, territoryOf }) => ({ id, territory, territoryOf })),
+    blank: data.blank, notShown: data.notShown, notShownWhenBlank: data.notShownWhenBlank,
+  }));
+  for (const f of fs.readdirSync(SHAPES).sort()) { h.update(f); h.update(fs.readFileSync(path.join(SHAPES, f))); }
+  for (const f of fs.readdirSync(CACHE).sort()) { // the downloaded boundary files (a new one means new land)
+    if (/^(geometry|tags)-/.test(f)) continue; // (this fast lane's own files)
+    const st = fs.statSync(path.join(CACHE, f));
+    if (st.isFile()) h.update(`${f}:${st.size}`);
+  }
+  return h.digest('hex').slice(0, 16);
+}
+async function geometry(data) {
+  const key = geometryKey(data), file = path.join(CACHE, `geometry-${key}.json`);
+  if (!process.env.FULL && !process.env.DUMP_LAND && fs.existsSync(file)) {
+    const saved = JSON.parse(fs.readFileSync(file, 'utf8'));
+    if (saved.files === hashFiles(GEO_FILES) && saved.tiles === hashFiles(tileFiles())) {
+      console.log(`map geometry: no border input changed since the last redraw (${key}), so it is reused (FULL=1 redraws it)`);
+      return saved;
+    }
+    console.log('map geometry: the files on disk are not the last redraw\'s, so it is redrawn');
+  }
+  console.log('building map geometry…');
+  const geo = await buildGeo(data);
+  for (const f of fs.readdirSync(CACHE)) if (/^(geometry|tags)-/.test(f)) fs.rmSync(path.join(CACHE, f), { force: true });
+  fs.writeFileSync(file, JSON.stringify({ key, files: hashFiles(GEO_FILES), tiles: hashFiles(tileFiles()), pieces: geo.pieces, split: geo.split }));
+  return { ...geo, key };
+}
+// Where each dot is (country, state, county, piece) depends only on its position and the geometry, and finding it is
+// most of what's left of a build's time once the geometry is reused (a minute): kept with the geometry's key, so a dot
+// that hasn't moved, on borders that haven't changed, isn't looked up again.
+const TAG_FIELDS = ['country', 'countryName', 'region', 'piece', 'county', 'countyName'];
+function tagAll(dots, tag, key) {
+  const file = path.join(CACHE, `tags-${key}.json`);
+  let known = {};
+  if (!process.env.FULL && fs.existsSync(file)) try { known = readJSON(file); } catch { known = {}; }
+  const out = {};
+  let looked = 0;
+  for (const d of dots) {
+    const k = `${d.lon},${d.lat}`;
+    if (known[k]) Object.assign(d, known[k]);
+    else { tag(d); looked++; }
+    out[k] = Object.fromEntries(TAG_FIELDS.filter((f) => d[f] !== undefined).map((f) => [f, d[f]]));
+  }
+  for (const f of fs.readdirSync(CACHE)) if (f.startsWith('tags-') && f !== path.basename(file)) fs.rmSync(path.join(CACHE, f), { force: true });
+  fs.writeFileSync(file, JSON.stringify(out));
+  console.log(`tagging centers: ${looked} looked up, ${dots.length - looked} as before`);
+}
+
 async function main() {
   fs.mkdirSync(OUT, { recursive: true });
   const raw = readJSON(at('data', 'raw', 'chabad-centers.json')).data;
@@ -1311,9 +1379,8 @@ async function main() {
     c.memorial = { en: h.memorial, he: h.memorialHe };
   }
 
-  console.log('building map geometry…');
   const shetachData = readJSON(at('data', 'shetachim.json'));
-  const { pieces, split } = await buildGeo(shetachData);
+  const { pieces, split, key: geoKey } = await geometry(shetachData);
 
   console.log('tagging centers…');
   const countryFeatures = readJSON(await cached('countries')).features;
@@ -1393,7 +1460,7 @@ async function main() {
   }
 
   const dots = mergeIntoDots(centers.filter((c) => Number.isFinite(c.lat) && Number.isFinite(c.lon)));
-  dots.forEach(tag);
+  tagAll(dots, tag, geoKey);
   for (const d of dots) d.suspect = suspectReason(d) || undefined;
 
   const toFeature = (d) => ({

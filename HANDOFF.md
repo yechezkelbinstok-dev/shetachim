@@ -100,6 +100,13 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   Schusterman); news: only Westborough (already a mushroom).
 - **Victoria's disputed heads stay three** (owner, Nov 4: "get rid of hendel from the disputed list pls only groner and
   gutnick", then a minute later "Nvm keep hendel for now"): Groner, Gutnick and Hendel Serebryanski, unchanged.
+- **The fast lane for builds** (owner, Nov 4: "why do builds here take so frickin long … Is there any practical
+  solution to that without compromising anything?", then "Definetely the fast lane"): `npm run build` now redraws the
+  borders only when a border input changed and otherwise takes ~25 s instead of ~4½ min (details under the build notes
+  further down). Proof, all 3,210 output files compared by sha256: a cache-filling full build = the committed files;
+  a fast build = that full build; with a test change (a head renamed, a house added) the fast build = `build:full`
+  (FULL=1) with the same change; reverted and fast-built = the original. Not done (explained to the owner): caching
+  region by region (borders are snapped between regions, so riskier) and splitting work across the 4 cores.
 - **Hebrew: Braun is ברוין** (owner, Nov 4: "ברוין is the correct spelling for braun"), not בראון (data/hebrew/last-names.json; Brown stays בראון).
 - **Oxford, CT added** (`extra-us-oxford-ct`): Chabad Jewish Center of Oxford, Rabbi Shmaya and Hadassa Hecht (Sheya's
   son), July 2023, for Oxford, Seymour, Beacon Falls, Southbury, Middlebury; at the town centre (no street address
@@ -2853,6 +2860,16 @@ The owner got very angry at the first version. The lessons:
   - Blank areas (no shetach): no fill, no label; their card shows the state.
   - If the physical map can't load (no WebGL, or the tiles are blocked, as in a Claude artifact),
     it says so in a few words and stays on Political.
+- **The fast lane (Nov 4):** `npm run build` redraws the map's geometry (every border, the tiles, the land outside —
+  ~6 of its ~7 minutes) only when a border input changed: the shetachim's claims (territory, territoryOf, blank,
+  notShown, notShownWhenBlank), data/shapes, the boundary files in .cache, build-data.mjs itself or package-lock.json.
+  Otherwise (names, heads, capitals, centers, mushrooms, fixes) it reuses the last redraw, saved in
+  `.cache/geometry-<key>.json`, after checking that geo.json, outside*.json, world-all.json and the tiles on disk are
+  still that redraw's; and where each dot is (country, state, county, piece) is kept too (`.cache/tags-<key>.json`,
+  by position), so only new or moved dots are looked up. `npm run build:full` (FULL=1) always redraws and looks
+  everything up again. Times: full ~4½ min, fast ~25 s (build-sub 8 s, build-hebrew 1 s). Proven byte-identical to a
+  full build (see the Nov 4 section at the top). The fast lane's own files must stay out of the fingerprint
+  (`geometry-`/`tags-` are skipped) or every build would redraw.
 - `scripts/build-data.mjs` (`npm install && npm run build`) builds `web/data/` from:
   - `data/raw/chabad-centers.json`: the chabad.org locator export (4,220 listings) plus
     `data/extra-centers.json`: 4,222 centers → 3,599 dots; 1,967 → 1,763 in the US/CA.

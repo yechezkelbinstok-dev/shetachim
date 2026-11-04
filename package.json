@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "node --max-old-space-size=12000 scripts/build-data.mjs && node scripts/build-sub.mjs",
+    "build:full": "FULL=1 node --max-old-space-size=12000 scripts/build-data.mjs && node scripts/build-sub.mjs",
     "hebrew": "node scripts/build-hebrew.mjs",
     "svg": "node scripts/export-svg.mjs"
   },

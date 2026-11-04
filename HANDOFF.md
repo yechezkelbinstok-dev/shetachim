@@ -23,7 +23,9 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   a star, its counts as tiles; a sub-shetach lilac; a country's card grey-blue with tiles); a pin before the town; the
   people in ink; "Open on chabad.org" as a small button; the shetach's colour as a square in the footer; several at one
   address as sections. Nothing changes until he says go; then build it into web/index.html, check every card (both
-  languages) and push.
+  languages) and push. **"flagship rather than capital."** (owner, Nov 4, on the preview): the shetach and sub-shetach
+  cards say "Flagship: …" / "מוסד מרכזי: …" (not Capital / בירה), and the options' "Shetach capitals" becomes "Shetach
+  flagships" / "המוסדות המרכזיים" — in the preview, to go live with it. He also asked to see it in Hebrew (sent).
 - **Queens** (owner, Nov 4: "it's va'ad hashluchim of queens not just va'ad hashluchim"): the sub-shetach's head is
   "Vaad Hashluchim of Queens" / "ועד השלוחים דקווינס" (data/sub-shetachim.json `head`, `headHe`), on the map and its card.
 - **Crown Heights** (owner, Nov 4: "take out Shchunas HaRebbe"): its `altName` is gone (data/shetachim.json and

@@ -71,6 +71,20 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
     director of Fairfield County".)
   - **Eastern Connecticut — Rabbi Avrohom Sternberg** (New London 118000; Chabad of Norwich 6978333, run by his CTeen
     director Rabbi Aizik Schwei), drawn round its two houses.
+- **Sub-shetach Brevard County — Rabbi Tzvi Konikov** (owner, Nov 4: "Tzvi Konikov sub shetach Brivard County I think"),
+  under Korf's Florida: Chabad of the Space and Treasure Coasts (Satellite Beach, capital 117603; co-directed with the
+  Osdobas), its Torah Academy, Camp Gan Israel and Hebrew school in Melbourne, and the Viera building (2019); appointed
+  by the Rebbe in 1990. Members: Brevard County's houses (all his); outline: the county. Vero Beach (Rosenfeld,
+  Indian River) left out — nothing ties it to him.
+- **Open (asked the owner, Nov 4):** the Philippines — owner: "there's mushrooms currently blue in phillipines wtf".
+  All 8 houses are Rabbi Yossi Levy's chabad.ph network (Chabadpedia: he recruited them all). For mushroom: chabad.org
+  lists nothing in the Philippines; the Traveling Rabbi blog (c. 2011): Levy's house "is not under the main Chabad
+  umbrella and therefore not listed on chabad.org. They are part of a Chabad organization that operates across mostly
+  Asia and services Israelis" (and a Kupchik son was to open Cebu); 2016 ChabadInfo: "the Rebbe Melech HaMoshiach
+  Shlita's army". Against: Chabadpedia's photo "שלוחי הרבי לפיליפינים ... כינוס השלוחים העולמי תשפ"ו". Proposed: all 8
+  mushrooms (network "Yossi Levy"), the Philippines with no head and no capital like Bolivia — waiting for the owner.
+  Also asked for the Mexican and Boston-area mushrooms he knows of (a new sweep found nothing new: muchiler's 13
+  Mexican houses are all on the map; chabadplaya.org is Goldberg's own pin).
 - **Hebrew: Braun is ברוין** (owner, Nov 4: "ברוין is the correct spelling for braun"), not בראון (data/hebrew/last-names.json; Brown stays בראון).
 - **Oxford, CT added** (`extra-us-oxford-ct`): Chabad Jewish Center of Oxford, Rabbi Shmaya and Hadassa Hecht (Sheya's
   son), July 2023, for Oxford, Seymour, Beacon Falls, Southbury, Middlebury; at the town centre (no street address

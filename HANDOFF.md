@@ -13,23 +13,39 @@ those can't reach. On Nov 3 a session ran every search and page through Firecraw
 owner was furious. The rule is also under "Notes for Claude" below. (Owner, Nov 3, the other way round: "you have
 fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers WebFetch and curl with 403.)
 
-## ▶ Nov 4 (latest): mushroom networks on the map
+## ▶ Nov 4 (latest): mushroom networks on the map; Queens's head named in full; Shchunas HaRebbe taken out
+- **Queens** (owner, Nov 4: "it's va'ad hashluchim of queens not just va'ad hashluchim"): the sub-shetach's head is
+  "Vaad Hashluchim of Queens" / "ועד השלוחים דקווינס" (data/sub-shetachim.json `head`, `headHe`), on the map and its card.
+- **Crown Heights** (owner, Nov 4: "take out Shchunas HaRebbe"): its `altName` is gone (data/shetachim.json and
+  data/hebrew/shetachim.json); it's just "Crown Heights" / "קראון הייטס". The `altName` field still works for any
+  shetach (build-data.mjs's comment still names Crown Heights as its example: left, as editing the script forces a full
+  map redraw).
 - **The owner (Nov 4): "I feel like mushroom networks should be able to be visualized somehow on the map no?"** With
   Mushrooms on, a network's houses (extra-centers.json `network`, 8 networks with 2+ houses on the map: Kupchik 14,
   Yossi Levy 8, Carlebach 6, Kanelsky 4, Edery, Labkovski, Azman, Borenstein 2 each) are joined by dashed red lines, the
   shortest set that joins them all (`netLinks`: nearest house to those joined, repeatedly).
-  - **Tap a mushroom in a network:** its network's lines (bold) and its houses ringed; every other dot faded to a
-    quarter while the card is open. The card says "Network: Kupchik family · 14 Chabad houses" and has **"Show the
-    whole network"**, which frames all of it (switching to World if the view lacks some) and keeps it shown, the
-    orange chip under the search naming it ("Kupchik family network · 14 Chabad houses"), its × clearing it.
+  - **Shown only on a button** (owner, Nov 4: "The network should only be shown if I press smth not just if I press
+    one of the shrooms"; "just show network is better"; "there should then be an easy way to hide it"): a mushroom's
+    card says "Network: Kupchik family · 14 Chabad houses" and has **"Show network"**, which shows it and frames all of
+    it (switching to World if the view lacks some; on a phone, above the open card), and then reads **"Hide network"**. The
+    orange chip under the search names it ("Kupchik family network · 14 Chabad houses") and its × hides it too. Shown:
+    its lines bold, its houses ringed, every other dot faded to a quarter.
+  - **Its flagship** (owner: "the flagship of that shroom network should be shown when the network is shown
+    somehow"): extra-centers.json `networkFlagship: true` on the network head's own house, drawn as a red star with the
+    network's name beside it, and its card's kicker says "Mushroom · Network flagship". Flagships: Kupchik — Chabad
+    House Jaipur (Betzalel Kupchik, "its head" per Chabadpedia); Yossi Levy — Chabad House Manila; Carlebach — Chabad
+    House at Rutgers ("the Rutgers Chabad House and its affiliates"); Kanelsky — Bris Avrohom, Hillside (its
+    headquarters); Edery — Chabad House Tokyo; Labkovski — Center for Jewish Life, Williamsville (Laizer Labkovski's,
+    there since 1995; Downtown opened in 2021); Azman — Brodsky Synagogue, Kyiv; Borenstein — Chabad of Mid-Hudson Valley, Poughkeepsie.
   - **More options → Mushroom marker → "Mushroom networks"** (remembered; only with Mushrooms on): every network's
     lines all the time (thin), and a list of the networks (biggest first, with counts); a network tapped in the list
-    is framed and kept as above (on a phone the options close first).
+    is shown and framed as above (on a phone the options close first), tapped again hidden.
   - Not a colour per network (the plan first offered): nine colours on the coloured map can't be told apart, and the
     owner wants a mushroom red ("clearly singled out"). Lines are drawn only between houses both in the view.
-  - Code: `networks`, `netLinks`, `netData`, `netFade`, `paintNet`, `pinNet`, `netLine`, `netListUI`; map source `net`
-    (layers `net-line` under the dots, `net-ring` over them); `netCard` (the open card's network), `netPinned` (the
-    chip's). A family picked in the search and a network share the chip: picking one clears the other.
+  - Code: `networks`, `netLinks`, `netData`, `netFade`, `paintNet`, `pinNet`/`unpinNet`, `netLine`, `netButton`,
+    `syncNet`, `netListUI`; map source `net` (layers `net-line` under the dots, `net-ring` and `net-flag` over them);
+    `netPinned` (the network shown). A family picked in the search and a network share the chip: picking one clears
+    the other.
 
 ## ▶ Nov 4 (earlier): the honorary cards designed; 770's mosdos open to their people
 - **770's mosdos (owner, Nov 4: "there's a bunch of moisdois listed under 770 but no way to see the personnel of those
@@ -268,7 +284,7 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   `blank` now also takes a country (`{ "country": "BOL" }`): on the map, in no shetach (piece `BOL:none`, white like
   Monsey). Its card: "Country · Bolivia · 0 centers · 1 mushroom". Checked against 883b3d3 (before any of today's
   Bolivia changes): the same dot under "La Paz", the same counts in Latin America (234 centers, 211 dots).
-- **Crown Heights**: a new field `altName` — "Shchunas HaRebbe"; Hebrew name קראון הייטס, `altName` שכונת הרבי. Shown
+- **Crown Heights** (SUPERSEDED Nov 4: the owner had Shchunas HaRebbe taken out): a new field `altName` — "Shchunas HaRebbe"; Hebrew name קראון הייטס, `altName` שכונת הרבי. Shown
   under the name on the map (smaller), under the title on the card, and in search.
 - **Queens** (sub-shetach `queens`, under Greater New York): led by the **Vaad Hashluchim of Queens**, "an elected
   body" (Queens Jewish Link, Aug 2 2023, "Inaugural Kinus Held For Queens Shluchim"; CrownHeights.info, July 28 2023,

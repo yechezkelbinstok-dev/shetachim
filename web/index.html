@@ -154,6 +154,7 @@ button:focus-visible, input:focus-visible, a:focus-visible, summary:focus-visibl
 #net-list[hidden] { display: none; }
 #net-list button { border: 0; background: transparent; color: inherit; padding: 3px 0; font: 13.5px/1.3 var(--font-ui); cursor: pointer; text-align: start; }
 #net-list button:hover { color: var(--accent); }
+#net-list button[aria-pressed="true"] { color: var(--accent); font-weight: 600; }
 #net-list .n { color: var(--muted); font-size: 12.5px; }
 #search-results .none { padding: 10px 14px; color: var(--muted); font-size: 14px; }
 @media (max-width: 760px) {
@@ -244,7 +245,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card li strong { font-weight: 500; }
 #card .meta, #card p { color: var(--muted); font-size: 13px; margin: 0; }
 #card .flag { font-size: 12.5px; font-style: italic; color: var(--muted); }
-#card .alt-name { margin: -2px 0 4px; color: var(--ink); font-size: 14px; } /* a second name under the title (Crown Heights: Shchunas HaRebbe) */
+#card .alt-name { margin: -2px 0 4px; color: var(--ink); font-size: 14px; } /* a second name under the title (none now: Crown Heights's "Shchunas HaRebbe" taken out, owner, Nov 4) */
 /* the Rebbe on 770's card: its leader, bigger than a shliach's line */
 #card .rebbe { margin: 4px 0 2px; color: var(--ink); font: 700 18px/1.25 var(--font-map); }
 #card .rebbe .role { white-space: nowrap; font-weight: 600; color: var(--muted); }
@@ -579,13 +580,15 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   let mushroomsOn = false;
   try { mushroomsOn = localStorage.getItem('shetachim-mushrooms') === 'on'; } catch (e) {}
   // Mushroom networks (owner, Nov 4: "mushroom networks should be able to be visualized somehow on the map"): the houses
-  // of one network (extra-centers.json "network") joined by dashed lines, the shortest set that joins them all. A
-  // mushroom's card shows its network (its houses ringed, the other dots faded) and can frame all of it; "Mushroom
-  // networks" in the options draws every network's lines and lists the networks. (Not a colour each: nine colours on the
-  // coloured map can't be told apart, and a mushroom stays red.)
+  // of one network (extra-centers.json "network") joined by dashed lines, the shortest set that joins them all. Shown
+  // only when asked (owner: "only … if I press smth not just if I press one of the shrooms"): a mushroom's card has
+  // "Show network", then "Hide network" (the chip under the search hides it too); its houses ringed, its flagship (its
+  // head's own house) starred with its name, the other dots faded. "Mushroom networks" in the options draws every
+  // network's lines and lists the networks. (Not a colour each: nine colours on the coloured map can't be told apart,
+  // and a mushroom stays red.)
   let netsOn = false;
   try { netsOn = localStorage.getItem('shetachim-networks') === 'on'; } catch (e) {}
-  let netCard = null, netPinned = null; // the network of the mushroom whose card is open; one framed and kept (the chip)
+  let netPinned = null; // the network shown
   const withoutMushrooms = () => ({
     features: centersGeo.features
       .map((f) => ({ ...f, properties: { ...f.properties, centers: f.properties.centers.filter((c) => !c.mushroom) } }))
@@ -962,6 +965,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
   const STAR = d3.symbol(d3.symbolStar, 55)(); // about 14px across
   const WORLD_STAR = d3.symbol(d3.symbolStar, 150)(); // 770: about 23px across
+  const NET_STAR = d3.symbol(d3.symbolStar, 85)(); // a mushroom network's flagship: about 17px across, in the mushrooms' red
   $('#star-shape').setAttribute('d', STAR);
 
   // ---------- the map: MapLibre for both looks ----------
@@ -2322,6 +2326,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     make('honor', 12, (g) => { g.beginPath(); g.arc(0, 0, 3.2, 0, 2 * Math.PI); g.lineWidth = 2.4; g.strokeStyle = pal.halo; g.stroke(); g.fillStyle = pal.ink; g.fill(); });
     // a mushroom (Mushroom marker: Mushroom): the Mushrooms legend's own, 20 px tall at icon-size 1, with a rim
     const capColor = state.dotColor === 'red' ? '#e67e22' : MUSHROOM_DOT;
+    make('star-net', 24, (g) => { const p = new Path2D(NET_STAR); g.lineJoin = 'round'; g.lineWidth = 2.6; g.strokeStyle = pal.halo; g.stroke(p); g.fillStyle = capColor; g.fill(p); }, capColor);
     make('mushroom', 24, (g) => {
       g.scale(1.25, 1.25);
       g.translate(-8, -8.5);
@@ -2486,7 +2491,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     add({ id: 'hover-dot', type: 'circle', source: 'hover-dot', paint: { 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-width': 2 } });
     // a family's houses picked in the search (owner, Oct 13): a bright ring round each
     add({ id: 'mark', type: 'circle', source: 'mark', paint: { 'circle-stroke-width': 2.5, 'circle-opacity': 0.35 } });
-    add({ id: 'net-ring', type: 'circle', source: 'net', filter: ['==', ['geometry-type'], 'Point'], paint: { 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-width': 2 } });
+    add({ id: 'net-ring', type: 'circle', source: 'net', filter: ['==', ['get', 'ring'], 1], paint: { 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-width': 2 } });
+    add({ id: 'net-flag', type: 'symbol', source: 'net', filter: ['==', ['get', 'flag'], 1],
+      layout: { 'icon-image': 'star-net', 'icon-allow-overlap': true, 'icon-ignore-placement': true, 'text-field': ['get', 'name'], 'text-font': F_BOLD, 'text-size': 12.5,
+        'text-anchor': 'left', 'text-offset': [0.95, 0], 'text-allow-overlap': true, 'text-ignore-placement': true, 'text-max-width': 12 } });
     // Names. The map places a layer higher up first, so Lubavitch and the capitals come first, then the shetachim's
     // names, then cities where there's room left; within a layer, the biggest first.
     if (flat) {
@@ -2919,6 +2927,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       paint(id('net-line'), 'line-dasharray', [2, 1.6]);
       paint(id('net-ring'), 'circle-radius', ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], zf - 2, ring(-2, 3.5), zf + Math.log2(60), ring(Math.log2(60), 4.5)]);
       paint(id('net-ring'), 'circle-stroke-color', mushC);
+      show(id('net-flag'), on && state.dots && mushroomsOn);
+      paint(id('net-flag'), 'text-color', pal.ink);
+      paint(id('net-flag'), 'text-halo-color', pal.halo);
+      paint(id('net-flag'), 'text-halo-width', 1.6);
+      paint(id('net-flag'), 'text-halo-blur', 0.6);
       paint(id('hover-area'), 'line-color', pal.accent);
       // names, cities, capitals: in the street map's way (dark grey with a soft white halo); on the street map its own
       // cities, which ours would only double
@@ -3050,7 +3063,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
   // The mushroom networks on the map (with Mushrooms on): each network's houses, a network with one house on the map
   // having nothing to join
-  const netFocus = () => netPinned || netCard;
+  const netFocus = () => netPinned;
   let netsFor = null, netsMap = new Map();
   function networks() {
     if (netsFor === dots) return netsMap;
@@ -3063,6 +3076,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       if (!n) netsMap.set(c.network, (n = { en: c.network, he: c.networkHe, dots: new Set(), centers: new Set(), links: null }));
       n.dots.add(d);
       n.centers.add(c);
+      if (c.networkFlagship) n.flag = d;
     }
     for (const [k, n] of netsMap) if (n.dots.size < 2) netsMap.delete(k);
     return netsMap;
@@ -3070,11 +3084,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const netName = (n) => (HE && n.he ? n.he : n.en);
   const netCount = (n) => (HE ? `${n.centers.size} בתי חב״ד` : `${n.centers.size} Chabad houses`);
   const netChip = (n) => (HE ? `רשת ${netName(n)} · ${netCount(n)}` : `${netName(n)} network · ${netCount(n)}`);
-  function netOfDot(d) {
-    const ns = networks();
-    for (const c of d.centers) if (c.mushroom && c.network && ns.has(c.network)) return ns.get(c.network);
-    return null;
-  }
   // its lines: the house nearest to those already joined, joined to the nearest of them, till all are (the shortest set)
   function netLinks(n) {
     if (n.links) return n.links;
@@ -3090,9 +3099,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     }
     return (n.links = links);
   }
-  const netKey = () => `net|${mushroomsOn}|${netsOn}|${(netFocus() || {}).en || ''}`;
+  const netKey = () => `net|${mushroomsOn}|${netsOn}|${(netFocus() || {}).en || ''}|${HE}`;
   // the lines between houses both in the view (every network's with the option on, else the one shown), the one shown
-  // marked (bolder), and its houses in the view, ringed
+  // marked (bolder), and its houses in the view: ringed, its flagship a star with the network's name
   function netData(S) {
     const focus = netFocus(), inView = (d) => V.mainIds.has(d.piece);
     const list = [...networks().values()].filter((n) => netsOn || n === focus);
@@ -3101,7 +3110,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         const pa = P(a.lon, a.lat), pb = P(b.lon, b.lat);
         return pa && pb ? feature({ type: 'LineString', coordinates: [pa, pb] }, { on: n === focus ? 1 : 0 }) : null;
       })),
-      ...(focus ? [...focus.dots].filter(inView).map((d) => { const p = P(d.lon, d.lat); return p ? feature({ type: 'Point', coordinates: p }, { l: Math.log2(d.centers.length), m: 1 }) : null; }) : []),
+      ...(focus ? [...focus.dots].filter(inView).map((d) => {
+        const p = P(d.lon, d.lat);
+        return p ? feature({ type: 'Point', coordinates: p }, d === focus.flag ? { flag: 1, name: netName(focus) } : { ring: 1, l: Math.log2(d.centers.length), m: 1 }) : null;
+      }) : []),
     ].filter(Boolean)));
   }
   // a network shown: the dots not in it faded (an opacity of the dots' paint, as it is, or a quarter of it)
@@ -3127,28 +3139,40 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     ul.hidden = !netsOn || !mushroomsOn;
     if (ul.hidden) return;
     ul.innerHTML = [...networks().values()].sort((a, b) => b.centers.size - a.centers.size || a.en.localeCompare(b.en))
-      .map((n) => `<li><button type="button" data-net="${esc(n.en)}">${esc(netName(n))} <span class="n">· ${n.centers.size}</span></button></li>`).join('');
+      .map((n) => `<li><button type="button" data-net="${esc(n.en)}" aria-pressed="${netPinned === n}">${esc(netName(n))} <span class="n">· ${n.centers.size}</span></button></li>`).join('');
   }
-  // A network framed and kept on the map (a mushroom card's button, or the options' list), the chip under the search
-  // naming it, its x clearing it
+  // a card's button: Show network, or Hide network when it's the one shown
+  const netButton = (n) => (netPinned === n ? (HE ? 'הסתרת הרשת' : 'Hide network') : HE ? 'הצגת הרשת' : 'Show network');
+  function syncNet() {
+    card.querySelectorAll('.net-show').forEach((b) => { const n = networks().get(b.dataset.net); if (n) { b.textContent = netButton(n); b.setAttribute('aria-pressed', String(netPinned === n)); } });
+    netListUI();
+  }
+  // A network shown and framed (a mushroom card's button, or the options' list), the card left open; the chip under the
+  // search names it, its x hiding it (as the card's "Hide network" does)
   function pinNet(n) {
     marked = null;
     showMark();
     netPinned = n;
-    hideCard();
     if (phone() && !$('#panel').classList.contains('collapsed')) $('#panel-toggle').click();
     const ds = [...n.dots];
     if (!ds.every((d) => V.mainIds.has(d.piece))) { pressed('view', 'world'); state.view = 'world'; showView(false); }
     $('#mark-chip-text').textContent = netChip(n);
     $('#mark-chip').hidden = false;
     paintNet();
-    frameDots(ds);
+    syncNet();
+    frameDots(ds, !card.hidden && card.classList.contains('pinned'));
+  }
+  function unpinNet() {
+    netPinned = null;
+    if (!marked) $('#mark-chip').hidden = true;
+    paintNet();
+    syncNet();
   }
   // a mushroom's network on its card: whose it is, how many houses, and a button showing all of them
   function netLine(c) {
     const n = networks().get(c.network), name = HE ? c.networkHe || c.network : c.network;
     return `<p class="network">${HE ? 'רשת' : 'Network'}: ${esc(name)}${n ? ` · ${esc(netCount(n))}` : ''}</p>${
-      n ? `<button type="button" class="zoomto net-show" data-net="${esc(c.network)}">${HE ? 'הצגת הרשת כולה' : 'Show the whole network'}</button>` : ''}`;
+      n ? `<button type="button" class="zoomto net-show" data-net="${esc(c.network)}" aria-pressed="${netPinned === n}">${netButton(n)}</button>` : ''}`;
   }
   // Zoom to an area (in the way it's drawn now).
   function zoomToArea(pieceId) { zoomTo(areaOf(V.cur, pieceId)); }
@@ -3280,7 +3304,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const items = d.centers.map((c) => {
       const cap = capitalOfCenter.get(c.id);
       return `<li>
-        ${c.mushroom ? `<span class="kicker kicker-mushroom">${tr('Mushroom')}</span>` : ''}
+        ${c.mushroom ? `<span class="kicker kicker-mushroom">${tr('Mushroom')}${c.networkFlagship && networks().has(c.network) ? ` · ${HE ? 'המוסד המרכזי של הרשת' : 'Network flagship'}` : ''}</span>` : ''}
         <strong>${esc(c.name)}</strong>
         <span class="meta">${esc([c.type, c.city].filter(Boolean).join(' · '))}</span>
         ${c.mushroom && c.network ? netLine(c) : ''}
@@ -3487,8 +3511,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // (a mosad at 770 picked in the search, or someone listed there: 770's card, with that mosad's row open and in view)
     const focus = hit.focus && card.querySelector(`details.mosad[data-id="${CSS.escape(hit.focus)}"]`);
     if (focus) { focus.open = true; focus.closest('details.at-address').open = true; }
-    const net = hit.dot ? netOfDot(hit.dot) : null; // (a mushroom in a network: its network shown while the card's open)
-    if (net !== netCard) { netCard = net; paintNet(); }
     lastPoint = { clientX: event.clientX, clientY: event.clientY };
     if (!phone()) {
       const app = $('#app').getBoundingClientRect(), W = app.width, H = app.height;
@@ -3506,12 +3528,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     card.hidden = true;
     pinned = null;
     highlight(null);
-    if (netCard) { netCard = null; paintNet(); }
   }
   card.addEventListener('click', (e) => {
     if (e.target.closest('.close')) { hideCard(); return; }
     const ns = e.target.closest('.net-show');
-    if (ns) { const n = networks().get(ns.dataset.net); if (n) pinNet(n); return; }
+    if (ns) { const n = networks().get(ns.dataset.net); if (n && netPinned === n) unpinNet(); else if (n) pinNet(n); return; }
     const z = e.target.closest('.zoomto');
     if (z) {
       hideCard();
@@ -3599,7 +3620,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   });
   $('#net-list').addEventListener('click', (e) => {
     const b = e.target.closest('button[data-net]'), n = b && networks().get(b.dataset.net);
-    if (n) pinNet(n);
+    if (n && netPinned === n) unpinNet(); else if (n) pinNet(n);
   });
   $('#show-sub').checked = subOn;
   $('#show-sub').addEventListener('change', (e) => {
@@ -3918,18 +3939,25 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (!ds.every((d) => V.mainIds.has(d.piece))) { pressed('view', 'world'); state.view = 'world'; showView(false); }
     showMark();
     paintNet();
+    netListUI();
     $('#mark-chip-text').textContent = HE ? `${f.centers.size} בתי חב״ד בניהול ${f.he || f.en}` : `${f.centers.size} Chabad ${f.centers.size === 1 ? 'house' : 'houses'} run by ${f.en}`;
     $('#mark-chip').hidden = false;
     frameDots(ds);
   }
-  // frame a set of dots (in the view as it's drawn now)
-  function frameDots(ds) {
+  // frame a set of dots (in the view as it's drawn now); on a phone with the card left open, above it (a desktop's card
+  // is left where it is: framing beside it squeezed a world-wide network into world copies)
+  function frameDots(ds, besideCard) {
     if (!glOK) return;
     const pts = ds.map((d) => within(V.cur, () => P(d.lon, d.lat))).filter(Boolean);
     if (!pts.length) return;
     const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1]);
-    const pad = 0.02;
-    map.fitBounds([[Math.min(...xs) - pad, Math.min(...ys) - pad], [Math.max(...xs) + pad, Math.max(...ys) + pad]], { padding: framePadding(), duration: still ? 0 : 1200, maxZoom: 11 });
+    const pad = 0.02, padding = framePadding();
+    if (besideCard && phone()) {
+      const c = card.getBoundingClientRect(), app = $('#app').getBoundingClientRect();
+      padding.bottom = Math.max(padding.bottom, app.bottom - c.top + 12);
+      if (app.height - padding.top - padding.bottom < 120) Object.assign(padding, framePadding()); // (no room above it: as usual)
+    }
+    map.fitBounds([[Math.min(...xs) - pad, Math.min(...ys) - pad], [Math.max(...xs) + pad, Math.max(...ys) + pad]], { padding, duration: still ? 0 : 1200, maxZoom: 11 });
   }
   function showMark() {
     if (!glOK) return;
@@ -3939,7 +3967,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       map.getSource(`mark${T.sfx}`).setData({ type: 'FeatureCollection', features: ds.map((d) => feature({ type: 'Point', coordinates: within(T, () => P(d.lon, d.lat)) }, { l: Math.log2(d.centers.length), m: d.centers.every((c) => c.mushroom) ? 1 : 0 })) });
     }
   }
-  function clearMark() { marked = null; $('#mark-chip').hidden = true; showMark(); if (netPinned) { netPinned = null; paintNet(); } }
+  function clearMark() { marked = null; $('#mark-chip').hidden = true; showMark(); if (netPinned) { netPinned = null; paintNet(); syncNet(); } }
   function selectHit(i) {
     searchSel = i;
     sres.querySelectorAll('.hit').forEach((el) => el.setAttribute('aria-selected', String(+el.dataset.i === i)));

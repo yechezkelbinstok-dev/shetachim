@@ -1,5 +1,5 @@
 {
-  "about": "Centers that exist but are not listed on chabad.org. precision: 'exact' = real location, 'area' = rough spot in the right neighbourhood, 'city' = city centre (address unknown). note is shown on the dot's card. url, site, siteHe: the center's own page elsewhere (a center not on chabad.org), linked on its card as \"Open on <site>\" / \"לדף ב<siteHe>\". center-type: {name} as chabad.org's types (Mikveh, Jewish Community Center…), shown on the card. fixes: corrections to chabad.org's own listings, by center id (city, lat, lon; or personnel where chabad.org lists no one — a fix without lat keeps the listing's approx flag, and one that only moves a listing to the right town says approx: true). hyd: shluchim murdered al kiddush Hashem, by center id: each person is marked passed away with HY\"D / הי״ד instead of obm / ע״ה (added to the center's people if chabad.org doesn't list them), and shown at the top of the center's card with memorial / memorialHe. review (not shown): why a center is flagged for the owner's review — a possible \"mushroom\", a network outside the country's official Chabad, or a shliach that couldn't be confirmed; the owner decides whether it stays.",
+  "about": "Centers that exist but are not listed on chabad.org. precision: 'exact' = real location, 'area' = rough spot in the right neighbourhood, 'city' = city centre (address unknown). note is shown on the dot's card. url, site, siteHe: the center's own page elsewhere (a center not on chabad.org), linked on its card as \"Open on <site>\" / \"לדף ב<siteHe>\". center-type: {name} as chabad.org's types (Mikveh, Jewish Community Center…), shown on the card. fixes: corrections to chabad.org's own listings, by center id (city, lat, lon; or personnel where chabad.org lists no one — a fix without lat keeps the listing's approx flag, and one that only moves a listing to the right town says approx: true). hyd: shluchim murdered al kiddush Hashem, by center id: each person is marked passed away with HY\"D / הי״ד instead of obm / ע״ה (added to the center's people if chabad.org doesn't list them), and shown at the top of the center's card with memorial / memorialHe. review (not shown): why a center is flagged for the owner's review — a possible \"mushroom\", a network outside the country's official Chabad, or a shliach that couldn't be confirmed; the owner decides whether it stays. mushroom: why a center is outside the country's official Chabad (shown only with Mushrooms on); network / networkHe: the mushroom network it belongs to (its houses joined by lines on the map); networkFlagship: the network's flagship (its head's own house), starred with the network's name when the network is shown.",
   "centers": [
     {
       "id": "extra-us-oxford-ct",
@@ -121,7 +121,8 @@
       "siteHe": "חב״ד עמק ההדסון התיכון",
       "mushroom": "Times Herald-Record (Jun 8, 2006, reprinted by CrownHeights.info and VIN): \"Chabad leaders say Yakov Borenstein is a renegade and irritant they fired several years ago for outlandish behavior\", and a letter said he and three other rabbis \"can no longer use the Chabad-Lubavitch name\". He disputes ever being fired and relies on a 2004 Crown Heights Beth Din letter, which Chabad's spokesman called \"a neighborhood panel with no jurisdiction over Chabad\". He runs it all the same, with his nephew's Chabad in Goshen. Dutchess County's official Chabad: Rabbi Hanoch Hecht's (Rhinebeck), Beacon, and Chabad at Vassar and at Marist.",
       "network": "Yacov Borenstein",
-      "networkHe": "יעקב בורנשטיין"
+      "networkHe": "יעקב בורנשטיין",
+      "networkFlagship": true
     },
     {
       "id": "extra-us-goshen-borenstein",
@@ -165,7 +166,8 @@
       "siteHe": "המרכז לחיים יהודיים",
       "mushroom": "Outside Upstate New York's official Chabad (head shliach Rabbi Nosson Gurary's Chabad House of Buffalo): the Labkovskis came in 1995 to direct the Jewish Discovery Center with Rabbi Heschel Greenberg, two years after \"the Greenbergs' work separated from Rabbi Gurary's organization\" (the family's own history, chabadbuffalo.com); after 30 years none of their places is on chabad.org, and they announce a second \"Chabad Niagara Falls USA\" (770 Ashland Ave, not yet open) beside the one the Buffalo Jewish Federation calls \"the official Chabad of Niagara Falls USA\" (Rabbi Yehuda Lorber's, Dec 2025). Against: it runs JLI courses and CTeen events, Merkos programs (its own listings).",
       "network": "Labkovski family",
-      "networkHe": "משפחת לבקובסקי"
+      "networkHe": "משפחת לבקובסקי",
+      "networkFlagship": true
     },
     {
       "id": "extra-us-buffalo-downtown-labkowski",
@@ -265,7 +267,8 @@
       "siteHe": "חב״ד בראטגרס",
       "mushroom": "NJ Jewish News (Debra Rubin, Mar 27, 2019) on Rabbi Yosef Carlebach's network, the Rutgers Chabad House and its affiliates: \"They are not affiliated with the several dozen other Chabad-Lubavitch centers in New Jersey\", \"which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown\" (the head shliach's headquarters). None of its houses is on chabad.org, not even Rutgers. Against: Carlebach says the Rebbe sent him to Rutgers in 1978 (Jewish Link, 2018), and ChabadInfo calls him a shliach.",
       "network": "Yosef Carlebach",
-      "networkHe": "יוסף קרליבך"
+      "networkHe": "יוסף קרליבך",
+      "networkFlagship": true
     },
     {
       "id": "extra-us-monroe-nj-spritzer",
@@ -385,7 +388,8 @@
       "siteHe": "ברית אברהם",
       "mushroom": "Rabbi Mordechai (Mottel) Kanelsky's Bris Avrohom, founded in 1979 (its site: \"Founded by the Lubavitcher Rebbe\"), with its headquarters here and branches in Fair Lawn and Jersey City: none of its houses or rabbis is on chabad.org, and New Jersey's official Chabad is the Rabbinical College of America's network (head shliach Rabbi Mendy Herson); the owner counts it as a mushroom network (Oct 26, 2026). In 2011 the Central Committee of Chabad-Lubavitch Rabbis settled a challenge by Rabbi Boruch Chazanow and Rabbi Moshe Herson to his son Rabbi Yossi Kanelsky's new Marlboro center: it \"will not be associated with Chabad-Lubavitch or its affiliates, such as Bris Avrohom\" (NJ Jewish News, Jun 8, 2011). Against: the same article calls Bris Avrohom \"affiliated with Chabad-Lubavitch\"; its own site and the Jewish Link's reports never call it Chabad.",
       "network": "Mottel Kanelsky",
-      "networkHe": "מאטל קנלסקי"
+      "networkHe": "מאטל קנלסקי",
+      "networkFlagship": true
     },
     {
       "id": "extra-us-hillside-bris-avrohom-mikvah",
@@ -681,7 +685,8 @@
       ],
       "mushroom": "Rabbi Betzalel Kupchik, in his own words (Yeshiva World News, 14 Feb 2010): \"I am not a shaliach Chabad, which is a movement, but shaliach of the Rebbe Melech HaMoshiach\"; readers there call him unofficial, \"a 'Mushroom'\". Beis Moshiach (Dec 2024): he and his wife closed Pune (\"the shlichus in Pune has ended\") and opened Jaipur as shluchim of \"the Rebbe Melech HaMoshiach\". Same family as Bolivia's Itzik Kupchik (owner: a mushroom).",
       "network": "Kupchik family",
-      "networkHe": "משפחת קופצ׳יק"
+      "networkHe": "משפחת קופצ׳יק",
+      "networkFlagship": true
     },
     {
       "id": "extra-india-kodaikanal",
@@ -1962,7 +1967,8 @@
       "siteHe": "חב״ד מנילה",
       "mushroom": "Rabbi Yossi (Yosef Yitzchak) Levy's Chabad of the Philippines (chabad.ph), outside official Chabad: chabad.org lists nothing in the Philippines, and the Traveling Rabbi blog says Levy's house \"is not under the main Chabad umbrella and therefore not listed on chabad.org. They are part of a Chabad organization that operates across mostly Asia and services Israelis\". Owner, Nov 4: \"there's mushrooms currently blue in phillipines\" — the Philippines got the Bolivia treatment (in no shetach).",
       "network": "Yossi Levy",
-      "networkHe": "יוסי לוי"
+      "networkHe": "יוסי לוי",
+      "networkFlagship": true
     },
     {
       "id": "extra-philippines-bgc",
@@ -2112,7 +2118,8 @@
       "siteHe": "חב״ד טוקיו",
       "mushroom": "Owner, Oct 12: Edery is a mushroom (his two houses were taken off the map before the Mushrooms option existed). Rabbi Binyomin Edery's own network, in Tokyo since 1999, isn't on chabad.org; Chabad of Japan's head shliach is Mendi Sudakevich (chabad.org 118403). The Canadian Jewish News: Tokyo has two Chabad centres that 'don't talk to each other' (thecjn.ca/news/tale-two-chabads-tokyo).",
       "network": "Binyomin Edery",
-      "networkHe": "בנימין אדרי"
+      "networkHe": "בנימין אדרי",
+      "networkFlagship": true
     },
     {
       "id": "extra-kyoto-edery",
@@ -2157,7 +2164,8 @@
       "personnel": [{ "title": "Rabbi", "firstName": "Moshe Reuven", "lastName": "Azman" }],
       "mushroom": "Rabbi Moshe Reuven Azman: JTA (2008) — \"a self-professed Lubavitcher who is not part of Chabad's structure in the country\"; over 30 FJC Chabad rabbis called his 2005 election as chief rabbi illegitimate (WJC). Ukraine's official Chabad (FJC, Stambler) has Markovitch's center in Kyiv.",
       "network": "Moshe Reuven Azman",
-      "networkHe": "משה ראובן אזמן"
+      "networkHe": "משה ראובן אזמן",
+      "networkFlagship": true
     },
     {
       "id": "extra-ukraine-anatevka",

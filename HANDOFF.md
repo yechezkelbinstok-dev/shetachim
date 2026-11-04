@@ -13,7 +13,25 @@ those can't reach. On Nov 3 a session ran every search and page through Firecraw
 owner was furious. The rule is also under "Notes for Claude" below. (Owner, Nov 3, the other way round: "you have
 fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers WebFetch and curl with 403.)
 
-## ▶ Nov 4 (latest): the honorary cards designed; 770's mosdos open to their people
+## ▶ Nov 4 (latest): mushroom networks on the map
+- **The owner (Nov 4): "I feel like mushroom networks should be able to be visualized somehow on the map no?"** With
+  Mushrooms on, a network's houses (extra-centers.json `network`, 8 networks with 2+ houses on the map: Kupchik 14,
+  Yossi Levy 8, Carlebach 6, Kanelsky 4, Edery, Labkovski, Azman, Borenstein 2 each) are joined by dashed red lines, the
+  shortest set that joins them all (`netLinks`: nearest house to those joined, repeatedly).
+  - **Tap a mushroom in a network:** its network's lines (bold) and its houses ringed; every other dot faded to a
+    quarter while the card is open. The card says "Network: Kupchik family · 14 Chabad houses" and has **"Show the
+    whole network"**, which frames all of it (switching to World if the view lacks some) and keeps it shown, the
+    orange chip under the search naming it ("Kupchik family network · 14 Chabad houses"), its × clearing it.
+  - **More options → Mushroom marker → "Mushroom networks"** (remembered; only with Mushrooms on): every network's
+    lines all the time (thin), and a list of the networks (biggest first, with counts); a network tapped in the list
+    is framed and kept as above (on a phone the options close first).
+  - Not a colour per network (the plan first offered): nine colours on the coloured map can't be told apart, and the
+    owner wants a mushroom red ("clearly singled out"). Lines are drawn only between houses both in the view.
+  - Code: `networks`, `netLinks`, `netData`, `netFade`, `paintNet`, `pinNet`, `netLine`, `netListUI`; map source `net`
+    (layers `net-line` under the dots, `net-ring` over them); `netCard` (the open card's network), `netPinned` (the
+    chip's). A family picked in the search and a network share the chip: picking one clears the other.
+
+## ▶ Nov 4 (earlier): the honorary cards designed; 770's mosdos open to their people
 - **770's mosdos (owner, Nov 4: "there's a bunch of moisdois listed under 770 but no way to see the personnel of those
   moisdois that's the problem").** On 770's card, "16 more listings at this address" opens to a row per mosad: its name,
   what it is, and who heads it (the first man listed who's alive, as on any center). A row opens to everyone listed

@@ -148,6 +148,13 @@ button:focus-visible, input:focus-visible, a:focus-visible, summary:focus-visibl
 #mark-chip[hidden] { display: none; }
 #mark-chip span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 #mark-chip button { flex: none; width: 22px; height: 22px; border: 0; border-radius: 999px; background: rgb(255 255 255 / .2); color: inherit; cursor: pointer; display: grid; place-items: center; }
+/* the mushroom networks (options): their lines' sign, and the list of them */
+.legend-net { display: inline-block; width: 15px; border-top: 2px dashed #c0392b; vertical-align: middle; }
+#net-list { list-style: none; margin: 0; padding: 0; padding-inline-start: 24px; display: flex; flex-direction: column; gap: 1px; }
+#net-list[hidden] { display: none; }
+#net-list button { border: 0; background: transparent; color: inherit; padding: 3px 0; font: 13.5px/1.3 var(--font-ui); cursor: pointer; text-align: start; }
+#net-list button:hover { color: var(--accent); }
+#net-list .n { color: var(--muted); font-size: 12.5px; }
 #search-results .none { padding: 10px 14px; color: var(--muted); font-size: 14px; }
 @media (max-width: 760px) {
   #search { top: 12px; left: 12px; right: 56px; width: auto; }
@@ -324,6 +331,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card details.vaad li.alt .meta { font-size: 12px; }
 #card .zoomto { border: 1px solid var(--panel-line); background: transparent; border-radius: 999px; padding: 2px 10px; font-size: 13px; cursor: pointer; }
 #card .zoomto:hover { border-color: var(--accent); }
+#card .net-show { margin-top: 4px; align-self: flex-start; }
 
 /* ---- phones: the options become a bottom sheet ---- */
 @media (max-width: 760px) {
@@ -467,6 +475,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
             <button type="button" data-value="dot" aria-pressed="true">Dot</button>
             <button type="button" data-value="icon" aria-pressed="false">Mushroom</button>
           </div>
+          <label class="check" for="show-networks"><input type="checkbox" id="show-networks"> <span class="legend-net" aria-hidden="true"></span> Mushroom networks</label>
+          <ul id="net-list" hidden></ul>
         </fieldset>
         <fieldset class="ctl" id="alaska-ctl" hidden>
           <legend>Alaska</legend>
@@ -568,6 +578,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // from it either way (useCenters), so switching is instant (owner, Oct 26: it used to reload the page).
   let mushroomsOn = false;
   try { mushroomsOn = localStorage.getItem('shetachim-mushrooms') === 'on'; } catch (e) {}
+  // Mushroom networks (owner, Nov 4: "mushroom networks should be able to be visualized somehow on the map"): the houses
+  // of one network (extra-centers.json "network") joined by dashed lines, the shortest set that joins them all. A
+  // mushroom's card shows its network (its houses ringed, the other dots faded) and can frame all of it; "Mushroom
+  // networks" in the options draws every network's lines and lists the networks. (Not a colour each: nine colours on the
+  // coloured map can't be told apart, and a mushroom stays red.)
+  let netsOn = false;
+  try { netsOn = localStorage.getItem('shetachim-networks') === 'on'; } catch (e) {}
+  let netCard = null, netPinned = null; // the network of the mushroom whose card is open; one framed and kept (the chip)
   const withoutMushrooms = () => ({
     features: centersGeo.features
       .map((f) => ({ ...f, properties: { ...f.properties, centers: f.properties.centers.filter((c) => !c.mushroom) } }))
@@ -606,7 +624,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'Latin America & Caribbean': 'אמריקה הלטינית והאיים הקריביים',
     Map: 'מפה', Physical: 'פיזית', Tinted: 'פיזית צבועה', Political: 'מדינית', Borders: 'גבולות', States: 'מדינות', Countries: 'ארצות', Both: 'שניהם',
     'Lighter:': 'בהיר יותר:', 'Part of Israel:': 'חלק מישראל:', Gaza: 'עזה', Lebanon: 'לבנון', Syria: 'סוריה', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', Off: 'ללא',
-    'More options': 'אפשרויות נוספות', 'Regions & countries': 'אזורים ומדינות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', Mushrooms: 'פטריות', Mushroom: 'פטרייה', 'Mushroom marker': 'סימון פטריות', Dot: 'נקודה', 'Sub-shetachim': 'תת־שטחים', 'Sub-shetach': 'תת־שטח', 'Regional director': 'שליח אזורי', 'Rest of the world': 'שאר העולם', 'Borders of the rest of the world': 'גבולות שאר העולם', 'Held by Israel': 'בשליטת ישראל', 'Blue sea': 'ים כחול', Streets: 'רחובות',
+    'More options': 'אפשרויות נוספות', 'Regions & countries': 'אזורים ומדינות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', Mushrooms: 'פטריות', Mushroom: 'פטרייה', 'Mushroom marker': 'סימון פטריות', 'Mushroom networks': 'רשתות פטריות', Dot: 'נקודה', 'Sub-shetachim': 'תת־שטחים', 'Sub-shetach': 'תת־שטח', 'Regional director': 'שליח אזורי', 'Rest of the world': 'שאר העולם', 'Borders of the rest of the world': 'גבולות שאר העולם', 'Held by Israel': 'בשליטת ישראל', 'Blue sea': 'ים כחול', Streets: 'רחובות',
     Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד', Dots: 'נקודות', Solid: 'מלאות', 'See-through': 'שקופות', Classic: 'קלאסיות',
     'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
     'Download maps (SVG, PNG)': 'הורדת מפות (SVG, PNG)', 'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
@@ -2424,7 +2442,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function addOverlay(sfx) {
     const flat = sfx === '-f', id = (n) => n + sfx;
     const src = (n) => map.addSource(id(n), { type: 'geojson', data: EMPTY, tolerance: n === 'names' ? 0 : 0.25 });
-    for (const n of ['boxes', 'land-all', 'land', 'areas', 'mesh', 'outside', 'outside-lines', 'hover-area', 'hover-dot', 'mark', 'dots', 'names', 'cities', 'caps', 'seas', 'sub']) src(n);
+    for (const n of ['boxes', 'land-all', 'land', 'areas', 'mesh', 'outside', 'outside-lines', 'hover-area', 'hover-dot', 'mark', 'net', 'dots', 'names', 'cities', 'caps', 'seas', 'sub']) src(n);
     const add = (layer, before) => map.addLayer({ ...layer, id: id(layer.id), source: id(layer.source) }, flat ? undefined : before);
     const under = physicalOK ? waterBefore : undefined, over = physicalOK ? lineBefore : undefined;
     // the land (flat: there's no street map), the land no shetach covers (Rest of the world), the shetachim
@@ -2460,12 +2478,15 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // what a tap can land on (invisible), the outline of the area a card is about, the dots
     add({ id: 'pick', type: 'fill', source: 'areas', paint: { 'fill-opacity': 0 } });
     add({ id: 'hover-area', type: 'line', source: 'hover-area', layout: { 'line-join': 'round' }, paint: { 'line-width': 2.5 } });
+    // a mushroom network's lines (under the dots), and its houses ringed (over them)
+    add({ id: 'net-line', type: 'line', source: 'net', filter: ['==', ['geometry-type'], 'LineString'], layout: { 'line-cap': 'round', 'line-join': 'round' } });
     add({ id: 'dots', type: 'circle', source: 'dots' });
     // a mushroom as a little mushroom (Mushroom marker): over its dot, which stays (unseen) for taps and hovers
     add({ id: 'mush', type: 'symbol', source: 'dots', filter: ['==', ['get', 'm'], 1], layout: { 'icon-image': 'mushroom', 'icon-allow-overlap': true, 'icon-ignore-placement': true } });
     add({ id: 'hover-dot', type: 'circle', source: 'hover-dot', paint: { 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-width': 2 } });
     // a family's houses picked in the search (owner, Oct 13): a bright ring round each
     add({ id: 'mark', type: 'circle', source: 'mark', paint: { 'circle-stroke-width': 2.5, 'circle-opacity': 0.35 } });
+    add({ id: 'net-ring', type: 'circle', source: 'net', filter: ['==', ['geometry-type'], 'Point'], paint: { 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-width': 2 } });
     // Names. The map places a layer higher up first, so Lubavitch and the capitals come first, then the shetachim's
     // names, then cities where there's room left; within a layer, the biggest first.
     if (flat) {
@@ -2624,6 +2645,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const failed = (e) => console.error(e);
     feed(S, 'boxes', 'boxes', () => fc(S.boxFeatures || []));
     feed(S, 'dots', `dots|${mushroomsOn}`, () => dotData(S));
+    feed(S, 'net', netKey(), () => netData(S));
     feed(S, 'cities', `cities|${lang}|${mushroomsOn}`, () => cityData(S));
     feed(S, 'caps', `caps|${lang}`, () => capData(S));
     if (subOn && !SUB) loadSub().then(() => feedSet(S));
@@ -2870,9 +2892,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       // a mushroom as a little mushroom: 8 px tall when the view is framed, up to 18 close in; its dot unseen
       const mushIcon = mushroomsOn && state.mushroomLook === 'icon', isM = ['==', ['get', 'm'], 1];
       const iconPx = (dz) => ['min', 18, ['max', 8, ['*', 3.2, r(dz)]]];
-      paint(id('dots'), 'circle-opacity', mushIcon ? ['case', isM, 0, ds.alpha === 1 ? 1 : ds.alpha + 0.1] : ds.alpha === 1 ? 1 : ds.alpha + 0.1);
+      T.dotOp = [mushIcon ? ['case', isM, 0, ds.alpha === 1 ? 1 : ds.alpha + 0.1] : ds.alpha === 1 ? 1 : ds.alpha + 0.1, mushIcon ? ['case', isM, 0, 1] : 1];
+      paint(id('dots'), 'circle-opacity', netFade(T.dotOp[0]));
       paint(id('dots'), 'circle-stroke-width', ds.alpha === 1 ? 0.6 : 0);
-      paint(id('dots'), 'circle-stroke-opacity', mushIcon ? ['case', isM, 0, 1] : 1);
+      paint(id('dots'), 'circle-stroke-opacity', netFade(T.dotOp[1]));
+      paint(id('mush'), 'icon-opacity', netFade(1));
       paint(id('dots'), 'circle-stroke-color', pal.dotEdge);
       show(id('mush'), on && state.dots && mushIcon);
       if (map.getLayer(id('mush'))) map.setLayoutProperty(id('mush'), 'icon-size', ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], zf - 2, ['/', iconPx(-2), 20], zf + Math.log2(60), ['/', iconPx(Math.log2(60)), 20]]);
@@ -2885,6 +2909,16 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       paint(id('mark'), 'circle-radius', ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], zf - 2, ring(-2, 4), zf + Math.log2(60), ring(Math.log2(60), 5)]);
       paint(id('mark'), 'circle-color', MARK);
       paint(id('mark'), 'circle-stroke-color', MARK);
+      // a mushroom network: dashed lines in the mushrooms' red, the one shown bolder; its houses ringed
+      const mushC = state.dotColor === 'red' ? '#e67e22' : MUSHROOM_DOT, focusOn = ['==', ['get', 'on'], 1];
+      show(id('net-line'), on && state.dots && mushroomsOn);
+      show(id('net-ring'), on && state.dots && mushroomsOn);
+      paint(id('net-line'), 'line-color', mushC);
+      paint(id('net-line'), 'line-width', ['case', focusOn, 2.2, 1.3]);
+      paint(id('net-line'), 'line-opacity', ['case', focusOn, 1, 0.75]);
+      paint(id('net-line'), 'line-dasharray', [2, 1.6]);
+      paint(id('net-ring'), 'circle-radius', ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], zf - 2, ring(-2, 3.5), zf + Math.log2(60), ring(Math.log2(60), 4.5)]);
+      paint(id('net-ring'), 'circle-stroke-color', mushC);
       paint(id('hover-area'), 'line-color', pal.accent);
       // names, cities, capitals: in the street map's way (dark grey with a soft white halo); on the street map its own
       // cities, which ours would only double
@@ -3013,6 +3047,108 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       : hit && hit.piece && V.mainIds.has(hit.piece.id) ? areaOf(S, hit.piece.id) : null;
     map.getSource(`hover-dot${S.sfx}`).setData(dot && state.dots && V.mainIds.has(dot.piece) ? feature({ type: 'Point', coordinates: within(S, () => P(dot.lon, dot.lat)) }, { l: Math.log2(dot.centers.length), m: dot.centers.every((c) => c.mushroom) ? 1 : 0 }) : EMPTY);
     map.getSource(`hover-area${S.sfx}`).setData(area && area.geometry ? feature(area.geometry) : EMPTY);
+  }
+  // The mushroom networks on the map (with Mushrooms on): each network's houses, a network with one house on the map
+  // having nothing to join
+  const netFocus = () => netPinned || netCard;
+  let netsFor = null, netsMap = new Map();
+  function networks() {
+    if (netsFor === dots) return netsMap;
+    netsFor = dots;
+    netsMap = new Map();
+    if (!mushroomsOn) return netsMap;
+    for (const d of dots) for (const c of d.centers) {
+      if (!c.mushroom || !c.network) continue;
+      let n = netsMap.get(c.network);
+      if (!n) netsMap.set(c.network, (n = { en: c.network, he: c.networkHe, dots: new Set(), centers: new Set(), links: null }));
+      n.dots.add(d);
+      n.centers.add(c);
+    }
+    for (const [k, n] of netsMap) if (n.dots.size < 2) netsMap.delete(k);
+    return netsMap;
+  }
+  const netName = (n) => (HE && n.he ? n.he : n.en);
+  const netCount = (n) => (HE ? `${n.centers.size} בתי חב״ד` : `${n.centers.size} Chabad houses`);
+  const netChip = (n) => (HE ? `רשת ${netName(n)} · ${netCount(n)}` : `${netName(n)} network · ${netCount(n)}`);
+  function netOfDot(d) {
+    const ns = networks();
+    for (const c of d.centers) if (c.mushroom && c.network && ns.has(c.network)) return ns.get(c.network);
+    return null;
+  }
+  // its lines: the house nearest to those already joined, joined to the nearest of them, till all are (the shortest set)
+  function netLinks(n) {
+    if (n.links) return n.links;
+    const rad = Math.PI / 180;
+    const km = (a, b) => { const h = Math.sin(((b.lat - a.lat) * rad) / 2) ** 2 + Math.cos(a.lat * rad) * Math.cos(b.lat * rad) * Math.sin(((b.lon - a.lon) * rad) / 2) ** 2; return 12742 * Math.asin(Math.min(1, Math.sqrt(h))); };
+    const all = [...n.dots], joined = all.slice(0, 1), left = new Set(all.slice(1)), links = [];
+    while (left.size) {
+      let best = null;
+      for (const a of joined) for (const b of left) { const k = km(a, b); if (!best || k < best[2]) best = [a, b, k]; }
+      links.push(best);
+      joined.push(best[1]);
+      left.delete(best[1]);
+    }
+    return (n.links = links);
+  }
+  const netKey = () => `net|${mushroomsOn}|${netsOn}|${(netFocus() || {}).en || ''}`;
+  // the lines between houses both in the view (every network's with the option on, else the one shown), the one shown
+  // marked (bolder), and its houses in the view, ringed
+  function netData(S) {
+    const focus = netFocus(), inView = (d) => V.mainIds.has(d.piece);
+    const list = [...networks().values()].filter((n) => netsOn || n === focus);
+    return within(S, () => fc([
+      ...list.flatMap((n) => netLinks(n).filter(([a, b]) => inView(a) && inView(b)).map(([a, b]) => {
+        const pa = P(a.lon, a.lat), pb = P(b.lon, b.lat);
+        return pa && pb ? feature({ type: 'LineString', coordinates: [pa, pb] }, { on: n === focus ? 1 : 0 }) : null;
+      })),
+      ...(focus ? [...focus.dots].filter(inView).map((d) => { const p = P(d.lon, d.lat); return p ? feature({ type: 'Point', coordinates: p }, { l: Math.log2(d.centers.length), m: 1 }) : null; }) : []),
+    ].filter(Boolean)));
+  }
+  // a network shown: the dots not in it faded (an opacity of the dots' paint, as it is, or a quarter of it)
+  function netFade(expr) {
+    const f = netFocus();
+    if (!f || !V || !V.dots) return expr;
+    const idx = [];
+    V.dots.forEach((d, i) => { if (f.dots.has(d)) idx.push(i); });
+    return ['case', ['in', ['get', 'i'], ['literal', idx]], expr, ['*', 0.25, expr]];
+  }
+  function paintNet() {
+    if (!glOK || !V || !V.cur) return;
+    const S = V.cur, id = (n) => n + S.sfx;
+    feed(S, 'net', netKey(), () => netData(S));
+    if (!S.dotOp) return;
+    map.setPaintProperty(id('dots'), 'circle-opacity', netFade(S.dotOp[0]));
+    map.setPaintProperty(id('dots'), 'circle-stroke-opacity', netFade(S.dotOp[1]));
+    if (map.getLayer(id('mush'))) map.setPaintProperty(id('mush'), 'icon-opacity', netFade(1));
+  }
+  // the options' list of the networks (the biggest first), each framing its network
+  function netListUI() {
+    const ul = $('#net-list');
+    ul.hidden = !netsOn || !mushroomsOn;
+    if (ul.hidden) return;
+    ul.innerHTML = [...networks().values()].sort((a, b) => b.centers.size - a.centers.size || a.en.localeCompare(b.en))
+      .map((n) => `<li><button type="button" data-net="${esc(n.en)}">${esc(netName(n))} <span class="n">· ${n.centers.size}</span></button></li>`).join('');
+  }
+  // A network framed and kept on the map (a mushroom card's button, or the options' list), the chip under the search
+  // naming it, its x clearing it
+  function pinNet(n) {
+    marked = null;
+    showMark();
+    netPinned = n;
+    hideCard();
+    if (phone() && !$('#panel').classList.contains('collapsed')) $('#panel-toggle').click();
+    const ds = [...n.dots];
+    if (!ds.every((d) => V.mainIds.has(d.piece))) { pressed('view', 'world'); state.view = 'world'; showView(false); }
+    $('#mark-chip-text').textContent = netChip(n);
+    $('#mark-chip').hidden = false;
+    paintNet();
+    frameDots(ds);
+  }
+  // a mushroom's network on its card: whose it is, how many houses, and a button showing all of them
+  function netLine(c) {
+    const n = networks().get(c.network), name = HE ? c.networkHe || c.network : c.network;
+    return `<p class="network">${HE ? 'רשת' : 'Network'}: ${esc(name)}${n ? ` · ${esc(netCount(n))}` : ''}</p>${
+      n ? `<button type="button" class="zoomto net-show" data-net="${esc(c.network)}">${HE ? 'הצגת הרשת כולה' : 'Show the whole network'}</button>` : ''}`;
   }
   // Zoom to an area (in the way it's drawn now).
   function zoomToArea(pieceId) { zoomTo(areaOf(V.cur, pieceId)); }
@@ -3147,7 +3283,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         ${c.mushroom ? `<span class="kicker kicker-mushroom">${tr('Mushroom')}</span>` : ''}
         <strong>${esc(c.name)}</strong>
         <span class="meta">${esc([c.type, c.city].filter(Boolean).join(' · '))}</span>
-        ${c.mushroom && c.network ? `<p class="network">${HE ? 'רשת' : 'Network'}: ${esc(HE ? c.networkHe || c.network : c.network)}</p>` : ''}
+        ${c.mushroom && c.network ? netLine(c) : ''}
         ${memorialHTML(c)}${personnelHTML(c.personnel)}
         ${cap ? `<span class="flag${cap.world ? ' flag-world' : ''}">${capKicker(cap)}</span>` : ''}
         ${chabadLink(c)}
@@ -3351,6 +3487,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // (a mosad at 770 picked in the search, or someone listed there: 770's card, with that mosad's row open and in view)
     const focus = hit.focus && card.querySelector(`details.mosad[data-id="${CSS.escape(hit.focus)}"]`);
     if (focus) { focus.open = true; focus.closest('details.at-address').open = true; }
+    const net = hit.dot ? netOfDot(hit.dot) : null; // (a mushroom in a network: its network shown while the card's open)
+    if (net !== netCard) { netCard = net; paintNet(); }
     lastPoint = { clientX: event.clientX, clientY: event.clientY };
     if (!phone()) {
       const app = $('#app').getBoundingClientRect(), W = app.width, H = app.height;
@@ -3368,9 +3506,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     card.hidden = true;
     pinned = null;
     highlight(null);
+    if (netCard) { netCard = null; paintNet(); }
   }
   card.addEventListener('click', (e) => {
     if (e.target.closest('.close')) { hideCard(); return; }
+    const ns = e.target.closest('.net-show');
+    if (ns) { const n = networks().get(ns.dataset.net); if (n) pinNet(n); return; }
     const z = e.target.closest('.zoomto');
     if (z) {
       hideCard();
@@ -3442,8 +3583,23 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       if (marked) searchWords(); else $('#mark-chip').hidden = true;
       showMark();
     }
+    if (netPinned) { netPinned = null; if (!marked) $('#mark-chip').hidden = true; } // (a network framed: gone with its mushrooms)
+    netListUI();
     if (!sres.hidden && sq.value) runSearch();
     apply();
+  });
+  // Mushroom networks: every network's lines, and the list of them
+  $('#show-networks').checked = netsOn;
+  netListUI();
+  $('#show-networks').addEventListener('change', (e) => {
+    netsOn = e.target.checked;
+    try { localStorage.setItem('shetachim-networks', netsOn ? 'on' : 'off'); } catch (err) { /* not remembered */ }
+    netListUI();
+    paintNet();
+  });
+  $('#net-list').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-net]'), n = b && networks().get(b.dataset.net);
+    if (n) pinNet(n);
   });
   $('#show-sub').checked = subOn;
   $('#show-sub').addEventListener('change', (e) => {
@@ -3530,6 +3686,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     document.title = he ? 'מפת שטחי חב״ד' : 'Chabad Shetachim Map';
     pageWords();
     searchWords();
+    netListUI();
     if (sq.value) runSearch();
     showThemeButton();
     showPanelToggle();
@@ -3654,6 +3811,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     sq.placeholder = searchMode === 'last' ? (HE ? 'שם משפחה…' : 'Last name…') : HE ? 'חיפוש שלוחים, בתי חב״ד, ערים, שטחים' : 'Search shluchim, Chabad houses, cities…';
     $('#mark-chip-x').setAttribute('aria-label', HE ? 'ביטול הסימון' : 'Clear the highlight');
     if (marked) $('#mark-chip-text').textContent = HE ? `${marked.centers.size} בתי חב״ד בניהול ${marked.he || marked.en}` : `${marked.centers.size} Chabad ${marked.centers.size === 1 ? 'house' : 'houses'} run by ${marked.en}`;
+    else if (netPinned) $('#mark-chip-text').textContent = netChip(netPinned);
     sq.setAttribute('aria-label', HE ? 'חיפוש' : 'Search');
     sclear.setAttribute('aria-label', HE ? 'ניקוי' : 'Clear');
   }
@@ -3752,14 +3910,20 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // Ring a family's houses on the map, and frame them (switching to World if the view doesn't have them all).
   function markFamily(f) {
     marked = f;
+    netPinned = null; // (the chip: this family now, not a network)
     closeSearch();
     sq.blur();
     hideCard();
     const ds = [...f.dots];
     if (!ds.every((d) => V.mainIds.has(d.piece))) { pressed('view', 'world'); state.view = 'world'; showView(false); }
     showMark();
+    paintNet();
     $('#mark-chip-text').textContent = HE ? `${f.centers.size} בתי חב״ד בניהול ${f.he || f.en}` : `${f.centers.size} Chabad ${f.centers.size === 1 ? 'house' : 'houses'} run by ${f.en}`;
     $('#mark-chip').hidden = false;
+    frameDots(ds);
+  }
+  // frame a set of dots (in the view as it's drawn now)
+  function frameDots(ds) {
     if (!glOK) return;
     const pts = ds.map((d) => within(V.cur, () => P(d.lon, d.lat))).filter(Boolean);
     if (!pts.length) return;
@@ -3775,7 +3939,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       map.getSource(`mark${T.sfx}`).setData({ type: 'FeatureCollection', features: ds.map((d) => feature({ type: 'Point', coordinates: within(T, () => P(d.lon, d.lat)) }, { l: Math.log2(d.centers.length), m: d.centers.every((c) => c.mushroom) ? 1 : 0 })) });
     }
   }
-  function clearMark() { marked = null; $('#mark-chip').hidden = true; showMark(); }
+  function clearMark() { marked = null; $('#mark-chip').hidden = true; showMark(); if (netPinned) { netPinned = null; paintNet(); } }
   function selectHit(i) {
     searchSel = i;
     sres.querySelectorAll('.hit').forEach((el) => el.setAttribute('aria-selected', String(+el.dataset.i === i)));

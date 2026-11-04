@@ -7,6 +7,9 @@
 // its line (left of the line, as drawn from its first point to its second, to `left`; the rest to `right`). Connecticut's
 // line (`deren`) stays exactly straight, Cape Cod keeps its counties, and the `exact` shetachim (the North Shore) keep
 // their own town (and tract) claims in shetachim.json: the shapes are cut to them.
+// `patches`, last: a polygon whose land goes from one shetach to another (`from` → `to`), for a straight line that
+// shouldn't run across a whole town (one edge of the polygon is the new line; the others run through land that is on
+// its side already, so they change nothing). Applied in order, after the towns and the cuts.
 // Run: node scripts/ma-shapes.mjs   (after a first `npm run build`, which downloads the Census files into .cache),
 // then npm run build.
 import fs from 'node:fs';
@@ -38,8 +41,9 @@ function leftOf(line) {
 const cutOf = new Map((cfg.cuts || []).flatMap((c) => c.towns.map((t) => [townKey(t), { ...c, left: c.left, right: c.right, poly: leftOf(c.line) }])));
 for (const c of cfg.cuts || []) for (const t of c.towns) if (!towns.some((f) => townKey(f.properties.NAME) === townKey(t))) throw new Error(`cut: no town ${t}`);
 
-const pieces = [];
-const add = (label, mp) => { if (mp.length) pieces.push({ type: 'Feature', properties: { label }, geometry: { type: 'MultiPolygon', coordinates: mp } }); };
+let pieces = [];
+const feat = (label, mp) => ({ type: 'Feature', properties: { label }, geometry: { type: 'MultiPolygon', coordinates: mp } });
+const add = (label, mp) => { if (mp.length) pieces.push(feat(label, mp)); };
 for (const f of towns) {
   const county = f.properties.STATEFP + f.properties.COUNTYFP, k = townKey(f.properties.NAME);
   if (capeIds.includes(county)) continue; // Cape Cod and the Islands: its own county claims
@@ -49,6 +53,19 @@ for (const f of towns) {
   if (!cut) { add(label, g); continue; }
   add(cut.left, polygonClipping.intersection(g, cut.poly));
   add(cut.right, polygonClipping.difference(g, cut.poly));
+}
+for (const p of cfg.patches || []) {
+  const from = [].concat(p.from), poly = [[...p.polygon, p.polygon[0]]];
+  let moved = 0;
+  pieces = pieces.flatMap((f) => {
+    if (!from.includes(f.properties.label)) return [f];
+    const g = f.geometry.coordinates, inn = polygonClipping.intersection(g, poly);
+    if (!inn.length) return [f];
+    moved++;
+    const out = polygonClipping.difference(g, poly);
+    return [feat(p.to, inn), ...(out.length ? [feat(f.properties.label, out)] : [])];
+  });
+  if (!moved) throw new Error(`patch changes nothing: ${p.why}`);
 }
 // the North Shore's own tracts (East Boston): out of the shapes, as its towns are
 const exactTracts = tracts.filter((f) => Object.entries(cfg.tracts || {}).some(([id, list]) => exact.has(id) && list.includes(f.properties.GEOID)));

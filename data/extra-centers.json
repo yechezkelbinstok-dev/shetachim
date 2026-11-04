@@ -2,6 +2,20 @@
   "about": "Centers that exist but are not listed on chabad.org. precision: 'exact' = real location, 'area' = rough spot in the right neighbourhood, 'city' = city centre (address unknown). note is shown on the dot's card. url, site, siteHe: the center's own page elsewhere (a center not on chabad.org), linked on its card as \"Open on <site>\" / \"לדף ב<siteHe>\". center-type: {name} as chabad.org's types (Mikveh, Jewish Community Center…), shown on the card. fixes: corrections to chabad.org's own listings, by center id (city, lat, lon; or personnel where chabad.org lists no one — a fix without lat keeps the listing's approx flag, and one that only moves a listing to the right town says approx: true). hyd: shluchim murdered al kiddush Hashem, by center id: each person is marked passed away with HY\"D / הי״ד instead of obm / ע״ה (added to the center's people if chabad.org doesn't list them), and shown at the top of the center's card with memorial / memorialHe. review (not shown): why a center is flagged for the owner's review — a possible \"mushroom\", a network outside the country's official Chabad, or a shliach that couldn't be confirmed; the owner decides whether it stays.",
   "centers": [
     {
+      "id": "extra-us-oxford-ct",
+      "name": "Chabad Jewish Center of Oxford",
+      "city": "Oxford",
+      "lat": 41.4339,
+      "lon": -73.1167,
+      "precision": "city",
+      "note": "Street address not known; placed at the town centre (Oxford Town Hall). Serves Oxford, Seymour, Beacon Falls, Southbury and Middlebury",
+      "url": "https://www.cjcoxford.org/",
+      "site": "cjcoxford.org",
+      "siteHe": "cjcoxford.org",
+      "source": "COLlive (\"New Shluchim to Open 9th Chabad Center In New Haven County\", July 2023): Rabbi Shmaya and Hadassa Hecht \"appointed by Rabbi Sheya Hecht, Head Shliach to New Haven County\", the ninth Chabad center in the New Haven region; CrownHeights.info (\"New Shluchim Announced To Oxford, CT\": under the umbrella of Chabad Centers of Greater New Haven) and Anash.org the same; its own site cjcoxford.org (Jewish Women's Circle, Shabbat, Hebrew school; 203-514-0622). Not on chabad.org's directory yet (checked Nov 4, 2026); official by the press and the head shliach's appointment",
+      "personnel": [{ "title": "Rabbi", "firstName": "Shmaya", "lastName": "Hecht" }, { "title": "Mrs.", "firstName": "Hadassa", "lastName": "Hecht" }]
+    },
+    {
       "id": "extra-riyadh",
       "name": "Chabad center",
       "city": "Riyadh",

@@ -72,6 +72,12 @@
     "מערב מסצ׳וסטס"
    ]
   },
+  "US-CT": {
+   "connecticut": [
+    "Rest of Connecticut",
+    "שאר קונטיקט"
+   ]
+  },
   "AU-QLD": {
    "victoria": [
     "Gold Coast",
@@ -1324,6 +1330,30 @@
      "city": "Stamford",
      "lat": 41.04112,
      "lon": -73.54174
+    }
+   ]
+  },
+  {
+   "id": "new-haven",
+   "name": "New Haven",
+   "short": [
+    "N. Haven"
+   ],
+   "headShliach": "Sheya Hecht",
+   "capital": {
+    "centerId": "117961",
+    "name": "Southern Connecticut Hebrew Academy",
+    "city": "Orange",
+    "lat": 41.29964,
+    "lon": -73.00802
+   },
+   "capitals": [
+    {
+     "centerId": "117961",
+     "name": "Southern Connecticut Hebrew Academy",
+     "city": "Orange",
+     "lat": 41.29964,
+     "lon": -73.00802
     }
    ]
   },

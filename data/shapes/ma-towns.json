@@ -1,5 +1,5 @@
 {
-  "about": "Massachusetts's inner borders, town by town: scripts/ma-shapes.mjs reads this, gives every town to a shetach and writes data/shapes/ma-*.geojson (which data/shetachim.json claims), along the real town lines (owner, Nov 3: \"Look at the North Shore. That's like a proper, nice European border type\" — not smoothed curves, \"so ugly and unsettling\"), except where a town line made a spike or a zigzag: there a straight line between two town corners cuts across (`cuts`; owner: \"Straight can also work sometimes ... a hybrid of straight and not straight\"). Change a town here, then run `node scripts/ma-shapes.mjs` and `npm run build`. Towns not listed go by their middle's longitude: west of `deren` is Connecticut's shetach (its own band claim, kept exact), between `deren` and `split` Central Massachusetts, east of `split` Eastern Massachusetts. A cut's towns are split along its line: left of it (drawn from its first point to its second) to `left`, the rest to `right`. Cape Cod and the Islands keep their three counties exactly. `exact`: shetachim that keep their own town (and tract) claims in shetachim.json (the North Shore); the shapes are cut to them.",
+  "about": "Massachusetts's inner borders, town by town: scripts/ma-shapes.mjs reads this, gives every town to a shetach and writes data/shapes/ma-*.geojson (which data/shetachim.json claims), along the real town lines (owner, Nov 3: \"Look at the North Shore. That's like a proper, nice European border type\" — not smoothed curves, \"so ugly and unsettling\"), except where a town line made a spike or a zigzag: there a straight line between two town corners cuts across (`cuts`; owner: \"Straight can also work sometimes ... a hybrid of straight and not straight\"). Change a town here, then run `node scripts/ma-shapes.mjs` and `npm run build`. Towns not listed go by their middle's longitude: west of `deren` is Connecticut's shetach (its own band claim, kept exact), between `deren` and `split` Central Massachusetts, east of `split` Eastern Massachusetts. A cut's towns are split along its line: left of it (drawn from its first point to its second) to `left`, the rest to `right`. Cape Cod and the Islands keep their three counties exactly. `patches`, applied last: a polygon whose land goes from `from` to `to`, for a straight line that shouldn't cross a whole town (its other edges run through land already on its side). `exact`: shetachim that keep their own town (and tract) claims in shetachim.json (the North Shore); the shapes are cut to them.",
   "deren": -72.1574,
   "split": -71.24694,
   "westOfSplit": "central-massachusetts",
@@ -190,6 +190,187 @@
       ],
       "left": "merrimack-valley",
       "right": "eastern-massachusetts"
+    }
+  ],
+  "patches": [
+    {
+      "why": "South Area (Gurkow): Canton's corner cut a deep notch between Randolph and Stoughton, with Randolph's thin tip above it (owner, Nov 4: \"so nasty and pointy in so many places\"). One straight north–south line at 71.0956°W instead, from Randolph's north line down to the Canton/Stoughton corner: Canton's side of it east of the line (Ponkapoag, the Blue Hills) to the South Area. Chabad of Canton stays Prus's.",
+      "to": "south-area",
+      "from": "eastern-massachusetts",
+      "polygon": [
+        [
+          -71.095625,
+          42.1965
+        ],
+        [
+          -71.095625,
+          42.144
+        ],
+        [
+          -71.06,
+          42.164
+        ]
+      ]
+    },
+    {
+      "why": "South Area: Randolph's tip west of that line, to Prus (Canton).",
+      "to": "eastern-massachusetts",
+      "from": "south-area",
+      "polygon": [
+        [
+          -71.095625,
+          42.21
+        ],
+        [
+          -71.115,
+          42.2
+        ],
+        [
+          -71.095625,
+          42.188
+        ]
+      ]
+    },
+    {
+      "why": "South Area: Stoughton's staircase on Canton and Sharon, a few hundred metres north of Shaloh House; one straight line from the Stoughton/Canton line to the Stoughton/Canton/Sharon corner. Stoughton north of it to Prus …",
+      "to": "eastern-massachusetts",
+      "from": "south-area",
+      "polygon": [
+        [
+          -71.124436,
+          42.14107
+        ],
+        [
+          -71.15018,
+          42.136149
+        ],
+        [
+          -71.156,
+          42.145
+        ],
+        [
+          -71.1244,
+          42.15
+        ]
+      ]
+    },
+    {
+      "why": "… and Canton's slivers south of it to the South Area. Shaloh House stays 300 m inside.",
+      "to": "south-area",
+      "from": "eastern-massachusetts",
+      "polygon": [
+        [
+          -71.15018,
+          42.136149
+        ],
+        [
+          -71.124436,
+          42.14107
+        ],
+        [
+          -71.135,
+          42.13
+        ]
+      ]
+    },
+    {
+      "why": "South Area: Easton's sharp south-east tip (a 68° point); a straight line across it, from the Easton/Raynham line 2 km from the tip to Easton's West Bridgewater line, the tip to Prus.",
+      "to": "eastern-massachusetts",
+      "from": "south-area",
+      "polygon": [
+        [
+          -71.082264,
+          41.985565
+        ],
+        [
+          -71.045,
+          41.978
+        ],
+        [
+          -71.056289,
+          42.011739
+        ]
+      ]
+    },
+    {
+      "why": "South Area: Brockton's south line stepped (a tooth down into West Bridgewater); one straight line from the Easton/Brockton/West Bridgewater corner to Brockton's south-east corner. West Bridgewater's side north of it to the South Area …",
+      "to": "south-area",
+      "from": "eastern-massachusetts",
+      "polygon": [
+        [
+          -71.069595,
+          42.049704
+        ],
+        [
+          -70.987159,
+          42.046568
+        ],
+        [
+          -71.03,
+          42.065
+        ]
+      ]
+    },
+    {
+      "why": "… and Brockton's tooth south of it to Prus (about the same area each way).",
+      "to": "eastern-massachusetts",
+      "from": "south-area",
+      "polygon": [
+        [
+          -70.987159,
+          42.046568
+        ],
+        [
+          -71.069595,
+          42.049704
+        ],
+        [
+          -71.03,
+          42.02
+        ]
+      ]
+    },
+    {
+      "why": "South Area: Abington's square notch into the South Area between Brockton and Holbrook; a straight line across its mouth, the notch to the South Area.",
+      "to": "south-area",
+      "from": "eastern-massachusetts",
+      "polygon": [
+        [
+          -70.979117,
+          42.114077
+        ],
+        [
+          -71.008,
+          42.108
+        ],
+        [
+          -71.008,
+          42.13
+        ],
+        [
+          -70.98127,
+          42.135511
+        ]
+      ]
+    },
+    {
+      "why": "South Area: Braintree's west line stepped where it met Randolph's north line; one straight line carrying Braintree's diagonal on to Randolph's line (the corner between, Blue Hills woods in Quincy, to the South Area).",
+      "to": "south-area",
+      "from": "eastern-massachusetts",
+      "polygon": [
+        [
+          -71.044938,
+          42.215384
+        ],
+        [
+          -71.053413,
+          42.205755
+        ],
+        [
+          -71.04,
+          42.2
+        ]
+      ]
     }
   ],
   "shapes": {

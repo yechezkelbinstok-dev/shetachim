@@ -763,6 +763,48 @@
       }
     },
     {
+      "id": "new-haven",
+      "name": "New Haven",
+      "short": [
+        "N. Haven"
+      ],
+      "headShliach": "Sheya Hecht",
+      "territory": [
+        {
+          "state": "US-CT",
+          "towns": [
+            "Ansonia",
+            "Beacon Falls",
+            "Bethany",
+            "Branford",
+            "Cheshire",
+            "Derby",
+            "East Haven",
+            "Guilford",
+            "Hamden",
+            "Madison",
+            "Meriden",
+            "Middlebury",
+            "Milford",
+            "New Haven",
+            "North Branford",
+            "North Haven",
+            "Orange",
+            "Oxford",
+            "Seymour",
+            "Southbury",
+            "Wallingford",
+            "West Haven",
+            "Woodbridge"
+          ],
+          "name": "New Haven County (its towns as before Connecticut's 2022 planning regions), less Waterbury, whose Chabad house is Rabbi Joseph Eisenbach's of Chabad Lubavitch of Northwest Connecticut (Litchfield), and Wolcott, Prospect and Naugatuck round it, nearest to that house and not in Oxford's list (Oxford, Seymour, Beacon Falls, Southbury, Middlebury)"
+        }
+      ],
+      "capital": {
+        "centerId": "117961"
+      }
+    },
+    {
       "id": "eastern-massachusetts",
       "name": "Eastern Massachusetts",
       "short": "E. MA",
@@ -2409,6 +2451,12 @@
       "connecticut": [
         "Western Massachusetts",
         "מערב מסצ׳וסטס"
+      ]
+    },
+    "US-CT": {
+      "connecticut": [
+        "Rest of Connecticut",
+        "שאר קונטיקט"
       ]
     },
     "AU-QLD": {

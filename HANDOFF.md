@@ -13,7 +13,63 @@ those can't reach. On Nov 3 a session ran every search and page through Firecraw
 owner was furious. The rule is also under "Notes for Claude" below. (Owner, Nov 3, the other way round: "you have
 fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers WebFetch and curl with 403.)
 
-## ▶ Nov 3 (latest): Massachusetts's borders are real town lines again, with straight cuts — no more curves
+## ▶ Nov 4 (latest): Gurkow's South Area redrawn clean; New Haven its own shetach (Sheya Hecht); Oxford, CT added; two Connecticut sub-shetachim
+- **Gurkow (owner: "please make Gurkow shape better it's so nasty and pointy in so many places just all around nasty
+  honestly").** `data/shapes/ma-towns.json` has a new **`patches`** list (`scripts/ma-shapes.mjs` applies it last): a
+  polygon whose land goes from `from` to `to`, for a straight line that shouldn't cross a whole town (one edge is the new
+  line; the others run through land already on its side, so they change nothing; the script throws if a patch changes
+  nothing). Nine patches, six fixes, all straight lines from real town corners:
+  - Canton's deep notch between Randolph and Stoughton (with Randolph's thin tip above it): one north–south line at
+    71.095625°W from Randolph's north line to the Canton/Stoughton corner (Ponkapoag and Blue Hills woods to the South
+    Area; Randolph's tip west of it to Prus). Chabad of Canton stays Prus's.
+  - Stoughton's staircase on Canton and Sharon, a few hundred metres north of Shaloh House: one line from the
+    Stoughton/Canton line to the Stoughton/Canton/Sharon corner (Shaloh House 300 m inside).
+  - Easton's 68° south-east tip cut off straight (to Prus).
+  - Brockton's stepped south line: one line from the Easton/Brockton/West Bridgewater corner to Brockton's south-east
+    corner (about the same area each way).
+  - Abington's square notch between Brockton and Holbrook filled across its mouth.
+  - Braintree's step at Randolph's north line: Braintree's diagonal carried straight on (Quincy's Blue Hills woods).
+  No house changed shetach (the script's check: 65 Massachusetts houses, 0 move).
+- **The Gordons** (owner asked if they're missing): Rabbi Yaakov Dovid and Rivka Gordon are on the map, on Shaloh
+  House Chabad of the South Area's card (chabad.org lists them there: Community Outreach, Preschool). Anash: appointed
+  "to join Shaloh House Chabad of Stoughton and the South Area, including Brockton and Randolph" — Gurkow's own house,
+  no center of their own. (The activity map I'd sent shaded Brockton and Randolph for that sentence, not for events.)
+- **New Haven** (owner: "Sigh okay new Haven yeah own shetach"; "Why greater New Haven why not just new haven"; and,
+  shown that chabad.org lists Shea Hecht on Deren's own center as "Director, Chabad of Greater New Haven": "I've seen
+  before head shluchim make claims to make themselves look more powerful so at the end of the day it's whatever is
+  practically the real thing on the ground"). On the ground: the Hechts have run New Haven since 1946 (Rabbi Moshe
+  Yitzchak Hecht, sent by the Frierdiker Rebbe, Chabadpedia); Rabbi Sheya Hecht runs Chabad Centers of Greater New
+  Haven and appoints its shluchim himself (Oxford 2023, "appointed by Rabbi Sheya Hecht, Head Shliach to New Haven
+  County", COLlive; an Orange principal "brought down by Rabbi Shea Hecht", 2009); no New Haven County appointment
+  names Deren. Deren ("Connecticut Regional Director") hosts the statewide gatherings (Jan 2024; Yale's Rabbi Posner
+  gave the shiur). So **`new-haven`, top-level, "New Haven", head Sheya Hecht (שעיה העכט), capital Southern Connecticut
+  Hebrew Academy (117961)**: 23 towns of the old New Haven County (Connecticut's pre-2022 county; the Census now uses
+  planning regions) — all but **Waterbury**, whose Chabad (99 Crescent St) is Rabbi Joseph and Mina Eisenbach's, the
+  directors of Chabad Lubavitch of Northwest Connecticut in Litchfield — not one of Hecht's (his eight before Oxford
+  are Orange/SCHA, Hamden, Downtown, Westville, Milford, Wallingford, the Shoreline, Yale) — and **Wolcott, Prospect and
+  Naugatuck** round it (nearest to Waterbury's house, not in Oxford's list; with only Waterbury out, Wolcott stuck up
+  like a chimney). Middlebury stays New Haven's (Oxford's list). Shelton (Fairfield County) and Middletown (Middlesex)
+  stay Deren's. The `greater-new-haven` sub-shetach (South Central planning region) is gone. `partNames` US-CT:
+  connecticut = "Rest of Connecticut".
+- **Connecticut sub-shetachim under Deren** (standing rule: every regional director with houses is one): **Northwest
+  Connecticut** (Rabbi Joseph Eisenbach; Litchfield 118238 and Waterbury 150718) and **Eastern Connecticut** (Rabbi
+  Avrohom Sternberg, New London 118000; Chabad of Norwich 6978333, run by his CTeen director Rabbi Aizik Schwei), each
+  drawn round its two houses. **Open — Greater Hartford (Rabbi Yosef Gopin):** "regional director of Chabad of Greater
+  Hartford", sent to Hartford in 1977 to open the first Chabad House in Connecticut (before Deren's Stamford days), says
+  his organisation opened 10 centres in the area; Chabad Chevra at the University of Hartford (Kulek, 2003, "under
+  Gopin's direction") and Farmington Chabad (his son Shaya) are his; Weatogue (Samuels, 1998) and Glastonbury
+  (Wolvovsky, his son-in-law) are his team too — the 2013 New England shluchim gathering in West Hartford was
+  "co-hosted by Rabbis Yosef Gopin, Mendel Samuels, Yosef Wolvovsky, Shaya Gopin and Yosef Kulek" (CrownHeights.info,
+  July 12, 2013; Deren not named); UConn (Shlomo Hecht) unconfirmed. Dig: is Gopin under Deren (a sub-shetach) or his
+  own head (top-level, like New Haven)?
+- **Oxford, CT added** (`extra-us-oxford-ct`): Chabad Jewish Center of Oxford, Rabbi Shmaya and Hadassa Hecht (Sheya's
+  son), July 2023, for Oxford, Seymour, Beacon Falls, Southbury, Middlebury; at the town centre (no street address
+  known); site cjcoxford.org. Not on chabad.org yet — the owner: "you think the Chabad.org directory is the only
+  evidence? ... they're late or they're missing stuff ... if your own independent research tells you that he is
+  official then fine he's official" (but always check a new house isn't a mushroom before adding it). Official here:
+  COLlive, CrownHeights.info and Anash announced them as new shluchim appointed by the head shliach.
+
+## ▶ Nov 3: Massachusetts's borders are real town lines again, with straight cuts — no more curves
 - **Owner:** "I kind of hate how you've redrawn the Eastern Massachusetts situations. Yes, it is true that before they
   were pointy and horrible, but I hate the weird curviness ... The North Shore feels real"; "with regards to the prus
   fogelman like I'm sure there are many sections that it can just be a vertical line"; and, when I said "town lines
@@ -1448,7 +1504,11 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   - Also added Sri Lanka's other four Chabad houses from chabadsrilanka.org: Weligama, Hiriketiya, Arugam Bay and
     Ella. Before this the shetach had no dots at all.
 - **STANDING RULE (owner, Oct 11): any Chabad center found that isn't on the map gets added**, with a source, a
-  precision and Hebrew, wherever it turns up.
+  precision and Hebrew, wherever it turns up. **Before adding one, always check it isn't a mushroom** (owner, Nov 4:
+  "You always have to check that someone's not a mushroom when you try to add them") — by your own research, not by
+  chabad.org's directory alone ("they're late or they're missing stuff ... if your own independent research tells you
+  that he is official then fine he's official"). Likewise who heads what: "head shluchim make claims to make
+  themselves look more powerful ... it's whatever is practically the real thing on the ground".
 - **Back burner (owner, Oct 11):** the Gaspé peninsula should be in Quebec's shetach. It's north of the 47°N line, so
   it's grey now; carve it back in with a shape.
 - **World center sweep (owner, Oct 11 night: "do the entire world … country by country … don't stop"; start with

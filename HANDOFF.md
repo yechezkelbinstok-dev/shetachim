@@ -37,8 +37,23 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   round button. A shetach's card: a band of its colour on top, "Shetach" small over its name big, "Head shliach" small
   over the name big, "★ Flagship: …", its numbers as small tiles with "Zoom in" at the end; a sub-shetach's the same in
   lilac with its parent as a chip; a country's card the same with each shetach as a chip. Sent in English and Hebrew;
-  waiting on his pick. (Scratch build: a copy of web/index.html patched by a script, not in the repo; rebuild it from
-  this description if it's gone.)
+  (Scratch build: a copy of web/index.html patched by a script, not in the repo.) **He didn't like it** ("in a way
+  this is worse than the ones you made before … I don't like the direction. These aren't very nice. I want them to be
+  very, very nice and beautifully made, like well done").
+  **Third preview (sent Nov 4, waiting on him):** every everyday card has a header washed in the colour of the
+  shetach the place is in, with **a small map of that shetach** (its pieces merged with topojson, drawn in an azimuthal
+  projection centred on it, its colour on the map) and the place marked on it — a navy dot, a flagship's star, a
+  mushroom's red dot on its grey area; above the name the shetach and its head (a mushroom: its red badge and its area
+  only; a flagship: its star badge, its shetach under its people); the name big, what it is · its town; the shliach
+  with **a round badge of his initials**; "+N more" folded; a mushroom's network in a red box (its dashed line, its
+  name, "Network · 8 Chabad houses"); and **a bar of actions along the foot** (chabad.org ↗ / the site's name, Zoom in,
+  Show network). Several at one address: rows, each page a round button. A shetach's card: its shape bigger with its
+  flagship starred, "Shetach" over its name, "Head shliach" with initials, "★ Flagship: …", number tiles, Zoom bar.
+  Sub-shetach: lilac, its parent's shape with its flagship starred. Country (Countries map): its shape, its shetachim
+  as rows with their colours. In English, Hebrew, light, dark and on a phone. Found on the way, NOT fixed yet (it's
+  in the live page too): the Mushrooms switch's handler reads `marked` (declared with `let` further down the script),
+  so a tap on it while the page is still starting throws "Cannot access 'marked' before initialization" — declare
+  `marked` up with the other state when the cards go in.
 - **Queens** (owner, Nov 4: "it's va'ad hashluchim of queens not just va'ad hashluchim"): the sub-shetach's head is
   "Vaad Hashluchim of Queens" / "ועד השלוחים דקווינס" (data/sub-shetachim.json `head`, `headHe`), on the map and its card.
 - **Crown Heights** (owner, Nov 4: "take out Shchunas HaRebbe"): its `altName` is gone (data/shetachim.json and

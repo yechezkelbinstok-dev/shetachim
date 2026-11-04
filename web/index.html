@@ -56,6 +56,7 @@ window.EARLY = (() => {
   --c5: #f3cfa9; --c6: #d8c8e5; --c7: #bcded6; --c8: #e1d8be;
   --plain: #fcfcfa;
   --empty: #dcdfdb; /* land with no shetach, when shown */
+  --honor: #8a6a1e; --honor-line: #c39a3e; --honor-soft: #f6efdc; /* the honorary cards' gold: its text, its rules and dots, its panels */
   /* what the map draws with: the theme's colors, except on the physical map, which is always light */
   --map-ink: var(--ink); --map-halo: var(--halo); --map-dot: var(--dot); --map-accent: var(--accent); --map-missing: var(--missing); --map-secondary: #3d5f8f;
   --font-ui: "Inter", "Heebo", "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -67,6 +68,7 @@ window.EARLY = (() => {
     --bg: #0f1518; --ink: #e6edf0; --halo: #0f1518; --dot: #f1cf78;
     --panel: #152025; --panel-line: #2b3a41; --muted: #9baab0; --missing: #7d8c93; --accent: #93b8ec; --accent-soft: #22344a;
     --map-secondary: #a8c3ea;
+    --honor: #e0c278; --honor-line: #c9a24a; --honor-soft: #2b2a20;
     --c1: #5a5026; --c2: #394e30; --c3: #5c3a36; --c4: #2e435f;
     --c5: #5c4228; --c6: #473957; --c7: #294c45; --c8: #494434;
     --plain: #223036;
@@ -80,6 +82,7 @@ window.EARLY = (() => {
   --bg: #0f1518; --ink: #e6edf0; --halo: #0f1518; --dot: #f1cf78;
   --panel: #152025; --panel-line: #2b3a41; --muted: #9baab0; --missing: #7d8c93; --accent: #93b8ec; --accent-soft: #22344a;
   --map-secondary: #a8c3ea;
+  --honor: #e0c278; --honor-line: #c9a24a; --honor-soft: #2b2a20;
   --c1: #5a5026; --c2: #394e30; --c3: #5c3a36; --c4: #2e435f;
   --c5: #5c4228; --c6: #473957; --c7: #294c45; --c8: #494434;
   --plain: #223036;
@@ -229,9 +232,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
    big the other prominent places should be smaller … not as small as a random capital or moised"): between the two */
 #card h2.honor-m { font-size: 22px; line-height: 1.15; margin-bottom: 5px; }
 #card.prominent { border-color: var(--accent); }
-#card.prominent .rebbe { font-size: 16px; }
-#card.prominent ol.rebbeim li { font-size: 15px; }
-#card.prominent .rebbe.burial .meta { font-size: 14px; }
 #card ul { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
 #card li { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
 #card li strong { font-weight: 500; }
@@ -241,15 +241,58 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 /* the Rebbe on 770's card: its leader, bigger than a shliach's line */
 #card .rebbe { margin: 4px 0 2px; color: var(--ink); font: 700 18px/1.25 var(--font-map); }
 #card .rebbe .role { white-space: nowrap; font-weight: 600; color: var(--muted); }
-#card ol.rebbeim { margin: 2px 0 10px; padding: 0; list-style: none; }
-#card ol.rebbeim li { margin: 0 0 6px; font: 600 16px/1.3 var(--font-map); color: var(--ink); }
-#card ol.rebbeim li .meta { display: block; font: 400 13px/1.3 var(--font-ui, inherit); }
-#card .rebbe.burial { margin: 6px 0 8px; } /* a resting place of the Rebbeim: one line, with respect (owner, Oct 26) */
-#card ol.rebbeim li .rest { display: block; font: 600 13px/1.3 var(--font-ui, inherit); color: var(--ink); } /* his Ohel and histalkus, in his own entry */
-#card .rebbe.burial .meta { display: block; margin-top: 3px; font: 500 15px/1.3 var(--font-ui, inherit); color: var(--ink); } /* the histalkus: part of the line above, not small print */
-#card .staff { margin-top: 12px; } /* the ohel's own people, its director: set apart and smaller than the Rebbeim's lines (owner, Oct 26) */
+/* ---- the honorary cards: the Rebbeim's towns, their ohalim and mosdos, and 770 (owner, Nov 4: "designed nicely and
+   properly not just a bunch of ugly text"). Navy and gold, like the seforim; the wording is as it was (Oct 7, Oct 26) ---- */
+#card .hc-head { margin: -10px -12px 12px; padding: 13px 14px 12px; border-bottom: 1px solid var(--panel-line); background: linear-gradient(180deg, var(--honor-soft), var(--panel) 92%); }
+#card.pinned .hc-head .kicker { padding-inline-end: 22px; }
+#card .hc-head .kicker { color: var(--honor); font-weight: 700; margin-bottom: 3px; }
+#card .hc-head h2 { margin-bottom: 0; letter-spacing: -.01em; }
+#card .hc-sub { margin: 0; color: var(--muted); font: 500 13.5px/1.35 var(--font-ui); }
+#card .hc-sub::before { content: ''; display: block; width: 30px; height: 2px; margin: 8px 0 7px; border-radius: 2px; background: var(--honor-line); } /* a short gold rule under the title */
+#card .hc-label { margin: 0 0 10px; color: var(--muted); font: 700 10.5px/1.2 var(--font-map); letter-spacing: .09em; text-transform: uppercase; }
+:root[lang="he"] #card .hc-label { font-size: 12.5px; letter-spacing: 0; }
+/* the Rebbeim, one after the other: a timeline, each Rebbe's years at the end of his name's line; a Rebbe resting in the town, his dot filled */
+#card ol.tl { list-style: none; margin: 0; padding: 0; display: block; }
+#card ol.tl > li { display: block; position: relative; padding-inline-start: 22px; padding-bottom: 12px; }
+#card ol.tl > li:last-child { padding-bottom: 2px; }
+#card ol.tl > li::before { content: ''; position: absolute; inset-inline-start: 1px; top: 5px; width: 11px; height: 11px; box-sizing: border-box; border-radius: 50%; border: 2px solid var(--honor-line); background: var(--panel); }
+#card ol.tl > li.at-rest::before { background: var(--honor-line); box-shadow: 0 0 0 3px var(--honor-soft); }
+#card ol.tl > li:not(:last-child)::after { content: ''; position: absolute; inset-inline-start: 6px; top: 20px; bottom: -1px; width: 1px; background: var(--panel-line); }
+#card .tl-name { display: block; color: var(--ink); font: 700 16px/1.3 var(--font-map); }
+#card.prominent .tl-name { font-size: 15px; }
+#card .tl-sub { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; margin-top: 1px; color: var(--muted); font: 400 13px/1.3 var(--font-ui); }
+#card .tl-when { flex: none; color: var(--honor); font: 600 12.5px/1.3 var(--font-ui); font-variant-numeric: tabular-nums; } /* his years, at the end of his name's line */
+#card .tl-rest { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 7px; width: fit-content; margin-top: 6px; padding: 4px 9px; border-radius: 6px; background: var(--honor-soft); color: var(--ink); font: 600 13px/1.3 var(--font-ui); } /* his Ohel and histalkus, in his own entry */
+#card .tl-rest b { color: var(--honor); font-weight: 700; }
+/* a resting place of the Rebbeim: one line, with respect (owner, Oct 26), in a panel of its own; its histalkus under it, not small print */
+#card .hc-burial { margin: 0 0 2px; padding: 10px 12px; border-radius: 8px; border-inline-start: 3px solid var(--honor-line); background: var(--honor-soft); }
+#card .hc-burial p { margin: 0; color: var(--ink); }
+#card .hc-burial .hc-what { font: 600 15px/1.4 var(--font-map); }
+#card .hc-burial .hc-when { margin-top: 6px; font: 500 14px/1.4 var(--font-ui); }
+#card .hc-burial .hc-when span { white-space: nowrap; }
+/* the place's own people, its director: set apart and smaller than the Rebbeim's lines (owner, Oct 26) */
+#card .staff { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--panel-line); }
+#card .hc-head + .staff { margin-top: 0; padding-top: 0; border-top: 0; }
 #card .staff .person, #card .staff .pother { font-size: 12px; }
-#card details.at-address .pother { margin-top: 4px; }
+#card .hc-city { margin-top: 2px; }
+/* 770's other listings: a row each (its name, what it is, who heads it), opening to everyone listed there */
+#card details.at-address { margin-top: 12px; pointer-events: auto; }
+#card details.at-address > summary { position: relative; cursor: pointer; list-style: none; padding: 8px 30px 8px 11px; border: 1px solid var(--panel-line); border-radius: 8px; color: var(--accent); font: 600 13px/1.3 var(--font-ui); }
+#card details.mosad > summary { position: relative; cursor: pointer; list-style: none; padding: 7px 30px 8px 11px; }
+:root[dir="rtl"] #card details.at-address > summary, :root[dir="rtl"] #card details.mosad > summary { padding-left: 30px; padding-right: 11px; }
+#card details.at-address > summary::-webkit-details-marker, #card details.mosad > summary::-webkit-details-marker { display: none; }
+#card details.at-address > summary::after, #card details.mosad > summary::after { content: ''; position: absolute; inset-inline-end: 12px; top: 50%; width: 6px; height: 6px; margin-top: -5px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); }
+#card details.at-address[open] > summary::after, #card details.mosad[open] > summary::after { margin-top: -1px; transform: rotate(-135deg); }
+#card details.at-address[open] > summary { border-radius: 8px 8px 0 0; background: var(--accent-soft); }
+#card .mosdos { border: 1px solid var(--panel-line); border-top: 0; border-radius: 0 0 8px 8px; }
+#card details.mosad + details.mosad { border-top: 1px solid var(--panel-line); }
+#card details.mosad > summary { color: var(--muted); }
+#card details.mosad > summary strong { display: block; color: var(--ink); font: 600 13px/1.3 var(--font-ui); }
+#card details.mosad > summary .meta { display: block; margin-top: 1px; font-size: 12px; }
+#card details.mosad[open] > summary { background: var(--accent-soft); }
+#card .mosad-body { padding: 4px 11px 10px; }
+#card .mosad-body .person { margin: 3px 0 0; color: var(--ink); font-size: 12.5px; }
+#card .mosad-body a { display: inline-block; margin-top: 6px; font-size: 12.5px; }
 #card .flag-world { color: var(--accent); font-weight: 600; font-style: normal; }
 .legend-mushroom { vertical-align: -2px; flex: none; }
 #card .kicker-mushroom { color: #b3261e; font-weight: 700; letter-spacing: 0.06em; }
@@ -3136,15 +3179,15 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const NEZHIN_BURIAL = { burial: ['Burial place of the Mitteler Rebbe, Rabbi DovBer, zy"a', 'ציון כ״ק אדמו״ר האמצעי, רבי דובער, זי״ע'], yahrzeit: ['Histalkus: 9 Kislev 5588 (1827)', 'הסתלקות: ט׳ כסלו תקפ״ח'] };
   const HONOR_CARDS = {
     // the towns
-    lubavitch: { seat: ['Seat of the Rebbeim, 1813–1915', 'מקום מושב הרביים, תקע״ג–תרע״ה'], title: ['Rebbeim in Lubavitch:', 'נשיאי חב״ד בליובאוויטש:'], rebbeim: LUBAVITCH_REBBEIM },
-    rostov: { seat: ['Seat of the Rebbeim, 1915–1924', 'מקום מושב הרביים, תרע״ו–תרפ״ד'], title: ['Rebbeim in Rostov:', 'נשיאי חב״ד ברוסטוב:'], rebbeim: [
+    lubavitch: { seat: ['Seat of the Rebbeim, 1813–1915', 'מקום מושב הרביים, תקע״ג–תרע״ה'], title: ['Rebbeim in Lubavitch', 'נשיאי חב״ד בליובאוויטש'], rebbeim: LUBAVITCH_REBBEIM },
+    rostov: { seat: ['Seat of the Rebbeim, 1915–1924', 'מקום מושב הרביים, תרע״ו–תרפ״ד'], title: ['Rebbeim in Rostov', 'נשיאי חב״ד ברוסטוב'], rebbeim: [
       ['The Rebbe Rashab', 'Rabbi Sholom DovBer', 'כ״ק אדמו״ר הרש״ב', 'רבי שלום דובער', '1915–1920', 'תרע״ו–תר״פ', ['2 Nissan 5680 (1920)', 'ב׳ ניסן תר״פ']],
       ['The Frierdiker Rebbe', 'Rabbi Yosef Yitzchak', 'כ״ק אדמו״ר הריי״צ', 'רבי יוסף יצחק', '1920–1924', 'תר״פ–תרפ״ד'],
     ] },
-    liozna: { seat: ["The Alter Rebbe's town: born here in 1745, he led from here until 1801", 'עירו של אדמו״ר הזקן: נולד כאן בתק״ה, ומכאן הנהיג עד תקס״א'], title: ['Rebbe in Liozna:', 'נשיא חב״ד בליאזנא:'], rebbeim: [
+    liozna: { seat: ["The Alter Rebbe's town: born here in 1745, he led from here until 1801", 'עירו של אדמו״ר הזקן: נולד כאן בתק״ה, ומכאן הנהיג עד תקס״א'], title: ['Rebbe in Liozna', 'נשיא חב״ד בליאזנא'], rebbeim: [
       [...ALTER_REBBE, 'until 1801', 'עד תקס״א'],
     ] },
-    liadi: { seat: ['Seat of the Alter Rebbe, 1801–1812', 'מקום מושב אדמו״ר הזקן, תקס״א–תקע״ב'], title: ['Rebbe in Liadi:', 'נשיא חב״ד בליאדי:'], rebbeim: [
+    liadi: { seat: ['Seat of the Alter Rebbe, 1801–1812', 'מקום מושב אדמו״ר הזקן, תקס״א–תקע״ב'], title: ['Rebbe in Liadi', 'נשיא חב״ד בליאדי'], rebbeim: [
       [...ALTER_REBBE, '1801–1812', 'תקס״א–תקע״ב'],
     ] },
     haditch: HADITCH_BURIAL,
@@ -3165,28 +3208,55 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // (the Rebbe with his whole title, as on 770's card; owner, Oct 26)
     ohel: { burial: ['Burial place of the Frierdiker Rebbe, zy"a, and the Lubavitcher Rebbe, zy"a', 'ציוני כ״ק אדמו״ר הריי״צ זי״ע וכ״ק אדמו״ר נשיא דורנו זצוקללה״ה נבג״מ זי״ע'], yahrzeit: ['Histalkus: 10 Shevat 5710 (1950) · 3 Tammuz 5754 (1994)', 'הסתלקות: י׳ שבט תש״י · ג׳ תמוז תשנ״ד'] },
   };
-  const rebbeimHTML = ({ title, rebbeim }) => `<p class="rebbe"><span class="role">${HE ? title[1] : title[0]}</span></p><ol class="rebbeim">${
-    rebbeim.map(([en, enName, he, heName, years, heYears, rest]) => `<li><strong>${HE ? `${he} זי״ע` : `${en}, zy"a`}</strong>
-      <span class="meta">${esc([HE ? heName : enName, HE ? heYears : years].join(' · '))}</span>${
-      rest ? `<span class="rest">${esc(HE ? `ציונו הק׳ · הסתלקות: ${rest[1]}` : `Ohel · Histalkus: ${rest[0]}`)}</span>` : ''}</li>`).join('')}</ol>`;
-  const burialHTML = ({ burial, yahrzeit }) => `<p class="rebbe burial">${esc(HE ? burial[1] : burial[0])}<span class="meta">${esc(HE ? yahrzeit[1] : yahrzeit[0])}</span></p>`;
+  // The honorary cards, designed (owner, Nov 4: "designed nicely and properly not just a bunch of ugly text"): a header
+  // (the town above a mosad's name, the title, its seat or place under it), the Rebbeim as a timeline (each Rebbe's years
+  // at the end of his name's line; a Rebbe resting in the town marked, his Ohel and histalkus in his own entry), a resting place in a
+  // panel of its own (still one line, with its histalkus under it, not small print), and the place's own people set
+  // apart under a hairline, smaller than the Rebbeim's lines. The wording is as it was (owner, Oct 7 and Oct 26).
+  const honorHead = (c, honor, town) => `<header class="hc-head">${town ? `<span class="kicker">${esc(town.name)}</span>` : ''}
+    <h2 class="${c.honor === 'lubavitch' ? 'honor-h' : 'honor-m'}">${esc(c.title || (c.center && c.center.name) || c.name)}</h2>${
+    honor.seat ? `<p class="hc-sub">${esc(HE ? honor.seat[1] : honor.seat[0])}</p>` : ''}${honor.place ? `<p class="hc-sub">${esc(HE ? honor.place[1] : honor.place[0])}</p>` : ''}</header>`;
+  const rebbeimHTML = ({ title, rebbeim }) => `<section class="hc-sec"><h3 class="hc-label">${esc(HE ? title[1] : title[0])}</h3><ol class="tl">${
+    rebbeim.map(([en, enName, he, heName, years, heYears, rest]) => `<li${rest ? ' class="at-rest"' : ''}><strong class="tl-name">${esc(HE ? `${he} זי״ע` : `${en}, zy"a`)}</strong>
+      <span class="tl-sub"><span>${esc(HE ? heName : enName)}</span><span class="tl-when">${esc(HE ? heYears : years)}</span></span>${
+      rest ? `<span class="tl-rest"><b>${HE ? 'ציונו הק׳' : 'Ohel'}</b><span>${esc(HE ? `הסתלקות: ${rest[1]}` : `Histalkus: ${rest[0]}`)}</span></span>` : ''}</li>`).join('')}</ol></section>`;
+  // (two dates, two Rebbeim: each date kept whole on its line)
+  const burialHTML = ({ burial, yahrzeit }) => `<div class="hc-burial"><p class="hc-what">${esc(HE ? burial[1] : burial[0])}</p><p class="hc-when">${
+    (HE ? yahrzeit[1] : yahrzeit[0]).split(' · ').map((d) => `<span>${esc(d)}</span>`).join(' · ')}</p></div>`;
+  // Everyone listed at a mosad, the shliach first as on any center (the first man listed who's alive), then the rest as
+  // chabad.org lists them; those who have passed away folded under them, as on any center
+  function staffHTML(c) {
+    const list = (c && c.personnel) || [];
+    const living = list.filter((p) => !p.isDeceased), passed = list.filter((p) => p.isDeceased && !p.hyd);
+    const primary = living.find(isMale);
+    const order = primary ? [primary, ...living.filter((p) => p !== primary)] : living;
+    const obm = passed.length
+      ? `<details class="personnel"><summary>${HE ? 'נפטרו' : 'Deceased'} (${passed.length})</summary>${passed.map((p) => `<div class="pother">${personLine(p)}</div>`).join('')}</details>` : '';
+    return `${memorialHTML(c)}${order.map((p) => `<p class="person">${personLine(p)}</p>`).join('')}${obm}`;
+  }
   function capitalHTML(c) {
     const honor = c.honor && HONOR_CARDS[c.honor];
     // (named for its chabad.org listing where it is one — the Heichel Admur Hazaken, Ohel Chabad Lubavitch — whose people
     // and page are in the same card)
     // (Lubavitch's the big title, like 770's; the other towns' and the mosdos' smaller: honor-m; a mosad's town above it)
     const town = c.town && HONOR_TOWN.get(c.town);
-    if (honor) return `${town ? `<span class="kicker">${esc(town.name)}</span>` : ''}<h2 class="${c.honor === 'lubavitch' ? 'honor-h' : 'honor-m'}">${esc(c.title || (c.center && c.center.name) || c.name)}</h2>
-      ${honor.seat ? `<p class="meta">${HE ? honor.seat[1] : honor.seat[0]}</p>` : ''}${honor.place ? `<p class="meta">${esc(HE ? honor.place[1] : honor.place[0])}</p>` : ''}${honor.burial ? burialHTML(honor) : ''}${honor.rebbeim ? rebbeimHTML(honor) : ''}
+    if (honor) return `${honorHead(c, honor, town)}${honor.burial ? burialHTML(honor) : ''}${honor.rebbeim ? rebbeimHTML(honor) : ''}
       ${honor.people ? `<div class="staff">${personnelHTML(honor.people)}</div>` : ''}
       ${c.center ? `<div class="staff">${personnelHTML((c.center.personnel || []).map((p) => (honor.roles && honor.roles[p.lastName] ? { ...p, role: honor.roles[p.lastName] } : p)))}${chabadLink(c.center)}</div><div class="foot"><span class="meta">${shetachLine(c.piece, true)}</span></div>` : ''}`;
-    // 770: the headquarters by itself, the Rebbe as its leader, and the many other listings at the address folded away
+    // 770: the headquarters by itself, the Rebbe as its leader, and the many other listings at the address folded away —
+    // each of them a row (its name, what it is, who heads it) that opens to everyone listed there and its page (owner,
+    // Nov 4: "a bunch of moisdois listed under 770 but no way to see the personnel of those moisdois")
     const others = c.world ? ((dotOfCenter.get(c.centerId) || {}).centers || []).filter((x) => x.id !== c.centerId) : [];
-    const atAddress = others.length ? `<details class="personnel at-address"><summary>${HE ? `${others.length} מוסדות נוספים בכתובת זו` : `${others.length} more listings at this address`}</summary>
-      ${others.map((x) => `<div class="pother"><strong>${esc(x.name)}</strong>${x.type ? ` <span class="meta">· ${esc(x.type)}</span>` : ''} ${chabadLink(x)}</div>`).join('')}</details>` : '';
-    return `<span class="kicker${c.world ? ' kicker-world' : ''}">${capKicker(c)}</span><h2${c.world ? ' class="honor-h"' : ''}>${esc(c.name)}</h2>${rebbeHTML(c.center)}
-      ${c.city ? `<p>${esc(c.city)}</p>` : ''}${memorialHTML(c.center)}${personnelHTML(c.center && c.center.personnel)}${chabadLink(c.center)}${atAddress}
-      <div class="foot"><span class="meta">${shetachLine(c.piece, !c.world)}</span></div>`;
+    const head = (x) => { const living = (x.personnel || []).filter((p) => !p.isDeceased); const p = living.find(isMale) || living[0]; return p ? personName(p) : ''; };
+    const atAddress = others.length ? `<details class="at-address"><summary>${HE ? `${others.length} מוסדות נוספים בכתובת זו` : `${others.length} more listings at this address`}</summary>
+      <div class="mosdos">${others.map((x) => `<details class="mosad" data-id="${esc(x.id)}"><summary><strong>${esc(x.name)}</strong><span class="meta">${esc([x.type, head(x)].filter(Boolean).join(' · '))}</span></summary>
+        <div class="mosad-body">${staffHTML(x)}${chabadLink(x)}</div></details>`).join('')}</div></details>` : '';
+    if (c.world) return `<header class="hc-head"><span class="kicker kicker-world">${capKicker(c)}</span><h2 class="honor-h">${esc(c.name)}</h2></header>${rebbeHTML(c.center)}
+      ${c.city ? `<p class="hc-city">${esc(c.city)}</p>` : ''}${memorialHTML(c.center)}${personnelHTML(c.center && c.center.personnel)}${chabadLink(c.center)}${atAddress}
+      <div class="foot"><span class="meta">${shetachLine(c.piece, false)}</span></div>`;
+    return `<span class="kicker">${capKicker(c)}</span><h2>${esc(c.name)}</h2>${rebbeHTML(c.center)}
+      ${c.city ? `<p>${esc(c.city)}</p>` : ''}${memorialHTML(c.center)}${personnelHTML(c.center && c.center.personnel)}${chabadLink(c.center)}
+      <div class="foot"><span class="meta">${shetachLine(c.piece, true)}</span></div>`;
   }
 
   // A city's own card (its population, its centers): off since the owner's Oct 26 ("get rid of that useless card");
@@ -3268,7 +3338,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return group.length > 1 ? group.map((x, i) => `<div class="part">${shetachHTML(x, zoom(x, i))}</div>`).join('') : shetachHTML(s, zoom(s, 0));
   }
   function showCard(hit, event, pin) {
-    if (hit.dot && hit.dot.centers.some((c) => c.id === WORLD_HQ)) { const w = capitals.find((x) => x.world); if (w) hit = { capital: w }; }
+    if (hit.dot && hit.dot.centers.some((c) => c.id === WORLD_HQ)) { const w = capitals.find((x) => x.world); if (w) hit = { capital: w, focus: hit.focus }; }
     card.innerHTML = (hit.dot ? dotHTML(hit.dot) : hit.capital ? capitalHTML(hit.capital) : hit.city ? cityHTML(hit.city)
       : hit.shetach ? shetachCards(hit.shetach) : hit.sub ? subHTML(hit.sub)
       : areaHTML(hit.piece)) +
@@ -3278,6 +3348,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     card.classList.toggle('world', !!(hit.capital && (hit.capital.world || hit.capital.honor === 'lubavitch'))); // 770 and Lubavitch: the big card
     card.classList.toggle('prominent', !!(hit.capital && hit.capital.honor && hit.capital.honor !== 'lubavitch')); // the Rebbeim's other towns and their mosdos
     card.classList.toggle('stack', !!card.querySelector(':scope > .part'));
+    // (a mosad at 770 picked in the search, or someone listed there: 770's card, with that mosad's row open and in view)
+    const focus = hit.focus && card.querySelector(`details.mosad[data-id="${CSS.escape(hit.focus)}"]`);
+    if (focus) { focus.open = true; focus.closest('details.at-address').open = true; }
     lastPoint = { clientX: event.clientX, clientY: event.clientY };
     if (!phone()) {
       const app = $('#app').getBoundingClientRect(), W = app.width, H = app.height;
@@ -3288,6 +3361,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       card.style.left = `${Math.max(8, x)}px`;
       card.style.top = `${y}px`;
     }
+    if (focus) card.scrollTop = Math.max(0, focus.offsetTop - 48);
     highlight(hit);
   }
   function hideCard() {
@@ -3727,7 +3801,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const at = within(V.cur, () => P(lon, lat));
     if (!at) return;
     const honorary = it.d && it.d.centers.every((c) => HONOR_BY_CENTER.has(c.id)) && HONOR_BY_CENTER.get(it.d.centers[0].id);
-    const hit = honorary ? { capital: honorary } : it.d ? { dot: it.d } : { city: it.city };
+    const hit = honorary ? { capital: honorary } : it.d ? { dot: it.d, focus: it.c && it.c.id } : { city: it.city };
     hideCard();
     // (a mosad of the Rebbeim's — the Heichel in Haditch: close enough for its own marker, apart from its town's; the
     // map checks a marker's zoom filter at whole zooms only, hence the ceil)

@@ -13,7 +13,26 @@ those can't reach. On Nov 3 a session ran every search and page through Firecraw
 owner was furious. The rule is also under "Notes for Claude" below. (Owner, Nov 3, the other way round: "you have
 fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers WebFetch and curl with 403.)
 
-## ▶ Nov 4 (latest): Gurkow's South Area redrawn clean; New Haven its own shetach (Sheya Hecht); Oxford, CT added; Connecticut sub-shetachim (Greater Hartford, Eastern CT)
+## ▶ Nov 4 (latest): the honorary cards designed; 770's mosdos open to their people
+- **770's mosdos (owner, Nov 4: "there's a bunch of moisdois listed under 770 but no way to see the personnel of those
+  moisdois that's the problem").** On 770's card, "16 more listings at this address" opens to a row per mosad: its name,
+  what it is, and who heads it (the first man listed who's alive, as on any center). A row opens to everyone listed
+  there (that man first, then chabad.org's order; those who passed away folded under "Deceased") and its chabad.org
+  page (`staffHTML` in web/index.html). A search for a mosad at 770, or for someone listed at one, opens 770's card with
+  that mosad's row open and scrolled into view (`focus` on the hit; `showCard`).
+- **The honorary cards (owner, Nov 4: "the honorary cards kinda look not so nice they should be designed nicely and
+  properly not just a bunch of ugly text").** The Rebbeim's towns, their ohalim and mosdos, the Ohel and 770 now have:
+  a tinted header (a mosad's town above its name in gold; the title; a short gold rule, then the seat or place line);
+  the Rebbeim as a timeline (a dot per Rebbe on a line, filled for a Rebbe resting in the town; his years in gold at the
+  end of his name's line; his Ohel and histalkus in a cream chip in his own entry); a resting place in a cream panel
+  with a gold edge (the same one line, its histalkus under it, not small print); and the place's own people under a
+  hairline, smaller. Navy and gold, like the seforim: `--honor` (gold text), `--honor-line` (rules, dots),
+  `--honor-soft` (panels), light and dark. The wording is unchanged (the lists' titles lost their colons, being
+  headings now); Lubavitch's and 770's titles stay big (30px), the rest 22px. On a phone Lubavitch's card just fits
+  (397 of 402 px). Code: `honorHead`, `rebbeimHTML`, `burialHTML`, `capitalHTML`; CSS `.hc-*`, `ol.tl`,
+  `details.at-address`, `details.mosad`.
+
+## ▶ Nov 4 (earlier): Gurkow's South Area redrawn clean; New Haven its own shetach (Sheya Hecht); Oxford, CT added; Connecticut sub-shetachim (Greater Hartford, Eastern CT)
 - **Gurkow (owner: "please make Gurkow shape better it's so nasty and pointy in so many places just all around nasty
   honestly").** `data/shapes/ma-towns.json` has a new **`patches`** list (`scripts/ma-shapes.mjs` applies it last): a
   polygon whose land goes from `from` to `to`, for a straight line that shouldn't cross a whole town (one edge is the new

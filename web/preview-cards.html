@@ -350,6 +350,20 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card .cc-more .pother { margin-top: 5px; padding: 0; color: var(--ink); font-size: 13px; }
 #card .cc-net { display: flex; align-items: center; gap: 11px; margin: 0 0 13px; padding: 10px 12px; border-radius: 11px; background: color-mix(in srgb, var(--mush) 7%, var(--panel)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--mush) 22%, transparent); }
 #card .cc-net .rule { flex: none; width: 24px; border-top: 2px dashed var(--mush); }
+#card .cc-net .cc-ntext { flex: 1; min-width: 0; }
+/* small buttons: a center's page at the end of the line under its name, a mushroom's "Show network" in its network's
+   box (owner, Nov 5: "a small button that doesn't take up a whole line") */
+#card .cc-subrow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-top: 3px; }
+#card .cc-subrow .cc-sub { flex: 1 1 auto; min-width: 0; margin: 0; }
+#card .cc-chip { flex: none; display: inline-flex; align-items: center; gap: 5px; height: 26px; margin: 0; margin-inline-start: auto; padding: 0 10px;
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--panel-line)); border-radius: 999px; background: color-mix(in srgb, var(--panel) 82%, transparent);
+  color: var(--accent); font: 600 12px/1 var(--font-ui); text-decoration: none; white-space: nowrap; cursor: pointer; }
+#card .cc-chip:hover { background: var(--accent-soft); }
+#card .cc-chip .ic { flex: none; width: 12px; height: 12px; }
+#card .cc-chip.mush { color: var(--mush); border-color: color-mix(in srgb, var(--mush) 34%, var(--panel-line)); }
+#card .cc-chip.mush:hover, #card .cc-chip.mush[aria-pressed="true"] { background: color-mix(in srgb, var(--mush) 10%, var(--panel)); }
+#card .cc-net .cc-chip span { display: inline-block; color: inherit; font-size: inherit; }
+#card .cc-chip .dash { width: 13px; border-top: 2px dashed currentColor; }
 #card .cc-net b { display: block; color: var(--ink); font: 600 13.5px/1.3 var(--font-ui); }
 #card .cc-net span { display: block; color: var(--muted); font-size: 12px; }
 #card .cc-ctx { display: flex; align-items: flex-start; gap: 9px; margin-top: 13px; padding-top: 12px; border-top: 1px solid var(--panel-line); color: var(--muted); font-size: 12.5px; line-height: 1.4; }
@@ -3419,8 +3433,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
   const tintOf = (s) => shetachTint(s) || 'var(--tile)';
   const miniMap = () => ''; // (no small map in a card: owner, Nov 4: "Absolutely no reason to have that map situation")
-  const ccHead = ({ cls = '', t, mini, kick = '', crumb = '', title, sub = '', big }) => `<header class="cc-head${cls ? ` ${cls}` : ''}" style="--t:${t}">${mini}<div class="cc-htext">${kick}${
-    crumb ? `<p class="cc-crumb">${crumb}</p>` : ''}<h2 class="cc-title${big ? ' big' : ''}">${title}</h2>${sub ? `<p class="cc-sub">${sub}</p>` : ''}</div></header>`;
+  // `act`: a small button at the end of the line under the name (a center's page: owner, Nov 5, "The link can just be a
+  // button honestly like a small button that doesn't take up a whole line")
+  const ccHead = ({ cls = '', t, mini, kick = '', crumb = '', title, sub = '', big, act = '' }) => `<header class="cc-head${cls ? ` ${cls}` : ''}" style="--t:${t}">${mini}<div class="cc-htext">${kick}${
+    crumb ? `<p class="cc-crumb">${crumb}</p>` : ''}<h2 class="cc-title${big ? ' big' : ''}">${title}</h2>${
+    act ? `<div class="cc-subrow">${sub ? `<p class="cc-sub">${sub}</p>` : ''}${act}</div>` : sub ? `<p class="cc-sub">${sub}</p>` : ''}</div></header>`;
   // a person's initials (a family's: its name's first letter)
   const initials = (first, last) => `${(first || '').trim().slice(0, 1)}${(last || '').trim().slice(0, 1)}`;
   const initialsOf = (name) => { const w = String(name || '').replace(/^(Disputed|במחלוקת)\s*[—–-]?\s*/, '').split(/[;,]/)[0].trim().split(/\s+/).filter((x) => !/^(family|משפחת)$/.test(x));
@@ -3459,12 +3476,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // the bar along a card's foot: its page, a flagship's way to its shetach, a mushroom's network
   const pageOf = (c) => { const m = /href="([^"]+)"[^>]*>([^<]+)</.exec(chabadLink(c) || ''); return m ? { href: m[1], label: m[2] } : null; };
   const pageAct = (c) => { const p = pageOf(c); return p ? `<a class="cc-act" href="${p.href}" target="_blank" rel="noopener" title="${p.label}">${icon('ext')}<span class="lab">${p.label.replace(/^(Open on |לעמוד ב-|לדף ב)/, '')}</span></a>` : ''; };
+  // the same as a small button: a center's page in its header, a mushroom's "Show network" in its network's box (the
+  // bar along the foot is gone: owner, Nov 5)
+  const pageChip = (c) => { const p = pageOf(c); return p ? `<a class="cc-chip" href="${p.href}" target="_blank" rel="noopener" title="${p.label}">${icon('ext')}<span class="lab">${p.label.replace(/^(Open on |לעמוד ב-|לדף ב)/, '')}</span></a>` : ''; };
+  const netPill = (c) => { const n = c.mushroom && c.network && networks().get(c.network);
+    return n ? `<button type="button" class="cc-chip mush net-show" data-net="${esc(c.network)}" aria-pressed="${netPinned === n}"><span class="dash"></span><span class="lab">${netButton(n)}</span></button>` : ''; };
   const pageGo = (c) => { const p = pageOf(c); return p ? `<a class="cc-go" href="${p.href}" target="_blank" rel="noopener" title="${p.label}" aria-label="${p.label}">${icon('ext')}</a>` : ''; };
   const zoomAct = (attrs) => `<button type="button" class="cc-act zoomto" ${attrs}>${icon('zoom')}<span class="lab">${tr('Zoom in')}</span></button>`;
   const netAct = (c) => { const n = c.mushroom && c.network && networks().get(c.network);
     return n ? `<button type="button" class="cc-act mush net-show" data-net="${esc(c.network)}" aria-pressed="${netPinned === n}"><span class="dash"></span><span class="lab">${netButton(n)}</span></button>` : ''; };
   const netBox = (c) => { const n = networks().get(c.network), name = HE ? c.networkHe || c.network : c.network;
-    return `<div class="cc-net"><span class="rule"></span><div><b>${esc(name)}</b><span>${HE ? 'רשת' : 'Network'}${n ? ` · ${esc(netCount(n))}` : ''}</span></div></div>`; };
+    return `<div class="cc-net"><span class="rule"></span><div class="cc-ntext"><b>${esc(name)}</b><span>${HE ? 'רשת' : 'Network'}${n ? ` · ${esc(netCount(n))}` : ''}</span></div>${netPill(c)}</div>`; };
   const ccTile = (n, one, many, heOne, heMany, cls = '') => `<div class="cc-tile${cls ? ` ${cls}` : ''}"><b>${fmt(n)}</b><span>${HE ? (n === 1 ? heOne : heMany) : n === 1 ? one : many}</span></div>`;
   const CNT = () => document.documentElement.dataset.cnt || 'line';
   const DOTMARK = '<svg class="ic dot" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="4.4" fill="currentColor" stroke="var(--panel)" stroke-width="1.6"/></svg>';
@@ -3551,10 +3573,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const mini = miniMap(s ? s.pieces : g ? [g] : [], s ? `s:${s.id}` : `g:${d.piece}`, allMush || !s ? 'var(--empty)' : tintOf(s), [{ lon: d.lon, lat: d.lat, kind: allMush ? 'mush' : flag ? 'star' : 'dot' }]);
     const crumb = shetachLine(d.piece, !mushy);
     if (n === 1) {
-      const c = d.centers[0], acts = `${netAct(c)}${pageAct(c)}${flag && cap1.s ? zoomAct(`data-shetach="${esc(cap1.s.id)}" title="${HE ? 'התקרבות לשטח' : 'Zoom to the shetach'}"`) : ''}`;
+      const c = d.centers[0];
       return `${ccHead({ cls: c.mushroom ? 'mush' : '', t, mini, kick: c.mushroom ? mushKick(c) : flag ? `<p class="cc-kick flag">${icon('star')}${capKicker(cap1)}</p>` : '', crumb: flag ? '' : crumb,
-        title: esc(c.name), sub: esc([c.type, c.city].filter(Boolean).join(' · ')) })}
-        <div class="cc-body">${c.mushroom && c.network ? netBox(c) : ''}${memorialHTML(c)}${peopleBlock(c.personnel, c.mushroom ? 'var(--mush-av)' : t, flag ? photoIf(s, c.personnel) : '')}${flag ? ctxRow(s, shetachLine(d.piece, true)) : ''}</div>${acts ? `<div class="cc-foot">${acts}</div>` : ''}`;
+        title: esc(c.name), sub: esc([c.type, c.city].filter(Boolean).join(' · ')), act: pageChip(c) })}
+        <div class="cc-body">${c.mushroom && c.network ? netBox(c) : ''}${memorialHTML(c)}${peopleBlock(c.personnel, c.mushroom ? 'var(--mush-av)' : t, flag ? photoIf(s, c.personnel) : '')}${flag ? ctxRow(s, shetachLine(d.piece, true)) : ''}</div>`;
     }
     const rows = d.centers.map((c) => {
       const cap = capitalOfCenter.get(c.id);
@@ -3664,9 +3686,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // a shetach's flagship center: its star on the small map and in its badge, its shetach under its people, a way there
     const g = pieceById.get(c.piece), t = tintOf(c.s);
     const mini = miniMap(c.s ? c.s.pieces : g ? [g] : [], c.s ? `s:${c.s.id}` : `g:${c.piece}`, tintOf(c.s), [{ lon: c.lon, lat: c.lat, kind: 'star' }]);
-    return `${ccHead({ t, mini, kick: `<p class="cc-kick flag">${icon('star')}${capKicker(c)}</p>`, title: esc(c.name), sub: esc([c.center && c.center.type, c.city].filter(Boolean).join(' · ')) })}${rebbeHTML(c.center)}
+    return `${ccHead({ t, mini, kick: `<p class="cc-kick flag">${icon('star')}${capKicker(c)}</p>`, title: esc(c.name), sub: esc([c.center && c.center.type, c.city].filter(Boolean).join(' · ')), act: pageChip(c.center) })}${rebbeHTML(c.center)}
       <div class="cc-body">${memorialHTML(c.center)}${peopleBlock(c.center && c.center.personnel, t, photoIf(c.s, c.center && c.center.personnel))}${ctxRow(c.s, shetachLine(c.piece, true))}</div>
-      <div class="cc-foot">${pageAct(c.center)}${c.s ? zoomAct(`data-shetach="${esc(c.s.id)}" title="${HE ? 'התקרבות לשטח' : 'Zoom to the shetach'}"`) : ''}</div>`;
+      `; // (no "Zoom in": owner, Nov 5, "Get rid of zoom in, takes up unnecessary space nobody needs it"; its page is a small button in the header)
   }
 
   // A city's own card (its population, its centers): off since the owner's Oct 26 ("get rid of that useless card");
@@ -3697,8 +3719,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const part = state.borders === 'regular' ? inState.map((x) => ctxRow(x, shetachWithHead(x, true, inState.length > 1 ? partName(p.state, x) : x.name))).join('') + countryHeadHTML(p, inState) : '';
       const mini = miniMap(pieces.filter(shownAs), `a:${p.state}`, 'var(--tile)', [], 72);
       return `${ccHead({ t: 'var(--tile)', mini, kick: `<p class="cc-kick">${areaKind(p)}</p>`, title: esc(p.name), sub: headCount(centers, mush), big: true })}
-        <div class="cc-body"><div class="cc-area">${part}</div>${ccTiles(centers, mush)}</div>
-        ${zoomBtn ? `<div class="cc-foot">${zoomBtn.replace('class="zoomto"', 'class="cc-act zoomto"').replace(/>([^<]*)<\/button>$/, `>${icon('zoom')}<span class="lab">$1</span></button>`)}</div>` : ''}`;
+        <div class="cc-body"><div class="cc-area">${part}</div>${ccTiles(centers, mush)}</div>`; // (no "Zoom in": owner, Nov 5)
     }
     return shetachHTML(s, zoomBtn);
   }
@@ -3788,8 +3809,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         : s.headShliach && !s.vaad && s.vaadMembers && VAAD_PHOTOS[s.id] ? vaadBlock(s, t, headHTML(s.headShliach), esc(s.headTitle || tr('Leadership')))
         : s.headShliach && !s.vaad && s.vaadMembers ? membersHTML(s, `${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}`)
         : s.headShliach ? `${lead(esc(s.headTitle || tr('Head shliach')), s.headShliach, HEAD_PHOTO.has(s.id) ? s.id : '')}${s.vaad ? `<div style="margin-top:11px">${vaadHTML(s)}</div>` : ''}` : ''}</div>${capital}
-      ${ccTiles(nC, nM)}</div>
-      <div class="cc-foot">${zoomBtn.replace('class="zoomto"', 'class="cc-act zoomto"').replace(/>([^<]*)<\/button>$/, `>${icon('zoom')}<span class="lab">$1${zoomCount(nC, nM)}</span></button>`)}</div>`;
+      ${ccTiles(nC, nM)}</div>`; // (no "Zoom in" along its foot: owner, Nov 5, "Get rid of zoom in, takes up unnecessary space nobody needs it")
   }
 
 

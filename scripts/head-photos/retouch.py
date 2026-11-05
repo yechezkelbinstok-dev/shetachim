@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Crop and retouch one head-shliach photo into a 320x320 JPEG for web/img/heads/<shetach id>.jpg.
 
-  python3 scripts/head-photos/retouch.py <source image> <out.jpg> --crop CX,CY,SIDE [--cast A,B]
+  python3 scripts/head-photos/retouch.py <source image> <out.jpg> --crop CX,CY,SIDE [--cast A,B] [--keep]
 
 --crop is the hand-picked square on the source: its centre as fractions of the source's width and height, its side as
 a fraction of the height (data/head-photos.json keeps each one's under "crop", for the image as downloaded from
@@ -9,6 +9,8 @@ a fraction of the height (data/head-photos.json keeps each one's under "crop", f
 across, a little above the middle) but never widens it, so nothing the hand pick kept out comes back.
 --cast takes out a colour cast too strong to read automatically, in Lab units (e.g. 17,-2 for a magenta-lit photo);
 data/head-photos.json keeps it under "cast".
+--keep uses the hand-picked square as it is (for a face turned aside, where the face finder's box is off-centre);
+data/head-photos.json marks it "keep": true.
 
 The retouch: colour cast taken out (what should be grey — beards, shirts, walls — made grey, mostly in the light tones
 so blacks stay black), levels when the range is squashed, exposure read on the skin of the forehead and cheeks and
@@ -64,11 +66,12 @@ def find_face(rgb, box):
         if best: break
     return best and best[1:]
 
-def frame(rgb, sp):
+def frame(rgb, sp, keep=False):
     H, W = rgb.shape[:2]
     mx, my, ms = manual_square(W, H, sp)
     f = find_face(rgb, (mx, my, ms))
     if not f: return (mx, my, ms), None
+    if keep: return (mx, my, ms), f               # hand crop as is (a face turned aside fools the detector's box)
     fx, fy, fw, fh = f
     side = min(ms, 2.9 * fw)                      # the face about a third of the frame across; never wider than the hand pick
     cx, cy = fx + fw / 2, fy + fh / 2
@@ -153,11 +156,12 @@ def main():
     ap.add_argument('source'); ap.add_argument('out')
     ap.add_argument('--crop', required=True, help='CX,CY,SIDE')
     ap.add_argument('--cast', help='A,B (Lab units to take out)')
+    ap.add_argument('--keep', action='store_true', help='keep the hand crop as is (the face is still read for exposure)')
     a = ap.parse_args()
     cx, cy, side = (float(v) for v in a.crop.split(','))
     ovr = {'cast': tuple(float(v) for v in a.cast.split(','))} if a.cast else None
     rgb = load(a.source)
-    (x, y, s), face = frame(rgb, {'cx': cx, 'cy': cy, 'side': side})
+    (x, y, s), face = frame(rgb, {'cx': cx, 'cy': cy, 'side': side}, a.keep)
     x0, y0, s0 = int(round(x)), int(round(y)), int(round(s))
     crop = rgb[y0:y0 + s0, x0:x0 + s0].copy()
     small = s0 < 300

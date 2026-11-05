@@ -60,7 +60,11 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   like a while ago … Or the ones that look horrendous"; and every one well edited). Each photo's date is judged from its
   source (article date; chabad.org image IDs grow with time — about 1300xxxxx = 2024, 1350xxxxx = 2026, 918xxxxx = 2015;
   collive/anash paths carry the year). Replaced so far with 2022–2026 photos: Kaltmann, Zippel (a March 2026 studio
-  portrait by The Jew Project), Greenberg, Levitin, Cunin, Mendelsohn, Krasnjansky, Moscowitz, Kaplan.
+  portrait by The Jew Project), Greenberg, Levitin, Cunin, Mendelsohn, Krasnjansky, Moscowitz, Kaplan, Kotlarsky (Apr
+  2024), Mangel (Apr 2026), Weg (Aug 2024); older but far newer than before: Berel Shemtov (June 2021 at home — he
+  turned 90 in 2023; nothing clear since) and Gurkow (May 2020; his July 2026 Instagram selfies are too close to crop).
+  A crop must show him alone (the owner's standard): a crop from a group photo is fine only when nobody else is in the
+  square. `retouch.py --keep` keeps the hand crop as is, for a face turned aside (the face finder's box is off-centre).
 - **Instagram via Apify** (the owner set it up, Nov 5): many of the most recent photos are only on Instagram, which
   can't be downloaded or scraped otherwise (Firecrawl refuses it). The owner's Apify account (FREE plan: $5 a month,
   at most 5 runs at once) runs `apify/instagram-scraper`: `{"directUrls": [<post or account URLs>], "resultsType":
@@ -69,7 +73,15 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   (a surname alone is useless; a center's name works). His token is not in the repo: the session's safety check blocked
   committing it — he was told to add it to the environment's settings as `APIFY_TOKEN` (a new session picks it up), or
   to ask for it. @thejewproject is a portrait series (Zippel 2026; also Avraham Feldman of Iceland 2025 and Berel Lazar
-  2022 — use them for the world).
+  2022 — use them for the world). What it gave for the US refresh: a center's own account rarely shows the head shliach
+  (mostly events, children, guests), but it does now and then (Mangel, Weg, Gurkow). Searching ~45 accounts and pulling
+  the last ~40 posts of 20 cost about $2. The scratchpad tools: `ig_batch.py` (runs jobs at most 4 at a time and picks
+  up runs already started) and `faces.py` (downloads every post's images and makes a sheet of every face big enough,
+  biggest first, starred where the caption names him). Accounts found: @chabadofalabama, @chabadmichigan,
+  @chabadneworleans, @chabadmv, @shalohhousechabad, @chabadnorthshore, @chabadarizona, @chabadbuffalo,
+  @stamfordchabad, @chabadcincinnati, @jewishok (Tulsa), @chabadclt (Charlotte), @chabadvancouver, @chabadalberta,
+  @chabadvt, @chabadnewfoundland, @levi_krinsky; none found for Indiana, Rockland, Texas (Houston), Kansas City,
+  Delaware, Rhode Island, Idaho, Toronto, Montreal, Ottawa.
 - **How it was done (to carry on with the world):** Firecrawl `firecrawl_search` with `sources: ["images"]`,
   `limit: 10`, `domainTools: false` (2 credits a search; ~75 searches for the US). The best finds: an org's own
   "About"/"Our team"/"Our rabbis" page; JEM "Here's My Story" / "Living Torah" stills; newspaper author photos (Times

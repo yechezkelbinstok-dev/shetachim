@@ -3721,8 +3721,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // smaller and grey
     const alt = (m) => m.role === 'Alternate';
     const role = (m) => esc(HE ? VAAD_ROLE_HE[m.role] || m.role : m.role);
-    // his face (matched on his last name, which stays English in Hebrew too), else his initials
-    const face = (m) => { const p = m.lastName && photos.find((x) => x.name && x.name.includes(m.lastName));
+    // his face (matched on his names, which stay English in Hebrew too: the first name too where two share a last name,
+    // the UK's Leivi and Bentzi Sudak), else his initials
+    const named = (m) => photos.filter((x) => x.name && m.lastName && x.name.includes(m.lastName));
+    const face = (m) => { const ps = named(m), p = ps.find((x) => m.firstName && x.name.includes(m.firstName)) || (ps.length === 1 ? ps[0] : null);
       return p ? `<img class="vm-ph" src="${p.file}" alt="">` : `<span class="vm-ph vm-av">${esc(initials(firstOf(m), lastOf(m)))}</span>`; };
     // the chairman's role as a small tag by his name; the alternate's in the grey line under it, with his town
     const row = (m) => { const sub = [alt(m) ? role(m) : '', m.town ? esc(town(m)) : ''].filter(Boolean).join(' · ');
@@ -3733,9 +3735,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return `<details class="vaad${photos ? ' vaad-ph' : ''}"><summary>${line}</summary><ul>${items}</ul></details>`;
   }
   const vaadHTML = (s) => membersHTML(s, `${tr('Leadership')}: ${esc(s.vaad)}`);
-  const VAAD_PHOTOS = {"florida": [{"file": "img/vaad/florida-raichik.jpg", "name": "Yosef Raichik", "role": "Head"}, {"file": "img/vaad/florida-biston.jpg", "name": "Yossie Biston"}, {"file": "img/vaad/florida-goldman.jpg", "name": "Berl Goldman"}, {"file": "img/vaad/florida-lipskar.jpg", "name": "Eli Lipskar"}, {"file": "img/vaad/florida-levitin.jpg", "name": "Zalman Levitin"}, {"file": "img/vaad/florida-kessler.jpg", "name": "Meir Kessler"}, {"file": "img/vaad/florida-zaklos.jpg", "name": "Fishel Zaklos"}, {"file": "img/vaad/florida-dubov.jpg", "name": "Sholom Dubov", "role": "Alternate"}], "new-jersey": [{"file": "img/vaad/new-jersey-lubin.jpg", "name": "Shalom Lubin"}, {"file": "img/vaad/new-jersey-richler.jpg", "name": "Avi Richler"}, {"file": "img/vaad/new-jersey-leverton.jpg", "name": "Sholly (Sholom) Leverton"}, {"file": "img/vaad/new-jersey-gourarie.jpg", "name": "Moshe Gourarie"}, {"file": "img/vaad/new-jersey-simon.jpg", "name": "Ephraim Simon"}]};
+  const VAAD_PHOTOS = {"florida": [{"file": "img/vaad/florida-raichik.jpg", "name": "Yosef Raichik", "role": "Head"}, {"file": "img/vaad/florida-biston.jpg", "name": "Yossie Biston"}, {"file": "img/vaad/florida-goldman.jpg", "name": "Berl Goldman"}, {"file": "img/vaad/florida-lipskar.jpg", "name": "Eli Lipskar"}, {"file": "img/vaad/florida-levitin.jpg", "name": "Zalman Levitin"}, {"file": "img/vaad/florida-kessler.jpg", "name": "Meir Kessler"}, {"file": "img/vaad/florida-zaklos.jpg", "name": "Fishel Zaklos"}, {"file": "img/vaad/florida-dubov.jpg", "name": "Sholom Dubov", "role": "Alternate"}], "new-jersey": [{"file": "img/vaad/new-jersey-lubin.jpg", "name": "Shalom Lubin"}, {"file": "img/vaad/new-jersey-richler.jpg", "name": "Avi Richler"}, {"file": "img/vaad/new-jersey-leverton.jpg", "name": "Sholly (Sholom) Leverton"}, {"file": "img/vaad/new-jersey-gourarie.jpg", "name": "Moshe Gourarie"}, {"file": "img/vaad/new-jersey-simon.jpg", "name": "Ephraim Simon"}], "united-kingdom": [{"file": "img/vaad/united-kingdom-angyalfi.jpg", "name": "Yeremiyahu Angyalfi"}, {"file": "img/vaad/united-kingdom-arkush.jpg", "name": "Shmuel Arkush"}, {"file": "img/vaad/united-kingdom-dubov.jpg", "name": "Nissan Dovid Dubov"}, {"file": "img/vaad/united-kingdom-efune.jpg", "name": "Pesach Efune"}, {"file": "img/vaad/united-kingdom-junik.jpg", "name": "Menachem Junik"}, {"file": "img/vaad/united-kingdom-katz.jpg", "name": "Dovid Katz"}, {"file": "img/vaad/united-kingdom-korer.jpg", "name": "Mendy Korer"}, {"file": "img/vaad/united-kingdom-lew.jpg", "name": "Shmuel Lew"}, {"file": "img/vaad/united-kingdom-pink.jpg", "name": "Yehuda Pink"}, {"file": "img/vaad/united-kingdom-sudak-leivi.jpg", "name": "Leivi Sudak"}, {"file": "img/vaad/united-kingdom-sudak-bentzi.jpg", "name": "Bentzi Sudak"}, {"file": "img/vaad/united-kingdom-sufrin.jpg", "name": "Aryeh M. Sufrin"}]};
   // the faces in rows of a honeycomb (each row offset half a face from the next), its head in the middle
-  const HIVE_ROWS = { 1: [1], 2: [2], 3: [2, 1], 4: [2, 2], 5: [2, 3], 6: [3, 3], 7: [2, 3, 2], 8: [3, 2, 3], 9: [3, 3, 3] };
+  const HIVE_ROWS = { 1: [1], 2: [2], 3: [2, 1], 4: [2, 2], 5: [2, 3], 6: [3, 3], 7: [2, 3, 2], 8: [3, 2, 3], 9: [3, 3, 3], 10: [3, 4, 3], 11: [4, 3, 4], 12: [4, 4, 4], 13: [4, 5, 4] };
   function hiveHTML(s, t) {
     const ph = (VAAD_PHOTOS[s.id] || []).filter((p) => p.role !== 'Alternate'), head = (s.vaadMembers || []).find((m) => m.role === 'Head');
     const hn = head ? `${head.firstName} ${head.lastName}` : '';
@@ -3753,9 +3755,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       return `<img class="${hd ? 'hd' : ''}" src="${p.file}" alt="${esc(p.name || '')}" title="${esc(p.name || '')}" style="inset-inline-start:${sp.x}px;top:${sp.y}px">`; }).join('');
     return `<div class="cc-hive" style="width:${W}px;height:${H}px;--t:${t}">${imgs}</div>`;
   }
-  function vaadBlock(s, t) {
+  // a vaad that leads (its name), or a board at the head with its members' faces (the UK's Hanholo: owner, Nov 5, "pls do
+  // uk hanholo next"; its name is the head line's, under its own title)
+  function vaadBlock(s, t, name = esc(s.vaad), label = tr('Leadership')) {
     const n = (s.vaadMembers || []).filter((m) => m.role !== 'Alternate').length;
-    return `<div class="cc-vaad" style="--t:${t}">${VAAD_PHOTOS[s.id] ? hiveHTML(s, t) : ''}<div class="cc-vtext"><span class="lbl">${tr('Leadership')}</span><b>${esc(s.vaad)}</b>${
+    return `<div class="cc-vaad" style="--t:${t}">${VAAD_PHOTOS[s.id] ? hiveHTML(s, t) : ''}<div class="cc-vtext"><span class="lbl">${label}</span><b>${name}</b>${
       membersHTML(s, n ? `${n} ${HE ? 'חברים' : 'members'}` : (HE ? 'חברים' : 'Members'), VAAD_PHOTOS[s.id] || null)}</div></div>`;
   }
   // the head shliach's mark on the "שליח ראשי:" line (owner, Nov 5: "the person icon next to shliach rooshi - maybe make a
@@ -3781,6 +3785,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         : s.noCentralLeadership ? `<p class="cc-sub">${tr('No centralized leadership')}</p>`
         : s.headShliach && / family$|^משפחת /.test(s.headShliach) ? lead(HE ? 'שלוחים' : 'Shluchim', s.headShliach)
         : s.headShliach && s.vaad && s.vaadFirst ? `${vaadBlock(s, t)}${headRow(s)}`
+        : s.headShliach && !s.vaad && s.vaadMembers && VAAD_PHOTOS[s.id] ? vaadBlock(s, t, headHTML(s.headShliach), esc(s.headTitle || tr('Leadership')))
         : s.headShliach && !s.vaad && s.vaadMembers ? membersHTML(s, `${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}`)
         : s.headShliach ? `${lead(esc(s.headTitle || tr('Head shliach')), s.headShliach, HEAD_PHOTO.has(s.id) ? s.id : '')}${s.vaad ? `<div style="margin-top:11px">${vaadHTML(s)}</div>` : ''}` : ''}</div>${capital}
       ${ccTiles(nC, nM)}</div>

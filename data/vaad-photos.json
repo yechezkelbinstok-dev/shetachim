@@ -1,5 +1,5 @@
 {
- "about": "Faces of the members of a shetach's Vaad Hashluchim, for its card (owner, Nov 5: \"Where there's a Vaad ... all their faces somehow arranged ... not overlapping ... nicely done\"; \"if you have better pics of anshei havaad ... use them ... and as usual do proper editing\"). 160x160 JPEG in web/img/vaad/<shetach id>-<surname>.jpg, retouched by scripts/head-photos/retouch.py --keep; 'crop' as in head-photos.json (on the 'tile' of a collage where one is given). 'match': sure (his own center's photo or a caption), likely (looks like a captioned photo of him), guess (by elimination). Florida's are from each one's own photo where found, else from anash.org's collage of the vaad elected Feb 2023 (not in the article's name order). 'role' as in data/shetachim.json's vaadMembers (the alternate stays out of the honeycomb). Not on the live page yet.",
+ "about": "Faces of the members of a shetach's Vaad Hashluchim, for its card (owner, Nov 5: \"Where there's a Vaad ... all their faces somehow arranged ... not overlapping ... nicely done\"; \"if you have better pics of anshei havaad ... use them ... and as usual do proper editing\"). 160x160 JPEG in web/img/vaad/<shetach id>-<surname>.jpg, retouched by scripts/head-photos/retouch.py --keep; 'crop' as in head-photos.json (on the 'tile' of a collage where one is given). 'match': sure (his own center's photo or a caption), likely (looks like a captioned photo of him), guess (by elimination). Florida's are from each one's own photo where found, else from anash.org's collage of the vaad elected Feb 2023 (not in the article's name order). 'role' as in data/shetachim.json's vaadMembers (the alternate stays out of the honeycomb). Not on the live page yet. The UK's Hanholo (Nov 5, later session; owner: \"pls do uk hanholo next\"): its twelve living members, each from a photo of him alone; Rabbi Isaac Hirsh (Yitzchok 'Icky') Sufrin, on the Hanholo's list, passed away 3 Feb 2026 (anash.org; Companies House lists him, born Feb 1940, as a director of Lubavitch (UK) Ltd).",
  "vaads": {
   "florida": [
    {
@@ -197,6 +197,176 @@
      "side": 0.5406
     },
     "match": "sure"
+   }
+  ],
+  "united-kingdom": [
+   {
+    "file": "img/vaad/united-kingdom-angyalfi.jpg",
+    "name": "Yeremiyahu Angyalfi",
+    "match": "sure",
+    "page": "https://www.judaismlive.com/templates/articlecco_cdo/aid/7419639/jewish/Meet-Our-Team.htm",
+    "image": "https://w2.chabad.org/media/images/1377/USaT13770172.jpg",
+    "crop": {
+     "cx": 0.3169,
+     "cy": 0.444,
+     "side": 0.64
+    },
+    "note": "Chabad Lubavitch Leeds's team page, captioned \"Rabbi Yirmiyahu & Mrs Shoshana Angyalfi, Founding Directors\" (chabad.org image 1377..., about 2026); his wife is out of the crop"
+   },
+   {
+    "file": "img/vaad/united-kingdom-arkush.jpg",
+    "name": "Shmuel Arkush",
+    "match": "sure",
+    "page": "https://nishkammediacentre.co.uk/2014/12/04/west-midlands-faith-forum-no-place-like-home-launches-interfaith-week/",
+    "image": "https://nishkammediacentre.co.uk/wp-content/uploads/2014/12/rabbi-shmuel-arkush-bhai-sahib-bhai-mohinder-singh.jpg",
+    "crop": {
+     "cx": 0.3541,
+     "cy": 0.3874,
+     "side": 0.6532
+    },
+    "keep": true,
+    "edit": {
+     "fill": [
+      "343,192,434,242"
+     ]
+    },
+    "note": "Dec 2014 (old): the file is named for him and Bhai Sahib Mohinder Singh, who is out of the crop; a banner's text beside him painted out (paint-out.py --fill). His 75th-birthday photos (COLlive, Apr 2026) are all at a crowded table: replace when a recent one of him alone turns up"
+   },
+   {
+    "file": "img/vaad/united-kingdom-dubov.jpg",
+    "name": "Nissan Dovid Dubov",
+    "match": "sure",
+    "page": "https://www.youtube.com/c/rabbidubov",
+    "image": "https://yt3.googleusercontent.com/ytc/AIdro_m8KGRdxTc71wVkStMPyJJNPd-BKV_A7bvHJ0LvyovvZ5w=s900-c-k-c0x00ffffff-no-rj",
+    "crop": {
+     "cx": 0.53,
+     "cy": 0.5,
+     "side": 0.94
+    },
+    "edit": {
+     "axis": 445,
+     "mirror": "0,160 118,160 118,540 0,540"
+    },
+    "note": "his YouTube channel's picture (the same man as chabad.org's 2021 photo of the Wimbledon rabbi, w2.chabad.org/media/images/1162/oHit11627560.jpg); another man's hat brim at the left edge filled from the mirror image (paint-out.py)"
+   },
+   {
+    "file": "img/vaad/united-kingdom-efune.jpg",
+    "name": "Pesach Efune",
+    "match": "sure",
+    "page": "https://www.jewishgen.org/jcr-uk/Profiles/minister_profiles_orthodox_D-E.htm",
+    "image": "https://www.jewishgen.org/jcr-uk/Profiles/images/E-K/Efune_Pesach_large.jpeg",
+    "crop": {
+     "cx": 0.5,
+     "cy": 0.5871,
+     "side": 0.8257
+    },
+    "note": "JCR-UK's profile of him (no date), speaking at a microphone: replace if a better one turns up (chabadbrighton.co.uk has only small or group photos)"
+   },
+   {
+    "file": "img/vaad/united-kingdom-junik.jpg",
+    "name": "Menachem Junik",
+    "match": "sure",
+    "page": "https://www.federation.org.uk/people/rabbi-menachem-junik/",
+    "image": "https://www.federation.org.uk/wp-content/uploads/2017/07/rabbi-Junik-1-1.jpg",
+    "crop": {
+     "cx": 0.5,
+     "cy": 0.4565,
+     "side": 0.7502
+    },
+    "note": "the Federation of Synagogues' page on him (Beis Gavriel), July 2017"
+   },
+   {
+    "file": "img/vaad/united-kingdom-katz.jpg",
+    "name": "Dovid Katz",
+    "match": "sure",
+    "page": "https://www.charidy.com/cwh2023/rdk",
+    "image": "https://b313e8803f7a4150a884-6e0b076a1e92e31c40be44f466689c50.ssl.cf5.rackcdn.com/images/loginid143485/ee26908bf9629eeb4b37dac350f4754a_1687263185",
+    "crop": {
+     "cx": 0.5,
+     "cy": 0.5,
+     "side": 1.0
+    },
+    "note": "his page in Chabad West Hampstead's June 2023 Charidy campaign (the Hanholo's Dovid Katz is West Hampstead's, by the chabad.org locator)"
+   },
+   {
+    "file": "img/vaad/united-kingdom-korer.jpg",
+    "name": "Mendy Korer",
+    "match": "sure",
+    "page": "https://uk.linkedin.com/in/mendy-korer-b9902056",
+    "image": "https://media.licdn.com/dms/image/v2/D4E03AQHzH35VTuX-2g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1694705904913?e=2147483647&v=beta&t=hZVgu60-Xq2XGV9I8quMhOfRS53tI4elmY3qHels2-s",
+    "crop": {
+     "cx": 0.5,
+     "cy": 0.5,
+     "side": 1.0
+    },
+    "note": "his LinkedIn photo (Sep 2023, 200 px); Islington Now's March 2024 copy of it (islingtonnow.co.uk) wouldn't download"
+   },
+   {
+    "file": "img/vaad/united-kingdom-lew.jpg",
+    "name": "Shmuel Lew",
+    "match": "sure",
+    "page": "https://www.lawsynagogue.org/talks.html",
+    "image": "http://www.lawsynagogue.org/files/theme/rabbiLew_web.jpg",
+    "crop": {
+     "cx": 0.4517,
+     "cy": 0.4197,
+     "side": 0.7194
+    },
+    "keep": true,
+    "note": "a black-and-white studio portrait on Leytonstone & Wanstead Synagogue's talks page (no date)"
+   },
+   {
+    "file": "img/vaad/united-kingdom-pink.jpg",
+    "name": "Yehuda Pink",
+    "match": "sure",
+    "page": "https://www.birminghammail.co.uk/news/midlands-news/solihull-rabbi-issues-powerful-message-33873256",
+    "image": "https://i2-prod.birminghammail.co.uk/article33873997.ece/ALTERNATES/s1200e/1_faa41b48-71de-4047-8026-aefd20171325jpeg.jpg",
+    "crop": {
+     "cx": 0.5333,
+     "cy": 0.6082,
+     "side": 0.7583
+    },
+    "note": "Birmingham Live, 1 May 2026, captioned \"Rabbi Yehuda Pink, of the Solihull Shul\""
+   },
+   {
+    "file": "img/vaad/united-kingdom-sudak-leivi.jpg",
+    "name": "Leivi Sudak",
+    "match": "sure",
+    "page": "https://www.jewishrenaissance.org.uk/jr-outloud/rabbi-leivi-sudak",
+    "image": "https://images.squarespace-cdn.com/content/v1/587e46d129687f2d2ff30d8f/1546537234365-NHN4IS436OVPNDLQNAGS/Rabbi+Leivi+Sudak+cropped.jpg",
+    "crop": {
+     "cx": 0.516,
+     "cy": 0.5,
+     "side": 1.0
+    },
+    "keep": true,
+    "note": "Jewish Renaissance's interview, Jan 2019: a tight close-up (the source is cut at his hat), so his face is bigger than the others'"
+   },
+   {
+    "file": "img/vaad/united-kingdom-sudak-bentzi.jpg",
+    "name": "Bentzi Sudak",
+    "match": "sure",
+    "page": "https://www.thejc.com/life/why-do-secular-jews-love-this-branch-of-orthodox-judaism-so-much-what-is-its-secret-gg2xbbe4",
+    "image": "https://api.thejc.atexcloud.io/image-service/view/acePublic/alias/contentid/1k1smalhjbyvgmau8hl/0/sudak-113.webp?f=4%3A3",
+    "crop": {
+     "cx": 0.3433,
+     "cy": 0.4426,
+     "side": 0.3001
+    },
+    "note": "The Jewish Chronicle, with his wife (out of the crop); the same man as Chabad's captioned 2016 Flickr photo of him (flickr.com/photos/chabadlubavitch/28422160110)"
+   },
+   {
+    "file": "img/vaad/united-kingdom-sufrin.jpg",
+    "name": "Aryeh M. Sufrin",
+    "match": "sure",
+    "page": "https://www.ilfordrecorder.co.uk/news/26505271.message-hope-renewal-jewish-new-year/",
+    "image": "https://www.ilfordrecorder.co.uk/resources/images/15055773/?type=mds-article-620",
+    "crop": {
+     "cx": 0.5403,
+     "cy": 0.5,
+     "side": 1.0
+    },
+    "note": "Ilford Recorder, Sept 2026 (his Rosh Hashanah message), captioned \"Rabbi Aryeh Sufrin says that the time leading up to the Jewish New Year is a time of reflection\""
    }
   ]
  }

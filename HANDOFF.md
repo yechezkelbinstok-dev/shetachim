@@ -55,6 +55,21 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   Texas it first took the beard for a face) evens out the framing but never widens the hand-picked square. Two casts
   were set by eye (`cast` in data/head-photos.json): Cunin's magenta light (17,−2) and Bronstein's pink (8,−2.5).
   Each entry's hand-picked `crop` is recorded, so a photo can be redone from its `image`. Before/after sheets were sent.
+- **Recent, not old** (owner, Nov 5: Kaltmann's photo is "absolutely not what he looks like now — he's much older …
+  they need to be recent"; "if the one there is already good you don't have to replace it … replace the ones that are
+  like a while ago … Or the ones that look horrendous"; and every one well edited). Each photo's date is judged from its
+  source (article date; chabad.org image IDs grow with time — about 1300xxxxx = 2024, 1350xxxxx = 2026, 918xxxxx = 2015;
+  collive/anash paths carry the year). Replaced so far with 2022–2026 photos: Kaltmann, Zippel (a March 2026 studio
+  portrait by The Jew Project), Greenberg, Levitin, Cunin, Mendelsohn, Krasnjansky, Moscowitz, Kaplan.
+- **Instagram via Apify** (the owner set it up, Nov 5): many of the most recent photos are only on Instagram, which
+  can't be downloaded or scraped otherwise (Firecrawl refuses it). The owner's Apify account (FREE plan: $5 a month,
+  at most 5 runs at once) runs `apify/instagram-scraper`: `{"directUrls": [<post or account URLs>], "resultsType":
+  "posts", "resultsLimit": N}` returns each post's `displayUrl` (and `images` for a carousel), `caption`, `timestamp`,
+  `ownerUsername`; the image URLs download with plain curl. `{"search": "<name>", "searchType": "user"}` finds accounts
+  (a surname alone is useless; a center's name works). His token is not in the repo: the session's safety check blocked
+  committing it — he was told to add it to the environment's settings as `APIFY_TOKEN` (a new session picks it up), or
+  to ask for it. @thejewproject is a portrait series (Zippel 2026; also Avraham Feldman of Iceland 2025 and Berel Lazar
+  2022 — use them for the world).
 - **How it was done (to carry on with the world):** Firecrawl `firecrawl_search` with `sources: ["images"]`,
   `limit: 10`, `domainTools: false` (2 credits a search; ~75 searches for the US). The best finds: an org's own
   "About"/"Our team"/"Our rabbis" page; JEM "Here's My Story" / "Living Torah" stills; newspaper author photos (Times

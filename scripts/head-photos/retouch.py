@@ -155,8 +155,20 @@ def retouch(crop, face_rel, small, ovr=None):
         sl, sc, frac = st[:3]
         target = min(max(sl, 57.0), 75.0)
     else:
-        sl = target = 0   # no face found: leave the exposure alone (levels only)
-    if st and abs(target - sl) > 0.5 and 5 < sl < 95:
+        sl = target = 0   # no skin read: leave the exposure alone (levels only) ...
+        if face_rel:      # ... unless the face is plainly too dark or too bright (Louisiana–Mississippi, Nov 5: backlit,
+            fx, fy, fw, fh = face_rel   # his shaded skin reads bluish, so the skin test missed it and he stayed dark)
+            y0, y1 = max(int(fy + fh * 0.15), 0), max(int(fy + fh * 0.6), 1); x0, x1 = max(int(fx + fw * 0.2), 0), max(int(fx + fw * 0.8), 1)
+            fl = L[y0:y1, x0:x1]; fl = fl[(fl > 12) & (fl < 94)]
+            if fl.size > 50:
+                m = float(np.median(fl))
+                if m < 45 or m > 86: sl, target = m, min(max(m, 57.0), 75.0)
+    if not st and target and sl < 45:   # a face in shadow (backlit): its own tones lifted, the black hat and the sky not
+        k = (target - sl) * 0.55
+        L0 = L.copy(); L[:] = np.clip(L + k * np.exp(-((L - sl) / 15) ** 2), 0, 100)
+        r = np.clip(L / np.maximum(L0, 1.0), 1.0, 1.8) ** 0.6; A *= r; B *= r   # colour lifted with the light (an exposure
+        notes.append(f'face lifted +{k:.0f} (face {sl:.0f})')        # change would; lightness alone greys the skin)
+    elif target and abs(target - sl) > 0.5 and 5 < sl < 95:
         g = float(np.clip(np.log(target / 100) / np.log(sl / 100), 0.72, 1.08))
         L[:] = 100 * np.power(np.clip(L / 100, 0, 1), g); notes.append(f'exposure g{g:.2f} (skin {sl:.0f})')
     # 3b. a dark photo (black hat and coat, deep shadows under the brim): the shadows lifted a little, softly

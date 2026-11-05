@@ -1,11 +1,10 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-ps="bar">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <!-- page head -->
 <title>Chabad Shetachim Map</title>
-<meta name="robots" content="noindex">
 <link rel="icon" href="data:,">
 <script>try { const t = localStorage.getItem('shetachim-theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
 <script>// Hebrew (?lang=he, or picked before): the whole page right to left
@@ -57,6 +56,7 @@ window.EARLY = (() => {
   --plain: #fcfcfa;
   --empty: #dcdfdb; /* land with no shetach, when shown */
   --honor: #8a6a1e; --honor-line: #c39a3e; --honor-soft: #f6efdc; /* the honorary cards' gold: its text, its rules and dots, its panels */
+  --mush: #b3261e; --mush-av: #f1cfcb; --tile: #eef1f3; --sub: #7b5fc4; /* the everyday cards: a mushroom's red (and its people's badge), a quiet tile, a sub-shetach's lilac */
   /* what the map draws with: the theme's colors, except on the physical map, which is always light */
   --map-ink: var(--ink); --map-halo: var(--halo); --map-dot: var(--dot); --map-accent: var(--accent); --map-missing: var(--missing); --map-secondary: #3d5f8f;
   --font-ui: "Inter", "Heebo", "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -69,6 +69,7 @@ window.EARLY = (() => {
     --panel: #152025; --panel-line: #2b3a41; --muted: #9baab0; --missing: #7d8c93; --accent: #93b8ec; --accent-soft: #22344a;
     --map-secondary: #a8c3ea;
     --honor: #e0c278; --honor-line: #c9a24a; --honor-soft: #2b2a20;
+    --mush: #f08a7f; --mush-av: #5a2c28; --tile: #1e2b31; --sub: #b49be8;
     --c1: #5a5026; --c2: #394e30; --c3: #5c3a36; --c4: #2e435f;
     --c5: #5c4228; --c6: #473957; --c7: #294c45; --c8: #494434;
     --plain: #223036;
@@ -83,6 +84,7 @@ window.EARLY = (() => {
   --panel: #152025; --panel-line: #2b3a41; --muted: #9baab0; --missing: #7d8c93; --accent: #93b8ec; --accent-soft: #22344a;
   --map-secondary: #a8c3ea;
   --honor: #e0c278; --honor-line: #c9a24a; --honor-soft: #2b2a20;
+  --mush: #f08a7f; --mush-av: #5a2c28; --tile: #1e2b31; --sub: #b49be8;
   --c1: #5a5026; --c2: #394e30; --c3: #5c3a36; --c4: #2e435f;
   --c5: #5c4228; --c6: #473957; --c7: #294c45; --c8: #494434;
   --plain: #223036;
@@ -301,6 +303,158 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card .mosad-body { padding: 4px 11px 10px; }
 #card .mosad-body .person { margin: 3px 0 0; color: var(--ink); font-size: 12.5px; }
 #card .mosad-body a { display: inline-block; margin-top: 6px; font-size: 12.5px; }
+/* ---- the everyday cards (owner, Nov 4: "very, very nice and beautifully made, like well done"): a header washed in
+   the colour of the shetach the place is in, with a small map of that shetach (its shape in its colour on the map, the
+   place marked on it: a dot, a flagship's star, a mushroom's red dot), the shetach and its head, the name, what it is
+   and where; the shliach with a round badge of his initials; the actions in a bar along the card's foot. A shetach's
+   own card: its shape bigger with its flagship starred, its head, its flagship, its numbers. A mushroom's: a red wash,
+   its area grey. (The honorary cards keep their cream and gold.) ---- */
+#card .cc-head { --t: var(--tile); position: relative; display: flex; align-items: center; gap: 13px; margin: -10px -12px 0; padding: 14px 14px 14px; border-radius: 9px 9px 0 0;
+  background: var(--tile); background: linear-gradient(150deg, color-mix(in srgb, var(--t) 52%, var(--panel)) 0%, color-mix(in srgb, var(--t) 18%, var(--panel)) 100%);
+  border-bottom: 1px solid color-mix(in srgb, var(--t) 45%, var(--panel-line)); }
+#card .cc-head.mush { background: linear-gradient(150deg, color-mix(in srgb, var(--mush) 15%, var(--panel)) 0%, color-mix(in srgb, var(--mush) 5%, var(--panel)) 100%); border-bottom-color: color-mix(in srgb, var(--mush) 24%, var(--panel-line)); }
+#card .cc-head.sub { background: linear-gradient(150deg, color-mix(in srgb, var(--sub) 20%, var(--panel)) 0%, color-mix(in srgb, var(--sub) 6%, var(--panel)) 100%); border-bottom-color: color-mix(in srgb, var(--sub) 30%, var(--panel-line)); }
+#card .cc-mini { flex: none; width: 62px; height: 62px; padding: 4px; border-radius: 13px; background: var(--panel); box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 8%, transparent), 0 4px 12px -3px color-mix(in srgb, var(--ink) 22%, transparent); }
+#card .cc-mini.big { width: 76px; height: 76px; padding: 5px; border-radius: 15px; }
+#card .cc-mini svg { display: block; width: 100%; height: 100%; overflow: visible; }
+#card .cc-mini .land { stroke: color-mix(in srgb, var(--ink) 42%, transparent); stroke-width: .8; stroke-linejoin: round; }
+#card .cc-mini .mk { stroke: var(--panel); stroke-width: 1.8; paint-order: stroke; }
+#card .cc-htext { flex: 1; min-width: 0; padding-inline-end: 22px; }
+#card .cc-crumb { margin: 0 0 3px; color: color-mix(in srgb, var(--ink) 60%, transparent); font-size: 11.5px; line-height: 1.35; }
+#card .cc-kick { margin: 0 0 4px; color: color-mix(in srgb, var(--ink) 58%, transparent); font: 700 10px/1.35 var(--font-map); letter-spacing: .09em; text-transform: uppercase; }
+:root[lang="he"] #card .cc-kick { font-size: 11px; letter-spacing: 0; }
+#card .cc-kick.flag { color: var(--accent); }
+#card .cc-kick.mush { color: var(--mush); }
+#card .cc-kick.sub { color: var(--sub); }
+#card .cc-kick .ic { display: inline-block; width: 10px; height: 10px; margin-inline-end: 4px; vertical-align: -1px; }
+#card h2.cc-title { margin: 0; color: var(--ink); font: 650 17.5px/1.22 var(--font-ui); letter-spacing: -.01em; text-wrap: balance; }
+#card h2.cc-title.big { font-size: 22px; line-height: 1.12; }
+#card .cc-sub { margin: 3px 0 0; color: var(--muted); font-size: 12.5px; line-height: 1.35; }
+#card .cc-body { padding: 13px 2px 0; }
+#card .cc-person { display: flex; align-items: center; gap: 11px; }
+#card .cc-av { --t: var(--tile); flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: color-mix(in srgb, var(--t) 50%, var(--panel)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t) 70%, var(--panel-line)); color: color-mix(in srgb, var(--ink) 85%, var(--t)); font: 650 12.5px/1 var(--font-ui); letter-spacing: .03em; }
+#card .cc-av.big { width: 44px; height: 44px; font-size: 14.5px; }
+#card .cc-ptext { min-width: 0; }
+#card .cc-ptext .lbl { display: block; margin-bottom: 1px; color: var(--muted); font: 700 10px/1.4 var(--font-map); letter-spacing: .08em; text-transform: uppercase; }
+:root[lang="he"] #card .cc-ptext .lbl { font-size: 11px; letter-spacing: 0; }
+#card .cc-ptext b { display: block; color: var(--ink); font: 600 14.5px/1.25 var(--font-ui); }
+#card .cc-av.big + .cc-ptext b { font-size: 16px; }
+#card .cc-ptext .pos { display: block; margin-top: 1px; color: var(--muted); font-size: 12.5px; }
+#card .cc-more { margin: 7px 0 0; margin-inline-start: 47px; pointer-events: auto; }
+#card .cc-more + .cc-more { margin-top: 3px; }
+#card .cc-more summary { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; list-style: none; color: var(--accent); font-size: 12.5px; font-weight: 500; }
+#card .cc-more summary::-webkit-details-marker { display: none; }
+#card .cc-more summary::after { content: ''; width: 5px; height: 5px; margin-top: -3px; border-right: 1.4px solid currentColor; border-bottom: 1.4px solid currentColor; transform: rotate(45deg); }
+#card .cc-more[open] summary::after { margin-top: 2px; transform: rotate(-135deg); }
+#card .cc-more .pother { margin-top: 5px; padding: 0; color: var(--ink); font-size: 13px; }
+#card .cc-net { display: flex; align-items: center; gap: 11px; margin: 0 0 13px; padding: 10px 12px; border-radius: 11px; background: color-mix(in srgb, var(--mush) 7%, var(--panel)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--mush) 22%, transparent); }
+#card .cc-net .rule { flex: none; width: 24px; border-top: 2px dashed var(--mush); }
+#card .cc-net .cc-ntext { flex: 1; min-width: 0; }
+/* small buttons: a center's page at the end of the line under its name, a mushroom's "Show network" in its network's
+   box (owner, Nov 5: "a small button that doesn't take up a whole line") */
+#card .cc-subrow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-top: 3px; }
+#card .cc-subrow .cc-sub { flex: 1 1 auto; min-width: 0; margin: 0; }
+#card .cc-chip { flex: none; display: inline-flex; align-items: center; gap: 5px; height: 26px; margin: 0; margin-inline-start: auto; padding: 0 10px;
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--panel-line)); border-radius: 999px; background: color-mix(in srgb, var(--panel) 82%, transparent);
+  color: var(--accent); font: 600 12px/1 var(--font-ui); text-decoration: none; white-space: nowrap; cursor: pointer; }
+#card .cc-chip:hover { background: var(--accent-soft); }
+#card .cc-chip .ic { flex: none; width: 12px; height: 12px; }
+#card .cc-chip.mush { color: var(--mush); border-color: color-mix(in srgb, var(--mush) 34%, var(--panel-line)); }
+#card .cc-chip.mush:hover, #card .cc-chip.mush[aria-pressed="true"] { background: color-mix(in srgb, var(--mush) 10%, var(--panel)); }
+#card .cc-net .cc-chip span { display: inline-block; color: inherit; font-size: inherit; }
+#card .cc-chip .dash { width: 13px; border-top: 2px dashed currentColor; }
+#card .cc-net b { display: block; color: var(--ink); font: 600 13.5px/1.3 var(--font-ui); }
+#card .cc-net span { display: block; color: var(--muted); font-size: 12px; }
+#card .cc-ctx { display: flex; align-items: flex-start; gap: 9px; margin-top: 13px; padding-top: 12px; border-top: 1px solid var(--panel-line); color: var(--muted); font-size: 12.5px; line-height: 1.4; }
+#card .cc-ctx .sw { flex: none; width: 11px; height: 11px; margin-top: 3px; border-radius: 3px; background: var(--t, var(--tile)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ink) 14%, transparent); }
+#card .cc-ctx b { color: var(--ink); font-weight: 600; }
+#card .cc-ctx + .cc-ctx { margin-top: 8px; padding-top: 0; border-top: 0; }
+#card .cc-foot { display: flex; margin: 14px -12px -10px; border-top: 1px solid var(--panel-line); border-radius: 0 0 9px 9px; background: color-mix(in srgb, var(--tile) 65%, var(--panel)); overflow: hidden; }
+#card .cc-foot .cc-act { flex: 1 1 0; display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-width: 0; height: 42px; margin: 0; padding: 0 10px; border: 0; border-radius: 0; background: transparent; color: var(--accent); font: 600 13px/1 var(--font-ui); text-decoration: none; white-space: nowrap; cursor: pointer; pointer-events: auto; }
+#card .cc-foot .cc-act + .cc-act { border-inline-start: 1px solid var(--panel-line); }
+#card .cc-foot .cc-act:hover { background: color-mix(in srgb, var(--accent) 8%, transparent); }
+#card .cc-foot .cc-act.mush { color: var(--mush); }
+#card .cc-foot .cc-act.mush:hover { background: color-mix(in srgb, var(--mush) 8%, transparent); }
+#card .cc-foot .cc-act .ic { flex: none; width: 14px; height: 14px; }
+#card .cc-foot .cc-act .lab { overflow: hidden; text-overflow: ellipsis; }
+#card .cc-foot .cc-act .dash { flex: none; width: 16px; border-top: 2px dashed currentColor; }
+/* several listings at one address: a row each, its page a round button at its end */
+#card .cc-row { display: flex; gap: 10px; padding: 12px 0; }
+#card .cc-row + .cc-row { border-top: 1px solid var(--panel-line); }
+#card .cc-row:first-child { padding-top: 1px; }
+#card .cc-row:last-child { padding-bottom: 2px; }
+#card .cc-rtext { flex: 1; min-width: 0; }
+#card .cc-row h3 { margin: 0; color: var(--ink); font: 600 14.5px/1.3 var(--font-ui); }
+#card .cc-row .cc-sub { margin-top: 1px; }
+#card .cc-row .who { margin-top: 6px; }
+#card .cc-row .who .person { margin: 0; color: var(--ink); font-size: 13px; }
+#card .cc-tag { font-style: normal; display: inline-flex; align-items: center; gap: 5px; margin-top: 7px; padding: 2px 9px 2px 7px; border-radius: 999px; font-size: 11.5px; font-weight: 600; }
+#card .cc-tag.flag { background: var(--accent-soft); color: var(--accent); }
+#card .cc-tag.mush { background: color-mix(in srgb, var(--mush) 12%, var(--panel)); color: var(--mush); }
+#card .cc-tag .ic { width: 10px; height: 10px; }
+#card .cc-row .cc-net { margin: 8px 0 0; }
+#card .cc-go { flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: color-mix(in srgb, var(--tile) 80%, var(--panel)); color: var(--accent); pointer-events: auto; }
+#card .cc-go:hover { background: var(--accent-soft); }
+#card .cc-go .ic { width: 13px; height: 13px; }
+#card .cc-row.mush { position: relative; padding-inline-start: 13px; }
+#card .cc-row.mush::before { content: ''; position: absolute; inset-inline-start: 0; top: 13px; bottom: 13px; width: 3px; border-radius: 3px; background: var(--mush); }
+/* a shetach's card (a sub-shetach's, a country's) */
+#card .cc-lead details.vaad { margin: 0 0 11px; }
+#card .cc-lead details.vaad > summary { color: var(--ink); }
+#card .cc-flagrow { display: flex; align-items: flex-start; gap: 9px; margin-top: 12px; color: var(--ink); font-size: 13px; line-height: 1.4; }
+#card .cc-flagrow .ic { flex: none; width: 14px; height: 14px; margin-top: 2px; color: var(--accent); }
+#card .cc-flagrow .lbl { color: var(--muted); }
+#card .cc-countrow { align-items: center; color: var(--muted); }
+#card .cc-countrow span { color: var(--muted); }
+#card .cc-countrow .ic.dot { width: 14px; height: 14px; margin-top: 0; color: #163e74; }
+:root[data-theme="dark"] #card .cc-countrow .ic.dot { color: #8db5ee; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #card .cc-countrow .ic.dot { color: #8db5ee; } }
+#card .cc-countrow .ic:not(.dot) { margin-top: 0; color: var(--mush); }
+#card .cc-gap { width: 6px; }
+#card .cc-vaad { display: flex; align-items: center; gap: 15px; margin-bottom: 4px; }
+#card .cc-hive { position: relative; flex: none; }
+#card .cc-hive img { position: absolute; width: 34px; height: 34px; border-radius: 50%; object-fit: cover; background: var(--panel);
+  box-shadow: 0 0 0 2px var(--panel), 0 1px 4px rgba(0,0,0,.22); }
+#card .cc-hive img.hd { box-shadow: 0 0 0 2px var(--panel), 0 0 0 3.5px color-mix(in srgb, var(--t) 75%, var(--ink) 25%), 0 1px 4px rgba(0,0,0,.22); }
+#card .cc-vtext { min-width: 0; }
+#card .cc-vtext > .lbl { display: block; margin-bottom: 1px; color: var(--muted); font: 700 10px/1.4 var(--font-map); letter-spacing: .08em; text-transform: uppercase; }
+:root[lang="he"] #card .cc-vtext > .lbl { font-size: 11px; letter-spacing: 0; }
+#card .cc-vtext > b { display: block; color: var(--ink); font: 600 16px/1.25 var(--font-ui); }
+#card .cc-vtext details.vaad { margin-top: 4px; }
+#card .cc-vtext details.vaad > summary { color: var(--accent); font-size: 13px; }
+#card .cc-headrow .pi { flex: none; width: 14px; height: 14px; margin-top: 2px; color: var(--muted); }
+#card .cc-headrow .pi.hat { width: 16px; height: 16px; margin: 1px -1px 0; }
+#card .cc-headrow .lbl { color: var(--muted); }
+#card .cc-count { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 0 4px; margin-top: 2px; color: var(--muted); font-size: 13.5px; }
+#card .cc-count b, #card .cc-countrow b, #card .cc-act .lab b { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+#card .cc-count b.mu, #card .cc-countrow b.mu { color: var(--mush); }
+#card .cc-dot { margin: 0 5px; color: var(--muted); opacity: .7; }
+#card .cc-countrow .ic { color: var(--muted); }
+#card .cc-act .lab b { color: inherit; }
+#card .cc-tiles { display: flex; gap: 8px; margin-top: 13px; }
+#card .cc-tile { flex: 1; min-width: 0; padding: 9px 12px 10px; border-radius: 11px; background: color-mix(in srgb, var(--tile) 75%, var(--panel)); }
+#card .cc-tile b { display: block; color: var(--ink); font: 700 20px/1.1 var(--font-map); font-variant-numeric: tabular-nums; }
+#card .cc-tile span { display: block; margin-top: 2px; color: var(--muted); font-size: 12px; }
+#card .cc-tile.mush b { color: var(--mush); }
+/* (preview: the head shliach's photo) */
+#card .cc-ph { flex: none; width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: var(--panel);
+  box-shadow: 0 0 0 2px var(--panel), 0 0 0 3.5px color-mix(in srgb, var(--t) 75%, var(--ink) 25%), 0 2px 6px rgba(0,0,0,.18); }
+#card .cc-person.big .cc-ph { width: 66px; height: 66px; }
+#card .cc-person.has-ph { gap: 13px; }
+:root[data-ps] #card .cc-people:has(.has-ph) { border-inline-start: 0; padding-inline-start: 0; background: none; }
+/* (preview: the other ways to show the shliach) */
+:root[data-ps] #card .cc-more { margin-inline-start: 0; }
+:root[data-ps="label"] #card .cc-person.v-label .lbl { margin-bottom: 2px; }
+:root[data-ps="label"] #card .cc-person.v-label b { font-size: 15.5px; }
+:root[data-ps="label"] #card .cc-person.big b { font-size: 17px; }
+:root[data-ps="bar"] #card .cc-people { padding: 1px 0 1px; padding-inline-start: 12px; border-inline-start: 3px solid color-mix(in srgb, var(--t) 62%, var(--ink) 38%); }
+:root[data-ps="bar"] #card .cc-person.big b { font-size: 16.5px; }
+:root[data-ps="panel"] #card .cc-people { padding: 10px 13px 11px; border-radius: 11px; background: color-mix(in srgb, var(--t) 26%, var(--panel)); }
+:root[data-ps="panel"] #card .cc-person.big b { font-size: 16.5px; }
+:root[data-ps="icon"] #card .cc-person { align-items: flex-start; gap: 9px; }
+:root[data-ps="icon"] #card .cc-person .pi { flex: none; width: 17px; height: 17px; margin-top: 2px; color: var(--muted); }
+:root[data-ps="icon"] #card .cc-person.big .pi { width: 20px; height: 20px; margin-top: 14px; }
+:root[data-ps="icon"] #card .cc-more { margin-inline-start: 26px; }
 #card .flag-world { color: var(--accent); font-weight: 600; font-style: normal; }
 .legend-mushroom { vertical-align: -2px; flex: none; }
 #card .kicker-mushroom { color: #b3261e; font-weight: 700; letter-spacing: 0.06em; }
@@ -330,6 +484,30 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card details.vaad li { display: block; color: var(--ink); }
 #card details.vaad li.alt { margin-top: 6px; padding-top: 5px; border-top: 1px dashed var(--panel-line); color: var(--muted); font-size: 12px; }
 #card details.vaad li.alt .meta { font-size: 12px; }
+/* a vaad with its members' faces, opened (owner, Nov 5: "once you click to expand the va'ad then the layout should change
+   to each member of the vaad with their pic"): the honeycomb gives way to a row per member, his photo by his name and
+   town, the chairman's ringed in the shetach's colour; the alternate after them, apart, smaller and grey */
+#card .cc-vaad:has(details.vaad-ph[open]) { align-items: flex-start; }
+#card .cc-vaad:has(details.vaad-ph[open]) .cc-hive { display: none; }
+#card .cc-vaad:has(details.vaad-ph[open]) .cc-vtext { flex: 1; }
+#card details.vaad-ph ul { display: grid; gap: 8px; margin: 10px 0 2px; padding: 0; list-style: none; }
+#card details.vaad-ph li.vm { display: flex; flex-direction: row; align-items: center; gap: 10px; color: var(--ink); }
+#card details.vaad-ph .vm-ph { flex: none; width: 32px; height: 32px; border-radius: 50%; object-fit: cover; background: var(--tile);
+  box-shadow: 0 0 0 1.5px var(--panel), 0 1px 3px rgba(0,0,0,.2); }
+#card details.vaad-ph .vm-av { display: grid; place-items: center; color: var(--ink); font: 600 12px/1 var(--font-ui); background: color-mix(in srgb, var(--t) 40%, var(--panel)); }
+#card details.vaad-ph li.hd .vm-ph { box-shadow: 0 0 0 2px var(--panel), 0 0 0 3.5px color-mix(in srgb, var(--t) 75%, var(--ink) 25%), 0 1px 3px rgba(0,0,0,.2); }
+#card details.vaad-ph .vm-t { display: flex; flex-direction: column; min-width: 0; line-height: 1.3; }
+#card details.vaad-ph .vm-n { display: flex; flex-wrap: wrap; align-items: center; gap: 0 7px; }
+#card details.vaad-ph .vm-n b { color: var(--ink); font-size: 14px; font-weight: 600; }
+#card details.vaad-ph .vm-role { padding: 0 7px; border-radius: 999px; background: color-mix(in srgb, var(--t) 42%, var(--panel)); color: var(--ink); font-size: 11px; font-weight: 600; line-height: 18px; }
+#card details.vaad-ph .vm-town { color: var(--muted); font-size: 12.5px; }
+#card details.vaad-ph li.vm.alt { margin-top: 2px; padding-top: 10px; border-top: 1px dashed var(--panel-line); }
+#card details.vaad-ph li.alt .vm-ph { width: 26px; height: 26px; margin-inline: 3px; }
+#card details.vaad-ph li.alt .vm-n b { color: var(--muted); font-size: 13px; font-weight: 500; }
+#card details.vaad-ph li.alt .vm-town { font-size: 12px; }
+#card details.vaad-ph[open] li.vm { animation: vm-in .2s ease-out both; }
+@keyframes vm-in { from { opacity: 0; transform: translateY(-3px); } }
+@media (prefers-reduced-motion: reduce) { #card details.vaad-ph[open] li.vm { animation: none; } }
 #card .zoomto { border: 1px solid var(--panel-line); background: transparent; border-radius: 999px; padding: 2px 10px; font-size: 13px; cursor: pointer; }
 #card .zoomto:hover { border-color: var(--accent); }
 #card .net-show { margin-top: 4px; align-self: flex-start; }
@@ -445,7 +623,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           <div class="checks">
           <label class="check" for="show-dots"><input type="checkbox" id="show-dots" checked> <span class="legend-dot" aria-hidden="true"></span> Chabad centers</label>
           <label class="check" for="show-cities"><input type="checkbox" id="show-cities" checked> <span class="legend-ring" aria-hidden="true"></span> Cities with shluchim</label>
-          <label class="check" for="show-capitals"><input type="checkbox" id="show-capitals" checked> <svg class="legend-star" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path id="star-shape"/></svg> Shetach capitals</label>
+          <label class="check" for="show-capitals"><input type="checkbox" id="show-capitals" checked> <svg class="legend-star" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path id="star-shape"/></svg> Shetach flagships</label>
           <label class="check" for="show-mushrooms"><input type="checkbox" id="show-mushrooms"> <svg class="legend-mushroom" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M1.5 8.2C1.5 4.6 4.4 2 8 2s6.5 2.6 6.5 6.2c0 .5-.4.8-.9.8H2.4c-.5 0-.9-.3-.9-.8z" fill="#c0392b"/><circle cx="5.2" cy="5.6" r="1.1" fill="#fff"/><circle cx="9.4" cy="4.4" r="0.9" fill="#fff"/><circle cx="11.4" cy="7" r="0.8" fill="#fff"/><path d="M6.2 9h3.6l.5 4.6c.1.8-.5 1.4-1.3 1.4H7c-.8 0-1.4-.6-1.3-1.4z" fill="#efe3cf" stroke="#8a7a62" stroke-width=".6"/></svg> Mushrooms</label>
           <label class="check" for="show-empty"><input type="checkbox" id="show-empty" checked> <span class="legend-empty" aria-hidden="true"></span> Rest of the world</label>
           <label class="check" for="show-rest-borders"><input type="checkbox" id="show-rest-borders"> <span class="legend-rest" aria-hidden="true"></span> Borders of the rest of the world</label>
@@ -578,6 +756,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // off unless the Mushrooms option is on (remembered). The data is kept whole and the map's centers are worked out
   // from it either way (useCenters), so switching is instant (owner, Oct 26: it used to reload the page).
   let mushroomsOn = false;
+  // the family whose houses are ringed (from the search): declared before the Mushrooms switch's handler, which reads it
+  let marked = null;
   try { mushroomsOn = localStorage.getItem('shetachim-mushrooms') === 'on'; } catch (e) {}
   // Mushroom networks (owner, Nov 4: "mushroom networks should be able to be visualized somehow on the map"): the houses
   // of one network (extra-centers.json "network") joined by dashed lines, the shortest set that joins them all. Shown
@@ -627,13 +807,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'Latin America & Caribbean': 'אמריקה הלטינית והאיים הקריביים',
     Map: 'מפה', Physical: 'פיזית', Tinted: 'פיזית צבועה', Political: 'מדינית', Borders: 'גבולות', States: 'מדינות', Countries: 'ארצות', Both: 'שניהם',
     'Lighter:': 'בהיר יותר:', 'Part of Israel:': 'חלק מישראל:', Gaza: 'עזה', Lebanon: 'לבנון', Syria: 'סוריה', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', Off: 'ללא',
-    'More options': 'אפשרויות נוספות', 'Regions & countries': 'אזורים ומדינות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', Mushrooms: 'פטריות', Mushroom: 'פטרייה', 'Mushroom marker': 'סימון פטריות', 'Mushroom networks': 'רשתות פטריות', Dot: 'נקודה', 'Sub-shetachim': 'תת־שטחים', 'Sub-shetach': 'תת־שטח', 'Regional director': 'שליח אזורי', 'Rest of the world': 'שאר העולם', 'Borders of the rest of the world': 'גבולות שאר העולם', 'Held by Israel': 'בשליטת ישראל', 'Blue sea': 'ים כחול', Streets: 'רחובות',
+    'More options': 'אפשרויות נוספות', 'Regions & countries': 'אזורים ומדינות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Shetach flagships': 'המוסדות המרכזיים', Mushrooms: 'פטריות', Mushroom: 'פטרייה', 'Mushroom marker': 'סימון פטריות', 'Mushroom networks': 'רשתות פטריות', Dot: 'נקודה', 'Sub-shetachim': 'תת־שטחים', 'Sub-shetach': 'תת־שטח', Shetach: 'שטח', 'Regional director': 'שליח אזורי', 'Rest of the world': 'שאר העולם', 'Borders of the rest of the world': 'גבולות שאר העולם', 'Held by Israel': 'בשליטת ישראל', 'Blue sea': 'ים כחול', Streets: 'רחובות',
     Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד', Dots: 'נקודות', Solid: 'מלאות', 'See-through': 'שקופות', Classic: 'קלאסיות',
     'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
     'Download maps (SVG, PNG)': 'הורדת מפות (SVG, PNG)', 'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
     'Loading…': 'טוען…', "This browser can't show the physical map.": 'הדפדפן הזה לא יכול להציג את המפה הפיזית.', "The physical map couldn't load.": 'המפה הפיזית לא נטענה.',
     'Open on chabad.org': 'לעמוד ב-chabad.org', 'World Headquarters': 'המטה העולמי', 'Same address': 'אותה כתובת', City: 'עיר', Population: 'אוכלוסייה',
-    Province: 'פרובינציה', State: 'מדינה', Country: 'ארץ', Capital: 'בירה', 'No centralized leadership': 'אין הנהגה מרכזית', Leadership: 'הנהלה', 'Regional leadership': 'הנהלה אזורית',
+    Province: 'פרובינציה', State: 'מדינה', Country: 'ארץ', Capital: 'בירה', Flagship: 'מוסד מרכזי', 'No centralized leadership': 'אין הנהגה מרכזית', Leadership: 'הנהלה', 'Regional leadership': 'הנהלה אזורית',
     // center types (chabad.org's)
     'Chabad House': 'בית חב״ד', 'High School - Girls': 'תיכון לבנות', 'Vocational School': 'בית ספר מקצועי', Preschool: 'גן ילדים', 'Hebrew School': 'תלמוד תורה',
     'Yeshivah Ketanah/Mesivtah': 'ישיבה קטנה', 'Day School': 'בית ספר', 'Yeshivah for Beginners - Men': 'ישיבה למתחילים', Kollel: 'כולל', 'Social Services': 'שירותי רווחה',
@@ -2233,11 +2413,15 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function subHTML(s) {
     const parent = shetachById.get(s.parent), dot = dotOfCenter.get(s.capital), c = dot && dot.centers.find((x) => x.id === s.capital);
     const [n, m] = subCounts(s);
-    return `<span class="kicker">${tr('Sub-shetach')}</span><h2>${esc(HE ? s.nameHe || s.name : s.name)}</h2>
-      ${s.vaad ? membersHTML({ vaadMembers: s.vaadMembers, states: new Set(s.parts.map((p) => p.state)) }, `${tr('Regional leadership')}: ${esc(HE ? s.vaadHe || s.vaad : s.vaad)}`) // (a vaad leads it, as a shetach's vaad is shown: Queens; owner, Nov 3: "regional leadership instead of leadership")
-        : `<p>${HE && /^Mrs\.? /.test(s.head) ? 'שלוחה אזורית' : tr('Regional director')}: ${esc(HE ? s.headHe || s.head : s.head)}${s.headDisputed ? ` <span class="flag">(${HE ? 'במחלוקת' : 'disputed'})</span>` : ''}</p>`}${c ? `<p>${tr('Capital')}: ${esc(c.name)}${c.city ? `, ${esc(c.city)}` : ''}</p>` : ''}
-      ${parent ? `<p class="meta">${shetachWithHead(parent)}</p>` : ''}
-      <div class="foot"><span class="meta">${counts(n, m)}</span></div>`;
+    // (lilac; its parent shetach's shape on the small map with its flagship starred; its regional director with his
+    // initials; its flagship; its numbers; the shetach it's in)
+    const head = HE ? s.headHe || s.head : s.head;
+    const mini = parent ? miniMap(parent.pieces, `s:${parent.id}`, tintOf(parent), dot ? [{ lon: dot.lon, lat: dot.lat, kind: 'star' }] : []) : '';
+    return `${ccHead({ cls: 'sub', t: 'var(--sub)', mini, kick: `<p class="cc-kick sub">${tr('Sub-shetach')}</p>`, title: esc(HE ? s.nameHe || s.name : s.name), sub: headCount(n, m), big: true })}
+      <div class="cc-body"><div class="cc-lead">${s.vaad ? membersHTML({ vaadMembers: s.vaadMembers, states: new Set(s.parts.map((p) => p.state)) }, `${tr('Regional leadership')}: ${esc(HE ? s.vaadHe || s.vaad : s.vaad)}`) // (a vaad leads it, as a shetach's vaad is shown: Queens; owner, Nov 3: "regional leadership instead of leadership")
+        : personRow(initialsOf(head), `${esc(head)}${s.headDisputed ? ` <span class="flag">(${HE ? 'במחלוקת' : 'disputed'})</span>` : ''}`, '', 'var(--sub)', HE && /^Mrs\.? /.test(s.head) ? 'שלוחה אזורית' : tr('Regional director'), true)}</div>${
+        c ? `<div class="cc-flagrow">${icon('star')}<span><span class="lbl">${tr('Flagship')}:</span> ${esc(c.name)}${c.city ? `, ${esc(c.city)}` : ''}</span></div>` : ''}
+      ${ccTiles(n, m)}${parent ? ctxRow(parent, shetachWithHead(parent)) : ''}</div>`;
   }
 
   // ---------- the map itself ----------
@@ -3144,7 +3328,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // a card's button: Show network, or Hide network when it's the one shown
   const netButton = (n) => (netPinned === n ? (HE ? 'הסתרת הרשת' : 'Hide network') : HE ? 'הצגת הרשת' : 'Show network');
   function syncNet() {
-    card.querySelectorAll('.net-show').forEach((b) => { const n = networks().get(b.dataset.net); if (n) { b.textContent = netButton(n); b.setAttribute('aria-pressed', String(netPinned === n)); } });
+    card.querySelectorAll('.net-show').forEach((b) => { const n = networks().get(b.dataset.net); if (n) { (b.querySelector('.lab') || b).textContent = netButton(n); b.setAttribute('aria-pressed', String(netPinned === n)); } });
     netListUI();
   }
   // A network shown and framed (a mushroom card's button, or the options' list), the card left open; the chip under the
@@ -3237,6 +3421,84 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return `<p>${HE ? `השליח הראשי ${esc(heIn(p.name))}` : `Head shliach in ${the}${esc(p.name)}`}: ${esc(personName(man))}</p>`;
   }
 
+  // ---- the everyday cards (owner, Nov 4: "very, very nice and beautifully made, like well done") ----
+  const icon = (k) => (k === 'star' ? `<svg class="ic" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path d="${STAR}" fill="currentColor"/></svg>`
+    : k === 'mush' ? `<svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="${MUSHROOM_CAP}" fill="currentColor"/><path d="${MUSHROOM_STEM}" fill="currentColor" opacity=".55"/></svg>`
+    : k === 'zoom' ? '<svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.4 10.4l3.6 3.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>'
+    : '<svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 3.5h-3v9h9v-3M9.5 3.5h3v3M12.5 3.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  // a shetach's own colour on the map (grey on the plain map)
+  function shetachTint(s) {
+    if (!s || state.color === 'plain') return null;
+    const i = shetachColor(groupOf(s.id));
+    return i == null || i < 0 ? null : isPhysical() ? PHYS_TINTS[i] : `var(--c${i + 1})`;
+  }
+  const tintOf = (s) => shetachTint(s) || 'var(--tile)';
+  const miniMap = () => ''; // (no small map in a card: owner, Nov 4: "Absolutely no reason to have that map situation")
+  // `act`: a small button at the end of the line under the name (a center's page: owner, Nov 5, "The link can just be a
+  // button honestly like a small button that doesn't take up a whole line")
+  const ccHead = ({ cls = '', t, mini, kick = '', crumb = '', title, sub = '', big, act = '' }) => `<header class="cc-head${cls ? ` ${cls}` : ''}" style="--t:${t}">${mini}<div class="cc-htext">${kick}${
+    crumb ? `<p class="cc-crumb">${crumb}</p>` : ''}<h2 class="cc-title${big ? ' big' : ''}">${title}</h2>${
+    act ? `<div class="cc-subrow">${sub ? `<p class="cc-sub">${sub}</p>` : ''}${act}</div>` : sub ? `<p class="cc-sub">${sub}</p>` : ''}</div></header>`;
+  // a person's initials (a family's: its name's first letter)
+  const initials = (first, last) => `${(first || '').trim().slice(0, 1)}${(last || '').trim().slice(0, 1)}`;
+  const initialsOf = (name) => { const w = String(name || '').replace(/^(Disputed|במחלוקת)\s*[—–-]?\s*/, '').split(/[;,]/)[0].trim().split(/\s+/).filter((x) => !/^(family|משפחת)$/.test(x));
+    return w.length ? initials(w[0], w.length > 1 ? w[w.length - 1] : '') : ''; };
+  const PERSON_ICON = '<svg class="pi" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5.2" r="2.7" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.8 14c.6-2.9 2.7-4.4 5.2-4.4s4.6 1.5 5.2 4.4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>';
+  const HEAD_PHOTO = new Set(["west-coast", "alaska", "washington", "oregon", "hawaii", "idaho", "montana", "wyoming", "utah", "colorado", "arizona", "new-mexico", "nebraska", "upper-midwest", "iowa", "wisconsin", "illinois", "michigan", "northeast-ohio", "central-ohio", "southern-ohio", "indiana", "kentucky", "tennessee", "oklahoma", "arkansas", "texas", "louisiana-mississippi", "alabama", "georgia", "florida", "the-carolinas", "virginia", "western-pennsylvania", "pennsylvania", "new-jersey", "maryland", "washington-dc", "rockland", "upstate-new-york", "maine", "vermont", "central-massachusetts", "connecticut", "new-haven", "south-area", "merrimack-valley", "north-shore-of-massachusetts", "alberta", "manitoba-saskatchewan", "ontario", "newfoundland-and-labrador"]);
+  const photoIf = (s, list) => { if (!s || s.vaadFirst || !HEAD_PHOTO.has(s.id) || !list) return ''; const p = list.filter((x) => !x.isDeceased).find(isMale);
+    return p && p.lastName && String(s._enHead || s.headShliach || '').includes(p.lastName) ? s.id : ''; };
+  const personRow = (ini, name, pos, t, label = '', big = false, photo = '') => {
+    const v = document.documentElement.dataset.ps || 'initials';
+    const txt = (lbl, p2) => `<span class="cc-ptext">${lbl ? `<span class="lbl">${lbl}</span>` : ''}<b>${name}</b>${p2 ? `<span class="pos">${esc(p2)}</span>` : ''}</span>`;
+    if (photo) return `<div class="cc-person has-ph${big ? ' big' : ''}"><img class="cc-ph" src="img/heads/${photo}.jpg" alt="">${txt(label, pos)}</div>`;
+    if (v === 'label') return `<div class="cc-person v-label${big ? ' big' : ''}">${txt(label || (pos ? esc(pos) : ''), label ? pos : '')}</div>`;
+    if (v === 'icon') return `<div class="cc-person v-icon${big ? ' big' : ''}">${PERSON_ICON}${txt(label, pos)}</div>`;
+    if (v === 'bar' || v === 'panel') return `<div class="cc-person${big ? ' big' : ''}">${txt(label, pos)}</div>`;
+    return `<div class="cc-person"><span class="cc-av${big ? ' big' : ''}" style="--t:${t}">${esc(ini)}</span>${txt(label, pos)}</div>`;
+  };
+  // Who's listed, as on any card (the owner's rule: the first man listed who's alive; with none, "<name> family" or the
+  // first woman), the rest folded under him, those who passed away under "Deceased"
+  function peopleBlock(list, t, photo = '') {
+    if (!list || !list.length) return '';
+    const living = list.filter((p) => !p.isDeceased), passed = list.filter((p) => p.isDeceased);
+    const primary = living.find(isMale), woman = !primary && living.find((p) => !isMale(p) && p.lastName), widowed = woman && passed.some(isMale);
+    const who = primary || woman;
+    const name = primary ? personName(primary) : widowed ? (HE ? `משפחת ${lastOf(woman)}` : `${woman.lastName} family`) : woman ? personName(woman) : '';
+    const pos = primary ? positionOf(primary) : widowed ? '' : woman ? positionOf(woman) : '';
+    const others = living.filter((p) => p !== primary && !(woman && !widowed && p === woman));
+    const fold = (label, ps) => `<details class="cc-more"><summary>${label}</summary>${ps.map((p) => `<div class="pother">${personLine(p)}</div>`).join('')}</details>`;
+    const obm = passed.filter((p) => !p.hyd);
+    return `<div class="cc-people" style="--t:${t}">${name ? personRow(widowed ? lastOf(woman).trim().slice(0, 1) : initials(firstOf(who), lastOf(who)), esc(name), pos, t, '', false, primary ? photo : '') : ''}${
+      others.length ? fold(`+${others.length} ${HE ? 'נוספים' : 'more'}`, others) : ''}${obm.length ? fold(`${HE ? 'נפטרו' : 'Deceased'} (${obm.length})`, obm) : ''}</div>`;
+  }
+  // the shetach a place is in, under its people: its colour, its name bold, its vaad and head
+  const boldFirst = (line) => { const i = line.indexOf(' · '); return i > 0 ? `<b>${line.slice(0, i)}</b>${line.slice(i)}` : `<b>${line}</b>`; };
+  const ctxRow = (s, line) => (line ? `<div class="cc-ctx"><span class="sw" style="--t:${tintOf(s)}"></span><span>${boldFirst(line)}</span></div>` : '');
+  // the bar along a card's foot: its page, a flagship's way to its shetach, a mushroom's network
+  const pageOf = (c) => { const m = /href="([^"]+)"[^>]*>([^<]+)</.exec(chabadLink(c) || ''); return m ? { href: m[1], label: m[2] } : null; };
+  const pageAct = (c) => { const p = pageOf(c); return p ? `<a class="cc-act" href="${p.href}" target="_blank" rel="noopener" title="${p.label}">${icon('ext')}<span class="lab">${p.label.replace(/^(Open on |לעמוד ב-|לדף ב)/, '')}</span></a>` : ''; };
+  // the same as a small button: a center's page in its header, a mushroom's "Show network" in its network's box (the
+  // bar along the foot is gone: owner, Nov 5)
+  const pageChip = (c) => { const p = pageOf(c); return p ? `<a class="cc-chip" href="${p.href}" target="_blank" rel="noopener" title="${p.label}">${icon('ext')}<span class="lab">${p.label.replace(/^(Open on |לעמוד ב-|לדף ב)/, '')}</span></a>` : ''; };
+  const netPill = (c) => { const n = c.mushroom && c.network && networks().get(c.network);
+    return n ? `<button type="button" class="cc-chip mush net-show" data-net="${esc(c.network)}" aria-pressed="${netPinned === n}"><span class="dash"></span><span class="lab">${netButton(n)}</span></button>` : ''; };
+  const pageGo = (c) => { const p = pageOf(c); return p ? `<a class="cc-go" href="${p.href}" target="_blank" rel="noopener" title="${p.label}" aria-label="${p.label}">${icon('ext')}</a>` : ''; };
+  const zoomAct = (attrs) => `<button type="button" class="cc-act zoomto" ${attrs}>${icon('zoom')}<span class="lab">${tr('Zoom in')}</span></button>`;
+  const netAct = (c) => { const n = c.mushroom && c.network && networks().get(c.network);
+    return n ? `<button type="button" class="cc-act mush net-show" data-net="${esc(c.network)}" aria-pressed="${netPinned === n}"><span class="dash"></span><span class="lab">${netButton(n)}</span></button>` : ''; };
+  const netBox = (c) => { const n = networks().get(c.network), name = HE ? c.networkHe || c.network : c.network;
+    return `<div class="cc-net"><span class="rule"></span><div class="cc-ntext"><b>${esc(name)}</b><span>${HE ? 'רשת' : 'Network'}${n ? ` · ${esc(netCount(n))}` : ''}</span></div>${netPill(c)}</div>`; };
+  const ccTile = (n, one, many, heOne, heMany, cls = '') => `<div class="cc-tile${cls ? ` ${cls}` : ''}"><b>${fmt(n)}</b><span>${HE ? (n === 1 ? heOne : heMany) : n === 1 ? one : many}</span></div>`;
+  const CNT = () => document.documentElement.dataset.cnt || 'line';
+  const DOTMARK = '<svg class="ic dot" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="4.4" fill="currentColor" stroke="var(--panel)" stroke-width="1.6"/></svg>';
+  const countLine = (n, m) => { const c = n - m;
+    return `<div class="cc-flagrow cc-countrow">${DOTMARK}<span><b>${fmt(c)}</b> ${HE ? (c === 1 ? 'מוסד' : 'מוסדות') : c === 1 ? 'center' : 'centers'}</span>${m ? `<span class="cc-gap"></span>${icon('mush')}<span><b class="mu">${fmt(m)}</b> ${HE ? (m === 1 ? 'פטרייה' : 'פטריות') : m === 1 ? 'mushroom' : 'mushrooms'}</span>` : ''}</div>`; };
+  const PIN = '<svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.6a4.6 4.6 0 0 0-4.6 4.6c0 3.5 4.6 8.3 4.6 8.3s4.6-4.8 4.6-8.3A4.6 4.6 0 0 0 8 1.6zm0 6.3a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4z" fill="currentColor"/></svg>';
+  const countText = (n, m) => { const c = n - m;
+    return `<b>${fmt(c)}</b> ${HE ? (c === 1 ? 'מוסד' : 'מוסדות') : c === 1 ? 'center' : 'centers'}${m ? `<span class="cc-dot">·</span><b class="mu">${fmt(m)}</b> ${HE ? (m === 1 ? 'פטרייה' : 'פטריות') : m === 1 ? 'mushroom' : 'mushrooms'}` : ''}`; };
+  const headCount = (n, m) => (CNT() === 'head' ? `<span class="cc-count">${countText(n, m)}</span>` : '');
+  const zoomCount = (n, m) => (CNT() === 'zoom' ? `<span class="cc-dot">·</span>${countText(n, m)}` : '');
+  const ccTiles = (n, m) => CNT() === 'line' ? countLine(n, m) : CNT() !== 'box' ? '' : `<div class="cc-tiles">${ccTile(n - m, 'center', 'centers', 'מוסד', 'מוסדות')}${m ? ccTile(m, 'mushroom', 'mushrooms', 'פטרייה', 'פטריות', 'mush') : ''}</div>`;
   // A shetach's flagship center; 770 (world HQ) gets its own wording rather than "of New York City".
   const capKicker = (c) => (c.world ? tr('World Headquarters') : (HE ? `המוסד המרכזי של ${esc(c.s.name)}` : `${esc(c.s.name)} flagship center`) + (c.for ? ` · ${esc(c.for)}` : ''));
 
@@ -3299,23 +3561,31 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return `<div class="memorial">${names}${note ? `<div class="mem-note">${esc(note)}</div>` : ''}</div>`;
   }
 
+  // A center's card: the header in its shetach's colour with the small map (a mushroom's red, its area grey), the
+  // shetach and its head above the name (a mushroom's area only: it isn't under the shetach's head, owner, Oct 12; a
+  // flagship's star badge instead, its shetach under its people), what it is and where; its network (a mushroom's),
+  // its people; the bar of actions. Several at one address: the address in the header, a row each.
+  const mushKick = (c) => `<p class="cc-kick mush">${icon('mush')}${tr('Mushroom')}${c.networkFlagship && networks().has(c.network) ? ` · ${HE ? 'המוסד המרכזי של הרשת' : 'Network flagship'}` : ''}</p>`;
   function dotHTML(d) {
-    const n = d.centers.length;
-    const items = d.centers.map((c) => {
+    const n = d.centers.length, g = pieceById.get(d.piece), s = g && shetachOf(g);
+    const mushy = d.centers.some((c) => c.mushroom), allMush = d.centers.every((c) => c.mushroom);
+    const cap1 = n === 1 ? capitalOfCenter.get(d.centers[0].id) : null, flag = cap1 && !cap1.world;
+    const t = allMush ? 'var(--mush)' : tintOf(s);
+    const mini = miniMap(s ? s.pieces : g ? [g] : [], s ? `s:${s.id}` : `g:${d.piece}`, allMush || !s ? 'var(--empty)' : tintOf(s), [{ lon: d.lon, lat: d.lat, kind: allMush ? 'mush' : flag ? 'star' : 'dot' }]);
+    const crumb = shetachLine(d.piece, !mushy);
+    if (n === 1) {
+      const c = d.centers[0];
+      return `${ccHead({ cls: c.mushroom ? 'mush' : '', t, mini, kick: c.mushroom ? mushKick(c) : flag ? `<p class="cc-kick flag">${icon('star')}${capKicker(cap1)}</p>` : '', crumb: flag ? '' : crumb,
+        title: esc(c.name), sub: esc([c.type, c.city].filter(Boolean).join(' · ')), act: pageChip(c) })}
+        <div class="cc-body">${c.mushroom && c.network ? netBox(c) : ''}${memorialHTML(c)}${peopleBlock(c.personnel, c.mushroom ? 'var(--mush-av)' : t, flag ? photoIf(s, c.personnel) : '')}${flag ? ctxRow(s, shetachLine(d.piece, true)) : ''}</div>`;
+    }
+    const rows = d.centers.map((c) => {
       const cap = capitalOfCenter.get(c.id);
-      return `<li>
-        ${c.mushroom ? `<span class="kicker kicker-mushroom">${tr('Mushroom')}${c.networkFlagship && networks().has(c.network) ? ` · ${HE ? 'המוסד המרכזי של הרשת' : 'Network flagship'}` : ''}</span>` : ''}
-        <strong>${esc(c.name)}</strong>
-        <span class="meta">${esc([c.type, c.city].filter(Boolean).join(' · '))}</span>
-        ${c.mushroom && c.network ? netLine(c) : ''}
-        ${memorialHTML(c)}${personnelHTML(c.personnel)}
-        ${cap ? `<span class="flag${cap.world ? ' flag-world' : ''}">${capKicker(cap)}</span>` : ''}
-        ${chabadLink(c)}
-      </li>`;
+      const tag = c.mushroom ? `<span class="cc-tag mush">${icon('mush')}${tr('Mushroom')}</span>` : cap && !cap.world ? `<span class="cc-tag flag">${icon('star')}${capKicker(cap)}</span>` : '';
+      return `<section class="cc-row${c.mushroom ? ' mush' : ''}"><div class="cc-rtext"><h3>${esc(c.name)}</h3>${c.type ? `<p class="cc-sub">${esc(c.type)}</p>` : ''}<div class="who">${personnelHTML(c.personnel)}</div>${tag}${
+        c.mushroom && c.network ? netBox(c) : ''}</div>${pageGo(c)}</section>`;
     }).join('');
-    const head = n > 1 ? `<span class="kicker">${HE ? `${n} מוסדות בכתובת זו` : `${n} listings at this address`}</span><h2>${esc(d.centers[0].city || tr('Same address'))}</h2>` : '';
-    // a mushroom isn't under the shetach's head: its card names no head shliach (owner, Oct 12)
-    return `${head}<ul>${items}</ul><div class="foot"><span class="meta">${shetachLine(d.piece, !d.centers.some((c) => c.mushroom))}</span></div>`;
+    return `${ccHead({ cls: allMush ? 'mush' : '', t, mini, crumb, title: esc(d.centers[0].city || tr('Same address')), sub: HE ? `${n} מוסדות בכתובת זו` : `${n} listings at this address` })}<div class="cc-body">${rows}</div>`;
   }
 
   // The Rebbeim who led from Lubavitch, on its card (owner, Oct 13): the Mitteler Rebbe came in 1813, the Rebbe Rashab
@@ -3414,9 +3684,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (c.world) return `<header class="hc-head"><span class="kicker kicker-world">${capKicker(c)}</span><h2 class="honor-h">${esc(c.name)}</h2></header>${rebbeHTML(c.center)}
       ${c.city ? `<p class="hc-city">${esc(c.city)}</p>` : ''}${memorialHTML(c.center)}${personnelHTML(c.center && c.center.personnel)}${chabadLink(c.center)}${atAddress}
       <div class="foot"><span class="meta">${shetachLine(c.piece, false)}</span></div>`;
-    return `<span class="kicker">${capKicker(c)}</span><h2>${esc(c.name)}</h2>${rebbeHTML(c.center)}
-      ${c.city ? `<p>${esc(c.city)}</p>` : ''}${memorialHTML(c.center)}${personnelHTML(c.center && c.center.personnel)}${chabadLink(c.center)}
-      <div class="foot"><span class="meta">${shetachLine(c.piece, true)}</span></div>`;
+    // a shetach's flagship center: its star on the small map and in its badge, its shetach under its people, a way there
+    const g = pieceById.get(c.piece), t = tintOf(c.s);
+    const mini = miniMap(c.s ? c.s.pieces : g ? [g] : [], c.s ? `s:${c.s.id}` : `g:${c.piece}`, tintOf(c.s), [{ lon: c.lon, lat: c.lat, kind: 'star' }]);
+    return `${ccHead({ t, mini, kick: `<p class="cc-kick flag">${icon('star')}${capKicker(c)}</p>`, title: esc(c.name), sub: esc([c.center && c.center.type, c.city].filter(Boolean).join(' · ')), act: pageChip(c.center) })}${rebbeHTML(c.center)}
+      <div class="cc-body">${memorialHTML(c.center)}${peopleBlock(c.center && c.center.personnel, t, photoIf(c.s, c.center && c.center.personnel))}${ctxRow(c.s, shetachLine(c.piece, true))}</div>
+      `; // (no "Zoom in": owner, Nov 5, "Get rid of zoom in, takes up unnecessary space nobody needs it"; its page is a small button in the header)
   }
 
   // A city's own card (its population, its centers): off since the owner's Oct 26 ("get rid of that useless card");
@@ -3444,16 +3717,20 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const centers = d3.sum(pieces, (x) => (shownAs(x) ? centersIn.get(x.properties.id) || 0 : 0));
       const mush = d3.sum(pieces, (x) => (shownAs(x) ? mushroomsIn.get(x.properties.id) || 0 : 0));
       // each shetach covering it, with its head; then the country's own head shliach where its shetach spans several
-      const part = state.borders === 'regular' ? inState.map((x) => `<p>${shetachWithHead(x, true, inState.length > 1 ? partName(p.state, x) : x.name)}</p>`).join('') + countryHeadHTML(p, inState) : '';
-      return `<span class="kicker">${areaKind(p)}</span><h2>${esc(p.name)}</h2>${part}
-        <div class="foot"><span class="meta">${counts(centers, mush)}</span>${zoomBtn}</div>`;
+      const part = state.borders === 'regular' ? inState.map((x) => ctxRow(x, shetachWithHead(x, true, inState.length > 1 ? partName(p.state, x) : x.name))).join('') + countryHeadHTML(p, inState) : '';
+      const mini = miniMap(pieces.filter(shownAs), `a:${p.state}`, 'var(--tile)', [], 72);
+      return `${ccHead({ t: 'var(--tile)', mini, kick: `<p class="cc-kick">${areaKind(p)}</p>`, title: esc(p.name), sub: headCount(centers, mush), big: true })}
+        <div class="cc-body"><div class="cc-area">${part}</div>${ccTiles(centers, mush)}</div>`; // (no "Zoom in": owner, Nov 5)
     }
     return shetachHTML(s, zoomBtn);
   }
   // A vaad on a shetach's card: "Leadership: …", which opens to its members and their towns (owner, Oct 13)
   const VAAD_ROLE_HE = { Head: 'יו״ר', Alternate: 'ממלא מקום' };
-  // a board's members (a vaad, or a board at the head: the UK's Hanholo, NYC's Tzach), under a line that opens to them
-  function membersHTML(s, line) {
+  // a board's members (a vaad, or a board at the head: the UK's Hanholo, NYC's Tzach), under a line that opens to them.
+  // With its members' faces (`photos`: a vaad that leads, Florida, New Jersey) it opens to a row per member, his photo by
+  // his name and town (owner, Nov 5: "once you click to expand the va'ad then the layout should change to each member of
+  // the vaad with their pic"); the honeycomb gives way to it (CSS, details.vaad-ph)
+  function membersHTML(s, line, photos = null) {
     if (!s.vaadMembers || !s.vaadMembers.length) return `<p>${line}</p>`;
     const town = (m) => {
       if (!m.town) return '';
@@ -3465,26 +3742,75 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // an alternate isn't a full member (owner, Oct 13: "shouldn't have the same prominence"): after the members, apart,
     // smaller and grey
     const alt = (m) => m.role === 'Alternate';
-    const item = (m) => `<li${alt(m) ? ' class="alt"' : ''}>${esc(personName(m))}${m.role ? ` <span class="meta">(${esc(HE ? VAAD_ROLE_HE[m.role] || m.role : m.role)})</span>` : ''}${m.town ? `<span class="meta"> · ${esc(town(m))}</span>` : ''}</li>`;
+    const role = (m) => esc(HE ? VAAD_ROLE_HE[m.role] || m.role : m.role);
+    // his face (matched on his names, which stay English in Hebrew too: the first name too where two share a last name,
+    // the UK's Leivi and Bentzi Sudak), else his initials
+    const named = (m) => photos.filter((x) => x.name && m.lastName && x.name.includes(m.lastName));
+    const face = (m) => { const ps = named(m), p = ps.find((x) => m.firstName && x.name.includes(m.firstName)) || (ps.length === 1 ? ps[0] : null);
+      return p ? `<img class="vm-ph" src="${p.file}" alt="">` : `<span class="vm-ph vm-av">${esc(initials(firstOf(m), lastOf(m)))}</span>`; };
+    // the chairman's role as a small tag by his name; the alternate's in the grey line under it, with his town
+    const row = (m) => { const sub = [alt(m) ? role(m) : '', m.town ? esc(town(m)) : ''].filter(Boolean).join(' · ');
+      return `<li class="vm${alt(m) ? ' alt' : ''}${m.role === 'Head' ? ' hd' : ''}">${face(m)}<span class="vm-t"><span class="vm-n"><b>${esc(personName(m))}</b>${
+        m.role && !alt(m) ? `<span class="vm-role">${role(m)}</span>` : ''}</span>${sub ? `<span class="vm-town">${sub}</span>` : ''}</span></li>`; };
+    const item = photos ? row : (m) => `<li${alt(m) ? ' class="alt"' : ''}>${esc(personName(m))}${m.role ? ` <span class="meta">(${role(m)})</span>` : ''}${m.town ? `<span class="meta"> · ${esc(town(m))}</span>` : ''}</li>`;
     const items = [...s.vaadMembers.filter((m) => !alt(m)), ...s.vaadMembers.filter(alt)].map(item).join('');
-    return `<details class="vaad"><summary>${line}</summary><ul>${items}</ul></details>`;
+    return `<details class="vaad${photos ? ' vaad-ph' : ''}"><summary>${line}</summary><ul>${items}</ul></details>`;
   }
   const vaadHTML = (s) => membersHTML(s, `${tr('Leadership')}: ${esc(s.vaad)}`);
+  const VAAD_PHOTOS = {"florida": [{"file": "img/vaad/florida-raichik.jpg", "name": "Yosef Raichik", "role": "Head"}, {"file": "img/vaad/florida-biston.jpg", "name": "Yossie Biston"}, {"file": "img/vaad/florida-goldman.jpg", "name": "Berl Goldman"}, {"file": "img/vaad/florida-lipskar.jpg", "name": "Eli Lipskar"}, {"file": "img/vaad/florida-levitin.jpg", "name": "Zalman Levitin"}, {"file": "img/vaad/florida-kessler.jpg", "name": "Meir Kessler"}, {"file": "img/vaad/florida-zaklos.jpg", "name": "Fishel Zaklos"}, {"file": "img/vaad/florida-dubov.jpg", "name": "Sholom Dubov", "role": "Alternate"}], "new-jersey": [{"file": "img/vaad/new-jersey-lubin.jpg", "name": "Shalom Lubin"}, {"file": "img/vaad/new-jersey-richler.jpg", "name": "Avi Richler"}, {"file": "img/vaad/new-jersey-leverton.jpg", "name": "Sholly (Sholom) Leverton"}, {"file": "img/vaad/new-jersey-gourarie.jpg", "name": "Moshe Gourarie"}, {"file": "img/vaad/new-jersey-simon.jpg", "name": "Ephraim Simon"}], "united-kingdom": [{"file": "img/vaad/united-kingdom-angyalfi.jpg", "name": "Yeremiyahu Angyalfi"}, {"file": "img/vaad/united-kingdom-arkush.jpg", "name": "Shmuel Arkush"}, {"file": "img/vaad/united-kingdom-dubov.jpg", "name": "Nissan Dovid Dubov"}, {"file": "img/vaad/united-kingdom-efune.jpg", "name": "Pesach Efune"}, {"file": "img/vaad/united-kingdom-junik.jpg", "name": "Menachem Junik"}, {"file": "img/vaad/united-kingdom-katz.jpg", "name": "Dovid Katz"}, {"file": "img/vaad/united-kingdom-korer.jpg", "name": "Mendy Korer"}, {"file": "img/vaad/united-kingdom-lew.jpg", "name": "Shmuel Lew"}, {"file": "img/vaad/united-kingdom-pink.jpg", "name": "Yehuda Pink"}, {"file": "img/vaad/united-kingdom-sudak-leivi.jpg", "name": "Leivi Sudak"}, {"file": "img/vaad/united-kingdom-sudak-bentzi.jpg", "name": "Bentzi Sudak"}, {"file": "img/vaad/united-kingdom-sufrin.jpg", "name": "Aryeh M. Sufrin"}], "new-york-city": [{"file": "img/vaad/new-york-city-kastel.jpg", "name": "Kasriel Kastel"}, {"file": "img/vaad/new-york-city-friedman.jpg", "name": "Shlomo Friedman"}, {"file": "img/vaad/new-york-city-tenenbaum.jpg", "name": "Sholom Tenenbaum"}, {"file": "img/vaad/new-york-city-teldon.jpg", "name": "Tuvia Teldon"}, {"file": "img/vaad/new-york-city-baumgarten.jpg", "name": "Leibel Baumgarten"}]};
+  // the faces in rows of a honeycomb (each row offset half a face from the next), its head in the middle
+  const HIVE_ROWS = { 1: [1], 2: [2], 3: [2, 1], 4: [2, 2], 5: [2, 3], 6: [3, 3], 7: [2, 3, 2], 8: [3, 2, 3], 9: [3, 3, 3], 10: [3, 4, 3], 11: [4, 3, 4], 12: [4, 4, 4], 13: [4, 5, 4] };
+  function hiveHTML(s, t) {
+    const ph = (VAAD_PHOTOS[s.id] || []).filter((p) => p.role !== 'Alternate'), head = (s.vaadMembers || []).find((m) => m.role === 'Head');
+    const hn = head ? `${head.firstName} ${head.lastName}` : '';
+    const hi = ph.findIndex((p) => p.name && hn && p.name.includes(head.lastName));
+    const rows = HIVE_ROWS[ph.length] || [ph.length], F = 34, P = 39, V = 34;
+    const widest = Math.max(...rows), W = F + (widest - 1) * P + (rows.some((r) => r !== widest) ? 0 : P / 2), H = F + (rows.length - 1) * V;
+    const spots = [];
+    const even = rows.every((r) => r === widest);
+    rows.forEach((r, ri) => { for (let i = 0; i < r; i++) spots.push({ x: even ? i * P + (ri % 2 ? P / 2 : 0) : (W - (F + (r - 1) * P)) / 2 + i * P, y: ri * V }); });
+    // the middle spot for the head; the rest in order
+    const mid = spots.reduce((b, p, i) => (Math.hypot(p.x - (W - F) / 2, p.y - (H - F) / 2) < Math.hypot(spots[b].x - (W - F) / 2, spots[b].y - (H - F) / 2) ? i : b), 0);
+    const order = hi >= 0 ? [hi, ...ph.map((_, i) => i).filter((i) => i !== hi)] : ph.map((_, i) => i);
+    const at = hi >= 0 ? [mid, ...spots.map((_, i) => i).filter((i) => i !== mid)] : spots.map((_, i) => i);
+    const imgs = order.map((pi, k) => { const p = ph[pi], sp = spots[at[k]], hd = pi === hi;
+      return `<img class="${hd ? 'hd' : ''}" src="${p.file}" alt="${esc(p.name || '')}" title="${esc(p.name || '')}" style="inset-inline-start:${sp.x}px;top:${sp.y}px">`; }).join('');
+    return `<div class="cc-hive" style="width:${W}px;height:${H}px;--t:${t}">${imgs}</div>`;
+  }
+  // a vaad that leads (its name), or a board at the head with its members' faces (the UK's Hanholo: owner, Nov 5, "pls do
+  // uk hanholo next"; its name is the head line's, under its own title)
+  function vaadBlock(s, t, name = esc(s.vaad), label = tr('Leadership')) {
+    const n = (s.vaadMembers || []).filter((m) => m.role !== 'Alternate').length;
+    return `<div class="cc-vaad" style="--t:${t}">${VAAD_PHOTOS[s.id] ? hiveHTML(s, t) : ''}<div class="cc-vtext"><span class="lbl">${label}</span><b>${name}</b>${
+      membersHTML(s, n ? `${n} ${HE ? 'חברים' : 'members'}` : (HE ? 'חברים' : 'Members'), VAAD_PHOTOS[s.id] || null)}</div></div>`;
+  }
+  // the head shliach's mark on the "שליח ראשי:" line (owner, Nov 5: "the person icon next to shliach rooshi - maybe make a
+  // custom one with like a hat and stuff? Still exact same minimalist style"): a fedora over a bearded face, drawn as
+  // PERSON_ICON is (stroke 1.4, round caps); 16 px, set in the 14 px the other rows' marks take
+  const HEAD_ICON = '<svg class="pi hat" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.8 6.2C4.9 5.3 11.1 5.3 14.2 6.2M4.9 5.6C4.8 3.6 5.4 2 6.6 1.9C7.3 1.8 7.6 2.4 8 2.4S8.7 1.8 9.4 1.9C10.6 2 11.2 3.6 11.1 5.6M4.9 7.4C4.9 10.6 6 13.1 7.3 14C7.7 14.3 8.3 14.3 8.7 14C10 13.1 11.1 10.6 11.1 7.4M6.6 10C7.5 10.6 8.5 10.6 9.4 10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const headRow = (s) => `<div class="cc-flagrow cc-headrow">${HEAD_ICON}<span><span class="lbl">${esc(s.headTitle || tr('Head shliach'))}:</span> ${headHTML(s.headShliach)}</span></div>`;
   // A shetach's card: its head (or "Overseen by" for a territory, "Shluchim: … family"), its capital(s), its centers
   function shetachHTML(s, zoomBtn) {
     // (the page's capitals, which hold both languages: name, town and claimant in Hebrew too)
     const caps = capitals.filter((c) => !c.honor && c.s === s);
-    // "Capital: …", or for a disputed shetach "Capital (Chaim Tzvi Groner): …", one per claimant
-    const capital = caps.map((c) => `<p>${tr('Capital')}${c.for ? ` (${esc(c.for)})` : ''}: ${esc(c.name)}${c.city ? `, ${esc(c.city)}` : ''}</p>`).join('');
+    // "Flagship: …" (owner, Nov 4: "flagship rather than capital."), or for a disputed shetach "Flagship (Chaim Tzvi
+    // Groner): …", one per claimant
+    const capital = caps.map((c) => `<div class="cc-flagrow">${icon('star')}<span><span class="lbl">${tr('Flagship')}${c.for ? ` (${esc(c.for)})` : ''}:</span> ${esc(c.name)}${c.city ? `, ${esc(c.city)}` : ''}</span></div>`).join('');
     // a family at the head (Pinson, Blumenfeld): "Shluchim: Pinson family" (they are the shluchim there)
-    return `<h2>${esc(s.name)}</h2>${s.altName ? `<p class="alt-name">${esc(s.altName)}</p>` : ''}
-      ${s.territoryOf && shetachById.get(s.territoryOf) ? (() => { const p = shetachById.get(s.territoryOf); return `<p>${HE ? 'בהנהגת' : 'Overseen by'} ${headHTML(p.headShliach)}</p>`; })()
-        : s.noCentralLeadership ? `<p>${tr('No centralized leadership')}</p>`
-        : s.headShliach && / family$|^משפחת /.test(s.headShliach) ? `<p>${HE ? 'שלוחים' : 'Shluchim'}: ${headHTML(s.headShliach)}</p>`
-        : s.headShliach && s.vaad && s.vaadFirst ? `${vaadHTML(s)}<p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>`
+    // its shape on the small map (its flagship starred), its name big; who leads it with his initials; its flagship; its
+    // numbers; "Zoom in" along its foot
+    const t = tintOf(s), lead = (label, name, photo = '') => `<div class="cc-people" style="--t:${t}">${personRow(initialsOf(name), headHTML(name), '', t, label, true, photo)}</div>`;
+    const mini = miniMap(s.pieces, `s:${s.id}`, t, caps.map((c) => ({ lon: c.lon, lat: c.lat, kind: 'star' })), 72);
+    const nC = centersInShetach(s), nM = mushroomsInShetach(s);
+    return `${ccHead({ t, mini, kick: `<p class="cc-kick">${tr('Shetach')}</p>`, title: esc(s.name), sub: [s.altName ? esc(s.altName) : '', headCount(nC, nM)].filter(Boolean).join('<br>'), big: true })}
+      <div class="cc-body"><div class="cc-lead">${s.territoryOf && shetachById.get(s.territoryOf) ? (() => { const p = shetachById.get(s.territoryOf); return lead(HE ? 'בהנהגת' : 'Overseen by', p.headShliach, HEAD_PHOTO.has(p.id) ? p.id : ''); })()
+        : s.noCentralLeadership ? `<p class="cc-sub">${tr('No centralized leadership')}</p>`
+        : s.headShliach && / family$|^משפחת /.test(s.headShliach) ? lead(HE ? 'שלוחים' : 'Shluchim', s.headShliach)
+        : s.headShliach && s.vaad && s.vaadFirst ? `${vaadBlock(s, t)}${headRow(s)}`
+        : s.headShliach && !s.vaad && s.vaadMembers && VAAD_PHOTOS[s.id] ? vaadBlock(s, t, headHTML(s.headShliach), esc(s.headTitle || tr('Leadership')))
         : s.headShliach && !s.vaad && s.vaadMembers ? membersHTML(s, `${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}`)
-        : s.headShliach ? `<p>${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}</p>${s.vaad ? vaadHTML(s) : ''}` : ''}${capital}
-      <div class="foot"><span class="meta">${counts(centersInShetach(s), mushroomsInShetach(s))}</span>${zoomBtn}</div>`;
+        : s.headShliach ? `${lead(esc(s.headTitle || tr('Head shliach')), s.headShliach, HEAD_PHOTO.has(s.id) ? s.id : '')}${s.vaad ? `<div style="margin-top:11px">${vaadHTML(s)}</div>` : ''}` : ''}</div>${capital}
+      ${ccTiles(nC, nM)}</div>`; // (no "Zoom in" along its foot: owner, Nov 5, "Get rid of zoom in, takes up unnecessary space nobody needs it")
   }
 
 
@@ -3827,7 +4153,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const sq = $('#search-q'), sres = $('#search-results'), sclear = $('#search-clear');
   const fold = (t) => String(t || '').toLowerCase().normalize('NFD').replace(/[̀-֑ͯ-ׇ]/g, '')
     .replace(/[׳״'"`’‘.,()\-\/·]/g, ' ').replace(/\s+/g, ' ').trim();
-  let searchIndex = null, searchKey = '', searchHits = [], searchSel = -1, searchFamilies = [], searchMode = 'all', marked = null;
+  let searchIndex = null, searchKey = '', searchHits = [], searchSel = -1, searchFamilies = [], searchMode = 'all';
   function searchWords() {
     sq.placeholder = searchMode === 'last' ? (HE ? 'שם משפחה…' : 'Last name…') : HE ? 'חיפוש שלוחים, בתי חב״ד, ערים, שטחים' : 'Search shluchim, Chabad houses, cities…';
     $('#mark-chip-x').setAttribute('aria-label', HE ? 'ביטול הסימון' : 'Clear the highlight');

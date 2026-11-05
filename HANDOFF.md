@@ -15,11 +15,14 @@ those can't reach. On Nov 3 a session ran every search and page through Firecraw
 owner was furious. The rule is also under "Notes for Claude" below. (Owner, Nov 3, the other way round: "you have
 fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers WebFetch and curl with 403.)
 
-## ▶ START HERE — Nov 5, later session: the vaads and boards with faces, no "Zoom in", small buttons
-Everything below is in **web/preview-cards.html** (not on the live page; it waits on the owner's go-ahead for the card
-redesign, as before), except two data fixes that are live (marked). See it in Hebrew first:
-https://yechezkelbinstok-dev.github.io/shetachim/web/preview-cards.html?lang=he — the previews the owner was sent are
-in docs/handoff-2026-11-05b/ (1 Florida/NJ/UK, 2 a center/mushroom/flagship with the small buttons, 3 Tzach + Florida).
+## ▶ START HERE — Nov 5, later session: the new cards are LIVE; vaads and boards with faces; no "Zoom in"
+**The card redesign went live on Nov 5** (owner: "Push everything that's been done so far as well", then, on the old
+live page: "My fucking ass it's pushed" — he means on the site, not only in git). web/index.html is now what
+web/preview-cards.html was (the photos, the vaad faces, the new cards, everything below), with the `marked` bug fixed
+(declared before the Mushrooms switch's handler); web/preview-cards.html only redirects to it. **Make every change in
+web/index.html.** "Pushed" to the owner means live on the site: after a push, check that GitHub Pages deployed it.
+The previews he was sent are in docs/handoff-2026-11-05b/ (1 Florida/NJ/UK, 2 a center/mushroom/flagship with the small
+buttons, 3 Tzach + Florida).
 
 **Done this session:**
 1. **A vaad opens to its members with their photos** (owner: "once you expand it instead of showing the circle with all
@@ -64,7 +67,7 @@ forgot you have firecrawl access") — but don't work around a payment wall or a
    tight close-up), Korer (200 px LinkedIn), Kastel (2017), Friedman and Tenenbaum (crops of Tzach's 2025 head table,
    "likely" by the photo's file name), Goldman (tight), Lipskar (a guess), Zaklos (collage).
 3. Hebrew to check: Lew is לוי in the name lists (Rabbi Shmuel Lew is probably לו); Efune is אפונה.
-4. Then the card redesign's go-ahead and the port to web/index.html (fix the `marked` bug then), as below.
+4. (Done: the redesign is live, the `marked` bug fixed.)
 
 **Apify:** the owner pasted the token in the chat this session; it was kept only in the session's scratchpad (never in
 the repo). Next time ask him to add `APIFY_TOKEN` in the environment's settings (Network secrets or an environment

@@ -48,9 +48,21 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   ugly. Like, why is there that long gray box only for it to be all the way on the side? … I don't think the box
   works"). Three ways without it were sent, in Hebrew: 1 the count under the name in the header ("55 מוסדות", numbers
   bold, mushrooms in their colour after a dot) — recommended, and used on the sheet of photo cards; 2 a plain line with
-  a pin, like "★ Flagship"; 3 in the Zoom in button ("התקרבות · 240 מוסדות"). Waiting on his pick. **He uses Hebrew
-  much more** ("I use Hebrew much more") — show previews in Hebrew first. (Scratchpad: proto6 = proto5 + this, the
-  variant set by `document.documentElement.dataset.cnt` = head | line | zoom | box.)
+  a pin, like "★ Flagship"; 3 in the Zoom in button ("התקרבות · 240 מוסדות"). **He uses Hebrew much more** ("I use
+  Hebrew much more") — show previews in Hebrew first. (Scratchpad: proto6 = proto5 + this, the variant set by
+  `document.documentElement.dataset.cnt` = head | line | zoom | box.)
+  His answer (Nov 5): **"I guess two? But maybe it can get better than that even"** → the count is a plain line whose
+  mark is the map's own centre dot (navy `#163e74`, `#8db5ee` dark), mushrooms after it with the mushroom mark.
+  **The ceremonial heads lose the photo:** "Benji and Herson do NOT deserve that kind of prominence not at ALL … those
+  two ceremonial heads should not be getting that level of prominence" — where the vaad comes first (Florida's Benjy
+  Korf, New Jersey's Mendy Herson) the head shliach is a plain line ("שליח ראשי: …", a person mark), no photo there or
+  on the flagship's card. **The vaad gets its members' faces** ("Where there's a Vaad … all their faces somehow
+  arranged … not overlapping … nicely done … maybe a circle, but I don't know if a circle is the best option"): a
+  honeycomb of 34 px faces by "הנהלה" + the vaad's name + "7 חברים" (opens to the list, as before), its head in the
+  middle with a ring in the shetach's colour (Florida: Raichik); rows 2-3-2 for seven, 2-3 for five.
+  Faces: `data/vaad-photos.json`, `web/img/vaad/` (Florida's seven from the anash.org collage he sent — not in the
+  article's name order: the first is Raichik, the last Biston, by their own centers' photos; the other five unmatched;
+  New Jersey's five each from a captioned photo). Scratchpad: proto7 (`tools/proto7_patch.py`), shots `prev8.sh`.
 - **Retouched** (owner, Nov 5: "can you use your skills to make them all look good? … if I was in Photoshop, I would
   press auto tone … make them all look really, really nice … a lot more professional"): every photo was re-cropped
   from its full-size source and retouched by `scripts/head-photos/retouch.py` (needs `pip install

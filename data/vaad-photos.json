@@ -1,0 +1,194 @@
+{
+ "about": "Faces of the members of a shetach's Vaad Hashluchim, shown together by \"Leadership\" on its card (owner, Nov 5: \"Where there's a Vaad … all their faces somehow arranged … not overlapping … nicely done\"), 160x160 JPEG in web/img/vaad/, retouched with scripts/head-photos/retouch.py --keep (a tighter crop than the head photos; 'crop' as there, on the 'tile' of a collage where given). Florida's seven are from anash.org's collage of the vaad elected Feb 2023, which isn't in the order the article names them; two are matched to names by their own centers' photos, the other five not yet. Not on the live page yet.",
+ "vaads": {
+  "florida": [
+   {
+    "file": "img/vaad/florida-raichik.jpg",
+    "name": "Yosef Raichik",
+    "page": "https://anash.org/new-members-elected-to-floridas-vaad-hashluchim/",
+    "image": "https://files.anash.org/uploads/2023/02/library-8-2.jpg",
+    "tile": [
+     0,
+     253,
+     302,
+     500
+    ],
+    "crop": {
+     "cx": 0.5911,
+     "cy": 0.5,
+     "side": 1.0
+    },
+    "note": "matches Chabad of West Boynton's own photo of him (chabadwestboynton.com, Our Rabbi & Rebbetzin)"
+   },
+   {
+    "file": "img/vaad/florida-2.jpg",
+    "name": null,
+    "page": "https://anash.org/new-members-elected-to-floridas-vaad-hashluchim/",
+    "image": "https://files.anash.org/uploads/2023/02/library-8-2.jpg",
+    "tile": [
+     305,
+     253,
+     605,
+     500
+    ],
+    "crop": {
+     "cx": 0.55,
+     "cy": 0.5,
+     "side": 1.0
+    },
+    "note": "one of Berl Goldman, Eli Lipskar, Zalman Levitin, Meir Kessler, Fishel Zaklos (not matched yet)"
+   },
+   {
+    "file": "img/vaad/florida-3.jpg",
+    "name": null,
+    "page": "https://anash.org/new-members-elected-to-floridas-vaad-hashluchim/",
+    "image": "https://files.anash.org/uploads/2023/02/library-8-2.jpg",
+    "tile": [
+     608,
+     253,
+     911,
+     500
+    ],
+    "crop": {
+     "cx": 0.5017,
+     "cy": 0.5,
+     "side": 1.0
+    },
+    "note": "one of Berl Goldman, Eli Lipskar, Zalman Levitin, Meir Kessler, Fishel Zaklos (not matched yet)"
+   },
+   {
+    "file": "img/vaad/florida-4.jpg",
+    "name": null,
+    "page": "https://anash.org/new-members-elected-to-floridas-vaad-hashluchim/",
+    "image": "https://files.anash.org/uploads/2023/02/library-8-2.jpg",
+    "tile": [
+     0,
+     503,
+     226,
+     712
+    ],
+    "crop": {
+     "cx": 0.5376,
+     "cy": 0.5,
+     "side": 1.0
+    },
+    "note": "one of Berl Goldman, Eli Lipskar, Zalman Levitin, Meir Kessler, Fishel Zaklos (not matched yet)"
+   },
+   {
+    "file": "img/vaad/florida-5.jpg",
+    "name": null,
+    "page": "https://anash.org/new-members-elected-to-floridas-vaad-hashluchim/",
+    "image": "https://files.anash.org/uploads/2023/02/library-8-2.jpg",
+    "tile": [
+     229,
+     503,
+     453,
+     712
+    ],
+    "crop": {
+     "cx": 0.4688,
+     "cy": 0.5,
+     "side": 1.0
+    },
+    "note": "one of Berl Goldman, Eli Lipskar, Zalman Levitin, Meir Kessler, Fishel Zaklos (not matched yet)"
+   },
+   {
+    "file": "img/vaad/florida-6.jpg",
+    "name": null,
+    "page": "https://anash.org/new-members-elected-to-floridas-vaad-hashluchim/",
+    "image": "https://files.anash.org/uploads/2023/02/library-8-2.jpg",
+    "tile": [
+     456,
+     503,
+     680,
+     712
+    ],
+    "crop": {
+     "cx": 0.4665,
+     "cy": 0.5,
+     "side": 1.0
+    },
+    "note": "one of Berl Goldman, Eli Lipskar, Zalman Levitin, Meir Kessler, Fishel Zaklos (not matched yet)"
+   },
+   {
+    "file": "img/vaad/florida-biston.jpg",
+    "name": "Yossie Biston",
+    "page": "https://anash.org/new-members-elected-to-floridas-vaad-hashluchim/",
+    "image": "https://files.anash.org/uploads/2023/02/library-8-2.jpg",
+    "tile": [
+     683,
+     503,
+     911,
+     712
+    ],
+    "crop": {
+     "cx": 0.5285,
+     "cy": 0.5,
+     "side": 1.0
+    },
+    "note": "the same photo as on Chabad of Parkland's contact page (chabadofparkland.com)"
+   }
+  ],
+  "new-jersey": [
+   {
+    "file": "img/vaad/new-jersey-lubin.jpg",
+    "name": "Shalom Lubin",
+    "page": "https://www.chabadcares.com/templates/articlecco_cdo/aid/4624411/jewish/Rabbi-Shalom-Aharona-Lubin.htm",
+    "image": "https://w2.chabad.org/media/images/1118/Pwwq11187026.jpeg",
+    "crop": {
+     "cx": 0.6271,
+     "cy": 0.3223,
+     "side": 0.596
+    },
+    "note": "his center's page (with his wife)"
+   },
+   {
+    "file": "img/vaad/new-jersey-richler.jpg",
+    "name": "Avi Richler",
+    "page": "https://crownheights.info/shlichus/531552/brooklyn-couple-donates-torah-to-nj-chabad-house/",
+    "image": "https://crownheights.info/assets/2016/04/richler-525x325.jpg",
+    "crop": {
+     "cx": 0.4095,
+     "cy": 0.403,
+     "side": 0.711
+    },
+    "note": "2016, a TV interview still"
+   },
+   {
+    "file": "img/vaad/new-jersey-leverton.jpg",
+    "name": "Sholly (Sholom) Leverton",
+    "page": "https://www.chabadwindsor.com/templates/articlecco_cdo/aid/5646576/jewish/Meet-our-Team.htm",
+    "image": "https://w2.chabad.org/media/images/1203/XfqC12038666.jpg",
+    "crop": {
+     "cx": 0.5,
+     "cy": 0.4257,
+     "side": 0.6678
+    },
+    "note": "Chabad of the Windsors, Meet our Team (captioned)"
+   },
+   {
+    "file": "img/vaad/new-jersey-gourarie.jpg",
+    "name": "Moshe Gourarie",
+    "page": "https://achdusnews.com/rabbi-moshe-gourarie-of-chabad-of-toms-river-speaking-at-the-recent-yud-tes-kislev-event/",
+    "image": "https://achdusnews.com/wp-content/uploads/2024/12/IMG_6574.jpg",
+    "crop": {
+     "cx": 0.4744,
+     "cy": 0.273,
+     "side": 0.3278
+    },
+    "note": "December 2024, speaking"
+   },
+   {
+    "file": "img/vaad/new-jersey-simon.jpg",
+    "name": "Ephraim Simon",
+    "page": "https://jewishlink.news/yiot-to-host-rabbi-ephraim-simon-for-memorial-lecture/",
+    "image": "https://jewishlink.news/wp-content/uploads/Simon-at-YIOT-Photo-1.jpg",
+    "crop": {
+     "cx": 0.491,
+     "cy": 0.346,
+     "side": 0.5406
+    }
+   }
+  ]
+ }
+}

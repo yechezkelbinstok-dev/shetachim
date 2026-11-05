@@ -20,7 +20,7 @@
      "cy": 0.5,
      "side": 1.0
     },
-    "note": "the collage's first headshot; the same man as on his center's site (chabadwestboynton.com) and in his Nov 2026 podcast still (anash.org)"
+    "note": "the collage's first headshot; the same man as on his center's site (chabadwestboynton.com) and in his Nov 2026 podcast still (anash.org); his own podcast's thumbnail names him (Trust & Curiosity, Nov 2026, youtube.com/watch?v=9v5cozcZARY)"
    },
    {
     "file": "img/vaad/florida-biston.jpg",
@@ -42,11 +42,12 @@
     "page": "https://jewishgator.com/about-us/",
     "image": "https://jewishgator.com/wp-content/uploads/2024/08/b3bea47a-fb02-4141-9d59-462550729446-3-2.jpg",
     "crop": {
-     "cx": 0.3733,
-     "cy": 0.3645,
-     "side": 0.2682
+     "cx": 0.3375,
+     "cy": 0.3257,
+     "side": 0.2242
     },
-    "note": "Chabad UF's team page (Aug 2024, with his wife); his raised hand is at the crop's lower left: paint it out (scripts/head-photos/paint-out.py) or find another photo"
+    "note": "Chabad UF's team page (Aug 2024, with his wife), cropped above his raised hand: a tight crop, no painting (a painted-out version looked wrong, owner, Nov 5); Main Street Daily News's Apr 2024 photo of him has a microphone and his hands in front",
+    "keep": true
    },
    {
     "file": "img/vaad/florida-lipskar.jpg",
@@ -83,21 +84,21 @@
    {
     "file": "img/vaad/florida-kessler.jpg",
     "name": "Meir Kessler",
-    "match": "likely",
-    "page": "https://anash.org/new-members-elected-to-floridas-vaad-hashluchim/",
-    "image": "https://files.anash.org/uploads/2023/02/library-8-2.jpg",
+    "match": "sure",
+    "page": "https://collive.com/shliach-appointed-to-floridas-drug-policy-advisory-council/",
+    "image": "https://collive.com/wp-content/uploads/2023/07/242431CC-66CE-46D4-8B1F-2164D76BAEB6.jpeg",
     "tile": [
-     456,
-     503,
-     680,
-     712
+     886,
+     68,
+     1336,
+     540
     ],
     "crop": {
-     "cx": 0.4665,
-     "cy": 0.5,
-     "side": 1.0
+     "cx": 0.52,
+     "cy": 0.4343,
+     "side": 0.8475
     },
-    "note": "the collage's sixth headshot (blue kippah, dark beard); looks like him in COLlive's Jul 2023 photo (collive.com/shliach-appointed-to-floridas-drug-policy-advisory-council): confirm, and use a better one"
+    "note": "COLlive, Jul 2023: the inset of him alone on the article's lead image (its other photo is captioned \"Shluchim Rabbi Meir and Frumi Kessler of the Jewish Recovery Center in Florida\"); the same man as the collage's sixth headshot"
    },
    {
     "file": "img/vaad/florida-zaklos.jpg",
@@ -116,7 +117,7 @@
      "cy": 0.5,
      "side": 1.0
     },
-    "note": "the collage's fourth headshot (dark glasses, short beard, no hat); looks like him on his blog (chabadnaples.com, Rabbi Fishel's Blog): confirm, and use a better one"
+    "note": "the collage's fourth headshot (glasses, short dark beard, no hat): the same look as the Naples Daily News's captioned Oct 2023 video of him speaking (naplesnews.com, 'Rabbi Fishel Zaklos speaks during Naples Jewish solidarity event'; its photo won't download, 402) and his blog; still a collage crop: use a better one when found"
    },
    {
     "file": "img/vaad/florida-dubov.jpg",

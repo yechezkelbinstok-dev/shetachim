@@ -141,12 +141,13 @@
     "page": "https://www.chabadcares.com/templates/articlecco_cdo/aid/4624411/jewish/Rabbi-Shalom-Aharona-Lubin.htm",
     "image": "https://w2.chabad.org/media/images/1118/Pwwq11187026.jpeg",
     "crop": {
-     "cx": 0.6271,
-     "cy": 0.3223,
-     "side": 0.596
+     "cx": 0.6571,
+     "cy": 0.3177,
+     "side": 0.4682
     },
-    "note": "his center's page (with his wife)",
-    "match": "sure"
+    "note": "his center's page (with his wife, out of the crop)",
+    "match": "sure",
+    "keep": true
    },
    {
     "file": "img/vaad/new-jersey-richler.jpg",

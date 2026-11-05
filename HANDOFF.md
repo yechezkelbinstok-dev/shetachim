@@ -53,6 +53,18 @@ buttons, 3 Tzach + Florida).
    (anash.org; Companies House: born Feb 1940, director of Lubavitch (UK) Ltd) — taken off the board (12 now). Hebrew:
    Leivi / Leivy / Laivi / Laivy are לוי (were לייב, which is Leib) in data/hebrew/first-names.json, he.json rebuilt.
 
+**Every photo re-edited (Nov 5, owner: "proper editing, like lighting, coloring. Or the Arizona example ... Crops also
+... Just everything overall"):** retouch.py v2 — small sources no longer turn waxy (a light clean that keeps the skin's
+texture, gentle sharpening, a fine grain after enlarging), the skin's hue corrected where it's pink or magenta (only
+what is skin-coloured, at most 20 degrees), a black point for hazy photos, a soft lift for deep shadows, less local
+contrast and sharpening (beards had a crunchy look). All 52 head photos and 30 vaad faces were redone from their
+sources with scripts/head-photos/redo-all.py (it picks each source by comparing it with the photo on the site — the
+downloader's numbering had pointed some source lists at the wrong file); before/after sheets in
+work/head-photos/redo-nov5/. New crops: Louisiana–Mississippi (the man beside him out), Lubin (his wife out).
+**Still need new photos (editing can't fix them):** Arizona, Washington, Upper Midwest, Alabama, Indiana, Texas,
+Merrimack Valley, Louisiana–Mississippi (soft or old sources); Southern Ohio (a sign by his head); microphones in front:
+Alaska, Idaho, Indiana, Pennsylvania, Gourarie, Efune.
+
 **The owner's rules from this session (keep them):** always show previews in Hebrew too (Hebrew first); never claim
 an edit is clean without checking it zoomed in — a hand over a beard doesn't paint out: crop around it or find another
 photo; every photo gets the full edit (colour, light, tone) and a good crop (retouch.py); search the whole web, not

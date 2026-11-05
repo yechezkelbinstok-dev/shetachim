@@ -93,7 +93,19 @@ def skin_stats(L, A, B, face_rel):
     c = np.sqrt(a * a + b * b); hue = np.degrees(np.arctan2(b, a))
     m = (c > 10) & (a > 2) & (b > 2) & (hue > 25) & (hue < 70) & (l > 18) & (l < 92)
     if m.mean() < 0.04: return None
-    return float(np.median(l[m])), float(np.median(c[m])), float(m.mean())
+    return float(np.median(l[m])), float(np.median(c[m])), float(m.mean()), float(np.median(a[m])), float(np.median(b[m]))
+
+def skin_hue_stats(L, A, B, face_rel):
+    """the skin's hue before any correction, with a wider hue window (a magenta-lit face falls outside the skin band)"""
+    if not face_rel: return None
+    fx, fy, fw, fh = face_rel
+    y0, y1 = max(int(fy + fh * 0.12), 0), max(int(fy + fh * 0.56), 1); x0, x1 = max(int(fx + fw * 0.18), 0), max(int(fx + fw * 0.82), 1)
+    l, a, b = L[y0:y1, x0:x1], A[y0:y1, x0:x1], B[y0:y1, x0:x1]
+    if l.size == 0: return None
+    c = np.sqrt(a * a + b * b); hue = np.degrees(np.arctan2(b, a))
+    m = (c > 7) & (a > 1) & (hue > -35) & (hue < 88) & (l > 22) & (l < 93)
+    if m.mean() < 0.06: return None
+    return float(np.median(a[m])), float(np.median(b[m]))
 
 def retouch(crop, face_rel, small, ovr=None):
     lab = to_lab(crop)
@@ -115,25 +127,48 @@ def retouch(crop, face_rel, small, ovr=None):
             if abs(da) + abs(db) > 1.2:
                 wl = np.clip((L - 8) / 55, 0, 1)
                 A -= da * wl; B -= db * wl; notes.append(f'cast {da:+.1f},{db:+.1f}')
-    # 2. levels on lightness, only when the range is squashed, and gently
-    lo, hi = np.percentile(L, 0.6), np.percentile(L, 99.6)
-    gain = min((97.0 - 3.0) / max(hi - lo, 1e-3), 1.25)
-    if gain > 1.03:
-        L[:] = np.clip((L - lo) * gain + 3.0, 0, 100); notes.append(f'levels x{gain:.2f}')
+    # 1b. skin hue (v2, Nov 5: Cunin's and Bronstein's faces stayed pink): natural skin sits about 45-68 degrees round
+    # the a/b plane; a face redder or more magenta than that (or yellower) is turned toward 56, in the mid and light tones
+    if not mono and face_rel:
+        hs = skin_hue_stats(L, A, B, face_rel)
+        if hs:
+            sa, sb = hs; hue = float(np.degrees(np.arctan2(sb, sa))); c0 = float(np.hypot(sa, sb))
+            want = float(np.clip(46.0 if hue < 46 else 66.0 if hue > 66 else hue, hue - 20, hue + 20))   # at most 20 degrees
+            if abs(want - hue) > 1.5 and c0 > 6:
+                ta, tb = c0 * np.cos(np.radians(want)), c0 * np.sin(np.radians(want))
+                da, db = float(np.clip(sa - ta, -12, 12)), float(np.clip(sb - tb, -12, 12))
+                # only what is skin-coloured (near the skin's hue, coloured enough): walls, shirts and beards keep theirs
+                ph = np.degrees(np.arctan2(B, A)); pc = np.sqrt(A * A + B * B)
+                dh = (ph - hue + 180) % 360 - 180
+                wk = np.exp(-(dh / 32) ** 2) * np.clip((pc - 4) / 8, 0, 1) * np.clip((L - 12) / 30, 0, 1)
+                A -= da * wk; B -= db * wk; notes.append(f'skin hue {hue:.0f}->{want:.0f}')
+    # 2. levels on lightness: a black point for a hazy, washed-out photo (its darkest tones lifted), a white point when
+    # the light tones fall short; highlights never pushed past white
+    lo, hi = float(np.percentile(L, 0.5)), float(np.percentile(L, 99.7))
+    lo_t = 3.0 if lo < 14 else 5.0
+    gain = min((97.0 - lo_t) / max(hi - lo, 1e-3), 1.55 if lo > 10 else 1.3)
+    if gain > 1.03 or lo > 8:
+        L[:] = np.clip((L - lo) * gain + lo_t, 0, 100); notes.append(f'levels x{gain:.2f} (black {lo:.0f})')
     # 3. exposure, read on the skin only: pushed into a natural band, never past it
     st = None if mono else skin_stats(L, A, B, face_rel)
     if st:
-        sl, sc, frac = st
-        target = min(max(sl, 56.0), 76.0)
+        sl, sc, frac = st[:3]
+        target = min(max(sl, 57.0), 75.0)
     else:
         sl = target = 0   # no face found: leave the exposure alone (levels only)
     if st and abs(target - sl) > 0.5 and 5 < sl < 95:
         g = float(np.clip(np.log(target / 100) / np.log(sl / 100), 0.72, 1.08))
         L[:] = 100 * np.power(np.clip(L / 100, 0, 1), g); notes.append(f'exposure g{g:.2f} (skin {sl:.0f})')
+    # 3b. a dark photo (black hat and coat, deep shadows under the brim): the shadows lifted a little, softly
+    p25 = float(np.percentile(L, 25))
+    if p25 < 20:
+        k = float(np.clip((20 - p25) * 0.45, 0, 7))
+        sh = np.clip(1 - L / 42, 0, 1) ** 2
+        L[:] = L + k * sh; notes.append(f'shadows +{k:.1f}')
     # 4. gentle local contrast (less for small, noisy sources)
     l8 = np.clip(L * 2.55, 0, 255).astype(np.uint8)
     lc = cv2.createCLAHE(clipLimit=1.5, tileGridSize=(4, 4)).apply(l8).astype(np.float32) / 2.55
-    w = 0.15 if small else 0.3
+    w = 0.1 if small else 0.18   # (v2: was 0.15/0.3, which gave beards a crunchy, over-processed look)
     L[:] = L * (1 - w) + lc * w
     # 5. colour strength, read on the skin: pulled into a natural band
     if not mono and st:
@@ -165,15 +200,18 @@ def main():
     x0, y0, s0 = int(round(x)), int(round(y)), int(round(s))
     crop = rgb[y0:y0 + s0, x0:x0 + s0].copy()
     small = s0 < 300
-    face_rel = (face[0] - x0, face[1] - y0, face[2], face[3]) if face else None
-    if small:   # small or blocky sources: clean the noise and JPEG blocks before enlarging
-        u8 = cv2.fastNlMeansDenoisingColored((crop * 255).astype(np.uint8), None, 4, 4, 5, 15)
+    face_rel = (face[0] - x0, face[1] - y0, face[2], face[3]) if face else (0.3 * s0, 0.2 * s0, 0.4 * s0, 0.4 * s0)
+    if small:   # small or blocky sources: the colour noise and JPEG blocks cleaned lightly, the skin's texture kept
+        u8 = cv2.fastNlMeansDenoisingColored((crop * 255).astype(np.uint8), None, 1.6, 5, 5, 13)
         crop = u8.astype(np.float32) / 255
     out, notes = retouch(crop, face_rel, small, ovr)
     ring = np.ones(out.shape[:2], bool); hh, ww = ring.shape; ring[int(hh * .12):int(hh * .88), int(ww * .12):int(ww * .88)] = False
     if float(np.mean(out[ring])) < 0.72: out = vignette(out)   # no vignette on a light backdrop (it reads as a grey ring)
     im = Image.fromarray((np.clip(out, 0, 1) * 255 + 0.5).astype(np.uint8)).resize((320, 320), Image.LANCZOS)
-    im = im.filter(ImageFilter.UnsharpMask(radius=1.6 if small else 1.1, percent=55 if small else 70, threshold=2))
+    im = im.filter(ImageFilter.UnsharpMask(radius=0.9 if small else 1.0, percent=40 if small else 50, threshold=3))
+    if s0 < 420:   # an enlarged face: a fine grain gives back the texture enlarging smooths away (no plastic skin)
+        g = np.random.default_rng(7).normal(0, 1.5 if small else 1.0, (320, 320, 1)).astype(np.float32)
+        im = Image.fromarray(np.clip(np.asarray(im).astype(np.float32) + g, 0, 255).astype(np.uint8))
     im.save(a.out, quality=90, optimize=True, progressive=True)
     print(f"{a.out}: face {'found' if face else 'not found (hand crop kept)'}, square {s0}px; {'; '.join(notes) or 'no changes needed'}")
 

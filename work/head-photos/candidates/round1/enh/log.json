@@ -1,0 +1,437 @@
+{
+ "west-coast": {
+  "face": true,
+  "side": 385,
+  "manual": 385,
+  "notes": [
+   "cast +17.0,-2.0 (by eye)",
+   "levels x1.25"
+  ]
+ },
+ "alaska": {
+  "face": true,
+  "side": 297,
+  "manual": 297,
+  "notes": [
+   "cast +2.5,+4.1",
+   "exposure g1.08 (skin 77)"
+  ]
+ },
+ "washington": {
+  "face": true,
+  "side": 193,
+  "manual": 193,
+  "notes": [
+   "exposure g0.72 (skin 35)"
+  ]
+ },
+ "oregon": {
+  "face": true,
+  "side": 510,
+  "manual": 563,
+  "notes": [
+   "cast +4.6,+0.1",
+   "levels x1.16"
+  ]
+ },
+ "hawaii": {
+  "face": true,
+  "side": 281,
+  "manual": 281,
+  "notes": [
+   "cast +3.7,+1.2",
+   "levels x1.05",
+   "exposure g0.94 (skin 54)",
+   "colour x0.94 (skin 27)"
+  ]
+ },
+ "idaho": {
+  "face": false,
+  "side": 660,
+  "manual": 660,
+  "notes": [
+   "cast +0.4,+3.4"
+  ]
+ },
+ "montana": {
+  "face": true,
+  "side": 586,
+  "manual": 608,
+  "notes": [
+   "cast -0.2,+4.1",
+   "colour x0.84 (skin 30)"
+  ]
+ },
+ "wyoming": {
+  "face": true,
+  "side": 304,
+  "manual": 304,
+  "notes": [
+   "cast +0.4,+2.7",
+   "levels x1.15"
+  ]
+ },
+ "utah": {
+  "face": true,
+  "side": 356,
+  "manual": 356,
+  "notes": [
+   "cast -0.6,+5.4",
+   "exposure g0.72 (skin 38)"
+  ]
+ },
+ "colorado": {
+  "face": true,
+  "side": 240,
+  "manual": 240,
+  "notes": [
+   "cast +0.6,-0.8",
+   "colour x0.91 (skin 27)"
+  ]
+ },
+ "arizona": {
+  "face": true,
+  "side": 165,
+  "manual": 165,
+  "notes": [
+   "cast +1.5,+2.8",
+   "levels x1.06",
+   "exposure g1.07 (skin 77)"
+  ]
+ },
+ "new-mexico": {
+  "face": true,
+  "side": 1284,
+  "manual": 1284,
+  "notes": [
+   "cast +0.1,+3.0",
+   "levels x1.04"
+  ]
+ },
+ "nebraska": {
+  "face": true,
+  "side": 1126,
+  "manual": 1126,
+  "notes": [
+   "levels x1.06",
+   "exposure g0.79 (skin 48)"
+  ]
+ },
+ "upper-midwest": {
+  "face": false,
+  "side": 230,
+  "manual": 230,
+  "notes": [
+   "cast +1.7,+4.1",
+   "levels x1.24"
+  ]
+ },
+ "iowa": {
+  "face": false,
+  "side": 864,
+  "manual": 864,
+  "notes": [
+   "cast +0.9,+1.1",
+   "levels x1.14"
+  ]
+ },
+ "wisconsin": {
+  "face": true,
+  "side": 648,
+  "manual": 648,
+  "notes": [
+   "cast +1.5,+1.3",
+   "colour x0.75 (skin 36)"
+  ]
+ },
+ "illinois": {
+  "face": true,
+  "side": 2249,
+  "manual": 2249,
+  "notes": [
+   "levels x1.13"
+  ]
+ },
+ "michigan": {
+  "face": false,
+  "side": 327,
+  "manual": 327,
+  "notes": [
+   "cast +1.2,-2.7"
+  ]
+ },
+ "northeast-ohio": {
+  "face": true,
+  "side": 1126,
+  "manual": 1126,
+  "notes": [
+   "cast +2.3,+5.9",
+   "levels x1.13"
+  ]
+ },
+ "central-ohio": {
+  "face": true,
+  "side": 1025,
+  "manual": 1025,
+  "notes": [
+   "cast +1.4,+2.5",
+   "levels x1.15"
+  ]
+ },
+ "southern-ohio": {
+  "face": true,
+  "side": 200,
+  "manual": 200,
+  "notes": [
+   "cast +1.6,+2.0",
+   "levels x1.11"
+  ]
+ },
+ "indiana": {
+  "face": false,
+  "side": 276,
+  "manual": 276,
+  "notes": [
+   "cast +0.9,+3.2"
+  ]
+ },
+ "kentucky": {
+  "face": false,
+  "side": 1500,
+  "manual": 1500,
+  "notes": [
+   "cast +2.8,+3.3",
+   "levels x1.07"
+  ]
+ },
+ "tennessee": {
+  "face": true,
+  "side": 370,
+  "manual": 370,
+  "notes": [
+   "levels x1.06",
+   "colour x0.75 (skin 34)"
+  ]
+ },
+ "oklahoma": {
+  "face": true,
+  "side": 1250,
+  "manual": 1250,
+  "notes": [
+   "cast -1.7,+4.3",
+   "levels x1.25"
+  ]
+ },
+ "arkansas": {
+  "face": true,
+  "side": 510,
+  "manual": 510,
+  "notes": [
+   "cast +1.3,+6.4"
+  ]
+ },
+ "texas": {
+  "face": false,
+  "side": 447,
+  "manual": 447,
+  "notes": [
+   "cast +0.4,+7.0"
+  ]
+ },
+ "louisiana-mississippi": {
+  "face": true,
+  "side": 1451,
+  "manual": 1451,
+  "notes": [
+   "cast +0.4,-7.0"
+  ]
+ },
+ "alabama": {
+  "face": false,
+  "side": 115,
+  "manual": 115,
+  "notes": [
+   "cast +0.4,+6.4"
+  ]
+ },
+ "georgia": {
+  "face": true,
+  "side": 528,
+  "manual": 528,
+  "notes": [
+   "cast +1.2,+0.8",
+   "levels x1.25"
+  ]
+ },
+ "florida": {
+  "face": true,
+  "side": 440,
+  "manual": 440,
+  "notes": [
+   "cast -3.6,+5.8",
+   "exposure g0.72 (skin 44)",
+   "colour x0.92 (skin 27)"
+  ]
+ },
+ "the-carolinas": {
+  "face": true,
+  "side": 821,
+  "manual": 821,
+  "notes": [
+   "b&w",
+   "levels x1.08"
+  ]
+ },
+ "virginia": {
+  "face": true,
+  "side": 223,
+  "manual": 223,
+  "notes": [
+   "cast +3.1,+1.4"
+  ]
+ },
+ "western-pennsylvania": {
+  "face": true,
+  "side": 1400,
+  "manual": 1400,
+  "notes": [
+   "cast +3.9,+0.1",
+   "levels x1.19",
+   "colour x1.20 (skin 11)"
+  ]
+ },
+ "pennsylvania": {
+  "face": false,
+  "side": 315,
+  "manual": 315,
+  "notes": [
+   "cast +2.5,+7.0",
+   "levels x1.18"
+  ]
+ },
+ "new-jersey": {
+  "face": true,
+  "side": 1100,
+  "manual": 1100,
+  "notes": [
+   "cast -1.3,+3.9",
+   "levels x1.07",
+   "colour x0.83 (skin 30)"
+  ]
+ },
+ "maryland": {
+  "face": true,
+  "side": 356,
+  "manual": 356,
+  "notes": [
+   "cast +3.8,+3.7"
+  ]
+ },
+ "washington-dc": {
+  "face": true,
+  "side": 713,
+  "manual": 713,
+  "notes": [
+   "cast -1.0,+6.0",
+   "colour x0.89 (skin 28)"
+  ]
+ },
+ "rockland": {
+  "face": true,
+  "side": 438,
+  "manual": 438,
+  "notes": [
+   "cast +1.9,+5.7",
+   "levels x1.13",
+   "exposure g1.08 (skin 85)"
+  ]
+ },
+ "upstate-new-york": {
+  "face": true,
+  "side": 640,
+  "manual": 640,
+  "notes": [
+   "cast +2.4,+3.4",
+   "levels x1.25",
+   "exposure g1.08 (skin 78)"
+  ]
+ },
+ "maine": {
+  "face": true,
+  "side": 554,
+  "manual": 620,
+  "notes": [
+   "cast -0.1,-1.3",
+   "exposure g0.96 (skin 55)",
+   "colour x0.93 (skin 27)"
+  ]
+ },
+ "vermont": {
+  "face": true,
+  "side": 280,
+  "manual": 280,
+  "notes": [
+   "cast +0.7,-1.0",
+   "levels x1.04"
+  ]
+ },
+ "central-massachusetts": {
+  "face": true,
+  "side": 360,
+  "manual": 360,
+  "notes": [
+   "cast -0.4,+5.5",
+   "levels x1.20",
+   "exposure g0.95 (skin 54)",
+   "colour x0.83 (skin 30)"
+  ]
+ },
+ "connecticut": {
+  "face": true,
+  "side": 780,
+  "manual": 780,
+  "notes": [
+   "cast +4.6,+2.2",
+   "levels x1.25"
+  ]
+ },
+ "new-haven": {
+  "face": true,
+  "side": 187,
+  "manual": 187,
+  "notes": [
+   "cast +3.0,+2.1",
+   "levels x1.10",
+   "exposure g1.08 (skin 84)",
+   "colour x1.15 (skin 12)"
+  ]
+ },
+ "south-area": {
+  "face": true,
+  "side": 600,
+  "manual": 600,
+  "notes": [
+   "cast +3.2,-1.1",
+   "levels x1.14",
+   "exposure g1.08 (skin 78)",
+   "colour x0.92 (skin 27)"
+  ]
+ },
+ "merrimack-valley": {
+  "face": true,
+  "side": 170,
+  "manual": 170,
+  "notes": [
+   "cast +8.0,-2.5 (by eye)",
+   "levels x1.25"
+  ]
+ },
+ "north-shore-of-massachusetts": {
+  "face": false,
+  "side": 400,
+  "manual": 400,
+  "notes": [
+   "b&w"
+  ]
+ }
+}

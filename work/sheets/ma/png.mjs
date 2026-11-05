@@ -1,0 +1,11 @@
+import { createRequire } from 'node:module';
+const require = createRequire('/opt/node22/lib/node_modules/');
+const { chromium } = require('playwright');
+const [svg, png] = process.argv.slice(2);
+const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
+const p = await b.newPage();
+await p.goto('file://' + svg);
+const box = await p.evaluate(() => { const s = document.querySelector('svg'); return [s.width.baseVal.value, s.height.baseVal.value]; });
+await p.setViewportSize({ width: Math.ceil(box[0]), height: Math.ceil(box[1]) });
+await p.screenshot({ path: png });
+await b.close();

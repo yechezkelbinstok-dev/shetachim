@@ -1,0 +1,8 @@
+[out:json][timeout:120];
+area["ISO3166-1"="MX"][admin_level=2]->.mx;
+(
+  nwr["name"~"(?i)(chabad|jabad|habad|jabbad|lubavitch|חב.?ד)"](area.mx);
+  nwr["name:he"~"חב.?ד"](area.mx);
+  nwr["religion"="jewish"](area.mx);
+);
+out center tags;

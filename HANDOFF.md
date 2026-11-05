@@ -81,9 +81,13 @@ horrendous"); and always "very well done edit".
   won't open instagram.com or facebook.com: Instagram goes through Apify.
 - Apify: the owner's account (free plan, $5 a month; $1.94 used in the Nov 5 – Dec 4 cycle). **The token is not in the
   repo and must never be committed** (the safety check blocked it). The scripts read `APIFY_TOKEN`; the owner was asked
-  to add it in the environment's settings. If it isn't set, ask him. Accounts found: data/instagram-accounts.json.
-- The session's working files (downloads, candidates, face sheets) went with it; every photo's source is in the JSON
-  (`page`, `image`; Instagram posts re-fetch through Apify).
+  to add it in the environment's settings (Network secrets, or an environment variable); if it isn't set, ask him to add it there (never to paste it in the chat). Accounts found: data/instagram-accounts.json.
+- **Everything the session worked with is in `work/`** (work/README.md says what's where): every candidate photo with
+  its sources.txt (by round and shetach), the originals of the photos in use, the vaad sources, every Apify result
+  (compact JSON: each post's link, caption, date), the Instagram photos that matter (used, captions naming the head,
+  The Jew Project's portraits), the review sheets and card screenshots, every card-preview version, the raw tools.
+  Nothing paid for on Apify needs doing again. Images were scaled to 1600 px at most (crops are fractions, so they
+  still apply). Not kept: the sheets of other people's faces (crowds, children) cut from the centers' Instagram posts.
 
 **What the owner has been shown** (docs/handoff-2026-11-05/, in order): 0 every photo so far; 1 this round's swaps and
 Canada; 2 Groner with the great-grandchild painted out; 3 the cards in English; 4 in Hebrew without the box; 5 three

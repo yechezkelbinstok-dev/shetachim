@@ -54,7 +54,17 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   "Absolutely no reason to have that map situation. No, no, no."): never put a map in a card. The same cards without
   it were sent (header wash, initials, action bar kept). He's "Not sure if I like the profile situation meaning like
   the two letters" (the initials badge): four other ways were sent (1 the person's title small above his name; 2 a
-  coloured line beside the people; 3 the people in a soft panel; 4 a small person mark), waiting on his pick. Found
+  coloured line beside the people; 3 the people in a soft panel; 4 a small person mark). He: "2 is kinda nice ig"
+  (the coloured line) — use it if the cards go in.
+  **Photos of the head shluchim** (owner, Nov 5: "maybe we can actually have proper profile photos for every head
+  shliach … I don't want a crappy crusty picture of them sitting by like a farbrengen with other people in the frame …
+  this might be not so doable but you tell me"). A pilot of six (Lazar, Mangel, Herson, Kantor, Lipskar, Bentolila):
+  only Berel Lazar has a proper portrait that's free to use (Wikimedia Commons, "Berel Lazar April 2021 (cropped).jpg",
+  CC BY 4.0, Kremlin.ru; Wikimedia's servers answered our downloads with 429 "too many requests" that day). Kantor may
+  have one on Commons (a search mentioned it; not checked). The rest: event photos only (COLlive's collage of speakers
+  at a microphone for Herson's appointment; a family photo at Lipskar's 70th in the SAJR), or nothing (Mangel). Their
+  own sites (jewishthailand.com, jewishafrica.com, rca.edu) have no staff portraits. Told the owner; his call how to go
+  on. Found
   on the way, NOT fixed yet (it's
   in the live page too): the Mushrooms switch's handler reads `marked` (declared with `let` further down the script),
   so a tap on it while the page is still starting throws "Cannot access 'marked' before initialization" — declare

@@ -13,7 +13,7 @@ those can't reach. On Nov 3 a session ran every search and page through Firecraw
 owner was furious. The rule is also under "Notes for Claude" below. (Owner, Nov 3, the other way round: "you have
 fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers WebFetch and curl with 403.)
 
-## ▶ Nov 5 (latest): photos of the head shluchim, USA (48 of 54; not on the page yet)
+## ▶ Nov 5 (latest): photos of the head shluchim, USA and Canada (48 of 54 US, 4 of 8 Canada; not on the page yet)
 - **What the owner asked** (Nov 5): "proper profile photos for every head shliach … I don't want a crappy crusty picture
   of them sitting by like a farbrengen with other people in the frame"; "It's extremely doable … You just have to find
   bro"; "We'd start with USA … The bigger moisdois (West Coast, Texas, etc) with the big dudes like Cunin or shimkeh
@@ -82,6 +82,17 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   @stamfordchabad, @chabadcincinnati, @jewishok (Tulsa), @chabadclt (Charlotte), @chabadvancouver, @chabadalberta,
   @chabadvt, @chabadnewfoundland, @levi_krinsky; none found for Indiana, Rockland, Texas (Houston), Kansas City,
   Delaware, Rhode Island, Idaho, Toronto, Montreal, Ottawa.
+- **Canada (owner: "logical next step after this … is Canada"), 4 of 8:** Alberta (Matusof: Calgary Herald, Dec 2025,
+  speaking at the city hall menorah lighting, captioned), Manitoba (Avrohom Altein: CBC News, 14 Dec 2025, captioned),
+  Southern Ontario (Zalman Grossbaum: a Dec 2019 interview still on anash.org; chabad.ca's staff portrait is from 2017),
+  Newfoundland (Chernitsky: his CBC author photo, Dec 2023). Still missing: **BC** (Yitzchok Wineberg: the July 2026
+  mikvah-opening photo in the Jewish Independent is too far off; the Charidy campaign video shows others),
+  **Ottawa** (Dovid Hayes: no captioned photo yet; COLlive's Oct 2025 Finkelstein Centre gallery has ~85 uncaptioned
+  photos he's in somewhere; his LinkedIn photos aren't portraits), **Quebec** (Berel Mochkin, about 89: Rabbi Drizin's
+  Sept 2026 Instagram photo, instagram.com/p/DcxS76NgHzV, has him in tallis and tefillin beside the poster — not a
+  portrait), **Maritimes** (Mendel Feldman: only a LinkedIn video cover). The Instagram accounts of BC, Alberta,
+  Winnipeg (his children's) and Ottawa's young professionals were scanned too: only Alberta's had him (his weekly
+  phone videos, too close for a portrait).
 - **How it was done (to carry on with the world):** Firecrawl `firecrawl_search` with `sources: ["images"]`,
   `limit: 10`, `domainTools: false` (2 credits a search; ~75 searches for the US). The best finds: an org's own
   "About"/"Our team"/"Our rabbis" page; JEM "Here's My Story" / "Living Torah" stills; newspaper author photos (Times

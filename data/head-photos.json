@@ -1,5 +1,5 @@
 {
- "about": "Profile photos of the head shluchim, one per shetach: a head-and-shoulders crop (320x320 JPEG) in web/img/heads/<shetach id>.jpg. Standard (owner, Nov 5): a proper portrait of him alone, never a farbrengen or group shot. 'page' is where the photo was found, 'image' the original file; 'crop' is the hand-picked square on that image (centre as fractions of width and height, side as a fraction of height) and 'cast' a colour cast taken out by hand. Every photo is retouched by scripts/head-photos/retouch.py (cast, levels, exposure and colour read on the skin, local contrast, sharpening). Not on the live page yet (waiting on the owner).",
+ "about": "Profile photos of the head shluchim (USA and Canada), one per shetach: a head-and-shoulders crop (320x320 JPEG) in web/img/heads/<shetach id>.jpg. Standard (owner, Nov 5): a proper portrait of him alone, never a farbrengen or group shot. 'page' is where the photo was found, 'image' the original file; 'crop' is the hand-picked square on that image (centre as fractions of width and height, side as a fraction of height) and 'cast' a colour cast taken out by hand. Every photo is retouched by scripts/head-photos/retouch.py (cast, levels, exposure and colour read on the skin, local contrast, sharpening). Not on the live page yet (waiting on the owner).",
  "photos": [
   {
    "id": "west-coast",
@@ -606,6 +606,61 @@
     "cx": 0.5,
     "cy": 0.5,
     "side": 1.0
+   }
+  },
+  {
+   "id": "alberta",
+   "head": "Menachem Matusof",
+   "file": "img/heads/alberta.jpg",
+   "page": "https://ca.news.yahoo.com/calgarians-gather-city-hall-menorah-042858608.html",
+   "image": "https://s.yimg.com/lo/mysterio/api/41c0f215c524956d2c6c1849d582771bd502691792eb50a4f1b71701bf7bbcf8/lightyear_networkapi/resizefill_w960%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fcalgary_herald_articles_312%2Fd86aef482e7fde934fde2f24e3119c62",
+   "note": "December 2025, speaking at the Calgary city hall menorah lighting (Calgary Herald photo, captioned)",
+   "crop": {
+    "cx": 0.4375,
+    "cy": 0.347,
+    "side": 0.639
+   },
+   "keep": true
+  },
+  {
+   "id": "manitoba-saskatchewan",
+   "head": "Avrohom Altein",
+   "file": "img/heads/manitoba-saskatchewan.jpg",
+   "page": "https://www.cbc.ca/news/canada/manitoba/winnipeg-jewish-community-bondi-beach-9.7015419",
+   "image": "https://i.cbc.ca/ais/f1bb4f9e-5f9c-4f7f-9441-f03be1692181,1765737523521/full/max/0/default.jpg",
+   "note": "December 2025 (CBC News photo, captioned)",
+   "crop": {
+    "cx": 0.278,
+    "cy": 0.198,
+    "side": 0.396
+   },
+   "keep": true
+  },
+  {
+   "id": "ontario",
+   "head": "Zalman Grossbaum",
+   "file": "img/heads/ontario.jpg",
+   "page": "https://anash.org/the-pioneering-shliach-who-conquered-toronto/",
+   "image": "https://files.anash.org/uploads/2019/12/Grossbaum-scaled.jpg",
+   "note": "December 2019, an interview still (the newest proper portrait found; chabad.ca's staff portrait is from 2017)",
+   "crop": {
+    "cx": 0.6367,
+    "cy": 0.4112,
+    "side": 0.7837
+   },
+   "keep": true
+  },
+  {
+   "id": "newfoundland-and-labrador",
+   "head": "Chanan Chernitsky",
+   "file": "img/heads/newfoundland-and-labrador.jpg",
+   "page": "https://www.cbc.ca/news/canada/newfoundland-labrador/author/rabbi-chanan-chernitsky-1.6307119",
+   "image": "https://i.cbc.ca/ais/1.6307251,1701904347000/full/max/0/default.jpg",
+   "note": "his CBC author photo (December 2023)",
+   "crop": {
+    "cx": 0.483,
+    "cy": 0.43,
+    "side": 0.586
    }
   }
  ]

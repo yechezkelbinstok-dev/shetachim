@@ -61,7 +61,7 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   source (article date; chabad.org image IDs grow with time — about 1300xxxxx = 2024, 1350xxxxx = 2026, 918xxxxx = 2015;
   collive/anash paths carry the year). Replaced so far with 2022–2026 photos: Kaltmann, Zippel (a March 2026 studio
   portrait by The Jew Project), Greenberg, Levitin, Cunin, Mendelsohn, Krasnjansky, Moscowitz, Kaplan, Kotlarsky (Apr
-  2024), Mangel (Apr 2026), Weg (Aug 2024); older but far newer than before: Berel Shemtov (June 2021 at home — he
+  2024), Mangel (Apr 2026), Weg (Aug 2024), Lipsker (a spring 2023 magazine portrait); older but far newer than before: Berel Shemtov (June 2021 at home — he
   turned 90 in 2023; nothing clear since) and Gurkow (May 2020; his July 2026 Instagram selfies are too close to crop).
   A crop must show him alone (the owner's standard): a crop from a group photo is fine only when nobody else is in the
   square. `retouch.py --keep` keeps the hand crop as is, for a face turned aside (the face finder's box is off-centre).

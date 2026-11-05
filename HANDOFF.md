@@ -63,6 +63,14 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   portrait by The Jew Project), Greenberg, Levitin, Cunin, Mendelsohn, Krasnjansky, Moscowitz, Kaplan, Kotlarsky (Apr
   2024), Mangel (Apr 2026), Weg (Aug 2024), Lipsker (a spring 2023 magazine portrait), Gurary (Mar 2025); older but far newer than before: Berel Shemtov (June 2021 at home — he
   turned 90 in 2023; nothing clear since) and Gurkow (May 2020; his July 2026 Instagram selfies are too close to crop).
+  **Still old (no better photo found yet):** Indiana (Grossbaum, 2015: the 2023 Pence-gala photo can't be cropped
+  without Pence and a man behind; the 2025 70th-birthday photos are of him in tallis and tefillin in a crowd),
+  Louisiana–Mississippi (Zelig Rivkin, 2012: @chabadneworleans shows the next generation only), Alabama (Posner, 2012:
+  only selfies with a comedian, Aug 2025, and it's unclear which rabbi is he), Merrimack Valley (Bronstein, 2013: only
+  his Facebook, which can't be downloaded, and a dark Dec 2025 menorah photo in the Andover Townsman), Texas
+  (Lazaroff, ~2017: TDS Houston's staff photo of him is from ~2016; 2024–26 photos are group shots where he's small),
+  the Carolinas (Groner, 2019 B&W: chabad.org's Dec 2025 photo has him holding a grandchild whose hat is in the frame),
+  Vermont (Raskin, 2018: chabadvt.org's newest photos are of the buildings).
   A crop must show him alone (the owner's standard): a crop from a group photo is fine only when nobody else is in the
   square. `retouch.py --keep` keeps the hand crop as is, for a face turned aside (the face finder's box is off-centre).
 - **Instagram via Apify** (the owner set it up, Nov 5): many of the most recent photos are only on Instagram, which

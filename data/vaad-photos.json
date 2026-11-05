@@ -1,10 +1,12 @@
 {
- "about": "Faces of the members of a shetach's Vaad Hashluchim, shown together by \"Leadership\" on its card (owner, Nov 5: \"Where there's a Vaad … all their faces somehow arranged … not overlapping … nicely done\"), 160x160 JPEG in web/img/vaad/, retouched with scripts/head-photos/retouch.py --keep (a tighter crop than the head photos; 'crop' as there, on the 'tile' of a collage where given). Florida's seven are from anash.org's collage of the vaad elected Feb 2023, which isn't in the order the article names them; two are matched to names by their own centers' photos, the other five not yet. Not on the live page yet.",
+ "about": "Faces of the members of a shetach's Vaad Hashluchim, for its card (owner, Nov 5: \"Where there's a Vaad ... all their faces somehow arranged ... not overlapping ... nicely done\"; \"if you have better pics of anshei havaad ... use them ... and as usual do proper editing\"). 160x160 JPEG in web/img/vaad/<shetach id>-<surname>.jpg, retouched by scripts/head-photos/retouch.py --keep; 'crop' as in head-photos.json (on the 'tile' of a collage where one is given). 'match': sure (his own center's photo or a caption), likely (looks like a captioned photo of him), guess (by elimination). Florida's are from each one's own photo where found, else from anash.org's collage of the vaad elected Feb 2023 (not in the article's name order). 'role' as in data/shetachim.json's vaadMembers (the alternate stays out of the honeycomb). Not on the live page yet.",
  "vaads": {
   "florida": [
    {
     "file": "img/vaad/florida-raichik.jpg",
     "name": "Yosef Raichik",
+    "role": "Head",
+    "match": "sure",
     "page": "https://anash.org/new-members-elected-to-floridas-vaad-hashluchim/",
     "image": "https://files.anash.org/uploads/2023/02/library-8-2.jpg",
     "tile": [
@@ -18,65 +20,38 @@
      "cy": 0.5,
      "side": 1.0
     },
-    "note": "matches Chabad of West Boynton's own photo of him (chabadwestboynton.com, Our Rabbi & Rebbetzin)"
+    "note": "the collage's first headshot; the same man as on his center's site (chabadwestboynton.com) and in his Nov 2026 podcast still (anash.org)"
    },
    {
-    "file": "img/vaad/florida-2.jpg",
-    "name": null,
-    "page": "https://anash.org/new-members-elected-to-floridas-vaad-hashluchim/",
-    "image": "https://files.anash.org/uploads/2023/02/library-8-2.jpg",
-    "tile": [
-     305,
-     253,
-     605,
-     500
-    ],
+    "file": "img/vaad/florida-biston.jpg",
+    "name": "Yossie Biston",
+    "match": "sure",
+    "page": "https://www.chabadofparkland.com/templates/articlecco_cdo/aid/3380231/jewish/Contact-Information.htm",
+    "image": "https://w2.chabad.org/media/images/968/ejCB9684384.png",
     "crop": {
-     "cx": 0.55,
-     "cy": 0.5,
-     "side": 1.0
+     "cx": 0.5,
+     "cy": 0.485,
+     "side": 0.6752
     },
-    "note": "one of Berl Goldman, Eli Lipskar, Zalman Levitin, Meir Kessler, Fishel Zaklos (not matched yet)"
+    "note": "his center's contact page (the same photo is the collage's last headshot)"
    },
    {
-    "file": "img/vaad/florida-3.jpg",
-    "name": null,
-    "page": "https://anash.org/new-members-elected-to-floridas-vaad-hashluchim/",
-    "image": "https://files.anash.org/uploads/2023/02/library-8-2.jpg",
-    "tile": [
-     608,
-     253,
-     911,
-     500
-    ],
+    "file": "img/vaad/florida-goldman.jpg",
+    "name": "Berl Goldman",
+    "match": "sure",
+    "page": "https://jewishgator.com/about-us/",
+    "image": "https://jewishgator.com/wp-content/uploads/2024/08/b3bea47a-fb02-4141-9d59-462550729446-3-2.jpg",
     "crop": {
-     "cx": 0.5017,
-     "cy": 0.5,
-     "side": 1.0
+     "cx": 0.3733,
+     "cy": 0.3645,
+     "side": 0.2682
     },
-    "note": "one of Berl Goldman, Eli Lipskar, Zalman Levitin, Meir Kessler, Fishel Zaklos (not matched yet)"
+    "note": "Chabad UF's team page (Aug 2024, with his wife); his raised hand is at the crop's lower left: paint it out (scripts/head-photos/paint-out.py) or find another photo"
    },
    {
-    "file": "img/vaad/florida-4.jpg",
-    "name": null,
-    "page": "https://anash.org/new-members-elected-to-floridas-vaad-hashluchim/",
-    "image": "https://files.anash.org/uploads/2023/02/library-8-2.jpg",
-    "tile": [
-     0,
-     503,
-     226,
-     712
-    ],
-    "crop": {
-     "cx": 0.5376,
-     "cy": 0.5,
-     "side": 1.0
-    },
-    "note": "one of Berl Goldman, Eli Lipskar, Zalman Levitin, Meir Kessler, Fishel Zaklos (not matched yet)"
-   },
-   {
-    "file": "img/vaad/florida-5.jpg",
-    "name": null,
+    "file": "img/vaad/florida-lipskar.jpg",
+    "name": "Eli Lipskar",
+    "match": "guess",
     "page": "https://anash.org/new-members-elected-to-floridas-vaad-hashluchim/",
     "image": "https://files.anash.org/uploads/2023/02/library-8-2.jpg",
     "tile": [
@@ -90,11 +65,25 @@
      "cy": 0.5,
      "side": 1.0
     },
-    "note": "one of Berl Goldman, Eli Lipskar, Zalman Levitin, Meir Kessler, Fishel Zaklos (not matched yet)"
+    "note": "the collage's fifth headshot (clear glasses, black beard, kippah), his by elimination only: confirm with a captioned photo (The Shul of Downtown, Miami) and use a better one"
    },
    {
-    "file": "img/vaad/florida-6.jpg",
-    "name": null,
+    "file": "img/vaad/florida-levitin.jpg",
+    "name": "Zalman Levitin",
+    "match": "sure",
+    "page": "https://www.palmbeachjewish.com/templates/articlecco_cdo/aid/5701721/jewish/Rabbi-Zalman-Levitin.htm",
+    "image": "https://w2.chabad.org/media/images/1206/wvoI12068597.jpg",
+    "crop": {
+     "cx": 0.5,
+     "cy": 0.4904,
+     "side": 0.8032
+    },
+    "note": "his own page on his center's site (The Chabad House Palm Beach)"
+   },
+   {
+    "file": "img/vaad/florida-kessler.jpg",
+    "name": "Meir Kessler",
+    "match": "likely",
     "page": "https://anash.org/new-members-elected-to-floridas-vaad-hashluchim/",
     "image": "https://files.anash.org/uploads/2023/02/library-8-2.jpg",
     "tile": [
@@ -108,25 +97,40 @@
      "cy": 0.5,
      "side": 1.0
     },
-    "note": "one of Berl Goldman, Eli Lipskar, Zalman Levitin, Meir Kessler, Fishel Zaklos (not matched yet)"
+    "note": "the collage's sixth headshot (blue kippah, dark beard); looks like him in COLlive's Jul 2023 photo (collive.com/shliach-appointed-to-floridas-drug-policy-advisory-council): confirm, and use a better one"
    },
    {
-    "file": "img/vaad/florida-biston.jpg",
-    "name": "Yossie Biston",
+    "file": "img/vaad/florida-zaklos.jpg",
+    "name": "Fishel Zaklos",
+    "match": "likely",
     "page": "https://anash.org/new-members-elected-to-floridas-vaad-hashluchim/",
     "image": "https://files.anash.org/uploads/2023/02/library-8-2.jpg",
     "tile": [
-     683,
+     0,
      503,
-     911,
+     226,
      712
     ],
     "crop": {
-     "cx": 0.5285,
+     "cx": 0.5376,
      "cy": 0.5,
      "side": 1.0
     },
-    "note": "the same photo as on Chabad of Parkland's contact page (chabadofparkland.com)"
+    "note": "the collage's fourth headshot (dark glasses, short beard, no hat); looks like him on his blog (chabadnaples.com, Rabbi Fishel's Blog): confirm, and use a better one"
+   },
+   {
+    "file": "img/vaad/florida-dubov.jpg",
+    "name": "Sholom Dubov",
+    "role": "Alternate",
+    "match": "sure",
+    "page": "https://www.instagram.com/rabbidubov/",
+    "image": "his Instagram profile picture (@rabbidubov, \"Executive Director of Chabad of Greater Orlando\"), fetched through Apify",
+    "crop": {
+     "cx": 0.4861,
+     "cy": 0.4302,
+     "side": 0.7007
+    },
+    "note": "a studio headshot"
    }
   ],
   "new-jersey": [
@@ -140,7 +144,8 @@
      "cy": 0.3223,
      "side": 0.596
     },
-    "note": "his center's page (with his wife)"
+    "note": "his center's page (with his wife)",
+    "match": "sure"
    },
    {
     "file": "img/vaad/new-jersey-richler.jpg",
@@ -152,7 +157,8 @@
      "cy": 0.403,
      "side": 0.711
     },
-    "note": "2016, a TV interview still"
+    "note": "2016, a TV interview still",
+    "match": "sure"
    },
    {
     "file": "img/vaad/new-jersey-leverton.jpg",
@@ -164,7 +170,8 @@
      "cy": 0.4257,
      "side": 0.6678
     },
-    "note": "Chabad of the Windsors, Meet our Team (captioned)"
+    "note": "Chabad of the Windsors, Meet our Team (captioned)",
+    "match": "sure"
    },
    {
     "file": "img/vaad/new-jersey-gourarie.jpg",
@@ -176,7 +183,8 @@
      "cy": 0.273,
      "side": 0.3278
     },
-    "note": "December 2024, speaking"
+    "note": "December 2024, speaking",
+    "match": "sure"
    },
    {
     "file": "img/vaad/new-jersey-simon.jpg",
@@ -187,7 +195,8 @@
      "cx": 0.491,
      "cy": 0.346,
      "side": 0.5406
-    }
+    },
+    "match": "sure"
    }
   ]
  }

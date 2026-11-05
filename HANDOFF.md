@@ -13,7 +13,93 @@ those can't reach. On Nov 3 a session ran every search and page through Firecraw
 owner was furious. The rule is also under "Notes for Claude" below. (Owner, Nov 3, the other way round: "you have
 fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers WebFetch and curl with 403.)
 
-## ▶ Nov 5 (latest): photos of the head shluchim, USA and Canada (48 of 54 US, 4 of 8 Canada; not on the page yet)
+## ▶ START HERE — handoff, Nov 5 (end of a session): head-shliach photos, vaad faces, the new cards
+The owner (Nov 5): "make some sort of seamless handoff transition situation so another session can pick this up with
+every aspect of what you've done so far including pictures progress cards like literally everything". This is it; the
+dated sections below have the detail. **None of it is on the live map yet:** the photos and the new cards wait on the
+owner's go-ahead for the card redesign (the live page, web/index.html, is unchanged since Nov 4).
+
+**See the new cards:** `web/preview-cards.html`, a copy of the live page with them. Open it with `?lang=he` (the owner
+"use[s] Hebrew much more": show him Hebrew first): https://yechezkelbinstok-dev.github.io/shetachim/web/preview-cards.html?lang=he
+— tap a shetach. It is web/index.html (Nov 4) plus, in order (diff the two to port it; the scripts that made it are in
+scripts/card-preview/history/; make new changes in the page itself):
+1. the third card design, without the small map (owner, Nov 4: "Absolutely no reason to have that map situation");
+2. the head shliach's photo, 66 px on a shetach's card and 48 px on its flagship's (for the first man listed when his
+   last name is in the head's English name, `s._enHead`), with a ring in the shetach's colour. Which shetachim have one
+   is the page's `HEAD_PHOTO` list: update it when adding photos (or read data/head-photos.json when porting);
+3. no photo: "option 2", a coloured line beside the name (owner: "2 is kinda nice ig"): `data-ps="bar"` on `<html>`
+   (the other variants are still in the file: initials, label, icon, panel);
+4. no grey numbers box (owner: "really ugly ... I don't think the box works"): the count is a plain line under the
+   flagship, its mark the map's own navy centre dot, mushrooms after it. He picked it of three: "I guess two? But maybe
+   it can get better than that even" (so it may get better still). `data-cnt` = line (head | zoom | box also in the file);
+5. a vaad that leads (Florida, New Jersey: `vaadFirst`): a honeycomb of its members' faces (34 px, its head in the
+   middle with a ring; the page's `VAAD_PHOTOS`, from data/vaad-photos.json; the alternate left out), "הנהלה", its
+   name and "7 חברים" (opens the list). The head shliach is a plain line "שליח ראשי: ..." with a person mark, and no
+   photo anywhere (owner: "Benji and Her son do NOT deserve that kind of prominence not at ALL ... those two ceremonial
+   heads should not be getting that level of prominence").
+
+**Do next (the owner's last asks, not done yet):**
+1. "once you click to expand the va'ad then the layout should change to each member of the vaad with their pic": when
+   "7 חברים" opens, the honeycomb gives way to a row per member: his photo (about 32 px), name, town ("יו״ר" by the
+   head); the alternate after them, apart and smaller (as in the list now). Faces are matched to names in
+   data/vaad-photos.json (Dubov, the alternate, has one too).
+2. "the person icon next to shliach rooshi - maybe make a custom one with like a hat and stuff? Still exact same
+   minimalist style": a 16 px line icon of a man in a Chabad fedora (with a beard), drawn like `PERSON_ICON` (stroke 1.4,
+   round caps), for the "שליח ראשי:" line.
+3. "if you have better pics of anshei havaad - then by all means use them ... and as usual do proper editing": done for
+   Goldman, Levitin, Biston, Dubov (their own photos). Still crops of anash.org's Feb 2023 collage: Raichik (matched for
+   sure), Kessler and Zaklos (likely), Lipskar (a guess by elimination): confirm each with a captioned photo and use
+   better ones. Goldman's raised hand is at the lower left of his crop: paint it out or find another. New Jersey's five
+   are each from a captioned photo (Richler's is a 2016 TV still). `match` in data/vaad-photos.json says how sure.
+4. The photo work left (below), then the rest of the world (owner: Canada was "the logical next step" after the USA).
+
+**The photos.** The owner's standard: recent ("absolutely not what he looks like now ... they need to be recent"); good
+("really good pictures like proper and professional and well edited"); him alone ("I don't want a crappy crusty picture
+of them sitting by like a farbrengen with other people in the frame"); replace only the old or bad ("if the one there is
+already good you don't have to replace it ... replace the ones that are like a while ago ... Or the ones that look
+horrendous"); and always "very well done edit".
+- USA: 48 of the 54 heads (NYC's Tzach, Eastern NY's Rubin family and Crown Heights aren't counted). 17 replaced on
+  Nov 5 with recent ones: Kaltmann, Zippel, Greenberg, S. B. Levitin, Cunin, Mendelsohn, Krasnjansky, Moscowitz, Kaplan,
+  Kotlarsky, Mangel, Weg, Lipsker, Gurary, Groner (the great-grandchild he held painted out; owner: "Yeah add this"),
+  and newer but not new: Berel Shemtov (2021), Gurkow (2020). Still old (nothing better yet; the leads tried are in the
+  Nov 5 section): Indiana (2015), Louisiana–Mississippi (2012), Alabama (2012), Merrimack Valley (2013), Texas (~2017),
+  Vermont (2018). None at all: Kansas–Missouri, Delaware, New Hampshire, Eastern Massachusetts, Rhode Island. The
+  rest were checked and kept.
+- Canada: 4 of 8: Alberta, Manitoba–Saskatchewan, Southern Ontario, Newfoundland. Missing: British Columbia, Ottawa,
+  Quebec, Maritimes (leads in the Canada bullet below).
+- Files: web/img/heads/<shetach id>.jpg (320×320) with data/head-photos.json (page, image, note with the date first,
+  crop, cast, keep, edit); web/img/vaad/<shetach id>-<surname>.jpg (160×160) with data/vaad-photos.json.
+- Tools, scripts/head-photos/: retouch.py (crop + retouch; --keep, --cast), paint-out.py (someone else in the frame),
+  fetch.sh (download candidates, images only), candidates-sheet.mjs (candidates in rows), review-sheet.mjs (old → new),
+  ig.py and ig_batch.py (Instagram through Apify; at most 4 runs at once on the free plan), faces.py and facebox.py
+  (every face in an account's posts on one sheet, starred where the caption names him). scripts/cardshot.mjs with
+  scripts/card-preview/shots.sh: phone screenshots of the preview's cards (same setup as scripts/screenshot.mjs). The
+  Python ones need `pip install "opencv-python-headless<5" pillow numpy` in a venv (OpenCV 5 dropped the Haar face
+  finder); their working files go to $WORK (default /tmp/head-photos).
+- Finding photos: Firecrawl `firecrawl_search` with `sources: ["images"]` (and `tbs: "cdr:1,cd_min:1/1/2023,cd_max:12/31/2026"`
+  for recent ones); `firecrawl_scrape` with `formats: ["query"]` reads a page's photo captions (who, when). Firecrawl
+  won't open instagram.com or facebook.com: Instagram goes through Apify.
+- Apify: the owner's account (free plan, $5 a month; $1.94 used in the Nov 5 – Dec 4 cycle). **The token is not in the
+  repo and must never be committed** (the safety check blocked it). The scripts read `APIFY_TOKEN`; the owner was asked
+  to add it in the environment's settings. If it isn't set, ask him. Accounts found: data/instagram-accounts.json.
+- The session's working files (downloads, candidates, face sheets) went with it; every photo's source is in the JSON
+  (`page`, `image`; Instagram posts re-fetch through Apify).
+
+**What the owner has been shown** (docs/handoff-2026-11-05/, in order): 0 every photo so far; 1 this round's swaps and
+Canada; 2 Groner with the great-grandchild painted out; 3 the cards in English; 4 in Hebrew without the box; 5 three
+places for the count (he picked 2); 6 the vaad faces, Florida and NJ (then asks 1–3 above); 7 the preview as handed
+off; 8 the vaad faces one by one, with names.
+
+**Still open from before:** the card redesign's go-ahead (the photos go live with it); the `marked` bug in the
+Mushrooms switch (its handler reads `marked` before its `let`; in the live page too: fix when porting); the sub-shetach
+sweep (#8); the New Haven / Mexico / Boston naming questions; Bet Sara.
+
+**The owner's ways:** short, plain replies (he's on his phone); Hebrew first; never a map in a card; head shluchim's
+names in full; Judea and Samaria is Israel (no other country's name or code anywhere); commit and push every turn to
+`claude/bold-albattani-aqfnj9`, no PR; long jobs in the background; Firecrawl for image search and for pages plain
+fetching can't reach.
+
+## ▶ Nov 5: photos of the head shluchim, USA and Canada (48 of 54 US, 4 of 8 Canada; not on the page yet)
 - **What the owner asked** (Nov 5): "proper profile photos for every head shliach … I don't want a crappy crusty picture
   of them sitting by like a farbrengen with other people in the frame"; "It's extremely doable … You just have to find
   bro"; "We'd start with USA … The bigger moisdois (West Coast, Texas, etc) with the big dudes like Cunin or shimkeh

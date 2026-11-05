@@ -63,8 +63,14 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   CC BY 4.0, Kremlin.ru; Wikimedia's servers answered our downloads with 429 "too many requests" that day). Kantor may
   have one on Commons (a search mentioned it; not checked). The rest: event photos only (COLlive's collage of speakers
   at a microphone for Herson's appointment; a family photo at Lipskar's 70th in the SAJR), or nothing (Mangel). Their
-  own sites (jewishthailand.com, jewishafrica.com, rca.edu) have no staff portraits. Told the owner; his call how to go
-  on. Found
+  own sites (jewishthailand.com, jewishafrica.com, rca.edu) have no staff portraits. The owner: "No, it's extremely
+  doable. There's pictures of these people all over the internet. You just have to find bro" — right: plain WebSearch
+  has no image search, and scraping Bing/DuckDuckGo image search through the proxy didn't work (Bing returned generic
+  results, DuckDuckGo nothing), but **Firecrawl's image search** (`firecrawl_search`, `sources: ["images"]`, 2 credits a
+  search) found two proper portraits of Rabbi Mendel Lipskar at once: Torah Academy's team photo
+  (torahacademy.co.za/team/rabbi-mendel-lipskar) and his SA Jewish Report author photo (sajr.co.za/author/...).
+  Asked the owner whether to use Firecrawl for all ~150 heads (~300–400 credits) — Firecrawl is otherwise only for pages
+  plain tools can't reach. Found
   on the way, NOT fixed yet (it's
   in the live page too): the Mushrooms switch's handler reads `marked` (declared with `let` further down the script),
   so a tap on it while the page is still starting throws "Cannot access 'marked' before initialization" — declare

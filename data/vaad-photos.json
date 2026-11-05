@@ -369,6 +369,76 @@
     },
     "note": "Ilford Recorder, Sept 2026 (his Rosh Hashanah message), captioned \"Rabbi Aryeh Sufrin says that the time leading up to the Jewish New Year is a time of reflection\""
    }
+  ],
+  "new-york-city": [
+   {
+    "file": "img/vaad/new-york-city-kastel.jpg",
+    "name": "Kasriel Kastel",
+    "match": "sure",
+    "page": "https://www.chabad.org/news/article_cdo/aid/3611619/jewish/Purim-Behind-Bars-Megillah-for-Thousands-in-New-York-Prisons.htm",
+    "image": "https://w2.chabad.org/media/images/1002/hrcD10029756.jpg",
+    "crop": {
+     "cx": 0.3066,
+     "cy": 0.3829,
+     "side": 0.6565
+    },
+    "keep": true,
+    "note": "chabad.org's 2017 article on his prison programs (him alone in a library); the same man as COLlive's May 2025 photo named for him (collive.com/wp-content/uploads/photos/2025/05/img_5301-rabbi-kastel.jpg, at a microphone)"
+   },
+   {
+    "file": "img/vaad/new-york-city-friedman.jpg",
+    "name": "Shlomo Friedman",
+    "match": "likely",
+    "page": "https://collive.com/milestone-gathering-celebrates-70th-anniversary-of-tzach/",
+    "image": "https://collive.com/wp-content/uploads/photos/2025/05/img_5226-rabbis-telden-friedman-tenenbaum.jpg",
+    "crop": {
+     "cx": 0.543,
+     "cy": 0.4129,
+     "side": 0.2635
+    },
+    "keep": true,
+    "note": "COLlive, May 2025, Tzach's 70th anniversary: the head table's photo is named \"rabbis-telden-friedman-tenenbaum\"; he is the middle one (Teldon, on the left, matches his own photos); cropped above the table. Not the CHJCC's Shlomo Friedman (crownheights.info, Oct 2024), a different man"
+   },
+   {
+    "file": "img/vaad/new-york-city-tenenbaum.jpg",
+    "name": "Sholom Tenenbaum",
+    "match": "likely",
+    "page": "https://collive.com/milestone-gathering-celebrates-70th-anniversary-of-tzach/",
+    "image": "https://collive.com/wp-content/uploads/photos/2025/05/img_5226-rabbis-telden-friedman-tenenbaum.jpg",
+    "crop": {
+     "cx": 0.7969,
+     "cy": 0.4334,
+     "side": 0.2489
+    },
+    "keep": true,
+    "note": "the same COLlive photo (May 2025), the one on the right; cropped above the table"
+   },
+   {
+    "file": "img/vaad/new-york-city-teldon.jpg",
+    "name": "Tuvia Teldon",
+    "match": "sure",
+    "page": "https://medium.com/authority-magazine/author-rabbi-tuvia-teldon-5-things-you-need-to-heal-after-a-dramatic-loss-or-life-change-80cecd301e6d",
+    "image": "https://miro.medium.com/v2/resize:fit:1400/1*aF1tcHIeSIiQwC-lATBKSw.jpeg",
+    "crop": {
+     "cx": 0.5,
+     "cy": 0.479,
+     "side": 0.6667
+    },
+    "note": "Authority Magazine's interview with him as an author (an outdoor portrait)"
+   },
+   {
+    "file": "img/vaad/new-york-city-baumgarten.jpg",
+    "name": "Leibel Baumgarten",
+    "match": "sure",
+    "page": "https://www.27east.com/east-hampton-press/article_e70a700d-657f-5ac7-b46b-2a17430bd9b8.html",
+    "image": "https://bloximages.chicago2.vip.townnews.com/27east.com/content/tncms/assets/v3/editorial/2/e9/2e9778ac-8688-51be-b5c5-9e939013bca1/692ddd284ebf2.image.jpg",
+    "crop": {
+     "cx": 0.519,
+     "cy": 0.3727,
+     "side": 0.4391
+    },
+    "note": "The East Hampton Press, May 2023 (Chabad of the Hamptons' new Torah), in his tallis at the Torah; the same man as Patch's 2016 photo named for him (patch.com, leibel_c_richard_lewin_70)"
+   }
   ]
  }
 }

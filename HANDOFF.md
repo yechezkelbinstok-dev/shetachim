@@ -52,7 +52,10 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   Sub-shetach: lilac, its parent's shape with its flagship starred. Country (Countries map): its shape, its shetachim
   as rows with their colours. In English, Hebrew, light, dark and on a phone. **The small map is OUT** (owner, Nov 4:
   "Absolutely no reason to have that map situation. No, no, no."): never put a map in a card. The same cards without
-  it were sent (header wash, initials, action bar kept), waiting on him. Found on the way, NOT fixed yet (it's
+  it were sent (header wash, initials, action bar kept). He's "Not sure if I like the profile situation meaning like
+  the two letters" (the initials badge): four other ways were sent (1 the person's title small above his name; 2 a
+  coloured line beside the people; 3 the people in a soft panel; 4 a small person mark), waiting on his pick. Found
+  on the way, NOT fixed yet (it's
   in the live page too): the Mushrooms switch's handler reads `marked` (declared with `let` further down the script),
   so a tap on it while the page is still starting throws "Cannot access 'marked' before initialization" — declare
   `marked` up with the other state when the cards go in.

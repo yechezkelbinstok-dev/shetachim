@@ -13,7 +13,46 @@ those can't reach. On Nov 3 a session ran every search and page through Firecraw
 owner was furious. The rule is also under "Notes for Claude" below. (Owner, Nov 3, the other way round: "you have
 fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers WebFetch and curl with 403.)
 
-## ▶ Nov 4 (latest): mushroom networks on the map; Queens's head named in full; Shchunas HaRebbe taken out
+## ▶ Nov 5 (latest): photos of the head shluchim, USA (48 of 54; not on the page yet)
+- **What the owner asked** (Nov 5): "proper profile photos for every head shliach … I don't want a crappy crusty picture
+  of them sitting by like a farbrengen with other people in the frame"; "It's extremely doable … You just have to find
+  bro"; "We'd start with USA … The bigger moisdois (West Coast, Texas, etc) with the big dudes like Cunin or shimkeh
+  lazaroff … first". He gave the go-ahead to use Firecrawl's image search for this.
+- **Done:** 48 of the 54 US heads (every US shetach except Tzach's New York City, the Rubin family's Eastern New York
+  and Crown Heights, which has no head). Each is a 320×320 head-and-shoulders crop of him alone in
+  `web/img/heads/<shetach id>.jpg`; `data/head-photos.json` lists the head, the page it was found on, the original image
+  and a note where it falls short. Every one was checked against its page (a caption, the name beside it, or the
+  article it's in) before it was kept.
+- **Still missing (6):** Kansas–Missouri (Sholom Wineberg: the only find is an uncaptioned old rabbi at a microphone at
+  the 2010 40th-anniversary dinner, collive.com/chabad-kansas-city-marks-40 — not used); Delaware (Chuni Vogel: the
+  photos found are of his son at the University of Delaware's Chabad); New Hampshire (Levi Krinsky: the one portrait,
+  manchester.inklink.news, is blocked here; chabadofnh.com's About Us has a small photo of him with his wife);
+  Eastern Massachusetts (Chaim Prus: only Instagram, which can't be downloaded); Rhode Island (Yehoshua Laufer:
+  four Rabbi Laufers in the state, and farklempt.com's "Rabbi Laufer" photo couldn't be tied to him); Cape Cod (Kuti
+  Alperowitz: nothing).
+- **Weaker ones, to replace if better turns up:** Idaho, Indiana and Florida (speaking at a microphone or podium);
+  Alabama (115 px), Southern Ohio (200 px, LinkedIn), Virginia (223 px); the Carolinas and the North Shore are black
+  and white. Pennsylvania (Avremel Shemtov) and Washington DC (Levi Shemtov) come from Wikimedia Commons.
+- **Data checked on the way (no change needed):** Washington's Sholom Ber Levitin is alive (the Dec 2018 "BDE: Rabbi
+  Sholom DovBer Levitin, 73" on crownheights.info is a different man, the Crown Heights "candyman of 770");
+  Colorado's Mendel Popack has been regional director since mid-2023 (his father, Yisroel Meir Popack, who founded it,
+  died April 2022); Florida's Benjy Korf succeeded his father in Aug 2025; Mendy Herson was named New Jersey's head
+  shliach in March 2025. Virginia's Yossel Kranz is clean-shaven but for a short beard, with a small kippah — that's
+  the photo his own site shows above his name.
+- **Preview (not on the page):** a scratch copy of the page with the third card design (no small map) shows the photo
+  in the head shliach's line on a shetach's card (66 px) and on its flagship's card (48 px, for the first man listed
+  when his last name is in the head's English name — `s._enHead`, since in Hebrew `headShliach` is Hebrew while the
+  people's `lastName` stays English). Where there's no photo, option 2 (the coloured line) stands in. Sent to the
+  owner with a sheet of all 48.
+- **How it was done (to carry on with the world):** Firecrawl `firecrawl_search` with `sources: ["images"]`,
+  `limit: 10`, `domainTools: false` (2 credits a search; ~75 searches for the US). The best finds: an org's own
+  "About"/"Our team"/"Our rabbis" page; JEM "Here's My Story" / "Living Torah" stills; newspaper author photos (Times
+  of Israel blogs, Chicago Sun-Times, Pittsburgh Post-Gazette's "Callings"); LinkedIn profile photos (200 px). Downloads
+  with curl and a browser user agent; Facebook/Instagram "lookaside" links come back empty. Wikimedia only serves its
+  standard thumbnail widths (500px, 960px …; others get 400 "Use thumbnail sizes listed on https://w.wiki/GHai") and
+  answers repeated originals with 429. chabadpedia.com images come back as HTML (a challenge page).
+
+## ▶ Nov 4: mushroom networks on the map; Queens's head named in full; Shchunas HaRebbe taken out
 - **Waiting on the owner: a redesign of every other card** (owner, Nov 4: "maybe there's smth you can do with all the
   cards overall as well as capital cards (and even mushroom cards seperately) … rn everything is super super plain";
   then "Show me what your idea is"). A preview was built on a scratch copy of web/index.html (NOT on the page) and sent

@@ -410,6 +410,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card .cc-vtext details.vaad { margin-top: 4px; }
 #card .cc-vtext details.vaad > summary { color: var(--accent); font-size: 13px; }
 #card .cc-headrow .pi { flex: none; width: 14px; height: 14px; margin-top: 2px; color: var(--muted); }
+#card .cc-headrow .pi.hat { width: 16px; height: 16px; margin: 1px -1px 0; }
 #card .cc-headrow .lbl { color: var(--muted); }
 #card .cc-count { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 0 4px; margin-top: 2px; color: var(--muted); font-size: 13.5px; }
 #card .cc-count b, #card .cc-countrow b, #card .cc-act .lab b { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
@@ -470,6 +471,30 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card details.vaad li { display: block; color: var(--ink); }
 #card details.vaad li.alt { margin-top: 6px; padding-top: 5px; border-top: 1px dashed var(--panel-line); color: var(--muted); font-size: 12px; }
 #card details.vaad li.alt .meta { font-size: 12px; }
+/* a vaad with its members' faces, opened (owner, Nov 5: "once you click to expand the va'ad then the layout should change
+   to each member of the vaad with their pic"): the honeycomb gives way to a row per member, his photo by his name and
+   town, the chairman's ringed in the shetach's colour; the alternate after them, apart, smaller and grey */
+#card .cc-vaad:has(details.vaad-ph[open]) { align-items: flex-start; }
+#card .cc-vaad:has(details.vaad-ph[open]) .cc-hive { display: none; }
+#card .cc-vaad:has(details.vaad-ph[open]) .cc-vtext { flex: 1; }
+#card details.vaad-ph ul { display: grid; gap: 8px; margin: 10px 0 2px; padding: 0; list-style: none; }
+#card details.vaad-ph li.vm { display: flex; flex-direction: row; align-items: center; gap: 10px; color: var(--ink); }
+#card details.vaad-ph .vm-ph { flex: none; width: 32px; height: 32px; border-radius: 50%; object-fit: cover; background: var(--tile);
+  box-shadow: 0 0 0 1.5px var(--panel), 0 1px 3px rgba(0,0,0,.2); }
+#card details.vaad-ph .vm-av { display: grid; place-items: center; color: var(--ink); font: 600 12px/1 var(--font-ui); background: color-mix(in srgb, var(--t) 40%, var(--panel)); }
+#card details.vaad-ph li.hd .vm-ph { box-shadow: 0 0 0 2px var(--panel), 0 0 0 3.5px color-mix(in srgb, var(--t) 75%, var(--ink) 25%), 0 1px 3px rgba(0,0,0,.2); }
+#card details.vaad-ph .vm-t { display: flex; flex-direction: column; min-width: 0; line-height: 1.3; }
+#card details.vaad-ph .vm-n { display: flex; flex-wrap: wrap; align-items: center; gap: 0 7px; }
+#card details.vaad-ph .vm-n b { color: var(--ink); font-size: 14px; font-weight: 600; }
+#card details.vaad-ph .vm-role { padding: 0 7px; border-radius: 999px; background: color-mix(in srgb, var(--t) 42%, var(--panel)); color: var(--ink); font-size: 11px; font-weight: 600; line-height: 18px; }
+#card details.vaad-ph .vm-town { color: var(--muted); font-size: 12.5px; }
+#card details.vaad-ph li.vm.alt { margin-top: 2px; padding-top: 10px; border-top: 1px dashed var(--panel-line); }
+#card details.vaad-ph li.alt .vm-ph { width: 26px; height: 26px; margin-inline: 3px; }
+#card details.vaad-ph li.alt .vm-n b { color: var(--muted); font-size: 13px; font-weight: 500; }
+#card details.vaad-ph li.alt .vm-town { font-size: 12px; }
+#card details.vaad-ph[open] li.vm { animation: vm-in .2s ease-out both; }
+@keyframes vm-in { from { opacity: 0; transform: translateY(-3px); } }
+@media (prefers-reduced-motion: reduce) { #card details.vaad-ph[open] li.vm { animation: none; } }
 #card .zoomto { border: 1px solid var(--panel-line); background: transparent; border-radius: 999px; padding: 2px 10px; font-size: 13px; cursor: pointer; }
 #card .zoomto:hover { border-color: var(--accent); }
 #card .net-show { margin-top: 4px; align-self: flex-start; }
@@ -3679,8 +3704,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
   // A vaad on a shetach's card: "Leadership: …", which opens to its members and their towns (owner, Oct 13)
   const VAAD_ROLE_HE = { Head: 'יו״ר', Alternate: 'ממלא מקום' };
-  // a board's members (a vaad, or a board at the head: the UK's Hanholo, NYC's Tzach), under a line that opens to them
-  function membersHTML(s, line) {
+  // a board's members (a vaad, or a board at the head: the UK's Hanholo, NYC's Tzach), under a line that opens to them.
+  // With its members' faces (`photos`: a vaad that leads, Florida, New Jersey) it opens to a row per member, his photo by
+  // his name and town (owner, Nov 5: "once you click to expand the va'ad then the layout should change to each member of
+  // the vaad with their pic"); the honeycomb gives way to it (CSS, details.vaad-ph)
+  function membersHTML(s, line, photos = null) {
     if (!s.vaadMembers || !s.vaadMembers.length) return `<p>${line}</p>`;
     const town = (m) => {
       if (!m.town) return '';
@@ -3692,9 +3720,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // an alternate isn't a full member (owner, Oct 13: "shouldn't have the same prominence"): after the members, apart,
     // smaller and grey
     const alt = (m) => m.role === 'Alternate';
-    const item = (m) => `<li${alt(m) ? ' class="alt"' : ''}>${esc(personName(m))}${m.role ? ` <span class="meta">(${esc(HE ? VAAD_ROLE_HE[m.role] || m.role : m.role)})</span>` : ''}${m.town ? `<span class="meta"> · ${esc(town(m))}</span>` : ''}</li>`;
+    const role = (m) => esc(HE ? VAAD_ROLE_HE[m.role] || m.role : m.role);
+    // his face (matched on his last name, which stays English in Hebrew too), else his initials
+    const face = (m) => { const p = m.lastName && photos.find((x) => x.name && x.name.includes(m.lastName));
+      return p ? `<img class="vm-ph" src="${p.file}" alt="">` : `<span class="vm-ph vm-av">${esc(initials(firstOf(m), lastOf(m)))}</span>`; };
+    // the chairman's role as a small tag by his name; the alternate's in the grey line under it, with his town
+    const row = (m) => { const sub = [alt(m) ? role(m) : '', m.town ? esc(town(m)) : ''].filter(Boolean).join(' · ');
+      return `<li class="vm${alt(m) ? ' alt' : ''}${m.role === 'Head' ? ' hd' : ''}">${face(m)}<span class="vm-t"><span class="vm-n"><b>${esc(personName(m))}</b>${
+        m.role && !alt(m) ? `<span class="vm-role">${role(m)}</span>` : ''}</span>${sub ? `<span class="vm-town">${sub}</span>` : ''}</span></li>`; };
+    const item = photos ? row : (m) => `<li${alt(m) ? ' class="alt"' : ''}>${esc(personName(m))}${m.role ? ` <span class="meta">(${role(m)})</span>` : ''}${m.town ? `<span class="meta"> · ${esc(town(m))}</span>` : ''}</li>`;
     const items = [...s.vaadMembers.filter((m) => !alt(m)), ...s.vaadMembers.filter(alt)].map(item).join('');
-    return `<details class="vaad"><summary>${line}</summary><ul>${items}</ul></details>`;
+    return `<details class="vaad${photos ? ' vaad-ph' : ''}"><summary>${line}</summary><ul>${items}</ul></details>`;
   }
   const vaadHTML = (s) => membersHTML(s, `${tr('Leadership')}: ${esc(s.vaad)}`);
   const VAAD_PHOTOS = {"florida": [{"file": "img/vaad/florida-raichik.jpg", "name": "Yosef Raichik", "role": "Head"}, {"file": "img/vaad/florida-biston.jpg", "name": "Yossie Biston"}, {"file": "img/vaad/florida-goldman.jpg", "name": "Berl Goldman"}, {"file": "img/vaad/florida-lipskar.jpg", "name": "Eli Lipskar"}, {"file": "img/vaad/florida-levitin.jpg", "name": "Zalman Levitin"}, {"file": "img/vaad/florida-kessler.jpg", "name": "Meir Kessler"}, {"file": "img/vaad/florida-zaklos.jpg", "name": "Fishel Zaklos"}, {"file": "img/vaad/florida-dubov.jpg", "name": "Sholom Dubov", "role": "Alternate"}], "new-jersey": [{"file": "img/vaad/new-jersey-lubin.jpg", "name": "Shalom Lubin"}, {"file": "img/vaad/new-jersey-richler.jpg", "name": "Avi Richler"}, {"file": "img/vaad/new-jersey-leverton.jpg", "name": "Sholly (Sholom) Leverton"}, {"file": "img/vaad/new-jersey-gourarie.jpg", "name": "Moshe Gourarie"}, {"file": "img/vaad/new-jersey-simon.jpg", "name": "Ephraim Simon"}]};
@@ -3719,10 +3755,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
   function vaadBlock(s, t) {
     const n = (s.vaadMembers || []).filter((m) => m.role !== 'Alternate').length;
-    return `<div class="cc-vaad">${VAAD_PHOTOS[s.id] ? hiveHTML(s, t) : ''}<div class="cc-vtext"><span class="lbl">${tr('Leadership')}</span><b>${esc(s.vaad)}</b>${
-      membersHTML(s, n ? `${n} ${HE ? 'חברים' : 'members'}` : (HE ? 'חברים' : 'Members'))}</div></div>`;
+    return `<div class="cc-vaad" style="--t:${t}">${VAAD_PHOTOS[s.id] ? hiveHTML(s, t) : ''}<div class="cc-vtext"><span class="lbl">${tr('Leadership')}</span><b>${esc(s.vaad)}</b>${
+      membersHTML(s, n ? `${n} ${HE ? 'חברים' : 'members'}` : (HE ? 'חברים' : 'Members'), VAAD_PHOTOS[s.id] || null)}</div></div>`;
   }
-  const headRow = (s) => `<div class="cc-flagrow cc-headrow">${PERSON_ICON}<span><span class="lbl">${esc(s.headTitle || tr('Head shliach'))}:</span> ${headHTML(s.headShliach)}</span></div>`;
+  // the head shliach's mark on the "שליח ראשי:" line (owner, Nov 5: "the person icon next to shliach rooshi - maybe make a
+  // custom one with like a hat and stuff? Still exact same minimalist style"): a fedora over a bearded face, drawn as
+  // PERSON_ICON is (stroke 1.4, round caps); 16 px, set in the 14 px the other rows' marks take
+  const HEAD_ICON = '<svg class="pi hat" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.8 6.2C4.9 5.3 11.1 5.3 14.2 6.2M4.9 5.6C4.8 3.6 5.4 2 6.6 1.9C7.3 1.8 7.6 2.4 8 2.4S8.7 1.8 9.4 1.9C10.6 2 11.2 3.6 11.1 5.6M4.9 7.4C4.9 10.6 6 13.1 7.3 14C7.7 14.3 8.3 14.3 8.7 14C10 13.1 11.1 10.6 11.1 7.4M6.6 10C7.5 10.6 8.5 10.6 9.4 10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const headRow = (s) => `<div class="cc-flagrow cc-headrow">${HEAD_ICON}<span><span class="lbl">${esc(s.headTitle || tr('Head shliach'))}:</span> ${headHTML(s.headShliach)}</span></div>`;
   // A shetach's card: its head (or "Overseen by" for a territory, "Shluchim: … family"), its capital(s), its centers
   function shetachHTML(s, zoomBtn) {
     // (the page's capitals, which hold both languages: name, town and claimant in Hebrew too)

@@ -44,6 +44,17 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   when his last name is in the head's English name — `s._enHead`, since in Hebrew `headShliach` is Hebrew while the
   people's `lastName` stays English). Where there's no photo, option 2 (the coloured line) stands in. Sent to the
   owner with a sheet of all 48.
+- **Retouched** (owner, Nov 5: "can you use your skills to make them all look good? … if I was in Photoshop, I would
+  press auto tone … make them all look really, really nice … a lot more professional"): every photo was re-cropped
+  from its full-size source and retouched by `scripts/head-photos/retouch.py` (needs `pip install
+  "opencv-python-headless<5" numpy pillow`; run it in a scratch venv). It takes the colour cast out (the beard/shirt/wall
+  greys made grey, mostly in the light tones so black hats stay black), stretches levels when they're squashed, reads
+  exposure and colour strength on the skin of the forehead and cheeks only (white or red beards fooled a whole-face
+  reading) and pulls them into a natural band, adds gentle local contrast, cleans small sources before enlarging,
+  sharpens, and adds a faint vignette (none on a light backdrop). The face finder (OpenCV Haar, with an eye check — on
+  Texas it first took the beard for a face) evens out the framing but never widens the hand-picked square. Two casts
+  were set by eye (`cast` in data/head-photos.json): Cunin's magenta light (17,−2) and Bronstein's pink (8,−2.5).
+  Each entry's hand-picked `crop` is recorded, so a photo can be redone from its `image`. Before/after sheets were sent.
 - **How it was done (to carry on with the world):** Firecrawl `firecrawl_search` with `sources: ["images"]`,
   `limit: 10`, `domainTools: false` (2 credits a search; ~75 searches for the US). The best finds: an org's own
   "About"/"Our team"/"Our rabbis" page; JEM "Here's My Story" / "Living Torah" stills; newspaper author photos (Times

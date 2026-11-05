@@ -1,5 +1,5 @@
 {
- "about": "Profile photos of the head shluchim, one per shetach: a head-and-shoulders crop (320x320 JPEG) in web/img/heads/<shetach id>.jpg. Standard (owner, Nov 5): a proper portrait of him alone, never a farbrengen or group shot. 'page' is where the photo was found, 'image' the original file. Not on the live page yet (waiting on the owner).",
+ "about": "Profile photos of the head shluchim, one per shetach: a head-and-shoulders crop (320x320 JPEG) in web/img/heads/<shetach id>.jpg. Standard (owner, Nov 5): a proper portrait of him alone, never a farbrengen or group shot. 'page' is where the photo was found, 'image' the original file; 'crop' is the hand-picked square on that image (centre as fractions of width and height, side as a fraction of height) and 'cast' a colour cast taken out by hand. Every photo is retouched by scripts/head-photos/retouch.py (cast, levels, exposure and colour read on the skin, local contrast, sharpening). Not on the live page yet (waiting on the owner).",
  "photos": [
   {
    "id": "west-coast",
@@ -7,14 +7,28 @@
    "file": "img/heads/west-coast.jpg",
    "page": "https://www.chabad.org/therebbe/article_cdo/aid/4704861/jewish/Nothing-is-Impossible.htm",
    "image": "https://w2.chabad.org/media/images/1125/aWcs11257240.jpg",
-   "note": "JEM interview still"
+   "note": "JEM interview still",
+   "crop": {
+    "cx": 0.35,
+    "cy": 0.5,
+    "side": 1.0
+   },
+   "cast": [
+    17.0,
+    -2.0
+   ]
   },
   {
    "id": "alaska",
    "head": "Yosef Greenberg",
    "file": "img/heads/alaska.jpg",
    "page": "https://collive.com/jewish-heritage-in-alaska/",
-   "image": "https://collive.com/wp-content/uploads/photos/2008/11/nf_8834_84315.jpg"
+   "image": "https://collive.com/wp-content/uploads/photos/2008/11/nf_8834_84315.jpg",
+   "crop": {
+    "cx": 0.75,
+    "cy": 0.585,
+    "side": 0.45
+   }
   },
   {
    "id": "washington",
@@ -22,14 +36,24 @@
    "file": "img/heads/washington.jpg",
    "page": "https://www.chabadofseattle.org/templates/articlecco_cdo/aid/641179/jewish/About-Us.htm",
    "image": "https://w2.chabad.org/media/images/1102/VqLO11027053.jpg",
-   "note": "the \"From The Desk Of Rabbi Levitin\" photo"
+   "note": "the \"From The Desk Of Rabbi Levitin\" photo",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.47,
+    "side": 0.85
+   }
   },
   {
    "id": "oregon",
    "head": "Moshe Wilhelm",
    "file": "img/heads/oregon.jpg",
    "page": "https://anash.org/oregon-shliach-composes-song-of-gratitude-after-transplant/",
-   "image": "https://files.anash.org/uploads/2026/08/IMG-20260618-WA00471-1024x1024.jpg"
+   "image": "https://files.anash.org/uploads/2026/08/IMG-20260618-WA00471-1024x1024.jpg",
+   "crop": {
+    "cx": 0.43,
+    "cy": 0.32,
+    "side": 0.55
+   }
   },
   {
    "id": "hawaii",
@@ -37,7 +61,12 @@
    "file": "img/heads/hawaii.jpg",
    "page": "https://www.hawaiinewsnow.com/story/12202095/chabad-hawaii-rabbi-itchel-krasnjansky/",
    "image": "https://cloudfront-us-east-1.images.arcpublishing.com/gray/IIP3NMRFH5APNKU2HXQCNHLCGA.jpg",
-   "note": "TV interview still"
+   "note": "TV interview still",
+   "crop": {
+    "cx": 0.54,
+    "cy": 0.39,
+    "side": 0.78
+   }
   },
   {
    "id": "idaho",
@@ -45,56 +74,96 @@
    "file": "img/heads/idaho.jpg",
    "page": "https://www.idahopress.com/news/local/new-jewish-center-in-boise-will-include-idaho-s-first-mikvah/article_ccbe0852-a358-5acd-8876-9dc61b7851e2.html",
    "image": "https://bloximages.chicago2.vip.townnews.com/idahopress.com/content/tncms/assets/v3/editorial/d/08/d081b655-16fe-59c4-a7dc-2b936b9da416/62c731a73bc5b.image.jpg",
-   "note": "speaking at a microphone; replace if a cleaner portrait turns up"
+   "note": "speaking at a microphone; replace if a cleaner portrait turns up",
+   "crop": {
+    "cx": 0.74,
+    "cy": 0.4,
+    "side": 0.55
+   }
   },
   {
    "id": "montana",
    "head": "Chaim Bruk",
    "file": "img/heads/montana.jpg",
    "page": "https://www.bigskychathouse.com/p/rabbi-chaim-bruks-fierce-support",
-   "image": "https://substack-post-media.s3.amazonaws.com/public/images/f8448112-4aac-4eb7-b8e5-0516b2feb844_3893x2936.jpeg"
+   "image": "https://substack-post-media.s3.amazonaws.com/public/images/f8448112-4aac-4eb7-b8e5-0516b2feb844_3893x2936.jpeg",
+   "crop": {
+    "cx": 0.7,
+    "cy": 0.48,
+    "side": 0.9
+   }
   },
   {
    "id": "wyoming",
    "head": "Zalman Mendelsohn",
    "file": "img/heads/wyoming.jpg",
    "page": "https://www.jhnewsandguide.com/the_hole_scroll/local-rabbi-invited-to-sotu/article_6dfbd012-2555-5d0b-bc8b-91f0e863a1f3.html",
-   "image": "https://bloximages.newyork1.vip.townnews.com/jhnewsandguide.com/content/tncms/assets/v3/editorial/4/b2/4b203b71-6944-522c-bb9d-d2eb7dae441d/5c5a027ad067b.image.jpg"
+   "image": "https://bloximages.newyork1.vip.townnews.com/jhnewsandguide.com/content/tncms/assets/v3/editorial/4/b2/4b203b71-6944-522c-bb9d-d2eb7dae441d/5c5a027ad067b.image.jpg",
+   "crop": {
+    "cx": 0.47,
+    "cy": 0.5,
+    "side": 0.95
+   }
   },
   {
    "id": "utah",
    "head": "Benny Zippel",
    "file": "img/heads/utah.jpg",
    "page": "https://operationamigos.com/rabbi-benny-zippel-founder-of-project-h-e-a-r-t/",
-   "image": "https://i0.wp.com/operationamigos.com/wp-content/uploads/2021/04/BennyZippel.png"
+   "image": "https://i0.wp.com/operationamigos.com/wp-content/uploads/2021/04/BennyZippel.png",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.33,
+    "side": 0.6
+   }
   },
   {
    "id": "colorado",
    "head": "Mendel Popack",
    "file": "img/heads/colorado.jpg",
    "page": "https://www.ijn.com/new-regional-director-chabad-colorado-mendel-popack-stresses-collaboration/",
-   "image": "https://www.ijn.com/wp-content/uploads/2025/04/Chabad_Colorado_Mendel_Popack.png"
+   "image": "https://www.ijn.com/wp-content/uploads/2025/04/Chabad_Colorado_Mendel_Popack.png",
+   "crop": {
+    "cx": 0.565,
+    "cy": 0.45,
+    "side": 0.8
+   }
   },
   {
    "id": "arizona",
    "head": "Zalman Levertov",
    "file": "img/heads/arizona.jpg",
    "page": "https://azjewishpost.com/2017/chabad-to-celebrate-40-years-of-ever-expanding-service-in-arizona/",
-   "image": "https://cdn-15011.jigsawanalyticsgroup.cloud/20240223080855/Rabbi-Levertov-2.jpg"
+   "image": "https://cdn-15011.jigsawanalyticsgroup.cloud/20240223080855/Rabbi-Levertov-2.jpg",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.42,
+    "side": 0.75
+   }
   },
   {
    "id": "new-mexico",
    "head": "Chaim Shmukler",
    "file": "img/heads/new-mexico.jpg",
    "page": "https://www.chabadnm.org/templates/articlecco_cdo/aid/6164502/jewish/About-Us.htm",
-   "image": "https://w2.chabad.org/media/images/1252/mJlb12523480.jpg"
+   "image": "https://w2.chabad.org/media/images/1252/mJlb12523480.jpg",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.375,
+    "side": 0.75
+   }
   },
   {
    "id": "nebraska",
    "head": "Mendel Katzman",
    "file": "img/heads/nebraska.jpg",
    "page": "https://www.omahapolicechaplains.com/current-members",
-   "image": "https://www.omahapolicechaplains.com/assets/img/members/KATZMAN-Mendel.jpg"
+   "image": "https://www.omahapolicechaplains.com/assets/img/members/KATZMAN-Mendel.jpg",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.363,
+    "side": 0.55
+   }
   },
   {
    "id": "upper-midwest",
@@ -102,49 +171,84 @@
    "file": "img/heads/upper-midwest.jpg",
    "page": "https://collive.com/what-merited-3-thank-yous-from-the-rebbe/",
    "image": "https://collive.com/wp-content/uploads/2025/09/660.-ki-seitzei-5785-1.jpg",
-   "note": "JEM \"Here's My Story\" still (the inset)"
+   "note": "JEM \"Here's My Story\" still (the inset)",
+   "crop": {
+    "cx": 0.796,
+    "cy": 0.3,
+    "side": 0.45
+   }
   },
   {
    "id": "iowa",
    "head": "Yossi Jacobson",
    "file": "img/heads/iowa.jpg",
    "page": "https://www.dmcityview.com/feature-2/2022/02/02/the-proud-carnivore/",
-   "image": "https://www.dmcityview.com/wp-content/uploads/2022/01/Carnivore-Feature-Rabbi-Jacobson.jpg"
+   "image": "https://www.dmcityview.com/wp-content/uploads/2022/01/Carnivore-Feature-Rabbi-Jacobson.jpg",
+   "crop": {
+    "cx": 0.54,
+    "cy": 0.33,
+    "side": 0.6
+   }
   },
   {
    "id": "wisconsin",
    "head": "Yisroel Shmotkin",
    "file": "img/heads/wisconsin.jpg",
    "page": "https://www.chabadwi.org/about-us",
-   "image": "https://static.wixstatic.com/media/2afef2_03fee18277114e70829cc0886ba64a2f~mv2.png"
+   "image": "https://static.wixstatic.com/media/2afef2_03fee18277114e70829cc0886ba64a2f~mv2.png",
+   "crop": {
+    "cx": 0.49,
+    "cy": 0.3,
+    "side": 0.6
+   }
   },
   {
    "id": "illinois",
    "head": "Meir Moscowitz",
    "file": "img/heads/illinois.jpg",
    "page": "https://www.chabadillinois.com/templates/articlecco_cdo/aid/3500840/jewish/Our-Staff.htm",
-   "image": "https://w2.chabad.org/media/images/991/GkxY9919677.jpg"
+   "image": "https://w2.chabad.org/media/images/991/GkxY9919677.jpg",
+   "crop": {
+    "cx": 0.485,
+    "cy": 0.365,
+    "side": 0.62
+   }
   },
   {
    "id": "michigan",
    "head": "Berel Shemtov",
    "file": "img/heads/michigan.jpg",
    "page": "https://www.thejewishnews.com/archives/motions-fly-in-chabad-lawsuit/article_607c5c1b-2b0b-5e2b-8d50-3c1ca599b507.html",
-   "image": "https://bloximages.chicago2.vip.townnews.com/thejewishnews.com/content/tncms/assets/v3/editorial/1/c6/1c681218-3428-5a0c-a76b-831d70ec646a/64186604bc09a.image.jpg"
+   "image": "https://bloximages.chicago2.vip.townnews.com/thejewishnews.com/content/tncms/assets/v3/editorial/1/c6/1c681218-3428-5a0c-a76b-831d70ec646a/64186604bc09a.image.jpg",
+   "crop": {
+    "cx": 0.417,
+    "cy": 0.376,
+    "side": 0.62
+   }
   },
   {
    "id": "northeast-ohio",
    "head": "Zushe Greenberg",
    "file": "img/heads/northeast-ohio.jpg",
    "page": "https://www.solonchabad.com/templates/articlecco_cdo/aid/251788/jewish/Rabbis-Monthly-Message.htm",
-   "image": "https://w2.chabad.org/media/images/1304/peoE13043082.jpg"
+   "image": "https://w2.chabad.org/media/images/1304/peoE13043082.jpg",
+   "crop": {
+    "cx": 0.545,
+    "cy": 0.3,
+    "side": 0.55
+   }
   },
   {
    "id": "central-ohio",
    "head": "Areyah Kaltmann",
    "file": "img/heads/central-ohio.jpg",
    "page": "https://www.columbusjewishnews.com/rabbi-areyah-kaltmann-chabad-of-columbus/article_337e7646-b511-11ec-adfa-4bd6402bec61.html",
-   "image": "https://bloximages.chicago2.vip.townnews.com/columbusjewishnews.com/content/tncms/assets/v3/editorial/a/87/a87eef7c-90d9-11ec-a427-d7d023a6f192/620fcc4914990.image.jpg"
+   "image": "https://bloximages.chicago2.vip.townnews.com/columbusjewishnews.com/content/tncms/assets/v3/editorial/a/87/a87eef7c-90d9-11ec-a427-d7d023a6f192/620fcc4914990.image.jpg",
+   "crop": {
+    "cx": 0.503,
+    "cy": 0.45,
+    "side": 0.9
+   }
   },
   {
    "id": "southern-ohio",
@@ -152,7 +256,12 @@
    "file": "img/heads/southern-ohio.jpg",
    "page": "https://www.linkedin.com/in/yisroel-mangel-8a02939",
    "image": "https://media.licdn.com/dms/image/v2/C4D03AQETGz2wT8o2FQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1604081509888",
-   "note": "his LinkedIn profile photo (200 px)"
+   "note": "his LinkedIn profile photo (200 px)",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.5,
+    "side": 1.0
+   }
   },
   {
    "id": "indiana",
@@ -160,21 +269,36 @@
    "file": "img/heads/indiana.jpg",
    "page": "https://www.chabad.org/news/article_cdo/aid/2891751/jewish/Building-for-the-Future-After-34-Years-New-Home-for-Indiana-Jewish-Community.htm",
    "image": "https://w2.chabad.org/media/images/881/HlHP8815794.jpg",
-   "note": "speaking with a hand microphone; replace if a cleaner portrait turns up"
+   "note": "speaking with a hand microphone; replace if a cleaner portrait turns up",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.43,
+    "side": 0.85
+   }
   },
   {
    "id": "kentucky",
    "head": "Avrohom Litvin",
    "file": "img/heads/kentucky.jpg",
    "page": "https://jewishlouisville.org/word-of-the-month-the-holiday-of-chanukah-a-lesson-in-jewish-unity/",
-   "image": "https://jewishlouisville.org/wp-content/uploads/2025/12/Avrohom-Livin-updated-pic-scaled.jpg"
+   "image": "https://jewishlouisville.org/wp-content/uploads/2025/12/Avrohom-Livin-updated-pic-scaled.jpg",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.41,
+    "side": 0.82
+   }
   },
   {
    "id": "tennessee",
    "head": "Levi Klein",
    "file": "img/heads/tennessee.jpg",
    "page": "https://tamimacademy.org/team/rabbi-levi-klein/",
-   "image": "https://tamimacademy.org/wp-content/uploads/2020/05/bio_levi_long.jpg"
+   "image": "https://tamimacademy.org/wp-content/uploads/2020/05/bio_levi_long.jpg",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.42,
+    "side": 0.65
+   }
   },
   {
    "id": "oklahoma",
@@ -182,14 +306,24 @@
    "file": "img/heads/oklahoma.jpg",
    "page": "https://anash.org/shluchim-find-joy-in-their-mission/",
    "image": "https://files.anash.org/uploads/2019/11/Weg-1-scaled.jpg",
-   "note": "still from the Kinus Hashluchim banquet video"
+   "note": "still from the Kinus Hashluchim banquet video",
+   "crop": {
+    "cx": 0.683,
+    "cy": 0.374,
+    "side": 0.628
+   }
   },
   {
    "id": "arkansas",
    "head": "Pinchus Ciment",
    "file": "img/heads/arkansas.jpg",
    "page": "https://www.arkansasonline.com/news/2025/apr/04/arkansas-rabbi-delivers-morning-prayer-for-us/",
-   "image": "https://wehco.media.clients.ellingtoncms.com/img/photos/2025/04/04/Rabbi_Ciment_Christmas_t800.jpg"
+   "image": "https://wehco.media.clients.ellingtoncms.com/img/photos/2025/04/04/Rabbi_Ciment_Christmas_t800.jpg",
+   "crop": {
+    "cx": 0.586,
+    "cy": 0.56,
+    "side": 0.85
+   }
   },
   {
    "id": "texas",
@@ -197,14 +331,24 @@
    "file": "img/heads/texas.jpg",
    "page": "https://www.chabad.org/therebbe/livingtorah/player_cdo/aid/3719794/jewish/A-Message-for-the-President.htm",
    "image": "https://w2.chabad.org/media/images/1017/mhWP10170246.jpg",
-   "note": "JEM Living Torah still"
+   "note": "JEM Living Torah still",
+   "crop": {
+    "cx": 0.37,
+    "cy": 0.46,
+    "side": 0.92
+   }
   },
   {
    "id": "louisiana-mississippi",
    "head": "Zelig Rivkin",
    "file": "img/heads/louisiana-mississippi.jpg",
    "page": "https://www.crescentcityjewishnews.com/blog/area-synagogues-prepare-for-a-post-hurricane-ida-yom-kippur/",
-   "image": "https://www.crescentcityjewishnews.com/blog/wp-content/uploads/2012/09/Zelig_Rivkin.jpg"
+   "image": "https://www.crescentcityjewishnews.com/blog/wp-content/uploads/2012/09/Zelig_Rivkin.jpg",
+   "crop": {
+    "cx": 0.568,
+    "cy": 0.438,
+    "side": 0.687
+   }
   },
   {
    "id": "alabama",
@@ -212,14 +356,24 @@
    "file": "img/heads/alabama.jpg",
    "page": "https://www.chabadofalabama.com/templates/articlecco_cdo/aid/2341680/jewish/The-Living-Talmud.htm",
    "image": "http://chabadofalabama.com/media/images/775/KsBe7751824.jpg",
-   "note": "small (115 px); replace if a bigger portrait turns up"
+   "note": "small (115 px); replace if a bigger portrait turns up",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.5,
+    "side": 1.0
+   }
   },
   {
    "id": "georgia",
    "head": "Yossi New",
    "file": "img/heads/georgia.jpg",
    "page": "https://www.atlantajewishtimes.com/beth-tefillah-opens-up-for-shavuot/",
-   "image": "https://static.timesofisrael.com/atlantajewishtimes/uploads/2020/06/NEWS-BethTefillah-shavuot-RabbiNew-better-photo-6-15-20.png"
+   "image": "https://static.timesofisrael.com/atlantajewishtimes/uploads/2020/06/NEWS-BethTefillah-shavuot-RabbiNew-better-photo-6-15-20.png",
+   "crop": {
+    "cx": 0.49,
+    "cy": 0.415,
+    "side": 0.73
+   }
   },
   {
    "id": "florida",
@@ -227,7 +381,12 @@
    "file": "img/heads/florida.jpg",
    "page": "https://collive.com/rabbi-benjy-korf-on-the-mission-of-chinuch/",
    "image": "https://collive.com/wp-content/uploads/2026/08/img-20260826-wa0056.jpg",
-   "note": "speaking at a podium (video still); replace if a cleaner portrait turns up"
+   "note": "speaking at a podium (video still); replace if a cleaner portrait turns up",
+   "crop": {
+    "cx": 0.449,
+    "cy": 0.35,
+    "side": 0.655
+   }
   },
   {
    "id": "the-carolinas",
@@ -235,21 +394,36 @@
    "file": "img/heads/the-carolinas.jpg",
    "page": "https://digitalbranch.cmlibrary.org/on-life-and-meaning/episode-065/",
    "image": "https://digitalbranch.cmlibrary.org/wp-content/uploads/2019/02/yossi2.jpg",
-   "note": "black and white"
+   "note": "black and white",
+   "crop": {
+    "cx": 0.523,
+    "cy": 0.475,
+    "side": 0.95
+   }
   },
   {
    "id": "virginia",
    "head": "Yossel Kranz",
    "file": "img/heads/virginia.jpg",
    "page": "https://chabadofva.org/",
-   "image": "https://chabadofva.org/wp-content/uploads/2025/12/yossel2-223x300-1.png"
+   "image": "https://chabadofva.org/wp-content/uploads/2025/12/yossel2-223x300-1.png",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.5,
+    "side": 1.0
+   }
   },
   {
    "id": "western-pennsylvania",
    "head": "Yisroel Rosenfeld",
    "file": "img/heads/western-pennsylvania.jpg",
    "page": "https://newsinteractive.post-gazette.com/callings-portraits-of-pittsburgh-area-faith-leaders/",
-   "image": "https://newsinteractive.post-gazette.com/media/2020/06/callings/Rabbi_Rosenfeld.jpg"
+   "image": "https://newsinteractive.post-gazette.com/media/2020/06/callings/Rabbi_Rosenfeld.jpg",
+   "crop": {
+    "cx": 0.489,
+    "cy": 0.435,
+    "side": 0.835
+   }
   },
   {
    "id": "pennsylvania",
@@ -257,21 +431,36 @@
    "file": "img/heads/pennsylvania.jpg",
    "page": "https://en.wikipedia.org/wiki/Abraham_Shemtov",
    "image": "https://upload.wikimedia.org/wikipedia/commons/0/08/Rabbi_Abraham_Shemtov.jpg",
-   "note": "Wikimedia Commons"
+   "note": "Wikimedia Commons",
+   "crop": {
+    "cx": 0.42,
+    "cy": 0.52,
+    "side": 0.95
+   }
   },
   {
    "id": "new-jersey",
    "head": "Mendy Herson",
    "file": "img/heads/new-jersey.jpg",
    "page": "https://www.chabadcentral.org/templates/articlecco_cdo/aid/584076/jewish/Our-Team.htm",
-   "image": "https://w2.chabad.org/media/images/1341/fXdj13416657.jpg"
+   "image": "https://w2.chabad.org/media/images/1341/fXdj13416657.jpg",
+   "crop": {
+    "cx": 0.487,
+    "cy": 0.448,
+    "side": 0.758
+   }
   },
   {
    "id": "maryland",
    "head": "Shmuel Kaplan",
    "file": "img/heads/maryland.jpg",
    "page": "https://www.chabad.org/news/article_cdo/aid/3110870/jewish/QA-Rabbis-Classes-on-Prayer-Attended-100000-Times-on-JewishTV.htm",
-   "image": "https://w2.chabad.org/media/images/918/Aimw9180093.jpg"
+   "image": "https://w2.chabad.org/media/images/918/Aimw9180093.jpg",
+   "crop": {
+    "cx": 0.428,
+    "cy": 0.475,
+    "side": 0.95
+   }
   },
   {
    "id": "washington-dc",
@@ -279,14 +468,24 @@
    "file": "img/heads/washington-dc.jpg",
    "page": "https://en.wikipedia.org/wiki/Levi_Shemtov",
    "image": "https://upload.wikimedia.org/wikipedia/commons/7/76/Rabbi_Levi_Shemtov.jpg",
-   "note": "Wikimedia Commons"
+   "note": "Wikimedia Commons",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.468,
+    "side": 0.7
+   }
   },
   {
    "id": "rockland",
    "head": "Avremel Kotlarsky",
    "file": "img/heads/rockland.jpg",
    "page": "https://jewishstandard.timesofisrael.com/new-rockland-course-addresses-faith-challenges/",
-   "image": "https://static.timesofisrael.com/jewishstanddev/uploads/2019/02/C03-Avremel-Kotlarsky.jpg"
+   "image": "https://static.timesofisrael.com/jewishstanddev/uploads/2019/02/C03-Avremel-Kotlarsky.jpg",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.38,
+    "side": 0.76
+   }
   },
   {
    "id": "upstate-new-york",
@@ -294,28 +493,48 @@
    "file": "img/heads/upstate-new-york.jpg",
    "page": "https://www.chabad.org/therebbe/livingtorah/player_cdo/aid/4259586/jewish/A-Real-Connection.htm",
    "image": "https://w2.chabad.org/media/images/1076/agdn10768644.jpg",
-   "note": "JEM Living Torah still"
+   "note": "JEM Living Torah still",
+   "crop": {
+    "cx": 0.669,
+    "cy": 0.5,
+    "side": 0.889
+   }
   },
   {
    "id": "maine",
    "head": "Moshe Wilansky",
    "file": "img/heads/maine.jpg",
    "page": "https://www.pressherald.com/2022/04/12/portland-neighbors-concerned-about-religious-centers-plans-for-gatherings/",
-   "image": "https://www.pressherald.com/wp-content/uploads/sites/4/2022/04/29944451_20220411_chabad_0004-1649773372.jpg"
+   "image": "https://www.pressherald.com/wp-content/uploads/sites/4/2022/04/29944451_20220411_chabad_0004-1649773372.jpg",
+   "crop": {
+    "cx": 0.477,
+    "cy": 0.41,
+    "side": 0.62
+   }
   },
   {
    "id": "vermont",
    "head": "Yitzchok Raskin",
    "file": "img/heads/vermont.jpg",
    "page": "https://www.chabad.org/news/article_cdo/aid/4239655/jewish/After-100-Years-Vermonts-Little-Jerusalem-Comes-Full-Circle.htm",
-   "image": "https://w2.chabad.org/media/images/1074/pVeh10748016.JPG"
+   "image": "https://w2.chabad.org/media/images/1074/pVeh10748016.JPG",
+   "crop": {
+    "cx": 0.336,
+    "cy": 0.37,
+    "side": 0.546
+   }
   },
   {
    "id": "central-massachusetts",
    "head": "Mendel Fogelman",
    "file": "img/heads/central-massachusetts.jpg",
    "page": "https://www.jewishledger.com/2022/02/chanis-kosher-take-out-beats-out-the-competition-in-worcester/",
-   "image": "https://www.jewishledger.com/wp-content/uploads/2022/02/Rabbi-Mendel-Fogelman.jpg"
+   "image": "https://www.jewishledger.com/wp-content/uploads/2022/02/Rabbi-Mendel-Fogelman.jpg",
+   "crop": {
+    "cx": 0.606,
+    "cy": 0.344,
+    "side": 0.669
+   }
   },
   {
    "id": "connecticut",
@@ -323,14 +542,24 @@
    "file": "img/heads/connecticut.jpg",
    "page": "https://videos.jem.tv/documents/1622",
    "image": "https://res.cloudinary.com/jemdev/image/upload/s--EkdmFTHF--/playlists/l6momzj7rwgyzttynqi5",
-   "note": "JEM still (his playlist's cover)"
+   "note": "JEM still (his playlist's cover)",
+   "crop": {
+    "cx": 0.317,
+    "cy": 0.361,
+    "side": 0.722
+   }
   },
   {
    "id": "new-haven",
    "head": "Sheya Hecht",
    "file": "img/heads/new-haven.jpg",
    "page": "https://www.schacademy.org/about",
-   "image": "https://static.wixstatic.com/media/b0c66a_316d2d53f28743c6ac78ed312d231eb8~mv2.jpg"
+   "image": "https://static.wixstatic.com/media/b0c66a_316d2d53f28743c6ac78ed312d231eb8~mv2.jpg",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.394,
+    "side": 0.67
+   }
   },
   {
    "id": "south-area",
@@ -338,14 +567,28 @@
    "file": "img/heads/south-area.jpg",
    "page": "https://chabadinfo.com/opinions/kindness-can-battle-aanti-semitism/",
    "image": "https://media.chabadinfo.com/wp-content/uploads/2019/01/adegS-Chabad-Info.jpg",
-   "note": "the photo on his op-ed (uncaptioned)"
+   "note": "the photo on his op-ed (uncaptioned)",
+   "crop": {
+    "cx": 0.519,
+    "cy": 0.398,
+    "side": 0.596
+   }
   },
   {
    "id": "merrimack-valley",
    "head": "Asher Bronstein",
    "file": "img/heads/merrimack-valley.jpg",
    "page": "https://www.chabadmv.com/templates/articlecco_cdo/aid/2194385/jewish/Our-Rabbis-Rebbetzins.htm",
-   "image": "https://w2.chabad.org/media/images/732/ldqC7325555.jpg"
+   "image": "https://w2.chabad.org/media/images/732/ldqC7325555.jpg",
+   "crop": {
+    "cx": 0.44,
+    "cy": 0.45,
+    "side": 0.705
+   },
+   "cast": [
+    8.0,
+    -2.5
+   ]
   },
   {
    "id": "north-shore-of-massachusetts",
@@ -353,7 +596,12 @@
    "file": "img/heads/north-shore-of-massachusetts.jpg",
    "page": "https://blogs.timesofisrael.com/kol-nidre-annuling-the-vows-renewing-the-wows/",
    "image": "https://static-cdn.toi-media.com/blogs/uploads/users/Yossi-Lipsker-1530952457-400x400.jpg",
-   "note": "his Times of Israel author photo (black and white)"
+   "note": "his Times of Israel author photo (black and white)",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.5,
+    "side": 1.0
+   }
   }
  ]
 }

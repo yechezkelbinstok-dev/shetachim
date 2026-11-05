@@ -7,13 +7,73 @@ More detail is in `docs/PLAN.md`.
 **Branches (read first).** The live site is served from `claude/bold-albattani-aqfnj9`. Always push there
 (a session on another account once pushed to `ccr-1f9385a8-jca1nj`; that's merged in and done). The owner switches
 between two Claude accounts when usage limits run out; whichever session picks this up, work from the newest branch.
+Since Nov 5 it is also the repo's **default branch** (the owner changed it in GitHub's settings), so a new session
+starts on the latest code; the session is still handed its own branch name, so get the owner's OK once to push here.
 
 **Research tools (read first).** Plain WebSearch/WebFetch for every lookup; Firecrawl (paid credits) ONLY for a page
 those can't reach. On Nov 3 a session ran every search and page through Firecrawl (~25 searches, ~20 pages) and the
 owner was furious. The rule is also under "Notes for Claude" below. (Owner, Nov 3, the other way round: "you have
 fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers WebFetch and curl with 403.)
 
-## ▶ START HERE — handoff, Nov 5 (end of a session): head-shliach photos, vaad faces, the new cards
+## ▶ START HERE — Nov 5, later session: the vaads and boards with faces, no "Zoom in", small buttons
+Everything below is in **web/preview-cards.html** (not on the live page; it waits on the owner's go-ahead for the card
+redesign, as before), except two data fixes that are live (marked). See it in Hebrew first:
+https://yechezkelbinstok-dev.github.io/shetachim/web/preview-cards.html?lang=he — the previews the owner was sent are
+in docs/handoff-2026-11-05b/ (1 Florida/NJ/UK, 2 a center/mushroom/flagship with the small buttons, 3 Tzach + Florida).
+
+**Done this session:**
+1. **A vaad opens to its members with their photos** (owner: "once you expand it instead of showing the circle with all
+   the members it shows each profile picture next to each member"): tapping "7 חברים" hides the honeycomb and shows a
+   row per member, his photo (32 px), name and town; the chairman ringed in the shetach's colour with a "יו״ר" tag; the
+   alternate after a dashed line, smaller and grey (`membersHTML(s, line, photos)`, CSS `details.vaad-ph`).
+2. **The "שליח ראשי:" mark** is `HEAD_ICON`: a fedora over a bearded face, line style like `PERSON_ICON` (owner: "a custom
+   one with like a hat and stuff? Still exact same minimalist style"). Picked from the variants in
+   work/head-photos/vaad/nov5-later/sheets/head-icon-variants.png (F3: all line, a pointed beard; F5 has a filled hat).
+3. **The UK's Hanholo** (owner: "pls do uk hanholo next") and **Tzach's vaad** (owner: "I'd like the Tzach va'ad added as
+   well"): a board at the head (`headTitle` Leadership, no `vaad`) with faces in `VAAD_PHOTOS` gets the same block as a
+   vaad that leads: honeycomb (`HIVE_ROWS` now up to 13: the UK's 12 are 4-4-4, Tzach's 5 are 2-3), "הנהלה", the board's
+   name, "12 חברים" opening to the rows. Faces are matched on the first name too where two share a last name (Leivi and
+   Bentzi Sudak). All 17 faces: data/vaad-photos.json (page, image, crop, edit, how sure, a note with the date).
+4. **"Zoom in" is gone from every card** (owner: "Get rid of zoom in, takes up unnecessary space nobody needs it"), and
+   **the bar along a card's foot is gone**: a center's page is a small pill ("chabad.org ↗") at the end of the line under
+   its name (owner: "The link can just be a button honestly like a small button that doesn't take up a whole line"), a
+   mushroom's "Show network" a small pill in its network's box (`pageChip`, `netPill`, `ccHead({ act })`).
+5. **Florida's vaad:** Kessler now from COLlive's July 2023 photo (captioned; sure). Goldman: the UF team photo cropped
+   above his raised hand, no editing — a painted-out version was rejected (owner: "Goldman is extremely f***** up don't
+   even try to tell me that looks normal"). Raichik confirmed (his own Nov 2026 podcast thumbnail names him). Zaklos: the
+   collage face matches the Naples Daily News's captioned Oct 2023 video (its image server answers 402; don't force it).
+   Lipskar: still a guess (the only captioned 2026 photos are group shots with Rabbi Chaim Lipskar).
+6. **New Jersey has no named chairman:** the June 2025 reports (anash.org, COLlive) say the five were elected "to serve
+   alongside" Mendy Herson; a June 2025 list puts Herson first among them. Told the owner; nothing changed. Ephraim
+   Simon was elected for one year (to about June 2026); no successor reported yet — check.
+7. **Live data fixes:** Rabbi Isaac Hirsh (Yitzchok 'Icky') Sufrin, on the UK Hanholo's list, passed away 3 Feb 2026
+   (anash.org; Companies House: born Feb 1940, director of Lubavitch (UK) Ltd) — taken off the board (12 now). Hebrew:
+   Leivi / Leivy / Laivi / Laivy are לוי (were לייב, which is Leib) in data/hebrew/first-names.json, he.json rebuilt.
+
+**The owner's rules from this session (keep them):** always show previews in Hebrew too (Hebrew first); never claim
+an edit is clean without checking it zoomed in — a hand over a beard doesn't paint out: crop around it or find another
+photo; every photo gets the full edit (colour, light, tone) and a good crop (retouch.py); search the whole web, not
+just Instagram ("there's a massive web out there"), and use Firecrawl when plain fetching can't reach a page ("You
+forgot you have firecrawl access") — but don't work around a payment wall or a bot check (a referer trick was refused).
+
+**Still to do:**
+1. The head-shliach photos left (not touched this session): see "The photos" in the section below (old: Indiana,
+   Louisiana–Mississippi, Alabama, Merrimack Valley, Texas, Vermont; none: Kansas–Missouri, Delaware, New Hampshire,
+   Eastern Massachusetts, Rhode Island, Cape Cod; Canada: BC, Ottawa, Quebec, Maritimes).
+2. Weaker vaad faces to replace when better turn up: Arkush (2014), Efune (at a microphone), Junik (2017), Leivi Sudak (a
+   tight close-up), Korer (200 px LinkedIn), Kastel (2017), Friedman and Tenenbaum (crops of Tzach's 2025 head table,
+   "likely" by the photo's file name), Goldman (tight), Lipskar (a guess), Zaklos (collage).
+3. Hebrew to check: Lew is לוי in the name lists (Rabbi Shmuel Lew is probably לו); Efune is אפונה.
+4. Then the card redesign's go-ahead and the port to web/index.html (fix the `marked` bug then), as below.
+
+**Apify:** the owner pasted the token in the chat this session; it was kept only in the session's scratchpad (never in
+the repo). Next time ask him to add `APIFY_TOKEN` in the environment's settings (Network secrets or an environment
+variable); never to paste it. One run this session (2 posts). **Files:** work/head-photos/vaad/nov5-later/ (README
+there): every candidate with its source, the edits, the review sheets. Tools: scripts/head-photos/autocrop.py,
+boxes.py, circles.py; screenshots of every card kind: scripts/card-preview/shots.sh (cardshot.mjs needs
+`npm install --prefix .cache/testlib d3@7.9.0 topojson@3.0.2 maplibre-gl@4.7.1` and the @fontsource fonts).
+
+## ▶ START HERE (earlier) — handoff, Nov 5 (end of a session): head-shliach photos, vaad faces, the new cards
 The owner (Nov 5): "make some sort of seamless handoff transition situation so another session can pick this up with
 every aspect of what you've done so far including pictures progress cards like literally everything". This is it; the
 dated sections below have the detail. **None of it is on the live map yet:** the photos and the new cards wait on the

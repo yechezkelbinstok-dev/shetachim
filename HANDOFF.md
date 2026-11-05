@@ -44,6 +44,13 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
   when his last name is in the head's English name — `s._enHead`, since in Hebrew `headShliach` is Hebrew while the
   people's `lastName` stays English). Where there's no photo, option 2 (the coloured line) stands in. Sent to the
   owner with a sheet of all 48.
+  **The numbers box is out** (owner, Nov 5, on the phone preview: "The part where it says how many centers looks really
+  ugly. Like, why is there that long gray box only for it to be all the way on the side? … I don't think the box
+  works"). Three ways without it were sent, in Hebrew: 1 the count under the name in the header ("55 מוסדות", numbers
+  bold, mushrooms in their colour after a dot) — recommended, and used on the sheet of photo cards; 2 a plain line with
+  a pin, like "★ Flagship"; 3 in the Zoom in button ("התקרבות · 240 מוסדות"). Waiting on his pick. **He uses Hebrew
+  much more** ("I use Hebrew much more") — show previews in Hebrew first. (Scratchpad: proto6 = proto5 + this, the
+  variant set by `document.documentElement.dataset.cnt` = head | line | zoom | box.)
 - **Retouched** (owner, Nov 5: "can you use your skills to make them all look good? … if I was in Photoshop, I would
   press auto tone … make them all look really, really nice … a lot more professional"): every photo was re-cropped
   from its full-size source and retouched by `scripts/head-photos/retouch.py` (needs `pip install

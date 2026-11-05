@@ -1,0 +1,245 @@
+[
+ {
+  "key": "P:southern-ohio",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/chabadcincinnati/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ },
+ {
+  "key": "P:oklahoma",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/jewishok/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ },
+ {
+  "key": "P:the-carolinas",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/chabadclt/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ },
+ {
+  "key": "P:british-columbia",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/chabadvancouver/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ },
+ {
+  "key": "P:manitoba-saskatchewan",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/shmuly.adina/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ },
+ {
+  "key": "P:manitoba-saskatchewan~2",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/dvorachabadwinnipeg/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ },
+ {
+  "key": "P:maritimes",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/chabadmaritimes/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ },
+ {
+  "key": "D:guess",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/chabadhouston/",
+    "https://www.instagram.com/chabadwinnipeg/",
+    "https://www.instagram.com/chabaddelaware/",
+    "https://www.instagram.com/chabadalberta/",
+    "https://www.instagram.com/chabadcalgary/",
+    "https://www.instagram.com/chabadtoronto/",
+    "https://www.instagram.com/chabadontario/",
+    "https://www.instagram.com/chabadmontreal/",
+    "https://www.instagram.com/chabadquebec/",
+    "https://www.instagram.com/chabadottawa/",
+    "https://www.instagram.com/chabadnl/",
+    "https://www.instagram.com/chabadnewfoundland/",
+    "https://www.instagram.com/chabadkc/",
+    "https://www.instagram.com/chabadkansascity/",
+    "https://www.instagram.com/chabadnh/",
+    "https://www.instagram.com/chabadri/",
+    "https://www.instagram.com/chabadrhodeisland/",
+    "https://www.instagram.com/chabadrockland/",
+    "https://www.instagram.com/chabadofrockland/",
+    "https://www.instagram.com/lubavitchofindiana/",
+    "https://www.instagram.com/chabadindiana/",
+    "https://www.instagram.com/chabadindy/",
+    "https://www.instagram.com/chabadidaho/",
+    "https://www.instagram.com/chabadofidaho/",
+    "https://www.instagram.com/chabadvt/",
+    "https://www.instagram.com/chabadvermont/",
+    "https://www.instagram.com/chabadofvermont/",
+    "https://www.instagram.com/chabadnewhampshire/",
+    "https://www.instagram.com/chabadofdelaware/",
+    "https://www.instagram.com/chabadlubavitchtexas/"
+   ],
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "N:indiana",
+  "input": {
+   "search": "Avrohom Grossbaum",
+   "searchType": "user",
+   "searchLimit": 6,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "N:ontario",
+  "input": {
+   "search": "Zalman Grossbaum",
+   "searchType": "user",
+   "searchLimit": 6,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "N:quebec",
+  "input": {
+   "search": "Berel Mochkin",
+   "searchType": "user",
+   "searchLimit": 6,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "N:alberta",
+  "input": {
+   "search": "Menachem Matusof",
+   "searchType": "user",
+   "searchLimit": 6,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "N:newfoundland-and-labrador",
+  "input": {
+   "search": "Chanan Chernitsky",
+   "searchType": "user",
+   "searchLimit": 6,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "N:rhode-island",
+  "input": {
+   "search": "Yehoshua Laufer",
+   "searchType": "user",
+   "searchLimit": 6,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "N:new-hampshire",
+  "input": {
+   "search": "Levi Krinsky",
+   "searchType": "user",
+   "searchLimit": 6,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "N:delaware",
+  "input": {
+   "search": "Chuni Vogel",
+   "searchType": "user",
+   "searchLimit": 6,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "N:rockland",
+  "input": {
+   "search": "Kotlarsky",
+   "searchType": "user",
+   "searchLimit": 6,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "N:texas",
+  "input": {
+   "search": "Lazaroff Houston",
+   "searchType": "user",
+   "searchLimit": 6,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "N:ottawa",
+  "input": {
+   "search": "Chabad Ottawa",
+   "searchType": "user",
+   "searchLimit": 6,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "N:kansas-missouri",
+  "input": {
+   "search": "Chabad House Center Kansas City",
+   "searchType": "user",
+   "searchLimit": 6,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ }
+]

@@ -1,0 +1,62 @@
+[
+ {
+  "key": "P:alberta",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/chabadalberta/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ },
+ {
+  "key": "P:vermont",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/chabadvt/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ },
+ {
+  "key": "P:new-hampshire",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/levi_krinsky/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ },
+ {
+  "key": "P:ottawa",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/cyp_ottawatorahcentre/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ },
+ {
+  "key": "P:newfoundland-and-labrador",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/chabadnewfoundland/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ }
+]

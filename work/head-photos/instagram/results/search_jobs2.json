@@ -1,0 +1,132 @@
+[
+ {
+  "key": "british-columbia",
+  "input": {
+   "search": "Chabad of British Columbia",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "alberta",
+  "input": {
+   "search": "Chabad of Calgary",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "manitoba-saskatchewan",
+  "input": {
+   "search": "Chabad Winnipeg",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "ontario",
+  "input": {
+   "search": "Chabad Lubavitch of Southern Ontario",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "ottawa",
+  "input": {
+   "search": "Chabad of Ottawa",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "quebec",
+  "input": {
+   "search": "Chabad Lubavitch Montreal",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "maritimes",
+  "input": {
+   "search": "Chabad Maritimes",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "newfoundland-and-labrador",
+  "input": {
+   "search": "Chabad Newfoundland",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "kansas-missouri",
+  "input": {
+   "search": "Chabad Kansas City",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "delaware",
+  "input": {
+   "search": "Chabad of Delaware",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "new-hampshire",
+  "input": {
+   "search": "Chabad New Hampshire",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "eastern-massachusetts",
+  "input": {
+   "search": "Rabbi Chaim Prus",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "rhode-island",
+  "input": {
+   "search": "Chabad of Rhode Island",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ }
+]

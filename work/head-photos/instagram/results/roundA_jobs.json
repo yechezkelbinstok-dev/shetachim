@@ -1,0 +1,320 @@
+[
+ {
+  "key": "P:alabama",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/chabadofalabama/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ },
+ {
+  "key": "P:michigan",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/chabadmichigan/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ },
+ {
+  "key": "P:louisiana-mississippi",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/chabadneworleans/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ },
+ {
+  "key": "P:merrimack-valley",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/chabadmv/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ },
+ {
+  "key": "P:south-area",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/shalohhousechabad/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ },
+ {
+  "key": "P:north-shore-of-massachusetts",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/chabadnorthshore/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ },
+ {
+  "key": "P:arizona",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/chabadarizona/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ },
+ {
+  "key": "P:upstate-new-york",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/chabadbuffalo/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ },
+ {
+  "key": "P:connecticut",
+  "input": {
+   "directUrls": [
+    "https://www.instagram.com/stamfordchabad/"
+   ],
+   "resultsType": "posts",
+   "resultsLimit": 40,
+   "onlyPostsNewerThan": "2024-06-01",
+   "addParentData": false
+  }
+ },
+ {
+  "key": "S:texas",
+  "input": {
+   "search": "Chabad Houston",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "S:rockland",
+  "input": {
+   "search": "Chabad of Rockland County",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "S:vermont",
+  "input": {
+   "search": "Chabad Vermont",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "S:southern-ohio",
+  "input": {
+   "search": "Chabad of Cincinnati",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "S:oklahoma",
+  "input": {
+   "search": "Chabad Tulsa",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "S:indiana",
+  "input": {
+   "search": "Chabad Indianapolis",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "S:the-carolinas",
+  "input": {
+   "search": "Chabad Charlotte",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "S:idaho",
+  "input": {
+   "search": "Chabad of Idaho",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "S:british-columbia",
+  "input": {
+   "search": "Chabad of British Columbia",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "S:alberta",
+  "input": {
+   "search": "Chabad of Calgary",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "S:manitoba-saskatchewan",
+  "input": {
+   "search": "Chabad Winnipeg",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "S:ontario",
+  "input": {
+   "search": "Chabad Lubavitch of Southern Ontario",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "S:ottawa",
+  "input": {
+   "search": "Chabad of Ottawa",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "S:quebec",
+  "input": {
+   "search": "Chabad Lubavitch Montreal",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "S:maritimes",
+  "input": {
+   "search": "Chabad Maritimes",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "S:newfoundland-and-labrador",
+  "input": {
+   "search": "Chabad Newfoundland",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "S:kansas-missouri",
+  "input": {
+   "search": "Chabad Kansas City",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "S:delaware",
+  "input": {
+   "search": "Chabad of Delaware",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "S:new-hampshire",
+  "input": {
+   "search": "Chabad New Hampshire",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "S:eastern-massachusetts",
+  "input": {
+   "search": "Rabbi Chaim Prus",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ },
+ {
+  "key": "S:rhode-island",
+  "input": {
+   "search": "Chabad of Rhode Island",
+   "searchType": "user",
+   "searchLimit": 5,
+   "resultsType": "details",
+   "resultsLimit": 1
+  }
+ }
+]

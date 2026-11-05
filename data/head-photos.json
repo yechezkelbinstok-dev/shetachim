@@ -1,5 +1,5 @@
 {
- "about": "Profile photos of the head shluchim (USA and Canada), one per shetach: a head-and-shoulders crop (320x320 JPEG) in web/img/heads/<shetach id>.jpg. Standard (owner, Nov 5): a proper portrait of him alone, never a farbrengen or group shot. 'page' is where the photo was found, 'image' the original file; 'crop' is the hand-picked square on that image (centre as fractions of width and height, side as a fraction of height) and 'cast' a colour cast taken out by hand. Every photo is retouched by scripts/head-photos/retouch.py (cast, levels, exposure and colour read on the skin, local contrast, sharpening). Not on the live page yet (waiting on the owner).",
+ "about": "Profile photos of the head shluchim (USA and Canada), one per shetach: a head-and-shoulders crop (320x320 JPEG) in web/img/heads/<shetach id>.jpg. Standard (owner, Nov 5): a proper portrait of him alone, never a farbrengen or group shot. 'page' is where the photo was found, 'image' the original file; 'crop' is the hand-picked square on that image (centre as fractions of width and height, side as a fraction of height) and 'cast' a colour cast taken out by hand; 'edit' (rare) is what scripts/head-photos/paint-out.py painted out of the source first (someone else reaching into the frame). Every photo is retouched by scripts/head-photos/retouch.py (cast, levels, exposure and colour read on the skin, local contrast, sharpening). Not on the live page yet (waiting on the owner).",
  "photos": [
   {
    "id": "west-coast",
@@ -395,14 +395,16 @@
    "id": "the-carolinas",
    "head": "Yossi Groner",
    "file": "img/heads/the-carolinas.jpg",
-   "page": "https://digitalbranch.cmlibrary.org/on-life-and-meaning/episode-065/",
-   "image": "https://digitalbranch.cmlibrary.org/wp-content/uploads/2019/02/yossi2.jpg",
-   "note": "black and white",
+   "page": "https://www.chabad.org/news/article_cdo/aid/6839597/jewish/Third-and-Fourth-Generation-Emissaries-Set-Up-Shop-in-Charlotte-NC.htm",
+   "image": "https://w2.chabad.org/media/images/1316/ceWu13165161.png",
    "crop": {
-    "cx": 0.523,
-    "cy": 0.475,
-    "side": 0.95
-   }
+    "cx": 0.7463,
+    "cy": 0.2778,
+    "side": 0.2519
+   },
+   "note": "early 2025 (chabad.org, Mar 2025; the plaque behind him is dated Dec 2023); the great-grandchild he was holding and a wall sign painted out (owner, Nov 5: \"add this\")",
+   "edit": "--axis 807 --mirror \"630,452 652,444 680,450 705,462 735,482 755,505 764,530 768,575 630,575\" --fill 630,192,700,214 --fill 630,256,722,274 --fill 706,192,722,274 --dot 700,241,14",
+   "keep": true
   },
   {
    "id": "virginia",

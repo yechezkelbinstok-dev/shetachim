@@ -1,0 +1,167 @@
+{
+ "about": "Profile photos of the head shluchim, one per shetach: a head-and-shoulders crop (320x320 JPEG) in web/img/heads/<shetach id>.jpg. Standard (owner, Nov 5): a proper portrait of him alone, never a farbrengen or group shot. 'page' is where the photo was found, 'image' the original file. Not on the live page yet (waiting on the owner).",
+ "photos": [
+  {
+   "id": "west-coast",
+   "head": "Shlomo Cunin",
+   "file": "img/heads/west-coast.jpg",
+   "page": "https://www.chabad.org/therebbe/article_cdo/aid/4704861/jewish/Nothing-is-Impossible.htm",
+   "image": "https://w2.chabad.org/media/images/1125/aWcs11257240.jpg",
+   "note": "JEM interview still"
+  },
+  {
+   "id": "alaska",
+   "head": "Yosef Greenberg",
+   "file": "img/heads/alaska.jpg",
+   "page": "https://collive.com/jewish-heritage-in-alaska/",
+   "image": "https://collive.com/wp-content/uploads/photos/2008/11/nf_8834_84315.jpg"
+  },
+  {
+   "id": "washington",
+   "head": "Sholom Ber Levitin",
+   "file": "img/heads/washington.jpg",
+   "page": "https://www.chabadofseattle.org/templates/articlecco_cdo/aid/641179/jewish/About-Us.htm",
+   "image": "https://w2.chabad.org/media/images/1102/VqLO11027053.jpg",
+   "note": "the \"From The Desk Of Rabbi Levitin\" photo"
+  },
+  {
+   "id": "oregon",
+   "head": "Moshe Wilhelm",
+   "file": "img/heads/oregon.jpg",
+   "page": "https://anash.org/oregon-shliach-composes-song-of-gratitude-after-transplant/",
+   "image": "https://files.anash.org/uploads/2026/08/IMG-20260618-WA00471-1024x1024.jpg"
+  },
+  {
+   "id": "hawaii",
+   "head": "Itchel Krasnjansky",
+   "file": "img/heads/hawaii.jpg",
+   "page": "https://www.hawaiinewsnow.com/story/12202095/chabad-hawaii-rabbi-itchel-krasnjansky/",
+   "image": "https://cloudfront-us-east-1.images.arcpublishing.com/gray/IIP3NMRFH5APNKU2HXQCNHLCGA.jpg",
+   "note": "TV interview still"
+  },
+  {
+   "id": "idaho",
+   "head": "Mendel Lifshitz",
+   "file": "img/heads/idaho.jpg",
+   "page": "https://www.idahopress.com/news/local/new-jewish-center-in-boise-will-include-idaho-s-first-mikvah/article_ccbe0852-a358-5acd-8876-9dc61b7851e2.html",
+   "image": "https://bloximages.chicago2.vip.townnews.com/idahopress.com/content/tncms/assets/v3/editorial/d/08/d081b655-16fe-59c4-a7dc-2b936b9da416/62c731a73bc5b.image.jpg",
+   "note": "speaking at a microphone; replace if a cleaner portrait turns up"
+  },
+  {
+   "id": "montana",
+   "head": "Chaim Bruk",
+   "file": "img/heads/montana.jpg",
+   "page": "https://www.bigskychathouse.com/p/rabbi-chaim-bruks-fierce-support",
+   "image": "https://substack-post-media.s3.amazonaws.com/public/images/f8448112-4aac-4eb7-b8e5-0516b2feb844_3893x2936.jpeg"
+  },
+  {
+   "id": "wyoming",
+   "head": "Zalman Mendelsohn",
+   "file": "img/heads/wyoming.jpg",
+   "page": "https://www.jhnewsandguide.com/the_hole_scroll/local-rabbi-invited-to-sotu/article_6dfbd012-2555-5d0b-bc8b-91f0e863a1f3.html",
+   "image": "https://bloximages.newyork1.vip.townnews.com/jhnewsandguide.com/content/tncms/assets/v3/editorial/4/b2/4b203b71-6944-522c-bb9d-d2eb7dae441d/5c5a027ad067b.image.jpg"
+  },
+  {
+   "id": "utah",
+   "head": "Benny Zippel",
+   "file": "img/heads/utah.jpg",
+   "page": "https://operationamigos.com/rabbi-benny-zippel-founder-of-project-h-e-a-r-t/",
+   "image": "https://i0.wp.com/operationamigos.com/wp-content/uploads/2021/04/BennyZippel.png"
+  },
+  {
+   "id": "colorado",
+   "head": "Mendel Popack",
+   "file": "img/heads/colorado.jpg",
+   "page": "https://www.ijn.com/new-regional-director-chabad-colorado-mendel-popack-stresses-collaboration/",
+   "image": "https://www.ijn.com/wp-content/uploads/2025/04/Chabad_Colorado_Mendel_Popack.png"
+  },
+  {
+   "id": "arizona",
+   "head": "Zalman Levertov",
+   "file": "img/heads/arizona.jpg",
+   "page": "https://azjewishpost.com/2017/chabad-to-celebrate-40-years-of-ever-expanding-service-in-arizona/",
+   "image": "https://cdn-15011.jigsawanalyticsgroup.cloud/20240223080855/Rabbi-Levertov-2.jpg"
+  },
+  {
+   "id": "new-mexico",
+   "head": "Chaim Shmukler",
+   "file": "img/heads/new-mexico.jpg",
+   "page": "https://www.chabadnm.org/templates/articlecco_cdo/aid/6164502/jewish/About-Us.htm",
+   "image": "https://w2.chabad.org/media/images/1252/mJlb12523480.jpg"
+  },
+  {
+   "id": "nebraska",
+   "head": "Mendel Katzman",
+   "file": "img/heads/nebraska.jpg",
+   "page": "https://www.omahapolicechaplains.com/current-members",
+   "image": "https://www.omahapolicechaplains.com/assets/img/members/KATZMAN-Mendel.jpg"
+  },
+  {
+   "id": "upper-midwest",
+   "head": "Moshe Feller",
+   "file": "img/heads/upper-midwest.jpg",
+   "page": "https://collive.com/what-merited-3-thank-yous-from-the-rebbe/",
+   "image": "https://collive.com/wp-content/uploads/2025/09/660.-ki-seitzei-5785-1.jpg",
+   "note": "JEM \"Here's My Story\" still (the inset)"
+  },
+  {
+   "id": "iowa",
+   "head": "Yossi Jacobson",
+   "file": "img/heads/iowa.jpg",
+   "page": "https://www.dmcityview.com/feature-2/2022/02/02/the-proud-carnivore/",
+   "image": "https://www.dmcityview.com/wp-content/uploads/2022/01/Carnivore-Feature-Rabbi-Jacobson.jpg"
+  },
+  {
+   "id": "wisconsin",
+   "head": "Yisroel Shmotkin",
+   "file": "img/heads/wisconsin.jpg",
+   "page": "https://www.chabadwi.org/about-us",
+   "image": "https://static.wixstatic.com/media/2afef2_03fee18277114e70829cc0886ba64a2f~mv2.png"
+  },
+  {
+   "id": "illinois",
+   "head": "Meir Moscowitz",
+   "file": "img/heads/illinois.jpg",
+   "page": "https://www.chabadillinois.com/templates/articlecco_cdo/aid/3500840/jewish/Our-Staff.htm",
+   "image": "https://w2.chabad.org/media/images/991/GkxY9919677.jpg"
+  },
+  {
+   "id": "northeast-ohio",
+   "head": "Zushe Greenberg",
+   "file": "img/heads/northeast-ohio.jpg",
+   "page": "https://www.solonchabad.com/templates/articlecco_cdo/aid/251788/jewish/Rabbis-Monthly-Message.htm",
+   "image": "https://w2.chabad.org/media/images/1304/peoE13043082.jpg"
+  },
+  {
+   "id": "central-ohio",
+   "head": "Areyah Kaltmann",
+   "file": "img/heads/central-ohio.jpg",
+   "page": "https://www.columbusjewishnews.com/rabbi-areyah-kaltmann-chabad-of-columbus/article_337e7646-b511-11ec-adfa-4bd6402bec61.html",
+   "image": "https://bloximages.chicago2.vip.townnews.com/columbusjewishnews.com/content/tncms/assets/v3/editorial/a/87/a87eef7c-90d9-11ec-a427-d7d023a6f192/620fcc4914990.image.jpg"
+  },
+  {
+   "id": "southern-ohio",
+   "head": "Yisroel Mangel",
+   "file": "img/heads/southern-ohio.jpg",
+   "page": "https://www.linkedin.com/in/yisroel-mangel-8a02939",
+   "image": "https://media.licdn.com/dms/image/v2/C4D03AQETGz2wT8o2FQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1604081509888",
+   "note": "his LinkedIn profile photo (200 px)"
+  },
+  {
+   "id": "indiana",
+   "head": "Avrohom Grossbaum",
+   "file": "img/heads/indiana.jpg",
+   "page": "https://www.chabad.org/news/article_cdo/aid/2891751/jewish/Building-for-the-Future-After-34-Years-New-Home-for-Indiana-Jewish-Community.htm",
+   "image": "https://w2.chabad.org/media/images/881/HlHP8815794.jpg",
+   "note": "speaking with a hand microphone; replace if a cleaner portrait turns up"
+  },
+  {
+   "id": "texas",
+   "head": "Shimon Lazaroff",
+   "file": "img/heads/texas.jpg",
+   "page": "https://www.chabad.org/therebbe/livingtorah/player_cdo/aid/3719794/jewish/A-Message-for-the-President.htm",
+   "image": "https://w2.chabad.org/media/images/1017/mhWP10170246.jpg",
+   "note": "JEM Living Torah still"
+  }
+ ]
+}

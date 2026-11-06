@@ -39,7 +39,7 @@ So judge a photo's age against a dated 2024–26 photo of the same man, not the 
 and judge looks at the size the card shows. Progress: ten changed and live (the "Nov 6, later" section below); for
 thirteen no better recent photo has been found yet (the list is there, with what was tried).
 
-**Open (the owner's; not started):**
+**Open (the owner's):**
 - The founding year of every center, "to show the growth of Chabad": his idea and words are in the Nov 6 (end of a
   session) section below. **Owner (Nov 6, later), on the form:** "I'm not asking for a play button where it happens
   on the map. I would be asking for a properly made video. Maybe even where there's information on the video, like
@@ -50,6 +50,14 @@ thirteen no better recent photo has been found yet (the list is there, with what
   Playwright, encoded with ffmpeg, which is installed), Hebrew and English versions, with a 30-second test of the look
   before the research on the years. The map has 3,826 dots in 119 countries (US 1,637, Israel 805, France 285,
   Canada 150, `web/data/centers.geojson`).
+  **Then the owner (Nov 6, later): data first.** "When it shows you by year the whole map still needs to be shown I
+  would think - and then just zoom in when you want to do like a milestone animation"; "it might be too much of a
+  stretch to do the whole world at this point and honestly why are we discussing the video at this point what we need
+  is the data ... do a test run pick a mid-sized American shetach - not one of the gargantuan ones like West Coast or
+  Florida ... and see how easy it would be as a blueprint for the data collection." **Done: the Michigan pilot**
+  (`data/founding-years.json`, report in `work/founding-years/michigan-pilot.md`): a year for 26 of 32 dots (81%), a
+  range for 4 more, about one search per listing. What worked: a published list of institutions with years, the
+  local Jewish paper's digitized archive, one search per center. Next is the owner's call.
 - Head photos still missing — Europe/Middle East: Moldova, Romania, Sweden, Switzerland; USA: Kansas–Missouri,
   Delaware, New Hampshire, Eastern Massachusetts, Rhode Island, Cape Cod; Canada: British Columbia, Ottawa, Quebec,
   Maritimes. Old or weak US/Canada photos and vaad faces: the lists in the Nov 5 sections.

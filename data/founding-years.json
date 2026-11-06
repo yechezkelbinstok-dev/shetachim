@@ -1,0 +1,305 @@
+{
+ "about": "The year each center started, for the growth-of-Chabad video (the owner's idea, Nov 6). Keyed by the center's chabad.org id (web/data/centers.geojson). 'year' is when the shluchim began there (their arrival or first activity); when the opening came later, the note says so. 'how': stated (the center or a paper says the year), list (a published list of institutions with years), news (a report from that year), anniversary (\"N years ago\" counted back), directory (a dated directory listing); range ('after'/'by' bound it, no exact year); same-place (no year of its own, at the same spot as a dated one); not-found. A dot on the map takes the earliest year of its listings. Pilot: the Michigan shetach, Nov 6 (work/founding-years/michigan-pilot.md).",
+ "centers": {
+  "119458": {
+   "name": "Congregation Mishkan Israel",
+   "city": "Oak Park",
+   "year": 1958,
+   "how": "news",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2003.09.06.001/36",
+   "note": "2003: 'a 45-year-old Lubavitch congregation in Oak Park' (Detroit Jewish News) -> 1958. The congregation itself is older (Rabbi Samuel Stollman had led it for 30 years by 1960)."
+  },
+  "119459": {
+   "name": "Lubavitch Mikvah",
+   "city": "Oak Park",
+   "year": null,
+   "how": "same-place",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2003.09.06.001/36",
+   "note": "The men's mikvah at Mishkan Israel, 14000 W. Nine Mile (listed 2002): no year of its own; same place as Mishkan Israel (1958)."
+  },
+  "160382": {
+   "name": "Cheder Oholei Yosef Yitzchak Lubavitch - Boys Division",
+   "city": "Oak Park",
+   "year": 1958,
+   "how": "directory",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.1999.09.04.001/86",
+   "note": "The boys' division of the same school (Cheder Yosef Yitzchok Lubavitch): founded 1958 per the 1999 Jewish News directory; 1965 per a 2011 Friendship Circle blog (conflict)."
+  },
+  "118185": {
+   "name": "Yeshivas Lubavitch",
+   "city": "Oak Park",
+   "year": 1994,
+   "how": "list",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2024.07.04.001/7",
+   "note": "Detroit Jewish News, 4 July 2024, 'Since the Rebbe's Passing: over the past 30 years, these Chabad institutions have been founded in Michigan': 'Yeshivas Menachem Mendel Lubavitch/Mesivta - 1994' (taken to be this listing, Yeshivas Lubavitch, Oak Park)."
+  },
+  "119943": {
+   "name": "Ganeinu - Pre School",
+   "city": "West Bloomfield",
+   "year": 1991,
+   "how": "news",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.1991.04.26.001/63",
+   "note": "April 1991: Bais Chabad of Farmington Hills launching a pre-nursery, 'Ganeinu Gan', for fall 1991 (Detroit Jewish News); a new facility at 4230 Middlebelt Rd, West Bloomfield, in 1992."
+  },
+  "119944": {
+   "name": "Ganeinu Day Camp",
+   "city": "West Bloomfield",
+   "year": null,
+   "how": "same-place",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.1991.04.26.001/63",
+   "note": "The Ganeinu day camp: no year of its own found; same place as the Ganeinu preschool (1991)."
+  },
+  "117639": {
+   "name": "Chabad House of Ann Arbor",
+   "city": "Ann Arbor",
+   "year": 1975,
+   "how": "stated",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.1975.05.16.001/22",
+   "note": "Founded by Chabad of Michigan in 1975 (Michigan Daily, 2005); a 1975 Detroit Jewish News notice names the director, Rabbi Aaron Y. Goldstein of Brooklyn."
+  },
+  "117640": {
+   "name": "Chabad Lubavitch of Michigan",
+   "city": "Oak Park",
+   "year": 1958,
+   "how": "stated",
+   "source": "https://www.lubavitch.com/jewish-life-in-michigan-booming-at-the-50-year-mark/",
+   "note": "In 1958 the Rebbe sent Rabbi Berel and Batsheva Shemtov to Detroit (Detroit Jewish News, 12 Sept 1958: 'Chabad Has Finally Arrived in Detroit'); the Lubavitch Foundation of Michigan was organized in 1959. Began in Detroit, now in Oak Park."
+  },
+  "117643": {
+   "name": "Oholei Yosef Yitzchak Lubavitch",
+   "city": "Oak Park",
+   "year": 1958,
+   "how": "directory",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.1999.09.04.001/86",
+   "note": "Detroit Jewish News 1999 school directory: Cheder Yosef Yitzchok Lubavitch, Oak Park, founded 1958. (A 2011 Friendship Circle blog says the Lubavitch Cheder was founded in 1965 in Detroit: conflict.)"
+  },
+  "117641": {
+   "name": "Chabad House of Farmington Hills",
+   "city": "Farmington Hills",
+   "year": 1977,
+   "how": "stated",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2023.01.05.001/2",
+   "note": "The Bergsteins have run the Bais Chabad of Farmington Hills since 1977 (Detroit Jewish News, 2023); Aug 1978: 'Chabad Congregation Open in Farmington, Rabbi Named'."
+  },
+  "117642": {
+   "name": "Chabad House Lubavitch of Eastern Michigan",
+   "city": "Flint",
+   "year": 1985,
+   "how": "anniversary",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2022.12.15.001/14",
+   "note": "Dec 2022: 'Thirty-seven years ago, Rabbi Yisroel Weingarten and his wife, Shainie, moved from Brooklyn to meet the needs of the Flint Jewish community' (Detroit Jewish News) -> 1985."
+  },
+  "117644": {
+   "name": "F.R.E.E. Russian Jewry Center",
+   "city": "Southfield",
+   "year": null,
+   "how": "range",
+   "after": 1990,
+   "by": 2000,
+   "source": "https://www.friendsofrefugees.org/?p=440",
+   "note": "F.R.E.E. of Michigan was established in 1990 (Rabbi Silberberg's initiative); branches in Southfield and Farmington Hills opened later; Rabbi Yosef Misholovin its director by 2000. Between 1990 and 2000."
+  },
+  "117645": {
+   "name": "Chabad Torah Center of West Bloomfield",
+   "city": "West Bloomfield",
+   "year": 1975,
+   "how": "stated",
+   "source": "https://www.baischabad.com/templates/articlecco_cdo/aid/7428361/jewish/About-Us.htm",
+   "note": "Rabbi Elimelech and his wife came to West Bloomfield in November 1975 as Lubavitch emissaries (the congregation's site); a minyan in rented space began in 1974 (CrownHeights.info, 'Silberbergs Honored for 40 Years of Shlichus')."
+  },
+  "117711": {
+   "name": "Chabad House-Lubavitch of Greater Toledo",
+   "city": "Toledo",
+   "year": 1987,
+   "how": "stated",
+   "source": "https://www.toledoblade.com/news/religion/2018/09/07/A-new-beginning-Chabad-House-dedicates-facility-in-time-for-Jewish-High-Holy-Days.print",
+   "note": "Rabbi Shemtov and his family brought Chabad House to Toledo in 1987, at first from their home on Secor Road (Toledo Blade, 2018)."
+  },
+  "117989": {
+   "name": "Michigan Jewish Institute",
+   "city": "West Bloomfield",
+   "year": 1994,
+   "how": "stated",
+   "source": "https://en.wikipedia.org/wiki/Michigan_Jewish_Institute",
+   "note": "Founded in 1994, funded by the Lubavitch Foundation of Michigan. CLOSED 2 March 2016 after losing federal aid: the directory listing is out of date."
+  },
+  "117993": {
+   "name": "Friendship Circle",
+   "city": "West Bloomfield",
+   "year": 1994,
+   "how": "list",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2024.07.04.001/7",
+   "note": "Detroit Jewish News, 4 July 2024, 'Since the Rebbe's Passing: over the past 30 years, these Chabad institutions have been founded in Michigan': 'Friendship Circle - 1994'."
+  },
+  "118292": {
+   "name": "The Shul - Jack & Miriam Shenkman Building",
+   "city": "West Bloomfield",
+   "year": 1994,
+   "how": "list",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2024.07.04.001/7",
+   "note": "Detroit Jewish News, 4 July 2024, 'Since the Rebbe's Passing: over the past 30 years, these Chabad institutions have been founded in Michigan': 'The Shul - Chabad Lubavitch - 1994'."
+  },
+  "118522": {
+   "name": "Chabad of Commerce",
+   "city": "Commerce Township",
+   "year": 2002,
+   "how": "stated",
+   "source": "https://www.jewishcommerce.org/building-campaign",
+   "note": "Established in 2002 by Rabbi Schneor and Estie Greenberg (the center's site); began as Chabad Jewish Center of Commerce/Walled Lake in their townhouse (Jewish News)."
+  },
+  "118564": {
+   "name": "Beis Chabad of North Oak Park",
+   "city": "Oak Park",
+   "year": null,
+   "how": "range",
+   "by": 1997,
+   "source": "https://digital.bentley.umich.edu/djnews/djn.1997.05.30.001/40",
+   "note": "Listed by 1997 as 'Bais Chabad of North Oak Park/F.R.E.E.' (rabbis Yosef Misholovin and David Kagan, services at the JCC); its own building opened Sept 2004. Founded by 1997."
+  },
+  "118632": {
+   "name": "Chabad House of Western Michigan",
+   "city": "Grand Rapids",
+   "year": 1979,
+   "how": "anniversary",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.1988.05.06.001/25",
+   "note": "Detroit Jewish News, May 1988: the Lubavitch Chabad House in Grand Rapids opened about nine years earlier under Rabbi Yosef Weingarten -> about 1979 (he is named its director in 1989)."
+  },
+  "119457": {
+   "name": "Camp Gan Israel-Kalkaska",
+   "city": "Kalkaska",
+   "year": 1961,
+   "how": "stated",
+   "source": "https://www.shluchim.org/main/inside_camp.asp?id=41521",
+   "note": "Camp Gan Israel Detroit, 'Established 5721 - 1961' (shluchim.org camp directory); now in Kalkaska Township."
+  },
+  "119721": {
+   "name": "Oholei Yosef Yitzchak Lubavitch - Mesivta",
+   "city": "Oak Park",
+   "year": null,
+   "how": "not-found",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2011.01.06.001/23",
+   "note": "No year found: the mesivta (middle school) is housed in the old Mishkan Israel building; a 2011 article mentions a mesivta of 30 boys without naming it."
+  },
+  "119974": {
+   "name": "Gan Yeladim Preschool",
+   "city": "Toledo",
+   "year": 1990,
+   "how": "anniversary",
+   "source": "https://cdn.fedweb.org/fed-97/2/June%2520July%25202025%2520TJN-web%25281%2529.pdf",
+   "note": "Toledo Jewish News, June/July 2025: the preschool opened 35 years ago, with Raizel Shemtov from the start -> about 1990."
+  },
+  "119975": {
+   "name": "Food & Learning Center",
+   "city": "Toledo",
+   "year": null,
+   "how": "not-found",
+   "note": "Nothing found (Toledo Blade and Toledo Jewish News searched)."
+  },
+  "160380": {
+   "name": "The Wilmos & Lillian Schwarcz Education Center - Girls Building",
+   "city": "Oak Park",
+   "year": null,
+   "how": "range",
+   "by": 2007,
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2007.12.20.001/16",
+   "note": "The Lubavitch Cheder's Lillian Schwarcz Education Center on Coolidge, Oak Park (girls' division): in use before its 2007 expansion; a 1997 article has Lubavitch converting an old church into its girls' school (not certainly this building). Part of the 1958 school."
+  },
+  "217615": {
+   "name": "Lubavitch Outreach",
+   "city": "Oak Park",
+   "year": null,
+   "how": "range",
+   "by": 2007,
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2007.09.13.001/79",
+   "note": "Listed as 'Chabad Lubavitch Outreach', Oak Park, in a 2007 Jewish News directory (Rabbi Yitzchok Mann among Michigan's shluchim; he took a pulpit in Detroit in 1969). Founded by 2007."
+  },
+  "393834": {
+   "name": "Chabad of Novi",
+   "city": "Novi",
+   "year": 2000,
+   "how": "list",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2024.07.04.001/7",
+   "note": "Detroit Jewish News, 4 July 2024, 'Since the Rebbe's Passing: over the past 30 years, these Chabad institutions have been founded in Michigan': 'Chabad Jewish Center of Novi - 2000'. (A Jan 2006 Jewish News article has the Susskinds moving to Novi from Oak Park in 2005: activity began earlier.)"
+  },
+  "792116": {
+   "name": "The Friendship House",
+   "city": "West Bloomfield",
+   "year": 1994,
+   "how": "list",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2024.07.04.001/7",
+   "note": "Detroit Jewish News, 4 July 2024, 'Since the Rebbe's Passing: over the past 30 years, these Chabad institutions have been founded in Michigan': 'Friendship House - 1994'."
+  },
+  "953328": {
+   "name": "Chabad-Lubavitch of Bingham Farms",
+   "city": "Bloomfield Hills",
+   "year": 2009,
+   "how": "list",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2024.07.04.001/7",
+   "note": "Detroit Jewish News (4 July 2024) list of Michigan Chabad institutions founded since 1994: 'Chabad-Lubavitch of Bingham Farms - 2009'."
+  },
+  "2435135": {
+   "name": "Chabad of Greater Downtown Detroit",
+   "city": "Detroit",
+   "year": 2013,
+   "how": "news",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2014.02.06.001/22",
+   "note": "Rabbi Yisrael Pinson named emissary for downtown Detroit in April 2013; the house at 278 Mack Ave opened with an open house on 16 Jan 2014 (Jewish News, Dec 2013 and Feb 2014)."
+  },
+  "3393324": {
+   "name": "Chabad Jewish Center of Bloomfield Hills",
+   "city": "Bloomfield Hills",
+   "year": 2016,
+   "how": "stated",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2020.03.19.001/25",
+   "note": "Rabbi Levi and Mushky Dubov moved home from Brooklyn in 2016 to open the Chabad Jewish Center of Bloomfield Hills (Detroit Jewish News, 2020). The July 2024 Jewish News list gives 2017 (the year it opened as a center)."
+  },
+  "3829994": {
+   "name": "MSU Chabad",
+   "city": "East Lansing",
+   "year": 2018,
+   "how": "list",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2024.07.04.001/7",
+   "note": "Detroit Jewish News (4 July 2024) list: 'Chabad Student Center at MSU - 2018'; founded by Rabbi Bentzion and Simi Shemtov (Jewish News, 2019)."
+  },
+  "4040602": {
+   "name": "Royal Oak Chabad Jewish Center",
+   "city": "Royal Oak",
+   "year": 2018,
+   "how": "list",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2024.07.04.001/7",
+   "note": "Detroit Jewish News, 4 July 2024, 'Since the Rebbe's Passing: over the past 30 years, these Chabad institutions have been founded in Michigan': 'Royal Oak Chabad Jewish Center - 2018'."
+  },
+  "4428829": {
+   "name": "Chabad Jewish Center of Troy",
+   "city": "Auburn Hills",
+   "year": 2019,
+   "how": "news",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2020.03.19.001/25",
+   "note": "March 2020: Chana Caytak moved back to Metro Detroit 'last year' and opened the Chabad Jewish Center of Troy with her husband, Rabbi Menachem Caytak (Jewish News); Nov 2021: 'more than two years after opening'."
+  },
+  "5288480": {
+   "name": "Chabad of Livonia",
+   "city": "Livonia",
+   "year": 2022,
+   "how": "list",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2024.07.04.001/7",
+   "note": "Detroit Jewish News, 4 July 2024, 'Since the Rebbe's Passing: over the past 30 years, these Chabad institutions have been founded in Michigan': 'Chabad Jewish Center of Livonia - 2022'."
+  },
+  "5764141": {
+   "name": "Chabad Traverse City",
+   "city": "Traverse City",
+   "year": 2023,
+   "how": "list",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2024.07.04.001/7",
+   "note": "Detroit Jewish News, 4 July 2024, 'Since the Rebbe's Passing: over the past 30 years, these Chabad institutions have been founded in Michigan': 'Chabad Jewish Community Center of Traverse City - 2023'."
+  },
+  "6543662": {
+   "name": "Chabad Jewish Center of Waterford",
+   "city": "Waterford",
+   "year": 2024,
+   "how": "list",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2024.07.04.001/7",
+   "note": "Detroit Jewish News, 4 July 2024, 'Since the Rebbe's Passing: over the past 30 years, these Chabad institutions have been founded in Michigan': 'Chabad Jewish Center of Waterford - 2024'."
+  }
+ }
+}

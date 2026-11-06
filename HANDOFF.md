@@ -82,13 +82,18 @@ thirteen no better recent photo has been found yet (the list is there, with what
   merrimack-valley, utah (4); alabama, kentucky, louisiana-mississippi, rockland, washington-dc (5);
   manitoba-saskatchewan, montana, new-mexico, north-shore-of-massachusetts (6); hawaii, indiana, iowa, rhode-island,
   southern-ohio, tennessee (7); vermont (8); ottawa (9); and the 9 dots in no shetach (New York).
+  **Done (Nov 6): that first batch** (`work/founding-years/small-shetachim.md`): 160 dots, 171 listings; a year for
+  152 dots (95%), only a range ("by 2008") for 8; listings high 98 / medium 25 / low 38 / range 10. Most lows are
+  centers opened since about 2016 with no article, dated only by therebbesimpact.com and when the chabad.org listing
+  was made. The report ends with the 73 doubtful entries for the owner to spot-check. therebbesimpact.com against
+  our high years: the same 51 of 65, a year off 9, wrong 5.
   **What counts as a center** (he asked: "What actually counts as a center? Do we only do outreach? Maybe only
   outreach and chinuch moisdois? Honestly I'm not sure. Like do shuls count"). A suggestion to keep only Chabad
   houses was rejected. **Owner (Nov 6):** "No absolutely not. Chinuch moisdois are some of the most important parts
   of Lubavitch … this what I'm doing isn't to do with my project of the head shluchim. This is rather the growth of
-  chabad". So chinuch mosdos are in. Shuls, mikvahs, camps and the rest: not said yet. (Counts, approximate, by
-  chabad.org's types, US and Canada / Michigan: outreach only about 1,440 of 1,787 dots / 22 of 33; with shuls about
-  1,520 / 24; with chinuch and camps about 1,650 / 29; everything 1,787 / 33.)
+  chabad". **Then (Nov 6, later):** "everything is included btw - all blue dots": every listing that isn't a
+  mushroom, shuls, mikvahs and camps too. **Owner (Nov 6), on dates:** if a month or an exact date turns up, keep it
+  ("More data never hurt nobody"), but don't go looking for it (the `date` field).
   **therebbesimpact.com** (the owner found it, Nov 6: "can I trust it for a big bulk of the project going forward
   though? It seems like they also used AI"). What it is: "an independent initiative created and maintained by a
   private individual", built on Lovable (an AI site builder); no sources per entry, no methodology ("errors and
@@ -119,7 +124,23 @@ thirteen no better recent photo has been found yet (the list is there, with what
 - Judea and Samaria is Israel; head shluchim's names in full; never a map in a card; commit and push every turn to
   `claude/bold-albattani-aqfnj9`, no PR.
 
-## ▶ Nov 6 (latest): sub-shetach outlines meet their shetach's own border (LIVE)
+## ▶ Nov 6 (latest): founding years for the 35 small areas (data, LIVE in `data/founding-years.json`)
+
+The first batch the owner asked for ("every US-Canada shetach with 10 or less centers so we get all the small ones
+out of the way ... everything is included btw - all blue dots"): the 34 US/Canada shetachim with 10 dots or fewer
+and Monsey (`shetach: "none"`). 209 centers are in the file now (Michigan's 38 included). The report, the doubtful
+list and the method notes are in `work/founding-years/small-shetachim.md`; `work/founding-years/add.py` adds or
+replaces entries from JSON on stdin.
+
+- Each entry: name, city, shetach, year (or `by`/`after` for a range), `date` when a month or day turned up, `how`,
+  source URL, a note quoting the source, confidence. The file's `about` explains every value.
+- Listing numbers: chabad.org ids run in the order listings were made; the report has a table of anchors (first
+  directory about 2003 ... July 2026 = 7423561). Used only for lows and ranges, never as the year of an old mosad.
+- Sites: crownheights.info answers WebFetch with a 307 but reads fine with curl; lubavitch.com often returns 500;
+  chabadpedia.com and thecjn.ca block WebFetch (Firecrawl reads them; its "query" format cost 5 credits for
+  nothing, use "markdown").
+
+## ▶ Nov 6 (later): sub-shetach outlines meet their shetach's own border (LIVE)
 - Owner (Nov 3, a phone screenshot of Staten Island): "the boundaries of Staten Island compared to Tzach boundaries are
   mismatched, the Tzach ones in general are probably just horrible".
 - Why: a region of whole counties was its Census counties cut to the shetach's land, but the map draws the shetach

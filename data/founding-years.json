@@ -1,5 +1,5 @@
 {
- "about": "The year each center started, for the growth-of-Chabad video (the owner's idea, Nov 6). Keyed by the center's chabad.org id (web/data/centers.geojson). 'year' is when the shluchim began there (their arrival or first activity); when the opening came later, the note says so. 'how': stated (the center or a paper says the year), list (a published list of institutions with years), news (a report from that year), anniversary (\"N years ago\" counted back), directory (a dated directory listing); first-mention (the year of the earliest mention found, used as the year); range ('after'/'by' bound it, no exact year); same-place (no year of its own, at the same spot as a dated one); not-found. 'confidence': high (a report from that year, or the center itself, and nothing against it), medium (counted back from 'N years ago', a first mention, one secondary source, or sources a year apart), low (one source, unconfirmed). A dot on the map takes the earliest year of its listings. Pilot: the Michigan shetach, Nov 6 (work/founding-years/michigan-pilot.md). 'date' (when one turns up, owner, Nov 6: \"More data never hurt nobody\"): the month or the day, 'YYYY-MM' or 'YYYY-MM-DD', of the same event as 'year'.",
+ "about": "The year each center started, for the growth-of-Chabad video (the owner's idea, Nov 6). Keyed by the center's chabad.org id (web/data/centers.geojson). 'year' is when the shluchim began there (their arrival or first activity); when the opening came later, the note says so. 'how': stated (the center or a paper says the year), list (a published list of institutions with years; therebbesimpact.com, unsourced, counts only as a lead, so 'low'), news (a report from that year), anniversary (\"N years ago\" counted back), directory (a dated directory listing or IRS record; as a last resort, when its chabad.org listing was made: the listing numbers run in order of creation, so a number dates the listing to within about a year, which bounds the start but is not it); first-mention (the year of the earliest mention found, used as the year); range ('after'/'by' bound it, no exact year); same-place (no year of its own, at the same spot as a dated one); not-found. 'confidence': high (a report from that year, or the center itself, and nothing against it), medium (counted back from 'N years ago', a first mention, one secondary source, or sources a year apart), low (one source, unconfirmed). A dot on the map takes the earliest year of its listings. Pilot: the Michigan shetach, Nov 6 (work/founding-years/michigan-pilot.md). 'date' (when one turns up, owner, Nov 6: \"More data never hurt nobody\"): the month or the day, 'YYYY-MM' or 'YYYY-MM-DD', of the same event as 'year'. 'shetach': the shetach id (data/shetachim.json); 'none' = Monsey, left blank on the map.",
  "centers": {
   "119458": {
    "name": "Congregation Mishkan Israel",
@@ -1473,6 +1473,634 @@
    "source": "https://www.chabad.org/centers/default_cdo/aid/7492620/jewish/Chabad-of-Fishers-Noblesville.htm",
    "note": "No source found (Rabbi Uri Libersohn). chabad.org's listing number (7492620) is from late 2026 (Chabad Winnipeg's July 2026 page is 7423561).",
    "confidence": "low"
+  },
+  "117977": {
+   "name": "Chabad Lubavitch of Tennessee",
+   "city": "Memphis, TN",
+   "shetach": "tennessee",
+   "year": 1994,
+   "how": "stated",
+   "source": "https://crownheights.info/shlichus/8221/chabad-expands-jewish-communities-in-tennessees-top-three-cities",
+   "note": "Lubavitch.com (11 Sept 2007, via CrownHeights.info): 'When Chabad of Memphis opened in 1994, it found a close-knit Jewish community of 10,000'. Rabbi Levi and Rivka Klein (therebbesimpact.com: 1994).",
+   "confidence": "high"
+  },
+  "118476": {
+   "name": "Chabad of Knoxville",
+   "city": "Knoxville, TN",
+   "shetach": "tennessee",
+   "year": 2001,
+   "how": "stated",
+   "source": "https://metacast.app/podcast/anything-is-possible-the-podcast/vLkTU2dc/aip-2204---rabbi-yossi-wilhelm-part-1/kvv9uRsz",
+   "note": "Podcast profile: Rabbi Yossi and Miriam Esther Wilhelm 'moved to Knoxville, TN in 2001'. therebbesimpact.com: 2001.",
+   "confidence": "high"
+  },
+  "211894": {
+   "name": "Chabad of Nashville",
+   "city": "Nashville, TN",
+   "shetach": "tennessee",
+   "year": 1999,
+   "how": "stated",
+   "source": "https://www.chabadnashville.com/templates/articlecco_cdo/aid/6486787/jewish/About-Us.htm",
+   "note": "Its own site: 'established in 1999' (Rabbi Yitzchok and Esther Tiechtel). Long before, the Frierdiker Rebbe had sent Rabbi Zalman Posner to Nashville (1949), who started the Akiva day school; not a Chabad house.",
+   "confidence": "high"
+  },
+  "384002": {
+   "name": "Stanford Eisenberg Knoxville Jewish Day School",
+   "city": "Knoxville, TN",
+   "shetach": "tennessee",
+   "year": 2006,
+   "date": "2006-08",
+   "how": "news",
+   "source": "https://crownheights.info/shlichus/3439/learning-their-alef-bet-gimels",
+   "note": "Knox News (via CrownHeights.info, 19 Oct 2006): 'The school, which opened in August, currently serves a combined kindergarten and first-grade class'; Miriam Esther Wilhelm its head. Named for the father of a donor (seed money $150,000).",
+   "confidence": "high"
+  },
+  "582611": {
+   "name": "Rohr Chabad House at Vanderbilt",
+   "city": "Nashville, TN",
+   "shetach": "tennessee",
+   "year": 2007,
+   "how": "news",
+   "source": "https://crownheights.info/shlichus/8633/chabad-opens-student-center-at-vanderbilt-university",
+   "note": "Lubavitch.com (24 Oct 2007, via CrownHeights.info): 'Chabad Opens Student Center At Vanderbilt University', Rabbi Shlomo and Nechama Rothstein its new representatives (comments: 'finally its official', 'we can't wait for you to come'). The Jewish Observer (Dec 2024): they began 17 years ago.",
+   "confidence": "high"
+  },
+  "957897": {
+   "name": "Chabad-Lubavitch of Chattanooga",
+   "city": "Chattanooga, TN",
+   "shetach": "tennessee",
+   "year": 2009,
+   "how": "stated",
+   "source": "https://crownheights.info/shlichus/491475/jewish-life-thrives-in-chattanooga-once-again",
+   "note": "Chabad.org / CrownHeights.info: Rabbi Shaul and Rosie Perlstein arrived in Chattanooga from Brooklyn in 2009 and have co-directed the Chabad Jewish Center since then; first on Pisgah Ave., later a former Masonic Lodge (2015).",
+   "confidence": "high"
+  },
+  "6549164": {
+   "name": "Chabad of Williamson County",
+   "city": "Franklin, TN",
+   "shetach": "tennessee",
+   "year": 2024,
+   "how": "news",
+   "source": "https://www.jewishobservernashville.org/article/2024/10/new-chabad-center-opens-in-williamson-county-to-support-growing-jewish-community",
+   "note": "The Jewish Observer (Nashville), Oct 2024: 'New Chabad center opens in Williamson County' (Cool Springs), Rabbi Mendel and Chana Baron, the county's first Chabad house. chabad.org's listing number (6549164) is from late 2024 too.",
+   "confidence": "high"
+  },
+  "117623": {
+   "name": "Chabad-Lubavitch of Louisiana",
+   "city": "New Orleans, LA",
+   "shetach": "louisiana-mississippi",
+   "year": 1975,
+   "date": "1975-11",
+   "how": "stated",
+   "source": "https://www.chabadneworleans.com/221664",
+   "note": "Its own history page: 'In November of 1975' the Rebbe sent Rabbi Zelig and Bluma Rivkin to New Orleans (a Chabad.org obituary's 1973 is an outlier; therebbesimpact.com also has 1973). Chabad House Uptown near Tulane from 1975-76; Metairie branch 1990; Southern Mississippi Aug 2014; Baton Rouge Aug 2015.",
+   "confidence": "high"
+  },
+  "174119": {
+   "name": "Tulane Chabad",
+   "city": "New Orleans, LA",
+   "shetach": "louisiana-mississippi",
+   "year": 1976,
+   "date": "1976-03",
+   "how": "stated",
+   "source": "https://jwa.org/oralhistories/rivkin-bluma",
+   "note": "The Uptown Chabad House by Tulane: Rabbi Zelig Rivkin recalls they 'opened the Chabad House on Purim of 1976' after renovating it (the Jewish Women's Archive also has 1976). Chabad of Louisiana's own page says it began working out of it in fall 1975.",
+   "confidence": "high"
+  },
+  "3517860": {
+   "name": "Undergraduate Program at Tulane University",
+   "city": "New Orleans, LA",
+   "shetach": "louisiana-mississippi",
+   "year": 2015,
+   "how": "news",
+   "source": "https://news.tulane.edu/news/new-chabad-leadership-provides-home-away-home",
+   "note": "Tulane News, Sept 2015: Rabbi Leibel and Mushka Lipskier 'have taken over undergraduate programming at the Rohr Chabad Jewish Student Center at Tulane University'; the Rivkins moved to graduate students.",
+   "confidence": "high"
+  },
+  "119695": {
+   "name": "Slater Torah Academy",
+   "city": "Metairie, LA",
+   "shetach": "louisiana-mississippi",
+   "year": 1993,
+   "how": "stated",
+   "source": "https://blogs.timesofisrael.com/torah-academy-jewish-school-in-greater-new-orleans-community-struggles-to-survive-post-katrina-with-2-million-in-debt-hanging-overhead/",
+   "note": "Chabad's day school (Torah Academy, renamed for Joseph and Rosina Slater in 2018). A Times of Israel blog: founded in 1993; the Tulane biography of Bluma Rivkin: it grew out of the Lakeshore Hebrew Day School and opened in 1994; Wikipedia: in its permanent facility from 1994. therebbesimpact.com: 1993. Destroyed by Katrina, reopened Jan 2006.",
+   "confidence": "medium"
+  },
+  "536224": {
+   "name": "Camp Gan Israel",
+   "city": "Metairie, LA",
+   "shetach": "louisiana-mississippi",
+   "year": null,
+   "by": 2007,
+   "how": "range",
+   "source": "https://www.chabad.org/centers/default_cdo/aid/536224/jewish/Camp-Gan-Israel.htm",
+   "note": "No start year found (Rabbi Zalman Groner). chabad.org's listing number (536224) is from about 2007, so it ran by then.",
+   "confidence": "range"
+  },
+  "117622": {
+   "name": "Chabad Center of Metairie",
+   "city": "Metairie, LA",
+   "shetach": "louisiana-mississippi",
+   "year": 1990,
+   "date": "1990-08",
+   "how": "stated",
+   "source": "https://jwa.org/oralhistories/nemes-yossi",
+   "note": "Rabbi Yossie Nemes (Jewish Women's Archive oral history): 'We moved here in August of 1990'; Chabad of Louisiana: 'In 1990, Chabad of Louisiana opened a branch in Metairie'.",
+   "confidence": "high"
+  },
+  "2637896": {
+   "name": "Congregation Beth Israel",
+   "city": "Gulfport, MS",
+   "shetach": "louisiana-mississippi",
+   "year": 2014,
+   "date": "2014-08",
+   "how": "stated",
+   "source": "https://www.chabadneworleans.com/221664",
+   "note": "Chabad of Louisiana: 'In August of 2014 Chabad of Southern Mississippi was founded in Biloxi serving the Gulf Coast region' (Rabbi Akiva and Hannah Hall). The listing is the Gulfport congregation Beth Israel, which is older; the year is when Chabad began serving it.",
+   "confidence": "medium"
+  },
+  "2819121": {
+   "name": "Chabad of Baton Rouge",
+   "city": "Baton Rouge, LA",
+   "shetach": "louisiana-mississippi",
+   "year": 2015,
+   "date": "2015-08",
+   "how": "stated",
+   "source": "https://www.chabadneworleans.com/templates/articlecco_cdo/aid/3131210/jewish/Chabad-of-Baton-Rouge.htm",
+   "note": "Chabad of Louisiana: Chabad of Baton Rouge opened in August (summer) 2015, for the Baton Rouge community and LSU students; Rabbi Peretz and Chaya Mushka Kazen founded the city's first permanent Chabad House (Chabad.org).",
+   "confidence": "high"
+  },
+  "117723": {
+   "name": "Merkos - Chabad of Rhode Island / Chabad of Providence",
+   "city": "Providence, RI",
+   "shetach": "rhode-island",
+   "year": 1979,
+   "how": "stated",
+   "source": "https://chabadinfo.com/?p=119620",
+   "note": "ChabadInfo: Rabbi Yehoshua and Mishla Laufer 'established the Providence-based Chabad Center of greater Rhode Island in 1979'. 360-362 Hope Street.",
+   "confidence": "high"
+  },
+  "7222988": {
+   "name": "Chabad of Providence",
+   "city": "Providence, RI",
+   "shetach": "rhode-island",
+   "year": 2026,
+   "how": "directory",
+   "source": "https://www.chabad.org/centers/default_cdo/aid/7222988/jewish/Chabad-of-Providence.htm",
+   "note": "No source found (Rabbi Berel Laufer). chabad.org's listing number (7222988) is from about early 2026 (between late 2025's 7117900 and mid-2026's 7309271). Perhaps a new branch of his family's Providence center (1979).",
+   "confidence": "low"
+  },
+  "117949": {
+   "name": "Chabad of West Bay Chai Center",
+   "city": "Warwick, RI",
+   "shetach": "rhode-island",
+   "year": 1995,
+   "how": "directory",
+   "source": "https://www.jewishrhody.com/stories/for-rabbi-yossi-laufer-its-all-about-lchaim,8096",
+   "note": "Its IRS record (Chabad of West Bay Chai Center Inc, Warwick) dates from 1995. Jewish Rhode Island: 'in 1998, Laufer moved back home ... and became the rabbi at the Chabad of West Bay Chai Center', so it existed by 1998.",
+   "confidence": "medium"
+  },
+  "118593": {
+   "name": "Chabad of College Hill",
+   "city": "Providence, RI",
+   "shetach": "rhode-island",
+   "year": 2003,
+   "how": "directory",
+   "source": "https://chaplains.brown.edu/religious-spiritual-communities/chabad-house",
+   "note": "No founding report found. Its nonprofit record dates from 2003; its listing number (118593) is from chabad.org's first directory (about 2003). Brown's Chabad House, 12 Olive St., for Brown, RISD and Johnson & Wales; Rabbi Mendel and Chana Laufer.",
+   "confidence": "low"
+  },
+  "419786": {
+   "name": "Chabad House of Barrington-Newport",
+   "city": "Barrington, RI",
+   "shetach": "rhode-island",
+   "year": 2006,
+   "date": "2006-05",
+   "how": "news",
+   "source": "https://crownheights.info/shlichus/3709/new-home-for-faith-opens-doors",
+   "note": "Warren Times Gazette (via CrownHeights.info, 15 Nov 2006): Rabbi Moshe and Mirel Laufer moved to Barrington 'in May' (2006) to serve the East Bay.",
+   "confidence": "high"
+  },
+  "2743772": {
+   "name": "Chabad House of Northern Rhode Island",
+   "city": "Lincoln, RI",
+   "shetach": "rhode-island",
+   "year": 2015,
+   "date": "2015-09",
+   "how": "news",
+   "source": "https://crownheights.info/shlichus/536940/new-shluchim-to-rhode-island",
+   "note": "The Jewish Voice (June 2016): Rabbi Aryeh and Mushka Laufer 'have recently established the Chabad House of northern R.I.'; 'This past September' (2015), before their official move from Providence to Lincoln, they ran High Holy Day services in Smithfield. Settled in Lincoln at the end of 2015.",
+   "confidence": "high"
+  },
+  "3329974": {
+   "name": "Chabad of the University of Rhode Island",
+   "city": "Kingston, RI",
+   "shetach": "rhode-island",
+   "year": 2016,
+   "how": "directory",
+   "source": "https://web.uri.edu/chaplains/chabad/",
+   "note": "No founding report found (Rabbi Avi and Tzippy Goldstein). chabad.org's listing number (3329974) is from about 2016 (Lexington's, 2015, is 2922724; Louisville's Jewish Learning Center, 2016, is 3483282).",
+   "confidence": "low"
+  },
+  "5097669": {
+   "name": "Chabad of South County",
+   "city": "South Kingstown, RI",
+   "shetach": "rhode-island",
+   "year": 2021,
+   "how": "list",
+   "source": "https://www.chabad.org/centers/default_cdo/aid/5097669/jewish/Chabad-of-South-County.htm",
+   "note": "No source found. therebbesimpact.com: the center and Mendy & Lieba Reinitz, 2021; chabad.org's listing number (5097669) is from about 2021 too.",
+   "confidence": "low"
+  },
+  "117736": {
+   "name": "Chabad of Vermont",
+   "city": "Burlington, VT",
+   "shetach": "vermont",
+   "year": 1983,
+   "how": "stated",
+   "source": "https://crownheights.info/chabad-news/628755/after-100-years-vermonts-little-jerusalem-comes-full-circle",
+   "note": "Chabad.org (20 Dec 2018): 'In the winter of 1983' Rabbi Yitzchok and Zeesy Raskin were appointed by the Rebbe 'as the new Chabad-Lubavitch emissaries to Vermont'; one of their first acts was a menorah at City Hall. A Chabad article also says they opened the center in 1983, but the Brattleboro Reformer (2012) and Front Porch Forum say 1984. Rabbi Eliyahu and Draizy Junik, now its directors, came in 2014.",
+   "confidence": "medium"
+  },
+  "119676": {
+   "name": "Mikvah Chaya Mushka",
+   "city": "Burlington, VT",
+   "shetach": "vermont",
+   "year": null,
+   "by": 2003,
+   "how": "range",
+   "source": "https://www.totallyjewishtravel.com/mikvah_chaya_mushka_burlington_vermont-TE65739-Mikvah-vermont_united_states.html",
+   "note": "No year found. The Chabad mikvah at 221 Summit Street, supervised by Chabad of Vermont; its listing number (119676) is from chabad.org's first directory (about 2003), so it existed by then.",
+   "confidence": "range"
+  },
+  "389837": {
+   "name": "Chabad @ UVM",
+   "city": "Burlington, VT",
+   "shetach": "vermont",
+   "year": 2006,
+   "how": "stated",
+   "source": "https://lubavitch.com/students-pack-the-house-at-chabad-of-uvm",
+   "note": "Lubavitch.com: Chabad at UVM opened in 2006 under Rabbi Zalman and Chani Wilhelm, first in a small apartment, later a three-story house near student housing.",
+   "confidence": "high"
+  },
+  "1671455": {
+   "name": "Chabad of Southern Vermont",
+   "city": "Brattleboro, VT",
+   "shetach": "vermont",
+   "year": 2012,
+   "date": "2012-07",
+   "how": "news",
+   "source": "https://crownheights.info/shlichus/45867/quaint-vermont-town-welcomes-brooklyn-family",
+   "note": "Chabad.org (31 July 2012): Rabbi Avremy and Chaya Raskin moved from Brooklyn to Brattleboro 'earlier this month' to open a Chabad center; the Brattleboro Reformer (Sept 2012): they arrived 'in early July'. (therebbesimpact.com gives the couple 2011.)",
+   "confidence": "high"
+  },
+  "2698131": {
+   "name": "Chabad of Bennington County",
+   "city": "Manchester, VT",
+   "shetach": "vermont",
+   "year": 2014,
+   "how": "list",
+   "source": "https://www.chabad.org/centers/default_cdo/aid/2698131/jewish/Chabad-of-Bennington-County.htm",
+   "note": "No dated source found. therebbesimpact.com: the center and Menachem & Faygie Andrusier, 2014; chabad.org's listing number (2698131) is from about 2014 too. Chabad of Manchester, 171 Sargent Lane (UVM Hillel's directory, 2022).",
+   "confidence": "low"
+  },
+  "3548886": {
+   "name": "Middlebury Chabad",
+   "city": "Middlebury, VT",
+   "shetach": "vermont",
+   "year": 2017,
+   "how": "list",
+   "source": "https://www.chabad.org/centers/default_cdo/aid/3548886/jewish/Middlebury-Chabad.htm",
+   "note": "No source found (Rabbi Binyamin Murray). therebbesimpact.com: 2017; chabad.org's listing number (3548886) is from about 2016-17.",
+   "confidence": "low"
+  },
+  "5644326": {
+   "name": "Chabad of Northwest Vermont",
+   "city": "South Burlington, VT",
+   "shetach": "vermont",
+   "year": 2022,
+   "how": "list",
+   "source": "https://www.chabad.org/centers/default_cdo/aid/5644326/jewish/Chabad-of-Northwest-Vermont.htm",
+   "note": "No source found. therebbesimpact.com: the center and Shmuel & Gittel Grossman, 2022; chabad.org's listing number (5644326) is from about 2022 too.",
+   "confidence": "low"
+  },
+  "5684614": {
+   "name": "Chabad of Stowe",
+   "city": "Waterbury Center, VT",
+   "shetach": "vermont",
+   "year": 2022,
+   "how": "news",
+   "source": "https://www.waterburyroundabout.org/community-archive/lsw3cz2hdadgh0aubxi5wtmy5k9xpe",
+   "note": "Waterbury Roundabout (Dec 2022): Rabbi Boruch and Sara Simon 'recently moved to Waterbury Center' from Miami as Chabad emissaries to the Stowe area; on Merkos's list of new shluchim grants (COLlive).",
+   "confidence": "high"
+  },
+  "117609": {
+   "name": "Lubavitch of Iowa",
+   "city": "Des Moines, IA",
+   "shetach": "iowa",
+   "year": 1992,
+   "how": "stated",
+   "source": "https://crownheights.info/shlichus/521853/in-iowa-rabbi-serves-up-great-food-and-greater-wisdom",
+   "note": "Chabad.org: 'Since 1992, when Rabbi Yossi and Chanie Jacobson first established Lubavitch of Iowa in Des Moines'; the Jewish Virtual Library also has 1992.",
+   "confidence": "high"
+  },
+  "602103": {
+   "name": "Talmud Torah",
+   "city": "Des Moines, IA",
+   "shetach": "iowa",
+   "year": null,
+   "by": 2008,
+   "how": "range",
+   "source": "https://www.chabad.org/centers/default_cdo/aid/602103/jewish/Talmud-Torah.htm",
+   "note": "No year found. A Hebrew school of Lubavitch of Iowa (1992); its listing number (602103) is from about 2008, so it ran by then.",
+   "confidence": "range"
+  },
+  "7465212": {
+   "name": "YJP Des Moines",
+   "city": "Des Moines, IA",
+   "shetach": "iowa",
+   "year": 2026,
+   "how": "directory",
+   "source": "https://www.chabad.org/centers/default_cdo/aid/7465212/jewish/YJP-Des-Moines.htm",
+   "note": "No source found (Rabbi Moshe Zalman Vorovitch). chabad.org's listing number (7465212) is from about Aug-Sept 2026 (Winnipeg's July 2026 page is 7423561).",
+   "confidence": "low"
+  },
+  "7465215": {
+   "name": "Cteen Iowa",
+   "city": "Des Moines, IA",
+   "shetach": "iowa",
+   "year": 2026,
+   "how": "directory",
+   "source": "https://www.chabad.org/centers/default_cdo/aid/7465215/jewish/Cteen-Iowa.htm",
+   "note": "No source found (Rabbi Moshe Zalman Vorovitch). chabad.org's listing number (7465215), made with YJP Des Moines's, is from about Aug-Sept 2026.",
+   "confidence": "low"
+  },
+  "118520": {
+   "name": "Lubavitch of Iowa City",
+   "city": "Iowa City, IA",
+   "shetach": "iowa",
+   "year": 2002,
+   "how": "list",
+   "source": "https://mikveh.blogspot.com/2006/03/group-of-about-10-gathered-at-chabad.html",
+   "note": "No founding report found. therebbesimpact.com: the center and Avrohom & Chaya Blesofsky, 2002; its listing number (118520) is from chabad.org's first directory (about 2003); Rabbi Avremel Blesofsky taught at Chabad, a University of Iowa Jewish group, by March 2006. Chabad House at 420 E. Jefferson.",
+   "confidence": "low"
+  },
+  "118635": {
+   "name": "Chabad of North East Iowa",
+   "city": "Postville, IA",
+   "shetach": "iowa",
+   "year": 1998,
+   "how": "anniversary",
+   "source": "https://collive.com/just-the-simple-acts-chabad-of-northeast-iowa-part-i/",
+   "note": "COLlive, 23 Jan 2026: Rabbi Aron Schimmel married in 1995, did a year of kollel, then came to Postville as a mashgiach at the meat plant; 'As much as we've accomplished over the last 28 years' (so from about 1998), 'almost three decades of shlichus'. therebbesimpact.com: the couple 2000, the center 2003.",
+   "confidence": "medium"
+  },
+  "3209374": {
+   "name": "Cheder Menachem Boys School/Beis Chaya Mushka Girls School",
+   "city": "Postville, IA",
+   "shetach": "iowa",
+   "year": null,
+   "by": 2007,
+   "how": "range",
+   "source": "https://www.jewishvirtuallibrary.org/iowa-jewish-history",
+   "note": "No founding year found. The Jewish Virtual Library (from the Encyclopaedia Judaica, 2007): Postville 'offers K-8 Jewish education for girls and K-11 Jewish education for boys'. Today Bais Chaya Mushka-Oholei Menachem, 417 Oak Drive, pre-K to 9th grade. Its chabad.org listing (3209374) is only from about 2016.",
+   "confidence": "range"
+  },
+  "3209388": {
+   "name": "Mesivta Lubavitch Beth Shalom Postville",
+   "city": "Postville, IA",
+   "shetach": "iowa",
+   "year": 1997,
+   "how": "stated",
+   "source": "https://www.mesivtapostville.org/about.html",
+   "note": "Its own site: 'The Mesivta of Postville was founded in 1997 by R' Sholom Mordechai Halevi ben Rivkah Rubashkin and his family', who funded it for its first twelve years.",
+   "confidence": "high"
+  },
+  "3697415": {
+   "name": "Lubavitch of Ames",
+   "city": "Ames, IA",
+   "shetach": "iowa",
+   "year": 2017,
+   "how": "list",
+   "source": "https://www.causeiq.com/organizations/chabad-lubavitch-of-ames,831806638/",
+   "note": "No founding report found. therebbesimpact.com: the center and Leibel & Malka Jacobson, 2017; chabad.org's listing number (3697415) is from about 2017 too; its IRS registration (Chabad Lubavitch of Ames, 414 Stanton Ave) is from 2019.",
+   "confidence": "low"
+  },
+  "117690": {
+   "name": "National Committee for Jewish Education",
+   "city": "Monsey, NY",
+   "shetach": "none",
+   "year": 2000,
+   "how": "list",
+   "source": "https://www.chabad.org/centers/default_cdo/aid/117690/jewish/National-Committee-for-Jewish-Education.htm",
+   "note": "Monsey (blank on the map, no shetach). No source found (Rabbi Simcha Werner). therebbesimpact.com: the institution 2000, Simcha & Chaya Werner from 1971; its listing number (117690) is from chabad.org's first directory (about 2003).",
+   "confidence": "low"
+  },
+  "118578": {
+   "name": "Cheder Chabad of Monsey",
+   "city": "Spring Valley, NY",
+   "shetach": "none",
+   "year": 1999,
+   "how": "directory",
+   "source": "https://www.privateschoolreview.com/cheder-chabad-of-monsey-profile",
+   "note": "Monsey (no shetach). Private School Review: founded 1999; GuideStar's IRS ruling year 2001; therebbesimpact.com: 1999. Rabbi Yisroel Shusterman, dean; its modular building in Airmont went up in 2012 (Lubavitch.com, Nov 2012); a five-acre New City campus bought later.",
+   "confidence": "medium"
+  },
+  "756922": {
+   "name": "Cheder Chabad of Monsey Girls School",
+   "city": "Airmont, NY",
+   "shetach": "none",
+   "year": null,
+   "by": 2008,
+   "how": "range",
+   "source": "https://crownheights.info/photo-galleries/454201/monsey-community-grows-with-opening-of-new-mesivta",
+   "note": "Monsey (no shetach). No year found for the girls' division of Cheder Chabad of Monsey (1999); its listing number (756922) is from about 2008, so it ran by then. In Sept 2014 the Cheder had 'boys division and girls division'.",
+   "confidence": "range"
+  },
+  "767854": {
+   "name": "Monsey Beis Chaya Mushka High",
+   "city": "Airmont, NY",
+   "shetach": "none",
+   "year": 2008,
+   "how": "list",
+   "source": "https://crownheights.info/chabad-news/48508/monsey-jewish-day-school-goes-modular",
+   "note": "Monsey (no shetach). No founding report found. therebbesimpact.com: 2008; its listing number (767854) is from about 2008 too. Run by Rabbi Dr. Chaim D. Kagan; shares the Cheder's Airmont building from 2012 (Lubavitch.com, Nov 2012).",
+   "confidence": "low"
+  },
+  "1676572": {
+   "name": "Heichal Menachem of Monsey",
+   "city": "Monsey, NY",
+   "shetach": "none",
+   "year": 1998,
+   "date": "1998-12-08",
+   "how": "stated",
+   "source": "https://chabadpedia.com/index.php/Heichal_Menachem_-_Monsey",
+   "note": "Monsey (no shetach). Chabadpedia: founded on 19 Kislev 5759 (8 Dec 1998) by Rabbi Gedalia Oberlander; Anash.org also has 5759. Its lending library opened in 5775 (2014-15); his son Rabbi Dovid Oberlander has run it since 2012.",
+   "confidence": "high"
+  },
+  "4166847": {
+   "name": "Mesivta Lev Tmimim",
+   "city": "Monsey, NY",
+   "shetach": "none",
+   "year": 2015,
+   "how": "list",
+   "source": "https://www.chabad.org/centers/default_cdo/aid/4166847/jewish/Mesivta-Lev-Tmimim.htm",
+   "note": "Monsey (no shetach). No source found. therebbesimpact.com: 2015; its listing number (4166847) is from about 2015 too.",
+   "confidence": "low"
+  },
+  "4173591": {
+   "name": "Mesivta Lubavitch of Monsey",
+   "city": "Spring Valley, NY",
+   "shetach": "none",
+   "year": 2014,
+   "date": "2014-09-02",
+   "how": "news",
+   "source": "https://crownheights.info/photo-galleries/454201/monsey-community-grows-with-opening-of-new-mesivta",
+   "note": "Monsey (no shetach). CrownHeights.info, 22 Sept 2014: 'a new Mesivta opened this year in Monsey'; it 'opened its doors on Zayin Elul' (7 Elul 5774, 2 Sept 2014) to the students of Shiur Alef.",
+   "confidence": "high"
+  },
+  "6656482": {
+   "name": "Cheder Zichron Shmuel",
+   "city": "Spring Valley, NY",
+   "shetach": "none",
+   "year": 2024,
+   "how": "directory",
+   "source": "https://www.chabad.org/centers/default_cdo/aid/6656482/jewish/Cheder-Zichron-Shmuel.htm",
+   "note": "Monsey (no shetach). No source found (Rabbi Moshe Gourarie; therebbesimpact.com has the couple from 2022). Its listing number (6656482) is from about early 2025 (Williamson County's, Oct 2024, is 6549164), so it opened by 2024-25.",
+   "confidence": "low"
+  },
+  "7109019": {
+   "name": "Mayan Torah Tomchei Tmimim",
+   "city": "Monsey, NY",
+   "shetach": "none",
+   "year": 2025,
+   "how": "directory",
+   "source": "https://www.chabad.org/centers/default_cdo/aid/7109019/jewish/Mayan-Torah-Tomchei-Tmimim.htm",
+   "note": "Monsey (no shetach). No source found (Rabbi Avremel Kotlarsky). Its listing number (7109019) is from about late 2025.",
+   "confidence": "low"
+  },
+  "285958": {
+   "name": "Camp Gan Israel",
+   "city": "Andover, MA",
+   "shetach": "merrimack-valley",
+   "year": null,
+   "by": 2005,
+   "how": "range",
+   "source": "https://www.chabad.org/centers/default_cdo/aid/285958/jewish/Camp-Gan-Israel.htm",
+   "note": "No year found (searched twice). The day camp of Chabad of the Merrimack Valley in Andover; its chabad.org listing number (285958) is from about 2005, so it ran by then.",
+   "confidence": "range"
+  },
+  "119209": {
+   "name": "Chabad Lubavitch of Ottawa",
+   "city": "Ottawa, ON",
+   "shetach": "ottawa",
+   "year": 1977,
+   "how": "stated",
+   "source": "https://torahday.ca/people/2332517/rabbi-dovid-hayes",
+   "note": "Torah Day School's profile: 'Rabbi Hayes moved to Ottawa in 1977 together with his wife Chana and newborn daughter, as an emissary of Chabad Lubavitch'; he helped open a preschool, afternoon school, day camp and day school. therebbesimpact.com: the couple 1977, the center 1978.",
+   "confidence": "high"
+  },
+  "118369": {
+   "name": "Jewish Youth Library of Ottawa",
+   "city": "Ottawa, ON",
+   "shetach": "ottawa",
+   "year": 1983,
+   "how": "stated",
+   "source": "https://collive.com/ottawa-chabad-celebrates-30-years/",
+   "note": "Founded by Devora and Dr. Yosef Caytak in 1983, in their basement (Lubavitch.com, 'A Jewish Youth Library Grows and Grows'); its own building from 1989, then a preschool and summer camp. COLlive, 11 May 2014: its 30th anniversary dinner, 4 May 2014.",
+   "confidence": "high"
+  },
+  "118409": {
+   "name": "Congregation Lubavitch",
+   "city": "Ottawa, ON",
+   "shetach": "ottawa",
+   "year": 1992,
+   "how": "list",
+   "source": "https://en.wikipedia.org/wiki/List_of_synagogues_in_Ottawa",
+   "note": "No founding report found. The Lubavitch shul at 889 Lady Ellen Place; Rabbi Yehoshua Botnick its mora d'asra. therebbesimpact.com: the congregation 1992, the Botnicks 1991.",
+   "confidence": "low"
+  },
+  "118251": {
+   "name": "Ottawa Torah Centre Chabad",
+   "city": "Ottawa, ON",
+   "shetach": "ottawa",
+   "year": 1997,
+   "how": "stated",
+   "source": "https://ottawajewishbulletin.com/voices/ottawa-torah-centre-soon-to-be-in-full-bloom",
+   "note": "Founded in Barrhaven in 1997 by Rabbi Menachem Mendel and Dina Blum, in their basement, then a leased store (Ottawa Jewish Bulletin; Choose Ottawa); its building at 111 Lamplighters Drive, Ottawa's first new synagogue in about 30 years, opened 2014. therebbesimpact.com: 1998.",
+   "confidence": "high"
+  },
+  "118589": {
+   "name": "Chabad of Centrepointe",
+   "city": "Ottawa, ON",
+   "shetach": "ottawa",
+   "year": 2002,
+   "how": "list",
+   "source": "https://www.jewishottawa.com/our-community/community-directory/chabad-of-centrepoint-orthodox",
+   "note": "No founding report found. therebbesimpact.com: the center and Chaim & Bassy Mendelsohn, 2002; its listing number (118589) is from chabad.org's first directory (about 2003). 100 Constellation Drive.",
+   "confidence": "low"
+  },
+  "559424": {
+   "name": "Chabad of Kanata",
+   "city": "Ottawa, ON",
+   "shetach": "ottawa",
+   "year": 2007,
+   "how": "list",
+   "source": "https://www.jewishottawa.com/our-community/community-directory?page=2",
+   "note": "No founding report found. therebbesimpact.com: the center and Michoel & Miriam Gershzon, 2007; chabad.org's listing number (559424) is from about 2007 too.",
+   "confidence": "low"
+  },
+  "677505": {
+   "name": "Rohr Chabad Student Network of Ottawa",
+   "city": "Ottawa, ON",
+   "shetach": "ottawa",
+   "year": 2008,
+   "how": "stated",
+   "source": "https://collive.com/shopify-founder-dedicates-chabad-center-in-ottawa/",
+   "note": "Rabbi Chaim and Yocheved Boyarsky established the Rohr Chabad Student Network of Ottawa in 2008 (COLlive; Chabad.org: they have directed it 'since 2008'), first in their home; later the Finkelstein downtown center.",
+   "confidence": "high"
+  },
+  "1261471": {
+   "name": "Chabad Student Centre of Kingston - Rohr Chabad House",
+   "city": "Kingston, ON",
+   "shetach": "ottawa",
+   "year": 2010,
+   "how": "list",
+   "source": "https://issuu.com/tekiyah/docs/kingston",
+   "note": "No founding report found. therebbesimpact.com: the center 2010, Sruly & Esther Simon 2007; chabad.org's listing number (1261471) is from about 2010. The Elizabeth Cottage was bought in 2014 for a permanent home (its building brochure).",
+   "confidence": "low"
+  },
+  "5456142": {
+   "name": "Chabad of Wellington West",
+   "city": "Ottawa, ON",
+   "shetach": "ottawa",
+   "year": 2022,
+   "how": "stated",
+   "source": "https://thecjn.ca/?p=278216",
+   "note": "'Chabad of Wellington West was founded in 2022 by Ottawa-born Rabbi Moshe Caytak and his wife, Sheina' (The CJN); a 'New Shluchim to Wellington' notice (CrownHeights.info); a fourth-anniversary celebration in 2026. Now at 166 Huron Avenue.",
+   "confidence": "high"
+  },
+  "4406734": {
+   "name": "Chabad of Westboro Village",
+   "city": "Ottawa, ON",
+   "shetach": "ottawa",
+   "year": 2019,
+   "how": "list",
+   "source": "https://www.chabad.org/centers/default_cdo/aid/4406734/jewish/Chabad-of-Westboro-Village.htm",
+   "note": "No source found; no director listed. therebbesimpact.com: 2019; chabad.org's listing number (4406734) is from about 2019 too.",
+   "confidence": "low"
+  },
+  "7475377": {
+   "name": "Irving Aaron Kitchen of Kindness",
+   "city": "Ottawa, ON",
+   "shetach": "ottawa",
+   "year": null,
+   "by": 2024,
+   "how": "range",
+   "source": "https://www.jewishottawa.com/community-calendar/week/list/2024/03/06",
+   "note": "No founding report found (Bassy Mendelsohn). 'The Irving Aaron Giving Kitchen' co-presented a cooking club at Chabad of Centrepointe in March 2024 (Jewish Ottawa's calendar), so it ran by then; its chabad.org listing (7475377) is from 2026, when Chabad's Kitchen of Kindness name came in.",
+   "confidence": "range"
   }
  }
 }

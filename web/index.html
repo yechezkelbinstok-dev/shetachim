@@ -373,6 +373,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   color: var(--accent); font: 600 12px/1 var(--font-ui); text-decoration: none; white-space: nowrap; cursor: pointer; }
 #card .cc-chip:hover { background: var(--accent-soft); }
 #card .cc-chip .ic { flex: none; width: 12px; height: 12px; }
+/* a center's page: an icon in the header's corner, beside the close button (owner, Nov 6: an icon, not a pill) */
+#card .cc-head .cc-chip.cc-icon { position: absolute; top: 6px; inset-inline-end: 34px; justify-content: center; width: 26px; height: 26px;
+  margin: 0; padding: 0; border: 0; border-radius: 6px; background: transparent; color: var(--accent); }
+#card:not(.pinned) .cc-head .cc-chip.cc-icon { inset-inline-end: 6px; }
+#card .cc-head .cc-chip.cc-icon:hover { background: var(--accent-soft); }
+#card .cc-head .cc-chip.cc-icon .ic { width: 14px; height: 14px; }
+#card .cc-head:has(.cc-icon) .cc-htext > :first-child { padding-inline-end: 34px; }
 #card .cc-chip.mush { color: var(--mush); border-color: color-mix(in srgb, var(--mush) 34%, var(--panel-line)); }
 #card .cc-chip.mush:hover, #card .cc-chip.mush[aria-pressed="true"] { background: color-mix(in srgb, var(--mush) 10%, var(--panel)); }
 #card .cc-net .cc-chip span { display: inline-block; color: inherit; font-size: inherit; }
@@ -3493,7 +3500,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const pageAct = (c) => { const p = pageOf(c); return p ? `<a class="cc-act" href="${p.href}" target="_blank" rel="noopener" title="${p.label}">${icon('ext')}<span class="lab">${p.label.replace(/^(Open on |לעמוד ב-|לדף ב)/, '')}</span></a>` : ''; };
   // the same as a small button: a center's page in its header, a mushroom's "Show network" in its network's box (the
   // bar along the foot is gone: owner, Nov 5)
-  const pageChip = (c) => { const p = pageOf(c); return p ? `<a class="cc-chip" href="${p.href}" target="_blank" rel="noopener" title="${p.label}">${icon('ext')}<span class="lab">${p.label.replace(/^(Open on |לעמוד ב-|לדף ב)/, '')}</span></a>` : ''; };
+  // (owner, Nov 6: an icon, not a "chabad.org" pill; the name of the site is in its tooltip)
+  const pageChip = (c) => { const p = pageOf(c); return p ? `<a class="cc-chip cc-icon" href="${p.href}" target="_blank" rel="noopener" title="${p.label}" aria-label="${p.label}">${icon('ext')}</a>` : ''; };
   const netPill = (c) => { const n = c.mushroom && c.network && networks().get(c.network);
     return n ? `<button type="button" class="cc-chip mush net-show" data-net="${esc(c.network)}" aria-pressed="${netPinned === n}"><span class="dash"></span><span class="lab">${netButton(n)}</span></button>` : ''; };
   const pageGo = (c) => { const p = pageOf(c); return p ? `<a class="cc-go" href="${p.href}" target="_blank" rel="noopener" title="${p.label}" aria-label="${p.label}">${icon('ext')}</a>` : ''; };

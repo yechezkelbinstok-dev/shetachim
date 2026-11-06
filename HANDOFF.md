@@ -52,6 +52,13 @@ thirteen no better recent photo has been found yet (the list is there, with what
   dots: Arizona 38, Eastern Massachusetts 32, Connecticut 32, Washington 31, the Carolinas 23, Northeast Ohio 23,
   Crown Heights 23, Upstate NY 21, Colorado 21, Wisconsin 20, Virginia 19, Upper Midwest 19, Oregon 17,
   Kansas–Missouri 16, New Haven 14, British Columbia 13, Central Massachusetts 12.
+- **Queued after the founding years (owner, Nov 6, latest): shetach borders year by year.** "After ur done (so put on
+  back burner) ... assuming I make a version where borders are shetachim - is changing shetachim every year so for
+  example PNW, when levitin was sent to Washington he had a shetach covering a massive area including Alaska for example
+  as well as many other provinces and territories but as those places got shluchim/head shluchim it decreased. Same with
+  let's say Mississippi being blank till rivkin sent someone there or WV moving at some point from Kranz to Rosenfeld
+  I'm sure there's other examples as well so I need research done into that as well". So: for each shetach, when its
+  head shliach was appointed, what it covered then, and each year it shrank, grew or changed hands. Not started.
 - **Founding years, the West Coast (Nov 6, first pass done).** Owner: "let's jump into the West Coast. Do this properly
   ... The goal is every single blue dot we find the date for ... keep track continuously of how many are missing from
   the various ones, so we can do a round of the harder ones later on ... all the info needs to be kept properly. But go

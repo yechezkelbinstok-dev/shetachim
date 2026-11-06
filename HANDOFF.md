@@ -55,12 +55,13 @@ thirteen no better recent photo has been found yet (the list is there, with what
   stretch to do the whole world at this point and honestly why are we discussing the video at this point what we need
   is the data ... do a test run pick a mid-sized American shetach - not one of the gargantuan ones like West Coast or
   Florida ... and see how easy it would be as a blueprint for the data collection." **Done: the Michigan pilot**
-  (`data/founding-years.json`, report in `work/founding-years/michigan-pilot.md`): a year for 28 of 32 dots (88%),
-  a range for 3 more. The owner caught the first pass missing "THE FUCKING FAMOUS DETROIT MESIVTA" (1965) and leaving
-  Bais Chabad of North Oak Park at "by 1997" (it's 1990): both were in the Detroit Jewish News archive, found with its
-  own search sorted by earliest date, under the names people use. Search that way before settling for a range. What
-  worked: a published list of institutions with years, the local Jewish paper's archive, one search per center.
-  Next is the owner's call.
+  (`data/founding-years.json`, report in `work/founding-years/michigan-pilot.md`): a year for 29 of 32 dots (91%),
+  each rated high (23 listings) / medium (8) / low (1). The owner caught the first pass missing "THE FUCKING FAMOUS
+  DETROIT MESIVTA" (1965) and asked "are you sure it's correct? ... I don't know who to trust now": everything not
+  solid was then checked against the Detroit Jewish News archive (its own search, AND, earliest first), which changed
+  six (Grand Rapids 1977, Novi 2005, Friendship House 2004, Mishkan Israel 1963, F.R.E.E. 1990, North Oak Park 1990)
+  and showed the July 2024 list wrong on 3 of 13. Rule now: a list or "N years ago" is a lead; check every medium
+  and low entry before calling a shetach done. Next is the owner's call.
 - Head photos still missing — Europe/Middle East: Moldova, Romania, Sweden, Switzerland; USA: Kansas–Missouri,
   Delaware, New Hampshire, Eastern Massachusetts, Rhode Island, Cape Cod; Canada: British Columbia, Ottawa, Quebec,
   Maritimes. Old or weak US/Canada photos and vaad faces: the lists in the Nov 5 sections.

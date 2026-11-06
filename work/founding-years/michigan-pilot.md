@@ -8,10 +8,27 @@ easy it would be as a blueprint for the data collection." Michigan (Rabbi Berel 
 
 | | count | share |
 |---|---|---|
-| Listings with a year | 31 of 37 | 84% |
-| Dots with a year (a dot takes its earliest listing's year) | 28 of 32 | 88% |
-| Dots with only a range ("by 2001": it existed then, start unknown) | 3 | |
+| Listings with a year | 32 of 37 | 86% |
+| ... of them rated high / medium / low | 23 / 8 / 1 | |
+| Dots with a year (a dot takes its earliest listing's year) | 29 of 32 | 91% |
+| Dots with only a range ("by 2001": it existed then, start unknown) | 2 | |
 | Dots with nothing | 1 (Toledo's Food & Learning Center) | |
+
+**Then everything not solid was checked** (the owner: "are you sure it's correct? ... I don't know who to trust now"):
+every year counted back from "N years ago", every first mention, every judgment call, the ranges, and the entries
+resting only on the July 2024 list, against the archive (its own search, words joined with AND, earliest first).
+What changed:
+- Grand Rapids 1979 -> **1977** (the Sept 1977 opening announcement; "about nine years ago" in 1988 was 2 years off).
+- Novi 2000 -> **2005** (Jan 2006: first program Purim 2005, center that fall). The 2024 list was wrong.
+- Friendship House 1994 -> **2004** (a director by Nov 2004, building spring 2005). The list gave Friendship Circle's year.
+- Bloomfield Hills: **2016** confirmed (Chabad.org, Oct 2016); the list's 2017 is a year off.
+- Mishkan Israel 1958 -> **1963** (first mention as the Lubavitcher Center; 1958 was its building's dedication).
+- F.R.E.E. Southfield: range -> **1990** (opened Aug 1990; Southfield address Dec 1990).
+- Confirmed: Flint (absent 1980-81, open by Dec 1986), Farmington Hills (first mention Apr 1978), Toledo (May 1987),
+  The Shul (Nov 1994), Royal Oak (Nov 2018), Livonia (Sept 2022), Waterford (July 2024), the Mesivta (1965).
+- Still weak: Bingham Farms (2009 from the list only; first newspaper mention Dec 2016).
+Lessons: a published list is a lead, not proof (3 of its 13 checkable entries were wrong); "N years ago" can be off
+by a couple of years; a first mention only bounds the start.
 
 **Corrected after the owner's challenge** ("THE FUCKING FAMOUS DETROIT MESIVTA ... should have been one of the easiest
 things to find"): the first pass had no year for the Detroit Mesivta and only "by 1997" for Bais Chabad of North Oak
@@ -56,9 +73,10 @@ fetch); the corrections took 3 more web searches, 1 fetch and 4 searches of the 
 
 ## Blueprint for the rest (suggestion, not agreed)
 
-- Per shetach: (1) look for a list or timeline; (2) find the local Jewish paper's archive and its own search; (3) one
-  web search per remaining center, then the archive search (earliest first) under every name it's known by, before
-  settling for a range; (4) ranges only after that; (5) conflicts noted, not hidden.
+- Per shetach: (1) look for a list or timeline, as leads; (2) find the local Jewish paper's archive and its own search;
+  (3) one web search per center, then the archive search (AND, earliest first) under every name it's known by;
+  (4) prefer a report from the year itself over a list, an anniversary count or a later profile; (5) rate each year
+  high / medium / low and check every medium and low before calling the shetach done; (6) ranges only after that.
 - Michigan was probably easier than average (the 2024 list, a digitized paper back to the 1940s). Expect fewer exact
   years where neither exists: maybe 60–80% of dots.
 - Size: US and Canada are 1,991 listings at 1,787 dots. At about one lookup per listing, that's ~2,000 lookups; done

@@ -1,5 +1,5 @@
 {
- "about": "The year each center started, for the growth-of-Chabad video (the owner's idea, Nov 6). Keyed by the center's chabad.org id (web/data/centers.geojson). 'year' is when the shluchim began there (their arrival or first activity); when the opening came later, the note says so. 'how': stated (the center or a paper says the year), list (a published list of institutions with years; therebbesimpact.com, unsourced, counts only as a lead, so 'low'), news (a report from that year), anniversary (\"N years ago\" counted back), directory (a dated directory listing or IRS record; as a last resort, when its chabad.org listing was made: the listing numbers run in order of creation, so a number dates the listing to within about a year, which bounds the start but is not it); first-mention (the year of the earliest mention found, used as the year); range ('after'/'by' bound it, no exact year); same-place (no year of its own, at the same spot as a dated one); not-found. 'confidence': high (a report from that year, or the center itself, and nothing against it), medium (counted back from 'N years ago', a first mention, one secondary source, or sources a year apart), low (one weak source, unconfirmed); range (no year: 'after'/'by' bound it from dated sources); open (no real source yet: 'year' is null and 'lead' holds a guess from therebbesimpact.com or the chabad.org listing number, only to check, never to use as a year. Owner, Nov 6: \"basically a guess is ridiculous how can I use that in an expansion map\"). A dot on the map takes the earliest year of its listings. Pilot: the Michigan shetach, Nov 6 (work/founding-years/michigan-pilot.md). 'date' (when one turns up, owner, Nov 6: \"More data never hurt nobody\"): the month or the day, 'YYYY-MM' or 'YYYY-MM-DD', of the same event as 'year'. 'shetach': the shetach id (data/shetachim.json); 'none' = Monsey, left blank on the map.",
+ "about": "The year each center started, for the growth-of-Chabad video (the owner's idea, Nov 6). Keyed by the center's chabad.org id (web/data/centers.geojson). 'year' is when the shluchim began there (their arrival or first activity); when the opening came later, the note says so. 'how': stated (the center or a paper says the year), list (a published list of institutions with years; therebbesimpact.com, unsourced, counts only as a lead, so 'low'), news (a report from that year), anniversary (\"N years ago\" counted back), directory (a dated directory listing or IRS record; as a last resort, when its chabad.org listing was made: the listing numbers run in order of creation, so a number dates the listing to within about a year, which bounds the start but is not it); first-mention (the year of the earliest mention found, used as the year); range ('after'/'by' bound it, no exact year); same-place (no year of its own, at the same spot as a dated one); not-found. 'confidence': high (a report from that year, or the center itself, and nothing against it), medium (counted back from 'N years ago', a first mention, one secondary source, or sources a year apart), low (one weak source, unconfirmed); range (no year: 'after'/'by' bound it from dated sources); open (no real source yet: 'year' is null and 'lead' holds a guess from therebbesimpact.com or the chabad.org listing number, only to check, never to use as a year. Owner, Nov 6: \"basically a guess is ridiculous how can I use that in an expansion map\"). A dot on the map takes the earliest year of its listings. Pilot: the Michigan shetach, Nov 6 (work/founding-years/michigan-pilot.md). 'date' (when one turns up, owner, Nov 6: \"More data never hurt nobody\"): the month or the day, 'YYYY-MM' or 'YYYY-MM-DD', of the same event as 'year'. 'shetach': the shetach id (data/shetachim.json); 'none' = Monsey, left blank on the map. 'earlier' (when found): the places a center used to be, oldest first, each {where, from, until, source} (years when known, else null); the map's dot is where it is now. Owner, Nov 6: \"if you ever realize a center used to be located somewhere else then take note for the data\".",
  "centers": {
   "119458": {
    "name": "Congregation Mishkan Israel",
@@ -2348,7 +2348,15 @@
    "how": "news",
    "confidence": "medium",
    "source": "https://jweekly.com/2003/06/06/chabad-mill-valley-rabbi-sees-every-jew-as-a-diamond/",
-   "note": "J., June 6 2003: Rabbi Hillel and Chana Scop, program director of Chabad of Marin, 'have moved to Mill Valley and opened a southern Marin affiliate office'; classes were running in their home. The same story mentions plans 'as of January', so the move may have been late 2002. To check. Checked (Nov 6): the Jewish Bulletin of Jan 24 2003 already speaks of Chabad of Mill Valley as established, so it may be late 2002."
+   "note": "J., June 6 2003: Rabbi Hillel and Chana Scop, program director of Chabad of Marin, 'have moved to Mill Valley and opened a southern Marin affiliate office'; classes were running in their home. The same story mentions plans 'as of January', so the move may have been late 2002. To check. Checked (Nov 6): the Jewish Bulletin of Jan 24 2003 already speaks of Chabad of Mill Valley as established, so it may be late 2002.",
+   "earlier": [
+    {
+     "where": "Rabbi Hillel and Chana Scop's home, Mill Valley",
+     "from": 2003,
+     "until": null,
+     "source": "https://jweekly.com/2003/06/06/chabad-mill-valley-rabbi-sees-every-jew-as-a-diamond/"
+    }
+   ]
   },
   "441914": {
    "name": "Chabad Jewish Center of Oakland",
@@ -2967,7 +2975,15 @@
    "how": "news",
    "confidence": "medium",
    "source": "https://jweekly.com/?p=100098",
-   "note": "J., May 18 2012 ('Two new Chabad centers open in Bay Area'): 'A pair of new Chabad centers have opened in the Bay Area, one in Novato and the other in Burlingame. Chabad of Burlingame, run by Rabbi Moshe Weinbaum and his wife, Raizel', a spinoff of Chabad of the North Peninsula, then based in the Weinbaums' home. Today's listing is Rabbi Mendel and Chana Tuller's (its listing number is from about Sept 2025; therebbesimpact.com: 2025); whether the 2012 center ran without a break isn't known, so medium."
+   "note": "J., May 18 2012 ('Two new Chabad centers open in Bay Area'): 'A pair of new Chabad centers have opened in the Bay Area, one in Novato and the other in Burlingame. Chabad of Burlingame, run by Rabbi Moshe Weinbaum and his wife, Raizel', a spinoff of Chabad of the North Peninsula, then based in the Weinbaums' home. Today's listing is Rabbi Mendel and Chana Tuller's (its listing number is from about Sept 2025; therebbesimpact.com: 2025); whether the 2012 center ran without a break isn't known, so medium.",
+   "earlier": [
+    {
+     "where": "Rabbi Moshe and Raizel Weinbaum's home, Burlingame",
+     "from": 2012,
+     "until": null,
+     "source": "https://jweekly.com/?p=100098"
+    }
+   ]
   },
   "7041260": {
    "name": "Chabad of Sea Cliff & The Presidio",
@@ -4354,12 +4370,11 @@
    "name": "Chabad of Lake Balboa",
    "city": "Van Nuys",
    "shetach": "west-coast",
-   "year": null,
-   "lead": 2017,
-   "how": "not-found",
-   "confidence": "open",
-   "source": "https://www.causeiq.com/organizations/chabad-of-lake-balboa,822165237/",
-   "note": "No year found (Rabbi Eliezer and Mushkie Gurary). therebbesimpact.com: 2017; the listing number points to early 2017; its IRS record (Cause IQ) is from 2019."
+   "year": 2017,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://jewishjournal.com/community/353337/rabbis-of-la-rabbi-eli-gurary-serving-an-up-and-coming-community/",
+   "note": "Its Charidy campaign (found by the owner): 'Chabad of Lake Balboa is a small yet growing community center for Jewish life. Since its establishment in the spring of 2017 ...' (Rabbi Eli and Mushkie Gurary, 7006 Louise Ave); Jewish Journal ('Rabbis of LA'): the Gurarys found a community in Lake Balboa in 2017. Its nonprofit was registered 2019 (Cause IQ)."
   },
   "3399630": {
    "name": "Chabad of North Ranch",
@@ -4414,7 +4429,15 @@
    "how": "range",
    "confidence": "range",
    "source": "https://kotzk.com/2018/02/18/chabad-of-los-feliz-a-celebration-of-a-dream-come-true/",
-   "note": "Kotzk.com (Feb 2018), on Rabbi Leibel and Sara Korf: 'By July of 1999, when the Korfs moved into their present home ... the Chabad of Greater Los Feliz was still in the living room', so it was running by 1999. therebbesimpact.com: 1997. No founding report found."
+   "note": "Kotzk.com (Feb 2018), on Rabbi Leibel and Sara Korf: 'By July of 1999, when the Korfs moved into their present home ... the Chabad of Greater Los Feliz was still in the living room', so it was running by 1999. therebbesimpact.com: 1997. No founding report found.",
+   "earlier": [
+    {
+     "where": "the Korfs' living room (still there in July 1999)",
+     "from": null,
+     "until": null,
+     "source": "https://kotzk.com/2018/02/18/chabad-of-los-feliz-a-celebration-of-a-dream-come-true/"
+    }
+   ]
   },
   "117542": {
    "name": "Chabad of Bel Air",
@@ -4508,7 +4531,21 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.chabadburbank.com/templates/articlecco_cdo/aid/69868/jewish/About-Us.htm",
-   "note": "The center's own About page: 'Since the fall of 1999, the Chabad Burbank Jewish Center ... [has] provided a warm, friendly, non-judgmental environment'; a news story (CrownHeights.info, 'New Chabad House opens in Burbank'): 'The Burbank Chabad began in the winter of 1999 when Kornfeld invited small groups of Jews to a house on Lima Street'. Rabbi Shmuly Kornfeld: 'Elana and I married in 1998, and just six months later we opened Chabad of Burbank'. (Looser counts: Anash 2023 'the last 25 years', a 2017 campaign '19 years', both pointing to 1998.)"
+   "note": "The center's own About page: 'Since the fall of 1999, the Chabad Burbank Jewish Center ... [has] provided a warm, friendly, non-judgmental environment'; a news story (CrownHeights.info, 'New Chabad House opens in Burbank'): 'The Burbank Chabad began in the winter of 1999 when Kornfeld invited small groups of Jews to a house on Lima Street'. Rabbi Shmuly Kornfeld: 'Elana and I married in 1998, and just six months later we opened Chabad of Burbank'. (Looser counts: Anash 2023 'the last 25 years', a 2017 campaign '19 years', both pointing to 1998.)",
+   "earlier": [
+    {
+     "where": "the Kornfelds' home, then a house on Lima Street, Burbank",
+     "from": 1999,
+     "until": null,
+     "source": "https://crownheights.info/general/3062/new-chabad-house-opens-in-burbank/"
+    },
+    {
+     "where": "a storefront in Burbank, before the building it bought later (2415 W. Magnolia Blvd)",
+     "from": null,
+     "until": null,
+     "source": "https://www.burbankjewishpreschool.com/staff"
+    }
+   ]
   },
   "347109": {
    "name": "Cheder Menachem",
@@ -4548,7 +4585,15 @@
    "how": "stated",
    "confidence": "medium",
    "source": "https://crownheights.info/chabad-news/840904/war-in-israel-drives-international-demand-for-mezuzahs-and-tefillin/",
-   "note": "Chabad.org News (via CrownHeights.info, 2023): Rabbi Yosef Mishulovin 'has run Chabad on Fairfax/Atara's Judaica store in L.A. since 1975'; the center and the store share 369 N. Fairfax Ave and one phone number. therebbesimpact.com: 1981. Checked (Nov 6): no second source found."
+   "note": "Chabad.org News (via CrownHeights.info, 2023): Rabbi Yosef Mishulovin 'has run Chabad on Fairfax/Atara's Judaica store in L.A. since 1975'; the center and the store share 369 N. Fairfax Ave and one phone number. therebbesimpact.com: 1981. Checked (Nov 6): no second source found.",
+   "earlier": [
+    {
+     "where": "420 N. Fairfax Ave (an old directory listing); now 369 N. Fairfax Ave",
+     "from": null,
+     "until": null,
+     "source": "https://www.totallyjewishtravel.com/Synagogues-TE21361-chabad_mid_city_center-shul-los_angeles_california-Minyan.html"
+    }
+   ]
   },
   "119736": {
    "name": "Mikvah Esther",
@@ -4805,7 +4850,15 @@
    "how": "news",
    "confidence": "high",
    "source": "https://outlooknewspapers.com/southpasadenareview/news/chabad-jewish-center-celebrates-chanukah/article_d2a24c19-c992-5645-a957-a2f6421d313b.html",
-   "note": "South Pasadena Review (Chanukah, Monday Nov 29 [2021]): 'There is a new temple in town - the Chabad Jewish Center of South Pasadena'; the listing number (5180756) is from mid-2021. (A 2024 article says Rabbi Harlig started it 'two years ago', which is loose.)"
+   "note": "South Pasadena Review (Chanukah, Monday Nov 29 [2021]): 'There is a new temple in town - the Chabad Jewish Center of South Pasadena'; the listing number (5180756) is from mid-2021. (A 2024 article says Rabbi Harlig started it 'two years ago', which is loose.)",
+   "earlier": [
+    {
+     "where": "an earlier place in South Pasadena (not named); since autumn 2024 at 1122 Fair Oaks Ave",
+     "from": 2021,
+     "until": 2024,
+     "source": "https://outlooknewspapers.com/southpasadenareview/chabad-of-south-pasadena-moves-to-permanent-location/article_37a41e1a-802f-11ef-a7d0-c3cacf3cc1da.html"
+    }
+   ]
   },
   "5830497": {
    "name": "Chabad at Wood Ranch",
@@ -5128,7 +5181,15 @@
    "how": "anniversary",
    "confidence": "medium",
    "source": "https://collive.com/west-hills-holds-gala-dinner/",
-   "note": "COLlive, June 6 2013: the gala 'celebrated 7 years since the opening of Chabad of West Hills' (Rabbi Avi and Dena Rabin); the listing number (406831) is from about 2006. Counted back. Checked (Nov 6): no second source found."
+   "note": "COLlive, June 6 2013: the gala 'celebrated 7 years since the opening of Chabad of West Hills' (Rabbi Avi and Dena Rabin); the listing number (406831) is from about 2006. Counted back. Checked (Nov 6): no second source found.",
+   "earlier": [
+    {
+     "where": "23747 Roscoe Blvd, West Hills (Chabad of the Valley's directory page; now 6820 Valley Circle Blvd)",
+     "from": null,
+     "until": null,
+     "source": "https://www.chabadofthevalley.com/templates/articlecco_cdo/aid/335146/jewish/West-Hills.htm"
+    }
+   ]
   },
   "117559": {
    "name": "Congregation Levi Yitzchok",
@@ -5178,12 +5239,26 @@
    "name": "Chabad of Beverly Hills",
    "city": "Beverly Hills",
    "shetach": "west-coast",
-   "year": null,
-   "lead": 1978,
-   "how": "not-found",
-   "confidence": "open",
-   "source": "https://www.chabadofbeverlyhills.com/templates/articlecco_cdo/aid/349778/jewish/About-Us.htm",
-   "note": "No year found (Rabbi Yosef Y. Shusterman, 9145 Wilshire; also called Chabad of North Beverly Hills, at 409 N. Foothill Rd earlier). therebbesimpact.com: 1978. Its newsletter was in volume 4 in 2001 and volume 7 in 2003. For the hard round."
+   "year": 1979,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.chabadofbeverlyhills.com/templates/articlecco_cdo/aid/385398/jewish/Contact-Us.htm",
+   "note": "Its own site: 'Forty years ago, in March of 1979, Chabad of Beverly Hills opened its doors for the very first time. It all began in a \"temporary,\" modest warehouse space ... in August of 2017 ... Chabad of Beverly Hills purchased a beautiful and prestigious property! The Herbert and Sylvia Schwartz Chabad Jewish Center of Beverly Hills. 9145 Wilshire Blvd.' (the 'Foot In The Door Campaign' page on chabadofbeverlyhills.com, found by the owner); the site's pages also say 'Serving the Beverly Hills Community since 1979'. Rabbi Yosef Y. Shusterman. (therebbesimpact.com's 1978 is a year off.)",
+   "date": "1979-03",
+   "earlier": [
+    {
+     "where": "a 'temporary,' modest warehouse space, Beverly Hills",
+     "from": 1979,
+     "until": null,
+     "source": "https://www.chabadofbeverlyhills.com/templates/articlecco_cdo/aid/385398/jewish/Contact-Us.htm"
+    },
+    {
+     "where": "409 N. Foothill Rd, Beverly Hills ('Chabad of North Beverly Hills' on its 2001 and 2003 newsletters)",
+     "from": null,
+     "until": null,
+     "source": "http://beverlyhillschabad.com/News-Letter/01/Shemini2001.pdf"
+    }
+   ]
   },
   "7001638": {
    "name": "Jewish Creative Preschool",
@@ -5216,18 +5291,35 @@
    "how": "not-found",
    "confidence": "open",
    "source": "https://www.chabadoflakeencino.com/templates/articlecco_cdo/aid/773372/jewish/About-Us.htm",
-   "note": "No year found (Rabbi Yochanan and Shoshana Manssouri). therebbesimpact.com: 2008; the listing number (757557) and its nonprofit's EIN (26-3856429) both point to 2008."
+   "note": "No year found (Rabbi Yochanan and Shoshana Manssouri). therebbesimpact.com: 2008; the listing number (757557) and its nonprofit's EIN (26-3856429) both point to 2008.",
+   "earlier": [
+    {
+     "where": "18145 Hatteras St, Tarzana (an older footer on its own site), and 17977 Medley Dr, Encino (Chabad of the Valley's page); now 18158 Medley Dr",
+     "from": null,
+     "until": null,
+     "source": "https://www.chabadoflakeencino.com/templates/articlecco_cdo/aid/773372/jewish/About-Us.htm"
+    }
+   ]
   },
   "1857768": {
    "name": "Bais Bezalel Chabad",
    "city": "Los Angeles",
    "shetach": "west-coast",
    "year": null,
-   "lead": 2009,
-   "how": "not-found",
-   "confidence": "open",
-   "source": "https://www.chabadpico.com/",
-   "note": "No year found (Rabbi Moshe and Chanie Levin, 8850 W. Pico; also called Chabad Pico). therebbesimpact.com: 2009; the listing number (1857768) is from about 2012."
+   "how": "range",
+   "confidence": "range",
+   "source": "https://www.chabadpico.com/about",
+   "note": "Its own About page: 'In response to a call from the Lubavitcher Rebbe in 1977 to open new places of davening and learning ..., Bais Bezalel began 35 years ago in a 2nd floor office complex on Pico Boulevard near Beverly Drive ... We then acquired the property where Bais Bezalel is now in 1996.' The page is dated August 2022, so it began between 1977 and 1987 at the latest; when the '35 years ago' was first written isn't known (Google's AI turns it into 1981, which would mean 2016). Rabbi Moshe Levin; also called Chabad Pico.",
+   "after": 1977,
+   "by": 1987,
+   "earlier": [
+    {
+     "where": "a 600 sq ft shteibel in a 2nd-floor office complex on Pico Blvd near Beverly Drive",
+     "from": null,
+     "until": 1996,
+     "source": "https://www.chabadpico.com/about"
+    }
+   ]
   },
   "4182118": {
    "name": "Bais Nochum",
@@ -5412,7 +5504,15 @@
    "how": "not-found",
    "confidence": "open",
    "source": "https://www.chaiconejo.com/templates/section_cdo/aid/6940789/jewish/Chabad-of-Westlake-Village.htm",
-   "note": "No year found (Rabbi Yitzchak and Brocha Sapochkinsky, part of Chabad of the Conejo, 1979). therebbesimpact.com: 1985; in chabad.org's first directory (about 2003)."
+   "note": "No year found (Rabbi Yitzchak and Brocha Sapochkinsky, part of Chabad of the Conejo, 1979). therebbesimpact.com: 1985; in chabad.org's first directory (about 2003).",
+   "earlier": [
+    {
+     "where": "741 Lakefield Road #D&E, Westlake Village (an old directory listing); now 2524 Townsgate Rd (chabad.org) / 530 Hampshire Rd (a 2024 brochure)",
+     "from": null,
+     "until": null,
+     "source": "https://www.totallyjewishtravel.com/Synagogues-TE21472-chabad_of_westlake_village-shul-oxnard_california-Minyan.html"
+    }
+   ]
   },
   "117662": {
    "name": "Chabad of Southern Nevada",
@@ -5422,7 +5522,15 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://chabadlv.org/about-us/",
-   "note": "The center's own site: 'Established in 1990 in Rabbi Shea & Dina Harlig's living room'; UNLV's Southern Nevada Jewish Heritage Project: 'established in 1990 by Rabbi Shea Harlig and his wife Dina'. (therebbesimpact.com's 1986 is for Rabbi Yoseph and Rochel Chaiton.)"
+   "note": "The center's own site: 'Established in 1990 in Rabbi Shea & Dina Harlig's living room'; UNLV's Southern Nevada Jewish Heritage Project: 'established in 1990 by Rabbi Shea Harlig and his wife Dina'. (therebbesimpact.com's 1986 is for Rabbi Yoseph and Rochel Chaiton.)",
+   "earlier": [
+    {
+     "where": "Rabbi Shea and Dina Harlig's living room, Las Vegas",
+     "from": 1990,
+     "until": null,
+     "source": "https://chabadlv.org/about-us/"
+    }
+   ]
   },
   "5000322": {
    "name": "Friendship Circle of Las Vegas",
@@ -5442,7 +5550,15 @@
    "how": "stated",
    "confidence": "medium",
    "source": "https://dtalv.com/our-story/",
-   "note": "The school's own history: 'Desert Torah Academy began in 1994 with five students learning in a family's living room' / 'was founded in 1994'. The Chinuch Office directory (2023-24) gives 'Founded: 1999' (perhaps when it became a full day school), so medium. Checked (Nov 6): the school's own history is the second source; it disagrees with the directory."
+   "note": "The school's own history: 'Desert Torah Academy began in 1994 with five students learning in a family's living room' / 'was founded in 1994'. The Chinuch Office directory (2023-24) gives 'Founded: 1999' (perhaps when it became a full day school), so medium. Checked (Nov 6): the school's own history is the second source; it disagrees with the directory.",
+   "earlier": [
+    {
+     "where": "a family's living room, Las Vegas (five students)",
+     "from": 1994,
+     "until": null,
+     "source": "https://dtalv.com/our-story/"
+    }
+   ]
   },
   "118253": {
    "name": "Chabad of Northern Nevada",
@@ -5462,7 +5578,15 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://special.library.unlv.edu/jewishheritage/congregations/chabad-of-greenvalley",
-   "note": "UNLV's Southern Nevada Jewish Heritage Project: 'Rabbi Mendy Harlig and Rebbetzin Chaya Harlig established Chabad of Green Valley/Henderson out of their home in 1998'."
+   "note": "UNLV's Southern Nevada Jewish Heritage Project: 'Rabbi Mendy Harlig and Rebbetzin Chaya Harlig established Chabad of Green Valley/Henderson out of their home in 1998'.",
+   "earlier": [
+    {
+     "where": "Rabbi Mendy and Chaya Harlig's home, Green Valley (Henderson)",
+     "from": 1998,
+     "until": null,
+     "source": "https://special.library.unlv.edu/jewishheritage/congregations/chabad-of-greenvalley"
+    }
+   ]
   },
   "118354": {
    "name": "Chabad of Summerlin",
@@ -5492,7 +5616,15 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://anash.org/chabad-of-lake-tahoe-ca-expands-into-nevada/",
-   "note": "Anash.org, June 14 2022: 'Jewish locals and visitors have enjoyed a local Chabad-Lubavitch center since 2013, when Rabbi Mordey and Shaina Richler moved there'; they bought the Stateline, Nevada house in 2022."
+   "note": "Anash.org, June 14 2022: 'Jewish locals and visitors have enjoyed a local Chabad-Lubavitch center since 2013, when Rabbi Mordey and Shaina Richler moved there'; they bought the Stateline, Nevada house in 2022.",
+   "earlier": [
+    {
+     "where": "Lake Tahoe, California (South Lake Tahoe)",
+     "from": 2013,
+     "until": 2022,
+     "source": "https://anash.org/chabad-of-lake-tahoe-ca-expands-into-nevada/"
+    }
+   ]
   },
   "2900911": {
    "name": "Chabad of Red Rock",

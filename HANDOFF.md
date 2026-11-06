@@ -163,6 +163,11 @@ thirteen no better recent photo has been found yet (the list is there, with what
   crawl"), and its image search for photos; never work around a bot check or a paywall. Owner (Nov 6, later), after a
   session that ran every search through Firecrawl: "do you frickin have to use firecrawl for EVERY single thing??"
 - Founding years: US and Canada only. Owner (Nov 6): "Not Mexico!!!!! Wtf".
+- Founding years: when a center used to be somewhere else, record it (`earlier` in `data/founding-years.json`). Owner
+  (Nov 6): "if you ever realize a center used to be located somewhere else then take note for the data pls".
+- Founding years: search simply (the center's name + "founding year" / "established"), read its own pages (About,
+  campaign and Charidy pages, footers like "serving ... since"), don't build the search around the lead year. Owner
+  (Nov 6), who found Beverly Hills (March 1979) and Bais Bezalel in seconds: "these should all be easy as fuck".
 - Instagram through Apify: the token is never in the repo; ask the owner to add `APIFY_TOKEN` in the environment's
   settings, never to paste it in the chat.
 - Judea and Samaria is Israel; head shluchim's names in full; never a map in a card; commit and push every turn to

@@ -1,5 +1,5 @@
 {
- "about": "The year each center started, for the growth-of-Chabad video (the owner's idea, Nov 6). Keyed by the center's chabad.org id (web/data/centers.geojson). 'year' is when the shluchim began there (their arrival or first activity); when the opening came later, the note says so. 'how': stated (the center or a paper says the year), list (a published list of institutions with years), news (a report from that year), anniversary (\"N years ago\" counted back), directory (a dated directory listing); first-mention (the year of the earliest mention found, used as the year); range ('after'/'by' bound it, no exact year); same-place (no year of its own, at the same spot as a dated one); not-found. 'confidence': high (a report from that year, or the center itself, and nothing against it), medium (counted back from 'N years ago', a first mention, one secondary source, or sources a year apart), low (one source, unconfirmed). A dot on the map takes the earliest year of its listings. Pilot: the Michigan shetach, Nov 6 (work/founding-years/michigan-pilot.md).",
+ "about": "The year each center started, for the growth-of-Chabad video (the owner's idea, Nov 6). Keyed by the center's chabad.org id (web/data/centers.geojson). 'year' is when the shluchim began there (their arrival or first activity); when the opening came later, the note says so. 'how': stated (the center or a paper says the year), list (a published list of institutions with years), news (a report from that year), anniversary (\"N years ago\" counted back), directory (a dated directory listing); first-mention (the year of the earliest mention found, used as the year); range ('after'/'by' bound it, no exact year); same-place (no year of its own, at the same spot as a dated one); not-found. 'confidence': high (a report from that year, or the center itself, and nothing against it), medium (counted back from 'N years ago', a first mention, one secondary source, or sources a year apart), low (one source, unconfirmed). A dot on the map takes the earliest year of its listings. Pilot: the Michigan shetach, Nov 6 (work/founding-years/michigan-pilot.md). 'date' (when one turns up, owner, Nov 6: \"More data never hurt nobody\"): the month or the day, 'YYYY-MM' or 'YYYY-MM-DD', of the same event as 'year'.",
  "centers": {
   "119458": {
    "name": "Congregation Mishkan Israel",
@@ -343,6 +343,554 @@
    "source": "https://www.shaareyzedekwindsor.com/index.php/about-our-synagogue/rabbismessage?start=21",
    "note": "Congregation Shaarey Zedek, Windsor: 'Rabbi Galperin became the rabbi at Congregation Shaarey Zedek in June, 2009.' CrownHeights.info, 2 Aug 2012 (https://crownheights.info/shlichus/45935/canadian-towns-jewish-community-revitalized): local families 'three years ago welcomed Rabbi Sholom and Rivka Galperin into their community'; they 'established a Chabad House separate from the synagogue in their home' (no year given for that). Essex County, Ontario is in the Michigan shetach (owner, Oct 1); the first pass of the pilot left it out.",
    "confidence": "high"
+  },
+  "117632": {
+   "name": "Shaloh House Chabad of the South Area",
+   "city": "Stoughton, MA",
+   "shetach": "south-area",
+   "year": 1987,
+   "how": "stated",
+   "source": "https://teacherstrading.com/shop/Torahstudies",
+   "note": "His profile: 'In the summer of 1987, Rabbi Gurkow started and led a community Shabbat Service at the Shaloh House in Stoughton, MA ... they moved to Stoughton, MA to start the Shaloh House Lubavitch Educational Center.' Stoughton Journal (COLlive, 'And then I met Chabad'): 'Gurkow first got involved in the mid '80s.' (GuideStar's 1991 is the IRS ruling year.)",
+   "confidence": "high"
+  },
+  "117651": {
+   "name": "Chabad-Lubavitch of Nebraska",
+   "city": "Omaha, NE",
+   "shetach": "nebraska",
+   "year": 1986,
+   "how": "stated",
+   "source": "https://building.ochabad.com",
+   "note": "The center's own building site: 'Touching Hearts since 1986'; a 2018 feature: the Katzmans were assigned to Omaha in 1986 (chaptzem.blogspot.com, 'Joyful Hasidic couple have spread light'). A 1992 notice spoke of 'five years of consistent programming' and a 2005 article of the 18th anniversary, both 1987: the first programs may be 1987.",
+   "confidence": "high"
+  },
+  "117790": {
+   "name": "Chabad-Lubavitch of the Maritimes",
+   "city": "Halifax, NS",
+   "shetach": "maritimes",
+   "year": 1995,
+   "how": "anniversary",
+   "source": "https://crownheights.info/shlichus/10259/in-remote-halifax-a-jewish-community-comes-into-its-own",
+   "note": "24 Jan 2008: 'Thirteen years ago, Chabad representatives Rabbi Mendel and Bassie Feldman and one month old Zevi moved to Halifax to stay.' Anash.org: shluchim in Halifax 'since 5755 (1995), when they established Chabad Lubavitch of the Maritimes' (5755 = autumn 1994 to summer 1995).",
+   "confidence": "high"
+  },
+  "118662": {
+   "name": "Chabad Lubavitch of Idaho",
+   "city": "Boise, ID",
+   "shetach": "idaho",
+   "year": 2004,
+   "how": "stated",
+   "source": "https://www.jewishidaho.com/about",
+   "note": "Its About page: 'Rabbi & Mrs. Lifshitz moved to Boise in April 2004 to establish Chabad Lubavitch of Idaho'; the Idaho Statesman, 5 Dec 2004, on their arrival (jewishidaho.com/Article.asp?AID=239998). The first Chabad shluchim in Idaho.",
+   "confidence": "high",
+   "date": "2004-04"
+  },
+  "3610901": {
+   "name": "Chabad of Newfoundland",
+   "city": "St. John's, NL",
+   "shetach": "newfoundland-and-labrador",
+   "year": 2017,
+   "how": "news",
+   "source": "https://crownheights.info/shlichus/567832/new-shluchim-to-newfoundland",
+   "note": "The Chernitskys moved from Montreal to St. John's in February 2017 (CrownHeights.info, 'New Shluchim to Newfoundland'; Jewish Press, 1 Mar 2017, 'Chabad opens up store in Newfoundland', with their belongings being packed in Montreal).",
+   "confidence": "high",
+   "date": "2017-02"
+  },
+  "117902": {
+   "name": "Lubavitch of Arkansas",
+   "city": "Little Rock, AR",
+   "shetach": "arkansas",
+   "year": 1992,
+   "how": "stated",
+   "source": "https://www.govinfo.gov/content/pkg/CREC-2025-03-27/html/CREC-2025-03-27-pt1-PgH1305-6.htm",
+   "note": "Congressional Record, 27 Mar 2025 (guest chaplain): Rabbi Ciment moved to Little Rock with his wife in 1992; his profile (opensiddur.org): 'In 1992, he and his wife established themselves in Little Rock, Arkansas as Shluchim'; the Jewish Virtual Library lists Lubavitch of Arkansas (1992). One UALR page says 'founded in 1993'.",
+   "confidence": "high"
+  },
+  "300488": {
+   "name": "Chabad of Northwest Arkansas",
+   "city": "Bentonville, AR",
+   "shetach": "arkansas",
+   "year": 2005,
+   "how": "stated",
+   "source": "https://anash.org/?p=286428",
+   "note": "A dedication report: Chabad 'has been providing services to the local community and visitors since 2005'; Jewish Press (May 2015) on its decade of service. The Greismans first set up in Rogers, next to Bentonville.",
+   "confidence": "high"
+  },
+  "672689": {
+   "name": "Chabad-Lubavitch of Wyoming",
+   "city": "Jackson, WY",
+   "shetach": "wyoming",
+   "year": 2008,
+   "how": "news",
+   "source": "https://crownheights.info/shlichus/11843/chabad-lubavitch-emissaries-are-wyomings-only-full-time-jewish-spiritual-leaders",
+   "note": "8 May 2008: 'Rabbi Zalman and Raizy Mendelsohn arrived in the mountainous state of Wyoming on Thursday' to open the state's first Chabad center (the Jackson Hole Star-Tribune gave May 6). In 2023 they had been Wyoming's only shluchim 'for the past 15 years'. (therebbesimpact.com's 2007 is wrong.)",
+   "confidence": "high",
+   "date": "2008-05"
+  },
+  "5568314": {
+   "name": "Chabad of Laramie",
+   "city": "Laramie, WY",
+   "shetach": "wyoming",
+   "year": 2023,
+   "how": "news",
+   "source": "https://collive.com/governor-welcomes-new-shluchim-in-honor-of-11-nissan/",
+   "note": "The Raskins were sent to Laramie and Cheyenne on Yud Alef Nissan (2 Apr 2023), Wyoming's governor proclaiming the day; Laramie Live (Oct 2023): they 'moved to Laramie earlier this year' to open Wyoming's second Chabad center. (therebbesimpact.com's 2022 is wrong.)",
+   "confidence": "high",
+   "date": "2023-04-02"
+  },
+  "117586": {
+   "name": "Chabad Lubavitch of Delaware",
+   "city": "Wilmington, DE",
+   "shetach": "delaware",
+   "year": 1987,
+   "how": "stated",
+   "source": "https://www.chabad.org/article.asp?aid=2436773",
+   "note": "'Chabad of Delaware was launched in 1987, recalled Rabbi Chuni Vogel'; elsewhere 'established in 1987'; CrownHeights.info: the Vogels, 'regional directors of Chabad-Lubavitch of Delaware since 1987'.",
+   "confidence": "high"
+  },
+  "117922": {
+   "name": "Chabad UD",
+   "city": "Newark, DE",
+   "shetach": "delaware",
+   "year": 1987,
+   "how": "stated",
+   "source": "https://www.udel.edu/udaily/2021/september/chabad-center-anniversary-rebuilding-plans/",
+   "note": "UDaily (Sept 2021): 'Rabbi Chuni Vogel, who founded Chabad in 1987 and is the father of its current leader, Rabbi Avremel Vogel'; Newark Post (2020): he started the Chabad Center 33 years ago in Park Place Apartments. Avremel and Shulie Vogel took it over in 2016-17.",
+   "confidence": "high"
+  },
+  "5572560": {
+   "name": "Chabad of Southern Delaware",
+   "city": "Lewes, DE",
+   "shetach": "delaware",
+   "year": 2022,
+   "how": "news",
+   "source": "https://spotlightdelaware.org/2025/04/30/our-delaware-seaside-jewish-community/",
+   "note": "Spotlight Delaware (Apr 2025): Seaside Jewish Community was Sussex County's only synagogue 'until the establishment of Chabad of Southern Delaware in 2022'; Cape Gazette, Dec 2022: since its arrival 'some seven months ago' (spring 2022). Rabbi Sholom and Chanale Vogel.",
+   "confidence": "high"
+  },
+  "117638": {
+   "name": "Chabad Lubavitch of Maine",
+   "city": "Portland, ME",
+   "shetach": "maine",
+   "year": 1987,
+   "how": "stated",
+   "source": "https://www.chabadofmaine.com/templates/articlecco_cdo/aid/6052817/jewish/Meet-our-Staff.htm",
+   "note": "Its staff page: 'He arrived in Portland, Maine together with his wife Chana in 1987'; a Portland Press Herald piece by his son and a 2019 travel article ('since 1987') agree.",
+   "confidence": "high"
+  },
+  "3104100": {
+   "name": "Chabad of Bangor",
+   "city": "Bangor, ME",
+   "shetach": "maine",
+   "year": 2015,
+   "how": "stated",
+   "source": "https://www.jewishbangor.org/Our-Shul/our-rabbi.html",
+   "note": "Congregation Beth Abraham's site: 'Rabbi Chaim Wilansky, his wife Esther, and their three children moved to Bangor in August of 2015'; the Maine Jewish clergy index has him there '2015 - present'. A 2019 travel article calls Chabad of Bangor 'established two years ago' (2017): the Chabad house as such may date from then.",
+   "confidence": "medium",
+   "date": "2015-08"
+  },
+  "3858664": {
+   "name": "Chabad of Brunswick",
+   "city": "Brunswick, ME",
+   "shetach": "maine",
+   "year": 2018,
+   "how": "stated",
+   "source": "https://charidy.com/cmp/CHABADCENTRALMAINE",
+   "note": "Its fundraising page: 'since 2018, Chabad of Midcoast Maine has been servicing the educational, social and religious needs of the Jewish community in Brunswick'. Rabbi Shmuly and Draizy Lefkowitz; serves Bowdoin. Its own site gives no year.",
+   "confidence": "medium"
+  },
+  "117652": {
+   "name": "Chabad of New Hampshire",
+   "city": "Manchester, NH",
+   "shetach": "new-hampshire",
+   "year": 1989,
+   "how": "stated",
+   "source": "https://jewishnh.org/community-directory/chabadlubavitch-of-new-hampshire",
+   "note": "'Chabad Lubavitch of New Hampshire, founded in 1989'; the Krinskys 'have been based out of central Manchester since 1989'. The state's first Chabad house.",
+   "confidence": "high"
+  },
+  "118602": {
+   "name": "Chabad at Dartmouth",
+   "city": "Hanover, NH",
+   "shetach": "new-hampshire",
+   "year": 2003,
+   "how": "news",
+   "source": "https://www.thedartmouth.com/article/2003/09/chabad-lubavitchers-open-hanover-center",
+   "note": "The Dartmouth, Sept 2003: 'Chabad Lubavitchers open Hanover center' (Moshe and Chani Gray, from Brooklyn, that fall); Dartmouth Alumni Magazine: 'founded in the fall of 2003 by Moshe and Chani Gray'.",
+   "confidence": "high"
+  },
+  "3913111": {
+   "name": "Seacoast Chabad Jewish Community Center",
+   "city": "Newington, NH",
+   "shetach": "new-hampshire",
+   "year": 2018,
+   "how": "news",
+   "source": "https://crownheights.info/shlichus/606311/new-hampshire-university-gets-new-shluchim",
+   "note": "10 Feb 2018: Rabbi Berel and Rochy Slavaticki 'have been appointed as new shluchim' to the University of New Hampshire (Durham); NH Magazine: they moved from New York in 2018, outgrew two storefronts and bought the Newington campus. (therebbesimpact.com's 2017 is a year early.)",
+   "confidence": "high",
+   "date": "2018-02"
+  },
+  "117712": {
+   "name": "Chabad House Lubavitch",
+   "city": "Tulsa, OK",
+   "shetach": "oklahoma",
+   "year": 1987,
+   "how": "stated",
+   "source": "https://derher.org/wp-content/uploads/5785-3-9.pdf",
+   "note": "A Derher profile: 'Since 5747' (1987) Rabbi Yehuda and Etel Weg have served; they arrived in Oklahoma 'right after Pesach' (spring 1987). Chabad of Oklahoma's first house.",
+   "confidence": "high",
+   "date": "1987-04"
+  },
+  "118273": {
+   "name": "Chabad Community Center For Jewish Life and Learning",
+   "city": "Oklahoma City, OK",
+   "shetach": "oklahoma",
+   "year": 1998,
+   "how": "stated",
+   "source": "https://www.lubavitch.com/20-years-in-oklahoma-city-and-the-frontier-is-friendly/",
+   "note": "Lubavitch.com, 22 May 2019: 'When Rabbi Ovadia and Nechoma Goldman came to town in 1998, they were told Oklahoma City was reform country.' (Another Chabad report calls them founders in 1997.) First called Chabad of Oklahoma City.",
+   "confidence": "high"
+  },
+  "5941552": {
+   "name": "Lubavitch Chabad of Norman",
+   "city": "Norman, OK",
+   "shetach": "oklahoma",
+   "year": 2023,
+   "how": "news",
+   "source": "https://crownheights.info/chabad-news/832805/third-shluchim-appointed-to-the-state-of-oklahoma",
+   "note": "27 Aug 2023: 'Rabbi Mendel and Basya Goldman who have been appointed as the new Shluchim to Norman, Oklahoma', the state's third.",
+   "confidence": "high",
+   "date": "2023-08"
+  },
+  "117787": {
+   "name": "Chabad Lubavitch of Alberta",
+   "city": "Calgary, AB",
+   "shetach": "alberta",
+   "year": 1988,
+   "how": "stated",
+   "source": "https://jhssa.org/wp-content/uploads/2023/02/Chabad-Lubavitch-of-Alberta-fonds.pdf",
+   "note": "The Jewish Historical Society of Southern Alberta's description of its archive: Chabad became a full-time presence in Calgary in 1988 with the arrival of Rabbi Menachem and Rochel Matusof; its emissaries first came in 1981 to run a summer day camp. Its own site and a CrownHeights.info profile give 1988; one Lubavitch.com piece says 1986.",
+   "confidence": "high"
+  },
+  "117898": {
+   "name": "Chabad Lubavitch of Edmonton",
+   "city": "Edmonton, AB",
+   "shetach": "alberta",
+   "year": 1991,
+   "how": "anniversary",
+   "source": "https://albertajewishnews.com/?p=5495",
+   "note": "Alberta Jewish News, 6 Jan 2017: Chabad 'celebrated their twenty-fifth anniversary as part of the Jewish Community of Edmonton' (Dec 2016), 'the twenty-five years since Rabbi Ari arrived'; a community directory: 'since its founding in 1991 ... led by Rabbi Ari Drelich'. (The Alberta archive says an Edmonton branch opened in 1990; another listing says 1992.)",
+   "confidence": "high"
+  },
+  "6076916": {
+   "name": "Chabad of the Canadian Rockies",
+   "city": "Canmore, AB",
+   "shetach": "alberta",
+   "year": 2023,
+   "how": "news",
+   "source": "https://www.chabad.org/news/article_cdo/aid/6273128/jewish/Banff-and-Canadian-Rockies-Gets-Its-First-Full-Time-Rabbi.htm",
+   "note": "Chabad.org (late 2023), 'Banff and Canadian Rockies Gets Its First Full Time Rabbi': the Pinsons moved to the Banff region 'this past fall' to open it; Chabad of Alberta's own materials: the Canmore branch opened in 2023 (CrownHeights.info, Sept 2023, 'Veteran Shluchim Pioneering a New Frontier').",
+   "confidence": "high"
+  },
+  "117895": {
+   "name": "Chabad Lubavitch Jewish Center of Merrimack Valley",
+   "city": "Andover, MA",
+   "shetach": "merrimack-valley",
+   "year": 1992,
+   "how": "anniversary",
+   "source": "https://crownheights.info/shlichus/403519/young-couple-opens-massachusetts-towns-first-shul",
+   "note": "Wicked Local, 1 Oct 2013: Rabbi Asher Bronstein, 'Just like when we came 21 years ago (to Andover)'. Not settled: the Lawrence History Center holds the 'Chabad Lubavitch of the Merrimack Valley First Annual Founders' Dinner' journal, dated only 'c. 1990'; Merrimack Valley Lubavitch Inc.'s IRS ruling is 1994.",
+   "confidence": "medium"
+  },
+  "118492": {
+   "name": "Chabad of Nashoba Valley",
+   "city": "Westford, MA",
+   "shetach": "merrimack-valley",
+   "year": 2005,
+   "date": "2005-07",
+   "how": "news",
+   "source": "https://crownheights.info/general/683/new-chabad-center-for-westford-area",
+   "note": "CrownHeights.info, 2 Oct 2005: 'The newly established Chabad Center for Nashoba Valley, at 26 Tadmuck Road', Rabbi Zalman and Malkie Gurkow; moved in that July, open house 18 Sept. It follows 'the Chabad-based Nashoba Valley Jewish Center, which operated in Westford under Rabbi Mayshe Schwartz' (IRS ruling May 2001), so Chabad in Westford is older.",
+   "confidence": "high"
+  },
+  "3792602": {
+   "name": "Anshe Sholom Chabad of Greater Haverhill",
+   "city": "Haverhill, MA",
+   "shetach": "merrimack-valley",
+   "year": 2017,
+   "date": "2017-09",
+   "how": "news",
+   "source": "https://www.eagletribune.com/news/haverhill/jewish-groups-merge-to-form-new-congregation-hope-to-keep-religion-thriving/article_bb2e67f9-ea58-59cd-8120-7f95f0443e5c.html",
+   "note": "Eagle-Tribune, 19 Sept 2017, 'Jewish groups merge to form new congregation': Anshe Sholom and Rabbi Zalman Borenstein's Chabad (of North Andover, opened by 2013) became Anshe Sholom Chabad at the new year. (Read through Firecrawl; the paper refused a plain fetch.)",
+   "confidence": "high"
+  },
+  "117910": {
+   "name": "Chabad Lubavitch of Utah",
+   "city": "Salt Lake City, UT",
+   "shetach": "utah",
+   "year": 1992,
+   "date": "1992-07",
+   "how": "stated",
+   "source": "https://sltrib.com/religion/2018/05/23/after-25-years-in-mormon-land-rabbi-benny-zippels-mission-remains-the-same-reach-out-to-every-jew-every-utahn",
+   "note": "The Zippels came to Salt Lake City in 1992 (the Rebbe's blessing 1 Mar 1992); most reports say July 1992 (others fall, or April); 25 years marked in 2018, 30 in 2022 (KSL).",
+   "confidence": "high"
+  },
+  "1962343": {
+   "name": "Chabad Lubavitch of Park City",
+   "city": "Park City, UT",
+   "shetach": "utah",
+   "year": 2013,
+   "how": "stated",
+   "source": "https://collive.com/chabad-draws-hundreds-to-jewish-festival-in-park-city-utah/",
+   "note": "Chabad.org (via COLlive): 'Since 2013, Rabbi Yudi and Devori Steiger have directed the Park City Chabad-Lubavitch Community Center.' One source; a summary of other coverage said Chabad came to Park City in 2012, but no source for that was found.",
+   "confidence": "medium"
+  },
+  "4100713": {
+   "name": "Chabad Jewish Community Center of Southern Utah",
+   "city": "St. George, UT",
+   "shetach": "utah",
+   "year": 2018,
+   "how": "news",
+   "source": "https://www.lubavitch.com/branching-out-to-southern-utah/",
+   "note": "Lubavitch.com, 18 Oct 2018: 'Rabbi Mendy and Chaya Cohen, and their two young children, are setting up shop in St. George.'",
+   "confidence": "high"
+  },
+  "5643848": {
+   "name": "Chabad of Utah County",
+   "city": "Lehi, UT",
+   "shetach": "utah",
+   "year": 2022,
+   "date": "2022-12",
+   "how": "news",
+   "source": "https://www.ksl.com/article/50622795/new-rabbi-hopes-to-bring-utah-countys-jewish-community-together",
+   "note": "Rabbi Chaim and Esty Zippel moved to Utah County and set up Chabad of Utah County in Lehi in the first week of December 2022 (KSL); the county commission's proclamation, 29 Mar 2023.",
+   "confidence": "high"
+  },
+  "117927": {
+   "name": "Lubavitch Jewish Center of Alaska",
+   "city": "Anchorage, AK",
+   "shetach": "alaska",
+   "year": 1991,
+   "how": "stated",
+   "source": "https://www.jewishpress.com/judaism/parsha/alaska/2015/11/20/",
+   "note": "Jewish Press: 'when Rabbi Yosef and Esther Greenberg arrived in Alaska in 1991 they set up the Chabad-Lubavitch Jewish Center of Alaska'; J. Weekly: they arrived in Anchorage in 1991 as newlyweds to set up Alaska's first Chabad center; a 1999 Detroit Jewish News item: established in 1991. (One profile says 1990.)",
+   "confidence": "high"
+  },
+  "119784": {
+   "name": "The Alaskan Mikvah",
+   "city": "Anchorage, AK",
+   "shetach": "alaska",
+   "year": null,
+   "how": "range",
+   "after": 2001,
+   "source": "https://jweekly.com/2001/06/08/moose-in-the-mikvah-is-no-sweat-for-alaskan-jews/",
+   "note": "The Tamar Tziporra Alaskan Mikvah, 1701 E 36th Ave. In June 2001 building a mikvah was the Greenbergs' first priority (the Air Force base's 1974 mikvah was torn down in June 1999), so it opened after mid-2001; no opening year found.",
+   "confidence": "range"
+  },
+  "3116169": {
+   "name": "Mat-Su Jewish Center Chabad Lubavitch",
+   "city": "Palmer, AK",
+   "shetach": "alaska",
+   "year": 2015,
+   "date": "2015-09",
+   "how": "news",
+   "source": "https://crownheights.info/shlichus/508714/non-jews-help-jump-start-new-alaska-chabad-center",
+   "note": "CrownHeights.info, 9 Nov 2015: Rabbi Mendy and Chaya Greenberg 'moved into their new home on a quiet dirt road in Wasilla, Alaska, one week before the High Holidays' (Sept 2015); a 2017 release: 'founded in 2015'.",
+   "confidence": "high"
+  },
+  "6394348": {
+   "name": "Fairbanks Jewish Center - Chabad Lubavitch",
+   "city": "Fairbanks, AK",
+   "shetach": "alaska",
+   "year": 2024,
+   "date": "2024-09",
+   "how": "news",
+   "source": "https://www.chabad.org/article.asp?aid=6573739",
+   "note": "Chabad.org (Dec 2024): Rabbi Heshy Wolf 'moved with his wife, Chani, in September of this year to establish the Chabad-Lubavitch Fairbanks Jewish Center'; Jewish Journal, Feb 2026: 'before the Wolfs' arrival 18 months ago'.",
+   "confidence": "high"
+  },
+  "117950": {
+   "name": "Chabad of Columbus",
+   "city": "New Albany, OH",
+   "shetach": "central-ohio",
+   "year": 1998,
+   "how": "stated",
+   "source": "https://www.chabadcolumbus.com/templates/articlecco_cdo/aid/4667827/jewish/About-Chabad-Columbus.htm",
+   "note": "Rabbi Areyah Kaltmann: 'We began our work in New Albany in 1998.' The Kaltmanns themselves 'set out in 1991 to light up central Ohio', first as directors of the OSU Chabad House (its own page); that start is on the OSU dot.",
+   "confidence": "high"
+  },
+  "349392": {
+   "name": "Schottenstein Chabad House",
+   "city": "Columbus, OH",
+   "shetach": "central-ohio",
+   "year": 1991,
+   "how": "stated",
+   "source": "https://www.chabadcolumbus.com/templates/articlecco_cdo/aid/4667827/jewish/About-Chabad-Columbus.htm",
+   "note": "Chabad Columbus: the Kaltmanns 'set out in 1991' and 'began their work in Central Ohio as Directors at the OSU Chabad House'. The Deitsch family has served OSU's students 'since 1996' (Columbus Jewish News); a ChabadInfo piece calls the house 'instituted 26 years ago'. So Chabad at OSU from 1991, its own house perhaps from 1996.",
+   "confidence": "medium"
+  },
+  "3660798": {
+   "name": "Chabad of Downtown Columbus",
+   "city": "Columbus, OH",
+   "shetach": "central-ohio",
+   "year": 2017,
+   "how": "list",
+   "source": "https://therebbesimpact.com/",
+   "note": "No source found. therebbesimpact.com: 'Chabad of Downtown Columbus' and Yitzi & Sara Kaltmann, 2017; chabad.org's listing number (3660798) falls in 2017 too (between listings opened Feb and Sept 2017).",
+   "confidence": "low"
+  },
+  "6925466": {
+   "name": "Chabad of Bexley",
+   "city": "Bexley, OH",
+   "shetach": "central-ohio",
+   "year": 2025,
+   "how": "list",
+   "source": "https://therebbesimpact.com/",
+   "note": "No source found. therebbesimpact.com: Shea & Sarah Kaltmann, 2025; chabad.org's listing number (6925466) is a 2025 one.",
+   "confidence": "low"
+  },
+  "118178": {
+   "name": "Chabad Lubavitch of Cape Cod",
+   "city": "Hyannis, MA",
+   "shetach": "cape-cod-and-the-islands",
+   "year": 1995,
+   "how": "stated",
+   "source": "https://www.capenews.net/falmouth/news/new-jewish-chabad-center-to-begin-offering-services-next-month-in-falmouth/article_a3769b5f-e61c-590b-832d-d84dc5295741.html",
+   "note": "Rabbi Yekusiel (Kuti) and Devorah Alperowitz have served Cape Cod and the islands 'since 1995' (a feature); Anash: 'for the past twenty-eight years'; the Cape News (Sept 2024): founded in Hyannis 'almost 30 years ago'.",
+   "confidence": "high"
+  },
+  "5302137": {
+   "name": "Chabad on the Vineyard",
+   "city": "Vineyard Haven, MA",
+   "shetach": "cape-cod-and-the-islands",
+   "year": 2021,
+   "date": "2021-06-08",
+   "how": "stated",
+   "source": "https://vineyardgazette.com/news/2023/10/17/vineyard-vigil-honors-dead-israel/",
+   "note": "Vineyard Gazette, Oct 2023: 'Rabbi Tzvi Alperowitz, who founded the Vineyard Haven Chabad house in 2021'; Chabad.org and JNS: they arrived in June to set up the island's first Chabad center; the Jewish Star: they docked in Vineyard Haven on June 8.",
+   "confidence": "high"
+  },
+  "6286364": {
+   "name": "Chabad Lubavitch of Falmouth",
+   "city": "Falmouth, MA",
+   "shetach": "cape-cod-and-the-islands",
+   "year": 2024,
+   "how": "news",
+   "source": "https://www.capenews.net/falmouth/news/new-jewish-chabad-center-to-begin-offering-services-next-month-in-falmouth/article_a3769b5f-e61c-590b-832d-d84dc5295741.html",
+   "note": "Cape News, 20 Sept 2024: Rabbi Mendel Alperowitz 'recently moved to downtown Falmouth with Rochel and their three children'; services to begin the next month (Oct 2024), first a Rosh Hashana celebration. CrownHeights.info, 5 Mar 2025: they 'have established a new Chabad center in Falmouth'.",
+   "confidence": "high"
+  },
+  "6525447": {
+   "name": "Chabad of Nantucket",
+   "city": "Nantucket, MA",
+   "shetach": "cape-cod-and-the-islands",
+   "year": 2024,
+   "how": "directory",
+   "source": "https://www.chabad.org/6525447",
+   "note": "No source found (Rabbi Levi Alperowitz). Estimated from chabad.org's listing number, 6525447, created about Nov 2024 (Fairbanks's, Sept 2024, is 6394348). A visitor guide names him; no date.",
+   "confidence": "low"
+  },
+  "117691": {
+   "name": "Chabad of Rockland",
+   "city": "New City, NY",
+   "shetach": "rockland",
+   "year": 1983,
+   "how": "stated",
+   "source": "https://www.chabadofrockland.org/templates/articlecco_cdo/aid/6516114/jewish/About-Us.htm",
+   "note": "Its About page: 'Established in 1983 under the dedicated direction of Rabbi Avremel Kotlarsky and his wife, Chany.' A 2004 Chabad.org article: Rabbi Mordechai Altein bought the property in 1982 so the Achei Temimim school could move from the Bronx to New City; the building went up in 1991.",
+   "confidence": "high"
+  },
+  "118346": {
+   "name": "Chabad of The Nyacks",
+   "city": "Nyack, NY",
+   "shetach": "rockland",
+   "year": 2001,
+   "how": "directory",
+   "source": "https://www.americantowns.com/place/chabad-jewish-enrichment-center-spring-valley-ny.html",
+   "note": "A listing for Rabbi Chaim Zvi and Chaya Ehrenreich's center: 'established in 2001 to serve the Jewish communities of southern Rockland County', then in Chestnut Ridge (a 2007 Journal News piece calls him 'Rabbi Chaim Ehrenreich from Chabad of Chestnut Ridge'). When it became Chabad of the Nyacks, in Nyack, not found.",
+   "confidence": "medium"
+  },
+  "577207": {
+   "name": "Chabad Jewish Center of Suffern",
+   "city": "Montebello, NY",
+   "shetach": "rockland",
+   "year": 2007,
+   "how": "list",
+   "source": "https://therebbesimpact.com/",
+   "note": "No source found (its own site gives no year). therebbesimpact.com: 2007; chabad.org's listing number (577207) is from about 2007 too; the IRS ruling for Congregation Chabad Jewish Center of Suffern Inc. is March 2010. Directed by Rabbi Shmuel and Devorah Gancz (the directory still names Rabbi Isaac Lefkowitz).",
+   "confidence": "low"
+  },
+  "5161431": {
+   "name": "Chabad Israel Center",
+   "city": "Nanuet, NY",
+   "shetach": "rockland",
+   "year": 2021,
+   "how": "list",
+   "source": "https://therebbesimpact.com/",
+   "note": "No source found. therebbesimpact.com: Shneur Zalmen & Hodaya Haddad, 2021; chabad.org's listing number (5161431) is from about 2021. Running by Feb 2023 (CrownHeights.info).",
+   "confidence": "low"
+  },
+  "6169151": {
+   "name": "Chabad of Stony Point",
+   "city": "Stony Point, NY",
+   "shetach": "rockland",
+   "year": 2023,
+   "how": "list",
+   "source": "https://therebbesimpact.com/",
+   "note": "No source found. therebbesimpact.com: 'Chabad of Stony Point', 2023; chabad.org's listing number (6169151) is from about 2023. Rabbi Shea Werner (with Rabbi Shmuel Amram, per a congressional proclamation, COLlive); 17 Phillips Drive.",
+   "confidence": "low"
+  },
+  "117966": {
+   "name": "American Friends of Lubavitch (Chabad)",
+   "city": "Washington, DC",
+   "shetach": "washington-dc",
+   "year": 1992,
+   "how": "stated",
+   "source": "https://www.jta.org/2020/12/06/politics/joe-biden-poured-him-a-drink-and-he-gave-jared-kushner-an-aliyah-rabbi-levi-shemtov-is-optimistic-about-d-c-s-transition",
+   "note": "JTA (Dec 2020): Rabbi Levi Shemtov has run Chabad's Washington operations since 1992; Washington Jewish Week: in the early 1990s it worked out of a small Capitol Hill townhouse; the $2 million center in the embassy district opened in July 1999 (Washington Post). American Friends of Lubavitch itself, under Rabbi Abraham Shemtov, was active in Washington by 1984.",
+   "confidence": "high"
+  },
+  "749420": {
+   "name": "Chabad GW",
+   "city": "Washington, DC",
+   "shetach": "washington-dc",
+   "year": 1994,
+   "how": "directory",
+   "source": "https://www.jewishwashington.com/studentcenters",
+   "note": "Jewish Washington's directory: Chabad GW 'founded in 1994'; a listing: 'nearly 30 years'. Its first full-time campus couple, the Steiners, came only in 2008 (the Washingtonian, 2015); in 1994 it was American Friends of Lubavitch's program.",
+   "confidence": "medium"
+  },
+  "1944096": {
+   "name": "Chabad Lubavitch of the AU Community",
+   "city": "Washington, DC",
+   "shetach": "washington-dc",
+   "year": 2012,
+   "date": "2012-08",
+   "how": "news",
+   "source": "https://crownheights.info/shlichus/46440/new-shluchim-to-washington-d-c",
+   "note": "CrownHeights.info, 23 Aug 2012: 'Rabbi Yehoshua and Esti Hecht will iy\"h be moving to the American University Area in Northwest Washington, DC', appointed by Rabbi Levi Shemtov.",
+   "confidence": "high"
+  },
+  "3077645": {
+   "name": "Chabad Georgetown",
+   "city": "Washington, DC",
+   "shetach": "washington-dc",
+   "year": 2021,
+   "date": "2021-08",
+   "how": "news",
+   "source": "https://collive.com/chabad-expands-in-dc-with-3-new-centers-new-programs/",
+   "note": "COLlive, 30 Aug 2021: 'Chabad Georgetown formally commenced operations this week in a new premises two blocks from the main campus', Rabbi Menachem and Racheli Shemtov; before that a satellite program of American Friends of Lubavitch 'for years', and the couple worked from a basement first (its brochure: in early 2020 they 'wanted to come to Georgetown').",
+   "confidence": "medium"
+  },
+  "5154542": {
+   "name": "Chabad East DC Jewish Center",
+   "city": "Washington, DC",
+   "shetach": "washington-dc",
+   "year": 2021,
+   "how": "news",
+   "source": "https://collive.com/chabad-expands-in-dc-with-3-new-centers-new-programs/",
+   "note": "COLlive, Aug 2021: Chabad East DC, Rabbi Yitzi and Shana Ceitlin, set up its Georgetown Law program 'during Covid-19' and was then launching a Capitol Hill minyan; therebbesimpact.com and chabad.org's listing number (5154542) both point to 2021. It may have begun in 2020.",
+   "confidence": "medium"
   }
  }
 }

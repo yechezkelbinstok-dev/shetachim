@@ -37,7 +37,7 @@ everything to look good." He also caught two misjudgments in the first review: "
 looks way too young" (the photo is older than the 2022 post that used it) and "is the Norway one really so bad?" (no).
 So judge a photo's age against a dated 2024–26 photo of the same man, not the date of the page or post that shows it,
 and judge looks at the size the card shows. Progress: ten changed and live (the "Nov 6, later" section below); for
-fourteen no better recent photo has been found yet (the list is there, with what was tried).
+thirteen no better recent photo has been found yet (the list is there, with what was tried).
 
 **Open (the owner's; not started):**
 - The founding year of every center, "to show the growth of Chabad": his idea and words are in the Nov 6 (end of a

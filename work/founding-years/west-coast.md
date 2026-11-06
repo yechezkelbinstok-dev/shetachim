@@ -26,3 +26,11 @@ source (a URL), note (the quote and what it shows), confidence; `date` when one 
   15-year-old Richmond Torah Center' in a J. foreclosure story — date the story; lead 1987), Contra Costa ('close to
   thirty years', Anash, undated; an undated J. item on its opening under a Rabbi Kagan), Chabad Palo Alto (1666288:
   check whether it's the same place as Greater South Bay).
+- Batches 2-4 (Bay Area, Nov 6): 37 more. High: Sacramento 1994, Davis 2003-09, Noe Valley 2000, Cole Valley 2011,
+  Tri-Valley 2005, North Peninsula 2001, Sonoma County 2002 (J., July 2002), Oakland 2006, Sunnyvale 2003-09,
+  Cupertino 2005, Contra Costa 1996 (J., Sept 1996: Rabbi Yaakov Kagan), Napa 2006, Fremont 2012-10, Castro Valley 2013,
+  Danville 2015, LaMorinda 2015, Petaluma 2015, Redwood City 2009, Shalom School 1997, El Cerrito 2016-11, San Leandro
+  2019, Tracy 2021, Tiburon 2022, Evergreen 2024, Menlo 2024-10, Sonoma Valley 2024, Almaden 2020-01, Concord
+  2019-08-14, Morgan Hill 2018, Emeryville 2018, Portola Valley 2021-04. Medium (to check): Mill Valley 2003 (maybe late
+  2002), Stockton 2002 (counted back), Los Altos 2010 ('re-established': the earlier one not found), Santa Clara 2016
+  (a year apart), Corte Madera 2020-07 (therebbesimpact 2019), Downtown San Jose 2016-08 (LinkedIn).

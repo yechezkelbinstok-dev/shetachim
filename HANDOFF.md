@@ -55,10 +55,10 @@ thirteen no better recent photo has been found yet (the list is there, with what
 - **Founding years, the West Coast (Nov 6, first pass done).** Owner: "let's jump into the West Coast. Do this properly
   ... The goal is every single blue dot we find the date for ... keep track continuously of how many are missing from
   the various ones, so we can do a round of the harder ones later on ... all the info needs to be kept properly. But go
-  ahead and start on California." All 331 US listings researched (California, Nevada): 225 with a year (high 141,
-  medium 84), 14 ranges, 95 open; 217 of 304 dots dated. Method, batches and the old opens worth the most effort:
-  `work/founding-years/west-coast.md`; counts per shetach: `work/founding-years/STATUS.md` (`status.py`). Next: check
-  the 84 mediums against a second source, then the hard round (ranges and opens). **Owner (Nov 6): "Not Mexico!!!!!
+  ahead and start on California." All 331 US listings researched (California, Nevada): 224 with a year (high 165,
+  medium 59), 14 ranges, 93 open; 216 of 301 dots dated. Every medium checked against a second source (25 raised). Method, batches and the old opens worth the most effort:
+  `work/founding-years/west-coast.md`; counts per shetach: `work/founding-years/STATUS.md` (`status.py`). Next: the hard
+  round (ranges and opens; started). **Owner (Nov 6): "Not Mexico!!!!!
   Wtf"**: the West Coast map piece's Baja dots (Tijuana, Cabo, La Paz) were taken out of the data and the counts.
 - **Head photos, Africa and Asia (Nov 6, late; LIVE):** South Africa (Lipskar), Central Africa (Bentolila), Mauritius
   (Laima Barber); China, Thailand, Singapore, South Korea, Taiwan, Nepal, Kazakhstan, Azerbaijan, Kyrgyzstan,

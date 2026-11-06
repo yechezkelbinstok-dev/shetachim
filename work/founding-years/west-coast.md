@@ -80,9 +80,17 @@ source (a URL), note (the quote and what it shows), confidence; `date` when one 
 - Shared dots: an undated department on a dated center's dot leaves the dot dated (CYP SF, Chabad Youth LA, the
   Kollel at Ohr Elchonon ...). Levi Yitzchok (1987) and the Chabad Jewish Center of Hancock Park (2009) share a dot.
 
-## Where it stands (Nov 6, end of the first pass)
-All 334 listings researched. With a year 225 (high 141, medium 84); range 14; open 95. Dots 304: dated 217, missing 87.
-Next: (1) check the 84 mediums against a second, independent source; (2) the hard round: the 14 ranges and 95 opens
-(`status: open` in the data, each with its lead). Most opens are recent centers with no dated post, or departments; the
-old ones worth the most effort: Chabad of Beverly Hills (lead 1978), Chabad in the Hills (1997), Westlake Village (1985),
-Gan Chaya, Mt. Olympus, the Las Vegas Talmud Torah, the Chabad Hebrew Center (Las Vegas).
+## Where it stands (Nov 6, after the medium checks)
+331 US listings (Mexico out, at the owner's word). With a year 224 (high 165, medium 59); range 14; open 93. Dots 301:
+dated 216, missing 85.
+- Every medium was checked against a second source (each note ends 'Checked (Nov 6): ...'). 25 went to high; years that
+  changed: Berkeley 1972-09-01 (B'nai B'rith Messenger, Nov 1972), San Jose 2000-10 (J., Aug 2001), Stockton 2002-10
+  (Stockton Record, Nov 2002), Pacific Heights 2012-03 (COLlive; was 2010 from LinkedIn), San Clemente 2004 (was 2005),
+  Burbank 1999 (was 1998), Fresno 1990-02, the Bay Area Friendship Circle 2003 (was 2004), SDSU 1973 (was 1975), Desert
+  Torah Academy 1994 (its own history; the directory says 1999), UNR 2021-12. The 59 still medium say why (sources a year
+  apart, a count back, or only one source found).
+- The hard round (started): the 14 ranges and 93 opens, each with its lead. Chabad of Burlingame turned out to be 2012
+  (J., May 2012, the Weinbaums), not the 2025 listing date. The old ones worth the most effort: Chabad of Beverly Hills
+  (lead 1978), Chabad in the Hills (1997), Westlake Village (1985), Gan Chaya, Mt. Olympus, the Las Vegas Talmud Torah,
+  the Chabad Hebrew Center (Las Vegas). Searches now go through plain web search and fetch first, Firecrawl only when a
+  site blocks (owner, Nov 6).

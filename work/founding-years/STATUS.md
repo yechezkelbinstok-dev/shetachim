@@ -13,6 +13,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | cape-cod-and-the-islands | 4 | 3 |  |  |  | 1 |  | 1 | 4 | 1 |
 | central-ohio | 4 | 1 | 1 |  |  | 2 |  | 2 | 4 | 2 |
 | delaware | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
+| florida | 240 | 9 | 1 |  |  |  | 230 | 230 | 219 | 213 |
 | hawaii | 7 | 2 | 1 |  | 2 | 2 |  | 4 | 7 | 4 |
 | idaho | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | indiana | 7 | 3 | 2 |  |  | 2 |  | 2 | 7 | 2 |
@@ -43,7 +44,6 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | washington-dc | 5 | 2 | 3 |  |  |  |  | 0 | 5 | 0 |
 | west-coast | 331 | 179 | 59 |  | 10 | 83 |  | 93 | 301 | 71 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
-| florida | 240 |  |  |  |  |  | 240 | 240 | 219 | 219 |
 | new-york-city | 201 |  |  |  |  |  | 201 | 201 | 177 | 177 |
 | new-jersey | 91 |  |  |  |  |  | 91 | 91 | 84 | 84 |
 | quebec | 72 |  |  |  |  |  | 72 | 72 | 59 | 59 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | kansas-missouri | 16 |  |  |  |  |  | 16 | 16 | 16 | 16 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
 | british-columbia | 13 |  |  |  |  |  | 13 | 13 | 13 | 13 |
-| **all** | 1969 | 301 | 92 | 1 | 29 | 117 | 1429 | 1575 | 1765 | 1386 |
+| **all** | 1969 | 310 | 93 | 1 | 29 | 117 | 1419 | 1565 | 1765 | 1380 |

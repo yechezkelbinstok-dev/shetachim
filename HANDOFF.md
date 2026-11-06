@@ -14,6 +14,45 @@ starts on the latest code; the session is still handed its own branch name, so g
 those can't reach. On Nov 3 a session ran every search and page through Firecrawl (~25 searches, ~20 pages) and the
 owner was furious. The rule is also under "Notes for Claude" below. (Owner, Nov 3, the other way round: "you have
 fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers WebFetch and curl with 403.)
+**And (owner, Nov 6, angry again): "For the 100 freaking time you have fire crawl"** — when a site blocks a download or
+a page, go to Firecrawl at once (its image search finds photos with their pages; a page screenshot shows a blocked
+site's picture), don't keep retrying with curl (the classifier also blocks that as bot-check circumvention).
+
+## ▶ START HERE — Nov 6: Europe and the Middle East have head photos; the Rebbeim's portraits on their cards (all LIVE)
+
+What the owner asked this session, all live on the site (deploys checked):
+- **"Europe and MENA next"**: head-shliach photos for **34** of the 39 Europe/Middle East shetachim, made like the US ones
+  (a photo of him alone, from a captioned or checked source; cropped and retouched by `scripts/head-photos/retouch.py`).
+  Records in `data/head-photos.json` (86 photos now); their ids added to `HEAD_PHOTO` in `web/index.html`; each source
+  kept in `work/head-photos/candidates/eu/<id>/` (Instagram ones in `work/head-photos/instagram/images/`), so
+  `redo-all.py` can redo them. Hebrew preview sent.
+  - **Still without a photo:** Moldova (kishinev.org blocks our downloads; the only other one found, chabadinfo 2023,
+    may not be him), Romania (agerpres's are watermarked; the rest group shots), Sweden (only a 200 px LinkedIn selfie
+    and a 2009 photo), Switzerland (Rosenfeld: no captioned photo; the 2023 kinus "welcome" sign was held by several
+    people, so that photo isn't proof), **Saudi Arabia: the data's head, "Peretz Garelik", can't be confirmed anywhere**
+    (the news names Rabbi Yaakov Israel Herzog in Riyadh; Chabad said in 2021 it had no shliach there): ask the owner.
+  - **Weaker, replace when something better turns up:** Finland (his 200 px LinkedIn photo, soft; beware the late
+    Rabbi Binyamin Wolff of Hanover, a different man), Spain (a selfie at a meal; NOT chabad.org's "Zalman Goldstein",
+    that's the author), Germany (2017), Serbia (2016), Italy (2017), Montenegro (2018), Ireland (2019, cropped out of
+    three), Croatia (a 2020 selfie), Norway and Czech (video stills), Morocco (a friend's hand at the edge).
+  - Identified by checking: Bulgaria (embassy photo, Apr 2025: Salamon is the man on the LEFT, matched to his BNR
+    photo), Belgium (anash.org's "The Rebbe's advice for stuttering" = Slavaticki), Morocco (@RabbiMorocco on X).
+  - Fetching notes: Wikimedia's upload host answers 429 to us; **thumb.wikimedia.org at a standard width (330, 500,
+    960 px) works**. Chabadpedia answers 403 and kishinev.org cuts us off: don't work around them (the classifier calls
+    retrying with other curl flags bot-check circumvention). Firecrawl can't screenshot an image file itself; a page's
+    screenshot works. Facebook/Instagram "lookaside" links don't download; Instagram posts come through Apify
+    (`ig.py posts`).
+- **"Also add the Rebbeim ... properly framed much better than shluchim"**: every Rebbeim card (Lubavitch, Rostov,
+  Liozna, Liadi, Haditch, Nezhin, the ohalim in Lubavitch and Rostov, the Ohel, 770) has its Rebbeim side by side
+  under the title, each in an **arched gold frame** with a cream mat and his name under it (`portraitsHTML`, `REBBE`,
+  `rebbeimOf` in `web/index.html`; CSS `.rb-*`; a burial card lists its Rebbeim in `portraits`). The Alter Rebbe's and
+  the Tzemach Tzedek's are the traditional portraits; the Rebbe Rashab's (passport photo), the Frierdiker Rebbe's and the
+  Rebbe's are photographs. **No likeness of the Mitteler Rebbe or the Rebbe Maharash is known**: their frame holds
+  "כ״ק אדמו״ר / האמצעי (מהר״ש) / זי״ע" engraved. 770's card shows the Rebbe without a caption (the line under it has his
+  whole title). Images: `web/img/rebbeim/<key>.jpg` (300×375), made by `scripts/head-photos/rebbeim-portraits.py` from
+  `work/head-photos/rebbeim/` as `data/rebbeim-portraits.json` says (sources there; the Rebbe's had an out-of-focus man
+  behind him painted over with the backdrop). If the owner wants the Maharash's seal (Wikipedia shows his stamp) or
+  another picture in a plate, that's where to change it.
 
 ## ▶ START HERE — Nov 5, later session: the new cards are LIVE; vaads and boards with faces; no "Zoom in"
 **The card redesign went live on Nov 5** (owner: "Push everything that's been done so far as well", then, on the old

@@ -34,3 +34,13 @@ source (a URL), note (the quote and what it shows), confidence; `date` when one 
   2019-08-14, Morgan Hill 2018, Emeryville 2018, Portola Valley 2021-04. Medium (to check): Mill Valley 2003 (maybe late
   2002), Stockton 2002 (counted back), Los Altos 2010 ('re-established': the earlier one not found), Santa Clara 2016
   (a year apart), Corte Madera 2020-07 (therebbesimpact 2019), Downtown San Jose 2016-08 (LinkedIn).
+- Batches 5-6 (Bay Area finished, Nov 6): all 78 Bay Area listings researched. New high: Richmond Torah Center 1987
+  (medium: a Nov 1990 report, 'founded three years ago'), Berkeley mikvah 1977 (Mikva Taharas Israel at 2520 Warring St,
+  renamed Mikvas Chana Leah in 2014), UCSC 2003, UC Berkeley student center 2007, SF State/Sunset 2006-09, West Marin
+  2022, Elk Grove 2022, Chabad of the Neighborhood 2021. Medium: Chabad by the Sea 2000 (counted back), Mountain View
+  2012 (Gan Torah preschool; the center 2022), Pacific Heights 2010-07 and the Israeli community 2003-07 (LinkedIn), San
+  Jose 2000 ('leading since'), Chabad Palo Alto 1975 (same place and nonprofit as Greater South Bay). Range: Gan Chabad
+  Pleasanton and Bais Menachem (by 2012), the Delta (by 2010), Alameda (by 2018). Open (the hard round): CYP SF, Chai
+  Hebrew School, UC Davis, the Cheder of the Bay Area, CGI Contra Costa, CGI SF, Daly City, Richmond (Wagner), Santa
+  Cruz CJL, Union City, the Gan Alameda, Burlingame, Sea Cliff, Sausalito.
+- status.py now also counts dots (map points): a dot is dated when any of its listings is.

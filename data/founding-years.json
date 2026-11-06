@@ -1,5 +1,5 @@
 {
- "about": "The year each center started, for the growth-of-Chabad video (the owner's idea, Nov 6). Keyed by the center's chabad.org id (web/data/centers.geojson). 'year' is when the shluchim began there (their arrival or first activity); when the opening came later, the note says so. 'how': stated (the center or a paper says the year), list (a published list of institutions with years; therebbesimpact.com, unsourced, counts only as a lead, so 'low'), news (a report from that year), anniversary (\"N years ago\" counted back), directory (a dated directory listing or IRS record; as a last resort, when its chabad.org listing was made: the listing numbers run in order of creation, so a number dates the listing to within about a year, which bounds the start but is not it); first-mention (the year of the earliest mention found, used as the year); range ('after'/'by' bound it, no exact year); same-place (no year of its own, at the same spot as a dated one); not-found. 'confidence': high (a report from that year, or the center itself, and nothing against it), medium (counted back from 'N years ago', a first mention, one secondary source, or sources a year apart), low (one weak source, unconfirmed); range (no year: 'after'/'by' bound it from dated sources); open (no real source yet: 'year' is null and 'lead' holds a guess from therebbesimpact.com or the chabad.org listing number, only to check, never to use as a year. Owner, Nov 6: \"basically a guess is ridiculous how can I use that in an expansion map\"). A dot on the map takes the earliest year of its listings. Pilot: the Michigan shetach, Nov 6 (work/founding-years/michigan-pilot.md). 'date' (when one turns up, owner, Nov 6: \"More data never hurt nobody\"): the month or the day, 'YYYY-MM' or 'YYYY-MM-DD', of the same event as 'year'. 'shetach': the shetach id (data/shetachim.json); 'none' = Monsey, left blank on the map. 'earlier' (when found): the places a center used to be, oldest first, each {where, from, until, source} (years when known, else null); the map's dot is where it is now. Owner, Nov 6: \"if you ever realize a center used to be located somewhere else then take note for the data\".",
+ "about": "The year each center started, for the growth-of-Chabad video (the owner's idea, Nov 6). Keyed by the center's chabad.org id (web/data/centers.geojson). 'year' is when the shluchim began there (their arrival or first activity); when the opening came later, the note says so. 'how': stated (the center or a paper says the year), list (a published list of institutions with years; therebbesimpact.com, unsourced, counts only as a lead, so 'low'), news (a report from that year), anniversary (\"N years ago\" counted back), directory (a dated directory listing or IRS record; as a last resort, when its chabad.org listing was made: the listing numbers run in order of creation, so a number dates the listing to within about a year, which bounds the start but is not it); first-mention (the year of the earliest mention found, used as the year); range ('after'/'by' bound it, no exact year); same-place (no year of its own, at the same spot as a dated one); not-found. 'confidence': high (a report from that year, or the center itself, and nothing against it), medium (counted back from 'N years ago', a first mention, one secondary source, or sources a year apart), low (one weak source, unconfirmed); range (no year: 'after'/'by' bound it from dated sources); open (no real source yet: 'year' is null and 'lead' holds a guess from therebbesimpact.com or the chabad.org listing number, only to check, never to use as a year. Owner, Nov 6: \"basically a guess is ridiculous how can I use that in an expansion map\"). A dot on the map takes the earliest year of its listings. Pilot: the Michigan shetach, Nov 6 (work/founding-years/michigan-pilot.md). 'date' (when one turns up, owner, Nov 6: \"More data never hurt nobody\"): the month or the day, 'YYYY-MM' or 'YYYY-MM-DD', of the same event as 'year'. 'shetach': the shetach id (data/shetachim.json); 'none' = Monsey, left blank on the map. 'earlier' (when found): the places a center used to be, oldest first, each {where, from, until, source} (years when known, else null); the map's dot is where it is now. Owner, Nov 6: \"if you ever realize a center used to be located somewhere else then take note for the data\". 'season' (owner, Nov 6: \"or season which equates to a range ofc\"): when only a season turns up for the same event as 'year' ('winter', 'spring', 'summer', 'fall'; or 'High Holidays', 'Chanukah' and the like).",
  "centers": {
   "119458": {
    "name": "Congregation Mishkan Israel",
@@ -6592,6 +6592,150 @@
    "source": "https://crownheights.info/general/1908/chabad-center-to-build-own-synagogue-in-abacoa",
    "note": "TCPalm (via CrownHeights.info, April 2006): the 'three-year-old congregation' of founder Rabbi Berel Barash closed on 1.5 acres on University Boulevard in Abacoa for $1 million; its two-story center at 430 University Blvd. was due late 2018.",
    "confidence": "medium"
+  },
+  "119832": {
+   "name": "Chabad Ocean Synagogue",
+   "city": "Hollywood",
+   "shetach": "florida",
+   "year": 1990,
+   "how": "stated",
+   "source": "https://www.lubavitch.com/mrs-chasiah-kudan-47/",
+   "note": "Lubavitch.com (obituary of Chasiah Kudan): she and Rabbi Dovid Kudan moved to South Broward in 1989 to run youth programs for Chabad of South Broward; 'The next year' they opened the Chabad Ocean Synagogue. Its building campaign page: services first at the Hilton, mostly Holocaust survivors, then Sea Air Towers, then the Hallmark Condominiums; now Chabad Ocean Drive.",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "the Hilton, Hollywood",
+     "from": 1990,
+     "until": null,
+     "source": "https://building.chabadoceandrive.com/"
+    },
+    {
+     "where": "Sea Air Towers",
+     "from": null,
+     "until": null,
+     "source": "https://building.chabadoceandrive.com/"
+    },
+    {
+     "where": "Hallmark Condominiums",
+     "from": null,
+     "until": null,
+     "source": "https://building.chabadoceandrive.com/"
+    }
+   ]
+  },
+  "118660": {
+   "name": "California Club Chabad",
+   "city": "North Miami Beach",
+   "shetach": "florida",
+   "year": 2003,
+   "how": "stated",
+   "source": "https://koshertravelinfo.com/?p=8738",
+   "note": "Rabbi Shloime and Feigie Halsband's page: 'The California Club Chabad opened its doors in 2003'; it began in a mall and 'after two years we purchased a house to serve as our shul' (825 NE 205 Terrace). (A tribute calls the late Rabbi Dovid Bryn, d. 2002, founder of 'the California Club Shul' too: an earlier minyan there, perhaps.)",
+   "confidence": "medium",
+   "earlier": [
+    {
+     "where": "a mall, California Club area",
+     "from": 2003,
+     "until": 2005,
+     "source": "https://koshertravelinfo.com/?p=8738"
+    }
+   ]
+  },
+  "160742": {
+   "name": "Chabad of Brandon & South Shore",
+   "city": "Riverview",
+   "shetach": "florida",
+   "year": 2004,
+   "season": "summer",
+   "how": "news",
+   "source": "https://mikveh.blogspot.com/2005/09/couple-organize-independent-jewish.html",
+   "note": "Rabbi Mendel and Tzippy Rubashkin opened Chabad of Brandon 'in the summer of 2004'; a 2005 article: he 'started Chabad of Brandon a year ago' after moving from Brooklyn. Later its Jewish Discovery Center (Valrico, 2014).",
+   "confidence": "high"
+  },
+  "169223": {
+   "name": "Chabad at Florida International University",
+   "city": "Miami",
+   "shetach": "florida",
+   "year": 2004,
+   "date": "2004-08",
+   "how": "news",
+   "source": "https://crownheights.info/shlichus/5278/new-student-center-to-be-dedicated-at-florida-international-university",
+   "note": "Lubavitch.com (via CrownHeights.info, 27 Feb 2007): 'ChabadFIU opened its doors in August of 2004 and quickly outgrew the townhouse they rented just west of the University Park campus'; its own center at 10031 SW 15 Terrace dedicated 11 March 2007 (Rabbi Levi and Sashie Friedman). Now Rabbi Berel and Henny Garelik.",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "a rented townhouse just west of FIU's University Park campus",
+     "from": 2004,
+     "until": 2007,
+     "source": "https://crownheights.info/shlichus/5278/new-student-center-to-be-dedicated-at-florida-international-university"
+    },
+    {
+     "where": "10031 SW 15 Terrace",
+     "from": 2007,
+     "until": null,
+     "source": "https://crownheights.info/shlichus/5278/new-student-center-to-be-dedicated-at-florida-international-university"
+    }
+   ]
+  },
+  "169346": {
+   "name": "Chabad of Bradenton & Lakewood Ranch",
+   "city": "Bradenton",
+   "shetach": "florida",
+   "year": 2004,
+   "how": "stated",
+   "source": "https://www.yourobserver.com/news/2012/mar/21/lakewood-ranch-chabad-moves-permanent-home",
+   "note": "The Observer (Mar 2012): formed in 2004 by Rabbi Mendy and Chanie Bukiet; the Observer, Aug 2009: its fifth year, begun in the Bukiets' East County home, then a nearby school. Bradenton Herald (Mar 2012): 'After meeting more than seven years in living rooms, or in rented space at schools and office buildings', its own home at 5712 Lorraine Road.",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "Rabbi Mendy and Chanie Bukiet's home, East County",
+     "from": 2004,
+     "until": null,
+     "source": "https://www.yourobserver.com/news/2009/aug/05/chabad-celebrates-fifth-year/"
+    },
+    {
+     "where": "rented space at schools and office buildings",
+     "from": null,
+     "until": 2012,
+     "source": "https://crownheights.info/shlichus/42468/chabad-center-on-floridas-gulf-coast-has-new-home"
+    }
+   ]
+  },
+  "223658": {
+   "name": "Chabad of Cape Coral",
+   "city": "Cape Coral",
+   "shetach": "florida",
+   "year": 2004,
+   "how": "stated",
+   "source": "https://collive.com/new-center-for-cape-coral/",
+   "note": "Established in 2004 by Rabbi Yossi and Rivky Labkowski, 'originally launched in a living room'; later he had lived in Cape Coral for 19 years (Israel National News, 2023).",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "the Labkowskis' living room",
+     "from": 2004,
+     "until": null,
+     "source": "https://collive.com/new-center-for-cape-coral/"
+    }
+   ]
+  },
+  "212291": {
+   "name": "Chabad of Bonita Springs, Estero & FGCU",
+   "city": "Bonita Springs",
+   "shetach": "florida",
+   "year": 2004,
+   "how": "anniversary",
+   "source": "https://crownheights.info/shlichus/6581/chabad-finds-new-home-in-bonita",
+   "note": "The Banner (via CrownHeights.info, 25 May 2007): building a synagogue 'is a dream for the 3-year-old Chabad of Bonita Springs and Estero' (Rabbi Mendy Greenberg), which had just moved into a 2,000 sq ft office space off Old 41 Road after renting rooms for each event. therebbesimpact.com: 2004.",
+   "confidence": "medium",
+   "earlier": [
+    {
+     "where": "an office suite in a strip mall off Old 41 Road, Bonita Springs",
+     "from": 2007,
+     "until": null,
+     "source": "https://crownheights.info/shlichus/6656/chabad-settles-into-new-temporary-home"
+    }
+   ]
   }
  }
 }

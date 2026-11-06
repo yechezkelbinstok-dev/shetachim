@@ -18,6 +18,47 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
 a page, go to Firecrawl at once (its image search finds photos with their pages; a page screenshot shows a blocked
 site's picture), don't keep retrying with curl (the classifier also blocks that as bot-check circumvention).
 
+## ▶ START HERE — Nov 6, END of session (the owner moved to a new window; continue from here)
+
+**State:** everything below is LIVE on `claude/bold-albattani-aqfnj9` (deploys checked). Last commits: Garelik's photo
+(c273210), the Rebbeim beside their names (c40fe05). Nothing uncommitted.
+
+**What the owner is in the middle of (pick up here):**
+1. **Founding years of every US + Canada center: an animated "growth of Chabad" map.** The owner's idea (Nov 6): find
+   the YEAR (not the date: "I don't need a date, I need a year. The point is to show the growth of Chabad") each center
+   opened, then a year-by-year view: dots popping up by year, plus the shetach changes (new shetachim, splits like
+   Wyoming etc. out of the Northwest). "Honestly, it's for me ... it's cool." He asked if it's realistic and "are you
+   sure I would find for all of them?" Answer given: NOT all — a real year for most (my guess 70–85%), the rest
+   unknown or estimated. Size: 1,787 dots (US 1,637, Canada 150), 1,991 listings (`web/data/centers.geojson`).
+   **The owner's correction (keep it):** "if a center started in the 1980s then a first copy of the website won't help"
+   — right: the Wayback Machine's first snapshot only bounds centers opened after websites were common (late 1990s on).
+   For older houses the sources are: "celebrates 25/40 years" anniversary articles (→ the year), the shluchim's
+   bios and obituaries ("came to X in 1984"), Chabadpedia, chabad.org "About" pages, local newspapers,
+   COLlive/Anash/CrownHeights.info/lubavitch.com "New Shluchim to X" (good from about 2005). He has NOT yet said go;
+   suggested next: a pilot on one shetach (Florida) to measure the real hit rate, then batches. Plan for the data:
+   `data/founding-years.json` {centerId: {year, how: stated|anniversary|bio|estimate, source, note}} and
+   `data/shetach-history.json` (when each shetach formed or split, drafted from the news, corrected by the owner);
+   the view: a year slider with play, dots fading in, borders changing in their years, a running count.
+2. **Photos still missing (Europe/Middle East):** Moldova, Romania, Sweden, Switzerland. Weaker ones to replace when
+   something better turns up: Finland, Spain, Germany (2017), Serbia (2016), Italy (2017), Montenegro, Ireland,
+   Croatia, Norway, Czech, Morocco. US/Canada leftovers: task list in the "Nov 5" sections below.
+
+**Learned from the owner this session (keep):**
+- **Saudi Arabia = Rabbi Peretz Garelik (the owner's data). Never take a head shliach from the news over the owner's
+  data**: the news writes about Yaakov Herzog in Riyadh, who is not the shliach ("you cannot differentiate a real
+  shliach and a mushroom ... your average AI would tell you the head shliach of Japan is Edri"). Garelik's photo: his
+  L'Chaim (Garelik – Belinow, Sept 2022, Anash DSC_9047), the friend beside him painted over with the curtain;
+  identified by the owner and checked (the same man in the chassan's seat at the head table, COLlive 7N0A6153, and
+  lifted at the wedding, Anash DSC00176; the man in the middle of Anash's wedding DSC00136 is NOT him). The owner,
+  on finding him: look in the simcha galleries — the chassan is in the head table's middle seat at the L'Chaim and on
+  the chair at the wedding; work from the original full-size photo, never a screenshot.
+- **Firecrawl at once when a site blocks** ("For the 100 freaking time you have fire crawl"); a page screenshot shows
+  a blocked site's picture (how the two title pages came from Chabadpedia).
+- **Rebbeim:** pictures BESIDE their names (not above), in a RECTANGULAR gilded frame ("not weird gravestone shape");
+  the Mitteler Rebbe and the Rebbe Maharash get the title page (שער) of a sefer of theirs, as Chabadpedia does — the
+  portrait attributed to the Maharash was dropped ("it's prob not him").
+- Check identities before using a photo ("some of those are not him").
+
 ## ▶ START HERE — Nov 6: Europe and the Middle East have head photos; the Rebbeim's portraits on their cards (all LIVE)
 
 What the owner asked this session, all live on the site (deploys checked):

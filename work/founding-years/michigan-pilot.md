@@ -1,16 +1,16 @@
 # Founding years: the Michigan pilot (Nov 6)
 
 The owner (Nov 6): "what we need is the data ... do a test run pick a mid-sized American shetach ... and see how
-easy it would be as a blueprint for the data collection." Michigan (Rabbi Berel Shemtov's shetach, Toledo included):
-37 directory listings at 32 dots on the map. Results are in `data/founding-years.json`.
+easy it would be as a blueprint for the data collection." Michigan (Rabbi Berel Shemtov's shetach: Toledo, Ohio
+and Windsor, Ontario included): 38 directory listings at 33 dots on the map. Results are in `data/founding-years.json`.
 
 ## Result
 
 | | count | share |
 |---|---|---|
-| Listings with a year | 32 of 37 | 86% |
-| ... of them rated high / medium / low | 23 / 8 / 1 | |
-| Dots with a year (a dot takes its earliest listing's year) | 29 of 32 | 91% |
+| Listings with a year | 33 of 38 | 87% |
+| ... of them rated high / medium / low | 24 / 8 / 1 | |
+| Dots with a year (a dot takes its earliest listing's year) | 30 of 33 | 91% |
 | Dots with only a range ("by 2001": it existed then, start unknown) | 2 | |
 | Dots with nothing | 1 (Toledo's Food & Learning Center) | |
 
@@ -27,7 +27,12 @@ What changed:
 - Confirmed: Flint (absent 1980-81, open by Dec 1986), Farmington Hills (first mention Apr 1978), Toledo (May 1987),
   The Shul (Nov 1994), Royal Oak (Nov 2018), Livonia (Sept 2022), Waterford (July 2024), the Mesivta (1965).
 - Still weak: Bingham Farms (2009 from the list only; first newspaper mention Dec 2016).
-Lessons: a published list is a lead, not proof (3 of its 13 checkable entries were wrong); "N years ago" can be off
+- Missed altogether until a recount (Nov 6): **Windsor, Ontario**, the shetach's one Canadian center: **2009** (its
+  rabbi "became the rabbi at Congregation Shaarey Zedek in June, 2009"; CrownHeights.info, Aug 2012: the families
+  "three years ago welcomed Rabbi Sholom and Rivka Galperin"). The listings had been gathered by state (Michigan,
+  then Toledo), not from every map piece of the shetach; ten US/Canada shetachim cross a state or country line.
+Lessons: take a shetach's listings from every map piece named for it (`piece` ending in `:<shetach id>`), not by
+state; a published list is a lead, not proof (3 of its 13 checkable entries were wrong); "N years ago" can be off
 by a couple of years; a first mention only bounds the start.
 
 **Corrected after the owner's challenge** ("THE FUCKING FAMOUS DETROIT MESIVTA ... should have been one of the easiest
@@ -73,7 +78,8 @@ fetch); the corrections took 3 more web searches, 1 fetch and 4 searches of the 
 
 ## Blueprint for the rest (suggestion, not agreed)
 
-- Per shetach: (1) look for a list or timeline, as leads; (2) find the local Jewish paper's archive and its own search;
+- Per shetach: (0) list its listings from `web/data/centers.geojson`, every feature whose `piece` ends in
+  `:<shetach id>`; (1) look for a list or timeline, as leads; (2) find the local Jewish paper's archive and its own search;
   (3) one web search per center, then the archive search (AND, earliest first) under every name it's known by;
   (4) prefer a report from the year itself over a list, an anniversary count or a later profile; (5) rate each year
   high / medium / low and check every medium and low before calling the shetach done; (6) ranges only after that.

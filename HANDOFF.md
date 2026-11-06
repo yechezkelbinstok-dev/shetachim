@@ -57,14 +57,16 @@ thirteen no better recent photo has been found yet (the list is there, with what
   stretch to do the whole world at this point and honestly why are we discussing the video at this point what we need
   is the data ... do a test run pick a mid-sized American shetach - not one of the gargantuan ones like West Coast or
   Florida ... and see how easy it would be as a blueprint for the data collection." **Done: the Michigan pilot**
-  (`data/founding-years.json`, report in `work/founding-years/michigan-pilot.md`): a year for 29 of 32 dots (91%),
-  each rated high (23 listings) / medium (8) / low (1). The owner caught the first pass missing "THE FUCKING FAMOUS
+  (`data/founding-years.json`, report in `work/founding-years/michigan-pilot.md`): a year for 30 of 33 dots (91%),
+  each rated high (24 listings) / medium (8) / low (1). The owner caught the first pass missing "THE FUCKING FAMOUS
   DETROIT MESIVTA" (1965) and asked "are you sure it's correct? ... I don't know who to trust now": everything not
   solid was then checked against the Detroit Jewish News archive (its own search, AND, earliest first), which changed
   six (Grand Rapids 1977, Novi 2005, Friendship House 2004, Mishkan Israel 1963, F.R.E.E. 1990, North Oak Park 1990)
   and showed the July 2024 list wrong on 3 of 13. Rule now: a list or "N years ago" is a lead; check every medium
-  and low entry before calling a shetach done.
-  **Michigan now:** 37 listings at 32 dots; 29 dots dated; listings high 23 / medium 8 / low 1 (Bingham Farms: 2009
+  and low entry before calling a shetach done. A recount later found the first pass had also left out the shetach's
+  one Canadian center, Windsor, Ontario (now 2009, two sources): take a shetach's listings from every map piece named
+  for it (`piece` ending in `:<shetach id>`; ten US/Canada shetachim cross a state or country line), not by state.
+  **Michigan now:** 38 listings at 33 dots; 30 dots dated; listings high 24 / medium 8 / low 1 (Bingham Farms: 2009
   from the list only, first newspaper mention Dec 2016); ranges 2 (Oak Park's Lubavitch Outreach by 2001, the Cheder's
   girls' building by 1999); nothing 1 (Toledo's Food & Learning Center).
   **The owner's next steps (Nov 6, latest):** "we'll do region by region but we'll start with the small regions to get
@@ -73,19 +75,23 @@ thirteen no better recent photo has been found yet (the list is there, with what
   going forward if I can't trust you and u always screw up?"); the answer given: every year with its source, the
   quote and a confidence; every medium and low checked against a second, independent source (a report from the year
   itself beats a list or an anniversary count) before a region is called done; each region ends with a short list of
-  its doubtful entries for him to spot-check. First batch: the 35 US/Canada shetachim with 10 dots or fewer (161 dots,
-  172 listings): idaho, maritimes, nebraska, newfoundland-and-labrador, south-area (1 each); arkansas, wyoming (2);
+  its doubtful entries for him to spot-check. First batch: the 34 US/Canada shetachim with 10 dots or fewer and the
+  9 dots in no shetach (161 dots, 172 listings together): idaho, maritimes, nebraska, newfoundland-and-labrador,
+  south-area (1 each); arkansas, wyoming (2);
   alberta, delaware, maine, new-hampshire, oklahoma (3); alaska, cape-cod-and-the-islands, central-ohio,
   merrimack-valley, utah (4); alabama, kentucky, louisiana-mississippi, rockland, washington-dc (5);
   manitoba-saskatchewan, montana, new-mexico, north-shore-of-massachusetts (6); hawaii, indiana, iowa, rhode-island,
-  southern-ohio, tennessee (7); vermont (8); ottawa (9); plus 9 dots in no shetach.
+  southern-ohio, tennessee (7); vermont (8); ottawa (9); and the 9 dots in no shetach (New York).
   **OPEN, asked by the owner before the batch starts: what counts as a center?** "What actually counts as a center?
   Do we only do outreach? Maybe only outreach and chinuch moisdois? Honestly I'm not sure. Like do shuls count".
   *(Suggestion, not agreed:)* the dots = shlichus centers (Chabad houses, campus Chabad houses, a shliach's
   congregation or community center); schools, preschools, camps, mikvahs, yeshivas, social services and Anash
   community shuls not as dots of their own (they'd crowd the hubs and count one family's work several times), but
-  the big ones as milestones in the video (the Detroit Mesivta, 1965). In Michigan that would leave about 20 of the
-  37 listings. Wait for his decision; it changes which listings need years.
+  the big ones as milestones in the video (the Detroit Mesivta, 1965). What each answer keeps (chabad.org's own
+  types, with the 189 untyped listings sorted by name, so approximate), US and Canada / Michigan: outreach only
+  (Chabad houses, campus, community centers, young professionals, Russian and Israeli centers) about 1,440 of the
+  1,787 dots / 22 of 33; with shuls about 1,520 / 24; with chinuch and camps too about 1,650 / 29; everything 1,787 /
+  33. Wait for the owner's decision; it changes which listings need years.
 - Head photos still missing — Europe/Middle East: Moldova, Romania, Sweden, Switzerland; USA: Kansas–Missouri,
   Delaware, New Hampshire, Eastern Massachusetts, Rhode Island, Cape Cod; Canada: British Columbia, Ottawa, Quebec,
   Maritimes. Old or weak US/Canada photos and vaad faces: the lists in the Nov 5 sections.

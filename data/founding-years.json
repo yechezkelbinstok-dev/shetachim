@@ -20,10 +20,10 @@
   "160382": {
    "name": "Cheder Oholei Yosef Yitzchak Lubavitch - Boys Division",
    "city": "Oak Park",
-   "year": 1958,
-   "how": "directory",
-   "source": "https://digital.bentley.umich.edu/djnews/djn.1999.09.04.001/86",
-   "note": "The boys' division of the same school (Cheder Yosef Yitzchok Lubavitch): founded 1958 per the 1999 Jewish News directory; 1965 per a 2011 Friendship Circle blog (conflict)."
+   "year": 1965,
+   "how": "stated",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2011.07.21.001/14",
+   "note": "The boys' division of the Lubavitch Cheder, founded 1965 (see Oholei Yosef Yitzchak Lubavitch). (A 1999 directory says 1958.)"
   },
   "118185": {
    "name": "Yeshivas Lubavitch",
@@ -31,7 +31,7 @@
    "year": 1994,
    "how": "list",
    "source": "https://digital.bentley.umich.edu/djnews/djn.2024.07.04.001/7",
-   "note": "Detroit Jewish News, 4 July 2024, 'Since the Rebbe's Passing: over the past 30 years, these Chabad institutions have been founded in Michigan': 'Yeshivas Menachem Mendel Lubavitch/Mesivta - 1994' (taken to be this listing, Yeshivas Lubavitch, Oak Park)."
+   "note": "Detroit Jewish News, 4 July 2024, 'Since the Rebbe's Passing: over the past 30 years, these Chabad institutions have been founded in Michigan': 'Yeshivas Menachem Mendel Lubavitch/Mesivta - 1994' (taken to be this listing, Yeshivas Lubavitch, Oak Park). CrownHeights.info (Feb 2011) dates the high school to 1995; the school it grew from goes back to 1965."
   },
   "119943": {
    "name": "Ganeinu - Pre School",
@@ -68,10 +68,10 @@
   "117643": {
    "name": "Oholei Yosef Yitzchak Lubavitch",
    "city": "Oak Park",
-   "year": 1958,
-   "how": "directory",
-   "source": "https://digital.bentley.umich.edu/djnews/djn.1999.09.04.001/86",
-   "note": "Detroit Jewish News 1999 school directory: Cheder Yosef Yitzchok Lubavitch, Oak Park, founded 1958. (A 2011 Friendship Circle blog says the Lubavitch Cheder was founded in 1965 in Detroit: conflict.)"
+   "year": 1965,
+   "how": "stated",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2011.07.21.001/14",
+   "note": "Founded in 1965: at the 2011 groundbreaking of the Zekelman campus Rabbi Berel Shemtov read 'the original blessing from the late Lubavitcher Rebbe at the founding of the school in 1965' (Detroit Jewish News, 21 July 2011); CrownHeights.info, Feb 2011: 'Founded in 1965, the institution expanded in the 1980s to include a middle school; the high school was established in 1995.' (A 1999 directory says 1958.)"
   },
   "117641": {
    "name": "Chabad House of Farmington Hills",
@@ -94,10 +94,10 @@
    "city": "Southfield",
    "year": null,
    "how": "range",
-   "after": 1990,
-   "by": 2000,
    "source": "https://www.friendsofrefugees.org/?p=440",
-   "note": "F.R.E.E. of Michigan was established in 1990 (Rabbi Silberberg's initiative); branches in Southfield and Farmington Hills opened later; Rabbi Yosef Misholovin its director by 2000. Between 1990 and 2000."
+   "note": "F.R.E.E. of Michigan began in 1990 (its first synagogue, Bais Chabad of North Oak Park, Aug 1990); the Southfield center came later; Rabbi Yosef Misholovin its director by 2000.",
+   "after": 1990,
+   "by": 2000
   },
   "117645": {
    "name": "Chabad Torah Center of West Bloomfield",
@@ -150,11 +150,10 @@
   "118564": {
    "name": "Beis Chabad of North Oak Park",
    "city": "Oak Park",
-   "year": null,
-   "how": "range",
-   "by": 1997,
-   "source": "https://digital.bentley.umich.edu/djnews/djn.1997.05.30.001/40",
-   "note": "Listed by 1997 as 'Bais Chabad of North Oak Park/F.R.E.E.' (rabbis Yosef Misholovin and David Kagan, services at the JCC); its own building opened Sept 2004. Founded by 1997."
+   "year": 1990,
+   "how": "stated",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.1990.11.09.001/23",
+   "note": "Detroit Jewish News, 9 Nov 1990: Friends of Refugees of Eastern Europe, an affiliate of Michigan Chabad, 'established Bais Chabad of North Oak Park at the Northgate Clubhouse in mid-August', for Soviet immigrants, led by Rabbi Yosef Mishulovin."
   },
   "118632": {
    "name": "Chabad House of Western Michigan",
@@ -175,10 +174,10 @@
   "119721": {
    "name": "Oholei Yosef Yitzchak Lubavitch - Mesivta",
    "city": "Oak Park",
-   "year": null,
-   "how": "not-found",
-   "source": "https://digital.bentley.umich.edu/djnews/djn.2011.01.06.001/23",
-   "note": "No year found: the mesivta (middle school) is housed in the old Mishkan Israel building; a 2011 article mentions a mesivta of 30 boys without naming it."
+   "year": 1965,
+   "how": "stated",
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2011.07.14.001/20",
+   "note": "The Detroit Lubavitch Yeshivah and Mesivta: 'Since 1965, the Lubavitch Yeshivah and Mesivta has been providing education for high school and junior college male students' (Detroit Jewish News, 14 July 2011); its middle school was added in the 1980s and the high school (Yeshivas Menachem Mendel) in 1994-95 (CrownHeights.info, Feb 2011; the July 2024 Jewish News list)."
   },
   "119974": {
    "name": "Gan Yeladim Preschool",
@@ -200,18 +199,18 @@
    "city": "Oak Park",
    "year": null,
    "how": "range",
-   "by": 2007,
-   "source": "https://digital.bentley.umich.edu/djnews/djn.2007.12.20.001/16",
-   "note": "The Lubavitch Cheder's Lillian Schwarcz Education Center on Coolidge, Oak Park (girls' division): in use before its 2007 expansion; a 1997 article has Lubavitch converting an old church into its girls' school (not certainly this building). Part of the 1958 school."
+   "source": "https://digital.bentley.umich.edu/djnews/djn.1999.09.04.001/86",
+   "note": "The Lubavitch Cheder's girls' building at 25401 Coolidge Hwy, Oak Park: the girls' elementary school is there in the Sept 1999 directory (a 1997 article has Lubavitch converting an old church into its girls' school); named for Lillian Schwarcz, who died in March 1999; enlarged 2007.",
+   "by": 1999
   },
   "217615": {
    "name": "Lubavitch Outreach",
    "city": "Oak Park",
    "year": null,
    "how": "range",
-   "by": 2007,
-   "source": "https://digital.bentley.umich.edu/djnews/djn.2007.09.13.001/79",
-   "note": "Listed as 'Chabad Lubavitch Outreach', Oak Park, in a 2007 Jewish News directory (Rabbi Yitzchok Mann among Michigan's shluchim; he took a pulpit in Detroit in 1969). Founded by 2007."
+   "source": "https://digital.bentley.umich.edu/djnews/djn.2001.05.25.001/4",
+   "note": "First mention: 'Oak Park Chabad Lubavitch Outreach, Director: Rabbi Yosef Keselman' in the Jewish News, 25 May 2001; listed again in 2007 with Rabbi Yitzchok Mann among the shluchim. Founded by 2001.",
+   "by": 2001
   },
   "393834": {
    "name": "Chabad of Novi",

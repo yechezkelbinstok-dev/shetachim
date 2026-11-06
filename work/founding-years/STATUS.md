@@ -13,7 +13,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | cape-cod-and-the-islands | 4 | 3 |  |  |  | 1 |  | 1 | 4 | 1 |
 | central-ohio | 4 | 2 | 1 |  |  | 1 |  | 1 | 4 | 1 |
 | delaware | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
-| florida | 240 | 37 | 18 | 1 | 1 |  | 183 | 184 | 219 | 169 |
+| florida | 240 | 42 | 21 | 1 | 3 | 1 | 172 | 176 | 219 | 161 |
 | hawaii | 7 | 3 | 2 |  | 1 | 1 |  | 2 | 7 | 2 |
 | idaho | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | indiana | 7 | 4 | 2 |  |  | 1 |  | 1 | 7 | 1 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | kansas-missouri | 16 |  |  |  |  |  | 16 | 16 | 16 | 16 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
 | british-columbia | 13 |  |  |  |  |  | 13 | 13 | 13 | 13 |
-| **all** | 1969 | 350 | 111 | 2 | 30 | 104 | 1372 | 1506 | 1765 | 1323 |
+| **all** | 1969 | 355 | 114 | 2 | 32 | 105 | 1361 | 1498 | 1765 | 1315 |

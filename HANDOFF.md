@@ -82,16 +82,24 @@ thirteen no better recent photo has been found yet (the list is there, with what
   merrimack-valley, utah (4); alabama, kentucky, louisiana-mississippi, rockland, washington-dc (5);
   manitoba-saskatchewan, montana, new-mexico, north-shore-of-massachusetts (6); hawaii, indiana, iowa, rhode-island,
   southern-ohio, tennessee (7); vermont (8); ottawa (9); and the 9 dots in no shetach (New York).
-  **OPEN, asked by the owner before the batch starts: what counts as a center?** "What actually counts as a center?
-  Do we only do outreach? Maybe only outreach and chinuch moisdois? Honestly I'm not sure. Like do shuls count".
-  *(Suggestion, not agreed:)* the dots = shlichus centers (Chabad houses, campus Chabad houses, a shliach's
-  congregation or community center); schools, preschools, camps, mikvahs, yeshivas, social services and Anash
-  community shuls not as dots of their own (they'd crowd the hubs and count one family's work several times), but
-  the big ones as milestones in the video (the Detroit Mesivta, 1965). What each answer keeps (chabad.org's own
-  types, with the 189 untyped listings sorted by name, so approximate), US and Canada / Michigan: outreach only
-  (Chabad houses, campus, community centers, young professionals, Russian and Israeli centers) about 1,440 of the
-  1,787 dots / 22 of 33; with shuls about 1,520 / 24; with chinuch and camps too about 1,650 / 29; everything 1,787 /
-  33. Wait for the owner's decision; it changes which listings need years.
+  **What counts as a center** (he asked: "What actually counts as a center? Do we only do outreach? Maybe only
+  outreach and chinuch moisdois? Honestly I'm not sure. Like do shuls count"). A suggestion to keep only Chabad
+  houses was rejected. **Owner (Nov 6):** "No absolutely not. Chinuch moisdois are some of the most important parts
+  of Lubavitch … this what I'm doing isn't to do with my project of the head shluchim. This is rather the growth of
+  chabad". So chinuch mosdos are in. Shuls, mikvahs, camps and the rest: not said yet. (Counts, approximate, by
+  chabad.org's types, US and Canada / Michigan: outreach only about 1,440 of 1,787 dots / 22 of 33; with shuls about
+  1,520 / 24; with chinuch and camps about 1,650 / 29; everything 1,787 / 33.)
+  **therebbesimpact.com** (the owner found it, Nov 6: "can I trust it for a big bulk of the project going forward
+  though? It seems like they also used AI"). What it is: "an independent initiative created and maintained by a
+  private individual", built on Lovable (an AI site builder); no sources per entry, no methodology ("errors and
+  omissions may occur"). Its data (from its own endpoints, 29,001 records; the "25,000" it shows is a cap): Tanya
+  printings 8,097, Merkos Shlichus visits 7,071, shliach couples with a year 6,231, letters 4,132, "Chabad Center"
+  3,151 (about 167 of them look like schools or camps), places the Rebbe was 228. Tested against the Michigan pilot
+  (`work/founding-years/therebbesimpact-test.md`): it has 17 of our 33 dated dots (Waterford only as its couple); of
+  those 17, the same year 12, a year off 3, wrong 2 (Farmington Hills 1971, the Bergsteins' Chabad there is 1977–78;
+  Windsor 2012, the year of the separate Chabad House, the rabbi came 2009). Missing: the 1958 Lubavitch of Michigan, the 1961 camp, the 1963 shul,
+  the 1965 Cheder and Mesivta and every 1990s mosad. Old entries mix a building's or a shul's own founding with
+  Chabad's (Colel Chabad, Brooklyn, 1788; a Chicago shul, 1896).
 - Head photos still missing — Europe/Middle East: Moldova, Romania, Sweden, Switzerland; USA: Kansas–Missouri,
   Delaware, New Hampshire, Eastern Massachusetts, Rhode Island, Cape Cod; Canada: British Columbia, Ottawa, Quebec,
   Maritimes. Old or weak US/Canada photos and vaad faces: the lists in the Nov 5 sections.
@@ -110,6 +118,20 @@ thirteen no better recent photo has been found yet (the list is there, with what
   settings, never to paste it in the chat.
 - Judea and Samaria is Israel; head shluchim's names in full; never a map in a card; commit and push every turn to
   `claude/bold-albattani-aqfnj9`, no PR.
+
+## ▶ Nov 6 (latest): sub-shetach outlines meet their shetach's own border (LIVE)
+- Owner (Nov 3, a phone screenshot of Staten Island): "the boundaries of Staten Island compared to Tzach boundaries are
+  mismatched, the Tzach ones in general are probably just horrible".
+- Why: a region of whole counties was its Census counties cut to the shetach's land, but the map draws the shetach
+  from geo.json, simplified a few hundred metres off the Census lines; so along coasts, state lines and the next
+  shetach the dotted line ran beside the shetach's own edge (Staten Island's inside it, the fill showing past it).
+- Now (`scripts/build-sub.mjs`, `fitted` and `stripsOf`): a region whose membersIn are all counties is the shetach's
+  land round it, less the shetach's other counties and their strips (the bits of its land beyond the Census counties,
+  each given to the county beside it; split on a 30 m grid where two meet; only strips under 10 km²). Its outer edges
+  are the map's own; the lines between counties are still the Census's.
+- Measured on the outline's points within 1 km of the shetach's border (on it within 30 m): Staten Island 39% → 100%,
+  Long Island 66% → 96%, Southern Nevada 73% → 99%, Tampa Bay 56% → 95%, Westchester 61% → 76% (its other points there
+  are on the Bronx line). The same regions, houses and pieces as before, no overlaps.
 
 ## ▶ Nov 6, later: Europe and Middle East photos redone — ten changed (LIVE)
 

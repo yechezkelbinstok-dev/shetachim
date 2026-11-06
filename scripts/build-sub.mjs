@@ -43,7 +43,9 @@ const data = readJSON(ROOT, 'data', 'sub-shetachim.json');
 const countyFile = fs.readdirSync(CACHE).filter((f) => /^us-counties-\w+\.geojson$/.test(f))
   .map((f) => path.join(CACHE, f)).sort((a, b) => fs.statSync(b).mtimeMs - fs.statSync(a).mtimeMs)[0];
 if (!countyFile) throw new Error('no .cache/us-counties-*.geojson: run npm run build first');
-const counties = new Map(readJSON(countyFile).features.map((f) => [f.properties.GEOID, f.geometry]));
+const countyFeatures = readJSON(countyFile).features;
+const counties = new Map(countyFeatures.map((f) => [f.properties.GEOID, f.geometry]));
+const countyState = new Map(countyFeatures.map((f) => [f.properties.GEOID, `US-${f.properties.STUSPS}`]));
 const topo = readJSON(ROOT, 'web', 'data', 'geo.json');
 const pieces = topo.objects.areas.geometries;
 // every center's spot, state and shetach (web/data/centers.geojson: a dot is one spot, with the centers there)
@@ -451,6 +453,125 @@ const rect = ([a, b, c, d], m = 0.5) => [[[a - m, b - m], [c + m, b - m], [c + m
 // a house in a polygon, or by its edge (a spot geocoded just off the coast)
 const holds = (p, d) => inRing(d.lon, d.lat, p[0]) || p[0].some(([x, y]) => kmApart(d, { lon: x, lat: y }) < 1.5);
 
+// ---------- a region of whole counties meets its shetach's own border (owner, Nov 3) ----------
+// The map draws a shetach from its own land (geo.json: simplified, its lines up to a few hundred metres off the Census
+// ones), so a region of whole counties cut to that land had Census lines along the coast and the shetach's edge, beside
+// the map's own: Staten Island's outline ran inside Greater New York's ("the boundaries of Staten Island compared to
+// Tzach boundaries are mismatched, the Tzach ones in general are probably just horrible"). Now the strips of the
+// shetach's land beyond its own counties (along a coast, a state line, the next shetach) go to the county beside them —
+// a strip by two counties is split between them, each bit to the nearer — and the region is its counties with their
+// strips, cut to the land: its outer edges are the map's own; only the lines between its counties and the next ones are
+// the Census's.
+const kmPerDeg = (lat) => [111.32 * Math.cos((lat * Math.PI) / 180), 110.57];
+const areaOf = (mp) => mp.reduce((a, p) => a + ringArea(p[0]) - p.slice(1).reduce((h, r) => h + ringArea(r), 0), 0);
+const meets = (a, b) => a[0] <= b[2] && b[0] <= a[2] && a[1] <= b[3] && b[1] <= a[3];
+// the edges of polygons that come within a box ([west, south, east, north])
+function edgesIn(mp, bb) {
+  const out = [];
+  for (const p of mp) for (const r of p) for (let i = 1; i < r.length; i++) {
+    const [ax, ay] = r[i - 1], [bx, by] = r[i];
+    if (Math.max(ax, bx) >= bb[0] && Math.min(ax, bx) <= bb[2] && Math.max(ay, by) >= bb[1] && Math.min(ay, by) <= bb[3]) out.push([ax, ay, bx, by]);
+  }
+  return out;
+}
+// km from a point to the nearest of those edges
+function kmTo(x, y, edges, kx, ky) {
+  let best = Infinity;
+  for (const [ax, ay, bx, by] of edges) {
+    const ux = (bx - ax) * kx, uy = (by - ay) * ky, wx = (x - ax) * kx, wy = (y - ay) * ky, l2 = ux * ux + uy * uy;
+    const t = l2 ? Math.max(0, Math.min(1, (wx * ux + wy * uy) / l2)) : 0, dx = wx - t * ux, dy = wy - t * uy;
+    best = Math.min(best, dx * dx + dy * dy);
+  }
+  return Math.sqrt(best);
+}
+// The shetach's land in a box, split among the state's counties that are mostly its own (own: [GEOID, polygons]): the
+// strips beyond them, each county's (GEOID → polygons), and the rest (loose). A strip touching one county is that
+// county's; one touching two or more is cut on a 30 m grid, each cell to the nearest of them; one touching none goes to
+// the nearest within 2 km. Only strips (under 10 km²): a bigger piece of the shetach's land outside its counties (part
+// of a county it shares) is no county's.
+function stripsOf(land, st, bb) {
+  const [kx, ky] = kmPerDeg((bb[1] + bb[3]) / 2);
+  const own = [];
+  for (const [id, g] of counties) {
+    if (countyState.get(id) !== st) continue;
+    const ps = polys(g);
+    if (meets(box(ps), bb) && areaOf(polygonClipping.intersection(ps, land)) > 0.5 * areaOf(ps)) own.push([id, ps]);
+  }
+  const byCounty = new Map(own.map(([id]) => [id, []])), loose = [];
+  const near = polygonClipping.intersection(land, rectOf(bb));
+  const strips = cutAll(near, own.map(([, ps]) => ps));
+  for (const p of strips) {
+    if (areaOf([p]) * kx * ky >= 10) { loose.push(p); continue; }
+    const pb = box([p]), pad = [pb[0] - 0.5 / kx, pb[1] - 0.5 / ky, pb[2] + 0.5 / kx, pb[3] + 0.5 / ky];
+    const by = own.map(([id, ps]) => [id, edgesIn(ps, pad)]).filter(([, e]) => e.length)
+      .map(([id, e]) => [id, e, Math.min(...p[0].map(([x, y]) => kmTo(x, y, e, kx, ky)))]);
+    const touching = by.filter(([, , d]) => d < 0.05);
+    if (touching.length === 1) { byCounty.get(touching[0][0]).push(p); continue; }
+    if (!touching.length) { const best = by.sort((a, b) => a[2] - b[2])[0]; if (best && best[2] < 2) byCounty.get(best[0]).push(p); else loose.push(p); continue; }
+    const nx = Math.max(1, Math.ceil(((pb[2] - pb[0]) * kx) / 0.03)), ny = Math.max(1, Math.ceil(((pb[3] - pb[1]) * ky) / 0.03));
+    const dx = (pb[2] - pb[0]) / nx, dy = (pb[3] - pb[1]) / ny, rects = new Map(touching.map(([id]) => [id, []]));
+    for (let j = 0; j < ny; j++) {
+      const y0 = pb[1] + j * dy, y1 = y0 + dy;
+      let run = null;
+      for (let i = 0; i <= nx; i++) {
+        let who = null;
+        if (i < nx) {
+          let bestD = Infinity;
+          for (const [id, e] of touching) { const d = kmTo(pb[0] + (i + 0.5) * dx, y0 + dy / 2, e, kx, ky); if (d < bestD) { bestD = d; who = id; } }
+        }
+        if (run && run.id !== who) {
+          const xa = pb[0] + run.i0 * dx, xb = pb[0] + i * dx;
+          rects.get(run.id).push([[[xa, y0], [xb, y0], [xb, y1], [xa, y1], [xa, y0]]]);
+          run = null;
+        }
+        if (who && !run) run = { id: who, i0: i };
+      }
+    }
+    for (const [id, rs] of rects) if (rs.length) { try { byCounty.get(id).push(...polygonClipping.intersection(unionAll(rs), [p])); } catch { unjoined++; } }
+  }
+  return { own, byCounty, loose };
+}
+const rectOf = (bb) => [[[bb[0], bb[1]], [bb[2], bb[1]], [bb[2], bb[3]], [bb[0], bb[3]], [bb[0], bb[1]]]];
+// (the clipping library can trip over points a hair apart: a cut or a union that fails is done again a piece at a time,
+// with coordinates rounded to a tenth of a metre if need be; a piece it still can't take is left as it is, and counted)
+const snap = (mp) => mp.map((p) => p.map((r) => r.map(([x, y]) => [Math.round(x * 1e6) / 1e6, Math.round(y * 1e6) / 1e6])));
+let unjoined = 0;
+function unionAll(list) {
+  try { return polygonClipping.union(...list); } catch {
+    let acc = list[0];
+    for (const g of list.slice(1)) { try { acc = polygonClipping.union(acc, g); } catch { try { acc = polygonClipping.union(snap(acc), snap(g)); } catch { unjoined++; } } }
+    return acc;
+  }
+}
+function cutAll(from, list) {
+  if (!list.length) return from;
+  try { return polygonClipping.difference(from, ...list); } catch {
+    let acc = from;
+    for (const g of list) { try { acc = polygonClipping.difference(acc, g); } catch { try { acc = polygonClipping.difference(snap(acc), snap(g)); } catch { unjoined++; } } }
+    return acc;
+  }
+}
+// A region of whole counties (all its membersIn are counties), state by state: the shetach's land round its counties,
+// less the other counties and their strips (and the loose pieces). Its outer edges are the land's own.
+function fitted(s, areas, lands) {
+  if (!(s.membersIn || []).length || !s.membersIn.every((t) => t.counties && Object.keys(t).length === 1)) return areas;
+  const ids = s.membersIn.flatMap((t) => t.counties), out = [];
+  for (const [st, land] of lands) {
+    const mine = ids.filter((id) => countyState.get(id) === st);
+    if (!mine.length) continue;
+    const b = box(mine.flatMap((id) => polys(counties.get(id)))), [kx, ky] = kmPerDeg((b[1] + b[3]) / 2);
+    const bb = [b[0] - 5 / kx, b[1] - 5 / ky, b[2] + 5 / kx, b[3] + 5 / ky];
+    const { own, byCounty, loose } = stripsOf(land, st, bb);
+    const theirs = (id) => !mine.includes(id);
+    out.push(...cutAll(polygonClipping.intersection(land, rectOf(bb)), [
+      ...own.filter(([id]) => theirs(id)).map(([, ps]) => ps),
+      ...[...byCounty].filter(([id]) => theirs(id)).flatMap(([, ps]) => ps.map((p) => [p])),
+      ...loose.map((p) => [p]),
+    ]));
+  }
+  return out.length ? out : areas;
+}
+
 const features = [];
 let broken = 0;
 for (const s of data.subShetachim) {
@@ -494,7 +615,7 @@ for (const s of data.subShetachim) {
   const outline = s.outline || 'drawn';
   const shapes = [];
   if (outline !== 'areas') shapes.push(drawRegion(seeds.map((d) => [d.lon, d.lat]), others.map((d) => [d.lon, d.lat]), s.reach ?? REACH, landNear, s.far ?? FAR));
-  if (outline !== 'drawn') shapes.push(...areas.map((poly) => [poly]));
+  if (outline !== 'drawn') shapes.push(...fitted(s, areas, lands).map((poly) => [poly]));
   const joint = shapes.filter((g) => g.length).length ? polygonClipping.union(...shapes.filter((g) => g.length)) : [];
   const shape = s.soften ? soften(joint, s.soften, [...lands.values()].flat(), memberDots, others) : joint;
   const all = whole.length ? polygonClipping.union(shape, ...whole) : shape;
@@ -599,4 +720,4 @@ for (let a = 0; a < features.length; a++) for (let b = a + 1; b < features.lengt
 }
 const outFile = path.join(ROOT, 'web', 'data', 'sub.json');
 fs.writeFileSync(outFile, JSON.stringify({ type: 'FeatureCollection', features: [...features, ...lineFeatures] }));
-console.log(`web/data/sub.json: ${data.subShetachim.length} sub-shetachim, ${features.length} parts (and their outlines), ${(fs.statSync(outFile).size / 1024).toFixed(0)} KB${broken ? `; ${broken} not in one piece` : ''}`);
+console.log(`web/data/sub.json: ${data.subShetachim.length} sub-shetachim, ${features.length} parts (and their outlines), ${(fs.statSync(outFile).size / 1024).toFixed(0)} KB${broken ? `; ${broken} not in one piece` : ''}${unjoined ? `; ${unjoined} strips of a shetach's border left out (the clipping failed)` : ''}`);

@@ -55,3 +55,13 @@ source (a URL), note (the quote and what it shows), confidence; `date` when one 
   year for most schools and preschools (entered as how 'list', medium). Downloaded and read locally with pdftotext (do
   not ask Firecrawl to parse it: 109 pages cost 113 credits). Used so far: Gan Camarillo 2005, Gan Chabad Pleasanton
   2007, Bais Menachem 2006, Aleph Schoolhouse 1983. It covers LA's schools too.
+- Batches 10-12 (San Diego and Orange County, Nov 6): all 51 researched. High among them: University City 1978 (began
+  as 'Chabad of La Jolla'), Poway 1986, La Costa 1989, La Jolla 2001, Downtown SD 2004, Laguna Niguel 2005, Pacific
+  Beach 2007, Rancho Santa Margarita 2008, East County 2012-07, Carmel Valley 2014, Encinitas 2016-09, Escondido 2021,
+  Tierrasanta 2023, North Park 2025, Mission Valley 2026. Medium: SD headquarters and SDSU 1975 (SDSU: 1975 or 1977),
+  Irvine 1979 (or 1984), West OC 1984, Mission Viejo 1996, Newport Beach 2001, Los Alamitos 2002, Oceanside 2004-07,
+  San Clemente 2005-09, Alef Center 2005, Hebrew Academy 1969 (directory), YAM 2012, Dana Point 2018. Ranges: Laguna
+  Beach (by 1991), North County (1973-1988), Rancho Bernardo (by 2022). Tijuana 1993 entered (Mexico: the owner's
+  call). Open: Tustin, RSF, North Irvine, Aliso Viejo, Chapman, South HB, Coastal Hebrew School, Mikvah Israel,
+  Coronado, Friendship Circle SD, Chula Vista, UCSD, Chabad Israeli OC, Penasquitos, Family Chabad, UC Irvine, Chabad
+  Without Borders, Beth Eliyahu.

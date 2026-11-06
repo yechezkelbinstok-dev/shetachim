@@ -1,5 +1,5 @@
 {
- "about": "Profile photos of the head shluchim (USA and Canada), one per shetach: a head-and-shoulders crop (320x320 JPEG) in web/img/heads/<shetach id>.jpg. Standard (owner, Nov 5): a proper portrait of him alone, never a farbrengen or group shot. 'page' is where the photo was found, 'image' the original file; 'crop' is the hand-picked square on that image (centre as fractions of width and height, side as a fraction of height) and 'cast' a colour cast taken out by hand; 'edit' (rare) is what scripts/head-photos/paint-out.py painted out of the source first (someone else reaching into the frame). Every photo is retouched by scripts/head-photos/retouch.py (cast, levels, exposure and colour read on the skin, local contrast, sharpening). Not on the live page yet (waiting on the owner).",
+ "about": "Profile photos of the head shluchim (USA, Canada, Europe and the Middle East), one per shetach: a head-and-shoulders crop (320x320 JPEG) in web/img/heads/<shetach id>.jpg. Standard (owner, Nov 5): a proper portrait of him alone, never a farbrengen or group shot. 'page' is where the photo was found, 'image' the original file; 'crop' is the hand-picked square on that image (centre as fractions of width and height, side as a fraction of height) and 'cast' a colour cast taken out by hand; 'edit' (rare) is what scripts/head-photos/paint-out.py painted out of the source first (someone else reaching into the frame). Every photo is retouched by scripts/head-photos/retouch.py (cast, levels, exposure and colour read on the skin, local contrast, sharpening).",
  "photos": [
   {
    "id": "west-coast",
@@ -667,6 +667,451 @@
     "cx": 0.483,
     "cy": 0.43,
     "side": 0.586
+   }
+  },
+  {
+   "id": "austria",
+   "head": "Yaakov Yitzchak Biderman",
+   "file": "img/heads/austria.jpg",
+   "page": "https://collive.com/new-chabad-seminary-to-open-in-austria/",
+   "image": "https://collive.com/wp-content/uploads/photos/2023/11/Rabbi-Yaakov-Biderman.jpg",
+   "note": "COLlive portrait, Nov 2023 (the watermark on his tie left out)",
+   "crop": {
+    "cx": 0.48,
+    "cy": 0.42,
+    "side": 0.6
+   }
+  },
+  {
+   "id": "belgium",
+   "head": "Shabtai Slavaticki",
+   "file": "img/heads/belgium.jpg",
+   "page": "https://anash.org/the-rebbes-advice-for-stuttering-changed-my-life/",
+   "image": "https://files.anash.org/uploads/2025/04/640.jpg",
+   "note": "still from his My Encounter interview (recorded 2018, published Apr 2025)",
+   "crop": {
+    "cx": 0.515,
+    "cy": 0.5,
+    "side": 1.0
+   }
+  },
+  {
+   "id": "bulgaria",
+   "head": "Yosef Salamon",
+   "file": "img/heads/bulgaria.jpg",
+   "page": "https://embassies.gov.il/bulgaria/en/news/rabbi-salomon-visited-embassy",
+   "image": "https://embassies.gov.il/sites/default/files/styles/ckeditor_landscape_image/public/2025-04/490773895_1088926316603476_5293231234462664782_n.jpg?itok=zr_zrIeT",
+   "note": "at the Israeli embassy before Pesach, Apr 2025: he is on the left (told from the other rabbi by his BNR photo)",
+   "crop": {
+    "cx": 0.232,
+    "cy": 0.331,
+    "side": 0.4
+   }
+  },
+  {
+   "id": "croatia",
+   "head": "Pinny Zaklas",
+   "file": "img/heads/croatia.jpg",
+   "page": "https://zidovi.hr/posjet-rabina-pinchasa-zaklosa-osijeku-i-koprivnici/",
+   "image": "http://zidovi.hr/wp-content/uploads/2020/07/WhatsApp-Image-2020-06-30-at-19.36.10-1-1024x768.jpeg",
+   "note": "his own photo on a visit to Osijek, June 2020",
+   "crop": {
+    "cx": 0.1875,
+    "cy": 0.55,
+    "side": 0.5
+   }
+  },
+  {
+   "id": "cyprus",
+   "head": "Aryeh Zeev Raskin",
+   "file": "img/heads/cyprus.jpg",
+   "page": "https://x.com/ZeevRaskin",
+   "image": "https://pbs.twimg.com/profile_images/1715834740404523008/o27a5O3Y_400x400.jpg",
+   "note": "his X profile picture (Oct 2023)",
+   "crop": {
+    "cx": 0.6,
+    "cy": 0.42,
+    "side": 0.8
+   }
+  },
+  {
+   "id": "czech-republic",
+   "head": "Manis Barash",
+   "file": "img/heads/czech-republic.jpg",
+   "page": "https://www.youtube.com/watch?v=AgJopg5IwpU",
+   "image": "https://i.ytimg.com/vi/AgJopg5IwpU/maxresdefault.jpg",
+   "note": "still from a TV interview (Studio 6); the caption bar left out",
+   "crop": {
+    "cx": 0.674,
+    "cy": 0.36,
+    "side": 0.73
+   }
+  },
+  {
+   "id": "denmark",
+   "head": "Yitzi Lowenthal",
+   "file": "img/heads/denmark.jpg",
+   "page": "http://www.oresundslimmud.se/yitzi-loewenthal-2026-denmark/",
+   "image": "http://www.oresundslimmud.dk/wp-content/uploads/2025/11/web_yitzi.jpg",
+   "note": "Oresund Limmud speaker portrait, Nov 2025",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.5,
+    "side": 0.95
+   }
+  },
+  {
+   "id": "estonia",
+   "head": "Shmuel Kot",
+   "file": "img/heads/estonia.jpg",
+   "page": "https://www.ohtuleht.ee/952234/eesti-pearabi-teotaja-nabiti-kinni-juudi-kogukonna-juht-rabi-solvamine-on-meie-jaoks-vaga-valulik",
+   "image": "https://p.ohtuleht.ee/webp/58/i/2019/3/18/1ac2otns.e0q.jpg",
+   "note": "Ohtuleht, Mar 2019",
+   "crop": {
+    "cx": 0.553,
+    "cy": 0.5,
+    "side": 1.0
+   }
+  },
+  {
+   "id": "finland",
+   "head": "Benyamin Wolff",
+   "file": "img/heads/finland.jpg",
+   "page": "https://fi.linkedin.com/in/rabbi-benyamin-wolff-87ab151a0",
+   "image": "https://media.licdn.com/dms/image/v2/C4D03AQEGc0j949EuZQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1579862329643?e=2147483647&v=beta&t=wnTBXSUqhSou0AxFYU0ijGBKUjUuDyW9TPiD8AYo8Hw",
+   "note": "his LinkedIn photo (Jan 2020; 200 px, soft: the only portrait of him alone found. Not the late Rabbi Binyamin Wolff of Hanover)",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.36,
+    "side": 0.56
+   }
+  },
+  {
+   "id": "france",
+   "head": "Mendy Azimov",
+   "file": "img/heads/france.jpg",
+   "page": "https://www.crif.org/articles/actualites/2021-04-29/quel-avenir-pour-les-francais-juifs-les-reponses-de-mendel-azimov-directeur-du-beth-loubavitch-paris/",
+   "image": "http://www.crif.org/wp-content/uploads/2021/04/mendel_azimov-2.png",
+   "note": "the portrait in CRIF interview graphic, Apr 2021",
+   "crop": {
+    "cx": 0.79,
+    "cy": 0.38,
+    "side": 0.5
+   }
+  },
+  {
+   "id": "germany",
+   "head": "Yisroel Diskin",
+   "file": "img/heads/germany.jpg",
+   "page": "https://rabbinerrat.de/mitglieder/",
+   "image": "https://rabbinerrat.de/wp-content/uploads/2017/11/Diskin-e1510713492681-600x600.jpg",
+   "note": "Deutscher Rabbinerrat members page (2017): the most recent portrait of him alone found",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.5,
+    "side": 1.0
+   }
+  },
+  {
+   "id": "greece",
+   "head": "Mendel Hendel",
+   "file": "img/heads/greece.jpg",
+   "page": "https://www.instagram.com/p/Dauo-FuCDcx/",
+   "image": "Instagram post (Chabad of Greece, July 2026: his 50th birthday), photo 3",
+   "note": "at his 50th birthday, July 2026",
+   "crop": {
+    "cx": 0.45,
+    "cy": 0.486,
+    "side": 0.521
+   }
+  },
+  {
+   "id": "hungary",
+   "head": "Baruch Oberlander",
+   "file": "img/heads/hungary.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Oberlander_B%C3%A1ruch_rabbi.jpg",
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Oberlander_B%C3%A1ruch_rabbi.jpg/500px-Oberlander_B%C3%A1ruch_rabbi.jpg",
+   "note": "Wikimedia Commons portrait (the 500 px copy; the newer photos all have a microphone in front)",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.3,
+    "side": 0.55
+   }
+  },
+  {
+   "id": "iceland",
+   "head": "Avraham Feldman",
+   "file": "img/heads/iceland.jpg",
+   "page": "https://www.instagram.com/p/DGi_3S3RDmZ/",
+   "image": "Instagram post (The Jew Project, Feb 2025), photo 8",
+   "note": "studio portrait by The Jew Project, Feb 2025",
+   "crop": {
+    "cx": 0.584,
+    "cy": 0.289,
+    "side": 0.678
+   }
+  },
+  {
+   "id": "ireland",
+   "head": "Zalman Lent",
+   "file": "img/heads/ireland.jpg",
+   "page": "http://www.patrickcomerford.com/2019/04/interfaith-consultation-with-jewish.html",
+   "image": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgMCDSdXGMpE3jgKgasUgowvEqWU_Y-i8GC-pZZXZ-yhoB-UIQfGjDt9nLwXbdOQcNzOco0ESWihsOSixjIx5MwxySLNAyYmUw3q6Zj3nEV5aKd4umgWUd4oOyFZlbw8Gbdf2qMcO5QYZw/s1600/1%252C+Canon+Patrick+Comerford%252C+Rabbi+Zalman+Lent+and+Bishop+Kenneth+Kearon+at+the+interfaith+consultation+in+the+Church+of+Ireland+Theological+Institute+%2528Photograph+Georgina+Copty%2529.jpg",
+   "note": "Apr 2019, the middle of three (\"Canon Patrick Comerford, Rabbi Zalman Lent and Bishop Kenneth Kearon\")",
+   "crop": {
+    "cx": 0.526,
+    "cy": 0.3,
+    "side": 0.607
+   }
+  },
+  {
+   "id": "israel",
+   "head": "Yosef Yitzchak Aharonov",
+   "file": "img/heads/israel.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:%D7%94%D7%A8%D7%91_%D7%99%D7%95%D7%A1%D7%A3_%D7%99%D7%A6%D7%97%D7%A7_%D7%90%D7%94%D7%A8%D7%95%D7%A0%D7%95%D7%91.jpeg",
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/41/%D7%94%D7%A8%D7%91_%D7%99%D7%95%D7%A1%D7%A3_%D7%99%D7%A6%D7%97%D7%A7_%D7%90%D7%94%D7%A8%D7%95%D7%A0%D7%95%D7%91.jpeg/960px-%D7%94%D7%A8%D7%91_%D7%99%D7%95%D7%A1%D7%A3_%D7%99%D7%A6%D7%97%D7%A7_%D7%90%D7%94%D7%A8%D7%95%D7%A0%D7%95%D7%91.jpeg",
+   "note": "Wikimedia Commons portrait (the 960 px copy)",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.54,
+    "side": 0.75
+   }
+  },
+  {
+   "id": "italy",
+   "head": "Avraham Chazan",
+   "file": "img/heads/italy.jpg",
+   "page": "https://milano.corriere.it/notizie/cronaca/17_ottobre_19/milano-via-poerio-casa-770-edificio-ebraico-16-repliche-copie-brooklyn-1a7f87b2-b434-11e7-b73f-b517701f3ad7.shtml",
+   "image": "https://milano.corriere.it/methode_image/2017/10/12/Milano/Foto%20Gallery/9093117.jpg",
+   "note": "Corriere della Sera, Oct 2017 (\"il rabbino Avraham\" at Milan's 770): the clearest photo of him alone found",
+   "crop": {
+    "cx": 0.565,
+    "cy": 0.5,
+    "side": 0.3
+   }
+  },
+  {
+   "id": "latvia",
+   "head": "Mordechai Glazman",
+   "file": "img/heads/latvia.jpg",
+   "page": "https://chabadschool.lv/en/about",
+   "image": "https://static.tildacdn.net/tild3037-6162-4361-b639-653033643064/Adobe_Express_-_file.jpg",
+   "note": "Chabad School Latvia, with his wife (cropped to him)",
+   "crop": {
+    "cx": 0.66,
+    "cy": 0.22,
+    "side": 0.3
+   }
+  },
+  {
+   "id": "lithuania",
+   "head": "Sholom Ber Krinsky",
+   "file": "img/heads/lithuania.jpg",
+   "page": "https://hamec.org/in-lithuania-there-is-institutional-and-legal-antisemitism/",
+   "image": "https://hamec.org/wp-content/uploads/2026/03/4-RABBI-SHOLOM-BER-KRINSKY-head-of-Chabad-in-Vilnius-300x300.webp",
+   "note": "Mar 2026 (\"Rabbi Sholom Ber Krinsky, head of Chabad in Vilnius\")",
+   "crop": {
+    "cx": 0.6,
+    "cy": 0.4,
+    "side": 0.8
+   }
+  },
+  {
+   "id": "lower-balkans",
+   "head": "Yoel Kaplan",
+   "file": "img/heads/lower-balkans.jpg",
+   "page": "https://www.youtube.com/watch?v=t0K0VU0fHD0",
+   "image": "https://i.ytimg.com/vi/t0K0VU0fHD0/maxresdefault.jpg",
+   "note": "still from an Albanian TV interview (\"Kryerabini i Shqiperise, Yoel Kaplan\"); the caption bar left out",
+   "crop": {
+    "cx": 0.531,
+    "cy": 0.394,
+    "side": 0.69
+   }
+  },
+  {
+   "id": "malta",
+   "head": "Chaim Segal",
+   "file": "img/heads/malta.jpg",
+   "page": "https://www.chabad.org/news/article_cdo/aid/4165099/jewish/Rich-in-Jewish-History-Malta-Gets-Its-First-Luxury-Mikvah.htm",
+   "image": "https://w2.chabad.org/media/images/1066/SsDA10669790.jpg",
+   "note": "Chabad.org News, with his wife (cropped to him)",
+   "crop": {
+    "cx": 0.285,
+    "cy": 0.3,
+    "side": 0.5
+   }
+  },
+  {
+   "id": "montenegro",
+   "head": "Ari Edelkopf",
+   "file": "img/heads/montenegro.jpg",
+   "page": "https://jewishlink.news/rabbi-ari-edelkopf-to-speak-at-chabad-of-west-orange/",
+   "image": "https://jewishlink.news/wp-content/uploads/2018/02/201-2.jpg",
+   "note": "The Jewish Link, Feb 2018",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.5,
+    "side": 0.966
+   }
+  },
+  {
+   "id": "morocco",
+   "head": "Levi Banon",
+   "file": "img/heads/morocco.jpg",
+   "page": "https://x.com/RabbiMorocco",
+   "image": "https://pbs.twimg.com/profile_images/1539178899237658626/V2bdDTht_400x400.jpg",
+   "note": "his X profile picture (June 2022); cropped close, a friend's hand on his shoulder just at the edge",
+   "crop": {
+    "cx": 0.46,
+    "cy": 0.42,
+    "side": 0.72
+   },
+   "keep": true
+  },
+  {
+   "id": "netherlands",
+   "head": "Binyomin Jacobs",
+   "file": "img/heads/netherlands.jpg",
+   "page": "https://www.trouw.nl/religie-filosofie/opperrabbijn-binyomin-jacobs-is-vijftig-jaar-in-functie-joden-zijn-de-kanarie-in-de-kolenmijn~b203c528/",
+   "image": "https://image.trouw.nl/263166501/feature-crop/1200/675/opperrabbijn-binyomin-jacobs",
+   "note": "Trouw portrait (his fifty years in office)",
+   "crop": {
+    "cx": 0.511,
+    "cy": 0.5,
+    "side": 1.0
+   }
+  },
+  {
+   "id": "norway",
+   "head": "Shaul Wilhelm",
+   "file": "img/heads/norway.jpg",
+   "page": "https://www.youtube.com/watch?v=ka31BM51PlM",
+   "image": "https://i.ytimg.com/vi/ka31BM51PlM/maxresdefault.jpg",
+   "note": "video still (\"Rabbi Shaul Wilhelm: The Rebbe is connected to every detail of our lives\")",
+   "crop": {
+    "cx": 0.533,
+    "cy": 0.5,
+    "side": 1.0
+   }
+  },
+  {
+   "id": "poland",
+   "head": "Sholom Ber Stambler",
+   "file": "img/heads/poland.jpg",
+   "page": "https://www.rp.pl/plus-minus/art39458041-rabin-stambler-solidarnosc-polakow-z-izraelem-rozgrzewa-moje-serce",
+   "image": "https://i.gremicdn.pl/image/free/d0773ec06eb00bcff071dc68e0f73af0/?t=resize:fill:1200:750,enlarge:1",
+   "note": "Rzeczpospolita interview, 2023",
+   "crop": {
+    "cx": 0.605,
+    "cy": 0.3,
+    "side": 0.6
+   }
+  },
+  {
+   "id": "portugal",
+   "head": "Eli Rosenfeld",
+   "file": "img/heads/portugal.jpg",
+   "page": "https://portuguesejewishnews.com/news/interview-with-the-rabbi-eli-rosenfeld-chabad-portugal/",
+   "image": "https://portuguesejewishnews.com/media/105lcvce/eli-rosenfeld.jpg",
+   "note": "Portuguese Jewish News interview",
+   "crop": {
+    "cx": 0.452,
+    "cy": 0.31,
+    "side": 0.66
+   }
+  },
+  {
+   "id": "qatar",
+   "head": "Eli Chitrik",
+   "file": "img/heads/qatar.jpg",
+   "page": "https://nypost.com/2022/11/29/rabbi-serves-kosher-food-to-jewish-travelers-at-world-cup/",
+   "image": "https://nypost.com/wp-content/uploads/sites/2/2022/11/world-cup-bagels-07.jpg?quality=75&strip=all&w=1200",
+   "note": "New York Post, Nov 2022 (kosher food at the World Cup)",
+   "crop": {
+    "cx": 0.429,
+    "cy": 0.285,
+    "side": 0.571
+   }
+  },
+  {
+   "id": "russia",
+   "head": "Berel Lazar",
+   "file": "img/heads/russia.jpg",
+   "page": "https://www.instagram.com/p/CYpUzH_rq0o/",
+   "image": "Instagram post (The Jew Project, Jan 2022), photo 7",
+   "note": "studio portrait by The Jew Project, Jan 2022",
+   "crop": {
+    "cx": 0.46,
+    "cy": 0.324,
+    "side": 0.425
+   }
+  },
+  {
+   "id": "serbia",
+   "head": "Yehoshua Kaminetzky",
+   "file": "img/heads/serbia.jpg",
+   "page": "https://cordmagazine.com/events/jewish-habad-serbia-centre-opens-in-belgrade/",
+   "image": "https://cordmagazine.com/wp-content/gallery/jewish-habad-serbia-centre-opens-in-belgrade/SUB_4134-002_resize.JPG",
+   "note": "CorD Magazine, the centre's opening, Sept 2016: the most recent photo of him alone found",
+   "crop": {
+    "cx": 0.45,
+    "cy": 0.31,
+    "side": 0.4
+   }
+  },
+  {
+   "id": "slovakia",
+   "head": "Baruch Myers",
+   "file": "img/heads/slovakia.jpg",
+   "page": "https://en.wikipedia.org/wiki/Baruch_Myers",
+   "image": "https://upload.wikimedia.org/wikipedia/commons/6/62/Rabbi_Baruch_Myers.jpg",
+   "note": "Wikimedia Commons; cropped close to leave out a man behind him",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.42,
+    "side": 0.55
+   },
+   "keep": true
+  },
+  {
+   "id": "spain",
+   "head": "Shneur Zalman Goldstein",
+   "file": "img/heads/spain.jpg",
+   "page": "https://www.charidy.com/ChabadMadrid",
+   "image": "https://b313e8803f7a4150a884-6e0b076a1e92e31c40be44f466689c50.ssl.cf5.rackcdn.com/images/loginid75722/73e727c09bebb8e09ef0f430ae2a7d3c_1632994415.jpg",
+   "note": "his selfie on Chabad Madrid's campaign page, 2021 (the same man as \"Rabbi Zalman, Chabad Madrid\" on totallyjewishtravel.com); not his late father, nor the author Zalman Goldstein",
+   "crop": {
+    "cx": 0.765,
+    "cy": 0.67,
+    "side": 0.58
+   },
+   "keep": true
+  },
+  {
+   "id": "turkey",
+   "head": "Mendy Chitrik",
+   "file": "img/heads/turkey.jpg",
+   "page": "https://en.wikipedia.org/wiki/Mendy_Chitrik",
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Mendy_Chitrik_Istanbul_2026.jpg/960px-Mendy_Chitrik_Istanbul_2026.jpg",
+   "note": "Wikimedia Commons, Istanbul 2026 (the 960 px copy)",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.5,
+    "side": 0.851
+   }
+  },
+  {
+   "id": "united-arab-emirates",
+   "head": "Levi Duchman",
+   "file": "img/heads/united-arab-emirates.jpg",
+   "page": "https://www.jnf.org/jnf-blog/jnf-wire/jnf-wire-stories/the-abraham-accords-are-changing-rabbi-levi-duchmans-life-in-the-uae",
+   "image": "https://jnf.blob.core.windows.net/images/images/default-source/news-media-library/rabbi-duchman.jpeg?sfvrsn=72f21ab0_2",
+   "note": "JNF portrait",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.5,
+    "side": 1.0
    }
   }
  ]

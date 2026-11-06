@@ -41,7 +41,15 @@ thirteen no better recent photo has been found yet (the list is there, with what
 
 **Open (the owner's; not started):**
 - The founding year of every center, "to show the growth of Chabad": his idea and words are in the Nov 6 (end of a
-  session) section below. He hasn't said go; the plan written there is Claude's *(suggestion, not agreed)*.
+  session) section below. **Owner (Nov 6, later), on the form:** "I'm not asking for a play button where it happens
+  on the map. I would be asking for a properly made video. Maybe even where there's information on the video, like
+  obviously when the first one in Morocco is established, or like major milestone establishments, or like marking,
+  you know, certain years that were significant ... it would be properly, like, animated. It would not be lazily done.
+  It would look like a professionally made YouTube video." So the year-slider plan written below is out. He hasn't
+  said go. *(Suggestion, not agreed:)* render it here (an HTML/canvas animation captured frame by frame with
+  Playwright, encoded with ffmpeg, which is installed), Hebrew and English versions, with a 30-second test of the look
+  before the research on the years. The map has 3,826 dots in 119 countries (US 1,637, Israel 805, France 285,
+  Canada 150, `web/data/centers.geojson`).
 - Head photos still missing — Europe/Middle East: Moldova, Romania, Sweden, Switzerland; USA: Kansas–Missouri,
   Delaware, New Hampshire, Eastern Massachusetts, Rhode Island, Cape Cod; Canada: British Columbia, Ottawa, Quebec,
   Maritimes. Old or weak US/Canada photos and vaad faces: the lists in the Nov 5 sections.

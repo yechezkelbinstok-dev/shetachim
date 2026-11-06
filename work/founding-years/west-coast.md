@@ -65,3 +65,24 @@ source (a URL), note (the quote and what it shows), confidence; `date` when one 
   call). Open: Tustin, RSF, North Irvine, Aliso Viejo, Chapman, South HB, Coastal Hebrew School, Mikvah Israel,
   Coronado, Friendship Circle SD, Chula Vista, UCSD, Chabad Israeli OC, Penasquitos, Family Chabad, UC Irvine, Chabad
   Without Borders, Beth Eliyahu.
+- Batches 13-20 (Los Angeles, Nov 6): all 139 LA-area listings researched (LA County and the Conejo). Among them: West
+  Coast HQ 1965, UCLA Chabad House 1969-03, Simcha Monica 1972, South Bay 1973, Chabad of the Valley 1973, Mid City
+  (Chabad on Fairfax) 1975, Mikvah Esther 1976, Teichman Mikvah 1978, Conejo 1979 (was 'by 1984'; Lubavitch.com's
+  40th, June 2019), Israel Center 1982, Bel Air 1985, Brentwood 1985, Cheviot Hills 1987, Levi Yitzchok 1987 (when Rabbi
+  Raichik became its rabbi; may be older), Living Torah Center 1992, Cheder Menachem 1993, Oak Park 1995, Persian Youth
+  Center 1995, Burbank 1998, Glendale 1999, Century City 1999, USC 2000-08, Studio City 2000-09, Chatsworth 2003, CSUN
+  2005, West Hills 2006, SMC 2007, SOLA 2007, Moorpark 2008, Toluca Lake 2009, Granada Hills 2010-11, Caltech 2015, Mar
+  Vista 2015, CTeen Conejo 2015-03, and the newer centers (2019-2026) from their new-shluchim posts.
+- Batch 21 (Nevada and Baja, Nov 6): Southern Nevada 1990, Summerlin 1994, Northern Nevada 1997, Henderson 1998, Desert
+  Torah Academy 1999 (directory), UNLV 2005, Cabo 2009 (counted back), Lake Tahoe 2013, Red Rock 2015-12, Friendship
+  Circle LV 2016, UNR 2021, North Las Vegas 2021, Centennial Hills 2023-08, Carson City 2024. Cabo and La Paz (Baja
+  California Sur) were entered like Tijuana.
+- Shared dots: an undated department on a dated center's dot leaves the dot dated (CYP SF, Chabad Youth LA, the
+  Kollel at Ohr Elchonon ...). Levi Yitzchok (1987) and the Chabad Jewish Center of Hancock Park (2009) share a dot.
+
+## Where it stands (Nov 6, end of the first pass)
+All 334 listings researched. With a year 225 (high 141, medium 84); range 14; open 95. Dots 304: dated 217, missing 87.
+Next: (1) check the 84 mediums against a second, independent source; (2) the hard round: the 14 ranges and 95 opens
+(`status: open` in the data, each with its lead). Most opens are recent centers with no dated post, or departments; the
+old ones worth the most effort: Chabad of Beverly Hills (lead 1978), Chabad in the Hills (1997), Westlake Village (1985),
+Gan Chaya, Mt. Olympus, the Las Vegas Talmud Torah, the Chabad Hebrew Center (Las Vegas).

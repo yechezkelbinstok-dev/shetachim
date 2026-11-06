@@ -47,10 +47,19 @@ thirteen no better recent photo has been found yet (the list is there, with what
   the founding years: "choose two mid size shetachim to do next for usa-Canada". **Chosen (he asked Claude to pick):
   Western Pennsylvania and Georgia** — 24 dots / 27 listings each, and each has a digitized Jewish weekly going back
   decades (Pittsburgh: the Jewish Chronicle on Historic Pittsburgh; Atlanta: the Atlanta Jewish Times on the Georgia
-  Historic Newspapers site), the kind of archive that made Michigan right. Not started. The other mid-size ones, by
+  Historic Newspapers site), the kind of archive that made Michigan right. Not started: the owner then said to do the
+  West Coast first (next bullet). The other mid-size ones, by
   dots: Arizona 38, Eastern Massachusetts 32, Connecticut 32, Washington 31, the Carolinas 23, Northeast Ohio 23,
   Crown Heights 23, Upstate NY 21, Colorado 21, Wisconsin 20, Virginia 19, Upper Midwest 19, Oregon 17,
   Kansas–Missouri 16, New Haven 14, British Columbia 13, Central Massachusetts 12.
+- **Founding years, the West Coast (Nov 6, first pass done).** Owner: "let's jump into the West Coast. Do this properly
+  ... The goal is every single blue dot we find the date for ... keep track continuously of how many are missing from
+  the various ones, so we can do a round of the harder ones later on ... all the info needs to be kept properly. But go
+  ahead and start on California." All 334 listings researched (California, Nevada, Baja): 225 with a year (high 141,
+  medium 84), 14 ranges, 95 open; 217 of 304 dots dated. Method, batches and the old opens worth the most effort:
+  `work/founding-years/west-coast.md`; counts per shetach: `work/founding-years/STATUS.md` (`status.py`). Next: check
+  the 84 mediums against a second source, then the hard round (ranges and opens). Tijuana, Cabo and La Paz are on the
+  West Coast map and were entered like the rest *(whether Mexico counts is still the owner's call)*.
 - **Head photos, Africa and Asia (Nov 6, late; LIVE):** South Africa (Lipskar), Central Africa (Bentolila), Mauritius
   (Laima Barber); China, Thailand, Singapore, South Korea, Taiwan, Nepal, Kazakhstan, Azerbaijan, Kyrgyzstan,
   Armenia, Georgia, Taiwan (sources in `work/head-photos/candidates/africa|asia/`, notes in `data/head-photos.json`). Still

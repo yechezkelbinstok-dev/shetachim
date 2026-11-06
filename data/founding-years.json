@@ -771,12 +771,12 @@
    "name": "Chabad of Downtown Columbus",
    "city": "Columbus, OH",
    "shetach": "central-ohio",
-   "year": null,
-   "lead": 2017,
-   "how": "not-found",
-   "source": "https://therebbesimpact.com/",
-   "note": "No source found. therebbesimpact.com: 'Chabad of Downtown Columbus' and Yitzi & Sara Kaltmann, 2017; chabad.org's listing number (3660798) falls in 2017 too (between listings opened Feb and Sept 2017).",
-   "confidence": "open"
+   "year": 2017,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://chabaddowntowncolumbus.com/about",
+   "note": "Its own About page: 'Rabbi Yitzi and Sara have been co-directing Chabad of Downtown Columbus since the summer of 2017.' (therebbesimpact.com and the listing number also point to 2017.)",
+   "lead": 2017
   },
   "6925466": {
    "name": "Chabad of Bexley",
@@ -1168,12 +1168,13 @@
    "name": "Chabad of Cape Ann",
    "city": "Gloucester, MA",
    "shetach": "north-shore-of-massachusetts",
-   "year": null,
-   "lead": 2021,
-   "how": "not-found",
-   "source": "https://www.chabadcapeann.com/5693830",
-   "note": "No dated source found; its own site gives no year. therebbesimpact.com: the center 2021, Avremi & Rivky Raichik from 2019; chabad.org's listing number (5273687) is from about 2021-22. Its permanent home at 37 Main St., Gloucester held its first services on Rosh Hashanah, probably 2024 (Gloucester Daily Times, reposted by Lubavitch.com).",
-   "confidence": "open"
+   "year": 2021,
+   "date": "2021-11",
+   "how": "news",
+   "confidence": "high",
+   "source": "https://jewishjournal.org/2021/11/18/chabad-lubavitch-expands-to-cape-ann-in-time-to-light-the-menorah/",
+   "note": "Jewish Journal (North Shore, MA), Nov 18 2021 ('Chabad Lubavitch expands to Cape Ann in time to light the menorah'): 'Rabbi Avremi Raichik and his wife, Rivky, are settling into their new home in Gloucester ... while they go about opening a satellite of Chabad Lubavitch of the North Shore on Cape Ann just in time for Hanukkah.' (therebbesimpact.com: the center 2021.)",
+   "lead": 2021
   },
   "6192413": {
    "name": "Chabad of Wakefield",
@@ -1421,13 +1422,12 @@
    "name": "Chabad of Kona & West Hawaii",
    "city": "Kailua Kona, HI",
    "shetach": "hawaii",
-   "year": null,
-   "lead": 2009,
-   "by": 2016,
-   "how": "range",
-   "source": "https://forward.com/culture/215479/let-s-talk-hasidic-in-hawaiian/",
-   "note": "No founding report found. therebbesimpact.com: 'Chabad of Kona & West side of the Big Island', 2009; chabad.org's listing number (1051208) is from about 2009 too. Rabbi Avremel and Rivky Chazanow (Itchel Krasnjansky's son-in-law, married 2007) ran Chabad of the Big Island in Kona (Forward); Kona Beth Shalom's minutes (Nov 2016) say they were moving off island. Levi and Fraida Gerlitzky from 2017 (therebbesimpact.com).",
-   "confidence": "range"
+   "year": 2009,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.facebook.com/Jewishbigisland/",
+   "note": "Its own page (Chabad of the Big Island, jewishbigisland): 'Launched in the Fall of 2009, Chabad has become the address for everything Jewish on the Big Island of Hawaii' (Rabbi Levi and Fraidy Gerlitzky; the same email, jewishbigisland@gmail.com, is on Chabad of Hawaii's list of centers). therebbesimpact.com (2009) and the listing number (about 2009) agree.",
+   "lead": 2009
   },
   "1329273": {
    "name": "Chabad of Maui",
@@ -1443,12 +1443,12 @@
    "name": "Chabad of Hilo and East Side of the Big Island",
    "city": "Hilo, HI",
    "shetach": "hawaii",
-   "year": null,
-   "lead": 2023,
-   "how": "not-found",
-   "source": "https://www.chabad.org/centers/default_cdo/aid/5784680/jewish/Chabad-of-Hilo.htm",
-   "note": "No source found (Rabbi Yeshaya Rotenberg). chabad.org's listing number (5784680) is from about late 2022 or early 2023 (Billings's, 2022, is 5384373; an article of May 2023 is 5964779). Before that, Kona's Chabad brought visiting rabbis to Hilo for the holidays (Hawaii Tribune-Herald).",
-   "confidence": "open"
+   "year": 2023,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://www.charidy.com/ChabadofHilo/YeshayaRotenberg",
+   "note": "Its launch campaign on Charidy ('Help Us Launch', Rabbi Yeshaya Rotenberg; it ended July 26 2023): 'Take part in the foundation of Chabad of Hilo! ... Chabad will serve as a center for Jewish life and education for the East of the Big Island of Hawaii'. Medium: the chabad.org listing (5784680) may date from late 2022, a few months before the launch.",
+   "lead": 2023
   },
   "6969026": {
    "name": "CYP Oahu",
@@ -1527,12 +1527,12 @@
    "name": "Chabad of Fishers-Noblesville",
    "city": "Fishers, IN",
    "shetach": "indiana",
-   "year": null,
-   "lead": 2026,
-   "how": "not-found",
-   "source": "https://www.chabad.org/centers/default_cdo/aid/7492620/jewish/Chabad-of-Fishers-Noblesville.htm",
-   "note": "No source found (Rabbi Uri Libersohn). chabad.org's listing number (7492620) is from late 2026 (Chabad Winnipeg's July 2026 page is 7423561).",
-   "confidence": "open"
+   "year": 2026,
+   "date": "2026-10",
+   "how": "news",
+   "confidence": "high",
+   "source": "https://collive.com/new-shluchim-to-establish-chabad-of-fishers-indiana/",
+   "note": "COLlive, Oct 20 2026 ('New Shluchim to Establish Chabad of Fishers, Indiana'): 'Rabbi Uri and Yehudis Libersohn, together with their son Mendel, will be moving to Fishers-Noblesville, Indiana, to establish a new Chabad Center ... under the leadership of Head Shliach Rabbi Avi Grossbaum' (also Chabadinfo.com). A report from the year itself."
   },
   "117977": {
    "name": "Chabad Lubavitch of Tennessee",
@@ -1759,12 +1759,12 @@
    "name": "Chabad of the University of Rhode Island",
    "city": "Kingston, RI",
    "shetach": "rhode-island",
-   "year": null,
-   "lead": 2016,
-   "how": "not-found",
-   "source": "https://web.uri.edu/chaplains/chabad/",
-   "note": "No founding report found (Rabbi Avi and Tzippy Goldstein). chabad.org's listing number (3329974) is from about 2016 (Lexington's, 2015, is 2922724; Louisville's Jewish Learning Center, 2016, is 3483282).",
-   "confidence": "open"
+   "year": 2016,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://www.chabad.org/news/article_cdo/aid/3831481/jewish/Doubling-Presence-in-a-Decade-14-New-Chabad-Campus-Centers-Opened-This-Year.htm",
+   "note": "Chabad.org News, Oct 31 2017 ('Doubling Presence in a Decade, 14 New Chabad Campus Centers Opened This Year'): 'Rabbi Avraham Adam (\"Avi\") and Tzippy Goldstein arrived at the University of Rhode Island in Kingston, R.I., last year before Sukkot', i.e. before Sukkot 2016 (the listing number also points to 2016).",
+   "lead": 2016
   },
   "5097669": {
    "name": "Chabad of South County",
@@ -1825,32 +1825,34 @@
    "shetach": "vermont",
    "year": null,
    "lead": 2014,
-   "how": "not-found",
+   "how": "range",
    "source": "https://www.chabad.org/centers/default_cdo/aid/2698131/jewish/Chabad-of-Bennington-County.htm",
-   "note": "No dated source found. therebbesimpact.com: the center and Menachem & Faygie Andrusier, 2014; chabad.org's listing number (2698131) is from about 2014 too. Chabad of Manchester, 171 Sargent Lane (UVM Hillel's directory, 2022).",
-   "confidence": "open"
+   "note": "Rabbi Menachem and Faygie Andrusier. Its own About page, first published July 23 2015 (https://www.manchesterjewishlife.com/templates/articlecco_cdo/aid/3015631/jewish/About-Us.htm): they 'are living in Manchester, VT with their 8 children and are excited to make Manchester their home ... Please check our website for more information and launch dates', so it was starting by 2015; therebbesimpact.com gives 2014 and the chabad.org listing number (2698131) points to about 2014 (leads).",
+   "confidence": "range",
+   "by": 2015
   },
   "3548886": {
    "name": "Middlebury Chabad",
    "city": "Middlebury, VT",
    "shetach": "vermont",
-   "year": null,
-   "lead": 2017,
-   "how": "not-found",
-   "source": "https://www.chabad.org/centers/default_cdo/aid/3548886/jewish/Middlebury-Chabad.htm",
-   "note": "No source found (Rabbi Binyamin Murray). therebbesimpact.com: 2017; chabad.org's listing number (3548886) is from about 2016-17.",
-   "confidence": "open"
+   "year": 2017,
+   "date": "2017-08",
+   "how": "news",
+   "confidence": "high",
+   "source": "https://www.chabad.org/news/article_cdo/aid/3831481/jewish/Doubling-Presence-in-a-Decade-14-New-Chabad-Campus-Centers-Opened-This-Year.htm",
+   "note": "Chabad.org News, Oct 31 2017 ('14 New Chabad Campus Centers Opened This Year'): 'Rabbi Binyamin (aka \"Rabbi B\") and Davida Murray, co-directors of Middlebury Chabad in Middlebury, Vt., arrived this August'. (therebbesimpact.com: 2017.)",
+   "lead": 2017
   },
   "5644326": {
    "name": "Chabad of Northwest Vermont",
    "city": "South Burlington, VT",
    "shetach": "vermont",
-   "year": null,
-   "lead": 2022,
-   "how": "not-found",
-   "source": "https://www.chabad.org/centers/default_cdo/aid/5644326/jewish/Chabad-of-Northwest-Vermont.htm",
-   "note": "No source found. therebbesimpact.com: the center and Shmuel & Gittel Grossman, 2022; chabad.org's listing number (5644326) is from about 2022 too.",
-   "confidence": "open"
+   "year": 2022,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://www.jns.org/feature/a-new-chabad-every-three-days",
+   "note": "JNS, Nov 21 2022 ('A new Chabad every three days', on the 120 new Chabad centers of the past year): 'two new Chabad centers have opened in Vermont: Chabad of Northwest Vermont in South Burlington, led by Rabbi Shmuel and Gittel Grossman, and Chabad of Stowe'. (therebbesimpact.com and the listing number also point to 2022.)",
+   "lead": 2022
   },
   "5684614": {
    "name": "Chabad of Stowe",
@@ -2114,12 +2116,13 @@
    "name": "Chabad of Centrepointe",
    "city": "Ottawa, ON",
    "shetach": "ottawa",
-   "year": null,
-   "lead": 2002,
-   "how": "not-found",
-   "source": "https://www.jewishottawa.com/our-community/community-directory/chabad-of-centrepoint-orthodox",
-   "note": "No founding report found. therebbesimpact.com: the center and Chaim & Bassy Mendelsohn, 2002; its listing number (118589) is from chabad.org's first directory (about 2003). 100 Constellation Drive.",
-   "confidence": "open"
+   "year": 2002,
+   "date": "2002-09",
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.chabadcentrepointe.com/templates/articlecco_cdo/aid/233899/jewish/About-us.htm",
+   "note": "Its own About page: 'Chabad of Centrepointe was established by Rabbi Chaim and Bassy Mendelsohn - right before the High Holidays of 2002'; Rabbi Mendelsohn's LinkedIn: Chabad of Centrepointe, Sep 2002 - present. (therebbesimpact.com: 2002.)",
+   "lead": 2002
   },
   "559424": {
    "name": "Chabad of Kanata",
@@ -2127,10 +2130,11 @@
    "shetach": "ottawa",
    "year": null,
    "lead": 2007,
-   "how": "not-found",
+   "how": "range",
    "source": "https://www.jewishottawa.com/our-community/community-directory?page=2",
-   "note": "No founding report found. therebbesimpact.com: the center and Michoel & Miriam Gershzon, 2007; chabad.org's listing number (559424) is from about 2007 too.",
-   "confidence": "open"
+   "note": "Ottawa Jewish Bulletin (about 2021, 'Russian-speaking Jews more engaged with community thanks to Genesis grant'): 'Gershzon said in 2005, the \"Acheinu Board\" was established to address the growing needs of a Russian-speaking Jewish population, which eventually led to the development of the Chabad of Kanata by bringing Rabbi Gershzon to Ottawa', so after 2005 (https://www.ottawajewishbulletin.com/jewish-ottawa/russian-speaking-jews-more-engaged-with-community-thanks-to-genesis-grant). The Chesed Fund (undated): the Gershzons 'founded Chabad of Kanata almost two decades ago'. therebbesimpact.com and the listing number point to 2007 (leads).",
+   "confidence": "range",
+   "after": 2005
   },
   "677505": {
    "name": "Rohr Chabad Student Network of Ottawa",
@@ -2146,12 +2150,12 @@
    "name": "Chabad Student Centre of Kingston - Rohr Chabad House",
    "city": "Kingston, ON",
    "shetach": "ottawa",
-   "year": null,
-   "lead": 2010,
-   "how": "not-found",
-   "source": "https://issuu.com/tekiyah/docs/kingston",
-   "note": "No founding report found. therebbesimpact.com: the center 2010, Sruly & Esther Simon 2007; chabad.org's listing number (1261471) is from about 2010. The Elizabeth Cottage was bought in 2014 for a permanent home (its building brochure).",
-   "confidence": "open"
+   "year": 2010,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.chabadstudentcentre.ca/templates/articlecco_cdo/aid/1272525/jewish/About-Us.htm",
+   "note": "Its own About page: 'Rabbi Sruly & Esti Simon moved to Kingston to start up Chabad in Kingston in 2010.' (therebbesimpact.com: the center 2010; the listing number agrees.) Later a 170-year-old house on Brock Street became the Chabad House (CrownHeights.info).",
+   "lead": 2010
   },
   "5456142": {
    "name": "Chabad of Wellington West",
@@ -2633,9 +2637,9 @@
    "year": 2016,
    "date": "2016-08",
    "how": "stated",
-   "confidence": "medium",
+   "confidence": "high",
    "source": "https://www.linkedin.com/in/shaya-bernstein-3720a5150",
-   "note": "Rabbi Shaya Bernstein's LinkedIn: rabbi of Chabad at SJSU (Downtown San Jose) since Aug 2016; therebbesimpact.com also has 2016. Self-reported; to check. Checked (Nov 6): no second source found."
+   "note": "Rabbi Shaya Bernstein's LinkedIn: rabbi of Chabad at SJSU (Downtown San Jose) since Aug 2016; therebbesimpact.com also has 2016. Self-reported; to check. Checked (Nov 6): Chabad.org News, Oct 31 2017 ('14 New Chabad Campus Centers Opened This Year', https://www.chabad.org/news/article_cdo/aid/3831481/jewish/Doubling-Presence-in-a-Decade-14-New-Chabad-Campus-Centers-Opened-This-Year.htm): 'Rabbi Shaya and Brochy Bernstein headed to San Jose, Calif., last August to serve the nearly 800 Jewish students at San Jose State University', i.e. Aug 2016, so high."
   },
   "4060836": {
    "name": "Chabad Emeryville",
@@ -4001,12 +4005,13 @@
    "name": "Chabad at Chapman University",
    "city": "Orange",
    "shetach": "west-coast",
-   "year": null,
-   "lead": 2016,
-   "how": "not-found",
-   "confidence": "open",
-   "source": "https://www.jewishchapman.com/templates/articlecco_cdo/aid/3740595/jewish/About-Us.htm",
-   "note": "No year found (Rabbi Eliezer and Mushky Gurary). therebbesimpact.com: 2016; the listing number points to Sept 2016."
+   "year": 2017,
+   "date": "2017-02",
+   "how": "news",
+   "confidence": "high",
+   "source": "https://www.chabad.org/news/article_cdo/aid/3831481/jewish/Doubling-Presence-in-a-Decade-14-New-Chabad-Campus-Centers-Opened-This-Year.htm",
+   "note": "Chabad.org News, Oct 31 2017 ('14 New Chabad Campus Centers Opened This Year'): 'Rabbi Eliezer and Mushky Gurary co-direct Chabad of Chapman University in Orange, Calif. The Gurarys moved out in February to serve four universities, including Chapman; California State University, Fullerton; Fullerton College and Rancho Santiago Community College District.' (therebbesimpact.com: 2016; the chabad.org listing, 3479615, was made about Sept 2016, before they moved.)",
+   "lead": 2016
   },
   "316514": {
    "name": "Chabad Jewish Center of South Huntington Beach",
@@ -5046,13 +5051,19 @@
    "name": "Chabad of Topanga",
    "city": "Topanga",
    "shetach": "west-coast",
-   "year": null,
-   "by": 2004,
-   "lead": 2003,
-   "how": "range",
-   "confidence": "range",
-   "source": "https://www.timesofisrael.com/its-a-mitzvah-la-fires-activate-jewish-law-of-saving-torah-scrolls-from-calamity/",
-   "note": "Times of Israel (Jan 2025): 'Chabad of Topanga has served a neighborhood with hardly any Orthodox Jews for over 20 years' (Rabbi Dovid and Dina Weiss), so by about 2004; the listing is in chabad.org's first directory (about 2003). No founding year found."
+   "year": 2003,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://cdnc.ucr.edu/?a=d&d=TM20030619.2.27",
+   "note": "Topanga Messenger, June 19 2003 ('Torah, Torah, Torah – Chabad Comes to Topanga', by Susan Chasen; California Digital Newspaper Collection): Rabbi Dovid Weiss called residents as 'Rabbi Weiss from Chabad of Topanga' — 'That's because it's brand new'; 'Dovid and his wife Nechama Dina have just moved to Topanga with their two daughters ... to establish a Chabad center here'; the canyon was unfamiliar to them 'until about two months ago'; it was one of Chabad's '20 new West Coast centers' that year, and for five years before he had been a rabbi at Chabad of Brentwood. Dec 18 2003: 'Rabbi Dovid Weiss who recently established Chabad of Topanga'. Times of Israel (Jan 2025): 'for over 20 years'.",
+   "earlier": [
+    {
+     "where": "the Weisses' rented home on Glen Trail (gatherings at their home or others' houses; the Community House rented for holidays)",
+     "from": 2003,
+     "until": null,
+     "source": "https://cdnc.ucr.edu/?a=d&d=TM20030619.2.27"
+    }
+   ]
   },
   "4934028": {
    "name": "Chabad of Universal City",
@@ -5579,18 +5590,18 @@
    "name": "Chabad of Westlake Village",
    "city": "Westlake Village",
    "shetach": "west-coast",
-   "year": null,
+   "year": 1985,
+   "how": "news",
+   "confidence": "medium",
+   "source": "https://cdnc.ucr.edu/?a=d&d=TOKS19850906.1.13",
+   "note": "Thousand Oaks Star, Aug-Nov 1985 (California Digital Newspaper Collection): Rabbi Yitzchok Sapochkinsky first appears in Aug 1985 as 'the newly appointed educational director of Chabad of the [Conejo]', and on Sept 6 1985 Chabad's 'afternoon Hebrew School with newly appointed Rabbi Yitzchok Sapochkinsky as principal will open Wednesday at Suite E 741 [Lakefield Road]' in Westlake Village; his name is not in the paper before 1985 although it covers Chabad from 1977. The name 'Chabad of Westlake Village' (741 Lakefield Road, Suite D) is in the paper from Nov 1993. Medium: in 1985 it was Chabad of the Conejo's Westlake Village branch, and when it took its own name isn't known. (therebbesimpact.com: 1985.) Now at 2524 Townsgate Rd (chabad.org; 530 Hampshire Rd in a 2024 brochure).",
    "lead": 1985,
-   "how": "not-found",
-   "confidence": "open",
-   "source": "https://www.chaiconejo.com/templates/section_cdo/aid/6940789/jewish/Chabad-of-Westlake-Village.htm",
-   "note": "No year found (Rabbi Yitzchak and Brocha Sapochkinsky, part of Chabad of the Conejo, 1979). therebbesimpact.com: 1985; in chabad.org's first directory (about 2003).",
    "earlier": [
     {
-     "where": "741 Lakefield Road #D&E, Westlake Village (an old directory listing); now 2524 Townsgate Rd (chabad.org) / 530 Hampshire Rd (a 2024 brochure)",
-     "from": null,
+     "where": "741 Lakefield Road, Suites D and E, Westlake Village (from 1985: the Hebrew School; 'Chabad of Westlake Village' there in 1993-1999)",
+     "from": 1985,
      "until": null,
-     "source": "https://www.totallyjewishtravel.com/Synagogues-TE21472-chabad_of_westlake_village-shul-oxnard_california-Minyan.html"
+     "source": "https://cdnc.ucr.edu/?a=d&d=TOKS19850906.1.13"
     }
    ]
   },

@@ -55,11 +55,11 @@ thirteen no better recent photo has been found yet (the list is there, with what
 - **Founding years, the West Coast (Nov 6, first pass done).** Owner: "let's jump into the West Coast. Do this properly
   ... The goal is every single blue dot we find the date for ... keep track continuously of how many are missing from
   the various ones, so we can do a round of the harder ones later on ... all the info needs to be kept properly. But go
-  ahead and start on California." All 334 listings researched (California, Nevada, Baja): 225 with a year (high 141,
+  ahead and start on California." All 331 US listings researched (California, Nevada): 225 with a year (high 141,
   medium 84), 14 ranges, 95 open; 217 of 304 dots dated. Method, batches and the old opens worth the most effort:
   `work/founding-years/west-coast.md`; counts per shetach: `work/founding-years/STATUS.md` (`status.py`). Next: check
-  the 84 mediums against a second source, then the hard round (ranges and opens). Tijuana, Cabo and La Paz are on the
-  West Coast map and were entered like the rest *(whether Mexico counts is still the owner's call)*.
+  the 84 mediums against a second source, then the hard round (ranges and opens). **Owner (Nov 6): "Not Mexico!!!!!
+  Wtf"**: the West Coast map piece's Baja dots (Tijuana, Cabo, La Paz) were taken out of the data and the counts.
 - **Head photos, Africa and Asia (Nov 6, late; LIVE):** South Africa (Lipskar), Central Africa (Bentolila), Mauritius
   (Laima Barber); China, Thailand, Singapore, South Korea, Taiwan, Nepal, Kazakhstan, Azerbaijan, Kyrgyzstan,
   Armenia, Georgia, Taiwan (sources in `work/head-photos/candidates/africa|asia/`, notes in `data/head-photos.json`). Still
@@ -106,7 +106,7 @@ thirteen no better recent photo has been found yet (the list is there, with what
   girls' building by 1999); nothing 1 (Toledo's Food & Learning Center).
   **The owner's next steps (Nov 6, latest):** "we'll do region by region but we'll start with the small regions to get
   them out of the way". The title "will end up being prob smth like Growth of Chabad in North America every year" (so
-  the scope is North America; whether Mexico is in: ask). He asked how he can trust this ("how am I going to do this
+  the scope is North America; **Owner, Nov 6: "Not Mexico!!!!!"**: US and Canada only). He asked how he can trust this ("how am I going to do this
   going forward if I can't trust you and u always screw up?"); the answer given: every year with its source, the
   quote and a confidence; every medium and low checked against a second, independent source (a report from the year
   itself beats a list or an anniversary count) before a region is called done; each region ends with a short list of
@@ -159,8 +159,10 @@ thirteen no better recent photo has been found yet (the list is there, with what
   (scripts/head-photos/retouch.py) with a good crop; never call an edit clean without checking it zoomed in (a hand
   over a beard doesn't paint out: crop around it or find another photo); check who it is before using it.
 - Never take a head shliach from the news over the owner's data (Saudi Arabia is Rabbi Peretz Garelik).
-- Research: plain search and fetch first; Firecrawl at once when a site blocks ("For the 100 freaking time you have fire
-  crawl"), and its image search for photos; never work around a bot check or a paywall.
+- Research: plain search and fetch first; Firecrawl only when a site blocks ("For the 100 freaking time you have fire
+  crawl"), and its image search for photos; never work around a bot check or a paywall. Owner (Nov 6, later), after a
+  session that ran every search through Firecrawl: "do you frickin have to use firecrawl for EVERY single thing??"
+- Founding years: US and Canada only. Owner (Nov 6): "Not Mexico!!!!! Wtf".
 - Instagram through Apify: the token is never in the repo; ask the owner to add `APIFY_TOKEN` in the environment's
   settings, never to paste it in the chat.
 - Judea and Samaria is Israel; head shluchim's names in full; never a map in a card; commit and push every turn to

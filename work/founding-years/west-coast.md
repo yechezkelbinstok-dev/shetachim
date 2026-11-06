@@ -5,7 +5,8 @@ Owner (Nov 6): "start on the West Coast ... Do this fucking properly"; every blu
 a month or a day when it turns up, not hunted ("a little extra data never hurt nobody": the `date` field); keep track
 of what's missing (`python3 work/founding-years/status.py` -> STATUS.md) for a later round of the hard ones.
 
-Scope: 334 listings at 304 dots — California 284 dots, Nevada 17, Baja California (Mexico) 3. California first.
+Scope: 331 listings at 301 dots — California 284 dots, Nevada 17. **Not Mexico** (owner, Nov 6: "Not Mexico!!!!! Wtf"):
+the West Coast map piece also holds Baja California and Baja California Sur, but they are left out.
 Leads: `python3 work/founding-years/leads.py west-coast` (254 of 334 have one; never used as a year).
 Entries go into `data/founding-years.json` with `work/founding-years/add.py`, the same fields as Michigan: year, how,
 source (a URL), note (the quote and what it shows), confidence; `date` when one turns up.
@@ -61,8 +62,7 @@ source (a URL), note (the quote and what it shows), confidence; `date` when one 
   Tierrasanta 2023, North Park 2025, Mission Valley 2026. Medium: SD headquarters and SDSU 1975 (SDSU: 1975 or 1977),
   Irvine 1979 (or 1984), West OC 1984, Mission Viejo 1996, Newport Beach 2001, Los Alamitos 2002, Oceanside 2004-07,
   San Clemente 2005-09, Alef Center 2005, Hebrew Academy 1969 (directory), YAM 2012, Dana Point 2018. Ranges: Laguna
-  Beach (by 1991), North County (1973-1988), Rancho Bernardo (by 2022). Tijuana 1993 entered (Mexico: the owner's
-  call). Open: Tustin, RSF, North Irvine, Aliso Viejo, Chapman, South HB, Coastal Hebrew School, Mikvah Israel,
+  Beach (by 1991), North County (1973-1988), Rancho Bernardo (by 2022). (Tijuana was entered here; removed Nov 6: not Mexico.) Open: Tustin, RSF, North Irvine, Aliso Viejo, Chapman, South HB, Coastal Hebrew School, Mikvah Israel,
   Coronado, Friendship Circle SD, Chula Vista, UCSD, Chabad Israeli OC, Penasquitos, Family Chabad, UC Irvine, Chabad
   Without Borders, Beth Eliyahu.
 - Batches 13-20 (Los Angeles, Nov 6): all 139 LA-area listings researched (LA County and the Conejo). Among them: West
@@ -75,8 +75,8 @@ source (a URL), note (the quote and what it shows), confidence; `date` when one 
   Vista 2015, CTeen Conejo 2015-03, and the newer centers (2019-2026) from their new-shluchim posts.
 - Batch 21 (Nevada and Baja, Nov 6): Southern Nevada 1990, Summerlin 1994, Northern Nevada 1997, Henderson 1998, Desert
   Torah Academy 1999 (directory), UNLV 2005, Cabo 2009 (counted back), Lake Tahoe 2013, Red Rock 2015-12, Friendship
-  Circle LV 2016, UNR 2021, North Las Vegas 2021, Centennial Hills 2023-08, Carson City 2024. Cabo and La Paz (Baja
-  California Sur) were entered like Tijuana.
+  Circle LV 2016, UNR 2021, North Las Vegas 2021, Centennial Hills 2023-08, Carson City 2024. (Cabo and La Paz were entered too; removed Nov 6
+  with Tijuana: not Mexico.)
 - Shared dots: an undated department on a dated center's dot leaves the dot dated (CYP SF, Chabad Youth LA, the
   Kollel at Ohr Elchonon ...). Levi Yitzchok (1987) and the Chabad Jewish Center of Hancock Park (2009) share a dot.
 

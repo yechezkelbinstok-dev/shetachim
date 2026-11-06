@@ -7,7 +7,7 @@ g = json.load(open('web/data/centers.geojson')); fy = json.load(open('data/found
 listings = collections.defaultdict(list); dots = collections.defaultdict(list)   # dots: per shetach, the listings at each map point
 for f in g['features']:
     p = f['properties']
-    if p.get('country') not in ('US', 'CA') and not (p.get('piece') or '').endswith(':west-coast'): continue
+    if p.get('country') not in ('US', 'CA'): continue   # US and Canada only (owner, Nov 6: "Not Mexico!!!!!")
     sid = (p.get('piece') or ':none').split(':')[-1]
     ids = [str(c['id']) for c in p.get('centers') or [] if not c.get('mushroom')]
     listings[sid] += ids

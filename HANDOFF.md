@@ -30,7 +30,7 @@ section is right. Keep it that way: update this section, don't stack a new START
 shluchim's photos, vaad and board faces, the count line, no Zoom in); a center's page is an ICON in the header's
 corner beside the ✕ (owner, Nov 6: "I told you to turn it into an icon and not this horrible thing" about the
 "chabad.org ↗" pill, then, on a round icon floating at the end of the sub line: "look how horribly it's situated";
-`pageChip`, `.cc-icon`); head photos for the USA, Canada, Europe and the Middle East; the Rebbeim's portraits. Make every change in web/index.html
+`pageChip`, `.cc-icon`); head photos for the USA, Canada, Europe, the Middle East, Africa and Asia (Africa and Asia added Nov 6, late); the Rebbeim's portraits. Make every change in web/index.html
 (web/preview-cards.html only redirects to it). "Pushed" to the owner means live: check that GitHub Pages deployed.
 
 **In progress (Nov 6): the Europe and Middle East photos, redone.** Owner: "The ones that are bad, you actually have to
@@ -42,6 +42,25 @@ and judge looks at the size the card shows. Progress: ten changed and live (the 
 thirteen no better recent photo has been found yet (the list is there, with what was tried).
 
 **Open (the owner's):**
+- **Next (owner, Nov 6, latest):** "First finish profile pictures tho, maybe just do Asia also (I'll tell you when to do
+  Oceania and Latin America)" — Africa and Asia are done and LIVE; Oceania and Latin America only when he says. Then
+  the founding years: "choose two mid size shetachim to do next for usa-Canada". **Chosen (he asked Claude to pick):
+  Western Pennsylvania and Georgia** — 24 dots / 27 listings each, and each has a digitized Jewish weekly going back
+  decades (Pittsburgh: the Jewish Chronicle on Historic Pittsburgh; Atlanta: the Atlanta Jewish Times on the Georgia
+  Historic Newspapers site), the kind of archive that made Michigan right. Not started. The other mid-size ones, by
+  dots: Arizona 38, Eastern Massachusetts 32, Connecticut 32, Washington 31, the Carolinas 23, Northeast Ohio 23,
+  Crown Heights 23, Upstate NY 21, Colorado 21, Wisconsin 20, Virginia 19, Upper Midwest 19, Oregon 17,
+  Kansas–Missouri 16, New Haven 14, British Columbia 13, Central Massachusetts 12.
+- **Head photos, Africa and Asia (Nov 6, late; LIVE):** South Africa (Lipskar), Central Africa (Bentolila), Mauritius
+  (Laima Barber); China, Thailand, Singapore, South Korea, Taiwan, Nepal, Kazakhstan, Azerbaijan, Kyrgyzstan,
+  Armenia, Georgia (sources in `work/head-photos/candidates/africa|asia/`, notes in `data/head-photos.json`). Still
+  without one: **Japan** (only photos with a microphone at his beard, or too small), **Vietnam** (only a 2013 photo),
+  **Sri Lanka** and **Uzbekistan** (the photos found show two rabbis and no caption says which is the head: Crombie
+  is with Rabbi Roni Ard; Shaikevitz is named in the March 2025 Lazar-visit story but not in its photos). India has
+  no head; Tunisia stays "the Pinson family". Weak: Taiwan (the next man's shoulder at the edge), Mauritius (the
+  groom's white shoulder at the edge). For Uzbekistan the Alliance of Rabbis in Islamic States lists a "Shlomo
+  Babaev" — the owner's data says Shaikevitz: keep it.
+- The other window and this one both pushed to the branch on Nov 6: **fetch and rebase before every push.**
 - The founding year of every center, "to show the growth of Chabad": his idea and words are in the Nov 6 (end of a
   session) section below. **Owner (Nov 6, later), on the form:** "I'm not asking for a play button where it happens
   on the map. I would be asking for a properly made video. Maybe even where there's information on the video, like

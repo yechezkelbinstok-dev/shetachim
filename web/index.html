@@ -280,6 +280,23 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card .hc-burial .hc-what { font: 600 15px/1.4 var(--font-map); }
 #card .hc-burial .hc-when { margin-top: 6px; font: 500 14px/1.4 var(--font-ui); }
 #card .hc-burial .hc-when span { white-space: nowrap; }
+/* the Rebbeim's portraits (owner, Nov 6: "properly framed much better than shluchim ... these are Rebbeim"): each in an
+   arched gold frame with a cream mat, side by side under the title, his name under it; where no likeness of him is known
+   (the Mitteler Rebbe, the Rebbe Maharash) the frame holds his name, engraved */
+#card .rb-gallery { display: flex; justify-content: center; align-items: flex-start; gap: 12px; margin: 4px 0 14px; }
+#card .rb-fig { margin: 0; width: var(--rbw, 112px); display: flex; flex-direction: column; align-items: center; }
+#card .rb-frame { width: 100%; aspect-ratio: 4 / 5; box-sizing: border-box; padding: 3px; border-radius: 50% 50% 9px 9px / 38% 38% 9px 9px;
+  background: linear-gradient(155deg, #f5e6b8 0%, #c9a04b 26%, #8d6820 52%, #d9b768 76%, #f7e9c0 100%);
+  box-shadow: 0 7px 16px -8px rgba(70, 50, 10, .55), 0 0 0 .5px rgba(110, 80, 20, .5); }
+#card .rb-mat { width: 100%; height: 100%; box-sizing: border-box; padding: 3px; border-radius: inherit; background: var(--honor-soft); box-shadow: inset 0 0 0 1px rgba(150, 115, 40, .5); }
+#card .rb-mat img, #card .rb-plate { width: 100%; height: 100%; display: block; border-radius: inherit; object-fit: cover; }
+#card .rb-plate { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: calc(var(--rbw, 112px) * .05); box-sizing: border-box;
+  padding: 18% 4px 4px; text-align: center; background: radial-gradient(circle at 50% 46%, var(--panel), var(--honor-soft) 80%); color: var(--honor);
+  text-shadow: 0 1px 0 rgba(255, 255, 255, .35); box-shadow: inset 0 0 0 1px rgba(150, 115, 40, .35); }
+#card .rb-plate b { font: 800 calc(var(--rbw, 112px) * .2)/1.1 var(--font-ui); }
+#card .rb-plate small { font: 600 max(8px, calc(var(--rbw, 112px) * .1))/1.2 var(--font-ui); opacity: .85; }
+#card .rb-plate b::before, #card .rb-plate b::after { content: ''; display: block; width: 46%; height: 1px; margin: calc(var(--rbw, 112px) * .045) auto; background: var(--honor-line); opacity: .7; }
+#card .rb-fig figcaption { margin-top: 6px; color: var(--honor); font: 700 12.5px/1.25 var(--font-ui); text-align: center; }
 /* the place's own people, its director: set apart and smaller than the Rebbeim's lines (owner, Oct 26) */
 #card .staff { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--panel-line); }
 #card .hc-head + .staff { margin-top: 0; padding-top: 0; border-top: 0; }
@@ -3605,8 +3622,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // A Rebbe resting in the town: under his own name in the list, with his yahrzeit (the 7th field; owner, Oct 26: not a
   // separate list, no name twice); where there's no list (Haditch, Nezhin, the Ohel), one line, burial, said with
   // respect — in Hebrew ציון / ציוני (Chabad's word; not מקום מנוחתו, owner, Oct 26)
-  const HADITCH_BURIAL = { burial: ['Burial place of the Alter Rebbe, Rabbi Schneur Zalman of Liadi, zy"a', 'ציון כ״ק אדמו״ר הזקן, רבי שניאור זלמן מליאדי, זי״ע'], yahrzeit: ['Histalkus: 24 Teves 5573 (1812)', 'הסתלקות: כ״ד טבת תקע״ג'] };
-  const NEZHIN_BURIAL = { burial: ['Burial place of the Mitteler Rebbe, Rabbi DovBer, zy"a', 'ציון כ״ק אדמו״ר האמצעי, רבי דובער, זי״ע'], yahrzeit: ['Histalkus: 9 Kislev 5588 (1827)', 'הסתלקות: ט׳ כסלו תקפ״ח'] };
+  const HADITCH_BURIAL = { burial: ['Burial place of the Alter Rebbe, Rabbi Schneur Zalman of Liadi, zy"a', 'ציון כ״ק אדמו״ר הזקן, רבי שניאור זלמן מליאדי, זי״ע'], yahrzeit: ['Histalkus: 24 Teves 5573 (1812)', 'הסתלקות: כ״ד טבת תקע״ג'], portraits: ['alter-rebbe'] };
+  const NEZHIN_BURIAL = { burial: ['Burial place of the Mitteler Rebbe, Rabbi DovBer, zy"a', 'ציון כ״ק אדמו״ר האמצעי, רבי דובער, זי״ע'], yahrzeit: ['Histalkus: 9 Kislev 5588 (1827)', 'הסתלקות: ט׳ כסלו תקפ״ח'], portraits: ['mitteler-rebbe'] };
   const HONOR_CARDS = {
     // the towns
     lubavitch: { seat: ['Seat of the Rebbeim, 1813–1915', 'מקום מושב הרביים, תקע״ג–תרע״ה'], title: ['Rebbeim in Lubavitch', 'נשיאי חב״ד בליובאוויטש'], rebbeim: LUBAVITCH_REBBEIM },
@@ -3623,20 +3640,20 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     haditch: HADITCH_BURIAL,
     nezhin: NEZHIN_BURIAL,
     // the mosdos in them
-    'lubavitch-ohel': { burial: ['Burial place of the Tzemach Tzedek, Rabbi Menachem Mendel, zy"a, and the Rebbe Maharash, Rabbi Shmuel, zy"a', 'ציוני כ״ק אדמו״ר הצמח צדק, רבי מנחם מענדל, זי״ע, וכ״ק אדמו״ר מהר״ש, רבי שמואל, זי״ע'],
+    'lubavitch-ohel': { portraits: ['tzemach-tzedek', 'rebbe-maharash'], burial: ['Burial place of the Tzemach Tzedek, Rabbi Menachem Mendel, zy"a, and the Rebbe Maharash, Rabbi Shmuel, zy"a', 'ציוני כ״ק אדמו״ר הצמח צדק, רבי מנחם מענדל, זי״ע, וכ״ק אדמו״ר מהר״ש, רבי שמואל, זי״ע'],
       yahrzeit: ['Histalkus: 13 Nissan 5626 (1866) · 13 Tishrei 5643 (1882)', 'הסתלקות: י״ג ניסן תרכ״ו · י״ג תשרי תרמ״ג'] },
     // (the center in Lubavitch, opened 2008, not on chabad.org's locator: its wording is the owner's, Oct 7; ask him before
     // changing it)
     'lubavitch-chatzer': { place: ['Heritage center · Lubavitch', 'מרכז מורשת · ליובאוויטש'], people: LUBAVITCH_CENTER_PEOPLE },
     // (chabad.org, June 17 2026: "Rabbi Danziger is responsible for maintaining the Rebbe Rashab's resting place")
-    'rostov-ohel': { burial: ['Burial place of the Rebbe Rashab, Rabbi Sholom DovBer, zy"a', 'ציון כ״ק אדמו״ר הרש״ב, רבי שלום דובער, זי״ע'], yahrzeit: ['Histalkus: 2 Nissan 5680 (1920)', 'הסתלקות: ב׳ ניסן תר״פ'],
+    'rostov-ohel': { portraits: ['rebbe-rashab'], burial: ['Burial place of the Rebbe Rashab, Rabbi Sholom DovBer, zy"a', 'ציון כ״ק אדמו״ר הרש״ב, רבי שלום דובער, זי״ע'], yahrzeit: ['Histalkus: 2 Nissan 5680 (1920)', 'הסתלקות: ב׳ ניסן תר״פ'],
       people: [{ title: 'Rabbi', firstName: 'Chaim', lastName: 'Danzinger', role: ["In charge of the Rebbe Rashab's Ohel", 'אחראי על אוהל אדמו״ר הרש״ב'], isDirector: true, isDeceased: false }] },
     // (Rabbi Deitsch, "השליח והאחראי על המקומות הקדושים בהאדיטש ובניעז'ין": JDN, Dec 4 2022; chabad.org lists him at the
     // Heichel without a position)
     'haditch-ohel': { ...HADITCH_BURIAL, roles: { Deutsh: ['In charge of the Heichal', 'אחראי על ההיכל'] } },
     'nezhin-ohel': { ...NEZHIN_BURIAL, people: [{ title: 'Rabbi', firstName: 'Shneor Zalman', lastName: 'Deutsh', role: ['In charge of the Ohel', 'אחראי על האוהל'], isDirector: true, isDeceased: false }] },
     // (the Rebbe with his whole title, as on 770's card; owner, Oct 26)
-    ohel: { burial: ['Burial place of the Frierdiker Rebbe, zy"a, and the Lubavitcher Rebbe, zy"a', 'ציוני כ״ק אדמו״ר הריי״צ זי״ע וכ״ק אדמו״ר נשיא דורנו זצוקללה״ה נבג״מ זי״ע'], yahrzeit: ['Histalkus: 10 Shevat 5710 (1950) · 3 Tammuz 5754 (1994)', 'הסתלקות: י׳ שבט תש״י · ג׳ תמוז תשנ״ד'] },
+    ohel: { portraits: ['frierdiker-rebbe', 'the-rebbe'], burial: ['Burial place of the Frierdiker Rebbe, zy"a, and the Lubavitcher Rebbe, zy"a', 'ציוני כ״ק אדמו״ר הריי״צ זי״ע וכ״ק אדמו״ר נשיא דורנו זצוקללה״ה נבג״מ זי״ע'], yahrzeit: ['Histalkus: 10 Shevat 5710 (1950) · 3 Tammuz 5754 (1994)', 'הסתלקות: י׳ שבט תש״י · ג׳ תמוז תשנ״ד'] },
   };
   // The honorary cards, designed (owner, Nov 4: "designed nicely and properly not just a bunch of ugly text"): a header
   // (the town above a mosad's name, the title, its seat or place under it), the Rebbeim as a timeline (each Rebbe's years
@@ -3646,6 +3663,28 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const honorHead = (c, honor, town) => `<header class="hc-head">${town ? `<span class="kicker">${esc(town.name)}</span>` : ''}
     <h2 class="${c.honor === 'lubavitch' ? 'honor-h' : 'honor-m'}">${esc(c.title || (c.center && c.center.name) || c.name)}</h2>${
     honor.seat ? `<p class="hc-sub">${esc(HE ? honor.seat[1] : honor.seat[0])}</p>` : ''}${honor.place ? `<p class="hc-sub">${esc(HE ? honor.place[1] : honor.place[0])}</p>` : ''}</header>`;
+  // The Rebbeim's portraits (web/img/rebbeim/<key>.jpg; sources in data/rebbeim-portraits.json): the Alter Rebbe's and the
+  // Tzemach Tzedek's are the traditional portraits, the Rebbe Rashab's, the Frierdiker Rebbe's and the Rebbe's photographs;
+  // the Mitteler Rebbe and the Rebbe Maharash have none, and their frame holds their name (plate). A card shows the Rebbeim
+  // of its list (a town's) or its own (a resting place's, 770's), side by side under its title.
+  const REBBE = {
+    'alter-rebbe': { en: 'The Alter Rebbe', he: 'אדמו״ר הזקן', img: true },
+    'mitteler-rebbe': { en: 'The Mitteler Rebbe', he: 'אדמו״ר האמצעי', plate: 'האמצעי' },
+    'tzemach-tzedek': { en: 'The Tzemach Tzedek', he: 'הצמח צדק', img: true },
+    'rebbe-maharash': { en: 'The Rebbe Maharash', he: 'אדמו״ר מהר״ש', plate: 'מהר״ש' },
+    'rebbe-rashab': { en: 'The Rebbe Rashab', he: 'אדמו״ר הרש״ב', img: true },
+    'frierdiker-rebbe': { en: 'The Frierdiker Rebbe', he: 'אדמו״ר הריי״צ', img: true },
+    'the-rebbe': { en: 'The Rebbe', he: 'נשיא דורנו', img: true },
+  };
+  const REBBE_KEY = Object.fromEntries(Object.entries(REBBE).map(([k, r]) => [r.en, k]));
+  const rebbeimOf = (honor) => honor.portraits || (honor.rebbeim || []).map((r) => REBBE_KEY[r[0]]).filter(Boolean);
+  // (a plate: his title engraved, כ״ק אדמו״ר above, זי״ע under; on 770's card no name under the Rebbe, the line under it
+  // has his whole title)
+  const portraitsHTML = (keys, caption = true) => (keys.length ? `<div class="rb-gallery" style="--rbw:${[0, 128, 112, 92, 74][Math.min(keys.length, 4)]}px">${keys.map((k) => {
+    const r = REBBE[k], name = esc(HE ? r.he : r.en);
+    return `<figure class="rb-fig"><div class="rb-frame"><div class="rb-mat">${r.img ? `<img src="img/rebbeim/${k}.jpg" alt="${name}" loading="lazy">`
+      : `<span class="rb-plate" role="img" aria-label="${name}"><small>כ״ק אדמו״ר</small><b>${esc(r.plate)}</b><small>זי״ע</small></span>`}</div></div>${caption ? `<figcaption>${name}</figcaption>` : ''}</figure>`;
+  }).join('')}</div>` : '');
   const rebbeimHTML = ({ title, rebbeim }) => `<section class="hc-sec"><h3 class="hc-label">${esc(HE ? title[1] : title[0])}</h3><ol class="tl">${
     rebbeim.map(([en, enName, he, heName, years, heYears, rest]) => `<li${rest ? ' class="at-rest"' : ''}><strong class="tl-name">${esc(HE ? `${he} זי״ע` : `${en}, zy"a`)}</strong>
       <span class="tl-sub"><span>${esc(HE ? heName : enName)}</span><span class="tl-when">${esc(HE ? heYears : years)}</span></span>${
@@ -3670,7 +3709,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // and page are in the same card)
     // (Lubavitch's the big title, like 770's; the other towns' and the mosdos' smaller: honor-m; a mosad's town above it)
     const town = c.town && HONOR_TOWN.get(c.town);
-    if (honor) return `${honorHead(c, honor, town)}${honor.burial ? burialHTML(honor) : ''}${honor.rebbeim ? rebbeimHTML(honor) : ''}
+    if (honor) return `${honorHead(c, honor, town)}${portraitsHTML(rebbeimOf(honor))}${honor.burial ? burialHTML(honor) : ''}${honor.rebbeim ? rebbeimHTML(honor) : ''}
       ${honor.people ? `<div class="staff">${personnelHTML(honor.people)}</div>` : ''}
       ${c.center ? `<div class="staff">${personnelHTML((c.center.personnel || []).map((p) => (honor.roles && honor.roles[p.lastName] ? { ...p, role: honor.roles[p.lastName] } : p)))}${chabadLink(c.center)}</div><div class="foot"><span class="meta">${shetachLine(c.piece, true)}</span></div>` : ''}`;
     // 770: the headquarters by itself, the Rebbe as its leader, and the many other listings at the address folded away —
@@ -3681,7 +3720,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const atAddress = others.length ? `<details class="at-address"><summary>${HE ? `${others.length} מוסדות נוספים בכתובת זו` : `${others.length} more listings at this address`}</summary>
       <div class="mosdos">${others.map((x) => `<details class="mosad" data-id="${esc(x.id)}"><summary><strong>${esc(x.name)}</strong><span class="meta">${esc([x.type, head(x)].filter(Boolean).join(' · '))}</span></summary>
         <div class="mosad-body">${staffHTML(x)}${chabadLink(x)}</div></details>`).join('')}</div></details>` : '';
-    if (c.world) return `<header class="hc-head"><span class="kicker kicker-world">${capKicker(c)}</span><h2 class="honor-h">${esc(c.name)}</h2></header>${rebbeHTML(c.center)}
+    if (c.world) return `<header class="hc-head"><span class="kicker kicker-world">${capKicker(c)}</span><h2 class="honor-h">${esc(c.name)}</h2></header>${c.center && c.center.id === WORLD_HQ ? portraitsHTML(['the-rebbe'], false) : ''}${rebbeHTML(c.center)}
       ${c.city ? `<p class="hc-city">${esc(c.city)}</p>` : ''}${memorialHTML(c.center)}${personnelHTML(c.center && c.center.personnel)}${chabadLink(c.center)}${atAddress}
       <div class="foot"><span class="meta">${shetachLine(c.piece, false)}</span></div>`;
     // a shetach's flagship center: its star on the small map and in its badge, its shetach under its people, a way there

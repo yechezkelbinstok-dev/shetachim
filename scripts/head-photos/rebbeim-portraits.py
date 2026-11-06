@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
-"""The Rebbeim's portraits for their cards: web/img/rebbeim/<key>.jpg (300x375), each from its source in
+"""The Rebbeim's pictures for their cards: web/img/rebbeim/<key>.jpg (300x375), each from its source in
 work/head-photos/rebbeim/<key>.jpg as data/rebbeim-portraits.json says (its 'box', and its 'fill' painted over with the
-backdrop around it first), gently levelled and sharpened; black-and-white ones stay black and white.
+backdrop around it first; a 'fit' one, a sefer's title page, shown whole on white), gently levelled and sharpened;
+black-and-white ones stay black and white.
 
   python3 scripts/head-photos/rebbeim-portraits.py      (needs pillow and numpy: the venv of retouch.py)
 """
@@ -22,7 +23,12 @@ for p in json.load(open(os.path.join(R, 'data', 'rebbeim-portraits.json'), encod
         noise = np.full_like(a, bg) + np.random.default_rng(3).normal(0, 4, a.shape)
         noise = np.asarray(Image.fromarray(np.clip(noise, 0, 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(1.2))).astype(np.float32)
         im = Image.fromarray(np.clip(a * (1 - m) + noise * m, 0, 255).astype(np.uint8))
-    im = im.convert('RGB').crop(tuple(p['box'])).resize((300, 375), Image.LANCZOS)
+    im = im.convert('RGB').crop(tuple(p['box']))
+    if p.get('fit'):  # a sefer's title page: whole, 10 px of white above and below, centred
+        h = 355; w = round(im.width * h / im.height); page = Image.new('RGB', (300, 375), (255, 255, 255))
+        page.paste(im.resize((w, h), Image.LANCZOS), ((300 - w) // 2, 10)); im = page
+    else:
+        im = im.resize((300, 375), Image.LANCZOS)
     im = ImageOps.autocontrast(im, cutoff=(0.4, 0.4), preserve_tone=True)
     im = im.filter(ImageFilter.UnsharpMask(radius=1.1, percent=55, threshold=2))
     if grey: im = ImageOps.grayscale(im).convert('RGB')

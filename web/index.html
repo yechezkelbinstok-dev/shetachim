@@ -280,23 +280,20 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card .hc-burial .hc-what { font: 600 15px/1.4 var(--font-map); }
 #card .hc-burial .hc-when { margin-top: 6px; font: 500 14px/1.4 var(--font-ui); }
 #card .hc-burial .hc-when span { white-space: nowrap; }
-/* the Rebbeim's portraits (owner, Nov 6: "properly framed much better than shluchim ... these are Rebbeim"): each in an
-   arched gold frame with a cream mat, side by side under the title, his name under it; where no likeness of him is known
-   (the Mitteler Rebbe, the Rebbe Maharash) the frame holds his name, engraved */
-#card .rb-gallery { display: flex; justify-content: center; align-items: flex-start; gap: 12px; margin: 4px 0 14px; }
-#card .rb-fig { margin: 0; width: var(--rbw, 112px); display: flex; flex-direction: column; align-items: center; }
-#card .rb-frame { width: 100%; aspect-ratio: 4 / 5; box-sizing: border-box; padding: 3px; border-radius: 50% 50% 9px 9px / 38% 38% 9px 9px;
-  background: linear-gradient(155deg, #f5e6b8 0%, #c9a04b 26%, #8d6820 52%, #d9b768 76%, #f7e9c0 100%);
-  box-shadow: 0 7px 16px -8px rgba(70, 50, 10, .55), 0 0 0 .5px rgba(110, 80, 20, .5); }
-#card .rb-mat { width: 100%; height: 100%; box-sizing: border-box; padding: 3px; border-radius: inherit; background: var(--honor-soft); box-shadow: inset 0 0 0 1px rgba(150, 115, 40, .5); }
-#card .rb-mat img, #card .rb-plate { width: 100%; height: 100%; display: block; border-radius: inherit; object-fit: cover; }
-#card .rb-plate { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: calc(var(--rbw, 112px) * .05); box-sizing: border-box;
-  padding: 18% 4px 4px; text-align: center; background: radial-gradient(circle at 50% 46%, var(--panel), var(--honor-soft) 80%); color: var(--honor);
-  text-shadow: 0 1px 0 rgba(255, 255, 255, .35); box-shadow: inset 0 0 0 1px rgba(150, 115, 40, .35); }
-#card .rb-plate b { font: 800 calc(var(--rbw, 112px) * .2)/1.1 var(--font-ui); }
-#card .rb-plate small { font: 600 max(8px, calc(var(--rbw, 112px) * .1))/1.2 var(--font-ui); opacity: .85; }
-#card .rb-plate b::before, #card .rb-plate b::after { content: ''; display: block; width: 46%; height: 1px; margin: calc(var(--rbw, 112px) * .045) auto; background: var(--honor-line); opacity: .7; }
-#card .rb-fig figcaption { margin-top: 6px; color: var(--honor); font: 700 12.5px/1.25 var(--font-ui); text-align: center; }
+/* the Rebbeim's portraits (owner, Nov 6): next to his name ("It should still be next to it not on top"), each in a
+   gilded picture frame, a proper rectangle ("proper framing not weird gravestone shape"), unlike the shluchim's round
+   photos; for the Mitteler Rebbe and the Rebbe Maharash (no picture of them is known), a sefer of theirs: its title page */
+#card .rb-pic { flex: none; display: block; width: var(--w, 50px); aspect-ratio: 4 / 5; box-sizing: border-box; padding: 3px; border-radius: 2px;
+  background: linear-gradient(135deg, #f7e8bb 0%, #c99e47 24%, #f2d998 46%, #9b7428 72%, #dcbb6e 100%);
+  box-shadow: 0 2px 6px -1px rgba(60, 40, 8, .45), inset 0 0 0 1px rgba(255, 244, 210, .55); }
+#card .rb-pic img { display: block; width: 100%; height: 100%; object-fit: cover; box-shadow: 0 0 0 1px rgba(70, 48, 10, .7); }
+#card ol.tl > li.has-pic { display: flex; flex-direction: row; align-items: flex-start; gap: 11px; }
+#card ol.tl > li.has-pic .tl-txt { flex: 1; min-width: 0; }
+#card .hc-burial.has-pic { display: flex; flex-direction: row; align-items: center; gap: 12px; }
+#card .hc-burial .rb-pics { flex: none; display: flex; gap: 7px; }
+#card .hc-burial .hc-btxt { flex: 1; min-width: 0; }
+#card .rebbe-row { display: flex; flex-direction: row; align-items: center; gap: 12px; margin: 4px 0 2px; }
+#card .rebbe-row .rebbe { margin: 0; }
 /* the place's own people, its director: set apart and smaller than the Rebbeim's lines (owner, Oct 26) */
 #card .staff { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--panel-line); }
 #card .hc-head + .staff { margin-top: 0; padding-top: 0; border-top: 0; }
@@ -3664,34 +3661,33 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     <h2 class="${c.honor === 'lubavitch' ? 'honor-h' : 'honor-m'}">${esc(c.title || (c.center && c.center.name) || c.name)}</h2>${
     honor.seat ? `<p class="hc-sub">${esc(HE ? honor.seat[1] : honor.seat[0])}</p>` : ''}${honor.place ? `<p class="hc-sub">${esc(HE ? honor.place[1] : honor.place[0])}</p>` : ''}</header>`;
   // The Rebbeim's portraits (web/img/rebbeim/<key>.jpg; sources in data/rebbeim-portraits.json): the Alter Rebbe's and the
-  // Tzemach Tzedek's are the traditional portraits, the Rebbe Rashab's, the Frierdiker Rebbe's and the Rebbe's photographs;
-  // the Mitteler Rebbe and the Rebbe Maharash have none, and their frame holds their name (plate). A card shows the Rebbeim
-  // of its list (a town's) or its own (a resting place's, 770's), side by side under its title.
+  // Tzemach Tzedek's are the traditional portraits, the Rebbe Rashab's, the Frierdiker Rebbe's and the Rebbe's
+  // photographs. No picture of the Mitteler Rebbe is known, and the one attributed to the Rebbe Maharash is probably
+  // not him (owner, Nov 6: "cancel the maharash"): for them, a sefer of theirs, its title page, as Chabadpedia does (owner:
+  // "Do how chabadpedia does it with like the sefer shaar blatt"). Each next to his name (the timeline), his resting place's line, or 770's
+  // "Leader" line, in a gilded frame (.rb-pic).
   const REBBE = {
     'alter-rebbe': { en: 'The Alter Rebbe', he: 'אדמו״ר הזקן', img: true },
-    'mitteler-rebbe': { en: 'The Mitteler Rebbe', he: 'אדמו״ר האמצעי', plate: 'האמצעי' },
+    'mitteler-rebbe': { en: 'The Mitteler Rebbe', he: 'אדמו״ר האמצעי', img: true, book: ['Maamarei Admur HaEmtzai', 'מאמרי אדמו״ר האמצעי'] },
     'tzemach-tzedek': { en: 'The Tzemach Tzedek', he: 'הצמח צדק', img: true },
-    'rebbe-maharash': { en: 'The Rebbe Maharash', he: 'אדמו״ר מהר״ש', plate: 'מהר״ש' },
+    'rebbe-maharash': { en: 'The Rebbe Maharash', he: 'אדמו״ר מהר״ש', img: true, book: ['Likkutei Torah – Toras Shmuel', 'לקוטי תורה – תורת שמואל'] },
     'rebbe-rashab': { en: 'The Rebbe Rashab', he: 'אדמו״ר הרש״ב', img: true },
     'frierdiker-rebbe': { en: 'The Frierdiker Rebbe', he: 'אדמו״ר הריי״צ', img: true },
     'the-rebbe': { en: 'The Rebbe', he: 'נשיא דורנו', img: true },
   };
   const REBBE_KEY = Object.fromEntries(Object.entries(REBBE).map(([k, r]) => [r.en, k]));
-  const rebbeimOf = (honor) => honor.portraits || (honor.rebbeim || []).map((r) => REBBE_KEY[r[0]]).filter(Boolean);
-  // (a plate: his title engraved, כ״ק אדמו״ר above, זי״ע under; on 770's card no name under the Rebbe, the line under it
-  // has his whole title)
-  const portraitsHTML = (keys, caption = true) => (keys.length ? `<div class="rb-gallery" style="--rbw:${[0, 128, 112, 92, 74][Math.min(keys.length, 4)]}px">${keys.map((k) => {
-    const r = REBBE[k], name = esc(HE ? r.he : r.en);
-    return `<figure class="rb-fig"><div class="rb-frame"><div class="rb-mat">${r.img ? `<img src="img/rebbeim/${k}.jpg" alt="${name}" loading="lazy">`
-      : `<span class="rb-plate" role="img" aria-label="${name}"><small>כ״ק אדמו״ר</small><b>${esc(r.plate)}</b><small>זי״ע</small></span>`}</div></div>${caption ? `<figcaption>${name}</figcaption>` : ''}</figure>`;
-  }).join('')}</div>` : '');
+  const rebbePic = (k, w) => { const r = REBBE[k];
+    const alt = r && r.book ? (HE ? `${r.he}: שער ${r.book[1]}` : `${r.en}: title page of ${r.book[0]}`) : r ? (HE ? r.he : r.en) : '';
+    return r && r.img ? `<span class="rb-pic" style="--w:${w}px"><img src="img/rebbeim/${k}.jpg" alt="${esc(alt)}" title="${esc(alt)}" loading="lazy"></span>` : ''; };
   const rebbeimHTML = ({ title, rebbeim }) => `<section class="hc-sec"><h3 class="hc-label">${esc(HE ? title[1] : title[0])}</h3><ol class="tl">${
-    rebbeim.map(([en, enName, he, heName, years, heYears, rest]) => `<li${rest ? ' class="at-rest"' : ''}><strong class="tl-name">${esc(HE ? `${he} זי״ע` : `${en}, zy"a`)}</strong>
+    rebbeim.map(([en, enName, he, heName, years, heYears, rest]) => { const pic = rebbePic(REBBE_KEY[en], 50);
+      return `<li class="${[rest ? 'at-rest' : '', pic ? 'has-pic' : ''].join(' ').trim()}">${pic}<div class="tl-txt"><strong class="tl-name">${esc(HE ? `${he} זי״ע` : `${en}, zy"a`)}</strong>
       <span class="tl-sub"><span>${esc(HE ? heName : enName)}</span><span class="tl-when">${esc(HE ? heYears : years)}</span></span>${
-      rest ? `<span class="tl-rest"><b>${HE ? 'ציונו הק׳' : 'Ohel'}</b><span>${esc(HE ? `הסתלקות: ${rest[1]}` : `Histalkus: ${rest[0]}`)}</span></span>` : ''}</li>`).join('')}</ol></section>`;
+      rest ? `<span class="tl-rest"><b>${HE ? 'ציונו הק׳' : 'Ohel'}</b><span>${esc(HE ? `הסתלקות: ${rest[1]}` : `Histalkus: ${rest[0]}`)}</span></span>` : ''}</div></li>`; }).join('')}</ol></section>`;
   // (two dates, two Rebbeim: each date kept whole on its line)
-  const burialHTML = ({ burial, yahrzeit }) => `<div class="hc-burial"><p class="hc-what">${esc(HE ? burial[1] : burial[0])}</p><p class="hc-when">${
-    (HE ? yahrzeit[1] : yahrzeit[0]).split(' · ').map((d) => `<span>${esc(d)}</span>`).join(' · ')}</p></div>`;
+  const burialHTML = ({ burial, yahrzeit, portraits = [] }) => { const ks = portraits.filter((k) => REBBE[k] && REBBE[k].img), pics = ks.map((k) => rebbePic(k, ks.length > 1 ? 52 : 60)).join('');
+    return `<div class="hc-burial${pics ? ' has-pic' : ''}">${pics ? `<div class="rb-pics">${pics}</div>` : ''}<div class="hc-btxt"><p class="hc-what">${esc(HE ? burial[1] : burial[0])}</p><p class="hc-when">${
+    (HE ? yahrzeit[1] : yahrzeit[0]).split(' · ').map((d) => `<span>${esc(d)}</span>`).join(' · ')}</p></div></div>`; };
   // Everyone listed at a mosad, the shliach first as on any center (the first man listed who's alive), then the rest as
   // chabad.org lists them; those who have passed away folded under them, as on any center
   function staffHTML(c) {
@@ -3709,7 +3705,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // and page are in the same card)
     // (Lubavitch's the big title, like 770's; the other towns' and the mosdos' smaller: honor-m; a mosad's town above it)
     const town = c.town && HONOR_TOWN.get(c.town);
-    if (honor) return `${honorHead(c, honor, town)}${portraitsHTML(rebbeimOf(honor))}${honor.burial ? burialHTML(honor) : ''}${honor.rebbeim ? rebbeimHTML(honor) : ''}
+    if (honor) return `${honorHead(c, honor, town)}${honor.burial ? burialHTML(honor) : ''}${honor.rebbeim ? rebbeimHTML(honor) : ''}
       ${honor.people ? `<div class="staff">${personnelHTML(honor.people)}</div>` : ''}
       ${c.center ? `<div class="staff">${personnelHTML((c.center.personnel || []).map((p) => (honor.roles && honor.roles[p.lastName] ? { ...p, role: honor.roles[p.lastName] } : p)))}${chabadLink(c.center)}</div><div class="foot"><span class="meta">${shetachLine(c.piece, true)}</span></div>` : ''}`;
     // 770: the headquarters by itself, the Rebbe as its leader, and the many other listings at the address folded away —
@@ -3720,7 +3716,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const atAddress = others.length ? `<details class="at-address"><summary>${HE ? `${others.length} מוסדות נוספים בכתובת זו` : `${others.length} more listings at this address`}</summary>
       <div class="mosdos">${others.map((x) => `<details class="mosad" data-id="${esc(x.id)}"><summary><strong>${esc(x.name)}</strong><span class="meta">${esc([x.type, head(x)].filter(Boolean).join(' · '))}</span></summary>
         <div class="mosad-body">${staffHTML(x)}${chabadLink(x)}</div></details>`).join('')}</div></details>` : '';
-    if (c.world) return `<header class="hc-head"><span class="kicker kicker-world">${capKicker(c)}</span><h2 class="honor-h">${esc(c.name)}</h2></header>${c.center && c.center.id === WORLD_HQ ? portraitsHTML(['the-rebbe'], false) : ''}${rebbeHTML(c.center)}
+    if (c.world) return `<header class="hc-head"><span class="kicker kicker-world">${capKicker(c)}</span><h2 class="honor-h">${esc(c.name)}</h2></header>${c.center && c.center.id === WORLD_HQ ? `<div class="rebbe-row">${rebbePic('the-rebbe', 64)}${rebbeHTML(c.center)}</div>` : rebbeHTML(c.center)}
       ${c.city ? `<p class="hc-city">${esc(c.city)}</p>` : ''}${memorialHTML(c.center)}${personnelHTML(c.center && c.center.personnel)}${chabadLink(c.center)}${atAddress}
       <div class="foot"><span class="meta">${shetachLine(c.piece, false)}</span></div>`;
     // a shetach's flagship center: its star on the small map and in its badge, its shetach under its people, a way there

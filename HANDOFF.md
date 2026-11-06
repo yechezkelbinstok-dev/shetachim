@@ -42,17 +42,20 @@ What the owner asked this session, all live on the site (deploys checked):
     retrying with other curl flags bot-check circumvention). Firecrawl can't screenshot an image file itself; a page's
     screenshot works. Facebook/Instagram "lookaside" links don't download; Instagram posts come through Apify
     (`ig.py posts`).
-- **"Also add the Rebbeim ... properly framed much better than shluchim"**: every Rebbeim card (Lubavitch, Rostov,
-  Liozna, Liadi, Haditch, Nezhin, the ohalim in Lubavitch and Rostov, the Ohel, 770) has its Rebbeim side by side
-  under the title, each in an **arched gold frame** with a cream mat and his name under it (`portraitsHTML`, `REBBE`,
-  `rebbeimOf` in `web/index.html`; CSS `.rb-*`; a burial card lists its Rebbeim in `portraits`). The Alter Rebbe's and
-  the Tzemach Tzedek's are the traditional portraits; the Rebbe Rashab's (passport photo), the Frierdiker Rebbe's and the
-  Rebbe's are photographs. **No likeness of the Mitteler Rebbe or the Rebbe Maharash is known**: their frame holds
-  "כ״ק אדמו״ר / האמצעי (מהר״ש) / זי״ע" engraved. 770's card shows the Rebbe without a caption (the line under it has his
-  whole title). Images: `web/img/rebbeim/<key>.jpg` (300×375), made by `scripts/head-photos/rebbeim-portraits.py` from
-  `work/head-photos/rebbeim/` as `data/rebbeim-portraits.json` says (sources there; the Rebbe's had an out-of-focus man
-  behind him painted over with the backdrop). If the owner wants the Maharash's seal (Wikipedia shows his stamp) or
-  another picture in a plate, that's where to change it.
+- **"Also add the Rebbeim ... properly framed much better than shluchim"**: on every Rebbeim card (Lubavitch, Rostov,
+  Liozna, Liadi, Haditch, Nezhin, the ohalim in Lubavitch and Rostov, the Ohel, 770) each Rebbe's picture sits **next to
+  his name** (the timeline's entry, the resting place's panel, 770's "Leader" line), in a **rectangular gilded frame**
+  (`.rb-pic`; `REBBE`, `rebbePic` in `web/index.html`; a burial card lists its Rebbeim in `portraits`). The owner's
+  corrections the same day: first a row of arched frames on top — "It should still be next to it not on top" and
+  "proper framing not weird gravestone shape" (no arches, no name plates: they looked like gravestones). Pictures: the
+  Alter Rebbe's and the Tzemach Tzedek's are the traditional portraits; the Rebbe Rashab's (passport photo), the
+  Frierdiker Rebbe's and the Rebbe's are photographs. **The Mitteler Rebbe and the Rebbe Maharash: the title page (שער)
+  of a sefer of theirs**, as Chabadpedia does ("Do how chabadpedia does it with like the sefer shaar blatt"): מאמרי
+  אדמו״ר האמצעי and לקוטי תורה – תורת שמואל. (A portrait attributed to the Maharash, printed in HaMivaser 5773, was
+  tried and dropped: "it's prob not him - cancel the maharash".) Images: `web/img/rebbeim/<key>.jpg` (300×375), made by
+  `scripts/head-photos/rebbeim-portraits.py` from `work/head-photos/rebbeim/` as `data/rebbeim-portraits.json` says
+  (sources there; the Rebbe's had an out-of-focus man behind him painted over with the backdrop; the two title pages
+  were cut out of a Firecrawl screenshot of Chabadpedia's file pages, since chabadpedia.co.il refuses our downloads).
 
 ## ▶ START HERE — Nov 5, later session: the new cards are LIVE; vaads and boards with faces; no "Zoom in"
 **The card redesign went live on Nov 5** (owner: "Push everything that's been done so far as well", then, on the old

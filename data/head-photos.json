@@ -1336,6 +1336,20 @@
     "side": 0.626
    },
    "keep": true
+  },
+  {
+   "id": "taiwan",
+   "head": "Shlomi Tabib",
+   "file": "img/heads/taiwan.jpg",
+   "page": "https://www.bhol.co.il/news/1658480",
+   "image": "https://storage.bhol.co.il/media/Storage/697152_tumb_1200X627.jpeg",
+   "note": "the round portrait inset on Bechadrei Charedim's story of the April 2024 earthquake (he described it), cut exactly inside its white ring: the card's circle shows the same circle (the kept source, work/head-photos/candidates/asia/taiwan/c1.png, is that cut; the original beside it). The same man is at the podium in Times of Israel's photo with 'Rabbi Shlomi Tabib' on the screen",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.5,
+    "side": 1.0
+   },
+   "keep": true
   }
  ]
 }

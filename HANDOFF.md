@@ -53,8 +53,8 @@ thirteen no better recent photo has been found yet (the list is there, with what
   Kansas–Missouri 16, New Haven 14, British Columbia 13, Central Massachusetts 12.
 - **Head photos, Africa and Asia (Nov 6, late; LIVE):** South Africa (Lipskar), Central Africa (Bentolila), Mauritius
   (Laima Barber); China, Thailand, Singapore, South Korea, Taiwan, Nepal, Kazakhstan, Azerbaijan, Kyrgyzstan,
-  Armenia, Georgia (Taiwan taken off later; sources in `work/head-photos/candidates/africa|asia/`, notes in `data/head-photos.json`). Still
-  without one: **Taiwan**, **Japan** (only photos with a microphone at his beard, or too small), **Vietnam** (only a 2013 photo),
+  Armenia, Georgia, Taiwan (sources in `work/head-photos/candidates/africa|asia/`, notes in `data/head-photos.json`). Still
+  without one: **Japan** (only photos with a microphone at his beard, or too small), **Vietnam** (only a 2013 photo),
   **Sri Lanka** and **Uzbekistan** (the photos found show two rabbis and no caption says which is the head: Crombie
   is with Rabbi Roni Ard; Shaikevitz is named in the March 2025 Lazar-visit story but not in its photos). India has
   no head; Tunisia stays "the Pinson family". **Owner (Nov 6, late), on Georgia's photo with half the
@@ -63,7 +63,7 @@ thirteen no better recent photo has been found yet (the list is there, with what
   by one at card size and fixed: Georgia recentred; Kyrgyzstan, Kazakhstan, Azerbaijan (now its 2022 portrait, the
   2025 close-up cut his hat) framed tighter; South Africa and South Korea given room above the head; Thailand's
   fingertip and China's flyer edge cropped out; Mauritius's groom's shoulder painted over with his own (mirrored).
-  **Taiwan taken off** (every photo found is cut, turned away or crowded): no photo is better than a bad one. Check
+  Taiwan was taken off, then put back (owner: "There's a perfect circle. Just properly cut it"): the round portrait inset on Bechadrei Charedim's April 2024 earthquake story, cut exactly inside its white ring, since the card's circle shows exactly that circle. A round inset is a ready-made head photo: cut it at its circle, don't judge it as a square. Check
   each photo LARGE and at card size before calling it good: face whole and centred, the hat whole, nobody else, no
   mic, no text. For Uzbekistan the Alliance of Rabbis in Islamic States lists a "Shlomo
   Babaev" — the owner's data says Shaikevitz: keep it.

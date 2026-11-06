@@ -1,5 +1,5 @@
 {
- "about": "Profile photos of the head shluchim (USA, Canada, Europe, the Middle East and Africa), one per shetach: a head-and-shoulders crop (320x320 JPEG) in web/img/heads/<shetach id>.jpg. Standard (owner, Nov 5): a proper portrait of him alone, never a farbrengen or group shot. 'page' is where the photo was found, 'image' the original file; 'crop' is the hand-picked square on that image (centre as fractions of width and height, side as a fraction of height) and 'cast' a colour cast taken out by hand; 'source' is the kept copy in work/ the crop was made on; 'studio': true a studio portrait retouched gently (retouch.py --studio); 'edit' (rare) is what scripts/head-photos/paint-out.py painted out of the source first (someone else reaching into the frame). Every photo is retouched by scripts/head-photos/retouch.py (cast, levels, exposure and colour read on the skin, local contrast, sharpening).",
+ "about": "Profile photos of the head shluchim (USA, Canada, Europe, the Middle East, Africa and Asia), one per shetach: a head-and-shoulders crop (320x320 JPEG) in web/img/heads/<shetach id>.jpg. Standard (owner, Nov 5): a proper portrait of him alone, never a farbrengen or group shot. 'page' is where the photo was found, 'image' the original file; 'crop' is the hand-picked square on that image (centre as fractions of width and height, side as a fraction of height) and 'cast' a colour cast taken out by hand; 'source' is the kept copy in work/ the crop was made on; 'studio': true a studio portrait retouched gently (retouch.py --studio); 'edit' (rare) is what scripts/head-photos/paint-out.py painted out of the source first (someone else reaching into the frame). Every photo is retouched by scripts/head-photos/retouch.py (cast, levels, exposure and colour read on the skin, local contrast, sharpening).",
  "photos": [
   {
    "id": "west-coast",
@@ -1190,6 +1190,157 @@
     "cx": 0.178,
     "cy": 0.488,
     "side": 0.262
+   },
+   "keep": true
+  },
+  {
+   "id": "china",
+   "head": "Mordechai Avtzon",
+   "file": "img/heads/china.jpg",
+   "page": "https://collive.com/live-the-man-who-transformed-jewish-hong-kong/",
+   "image": "https://collive.com/wp-content/uploads/photos/2020/08/image0.jpeg",
+   "note": "the portrait on the flyer for his talk 'Live from Hong Kong: the man who transformed Jewish Hong Kong' (COLlive, Aug 2020)",
+   "crop": {
+    "cx": 0.354,
+    "cy": 0.4785,
+    "side": 0.371
+   },
+   "keep": true
+  },
+  {
+   "id": "thailand",
+   "head": "Yosef Chaim Kantor",
+   "file": "img/heads/thailand.jpg",
+   "page": "https://www.timesofisrael.com/thai-pm-revokes-chief-rabbis-citizenship-over-use-of-us-passport-report/",
+   "image": "https://static-cdn.toi-media.com/www/uploads/2026/10/Screenshot-2026-10-29-145920.jpg",
+   "note": "Times of Israel, Oct 2026 (the citizenship story); cropped short of his raised hand",
+   "crop": {
+    "cx": 0.4745,
+    "cy": 0.258,
+    "side": 0.5
+   },
+   "keep": true
+  },
+  {
+   "id": "singapore",
+   "head": "Mordechai Abergel",
+   "file": "img/heads/singapore.jpg",
+   "page": "https://www.c4israel.org/activities/webinar-singapore/",
+   "image": "https://www.c4israel.org/wp-content/uploads/2020/10/723000_1200.jpg",
+   "note": "Christians for Israel's webinar page with Singapore's Chief Rabbi Mordechai Abergel, Oct 2020",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.38,
+    "side": 0.6
+   },
+   "keep": true
+  },
+  {
+   "id": "south-korea",
+   "head": "Osher Litzman",
+   "file": "img/heads/south-korea.jpg",
+   "page": "https://www.jpost.com/diaspora/the-jews-of-south-korea-589754",
+   "image": "https://images.jpost.com/image/upload/f_auto,fl_lossy/q_auto/c_fill,g_faces:center,h_720,w_1280/440401",
+   "note": "Jerusalem Post, 2019 ('Finding a Jewish soul in Seoul'), beside a US Army officer (cropped to him)",
+   "crop": {
+    "cx": 0.625,
+    "cy": 0.257,
+    "side": 0.4167
+   },
+   "keep": true
+  },
+  {
+   "id": "taiwan",
+   "head": "Shlomi Tabib",
+   "file": "img/heads/taiwan.jpg",
+   "page": "https://www.chabad.org/news/article_cdo/aid/7424235/jewish/Taiwans-Jews-Get-a-Cemetery-of-Their-Own.htm",
+   "image": "https://w2.chabad.org/media/images/1235/hfQf12356719.jpg",
+   "note": "Chabad.org, Sept 2026 (the cemetery story): the left of three, cropped (the next man's shoulder at the edge; weak, replace when a better one turns up). The same man is at the podium in Times of Israel's photo with 'Rabbi Shlomi Tabib' on the screen",
+   "crop": {
+    "cx": 0.27,
+    "cy": 0.36,
+    "side": 0.42
+   },
+   "keep": true
+  },
+  {
+   "id": "nepal",
+   "head": "Chezky Lifshitz",
+   "file": "img/heads/nepal.jpg",
+   "page": "https://www.timesofisrael.com/liveblog_entry/kathmandu-rabbi-clarifies-that-eviction-of-local-chabad-house-wasnt-due-to-owners-antisemitism/",
+   "image": "https://static-cdn.toi-media.com/www/uploads/2025/09/WhatsApp-Image-2025-09-10-at-9.01.38-AM.jpeg",
+   "note": "Times of Israel, Sept 2025, with his wife Chani (cropped to him)",
+   "crop": {
+    "cx": 0.8,
+    "cy": 0.26,
+    "side": 0.45
+   },
+   "keep": true
+  },
+  {
+   "id": "kazakhstan",
+   "head": "Yeshaya Elazar Cohen",
+   "file": "img/heads/kazakhstan.jpg",
+   "page": "https://www.rabbisalliance.org/about/the-rabbis/",
+   "image": "https://www.rabbisalliance.org/wp-content/uploads/2022/01/Chief-Rabbi-Yeshaya-Cohen-Kazakhstan.jpg",
+   "note": "the Alliance of Rabbis in Islamic States' portrait, 2022",
+   "crop": {
+    "cx": 0.5,
+    "cy": 0.5,
+    "side": 1.0
+   }
+  },
+  {
+   "id": "azerbaijan",
+   "head": "Shneor Segal",
+   "file": "img/heads/azerbaijan.jpg",
+   "page": "https://washingtonjewishweek.com/a-place-to-walk-proudly-as-a-jew/",
+   "image": "http://washingtonjewishweek.com/wp-content/uploads/2025/08/Chief-Rabbi-Shneor-Segal-WhatsApp-Image-2025-07-21-at-17.45.21-1320x880-1.jpeg",
+   "note": "Washington Jewish Week (JNS), July 2025",
+   "crop": {
+    "cx": 0.3984,
+    "cy": 0.5,
+    "side": 1.0
+   }
+  },
+  {
+   "id": "kyrgyzstan",
+   "head": "Arye Raichman",
+   "file": "img/heads/kyrgyzstan.jpg",
+   "page": "https://www.rabbisalliance.org/about/the-rabbis/",
+   "image": "https://www.rabbisalliance.org/wp-content/uploads/2022/01/Chief-Rabbi-Arie-Reichman-Kyrgyz-Republic.jpg",
+   "note": "the Alliance of Rabbis in Islamic States' portrait, 2022",
+   "crop": {
+    "cx": 0.473,
+    "cy": 0.501,
+    "side": 0.894
+   }
+  },
+  {
+   "id": "armenia",
+   "head": "Gershon Meir Burshtein",
+   "file": "img/heads/armenia.jpg",
+   "page": "https://civilnet.am/en/video/760838",
+   "image": "https://civilnet.am/wp-content/uploads/2023/12/JEWISH-LIFE-IN-ARMENIA.jpg",
+   "note": "a still of CivilNet's interview 'A conversation with Armenia's chief rabbi', Dec 2023 (its title text left out)",
+   "crop": {
+    "cx": 0.552,
+    "cy": 0.36,
+    "side": 0.68
+   },
+   "keep": true
+  },
+  {
+   "id": "georgia-country",
+   "head": "Meir Kozlovsky",
+   "file": "img/heads/georgia-country.jpg",
+   "page": "https://www.ynetnews.com/jewish-world/article/s1rshrgp6",
+   "image": "https://ynet-pic1.yit.co.il/picserver5/wcm_upload/2024/02/15/HJRLqSioT/IMG_20231229_WA0036.jpg",
+   "note": "Ynet, Feb 2024, beside an Israeli who moved to Tbilisi (cropped to him); the same man as in COL's Nov 2024 photo captioned 'Rabbi Meir Kozlovsky, the Rebbe's shliach to Georgia' and at the Or Avner school's opening (Kikar, Sept 2025)",
+   "crop": {
+    "cx": 0.735,
+    "cy": 0.38,
+    "side": 0.584
    },
    "keep": true
   }

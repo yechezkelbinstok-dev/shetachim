@@ -42,6 +42,41 @@ and judge looks at the size the card shows. Progress: ten changed and live (the 
 thirteen no better recent photo has been found yet (the list is there, with what was tried).
 
 **Open (the owner's):**
+- **Founding years, two sessions at once (owner, Nov 6, latest: "Put smth in handoff so I can get another session to
+  work on a diff part of country").** Who has what (change only your own line):
+  - *The West Coast window:* the hard round on California + Nevada, the 35 small shetachim and the 9 dots in no
+    shetach, and Michigan. Don't edit those entries.
+  - *A second session:* any shetach still `not researched` in `work/founding-years/STATUS.md`. Suggested first:
+    Western Pennsylvania and Georgia (24 dots each; each has a digitized Jewish weekly: the Pittsburgh Jewish
+    Chronicle on Historic Pittsburgh, the Atlanta Jewish Times on Georgia Historic Newspapers), then the other
+    mid-size ones (the list in the next bullet), the big ones (Florida 219 dots, NYC 177, New Jersey 84, Quebec 59,
+    Pennsylvania 57, Ontario 56, Illinois 54, Texas 48, Maryland 48, Eastern NY 47) last. Write here what you took:
+    "Second session: ___ (from <date>)".
+  - How (the rules are in the standing rules below; the method in `work/founding-years/west-coast.md` and
+    `michigan-pilot.md`):
+    1. `python3 work/founding-years/listings.py <shetach>` lists its dots and listings (`--missing`: only the dots
+       still without a year); `leads.py <shetach>` gives therebbesimpact.com's years, as leads only.
+    2. For each listing: search the center's name + "founded" / "established" / "since"; read its own pages (About,
+       campaign and Charidy pages, footers like "serving ... since"); the area's Jewish paper; the new-shluchim posts
+       (COLlive, Anash, CrownHeights.info, lubavitch.com, Chabad.org News). A year needs a real source and its quote.
+       A list, an "N years ago" or a listing number is a lead (`lead`), never a year; nothing real is `open`; only a
+       bound is `range` (`after` / `by`). Former locations go in `earlier`, a month or date in `date` when it turns
+       up. Then check every medium against a second, independent source.
+    3. Put whole entries (the fields in the file's `about`) in a batch file `work/founding-years/batches/<shetach>-NN.json`,
+       commit it, apply it with `python3 work/founding-years/add.py < <batch file>`, then run `status.py`. Notes go in
+       `work/founding-years/<shetach>.md`.
+    4. Both sessions write `data/founding-years.json`, so before every push run
+       `git fetch origin claude/bold-albattani-aqfnj9 && git rebase origin/claude/bold-albattani-aqfnj9`. If the rebase
+       stops on `data/founding-years.json` or `STATUS.md`:
+       - `git checkout --ours data/founding-years.json` (in a rebase, "ours" is the remote's version);
+       - re-apply your own batch files with add.py and rerun status.py;
+       - `git add` both files, then `git rebase --continue`.
+    5. In every update to the owner, say how much is left. `python3 work/founding-years/progress.py <your shetachim>`
+       prints it ("LEFT: 48 of 48 dots (100.0%), ..."). Owner (Nov 6): "keep telling me how much left (amount and %)
+       so I can steadily see progress".
+       Firecrawl is fine now. Owner (Nov 6): "u can use it I want this research to be the best". A search costs about
+       2 credits, a page 1, a page with a question 5. Tell him the credits used every so often ("give me periodic
+       credits remaining alerts"). Only the amount used can be seen from here, not the balance.
 - **Next (owner, Nov 6, latest):** "First finish profile pictures tho, maybe just do Asia also (I'll tell you when to do
   Oceania and Latin America)" — Africa and Asia are done and LIVE; Oceania and Latin America only when he says. Then
   the founding years: "choose two mid size shetachim to do next for usa-Canada". **Chosen (he asked Claude to pick):
@@ -62,8 +97,10 @@ thirteen no better recent photo has been found yet (the list is there, with what
 - **Founding years, the West Coast (Nov 6, first pass done).** Owner: "let's jump into the West Coast. Do this properly
   ... The goal is every single blue dot we find the date for ... keep track continuously of how many are missing from
   the various ones, so we can do a round of the harder ones later on ... all the info needs to be kept properly. But go
-  ahead and start on California." All 331 US listings researched (California, Nevada): 224 with a year (high 165,
-  medium 59), 14 ranges, 93 open; 216 of 301 dots dated. Every medium checked against a second source (25 raised). Method, batches and the old opens worth the most effort:
+  ahead and start on California." All 331 US listings researched (California, Nevada): 229 with a year (high 172,
+  medium 57), 13 ranges, 89 open; 221 of 301 dots dated (Nov 6, late). Every medium checked against a second source
+  (25 raised); every entry that had rested on a WebFetch summary re-read on the raw page (all held; one source link
+  fixed). Method, batches and the old opens worth the most effort:
   `work/founding-years/west-coast.md`; counts per shetach: `work/founding-years/STATUS.md` (`status.py`). Next: the hard
   round (ranges and opens; started). **Owner (Nov 6): "Not Mexico!!!!!
   Wtf"**: the West Coast map piece's Baja dots (Tijuana, Cabo, La Paz) were taken out of the data and the counts.
@@ -166,9 +203,11 @@ thirteen no better recent photo has been found yet (the list is there, with what
   (scripts/head-photos/retouch.py) with a good crop; never call an edit clean without checking it zoomed in (a hand
   over a beard doesn't paint out: crop around it or find another photo); check who it is before using it.
 - Never take a head shliach from the news over the owner's data (Saudi Arabia is Rabbi Peretz Garelik).
-- Research: plain search and fetch first; Firecrawl only when a site blocks ("For the 100 freaking time you have fire
-  crawl"), and its image search for photos; never work around a bot check or a paywall. Owner (Nov 6, later), after a
-  session that ran every search through Firecrawl: "do you frickin have to use firecrawl for EVERY single thing??"
+- Research: Firecrawl is fine for everything now. Owner (Nov 6, latest): "Okay I either way have some extra credits so
+  I guess fine u can use it I want this research to be the best ... give me periodic credits remaining alerts pls".
+  Before that (Nov 6, later) he had said "do you frickin have to use firecrawl for EVERY single thing??".
+  WebFetch hands back a small model's summary of a page, not the page, so read a source raw (Firecrawl markdown, or
+  curl) before resting a year on it. Never work around a bot check or a paywall.
 - Founding years: US and Canada only. Owner (Nov 6): "Not Mexico!!!!! Wtf".
 - Founding years: when a center used to be somewhere else, record it (`earlier` in `data/founding-years.json`). Owner
   (Nov 6): "if you ever realize a center used to be located somewhere else then take note for the data pls".

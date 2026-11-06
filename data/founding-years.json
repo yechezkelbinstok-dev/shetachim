@@ -4046,19 +4046,25 @@
    "how": "news",
    "confidence": "high",
    "source": "https://jewishjournal.com/judaism/obituaries/182825/",
-   "note": "Jewish Journal obituary (Feb 2016) of Rabbi Yehoshua B. Gordon, founder of Chabad of the Valley: 'Cunin recruited him to the West Coast in 1973'; the center's biography: 'his 43 years of leadership of Chabad of the Valley'. (therebbesimpact.com: 1980; a 2025 blog: 1979.)"
+   "note": "Jewish Journal obituary (Feb 2016) of Rabbi Yehoshua B. Gordon, founder of Chabad of the Valley: 'Cunin recruited him to the West Coast in 1973'; the center's biography: 'his 43 years of leadership of Chabad of the Valley'. (therebbesimpact.com: 1980; a 2025 blog: 1979.)",
+   "earlier": [
+    {
+     "where": "a small house on Hayvenhurst Avenue, Encino (Chabad of the Valley's only center until the Blauner Youth Center in Tarzana opened in 1978; now Chabad of Encino)",
+     "from": 1973,
+     "until": 1978,
+     "source": "https://www.chabadofthevalley.com/templates/articlecco_cdo/aid/541231/jewish/About-Us.htm"
+    }
+   ]
   },
   "118385": {
    "name": "Chabad of Encino",
    "city": "Encino",
    "shetach": "west-coast",
-   "year": null,
-   "after": 1973,
-   "by": 1976,
-   "how": "range",
-   "confidence": "range",
-   "source": "https://jewishjournal.com/judaism/obituaries/182825/",
-   "note": "Rabbi Yehoshua B. Gordon, who came in 1973, was 'spiritual leader of Chabad of Encino for more than 40 years' at his death in Feb 2016 (Jewish Journal), so it began between 1973 and 1976."
+   "year": 1973,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.chabadofthevalley.com/templates/articlecco_cdo/aid/541231/jewish/About-Us.htm",
+   "note": "Chabad of the Valley's own history (its About Us page, 2007): the Blauner Youth Center in Tarzana was dedicated 'on a fateful day in 1978 — five years into its existence', and 'At that time, Chabad of the Valley consisted of but a single center – a small house on Hayvenhurst Avenue in Encino – operated by Rabbi Gordon and his wife, Deborah' (this listing is at 4915 Hayvenhurst Ave). Rabbi Gordon's nephew's tribute (ChabadNewOrleans.com, 2016): 'He was the spiritual leader of Chabad of Encino, Rabbi and teacher to many at the Chabad House he and his wife Deborah founded in 1973, upon being sent by the Rebbe to the San Fernando Valley' (https://www.chabadneworleans.com/templates/blog/post_cdo/aid/1203266/postid/59034). Jewish Journal obituary (Feb 2016): spiritual leader of Chabad of Encino for more than 40 years."
   },
   "117541": {
    "name": "Chabad of the Conejo",
@@ -4428,7 +4434,7 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://jewishjournal.com/community/353337/rabbis-of-la-rabbi-eli-gurary-serving-an-up-and-coming-community/",
-   "note": "Its Charidy campaign (found by the owner): 'Chabad of Lake Balboa is a small yet growing community center for Jewish life. Since its establishment in the spring of 2017 ...' (Rabbi Eli and Mushkie Gurary, 7006 Louise Ave); Jewish Journal ('Rabbis of LA'): the Gurarys found a community in Lake Balboa in 2017. Its nonprofit was registered 2019 (Cause IQ)."
+   "note": "Its Charidy campaign (https://www.charidy.com/lakebalboa, found by the owner): 'Chabad of Lake Balboa is a small yet growing community center for Jewish life. Since its establishment in the spring of 2017 ...' (Rabbi Eli and Mushkie Gurary, 7006 Louise Ave); Jewish Journal ('Rabbis of LA'): Nov 23 2022: 'In 2017, they found one: Lake Balboa. They moved from Crown Heights to Los Angeles and subsequently bought a house, which doubles as the synagogue.' Its nonprofit was registered 2019 (Cause IQ)."
   },
   "3399630": {
    "name": "Chabad of North Ranch",
@@ -4711,7 +4717,7 @@
    "how": "range",
    "confidence": "range",
    "source": "https://www.chabadnorthridge.com/templates/articlecco_cdo/aid/2612324/jewish/10-Year-Anniversary-Fund.htm",
-   "note": "Its '10 Year Anniversary Fund' page (June 2014) honors 'Rabbi Eli and Tzippy Rivkin for their 10 years of service to the community', so they came about 2004. The listing is in chabad.org's first directory (about 2003) and therebbesimpact.com gives 1988 for Chabad of Northridge itself, so the center may be older. No founding report found."
+   "note": "Its '10 Year Anniversary Fund' page (June 2014) honors 'Rabbi Eli and Tzippy Rivkin for their 10 years of service to the community', so they came about 2004. The listing is in chabad.org's first directory (about 2003) and therebbesimpact.com gives 1988 for Chabad of Northridge itself, so the center may be older. Anash.org (Nov 12 2020, new shluchim to Northridge): the Rivkins 'have been directing Chabad activities in Northridge since 2004' (https://anash.org/new-shluchim-to-northridge-california/). No founding report found, and nothing yet on a Chabad in Northridge before them."
   },
   "117551": {
    "name": "Chabad of South Bay",
@@ -5296,7 +5302,7 @@
    "year": 1979,
    "how": "stated",
    "confidence": "high",
-   "source": "https://www.chabadofbeverlyhills.com/templates/articlecco_cdo/aid/385398/jewish/Contact-Us.htm",
+   "source": "https://www.chabadofbeverlyhills.com/templates/fundraising/default_cdo/aid/4243567/jewish/Campaign.htm",
    "note": "Its own site: 'Forty years ago, in March of 1979, Chabad of Beverly Hills opened its doors for the very first time. It all began in a \"temporary,\" modest warehouse space ... in August of 2017 ... Chabad of Beverly Hills purchased a beautiful and prestigious property! The Herbert and Sylvia Schwartz Chabad Jewish Center of Beverly Hills. 9145 Wilshire Blvd.' (the 'Foot In The Door Campaign' page on chabadofbeverlyhills.com, found by the owner); the site's pages also say 'Serving the Beverly Hills Community since 1979'. Rabbi Yosef Y. Shusterman. (therebbesimpact.com's 1978 is a year off.)",
    "date": "1979-03",
    "earlier": [
@@ -5304,7 +5310,7 @@
      "where": "a 'temporary,' modest warehouse space, Beverly Hills",
      "from": 1979,
      "until": null,
-     "source": "https://www.chabadofbeverlyhills.com/templates/articlecco_cdo/aid/385398/jewish/Contact-Us.htm"
+     "source": "https://www.chabadofbeverlyhills.com/templates/fundraising/default_cdo/aid/4243567/jewish/Campaign.htm"
     },
     {
      "where": "409 N. Foothill Rd, Beverly Hills ('Chabad of North Beverly Hills' on its 2001 and 2003 newsletters)",
@@ -5521,12 +5527,11 @@
    "name": "Blauner Youth Center",
    "city": "Tarzana",
    "shetach": "west-coast",
-   "year": null,
-   "lead": 1980,
-   "how": "not-found",
-   "confidence": "open",
+   "year": 1978,
+   "how": "stated",
+   "confidence": "high",
    "source": "https://www.chabadofthevalley.com/templates/articlecco_cdo/aid/541231/jewish/About-Us.htm",
-   "note": "No year found (Rabbi Yehoshua and Chaya Einbinder, 18181 Burbank Blvd; Chabad of the Valley's Gan Israel Preschool at the same address was founded 1978 per the Chinuch Office directory). therebbesimpact.com: 1980. Same dot as the Ryzman Family Hebrew School."
+   "note": "Chabad of the Valley's own history (its About Us page, 2007): 'on a fateful day in 1978 — five years into its existence — ... Rabbi Joshua Gordon and a unique man named Jerry Blauner ... stood in front of a house on Burbank Boulevard in Tarzana and dedicated it as the \"Israel and Anna Blauner Youth Center\"'; its Gan Israel School opened there in 1978 with ten students; 'Two short years later, Rabbi Mordechai and Chave Einbinder would move to Tarzana be the spiritual leaders of the Tarzana center' (1980, therebbesimpact.com's year). Same dot as the Ryzman Family Hebrew School."
   },
   "119940": {
    "name": "The Ryzman Family Hebrew School",

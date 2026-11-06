@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Crop and retouch one head-shliach photo into a 320x320 JPEG for web/img/heads/<shetach id>.jpg.
 
-  python3 scripts/head-photos/retouch.py <source image> <out.jpg> --crop CX,CY,SIDE [--cast A,B] [--keep]
+  python3 scripts/head-photos/retouch.py <source image> <out.jpg> --crop CX,CY,SIDE [--cast A,B] [--keep] [--studio]
 
 --crop is the hand-picked square on the source: its centre as fractions of the source's width and height, its side as
 a fraction of the height (data/head-photos.json keeps each one's under "crop", for the image as downloaded from
@@ -11,6 +11,8 @@ across, a little above the middle) but never widens it, so nothing the hand pick
 data/head-photos.json keeps it under "cast".
 --keep uses the hand-picked square as it is (for a face turned aside, where the face finder's box is off-centre);
 data/head-photos.json marks it "keep": true.
+--studio is for a professional studio portrait on a plain backdrop: no local contrast, no vignette and lighter
+sharpening, so the lit skin doesn't turn gritty and a white backdrop stays white (data/head-photos.json: "studio": true).
 
 The retouch: colour cast taken out (what should be grey — beards, shirts, walls — made grey, mostly in the light tones
 so blacks stay black), levels when the range is squashed, exposure read on the skin of the forehead and cheeks and
@@ -180,7 +182,7 @@ def retouch(crop, face_rel, small, ovr=None):
     # 4. gentle local contrast (less for small, noisy sources)
     l8 = np.clip(L * 2.55, 0, 255).astype(np.uint8)
     lc = cv2.createCLAHE(clipLimit=1.5, tileGridSize=(4, 4)).apply(l8).astype(np.float32) / 2.55
-    w = 0.1 if small else 0.18   # (v2: was 0.15/0.3, which gave beards a crunchy, over-processed look)
+    w = 0 if ovr and ovr.get('studio') else 0.1 if small else 0.18   # (v2: was 0.15/0.3, which gave beards a crunchy, over-processed look)
     L[:] = L * (1 - w) + lc * w
     # 5. colour strength, read on the skin: pulled into a natural band
     if not mono and st:
@@ -204,9 +206,10 @@ def main():
     ap.add_argument('--crop', required=True, help='CX,CY,SIDE')
     ap.add_argument('--cast', help='A,B (Lab units to take out)')
     ap.add_argument('--keep', action='store_true', help='keep the hand crop as is (the face is still read for exposure)')
+    ap.add_argument('--studio', action='store_true', help='a studio portrait: no local contrast or vignette, lighter sharpening')
     a = ap.parse_args()
     cx, cy, side = (float(v) for v in a.crop.split(','))
-    ovr = {'cast': tuple(float(v) for v in a.cast.split(','))} if a.cast else None
+    ovr = {**({'cast': tuple(float(v) for v in a.cast.split(','))} if a.cast else {}), **({'studio': True} if a.studio else {})} or None
     rgb = load(a.source)
     (x, y, s), face = frame(rgb, {'cx': cx, 'cy': cy, 'side': side}, a.keep)
     x0, y0, s0 = int(round(x)), int(round(y)), int(round(s))
@@ -218,9 +221,9 @@ def main():
         crop = u8.astype(np.float32) / 255
     out, notes = retouch(crop, face_rel, small, ovr)
     ring = np.ones(out.shape[:2], bool); hh, ww = ring.shape; ring[int(hh * .12):int(hh * .88), int(ww * .12):int(ww * .88)] = False
-    if float(np.mean(out[ring])) < 0.72: out = vignette(out)   # no vignette on a light backdrop (it reads as a grey ring)
+    if not a.studio and float(np.mean(out[ring])) < 0.72: out = vignette(out)   # no vignette on a light backdrop (it reads as a grey ring)
     im = Image.fromarray((np.clip(out, 0, 1) * 255 + 0.5).astype(np.uint8)).resize((320, 320), Image.LANCZOS)
-    im = im.filter(ImageFilter.UnsharpMask(radius=0.9 if small else 1.0, percent=40 if small else 50, threshold=3))
+    im = im.filter(ImageFilter.UnsharpMask(radius=0.9 if small else 1.0, percent=25 if a.studio else 40 if small else 50, threshold=3))
     if s0 < 420:   # an enlarged face: a fine grain gives back the texture enlarging smooths away (no plastic skin)
         g = np.random.default_rng(7).normal(0, 1.5 if small else 1.0, (320, 320, 1)).astype(np.float32)
         im = Image.fromarray(np.clip(np.asarray(im).astype(np.float32) + g, 0, 255).astype(np.uint8))

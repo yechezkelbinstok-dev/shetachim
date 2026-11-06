@@ -1,5 +1,5 @@
 {
- "about": "Profile photos of the head shluchim (USA, Canada, Europe and the Middle East), one per shetach: a head-and-shoulders crop (320x320 JPEG) in web/img/heads/<shetach id>.jpg. Standard (owner, Nov 5): a proper portrait of him alone, never a farbrengen or group shot. 'page' is where the photo was found, 'image' the original file; 'crop' is the hand-picked square on that image (centre as fractions of width and height, side as a fraction of height) and 'cast' a colour cast taken out by hand; 'edit' (rare) is what scripts/head-photos/paint-out.py painted out of the source first (someone else reaching into the frame). Every photo is retouched by scripts/head-photos/retouch.py (cast, levels, exposure and colour read on the skin, local contrast, sharpening).",
+ "about": "Profile photos of the head shluchim (USA, Canada, Europe and the Middle East), one per shetach: a head-and-shoulders crop (320x320 JPEG) in web/img/heads/<shetach id>.jpg. Standard (owner, Nov 5): a proper portrait of him alone, never a farbrengen or group shot. 'page' is where the photo was found, 'image' the original file; 'crop' is the hand-picked square on that image (centre as fractions of width and height, side as a fraction of height) and 'cast' a colour cast taken out by hand; 'source' is the kept copy in work/ the crop was made on; 'studio': true a studio portrait retouched gently (retouch.py --studio); 'edit' (rare) is what scripts/head-photos/paint-out.py painted out of the source first (someone else reaching into the frame). Every photo is retouched by scripts/head-photos/retouch.py (cast, levels, exposure and colour read on the skin, local contrast, sharpening).",
  "photos": [
   {
    "id": "west-coast",
@@ -712,14 +712,16 @@
    "id": "croatia",
    "head": "Pinny Zaklas",
    "file": "img/heads/croatia.jpg",
-   "page": "https://zidovi.hr/posjet-rabina-pinchasa-zaklosa-osijeku-i-koprivnici/",
-   "image": "http://zidovi.hr/wp-content/uploads/2020/07/WhatsApp-Image-2020-06-30-at-19.36.10-1-1024x768.jpeg",
-   "note": "his own photo on a visit to Osijek, June 2020",
+   "page": "https://zagreb.hr/en/paljenje-prve-svijece-na-menori/153630",
+   "image": "https://zagreb.hr/UserDocsImages//fotogalerija/gradske%20vijesti/191222_menora2.JPG",
+   "note": "Dec 2022, at the lighting of the first Chanukah candle on Ban Jelačić Square (City of Zagreb's photo): cropped to him from the group. The old one was his own selfie from 2020",
    "crop": {
-    "cx": 0.1875,
-    "cy": 0.55,
-    "side": 0.5
-   }
+    "cx": 0.2247,
+    "cy": 0.277,
+    "side": 0.228
+   },
+   "keep": true,
+   "source": "work/head-photos/candidates/eu/croatia/c2.jpg"
   },
   {
    "id": "cyprus",
@@ -753,12 +755,15 @@
    "file": "img/heads/denmark.jpg",
    "page": "http://www.oresundslimmud.se/yitzi-loewenthal-2026-denmark/",
    "image": "http://www.oresundslimmud.dk/wp-content/uploads/2025/11/web_yitzi.jpg",
-   "note": "Oresund Limmud speaker portrait, Nov 2025",
+   "note": "Oresund Limmud speaker portrait, Nov 2025 (a thin red frame round it trimmed, and a strip of the white sky above added so the crop keeps his kippah)",
    "crop": {
     "cx": 0.5,
-    "cy": 0.5,
-    "side": 0.95
-   }
+    "cy": 0.47,
+    "side": 0.86
+   },
+   "edit": "--trim 4 --extend-top 40",
+   "keep": true,
+   "source": "work/head-photos/candidates/eu/denmark/c1.jpg"
   },
   {
    "id": "estonia",
@@ -790,14 +795,18 @@
    "id": "france",
    "head": "Mendy Azimov",
    "file": "img/heads/france.jpg",
-   "page": "https://www.crif.org/articles/actualites/2021-04-29/quel-avenir-pour-les-francais-juifs-les-reponses-de-mendel-azimov-directeur-du-beth-loubavitch-paris/",
-   "image": "http://www.crif.org/wp-content/uploads/2021/04/mendel_azimov-2.png",
-   "note": "the portrait in CRIF interview graphic, Apr 2021",
+   "page": "https://hassidout.org/le-rav-mendel-azimov-directeur-du-beth-loubavitch-au-palais-de-lelysee-dans-le-cadre-du-80e-anniversaire-du-crif/",
+   "image": "https://hassidout.org/wp-content/uploads/2024/03/000045645648678985456-1080x675.jpg",
+   "note": "Mar 2024, at the Élysée Palace for the CRIF's 80th anniversary (hassidout.org), beside President Macron: cropped to him, a man behind his shoulder painted out. The old one (2021) showed his beard still black; his 2026 videos show it grey like here",
    "crop": {
-    "cx": 0.79,
-    "cy": 0.38,
-    "side": 0.5
-   }
+    "cx": 0.407,
+    "cy": 0.225,
+    "side": 0.34
+   },
+   "edit": "--fill 512,168,575,265",
+   "keep": true,
+   "studio": true,
+   "source": "work/head-photos/candidates/eu/france/c2.jpg"
   },
   {
    "id": "germany",
@@ -829,14 +838,16 @@
    "id": "hungary",
    "head": "Baruch Oberlander",
    "file": "img/heads/hungary.jpg",
-   "page": "https://commons.wikimedia.org/wiki/File:Oberlander_B%C3%A1ruch_rabbi.jpg",
-   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Oberlander_B%C3%A1ruch_rabbi.jpg/500px-Oberlander_B%C3%A1ruch_rabbi.jpg",
-   "note": "Wikimedia Commons portrait (the 500 px copy; the newer photos all have a microphone in front)",
+   "page": "https://zsido.com/oberlander-baruch-rabbi-mi-lett-volna-ha-nem-rabbi/",
+   "image": "https://zsido.com/files/2026/06/Baruch-csalad-e1780570585661.jpeg",
+   "note": "June 2026, the photo with Zsido.com's interview with him (\"Mit csinál a mindennapokban Oberlander Báruch…\"), cropped to him from a family photo; his beard as in his Feb 2025 interviews (the old one was from 2015)",
    "crop": {
-    "cx": 0.5,
-    "cy": 0.3,
-    "side": 0.55
-   }
+    "cx": 0.271,
+    "cy": 0.284,
+    "side": 0.568
+   },
+   "keep": true,
+   "source": "work/head-photos/candidates/eu/hungary/c2.jpg"
   },
   {
    "id": "iceland",
@@ -846,10 +857,12 @@
    "image": "Instagram post (The Jew Project, Feb 2025), photo 8",
    "note": "studio portrait by The Jew Project, Feb 2025",
    "crop": {
-    "cx": 0.584,
-    "cy": 0.289,
-    "side": 0.678
-   }
+    "cx": 0.499,
+    "cy": 0.235,
+    "side": 0.42
+   },
+   "keep": true,
+   "source": "work/head-photos/instagram/images/DGi_3S3RDmZ_8.jpg"
   },
   {
    "id": "ireland",
@@ -908,13 +921,15 @@
    "head": "Sholom Ber Krinsky",
    "file": "img/heads/lithuania.jpg",
    "page": "https://hamec.org/in-lithuania-there-is-institutional-and-legal-antisemitism/",
-   "image": "https://hamec.org/wp-content/uploads/2026/03/4-RABBI-SHOLOM-BER-KRINSKY-head-of-Chabad-in-Vilnius-300x300.webp",
-   "note": "Mar 2026 (\"Rabbi Sholom Ber Krinsky, head of Chabad in Vilnius\")",
+   "image": "https://hamec.org/wp-content/uploads/2026/03/4-RABBI-SHOLOM-BER-KRINSKY-head-of-Chabad-in-Vilnius.webp",
+   "note": "Mar 2026 (\"Rabbi Sholom Ber Krinsky, head of Chabad in Vilnius\"): the full-size copy, so the crop keeps the top of his head",
    "crop": {
-    "cx": 0.6,
-    "cy": 0.4,
-    "side": 0.8
-   }
+    "cx": 0.72,
+    "cy": 0.28,
+    "side": 0.56
+   },
+   "keep": true,
+   "source": "work/head-photos/candidates/eu/lithuania/c2.webp"
   },
   {
    "id": "lower-balkans",
@@ -946,14 +961,16 @@
    "id": "montenegro",
    "head": "Ari Edelkopf",
    "file": "img/heads/montenegro.jpg",
-   "page": "https://jewishlink.news/rabbi-ari-edelkopf-to-speak-at-chabad-of-west-orange/",
-   "image": "https://jewishlink.news/wp-content/uploads/2018/02/201-2.jpg",
-   "note": "The Jewish Link, Feb 2018",
+   "page": "https://rtnk.me/drustvo/rabin-edelkopf-cestitao-bajram/",
+   "image": "https://rtnk.me/wp-content/uploads/2024/04/rabin-ari-edelkopf-e1712731632951.jpg",
+   "note": "Apr 2024, RTNK (\"Rabin Edelkopf čestitao Bajram\"); the grey in his beard as in his July 2024 photos (the old one was from 2018, his beard still black)",
    "crop": {
-    "cx": 0.5,
-    "cy": 0.5,
-    "side": 0.966
-   }
+    "cx": 0.555,
+    "cy": 0.45,
+    "side": 0.9
+   },
+   "keep": true,
+   "source": "work/head-photos/candidates/eu/montenegro/c2.jpg"
   },
   {
    "id": "morocco",
@@ -1038,27 +1055,31 @@
    "id": "russia",
    "head": "Berel Lazar",
    "file": "img/heads/russia.jpg",
-   "page": "https://www.instagram.com/p/CYpUzH_rq0o/",
-   "image": "Instagram post (The Jew Project, Jan 2022), photo 7",
-   "note": "studio portrait by The Jew Project, Jan 2022",
+   "page": "https://commons.wikimedia.org/wiki/File:Berel_Lazar.jpg",
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Berel_Lazar.jpg/960px-Berel_Lazar.jpg",
+   "note": "Nov 2025, at the Kremlin receiving the Order of Friendship (kremlin.ru via Wikimedia Commons); his raised hand left out",
    "crop": {
-    "cx": 0.46,
-    "cy": 0.324,
-    "side": 0.425
-   }
+    "cx": 0.515,
+    "cy": 0.3,
+    "side": 0.43
+   },
+   "keep": true,
+   "source": "work/head-photos/candidates/eu/russia/c1.jpg"
   },
   {
    "id": "serbia",
    "head": "Yehoshua Kaminetzky",
    "file": "img/heads/serbia.jpg",
-   "page": "https://cordmagazine.com/events/jewish-habad-serbia-centre-opens-in-belgrade/",
-   "image": "https://cordmagazine.com/wp-content/gallery/jewish-habad-serbia-centre-opens-in-belgrade/SUB_4134-002_resize.JPG",
-   "note": "CorD Magazine, the centre's opening, Sept 2016: the most recent photo of him alone found",
+   "page": "https://www.instagram.com/p/DTtc9WtDVWd/",
+   "image": "Instagram post (Chabad Serbia, Jan 2026), photo 13",
+   "note": "Jan 2026, in front of the Chabad Serbia sign (Chabad.org's \"Chabad House of the Week\" on Serbia, posted by Chabad Serbia): cropped to him from a photo with two young men; the same man as on Informer TV, Sept 2025. The old one was from 2016",
    "crop": {
-    "cx": 0.45,
-    "cy": 0.31,
-    "side": 0.4
-   }
+    "cx": 0.529,
+    "cy": 0.128,
+    "side": 0.189
+   },
+   "keep": true,
+   "source": "work/head-photos/candidates/eu/serbia/c2.jpg"
   },
   {
    "id": "slovakia",
@@ -1105,14 +1126,17 @@
    "id": "united-arab-emirates",
    "head": "Levi Duchman",
    "file": "img/heads/united-arab-emirates.jpg",
-   "page": "https://www.jnf.org/jnf-blog/jnf-wire/jnf-wire-stories/the-abraham-accords-are-changing-rabbi-levi-duchmans-life-in-the-uae",
-   "image": "https://jnf.blob.core.windows.net/images/images/default-source/news-media-library/rabbi-duchman.jpeg?sfvrsn=72f21ab0_2",
-   "note": "JNF portrait",
+   "page": "https://commons.wikimedia.org/wiki/File:Rabbi_Levy_Duchman.jpg",
+   "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/46/Rabbi_Levy_Duchman.jpg/960px-Rabbi_Levy_Duchman.jpg",
+   "note": "studio portrait (Wikimedia Commons): the same session as the JNF portrait used before, the shot with his hat; he looks the same in his 2025 photos",
    "crop": {
-    "cx": 0.5,
-    "cy": 0.5,
-    "side": 1.0
-   }
+    "cx": 0.48,
+    "cy": 0.4,
+    "side": 0.78
+   },
+   "keep": true,
+   "studio": true,
+   "source": "work/head-photos/candidates/eu/united-arab-emirates/c2.jpg"
   },
   {
    "id": "saudi-arabia",

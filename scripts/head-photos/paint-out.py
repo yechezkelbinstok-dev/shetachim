@@ -3,7 +3,12 @@
 reaches into the frame), so the crop shows him alone.
 
   python3 scripts/head-photos/paint-out.py <source image> <out.png> --axis X --mirror "x,y x,y ..." [--fill "x0,y0,x1,y1" ...] [--dot "x,y,r" ...]
-      [--clone "x0,y0,x1,y1,cx,cy" ...]
+      [--clone "x0,y0,x1,y1,cx,cy" ...] [--trim N] [--extend-top N]
+
+--trim N cuts N pixels off every side first (a frame drawn round the photo). --extend-top N then adds N pixels of
+headroom above it, continuing a plain backdrop (the top rows, smoothed sideways): for a photo cut tight over his head,
+so the crop doesn't cut his hat or kippah. Only over a plain backdrop (a wall, a white or blurred background). Pixel
+positions in the other arguments are on the trimmed and extended image.
 
 --mirror is a polygon (source pixels) filled from the mirror image of the photo across the vertical line x = --axis
 (the centre of his face), blended in with Poisson cloning: beard, jacket and wall on one side stand in for the other.
@@ -26,8 +31,19 @@ def main():
     ap.add_argument('--fill', action='append', default=[], help='rectangle to inpaint: x0,y0,x1,y1')
     ap.add_argument('--dot', action='append', default=[], help='circle to inpaint: x,y,r')
     ap.add_argument('--clone', action='append', default=[], help='patch to copy over a spot: x0,y0,x1,y1,cx,cy')
+    ap.add_argument('--trim', type=int, default=0, help='pixels cut off every side first (a frame round the photo)')
+    ap.add_argument('--extend-top', type=int, default=0, help='pixels of plain backdrop added above')
     a = ap.parse_args()
     im = cv2.imread(a.source, cv2.IMREAD_COLOR)
+    if a.trim: im = im[a.trim:-a.trim, a.trim:-a.trim]
+    if a.extend_top:
+        # the mean of the top three rows, repeated upwards and smoothed sideways, eased into the photo over 12 rows
+        row = im[:3].astype(np.float32).mean(axis=0, keepdims=True)
+        top = cv2.GaussianBlur(np.repeat(row, a.extend_top + 12, axis=0), (0, 0), sigmaX=9, sigmaY=0.1)
+        out = np.vstack([top[:a.extend_top], im.astype(np.float32)])
+        w = np.linspace(1, 0, 12, dtype=np.float32)[:, None, None]
+        out[a.extend_top:a.extend_top + 12] = w * top[a.extend_top:] + (1 - w) * out[a.extend_top:a.extend_top + 12]
+        im = np.clip(out, 0, 255).astype(np.uint8)
     H, W = im.shape[:2]
     if a.mirror:
         poly = np.array([[int(float(v)) for v in p.split(',')] for p in a.mirror.split()], np.int32)
@@ -51,7 +67,8 @@ def main():
         cv2.circle(m, (x, y), r, 255, -1)
     if m.any(): im = cv2.inpaint(im, m, 7, cv2.INPAINT_TELEA)
     cv2.imwrite(a.out, im)
-    done = [w for w, on in (('a mirror fill', a.mirror), ('cloned patches', a.clone), ('inpainted spots', m.any())) if on]
+    done = [w for w, on in (('a frame trimmed', a.trim), ('headroom added', a.extend_top), ('a mirror fill', a.mirror),
+                            ('cloned patches', a.clone), ('inpainted spots', m.any())) if on]
     print(f'{a.out}: painted out with {", ".join(done) or "nothing"}')
 
 

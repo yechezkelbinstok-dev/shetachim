@@ -36,7 +36,8 @@ work on them and find a good replacement. And remember, everything has to be edi
 everything to look good." He also caught two misjudgments in the first review: "in what world is the Lazar one good he
 looks way too young" (the photo is older than the 2022 post that used it) and "is the Norway one really so bad?" (no).
 So judge a photo's age against a dated 2024–26 photo of the same man, not the date of the page or post that shows it,
-and judge looks at the size the card shows. Progress: the "Nov 6, later" section below.
+and judge looks at the size the card shows. Progress: ten changed and live (the "Nov 6, later" section below); for
+fourteen no better recent photo has been found yet (the list is there, with what was tried).
 
 **Open (the owner's; not started):**
 - The founding year of every center, "to show the growth of Chabad": his idea and words are in the Nov 6 (end of a
@@ -59,6 +60,37 @@ and judge looks at the size the card shows. Progress: the "Nov 6, later" section
   settings, never to paste it in the chat.
 - Judea and Samaria is Israel; head shluchim's names in full; never a map in a card; commit and push every turn to
   `claude/bold-albattani-aqfnj9`, no PR.
+
+## ▶ Nov 6, later: Europe and Middle East photos redone — ten changed (LIVE)
+
+Each one checked at card size, his age judged against a dated 2024–26 photo of him. Sources, crops and notes are in
+data/head-photos.json; the kept source of each is under work/head-photos/candidates/eu/<id>/ (its "source" field).
+- **Replaced with recent photos:** Russia (Lazar: at the Kremlin, Nov 2025, Wikimedia Commons; his raised hand left out),
+  Hungary (Oberlander: June 2026, Zsido.com, cropped from a family photo; the old one was from 2015), Serbia (Kaminetzky:
+  Jan 2026, Chabad.org's "Chabad House of the Week" photo posted by Chabad Serbia on Instagram; old one 2016),
+  Montenegro (Edelkopf: Apr 2024, RTNK; old one 2018), France (Mendel Azimov: the Élysée, Mar 2024, a man behind him
+  painted out; a soft web copy, but the only recent photo of him facing the camera — his 2026 videos show him reading;
+  old one 2021, his beard still black), Croatia (Zaklas: Dec 2022, City of Zagreb; old one a 2020 selfie).
+- **UAE:** the same studio session as before, the shot with his hat (Commons), retouched with the new `--studio`.
+- **Re-cropped:** Lithuania (the full-size copy, so his head isn't cut), Denmark (a red frame trimmed and the white sky
+  above extended, so his kippah isn't cut), Iceland (closer).
+- **Checked and kept:** Cyprus, Latvia, Slovakia (they look as in their 2025–26 photos); Norway (the owner: fine).
+- **No better recent photo found yet** (tried: Firecrawl image search in English and the local language, with and
+  without a 2024–26 date filter; the Chabad houses' Instagram accounts through Apify; YouTube frames): Belgium (a 2018
+  interview still), Czech Republic (a TV still), Estonia (2019; his only 2026 photos are small, in groups), Finland
+  (2020, 200px), Germany (2017; one lead: Jüdische Allgemeine, Dec 2025, a Chanukah photo of a rabbi in a hat beside
+  Charlotte Knobloch — check that it's Diskin; a fur hat overlaps him), Ireland (2019), Italy (2017; Chabad Italia's
+  Instagram only has him small in a June 2025 group photo), Lower Balkans (a TV still), Malta (old; the only other one a
+  2018 video frame), Spain (a 2021 selfie), Morocco (his 2022 X picture), Israel (his beard is greyer in 2025–26
+  photos; no recent portrait of him alone), Portugal (an undated interview). *(Suggestion, not agreed:)* asking the
+  Chabad house for a photo would settle most of these.
+- **Tools added:** `retouch.py --studio` (a studio portrait: no local contrast, no vignette, lighter sharpening; the
+  normal edit made the UAE studio shot gritty and greyed its white backdrop); `paint-out.py --trim N --extend-top N`
+  (cut a drawn frame off; add plain backdrop above a head cut too tight). Entries can now carry "source" and "studio".
+- Instagram accounts found (not yet in data/instagram-accounts.json): chabad_serbia, chabad.it, beth_loubavitch,
+  chabad_hrvatska, chabad.latvia, chabad_school_riga, chabad_prague_community, chabadantwerpen, chabadmalta, chanie_kot
+  (Estonia), edlkop (Ari Edelkopf, Montenegro), alliancerabbisinislamicstates. Most post children and events; the face
+  sheets made from them stay out of the repo.
 
 ## ▶ Nov 6, end of a session: the founding-years idea, Garelik, what was left
 

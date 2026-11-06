@@ -10,16 +10,22 @@ confidence.
 35 map areas: the 34 US/Canada shetachim with 10 dots or fewer, and Monsey (blank on the map, `shetach: "none"`).
 160 dots, 171 listings (mushrooms not counted).
 
-| | count |
+| Dots | count |
 |---|---|
-| Dots with a year (a dot takes its earliest listing's year) | 152 of 160 (95%) |
-| Dots with only a range ("by 2008": it existed then, start unknown) | 8 |
-| Dots with nothing | 0 |
-| Listings rated high / medium / low / range | 98 / 25 / 38 / 10 |
-| Listings with a month or a day too | 38 |
+| A year from a real source, high | 95 (59%) |
+| A year from a real source, medium | 24 (15%) |
+| Only a range ("by 2012": it existed then, start unknown) | 15 (9%) |
+| Open: no real source yet | 26 (16%) |
 
-Most of the 38 lows are centers opened since about 2016 that no article covers. Their year rests on two weak signs
-that agree: therebbesimpact.com's year, and when the center's chabad.org listing was made (below).
+Listings: high 98, medium 25, range 17, open 31. A dot takes its earliest
+listing's year.
+
+**Owner (Nov 6), on the guesses:** "basically a guess is ridiculous how can I use that in an expansion map ... if you
+had tried harder you could have found it but I guess that's for the next session to work on". So no guess is a year
+any more: those entries are `open`, with `year: null` and the guess kept only as `lead` (therebbesimpact.com's year,
+or when the chabad.org listing was made), to check. Where a dated source shows the place running by some year, the
+entry is a `range` with that `by` year. Most open ones are places opened since about 2016 that no article found so
+far covers.
 
 ## therebbesimpact.com, checked again
 
@@ -33,7 +39,7 @@ all for many schools, camps and mikvahs. A lead, not a source.
 
 A center's chabad.org id is the number of its listing, and the numbers run in the order listings were made, so the
 number dates the listing to within about a year. That bounds the start; it is not the start (a camp or a shul can be
-decades older than its listing). Anchors used:
+decades older than its listing). Used only for leads, never as a year. Anchors used:
 
 | Number | When |
 |---|---|
@@ -65,126 +71,126 @@ decades older than its listing). Anchors used:
   the year the shluchim began is used, the other year is in the note.
 - Lubavitch.com pages often answer with a server error (500) to both WebFetch and Firecrawl.
 
-## Doubtful entries (for the owner to spot-check)
+## Not done yet (medium, range, open)
 
-Medium: one source, a count back from "N years ago", or two sources a year apart. Low: no real source, only
-therebbesimpact.com and the listing number. Range: no year, only "it existed by then".
+Medium: one source, a count back from "N years ago", or two sources a year apart. Range: no year, only "it
+existed by then". Open: no real source yet (lead = the guess to check).
 
 **alabama**
-- medium: Chabad of Alabama, Birmingham, 1987 (Rabbi Posner also said "the early '80s")
-- medium: Chabad of Huntsville, 2010
-- low: Chabad on Wheels, Birmingham, 2025
+- medium: Chabad of Alabama, Birmingham, AL, 1987
+- medium: Chabad of Huntsville, Huntsville, AL, 2010
+- range: Chabad on Wheels, Birmingham, AL, by 2025 (lead 2025)
 
 **alaska**
-- range: The Alaskan Mikvah, Anchorage, after 2001
+- range: The Alaskan Mikvah, Anchorage, AK, after 2001
 
 **cape-cod-and-the-islands**
-- low: Chabad of Nantucket, 2024
+- open: Chabad of Nantucket, Nantucket, MA (lead 2024)
 
 **central-ohio**
-- medium: Schottenstein Chabad House (OSU), Columbus, 1991 (its own house perhaps 1996)
-- low: Chabad of Downtown Columbus, 2017
-- low: Chabad of Bexley, 2025
+- medium: Schottenstein Chabad House, Columbus, OH, 1991
+- open: Chabad of Bexley, Bexley, OH (lead 2025)
+- open: Chabad of Downtown Columbus, Columbus, OH (lead 2017)
 
 **hawaii**
-- medium: Chabad of Maui, 2004 (the Shustermans' Maui Mitzvah Center; that it is the same center is inferred)
-- low: Chabad Kauai, 2007 (a directory says 2010)
-- low: Chabad of Kona & West Hawaii, 2009
-- low: Chabad of Hilo, 2023
-- low: CYP Oahu, Honolulu, 2025
+- medium: Chabad of Maui, Kihei, HI, 2004
+- range: Chabad Kauai, Kapa'a, HI, by 2010 (lead 2007)
+- range: Chabad of Kona & West Hawaii, Kailua Kona, HI, by 2016 (lead 2009)
+- open: CYP Oahu, Honolulu, HI (lead 2025)
+- open: Chabad of Hilo and East Side of the Big Island, Hilo, HI (lead 2023)
 
 **indiana**
-- medium: Lubavitch of Indiana, Indianapolis, 1981 ("After 34 Years", 2015)
-- medium: Chabad House of Bloomington, 1989 ("home of 30 years", 2019; the Chincholkers from about 1990)
-- low: Chabad of Greater South Bend, 2017
-- low: Chabad of Fishers-Noblesville, 2026
+- medium: Chabad House of Bloomington, Bloomington, IN, 1989
+- medium: Lubavitch of Indiana - Chabad Center for Jewish Life, Indianapolis, IN, 1981
+- open: Chabad of Fishers-Noblesville, Fishers, IN (lead 2026)
+- open: Chabad of Greater South Bend, Granger, IN (lead 2017)
 
 **iowa**
-- medium: Chabad of North East Iowa, Postville, 1998 ("the last 28 years", Jan 2026)
-- low: YJP Des Moines, 2026
-- low: Cteen Iowa, Des Moines, 2026
-- low: Lubavitch of Iowa City, 2002
-- low: Lubavitch of Ames, 2017
-- range: Talmud Torah, Des Moines, by 2008
-- range: Cheder Menachem / Beis Chaya Mushka, Postville, by 2007
+- medium: Chabad of North East Iowa, Postville, IA, 1998
+- range: Cheder Menachem Boys School/Beis Chaya Mushka Girls School, Postville, IA, by 2007
+- range: Lubavitch of Iowa City, Iowa City, IA, by 2006 (lead 2002)
+- range: Talmud Torah, Des Moines, IA, by 2008
+- open: Cteen Iowa, Des Moines, IA (lead 2026)
+- open: Lubavitch of Ames, Ames, IA (lead 2017)
+- open: YJP Des Moines, Des Moines, IA (lead 2026)
 
 **kentucky**
-- medium: Louisville Jewish Day School, 1996 (grew from Gan Torah; a school site lists it closed in 2025)
-- medium: Chabad of Prospect, Louisville, 2012 (that it is the 2012 Chabad Chai Center is inferred)
-- medium: Chabad of the Bluegrass, Lexington, 2015 (or 2016)
-- range: Camp Gan Israel, Louisville, by 2011
+- medium: Chabad of Prospect, Louisville, KY, 2012
+- medium: Chabad of the Bluegrass, Lexington, KY, 2015
+- medium: Louisville Jewish Day School, Louisville, KY, 1996
+- range: Camp Gan Israel, Louisville, KY, by 2011
 
 **louisiana-mississippi**
-- medium: Slater Torah Academy, Metairie, 1993 (or 1994)
-- medium: Congregation Beth Israel, Gulfport, 2014 (Chabad of Southern Mississippi's year; the shul is older)
-- range: Camp Gan Israel, Metairie, by 2007
+- medium: Congregation Beth Israel, Gulfport, MS, 2014
+- medium: Slater Torah Academy, Metairie, LA, 1993
+- range: Camp Gan Israel, Metairie, LA, by 2007
 
 **maine**
-- medium: Chabad of Bangor, 2015 (its Chabad house perhaps 2017)
-- medium: Chabad of Brunswick, 2018
+- medium: Chabad of Bangor, Bangor, ME, 2015
+- medium: Chabad of Brunswick, Brunswick, ME, 2018
 
 **manitoba-saskatchewan**
-- range: The Friendship Circle, Winnipeg, by 2008
+- range: The Friendship Circle, Winnipeg, MB, by 2008
 
 **merrimack-valley**
-- medium: Chabad Lubavitch Jewish Center of Merrimack Valley, Andover, 1992 (a founders' dinner about 1990)
-- range: Camp Gan Israel, Andover, by 2005
+- medium: Chabad Lubavitch Jewish Center of Merrimack Valley, Andover, MA, 1992
+- range: Camp Gan Israel, Andover, MA, by 2005
 
 **montana**
-- low: Chabad Lubavitch of Great Falls, 2023 (running by March 2024)
+- range: Chabad Lubavitch of Great Falls, Great Falls, MT, by 2024 (lead 2023)
 
 **new-mexico**
-- medium: Mikvah Moshe, Santa Fe, 2010 (nearly built Nov 2010)
-- low: Chabad of Taos, 2008
-- low: Chabad of Eldorado, 2026
+- medium: Mikvah Moshe, Santa Fe, NM, 2010
+- open: Chabad of Eldorado, Eldorado, NM (lead 2026)
+- open: Chabad of Taos, Taos, NM (lead 2008)
 
-**none (Monsey)**
-- medium: Cheder Chabad of Monsey, 1999
-- low: National Committee for Jewish Education, Monsey, 2000
-- low: Monsey Beis Chaya Mushka High, 2008
-- low: Mesivta Lev Tmimim, 2015
-- low: Cheder Zichron Shmuel, 2024
-- low: Mayan Torah Tomchei Tmimim, 2025
-- range: Cheder Chabad of Monsey Girls School, by 2008
+**none**
+- medium: Cheder Chabad of Monsey, Spring Valley, NY, 1999
+- range: Cheder Chabad of Monsey Girls School, Airmont, NY, by 2008
+- range: Monsey Beis Chaya Mushka High, Airmont, NY, by 2012 (lead 2008)
+- open: Cheder Zichron Shmuel, Spring Valley, NY (lead 2024)
+- open: Mayan Torah Tomchei Tmimim, Monsey, NY (lead 2025)
+- open: Mesivta Lev Tmimim, Monsey, NY (lead 2015)
+- open: National Committee for Jewish Education, Monsey, NY (lead 2000)
 
 **north-shore-of-massachusetts**
-- low: Chabad of Cape Ann, Gloucester, 2021
+- open: Chabad of Cape Ann, Gloucester, MA (lead 2021)
 
 **ottawa**
-- low: Chabad of Westboro Village, 2019
-- low: Congregation Lubavitch, Ottawa, 1992
-- low: Chabad of Centrepointe, 2002
-- low: Chabad of Kanata, 2007
-- low: Chabad Student Centre of Kingston, 2010
-- range: Irving Aaron Kitchen of Kindness, by 2024
+- range: Irving Aaron Kitchen of Kindness, Ottawa, ON, by 2024
+- open: Chabad Student Centre of Kingston - Rohr Chabad House, Kingston, ON (lead 2010)
+- open: Chabad of Centrepointe, Ottawa, ON (lead 2002)
+- open: Chabad of Kanata, Ottawa, ON (lead 2007)
+- open: Chabad of Westboro Village, Ottawa, ON (lead 2019)
+- open: Congregation Lubavitch, Ottawa, ON (lead 1992)
 
 **rhode-island**
-- medium: Chabad of West Bay Chai Center, Warwick, 1995
-- low: Chabad of Providence (Rabbi Berel Laufer), 2026
-- low: Chabad of College Hill (Brown), 2003
-- low: Chabad of the University of Rhode Island, 2016
-- low: Chabad of South County, 2021
+- medium: Chabad of West Bay Chai Center, Warwick, RI, 1995
+- open: Chabad of College Hill, Providence, RI (lead 2003)
+- open: Chabad of Providence, Providence, RI (lead 2026)
+- open: Chabad of South County, South Kingstown, RI (lead 2021)
+- open: Chabad of the University of Rhode Island, Kingston, RI (lead 2016)
 
 **rockland**
-- medium: Chabad of The Nyacks, 2001
-- low: Chabad Jewish Center of Suffern, 2007
-- low: Chabad Israel Center, Nanuet, 2021
-- low: Chabad of Stony Point, 2023
+- medium: Chabad of The Nyacks, Nyack, NY, 2001
+- range: Chabad Israel Center, Nanuet, NY, by 2023 (lead 2021)
+- open: Chabad Jewish Center of Suffern, Montebello, NY (lead 2007)
+- open: Chabad of Stony Point, Stony Point, NY (lead 2023)
 
 **southern-ohio**
-- medium: Chabad Jewish Center, Blue Ash, 1990 (or 1991)
+- medium: Chabad Jewish Center, Blue Ash (Cincinnati), OH, 1990
 
 **utah**
-- medium: Chabad Lubavitch of Park City, 2013
+- medium: Chabad Lubavitch of Park City, Park City, UT, 2013
 
 **vermont**
-- medium: Chabad of Vermont, Burlington, 1983 (or 1984)
-- low: Chabad of Bennington County, Manchester, 2014
-- low: Middlebury Chabad, 2017
-- low: Chabad of Northwest Vermont, South Burlington, 2022
-- range: Mikvah Chaya Mushka, Burlington, by 2003
+- medium: Chabad of Vermont, Burlington, VT, 1983
+- range: Mikvah Chaya Mushka, Burlington, VT, by 2003
+- open: Chabad of Bennington County, Manchester, VT (lead 2014)
+- open: Chabad of Northwest Vermont, South Burlington, VT (lead 2022)
+- open: Middlebury Chabad, Middlebury, VT (lead 2017)
 
 **washington-dc**
-- medium: Chabad GW, 1994
-- medium: Chabad Georgetown, 2021
-- medium: Chabad East DC Jewish Center, 2021
+- medium: Chabad East DC Jewish Center, Washington, DC, 2021
+- medium: Chabad GW, Washington, DC, 1994
+- medium: Chabad Georgetown, Washington, DC, 2021

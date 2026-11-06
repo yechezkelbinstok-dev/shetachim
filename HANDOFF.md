@@ -82,11 +82,18 @@ thirteen no better recent photo has been found yet (the list is there, with what
   merrimack-valley, utah (4); alabama, kentucky, louisiana-mississippi, rockland, washington-dc (5);
   manitoba-saskatchewan, montana, new-mexico, north-shore-of-massachusetts (6); hawaii, indiana, iowa, rhode-island,
   southern-ohio, tennessee (7); vermont (8); ottawa (9); and the 9 dots in no shetach (New York).
-  **Done (Nov 6): that first batch** (`work/founding-years/small-shetachim.md`): 160 dots, 171 listings; a year for
-  152 dots (95%), only a range ("by 2008") for 8; listings high 98 / medium 25 / low 38 / range 10. Most lows are
-  centers opened since about 2016 with no article, dated only by therebbesimpact.com and when the chabad.org listing
-  was made. The report ends with the 73 doubtful entries for the owner to spot-check. therebbesimpact.com against
-  our high years: the same 51 of 65, a year off 9, wrong 5.
+  **The data file is `data/founding-years.json`** (owner, Nov 6: "there should be a data file that's going to get
+  continuously updated as we do this research rather than a bunch of jumbled stuff"): one entry per listing, keyed by
+  chabad.org id, updated in place by every session (`work/founding-years/add.py`); its `about` explains every field.
+  The .md files in `work/founding-years/` are only notes.
+  **First batch researched (Nov 6)** (`work/founding-years/small-shetachim.md`): 160 dots, 171 listings. Dots: a year
+  from a real source 119 (high 95, medium 24); only a range ("by 2012") 15; open 26. The first pass had dated the open
+  ones from therebbesimpact.com and the chabad.org listing number. **Owner (Nov 6):** "basically a guess is ridiculous
+  how can I use that in an expansion map ... if you had tried harder you could have found it but I guess that's for
+  the next session to work on". So a guess is never a year: those entries are `open` (`year: null`, the guess kept
+  only as `lead`, to check). Still to do in this batch: the 31 open listings, the 17 ranges, and checking the 25
+  mediums (the list is at the end of the report). therebbesimpact.com against our solid years (Michigan included): the
+  same 63 of 82, a year off 12, wrong 7: a lead, not a source.
   **What counts as a center** (he asked: "What actually counts as a center? Do we only do outreach? Maybe only
   outreach and chinuch moisdois? Honestly I'm not sure. Like do shuls count"). A suggestion to keep only Chabad
   houses was rejected. **Owner (Nov 6):** "No absolutely not. Chinuch moisdois are some of the most important parts
@@ -135,7 +142,7 @@ replaces entries from JSON on stdin.
 - Each entry: name, city, shetach, year (or `by`/`after` for a range), `date` when a month or day turned up, `how`,
   source URL, a note quoting the source, confidence. The file's `about` explains every value.
 - Listing numbers: chabad.org ids run in the order listings were made; the report has a table of anchors (first
-  directory about 2003 ... July 2026 = 7423561). Used only for lows and ranges, never as the year of an old mosad.
+  directory about 2003 ... July 2026 = 7423561). Used only as a lead, never as a year.
 - Sites: crownheights.info answers WebFetch with a 307 but reads fine with curl; lubavitch.com often returns 500;
   chabadpedia.com and thecjn.ca block WebFetch (Firecrawl reads them; its "query" format cost 5 credits for
   nothing, use "markdown").

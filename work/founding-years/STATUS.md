@@ -41,7 +41,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | utah | 4 | 3 | 1 |  |  |  |  | 0 | 4 | 0 |
 | vermont | 8 | 3 | 1 |  | 1 | 3 |  | 4 | 8 | 4 |
 | washington-dc | 5 | 2 | 3 |  |  |  |  | 0 | 5 | 0 |
-| west-coast | 334 | 110 | 67 |  | 12 | 51 | 94 | 157 | 304 | 133 |
+| west-coast | 334 | 128 | 76 |  | 13 | 60 | 57 | 130 | 304 | 106 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | florida | 240 |  |  |  |  |  | 240 | 240 | 219 | 219 |
 | new-york-city | 201 |  |  |  |  |  | 201 | 201 | 177 | 177 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | kansas-missouri | 16 |  |  |  |  |  | 16 | 16 | 16 | 16 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
 | british-columbia | 13 |  |  |  |  |  | 13 | 13 | 13 | 13 |
-| **all** | 1972 | 232 | 100 | 1 | 31 | 85 | 1523 | 1639 | 1768 | 1448 |
+| **all** | 1972 | 250 | 109 | 1 | 32 | 94 | 1486 | 1612 | 1768 | 1421 |

@@ -20,3 +20,9 @@ source (a URL), note (the quote and what it shows), confidence; `date` when one 
 
 ## Progress
 (updated as batches go in)
+- Batch 1 (Bay Area, Nov 6): 8 entered — SF 1985 (high), Berkeley house 1972 (medium: 1972/1973), Stanford 2002
+  (high, J. Aug 2002), Greater South Bay 1975 (medium; Levins 1980), Marin 1984-06 (high, own page), Solano 2009,
+  Novato 2012, Friendship Circle 2004 (medium). Leads in hand, not yet entered: Richmond Torah Center ('the
+  15-year-old Richmond Torah Center' in a J. foreclosure story — date the story; lead 1987), Contra Costa ('close to
+  thirty years', Anash, undated; an undated J. item on its opening under a Rabbi Kagan), Chabad Palo Alto (1666288:
+  check whether it's the same place as Greater South Bay).

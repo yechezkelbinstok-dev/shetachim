@@ -40,8 +40,8 @@ Listings (blue dots, no mushrooms) per shetach; `high`/`medium`/`low` have a yea
 | utah | 4 | 3 | 1 |  |  |  |  | 0 |
 | vermont | 8 | 3 | 1 |  | 1 | 3 |  | 4 |
 | washington-dc | 5 | 2 | 3 |  |  |  |  | 0 |
+| west-coast | 334 | 3 | 5 |  |  |  | 326 | 326 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 |
-| west-coast | 334 |  |  |  |  |  | 334 | 334 |
 | florida | 240 |  |  |  |  |  | 240 | 240 |
 | new-york-city | 201 |  |  |  |  |  | 201 | 201 |
 | new-jersey | 91 |  |  |  |  |  | 91 | 91 |
@@ -71,4 +71,4 @@ Listings (blue dots, no mushrooms) per shetach; `high`/`medium`/`low` have a yea
 | kansas-missouri | 16 |  |  |  |  |  | 16 | 16 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 |
 | british-columbia | 13 |  |  |  |  |  | 13 | 13 |
-| **all** | 1972 | 122 | 33 | 1 | 19 | 34 | 1763 | 1816 |
+| **all** | 1972 | 125 | 38 | 1 | 19 | 34 | 1755 | 1808 |

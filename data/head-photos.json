@@ -1161,8 +1161,8 @@
    "note": "his SA Jewish Report author portrait, Dec 2025 (Rabbi Mendel Lipskar of Johannesburg, not his brother Sholom of Florida)",
    "crop": {
     "cx": 0.47,
-    "cy": 0.4,
-    "side": 0.6
+    "cy": 0.41,
+    "side": 0.64
    },
    "keep": true
   },
@@ -1185,13 +1185,17 @@
    "file": "img/heads/mauritius.jpg",
    "page": "https://www.jewishmauritius.com/templates/articlecco_cdo/aid/4557412/jewish/Weddings.htm",
    "image": "https://w2.chabad.org/media/images/1111/risR11114370.jpg",
-   "note": "Chabad Mauritius's own Weddings page: he stands beside a couple (cropped to him; the groom's white shoulder just at the edge)",
+   "note": "Chabad Mauritius's own Weddings page: he stands beside a couple (cropped to him; the groom's white shoulder at the edge painted over with his own shoulder, mirrored)",
    "crop": {
     "cx": 0.178,
     "cy": 0.488,
     "side": 0.262
    },
-   "keep": true
+   "keep": true,
+   "edit": {
+    "axis": "228",
+    "mirror": "266,700 296,652 336,628 362,636 362,795 266,795"
+   }
   },
   {
    "id": "china",
@@ -1199,11 +1203,11 @@
    "file": "img/heads/china.jpg",
    "page": "https://collive.com/live-the-man-who-transformed-jewish-hong-kong/",
    "image": "https://collive.com/wp-content/uploads/photos/2020/08/image0.jpeg",
-   "note": "the portrait on the flyer for his talk 'Live from Hong Kong: the man who transformed Jewish Hong Kong' (COLlive, Aug 2020)",
+   "note": "the portrait on the flyer for his talk 'Live from Hong Kong: the man who transformed Jewish Hong Kong' (COLlive, Aug 2020); cropped inside the flyer's photo",
    "crop": {
-    "cx": 0.354,
+    "cx": 0.34,
     "cy": 0.4785,
-    "side": 0.371
+    "side": 0.39
    },
    "keep": true
   },
@@ -1215,9 +1219,9 @@
    "image": "https://static-cdn.toi-media.com/www/uploads/2026/10/Screenshot-2026-10-29-145920.jpg",
    "note": "Times of Israel, Oct 2026 (the citizenship story); cropped short of his raised hand",
    "crop": {
-    "cx": 0.4745,
+    "cx": 0.455,
     "cy": 0.258,
-    "side": 0.5
+    "side": 0.47
    },
    "keep": true
   },
@@ -1244,22 +1248,8 @@
    "note": "Jerusalem Post, 2019 ('Finding a Jewish soul in Seoul'), beside a US Army officer (cropped to him)",
    "crop": {
     "cx": 0.625,
-    "cy": 0.257,
+    "cy": 0.235,
     "side": 0.4167
-   },
-   "keep": true
-  },
-  {
-   "id": "taiwan",
-   "head": "Shlomi Tabib",
-   "file": "img/heads/taiwan.jpg",
-   "page": "https://www.chabad.org/news/article_cdo/aid/7424235/jewish/Taiwans-Jews-Get-a-Cemetery-of-Their-Own.htm",
-   "image": "https://w2.chabad.org/media/images/1235/hfQf12356719.jpg",
-   "note": "Chabad.org, Sept 2026 (the cemetery story): the left of three, cropped (the next man's shoulder at the edge; weak, replace when a better one turns up). The same man is at the podium in Times of Israel's photo with 'Rabbi Shlomi Tabib' on the screen",
-   "crop": {
-    "cx": 0.27,
-    "cy": 0.36,
-    "side": 0.42
    },
    "keep": true
   },
@@ -1286,22 +1276,24 @@
    "note": "the Alliance of Rabbis in Islamic States' portrait, 2022",
    "crop": {
     "cx": 0.5,
-    "cy": 0.5,
-    "side": 1.0
-   }
+    "cy": 0.46,
+    "side": 0.72
+   },
+   "keep": true
   },
   {
    "id": "azerbaijan",
    "head": "Shneor Segal",
    "file": "img/heads/azerbaijan.jpg",
-   "page": "https://washingtonjewishweek.com/a-place-to-walk-proudly-as-a-jew/",
-   "image": "http://washingtonjewishweek.com/wp-content/uploads/2025/08/Chief-Rabbi-Shneor-Segal-WhatsApp-Image-2025-07-21-at-17.45.21-1320x880-1.jpeg",
-   "note": "Washington Jewish Week (JNS), July 2025",
+   "page": "https://www.rabbisalliance.org/about/the-rabbis/",
+   "image": "https://www.rabbisalliance.org/wp-content/uploads/2022/01/Chief-Rabbi-Shneur-Segal-Azerbaijan.jpg",
+   "note": "the Alliance of Rabbis in Islamic States' portrait, 2022 (Washington Jewish Week's July 2025 close-up cut his hat off)",
    "crop": {
-    "cx": 0.3984,
-    "cy": 0.5,
-    "side": 1.0
-   }
+    "cx": 0.48,
+    "cy": 0.336,
+    "side": 0.547
+   },
+   "keep": true
   },
   {
    "id": "kyrgyzstan",
@@ -1311,10 +1303,11 @@
    "image": "https://www.rabbisalliance.org/wp-content/uploads/2022/01/Chief-Rabbi-Arie-Reichman-Kyrgyz-Republic.jpg",
    "note": "the Alliance of Rabbis in Islamic States' portrait, 2022",
    "crop": {
-    "cx": 0.473,
-    "cy": 0.501,
-    "side": 0.894
-   }
+    "cx": 0.476,
+    "cy": 0.383,
+    "side": 0.667
+   },
+   "keep": true
   },
   {
    "id": "armenia",
@@ -1338,9 +1331,9 @@
    "image": "https://ynet-pic1.yit.co.il/picserver5/wcm_upload/2024/02/15/HJRLqSioT/IMG_20231229_WA0036.jpg",
    "note": "Ynet, Feb 2024, beside an Israeli who moved to Tbilisi (cropped to him); the same man as in COL's Nov 2024 photo captioned 'Rabbi Meir Kozlovsky, the Rebbe's shliach to Georgia' and at the Or Avner school's opening (Kikar, Sept 2025)",
    "crop": {
-    "cx": 0.735,
-    "cy": 0.38,
-    "side": 0.584
+    "cx": 0.62,
+    "cy": 0.355,
+    "side": 0.626
    },
    "keep": true
   }

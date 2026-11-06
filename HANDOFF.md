@@ -29,8 +29,7 @@ What the owner asked this session, all live on the site (deploys checked):
   - **Still without a photo:** Moldova (kishinev.org blocks our downloads; the only other one found, chabadinfo 2023,
     may not be him), Romania (agerpres's are watermarked; the rest group shots), Sweden (only a 200 px LinkedIn selfie
     and a 2009 photo), Switzerland (Rosenfeld: no captioned photo; the 2023 kinus "welcome" sign was held by several
-    people, so that photo isn't proof), **Saudi Arabia: the data's head, "Peretz Garelik", can't be confirmed anywhere**
-    (the news names Rabbi Yaakov Israel Herzog in Riyadh; Chabad said in 2021 it had no shliach there): ask the owner.
+    people, so that photo isn't proof), **Saudi Arabia (Rabbi Peretz Garelik, the owner's; no photo yet).** Owner, Nov 6, furious that a session doubted it: the news writes about Rabbi Yaakov Israel Herzog in Riyadh, but Herzog is not the shliach ("you cannot differentiate a real shliach and a mushroom ... your average AI would tell you the head shliach of Japan is Edri"). Never take a head shliach from news coverage over the owner's data. There's no photo of Garelik to find: online there are only his legal filing under Jewish KSA and a baby announcement (the owner); the owner will send one if he finds it, so don't search.
   - **Weaker, replace when something better turns up:** Finland (his 200 px LinkedIn photo, soft; beware the late
     Rabbi Binyamin Wolff of Hanover, a different man), Spain (a selfie at a meal; NOT chabad.org's "Zalman Goldstein",
     that's the author), Germany (2017), Serbia (2016), Italy (2017), Montenegro (2018), Ireland (2019, cropped out of

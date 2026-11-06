@@ -44,3 +44,14 @@ source (a URL), note (the quote and what it shows), confidence; `date` when one 
   Hebrew School, UC Davis, the Cheder of the Bay Area, CGI Contra Costa, CGI SF, Daly City, Richmond (Wagner), Santa
   Cruz CJL, Union City, the Gan Alameda, Burlingame, Sea Cliff, Sausalito.
 - status.py now also counts dots (map points): a dot is dated when any of its listings is.
+- Batches 7-9 (the rest of California outside LA, SD and OC, Nov 6): north and central (Roseville 2005, Chico 2006,
+  Folsom 2007, Humboldt 2012, Grass Valley 2017-01, Lincoln 2017, Modesto 2021, Fair Oaks 2021, Paso Robles 2022, Auburn
+  2023, Merced 2024, Truckee 2025-07, Mammoth 2019, Santa Barbara 1979, Ventura 1987, High Desert 1989, Fresno 1990
+  (counted back), Bakersfield 2002, Monterey 2003, Oxnard 2003-05, Camarillo 2003 (counted back), SLO 2009, Montecito
+  2022, Saugus 2021, Lake Arrowhead 2022 (medium)); the desert and Inland Empire (Palm Springs 1980, Inland Empire 1989,
+  Bikur Cholim 1996, Temecula 1999, Riverside 2005, La Quinta 2017, Aleph Schoolhouse 1983).
+- A new source for schools: the Chabad Chinuch Office's 'Directory of Chabad Educational Institutions in the
+  English-speaking world' (2023-24, https://www.chinuchoffice.org/media/pdf/1267/szkh12671837.pdf) gives a 'Founded'
+  year for most schools and preschools (entered as how 'list', medium). Downloaded and read locally with pdftotext (do
+  not ask Firecrawl to parse it: 109 pages cost 113 credits). Used so far: Gan Camarillo 2005, Gan Chabad Pleasanton
+  2007, Bais Menachem 2006, Aleph Schoolhouse 1983. It covers LA's schools too.

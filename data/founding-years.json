@@ -2734,7 +2734,7 @@
    "how": "stated",
    "confidence": "medium",
    "source": "https://www.mv-voice.com/news/2022/02/23/family-focused-jewish-organization-announces-launch-in-mountain-view/",
-   "note": "Mountain View Voice, Feb 23 2022: the Rosenblats came to the area in 2009 (Sunnyvale's Camp Gan Israel); Esti Rosenblat's Gan Torah Preschool 'has been operating in Mountain View since 2012'; the Chabad Jewish Center of Mountain View itself launched in March 2022. The year is their first activity in the city; the center is 2022."
+   "note": "Mountain View Voice, Feb 23 2022: the Rosenblats came to the area in 2009 (Sunnyvale's Camp Gan Israel); Esti Rosenblat's Gan Torah Preschool 'has been operating in Mountain View since 2012'; the Chabad Jewish Center of Mountain View itself launched in March 2022. The year is their first activity in the city; the center is 2022. The Chinuch Office directory gives Gan Torah 'Founded: 1995' (likely in Palo Alto under Greater South Bay before Mountain View)."
   },
   "1808438": {
    "name": "Chabad of Pacific Heights",
@@ -2793,25 +2793,21 @@
    "name": "Gan Chabad Preschool",
    "city": "Pleasanton",
    "shetach": "west-coast",
-   "year": null,
-   "by": 2012,
-   "lead": 2009,
-   "how": "range",
-   "confidence": "range",
-   "source": "https://bluetoad.com/publication/?i=114168&p=70&view=issueViewer",
-   "note": "Chabad of the Tri-Valley's preschool (Fruma Resnick): in J.'s Resource Guide 2012, at 784 Palomino Dr., so by 2012; the Tri-Valley center itself is from 2005. Its chabad.org listing number points to about 2009 (a lead)."
+   "year": 2007,
+   "how": "list",
+   "confidence": "medium",
+   "source": "https://www.chinuchoffice.org/media/pdf/1267/szkh12671837.pdf",
+   "note": "The Chinuch Office directory (2023-24): Gan Chabad Preschool, Pleasanton (Fruma Resnick), 'Founded: 2007' (on hold in 2022-23). In J.'s Resource Guide 2012 at 784 Palomino Dr.; the Tri-Valley center is from 2005."
   },
   "2025946": {
    "name": "Bais Menachem Yeshiva Day School",
    "city": "San Francisco",
    "shetach": "west-coast",
-   "year": null,
-   "by": 2012,
-   "lead": 2009,
-   "how": "range",
-   "confidence": "range",
-   "source": "https://jweekly.com/2012/03/23/jews-of-color-find-home-at-chabad-school/",
-   "note": "The Chabad K-8 school in the Richmond District: named in J. in March 2012, so by 2012; its own site says '17+ Years Established' (about 2009 or before). therebbesimpact.com: 2012."
+   "year": 2006,
+   "how": "list",
+   "confidence": "medium",
+   "source": "https://www.chinuchoffice.org/media/pdf/1267/szkh12671837.pdf",
+   "note": "The Chinuch Office directory (2023-24): Bais Menachem-Yeshiva Day School, 834 28th Ave., K-8, Rabbi G. Potash and Chani Zarchi, 'Founded: 2006'. Its own site says '17+ Years Established'; named in J. in March 2012."
   },
   "937211": {
    "name": "Chabad of the Delta",
@@ -2879,7 +2875,7 @@
    "how": "not-found",
    "confidence": "open",
    "source": "https://anash.org/chassidishe-chinuch-is-booming-in-northern-california/",
-   "note": "No year found. Anash.org (Mar 2024): it 'began as a small co-op, an alternative to online school', opened 'just a few years ago' (so about 2020-21); a Facebook post seems to say 2014. Same dot as Chabad of the Tri-Valley (2005)."
+   "note": "No year found; three that disagree: the Chinuch Office directory (2023-24) gives the Cheder of the Bay Area 'Founded: 2007' (perhaps Tri-Valley's school program); a Facebook post seems to say 2014; Anash.org (Mar 2024) says it 'began as a small co-op, an alternative to online school' and opened 'just a few years ago'. Same dot as Chabad of the Tri-Valley (2005)."
   },
   "120212": {
    "name": "Camp Gan Israel Contra Costa",
@@ -2990,6 +2986,450 @@
    "confidence": "open",
    "source": "https://www.chabad.org/jewish-centers/7434852",
    "note": "No source found. Rabbi Sholom (Sholem) and Raizel (née Wilhelm) Lebovics; its listing number is about July 2026."
+  },
+  "312357": {
+   "name": "Chabad of Roseville",
+   "city": "Granite Bay",
+   "shetach": "west-coast",
+   "year": 2005,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.jewishroseville.com/",
+   "note": "The center's own site: 'in 2005 Rabbi Yossi & Malkie Korik founded Chabad of Roseville'; Gold Mountain News: 'since opening in 2005'."
+  },
+  "439520": {
+   "name": "Chabad Jewish Center",
+   "city": "Chico",
+   "shetach": "west-coast",
+   "year": 2006,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://www.chicoer.com/2024/12/27/chabad-jewish-center-celebrates-19th-chico-hanukkah/",
+   "note": "Chico Enterprise-Record, Dec 27 2024: Rabbi Mendy Zwiebel's '19th celebration of Hanukkah at Chico City Plaza since he and his family came to Chico in 2006'."
+  },
+  "522999": {
+   "name": "Chabad Jewish Community Center of Folsom",
+   "city": "Folsom",
+   "shetach": "west-coast",
+   "year": 2007,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.jewishfolsom.org/templates/articlecco_cdo/aid/4010288/jewish/Meet-Rabbi-Yossi-and-Goldie-Grossbaum.htm",
+   "note": "The center's own page: 'Rabbi Yossi and Goldie Grossbaum arrived in Folsom in 2007 to establish the Chabad Jewish Community Center'; its LinkedIn page: 'established in 2007'."
+  },
+  "1879809": {
+   "name": "Chabad of Humboldt",
+   "city": "Arcata",
+   "shetach": "west-coast",
+   "year": 2012,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://crownheights.info/chabad-news/756522/what-its-like-to-be-the-rabbi-of-the-redwoods/",
+   "note": "'Since 2012, the county's Jewish community has been served by Rabbi Eli and Mushkie Cowen, who direct Chabad of Humboldt' (CrownHeights.info); therebbesimpact.com and the listing number agree."
+  },
+  "3573445": {
+   "name": "Chabad of Grass Valley",
+   "city": "Grass Valley",
+   "shetach": "west-coast",
+   "year": 2017,
+   "date": "2017-01",
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.linkedin.com/in/rabbi-nochum-yusewitz-630858158",
+   "note": "Rabbi Nochum Yusewitz (with Chyena), on his LinkedIn: 'Launched in January 2017, Chabad is your address for everything Jewish' in Nevada County."
+  },
+  "5089711": {
+   "name": "Chabad of Modesto",
+   "city": "Modesto",
+   "shetach": "west-coast",
+   "year": 2021,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://anash.org/new-shluchim-to-californias-18th-largest-city/",
+   "note": "Anash.org, Apr 26 2021: Rabbi Mendy and Chayale Golomb 'were recently appointed as the shluchim to Modesto'."
+  },
+  "6084911": {
+   "name": "Chabad of Merced",
+   "city": "Merced",
+   "shetach": "west-coast",
+   "year": 2024,
+   "how": "news",
+   "confidence": "medium",
+   "source": "https://collive.com/new-shluchim-to-merced-california/",
+   "note": "COLlive, Feb 9 2024: Rabbi Moishe and Chana (née Engel) Golomb 'have been appointed as the new Shluchim to the City of Merced and UC Merced'. Its chabad.org listing number points to about Sept 2023, so maybe 2023."
+  },
+  "117546": {
+   "name": "Chabad of Fresno",
+   "city": "Fresno",
+   "shetach": "west-coast",
+   "year": 1990,
+   "how": "anniversary",
+   "confidence": "medium",
+   "source": "https://www.tuscaloosanews.com/story/news/2008/08/30/rabbi-ensures-food-meets-jewish-standards/27762470007/",
+   "note": "Aug 30 2008 (AP feature): Rabbi Levy Zirkind 'arrived in Fresno 18 years ago', so 1990 (therebbesimpact.com: 1990); Central California Kosher: he has called Fresno home 'for two and a half decades'. Counted back."
+  },
+  "118555": {
+   "name": "Chabad of Bakersfield",
+   "city": "Bakersfield",
+   "shetach": "west-coast",
+   "year": 2002,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://collive.com/chabad-of-bakersfield-a-shining-light-in-the-desert/",
+   "note": "COLlive: the Chabad Jewish Community Center in Bakersfield 'is celebrating 21 years since its founding in 2002' (Rabbi Shmuli and Esther Schlanger); therebbesimpact.com agrees."
+  },
+  "117567": {
+   "name": "Chabad of S. Barbara",
+   "city": "Santa Barbara",
+   "shetach": "west-coast",
+   "year": 1979,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.sbchabad.org/templates/articlecco_cdo/aid/91324/jewish/About-Us.htm",
+   "note": "The center's own About page: Rabbi Yosef Loschak 'together with his wife, Devorah Loschak, founded Chabad of S. Barbara in 1979'; his Lubavitch.com obituary agrees."
+  },
+  "117578": {
+   "name": "Chabad of Ventura",
+   "city": "Ventura",
+   "shetach": "west-coast",
+   "year": 1987,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.tricountysentry.com/articles/chabad-of-ventura-lights/",
+   "note": "Tri-County Sentry: 'Rabbi Yakov Latowicz founded Chabad of Ventura in 1987'; VC Reporter (Dec 2023): director 'since its founding in 1987'."
+  },
+  "118612": {
+   "name": "Chabad of Monterey",
+   "city": "Pacific Grove",
+   "shetach": "west-coast",
+   "year": 2003,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.montereycountynow.com/people/face_to_face/rabbi-dovid-holtzberg-lives-by-a-mission-of-doing-good-during-hanukkah-and-all-times/article_dfa2691c-c19f-11ef-a49a-ffa40941c32a.html",
+   "note": "Monterey County Now (Dec 2024): Rabbi Dovid Holtzberg: 'In 2003, he found himself living on the Monterey Peninsula'; AZ Jewish Post (2019): 'For the past 16 years, the Holtzbergs ... have served'."
+  },
+  "118596": {
+   "name": "Chabad of Oxnard",
+   "city": "Oxnard",
+   "shetach": "west-coast",
+   "year": 2003,
+   "date": "2003-05",
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.chabadofoxnard.com/templates/articlecco_cdo/aid/6078999/jewish/VC-Star-front-cover-story-9623-Chabad-of-Oxnard-Marks-20-years-with-new-waterfront-center.htm",
+   "note": "Ventura County Star (Sept 6 2023, reposted by the center): Rabbi Dov Muchnik 'opened the Jewish center in May 2003 in his Oxnard apartment with his wife, Racheli'."
+  },
+  "117550": {
+   "name": "Chabad of the High Desert",
+   "city": "Lancaster",
+   "shetach": "west-coast",
+   "year": 1989,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.chabadofantelopevalley.org/templates/articlecco_cdo/aid/966405/jewish/Welcome.htm",
+   "note": "The center's own page: 'Chabad of the Antelope Valley was established in 1989 by Rabbi Yehudah & Chanie Lazar' (therebbesimpact.com: 1987 for the Lazars, 1989 for the center)."
+  },
+  "939747": {
+   "name": "Chabad of SLO & Cal Poly - The Rohr Center for Jewish Life",
+   "city": "San Luis Obispo",
+   "shetach": "west-coast",
+   "year": 2009,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://collive.com/new-shluchim-to-california-2/",
+   "note": "COLlive, Apr 29 2009: Rabbi Chaim Leib and Miki Hilel 'will soon be embarking on Shlichus to San Luis Obispo County'; CrownHeights.info: 2012 was 'three years after he and his wife, Miki, arrived'."
+  },
+  "5402304": {
+   "name": "Chabad of Saugus",
+   "city": "Santa Clarita",
+   "shetach": "west-coast",
+   "year": 2021,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://anash.org/new-shluchim-will-serve-rapidly-growing-california-communities/",
+   "note": "Anash.org, Aug 4 2021: Rabbi Mendy and Mirel Bistritzky 'will establish a new Chabad House' for Saugus and the North Santa Clarita Valley."
+  },
+  "4893477": {
+   "name": "Chabad of Lake Arrowhead & Big Bear",
+   "city": "Lake Arrowhead",
+   "shetach": "west-coast",
+   "year": 2022,
+   "how": "anniversary",
+   "confidence": "medium",
+   "source": "https://collive.com/lake-arrowhead-chabad-celebrates-a-year-of-illuminating-california-resort-town/",
+   "note": "COLlive, July 9 2023: 'Lake Arrowhead Chabad Celebrates A Year' (Rabbi Zalman and Geula Bernstein), so 2022; but therebbesimpact.com has 2020 and the listing number points to late 2020. Open summers and around Chanukah. To check."
+  },
+  "157625": {
+   "name": "Chabad @ UCSB",
+   "city": "Goleta",
+   "shetach": "west-coast",
+   "year": null,
+   "by": 2009,
+   "lead": 2003,
+   "how": "range",
+   "confidence": "range",
+   "source": "https://www.chabad.org/news/article_cdo/aid/848427/jewish/Students-Help-UCSB-Chabad-House.htm",
+   "note": "Rabbi Mendel Loschak's campus Chabad House (son of Santa Barbara's Loschaks): Chabad.org News, Mar 5 2009, on the fire at 'the Chabad-Lubavitch center at the University of California at S. Barbara', so by 2009; therebbesimpact.com: 2003 (the listing number points to about 2004). Rabbi Gershon and Miri Klein took over in 2017."
+  },
+  "2886998": {
+   "name": "Chabad of Ojai",
+   "city": "Ojai",
+   "shetach": "west-coast",
+   "year": null,
+   "by": 2015,
+   "lead": 2015,
+   "how": "range",
+   "confidence": "range",
+   "source": "https://www.jewishojai.com/templates/articlecco_cdo/aid/2948490/jewish/About-Us.htm",
+   "note": "Rabbi Mordy and Rochel Nemtzov. The center's About page was first published May 13 2015, so by 2015; therebbesimpact.com: 2015 for the center (2007 for the Nemtzovs)."
+  },
+  "6923468": {
+   "name": "Chabad of Truckee",
+   "city": "Truckee",
+   "shetach": "west-coast",
+   "year": 2025,
+   "date": "2025-07",
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.jewishtruckee.com/about",
+   "note": "The center's own About page: 'Chabad of Truckee was founded in July 2025 by Rabbi Chaim and Bassi Kudan'; COLlive announced them the same summer."
+  },
+  "5993540": {
+   "name": "Chabad of Auburn",
+   "city": "Auburn",
+   "shetach": "west-coast",
+   "year": 2023,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://collive.com/new-shluchim-to-auburn-california/",
+   "note": "COLlive, July 19 2023: Rabbi Mendel and Chana Weinbaum 'will be moving out as the new Chabad Shluchim to Auburn, California'."
+  },
+  "3566716": {
+   "name": "Chabad Jewish Center of Lincoln",
+   "city": "Lincoln",
+   "shetach": "west-coast",
+   "year": 2017,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://collive.com/new-shluchim-to-california-3-1/",
+   "note": "COLlive, Nov 13 2017: 'Lincoln, California, is getting its first synagogue and Jewish institution with the arrival of Rabbi Yanki and Shainy Hecht (nee Kagan)'."
+  },
+  "5270570": {
+   "name": "Chabad of Fair Oaks",
+   "city": "Fair Oaks",
+   "shetach": "west-coast",
+   "year": 2021,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://anash.org/new-shluchim-to-fair-oaks-california/",
+   "note": "Anash.org, Oct 26 2021: Rabbi Levi and Chana (née Vorst) Reizes 'are planning their move to Fair Oaks', to open a new Chabad center."
+  },
+  "5312740": {
+   "name": "Chabad of Paso Robles",
+   "city": "Paso Robles",
+   "shetach": "west-coast",
+   "year": 2022,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://anash.org/new-shluchim-to-californias-new-wine-country/",
+   "note": "Anash.org, Feb 6 2022: Rabbi Meir Shlomo and Etty (née Misholovin) Gordon 'will be moving out on Shlichus to Paso Robles'."
+  },
+  "4604194": {
+   "name": "Chabad of Mammoth Lakes",
+   "city": "Mammoth Lakes",
+   "shetach": "west-coast",
+   "year": 2019,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://chabadmammoth.com/about/",
+   "note": "The center's own About page: 'Since 2019, the Notiks' home has been that address' (Rabbi Zalman and Yasmin Notik). (therebbesimpact.com: 2020.)"
+  },
+  "5567943": {
+   "name": "Inyo Jewish Center",
+   "city": "Bishop",
+   "shetach": "west-coast",
+   "year": null,
+   "lead": 2022,
+   "how": "not-found",
+   "confidence": "open",
+   "source": "https://www.chabad.org/jewish-centers/5567943",
+   "note": "No year found. Run by Chabad of Mammoth Lakes' Notiks (same phone and website; Mammoth from 2019); its chabad.org listing number points to 2022 (a lead)."
+  },
+  "5473825": {
+   "name": "Chabad of Montecito",
+   "city": "Montecito",
+   "shetach": "west-coast",
+   "year": 2022,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.jewishmontecito.org/templates/articlecco_cdo/aid/5579520/jewish/About-Us.htm",
+   "note": "The center's own About page: 'Chabad of Montecito was founded in 2022 by Rabbi Chaim and Mushkie Loschak'; the Montecito Journal (Dec 2025) agrees."
+  },
+  "118595": {
+   "name": "Chabad of Camarillo",
+   "city": "Camarillo",
+   "shetach": "west-coast",
+   "year": 2003,
+   "how": "anniversary",
+   "confidence": "medium",
+   "source": "https://collive.com/chabad-of-camarillo-celebrates-18-years/",
+   "note": "COLlive, Feb 17 2021: Rabbi Aryeh and Leah Lang 'are marking 18 years since the founding of their Chabad Center', so 2003; its listing is in chabad.org's first directory (about 2003). Counted back."
+  },
+  "520265": {
+   "name": "Gan Camarillo Preschool",
+   "city": "Camarillo",
+   "shetach": "west-coast",
+   "year": 2005,
+   "how": "list",
+   "confidence": "medium",
+   "source": "https://www.chinuchoffice.org/media/pdf/1267/szkh12671837.pdf",
+   "note": "The Chabad Chinuch Office's Directory of Chabad Educational Institutions (2023-24): Gan Camarillo Chabad Preschool, 2222 Ventura Blvd., directors Leah Lang and Shira Muchnik, 'Founded 2005'. Chabad of Camarillo itself is from 2003."
+  },
+  "520208": {
+   "name": "Camp Gan Israel",
+   "city": "Camarillo",
+   "shetach": "west-coast",
+   "year": null,
+   "lead": 2007,
+   "how": "not-found",
+   "confidence": "open",
+   "source": "https://www.chabad.org/jewish-centers/520208",
+   "note": "No year found. Chabad of Camarillo's summer camp, hosted at Gan Camarillo (same dot); the listing number points to about 2007 (a lead)."
+  },
+  "5653972": {
+   "name": "Sacramento Jewish Academy",
+   "city": "Granite Bay",
+   "shetach": "west-coast",
+   "year": null,
+   "lead": 2022,
+   "how": "not-found",
+   "confidence": "open",
+   "source": "https://www.chabad.org/jewish-centers/5653972",
+   "note": "No year found. Chabad of Roseville's day school (Rabbi Yoel and Devorah Leah Eidelman; therebbesimpact.com: 2019 for them); the listing number points to 2022."
+  },
+  "117563": {
+   "name": "Chabad of Palm Springs",
+   "city": "Palm Springs",
+   "shetach": "west-coast",
+   "year": 1980,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://cvindependent.com/2015/03/meet-the-rabbi-chabad-of-palm-springs-yonason-denebeim-has-been-answering-questions-at-villagefest-for-25-years/",
+   "note": "Coachella Valley Independent (Mar 2015): Rabbi Yonason Denebeim 'came to Palm Springs in the summer of 1980 with his wife and first-born child'; the center's own site: 'Since 1980'."
+  },
+  "117576": {
+   "name": "Chabad of the Inland Empire",
+   "city": "Rancho Cucamonga",
+   "shetach": "west-coast",
+   "year": 1989,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.chabadinlandempire.com/",
+   "note": "The center's own site: 'Since 1989, we have touched countless lives' (Rabbi Sholom and Chanie Harlig); therebbesimpact.com: 1989."
+  },
+  "118332": {
+   "name": "Chabad of Temecula",
+   "city": "Temecula",
+   "shetach": "west-coast",
+   "year": 1999,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.jewishtemecula.com/about-us",
+   "note": "The center's own page: 'Rabbi Yitzi & Dina founded Chabad of Temecula in 1999'; CrownHeights.info: 'Hurwitz founded the Temecula Chabad in 1999'."
+  },
+  "282033": {
+   "name": "Chabad Jewish Community Center of Riverside",
+   "city": "Riverside",
+   "shetach": "west-coast",
+   "year": 2005,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://www.linkedin.com/company/jewishriverside",
+   "note": "The center's LinkedIn page: 'Founded: 2005' (Rabbi Shmuel and Tzippy Fuss; therebbesimpact.com: 2004 for them, 2005 for the center). To check."
+  },
+  "3659507": {
+   "name": "Chabad La Quinta",
+   "city": "La Quinta",
+   "shetach": "west-coast",
+   "year": 2017,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://www.desertsun.com/story/life/faith/2017/11/07/new-chabad-jewish-center-broadens-outreach-la-quinta/841267001/",
+   "note": "Desert Sun, Nov 7 2017: 'New Jewish center broadens outreach in La Quinta', Rabbi Moshe and Chaya Katz."
+  },
+  "287052": {
+   "name": "Bikur Cholim of Palm Springs",
+   "city": "Palm Springs",
+   "shetach": "west-coast",
+   "year": 1996,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.facebook.com/bikurcholimps/",
+   "note": "Its own page: Rabbi Yankel and Rochel Kreiman 'founded the Bikur Cholim of Palm Springs in 1996'."
+  },
+  "4901915": {
+   "name": "Aleph Schoolhouse",
+   "city": "Palm Desert",
+   "shetach": "west-coast",
+   "year": 1983,
+   "how": "list",
+   "confidence": "medium",
+   "source": "https://www.chinuchoffice.org/media/pdf/1267/szkh12671837.pdf",
+   "note": "The preschool. The Chabad Chinuch Office's Directory of Chabad Educational Institutions (2023-24): Aleph Schoolhouse, 73550 Santa Rosa Way, Palm Desert, preschool 'Founded: 1983' (Rabbi Mendy and Shaindy Friedman; Sussie Denebeim, educational advisor)."
+  },
+  "118894": {
+   "name": "Aleph Schoolhouse",
+   "city": "Palm Desert",
+   "shetach": "west-coast",
+   "year": 1983,
+   "how": "list",
+   "confidence": "medium",
+   "source": "https://www.chinuchoffice.org/media/pdf/1267/szkh12671837.pdf",
+   "note": "The day school listing (Denebeim; the listing itself is in chabad.org's first directory, about 2003, so it is the old Aleph Schoolhouse). The Chinuch Office directory (2023-24) gives 'Founded: 1983' for the school; Lubavitch.com (Mar 2018) calls the elementary 'a fledgling school in its first year of enrollment' (2017-18). Same dot as the preschool."
+  },
+  "356137": {
+   "name": "Chabad of UCR",
+   "city": "Riverside",
+   "shetach": "west-coast",
+   "year": null,
+   "lead": 2006,
+   "how": "not-found",
+   "confidence": "open",
+   "source": "https://crownheights.info/chabad-news/928557/new-shluchim-to-serve-jewish-students-at-the-university-of-california-at-riverside/",
+   "note": "No year found. Its chabad.org listing dates from about 2006 (the Fusses' campus work; same dot as Riverside, 2005); Rabbi Mendel and Chani Kleyman moved out to it in late 2025 (CrownHeights.info, Nov 30 2025)."
+  },
+  "118229": {
+   "name": "Chabad of Rancho Mirage - The Torah Oasis",
+   "city": "Rancho Mirage",
+   "shetach": "west-coast",
+   "year": null,
+   "lead": 1996,
+   "how": "not-found",
+   "confidence": "open",
+   "source": "https://www.chabadrm.com/",
+   "note": "No source found (Rabbi Shimon and Chaya Posner). therebbesimpact.com: 1996 for the center, 1989 for the Posners; listed in chabad.org's first directory (about 2003)."
+  },
+  "651150": {
+   "name": "Chabad-Lubavitch of Palm Desert",
+   "city": "Palm Desert",
+   "shetach": "west-coast",
+   "year": null,
+   "lead": 2008,
+   "how": "not-found",
+   "confidence": "open",
+   "source": "https://www.chabadpd.com/",
+   "note": "No source found (Rabbi Mendy and Shaindy Friedman, who also run the Aleph Schoolhouse). Its chabad.org listing number points to about 2008 (a lead)."
+  },
+  "4539630": {
+   "name": "Chabad Indio",
+   "city": "Indio",
+   "shetach": "west-coast",
+   "year": null,
+   "lead": 2020,
+   "how": "not-found",
+   "confidence": "open",
+   "source": "https://www.chabad.org/jewish-centers/4539630",
+   "note": "No source found (Rabbi Mendy and Riki Sosonkin). Its chabad.org listing number points to about 2020 (a lead)."
   }
  }
 }

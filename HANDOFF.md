@@ -18,7 +18,49 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
 a page, go to Firecrawl at once (its image search finds photos with their pages; a page screenshot shows a blocked
 site's picture), don't keep retrying with curl (the classifier also blocks that as bot-check circumvention).
 
-## ▶ START HERE — Nov 6, END of session (the owner moved to a new window; continue from here)
+## ▶ START HERE (the only one; updated Nov 6)
+
+**How this file works** (owner, Nov 6: "I hate how you update the handoff sometimes with too much specificity to lock
+in the next session"): this is the only START HERE. It holds the state, what's in progress and what's open: the
+owner's words in quotes, his decisions marked **Owner:**, and anything Claude only suggests marked *(suggestion, not
+agreed)*. Older sessions' notes follow under dated headings, newest first; where they disagree with this section, this
+section is right. Keep it that way: update this section, don't stack a new START HERE on top.
+
+**Live now** (`claude/bold-albattani-aqfnj9` is the site and the default branch): the new cards (since Nov 5: head
+shluchim's photos, vaad and board faces, the count line, small link buttons, no Zoom in); head photos for the USA,
+Canada, Europe and the Middle East; the Rebbeim's portraits beside their names. Make every change in web/index.html
+(web/preview-cards.html only redirects to it). "Pushed" to the owner means live: check that GitHub Pages deployed.
+
+**In progress (Nov 6): the Europe and Middle East photos, redone.** Owner: "The ones that are bad, you actually have to
+work on them and find a good replacement. And remember, everything has to be edited properly also. Overall, I want
+everything to look good." He also caught two misjudgments in the first review: "in what world is the Lazar one good he
+looks way too young" (the photo is older than the 2022 post that used it) and "is the Norway one really so bad?" (no).
+So judge a photo's age against a dated 2024–26 photo of the same man, not the date of the page or post that shows it,
+and judge looks at the size the card shows. Progress: the "Nov 6, later" section below.
+
+**Open (the owner's; not started):**
+- The founding year of every center, "to show the growth of Chabad": his idea and words are in the Nov 6 (end of a
+  session) section below. He hasn't said go; the plan written there is Claude's *(suggestion, not agreed)*.
+- Head photos still missing — Europe/Middle East: Moldova, Romania, Sweden, Switzerland; USA: Kansas–Missouri,
+  Delaware, New Hampshire, Eastern Massachusetts, Rhode Island, Cape Cod; Canada: British Columbia, Ottawa, Quebec,
+  Maritimes. Old or weak US/Canada photos and vaad faces: the lists in the Nov 5 sections.
+- From before: the sub-shetach sweep; the New Haven / Mexico / Boston naming questions; Bet Sara; Hebrew checks (Lew,
+  Efune); whether Ephraim Simon's one-year term on New Jersey's vaad (from June 2025) has a successor.
+
+**The owner's standing rules** (from every session; the details are in the dated sections):
+- Short, plain replies (he's on his phone); every preview in Hebrew first.
+- Photos: recent ("they need to be recent"), him alone, proper and professional, every one fully edited
+  (scripts/head-photos/retouch.py) with a good crop; never call an edit clean without checking it zoomed in (a hand
+  over a beard doesn't paint out: crop around it or find another photo); check who it is before using it.
+- Never take a head shliach from the news over the owner's data (Saudi Arabia is Rabbi Peretz Garelik).
+- Research: plain search and fetch first; Firecrawl at once when a site blocks ("For the 100 freaking time you have fire
+  crawl"), and its image search for photos; never work around a bot check or a paywall.
+- Instagram through Apify: the token is never in the repo; ask the owner to add `APIFY_TOKEN` in the environment's
+  settings, never to paste it in the chat.
+- Judea and Samaria is Israel; head shluchim's names in full; never a map in a card; commit and push every turn to
+  `claude/bold-albattani-aqfnj9`, no PR.
+
+## ▶ Nov 6, end of a session: the founding-years idea, Garelik, what was left
 
 **State:** everything below is LIVE on `claude/bold-albattani-aqfnj9` (deploys checked). Last commits: Garelik's photo
 (c273210), the Rebbeim beside their names (c40fe05). Nothing uncommitted.
@@ -35,7 +77,7 @@ site's picture), don't keep retrying with curl (the classifier also blocks that 
    For older houses the sources are: "celebrates 25/40 years" anniversary articles (→ the year), the shluchim's
    bios and obituaries ("came to X in 1984"), Chabadpedia, chabad.org "About" pages, local newspapers,
    COLlive/Anash/CrownHeights.info/lubavitch.com "New Shluchim to X" (good from about 2005). He has NOT yet said go;
-   suggested next: a pilot on one shetach (Florida) to measure the real hit rate, then batches. Plan for the data:
+   suggested next: a pilot on one shetach (Florida) to measure the real hit rate, then batches. *(Suggestion, not agreed:)* plan for the data:
    `data/founding-years.json` {centerId: {year, how: stated|anniversary|bio|estimate, source, note}} and
    `data/shetach-history.json` (when each shetach formed or split, drafted from the news, corrected by the owner);
    the view: a year slider with play, dots fading in, borders changing in their years, a running count.
@@ -59,7 +101,7 @@ site's picture), don't keep retrying with curl (the classifier also blocks that 
   portrait attributed to the Maharash was dropped ("it's prob not him").
 - Check identities before using a photo ("some of those are not him").
 
-## ▶ START HERE — Nov 6: Europe and the Middle East have head photos; the Rebbeim's portraits on their cards (all LIVE)
+## ▶ Nov 6: Europe and the Middle East have head photos; the Rebbeim's portraits on their cards (all LIVE)
 
 What the owner asked this session, all live on the site (deploys checked):
 - **"Europe and MENA next"**: head-shliach photos for **34** of the 39 Europe/Middle East shetachim, made like the US ones
@@ -97,7 +139,7 @@ What the owner asked this session, all live on the site (deploys checked):
   (sources there; the Rebbe's had an out-of-focus man behind him painted over with the backdrop; the two title pages
   were cut out of a Firecrawl screenshot of Chabadpedia's file pages, since chabadpedia.co.il refuses our downloads).
 
-## ▶ START HERE — Nov 5, later session: the new cards are LIVE; vaads and boards with faces; no "Zoom in"
+## ▶ Nov 5, later session: the new cards are LIVE; vaads and boards with faces; no "Zoom in"
 **The card redesign went live on Nov 5** (owner: "Push everything that's been done so far as well", then, on the old
 live page: "My fucking ass it's pushed" — he means on the site, not only in git). web/index.html is now what
 web/preview-cards.html was (the photos, the vaad faces, the new cards, everything below), with the `marked` bug fixed
@@ -170,13 +212,13 @@ there): every candidate with its source, the edits, the review sheets. Tools: sc
 boxes.py, circles.py; screenshots of every card kind: scripts/card-preview/shots.sh (cardshot.mjs needs
 `npm install --prefix .cache/testlib d3@7.9.0 topojson@3.0.2 maplibre-gl@4.7.1` and the @fontsource fonts).
 
-## ▶ START HERE (earlier) — handoff, Nov 5 (end of a session): head-shliach photos, vaad faces, the new cards
+## ▶ Nov 5, end of a session (partly superseded: the cards went live later that day): head-shliach photos, vaad faces, the new cards
 The owner (Nov 5): "make some sort of seamless handoff transition situation so another session can pick this up with
 every aspect of what you've done so far including pictures progress cards like literally everything". This is it; the
-dated sections below have the detail. **None of it is on the live map yet:** the photos and the new cards wait on the
+dated sections below have the detail. (When written. It all went live later on Nov 5; see that section.) **None of it is on the live map yet:** the photos and the new cards wait on the
 owner's go-ahead for the card redesign (the live page, web/index.html, is unchanged since Nov 4).
 
-**See the new cards:** `web/preview-cards.html`, a copy of the live page with them. Open it with `?lang=he` (the owner
+**See the new cards:** `web/preview-cards.html` (now only a redirect to web/index.html), a copy of the live page with them. Open it with `?lang=he` (the owner
 "use[s] Hebrew much more": show him Hebrew first): https://yechezkelbinstok-dev.github.io/shetachim/web/preview-cards.html?lang=he
 — tap a shetach. It is web/index.html (Nov 4) plus, in order (diff the two to port it; the scripts that made it are in
 scripts/card-preview/history/; make new changes in the page itself):

@@ -27,8 +27,10 @@ agreed)*. Older sessions' notes follow under dated headings, newest first; where
 section is right. Keep it that way: update this section, don't stack a new START HERE on top.
 
 **Live now** (`claude/bold-albattani-aqfnj9` is the site and the default branch): the new cards (since Nov 5: head
-shluchim's photos, vaad and board faces, the count line, small link buttons, no Zoom in); head photos for the USA,
-Canada, Europe and the Middle East; the Rebbeim's portraits beside their names. Make every change in web/index.html
+shluchim's photos, vaad and board faces, the count line, no Zoom in); a center's page is an ICON in the header's
+corner beside the ✕ (owner, Nov 6: "I told you to turn it into an icon and not this horrible thing" about the
+"chabad.org ↗" pill, then, on a round icon floating at the end of the sub line: "look how horribly it's situated";
+`pageChip`, `.cc-icon`); head photos for the USA, Canada, Europe and the Middle East; the Rebbeim's portraits. Make every change in web/index.html
 (web/preview-cards.html only redirects to it). "Pushed" to the owner means live: check that GitHub Pages deployed.
 
 **In progress (Nov 6): the Europe and Middle East photos, redone.** Owner: "The ones that are bad, you actually have to
@@ -61,7 +63,29 @@ thirteen no better recent photo has been found yet (the list is there, with what
   solid was then checked against the Detroit Jewish News archive (its own search, AND, earliest first), which changed
   six (Grand Rapids 1977, Novi 2005, Friendship House 2004, Mishkan Israel 1963, F.R.E.E. 1990, North Oak Park 1990)
   and showed the July 2024 list wrong on 3 of 13. Rule now: a list or "N years ago" is a lead; check every medium
-  and low entry before calling a shetach done. Next is the owner's call.
+  and low entry before calling a shetach done.
+  **Michigan now:** 37 listings at 32 dots; 29 dots dated; listings high 23 / medium 8 / low 1 (Bingham Farms: 2009
+  from the list only, first newspaper mention Dec 2016); ranges 2 (Oak Park's Lubavitch Outreach by 2001, the Cheder's
+  girls' building by 1999); nothing 1 (Toledo's Food & Learning Center).
+  **The owner's next steps (Nov 6, latest):** "we'll do region by region but we'll start with the small regions to get
+  them out of the way". The title "will end up being prob smth like Growth of Chabad in North America every year" (so
+  the scope is North America; whether Mexico is in: ask). He asked how he can trust this ("how am I going to do this
+  going forward if I can't trust you and u always screw up?"); the answer given: every year with its source, the
+  quote and a confidence; every medium and low checked against a second, independent source (a report from the year
+  itself beats a list or an anniversary count) before a region is called done; each region ends with a short list of
+  its doubtful entries for him to spot-check. First batch: the 35 US/Canada shetachim with 10 dots or fewer (161 dots,
+  172 listings): idaho, maritimes, nebraska, newfoundland-and-labrador, south-area (1 each); arkansas, wyoming (2);
+  alberta, delaware, maine, new-hampshire, oklahoma (3); alaska, cape-cod-and-the-islands, central-ohio,
+  merrimack-valley, utah (4); alabama, kentucky, louisiana-mississippi, rockland, washington-dc (5);
+  manitoba-saskatchewan, montana, new-mexico, north-shore-of-massachusetts (6); hawaii, indiana, iowa, rhode-island,
+  southern-ohio, tennessee (7); vermont (8); ottawa (9); plus 9 dots in no shetach.
+  **OPEN, asked by the owner before the batch starts: what counts as a center?** "What actually counts as a center?
+  Do we only do outreach? Maybe only outreach and chinuch moisdois? Honestly I'm not sure. Like do shuls count".
+  *(Suggestion, not agreed:)* the dots = shlichus centers (Chabad houses, campus Chabad houses, a shliach's
+  congregation or community center); schools, preschools, camps, mikvahs, yeshivas, social services and Anash
+  community shuls not as dots of their own (they'd crowd the hubs and count one family's work several times), but
+  the big ones as milestones in the video (the Detroit Mesivta, 1965). In Michigan that would leave about 20 of the
+  37 listings. Wait for his decision; it changes which listings need years.
 - Head photos still missing — Europe/Middle East: Moldova, Romania, Sweden, Switzerland; USA: Kansas–Missouri,
   Delaware, New Hampshire, Eastern Massachusetts, Rhode Island, Cape Cod; Canada: British Columbia, Ottawa, Quebec,
   Maritimes. Old or weak US/Canada photos and vaad faces: the lists in the Nov 5 sections.

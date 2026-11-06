@@ -3775,12 +3775,25 @@
    "name": "Chabad of Coronado",
    "city": "Coronado",
    "shetach": "west-coast",
-   "year": null,
-   "lead": 2007,
-   "how": "not-found",
-   "confidence": "open",
-   "source": "https://www.chabadcoronado.com/",
-   "note": "No year found (Rabbi Eli Fradkin). Its chabad.org listing number points to about 2007 (a lead)."
+   "year": 2005,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://cdnc.ucr.edu/?a=d&d=CJ20050727.2.71.1",
+   "note": "Coronado Eagle and Journal, July 27 2005 (an ad, California Digital Newspaper Collection): 'Chabad of Coronado Invites you to Shabbat on the Island ... Weekly throughout the summer season ... The Masonic Lodge 529 Orange Avenue ... Rabbi Josef Fradkin of the Chabad Educational Center will conduct warm and inspiring services' (jfradkin@chabadsd.org). Then July 12 2006 ('New Services At Community Ctr.', https://cdnc.ucr.edu/?a=d&d=CJ20060712.2.11): 'Chabad of Coronado has established new, permanent headquarters for the Jewish community ... weekly Sabbath services in the Coronado Community Center, 1845 Strand Way. Chabad kicks off its opening with a community dinner ... Friday, July 21 ... call Rabbi Eli Fradkin'. The 2005 ad is the paper's first mention of Chabad of Coronado (searched 1995-2006), so the start is the summer of 2005; the resident center opened July 21 2006.",
+   "earlier": [
+    {
+     "where": "summer Shabbat services at the Masonic Lodge, 529 Orange Ave",
+     "from": 2005,
+     "until": 2005,
+     "source": "https://cdnc.ucr.edu/?a=d&d=CJ20050727.2.71.1"
+    },
+    {
+     "where": "weekly services at the Coronado Community Center, 1845 Strand Way",
+     "from": 2006,
+     "until": null,
+     "source": "https://cdnc.ucr.edu/?a=d&d=CJ20060712.2.11"
+    }
+   ]
   },
   "324442": {
    "name": "Friendship Circle San Diego",
@@ -3999,12 +4012,11 @@
    "name": "Chabad Jewish Center of South Huntington Beach",
    "city": "Huntington Beach",
    "shetach": "west-coast",
-   "year": null,
-   "lead": 2000,
-   "how": "not-found",
-   "confidence": "open",
-   "source": "https://www.lubavitch.com/centers/north-america/usa/ca/huntington-beach",
-   "note": "No year found (Rabbi Yosef and Yiska Berkowitz). therebbesimpact.com: 2000 for them; the listing number points to about 2006."
+   "year": 2005,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.chabadshb.com/",
+   "note": "Its own site: 'Chabad of South Huntington Beach was established by Rabbi Yossi and Yiska Berkowitz in 2005'; its Charidy campaign (https://www.charidy.com/chabadshb24): 'established in 2005'. (therebbesimpact.com's 2000 is for the couple.)"
   },
   "120046": {
    "name": "Chabad Coastal Hebrew School",
@@ -4408,12 +4420,13 @@
    "name": "Chabad of Eagle Rock and Echo Park",
    "city": "Los Angeles",
    "shetach": "west-coast",
-   "year": null,
-   "lead": 2015,
-   "how": "not-found",
-   "confidence": "open",
-   "source": "https://www.chabad.org/jewish-centers/3037035",
-   "note": "No year found (Rabbi Aryeh and Mushky Perlstein). therebbesimpact.com: 2015; the listing number agrees."
+   "year": 2015,
+   "date": "2015-10",
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://www.linkedin.com/in/aryeh-perlstein-b467b0159",
+   "note": "Rabbi Aryeh Perlstein's LinkedIn: Director, Chabad of Eagle Rock & Echo Park, Oct 2015 - Aug 2023. Only LinkedIn, so medium (therebbesimpact.com and the listing number also point to 2015).",
+   "lead": 2015
   },
   "3293201": {
    "name": "Chabad of Melrose",
@@ -4451,12 +4464,11 @@
    "name": "Chabad at Pierce",
    "city": "Winnetka",
    "shetach": "west-coast",
-   "year": null,
-   "lead": 2015,
-   "how": "not-found",
-   "confidence": "open",
-   "source": "https://www.chabad.org/jewish-centers/2994460",
-   "note": "No year found (Rabbi Isser and Mushka Kluwgant). therebbesimpact.com: 2015; the listing number agrees."
+   "year": 2015,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://chabadatpierce.weebly.com/who-are-we.html",
+   "note": "Its own site: 'It was founded in 2015 by the Lubavitcher Rebbe's ambassadors to Pierce College, Rabbi Isser and Mushka Kluwgant' (also https://piercechabadclub.wixsite.com/chabad/about); Chabad.org News, Aug 2015 ('Chabad on Campus Welcomes 20 New Emissary Couples for the Academic Year', https://www.chabad.org/news/article_cdo/aid/3020119): the Kluwgants 'will run programs at Pierce College in Los Angeles'."
   },
   "118434": {
    "name": "Chabad Jewish Student Center at USC",
@@ -4483,19 +4495,29 @@
    "name": "Chabad of Greater Los Feliz",
    "city": "Los Angeles",
    "shetach": "west-coast",
-   "year": null,
-   "by": 1999,
-   "lead": 1997,
-   "how": "range",
-   "confidence": "range",
-   "source": "https://kotzk.com/2018/02/18/chabad-of-los-feliz-a-celebration-of-a-dream-come-true/",
-   "note": "Kotzk.com (Feb 2018), on Rabbi Leibel and Sara Korf: 'By July of 1999, when the Korfs moved into their present home ... the Chabad of Greater Los Feliz was still in the living room', so it was running by 1999. therebbesimpact.com: 1997. No founding report found.",
+   "year": 1998,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.lubavitch.com/putting-children-first-chabad-of-los-feliz-ca-dedicates-new-center/",
+   "note": "Lubavitch.com (Jan 30 2025, 'Putting Children First: Chabad of Los Feliz, CA Dedicates New Center'): 'Chabad of Los Feliz was founded in 1998 ... From the start, Rabbi Leibel and Dvonye Korf focused on building community—\"We taught Hebrew school and hosted prayer services in the living room of our small rental home\" ... After a stint operating out of a storefront in a mini-mall, Chabad moved into a larger property at 1930 Hillhurst Ave in 2006. In 2016, Chabad purchased what was then an office building down the block from Children's Hospital Los Angeles.' Kotzk.com (Feb 2018) agrees: by July 1999 it 'was still in the living room'. (therebbesimpact.com: 1997.)",
    "earlier": [
     {
-     "where": "the Korfs' living room (still there in July 1999)",
-     "from": null,
+     "where": "the living room of the Korfs' small rental home (then of their home at 1932 New Hampshire Ave, from July 1999)",
+     "from": 1998,
      "until": null,
-     "source": "https://kotzk.com/2018/02/18/chabad-of-los-feliz-a-celebration-of-a-dream-come-true/"
+     "source": "https://www.lubavitch.com/putting-children-first-chabad-of-los-feliz-ca-dedicates-new-center/"
+    },
+    {
+     "where": "a storefront in a mini-mall",
+     "from": null,
+     "until": 2006,
+     "source": "https://www.lubavitch.com/putting-children-first-chabad-of-los-feliz-ca-dedicates-new-center/"
+    },
+    {
+     "where": "1930 Hillhurst Ave",
+     "from": 2006,
+     "until": 2016,
+     "source": "https://www.lubavitch.com/putting-children-first-chabad-of-los-feliz-ca-dedicates-new-center/"
     }
    ]
   },
@@ -4545,13 +4567,12 @@
    "name": "Chabad of Belmont Shore",
    "city": "Long Beach",
    "shetach": "west-coast",
-   "year": null,
-   "by": 2000,
-   "lead": 1981,
-   "how": "range",
-   "confidence": "range",
-   "source": "https://www.jewishlongbeach.org/resources/community-directory/shul-by-the-shore",
-   "note": "The Long Beach federation's directory (undated) on the Shul by the Shore: it 'was started ten years ago by Rabbi Perelmuter, at the High Holidays', and in 2000 'the Shul began to offer full synagogue services', so it was running by 2000. therebbesimpact.com's 1981 is when Rabbi Abba and Chanie Perelmuter came to Long Beach."
+   "year": 1993,
+   "how": "anniversary",
+   "confidence": "medium",
+   "source": "https://www.shulbytheshore.org/templates/articlecco_cdo/aid/5954627/jewish/About.htm",
+   "note": "Its Shul by the Shore's own About page (published May 14 2023): 'The Shul by the Shore has been serving the Jewish community in Long Beach, California for 30 years. Founded by Rabbi Abba Perelmuter', so about 1993. The Long Beach federation's directory (undated) agrees: it 'was started ten years ago by Rabbi Perelmuter, at the High Holidays', and in 2000 'the Shul began to offer full synagogue services' (https://www.jewishlongbeach.org/resources/community-directory/shul-by-the-shore). Both are counts back, so medium. (therebbesimpact.com's 1981 is when the Perelmuters came to Long Beach.) A new building was being fitted out in 2024.",
+   "lead": 1981
   },
   "117556": {
    "name": "Chabad of Brentwood",
@@ -5841,12 +5862,12 @@
    "name": "Chabad Learning Center of Northern Nevada",
    "city": "Reno",
    "shetach": "west-coast",
-   "year": null,
-   "lead": 2022,
-   "how": "not-found",
-   "confidence": "open",
-   "source": "https://www.chabad.org/jewish-centers/5523204",
-   "note": "No year found. The listing number (5523204) is from about 2022."
+   "year": 2022,
+   "date": "2022-08",
+   "how": "news",
+   "confidence": "high",
+   "source": "https://anash.org/chabad-learning-center-to-open-in-reno-nevada/",
+   "note": "Anash.org, Aug 1 2022 ('Chabad Learning Center to Open in Reno, Nevada'): 'Rabbi Levi and Chana Sputz will be moving on Shlichus to Reno, Nevada to establish the Chabad Learning Center of Northern Nevada ... The Sputzs were appointed by head Shliach Rabbi Shlomo Cunin and regional director of Chabad of Northern Nevada Rabbi Mendel Cunin'. A report from the year itself (the listing number agrees)."
   }
  }
 }

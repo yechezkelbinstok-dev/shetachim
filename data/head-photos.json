@@ -1,5 +1,5 @@
 {
- "about": "Profile photos of the head shluchim (USA, Canada, Europe and the Middle East), one per shetach: a head-and-shoulders crop (320x320 JPEG) in web/img/heads/<shetach id>.jpg. Standard (owner, Nov 5): a proper portrait of him alone, never a farbrengen or group shot. 'page' is where the photo was found, 'image' the original file; 'crop' is the hand-picked square on that image (centre as fractions of width and height, side as a fraction of height) and 'cast' a colour cast taken out by hand; 'source' is the kept copy in work/ the crop was made on; 'studio': true a studio portrait retouched gently (retouch.py --studio); 'edit' (rare) is what scripts/head-photos/paint-out.py painted out of the source first (someone else reaching into the frame). Every photo is retouched by scripts/head-photos/retouch.py (cast, levels, exposure and colour read on the skin, local contrast, sharpening).",
+ "about": "Profile photos of the head shluchim (USA, Canada, Europe, the Middle East and Africa), one per shetach: a head-and-shoulders crop (320x320 JPEG) in web/img/heads/<shetach id>.jpg. Standard (owner, Nov 5): a proper portrait of him alone, never a farbrengen or group shot. 'page' is where the photo was found, 'image' the original file; 'crop' is the hand-picked square on that image (centre as fractions of width and height, side as a fraction of height) and 'cast' a colour cast taken out by hand; 'source' is the kept copy in work/ the crop was made on; 'studio': true a studio portrait retouched gently (retouch.py --studio); 'edit' (rare) is what scripts/head-photos/paint-out.py painted out of the source first (someone else reaching into the frame). Every photo is retouched by scripts/head-photos/retouch.py (cast, levels, exposure and colour read on the skin, local contrast, sharpening).",
  "photos": [
   {
    "id": "west-coast",
@@ -1149,6 +1149,47 @@
     "cx": 0.5525,
     "cy": 0.2594,
     "side": 0.3195
+   },
+   "keep": true
+  },
+  {
+   "id": "south-africa",
+   "head": "Mendel Lipskar",
+   "file": "img/heads/south-africa.jpg",
+   "page": "https://www.sajr.co.za/author/rabbi-mendel-lipskar/",
+   "image": "https://www.sajr.co.za/wp-content/uploads/2025/12/Rabbi-Mendel-Lipskar-scaled.jpg",
+   "note": "his SA Jewish Report author portrait, Dec 2025 (Rabbi Mendel Lipskar of Johannesburg, not his brother Sholom of Florida)",
+   "crop": {
+    "cx": 0.47,
+    "cy": 0.4,
+    "side": 0.6
+   },
+   "keep": true
+  },
+  {
+   "id": "central-africa",
+   "head": "Shlomo Bentolila",
+   "file": "img/heads/central-africa.jpg",
+   "page": "https://col.org.il/news/138011",
+   "image": "https://media.col.org.il/files/uploads/crop/2022/04/626022b5bf4de_1650467509_news_main_gallery.jpg",
+   "note": "COL, Apr 2022: the photo with his own column on his wife's first yahrzeit (a microphone beside him, left out)",
+   "crop": {
+    "cx": 0.45,
+    "cy": 0.43,
+    "side": 0.8
+   }
+  },
+  {
+   "id": "mauritius",
+   "head": "Laima Barber",
+   "file": "img/heads/mauritius.jpg",
+   "page": "https://www.jewishmauritius.com/templates/articlecco_cdo/aid/4557412/jewish/Weddings.htm",
+   "image": "https://w2.chabad.org/media/images/1111/risR11114370.jpg",
+   "note": "Chabad Mauritius's own Weddings page: he stands beside a couple (cropped to him; the groom's white shoulder just at the edge)",
+   "crop": {
+    "cx": 0.178,
+    "cy": 0.488,
+    "side": 0.262
    },
    "keep": true
   }

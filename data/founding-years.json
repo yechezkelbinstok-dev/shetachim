@@ -10254,16 +10254,12 @@
    "confidence": "medium"
   },
   "118280": {
-   "name": "Chabad of Chester County & Western Main Line",
-   "city": "Devon",
-   "shetach": "pennsylvania",
-   "year": null,
-   "by": 2001,
+   "after": 1998,
+   "by": 2000,
    "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/233028821",
-   "note": "IRS: Chabad Lubavitch Of Chester County & Western Mainline, ruling April 2001, so it existed by then. PA Senate (2023): Rabbi Yossi and Tickey Kaplan 'came to Chester County about twenty years ago ... to start a Chabad Center' (approximate). Jewish Exponent (2006): ark dedication. Start year not stated.",
    "confidence": "range",
-   "lead": 2000
+   "source": "https://www.chabad.org/news/article_cdo/aid/1402411",
+   "note": "Chabad.org, 4 Jan 2011 ('Suburban Synagogue and Mosque Sit Side by Side'): 'In 1998, he [Rabbi Yossi Kaplan] was in Brooklyn, looking for a place to start a Chabad House'; the family first rented a home and other space for programs; 'by September 2000, they were able to rent what he described as a huge building' in Berwyn; the Devon property was bought in Dec 2002. IRS: ruling April 2001. So it began after 1998 and by Sept 2000."
   },
   "118420": {
    "name": "Chabad of the Abingtons - Jewish Discovery Center",
@@ -10425,6 +10421,96 @@
    "how": "news",
    "source": "https://collive.com/new-shluchim-to-swarthmore-college/",
    "note": "COLlive, 30 July 2023: 'Rabbi Mordi and Reizel Wolf (nee Garelik) are the new Shluchim to Swarthmore College'; Tri-Co Chabad (Rabbi Eli and Blumie Gurevitz) 'entrusted Swarthmore College to the Wolfs to branch out and establish an independent Chabad House'.",
+   "confidence": "high"
+  },
+  "117715": {
+   "name": "Lubavitcher Center",
+   "city": "Philadelphia",
+   "shetach": "pennsylvania",
+   "year": 1961,
+   "how": "news",
+   "source": "https://collive.com/too-cool-for-shul/",
+   "note": "Philadelphia City Paper (COLlive, 28 Aug 2009): 'Philadelphia became one of the first major U.S. cities with an outpost when Rabbi Avrohom Shemtov began his mission here in 1961, out in the far Northeast on Castor Avenue, where he still resides.' (The Lubavitcher Center, NE Philadelphia; Shemtov also began Torah classes on campus in 1962.)",
+   "confidence": "high"
+  },
+  "425767": {
+   "name": "Jewish Center of Northern Liberties",
+   "city": "Philadelphia",
+   "shetach": "pennsylvania",
+   "year": 2005,
+   "how": "news",
+   "source": "https://collive.com/too-cool-for-shul/",
+   "note": "Philadelphia City Paper (COLlive, 28 Aug 2009): the Lag B'Omer event 'began in 2005 and Rabbi Gedaliah Lowenstein, who leads the Jewish Center of Northern Liberties across the street - which opened that same year'. The chabad.org listing (425767) is from about 2006, which agrees.",
+   "confidence": "high"
+  },
+  "1337491": {
+   "name": "Chabad of Lafayette Hill",
+   "city": "Lafayette Hill",
+   "shetach": "pennsylvania",
+   "year": 2010,
+   "how": "news",
+   "source": "https://www.chabad.org/news/article_cdo/aid/1359690",
+   "note": "Chabad.org, 19 Nov 2010 ('New Centers Cater to Art Students, Suburbanites'): 'Rabbi Yisroel and Chaya Kotlarsky are setting up shop in the upscale community of Lafayette Hill', among the centers opened in the previous six months. The chabad.org listing (1337491) is from Nov 2010, which agrees.",
+   "confidence": "high"
+  },
+  "1304267": {
+   "name": "Chabad House for Students",
+   "city": "Philadelphia",
+   "shetach": "pennsylvania",
+   "year": 2010,
+   "how": "news",
+   "source": "https://www.chabad.org/news/article_cdo/aid/1359690",
+   "note": "Chabad.org, 19 Nov 2010 ('New Centers Cater to Art Students, Suburbanites'): Rabbi Daniel and Reuvena Leah Grodnitzky are newly 'running programs for students at a cluster of art schools' downtown, where 'There was no Jewish programming yet for them' (Rabbi Menachem Schmidt); the new Philadelphia Chabad Houses 'are just getting started'. Philadelphia Inquirer (2019): they bought 1601 Lombard in 2012.",
+   "confidence": "high"
+  },
+  "3757460": {
+   "name": "Chabad of Fairmount",
+   "city": "Philadelphia",
+   "shetach": "pennsylvania",
+   "year": 2017,
+   "how": "stated",
+   "source": "https://www.jewishfairmount.org/",
+   "note": "Its own home page: 'Chabad of Fairmount, established in 2017 offers youth programs, adult education', under Rabbi Hirshi and Shevy Sputz. The chabad.org listing (3757460) is from about 2017, which agrees.",
+   "confidence": "high"
+  },
+  "3027498": {
+   "name": "PSJews - Chabad of the Undergrads",
+   "city": "State College",
+   "shetach": "pennsylvania",
+   "year": 2015,
+   "how": "stated",
+   "source": "https://www.thepsjews.com/",
+   "note": "Its own home page: 'In 2015, just newly married, we moved from Toronto to Happy Valley and are now the home for hundreds of PSJews' (Rabbi Hershy Gourarie and his wife). The chabad.org listing (3027498) is from about 2015, which agrees.",
+   "confidence": "high"
+  },
+  "5381238": {
+   "name": "Chabad of Lords Valley",
+   "city": "Lords Valley",
+   "shetach": "pennsylvania",
+   "year": 2016,
+   "how": "stated",
+   "source": "https://www.chabadlordsvalley.org/",
+   "note": "Its own home page: 'Established in 2016, Chabad of Lords Valley serves the greater Hemlock Farms area.' Rabbi Shmuel Shur (per chabad.org). The chabad.org listing (5381238) dates only from about 2022.",
+   "confidence": "high"
+  },
+  "6358286": {
+   "name": "Bala Chabad",
+   "city": "Bala Cynwyd",
+   "shetach": "pennsylvania",
+   "year": 2021,
+   "how": "stated",
+   "source": "https://www.balachabad.org/templates/articlecco_cdo/aid/6425392/jewish/About-Our-Center.htm",
+   "note": "Its own 'About Our Center' page: 'Since its humble beginnings in 2021, BALA CHABAD has quickly garnered a reputation'.",
+   "confidence": "high"
+  },
+  "6642528": {
+   "name": "Chabad Lubavitch NE Philadelphia Jewish Education Center",
+   "city": "Philadelphia",
+   "shetach": "pennsylvania",
+   "year": 2024,
+   "how": "stated",
+   "source": "https://www.jewishnephilly.com/templates/articlecco_cdo/aid/6677106/jewish/About-Us.htm",
+   "note": "Its own About page: 'In 2024, this center was established to enrich Jewish education, outreach, and community connection' (Rabbi Mendel and Moussia Gansburg).",
    "confidence": "high"
   }
  }

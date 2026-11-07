@@ -53,15 +53,11 @@ const HE_NAMES = { USA: 'ארצות הברית', CAN: 'קנדה', AUS: 'אוסט
 const nameOf = (iso, he) => (he ? HE_NAMES[iso] || heAreas[iso] : EN_NAMES[iso]) || iso;
 const T = {
   en: { dir: 'ltr', title: 'Chabad mushrooms of the world',
-    sub: `${total} Chabad houses outside official Chabad (not under Merkos) · November 2026`,
     insets: ['New York, New Jersey and nearby', 'India and Sri Lanka', 'Philippines'],
-    byCountry: 'By country', networks: 'Largest networks', alone: (n) => `${n} houses in no network`,
-    others: (list) => `and one each in ${list}`, and: ' and ', note: 'Close dots are merged into one numbered dot.' },
+    byCountry: 'Countries', networks: 'Networks' },
   he: { dir: 'rtl', title: 'פטריות חב״ד בעולם',
-    sub: `${total} בתי חב״ד מחוץ לחב״ד הרשמית (שאינם תחת מרכז לעניני חינוך) · נובמבר 2026`,
     insets: ['ניו יורק, ניו ג׳רזי והסביבה', 'הודו וסרי לנקה', 'הפיליפינים'],
-    byCountry: 'לפי מדינה', networks: 'הרשתות הגדולות', alone: (n) => `${n} בתים שאינם ברשת`,
-    others: (list) => `ואחד בכל אחת מאלה: ${list}`, and: ' ו', note: 'נקודות קרובות מאוחדות לנקודה אחת עם מספר.' },
+    byCountry: 'מדינות', networks: 'רשתות' },
 };
 
 // ---- geometry helpers ----
@@ -139,22 +135,19 @@ function insetSvg(ins, i) {
 function page(lang) {
   const t = T[lang], rtl = t.dir === 'rtl';
   const countries = [...byCountry.entries()].sort((p, q) => q[1] - p[1] || nameOf(p[0], rtl).localeCompare(nameOf(q[0], rtl)));
-  const many = countries.filter(([, n]) => n > 1).map(([k, n]) => `${nameOf(k, rtl)} ${n}`);
-  const ones = countries.filter(([, n]) => n === 1).map(([k]) => nameOf(k, rtl)).sort((p, q) => p.localeCompare(q, rtl ? 'he' : 'en'));
-  const onesText = ones.length > 1 ? ones.slice(0, -1).join(', ') + (rtl ? ' ו' : ', and ') + ones[ones.length - 1] : ones.join('');
-  const big = [...nets.entries()].sort((p, q) => q[1].n - p[1].n).filter(([, v]) => v.n >= 3).map(([k, v]) => `${rtl ? v.he : k} ${v.n}`);
-  const inNets = [...nets.values()].reduce((s, v) => s + v.n, 0);
+  const countryList = countries.map(([k, n]) => `${nameOf(k, rtl)} ${n}`);
+  const netList = [...nets.entries()].sort((p, q) => q[1].n - p[1].n).map(([k, v]) => `${rtl ? v.he : k} ${v.n}`);
   const insets = INSETS.map((ins, i) => { const r = insetSvg(ins, i); return `<figure><figcaption><span class="tag">${i + 1}</span>${esc(t.insets[i])} · ${r.count}</figcaption>${r.svg}</figure>`; }).join('');
   const font = rtl ? "'Heebo', sans-serif" : "'Inter', sans-serif";
   const css = `body{margin:0;background:${PAPER};color:${INK};font-family:${font}}main{width:${MW}px;padding:${PAD}px}
-h1{margin:0;font-size:34px;line-height:1.15}p.sub{margin:6px 0 22px;font-size:18px;color:${MUTED}}svg{display:block}
+h1{margin:0 0 20px;font-size:34px;line-height:1.15}svg{display:block}
 .row{display:flex;gap:${GAP}px;margin-top:24px}figure{margin:0;width:${IW}px}figcaption{display:flex;align-items:center;gap:8px;font-size:17px;font-weight:700;margin-bottom:10px}
 .tag{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:${INK};color:#fff;font-size:12px}
-.foot{margin-top:24px;font-size:15px;line-height:1.55}.foot p{margin:0 0 6px}.note{color:${MUTED};font-size:13px}`;
+.foot{margin-top:24px;font-size:15px;line-height:1.55}.foot p{margin:0 0 6px}`;
   return `<!doctype html><html dir="${t.dir}" lang="${lang}"><head><meta charset="utf-8"><style>${FONTS}${css}</style></head><body><main>
-<h1>${esc(t.title)}</h1><p class="sub">${esc(t.sub)}</p>${worldSvg()}<div class="row">${insets}</div>
-<div class="foot"><p><b>${esc(t.byCountry)}:</b> ${esc(many.join(' · '))} · ${esc(t.others(onesText))}</p>
-<p><b>${esc(t.networks)}:</b> ${esc(big.join(' · '))} · ${esc(t.alone(total - inNets))}</p><p class="note">${esc(t.note)}</p></div></main></body></html>`;
+<h1>${esc(t.title)}</h1>${worldSvg()}<div class="row">${insets}</div>
+<div class="foot"><p><b>${esc(t.byCountry)}:</b> ${esc(countryList.join(' · '))}</p>
+<p><b>${esc(t.networks)}:</b> ${esc(netList.join(' · '))}</p></div></main></body></html>`;
 }
 
 fs.mkdirSync(OUT, { recursive: true });

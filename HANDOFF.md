@@ -58,7 +58,9 @@ philosophy"). 94 mushrooms in all.
 A picture of them (owner: "make me a basic image map showing the mushrooms of the world I wanna visualize it"):
 `node scripts/mushroom-map.mjs` writes work/mushrooms/mushrooms-world-he.png and -en.png (the world, close dots merged into
 numbered ones, close-ups of New York–New Jersey, India–Sri Lanka and the Philippines, counts by country and network);
-rerun it after any mushroom change. **Kept as official, checked:** Pisac (its rabbi
+rerun it after any mushroom change. **Owner, on the first version:** "Why did you have to put that stupid line under the
+chabad mushroom list thingy header" and "why stupid ai explanatory text like in no network or this merged into this":
+in pictures, no subtitle and no explaining lines, only the title, the map and plain lists. **Kept as official, checked:** Pisac (its rabbi
 and rebbetzin are on chabad.org at Chabad of Cusco); Zanzibar (founded 2018 under Chabad of Central Africa, per
 chabad.org); Panama (many centers on chabad.org; Rabbi Aaron Laine, not on chabad.org himself, is called its head
 shliach); Armenia (chabad.org's own article on Rabbi Gershon Burshtein's Chabad house, since 1995). A check of every

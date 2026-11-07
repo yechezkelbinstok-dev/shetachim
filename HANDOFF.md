@@ -261,6 +261,12 @@ thirteen no better recent photo has been found yet (the list is there, with what
   WebFetch hands back a small model's summary of a page, not the page, so read a source raw (Firecrawl markdown, or
   curl) before resting a year on it. Never work around a bot check or a paywall.
 - Founding years: US and Canada only. Owner (Nov 6): "Not Mexico!!!!! Wtf".
+- Founding years: moves are a big part of the data. Owner (Nov 7): "Have you been also ... finding dates of moving and
+  old as well as new location???? I hope so if not I'll be mad because that's a big part of the data". Check every
+  center for moves, not only when a source happens to say so: its state filing history (address changes with dates),
+  archived old pages (Wayback via Firecrawl), the local Jewish paper's archive, and its current address
+  (lubavitch.com/centers/<id>, free) against addresses in old directories. Free tools: work/founding-years/west-coast.md,
+  'Free tools found on Nov 7'.
 - Founding years: when a center used to be somewhere else, record it (`earlier` in `data/founding-years.json`). Owner
   (Nov 6): "if you ever realize a center used to be located somewhere else then take note for the data pls".
 - Founding years: search simply (the center's name + "founding year" / "established"), read its own pages (About,

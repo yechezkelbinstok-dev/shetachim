@@ -122,3 +122,31 @@ Owner (Nov 6): "I want this research to be the best" (Firecrawl allowed again), 
     gives is then checked on the page itself before it goes in; the note says the agent found it.
 - **Not a source:** the Oholei Torah alumni list's year beside each name is a class year (Rabbi Mendy Begun '2010' runs
   a center from about 2020), not a founding year.
+
+## Free tools found on Nov 7, and moves for every center
+Owner (Nov 7): "Have you been also ... finding dates of moving and old as well as new location???? ... that's a big part
+of the data." Moves had been saved when a source happened to name them, but Michigan (0 of 38) and the small shetachim
+(2 of 171) were done before that request and never gone back over. Now every center touched gets a move check, and the
+notes already written were mined for the old places they mention (batches small-07, michigan-01, west-coast-36).
+- **Chabad.org's metadata API (free, plain curl):** `https://www.chabad.org/api/content/<id>/metadata?tid=7152` returns
+  `publicationDate`, the exact day a listing (or any chabad.org page: a branch page on a regional site, an About page)
+  went up. It replaces the listing-number estimates ("about 2007") with a day; it still only bounds the start ('by').
+  Listings from the first directory all show 2004-07-22, the day it went online. Dates for every open entry:
+  scratchpad `pubdates/`. A regional site's page for a new branch dates the branch: Chabad of the Valley added
+  'Porter Ranch - Rabbi Yochonon Baitelman' on 2007-04-12 and 'Lake Encino' on 2008-11-10.
+- **lubavitch.com center pages (free, curl):** `https://www.lubavitch.com/centers/<id>` has the current street
+  address (`<div class="address d-flex">`), so old addresses in sources can be told from the current one.
+- **The Wayback Machine through Firecrawl** (curl is blocked): `web.archive.org/cdx/search/cdx?url=<site>&...` lists
+  captures (1 credit); `web.archive.org/web/<timestamp>id_/<url>` returns the old page. Found this way: Bais Bezalel's
+  2012 About page ('began 35 years ago' in 2012, so 1977), Chabad of Brentwood's 2008 services page ('Brentwood South:
+  NEW!', at Gan Chaya on Bundy Dr.).
+- **California filing histories:** BizProfile's company page (bizprofile.net/ca/<city>/<slug>) lists each Statement of
+  Information with the address changes and dates (South Westwood: Glendon Ave until March 2023; Indio: Bermuda Dunes
+  until Sept 2024). Its 'authorized person' pages (bizprofile.net/authorized-person/<first-last>) list a rabbi's
+  corporations with filing dates. Bizapedia and the state's own bizfile site put up a bot check or paywall: not used.
+- **Merkos 302's 'New Shluchim grants' lists** (news.merkos302.com; June 2022, Nov 2022, Apr 2025): dated lists of new
+  couples and towns. Few of the open centers are on them.
+- **The Detroit Jewish News archive, for moves:** the same search (words, earliest first) with a street name or
+  number ('Lubavitch Middlebelt', '"14100" Lubavitch') dates each address. It also showed that Bais Chabad of
+  Farmington Hills began in 1972 (Nov 24 1972: 'a proud new addition ... BAIS CHABAD ... at 28555 Middlebelt Road',
+  Rabbi Yitschak Kagan), not 1977 (the Bergsteins' start).

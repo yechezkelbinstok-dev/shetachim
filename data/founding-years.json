@@ -3504,7 +3504,15 @@
    "confidence": "medium",
    "source": "https://www.bizprofile.net/ca/indio/chabad-of-indio",
    "note": "California Secretary of State record (via BizProfile): 'Chabad Of Indio ... Officially filed on December 2, 2019' (document 4535120; CEO Menachem Sosonkin). The corporation's filing, not a report of its opening, so medium. Its chabad.org listing was published Nov 11 2019. The corporation's address was an apartment at 40300 Washington St, Bermuda Dunes, until Sept 2024, then 82741 Mountain View Ave, Indio.",
-   "date": "2019-12-02"
+   "date": "2019-12-02",
+   "earlier": [
+    {
+     "where": "40300 Washington St, Apt A203, Bermuda Dunes (its address on its California filings)",
+     "from": 2019,
+     "until": 2024,
+     "source": "https://www.bizprofile.net/ca/indio/chabad-of-indio"
+    }
+   ]
   },
   "117548": {
    "name": "Chabad of Irvine",
@@ -4056,12 +4064,20 @@
    "name": "Chabad Jewish Center of RSF",
    "city": "Rancho Santa Fe",
    "shetach": "west-coast",
-   "year": null,
+   "year": 2006,
    "lead": 2006,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "anniversary",
+   "confidence": "medium",
    "source": "https://www.jewishrsf.com/templates/articlecco_cdo/aid/1011174/jewish/CJC-in-the-News.htm",
-   "note": "No year found (Rabbi Levi Raskin). Its chabad.org listing number points to about 2006 (a lead)."
+   "note": "San Diego Jewish Journal (Jessica Hanewinckel, 'Chabad Jewish Center of Rancho Santa Fe: a boutique Chabad with a big heart'; reposted on its site Oct 16 2009, written before an October 2009 event): 'three years ago, for the first time in the community's 100-year history, a Jewish congregation, Chabad of Rancho Santa Fe, finally was established ... What started as a small Chanukah party for a few families had a great turnout'; a member had belonged 'almost three years'. Three years back from 2009 is 2006 (counted back, medium); its chabad.org listing was published Jan 16 2007, a month after Chanukah 2006. Rabbi Levi and Devorah Raskin. In 2009 it had 'yet to claim a place of its own for services': they were held at the Morgan Run Resort.",
+   "earlier": [
+    {
+     "where": "services at the Morgan Run Resort, Rancho Santa Fe",
+     "from": null,
+     "until": null,
+     "source": "https://www.jewishrsf.com/templates/articlecco_cdo/aid/1011174/jewish/CJC-in-the-News.htm"
+    }
+   ]
   },
   "712606": {
    "name": "Chabad of North Irvine",
@@ -4462,13 +4478,25 @@
    "how": "first-mention",
    "confidence": "medium",
    "source": "https://web.archive.org/web/20080630231455/http://www.chabadbw.com/templates/articlecco_cdo/aid/62397/jewish/Synagogue-Services.htm",
-   "note": "The earliest mention found is its chabad.org listing, published Aug 28 2007. Chabad of Brentwood's Synagogue Services page, as archived June 30 2008, still calls it new: 'CHABAD OF BRENTWOOD SOUTH: NEW! ... Services at Chabad of Brentwood South are held at: Gan Chaya Early Childhood Center, 1620 S. Bundy Dr.' So 2007 (first mention, medium); therebbesimpact.com also has 2007. It was incorporated on its own only on April 29 2013 (California Secretary of State, via BizProfile). Rabbi Mordechai and Chaya Rochel Zaetz.",
+   "note": "The earliest mention found is its chabad.org listing, published Aug 28 2007. Chabad of Brentwood's Synagogue Services page, as archived June 30 2008, still calls it new: 'CHABAD OF BRENTWOOD SOUTH: NEW! ... Services at Chabad of Brentwood South are held at: Gan Chaya Early Childhood Center, 1620 S. Bundy Dr.' So 2007 (first mention, medium); therebbesimpact.com also has 2007. It was incorporated on its own only on April 29 2013 (California Secretary of State, via BizProfile). Rabbi Mordechai and Chaya Rochel Zaetz. Where it has been: Shabbat services at Gan Chaya (2007-08), then at Stoner Park, 1835 Stoner Ave. (Chabad of Brentwood's services page, undated); its filings gave 1908 S. Westgate Ave. from 2013 until Nov 27 2024, when they changed to 12010 Ohio Ave., its address now.",
    "earlier": [
     {
      "where": "Shabbat services at the Gan Chaya Early Childhood Center, 1620 S. Bundy Dr.",
      "from": 2007,
      "until": null,
      "source": "https://web.archive.org/web/20080630231455/http://www.chabadbw.com/templates/articlecco_cdo/aid/62397/jewish/Synagogue-Services.htm"
+    },
+    {
+     "where": "Shabbat services at Stoner Park, 1835 Stoner Ave.",
+     "from": null,
+     "until": null,
+     "source": "https://www.chabadbw.com/templates/articlecco_cdo/aid/62397/jewish/Synagogue-Services.htm"
+    },
+    {
+     "where": "1908 S. Westgate Ave. (its address on its California filings)",
+     "from": 2013,
+     "until": 2024,
+     "source": "https://www.bizprofile.net/ca/los-angeles/chabad-of-brentwood-south"
     }
    ]
   },
@@ -4696,7 +4724,21 @@
    "how": "directory",
    "confidence": "medium",
    "source": "https://m.yelp.com/biz/chabad-of-brentwood-los-angeles",
-   "note": "Yelp's business line: 'Established in 1985. What started as a Shabbat Minyan has grown into ...' (Rabbi Baruch Y. and Channa Hecht); therebbesimpact.com agrees. Only Yelp, so medium. Checked (Nov 6): only Yelp again (a review: 'the same Rabbi since 1985'); no independent source."
+   "note": "Yelp's business line: 'Established in 1985. What started as a Shabbat Minyan has grown into ...' (Rabbi Baruch Y. and Channa Hecht); therebbesimpact.com agrees. Only Yelp, so medium. Checked (Nov 6): only Yelp again (a review: 'the same Rabbi since 1985'); no independent source. Its office has been at 644 S. Bundy Dr. since at least 2001 (its site, archived Apr 2001); in 2008 its daily services were at 11943 Montana Ave. and Shabbat mornings at the Brentwood Science Magnet auditorium (its site, archived June 30 2008); its services page now says daily services are at the rabbi's home.",
+   "earlier": [
+    {
+     "where": "daily services at 11943 Montana Ave. (between Bundy and San Vicente)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20080630231455/http://www.chabadbw.com/templates/articlecco_cdo/aid/62397/jewish/Synagogue-Services.htm"
+    },
+    {
+     "where": "Shabbat morning services at the Brentwood Science Magnet School auditorium (Montana Ave. and Gretna Green Way)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20080630231455/http://www.chabadbw.com/templates/articlecco_cdo/aid/62397/jewish/Synagogue-Services.htm"
+    }
+   ]
   },
   "118358": {
    "name": "Chabad of Glendale and the Foothill Communities",
@@ -5287,9 +5329,17 @@
    "lead": 2019,
    "how": "directory",
    "confidence": "medium",
-   "source": "https://www.bizprofile.net/ca/los-angeles/6852",
-   "note": "California Secretary of State record (via BizProfile's Los Angeles directory): 'Chabad Of South Westwood ... 1910 Manning Ave Unit 7. Los Angeles, CA 90025. Filing date 1/3/2019. Entity type Nonprofit Religious Corporation.' The corporation's filing, not a report of its opening, so medium. Its chabad.org listing was published May 2 2019; therebbesimpact.com also has 2019 (Rabbi Dovid and Mushky Liberow).",
-   "date": "2019-01-03"
+   "source": "https://www.bizprofile.net/ca/los-angeles/chabad-of-south-westwood",
+   "note": "California Secretary of State record (via BizProfile's Los Angeles directory): 'Chabad Of South Westwood ... 1910 Manning Ave Unit 7. Los Angeles, CA 90025. Filing date 1/3/2019. Entity type Nonprofit Religious Corporation.' The corporation's filing, not a report of its opening, so medium. Its chabad.org listing was published May 2 2019; therebbesimpact.com also has 2019 (Rabbi Dovid and Mushky Liberow). Its filings gave 1815 Glendon Ave #204 from 2019 until March 19 2023, then 1910 Manning Ave Unit 7.",
+   "date": "2019-01-03",
+   "earlier": [
+    {
+     "where": "1815 Glendon Ave #204 (its address on its California filings)",
+     "from": 2019,
+     "until": 2023,
+     "source": "https://www.bizprofile.net/ca/los-angeles/chabad-of-south-westwood"
+    }
+   ]
   },
   "4730574": {
    "name": "Chabad of Southwest Beverly Hills",
@@ -5311,9 +5361,17 @@
    "lead": 2020,
    "how": "directory",
    "confidence": "medium",
-   "source": "https://www.bizprofile.net/ca/los-angeles/6674",
-   "note": "California Secretary of State record (via BizProfile's Los Angeles directory): 'Chabad Of Beverly Grove ... 300 S Doheny Drive 102. Los Angeles, CA 90048. Filing date 12/16/2019. Entity type Nonprofit Religious Corporation.' The corporation's filing, not a report of its opening, so medium. Its chabad.org listing was published a month earlier, Nov 11 2019 (Rabbi Mendy Begun); therebbesimpact.com: 2020.",
-   "date": "2019-12-16"
+   "source": "https://www.bizprofile.net/ca/los-angeles/chabad-of-beverly-grove",
+   "note": "California Secretary of State record (via BizProfile's Los Angeles directory): 'Chabad Of Beverly Grove ... 300 S Doheny Drive 102. Los Angeles, CA 90048. Filing date 12/16/2019. Entity type Nonprofit Religious Corporation.' The corporation's filing, not a report of its opening, so medium. Its chabad.org listing was published a month earlier, Nov 11 2019 (Rabbi Mendy Begun); therebbesimpact.com: 2020. Its filings gave 9160 Beverly Blvd #201, Beverly Hills, in Nov 2023 and Feb 2024; now 300 S Doheny Dr #102.",
+   "date": "2019-12-16",
+   "earlier": [
+    {
+     "where": "9160 Beverly Blvd, Suite 201, Beverly Hills (its address on its California filings)",
+     "from": null,
+     "until": 2024,
+     "source": "https://www.bizprofile.net/ca/los-angeles/chabad-of-beverly-grove"
+    }
+   ]
   },
   "5038236": {
    "name": "Chabad of Brentwood Glen",

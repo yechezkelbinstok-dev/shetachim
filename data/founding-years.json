@@ -6355,11 +6355,11 @@
    "name": "Synagogue of Inverrary - Chabad",
    "city": "Lauderhill",
    "shetach": "florida",
-   "year": 1985,
-   "how": "anniversary",
-   "source": "https://collive.com/new-shluchim-to-south-florida/",
-   "note": "COLlive, 15 Nov 2018: the Inverrary community was 'Founded over 33 years ago and led by Shliach Rabbi Aron Lieberman' (so 1985 or a little before), at 6700 NW 44th Street. therebbesimpact.com: 1993 (unsourced). To check.",
-   "confidence": "medium"
+   "year": 1982,
+   "how": "stated",
+   "source": "https://www.chabad.org/news/article_cdo/aid/2984737",
+   "note": "Chabad.org, 23 June 2015 (Aishel House): the idea 'came to Rabbi Aron Lieberman, who has led our congregation since 1982' (caption: 'had led the congregation since 1982'). COLlive, 15 Nov 2018: the Inverrary community was 'Founded over 33 years ago and led by Shliach Rabbi Aron Lieberman', which agrees. 6700 NW 44th Street. therebbesimpact.com: 1993 (unsourced, wrong).",
+   "confidence": "high"
   },
   "117602": {
    "name": "Chabad Lubavitch of Sarasota & Manatee Counties",
@@ -6704,11 +6704,11 @@
    "name": "Chabad at Midtown Miami",
    "city": "Miami",
    "shetach": "florida",
-   "year": 2004,
-   "how": "directory",
-   "source": "https://www.gofundme.com/charity/chabad-at-midtown",
-   "note": "Its charity listing gives 2004 as the year it was established (Rabbi Shmuel Gopin, 221 NE 29th St.). therebbesimpact.com: the center and the Gopins 2003. Only a directory: to check.",
-   "confidence": "medium"
+   "year": 2003,
+   "how": "stated",
+   "source": "https://www.chabad.org/news/article_cdo/aid/4012195",
+   "note": "Chabad.org, 25 April 2018 ('Pop Artist Romero Britto's Newest Canvas? A Limited-Edition Kippah'): 'Chabad of Midtown was founded by Rabbi Shmuel and Chana Gopin in 2003'. therebbesimpact.com also gives 2003; its charity listing (GoFundMe) gives 2004 as the year established, probably the incorporation. Now at 221 NE 29th St.; COLlive (6 Nov 2026): their son Rabbi Mendel Gopin joined 'Chabad at Midtown, which his father founded and leads'.",
+   "confidence": "high"
   },
   "118658": {
    "name": "Chabad Jewish Center of Jupiter",
@@ -6877,8 +6877,8 @@
    "year": 2003,
    "how": "news",
    "source": "https://crownheights.info/shlichus/9913/rabbi-family-lead-growing-movement",
-   "note": "Neighborhood Times (St. Petersburg Times; CrownHeights.info, 6 Jan 2008): 'Five years ago, when Rabbi Alter Korf and his wife, Chaya, agreed to leave family and friends in New York to open southern Pinellas County's first Orthodox Jewish center' (count back: 2003, or late 2002). 'Offering programs initially in their home, they rented space for holiday celebrations. Three years ago they moved to a leased storefront at 6151 Central Ave.' 'A week ago, the organization bought property at 4010 Park St. N'. Now the Chabad Jewish Center of Greater St. Petersburg.",
-   "confidence": "medium",
+   "note": "Neighborhood Times (St. Petersburg Times; CrownHeights.info, 6 Jan 2008): 'Five years ago, when Rabbi Alter Korf and his wife, Chaya, agreed to leave family and friends in New York to open southern Pinellas County's first Orthodox Jewish center' (count back: 2003). 'Offering programs initially in their home, they rented space for holiday celebrations.' Chabad.org, 5 April 2011 ('Larry King Entertains Florida Crowd'): Dr. Richard Sorkin 'moved to the area about eight years ago, around the same time as Alter and Chaya Korf', which agrees (2003). Later at 533 4th Street North (land bought 2019, groundbreaking April 2023).",
+   "confidence": "high",
    "earlier": [
     {
      "where": "the Korfs' home",
@@ -7035,13 +7035,11 @@
    "name": "Lubavitch Aventura South",
    "city": "Aventura",
    "shetach": "florida",
-   "year": null,
-   "by": 2008,
-   "lead": 2005,
-   "how": "range",
-   "source": "https://crownheights.info/shlichus/36543/new-chabad-synagogue-for-southern-aventura",
-   "note": "Miami Herald (CrownHeights.info, 28 July 2011): a congregant 'has been going to Friday night services at Lubavitch Aventura South for three years'; services 'in rented rooms at the Courtyard Marriott' (Rabbi Mendel Rosenfeld). Its first place of its own, a temporary trailer synagogue, opened five days before Rosh Hashanah 2011. Start year not found yet; lead: therebbesimpact.com 2005.",
-   "confidence": "range",
+   "year": 2005,
+   "how": "news",
+   "source": "https://crownheights.info/general/222/new-shluchim-to-aventura-florida/",
+   "note": "CrownHeights.info (from Shmais), 20 June 2005, 'New Shluchim to Aventura Florida': 'Rabbi & Mrs. Mendel Rosenfeld are moving on Shlichus to Aventura, Florida, to expand the existing Aventura Chabad programs ... and to open a strong Chabad presence on the other side of town', appointed by Rabbi Laivi Forta of Aventura Chabad. Miami Herald (CrownHeights.info, 17 Nov 2011): Lubavitch Aventura South had rented two salons at the Aventura Courtyard Marriott; its first place of its own, a temporary sanctuary of five trailers, opened five days before Rosh Hashanah 2011.",
+   "confidence": "high",
    "earlier": [
     {
      "where": "rented rooms at the Aventura Courtyard Marriott",
@@ -7049,7 +7047,8 @@
      "until": 2011,
      "source": "https://crownheights.info/shlichus/39116/in-30-days-a-synagogue-comes-to-life"
     }
-   ]
+   ],
+   "date": "2005-06"
   },
   "269188": {
    "name": "Chabad of Deerfield Beach",
@@ -7143,13 +7142,11 @@
    "name": "Chabad Jewish Center of West Boynton and West Lake Worth",
    "city": "Boynton Beach",
    "shetach": "florida",
-   "year": null,
-   "by": 2011,
-   "lead": 2010,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/264098856",
-   "note": "IRS (ProPublica): 'Chabad Lubavitch Of West Boynton Beach Inc', care of Yosef Raichik, exempt from Sept 2011, so it existed by then. Chabad of Greater Boynton's history: the Raichiks were hired as adult education and youth directors and 'charged with opening the satellite Chabad center in West Boynton'. Start year not found yet; lead: the chabad.org listing is from about 2010.",
-   "confidence": "range"
+   "year": 2009,
+   "how": "news",
+   "source": "https://collive.com/shluchim-praise-pellin-clip/",
+   "note": "South Florida Sun-Sentinel (COLlive, 23 Sept 2009): 'Rabbi Yosef Raichik of Chabad of West Boynton Beach, a newly operational storefront synagogue just getting off the ground that's a satellite branch of the much larger Chabad of Greater Boynton Beach'. COLlive, 2 June 2013 (Greater Boynton's 18th gala): 'A new satellite Boynton Chabad center has opened, directed by Rabbi & Mrs. Yosef Raichik, in the western part of the city.'",
+   "confidence": "high"
   },
   "1269573": {
    "name": "Las Olas Chabad Jewish Center",
@@ -7449,9 +7446,10 @@
    "shetach": "florida",
    "year": 2024,
    "how": "news",
-   "source": "https://www.chabad.org/news/article_cdo/aid/7044285/jewish/Two-Island-Communities-Celebrate-First-Ever-Rosh-Hashanah-with-Resident-Rabbis.htm",
-   "note": "Chabad.org, 18 Sept 2025: a resident 'got involved a year ago after seeing information about the brand new Chabad of Amelia Island and Nassau County on Facebook, just after the arrival of a charismatic young rabbi and his family' (Rabbi Levi and Mindy Katz; count back: 2024); the storefront center had its ribbon-cutting in August 2025.",
-   "confidence": "medium"
+   "source": "https://collive.com/new-shluchim-to-amelia-island-florida/",
+   "note": "COLlive, 2 Sept 2024: 'Rabbi Levi and Mindy Katz (née Zucker), along with their son Sholom, are establishing the first Chabad House on Amelia Island', appointed by Rabbi Yosef and Rivkie Kahanov (Northeast Florida). Chabad.org, 18 Sept 2025: a resident got involved 'a year ago' after seeing the 'brand new Chabad of Amelia Island and Nassau County' on Facebook; the storefront center's ribbon-cutting was in August 2025.",
+   "confidence": "high",
+   "date": "2024-09"
   },
   "4943603": {
    "name": "Chabad of S. Lake County",
@@ -7836,13 +7834,11 @@
    "name": "Chabad of Golden Beach",
    "city": "Sunny Isles Beach",
    "shetach": "florida",
-   "year": null,
-   "by": 1998,
-   "lead": 1998,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/650833192",
-   "note": "IRS (ProPublica): 'Me-yad Jewish Outreach Program Chabad Of Golden Beach Inc', exempt from 1998-09, so it existed by then. Start year not found yet; lead: therebbesimpact.com 1998.",
-   "confidence": "range"
+   "year": 1998,
+   "how": "news",
+   "source": "https://collive.com/open-ear-advice-to-singles/",
+   "note": "Miami Herald (COLlive, 15 Sept 2009): Rabbi Chay Amar's 'Live with Chay Amar' chats, given 'for the past five years at Chabad of Golden Beach, the small synagogue he founded 11 years ago' (so 1998), in the basement of the Ramada in Sunny Isles Beach. IRS: 'Me-yad Jewish Outreach Program Chabad Of Golden Beach Inc', exempt from Sept 1998, which agrees.",
+   "confidence": "high"
   },
   "118293": {
    "name": "Chabad Lubavitch of the Venetian",
@@ -7883,13 +7879,11 @@
    "name": "Chabad of North West Dade /Miami Lakes & ST. Thomas University",
    "city": "Miami Lakes",
    "shetach": "florida",
-   "year": null,
-   "by": 2003,
-   "lead": 2003,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/331067191",
-   "note": "IRS (ProPublica): 'Congregation Tehillat Hashem Inc', exempt from 2003-11, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2003.",
-   "confidence": "range"
+   "year": 2003,
+   "how": "news",
+   "source": "https://collive.com/shluchim-solving-housing-crisis/",
+   "note": "COLlive, 1 Dec 2017: Rabbi Mendy and Tzippy Weiss, Hialeah/Miami Lakes: 'We have been here for 14 years' (so 2003). Their corporation Congregation Tehillat Hashem Inc has an IRS exemption from Nov 2003, which agrees. COLlive, 1 April 2022 (Tzippy Weiss): after years in Cooper City (home bought 1995) they landed 'in Miami Lakes ... and wanted to establish this Chabad house ... For nearly 18 years, that's what it was'.",
+   "confidence": "high"
   },
   "119142": {
    "name": "Mikvah",
@@ -8011,13 +8005,11 @@
    "name": "Chabad of Walnut Creek",
    "city": "Hollywood",
    "shetach": "florida",
-   "year": null,
-   "by": 2005,
-   "lead": 2005,
-   "how": "range",
-   "source": "https://search.sunbiz.org/",
-   "note": "Florida Sunbiz: 'CHABAD OF WALNUT CREEK, INC.', document N05000010609 (filed 2005). Start year not found yet; lead: therebbesimpact.com 2005.",
-   "confidence": "range"
+   "year": 2003,
+   "how": "stated",
+   "source": "https://collive.com/chabad-walnut-creek-sets-for-new/",
+   "note": "COLlive, 17 Oct 2017: 'Chabad of Walnut Creek was founded in 2003 to service the religious and community needs of a small and burgeoning Jewish population on the border of Hollywood, Pembroke Pines and East Davie', under Rabbi Zalman and Shana Korf. Its corporation CHABAD OF WALNUT CREEK, INC. (Sunbiz N05000010609) was filed in 2005, which agrees. 7561 Sheridan Street.",
+   "confidence": "high"
   },
   "347421": {
    "name": "Chabad of Palmetto Bay",
@@ -8070,11 +8062,11 @@
    "city": "Boca Raton",
    "shetach": "florida",
    "year": null,
-   "by": 2014,
+   "by": 2008,
    "lead": 2006,
    "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/460628358",
-   "note": "IRS (ProPublica): 'Chabad Student Association Lubavitch Inc', care of Boruch Shmuel Liberow, exempt from 2014-01, so it existed by then (a later re-registration is possible). Start year not found yet; lead: therebbesimpact.com 2006.",
+   "source": "https://www.chabad.org/news/article_cdo/aid/1642157",
+   "note": "Chabad.org, 5 Oct 2011 ('Students Receive Free Mezuzahs'): the Chabad Student Center at FAU (Rabbi Boruch Shmuel Liberow) gave out free mezuzahs 'the fourth year in a row', so it existed by fall 2008. When it began is not stated.",
    "confidence": "range"
   },
   "405403": {
@@ -8126,13 +8118,11 @@
    "name": "Chabad Israeli Center",
    "city": "Boca Raton",
    "shetach": "florida",
-   "year": null,
-   "by": 2014,
-   "lead": 2006,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/453215396",
-   "note": "IRS (ProPublica): 'Chabad Israeli Center Inc', exempt from 2014-09, so it existed by then (a later re-registration is possible). Start year not found yet; lead: therebbesimpact.com 2006.",
-   "confidence": "range"
+   "year": 2006,
+   "how": "news",
+   "source": "https://www.chabad.org/news/article_cdo/aid/640509",
+   "note": "Chabad.org, 20 Feb 2008 ('Israelis Find Spiritual Homes in America'): 'the new Chabad Israeli Center directed by Rabbi Naftali and Henya Hertzel opened in 2006'; a caption calls him 'co-director of the two-year-old Chabad Israeli Center in Boca Raton, Fla.' On West Palmetto Park Road (chabad.org, 15 June 2017).",
+   "confidence": "high"
   },
   "527023": {
    "name": "YJP Las Olas",
@@ -8149,12 +8139,11 @@
    "name": "Jewish Recovery Center",
    "city": "Boca Raton",
    "shetach": "florida",
-   "year": null,
-   "lead": 2005,
-   "how": "not-found",
-   "source": null,
-   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 2005.",
-   "confidence": "open"
+   "year": 2005,
+   "how": "news",
+   "source": "https://www.chabad.org/news/article_cdo/aid/687118",
+   "note": "Chabad.org, 11 June 2008 ('Helping Those in Recovery'): Rabbi Meir and his wife Kessler 'moved to South Florida three years ago' (2005); 'Soon after, they founded the city's Jewish Recovery Center'; its women's halfway house was 'established by the center two years ago' (2006). So 2005, or early 2006.",
+   "confidence": "medium"
   },
   "588762": {
    "name": "Tiferes Zekeinim Chabad",
@@ -8229,12 +8218,11 @@
    "name": "United Jewish Generations",
    "city": "North Miami Beach",
    "shetach": "florida",
-   "year": null,
-   "lead": 2004,
-   "how": "not-found",
-   "source": null,
-   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 2004.",
-   "confidence": "open"
+   "year": 2004,
+   "how": "news",
+   "source": "https://www.chabad.org/news/article_cdo/aid/3426781",
+   "note": "Chabad.org, 8 Sept 2016 ('First-Time Florida Bike-a-Thon Champions Seniors'): 'The 12-year-old United Jewish Generations provides services such as a retiree club' (so about 2004); Rabbi Menachem Smith, director. One count-back only.",
+   "confidence": "medium"
   },
   "821426": {
    "name": "Mesivta of Coral Springs",
@@ -8331,25 +8319,22 @@
    "name": "Chabad of Palm Aire in West Pompano Beach",
    "city": "Pompano Beach",
    "shetach": "florida",
-   "year": null,
-   "by": 2014,
-   "lead": 2012,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/455385254",
-   "note": "IRS (ProPublica): 'Chabad Of Palm Aire Inc', care of Yom Tov L Benjaminson, exempt from 2014-05, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2012.",
-   "confidence": "range"
+   "year": 2012,
+   "how": "news",
+   "source": "https://www.chabad.org/news/article_cdo/aid/2732927",
+   "note": "Chabad.org, 15 Oct 2014 ('Par for the Course: A Florida Sukkah Fitted on a Golf Cart'): Rabbi Lipa and his wife Benjaminson's Chabad of Palm Aire, in West Pompano Beach, 'where the couple has lived for the past two years' (so about 2012). When the center itself began is not stated; the chabad.org listing (2018455) is from about 2012-13.",
+   "confidence": "medium"
   },
   "2113715": {
    "name": "Chabad of Dadeland & West Kendall",
    "city": "Miami",
    "shetach": "florida",
-   "year": null,
-   "by": 2016,
-   "lead": 2013,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/463840911",
-   "note": "IRS (ProPublica): 'Chabad Of West Kendal Inc', exempt from 2016-03, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2013.",
-   "confidence": "range"
+   "year": 2013,
+   "how": "news",
+   "source": "https://www.chabad.org/news/article_cdo/aid/2795221",
+   "note": "Chabad.org, 14 Dec 2014 ('Timing Is Everything'): Rabbi Getzy Rubashkin and his wife have directed Chabad of West Kendall & The Falls 'since last December' (Dec 2013). It does not say they founded it; the chabad.org listing (2113715) is from about 2013.",
+   "confidence": "medium",
+   "date": "2013-12"
   },
   "2301323": {
    "name": "Beis Menachem",
@@ -8986,13 +8971,12 @@
    "name": "Chabad Oakland Park East",
    "city": "Fort Lauderdale",
    "shetach": "florida",
-   "year": null,
-   "by": 2026,
-   "lead": 2026,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/423125384",
-   "note": "IRS (ProPublica): 'Chabad Oakland Park East Inc', care of Yitzchok Naparstek, exempt from 2026-08, so it existed by then. Start year not found yet; lead: the chabad.org listing is from about 2026.",
-   "confidence": "range"
+   "year": 2026,
+   "how": "stated",
+   "source": "https://www.chabadoaklandpark.com/7402701",
+   "note": "Its own About page: 'Rabbi Yitzchok and Nina Naparstek launched Chabad of Oakland Park East in the summer of 2026'; 'Since 2006, Rabbi Yitzchok and Nina have been actively building Jewish community throughout the Fort Lauderdale area' (a division of Chabad Lubavitch of Fort Lauderdale). Not the Mochkins' Chabad of Oakland Park (COLlive, 24 March 2026).",
+   "confidence": "high",
+   "season": "summer"
   },
   "3031418": {
    "name": "CTeen of Boca Raton",

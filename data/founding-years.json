@@ -452,7 +452,15 @@
    "how": "stated",
    "source": "https://anash.org/?p=286428",
    "note": "A dedication report: Chabad 'has been providing services to the local community and visitors since 2005'; Jewish Press (May 2015) on its decade of service. The Greismans first set up in Rogers, next to Bentonville.",
-   "confidence": "high"
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "Rogers (where the Greismans first set up, next to Bentonville)",
+     "from": 2005,
+     "until": null,
+     "source": "https://anash.org/?p=286428"
+    }
+   ]
   },
   "672689": {
    "name": "Chabad-Lubavitch of Wyoming",
@@ -566,7 +574,21 @@
    "how": "news",
    "source": "https://crownheights.info/shlichus/606311/new-hampshire-university-gets-new-shluchim",
    "note": "10 Feb 2018: Rabbi Berel and Rochy Slavaticki 'have been appointed as new shluchim' to the University of New Hampshire (Durham); NH Magazine: they moved from New York in 2018, outgrew two storefronts and bought the Newington campus. (therebbesimpact.com's 2017 is a year early.)",
-   "confidence": "high"
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "Durham, at the University of New Hampshire (the Slavatickis' first post, Feb 2018)",
+     "from": 2018,
+     "until": null,
+     "source": "https://crownheights.info/shlichus/606311/new-hampshire-university-gets-new-shluchim"
+    },
+    {
+     "where": "two storefronts, one after the other (outgrown before it bought the Newington campus)",
+     "from": null,
+     "until": null,
+     "source": "https://crownheights.info/shlichus/606311/new-hampshire-university-gets-new-shluchim"
+    }
+   ]
   },
   "117712": {
    "name": "Chabad House Lubavitch",
@@ -925,7 +947,15 @@
    "how": "news",
    "source": "https://collive.com/chabad-expands-in-dc-with-3-new-centers-new-programs/",
    "note": "COLlive, 30 Aug 2021: 'Chabad Georgetown formally commenced operations this week in a new premises two blocks from the main campus', Rabbi Menachem and Racheli Shemtov; before that a satellite program of American Friends of Lubavitch 'for years', and the couple worked from a basement first (its brochure: in early 2020 they 'wanted to come to Georgetown').",
-   "confidence": "medium"
+   "confidence": "medium",
+   "earlier": [
+    {
+     "where": "a basement, where the Shemtovs first worked",
+     "from": 2020,
+     "until": 2021,
+     "source": "https://collive.com/chabad-expands-in-dc-with-3-new-centers-new-programs/"
+    }
+   ]
   },
   "5154542": {
    "name": "Chabad East DC Jewish Center",
@@ -1130,7 +1160,15 @@
    "how": "stated",
    "source": "https://www.lubavitch.com/a-bar-mitzvah-year-for-jewish-life-north-of-boston/",
    "note": "Lubavitch.com, 3 July 2005: Chabad of the North Shore 'began in 1992 with a small office in the oceanside town of Swampscott'; Rabbi Yossi and Layah Lipsker 'founded the organization in 1992' (also Lubavitch.com, 28 Oct 2024). Its IRS record dates from June 1993.",
-   "confidence": "high"
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "a small office in Swampscott",
+     "from": 1992,
+     "until": null,
+     "source": "https://www.lubavitch.com/a-bar-mitzvah-year-for-jewish-life-north-of-boston/"
+    }
+   ]
   },
   "118611": {
    "name": "Chabad of Peabody Jewish Center",
@@ -1139,8 +1177,22 @@
    "year": 2003,
    "how": "anniversary",
    "source": "https://www.chabad.org/article.asp?aid=5116694",
-   "note": "Chabad.org, 29 Apr 2021: as Covid began (spring 2020) Rabbi Nechemia and Raizel Schusterman 'were starting to plan for their 18th year of service to the Jewish community of Peabody' (so from 2003). Lubavitch.com, July 2005, calls Chabad of Peabody 'newly opened'. Its own building dedicated June 2015.",
-   "confidence": "high"
+   "note": "Chabad.org, 29 Apr 2021: as Covid began (spring 2020) Rabbi Nechemia and Raizel Schusterman 'were starting to plan for their 18th year of service to the Jewish community of Peabody' (so from 2003). Lubavitch.com, July 2005, calls Chabad of Peabody 'newly opened'. Its own building dedicated June 2015. Lubavitch.com (Sept 18 2014): 'bursting at the seams of its current location', it was buying a new building (the former Westside Family Restaurant, 682 Lowell St., West Peabody, per Patch); at first, eleven years before, they 'ran activities out of their home'.",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "the Schustermans' home",
+     "from": 2003,
+     "until": null,
+     "source": "https://www.lubavitch.com/new-home-for-peabody-chabad-in-the-new-year/"
+    },
+    {
+     "where": "its Chabad House before 682 Lowell St. (address not found)",
+     "from": null,
+     "until": 2015,
+     "source": "https://www.lubavitch.com/new-home-for-peabody-chabad-in-the-new-year/"
+    }
+   ]
   },
   "402434": {
    "name": "Chabad of Beverly-Salem",
@@ -1204,7 +1256,21 @@
    "how": "stated",
    "source": "https://www.lubavitch.com/age-old-traditions-in-a-land-of-new-age-spirituality",
    "note": "Lubavitch.com, 3 Sept 2002: Rabbi Berel and Devorah Leah Levertov 'arrived here in 1996'; they began in their home on Don Gaspar Avenue (a 1997 New Mexican article), then 15 years at San Mateo Road and Galisteo Street (from 2000), then 230 W. Manhattan Ave. (bought 2015, finished 2023). The New Mexican (Aug 2021) says 'arrived 24 years ago' (a year later) under the headline '25 years in the works'.",
-   "confidence": "high"
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "the Levertovs' home on Don Gaspar Avenue",
+     "from": 1996,
+     "until": 2000,
+     "source": "https://www.lubavitch.com/age-old-traditions-in-a-land-of-new-age-spirituality"
+    },
+    {
+     "where": "San Mateo Road and Galisteo Street",
+     "from": 2000,
+     "until": 2015,
+     "source": "https://www.lubavitch.com/age-old-traditions-in-a-land-of-new-age-spirituality"
+    }
+   ]
   },
   "705397": {
    "name": "Chabad of Taos",
@@ -1225,7 +1291,15 @@
    "how": "stated",
    "source": "https://crownheights.info/chabad-news/771778/small-town-small-miracles-big-impact",
    "note": "CrownHeights.info, 25 Apr 2022: 'in 2009, when the long-time residents of Las Cruces, New Mexico, heard that Chabad was coming to town'; Rabbi Bery Schmukler and his wife began in their dining room (first event a Sukkot party).",
-   "confidence": "high"
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "the Schmuklers' dining room",
+     "from": 2009,
+     "until": null,
+     "source": "https://crownheights.info/chabad-news/771778/small-town-small-miracles-big-impact"
+    }
+   ]
   },
   "1601116": {
    "name": "Mikvah Moshe",
@@ -1320,7 +1394,15 @@
    "how": "stated",
    "source": "https://jewishlouisville.org/?p=21171",
    "note": "Jewish Louisville, 'Chabad at 30' (22 Jan 2015): 'In March of 1985, Rabbi Avrohom and Goldie Litvin moved to Louisville' to open Chabad's branch for Kentucky; their first program was a Purim talk on the day they arrived. Its site: 'since 1985'. Its Chabad House on Almara Circle burned down in April 2022.",
-   "confidence": "high"
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "the Chabad House on Almara Circle (burned down April 2022)",
+     "from": null,
+     "until": 2022,
+     "source": "https://jewishlouisville.org/?p=21171"
+    }
+   ]
   },
   "119753": {
    "name": "Gan Torah",
@@ -1329,8 +1411,16 @@
    "year": 1996,
    "how": "stated",
    "source": "https://crownheights.info/shlichus/431135/jewish-school-celebrates-move-to-downtown-louisville",
-   "note": "The Louisville Jewish Day School 'first opened its doors as Gan Torah of Louisville – the Beverly Weisberg Preschool, in 1996' (a Chabad profile); WDRB (Mar 2014): 'The school opened in 1996'. The preschool and day school moved into the Jewish Learning Center on 6 Sept 2016.",
-   "confidence": "high"
+   "note": "The Louisville Jewish Day School 'first opened its doors as Gan Torah of Louisville – the Beverly Weisberg Preschool, in 1996' (a Chabad profile); WDRB (Mar 2014): 'The school opened in 1996'. The preschool and day school moved into the Jewish Learning Center on 6 Sept 2016. In the Chinuch Office's 2012-13 directory at 3700 Dutchmans Lane; moved into the Jewish Learning Center, 1110 Dupont Circle, on Sept 6 2016.",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "3700 Dutchmans Lane",
+     "from": null,
+     "until": 2016,
+     "source": "https://www.chinuchoffice.org/media/pdf/352/Ocxs3521475.pdf"
+    }
+   ]
   },
   "347769": {
    "name": "Louisville Jewish Day School",
@@ -1339,8 +1429,22 @@
    "year": 1996,
    "how": "stated",
    "source": "https://crownheights.info/shlichus/431135/jewish-school-celebrates-move-to-downtown-louisville",
-   "note": "WDRB (via CrownHeights.info, 26 Mar 2014), on Kentucky's only Jewish day school: 'The school opened in 1996 — but moved this year to the Starks Building.' It began as Gan Torah's preschool and kindergarten, became Torah Academy, and took the Louisville Jewish Day School name after Eliahu Academy closed (2006-08). Private School Review: founded 1996, and lists it as closed in 2025 (unconfirmed). Checked (Nov 7): the Chabad Chinuch Office's directory (2023-24) gives 'Founded: 1997', a year later, so it stays medium.",
-   "confidence": "medium"
+   "note": "WDRB (via CrownHeights.info, 26 Mar 2014), on Kentucky's only Jewish day school: 'The school opened in 1996 — but moved this year to the Starks Building.' It began as Gan Torah's preschool and kindergarten, became Torah Academy, and took the Louisville Jewish Day School name after Eliahu Academy closed (2006-08). Private School Review: founded 1996, and lists it as closed in 2025 (unconfirmed). Checked (Nov 7): the Chabad Chinuch Office's directory (2023-24) gives 'Founded: 1997', a year later, so it stays medium. Where it has been: 3700 Dutchmans Lane (the Chinuch Office's 2012-13 directory), the Starks Building downtown from 2014, the Jewish Learning Center, 1110 Dupont Circle, from Sept 6 2016.",
+   "confidence": "medium",
+   "earlier": [
+    {
+     "where": "3700 Dutchmans Lane",
+     "from": null,
+     "until": 2014,
+     "source": "https://www.chinuchoffice.org/media/pdf/352/Ocxs3521475.pdf"
+    },
+    {
+     "where": "the Starks Building, downtown Louisville",
+     "from": 2014,
+     "until": 2016,
+     "source": "https://crownheights.info/shlichus/431135/jewish-school-celebrates-move-to-downtown-louisville"
+    }
+   ]
   },
   "3483282": {
    "name": "Jewish Learning Center",
@@ -1398,7 +1502,15 @@
    "source": "https://exploreuk.uky.edu/catalog/xt7pc824fr7p/text",
    "note": "Lexington's Jewish newsletter (Feb 2016) reports a 30 Nov 2015 meeting with Rabbi Shlomo and Shoshi Litvin about the 'new' Chabad House in Lexington; therebbesimpact.com: 2015. But CrownHeights.info (10 Nov 2016) says 'In their first year of operation' they outgrew the original house, which fits a start in 2016; so 2015 or 2016. Checked (Nov 7): Rabbi Litvin's own account (Dollar Daily, https://dollardaily.org/illuminations/156/pdf): 'Just before Purim of 2015, we moved to Lexington and began our shlichus.' So 2015 (March), high.",
    "confidence": "high",
-   "date": "2015-03"
+   "date": "2015-03",
+   "earlier": [
+    {
+     "where": "its original house in Lexington (outgrown in its first year, per CrownHeights.info, Nov 10 2016)",
+     "from": 2015,
+     "until": 2016,
+     "source": "https://exploreuk.uky.edu/catalog/xt7pc824fr7p/text"
+    }
+   ]
   },
   "117608": {
    "name": "Chabad of Hawaii",
@@ -1483,8 +1595,16 @@
    "year": 1981,
    "how": "anniversary",
    "source": "https://crownheights.info/shlichus/477354/after-34-years-new-home-for-indiana-jewish-community",
-   "note": "Chabad.org (16 Mar 2015, via CrownHeights.info): 'After 34 Years, New Home for Indiana Jewish Community' (Rabbi Avrohom and Nini Grossbaum, 'more than three decades in Indianapolis'). Their son's page: sent by the Rebbe 'in the early 1980's'. therebbesimpact.com: the couple from 1981. Checked (Nov 7): COLlive, June 6 2023 ('Mike Pence Joins Chabad Indiana Gala', https://collive.com/mike-pence-joins-chabad-indiana-gala-before-announcing-run/): 'Chabad of Indiana, led by Shluchim Rabbi Avrohom and Nini Grossbaum and Rabbi Dovid and Chana Grossbaum has been operating in Indiana since 1981', so high.",
-   "confidence": "high"
+   "note": "Chabad.org (16 Mar 2015, via CrownHeights.info): 'After 34 Years, New Home for Indiana Jewish Community' (Rabbi Avrohom and Nini Grossbaum, 'more than three decades in Indianapolis'). Their son's page: sent by the Rebbe 'in the early 1980's'. therebbesimpact.com: the couple from 1981. Checked (Nov 7): COLlive, June 6 2023 ('Mike Pence Joins Chabad Indiana Gala', https://collive.com/mike-pence-joins-chabad-indiana-gala-before-announcing-run/): 'Chabad of Indiana, led by Shluchim Rabbi Avrohom and Nini Grossbaum and Rabbi Dovid and Chana Grossbaum has been operating in Indiana since 1981', so high. Chabad.org (Mar 15 2015): for three decades they ran services, programs and classes 'from their own home and neighboring Jewish schools and synagogues'; its own building, the Chabad Center for Jewish Life in Carmel, opened on Purim 2015.",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "the Grossbaums' home in Indianapolis, and space lent by the Hasten Hebrew Academy, the Arthur M. Glick JCC, Congregation B'nai Torah and Etz Chaim Sephardic Congregation",
+     "from": 1981,
+     "until": 2015,
+     "source": "https://www.chabad.org/news/article_cdo/aid/2891751/jewish/Building-for-the-Future-After-34-Years-New-Home-for-Indiana-Jewish-Community.htm"
+    }
+   ]
   },
   "117944": {
    "name": "Chabad House of Bloomington",
@@ -1493,8 +1613,16 @@
    "year": 1989,
    "how": "anniversary",
    "source": "https://crownheights.info/chabad-news/685148/digging-the-new-digs-at-chabad-of-indiana-university",
-   "note": "Lubavitch.com (13 Nov 2019): the new building 'far surpasses Chabad's home of 30 years' (so from about 1989), found by Rabbi Avrohom Grossbaum 'more than three decades ago'; 'In the early 1990s' the Grossbaums brought in Rabbi Yehoshua and Zlata Chincholker, 'Chabad's representatives here for 29 years' (about 1990). The Indiana Daily Student (2010): they 'opened the Chabad House in the 1980s'. therebbesimpact.com: the center 1993, the couple 1991. Checked (Nov 7): Anash.org (Aug 3 2020, new shluchim to Indiana University): the Chincholkers 'have been serving the vibrant Jewish student body for the past 29 years' (about 1991, their arrival); the Chabad House itself is from about 1989, so it stays medium.",
-   "confidence": "medium"
+   "note": "Lubavitch.com (13 Nov 2019): the new building 'far surpasses Chabad's home of 30 years' (so from about 1989), found by Rabbi Avrohom Grossbaum 'more than three decades ago'; 'In the early 1990s' the Grossbaums brought in Rabbi Yehoshua and Zlata Chincholker, 'Chabad's representatives here for 29 years' (about 1990). The Indiana Daily Student (2010): they 'opened the Chabad House in the 1980s'. therebbesimpact.com: the center 1993, the couple 1991. Checked (Nov 7): Anash.org (Aug 3 2020, new shluchim to Indiana University): the Chincholkers 'have been serving the vibrant Jewish student body for the past 29 years' (about 1991, their arrival); the Chabad House itself is from about 1989, so it stays medium. Lubavitch.com (Nov 13 2019): it moved to 703 East Seventh Street, across from the Student Union, 'only a short block away from its predecessor', 'Chabad's home of 30 years', after the university asked for the old lot.",
+   "confidence": "medium",
+   "earlier": [
+    {
+     "where": "its house of 30 years, a short block from today's 703 E. 7th St. (an investment property a block from campus, bought by Rabbi Avrohom Grossbaum; Indiana University wanted the lot)",
+     "from": 1989,
+     "until": 2019,
+     "source": "https://www.lubavitch.com/digging-the-new-digs-at-chabad-of-indiana-university/"
+    }
+   ]
   },
   "117984": {
    "name": "Chabad Lubavitch of Northwest Indiana",
@@ -1608,7 +1736,15 @@
    "how": "stated",
    "source": "https://crownheights.info/shlichus/491475/jewish-life-thrives-in-chattanooga-once-again",
    "note": "Chabad.org / CrownHeights.info: Rabbi Shaul and Rosie Perlstein arrived in Chattanooga from Brooklyn in 2009 and have co-directed the Chabad Jewish Center since then; first on Pisgah Ave., later a former Masonic Lodge (2015).",
-   "confidence": "high"
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "Pisgah Ave.",
+     "from": 2009,
+     "until": 2015,
+     "source": "https://crownheights.info/shlichus/491475/jewish-life-thrives-in-chattanooga-once-again"
+    }
+   ]
   },
   "6549164": {
    "name": "Chabad of Williamson County",
@@ -2106,7 +2242,15 @@
    "how": "stated",
    "source": "https://collive.com/ottawa-chabad-celebrates-30-years/",
    "note": "Founded by Devora and Dr. Yosef Caytak in 1983, in their basement (Lubavitch.com, 'A Jewish Youth Library Grows and Grows'); its own building from 1989, then a preschool and summer camp. COLlive, 11 May 2014: its 30th anniversary dinner, 4 May 2014.",
-   "confidence": "high"
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "the Caytaks' basement",
+     "from": 1983,
+     "until": 1989,
+     "source": "https://collive.com/ottawa-chabad-celebrates-30-years/"
+    }
+   ]
   },
   "118409": {
    "name": "Congregation Lubavitch",
@@ -2127,7 +2271,21 @@
    "how": "stated",
    "source": "https://ottawajewishbulletin.com/voices/ottawa-torah-centre-soon-to-be-in-full-bloom",
    "note": "Founded in Barrhaven in 1997 by Rabbi Menachem Mendel and Dina Blum, in their basement, then a leased store (Ottawa Jewish Bulletin; Choose Ottawa); its building at 111 Lamplighters Drive, Ottawa's first new synagogue in about 30 years, opened 2014. therebbesimpact.com: 1998.",
-   "confidence": "high"
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "the Blums' basement, Barrhaven",
+     "from": 1997,
+     "until": null,
+     "source": "https://ottawajewishbulletin.com/voices/ottawa-torah-centre-soon-to-be-in-full-bloom"
+    },
+    {
+     "where": "a leased store",
+     "from": null,
+     "until": 2014,
+     "source": "https://ottawajewishbulletin.com/voices/ottawa-torah-centre-soon-to-be-in-full-bloom"
+    }
+   ]
   },
   "118589": {
    "name": "Chabad of Centrepointe",
@@ -2161,7 +2319,15 @@
    "how": "stated",
    "source": "https://collive.com/shopify-founder-dedicates-chabad-center-in-ottawa/",
    "note": "Rabbi Chaim and Yocheved Boyarsky established the Rohr Chabad Student Network of Ottawa in 2008 (COLlive; Chabad.org: they have directed it 'since 2008'), first in their home; later the Finkelstein downtown center.",
-   "confidence": "high"
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "the Boyarskys' home",
+     "from": 2008,
+     "until": null,
+     "source": "https://collive.com/shopify-founder-dedicates-chabad-center-in-ottawa/"
+    }
+   ]
   },
   "1261471": {
    "name": "Chabad Student Centre of Kingston - Rohr Chabad House",

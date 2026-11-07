@@ -284,8 +284,16 @@
    "year": 1994,
    "how": "news",
    "source": "https://digital.bentley.umich.edu/djnews/djn.1994.11.11.001/50",
-   "note": "Nov 1994: Lubavitch of Michigan brought Rabbi Kasriel and Itty Shemtov to West Bloomfield; 'the Shul', the planned synagogue outreach center of the Campus of Living Judaism, not yet built (Jewish News); the July 2024 list also gives 1994.",
-   "confidence": "high"
+   "note": "Nov 1994: Lubavitch of Michigan brought Rabbi Kasriel and Itty Shemtov to West Bloomfield; 'the Shul', the planned synagogue outreach center of the Campus of Living Judaism, not yet built (Jewish News); the July 2024 list also gives 1994. Before its building: the Jewish News synagogue directory lists The Shul at '6211 Quaker Hill Drive, West Bloomfield 48322 ... Rabbi: Kasriel Shemtov' (Nov 12 1999, Nov 17 2000), and at '6890 W. Maple, West Bloomfield' by Sept 29 2005 (https://digital.bentley.umich.edu/djnews/djn.2005.09.29.001/145), so it moved into the Shenkman Building between 2000 and 2005.",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "6211 Quaker Hill Drive, West Bloomfield (its address in the Jewish News synagogue directory, Nov 1999 and Nov 2000)",
+     "from": null,
+     "until": null,
+     "source": "https://digital.bentley.umich.edu/djnews/djn.1999.11.12.001/64"
+    }
+   ]
   },
   "118522": {
    "name": "Chabad of Commerce",
@@ -332,8 +340,16 @@
    "year": 1961,
    "how": "stated",
    "source": "https://www.shluchim.org/main/inside_camp.asp?id=41521",
-   "note": "Camp Gan Israel Detroit, 'Established 5721 - 1961' (shluchim.org camp directory); now in Kalkaska Township.",
-   "confidence": "high"
+   "note": "Camp Gan Israel Detroit, 'Established 5721 - 1961' (shluchim.org camp directory); now in Kalkaska Township. Where it was: the Jewish News, Aug 18 2000: 'The Chabad overnight camp, Camp Gan Israel/Esther Allan, purchased in Fenton by the Shemtovs in their first year here, has moved to Kalkaska'; it was at 'Route 1, Box 272, Lake Valley Road, Kalkaska' by May 1987 (https://digital.bentley.umich.edu/djnews/djn.1987.05.15.001/61). When it left Fenton wasn't found.",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "Fenton, Michigan (the camp 'purchased in Fenton by the Shemtovs in their first year here', before it moved to Kalkaska)",
+     "from": null,
+     "until": null,
+     "source": "https://digital.bentley.umich.edu/djnews/djn.2000.08.18.001/16"
+    }
+   ]
   },
   "119721": {
    "name": "Oholei Yosef Yitzchak Lubavitch - Mesivta",

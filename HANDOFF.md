@@ -173,7 +173,8 @@ thirteen no better recent photo has been found yet (the list is there, with what
     mid-size ones (the list in the next bullet), the big ones (Florida 219 dots, NYC 177, New Jersey 84, Quebec 59,
     Pennsylvania 57, Ontario 56, Illinois 54, Texas 48, Maryland 48, Eastern NY 47) last. Write here what you took:
     "Second session: ___ (from <date>)".
-    **Second session: Florida, then New Jersey, then Pennsylvania (from Nov 6).** Owner (Nov 6): "I want you to go
+    **Second session: Florida, then New Jersey, then Pennsylvania (from Nov 6); Texas too (from Nov 7; owner: "Go back to
+    Florida yes / Maybe Texas as well"; batches `batches/texas-NN.json`).** Owner (Nov 6): "I want you to go
     ahead and start on Florida. I want every single centers founding year ... I want this done properly ... I legit
     found it with a Google / Google ai search by just looking up what it's year of founding was"; "if you come across
     month or day save it ... (or season which equates to a range ofc)"; "if you come across that a center used to be

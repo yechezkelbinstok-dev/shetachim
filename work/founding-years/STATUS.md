@@ -13,7 +13,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | cape-cod-and-the-islands | 4 | 3 |  |  | 1 |  |  | 1 | 4 | 1 |
 | central-ohio | 4 | 2 | 1 |  | 1 |  |  | 1 | 4 | 1 |
 | delaware | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
-| florida | 240 | 131 | 21 |  | 43 | 45 |  | 88 | 219 | 74 |
+| florida | 240 | 132 | 22 |  | 46 | 40 |  | 86 | 219 | 72 |
 | hawaii | 7 | 4 | 1 |  | 2 |  |  | 2 | 7 | 2 |
 | idaho | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | indiana | 7 | 5 | 1 |  | 1 |  |  | 1 | 7 | 1 |
@@ -41,6 +41,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | south-area | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | southern-ohio | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | tennessee | 7 | 7 |  |  |  |  |  | 0 | 7 | 0 |
+| texas | 58 | 17 | 4 |  | 1 |  | 36 | 37 | 48 | 27 |
 | utah | 4 | 3 | 1 |  |  |  |  | 0 | 4 | 0 |
 | vermont | 8 | 5 | 2 |  | 1 |  |  | 1 | 8 | 1 |
 | washington-dc | 5 | 2 | 3 |  |  |  |  | 0 | 5 | 0 |
@@ -50,7 +51,6 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | quebec | 72 |  |  |  |  |  | 72 | 72 | 59 | 59 |
 | ontario | 61 |  |  |  |  |  | 61 | 61 | 56 | 56 |
 | illinois | 59 |  |  |  |  |  | 59 | 59 | 54 | 54 |
-| texas | 58 |  |  |  |  |  | 58 | 58 | 48 | 48 |
 | maryland | 55 |  |  |  |  |  | 55 | 55 | 48 | 48 |
 | eastern-new-york | 50 |  |  |  |  |  | 50 | 50 | 47 | 47 |
 | crown-heights | 48 |  |  |  |  |  | 48 | 48 | 24 | 24 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | kansas-missouri | 16 |  |  |  |  |  | 16 | 16 | 16 | 16 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
 | british-columbia | 13 |  |  |  |  |  | 13 | 13 | 13 | 13 |
-| **all** | 1969 | 556 | 151 | 1 | 121 | 45 | 1095 | 1261 | 1765 | 1082 |
+| **all** | 1969 | 574 | 156 | 1 | 125 | 40 | 1073 | 1238 | 1765 | 1059 |

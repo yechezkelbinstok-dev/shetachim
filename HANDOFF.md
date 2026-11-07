@@ -71,13 +71,28 @@ USA, Canada or Australia; the US & Canada, USA and Canada views always show thei
 USA, Canada and Australia (`SPLIT`) are one country each, one colour each (`cw`),
 no state lines (their lines are their own kind, `regna`, left out; on the street maps `st-line-state` leaves out their
 `na`), named "United States", "Canada", "Australia" (`WHOLE_NAMES`, Hebrew too), one card each. It replaced the
-first try's "USA & Canada as whole countries" (whose remembered "on" now reads as States off). **The heads' names
-split by country** with Countries: each country's part of a shetach named on its own (`S.splits`: the Lower Balkans'
-Yoel Kaplan over Albania, Kosovo, North Macedonia, Bosnia and northern Greece each). **The country card**: no
+first try's "USA & Canada as whole countries" (whose remembered "on" now reads as States off). **Canada whole is all
+of Canada** (owner, Nov 7: "Obviously, if states is off, Canada should show as a whole, like the entire fucking
+country"): its land no shetach covers (the north, the territories: `outside.json`'s CA, left off the map) is in its
+colour with States off on the Countries map (`OUT_OF`; layers `whole-out` / `whole-land` over the outside sources,
+political solid in the countries' shade over the land, on the street maps without the outside grey under it), no line
+where its shetachim's land ends (its edges are their own kind, `edgew`, hidden then, and a `seam` line in its colour
+covers the outside land's coast there), a tap there opens Canada's card, and its outline (hover, a tap) goes round all
+of it (`wholeLines`: the two files share one grid, so the shared segments drop out). **The heads' names split by
+country, not by state** with Countries: each country's part of a shetach named on its own (`S.splits`, grouped by
+`polCountry`: the Lower Balkans' Yoel Kaplan over Albania, Kosovo, North Macedonia, Bosnia and northern Greece each),
+and a shetach's states in one country under one name (owner, Nov 7: "sholom Weinberg shouldn't be duplicated he should
+be covering both states idiot": Kansas–Missouri, as Moshe Feller over the Dakotas and Minnesota). **The country card**: no
 "Country"/"State" over the name, its colour on the map, then **every shetach covering it as one line**, as the "+N
 more" lines were (`ctxRow`: its colour, its or its part's name bold, its head), the most centers first, no big heads
 and no fold; the country's own head (Kenya's in Central Africa) a line the same way in the country's colour
 ("Head shliach in Kenya · …"); then the count.
+**The St Clair River delta (Walpole Island) is Southern Ontario's** (owner, Nov 7, a phone screenshot of the street map
+there with "Fuck you" on it): Essex County's shape (Michigan's part of Ontario) ran its Lake St Clair line straight on
+to the river (Oct 7), so it took the delta's western islands along a straight line through the land, and Southern
+Ontario's shape had the same edge. Both now cross the lake south of the delta (`data/shapes/essex-county-on.geojson`,
+`ontario-south-of-47.geojson`: (-82.7, 42.47)), so Michigan's line with Southern Ontario there is the international
+boundary down the St Clair River and the South Channel.
 **A head's photo only beside the head himself** (owner, Nov 7: "ur fucking stupid ass put a picture of nosson next to
 Avrohom Gurary"): a flagship's card shows the first man listed there, and `photoIf` used to give him the head's photo
 when only the surname matched (Upstate New York: Avrohom Gurary listed first, Nosson's photo; Kazakhstan: Elchanan

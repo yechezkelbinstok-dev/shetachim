@@ -1142,6 +1142,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const wholeState = (p) => p.as || (SPLIT.has(p.country) ? p.country : p.state); // (with the States switch off)
   // (the switch is the world views'; the USA's and Canada's own views always show their states)
   const statesShown = () => state.states || !VIEWS[state.view].world;
+  // Canada's land no shetach covers (its north and the territories, left off the map) is Canada's too: with the States
+  // switch off on the Countries map, one country with it, in its colour, no line where its shetachim's land ends, its
+  // card on a tap (owner, Nov 7: "Obviously, if states is off, Canada should show as a whole, like the entire fucking
+  // country")
+  const OUT_OF = new Set(['CA']);
+  const wholeOut = () => state.borders === 'regular' && !statesShown();
   const WHOLE_NAMES = { US: ['United States', 'ארצות הברית'], CA: ['Canada', 'קנדה'], AUS: ['Australia', 'אוסטרליה'], MEX: ['Mexico', 'מקסיקו'] };
   const WHOLE_PROPS = new Map();
   const wholeProps = (st) => WHOLE_PROPS.get(st) || WHOLE_PROPS.set(st, { state: st, country: st,
@@ -1777,7 +1783,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return j.value;
   }
   // The work waiting, the most urgent first: what's shown before its names, its names before the land round it.
-  const RANK = { areas: 0, 'mesh:shetach': 1, 'mesh:coast': 1, 'mesh:inner': 1, 'mesh:country': 1, 'mesh:regular': 1, 'mesh:regna': 1, 'mesh:held': 1, land: 3, outFill: 4, outLines: 4, landAll: 5 };
+  const RANK = { areas: 0, 'mesh:shetach': 1, 'mesh:coast': 1, 'mesh:inner': 1, 'mesh:country': 1, 'mesh:regular': 1, 'mesh:regna': 1, 'mesh:edgew': 1, 'mesh:held': 1, land: 3, outFill: 4, outLines: 4, landAll: 5 };
   const rankOf = (what) => (what.startsWith('names|') ? 2 : RANK[what] ?? 6);
   const WAITING = [];
   function prep(S, what) {
@@ -1903,14 +1909,15 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     Object.defineProperty(S, 'wholeStates', { get: () => wholeStates || (wholeStates = statesBy(wholeState)) });
     // Countries with the heads' names: each country's part of a shetach named on its own (owner, Nov 7: "stuff like lower
     // Balkans and stuff should be split also in country mode": its head over Albania, Kosovo, North Macedonia, Bosnia and
-    // its part of Greece, each); a shetach all in one country named as on the Shetachim map
-    const splits = new Map();
-    S.splits = (whole) => splits.get(whole) || splits.set(whole, [...d3.group(main.filter(shetachOf), (g) => `${(whole ? wholeState : polState)(g.properties)}|${shetachOf(g).id}`).values()].map((gs) => {
+    // its part of Greece, each); a shetach all in one country named once, as on the Shetachim map, over all its states
+    // (owner, Nov 7: "sholom Weinberg shouldn't be duplicated he should be covering both states", Kansas and Missouri)
+    let splits = null;
+    S.splits = () => splits || (splits = [...d3.group(main.filter(shetachOf), (g) => `${polCountry(g.properties)}|${shetachOf(g).id}`).values()].map((gs) => {
       const s = shetachOf(gs[0]), region = S.regions.find((r) => r.s === s);
       if (region && region.gs.length === gs.length) return region;
       const part = lazy(() => projPieces(gs, merged));
       return { s, gs, part: true, core: null, get geometry() { return part(); } };
-    })).get(whole);
+    }));
     // (a continent view's world is cut at the far side, 180° from its centre: land across that seam, at the very edge,
     // came out as thin spikes, so it's left out of the faded background there; the whole world view has no such cut)
     const crossesSeam = (g) => crossing(view, PIECE_BOUNDS.get(g) || (PIECE_BOUNDS.set(g, d3.geoBounds(topojson.feature(topo, g))), PIECE_BOUNDS.get(g)));
@@ -1926,6 +1933,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       ['shetach', (a, b) => a !== b && key(a) !== key(b)],
       ['inner', (a, b) => a !== b && key(a) && key(a) === key(b) && a.properties.shetach !== b.properties.shetach],
       ['edge', null], // against the land no shetach covers (landEdgeLines)
+      ['edgew', null], // (Canada's against its north, drawn as `edge`; covered over in Canada's colour when it's one country with it)
     ];
     // (the land no shetach covers: light on the world and continents, full detail on a country, zoomed in further)
     S.outKind = flat && view.world && view !== VIEWS.israel ? 'lo' : 'hi';
@@ -1959,7 +1967,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       // the lines, each kind its own (only those shown are worked out and handed over): coasts, states' and countries'
       // borders, the shetachim's
       ...Object.fromEntries(KINDS.map(([k, filter]) => [`mesh:${k}`, function* () {
-        const make = (gs) => ({ type: 'MultiLineString', coordinates: k === 'edge' ? landEdgeLines(gs) : meshLines(gs, filter, k) });
+        const make = (gs) => ({ type: 'MultiLineString', coordinates: k === 'edge' || k === 'edgew' ? landEdgeLines(gs.filter((g) => OUT_OF.has(g.properties.country) === (k === 'edgew')))
+          : meshLines(gs, filter, k) });
         let g;
         if (flat && !boxes.length) { const m = make(main); yield; g = yield* projLines(m.coordinates); }
         else g = projPieces(main, make);
@@ -2075,7 +2084,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // smaller than his main one), and each one's names
     // (Countries: the countries' and states' names; with Head shliach the shetachim's heads, over the countries' borders)
     const regular = state.borders === 'regular' && state.labels !== 'full';
-    const items = regular ? [...(statesShown() ? S.states : S.wholeStates)] : state.borders === 'regular' ? [...S.splits(!statesShown())] : [...S.regions];
+    const items = regular ? [...(statesShown() ? S.states : S.wholeStates)] : state.borders === 'regular' ? [...S.splits()] : [...S.regions];
     // (a step a name: a big area's names, repeats and all, held the page up for a fifth of a second and more)
     const name = regular ? function* (r) {
       for (const spot of spotsFor(r.geometry, null, null)) {
@@ -2195,7 +2204,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // The flat maps' shapes, too: the areas and lines in the view's projection take a phone seconds. Kept in IndexedDB (they
   // are megabytes), under DRAW_PRINT and the versions of the files they're made from, and read back while the map starts.
   // (the land no shetach covers, and the land round the view made from it, also under that file's version)
-  const SHAPE_JOBS = ['areas', 'land', 'mesh:coast', 'mesh:edge', 'mesh:shetach', 'mesh:inner', 'mesh:country', 'mesh:regular', 'mesh:regna', 'mesh:held'];
+  const SHAPE_JOBS = ['areas', 'land', 'mesh:coast', 'mesh:edge', 'mesh:shetach', 'mesh:inner', 'mesh:country', 'mesh:regular', 'mesh:regna', 'mesh:edgew', 'mesh:held'];
   const OUT_JOBS = ['outFill', 'outLines', 'landAll'];
   let shapesDB = null, keptRead = 0; // (keptRead: how many were read back, for the tests)
   const openShapes = () => shapesDB || (shapesDB = new Promise((resolve) => {
@@ -2717,6 +2726,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // the view's land: its areas, in the land's colour (under the shetachim's, and where an area has no shetach)
     add({ id: 'land-view', type: 'fill', source: 'areas', paint: { 'fill-antialias': false } }, under);
     add({ id: 'out-fill', type: 'fill', source: 'outside', paint: { 'fill-antialias': false } }, under);
+    // (Canada's north in Canada's colour, one country with the States switch off: from the land no shetach covers with
+    // Rest of the world, else from the faded land round the view, which has it)
+    const ownOut = ['in', ['coalesce', ['get', 'country'], ''], ['literal', [...OUT_OF]]];
+    add({ id: 'whole-out', type: 'fill', source: 'outside', filter: ownOut, paint: { 'fill-antialias': false } }, under);
+    add({ id: 'whole-land', type: 'fill', source: 'land-all', filter: ownOut, paint: { 'fill-antialias': false } }, under);
     add({ id: 'fill', type: 'fill', source: 'areas', paint: { 'fill-antialias': false } }, under);
     // physical: each shetach as a soft tint under the water and relief
     if (!flat && physicalOK) map.addLayer({ id: 'st-tint', type: 'fill', source: 'areas', paint: { 'fill-antialias': false } }, under);
@@ -2724,9 +2738,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     add({ id: 'sub-fill', type: 'fill', source: 'sub', filter: ['==', ['geometry-type'], 'Polygon'], paint: { 'fill-antialias': false } }, under);
     // lines: (flat) the coast and the countries' and states' borders, as the street map draws its own; the shetachim's
     for (const kind of ['coast', 'regular', 'held', 'country', 'edge', 'casing', 'shetach', 'inner']) {
-      add({ id: `line-${kind}`, type: 'line', source: 'mesh', filter: ['==', ['get', 'k'], kind === 'casing' ? 'shetach' : kind], layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
+      add({ id: `line-${kind}`, type: 'line', source: 'mesh', filter: kind === 'edge' ? ['in', ['get', 'k'], ['literal', ['edge', 'edgew']]] : ['==', ['get', 'k'], kind === 'casing' ? 'shetach' : kind], layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
     }
     add({ id: 'out-line', type: 'line', source: 'outside-lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
+    // (Canada one country with its north: where its shetachim's land meets its north, a line in its colour over the coast
+    // the land no shetach covers has there)
+    add({ id: 'seam', type: 'line', source: 'mesh', filter: ['==', ['get', 'k'], 'edgew'], layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
     add({ id: 'sub-line', type: 'line', source: 'sub', filter: ['==', ['geometry-type'], 'LineString'], layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
     add({ id: 'box-line', type: 'line', source: 'boxes', filter: ['==', ['geometry-type'], 'Polygon'] }, over);
     add({ id: 'box-name', type: 'symbol', source: 'boxes', filter: ['==', ['geometry-type'], 'Point'],
@@ -2923,7 +2940,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (!areasShown(S)) { feed(S, 'areas', 'areas', () => S.made.get('areas')); setNames(S); }
     // the lines shown: the coast (not over the street map, which has its own), the shetachim's borders, and with States
     // or Both the countries' and states' (over the street maps those come from the tiles: st-line-country, -state)
-    const street = !political(), kinds = isPhysical() && physicalOK ? [] : [...(street ? [] : ['coast', 'edge']),
+    const street = !political(), kinds = isPhysical() && physicalOK ? [] : [...(street ? [] : ['coast', 'edge', 'edgew']),
       ...(state.borders !== 'regular' ? ['shetach', 'inner'] : []), ...(state.borders !== 'shetach' && !street ? ['country', 'regular', ...(statesShown() ? ['regna'] : []), 'held'] : [])];
     const missing = kinds.find((k) => !S.made.has(`mesh:${k}`));
     if (missing) { prep(S, `mesh:${missing}`).then(() => feedSet(S), failed); return; }
@@ -2944,7 +2961,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     markDrawn();
   }
   // The prep of a set's first shapes, in the order they're shown (the page starts on this while the map loads)
-  const prepSet = (S) => { prep(S, 'areas').catch((e) => console.error(e)); for (const k of ['shetach', 'coast', 'edge', 'inner']) prep(S, `mesh:${k}`).catch((e) => console.error(e)); };
+  const prepSet = (S) => { prep(S, 'areas').catch((e) => console.error(e)); for (const k of ['shetach', 'coast', 'edge', 'edgew', 'inner']) prep(S, `mesh:${k}`).catch((e) => console.error(e)); };
   // The names of the view's other way of drawing (the street maps' when the political map shows, and back), worked out
   // while the page is idle, so changing maps has nothing left to work out and is instant: a slice at a time, only while
   // the map stands still, so it never gets in the way of moving it.
@@ -3052,6 +3069,18 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       show(id('out-fill'), polOn && rest());
       paint(id('out-fill'), 'fill-color', pal.empty);
       paint(id('out-fill'), 'fill-opacity', street ? 0.7 : 1);
+      const wo = polOn && wholeOut() && V.view.countries.some((c) => OUT_OF.has(c));
+      if (wo && !OUTSIDE.hi.done) outsideReady('hi'); // (for its outline round all of it)
+      // (in just the shade of the rest of it: political, the countries' colour over the land, solid; on the street maps
+      // the countries' colour over the streets, without the grey of the land no shetach covers under it)
+      map.setFilter(id('out-fill'), wo && street ? ['!', ['in', ['coalesce', ['get', 'country'], ''], ['literal', [...OUT_OF]]]] : null);
+      show(id('whole-out'), wo && rest());
+      show(id('whole-land'), wo && !rest());
+      if (wo) for (const n of ['whole-out', 'whole-land']) {
+        const own = (c) => { const x = state.color === 'plain' ? pal.plain : pal.c[wholeColor(c)] || pal.plain; return street ? x : d3.interpolateRgb(G.land, x)(0.92); };
+        paint(id(n), 'fill-color', ['match', ['get', 'country'], ...[...OUT_OF].flatMap((c) => [c, own(c)]), own('CA')]);
+        paint(id(n), 'fill-opacity', !street ? 1 : ['interpolate', ['linear'], ['zoom'], 5, 0.9, 7, 0.78, 10, 0.5, 13, 0.3]); // (as the countries')
+      }
       // lines: shetach borders light against the colours (as map sites draw region borders); countries' and states'
       // borders grey; the coast a darker sea (flat only: the street map has its own)
       const w = (a, b, c) => ['interpolate', ['linear'], ['zoom'], 2, a, 6, b, 12, c];
@@ -3077,6 +3106,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       }
       // Israel's own lines: only where a side is shown as held (none between Israel and what's shown as part of it)
       map.setFilter(id('line-held'), ['all', ['==', ['get', 'k'], 'held'], ['!', ['all', israelSide('a'), israelSide('b')]]]);
+      // (Canada one country with its north: no line where its shetachim's land ends, and a line in its colour over the
+      // coast the land no shetach covers has there)
+      map.setFilter(id('line-edge'), wo ? ['==', ['get', 'k'], 'edge'] : ['in', ['get', 'k'], ['literal', ['edge', 'edgew']]]);
+      show(id('seam'), wo && !street);
+      if (wo && !street) {
+        paint(id('seam'), 'line-color', d3.interpolateRgb(G.land, state.color === 'plain' ? pal.plain : pal.c[wholeColor('CA')] || pal.plain)(0.92));
+        paint(id('seam'), 'line-width', ['interpolate', ['linear'], ['zoom'], 2, 1.6, 6, 2.2, 12, 3]);
+      }
       map.setFilter(id('names'), nameFilter(0));
       map.setFilter(id('names-alt'), nameFilter(1));
       show(id('out-line'), polOn && rest());
@@ -3305,7 +3342,41 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       if (sub) return { sub };
     }
     const a = map.queryRenderedFeatures(point, { layers: [`pick${sfx}`] })[0];
-    return a ? { piece: pieceById.get(a.properties.id).properties } : null;
+    if (a) return { piece: pieceById.get(a.properties.id).properties };
+    // (Canada's north, one country with it with the States switch off: Canada's card)
+    const w = q(['whole-out', 'whole-land'], point)[0], wg = w && pieces.find((g) => g.properties.country === w.properties.country && V.mainIds.has(g.properties.id));
+    return wg ? { piece: wg.properties } : null;
+  }
+  // Canada's outline as one country: round its shetachim's land and its north together, without the line where they
+  // meet (the two files are on one grid, so that line's points are the same in both). Null until the detailed land no
+  // shetach covers has loaded (asked for here).
+  const WHOLE_LINES = new Map();
+  function wholeLines(S, country) {
+    const k = `${S.id}|${country}`;
+    if (WHOLE_LINES.has(k)) return WHOLE_LINES.get(k);
+    const o = OUTSIDE.hi.data;
+    if (!o) { outsideReady('hi'); return null; }
+    const segs = new Map(), pk = (p) => `${p[0]},${p[1]}`;
+    const add = (line) => { for (let i = 1; i < line.length; i++) { const p = line[i - 1], q = line[i], a = pk(p), b = pk(q), key = a < b ? `${a}|${b}` : `${b}|${a}`; const x = segs.get(key); if (x) x[2]++; else segs.set(key, [p, q, 1]); } };
+    for (const l of topojson.mesh(topo, collection(pieces.filter((g) => g.properties.country === country)), (a, b) => a === b).coordinates) add(l);
+    for (const f of o.fill.features) {
+      if (f.properties.country !== country) continue;
+      const g = f.geometry;
+      for (const poly of g.type === 'Polygon' ? [g.coordinates] : g.coordinates) for (const ring of poly) add(ring);
+    }
+    // (the segments left, once each, joined into lines)
+    const keep = [...segs.values()].filter((x) => x[2] === 1), at = new Map(), used = new Uint8Array(keep.length), lines = [];
+    keep.forEach((x, i) => { for (const p of [x[0], x[1]]) (at.get(pk(p)) || at.set(pk(p), []).get(pk(p))).push(i); });
+    const walk = (from) => { const out = []; for (let end = from; ;) { const j = (at.get(pk(end)) || []).find((n) => !used[n]); if (j == null) return out; used[j] = 1; end = pk(keep[j][0]) === pk(end) ? keep[j][1] : keep[j][0]; out.push(end); } };
+    for (let i = 0; i < keep.length; i++) {
+      if (used[i]) continue;
+      used[i] = 1;
+      const ahead = walk(keep[i][1]), back = walk(keep[i][0]);
+      lines.push([...back.reverse(), keep[i][0], keep[i][1], ...ahead]);
+    }
+    const g = within(S, () => projGeom({ type: 'MultiLineString', coordinates: lines }));
+    WHOLE_LINES.set(k, g);
+    return g;
   }
   // The area a card is about: its state with States borders, else its shetach or the blank part of its state.
   function areaOf(S, pieceId) {
@@ -3321,7 +3392,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         }
         return S.israelJoined;
       }
-      return (statesShown() ? S.states : S.wholeStates).find((r) => r.st === st);
+      const r = (statesShown() ? S.states : S.wholeStates).find((x) => x.st === st);
+      // (Canada as one country with its north: outlined round all of it)
+      const all = r && wholeOut() && OUT_OF.has(st) && wholeLines(S, st);
+      return all ? { st, p: r.p, gs: r.gs, geometry: all } : r;
     }
     if (s) return S.regions.find((r) => r.s === s);
     const gs = V.main.filter((x) => !shetachOf(x) && x.properties.state === g.properties.state);

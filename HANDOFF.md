@@ -62,8 +62,8 @@ thirteen no better recent photo has been found yet (the list is there, with what
     somewhere else save as well as maybe when it moved"; "If by some miracle you finish Florida completely then new
     Jersey next, followed by Pennsylvania". Batches: `batches/florida-NN.json`; notes: `work/founding-years/florida.md`.
     State (Nov 7): every Florida listing has an entry; 110 of 219 dots have a year (88 high, 21 medium, 1 low), 60
-    are ranges (an IRS ruling, a Sunbiz filing or a dated mention says "existed by"), 49 open. New Jersey: 41 of 84
-    dots have a year (39 high, 2 medium), 5 ranges (`batches/new-jersey-01.json`). **Owner** (Nov 7): "I WANT HIGH
+    are ranges (an IRS ruling, a Sunbiz filing or a dated mention says "existed by"), 49 open. New Jersey: 51 of 84
+    dots have a year (48 high, 3 medium), 6 ranges, 27 open (`batches/new-jersey-01.json`, `-02.json`). **Owner** (Nov 7): "I WANT HIGH
     CONFIDENCE FROM ALL OF THEM"; search each center individually, not only its own site and chabad.org; finish the
     easier New Jersey ones, then back to Florida's non-high dots.
   - How (the rules are in the standing rules below; the method in `work/founding-years/west-coast.md` and

@@ -17,7 +17,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | hawaii | 7 | 4 | 1 |  | 1 | 1 |  | 2 | 7 | 2 |
 | idaho | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | indiana | 7 | 5 | 1 |  |  | 1 |  | 1 | 7 | 1 |
-| iowa | 9 | 5 | 2 |  | 1 | 1 |  | 2 | 7 | 1 |
+| iowa | 9 | 6 | 2 |  | 1 |  |  | 1 | 7 | 0 |
 | kentucky | 7 | 5 | 1 |  | 1 |  |  | 1 | 5 | 1 |
 | louisiana-mississippi | 8 | 6 | 1 |  | 1 |  |  | 1 | 5 | 0 |
 | maine | 3 | 2 | 1 |  |  |  |  | 0 | 3 | 0 |
@@ -25,7 +25,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | maritimes | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | merrimack-valley | 4 | 3 |  |  | 1 |  |  | 1 | 4 | 1 |
 | michigan | 38 | 25 | 7 | 1 | 2 | 3 |  | 5 | 33 | 3 |
-| montana | 6 | 5 |  |  | 1 |  |  | 1 | 6 | 1 |
+| montana | 6 | 5 | 1 |  |  |  |  | 0 | 6 | 0 |
 | nebraska | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | new-hampshire | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | new-jersey | 91 | 48 | 3 |  | 6 |  | 34 | 40 | 84 | 33 |
@@ -36,7 +36,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | oklahoma | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | ottawa | 11 | 7 |  |  | 2 | 2 |  | 4 | 9 | 2 |
 | pennsylvania | 61 | 25 | 4 |  | 5 |  | 27 | 32 | 57 | 30 |
-| rhode-island | 8 | 4 | 1 |  |  | 3 |  | 3 | 7 | 2 |
+| rhode-island | 8 | 5 | 1 |  |  | 2 |  | 2 | 7 | 1 |
 | rockland | 5 | 2 |  |  | 1 | 2 |  | 3 | 5 | 3 |
 | south-area | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | southern-ohio | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | kansas-missouri | 16 |  |  |  |  |  | 16 | 16 | 16 | 16 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
 | british-columbia | 13 |  |  |  |  |  | 13 | 13 | 13 | 13 |
-| **all** | 1969 | 550 | 143 | 1 | 73 | 104 | 1098 | 1275 | 1765 | 1096 |
+| **all** | 1969 | 552 | 144 | 1 | 72 | 102 | 1098 | 1272 | 1765 | 1093 |

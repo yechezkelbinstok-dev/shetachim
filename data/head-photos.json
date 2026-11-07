@@ -1,5 +1,5 @@
 {
- "about": "Profile photos of the head shluchim (USA, Canada, Europe, the Middle East, Africa and Asia), one per shetach: a head-and-shoulders crop (320x320 JPEG) in web/img/heads/<shetach id>.jpg. Standard (owner, Nov 5): a proper portrait of him alone, never a farbrengen or group shot. 'page' is where the photo was found, 'image' the original file; 'crop' is the hand-picked square on that image (centre as fractions of width and height, side as a fraction of height) and 'cast' a colour cast taken out by hand; 'source' is the kept copy in work/ the crop was made on; 'studio': true a studio portrait retouched gently (retouch.py --studio); 'edit' (rare) is what scripts/head-photos/paint-out.py painted out of the source first (someone else reaching into the frame). Every photo is retouched by scripts/head-photos/retouch.py (cast, levels, exposure and colour read on the skin, local contrast, sharpening).",
+ "about": "Profile photos of the head shluchim (USA, Canada, Europe, the Middle East, Africa, Asia and Australia), one per shetach: a head-and-shoulders crop (320x320 JPEG) in web/img/heads/<shetach id>.jpg. Standard (owner, Nov 5): a proper portrait of him alone, never a farbrengen or group shot. 'page' is where the photo was found, 'image' the original file; 'crop' is the hand-picked square on that image (centre as fractions of width and height, side as a fraction of height) and 'cast' a colour cast taken out by hand; 'source' is the kept copy in work/ the crop was made on; 'studio': true a studio portrait retouched gently (retouch.py --studio); 'edit' (rare) is what scripts/head-photos/paint-out.py painted out of the source first (someone else reaching into the frame). Every photo is retouched by scripts/head-photos/retouch.py (cast, levels, exposure and colour read on the skin, local contrast, sharpening).",
  "photos": [
   {
    "id": "west-coast",
@@ -1350,6 +1350,62 @@
     "side": 1.0
    },
    "keep": true
+  },
+  {
+   "id": "new-south-wales",
+   "head": "Pinchus Feldman",
+   "file": "img/heads/new-south-wales.jpg",
+   "page": "https://collive.com/winning-over-down-under/",
+   "image": "https://collive.com/wp-content/uploads/2025/01/627.-shemos-5785-1.jpg",
+   "note": "COLlive's Here's My Story (Jan 2025, Shemos 5785), a still of him at home; cut above the COLLIVE mark and clear of the logo",
+   "crop": {
+    "cx": 0.38,
+    "cy": 0.4,
+    "side": 0.72
+   },
+   "source": "work/head-photos/candidates/au/new-south-wales/c1.jpg"
+  },
+  {
+   "id": "north-queensland",
+   "head": "Ari Rubin",
+   "file": "img/heads/north-queensland.jpg",
+   "page": "https://www.cairnspost.com.au/news/cairns/cairns-rabbi-urges-15-good-deeds-to-honour-victims-of-bondi-terror-attack/news-story/bc1b5dd29f886b50576058f97b3daff7",
+   "image": "https://content.api.news/v3/images/bin/4a36e7a72f97fd94f204e076188f43f9",
+   "note": "The Cairns Post (Dec 2025, after the Bondi attack): posed in his library in hat and suit",
+   "crop": {
+    "cx": 0.49,
+    "cy": 0.235,
+    "side": 0.3
+   },
+   "source": "work/head-photos/candidates/au/north-queensland/c7.jpg"
+  },
+  {
+   "id": "south-australia",
+   "head": "Yossi Engel",
+   "file": "img/heads/south-australia.jpg",
+   "page": "https://www.abc.net.au/listen/programs/adelaide-breakfast/rabbi-yossi-engel/106143562",
+   "image": "https://live-production.wcms.abc-cdn.net.au/8f43e9bc50068f1dac3b71094be5ccb2?impolicy=wcms_crop_resize&cropH=366&cropW=366&xPos=109&yPos=0&width=862&height=862",
+   "note": "ABC Radio Adelaide (Dec 2025: \"Adelaide Rabbi encourages Australians to 'bring light' in the wake of Bondi darkness\")",
+   "crop": {
+    "cx": 0.47,
+    "cy": 0.42,
+    "side": 0.78
+   },
+   "source": "work/head-photos/candidates/au/south-australia/c1.jpg"
+  },
+  {
+   "id": "western-australia",
+   "head": "Shalom White",
+   "file": "img/heads/western-australia.jpg",
+   "page": "https://www.instagram.com/rabbiwhite/",
+   "image": "Instagram @rabbiwhite, post of Mar 13, 2026 (him with a police officer at the shul)",
+   "note": "his own Instagram (Mar 2026), cut to him alone; his Nov 2026 Kinus post is an AI-drawn graphic, not a photo, so not used",
+   "crop": {
+    "cx": 0.37,
+    "cy": 0.27,
+    "side": 0.4
+   },
+   "source": "work/head-photos/candidates/au/western-australia/ig-2026-03-13.jpg"
   }
  ]
 }

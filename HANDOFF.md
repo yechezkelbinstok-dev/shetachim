@@ -93,7 +93,8 @@ thirteen no better recent photo has been found yet (the list is there, with what
     State (Nov 7): every Florida listing has an entry; 141 of 219 dots have a year (121 high, 20 medium), 41
     are ranges (an IRS ruling, a Sunbiz filing or a dated mention says "existed by"), 37 open. Many came from the
     centers' own About pages (WebFetch reads chabad.org-hosted sites; plain curl gets a Cloudflare check). New Jersey: 51 of 84
-    dots have a year (48 high, 3 medium), 6 ranges, 27 open (`batches/new-jersey-01.json`, `-02.json`). **Owner** (Nov 7): "I WANT HIGH
+    dots have a year (48 high, 3 medium), 6 ranges, 27 open (`batches/new-jersey-01.json`, `-02.json`). Pennsylvania (started Nov 7): 19 of 57 dots have a
+    year (15 high, 4 medium), 5 ranges (`batches/pennsylvania-01.json`). **Owner** (Nov 7): "I WANT HIGH
     CONFIDENCE FROM ALL OF THEM"; search each center individually, not only its own site and chabad.org; finish the
     easier New Jersey ones, then back to Florida's non-high dots.
   - How (the rules are in the standing rules below; the method in `work/founding-years/west-coast.md` and

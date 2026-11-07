@@ -24,7 +24,9 @@ What changed:
 - Bloomfield Hills: **2016** confirmed (Chabad.org, Oct 2016); the list's 2017 is a year off.
 - Mishkan Israel 1958 -> **1963** (first mention as the Lubavitcher Center; 1958 was its building's dedication).
 - F.R.E.E. Southfield: range -> **1990** (opened Aug 1990; Southfield address Dec 1990).
-- Confirmed: Flint (absent 1980-81, open by Dec 1986), Farmington Hills (first mention Apr 1978), Toledo (May 1987),
+- Farmington Hills 1977 -> **1972** (Nov 7: Bais Chabad opened in a new building at 28555 Middlebelt in 1972,
+  Jewish News Nov 24 1972; 1977 was when the Bergsteins took it over).
+- Confirmed: Flint (absent 1980-81, open by Dec 1986), Toledo (May 1987),
   The Shul (Nov 1994), Royal Oak (Nov 2018), Livonia (Sept 2022), Waterford (July 2024), the Mesivta (1965).
 - Still weak: Bingham Farms (2009 from the list only; first newspaper mention Dec 2016).
 - Missed altogether until a recount (Nov 6): **Windsor, Ontario**, the shetach's one Canadian center: **2009** (its
@@ -58,7 +60,7 @@ fetch); the corrections took 3 more web searches, 1 fetch and 4 searches of the 
    dinner journals, local Jewish papers' anniversary sections.
 2. **The local Jewish paper's archive.** The Detroit Jewish News is digitized from the 1940s (University of Michigan,
    digital.bentley.umich.edu). It dated the old ones: "Chabad Has Finally Arrived in Detroit" (Sept 1958), the
-   Farmington Hills congregation opening (1978), Grand Rapids "opened about nine years ago" (1988 -> 1979), "Thirty-
+   Farmington Hills congregation, Bais Chabad (Nov 1972), Grand Rapids "opened about nine years ago" (1988 -> 1979), "Thirty-
    seven years ago" in Flint (2022 -> 1985). Many US Jewish papers are digitized somewhere; find each shetach's.
 3. **One search per center**: its name, city and "founded / established / since / arrived". The search answer
    usually quotes the sentence with the year: the center's own About page, the local paper, CrownHeights.info,

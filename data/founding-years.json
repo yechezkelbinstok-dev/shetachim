@@ -10583,8 +10583,9 @@
    "by": 2005,
    "how": "range",
    "source": "https://crownheights.info/general/705/new-beginning-for-jewish-community",
-   "note": "Philadelphia Inquirer (CrownHeights.info, 6 Oct 2005): the $1.5 million Glazier Center in a former Baptist church in Newtown Borough, Rabbi Yehuda Shemtov executive director; so it existed by 2005. Lubavitch.com (undated): an awards dinner marked 'thirteen years of Lubavitch Chabad in Bucks County'. Start year not found.",
-   "confidence": "range"
+   "note": "Philadelphia Inquirer (CrownHeights.info, 6 Oct 2005): the $1.5 million Glazier Center in a former Baptist church in Newtown Borough, Rabbi Yehuda Shemtov executive director; so it existed by 2005. Its own site has a 'Branding' page (chabad.org page no. 3878085, from about 2017-18, not read) introduced at 'The 25th anniversary milestone', which would point to about 1992-93: a lead only. Lubavitch.com (undated): an awards dinner marked 'thirteen years of Lubavitch Chabad in Bucks County'.",
+   "confidence": "range",
+   "lead": 1993
   },
   "2761055": {
    "name": "Chabad of North Pocono",
@@ -10793,6 +10794,38 @@
    "source": "https://www.jewishnephilly.com/templates/articlecco_cdo/aid/6677106/jewish/About-Us.htm",
    "note": "Its own About page: 'In 2024, this center was established to enrich Jewish education, outreach, and community connection' (Rabbi Mendel and Moussia Gansburg).",
    "confidence": "high"
+  },
+  "118521": {
+   "name": "Lubavitch Center for Russian Jewry",
+   "city": "Philadelphia",
+   "shetach": "pennsylvania",
+   "year": 2001,
+   "how": "stated",
+   "source": "https://www.lubavitchbustleton.org/templates/articlecco_cdo/aid/1519076/jewish/About-Us.htm",
+   "note": "Its own site (LubavitchBustleton.org): 'The Lubavitch Center for Russian Jewry, founded in 2001'. Rabbi Sholom Goldshmid (per chabad.org).",
+   "confidence": "high"
+  },
+  "117717": {
+   "name": "Chabad of Penn Wynne",
+   "city": "Philadelphia",
+   "shetach": "pennsylvania",
+   "year": null,
+   "by": 2011,
+   "how": "range",
+   "source": "https://www.chabadpennwynne.org/templates/articlecco_cdo/aid/7564941/jewish/About-Us.htm",
+   "note": "Its own About page: 'Rabbi Moshe and Devorah Brennan have been serving the Penn Wynne Jewish community since 2011'; 'In 2011, they moved to Wynnewood to direct Chabad activities in the Penn Wynne area' (before that, programming directors at Chabad of the Main Line from 2004). Chabad.org (25 July 2011) already has Rabbi Zalman and Miriam Gerber directing Chabad-Lubavitch of Penn Wynne, so it is older; its start is not stated.",
+   "confidence": "range"
+  },
+  "119652": {
+   "name": "Gan Israel Camps & Youth Services",
+   "city": "Wynnewood",
+   "shetach": "pennsylvania",
+   "year": null,
+   "by": 2005,
+   "how": "range",
+   "source": "https://www.ganisraelphilly.com/templates/articlecco_cdo/aid/286441/jewish/About-Our-Camp.htm",
+   "note": "Its own 'About Our Camp' page (Rose and Morris Caskey Gan Israel Camps of Greater Philadelphia) was published 1 June 2005 (page metadata), so it existed by then. Rabbi Zalman Gerber. Start year not stated.",
+   "confidence": "range"
   }
  }
 }

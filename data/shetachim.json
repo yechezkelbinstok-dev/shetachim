@@ -604,7 +604,18 @@
         {
           "state": "US-NY",
           "shape": "crown-heights",
-          "name": "Crown Heights: Sterling Place, Utica Avenue, Maple Street, Nostrand Avenue"
+          "name": "Crown Heights: Sterling Place, Utica Avenue, Maple Street, Nostrand Avenue (along the streets)"
+        }
+      ]
+    },
+    {
+      "id": "monsey",
+      "name": "Monsey",
+      "territory": [
+        {
+          "state": "US-NY",
+          "shape": "monsey",
+          "name": "Monsey: a smooth outline just around Monsey (the Monsey CDP, Kaser and the Monsey Lubavitch institutions)"
         }
       ]
     },
@@ -2326,7 +2337,6 @@
     }
   ],
   "blank": [
-    { "state": "US-NY", "shape": "monsey", "name": "Monsey (out of Rockland)" },
     { "country": "BOL", "name": "Bolivia: on the map, with its centers (the La Paz mushroom), in no shetach" },
     { "country": "PHL", "name": "Philippines: on the map, with its centers (Rabbi Yossi Levy's network, all mushrooms), in no shetach" },
     { "country": "LKA", "name": "Sri Lanka: on the map, with its centers (Rabbi Mendy Crombie's network, all mushrooms), in no shetach" },

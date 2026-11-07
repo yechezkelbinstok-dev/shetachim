@@ -44,6 +44,15 @@ his photo (Groner: AJN 2017, the newest of him alone; Gutnick: Jerusalem Post 20
 **Sri Lanka is in no shetach** (owner, Nov 7: "sri Lanka is not official- give it the phillipines treatment please"):
 its five houses are Rabbi Mendy Crombie's mushroom network (Colombo its flagship); the `sri-lanka` shetach and its
 Hebrew entry are gone and `blank` has `{ "country": "LKA" }`, as for the Philippines and Bolivia.
+**Crown Heights and Monsey, drawn exactly** (owner, Nov 7: "u did not properly build Crown Heights along the
+Utica-Maple-Nostrand-Sterling (Pl) you just drew straight lines"; "the Monsey situation should be more like a proper
+situation just around Monsey nicely and then same like crown heights it becomes its own thing"): Crown Heights follows
+the four streets' centerlines (NYC Open Data's street centerline, `inkn-q76z`); **Monsey is a shetach of its own with
+no head** (`monsey`, מאנסי, no longer blank), a smooth outline just around the Census Monsey CDP, Kaser and its 9
+listings. Both outlines reach the page unsimplified and off the map's grid (`EXACT` in scripts/build-data.mjs,
+geo.json's `exactArcs`, the tiles' `ex` lines). **No "Shetach" above a shetach's name on its card** (owner, Nov 7:
+"get rid of the word shetach it makes no sense actually"); the sub-shetach card's "Sub-shetach" is as it was (not
+asked).
 **Mushrooms from the DansDeals master list** (owner, Nov 7: "I'm sure this can help add a ton of mushrooms right?",
 "you have to properly look up ... networks", then "Did you also downgrade ones we accidentally had as official like
 pisac????"): forums.dansdeals.com topic 102660, "Master List Of Unofficial Chabad Houses" (wiki edited Oct 7, 2026;
@@ -95,7 +104,7 @@ thirteen no better recent photo has been found yet (the list is there, with what
 - **Founding years, two sessions at once (owner, Nov 6, latest: "Put smth in handoff so I can get another session to
   work on a diff part of country").** Who has what (change only your own line):
   - *The West Coast window:* the hard round on California + Nevada, the 35 small shetachim and the 9 dots in no
-    shetach, and Michigan. Don't edit those entries.
+    shetach (Monsey's; the `monsey` shetach since Nov 7), and Michigan. Don't edit those entries.
   - *A second session:* any shetach still `not researched` in `work/founding-years/STATUS.md`. Suggested first:
     Western Pennsylvania and Georgia (24 dots each; each has a digitized Jewish weekly: the Pittsburgh Jewish
     Chronicle on Historic Pittsburgh, the Atlanta Jewish Times on Georgia Historic Newspapers), then the other

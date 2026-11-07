@@ -811,6 +811,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     return t;
   }
   decodeArcs(topo);
+  // the street-level shetachim's outlines exactly as drawn (Crown Heights along its four streets, Monsey's outline:
+  // geo.json's exactArcs, from the build), in place of the same arcs on the map's grid (about 150 m, which made boxes)
+  if (topo.exactArcs) for (const [i, ring] of Object.entries(topo.exactArcs)) topo.arcs[+i] = ring;
+  // (and as lines of their own for the physical map, whose tiles hold borders on a ~58 m grid: steps along a street;
+  // c: the country they're in, for the view's filter)
+  const EXACT_LINES = (() => {
+    const country = new Map();
+    const visit = (rings, c) => { for (const ring of rings) for (const a of ring) country.set(a < 0 ? ~a : a, c); };
+    for (const g of topo.objects.areas.geometries) { if (g.type === 'Polygon') visit(g.arcs, g.properties.country); else if (g.type === 'MultiPolygon') for (const poly of g.arcs) visit(poly, g.properties.country); }
+    return { type: 'FeatureCollection', features: Object.keys(topo.exactArcs || {}).map((i) => ({ type: 'Feature', properties: { c: country.get(+i) || '' }, geometry: { type: 'LineString', coordinates: topo.arcs[+i] } })) };
+  })();
   // Hebrew: the map's right-to-left text support, asked for from the start (the map waits for it before it starts)
   const RTL_PLUGIN = new URL('lib/mapbox-gl-rtl-text.js', location.href).href; // right-to-left text (Hebrew), from @mapbox/mapbox-gl-rtl-text 0.3.0, kept here
   let rtlLoad = null;
@@ -2686,6 +2697,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       for (const kind of ['state', 'country']) map.addLayer({ id: `st-line-${kind}`, type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
       map.addLayer({ id: 'st-line-casing', type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
       for (const kind of ['coast', 'shetach', 'inner']) map.addLayer({ id: `st-line-${kind}`, type: 'line', source: 'st', 'source-layer': 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
+      // the street-level shetachim's borders (Crown Heights, Monsey) exactly, in place of the tiles' (ex)
+      map.addSource('st-exact', { type: 'geojson', data: EXACT_LINES, tolerance: 0 });
+      for (const n of ['st-ex-casing', 'st-ex-line']) map.addLayer({ id: n, type: 'line', source: 'st-exact', layout: { 'line-join': 'round', 'line-cap': 'round' } }, over);
     }
     // what a tap can land on (invisible), the outline of the area a card is about, the dots
     add({ id: 'pick', type: 'fill', source: 'areas', paint: { 'fill-opacity': 0 } });
@@ -3061,7 +3075,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       // every land border of a shetach in the view, also where the other side is land no shetach covers or a shetach
       // outside the view (owner, Oct 7: Bulgaria had a proper border and Israel, with no shetach round it, almost none)
       const edge = ['all', ['has', 'cb'], ['any', a, b], ['==', ['get', 'sh'], 0]];
-      map.setFilter('st-line-shetach', ['all', edge, ['!', ['has', 'tr']]]);
+      map.setFilter('st-line-shetach', ['all', edge, ['!', ['has', 'tr']], ['!', ['has', 'ex']]]);
       map.setFilter('st-line-inner', ['all', a, b, ['has', 'tr']]);
       // the open edge of an area: its coast, and where it reaches out over the water to the international line (Ontario
       // in the Great Lakes) the maritime border; thin, as the old page drew it (it went missing Oct 5, the owner noticed).
@@ -3073,7 +3087,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       // faded out close in, where the street map's own shore is drawn and our coarser coast (Census, GADM) would show as
       // stray lines across rivers and bays (owner, Oct 11: Belle Isle in the Detroit River)
       paint('st-line-coast', 'line-opacity', ['interpolate', ['linear'], ['zoom'], 8, 0.4, 11, 0]);
-      map.setFilter('st-line-casing', edge);
+      map.setFilter('st-line-casing', ['all', edge, ['!', ['has', 'ex']]]);
       const fadeOut = (v) => ['interpolate', ['linear'], ['zoom'], 9, v, 12, 0];
       const BORDER = 'hsl(258, 28%, 44%)';
       for (const lid of ['st-line-shetach', 'st-line-inner']) {
@@ -3087,6 +3101,18 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       paint('st-line-casing', 'line-color', '#ffffff');
       paint('st-line-casing', 'line-width', ['interpolate', ['linear'], ['zoom'], 2, 3, 6, 4.5, 10, 6]);
       paint('st-line-casing', 'line-opacity', fadeOut(0.55));
+      // the exact borders (ex, drawn on their own): as the others, and kept to street level, where they follow the streets
+      // (the others fade out by zoom 12)
+      const fadeLate = (v) => ['interpolate', ['linear'], ['zoom'], 15, v, 17.5, 0];
+      for (const lid of ['st-ex-casing', 'st-ex-line']) map.setFilter(lid, ['in', ['get', 'c'], list]);
+      show('st-ex-line', physOn && shetachLines);
+      paint('st-ex-line', 'line-color', BORDER);
+      paint('st-ex-line', 'line-width', ['interpolate', ['linear'], ['zoom'], 2, 1, 6, 1.7, 10, 2.6]);
+      paint('st-ex-line', 'line-opacity', fadeLate(lightS ? 0.4 : 0.85));
+      show('st-ex-casing', physOn && shetachLines && !lightS);
+      paint('st-ex-casing', 'line-color', '#ffffff');
+      paint('st-ex-casing', 'line-width', ['interpolate', ['linear'], ['zoom'], 2, 3, 6, 4.5, 10, 6]);
+      paint('st-ex-casing', 'line-opacity', fadeLate(0.55));
       // Physical: no tint, the land itself (greens, deserts, relief) with the shetachim's borders only (owner, Oct 7: tints
       // made it look like a political map). Tinted, the fourth map: the same with each shetach softly tinted.
       show('st-tint', physOn && shetachLines && state.base === 'tinted');
@@ -3853,7 +3879,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const t = tintOf(s), lead = (label, name, photo = '') => `<div class="cc-people" style="--t:${t}">${personRow(initialsOf(name), headHTML(name), '', t, label, true, photo)}</div>`;
     const mini = miniMap(s.pieces, `s:${s.id}`, t, caps.map((c) => ({ lon: c.lon, lat: c.lat, kind: 'star' })), 72);
     const nC = centersInShetach(s), nM = mushroomsInShetach(s);
-    return `${ccHead({ t, mini, kick: `<p class="cc-kick">${tr('Shetach')}</p>`, title: esc(s.name), sub: [s.altName ? esc(s.altName) : '', headCount(nC, nM)].filter(Boolean).join('<br>'), big: true })}
+    // (no "Shetach" over the name: owner, Nov 7, "get rid of the word shetach it makes no sense actually" — Crown Heights)
+    return `${ccHead({ t, mini, title: esc(s.name), sub: [s.altName ? esc(s.altName) : '', headCount(nC, nM)].filter(Boolean).join('<br>'), big: true })}
       <div class="cc-body"><div class="cc-lead">${s.territoryOf && shetachById.get(s.territoryOf) ? (() => { const p = shetachById.get(s.territoryOf); return lead(HE ? 'בהנהגת' : 'Overseen by', p.headShliach, HEAD_PHOTO.has(p.id) ? p.id : ''); })()
         : s.noCentralLeadership ? `<p class="cc-sub">${tr('No centralized leadership')}</p>`
         : s.headShliach && / family$|^משפחת /.test(s.headShliach) ? lead(HE ? 'שלוחים' : 'Shluchim', s.headShliach)

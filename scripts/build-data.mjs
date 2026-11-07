@@ -180,6 +180,12 @@ const ROUGH = ['US-AK']; // drawn small in an inset, so simplified harder
 // Israel (the lines it holds in Gaza, Lebanon and Syria; owner Oct 7: "precise, not rough"): drawn at 100 m, so the line
 // follows the boundary closely when zoomed in, not the 800 m used for whole countries.
 const FINE = ['AU-QLD', 'CA-ON', 'ISR', 'UKR', ...Object.values(HELD_AREA).map((a) => a.state)];
+// Street-level shetachim (owner, Nov 7: Crown Heights "along the Utica-Maple-Nostrand-Sterling", not straight lines; Monsey
+// "just around Monsey nicely"): not simplified, and their outline is handed to the page exactly as in the shape file
+// (geo.json's exactArcs), not on the map's grid (360°/QUANT, about 150 m at New York), which drew both as boxes. A
+// finer grid for the whole map did it too, but made geo.json 45% bigger gzipped (Nov 7 test: 769 KB to 1.1 MB).
+const EXACT = ['crown-heights', 'monsey'];
+const QUANT = 200000;
 
 // ---------- downloads ----------
 
@@ -649,9 +655,8 @@ function readClaims(data, areaIds, counties, regionNames) {
       }
     }
   }
-  // Areas cut out of a shetach and left to none (owner, Nov 3: Monsey and Pomona out of Rockland, Crown Heights out of
-  // Greater New York — "don't make them their own thing just take them out"): a shape no shetach owns, more specific
-  // than the county or town it's in, so it stays blank
+  // Areas cut out of a shetach and left to none: a shape no shetach owns, more specific than the county or town it's in,
+  // so it stays blank (Monsey and Crown Heights were, Nov 3; both are shetachim of their own since — Monsey Nov 7)
   // A country can be left blank the same way (owner, Nov 3: "bolivia should get the Monsey treatment"): it stays on the
   // map, with its centers (the La Paz mushroom), in no shetach.
   for (const t of data.blank || []) {
@@ -877,6 +882,7 @@ async function buildGeo(data) {
   // Caribbean islands, Monaco…), which would otherwise vanish.
   const rough = JSON.stringify(ROUGH).replace(/"/g, "'");
   const fine = JSON.stringify(FINE).replace(/"/g, "'");
+  const exact = JSON.stringify(EXACT).replace(/"/g, "'");
   // The land no shetach covers (outside.json: the faded land round a view, and "Rest of the world"), one shape per
   // country, is written with geo.json on the same grid (both framed by the whole globe, so TopoJSON's quantization is the
   // same) and not simplified any further, so it meets the shetachim point for point. It used to be thinned to 40% on a
@@ -884,19 +890,19 @@ async function buildGeo(data) {
   const out = await mapshaper.applyCommands(
     '-i mosaic.json -dissolve piece copy-fields=state,name,abbr,country,shetach,as,outside,lake,tiny -rename-fields id=piece -rename-layers areas ' +
     '-o pieces.json format=geojson ' +
-    `-simplify variable interval="${rough}.includes(state) ? 2500 : ${fine}.includes(state) ? 100 : country === 'US' ? 400 : 800" keep-shapes ` +
+    `-simplify variable interval="${exact}.includes(shetach) ? 1 : ${rough}.includes(state) ? 2500 : ${fine}.includes(state) ? 100 : country === 'US' ? 400 : 800" keep-shapes ` +
     `-each "size = this.area < 2e9 && !tiny ? 'small' : 'big'" -split size ` +
     `-filter-islands min-area=${ISLAND_MIN_KM2}km2 remove-empty target=big ` +
     '-merge-layers target=big,small force name=areas -filter-fields id,state,name,abbr,country,shetach,as,outside,lake ' +
     '-o world.json format=topojson quantization=100000 ' +
     '-rectangle bbox=-180,-90,180,90 name=frame + ' +
     '-filter "outside" target=areas + name=outside -dissolve country copy-fields=name target=outside ' +
-    '-o outside.json format=topojson quantization=200000 target=outside,frame ' +
+    `-o outside.json format=topojson quantization=${QUANT} target=outside,frame ` +
     '-filter "!outside" target=areas -filter-fields id,state,name,abbr,country,shetach,as target=areas ' +
-    '-o geo.json format=topojson quantization=200000 target=areas,frame',
+    `-o geo.json format=topojson quantization=${QUANT} target=areas,frame`,
     { 'mosaic.json': collectionOf(mosaic) },
   );
-  fs.writeFileSync(path.join(OUT, 'geo.json'), withLandEdges(out['geo.json'], out['outside.json']));
+  fs.writeFileSync(path.join(OUT, 'geo.json'), withExactArcs(withLandEdges(out['geo.json'], out['outside.json']), out['pieces.json']));
   // The whole world, land no shetach covers included (marked outside), for the world names SVG (scripts/export-svg.mjs).
   fs.writeFileSync(at('data', 'world-all.json'), out['world.json']);
   fs.writeFileSync(path.join(OUT, 'outside.json'), out['outside.json']);
@@ -905,7 +911,7 @@ async function buildGeo(data) {
   const lo = await mapshaper.applyCommands('-i world.json -filter "outside" -dissolve country copy-fields=name ' +
     '-simplify 40% keep-shapes -o outside-lo.json format=topojson quantization=50000', { 'world.json': out['world.json'] });
   fs.writeFileSync(path.join(OUT, 'outside-lo.json'), lo['outside-lo.json']);
-  writeTiles(JSON.parse(out['world.json']), new Map(data.shetachim.filter((x) => x.territoryOf).map((x) => [x.id, x.territoryOf])));
+  writeTiles(JSON.parse(out['world.json']), new Map(data.shetachim.filter((x) => x.territoryOf).map((x) => [x.id, x.territoryOf])), JSON.parse(out['pieces.json']));
   const pieces = JSON.parse(out['pieces.json']).features.filter((f) => !f.properties.outside);
   const byStateCount = count(pieces, (f) => f.properties.state);
   const split = byStateCount.filter(([, n]) => n > 1).map(([state]) => state);
@@ -1130,10 +1136,15 @@ const clampNum = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
 //          it belongs to (India and Thailand's shetach), drawn dashed. The page picks the edges its view needs.
 const TILES = path.join(OUT, '..', 'tiles');
 const TILE_ZOOM = 6;
-function writeTiles(topo, parentOf = new Map()) {
+function writeTiles(topo, parentOf = new Map(), pieces = null) {
   const geoms = topo.objects.areas.geometries;
   const { scale: [kx, ky], translate: [dx, dy] } = topo.transform;
   const arcs = topo.arcs.map((arc) => { let x = 0, y = 0; return arc.map(([a, b]) => [(x += a) * kx + dx, (y += b) * ky + dy]); });
+  // the street-level shetachim's borders (Crown Heights, Monsey) as drawn, not on world.json's grid (about 300 m), and
+  // marked ex: the page draws them from geo.json's exact outlines instead (the tiles' own grid, about 58 m at zoom 6, turns
+  // a street a little off the lines of longitude and latitude into steps)
+  const exactSet = new Set();
+  if (pieces) for (const [i, ring] of Object.entries(exactArcsOf(topo, pieces))) { arcs[+i] = ring; exactSet.add(+i); }
   const sides = arcs.map(() => []);
   const visit = (rings, gi) => { for (const ring of rings) for (const a of ring) sides[a < 0 ? ~a : a].push(gi); };
   geoms.forEach((g, gi) => { if (g.type === 'Polygon') visit(g.arcs, gi); else if (g.type === 'MultiPolygon') for (const poly of g.arcs) visit(poly, gi); });
@@ -1156,6 +1167,7 @@ function writeTiles(topo, parentOf = new Map()) {
       ...(a.as || b.as ? { pa: a.as || a.country, pb: b.as || b.country } : {}),
       ...(a.country === 'ISR' && b.country === 'ISR' && a.state !== b.state ? { sa: a.state, sb: b.state } : {}) }
       : { ca: code(a), na: a.country, ...(a.lake ? { lk: 1 } : {}) };
+    if (exactSet.has(i)) props.ex = 1;
     lines.push(featureOf({ type: 'LineString', coordinates: coords }, props));
   });
   const byCode = new Map();
@@ -1218,6 +1230,36 @@ function withLandEdges(geoText, outsideText) {
   geo.landEdges = edges;
   console.log(`land edges: ${Object.keys(edges).length} arcs, ${n} segments next to land no shetach covers`);
   return JSON.stringify(geo);
+}
+
+// The EXACT shetachim's outlines at full precision (geo.json's exactArcs: arc index -> [lon, lat] points), for the page to
+// put in place of the arc on the map's grid after it decodes the topology. Each must be one closed ring (an area inside
+// another: Crown Heights in Greater New York, Monsey in Rockland), so its one arc is the outline both sides share.
+function withExactArcs(geoText, piecesText) {
+  const geo = JSON.parse(geoText);
+  geo.exactArcs = exactArcsOf(geo, JSON.parse(piecesText));
+  console.log(`exact outlines: ${Object.keys(geo.exactArcs).length} (${EXACT.join(', ')})`);
+  return JSON.stringify(geo);
+}
+// (the same for any topology made from the pieces: geo.json, and world.json's arcs for the tiles)
+function exactArcsOf(geo, pieces) {
+  const { scale: [kx, ky], translate: [dx, dy] } = geo.transform;
+  const decode = (arc) => { let x = 0, y = 0; return arc.map(([a, b]) => [(x += a) * kx + dx, (y += b) * ky + dy]); };
+  const signed = (ring) => { let s = 0; for (let i = 1; i < ring.length; i++) s += (ring[i][0] - ring[i - 1][0]) * (ring[i][1] + ring[i - 1][1]); return s; };
+  const exact = {};
+  for (const g of geo.objects.areas.geometries) {
+    const p = g.properties || {};
+    if (!EXACT.includes(p.shetach)) continue;
+    const refs = g.type === 'Polygon' && g.arcs.length === 1 ? g.arcs[0] : null;
+    const f = pieces.features.find((x) => x.properties.id === p.id);
+    const rings = f && f.geometry.type === 'Polygon' && f.geometry.coordinates.length === 1 ? f.geometry.coordinates : null;
+    if (!refs || refs.length !== 1 || !rings) { console.log(`warning: exact outline: ${p.id} isn't one closed ring; drawn on the map's grid`); continue; }
+    const i = refs[0] < 0 ? ~refs[0] : refs[0];
+    let ring = rings[0].map(([x, y]) => [Math.round(x * 1e6) / 1e6, Math.round(y * 1e6) / 1e6]);
+    if (Math.sign(signed(ring)) !== Math.sign(signed(decode(geo.arcs[i])))) ring = ring.reverse(); // the arc's own direction
+    exact[i] = ring;
+  }
+  return exact;
 }
 
 // Area in km² of a GeoJSON (Multi)Polygon, whichever way its rings wind.

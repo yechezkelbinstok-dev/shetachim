@@ -25,13 +25,13 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | maritimes | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | merrimack-valley | 4 | 3 |  |  | 1 |  |  | 1 | 4 | 1 |
 | michigan | 38 | 25 | 9 | 1 | 3 |  |  | 3 | 33 | 1 |
+| monsey | 9 | 6 | 2 |  | 1 |  |  | 1 | 9 | 1 |
 | montana | 6 | 5 | 1 |  |  |  |  | 0 | 6 | 0 |
 | nebraska | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | new-hampshire | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | new-jersey | 91 | 48 | 3 |  | 6 |  | 34 | 40 | 84 | 33 |
 | new-mexico | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | newfoundland-and-labrador | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
-| none | 9 | 6 | 2 |  | 1 |  |  | 1 | 9 | 1 |
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | oklahoma | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | ottawa | 11 | 7 |  |  | 4 |  |  | 4 | 9 | 2 |
@@ -46,14 +46,14 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | washington-dc | 5 | 2 | 3 |  |  |  |  | 0 | 5 | 0 |
 | west-coast | 331 | 198 | 93 |  | 40 |  |  | 40 | 301 | 18 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
-| new-york-city | 201 |  |  |  |  |  | 201 | 201 | 177 | 177 |
+| new-york-city | 200 |  |  |  |  |  | 200 | 200 | 176 | 176 |
 | quebec | 72 |  |  |  |  |  | 72 | 72 | 59 | 59 |
 | ontario | 61 |  |  |  |  |  | 61 | 61 | 56 | 56 |
 | illinois | 59 |  |  |  |  |  | 59 | 59 | 54 | 54 |
 | texas | 58 |  |  |  |  |  | 58 | 58 | 48 | 48 |
 | maryland | 55 |  |  |  |  |  | 55 | 55 | 48 | 48 |
 | eastern-new-york | 50 |  |  |  |  |  | 50 | 50 | 47 | 47 |
-| crown-heights | 47 |  |  |  |  |  | 47 | 47 | 23 | 23 |
+| crown-heights | 48 |  |  |  |  |  | 48 | 48 | 24 | 24 |
 | arizona | 43 |  |  |  |  |  | 43 | 43 | 38 | 38 |
 | eastern-massachusetts | 35 |  |  |  |  |  | 35 | 35 | 32 | 32 |
 | washington | 33 |  |  |  |  |  | 33 | 33 | 31 | 31 |

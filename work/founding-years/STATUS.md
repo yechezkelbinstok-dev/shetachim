@@ -24,7 +24,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | manitoba-saskatchewan | 6 | 5 |  |  | 1 |  |  | 1 | 6 | 1 |
 | maritimes | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | merrimack-valley | 4 | 3 |  |  | 1 |  |  | 1 | 4 | 1 |
-| michigan | 38 | 25 | 8 | 1 | 4 |  |  | 4 | 33 | 2 |
+| michigan | 38 | 25 | 9 | 1 | 3 |  |  | 3 | 33 | 1 |
 | montana | 6 | 5 | 1 |  |  |  |  | 0 | 6 | 0 |
 | nebraska | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | new-hampshire | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | kansas-missouri | 16 |  |  |  |  |  | 16 | 16 | 16 | 16 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
 | british-columbia | 13 |  |  |  |  |  | 13 | 13 | 13 | 13 |
-| **all** | 1969 | 553 | 148 | 1 | 123 | 49 | 1095 | 1267 | 1765 | 1088 |
+| **all** | 1969 | 553 | 149 | 1 | 122 | 49 | 1095 | 1266 | 1765 | 1087 |

@@ -97,5 +97,59 @@
   "source": "https://www.givemiamiday.org/organization/fcmiamibeach",
   "note": "Its own Give Miami Day profile (Friendship Circle Miami Beach North Dade, 260 95th St., Surfside): 'Founded in 2009'. Contact Mendy Dechter. The chabad.org listing (1019035) is from about 2009, which agrees. (The separate Friendship Circle of Miami, Kendall, dates from 2004.)",
   "confidence": "high"
+ },
+ "308007": {
+  "name": "Chabad Israeli Center of Miami",
+  "city": "Miami",
+  "shetach": "florida",
+  "year": 2005,
+  "how": "stated",
+  "source": "https://www.chabadisraeli.info/337898",
+  "note": "Its own About page (in Hebrew): 'הארגון נוסד בשנת תשס\"ה (2005)' - the organization was founded in 5765 (2005). Rabbi Mendy and Chaya Cheruty. Existed by 2012 (earlier bound), which agrees.",
+  "confidence": "high"
+ },
+ "711390": {
+  "name": "Chabad Jewish Center",
+  "city": "Coral Springs",
+  "shetach": "florida",
+  "year": null,
+  "by": 2008,
+  "lead": 2008,
+  "how": "range",
+  "source": "https://www.mychabadcenter.org/",
+  "note": "Its own site's photo galleries include 'Chanukah 2008' and 'Grand Opening Purim Party 2009', and a 'Ten Year Gala Dinner' (undated), so it existed by Dec 2008 (Rabbi Yankie and Chana Denburg, Chabad of Southwest Coral Springs). chabad.org (12 Sept 2011): its new Hebrew school opened 31 Aug 2011. Start year not stated; lead 2008.",
+  "confidence": "range"
+ },
+ "3439472": {
+  "name": "Chabad of West Bradenton",
+  "city": "Bradenton",
+  "shetach": "florida",
+  "year": 2016,
+  "how": "stated",
+  "source": "https://www.chabadofwestbradenton.com/about/about-us-old/",
+  "note": "Its own About page: 'Chabad of West Bradenton was founded in 2016.' Rabbi Zev and Shaina Steinmetz, 4501 Manatee Avenue W. Existed by 2016 (earlier bound), which agrees.",
+  "confidence": "high"
+ },
+ "765096": {
+  "name": "United Jewish Generations",
+  "city": "North Miami Beach",
+  "shetach": "florida",
+  "year": 2004,
+  "how": "stated",
+  "source": "https://www.unitedjewishgenerations.com/templates/articlecco_cdo/aid/828127/jewish/About-Us.htm",
+  "note": "Its own About page: 'United Jewish Generations was established in 2004 by Rabbi Menachem & Devorah Leah Smith' ('also known as Chabad for Seniors'). Chabad.org, 8 Sept 2016, agrees: 'The 12-year-old United Jewish Generations'.",
+  "confidence": "high"
+ },
+ "741144": {
+  "name": "Chabad Youth Network of Florida",
+  "city": "Boca Raton",
+  "shetach": "florida",
+  "year": null,
+  "lead": 2008,
+  "how": "range",
+  "source": "https://www.chabadyouth.com/templates/articlecco_cdo/aid/946843/jewish/About-us-Location.htm",
+  "note": "Its own 'About us - Location' page was published 16 July 2009 (page metadata), so the Chabad Youth Network of Florida (Rabbi Shmuly Gutnick) existed by then; chabad.org news from Sept 2011 and Sept 2014. Its start is not stated.",
+  "confidence": "range",
+  "by": 2009
  }
 }

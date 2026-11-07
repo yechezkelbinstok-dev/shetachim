@@ -8057,13 +8057,11 @@
    "name": "Chabad Israeli Center of Miami",
    "city": "Miami",
    "shetach": "florida",
-   "year": null,
-   "by": 2012,
-   "lead": 2004,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/208249610",
-   "note": "IRS (ProPublica): 'Chabad Hebrew Center Of Miami Beachinc', care of Menachem Cheruty, exempt from 2012-08, so it existed by then (a later re-registration is possible). Start year not found yet; lead: the chabad.org listing is from about 2004.",
-   "confidence": "range"
+   "year": 2005,
+   "how": "stated",
+   "source": "https://www.chabadisraeli.info/337898",
+   "note": "Its own About page (in Hebrew): 'הארגון נוסד בשנת תשס\"ה (2005)' - the organization was founded in 5765 (2005). Rabbi Mendy and Chaya Cheruty. Existed by 2012 (earlier bound), which agrees.",
+   "confidence": "high"
   },
   "312423": {
    "name": "Skylake Chabad",
@@ -8270,11 +8268,11 @@
    "city": "Coral Springs",
    "shetach": "florida",
    "year": null,
-   "by": 2009,
+   "by": 2008,
    "lead": 2008,
    "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/270890485",
-   "note": "IRS (ProPublica): 'Chabad Of Sw Coral Springs Inc', care of Yaakov Denburg, exempt from 2011-12, so it existed by then. Florida Sunbiz: 'CHABAD OF SW CORAL SPRINGS INC', document N09000008576 (filed 2009). Start year not found yet; lead: the chabad.org listing is from about 2008.",
+   "source": "https://www.mychabadcenter.org/",
+   "note": "Its own site's photo galleries include 'Chanukah 2008' and 'Grand Opening Purim Party 2009', and a 'Ten Year Gala Dinner' (undated), so it existed by Dec 2008 (Rabbi Yankie and Chana Denburg, Chabad of Southwest Coral Springs). chabad.org (12 Sept 2011): its new Hebrew school opened 31 Aug 2011. Start year not stated; lead 2008.",
    "confidence": "range"
   },
   "741144": {
@@ -8283,20 +8281,21 @@
    "shetach": "florida",
    "year": null,
    "lead": 2008,
-   "how": "not-found",
-   "source": null,
-   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 2008.",
-   "confidence": "open"
+   "how": "range",
+   "source": "https://www.chabadyouth.com/templates/articlecco_cdo/aid/946843/jewish/About-us-Location.htm",
+   "note": "Its own 'About us - Location' page was published 16 July 2009 (page metadata), so the Chabad Youth Network of Florida (Rabbi Shmuly Gutnick) existed by then; chabad.org news from Sept 2011 and Sept 2014. Its start is not stated.",
+   "confidence": "range",
+   "by": 2009
   },
   "765096": {
    "name": "United Jewish Generations",
    "city": "North Miami Beach",
    "shetach": "florida",
    "year": 2004,
-   "how": "news",
-   "source": "https://www.chabad.org/news/article_cdo/aid/3426781",
-   "note": "Chabad.org, 8 Sept 2016 ('First-Time Florida Bike-a-Thon Champions Seniors'): 'The 12-year-old United Jewish Generations provides services such as a retiree club' (so about 2004); Rabbi Menachem Smith, director. One count-back only.",
-   "confidence": "medium"
+   "how": "stated",
+   "source": "https://www.unitedjewishgenerations.com/templates/articlecco_cdo/aid/828127/jewish/About-Us.htm",
+   "note": "Its own About page: 'United Jewish Generations was established in 2004 by Rabbi Menachem & Devorah Leah Smith' ('also known as Chabad for Seniors'). Chabad.org, 8 Sept 2016, agrees: 'The 12-year-old United Jewish Generations'.",
+   "confidence": "high"
   },
   "821426": {
    "name": "Mesivta of Coral Springs",
@@ -8558,13 +8557,11 @@
    "name": "Chabad of West Bradenton",
    "city": "Bradenton",
    "shetach": "florida",
-   "year": null,
-   "by": 2016,
-   "lead": 2016,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/813957683",
-   "note": "IRS (ProPublica): 'Chabad Of West Bradenton Inc', care of Zev Steinmetz, exempt from 2017-03, so it existed by then. Florida Sunbiz: 'CHABAD OF WEST BRADENTON INC.', document N16000009363 (filed 2016). Start year not found yet; lead: therebbesimpact.com 2016.",
-   "confidence": "range"
+   "year": 2016,
+   "how": "stated",
+   "source": "https://www.chabadofwestbradenton.com/about/about-us-old/",
+   "note": "Its own About page: 'Chabad of West Bradenton was founded in 2016.' Rabbi Zev and Shaina Steinmetz, 4501 Manatee Avenue W. Existed by 2016 (earlier bound), which agrees.",
+   "confidence": "high"
   },
   "3511251": {
    "name": "Mikvah Cape Coral",

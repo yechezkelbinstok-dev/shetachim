@@ -161,3 +161,12 @@ notes already written were mined for the old places they mention (batches small-
 - **Chabad.org's centers API (free, plain curl):** `https://www.chabad.org/api/v2/chabadorg/centers/locations?id=2-<zip>&format=jsonapi&lang=en`
   returns the 50 centers nearest a ZIP code with their street addresses (the listing pages themselves are behind a bot
   check, so they are not used).
+- **lubavitch.com's old center directory, 2009-2011 (Wayback, through Firecrawl):**
+  `web.archive.org/web/2010id_/http://lubavitch.com/centers/list.html?Country=USA&State=CA&City=<City>` (California, all
+  captured Aug 29 2010; use chabad.org's city spellings, e.g. `S.%20Monica`) and `...list.html?Country=&City=<City>`
+  (any state or country, mostly Dec 28 2009, some Aug-Sept 2011) list each city's centers with street address and
+  director, first 10 per city only (page 2 was not archived). Scrape with `includeTags: ["table","strong"]` to keep a
+  page to ~1k tokens (1 credit). Compared with today's addresses this dated 36 California moves, 5 Michigan and 19 in
+  the small shetachim ("moved after 2010"); the saved addresses are in the scratchpad (lub2010/addr2010.json,
+  addr2009.json). Misses (404): Las Vegas, Simi Valley, Vista, Granite Bay, Encinitas, Napa, Moorpark, Laguna Hills,
+  Vacaville, Toluca Lake, Granada Hills.

@@ -4511,12 +4511,12 @@
    "name": "Chabad at Porter Ranch",
    "city": "Porter Ranch",
    "shetach": "west-coast",
-   "year": null,
+   "year": 2007,
    "lead": 2007,
-   "how": "not-found",
-   "confidence": "open",
-   "source": "https://www.chabadporterranch.org/templates/articlecco_cdo/aid/549337/jewish/About-Us.htm",
-   "note": "No year found (Rabbi Yochonon and Chana Fruma Baitelman). therebbesimpact.com: 2007; the listing number agrees."
+   "how": "first-mention",
+   "confidence": "medium",
+   "source": "https://www.chabadofthevalley.com/templates/articlecco_cdo/aid/499781/jewish/Porter-Ranch.htm",
+   "note": "The earliest mention found: Chabad of the Valley added a page for its new branch, 'Porter Ranch - Rabbi Yochonon Baitelman', on April 12 2007 (chabad.org's record of that page); Chabad at Porter Ranch's own chabad.org listing followed on Aug 2 2007 and its own site's About page on Aug 13 2007. So 2007 (first mention, medium); therebbesimpact.com also has 2007. Rabbi Yochonon and Chana Fruma Baitelman; its IRS ruling is from Nov 2011."
   },
   "117577": {
    "name": "Chabad of North Hollywood",
@@ -5491,16 +5491,16 @@
    "name": "Chabad of Lake Encino",
    "city": "Encino",
    "shetach": "west-coast",
-   "year": null,
+   "year": 2008,
    "lead": 2008,
-   "how": "not-found",
-   "confidence": "open",
-   "source": "https://www.chabadoflakeencino.com/templates/articlecco_cdo/aid/773372/jewish/About-Us.htm",
-   "note": "No year found (Rabbi Yochanan and Shoshana Manssouri). therebbesimpact.com: 2008; the listing number (757557) and its nonprofit's EIN (26-3856429) both point to 2008.",
+   "how": "first-mention",
+   "confidence": "medium",
+   "source": "https://www.chabadofthevalley.com/templates/articlecco_cdo/aid/763933/jewish/Lake-Encino.htm",
+   "note": "The earliest mentions found are all from late 2008: its chabad.org listing (published Oct 29 2008), Chabad of the Valley's page for the branch, 'Lake Encino - Rabbi Yochanan Mansouri' (Nov 10 2008), and its own site's About page (Nov 27 2008, then at 18145 Hatteras Street, Tarzana). Its nonprofit's EIN (26-3856429) was issued in 2008 too. So 2008 (first mention, medium); therebbesimpact.com also has 2008. Rabbi Yochanan and Shoshana Manssouri; now at 18158 Medley Drive, Encino.",
    "earlier": [
     {
-     "where": "18145 Hatteras St, Tarzana (an older footer on its own site), and 17977 Medley Dr, Encino (Chabad of the Valley's page); now 18158 Medley Dr",
-     "from": null,
+     "where": "18145 Hatteras Street, Tarzana",
+     "from": 2008,
      "until": null,
      "source": "https://www.chabadoflakeencino.com/templates/articlecco_cdo/aid/773372/jewish/About-Us.htm"
     }
@@ -5992,23 +5992,25 @@
    "name": "Chabad of Southwest Las Vegas",
    "city": "Las Vegas",
    "shetach": "west-coast",
-   "year": null,
+   "year": 2012,
    "lead": 2012,
-   "how": "not-found",
-   "confidence": "open",
-   "source": "https://special.library.unlv.edu/jewishheritage/congregations/chabad-of-southwest",
-   "note": "No year found (Rabbi Levi and Chayala Wilhelm). therebbesimpact.com: 2012; the listing number (1990199) is from about late 2012."
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.charidy.com/swvegas/WilhelmSiblings",
+   "note": "Its own building campaign on Charidy, in the Wilhelms' words: 'In the fall of 2012, we moved to the southwest part of Las Vegas with a vision to reach every Jew with love ... Over the past ten years, a beautiful and caring Jewish community has taken form.' Its chabad.org listing was published Oct 18 2012. Rabbi Levi and Chayala Wilhelm; ground was broken for its permanent home on Sept 13 2025 (Congressional Record, Sept 11 2025).",
+   "season": "fall"
   },
   "2263673": {
    "name": "Chabad East Las Vegas / Or Bamidbar Chabad",
    "city": "Las Vegas",
    "shetach": "west-coast",
-   "year": null,
+   "year": 2013,
    "lead": 2013,
-   "how": "not-found",
-   "confidence": "open",
-   "source": "https://www.chabad.vegas/templates/articlecco_cdo/aid/2929134/jewish/About.htm",
-   "note": "No year found (Rabbi Yosef Yitzchok and Miriam Shuchat). therebbesimpact.com: 2013; the listing number (2263673) is from mid-2013."
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/shlichus/392932/new-shluchim-to-las-vegas/",
+   "note": "CrownHeights.info, July 10 2013 ('New Shluchim to Las Vegas'): 'Rabbi and Mrs. Yosef Yitzchok and Miriam Bryna Shuchat, along with their daughter Mushka, will be moving on Shlichus to Las Vegas, Nevada, where they will establish Chabad of Eastside Las Vegas, and serve as Rabbi of the Or Bamidbar Chabad Synagogue.' COLlive reported it the same day. Its chabad.org listing was published July 12 2013. (No trace of the Or Bamidbar synagogue before them was found.)",
+   "date": "2013-07"
   },
   "5523204": {
    "name": "Chabad Learning Center of Northern Nevada",

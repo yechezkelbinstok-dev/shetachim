@@ -52,7 +52,9 @@ on chabad.org and nothing shows a Merkos appointment. **Downgraded houses** (the
 Jabad Mendoza, Chabad Pedro (Guatemala), Chabad of Namibia, Quito's Casa Jabad (against: lubavitch.com called the
 Rotems Chabad representatives in 2008), Chabad of Ethiopia and its Bole airport shul (against: Rabbi Shlomo Bentolila
 announced Rabbi Eliyahu Chaviv official in April 2020, but unlike Kenya's Rabbi Levi Notik, named in the same
-announcement, he was never listed on chabad.org). 93 mushrooms in all. **Kept as official, checked:** Pisac (its rabbi
+announcement, he was never listed on chabad.org). Then (owner: "Also add the village synagogue fogelman the one in LA") Rabbi Zalmy
+Fogelman's Village Synagogue, 7866 Fountain Avenue, West Hollywood: a mushroom (not on chabad.org; "inspired by the Chabad
+philosophy"). 94 mushrooms in all. **Kept as official, checked:** Pisac (its rabbi
 and rebbetzin are on chabad.org at Chabad of Cusco); Zanzibar (founded 2018 under Chabad of Central Africa, per
 chabad.org); Panama (many centers on chabad.org; Rabbi Aaron Laine, not on chabad.org himself, is called its head
 shliach); Armenia (chabad.org's own article on Rabbi Gershon Burshtein's Chabad house, since 1995). A check of every

@@ -1010,7 +1010,7 @@
 {"name":"Poissy","region":"FRA","country":"FRA","lat":48.92902,"lon":2.04952,"pop":36431,"centers":1,"piece":"FRA:france"},
 {"name":"Claremont","region":"US-CA","country":"US","lat":34.09668,"lon":-117.71978,"pop":36283,"centers":1,"piece":"US-CA:west-coast"},
 {"name":"Frankston","region":"AU-VIC","country":"AUS","lat":-38.14458,"lon":145.12291,"pop":36239,"centers":1,"piece":"AU-VIC:victoria"},
-{"name":"West Hollywood","region":"US-CA","country":"US","lat":34.09001,"lon":-118.36174,"pop":36222,"centers":3,"piece":"US-CA:west-coast"},
+{"name":"West Hollywood","region":"US-CA","country":"US","lat":34.09001,"lon":-118.36174,"pop":36222,"centers":4,"mushrooms":1,"piece":"US-CA:west-coast"},
 {"name":"Ramat HaSharon","region":"ISR","country":"ISR","lat":32.14613,"lon":34.8394,"pop":36137,"centers":7,"piece":"ISR:israel"},
 {"name":"Commack","region":"US-NY","country":"US","lat":40.84288,"lon":-73.29289,"pop":36124,"centers":2,"piece":"US-NY:new-york-city"},
 {"name":"Moorpark","region":"US-CA","country":"US","lat":34.28556,"lon":-118.88204,"pop":36104,"centers":1,"piece":"US-CA:west-coast"},

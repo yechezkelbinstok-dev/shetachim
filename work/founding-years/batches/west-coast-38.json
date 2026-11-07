@@ -1,0 +1,35 @@
+{
+ "4999325": {
+  "name": "The Gan - Alameda Jewish Preschool",
+  "city": "Alameda",
+  "shetach": "west-coast",
+  "year": null,
+  "lead": 2021,
+  "how": "range",
+  "confidence": "range",
+  "source": "https://web.archive.org/web/20201024023446/https://www.theganalameda.com/",
+  "note": "No start year found. Chabad of Alameda's preschool (Mushki Shmotkin): its site as archived Oct 24 2020 already describes 'a Large Family Day Care Home in Alameda' using 'three rooms of a beautiful sun-lit home' overlooking the Alameda lagoon, and speaks of preparing 'to reopen our school' after Covid, so it ran by 2020 (likely before March 2020); Chabad of Alameda itself began in Aug 2017, so not before then. Its chabad.org listing went up Jan 5 2021 (now 1516 Oak Street, #316); the site's domain has since lapsed.",
+  "after": 2017,
+  "by": 2020
+ },
+ "3324345": {
+  "name": "Chabad of Chula Vista",
+  "city": "Chula Vista",
+  "shetach": "west-coast",
+  "year": 2016,
+  "lead": 2016,
+  "how": "directory",
+  "confidence": "medium",
+  "source": "https://www.bizprofile.net/ca/chula-vista/chabad-of-chula-vista",
+  "note": "California Secretary of State record (via BizProfile): 'Chabad Of Chula Vista ... Officially filed on May 13, 2016' (document 3907609; filed as Chabad Of Southern Chula Vista, renamed Oct 2018; Rabbi Menachem Begun, CEO). The corporation's filing, not a report of its opening, so medium. Its chabad.org listing was published June 27 2016. Rabbi Mendel and Mushka Katz 'moved here to re-establish Chabad' in 2025 (Instagram) and are now its officers. Its IRS record (ruling Nov 2016, via ProPublica) gives 1910 Harrils Mill Ave.; its state filings now give 2086 Otay Lakes Rd #101.",
+  "date": "2016-05-13",
+  "earlier": [
+   {
+    "where": "1910 Harrils Mill Ave., Chula Vista (the address on its IRS record, Rabbi Menachem Begun's)",
+    "from": 2016,
+    "until": null,
+    "source": "https://projects.propublica.org/nonprofits/organizations/812711255"
+   }
+  ]
+ }
+}

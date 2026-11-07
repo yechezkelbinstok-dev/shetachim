@@ -59,6 +59,17 @@ then, on a first version that switched to Physical: "No no no no no the button i
 `#zbase` in `#zoomctl` shows the map it switches to (a map of countries: Political; a road: Streets) and clicks the
 panel's Map button for it; from Physical or Tinted it goes to Streets. If the street map's style doesn't load, the
 page opens on Political with "The street map couldn't load."
+**The Countries map, redone** (owner, Nov 7: "Countries mode should have an option to make Us and Canada full countries
+with their real borders I think", "Also stuff like lower Balkans and stuff should be split also in country mode also the
+country cards look horrible and atrocious rn"): **"USA & Canada as whole countries"** (a switch under Borders with
+Countries or Both, in the world views; remembered): one colour each (`cw`), no state or province lines (their lines
+are their own kind, `regna`, left out; on the street maps `st-line-state` leaves out `na` US/CA), named "United
+States" and "Canada", and one card each. **The heads' names split by country** with Countries: each country's part
+of a shetach named on its own (`S.splits`: the Lower Balkans' Yoel Kaplan over Albania, Kosovo, North Macedonia,
+Bosnia and northern Greece each). **The country card** is built as a shetach's: no "Country"/"State" over the name,
+its colour on the map, each shetach covering it as a head with his photo (the shetach's or its part's name over his
+where it isn't the country's own, the most centers first; a whole USA's after the first four folded under "+55
+more"), the country's own head as a person too, then the count.
 **Mushroom networks go by their own names** (owner, Nov 7: "Shouldn't kanelskys network be called Bris Avrohom? In
 general a lot are just named after head when maybe they can have a better name no? Like Phillipines maybe should just
 be called Chabad Phillipines", then "not chabad of Japan - that implies is the real chabad of Japan unlike in the

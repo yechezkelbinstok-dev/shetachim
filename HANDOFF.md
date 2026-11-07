@@ -53,6 +53,14 @@ listings. Both outlines reach the page unsimplified and off the map's grid (`EXA
 geo.json's `exactArcs`, the tiles' `ex` lines). **No "Shetach" above a shetach's name on its card** (owner, Nov 7:
 "get rid of the word shetach it makes no sense actually"); the sub-shetach card's "Sub-shetach" is as it was (not
 asked).
+**Mushroom networks go by their own names** (owner, Nov 7: "Shouldn't kanelskys network be called Bris Avrohom? In
+general a lot are just named after head when maybe they can have a better name no? Like Phillipines maybe should just
+be called Chabad Phillipines", then "not chabad of Japan - that implies is the real chabad of Japan unlike in the
+Philippines and such where there's no official one to compete with"): **Bris Avrohom** (Kanelsky's; his son Yossi's
+Marlboro center left the network, as the 2011 settlement says it "will not be associated with ... Bris Avrohom"),
+**Chabad of the Philippines** (Yossi Levy) and **Chabad of Sri Lanka** (Crombie), countries with no official Chabad.
+The rest keep their heads' names: Edery (Japan has official Chabad), the Kupchik family (India, Bolivia, Mexico,
+Tanzania; only its India houses have a name, Chabad of India) and the ones with no name of their own.
 **Mushrooms from the DansDeals master list** (owner, Nov 7: "I'm sure this can help add a ton of mushrooms right?",
 "you have to properly look up ... networks", then "Did you also downgrade ones we accidentally had as official like
 pisac????"): forums.dansdeals.com topic 102660, "Master List Of Unofficial Chabad Houses" (wiki edited Oct 7, 2026;

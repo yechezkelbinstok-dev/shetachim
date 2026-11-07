@@ -41,12 +41,23 @@ the whole thread read, via Firecrawl: the forum answers WebFetch with 403). Each
 chabad.org's directory and staff (data/raw), and its own site or the news. **Added 21** (87 mushrooms now), with new
 networks Turen family (Chicago's Moshiach Center, Rabbi Eli Turen, father of Rabbi Mendy Turen's Chabad of
 Springfield, IL), Mosheh Serebryanski (Byron Bay and the Gold Coast) and Maon Noam (three Toronto-area shuls); Rabbi
-Yossi Kanelsky's Marlboro center joins Mottel Kanelsky's network. **Downgraded 3** that were wrongly official:
-Jabad Mendoza, Chabad Pedro (Guatemala), Chabad of Namibia. **Left official:** Pisac (its rabbi and rebbetzin are on
-chabad.org at Chabad of Cusco); Belize, El Salvador, Honduras (the list calls them unofficial, but their rabbis are
-the head shluchim on the owner's own list); Zanzibar (founded in 2018 under Chabad of Central Africa). **Open for the
-owner:** Quito's Casa Jabad (Rabbi Tomer Rotem: not on chabad.org and the list calls it unofficial, but lubavitch.com
-called the Rotems Chabad's representatives to Ecuador in 2008). Not added: shuls with no Chabad name (Sydney's Coogee,
+Yossi Kanelsky's Marlboro center joins Mottel Kanelsky's network.
+**Owner (Nov 7), the rule for official vs. mushroom:** the owner's own shetach list is NOT proof ("The whole fucking
+point of this is that I made mistakes like by levy ... This is you independently figuring out if it was a mistake and
+then downgrading accordingly"); "If indeed they end up being official under merkoz (chabad.org isn't only
+verification even if it is the main verification) then you can keep them - otherwise they get the phillipines sri
+Lanka treatment fully". So: **Belize, El Salvador and Honduras are now in no shetach** (shetachim and Hebrew entries
+gone, `blank` has BLZ/SLV/HND), each one house a mushroom: none of the houses or rabbis (Belhamou, Brod, Reichman) is
+on chabad.org and nothing shows a Merkos appointment. **Downgraded houses** (their countries keep official shetachim):
+Jabad Mendoza, Chabad Pedro (Guatemala), Chabad of Namibia, Quito's Casa Jabad (against: lubavitch.com called the
+Rotems Chabad representatives in 2008), Chabad of Ethiopia and its Bole airport shul (against: Rabbi Shlomo Bentolila
+announced Rabbi Eliyahu Chaviv official in April 2020, but unlike Kenya's Rabbi Levi Notik, named in the same
+announcement, he was never listed on chabad.org). 93 mushrooms in all. **Kept as official, checked:** Pisac (its rabbi
+and rebbetzin are on chabad.org at Chabad of Cusco); Zanzibar (founded 2018 under Chabad of Central Africa, per
+chabad.org); Panama (many centers on chabad.org; Rabbi Aaron Laine, not on chabad.org himself, is called its head
+shliach); Armenia (chabad.org's own article on Rabbi Gershon Burshtein's Chabad house, since 1995). A check of every
+shetach head against chabad.org's staff lists found no other head without official backing (Saudi Arabia's Garelik
+is the owner's, above). Not added: shuls with no Chabad name (Sydney's Coogee,
 Cremorne and Newtown; São Paulo's Knesset Israel and Monte Sinai; Toronto's Shaarei Torah; Ste-Agathe; Vancouver's
 Kollel; Palm Beach Synagogue; Young Israel of Tampa), official ones (Chevra Thilim SF, Iyyun, Canton's Chai Center),
 closed or not found (London's Beis Moshiach, Dahab, Caye Caulker, Westwood, Almaden Valley, Tampa's Chabad of Central

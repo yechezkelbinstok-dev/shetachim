@@ -3402,28 +3402,6 @@
    ]
   },
   {
-   "id": "belize",
-   "name": "Belize",
-   "short": "Bel.",
-   "headShliach": "Mendel Belhamou",
-   "capital": {
-    "centerId": "extra-belize-san-pedro",
-    "name": "Chabad House Belize",
-    "city": "San Pedro",
-    "lat": 17.90875,
-    "lon": -87.97808
-   },
-   "capitals": [
-    {
-     "centerId": "extra-belize-san-pedro",
-     "name": "Chabad House Belize",
-     "city": "San Pedro",
-     "lat": 17.90875,
-     "lon": -87.97808
-    }
-   ]
-  },
-  {
    "id": "guatemala",
    "name": "Guatemala",
    "short": "Guat.",
@@ -3442,48 +3420,6 @@
      "city": "Guatemala City",
      "lat": 14.63422,
      "lon": -90.51142
-    }
-   ]
-  },
-  {
-   "id": "el-salvador",
-   "name": "El Salvador",
-   "short": "El Salv.",
-   "headShliach": "Yudi Brod",
-   "capital": {
-    "name": "Chabad House El Tunco",
-    "city": "El Tunco",
-    "lat": 13.493,
-    "lon": -89.383
-   },
-   "capitals": [
-    {
-     "name": "Chabad House El Tunco",
-     "city": "El Tunco",
-     "lat": 13.493,
-     "lon": -89.383
-    }
-   ]
-  },
-  {
-   "id": "honduras",
-   "name": "Honduras",
-   "short": "Hond.",
-   "headShliach": "Naftali Reichman",
-   "capital": {
-    "centerId": "extra-honduras-roatan",
-    "name": "Chabad of Honduras",
-    "city": "Roatán",
-    "lat": 16.30467,
-    "lon": -86.59286
-   },
-   "capitals": [
-    {
-     "centerId": "extra-honduras-roatan",
-     "name": "Chabad of Honduras",
-     "city": "Roatán",
-     "lat": 16.30467,
-     "lon": -86.59286
     }
    ]
   },

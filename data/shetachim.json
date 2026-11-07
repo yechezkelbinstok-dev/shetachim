@@ -2137,16 +2137,6 @@
       }
     },
     {
-      "id": "belize",
-      "name": "Belize",
-      "short": "Bel.",
-      "headShliach": "Mendel Belhamou",
-      "territory": [
-        "BLZ"
-      ],
-      "capital": { "centerId": "extra-belize-san-pedro" }
-    },
-    {
       "id": "guatemala",
       "name": "Guatemala",
       "short": "Guat.",
@@ -2157,31 +2147,6 @@
       "capital": {
         "centerId": "118392"
       }
-    },
-    {
-      "id": "el-salvador",
-      "name": "El Salvador",
-      "short": "El Salv.",
-      "headShliach": "Yudi Brod",
-      "territory": [
-        "SLV"
-      ],
-      "capital": {
-        "name": "Chabad House El Tunco",
-        "city": "El Tunco",
-        "lat": 13.493,
-        "lon": -89.383
-      }
-    },
-    {
-      "id": "honduras",
-      "name": "Honduras",
-      "short": "Hond.",
-      "headShliach": "Naftali Reichman",
-      "territory": [
-        "HND"
-      ],
-      "capital": { "centerId": "extra-honduras-roatan", "name": "Chabad of Honduras" }
     },
     {
       "id": "nicaragua",
@@ -2378,7 +2343,10 @@
     { "state": "US-NY", "shape": "monsey", "name": "Monsey (out of Rockland)" },
     { "country": "BOL", "name": "Bolivia: on the map, with its centers (the La Paz mushroom), in no shetach" },
     { "country": "PHL", "name": "Philippines: on the map, with its centers (Rabbi Yossi Levy's network, all mushrooms), in no shetach" },
-    { "country": "LKA", "name": "Sri Lanka: on the map, with its centers (Rabbi Mendy Crombie's network, all mushrooms), in no shetach" }
+    { "country": "LKA", "name": "Sri Lanka: on the map, with its centers (Rabbi Mendy Crombie's network, all mushrooms), in no shetach" },
+    { "country": "BLZ", "name": "Belize: on the map, with its center (Rabbi Mendel Belhamou's, a mushroom), in no shetach" },
+    { "country": "SLV", "name": "El Salvador: on the map, with its center (Rabbi Yudi Brod's, a mushroom), in no shetach" },
+    { "country": "HND", "name": "Honduras: on the map, with its center (Rabbi Naftali Reichman's, a mushroom), in no shetach" }
   ],
   "notShownWhenBlank": [
     "CA-BC",

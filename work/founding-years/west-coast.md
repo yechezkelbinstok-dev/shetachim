@@ -170,3 +170,7 @@ notes already written were mined for the old places they mention (batches small-
   the small shetachim ("moved after 2010"); the saved addresses are in the scratchpad (lub2010/addr2010.json,
   addr2009.json). Misses (404): Las Vegas, Simi Valley, Vista, Granite Bay, Encinitas, Napa, Moorpark, Laguna Hills,
   Vacaville, Toluca Lake, Granada Hills.
+- **Instagram post dates (free, offline):** a post's shortcode (instagram.com/p/<code>) decodes to its media id
+  (base64 alphabet A-Z a-z 0-9 - _), and `(id >> 23) + 1314220021721` is the posting time in ms. Checked on known posts
+  (Martha's Vineyard, Oct 2022; Palisades, Dec 2024). Chabad.org's 'WELCOME! New Chabad Center in X' posts come months
+  after the listing (Bexley: listing July 2025, post April 2026), so they date the post, not the start.

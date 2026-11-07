@@ -473,8 +473,16 @@
    "year": 2009,
    "how": "list",
    "source": "https://digital.bentley.umich.edu/djnews/djn.2024.07.04.001/7",
-   "note": "Detroit Jewish News (4 July 2024) list of Michigan Chabad institutions founded since 1994: 'Chabad-Lubavitch of Bingham Farms - 2009'. Only this list gives 2009; the first Jewish News mention found is Dec 2016.",
-   "confidence": "low"
+   "note": "Detroit Jewish News (4 July 2024) list of Michigan Chabad institutions founded since 1994: 'Chabad-Lubavitch of Bingham Farms - 2009'. Only this list gives 2009; the first Jewish News mention found is Dec 2016. Archived copies of its chabad.org listing (Wayback Machine) show it at 29300 Lancaster Drive, Suite 204, Southfield (July 2011); it is now at 7475 Wing Lake Road, Bloomfield Hills, listed there by Jan 2015, so it moved there between July 2011 and Jan 2015.",
+   "confidence": "low",
+   "earlier": [
+    {
+     "where": "29300 Lancaster Drive, Suite 204, Southfield (its address on its chabad.org listing as archived July 26 2011)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20110726185421/http://www.chabad.org:80/centers/default_cdo/aid/953328/jewish/Chabad-Lubavitch-of-Bingham-Farms.htm"
+    }
+   ]
   },
   "2435135": {
    "name": "Chabad of Greater Downtown Detroit",
@@ -501,8 +509,16 @@
    "year": 2016,
    "how": "stated",
    "source": "https://www.chabad.org/article.asp?aid=3468863",
-   "note": "Chabad.org, 19 Oct 2016: 'co-directors of the recently founded Chabad of Bloomfield Hills', the Dubovs having just moved to the Detroit area; the Jewish News (2020) also says 2016. The July 2024 list's 2017 is a year off.",
-   "confidence": "high"
+   "note": "Chabad.org, 19 Oct 2016: 'co-directors of the recently founded Chabad of Bloomfield Hills', the Dubovs having just moved to the Detroit area; the Jewish News (2020) also says 2016. The July 2024 list's 2017 is a year off. Archived copies of its chabad.org listing (Wayback Machine) show it at 880 North Pemberton Road, Bloomfield Hills (Apr 2017); it is now at 3805 Quarton Road, Bloomfield Hills, listed there by Feb 2018, so it moved there between Apr 2017 and Feb 2018.",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "880 North Pemberton Road, Bloomfield Hills (its address on its chabad.org listing as archived Apr 29 2017)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20170429192209/http://www.chabad.org:80/centers/default_cdo/aid/3393324/jewish/Chabad-Jewish-Center-of-Bloomfield-Hills.htm"
+    }
+   ]
   },
   "3829994": {
    "name": "MSU Chabad",
@@ -511,8 +527,16 @@
    "year": 2018,
    "how": "list",
    "source": "https://digital.bentley.umich.edu/djnews/djn.2024.07.04.001/7",
-   "note": "Detroit Jewish News (4 July 2024) list: 'Chabad Student Center at MSU - 2018'; founded by Rabbi Bentzion and Simi Shemtov (Jewish News, 2019).",
-   "confidence": "medium"
+   "note": "Detroit Jewish News (4 July 2024) list: 'Chabad Student Center at MSU - 2018'; founded by Rabbi Bentzion and Simi Shemtov (Jewish News, 2019). Archived copies of its chabad.org listing (Wayback Machine) show it at 432 Kensington Road, East Lansing (Feb 2019); it is now at 115 Albert Avenue, East Lansing, so it moved there after Feb 2019 (when, not found).",
+   "confidence": "medium",
+   "earlier": [
+    {
+     "where": "432 Kensington Road, East Lansing (its address on its chabad.org listing as archived Feb 28 2019)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20190228054545/https://www.chabad.org/centers/default_cdo/aid/3829994/jewish/Chabad-Student-Center-at-MSU.htm"
+    }
+   ]
   },
   "4040602": {
    "name": "Royal Oak Chabad Jewish Center",
@@ -1019,8 +1043,16 @@
    "date": "2015-09",
    "how": "news",
    "source": "https://crownheights.info/shlichus/508714/non-jews-help-jump-start-new-alaska-chabad-center",
-   "note": "CrownHeights.info, 9 Nov 2015: Rabbi Mendy and Chaya Greenberg 'moved into their new home on a quiet dirt road in Wasilla, Alaska, one week before the High Holidays' (Sept 2015); a 2017 release: 'founded in 2015'.",
-   "confidence": "high"
+   "note": "CrownHeights.info, 9 Nov 2015: Rabbi Mendy and Chaya Greenberg 'moved into their new home on a quiet dirt road in Wasilla, Alaska, one week before the High Holidays' (Sept 2015); a 2017 release: 'founded in 2015'. Archived copies of its chabad.org listing (Wayback Machine) show it at 2301 Lynx Circle, Wasilla (Aug 2016, Jan 2018); it is now at 9530 East Horse Play Circle, Palmer, listed there by Jan 2021, so it moved there between Jan 2018 and Jan 2021.",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "2301 Lynx Circle, Wasilla (its address on its chabad.org listing as archived Aug 25 2016 to Jan 5 2018)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20160825172702/http://www.chabad.org:80/centers/default_cdo/aid/3116169/jewish/Mat-Su-Jewish-Center-Chabad-Lubavitch.htm"
+    }
+   ]
   },
   "6394348": {
    "name": "Fairbanks Jewish Center - Chabad Lubavitch",
@@ -1040,7 +1072,7 @@
    "year": 1998,
    "how": "stated",
    "source": "https://www.chabadcolumbus.com/templates/articlecco_cdo/aid/4667827/jewish/About-Chabad-Columbus.htm",
-   "note": "Rabbi Areyah Kaltmann: 'We began our work in New Albany in 1998.' The Kaltmanns themselves 'set out in 1991 to light up central Ohio', first as directors of the OSU Chabad House (its own page); that start is on the OSU dot.",
+   "note": "Rabbi Areyah Kaltmann: 'We began our work in New Albany in 1998.' The Kaltmanns themselves 'set out in 1991 to light up central Ohio', first as directors of the OSU Chabad House (its own page); that start is on the OSU dot. This chabad.org listing (117950) was Schottenstein Chabad House at 207 East 15th Avenue, Columbus (the OSU house), Rabbi Areyah Kaltmann, in its archived copies of Dec 2007 to Apr 2011 (https://web.archive.org/web/20100603234000/http://www.chabad.org:80/centers/default_cdo/aid/117950/jewish/Schottenstein-Chabad-House.htm); by May 2014 it was Chabad of Columbus at 6220 East Dublin Granville Road, New Albany. The OSU house now has its own listing (349392).",
    "confidence": "high"
   },
   "349392": {
@@ -1204,8 +1236,16 @@
    "date": "2012-08",
    "how": "news",
    "source": "https://crownheights.info/shlichus/46440/new-shluchim-to-washington-d-c",
-   "note": "CrownHeights.info, 23 Aug 2012: 'Rabbi Yehoshua and Esti Hecht will iy\"h be moving to the American University Area in Northwest Washington, DC', appointed by Rabbi Levi Shemtov.",
-   "confidence": "high"
+   "note": "CrownHeights.info, 23 Aug 2012: 'Rabbi Yehoshua and Esti Hecht will iy\"h be moving to the American University Area in Northwest Washington, DC', appointed by Rabbi Levi Shemtov. Archived copies of its chabad.org listing (Wayback Machine) show it at 3040 Idaho Avenue NW, Washington (Feb 2015, Dec 2019); it is now at 4357 Westover Place NW, Washington, so it moved there after Dec 2019 (when, not found).",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "3040 Idaho Avenue NW, Washington (its address on its chabad.org listing as archived Feb 8 2015 to Dec 13 2019)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20150208035902/http://www.chabad.org:80/centers/default_cdo/aid/1944096/jewish/Chabad-Lubavitch-of-the-AU-Community.htm"
+    }
+   ]
   },
   "3077645": {
    "name": "Chabad Georgetown",
@@ -1275,8 +1315,22 @@
    "year": 2014,
    "how": "news",
    "source": "https://crownheights.info/shlichus/552562/jewish-life-gets-a-jump-in-mobile",
-   "note": "Chabad.org (2016, at the opening of the Olender Chabad House): 'it was only two years ago' that Mobile was added to Chabad's map; Anash (2025): 'in just 11 years' the Goldwassers; therebbesimpact.com: 2014. They came from Crown Heights after a first visit at Chanukah (SJL, 'Mobile gaining new Chabad presence').",
-   "confidence": "high"
+   "note": "Chabad.org (2016, at the opening of the Olender Chabad House): 'it was only two years ago' that Mobile was added to Chabad's map; Anash (2025): 'in just 11 years' the Goldwassers; therebbesimpact.com: 2014. They came from Crown Heights after a first visit at Chanukah (SJL, 'Mobile gaining new Chabad presence'). Archived copies of its chabad.org listing (Wayback Machine) show it at 288 Mayflower Street, Mobile (Aug 2014, Feb 2017); then 812 Downtowner Boulevard, Suite F, Mobile (Dec 2019); it is now at 451 Azalea Road, Mobile, so it moved there after Dec 2019 (when, not found).",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "288 Mayflower Street, Mobile (its address on its chabad.org listing as archived Aug 26 2014 to Feb 26 2017)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20140826205515/http://www.chabad.org:80/centers/default_cdo/aid/2541793/jewish/Chabad-of-Mobile.htm"
+    },
+    {
+     "where": "812 Downtowner Boulevard, Suite F, Mobile (its address on its chabad.org listing as archived Dec 7 2019)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20191207095210/https://www.chabad.org/centers/default_cdo/aid/2541793/jewish/Chabad-of-Mobile.htm"
+    }
+   ]
   },
   "2948851": {
    "name": "Chabad at the University of Alabama",
@@ -1285,8 +1339,16 @@
    "year": 2015,
    "how": "stated",
    "source": "https://www.chabad.org/article.asp?aid=6146502",
-   "note": "Chabad.org: 'Rabbi Kussi and Rosie Lipskier have been serving at the University of Alabama since 2015'; The Odyssey: 'in 2015 ... moved to Tuscaloosa to open the Chabad Jewish Center' (one of 19 campus centers opening that fall).",
-   "confidence": "high"
+   "note": "Chabad.org: 'Rabbi Kussi and Rosie Lipskier have been serving at the University of Alabama since 2015'; The Odyssey: 'in 2015 ... moved to Tuscaloosa to open the Chabad Jewish Center' (one of 19 campus centers opening that fall). Archived copies of its chabad.org listing (Wayback Machine) show it at 233 Cedar Crest, Tuscaloosa (Mar 2017); it is now at 17 Sherwood Drive, Tuscaloosa, listed there by Dec 2019, so it moved there between Mar 2017 and Dec 2019.",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "233 Cedar Crest, Tuscaloosa (its address on its chabad.org listing as archived Mar 3 2017)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20170303202741/http://www.chabad.org:80/centers/default_cdo/aid/2948851/jewish/Chabad-at-the-University-of-Alabama.htm"
+    }
+   ]
   },
   "7392590": {
    "name": "Chabad of Auburn",
@@ -1335,8 +1397,16 @@
    "year": 2006,
    "how": "stated",
    "source": "https://cincyjewfolk.com/?p=1921",
-   "note": "Cincinnati Jewish Journal: Rabbi Yitzi Creeger 'began the programming for the UC Jewish community in 2006 with his wife, Dina Creeger'.",
-   "confidence": "high"
+   "note": "Cincinnati Jewish Journal: Rabbi Yitzi Creeger 'began the programming for the UC Jewish community in 2006 with his wife, Dina Creeger'. Archived copies of its chabad.org listing (Wayback Machine) show it at 2718 Digby Avenue, Cincinnati (June 2013, Oct 2015); it is now at 343 Probasco Street, Cincinnati, so it moved there after Oct 2015 (when, not found).",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "2718 Digby Avenue, Cincinnati (its address on its chabad.org listing as archived June 3 2013 to Oct 22 2015)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20130603181356/http://www.chabad.org/centers/default_cdo/aid/2124148/jewish/Chabad-at-the-University-of-Cincinnati.htm"
+    }
+   ]
   },
   "2342907": {
    "name": "Chabad at Miami University",
@@ -1346,8 +1416,16 @@
    "date": "2013-11",
    "how": "stated",
    "source": "https://oxfordobserver.org/7937/people/rabbi-leads-chabad-group-to-provide-a-place-for-jewish-students",
-   "note": "Oxford Observer: the Greenbergs came to look, 'and in November 2013 they moved in'. Dayton Jewish Observer, Jan 2014: 'Chabad comes to Miami U'.",
-   "confidence": "high"
+   "note": "Oxford Observer: the Greenbergs came to look, 'and in November 2013 they moved in'. Dayton Jewish Observer, Jan 2014: 'Chabad comes to Miami U'. Archived copies of its chabad.org listing (Wayback Machine) show it at 650 South Campus Avenue, Oxford (Mar 2018, Dec 2019); it is now at 111 East Spring Street, Oxford, so it moved there after Dec 2019 (when, not found).",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "650 South Campus Avenue, Oxford (its address on its chabad.org listing as archived Mar 7 2018 to Dec 9 2019)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20180307191034/http://www.chabad.org:80/centers/default_cdo/aid/2342907/jewish/Chabad-at-Miami-University.htm"
+    }
+   ]
   },
   "6958605": {
    "name": "Chabad Young Professionals Cincinnati",
@@ -1642,8 +1720,22 @@
    "year": 2014,
    "how": "stated",
    "source": "https://crownheights.info/chabad-news/821790/montanas-vast-big-sky-country-sees-jewish-life-flourishing",
-   "note": "CrownHeights.info / Chabad.org (May 2023): after seven years of crossing the state, 'in 2014 the Bruks opened a second Chabad Lubavitch Center in Missoula', now led by Rabbi Chezky and Rochi Vogel (therebbesimpact.com has the Vogels from 2018).",
-   "confidence": "high"
+   "note": "CrownHeights.info / Chabad.org (May 2023): after seven years of crossing the state, 'in 2014 the Bruks opened a second Chabad Lubavitch Center in Missoula', now led by Rabbi Chezky and Rochi Vogel (therebbesimpact.com has the Vogels from 2018). Archived copies of its chabad.org listing (Wayback Machine) show it at 1945 McDonald Avenue, Missoula (Feb 2015); then 704 Polaris Way, Missoula (Dec 2019); it is now at 2145 South Avenue West, Missoula, so it moved there after Dec 2019 (when, not found). The 2015 copy names Rabbi Berry Nash, the 2019 one Rabbi Chezky Vogel.",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "1945 McDonald Avenue, Missoula (its address on its chabad.org listing as archived Feb 2 2015)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20150202031943/http://www.chabad.org:80/centers/default_cdo/aid/2502139/jewish/Chabad-Lubavitch-of-Missoula.htm"
+    },
+    {
+     "where": "704 Polaris Way, Missoula (its address on its chabad.org listing as archived Dec 13 2019)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20191213023100/https://www.chabad.org/centers/default_cdo/aid/2502139/jewish/Chabad-Lubavitch-of-Missoula.htm"
+    }
+   ]
   },
   "3995931": {
    "name": "Chabad Lubavitch of Flathead Valley",
@@ -1653,8 +1745,16 @@
    "date": "2018-11",
    "how": "stated",
    "source": "https://queensjewishlink.com/index.php/local/21-community-corner/by-susie-garber/11282-montana-the-treasure-in-kalispell",
-   "note": "Queens Jewish Link interview: Rabbi Shneur and Chana Wolf 'moved to Kalispell in November of 2018, during a blizzard'; Montana's third Chabad center. A Chabad page: they 'opened this Chabad Center in 2018'.",
-   "confidence": "high"
+   "note": "Queens Jewish Link interview: Rabbi Shneur and Chana Wolf 'moved to Kalispell in November of 2018, during a blizzard'; Montana's third Chabad center. A Chabad page: they 'opened this Chabad Center in 2018'. Archived copies of its chabad.org listing (Wayback Machine) show it at 328 Ponderosa Street, Kalispell (Dec 2019); it is now at 128 Moe's Run, Kalispell, listed there by Oct 2021, so it moved there between Dec 2019 and Oct 2021.",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "328 Ponderosa Street, Kalispell (its address on its chabad.org listing as archived Dec 12 2019)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20191212035550/https://www.chabad.org/centers/default_cdo/aid/3995931/jewish/Chabad-Lubavitch-of-Flathead-Valley.htm"
+    }
+   ]
   },
   "5384373": {
    "name": "Chabad Lubavitch of Billings",
@@ -1949,8 +2049,22 @@
    "date": "2014-11",
    "how": "news",
    "source": "https://crownheights.info/shlichus/462504/chabad-on-campus-milestone-220-centers-worldwide",
-   "note": "Chabad on Campus (1 Dec 2014): Rabbi Levi and Adina Tiechtel moved to Indiana in November 2014 to open a Chabad House at Purdue, its first permanent presence there. Rabbi Avremel and Shaindy Gluck since July 2019 (its own site).",
-   "confidence": "high"
+   "note": "Chabad on Campus (1 Dec 2014): Rabbi Levi and Adina Tiechtel moved to Indiana in November 2014 to open a Chabad House at Purdue, its first permanent presence there. Rabbi Avremel and Shaindy Gluck since July 2019 (its own site). Archived copies of its chabad.org listing (Wayback Machine) show it at 1510 Northwestern Avenue, West Lafayette (Jan 2015); then 1221 North Grant Street, West Lafayette (Aug 2017); its Dec 2019 copy, under Rabbi Avrohom Gluck, gives no street; it is now at 444 Littleton Street, West Lafayette, so it moved there after Aug 2017 (when, not found).",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "1510 Northwestern Avenue, West Lafayette (its address on its chabad.org listing as archived Jan 21 2015)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20150121034351/http://www.chabad.org:80/centers/default_cdo/aid/2639965/jewish/Chabad-at-Purdue.htm"
+    },
+    {
+     "where": "1221 North Grant Street, West Lafayette (its address on its chabad.org listing as archived Aug 6 2017)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20170806223421/http://www.chabad.org:80/centers/default_cdo/aid/2639965/jewish/Chabad-at-Purdue.htm"
+    }
+   ]
   },
   "3779106": {
    "name": "Chabad of Greater South Bend",
@@ -2012,8 +2126,16 @@
    "year": 1999,
    "how": "stated",
    "source": "https://www.chabadnashville.com/templates/articlecco_cdo/aid/6486787/jewish/About-Us.htm",
-   "note": "Its own site: 'established in 1999' (Rabbi Yitzchok and Esther Tiechtel). Long before, the Frierdiker Rebbe had sent Rabbi Zalman Posner to Nashville (1949), who started the Akiva day school; not a Chabad house.",
-   "confidence": "high"
+   "note": "Its own site: 'established in 1999' (Rabbi Yitzchok and Esther Tiechtel). Long before, the Frierdiker Rebbe had sent Rabbi Zalman Posner to Nashville (1949), who started the Akiva day school; not a Chabad house. Archived copies of its chabad.org listing (Wayback Machine) show it at 142 Belle Forest Circle, Nashville (May 2010); it is now at 95 Bellevue Road, Nashville, listed there by Nov 2020, so it moved there between May 2010 and Nov 2020.",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "142 Belle Forest Circle, Nashville (its address on its chabad.org listing as archived May 13 2010)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20100513182640/http://www.chabad.org:80/centers/default_cdo/aid/211894/jewish/Chabad-of-Nashville.htm"
+    }
+   ]
   },
   "384002": {
    "name": "Stanford Eisenberg Knoxville Jewish Day School",
@@ -2144,8 +2266,22 @@
    "date": "2014-08",
    "how": "stated",
    "source": "https://www.chabadneworleans.com/221664",
-   "note": "Chabad of Louisiana: 'In August of 2014 Chabad of Southern Mississippi was founded in Biloxi serving the Gulf Coast region' (Rabbi Akiva and Hannah Hall). The listing is the Gulfport congregation Beth Israel, which is older; the year is when Chabad began serving it.",
-   "confidence": "medium"
+   "note": "Chabad of Louisiana: 'In August of 2014 Chabad of Southern Mississippi was founded in Biloxi serving the Gulf Coast region' (Rabbi Akiva and Hannah Hall). The listing is the Gulfport congregation Beth Israel, which is older; the year is when Chabad began serving it. Archived copies of its chabad.org listing (Wayback Machine) show it at 1648 Wiltshire Boulevard, Biloxi (Oct 2014, Jan 2016); then 2030 Pass Road, Biloxi (Oct 2019); it is now at 12277 Three Rivers Road, Gulfport (Congregation Beth Israel), so it moved there after Oct 2019 (when, not found). Until at least 2019 the listing was Chabad of South(ern) Mississippi in Biloxi; it now carries Congregation Beth Israel's name and address.",
+   "confidence": "medium",
+   "earlier": [
+    {
+     "where": "1648 Wiltshire Boulevard, Biloxi (its address on its chabad.org listing as archived Oct 9 2014 to Jan 4 2016)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20141009183801/http://www.chabad.org:80/centers/default_cdo/aid/2637896/jewish/Chabad-Lubavitch-of-Southern-Misssissippi.htm"
+    },
+    {
+     "where": "2030 Pass Road, Biloxi (its address on its chabad.org listing as archived Oct 23 2019)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20191023235746/https://www.chabad.org/centers/default_cdo/aid/2637896/jewish/Chabad-of-South-Mississippi.htm"
+    }
+   ]
   },
   "2819121": {
    "name": "Chabad of Baton Rouge",
@@ -2221,8 +2357,16 @@
    "date": "2015-09",
    "how": "news",
    "source": "https://crownheights.info/shlichus/536940/new-shluchim-to-rhode-island",
-   "note": "The Jewish Voice (June 2016): Rabbi Aryeh and Mushka Laufer 'have recently established the Chabad House of northern R.I.'; 'This past September' (2015), before their official move from Providence to Lincoln, they ran High Holy Day services in Smithfield. Settled in Lincoln at the end of 2015.",
-   "confidence": "high"
+   "note": "The Jewish Voice (June 2016): Rabbi Aryeh and Mushka Laufer 'have recently established the Chabad House of northern R.I.'; 'This past September' (2015), before their official move from Providence to Lincoln, they ran High Holy Day services in Smithfield. Settled in Lincoln at the end of 2015. Archived copies of its chabad.org listing (Wayback Machine) show it at 7 Wake Robin Road #1402, Lincoln (Dec 2015); it is now at 1767 Old Louisquisset Pike, Lincoln, listed there by Dec 2019, so it moved there between Dec 2015 and Dec 2019.",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "7 Wake Robin Road #1402, Lincoln (its address on its chabad.org listing as archived Dec 19 2015)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20151219033221/http://www.chabad.org:80/centers/default_cdo/aid/2743772/jewish/Chabad-House-of-Northern-Rhode-Island.htm"
+    }
+   ]
   },
   "3329974": {
    "name": "Chabad of the University of Rhode Island",
@@ -2232,8 +2376,16 @@
    "how": "news",
    "confidence": "high",
    "source": "https://www.chabad.org/news/article_cdo/aid/3831481/jewish/Doubling-Presence-in-a-Decade-14-New-Chabad-Campus-Centers-Opened-This-Year.htm",
-   "note": "Chabad.org News, Oct 31 2017 ('Doubling Presence in a Decade, 14 New Chabad Campus Centers Opened This Year'): 'Rabbi Avraham Adam (\"Avi\") and Tzippy Goldstein arrived at the University of Rhode Island in Kingston, R.I., last year before Sukkot', i.e. before Sukkot 2016 (the listing number also points to 2016).",
-   "lead": 2016
+   "note": "Chabad.org News, Oct 31 2017 ('Doubling Presence in a Decade, 14 New Chabad Campus Centers Opened This Year'): 'Rabbi Avraham Adam (\"Avi\") and Tzippy Goldstein arrived at the University of Rhode Island in Kingston, R.I., last year before Sukkot', i.e. before Sukkot 2016 (the listing number also points to 2016). Archived copies of its chabad.org listing (Wayback Machine) show it at 100 Fortin Road, Unit 4, Kingston (Nov 2019); it is now at 26 Lower College Road, Kingston, so it moved there after Nov 2019 (when, not found).",
+   "lead": 2016,
+   "earlier": [
+    {
+     "where": "100 Fortin Road, Unit 4, Kingston (its address on its chabad.org listing as archived Nov 13 2019)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20191113204809/https://www.chabad.org/centers/default_cdo/aid/3329974/jewish/Chabad-of-the-University-of-Rhode-Island-Kingston.htm"
+    }
+   ]
   },
   "5097669": {
    "name": "Chabad of South County",
@@ -2286,8 +2438,22 @@
    "date": "2012-07",
    "how": "news",
    "source": "https://crownheights.info/shlichus/45867/quaint-vermont-town-welcomes-brooklyn-family",
-   "note": "Chabad.org (31 July 2012): Rabbi Avremy and Chaya Raskin moved from Brooklyn to Brattleboro 'earlier this month' to open a Chabad center; the Brattleboro Reformer (Sept 2012): they arrived 'in early July'. (therebbesimpact.com gives the couple 2011.)",
-   "confidence": "high"
+   "note": "Chabad.org (31 July 2012): Rabbi Avremy and Chaya Raskin moved from Brooklyn to Brattleboro 'earlier this month' to open a Chabad center; the Brattleboro Reformer (Sept 2012): they arrived 'in early July'. (therebbesimpact.com gives the couple 2011.) Archived copies of its chabad.org listing (Wayback Machine) show it at 275 Western Avenue, Brattleboro (Jan 2013); then 59 Country Hill, Brattleboro (Oct 2016, Dec 2019); it is now at 1130 Upper Dummerston Road, Brattleboro, so it moved there after Dec 2019 (when, not found).",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "275 Western Avenue, Brattleboro (its address on its chabad.org listing as archived Jan 24 2013)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20130124140838/http://www.chabad.org:80/centers/default_cdo/aid/1671455/jewish/Chabad-of-Southern-Vermont.htm"
+    },
+    {
+     "where": "59 Country Hill, Brattleboro (its address on its chabad.org listing as archived Oct 23 2016 to Dec 8 2019)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20161023111929/http://www.chabad.org:80/centers/default_cdo/aid/1671455/jewish/Chabad-of-Southern-Vermont.htm"
+    }
+   ]
   },
   "2698131": {
    "name": "Chabad of Bennington County",
@@ -2297,9 +2463,17 @@
    "lead": 2014,
    "how": "stated",
    "source": "https://www.facebook.com/ChabadOrg/posts/chabad-house-of-the-week-chabad-of-manchester-vtnestled-in-the-mountains-of-sout/1433706952119501/",
-   "note": "Chabad.org's 'Chabad House of the Week' post (Facebook and Instagram, June 15 2026 by the post's ID, https://www.instagram.com/p/DZnNE7ek_i9/; read from the search index, as Facebook is not scraped): 'Chabad of Manchester has been led by Rabbi Menachem and Faygie Andrusier since the summer of 2015.' Its own About page, first published July 23 2015 (https://www.manchesterjewishlife.com/templates/articlecco_cdo/aid/3015631/jewish/About-Us.htm), agrees: they 'are living in Manchester, VT with their 8 children and are excited to make Manchester their home ... Please check our website for more information and launch dates'. Medium, because its chabad.org listing already went up on Nov 3 2014 (therebbesimpact.com also has 2014), before the move. Now at 171 Sargent Lane, Manchester.",
+   "note": "Chabad.org's 'Chabad House of the Week' post (Facebook and Instagram, June 15 2026 by the post's ID, https://www.instagram.com/p/DZnNE7ek_i9/; read from the search index, as Facebook is not scraped): 'Chabad of Manchester has been led by Rabbi Menachem and Faygie Andrusier since the summer of 2015.' Its own About page, first published July 23 2015 (https://www.manchesterjewishlife.com/templates/articlecco_cdo/aid/3015631/jewish/About-Us.htm), agrees: they 'are living in Manchester, VT with their 8 children and are excited to make Manchester their home ... Please check our website for more information and launch dates'. Medium, because its chabad.org listing already went up on Nov 3 2014 (therebbesimpact.com also has 2014), before the move. Now at 171 Sargent Lane, Manchester. Archived copies of its chabad.org listing (Wayback Machine) show it at 86 Two Cow Lane, Manchester Center (Aug 2017); it is now at 171 Sargent Lane, Manchester, listed there by Dec 2019, so it moved there between Aug 2017 and Dec 2019.",
    "confidence": "medium",
-   "season": "summer"
+   "season": "summer",
+   "earlier": [
+    {
+     "where": "86 Two Cow Lane, Manchester Center (its address on its chabad.org listing as archived Aug 16 2017)",
+     "from": null,
+     "until": null,
+     "source": "https://web.archive.org/web/20170816092311/http://www.chabad.org:80/centers/default_cdo/aid/2698131/jewish/Chabad-of-Bennington-County.htm"
+    }
+   ]
   },
   "3548886": {
    "name": "Middlebury Chabad",

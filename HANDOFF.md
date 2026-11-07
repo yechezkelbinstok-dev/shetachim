@@ -87,12 +87,18 @@ be covering both states idiot": Kansas–Missouri, as Moshe Feller over the Dako
 more" lines were (`ctxRow`: its colour, its or its part's name bold, its head), the most centers first, no big heads
 and no fold; the country's own head (Kenya's in Central Africa) a line the same way in the country's colour
 ("Head shliach in Kenya · …"); then the count.
-**The St Clair River delta (Walpole Island) is Southern Ontario's** (owner, Nov 7, a phone screenshot of the street map
-there with "Fuck you" on it): Essex County's shape (Michigan's part of Ontario) ran its Lake St Clair line straight on
-to the river (Oct 7), so it took the delta's western islands along a straight line through the land, and Southern
-Ontario's shape had the same edge. Both now cross the lake south of the delta (`data/shapes/essex-county-on.geojson`,
-`ontario-south-of-47.geojson`: (-82.7, 42.47)), so Michigan's line with Southern Ontario there is the international
-boundary down the St Clair River and the South Channel.
+**The line along the St Clair River has no gap at the Chenail Ecarte** (owner, Nov 7, a phone screenshot with the gap
+circled): Ontario's border water (`ontario-border-water.geojson`, OpenStreetMap) took Ontario's half of the river off
+there (about 42.638-42.660 N) while Michigan runs to the international line, so the two never met and the white line
+between Michigan and Southern Ontario stopped mid-river. `data/shapes/ontario-border-rivers.geojson` is water the build
+leaves Ontario (`BORDER_RIVERS`): one box there. (First I misread the screenshot as being about the straight line through
+Walpole Island and moved Essex County's and Southern Ontario's shapes; owner: "that wasn't the problem!!! The shape of
+the border was fucking FIND", "revert the change you made also to the shape": both shapes are as they were.)
+*Open: the same kind of gap (Ontario's half of the river cut off, the US side at the line) is along the St Lawrence
+between Upstate New York and Ottawa's shetach (about 44.47-44.77 N, Brockville to Morrisburg, and bits in the Thousand
+Islands) and at Sault Ste Marie on the St Marys (46.46-46.50 N, and channels down to 46.24 N). Not fixed: a box there
+would also fill Canada's own channels among the islands; it wants a strip along the international line only.
+(Suggestion, not agreed.)*
 **A head's photo only beside the head himself** (owner, Nov 7: "ur fucking stupid ass put a picture of nosson next to
 Avrohom Gurary"): a flagship's card shows the first man listed there, and `photoIf` used to give him the head's photo
 when only the surname matched (Upstate New York: Avrohom Gurary listed first, Nosson's photo; Kazakhstan: Elchanan

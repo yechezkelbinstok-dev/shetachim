@@ -207,6 +207,7 @@ const censusLayer = (kind, fips) => download(`${CENSUS}/${fips}/${kind}.json`, `
 // OpenStreetMap), each piece merged into the county beside it (its GEOID), so it's in that county's shetach.
 const LAND_FIXES = at('data', 'shapes', 'land-fixes.geojson');
 const BORDER_WATER = at('data', 'shapes', 'ontario-border-water.geojson');
+const BORDER_RIVERS = at('data', 'shapes', 'ontario-border-rivers.geojson'); // (border river water Ontario keeps)
 async function countiesGeoJSON() {
   const fixes = fs.existsSync(LAND_FIXES) ? fs.readFileSync(LAND_FIXES) : Buffer.alloc(0);
   const out = path.join(CACHE, `us-counties-${createHash('md5').update(fixes).digest('hex').slice(0, 8)}.geojson`);
@@ -717,10 +718,15 @@ async function buildGeo(data) {
   // be maritime … it should be the regular land like any other place").
   if (fs.existsSync(BORDER_WATER)) {
     const on = caAreas.find((f) => f.properties.state === 'CA-ON');
+    // (except where taking Ontario's half of a border river off left it apart from the US side across the river, so
+    // the line between them stopped mid-river: data/shapes/ontario-border-rivers.geojson, owner, Nov 7)
+    let water = fs.readFileSync(BORDER_WATER, 'utf8');
+    if (fs.existsSync(BORDER_RIVERS)) water = (await mapshaper.applyCommands('-i water.json -erase rivers.json -o out.json format=geojson',
+      { 'water.json': water, 'rivers.json': fs.readFileSync(BORDER_RIVERS, 'utf8') }))['out.json'];
     // (a thread of Ontario the water just misses along the border line — a long, thin leftover — is dropped)
     const cut = JSON.parse((await mapshaper.applyCommands('-i on.json -erase water.json -explode ' +
       '-filter "this.area > 5e6 || this.area / (this.perimeter * this.perimeter) > 0.006" -dissolve state -o out.json format=geojson',
-      { 'on.json': collectionOf([on]), 'water.json': fs.readFileSync(BORDER_WATER, 'utf8') }))['out.json']).features[0];
+      { 'on.json': collectionOf([on]), 'water.json': water }))['out.json']).features[0];
     on.geometry = cut.geometry;
   }
 

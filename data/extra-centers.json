@@ -870,7 +870,8 @@
       ],
       "url": "http://www.jabadmendoza.org/",
       "site": "Jabad Mendoza",
-      "siteHe": "חב״ד מנדוסה"
+      "siteHe": "חב״ד מנדוסה",
+      "mushroom": "Rabbi Uriel Lapidus's Jabad Mendoza: neither it nor he is on chabad.org, which lists dozens of centers of Argentina's official network (Rabbi Tzvi Grunblatt's Jabad Lubavitch Argentina) but none in Mendoza; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists it as unofficial. Owner, Nov 7, on that list: downgrade the ones \"we accidentally had as official\"."
     },
     {
       "id": "extra-argentina-ushuaia",
@@ -1148,7 +1149,8 @@
       ],
       "url": "https://chabadpedro.com/",
       "site": "Chabad San Pedro",
-      "siteHe": "חב״ד סן פדרו"
+      "siteHe": "חב״ד סן פדרו",
+      "mushroom": "Rabbi Avrumi Meiri's Chabad Pedro, on Lake Atitlán since 2010–11 (Religion Unplugged, 2020; goKosher): neither it nor he is on chabad.org, whose Guatemala listings are Chabad Lubavitch Guatemala (Rabbi Shalom Pelman, the owner's head shliach) and Antigua; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists it as unofficial. Owner, Nov 7, on that list: downgrade the ones \"we accidentally had as official\"."
     },
     {
       "id": "extra-belize-san-pedro",
@@ -1381,7 +1383,8 @@
       ],
       "url": "https://chabadnamibia.com/",
       "site": "Chabad of Namibia",
-      "siteHe": "חב״ד נמיביה"
+      "siteHe": "חב״ד נמיביה",
+      "mushroom": "Rabbi Yosef and Mushka Rahimi's Chabad of Namibia (since 2021): neither it nor they are on chabad.org, and the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) says \"There are no official Chabads in Namibia\" (and that Sri Lanka's Weligama house is run by a sibling of the rebbetzin here). Against: ChabadInfo had them as new shluchim arriving after the Kinus Hashluchim, and rabbis of Chabad of Central Africa (Rabbi Shlomo Bentolila's network) have worked with them; nothing found says Bentolila appointed them. Owner, Nov 7, on that list: downgrade the ones \"we accidentally had as official\"."
     },
     {
       "id": "extra-tanzania-zanzibar",
@@ -3658,6 +3661,355 @@
       "url": "https://www.jewishtoronto.com/directory",
       "site": "UJA Federation of Greater Toronto",
       "siteHe": "UJA טורונטו"
+    },
+    {
+      "id": "extra-saudi-riyadh-herzog",
+      "name": "Jewish Community of Saudi Arabia",
+      "city": "Riyadh",
+      "lat": 24.63892,
+      "lon": 46.71601,
+      "precision": "city",
+      "note": "Rabbi Yaakov Israel Herzog, who calls himself Chief Rabbi of Saudi Arabia; no address given, placed at the city",
+      "source": "rabbiherzog.com (Nov 2026: \"Chief Rabbi of Saudi Arabia\", \"The Jewish Community of Saudi Arabia\"); DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026); not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Yaakov Israel", "lastName": "Herzog" }],
+      "url": "https://rabbiherzog.com/",
+      "site": "Rabbi Herzog",
+      "siteHe": "הרב הרצוג",
+      "mushroom": "Not Saudi Arabia's shliach: the owner's head shliach there is Rabbi Peretz Garelik (owner, Nov 6, on news coverage of Herzog: \"you cannot differentiate a real shliach and a mushroom\"); the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) gives his site as Riyadh's unofficial Chabad. His own site doesn't use the Chabad name."
+    },
+    {
+      "id": "extra-cambodia-koh-rong",
+      "name": "Chabad Koh Rong",
+      "city": "Koh Rong",
+      "lat": 10.67054,
+      "lon": 103.29191,
+      "precision": "city",
+      "note": "Koh Touch, Koh Rong island (\"just three minutes from the sea\"); placed at the village",
+      "source": "ChabadInfo (Aug 2026: \"Shliach Builds Jewish Life on a Cambodian Island\"); DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026); not on chabad.org",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Shalom Ber", "lastName": "Natan" },
+        { "title": "Mrs.", "firstName": "Odaya", "lastName": "Natan" }
+      ],
+      "mushroom": "Not part of Cambodia's official Chabad (Rabbi Bentzion Butman, Phnom Penh): ChabadInfo says the Natans came \"with the Rebbe's blessing through Igros Kodesh\" and names no one who sent them; neither the house nor they are on chabad.org; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists it as unofficial."
+    },
+    {
+      "id": "extra-us-mill-basin-friedman",
+      "name": "Chabad House of Mill Basin",
+      "city": "Brooklyn",
+      "lat": 40.61672,
+      "lon": -73.9112,
+      "precision": "exact",
+      "note": "2111 East 65th Street, Mill Basin; its building is modelled on 770",
+      "source": "jcc770.org (Nov 2026: \"Jewish Community Center – Chabad\"); DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026) (\"Chabad of Mill Basin\"); OpenStreetMap; not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Yehuda", "lastName": "Friedman" }],
+      "url": "https://jcc770.org/",
+      "site": "Chabad House of Mill Basin",
+      "siteHe": "בית חב״ד מיל בייסין",
+      "mushroom": "Rabbi Yehuda Friedman's Jewish Community Center – Chabad, in a copy of 770: neither it nor he is on chabad.org, whose Mill Basin listing is Rabbi Mattisyohu Charytan's Mill Basin Jewish Center; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists it as unofficial."
+    },
+    {
+      "id": "extra-us-marine-park-hendel",
+      "name": "Chabad of Marine Park",
+      "city": "Brooklyn",
+      "lat": 40.60967,
+      "lon": -73.94332,
+      "precision": "exact",
+      "note": "3065 Nostrand Avenue (\"Rabbi Hendel's Shul\")",
+      "source": "anash.org (NYC Comptroller lights menorah at Chabad of Marine Park); atly.com (Chabad of Marine Park – Rabbi Hendel's Shul, 3065 Nostrand Ave); DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026); OpenStreetMap; not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Levy", "lastName": "Hendel" }],
+      "mushroom": "Rabbi Levy Hendel's shul: neither it nor he is on chabad.org; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists it as unofficial. (Anash.org calls him a shliach.)"
+    },
+    {
+      "id": "extra-us-sag-harbor-lerman",
+      "name": "Center for Jewish Life – Chabad",
+      "city": "Sag Harbor",
+      "lat": 40.99787,
+      "lon": -72.29223,
+      "precision": "city",
+      "note": "Sag Harbor; it has moved (36 West Water Street at its opening, 24 Long Island Avenue in 2019, looking for a new home in 2022): placed at the village",
+      "source": "cfjewishlife.com; Dan's Papers (Aug 2022: \"Rabbi Berel Lerman: Keepin' the Faith in the Hamptons\"); 27east (Chabad North Haven opens Center for Jewish Life); GuideStar; DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026); not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Berel", "lastName": "Lerman" }],
+      "url": "https://cfjewishlife.com/",
+      "site": "Center for Jewish Life",
+      "siteHe": "המרכז לחיים יהודיים",
+      "mushroom": "Rabbi Berel Lerman's Chabad of North Haven, now the Center for Jewish Life in Sag Harbor: neither it nor he is on chabad.org; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists it as unofficial."
+    },
+    {
+      "id": "extra-us-chicago-moshiach-center",
+      "name": "Moshiach Center",
+      "city": "Chicago",
+      "lat": 42.00356,
+      "lon": -87.69991,
+      "precision": "exact",
+      "note": "6738 North California Avenue, West Ridge",
+      "source": "TotallyJewishTravel (Moshiach Center, 6738 N. California; Rabbis Aryeh Dudowitz and Eli Turen); Chabadpedia (Chicago); DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026); OpenStreetMap; not on chabad.org",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Eli", "lastName": "Turen" },
+        { "title": "Rabbi", "firstName": "Aryeh", "lastName": "Dudowitz" }
+      ],
+      "mushroom": "Chicago's Moshiach Center: neither it nor its rabbis are on chabad.org; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists it as unofficial. Rabbi Eli Turen is the father of Rabbi Mendy Turen of Chabad of Springfield, Illinois (Springfield press; ChabadInfo: he spoke at its building fundraiser in Crown Heights).",
+      "network": "Turen family",
+      "networkHe": "משפחת טורן",
+      "networkFlagship": true
+    },
+    {
+      "id": "extra-us-springfield-il-turen",
+      "name": "Chabad of Springfield",
+      "city": "Springfield",
+      "lat": 39.77505,
+      "lon": -89.67143,
+      "precision": "exact",
+      "note": "1045 Outer Park Drive, its own building (earlier at 2467 S. MacArthur Boulevard)",
+      "source": "chabadspringfield.com; NPR Illinois (Oct 2019); Illinois Times; Springfield Business Journal; ChabadInfo (Chabad of Springfield moves into new building); DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026); OpenStreetMap; not on chabad.org",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Mendy", "lastName": "Turen" },
+        { "title": "Mrs.", "firstName": "Sara", "lastName": "Turen" }
+      ],
+      "url": "https://chabadspringfield.com/",
+      "site": "Chabad of Springfield",
+      "siteHe": "חב״ד ספרינגפילד",
+      "mushroom": "Rabbi Mendy and Sara Turen's Chabad of Springfield: neither it nor they are on chabad.org, which lists only Lubavitch Chabad of Illinois's government-affairs office in Springfield; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists it as unofficial. His father is Rabbi Eli Turen of Chicago's Moshiach Center.",
+      "network": "Turen family",
+      "networkHe": "משפחת טורן"
+    },
+    {
+      "id": "extra-us-overland-park-tlc",
+      "name": "Torah Learning Center",
+      "city": "Overland Park",
+      "lat": 38.94216,
+      "lon": -94.68834,
+      "precision": "exact",
+      "note": "8800 West 103rd Street; established in 1998 as the Anna and Max Zalcman Chabad Torah Learning Center",
+      "source": "torahkc.org; Jewish Kansas City's directory (Torah Learning Center); CrownHeights.info (Young Lubavitchers bolster staffs of Torah Learning Center in Kansas); DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026); OpenStreetMap; not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Ben Zion", "lastName": "Friedman" }],
+      "url": "http://www.torahkc.org/",
+      "site": "Torah Learning Center",
+      "siteHe": "מרכז לימוד התורה",
+      "mushroom": "Founded in 1998 by Rabbi Ben Zion Friedman, formerly of the Chabad House of Greater Kansas City, with a group of supporters: not on chabad.org, whose Overland Park listing is the Chabad House Center of Kansas City; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists it as unofficial (\"Nearby official Chabad House\"). Its current rabbi isn't confirmed."
+    },
+    {
+      "id": "extra-us-denver-cherry-creek",
+      "name": "Chabad of Cherry Creek",
+      "city": "Denver",
+      "lat": 39.71661,
+      "lon": -104.9525,
+      "precision": "area",
+      "note": "Cherry Creek, Denver; no address given, placed in the neighbourhood",
+      "source": "jewishcherrycreek.com (Nov 2026: Rabbi Shmuly and Zeldy Engel); DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026); not on chabad.org",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Shmuly", "lastName": "Engel" },
+        { "title": "Mrs.", "firstName": "Zeldy", "lastName": "Engel" }
+      ],
+      "url": "https://www.jewishcherrycreek.com/",
+      "site": "Chabad of Cherry Creek",
+      "siteHe": "חב״ד צ׳רי קריק",
+      "mushroom": "Rabbi Shmuly and Zeldy Engel's Chabad of Cherry Creek: neither it nor they are on chabad.org (Colorado's head shliach is Rabbi Mendel Popack); the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists it as unofficial."
+    },
+    {
+      "id": "extra-us-beverly-hills-jem",
+      "name": "JEM Community Center",
+      "city": "Beverly Hills",
+      "lat": 34.06402,
+      "lon": -118.4139,
+      "precision": "area",
+      "note": "9930 South Santa Monica Boulevard (the former YMCA); the dot is on the boulevard",
+      "source": "jemcommunitycenter.com (2026: \"over 40 years\"); DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026); not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Hertzel", "lastName": "Illulian" }],
+      "url": "https://www.jemcommunitycenter.com/",
+      "site": "JEM Community Center",
+      "siteHe": "מרכז הקהילה JEM",
+      "mushroom": "Rabbi Hertzel Illulian's center: neither it nor he is on chabad.org; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists it as unofficial. Its site links Chabad.org's story of his part in Operation Exodus but doesn't use the Chabad name."
+    },
+    {
+      "id": "extra-us-la-beit-menachem",
+      "name": "Beit Menachem",
+      "city": "Los Angeles",
+      "lat": 34.05534,
+      "lon": -118.39303,
+      "precision": "exact",
+      "note": "9307 West Pico Boulevard, Pico-Robertson",
+      "source": "beitmenachem.org (Nov 2026); DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026) (\"Beth Menachem, Los Angeles\"); OpenStreetMap; not on chabad.org",
+      "url": "http://beitmenachem.org/",
+      "site": "Beit Menachem",
+      "siteHe": "בית מנחם",
+      "mushroom": "A shul \"in the teaching and the way of the Rebbe\", who is called Melech HaMoshiach on its site: not on chabad.org; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists it as unofficial. Its site doesn't name its rabbi."
+    },
+    {
+      "id": "extra-us-venice-marina-shul",
+      "name": "The Marina Shul – Beis Menachem",
+      "city": "Venice",
+      "lat": 33.98215,
+      "lon": -118.44056,
+      "precision": "area",
+      "note": "2532 Lincoln Boulevard; the dot is on the boulevard",
+      "source": "marinashul.com (Nov 2026, with \"The Rebbe\" and \"Chabad-Lubavitch\" pages); DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026); not on chabad.org",
+      "url": "https://www.marinashul.com/",
+      "site": "The Marina Shul",
+      "siteHe": "בית הכנסת מרינה",
+      "mushroom": "Its site has \"The Rebbe\" and \"Chabad-Lubavitch\" pages and the name Beis Menachem, but it isn't on chabad.org; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists it as unofficial. Its site doesn't name its rabbi."
+    },
+    {
+      "id": "extra-us-sf-schneerson-center",
+      "name": "Schneerson Center",
+      "city": "San Francisco",
+      "lat": 37.77605,
+      "lon": -122.48749,
+      "precision": "exact",
+      "note": "2655 Balboa Street, Outer Richmond; a one-room synagogue mainly for Russian-speaking Jews (also called the United Schneerson Synagogue)",
+      "source": "J. The Jewish News of Northern California (Jan 2021, Feb 2023); DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026); OpenStreetMap (Schneerson Center); not on chabad.org",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Bentziyon", "lastName": "Pil" },
+        { "title": "Mrs.", "firstName": "Mattie", "lastName": "Pil" }
+      ],
+      "mushroom": "Rabbi Bentziyon and Mattie Pil's center for Russian-speaking Jews, named for the Rebbe: neither it nor they are on chabad.org; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists it as unofficial."
+    },
+    {
+      "id": "extra-us-la-chai-center",
+      "name": "The Chai Center",
+      "city": "Los Angeles",
+      "lat": 34.07368,
+      "lon": -118.33505,
+      "precision": "area",
+      "note": "Hancock Park; its Friday dinners for strangers are held at the Schwartz home; placed in the neighbourhood",
+      "source": "chaicenter.org; Jewish Journal (obituary of its founder, Rabbi Shlomo \"Schwartzie\" Schwartz, 2017); Tribester (\"Dinner for 30 Strangers\", June 2025, at Esther and Rabbi Mendel Schwartz's Hancock Park home); DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026); not on chabad.org",
+      "personnel": [
+        { "title": "Mrs.", "firstName": "Olivia", "lastName": "Schwartz" },
+        { "title": "Rabbi", "firstName": "Mendel", "lastName": "Schwartz" }
+      ],
+      "url": "https://www.chaicenter.org/",
+      "site": "The Chai Center",
+      "siteHe": "מרכז חי",
+      "mushroom": "Founded by Rabbi Shlomo \"Schwartzie\" Schwartz (d. 2017) and run since by his wife Olivia and son Rabbi Mendel: not on chabad.org; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists it as unofficial."
+    },
+    {
+      "id": "extra-us-beachwood-bais-dovid",
+      "name": "Bais Dovid",
+      "city": "Beachwood",
+      "lat": 41.49552,
+      "lon": -81.51502,
+      "precision": "exact",
+      "note": "23219 Greenlawn Avenue (from a synagogue directory; its own site says only Cleveland)",
+      "source": "baisdovidcleveland.com; a Cleveland synagogue directory; DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026) (\"Cleveland/Beachwood\"); OpenStreetMap; not on chabad.org",
+      "url": "https://baisdovidcleveland.com/",
+      "site": "Bais Dovid",
+      "siteHe": "בית דוד",
+      "mushroom": "A shul \"steeped in the minhagim and teachings of Chabad Chasidus\": not on chabad.org; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists it as unofficial. Its site doesn't name its rabbi."
+    },
+    {
+      "id": "extra-us-marlboro-cjl-kanelsky",
+      "name": "Center for Jewish Life",
+      "city": "Marlboro",
+      "lat": 40.32744,
+      "lon": -74.2446,
+      "precision": "area",
+      "note": "176 Route 79, North Marlboro; the dot is on Route 79",
+      "source": "cjlnj.com (Nov 2026); NJ Jewish News (Jun 8, 2011); DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026); not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Yossi", "lastName": "Kanelsky" }],
+      "url": "https://www.cjlnj.com/",
+      "site": "Center for Jewish Life",
+      "siteHe": "המרכז לחיים יהודיים",
+      "mushroom": "Rabbi Yossi Kanelsky's center, son of Bris Avrohom's Rabbi Mottel Kanelsky: in 2011 the Central Committee of Chabad-Lubavitch Rabbis settled a challenge to it by New Jersey's shluchim, and it \"will not be associated with Chabad-Lubavitch or its affiliates, such as Bris Avrohom\" (NJ Jewish News, Jun 8, 2011). Not on chabad.org, and its site doesn't use the Chabad name; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists it as unofficial.",
+      "network": "Mottel Kanelsky",
+      "networkHe": "מאטל קנלסקי"
+    },
+    {
+      "id": "extra-au-byron-bay-serebryanski",
+      "name": "Habayit Chabad Byron",
+      "city": "Byron Bay",
+      "lat": -28.64833,
+      "lon": 153.61778,
+      "precision": "city",
+      "note": "Byron Bay (PO Box 1985); founded in 2003; placed at the town",
+      "source": "chabadbyron.com.au (Nov 2026); DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026); not on chabad.org",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Mosheh", "lastName": "Serebryanski" },
+        { "title": "Mrs.", "firstName": "Bluma", "lastName": "Serebryanski" }
+      ],
+      "url": "https://chabadbyron.com.au/",
+      "site": "Habayit Chabad Byron",
+      "siteHe": "הבית חב״ד ביירון",
+      "mushroom": "Rabbi Mosheh and Bluma Serebryanski's center, founded in 2003: neither it nor they are on chabad.org, whose Byron Bay listing is Rabbi Tomer Ben Harosh's Chabad Byron Shire (Mullumbimby); the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists it as unofficial. He also runs the Gold Coast Jewish Communal Centre.",
+      "network": "Mosheh Serebryanski",
+      "networkHe": "משה סרבריאנסקי",
+      "networkFlagship": true
+    },
+    {
+      "id": "extra-au-gold-coast-serebryanski",
+      "name": "Gold Coast Jewish Communal Centre",
+      "city": "Gold Coast",
+      "lat": -28.00237,
+      "lon": 153.4146,
+      "precision": "city",
+      "note": "Gold Coast (PO Box 8847, Gold Coast MC); it calls itself Chabad Gold Coast; placed at the city",
+      "source": "chabadgoldcoast.com.au (Nov 2026); DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026); not on chabad.org",
+      "personnel": [{ "title": "Rabbi", "firstName": "Mosheh", "lastName": "Serebryanski" }],
+      "url": "https://chabadgoldcoast.com.au/",
+      "site": "Chabad Gold Coast (Serebryanski)",
+      "siteHe": "חב״ד גולד קוסט (סרבריאנסקי)",
+      "mushroom": "Rabbi Mosheh Serebryanski's second center: not on chabad.org, whose Chabad Gold Coast is Rabbi Nir Gurevitch's (Surfers Paradise); the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists it as unofficial.",
+      "network": "Mosheh Serebryanski",
+      "networkHe": "משה סרבריאנסקי"
+    },
+    {
+      "id": "extra-ca-maon-noam-torresdale",
+      "name": "Maon Noam – Torresdale",
+      "city": "Toronto",
+      "lat": 43.77332,
+      "lon": -79.45162,
+      "precision": "area",
+      "note": "15 Torresdale Avenue (its chapel), North York; the dot is on the street",
+      "source": "maonnoam.ca (Nov 2026: three locations); DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026); OpenStreetMap; not on chabad.org",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Levi", "lastName": "Rabiski" },
+        { "title": "Mrs.", "firstName": "Sara", "lastName": "Rabiski" }
+      ],
+      "url": "https://www.maonnoam.ca/",
+      "site": "Maon Noam",
+      "siteHe": "מעון נועם",
+      "mushroom": "Maon Noam Congregation, three shuls run by the Rabiski and Fridman families, with classes in Likutei Sichos and Tanya: none of them or their rabbis is on chabad.org; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists the network as unofficial (\"4 locations around Toronto\" then). Its site doesn't use the Chabad name.",
+      "network": "Maon Noam",
+      "networkHe": "מעון נועם",
+      "networkFlagship": true
+    },
+    {
+      "id": "extra-ca-maon-noam-rutherford",
+      "name": "Maon Noam – Rutherford",
+      "city": "Maple",
+      "lat": 43.84692,
+      "lon": -79.46416,
+      "precision": "exact",
+      "note": "910 Rutherford Road, Maple (Vaughan)",
+      "source": "maonnoam.ca (Nov 2026: three locations); DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026); OpenStreetMap; not on chabad.org",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Yisroel", "lastName": "Fridman" },
+        { "title": "Mrs.", "firstName": "Gittele", "lastName": "Fridman" }
+      ],
+      "url": "https://www.maonnoam.ca/",
+      "site": "Maon Noam",
+      "siteHe": "מעון נועם",
+      "mushroom": "Maon Noam Congregation, three shuls run by the Rabiski and Fridman families, with classes in Likutei Sichos and Tanya: none of them or their rabbis is on chabad.org; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists the network as unofficial (\"4 locations around Toronto\" then). Its site doesn't use the Chabad name.",
+      "network": "Maon Noam",
+      "networkHe": "מעון נועם"
+    },
+    {
+      "id": "extra-ca-maon-noam-patricia",
+      "name": "Maon Noam – Patricia",
+      "city": "North York",
+      "lat": 43.78363,
+      "lon": -79.44426,
+      "precision": "exact",
+      "note": "485 Patricia Avenue, North York",
+      "source": "maonnoam.ca (Nov 2026: three locations); DansDeals master list of unofficial Chabad houses (topic 102660, Oct 2026); OpenStreetMap; not on chabad.org",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Hirsch", "lastName": "Rabiski" },
+        { "title": "Mrs.", "firstName": "Rochel", "lastName": "Rabiski" }
+      ],
+      "url": "https://www.maonnoam.ca/",
+      "site": "Maon Noam",
+      "siteHe": "מעון נועם",
+      "mushroom": "Maon Noam Congregation, three shuls run by the Rabiski and Fridman families, with classes in Likutei Sichos and Tanya: none of them or their rabbis is on chabad.org; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists the network as unofficial (\"4 locations around Toronto\" then). Its site doesn't use the Chabad name.",
+      "network": "Maon Noam",
+      "networkHe": "מעון נועם"
     }
   ],
   "fixes": {

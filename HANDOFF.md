@@ -33,7 +33,25 @@ corner beside the ✕ (owner, Nov 6: "I told you to turn it into an icon and not
 `pageChip`, `.cc-icon`); head photos for the USA, Canada, Europe, the Middle East, Africa and Asia (Africa and Asia added Nov 6, late); the Rebbeim's portraits.
 **Sri Lanka is in no shetach** (owner, Nov 7: "sri Lanka is not official- give it the phillipines treatment please"):
 its five houses are Rabbi Mendy Crombie's mushroom network (Colombo its flagship); the `sri-lanka` shetach and its
-Hebrew entry are gone and `blank` has `{ "country": "LKA" }`, as for the Philippines and Bolivia. Make every change in web/index.html
+Hebrew entry are gone and `blank` has `{ "country": "LKA" }`, as for the Philippines and Bolivia.
+**Mushrooms from the DansDeals master list** (owner, Nov 7: "I'm sure this can help add a ton of mushrooms right?",
+"you have to properly look up ... networks", then "Did you also downgrade ones we accidentally had as official like
+pisac????"): forums.dansdeals.com topic 102660, "Master List Of Unofficial Chabad Houses" (wiki edited Oct 7, 2026;
+the whole thread read, via Firecrawl: the forum answers WebFetch with 403). Each entry checked against the map,
+chabad.org's directory and staff (data/raw), and its own site or the news. **Added 21** (87 mushrooms now), with new
+networks Turen family (Chicago's Moshiach Center, Rabbi Eli Turen, father of Rabbi Mendy Turen's Chabad of
+Springfield, IL), Mosheh Serebryanski (Byron Bay and the Gold Coast) and Maon Noam (three Toronto-area shuls); Rabbi
+Yossi Kanelsky's Marlboro center joins Mottel Kanelsky's network. **Downgraded 3** that were wrongly official:
+Jabad Mendoza, Chabad Pedro (Guatemala), Chabad of Namibia. **Left official:** Pisac (its rabbi and rebbetzin are on
+chabad.org at Chabad of Cusco); Belize, El Salvador, Honduras (the list calls them unofficial, but their rabbis are
+the head shluchim on the owner's own list); Zanzibar (founded in 2018 under Chabad of Central Africa). **Open for the
+owner:** Quito's Casa Jabad (Rabbi Tomer Rotem: not on chabad.org and the list calls it unofficial, but lubavitch.com
+called the Rotems Chabad's representatives to Ecuador in 2008). Not added: shuls with no Chabad name (Sydney's Coogee,
+Cremorne and Newtown; São Paulo's Knesset Israel and Monte Sinai; Toronto's Shaarei Torah; Ste-Agathe; Vancouver's
+Kollel; Palm Beach Synagogue; Young Israel of Tampa), official ones (Chevra Thilim SF, Iyyun, Canton's Chai Center),
+closed or not found (London's Beis Moshiach, Dahab, Caye Caulker, Westwood, Almaden Valley, Tampa's Chabad of Central
+Florida), and doubtful ones (Beth Israel Chabad of Norwalk; Maplewood's Ahavath Zion, next to the official SOMA;
+Short Hills's Chai Center Chabad, nothing after 2024; Puerto Morelos, a website only). Make every change in web/index.html
 (web/preview-cards.html only redirects to it). "Pushed" to the owner means live: check that GitHub Pages deployed.
 
 **In progress (Nov 6): the Europe and Middle East photos, redone.** Owner: "The ones that are bad, you actually have to

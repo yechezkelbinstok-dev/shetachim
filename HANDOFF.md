@@ -32,7 +32,9 @@ corner beside the ✕ (owner, Nov 6: "I told you to turn it into an icon and not
 "chabad.org ↗" pill, then, on a round icon floating at the end of the sub line: "look how horribly it's situated";
 `pageChip`, `.cc-icon`); head photos for the USA, Canada, Europe, the Middle East, Africa and Asia (Africa and Asia added Nov 6, late); the Rebbeim's portraits.
 **Victoria's dispute is Groner and Gutnick only** (owner, Nov 7: "get rid of hendel he's not a actual claimant it's just
-groner and gutnick"; this replaces the Nov 4 "Nvm keep hendel for now" below).
+groner and gutnick"; this replaces the Nov 4 "Nvm keep hendel for now" below). **ACT is part of Victoria** (owner, Nov 7: "ACT should be part of
+Victoria also"): the `act` shetach (Shmueli Feldman) and its Hebrew entry are gone; Victoria's territory has AU-ACT, an
+island inside New South Wales like the Gold Coast exclave.
 **Sri Lanka is in no shetach** (owner, Nov 7: "sri Lanka is not official- give it the phillipines treatment please"):
 its five houses are Rabbi Mendy Crombie's mushroom network (Colombo its flagship); the `sri-lanka` shetach and its
 Hebrew entry are gone and `blank` has `{ "country": "LKA" }`, as for the Philippines and Bolivia.

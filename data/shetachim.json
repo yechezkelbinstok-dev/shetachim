@@ -1956,6 +1956,7 @@
       "headShliach": "Disputed — Chaim Tzvi Groner; Yoselle Gutnick",
       "territory": [
         "AU-VIC",
+        "AU-ACT",
         {
           "state": "AU-QLD",
           "shape": "gold-coast-lga",
@@ -2054,17 +2055,6 @@
       ],
       "capital": {
         "centerId": "120143"
-      }
-    },
-    {
-      "id": "act",
-      "name": "ACT",
-      "headShliach": "Shmueli Feldman",
-      "territory": [
-        "AU-ACT"
-      ],
-      "capital": {
-        "centerId": "904396"
       }
     },
     {

@@ -1,0 +1,41 @@
+{
+ "160380": {
+  "name": "The Wilmos & Lillian Schwarcz Education Center - Girls Building",
+  "city": "Oak Park",
+  "shetach": "michigan",
+  "year": 1997,
+  "how": "first-mention",
+  "source": "https://digital.bentley.umich.edu/djnews/djn.1997.07.25.001/92",
+  "note": "The Lubavitch Cheder's girls' building, a former church at 25401 Coolidge Hwy, Oak Park. Its first Lubavitch use found: in 1997 Lubavitch was converting it into its girls' school (Jewish News, 1997), and the Michigan Jewish Institute gave it as its address 'as of August 1997' (Jewish News, July 1997: 'The new address is 25401 Coolidge Highway, Oak Park'). The girls' elementary school and Beis Chaya Mushka Girls High School are there in the Sept 1999 directory. So 1997 (first mention, medium). Named for Lillian Schwarcz, who died in March 1999; enlarged 2007.",
+  "confidence": "medium"
+ },
+ "117989": {
+  "name": "Michigan Jewish Institute",
+  "city": "West Bloomfield",
+  "shetach": "michigan",
+  "year": 1994,
+  "how": "stated",
+  "source": "https://en.wikipedia.org/wiki/Michigan_Jewish_Institute",
+  "note": "Founded in 1994, funded by the Lubavitch Foundation of Michigan. CLOSED 2 March 2016 after losing federal aid: the directory listing is out of date. From August 1997 at 25401 Coolidge Hwy., Oak Park (Jewish News: 'Our new address as of August 1997'), still there in 2006, before its West Bloomfield address (6888 Maple Road).",
+  "confidence": "high",
+  "earlier": [
+   {
+    "where": "25401 Coolidge Hwy., Oak Park",
+    "from": 1997,
+    "until": null,
+    "source": "https://digital.bentley.umich.edu/djnews/djn.1997.07.25.001/92"
+   }
+  ]
+ },
+ "217615": {
+  "name": "Lubavitch Outreach",
+  "city": "Oak Park",
+  "shetach": "michigan",
+  "year": null,
+  "by": 2000,
+  "how": "range",
+  "source": "https://digital.bentley.umich.edu/djnews/djn.2000.01.21.001/60",
+  "note": "First mention: 'Rabbi Shneur Keselman of the Chabad Lubavitch Outreach Center in Oak Park' (Jewish News, 21 Jan 2000); 'Oak Park Chabad Lubavitch Outreach, Director: Rabbi Yosef Keselman' (25 May 2001); listed again in 2007 with Rabbi Yitzchok Mann among the shluchim. Founded by 2000. Now at 23160 Gardner Street, Oak Park.",
+  "confidence": "range"
+ }
+}

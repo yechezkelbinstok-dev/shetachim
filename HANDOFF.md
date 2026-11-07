@@ -30,7 +30,10 @@ section is right. Keep it that way: update this section, don't stack a new START
 shluchim's photos, vaad and board faces, the count line, no Zoom in); a center's page is an ICON in the header's
 corner beside the ✕ (owner, Nov 6: "I told you to turn it into an icon and not this horrible thing" about the
 "chabad.org ↗" pill, then, on a round icon floating at the end of the sub line: "look how horribly it's situated";
-`pageChip`, `.cc-icon`); head photos for the USA, Canada, Europe, the Middle East, Africa and Asia (Africa and Asia added Nov 6, late); the Rebbeim's portraits. Make every change in web/index.html
+`pageChip`, `.cc-icon`); head photos for the USA, Canada, Europe, the Middle East, Africa and Asia (Africa and Asia added Nov 6, late); the Rebbeim's portraits.
+**Sri Lanka is in no shetach** (owner, Nov 7: "sri Lanka is not official- give it the phillipines treatment please"):
+its five houses are Rabbi Mendy Crombie's mushroom network (Colombo its flagship); the `sri-lanka` shetach and its
+Hebrew entry are gone and `blank` has `{ "country": "LKA" }`, as for the Philippines and Bolivia. Make every change in web/index.html
 (web/preview-cards.html only redirects to it). "Pushed" to the owner means live: check that GitHub Pages deployed.
 
 **In progress (Nov 6): the Europe and Middle East photos, redone.** Owner: "The ones that are bad, you actually have to

@@ -54,7 +54,11 @@ Rotems Chabad representatives in 2008), Chabad of Ethiopia and its Bole airport 
 announced Rabbi Eliyahu Chaviv official in April 2020, but unlike Kenya's Rabbi Levi Notik, named in the same
 announcement, he was never listed on chabad.org). Then (owner: "Also add the village synagogue fogelman the one in LA") Rabbi Zalmy
 Fogelman's Village Synagogue, 7866 Fountain Avenue, West Hollywood: a mushroom (not on chabad.org; "inspired by the Chabad
-philosophy"). 94 mushrooms in all. **Kept as official, checked:** Pisac (its rabbi
+philosophy"). 94 mushrooms in all.
+A picture of them (owner: "make me a basic image map showing the mushrooms of the world I wanna visualize it"):
+`node scripts/mushroom-map.mjs` writes work/mushrooms/mushrooms-world-he.png and -en.png (the world, close dots merged into
+numbered ones, close-ups of New York–New Jersey, India–Sri Lanka and the Philippines, counts by country and network);
+rerun it after any mushroom change. **Kept as official, checked:** Pisac (its rabbi
 and rebbetzin are on chabad.org at Chabad of Cusco); Zanzibar (founded 2018 under Chabad of Central Africa, per
 chabad.org); Panama (many centers on chabad.org; Rabbi Aaron Laine, not on chabad.org himself, is called its head
 shliach); Armenia (chabad.org's own article on Rabbi Gershon Burshtein's Chabad house, since 1995). A check of every

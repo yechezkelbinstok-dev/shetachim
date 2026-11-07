@@ -7109,13 +7109,11 @@
    "name": "Chabad of N.E. Hollywood & Dania",
    "city": "Hollywood",
    "shetach": "florida",
-   "year": null,
-   "by": 2005,
-   "lead": 2004,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/760767520",
-   "note": "IRS (ProPublica): 'Chabad Of North East Hollywood-Dania Inc', care of Menachem M Tennenhaus, exempt from May 2005, so it existed by then. Miami Herald (CrownHeights.info, 27 May 2007): its first Torah; 'the Hollywood Women's Club at 501 N. 14th Ave., where the synagogue conducts its services' (also called the Shul of the Lakes). Start year not found yet; lead: therebbesimpact.com 2004.",
-   "confidence": "range",
+   "year": 2004,
+   "how": "stated",
+   "source": "https://www.chabadeh.com/templates/articlecco_cdo/aid/6487918/jewish/About-Us.htm",
+   "note": "Its own About page: 'Chabad of N.E. Hollywood & Dania was established in 2004, to serve the Jewish community of Hollywood'; Rabbi Mendy and Endi Tennenhaus 'moved to Hollywood and founded Chabad of N.E. Hollywood & Dania in 2004'. Now also Chabad of East Hollywood / Shul of the Lakes, 1350 Harrison Street. Existed by 2005 (earlier bound), which agrees.",
+   "confidence": "high",
    "earlier": [
     {
      "where": "Hollywood Women's Club, 501 N. 14th Ave.",
@@ -7867,13 +7865,11 @@
    "name": "Chabad Lubavitch of the Venetian",
    "city": "Miami Beach",
    "shetach": "florida",
-   "year": null,
-   "by": 1999,
-   "lead": 1998,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/650860163",
-   "note": "IRS (ProPublica): 'Chabad Lubavitch Of Venetian Causeway And Surrounding Islands', care of Abraham Shmuel Mann, exempt from 1999-05, so it existed by then. Start year not found yet; lead: therebbesimpact.com 1998.",
-   "confidence": "range"
+   "year": 1998,
+   "how": "stated",
+   "source": "https://www.chabadvenetian.com/templates/articlecco_cdo/aid/5405341/jewish/About.htm",
+   "note": "Its own About page: 'Chabad of Venetian & Sunset Islands was founded in 1998, with the guidance and blessing of the Lubavitcher Rebbe.' IRS: 'Chabad Lubavitch Of Venetian Causeway And Surrounding Islands' (Abraham Shmuel Mann), exempt from May 1999, which agrees.",
+   "confidence": "high"
   },
   "118294": {
    "name": "Bais Menachem of N. Miami Beach",
@@ -7882,8 +7878,8 @@
    "year": null,
    "lead": 1995,
    "how": "not-found",
-   "source": null,
-   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 1995.",
+   "source": "https://www.bmnmb.com/templates/articlecco_cdo/aid/1599571/jewish/The-Shul.htm",
+   "note": "Its own 'The Shul' page: 'Our Rabbi & Rebbitzin are now on their 29th year here in the community' (undated page; chabad.org page no. 1599571 is from about 2011, which would point to about 1983, but the text may have been updated since). Rabbi and Mrs. Laufer joined in 2017. Not a year: lead only. therebbesimpact.com: 1995.",
    "confidence": "open"
   },
   "118484": {
@@ -7938,8 +7934,8 @@
    "by": 2006,
    "lead": 2004,
    "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/201881702",
-   "note": "IRS (ProPublica): 'Chabad Lubavitch Of Sunrise Inc', care of Levi Chanowitz, exempt from 2006-01, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2004.",
+   "source": "https://www.jewishsunrise.org/templates/articlecco_cdo/aid/2594905/jewish/About-Us.htm",
+   "note": "Its own About page: 'Rabbi Dov Ber and Devora Leah Thaler arrived in Sunrise in the summer of 2014' to take over leadership of the center, so it is older. Existed by 2006 (earlier bound); its start is not stated.",
    "confidence": "range"
   },
   "150728": {
@@ -7969,24 +7965,21 @@
    "name": "Chabad in South Beach",
    "city": "Miami Beach",
    "shetach": "florida",
-   "year": null,
-   "by": 2007,
-   "lead": 2005,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/202920281",
-   "note": "IRS (ProPublica): 'Chabad Of South Beach Inc', care of Sharaga Mann, exempt from 2007-03, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2005.",
-   "confidence": "range"
+   "year": 2005,
+   "how": "stated",
+   "source": "https://www.chabadinsouthbeach.com/306913",
+   "note": "Its own About page (Shragi and his wife): 'In the vibrant year of 2005, our journey led us to the golden shores of South Beach', where 'we took the bold step of opening a Chabad house'. IRS: Chabad of South Beach Inc (Shraga Mann, Meridian Avenue), ruling 2007, which agrees. 320 Meridian Avenue.",
+   "confidence": "high"
   },
   "302934": {
    "name": "Chabad of West Parkland",
    "city": "Parkland",
    "shetach": "florida",
-   "year": null,
-   "lead": 2004,
-   "how": "not-found",
-   "source": null,
-   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2004.",
-   "confidence": "open"
+   "year": 2002,
+   "how": "stated",
+   "source": "https://www.chabadofwestparkland.com/templates/articlecco_cdo/aid/5285626/jewish/About-Us.htm",
+   "note": "Its own About page: Rabbi Mendy and Rebbetzin Estie Gutnick and their family 'have been serving West Parkland since 2002'. The center's own founding is not worded separately; taken as 2002.",
+   "confidence": "high"
   },
   "306844": {
    "name": "Chabad of Eastern Shores",
@@ -8050,12 +8043,12 @@
    "name": "Chabad of North Bay Village",
    "city": "North Bay Village",
    "shetach": "florida",
-   "year": null,
-   "lead": 2004,
-   "how": "not-found",
-   "source": null,
-   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 2004.",
-   "confidence": "open"
+   "year": 2003,
+   "how": "stated",
+   "source": "https://www.chabadnorthbayvillage.com/templates/articlecco_cdo/aid/582031/jewish/About-Us.htm",
+   "note": "Its own About page: 'Founded in the Fall of 2003, Ohr Menachem Chabad of North Bay Village'; 'We established Ohr Menachem Chabad in North Bay Village in 2003.' Rabbi Faivish and Chaya Sara Dalfin had moved to Florida from Brooklyn in 1990; 'In 2015 Rabbi Mendy & Mushka Dalfin joined our Congregation.' 1580 79th Street Causeway.",
+   "confidence": "high",
+   "season": "fall"
   },
   "360204": {
    "name": "Chabad @ the Civic Center",
@@ -8118,13 +8111,11 @@
    "name": "Chabad of South Palm Beach",
    "city": "Lantana",
    "shetach": "florida",
-   "year": null,
-   "by": 2007,
-   "lead": 2006,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/571240142",
-   "note": "IRS (ProPublica): 'Chabad Of South Palm Beach Inc', care of Yehuda L Stolik, exempt from 2007-12, so it existed by then. Start year not found yet; lead: the chabad.org listing is from about 2006.",
-   "confidence": "range"
+   "year": 2006,
+   "how": "stated",
+   "source": "https://www.chabadspb.org/",
+   "note": "Its own home page: Chabad of South Palm Beach 'was founded in 2006 by Rabbi Leibel and Shaina Stolik'. IRS: existed by 2007 (earlier bound), which agrees. Lantana.",
+   "confidence": "high"
   },
   "440099": {
    "name": "Beit Chabad",
@@ -8264,10 +8255,10 @@
    "shetach": "florida",
    "year": null,
    "by": 2015,
-   "lead": 2009,
+   "lead": 2008,
    "how": "range",
    "source": "https://projects.propublica.org/nonprofits/organizations/270400534",
-   "note": "IRS (ProPublica): 'Chabad Of N Broward Beaches Inc', care of Tzvi Dechter, exempt from 2018-04, so it existed by then (a later re-registration is possible). A 2015 Observer column by Rabbi Tzvi Dechter gives the center at 4081 N. Federal Hwy. #100A, Pompano Beach (by 2019 at the Venetian Isle Shopping Center, 2025 E. Sample Rd., Lighthouse Point). Start year not found yet; lead: therebbesimpact.com 2009.",
+   "note": "Its own About page (chabad.org page no. 971604, which dates from about 2009): 'Chabad has been serving the Broward Beaches community for almost 2 years' (so about 2007-08, if the text is from when the page was made). Directors Rabbi Tzvi and Shana Dechter. Existed by 2015 (earlier bound). Lead only: the page's own date is not shown.",
    "confidence": "range"
   },
   "924472": {
@@ -8411,9 +8402,10 @@
    "by": 2022,
    "lead": 2015,
    "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/861439550",
-   "note": "IRS (ProPublica): 'Chabad Of Normandy And Biscayne Point Inc', care of Menachem Dalfin, exempt from 2022-12, so it existed by then (a later re-registration is possible). Start year not found yet; lead: therebbesimpact.com 2015.",
-   "confidence": "range"
+   "source": "https://www.chabadnorthbayvillage.com/templates/articlecco_cdo/aid/582031/jewish/About-Us.htm",
+   "note": "Chabad of North Bay Village's About page: 'In 2015 Rabbi Mendy & Mushka Dalfin joined our Congregation'; their own Chabad of Normandy Isle/Biscayne Point About page says only that 'our family moved to the 71st Street area of Miami', with no year. So it began in 2015 or later, and existed by 2022. 7556 Bounty Avenue.",
+   "confidence": "range",
+   "after": 2015
   },
   "2840579": {
    "name": "Chabad of Miami Shores",
@@ -8442,13 +8434,11 @@
    "name": "Chabad of East Plantation",
    "city": "Plantation",
    "shetach": "florida",
-   "year": null,
-   "by": 2015,
-   "lead": 2015,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/472499798",
-   "note": "IRS (ProPublica): 'Chabad Of East Plantation Inc', care of Aron Pink, exempt from 2015-04, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2015.",
-   "confidence": "range"
+   "year": 2015,
+   "how": "stated",
+   "source": "https://www.chabadeastplantation.com/",
+   "note": "Its own home page: Chabad of East Plantation 'was established in 2015 to share the teachings of Judaism', directed by Rabbi Aron and Rochel Pink (earlier youth director at Chabad of Plantation). 241 Holly Lane.",
+   "confidence": "high"
   },
   "3229121": {
    "name": "Chabad at St. Thomas University",
@@ -8465,25 +8455,22 @@
    "name": "Chabad of East Delray Beach",
    "city": "Delray Beach",
    "shetach": "florida",
-   "year": null,
-   "by": 2016,
-   "lead": 2016,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/811757981",
-   "note": "IRS (ProPublica): 'Chabad Of East Delray', care of Rabbi Shmuel Biston, exempt from 2016-08, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2016.",
-   "confidence": "range"
+   "year": 2016,
+   "how": "stated",
+   "source": "https://www.jewisheastdelray.com/about-6",
+   "note": "Its own About page: 'Rabbi Shmuli and Sari Biston established Chabad of East Delray and Chabad Young Professionals of Delray in January 2016.' 101 SE 2nd Avenue.",
+   "confidence": "high",
+   "date": "2016-01"
   },
   "3329590": {
    "name": "Beit Chabad Israeli Center",
    "city": "Hollywood",
    "shetach": "florida",
-   "year": null,
-   "by": 2016,
-   "lead": 2016,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/812752109",
-   "note": "IRS (ProPublica): 'Beit Chabad Israeli Center Inc', care of Yosef Raskin, exempt from 2016-09, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2016.",
-   "confidence": "range"
+   "year": 2016,
+   "how": "stated",
+   "source": "https://www.chabadisraelim.org/templates/articlecco_cdo/aid/3737308/jewish/About-Us.htm",
+   "note": "Its own site: 'Beit Chabad was established in 2016, and we are here to make an impact where we are needed most' (Beit Chabad Israeli Center, Hollywood; footer address 7575 NW 19th Dr, Pembroke Pines). Rabbi Yosef Raskin. Existed by 2016 (earlier bound), which agrees.",
+   "confidence": "high"
   },
   "3336340": {
    "name": "Ligrom Arichus Yomim - Chabad Chaplaincy Network",
@@ -8546,13 +8533,11 @@
    "name": "Chabad at NSU",
    "city": "Davie",
    "shetach": "florida",
-   "year": null,
-   "by": 2019,
-   "lead": 2018,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/824589396",
-   "note": "IRS (ProPublica): 'Chabad At Nsu Inc', care of Aryeh Schwartz, exempt from 2019-04, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2018.",
-   "confidence": "range"
+   "year": 2018,
+   "how": "stated",
+   "source": "https://www.jewishnsu.com/",
+   "note": "Its own home page (Chabad at NSU, Davie): 'The Chabad Jewish Center was established in 2018.' Rabbi Aryeh Schwartz. Existed by 2019 (IRS), which agrees.",
+   "confidence": "high"
   },
   "4045086": {
    "name": "Chabad of Nocatee",
@@ -8573,20 +8558,20 @@
    "by": 2019,
    "lead": 2018,
    "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/831748885",
-   "note": "IRS (ProPublica): 'Chabad At Waterways Inc', care of Yisroel Brusowankin, exempt from 2019-06, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2018.",
-   "confidence": "range"
+   "source": "https://www.chabadwaterways.org/templates/articlecco_cdo/aid/5012692/jewish/About-Us.htm",
+   "note": "Its own About page: Rabbi Yisroel and Devora Leah Brusowankin 'In 2008 ... moved to Aventura, Fl to continue in the footsteps of their parents'; 'In the Waterways area where they have lived for over 10 years' (undated). When Chabad at the Waterways itself began is not stated; existed by 2019 (earlier bound).",
+   "confidence": "range",
+   "after": 2008
   },
   "4266412": {
    "name": "Chabad at University of Miami Undergraduate",
    "city": "Coral Gables",
    "shetach": "florida",
-   "year": null,
-   "lead": 2018,
-   "how": "not-found",
-   "source": null,
-   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2018.",
-   "confidence": "open"
+   "year": 2019,
+   "how": "stated",
+   "source": "https://www.uchabadundergrad.com/about",
+   "note": "Its own About page ('Who We Are'): 'The Lipskiers moved to Coral Gables in 2019' (Rabbi Shmuly and Mushka Lipskier), building on 'the twenty years of work' of Rabbi Mendy and Henchi Fellig (Chabad @ University of Miami, 2001). The undergraduate branch's own start is not stated; taken as the Lipskiers' arrival. chabad.org listing (4266412) from about 2018-19.",
+   "confidence": "medium"
   },
   "4364240": {
    "name": "Chabad of Bayshore, Miami Beach",
@@ -8604,11 +8589,11 @@
    "city": "Fort Myers",
    "shetach": "florida",
    "year": null,
-   "by": 2020,
+   "by": 2019,
    "lead": 2019,
    "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/834484945",
-   "note": "IRS (ProPublica): 'Chabad At Fgcu Inc', care of Rabbi Mendel Gordon, exempt from 2020-02, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2019.",
+   "source": "https://www.chabadfgcu.com/templates/articlecco_cdo/aid/7122044/jewish/Meet-our-staff.htm",
+   "note": "Its own staff page: Rabbi Mendel and Shternie Gordon 'joined the team as on-site directors in 2019'; Chabad at FGCU is 'a division of Chabad of Bonita Springs and Estero'. So it existed by 2019; whether it began then or earlier under Bonita Springs is not stated.",
    "confidence": "range"
   },
   "4540021": {
@@ -8638,12 +8623,12 @@
    "name": "Chabad of West Delray Beach",
    "city": "West Delray Beach",
    "shetach": "florida",
-   "year": null,
-   "lead": 2019,
-   "how": "not-found",
-   "source": null,
-   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 2019.",
-   "confidence": "open"
+   "year": 2019,
+   "how": "stated",
+   "source": "https://www.jewishwestdelray.com/about-us",
+   "note": "Its own About page: Rabbi Yossi and Leah Schapiro 'established Chabad of West Delray in September of 2019' (he was ordained in 2013).",
+   "confidence": "high",
+   "date": "2019-09"
   },
   "4629871": {
    "name": "Mikvah Beit Yosef",
@@ -8755,13 +8740,11 @@
    "name": "Chabad of Plantation Acres",
    "city": "Plantation",
    "shetach": "florida",
-   "year": null,
-   "by": 2022,
-   "lead": 2021,
-   "how": "range",
-   "source": "https://collive.com/the-60-couples-who-will-receive-new-shluchim-grants/",
-   "note": "Merkos 'New Shluchim' grant (Nov 2022) to Yosef and Riki Posner, Plantation: a grant for couples in their first years. Start year not found yet; lead: therebbesimpact.com 2021.",
-   "confidence": "range"
+   "year": 2022,
+   "how": "stated",
+   "source": "https://www.chabadoftheacres.com/about",
+   "note": "Its own About page: 'Rabbi Yossi and Riki moved to Plantation Acres, Florida in 2022' (Rabbi Yossi and Riki Posner, who direct Chabad of the Acres). Its corporation existed by 2022 (earlier bound), which agrees.",
+   "confidence": "high"
   },
   "5407765": {
    "name": "Skylake Chabad Shul",
@@ -8846,13 +8829,11 @@
    "name": "Chabad of Westlake and Loxahatchee",
    "city": "Loxahatchee",
    "shetach": "florida",
-   "year": null,
-   "by": 2026,
-   "lead": 2022,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/995005802",
-   "note": "IRS (ProPublica): 'Chabad Lubavitch Of Westlake And Loxahatchee Inc', exempt from 2026-01, so it existed by then. Start year not found yet; lead: the chabad.org listing is from about 2022.",
-   "confidence": "range"
+   "year": 2023,
+   "how": "stated",
+   "source": "https://www.chabadwestlake.org/templates/articlecco_cdo/aid/6574875/jewish/About-Us.htm",
+   "note": "Its own About page has both: 'Chabad Lubavitch of Westlake and Loxahatchee Inc. was established in 2023 to serve the Jewish community' (Our Story) and 'Rabbi Zalmy and Shaina Muskal founded Chabad of Westlake and Loxahatchee in 2024' (Meet the Muskals). The earlier year is used; the two disagree, so medium.",
+   "confidence": "medium"
   },
   "5813979": {
    "name": "Chabad Israeli Center of Tampa",
@@ -8881,12 +8862,11 @@
    "name": "Chabad of Forest Lakes Estates",
    "city": "Lauderhill",
    "shetach": "florida",
-   "year": null,
-   "lead": 2019,
-   "how": "not-found",
-   "source": null,
-   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 2019.",
-   "confidence": "open"
+   "year": 2019,
+   "how": "stated",
+   "source": "https://www.chabadfle.com/templates/articlecco_cdo/aid/6972443/jewish/About-Us.htm",
+   "note": "Its own About page: 'Chabad of Forest Lakes Estates was established in 2019, to serve the Jewish community of Lauderhill'; 'Rabbi Elazar and Sara Gedj moved to Lauderhill and founded Chabad of Forest Lakes Estates in 2019.'",
+   "confidence": "high"
   },
   "6184526": {
    "name": "Jewish Community Synagogue",

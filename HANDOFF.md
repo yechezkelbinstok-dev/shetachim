@@ -61,8 +61,9 @@ thirteen no better recent photo has been found yet (the list is there, with what
     month or day save it ... (or season which equates to a range ofc)"; "if you come across that a center used to be
     somewhere else save as well as maybe when it moved"; "If by some miracle you finish Florida completely then new
     Jersey next, followed by Pennsylvania". Batches: `batches/florida-NN.json`; notes: `work/founding-years/florida.md`.
-    State (Nov 7): every Florida listing has an entry; 121 of 219 dots have a year (99 high, 21 medium, 1 low), 51
-    are ranges (an IRS ruling, a Sunbiz filing or a dated mention says "existed by"), 47 open. New Jersey: 51 of 84
+    State (Nov 7): every Florida listing has an entry; 136 of 219 dots have a year (112 high, 23 medium, 1 low), 41
+    are ranges (an IRS ruling, a Sunbiz filing or a dated mention says "existed by"), 42 open. Many came from the
+    centers' own About pages (WebFetch reads chabad.org-hosted sites; plain curl gets a Cloudflare check). New Jersey: 51 of 84
     dots have a year (48 high, 3 medium), 6 ranges, 27 open (`batches/new-jersey-01.json`, `-02.json`). **Owner** (Nov 7): "I WANT HIGH
     CONFIDENCE FROM ALL OF THEM"; search each center individually, not only its own site and chabad.org; finish the
     easier New Jersey ones, then back to Florida's non-high dots.

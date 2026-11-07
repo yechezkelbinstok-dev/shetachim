@@ -2831,7 +2831,7 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.facebook.com/shalomschoolsf/",
-   "note": "The school's own Facebook page: 'Founded in 1997, Shalom School has served the Jewish and general community'. Hinda Langer, its founder and director, had earlier founded the Beth Meir Schoolhouse (1985)."
+   "note": "The school's own Facebook page: 'Founded in 1997, Shalom School has served the Jewish and general community'. Hinda Langer, its founder and director, had earlier founded the Beth Meir Schoolhouse (1985). The state has licensed it at 862 28th Avenue since Apr 26 2004 (facility 384001312, licensee Happy Shalom School, Inc., director Hinda Lingar). Where it was in 1997-2004 wasn't found."
   },
   "3410889": {
    "name": "Chabad of El Cerrito",
@@ -3312,14 +3312,21 @@
    "name": "The Gan - Alameda Jewish Preschool",
    "city": "Alameda",
    "shetach": "west-coast",
-   "year": null,
+   "year": 2020,
    "lead": 2021,
-   "how": "range",
-   "confidence": "range",
-   "source": "https://web.archive.org/web/20201024023446/https://www.theganalameda.com/",
-   "note": "No start year found. Chabad of Alameda's preschool (Mushki Shmotkin): its site as archived Oct 24 2020 already describes 'a Large Family Day Care Home in Alameda' using 'three rooms of a beautiful sun-lit home' overlooking the Alameda lagoon, and speaks of preparing 'to reopen our school' after Covid, so it ran by 2020 (likely before March 2020); Chabad of Alameda itself began in Aug 2017, so not before then. Its chabad.org listing went up Jan 5 2021 (now 1516 Oak Street, #316); the site's domain has since lapsed. Its chabad.org listing went up on Jan 5 2021 (chabad.org's own record), so it existed by then.",
-   "after": 2017,
-   "by": 2020
+   "how": "directory",
+   "confidence": "medium",
+   "source": "https://www.ccld.dss.ca.gov/carefacilitysearch/FacDetail/013423580",
+   "note": "California's childcare licensing record (facility 013423580, the state's open data of May 2025): a family day care home in Alameda for 12 children, licensee Chaya Alperowitz, licensed Apr 28 2020 and closed Feb 28 2024. Berkeley Parents Network ties that license to 'The Gan Preschool' (website TheGanAlameda.com, Thegan@jewishalameda.com, location 'Grand & Otis', 'Feb 2024: Daycare closed according to license records'; https://www.berkeleyparentsnetwork.org/recommend/preschool/gan-preschool). Its site as archived Oct 24 2020 describes 'a Large Family Day Care Home in Alameda' in 'three rooms of a beautiful sun-lit home' overlooking the lagoon and speaks of preparing 'to reopen our school' after Covid, so it may have run a little before the license: medium. Chabad of Alameda itself began in Aug 2017. Its chabad.org listing went up Jan 5 2021 (now 1516 Oak Street, #316). Closed in Feb 2024.",
+   "date": "2020-04-28",
+   "earlier": [
+    {
+     "where": "a licensed home daycare by Grand St. and Otis Dr., overlooking the Alameda lagoon",
+     "from": 2020,
+     "until": 2024,
+     "source": "https://www.berkeleyparentsnetwork.org/recommend/preschool/gan-preschool"
+    }
+   ]
   },
   "6941865": {
    "name": "Chabad of Burlingame",
@@ -3669,7 +3676,7 @@
    "how": "list",
    "confidence": "medium",
    "source": "https://www.chinuchoffice.org/media/pdf/1267/szkh12671837.pdf",
-   "note": "The Chabad Chinuch Office's Directory of Chabad Educational Institutions (2023-24): Gan Camarillo Chabad Preschool, 2222 Ventura Blvd., directors Leah Lang and Shira Muchnik, 'Founded 2005'. Chabad of Camarillo itself is from 2003. Checked (Nov 6): a Chabadinfo item quoting Rabbi Lang ('who opened the Gan Camarillo Preschool in Old Town earlier this year') is undated, so no second year."
+   "note": "The Chabad Chinuch Office's Directory of Chabad Educational Institutions (2023-24): Gan Camarillo Chabad Preschool, 2222 Ventura Blvd., directors Leah Lang and Shira Muchnik, 'Founded 2005'. Chabad of Camarillo itself is from 2003. Checked (Nov 6): a Chabadinfo item quoting Rabbi Lang ('who opened the Gan Camarillo Preschool in Old Town earlier this year') is undated, so no second year. The state has licensed it at 2222 Ventura Blvd. (Old Town) since Aug 31 2007 (facility 566212127), and its chabad.org listing went up May 15 2007; with Rabbi Lang's 'opened ... in Old Town earlier this year', the Old Town school is from 2007. Where it ran in 2005-07, if it did, wasn't found."
   },
   "520208": {
    "name": "Camp Gan Israel",
@@ -3770,7 +3777,7 @@
    "how": "list",
    "confidence": "medium",
    "source": "https://www.chinuchoffice.org/media/pdf/1267/szkh12671837.pdf",
-   "note": "The preschool. The Chabad Chinuch Office's Directory of Chabad Educational Institutions (2023-24): Aleph Schoolhouse, 73550 Santa Rosa Way, Palm Desert, preschool 'Founded: 1983' (Rabbi Mendy and Shaindy Friedman; Sussie Denebeim, educational advisor). Checked (Nov 6): no second source found."
+   "note": "The preschool. The Chabad Chinuch Office's Directory of Chabad Educational Institutions (2023-24): Aleph Schoolhouse, 73550 Santa Rosa Way, Palm Desert, preschool 'Founded: 1983' (Rabbi Mendy and Shaindy Friedman; Sussie Denebeim, educational advisor). Checked (Nov 6): no second source found. The state has licensed it at 73-550 Santa Rosa Way since July 2 2015 (facility 334843324, licensee Jewish Sunshine Circle; a second license there, for 15, closed Sept 30 2022). Where it was before 2015 wasn't found."
   },
   "118894": {
    "name": "Aleph Schoolhouse",
@@ -4659,7 +4666,7 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.chabad.org/news/article_cdo/aid/6742578/jewish/As-California-Wildfires-Blaze-Chabad-Races-to-Offer-Helping-Hand.htm",
-   "note": "Chabad.org News (Jan 2025): 'Founded in 1992, Chabad of Pacific Palisades is directed by Rabbi Zushe and Zisi Cunin'; the Forward: director 'since 1992'."
+   "note": "Chabad.org News (Jan 2025): 'Founded in 1992, Chabad of Pacific Palisades is directed by Rabbi Zushe and Zisi Cunin'; the Forward: director 'since 1992'. The Palisades fire (Jan 2025) 'partially destroyed Chabad's campus and preschool' at 17315 Sunset Blvd. (Lubavitch.com, Aug 31 2025, 'From the Ashes: Pacific Palisades Rebuilds'); the preschool ran 'in a renovated building' meanwhile, which the state's data (May 2025) shows as a pending license for the Palisades Jewish Early Childhood Center at 1537 Franklin St., Santa Monica; the campus renovations were to be finished by the 2025 High Holidays. Its preschool had been licensed at 17311-15 W. Sunset Blvd. since May 30 2012."
   },
   "118233": {
    "name": "Chabad of Malibu",
@@ -4699,7 +4706,7 @@
    "how": "list",
    "confidence": "medium",
    "source": "https://www.chinuchoffice.org/media/pdf/1267/szkh12671837.pdf",
-   "note": "The Chinuch Office directory (2023-24): Gan Chabad Preschool, 1536 South Robertson Blvd., dean Fayge Yemini, 'Founded: 1990'. Same dot as the Chabad Israel Center. Checked (Nov 6): no second source found."
+   "note": "The Chinuch Office directory (2023-24): Gan Chabad Preschool, 1536 South Robertson Blvd., dean Fayge Yemini, 'Founded: 1990'. Same dot as the Chabad Israel Center. Checked (Nov 6): no second source found. The state has licensed it at 1536 S. Robertson Blvd. since July 31 2003 (facility 197410026, licensee Chabad Israeli Center)."
   },
   "117557": {
    "name": "Yeshiva Ohr Elchonon Chabad",
@@ -4719,7 +4726,7 @@
    "how": "list",
    "confidence": "high",
    "source": "https://www.chinuchoffice.org/media/pdf/1267/szkh12671837.pdf",
-   "note": "The Chinuch Office directory (2023-24): Gan Malibu Early Childhood Center, 22933 Pacific Coast Highway, director Sarah Cunin, 'Founded: 1999'. Chabad of Malibu itself is from 1994. Checked (Nov 6): its daycare profile: Sarah Cunin 'has been the proud director of Gan Malibu since its founding 25 years ago'; an older Chabad early-childhood directory also gives 'Founded 1999'."
+   "note": "The Chinuch Office directory (2023-24): Gan Malibu Early Childhood Center, 22933 Pacific Coast Highway, director Sarah Cunin, 'Founded: 1999'. Chabad of Malibu itself is from 1994. Checked (Nov 6): its daycare profile: Sarah Cunin 'has been the proud director of Gan Malibu since its founding 25 years ago'; an older Chabad early-childhood directory also gives 'Founded 1999'. The state has licensed it at 22933 Pacific Coast Highway since Nov 25 2008 (facility 197415776; an infant room there since Feb 5 2016). Where it was in 1999-2008 wasn't found."
   },
   "118189": {
    "name": "Chabad of Pasadena",
@@ -5163,7 +5170,7 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.chabadburbank.com/templates/articlecco_cdo/aid/69868/jewish/About-Us.htm",
-   "note": "The center's own About page: 'Since the fall of 1999, the Chabad Burbank Jewish Center ... [has] provided a warm, friendly, non-judgmental environment'; a news story (CrownHeights.info, 'New Chabad House opens in Burbank'): 'The Burbank Chabad began in the winter of 1999 when Kornfeld invited small groups of Jews to a house on Lima Street'. Rabbi Shmuly Kornfeld: 'Elana and I married in 1998, and just six months later we opened Chabad of Burbank'. (Looser counts: Anash 2023 'the last 25 years', a 2017 campaign '19 years', both pointing to 1998.)",
+   "note": "The center's own About page: 'Since the fall of 1999, the Chabad Burbank Jewish Center ... [has] provided a warm, friendly, non-judgmental environment'; a news story (CrownHeights.info, 'New Chabad House opens in Burbank'): 'The Burbank Chabad began in the winter of 1999 when Kornfeld invited small groups of Jews to a house on Lima Street'. Rabbi Shmuly Kornfeld: 'Elana and I married in 1998, and just six months later we opened Chabad of Burbank'. (Looser counts: Anash 2023 'the last 25 years', a 2017 campaign '19 years', both pointing to 1998.) Its building: CrownHeights.info, Sept 6 2006 (from the Burbank Leader): 'the opening Soussana Family Jewish Chabad Center' on Sunday, 'Because of them and their generous donations we are able to get into this building ... We used to be in a little rental down the street'; 2415 W. Magnolia Blvd. is that building's address in the preschool's records (licensed there Nov 17 2011). Moved in 2026 to 2613 W. Magnolia Blvd.: its Yom Kippur page for Sept 20-21 [2026] says 'Services will be held at Chabad of Burbank's NEW Location 2613 W. Magnolia Boulevard', the state had a license for its preschool pending there in May 2025, and licensed it there on Sept 1 2026 (facility 195700764).",
    "earlier": [
     {
      "where": "the Kornfelds' home, then a house on Lima Street, Burbank",
@@ -5172,10 +5179,16 @@
      "source": "https://crownheights.info/general/3062/new-chabad-house-opens-in-burbank/"
     },
     {
-     "where": "a storefront in Burbank, before the building it bought later (2415 W. Magnolia Blvd)",
+     "where": "a storefront in Burbank ('a little rental down the street'), before its own building",
      "from": null,
-     "until": null,
+     "until": 2006,
      "source": "https://www.burbankjewishpreschool.com/staff"
+    },
+    {
+     "where": "2415 W. Magnolia Blvd. (the Soussana Family Jewish Chabad Center, opened Sept 3 2006; its preschool was licensed there from Nov 17 2011)",
+     "from": 2006,
+     "until": 2026,
+     "source": "https://crownheights.info/general/3062/new-chabad-house-opens-in-burbank/"
     }
    ]
   },
@@ -5927,13 +5940,13 @@
    "name": "Jewish Creative Preschool",
    "city": "Beverly Hills",
    "shetach": "west-coast",
-   "year": null,
+   "year": 2020,
    "lead": 2017,
-   "how": "range",
-   "confidence": "range",
-   "source": "https://www.chabad.org/jewish-centers/7001638",
-   "note": "No year found (director Mushkie Bitton). therebbesimpact.com: 2017 for the Bittons; the listing number (7001638) is from about September 2025. Its chabad.org listing went up on Aug 20 2025 (chabad.org's own record), so it existed by then.",
-   "by": 2025
+   "how": "directory",
+   "confidence": "medium",
+   "source": "https://www.ccld.dss.ca.gov/carefacilitysearch/FacDetail/197494647",
+   "note": "California's childcare licensing record (Community Care Licensing facility 197494647, in the state's open data of May 2025 and its facility page): 'JEWISH CREATIVE PRESCHOOL LA', 142 S. Rexford Drive, Beverly Hills, a day care center for 31 children, licensed since Dec 14 2020 (licensee 'Valerie Peer DBA & Jewish Students LA', administrator Simcha Peer). The chabad.org listing (published Aug 20 2025) has the same name and address, with Mushkie Bitton as director. A license date, not a report of the opening, so medium. therebbesimpact.com has the Bittons from 2017.",
+   "date": "2020-12-14"
   },
   "3004418": {
    "name": "Chai Tots PreSchool",
@@ -6070,7 +6083,7 @@
    "how": "range",
    "confidence": "range",
    "source": "https://web.archive.org/web/20080630231455/http://www.chabadbw.com/templates/articlecco_cdo/aid/62397/jewish/Synagogue-Services.htm",
-   "note": "No start year found (Mrs. Channa Hecht; the preschool of Chabad of Brentwood, 1985). It is in chabad.org's first directory (its listing went up July 22 2004, when that directory was put online), so it ran by then; in 2008 it was at 1620 S. Bundy Dr., where Chabad of Brentwood South held its first services (Chabad of Brentwood's site, archived June 30 2008). Now 647 S. Saltair Ave. Not in the Chinuch Office's 2012-13 preschool directory. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "note": "No start year found (Mrs. Channa Hecht; the preschool of Chabad of Brentwood, 1985). It is in chabad.org's first directory (its listing went up July 22 2004, when that directory was put online), so it ran by then; in 2008 it was at 1620 S. Bundy Dr., where Chabad of Brentwood South held its first services (Chabad of Brentwood's site, archived June 30 2008). Now 647 S. Saltair Ave. Not in the Chinuch Office's 2012-13 preschool directory. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Mrs. Channa Hecht has held a license for a family child care home in Los Angeles since Sept 6 2018 ('Hecht Family Child Care', facility 197493559; the state does not publish home addresses), and the listing now gives 647 S. Saltair Ave., a house, so the Gan may now run as her licensed home daycare; no preschool license at 1620 S. Bundy Dr. is in the state's data (which keeps closed ones only from 2020).",
    "by": 2004,
    "earlier": [
     {

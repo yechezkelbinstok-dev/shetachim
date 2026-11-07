@@ -150,3 +150,14 @@ notes already written were mined for the old places they mention (batches small-
   number ('Lubavitch Middlebelt', '"14100" Lubavitch') dates each address. It also showed that Bais Chabad of
   Farmington Hills began in 1972 (Nov 24 1972: 'a proud new addition ... BAIS CHABAD ... at 28555 Middlebelt Road',
   Rabbi Yitschak Kagan), not 1977 (the Bergsteins' start).
+- **California's childcare licenses (free, plain curl):** the state's open data (data.chhs.ca.gov, dataset
+  `ccl-facilities`, CSVs "Child Care Centers" and "Family Child Care Homes", May 2025) gives every licensed preschool's
+  name, licensee, address, `license_first_date`, and closures since 2020 with `closed_date`. A preschool that moves gets a
+  new license at the new address, so the first date at the present address dates the present site. Found: Jewish
+  Creative Preschool (licensed Dec 14 2020), The Gan in Alameda (a home daycare, Apr 2020 to Feb 2024), Burbank's preschool
+  at 2415 W. Magnolia from 2011 and at 2613 from Sept 2026, the Palisades preschool's post-fire license in Santa Monica.
+  Home daycares show no address. The facility pages (ccld.dss.ca.gov/carefacilitysearch/FacDetail/<number>) time out
+  from here; the CSV is enough.
+- **Chabad.org's centers API (free, plain curl):** `https://www.chabad.org/api/v2/chabadorg/centers/locations?id=2-<zip>&format=jsonapi&lang=en`
+  returns the 50 centers nearest a ZIP code with their street addresses (the listing pages themselves are behind a bot
+  check, so they are not used).

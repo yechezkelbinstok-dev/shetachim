@@ -79,6 +79,11 @@ thirteen no better recent photo has been found yet (the list is there, with what
        - `git checkout --ours data/founding-years.json` (in a rebase, "ours" is the remote's version);
        - re-apply your own batch files with add.py and rerun status.py;
        - `git add` both files, then `git rebase --continue`.
+    4b. **Not yet the same in both sessions:** a state filing (California Secretary of State, Florida Sunbiz) or an
+       IRS ruling date, when nothing better exists. The West Coast window enters it as the year (`how: directory`,
+       `medium`, the note saying it is the corporation's filing; the file's `about` lists an IRS record under
+       `directory`); the Florida session entered such dates as a `by` bound (a range). *(Suggestion, not agreed:)*
+       ask the owner which, then make the two match.
     5. In every update to the owner, say how much is left. `python3 work/founding-years/progress.py <your shetachim>`
        prints it ("LEFT: 48 of 48 dots (100.0%), ..."). Owner (Nov 6): "keep telling me how much left (amount and %)
        so I can steadily see progress".

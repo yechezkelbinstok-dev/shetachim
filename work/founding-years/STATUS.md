@@ -41,7 +41,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | south-area | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | southern-ohio | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | tennessee | 7 | 7 |  |  |  |  |  | 0 | 7 | 0 |
-| texas | 58 | 27 | 6 |  | 1 |  | 24 | 25 | 48 | 17 |
+| texas | 58 | 29 | 7 |  | 3 |  | 19 | 22 | 48 | 14 |
 | utah | 4 | 3 | 1 |  |  |  |  | 0 | 4 | 0 |
 | vermont | 8 | 5 | 2 |  | 1 |  |  | 1 | 8 | 1 |
 | washington-dc | 5 | 2 | 3 |  |  |  |  | 0 | 5 | 0 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | kansas-missouri | 16 |  |  |  |  |  | 16 | 16 | 16 | 16 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
 | british-columbia | 13 |  |  |  |  |  | 13 | 13 | 13 | 13 |
-| **all** | 1969 | 584 | 158 | 1 | 125 | 40 | 1061 | 1226 | 1765 | 1049 |
+| **all** | 1969 | 586 | 159 | 1 | 127 | 40 | 1056 | 1223 | 1765 | 1046 |

@@ -14,31 +14,31 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | central-ohio | 4 | 2 | 1 |  |  | 1 |  | 1 | 4 | 1 |
 | delaware | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | florida | 240 | 95 | 21 | 1 | 62 | 61 |  | 123 | 219 | 109 |
-| hawaii | 7 | 3 | 2 |  | 1 | 1 |  | 2 | 7 | 2 |
+| hawaii | 7 | 4 | 1 |  | 1 | 1 |  | 2 | 7 | 2 |
 | idaho | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
-| indiana | 7 | 4 | 2 |  |  | 1 |  | 1 | 7 | 1 |
-| iowa | 9 | 4 | 3 |  | 1 | 1 |  | 2 | 7 | 1 |
-| kentucky | 7 | 3 | 3 |  | 1 |  |  | 1 | 5 | 1 |
-| louisiana-mississippi | 8 | 5 | 2 |  | 1 |  |  | 1 | 5 | 0 |
-| maine | 3 | 1 | 2 |  |  |  |  | 0 | 3 | 0 |
+| indiana | 7 | 5 | 1 |  |  | 1 |  | 1 | 7 | 1 |
+| iowa | 9 | 5 | 2 |  | 1 | 1 |  | 2 | 7 | 1 |
+| kentucky | 7 | 5 | 1 |  | 1 |  |  | 1 | 5 | 1 |
+| louisiana-mississippi | 8 | 6 | 1 |  | 1 |  |  | 1 | 5 | 0 |
+| maine | 3 | 2 | 1 |  |  |  |  | 0 | 3 | 0 |
 | manitoba-saskatchewan | 6 | 5 |  |  | 1 |  |  | 1 | 6 | 1 |
 | maritimes | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
-| merrimack-valley | 4 | 2 | 1 |  | 1 |  |  | 1 | 4 | 1 |
+| merrimack-valley | 4 | 3 |  |  | 1 |  |  | 1 | 4 | 1 |
 | michigan | 38 | 24 | 8 | 1 | 2 | 3 |  | 5 | 33 | 3 |
 | montana | 6 | 5 |  |  | 1 |  |  | 1 | 6 | 1 |
 | nebraska | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | new-hampshire | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | new-jersey | 91 | 39 | 2 |  | 5 |  | 45 | 50 | 84 | 43 |
-| new-mexico | 6 | 5 | 1 |  |  |  |  | 0 | 6 | 0 |
+| new-mexico | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | newfoundland-and-labrador | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | none | 9 | 6 | 1 |  | 1 | 1 |  | 2 | 9 | 2 |
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | oklahoma | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | ottawa | 11 | 7 |  |  | 2 | 2 |  | 4 | 9 | 2 |
 | rhode-island | 8 | 4 | 1 |  |  | 3 |  | 3 | 7 | 2 |
-| rockland | 5 | 1 | 1 |  | 1 | 2 |  | 3 | 5 | 3 |
+| rockland | 5 | 2 |  |  | 1 | 2 |  | 3 | 5 | 3 |
 | south-area | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
-| southern-ohio | 6 | 5 | 1 |  |  |  |  | 0 | 6 | 0 |
+| southern-ohio | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | tennessee | 7 | 7 |  |  |  |  |  | 0 | 7 | 0 |
 | utah | 4 | 3 | 1 |  |  |  |  | 0 | 4 | 0 |
 | vermont | 8 | 5 | 1 |  | 2 |  |  | 2 | 8 | 2 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | kansas-missouri | 16 |  |  |  |  |  | 16 | 16 | 16 | 16 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
 | british-columbia | 13 |  |  |  |  |  | 13 | 13 | 13 | 13 |
-| **all** | 1969 | 469 | 138 | 2 | 86 | 131 | 1143 | 1360 | 1765 | 1179 |
+| **all** | 1969 | 480 | 127 | 2 | 86 | 131 | 1143 | 1360 | 1765 | 1179 |

@@ -220,6 +220,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #zoomctl button + button { border-top: 1px solid var(--panel-line); }
 #zoomctl button:hover { background: var(--accent-soft); }
 #zoomctl svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; }
+#zoomctl button[hidden] { display: none; }
+#zoomctl #zbase svg { width: 18px; height: 18px; stroke-width: 1.6; stroke-linejoin: round; }
 
 /* ---- info card ---- */
 #card {
@@ -603,8 +605,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       <fieldset class="ctl">
         <legend>Map</legend>
         <div class="seg" data-name="base">
-          <button type="button" data-value="political" aria-pressed="true">Political</button>
-          <button type="button" data-value="streets" aria-pressed="false">Streets</button>
+          <button type="button" data-value="political" aria-pressed="false">Political</button>
+          <button type="button" data-value="streets" aria-pressed="true">Streets</button>
           <button type="button" data-value="physical" aria-pressed="false">Physical</button>
           <button type="button" data-value="tinted" aria-pressed="false">Tinted</button>
         </div>
@@ -712,6 +714,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   </div>
 
   <div id="zoomctl" role="group" aria-label="Zoom">
+    <button id="zbase" type="button" hidden><svg viewBox="0 0 16 16" aria-hidden="true"></svg></button>
     <button id="zin" type="button" aria-label="Zoom in"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg></button>
     <button id="zout" type="button" aria-label="Zoom out"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/></svg></button>
     <button id="zreset" type="button" aria-label="Show all"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10"/></svg></button>
@@ -736,7 +739,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const phone = () => PHONE_MQ.matches;
   const coarse = () => window.matchMedia('(pointer: coarse)').matches;
   const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const state = { joined: new Set(), alaska: 'box', empty: true, restBorders: false, view: 'world', base: 'political', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'full', dots: true, dotStyle: 'solid', dotColor: 'navy', mushroomLook: 'dot', cities: true, capitals: true, sea: true };
+  // (the street map at the start: owner, Nov 7, "streets should be default going forward"; political if it can't load)
+  const state = { joined: new Set(), alaska: 'box', empty: true, restBorders: false, view: 'world', base: 'streets', borders: 'shetach', lighter: 'regular', color: 'colorful', labels: 'full', dots: true, dotStyle: 'solid', dotColor: 'navy', mushroomLook: 'dot', cities: true, capitals: true, sea: true };
   // a mushroom drawn as a dot or as a little mushroom (owner, Nov 3: "little tiny mushroom icons"), remembered
   try { if (localStorage.getItem('shetachim-mushroom-look') === 'icon') state.mushroomLook = 'icon'; } catch (e) { /* the dot */ }
   // the rest of the world shown (Rest of the world, or its borders, which show it too)
@@ -845,7 +849,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד', Dots: 'נקודות', Solid: 'מלאות', 'See-through': 'שקופות', Classic: 'קלאסיות',
     'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
     'Download maps (SVG, PNG)': 'הורדת מפות (SVG, PNG)', 'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
-    'Loading…': 'טוען…', "This browser can't show the physical map.": 'הדפדפן הזה לא יכול להציג את המפה הפיזית.', "The physical map couldn't load.": 'המפה הפיזית לא נטענה.',
+    'Loading…': 'טוען…', "This browser can't show the physical map.": 'הדפדפן הזה לא יכול להציג את המפה הפיזית.', "The physical map couldn't load.": 'המפה הפיזית לא נטענה.', "The street map couldn't load.": 'מפת הרחובות לא נטענה.',
     'Open on chabad.org': 'לעמוד ב-chabad.org', 'World Headquarters': 'המטה העולמי', 'Same address': 'אותה כתובת', City: 'עיר', Population: 'אוכלוסייה',
     Province: 'פרובינציה', State: 'מדינה', Country: 'ארץ', Capital: 'בירה', Flagship: 'מוסד מרכזי', 'No centralized leadership': 'אין הנהגה מרכזית', Leadership: 'הנהלה', 'Regional leadership': 'הנהלה אזורית',
     // center types (chabad.org's)
@@ -2934,6 +2938,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     $('#held-row').hidden = state.borders === 'shetach' || !VIEWS[state.view].countries.includes('ISR');
     $('#alaska-ctl').hidden = !(state.view === 'us' && political()); // (the USA view's political map: Alaska and Hawaii in boxes or in place)
     $('#mushlook-ctl').hidden = !mushroomsOn; // (how a mushroom is marked: only with the mushrooms on the map)
+    baseButton();
     if (!glOK || !V) return;
     const pal = palette(), G = pal.ground;
     setLegendDot(pal);
@@ -4081,6 +4086,27 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     showPanelToggle();
     syncSheet();
   });
+  // Physical ⇄ Streets, a button over the + (owner, Nov 7: "There should be a button to switch between physical and
+  // steeets on top of the plus zoom button"): it shows the map it switches to, and does what the panel's Map buttons do
+  function baseButton() {
+    const b = document.getElementById('zbase');
+    if (!b) return;
+    b.hidden = !glOK || !physicalOK;
+    const to = state.base === 'physical' || state.base === 'tinted' ? 'streets' : 'physical', key = `${to}|${HE}`;
+    if (b.dataset.key === key) return;
+    b.dataset.key = key;
+    b.dataset.to = to;
+    const label = to === 'streets' ? (HE ? 'מפת רחובות' : 'Street map') : HE ? 'מפה פיזית' : 'Physical map';
+    b.setAttribute('aria-label', label);
+    b.title = label;
+    b.querySelector('svg').innerHTML = to === 'streets'
+      ? '<path d="M1.8 4.3 5.8 2.6l4.4 1.7 4-1.7v9.1l-4 1.7-4.4-1.7-4 1.7z"/><path d="M5.8 2.6v9.1M10.2 4.3v9.1"/>' // a folded street map
+      : '<path d="M1.2 13.2 5.6 5.4l2.6 4.3 1.9-2.9 4.7 6.4z"/><path d="M4.4 7.6l1.2.9 1.3-.9"/>'; // mountains
+  }
+  $('#zbase').addEventListener('click', () => {
+    const t = document.querySelector(`.seg[data-name="base"] [data-value="${$('#zbase').dataset.to}"]`);
+    if (t) t.click();
+  });
   $('#zin').addEventListener('click', () => map && map.zoomIn({ duration: still ? 0 : 300 }));
   $('#zout').addEventListener('click', () => map && map.zoomOut({ duration: still ? 0 : 300 }));
   $('#zreset').addEventListener('click', () => { hideCard(); if (map) frameView(true); });
@@ -4131,6 +4157,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 
   // ---------- start ----------
   syncSheet();
+  // (till the street map's style is in, taken as coming: the shapes worked out while the map starts are the street map's,
+  // the one at the start; startMap says whether it came)
+  physicalOK = state.base !== 'political';
   viewData();
   keptShapes(V.cur).then(() => prepSet(V.cur)); // (the first shapes read back, or worked out, while the map starts)
   try {
@@ -4141,6 +4170,14 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     $('#load-error').hidden = false;
     $('#load-error').textContent = HE ? `המפה לא נטענה (${err.message}). נסו לטעון את הדף מחדש.` : `The map didn't load (${err.message}). Reload the page to try again.`;
     return;
+  }
+  // the street map is the one at the start: without it (its style didn't come), the political map, and a word why
+  if (!physicalOK && state.base !== 'political') {
+    state.base = 'political';
+    pressed('base', 'political');
+    $('#base-msg').hidden = false;
+    $('#base-msg').className = 'error';
+    $('#base-msg').textContent = tr("The street map couldn't load.");
   }
   // (a new map after the graphics memory was dropped is wired the same way: rebuildMap)
   function wireHover() {

@@ -74,8 +74,8 @@ for (const spec of specs) {
   await page.goto(`https://site.test/web/index.html${process.env.QUERY || ''}`); // QUERY=?lang=he: the Hebrew page
   await page.waitForFunction(() => document.querySelector('#st-dots').textContent !== '–');
   await page.evaluate(([v]) => document.querySelector(`.seg[data-name="view"] [data-value="${v}"]`).click(), [view]);
-  // The page opens on the physical map; wait for it (or its fallback), then pick the one wanted.
-  await page.waitForFunction(() => document.querySelector('#app').classList.contains('physical') || !document.querySelector('#base-msg').hidden, null, { timeout: 30000 }).catch(() => {});
+  // The page opens on the street map (owner, Nov 7); wait till it's ready (or fell back to political), then pick the one wanted.
+  await page.waitForFunction(() => window.__dbg || !document.querySelector('#base-msg').hidden, null, { timeout: 30000 }).catch(() => {});
   await page.evaluate((b) => document.querySelector(`.seg[data-name="base"] [data-value="${b}"]`).click(), base);
   await page.waitForTimeout(base === 'physical' ? 6000 : 500);
   for (const c of (extra || '').split(',').filter(Boolean)) {

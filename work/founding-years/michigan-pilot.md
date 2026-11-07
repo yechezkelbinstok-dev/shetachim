@@ -89,3 +89,14 @@ fetch); the corrections took 3 more web searches, 1 fetch and 4 searches of the 
   years where neither exists: maybe 60–80% of dots.
 - Size: US and Canada are 1,991 listings at 1,787 dots. At about one lookup per listing, that's ~2,000 lookups; done
   shetach by shetach, a few shetachim per session.
+
+## Moves from the Jewish News (Nov 7)
+The archive search ORs its words, so search one exact phrase per query (`q="Chabad House of Eastern Michigan"`,
+`q="North Oak Park" Chabad`), sorted earliest first. The weekly synagogue directory (1990s-2000s), Lubavitch's staff and
+branch lists in its ads (Feb 1980, May 1987, Dec 1990, Feb 1991, Mar 1994) and the 'Congregations beyond metropolitan
+Detroit' list (Sept 2002-03) give each center's address in that year. Results over ~50k characters come back saved to
+a file; parse it locally rather than reading it. Dated this way: Grand Rapids (1549 Michigan NE 1977, 1910 Michigan
+1979, 2615 Michigan by 1991), Flint (5944 Oak Tree Dr. 1987-90), Toledo (750 S. McCord, Holland 1987; 2350 Secor
+1990-91; 4020 Nantucket Dr. 2002-18), The Shul (6211 Quaker Hill Dr. 1999-2000), Camp Gan Israel (Fenton before
+Kalkaska), Beis Chabad of North Oak Park (Northgate Clubhouse 1990-91, then the JCC), Farmington Hills (32000 Middlebelt
+by 1991), Downtown Detroit (coffee shops 2013), and a 1978 Chabad House of Troy/Royal Oak (Rabbi Keselman).

@@ -58,8 +58,11 @@ thirteen no better recent photo has been found yet (the list is there, with what
     month or day save it ... (or season which equates to a range ofc)"; "if you come across that a center used to be
     somewhere else save as well as maybe when it moved"; "If by some miracle you finish Florida completely then new
     Jersey next, followed by Pennsylvania". Batches: `batches/florida-NN.json`; notes: `work/founding-years/florida.md`.
-    State (Nov 7): every Florida listing has an entry; 107 of 219 dots have a year (71 high, 35 medium, 1 low), 62
-    are ranges (an IRS ruling, a Sunbiz filing or a dated mention says "existed by"), 50 open. New Jersey not started.
+    State (Nov 7): every Florida listing has an entry; 110 of 219 dots have a year (88 high, 21 medium, 1 low), 60
+    are ranges (an IRS ruling, a Sunbiz filing or a dated mention says "existed by"), 49 open. New Jersey: 41 of 84
+    dots have a year (39 high, 2 medium), 5 ranges (`batches/new-jersey-01.json`). **Owner** (Nov 7): "I WANT HIGH
+    CONFIDENCE FROM ALL OF THEM"; search each center individually, not only its own site and chabad.org; finish the
+    easier New Jersey ones, then back to Florida's non-high dots.
   - How (the rules are in the standing rules below; the method in `work/founding-years/west-coast.md` and
     `michigan-pilot.md`):
     1. `python3 work/founding-years/listings.py <shetach>` lists its dots and listings (`--missing`: only the dots

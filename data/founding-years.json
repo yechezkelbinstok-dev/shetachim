@@ -226,18 +226,24 @@
    "year": 1987,
    "how": "stated",
    "source": "https://www.toledoblade.com/news/religion/2018/09/07/A-new-beginning-Chabad-House-dedicates-facility-in-time-for-Jewish-High-Holy-Days.print",
-   "note": "Rabbi Shemtov and his family brought Chabad House to Toledo in 1987, at first from their home on Secor Road (Toledo Blade, 2018). Checked: listed as Chabad House of Toledo, Rabbi Yosef Y. Shemtov, in May 1987 (Jewish News). Its own building, 2728 King Road, was dedicated in Sept 2018 (Toledo Blade). lubavitch.com's center directory as archived Dec 28 2009 lists it at 4020 Nantucket Drive, Toledo (with the Chai Jewish Student Center at 4230 Rose Garden Drive), before its own building at 2728 King Road (2018).",
+   "note": "Rabbi Shemtov and his family brought Chabad House to Toledo in 1987, at first from their home on Secor Road (Toledo Blade, 2018). Checked: listed as Chabad House of Toledo, Rabbi Yosef Y. Shemtov, in May 1987 (Jewish News). Its own building, 2728 King Road, was dedicated in Sept 2018 (Toledo Blade). lubavitch.com's center directory as archived Dec 28 2009 lists it at 4020 Nantucket Drive, Toledo (with the Chai Jewish Student Center at 4230 Rose Garden Drive), before its own building at 2728 King Road (2018). Addresses in the Jewish News: 'CHABAD HOUSE OF TOLEDO, OHIO 750 S. McCord, #105, Holland' (May 15 1987); 'Chabad House of Toledo 2350 Secor Toledo, Ohio 43606' (Dec 14 1990, Feb 22 1991); 'BAIS MENACHEM MENDEL-LUBAVITCH CHABAD HOUSE 4020 Nantucket Drive Toledo, OH 43623' (Sept 7 2002, https://digital.bentley.umich.edu/djnews/djn.2002.09.07.001/53).",
    "confidence": "high",
    "earlier": [
     {
-     "where": "the Shemtovs' home on Secor Road",
+     "where": "750 S. McCord Rd., #105, Holland, Ohio (its address in Lubavitch of Michigan's listing, Jewish News, May 15 1987)",
+     "from": 1987,
+     "until": null,
+     "source": "https://digital.bentley.umich.edu/djnews/djn.1987.05.15.001/61"
+    },
+    {
+     "where": "the Shemtovs' home on Secor Road (2350 Secor, Toledo, in the Jewish News, Dec 1990 and Feb 1991)",
      "from": 1987,
      "until": null,
      "source": "https://www.toledoblade.com/news/religion/2018/09/07/A-new-beginning-Chabad-House-dedicates-facility-in-time-for-Jewish-High-Holy-Days.print"
     },
     {
-     "where": "4020 Nantucket Drive, Toledo (its address in lubavitch.com's center directory as archived Dec 28 2009)",
-     "from": null,
+     "where": "4020 Nantucket Drive, Toledo, as Bais Menachem Mendel-Lubavitch Chabad House (Jewish News directory, Sept 2002 and Sept 2003; lubavitch.com's directory, Dec 2009)",
+     "from": 2002,
      "until": 2018,
      "source": "https://web.archive.org/web/20091228135941/http://lubavitch.com/centers/list.html?Country=&City=Toledo"
     }

@@ -16,10 +16,11 @@
    "city": "Oak Park",
    "shetach": "michigan",
    "year": null,
-   "how": "not-found",
+   "how": "range",
    "source": "https://digital.bentley.umich.edu/djnews/djn.2003.09.06.001/36",
-   "note": "The men's mikvah at Mishkan Israel, 14000 W. Nine Mile (listed 2002): no year of its own; same place as Mishkan Israel (1958).",
-   "confidence": "open"
+   "note": "The men's mikvah at Mishkan Israel, 14000 W. Nine Mile (listed 2002): no year of its own; same place as Mishkan Israel (1958). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "confidence": "range",
+   "by": 2004
   },
   "160382": {
    "name": "Cheder Oholei Yosef Yitzchak Lubavitch - Boys Division",
@@ -72,10 +73,11 @@
    "city": "West Bloomfield",
    "shetach": "michigan",
    "year": null,
-   "how": "not-found",
+   "how": "range",
    "source": "https://digital.bentley.umich.edu/djnews/djn.1991.04.26.001/63",
-   "note": "The Ganeinu day camp: no year of its own found; same place as the Ganeinu preschool (1991).",
-   "confidence": "open"
+   "note": "The Ganeinu day camp: no year of its own found; same place as the Ganeinu preschool (1991). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "confidence": "range",
+   "by": 2004
   },
   "117639": {
    "name": "Chabad House of Ann Arbor",
@@ -340,9 +342,10 @@
    "city": "Toledo",
    "shetach": "michigan",
    "year": null,
-   "how": "not-found",
-   "note": "Nothing found (Toledo Blade and Toledo Jewish News searched).",
-   "confidence": "open"
+   "how": "range",
+   "note": "Nothing found (Toledo Blade and Toledo Jewish News searched). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "confidence": "range",
+   "by": 2004
   },
   "160380": {
    "name": "The Wilmos & Lillian Schwarcz Education Center - Girls Building",
@@ -362,7 +365,7 @@
    "by": 2000,
    "how": "range",
    "source": "https://digital.bentley.umich.edu/djnews/djn.2000.01.21.001/60",
-   "note": "First mention: 'Rabbi Shneur Keselman of the Chabad Lubavitch Outreach Center in Oak Park' (Jewish News, 21 Jan 2000); 'Oak Park Chabad Lubavitch Outreach, Director: Rabbi Yosef Keselman' (25 May 2001); listed again in 2007 with Rabbi Yitzchok Mann among the shluchim. Founded by 2000. Now at 23160 Gardner Street, Oak Park.",
+   "note": "First mention: 'Rabbi Shneur Keselman of the Chabad Lubavitch Outreach Center in Oak Park' (Jewish News, 21 Jan 2000); 'Oak Park Chabad Lubavitch Outreach, Director: Rabbi Yosef Keselman' (25 May 2001); listed again in 2007 with Rabbi Yitzchok Mann among the shluchim. Founded by 2000. Now at 23160 Gardner Street, Oak Park. Its chabad.org listing went up on Nov 1 2004 (chabad.org's own record), so it existed by then.",
    "confidence": "range"
   },
   "393834": {
@@ -909,10 +912,11 @@
    "shetach": "central-ohio",
    "year": null,
    "lead": 2025,
-   "how": "not-found",
+   "how": "range",
    "source": "https://therebbesimpact.com/",
-   "note": "No source found. therebbesimpact.com: Shea & Sarah Kaltmann, 2025; chabad.org's listing number (6925466) is a 2025 one.",
-   "confidence": "open"
+   "note": "No source found. therebbesimpact.com: Shea & Sarah Kaltmann, 2025; chabad.org's listing number (6925466) is a 2025 one. Its chabad.org listing went up on Jul 2 2025 (chabad.org's own record), so it existed by then.",
+   "confidence": "range",
+   "by": 2025
   },
   "118178": {
    "name": "Chabad Lubavitch of Cape Cod",
@@ -951,10 +955,11 @@
    "shetach": "cape-cod-and-the-islands",
    "year": null,
    "lead": 2024,
-   "how": "not-found",
+   "how": "range",
    "source": "https://www.chabad.org/6525447",
-   "note": "No source found (Rabbi Levi Alperowitz). Estimated from chabad.org's listing number, 6525447, created about Nov 2024 (Fairbanks's, Sept 2024, is 6394348). A visitor guide names him; no date.",
-   "confidence": "open"
+   "note": "No source found (Rabbi Levi Alperowitz). Estimated from chabad.org's listing number, 6525447, created about Nov 2024 (Fairbanks's, Sept 2024, is 6394348). A visitor guide names him; no date. Its chabad.org listing went up on Aug 20 2024 (chabad.org's own record), so it existed by then.",
+   "confidence": "range",
+   "by": 2024
   },
   "117691": {
    "name": "Chabad of Rockland",
@@ -982,10 +987,11 @@
    "shetach": "rockland",
    "year": null,
    "lead": 2007,
-   "how": "not-found",
+   "how": "range",
    "source": "https://therebbesimpact.com/",
-   "note": "No source found (its own site gives no year). therebbesimpact.com: 2007; chabad.org's listing number (577207) is from about 2007 too; the IRS ruling for Congregation Chabad Jewish Center of Suffern Inc. is March 2010. Directed by Rabbi Shmuel and Devorah Gancz (the directory still names Rabbi Isaac Lefkowitz).",
-   "confidence": "open"
+   "note": "No source found (its own site gives no year). therebbesimpact.com: 2007; chabad.org's listing number (577207) is from about 2007 too; the IRS ruling for Congregation Chabad Jewish Center of Suffern Inc. is March 2010. Directed by Rabbi Shmuel and Devorah Gancz (the directory still names Rabbi Isaac Lefkowitz). Its chabad.org listing went up on Oct 9 2007 (chabad.org's own record), so it existed by then.",
+   "confidence": "range",
+   "by": 2007
   },
   "5161431": {
    "name": "Chabad Israel Center",
@@ -993,10 +999,10 @@
    "shetach": "rockland",
    "year": null,
    "lead": 2021,
-   "by": 2023,
+   "by": 2021,
    "how": "range",
    "source": "https://therebbesimpact.com/",
-   "note": "No source found. therebbesimpact.com: Shneur Zalmen & Hodaya Haddad, 2021; chabad.org's listing number (5161431) is from about 2021. Running by Feb 2023 (CrownHeights.info).",
+   "note": "No source found. therebbesimpact.com: Shneur Zalmen & Hodaya Haddad, 2021; chabad.org's listing number (5161431) is from about 2021. Running by Feb 2023 (CrownHeights.info). Its chabad.org listing went up on Jun 17 2021 (chabad.org's own record), so it existed by then.",
    "confidence": "range"
   },
   "6169151": {
@@ -1005,10 +1011,11 @@
    "shetach": "rockland",
    "year": null,
    "lead": 2023,
-   "how": "not-found",
+   "how": "range",
    "source": "https://therebbesimpact.com/",
-   "note": "No source found. therebbesimpact.com: 'Chabad of Stony Point', 2023; chabad.org's listing number (6169151) is from about 2023. Rabbi Shea Werner (with Rabbi Shmuel Amram, per a congressional proclamation, COLlive); 17 Phillips Drive.",
-   "confidence": "open"
+   "note": "No source found. therebbesimpact.com: 'Chabad of Stony Point', 2023; chabad.org's listing number (6169151) is from about 2023. Rabbi Shea Werner (with Rabbi Shmuel Amram, per a congressional proclamation, COLlive); 17 Phillips Drive. Its chabad.org listing went up on Dec 5 2023 (chabad.org's own record), so it existed by then.",
+   "confidence": "range",
+   "by": 2023
   },
   "117966": {
    "name": "American Friends of Lubavitch (Chabad)",
@@ -1089,7 +1096,7 @@
    "by": 2025,
    "how": "range",
    "source": "https://crownheights.info/chabad-news/912062/chabad-on-wheels-a-lifeline-for-jews-in-rural-alabama",
-   "note": "CrownHeights.info, 18 June 2025: Rabbi Sholom Posner's Chabad on Wheels, crossing Alabama several times a year; no start date given. chabad.org's listing number (7055697) is from 2025. A mobile program of Chabad of Alabama.",
+   "note": "CrownHeights.info, 18 June 2025: Rabbi Sholom Posner's Chabad on Wheels, crossing Alabama several times a year; no start date given. chabad.org's listing number (7055697) is from 2025. A mobile program of Chabad of Alabama. Its chabad.org listing went up on Oct 28 2025 (chabad.org's own record), so it existed by then.",
    "confidence": "range"
   },
   "1015137": {
@@ -1221,7 +1228,7 @@
    "by": 2008,
    "how": "range",
    "source": "https://www.chabad.org/centers/default_cdo/aid/746050/jewish/The-Friendship-Circle.htm",
-   "note": "No source found; its chabad.org listing gives no address or year. The listing number (746050) is from about 2008, so it existed by then. Rabbi Boruch and Chana Heidingsfeld are among Winnipeg's shluchim (therebbesimpact.com has them from 2000).",
+   "note": "No source found; its chabad.org listing gives no address or year. The listing number (746050) is from about 2008, so it existed by then. Rabbi Boruch and Chana Heidingsfeld are among Winnipeg's shluchim (therebbesimpact.com has them from 2000). Its chabad.org listing went up on Sep 25 2008 (chabad.org's own record), so it existed by then.",
    "confidence": "range"
   },
   "1344050": {
@@ -1564,10 +1571,10 @@
    "city": "Louisville, KY",
    "shetach": "kentucky",
    "year": null,
-   "by": 2011,
+   "by": 2004,
    "how": "range",
    "source": "https://www.chabadky.com/templates/section_cdo/aid/1239308/jewish/Camp-Gan-Israel.htm",
-   "note": "No start year found. Its camp page advertises the summer of 2011 (27 June - 22 July); its listing number (119428) is from chabad.org's first directory, so it likely ran well before. Run by Chabad of Kentucky (since 1985).",
+   "note": "No start year found. Its camp page advertises the summer of 2011 (27 June - 22 July); its listing number (119428) is from chabad.org's first directory, so it likely ran well before. Run by Chabad of Kentucky (since 1985). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
    "confidence": "range"
   },
   "1763771": {
@@ -1641,10 +1648,10 @@
    "shetach": "hawaii",
    "year": null,
    "lead": 2007,
-   "by": 2010,
+   "by": 2007,
    "how": "range",
    "source": "https://crownheights.info/shlichus/29145/kauai-gets-its-first-torah-scroll",
-   "note": "No founding report found. chabad.org's listing number (594376) is from about Nov 2007 (an article of 18 Nov 2007 is 596066); a kosher directory says 'Since 2010'. Rabbi Michoel Goldman led Chabad of Kaua'i by Oct 2010 (its first Torah scroll, CrownHeights.info). He commuted from New York 'for many years' before the family moved to Kauai full-time (ChabadInfo), about 2021 by Chabad.org's 'past five years' (2026).",
+   "note": "No founding report found. chabad.org's listing number (594376) is from about Nov 2007 (an article of 18 Nov 2007 is 596066); a kosher directory says 'Since 2010'. Rabbi Michoel Goldman led Chabad of Kaua'i by Oct 2010 (its first Torah scroll, CrownHeights.info). He commuted from New York 'for many years' before the family moved to Kauai full-time (ChabadInfo), about 2021 by Chabad.org's 'past five years' (2026). Its chabad.org listing went up on Nov 26 2007 (chabad.org's own record), so it existed by then.",
    "confidence": "range"
   },
   "1051208": {
@@ -1685,10 +1692,11 @@
    "shetach": "hawaii",
    "year": null,
    "lead": 2025,
-   "how": "not-found",
+   "how": "range",
    "source": "https://www.chabad.org/centers/default_cdo/aid/6969026/jewish/CYP-Oahu.htm",
-   "note": "No source found; no director listed. chabad.org's listing number (6969026) is from 2025 (CYP Cincinnati's, Sept 2025, is 6958605). A young professionals program of Chabad of Hawaii.",
-   "confidence": "open"
+   "note": "No source found; no director listed. chabad.org's listing number (6969026) is from 2025 (CYP Cincinnati's, Sept 2025, is 6958605). A young professionals program of Chabad of Hawaii. Its chabad.org listing went up on Jul 23 2025 (chabad.org's own record), so it existed by then.",
+   "confidence": "range",
+   "by": 2025
   },
   "117619": {
    "name": "Lubavitch of Indiana - Chabad Center for Jewish Life",
@@ -1753,10 +1761,11 @@
    "shetach": "indiana",
    "year": null,
    "lead": 2017,
-   "how": "not-found",
+   "how": "range",
    "source": "https://www.jewishsouthbend.com/4692040",
-   "note": "No dated source found; its own site gives no year. therebbesimpact.com: the center and Schneur & Sari Gansburg, 2017; chabad.org's listing number (3779106) is from about 2017 too. Its IRS registration dates from March 2019.",
-   "confidence": "open"
+   "note": "No dated source found; its own site gives no year. therebbesimpact.com: the center and Schneur & Sari Gansburg, 2017; chabad.org's listing number (3779106) is from about 2017 too. Its IRS registration dates from March 2019. Its chabad.org listing went up on Sep 12 2017 (chabad.org's own record), so it existed by then.",
+   "confidence": "range",
+   "by": 2017
   },
   "5153625": {
    "name": "Fort Wayne Chabad Jewish Center",
@@ -1908,7 +1917,7 @@
    "by": 2007,
    "how": "range",
    "source": "https://www.chabad.org/centers/default_cdo/aid/536224/jewish/Camp-Gan-Israel.htm",
-   "note": "No start year found (Rabbi Zalman Groner). chabad.org's listing number (536224) is from about 2007, so it ran by then.",
+   "note": "No start year found (Rabbi Zalman Groner). chabad.org's listing number (536224) is from about 2007, so it ran by then. Its chabad.org listing went up on Jul 3 2007 (chabad.org's own record), so it existed by then.",
    "confidence": "range"
   },
   "117622": {
@@ -1960,10 +1969,11 @@
    "shetach": "rhode-island",
    "year": null,
    "lead": 2026,
-   "how": "not-found",
+   "how": "range",
    "source": "https://www.chabad.org/centers/default_cdo/aid/7222988/jewish/Chabad-of-Providence.htm",
-   "note": "No source found (Rabbi Berel Laufer). chabad.org's listing number (7222988) is from about early 2026 (between late 2025's 7117900 and mid-2026's 7309271). Perhaps a new branch of his family's Providence center (1979).",
-   "confidence": "open"
+   "note": "No source found (Rabbi Berel Laufer). chabad.org's listing number (7222988) is from about early 2026 (between late 2025's 7117900 and mid-2026's 7309271). Perhaps a new branch of his family's Providence center (1979). Its chabad.org listing went up on Apr 13 2026 (chabad.org's own record), so it existed by then.",
+   "confidence": "range",
+   "by": 2026
   },
   "117949": {
    "name": "Chabad of West Bay Chai Center",
@@ -1981,10 +1991,11 @@
    "shetach": "rhode-island",
    "year": null,
    "lead": 2003,
-   "how": "not-found",
+   "how": "range",
    "source": "https://chaplains.brown.edu/religious-spiritual-communities/chabad-house",
-   "note": "No founding report found. Its nonprofit record dates from 2003; its listing number (118593) is from chabad.org's first directory (about 2003). Brown's Chabad House, 12 Olive St., for Brown, RISD and Johnson & Wales; Rabbi Mendel and Chana Laufer.",
-   "confidence": "open"
+   "note": "No founding report found. Its nonprofit record dates from 2003; its listing number (118593) is from chabad.org's first directory (about 2003). Brown's Chabad House, 12 Olive St., for Brown, RISD and Johnson & Wales; Rabbi Mendel and Chana Laufer. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "confidence": "range",
+   "by": 2004
   },
   "419786": {
    "name": "Chabad House of Barrington-Newport",
@@ -2049,7 +2060,7 @@
    "by": 2003,
    "how": "range",
    "source": "https://www.totallyjewishtravel.com/mikvah_chaya_mushka_burlington_vermont-TE65739-Mikvah-vermont_united_states.html",
-   "note": "No year found. The Chabad mikvah at 221 Summit Street, supervised by Chabad of Vermont; its listing number (119676) is from chabad.org's first directory (about 2003), so it existed by then.",
+   "note": "No year found. The Chabad mikvah at 221 Summit Street, supervised by Chabad of Vermont; its listing number (119676) is from chabad.org's first directory (about 2003), so it existed by then. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
    "confidence": "range"
   },
   "389837": {
@@ -2081,9 +2092,9 @@
    "lead": 2014,
    "how": "range",
    "source": "https://www.chabad.org/centers/default_cdo/aid/2698131/jewish/Chabad-of-Bennington-County.htm",
-   "note": "Rabbi Menachem and Faygie Andrusier. Its own About page, first published July 23 2015 (https://www.manchesterjewishlife.com/templates/articlecco_cdo/aid/3015631/jewish/About-Us.htm): they 'are living in Manchester, VT with their 8 children and are excited to make Manchester their home ... Please check our website for more information and launch dates', so it was starting by 2015; therebbesimpact.com gives 2014 and the chabad.org listing number (2698131) points to about 2014 (leads).",
+   "note": "Rabbi Menachem and Faygie Andrusier. Its own About page, first published July 23 2015 (https://www.manchesterjewishlife.com/templates/articlecco_cdo/aid/3015631/jewish/About-Us.htm): they 'are living in Manchester, VT with their 8 children and are excited to make Manchester their home ... Please check our website for more information and launch dates', so it was starting by 2015; therebbesimpact.com gives 2014 and the chabad.org listing number (2698131) points to about 2014 (leads). Its chabad.org listing went up on Nov 3 2014 (chabad.org's own record), so it existed by then.",
    "confidence": "range",
-   "by": 2015
+   "by": 2014
   },
   "3548886": {
    "name": "Middlebury Chabad",
@@ -2133,10 +2144,10 @@
    "city": "Des Moines, IA",
    "shetach": "iowa",
    "year": null,
-   "by": 2008,
+   "by": 2007,
    "how": "range",
    "source": "https://www.chabad.org/centers/default_cdo/aid/602103/jewish/Talmud-Torah.htm",
-   "note": "No year found. A Hebrew school of Lubavitch of Iowa (1992); its listing number (602103) is from about 2008, so it ran by then.",
+   "note": "No year found. A Hebrew school of Lubavitch of Iowa (1992); its listing number (602103) is from about 2008, so it ran by then. Its chabad.org listing went up on Nov 27 2007 (chabad.org's own record), so it existed by then.",
    "confidence": "range"
   },
   "7465212": {
@@ -2217,10 +2228,11 @@
    "shetach": "none",
    "year": null,
    "lead": 2000,
-   "how": "not-found",
+   "how": "range",
    "source": "https://www.chabad.org/centers/default_cdo/aid/117690/jewish/National-Committee-for-Jewish-Education.htm",
-   "note": "Monsey (blank on the map, no shetach). No source found (Rabbi Simcha Werner). therebbesimpact.com: the institution 2000, Simcha & Chaya Werner from 1971; its listing number (117690) is from chabad.org's first directory (about 2003).",
-   "confidence": "open"
+   "note": "Monsey (blank on the map, no shetach). No source found (Rabbi Simcha Werner). therebbesimpact.com: the institution 2000, Simcha & Chaya Werner from 1971; its listing number (117690) is from chabad.org's first directory (about 2003). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "confidence": "range",
+   "by": 2004
   },
   "118578": {
    "name": "Cheder Chabad of Monsey",
@@ -2240,7 +2252,7 @@
    "by": 2008,
    "how": "range",
    "source": "https://crownheights.info/photo-galleries/454201/monsey-community-grows-with-opening-of-new-mesivta",
-   "note": "Monsey (no shetach). No year found for the girls' division of Cheder Chabad of Monsey (1999); its listing number (756922) is from about 2008, so it ran by then. In Sept 2014 the Cheder had 'boys division and girls division'.",
+   "note": "Monsey (no shetach). No year found for the girls' division of Cheder Chabad of Monsey (1999); its listing number (756922) is from about 2008, so it ran by then. In Sept 2014 the Cheder had 'boys division and girls division'. Its chabad.org listing went up on Oct 28 2008 (chabad.org's own record), so it existed by then.",
    "confidence": "range"
   },
   "767854": {
@@ -2324,7 +2336,7 @@
    "by": 2005,
    "how": "range",
    "source": "https://www.chabad.org/centers/default_cdo/aid/285958/jewish/Camp-Gan-Israel.htm",
-   "note": "No year found (searched twice). The day camp of Chabad of the Merrimack Valley in Andover; its chabad.org listing number (285958) is from about 2005, so it ran by then.",
+   "note": "No year found (searched twice). The day camp of Chabad of the Merrimack Valley in Andover; its chabad.org listing number (285958) is from about 2005, so it ran by then. Its chabad.org listing went up on May 31 2005 (chabad.org's own record), so it existed by then.",
    "confidence": "range"
   },
   "119209": {
@@ -2361,10 +2373,11 @@
    "shetach": "ottawa",
    "year": null,
    "lead": 1992,
-   "how": "not-found",
+   "how": "range",
    "source": "https://en.wikipedia.org/wiki/List_of_synagogues_in_Ottawa",
-   "note": "No founding report found. The Lubavitch shul at 889 Lady Ellen Place; Rabbi Yehoshua Botnick its mora d'asra. therebbesimpact.com: the congregation 1992, the Botnicks 1991.",
-   "confidence": "open"
+   "note": "No founding report found. The Lubavitch shul at 889 Lady Ellen Place; Rabbi Yehoshua Botnick its mora d'asra. therebbesimpact.com: the congregation 1992, the Botnicks 1991. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "confidence": "range",
+   "by": 2004
   },
   "118251": {
    "name": "Ottawa Torah Centre Chabad",
@@ -2410,9 +2423,10 @@
    "lead": 2007,
    "how": "range",
    "source": "https://www.jewishottawa.com/our-community/community-directory?page=2",
-   "note": "Ottawa Jewish Bulletin (about 2021, 'Russian-speaking Jews more engaged with community thanks to Genesis grant'): 'Gershzon said in 2005, the \"Acheinu Board\" was established to address the growing needs of a Russian-speaking Jewish population, which eventually led to the development of the Chabad of Kanata by bringing Rabbi Gershzon to Ottawa', so after 2005 (https://www.ottawajewishbulletin.com/jewish-ottawa/russian-speaking-jews-more-engaged-with-community-thanks-to-genesis-grant). The Chesed Fund (undated): the Gershzons 'founded Chabad of Kanata almost two decades ago'. therebbesimpact.com and the listing number point to 2007 (leads).",
+   "note": "Ottawa Jewish Bulletin (about 2021, 'Russian-speaking Jews more engaged with community thanks to Genesis grant'): 'Gershzon said in 2005, the \"Acheinu Board\" was established to address the growing needs of a Russian-speaking Jewish population, which eventually led to the development of the Chabad of Kanata by bringing Rabbi Gershzon to Ottawa', so after 2005 (https://www.ottawajewishbulletin.com/jewish-ottawa/russian-speaking-jews-more-engaged-with-community-thanks-to-genesis-grant). The Chesed Fund (undated): the Gershzons 'founded Chabad of Kanata almost two decades ago'. therebbesimpact.com and the listing number point to 2007 (leads). Its chabad.org listing went up on Sep 16 2007 (chabad.org's own record), so it existed by then.",
    "confidence": "range",
-   "after": 2005
+   "after": 2005,
+   "by": 2007
   },
   "677505": {
    "name": "Rohr Chabad Student Network of Ottawa",
@@ -2459,10 +2473,11 @@
    "shetach": "ottawa",
    "year": null,
    "lead": 2019,
-   "how": "not-found",
+   "how": "range",
    "source": "https://www.chabad.org/centers/default_cdo/aid/4406734/jewish/Chabad-of-Westboro-Village.htm",
-   "note": "No source found; no director listed. therebbesimpact.com: 2019; chabad.org's listing number (4406734) is from about 2019 too.",
-   "confidence": "open"
+   "note": "No source found; no director listed. therebbesimpact.com: 2019; chabad.org's listing number (4406734) is from about 2019 too. Its chabad.org listing went up on Jul 30 2019 (chabad.org's own record), so it existed by then.",
+   "confidence": "range",
+   "by": 2019
   },
   "7475377": {
    "name": "Irving Aaron Kitchen of Kindness",
@@ -2472,7 +2487,7 @@
    "by": 2024,
    "how": "range",
    "source": "https://www.jewishottawa.com/community-calendar/week/list/2024/03/06",
-   "note": "No founding report found (Bassy Mendelsohn). 'The Irving Aaron Giving Kitchen' co-presented a cooking club at Chabad of Centrepointe in March 2024 (Jewish Ottawa's calendar), so it ran by then; its chabad.org listing (7475377) is from 2026, when Chabad's Kitchen of Kindness name came in.",
+   "note": "No founding report found (Bassy Mendelsohn). 'The Irving Aaron Giving Kitchen' co-presented a cooking club at Chabad of Centrepointe in March 2024 (Jewish Ottawa's calendar), so it ran by then; its chabad.org listing (7475377) is from 2026, when Chabad's Kitchen of Kindness name came in. Its chabad.org listing went up on Aug 27 2026 (chabad.org's own record), so it existed by then.",
    "confidence": "range"
   },
   "117571": {
@@ -3165,10 +3180,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2012,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabadsf.org/templates/fundraising/default_cdo/aid/6275427/jewish/Campaign.htm",
-   "note": "No year of its own found. Chabad Young Professionals of Chabad of SF (Rabbi Shmulik and Tzippy Friedman, 'nearly 12 years' in SF per a 2024 campaign; therebbesimpact.com: 2012). Same dot as Chabad of SF (1985); the listing itself is a 2025 one."
+   "note": "No year of its own found. Chabad Young Professionals of Chabad of SF (Rabbi Shmulik and Tzippy Friedman, 'nearly 12 years' in SF per a 2024 campaign; therebbesimpact.com: 2012). Same dot as Chabad of SF (1985); the listing itself is a 2025 one. Its chabad.org listing went up on Sep 16 2026 (chabad.org's own record), so it existed by then.",
+   "by": 2026
   },
   "601892": {
    "name": "The Chai Hebrew School",
@@ -3176,10 +3192,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2008,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/601892",
-   "note": "No year found. Hinda Langer's Hebrew school, same dot as the Shalom School (1997); its chabad.org listing number points to about 2007-08 (a lead)."
+   "note": "No year found. Hinda Langer's Hebrew school, same dot as the Shalom School (1997); its chabad.org listing number points to about 2007-08 (a lead). Its chabad.org listing went up on Nov 27 2007 (chabad.org's own record), so it existed by then.",
+   "by": 2007
   },
   "3657377": {
    "name": "Chabad at UC Davis",
@@ -3187,10 +3204,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2017,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/3657377",
-   "note": "No year found (Rabbi Mendel and Dvoiri Greenberg). Same dot as Chabad of Davis (2003); its chabad.org listing number points to 2017 (a lead)."
+   "note": "No year found (Rabbi Mendel and Dvoiri Greenberg). Same dot as Chabad of Davis (2003); its chabad.org listing number points to 2017 (a lead). Its chabad.org listing went up on May 18 2017 (chabad.org's own record), so it existed by then.",
+   "by": 2017
   },
   "7184219": {
    "name": "The Cheder of the Bay Area",
@@ -3198,10 +3216,10 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2020,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://anash.org/chassidishe-chinuch-is-booming-in-northern-california/",
-   "note": "No year found; three that disagree: the Chinuch Office directory (2023-24) gives the Cheder of the Bay Area 'Founded: 2007' (perhaps Tri-Valley's school program); a Facebook post seems to say 2014; Anash.org (Mar 2024) says it 'began as a small co-op, an alternative to online school' and opened 'just a few years ago'. Same dot as Chabad of the Tri-Valley (2005). At 6668 Owens Dr. in the Chinuch Office's 2023-24 directory; its listing now gives 3370 Hopyard Road, Pleasanton.",
+   "note": "No year found; three that disagree: the Chinuch Office directory (2023-24) gives the Cheder of the Bay Area 'Founded: 2007' (perhaps Tri-Valley's school program); a Facebook post seems to say 2014; Anash.org (Mar 2024) says it 'began as a small co-op, an alternative to online school' and opened 'just a few years ago'. Same dot as Chabad of the Tri-Valley (2005). At 6668 Owens Dr. in the Chinuch Office's 2023-24 directory; its listing now gives 3370 Hopyard Road, Pleasanton. Its chabad.org listing went up on Jan 22 2026 (chabad.org's own record), so it existed by then.",
    "earlier": [
     {
      "where": "6668 Owens Dr., Pleasanton",
@@ -3209,7 +3227,8 @@
      "until": null,
      "source": "https://www.chinuchoffice.org/media/pdf/1267/szkh12671837.pdf"
     }
-   ]
+   ],
+   "by": 2026
   },
   "120212": {
    "name": "Camp Gan Israel Contra Costa",
@@ -3282,10 +3301,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2020,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://oholeitorah.com/alumni-shluchim/",
-   "note": "No year found. Rabbi Eli (Eliyahu) and Shayna Landes, earlier at Chabad of Fremont; in 2025 they joined Chabad of Somerset County, NJ, so this one may be gone. Its listing number points to late 2020 (a lead)."
+   "note": "No year found. Rabbi Eli (Eliyahu) and Shayna Landes, earlier at Chabad of Fremont; in 2025 they joined Chabad of Somerset County, NJ, so this one may be gone. Its listing number points to late 2020 (a lead). Its chabad.org listing went up on Aug 12 2020 (chabad.org's own record), so it existed by then.",
+   "by": 2020
   },
   "4999325": {
    "name": "The Gan - Alameda Jewish Preschool",
@@ -3296,7 +3316,7 @@
    "how": "range",
    "confidence": "range",
    "source": "https://web.archive.org/web/20201024023446/https://www.theganalameda.com/",
-   "note": "No start year found. Chabad of Alameda's preschool (Mushki Shmotkin): its site as archived Oct 24 2020 already describes 'a Large Family Day Care Home in Alameda' using 'three rooms of a beautiful sun-lit home' overlooking the Alameda lagoon, and speaks of preparing 'to reopen our school' after Covid, so it ran by 2020 (likely before March 2020); Chabad of Alameda itself began in Aug 2017, so not before then. Its chabad.org listing went up Jan 5 2021 (now 1516 Oak Street, #316); the site's domain has since lapsed.",
+   "note": "No start year found. Chabad of Alameda's preschool (Mushki Shmotkin): its site as archived Oct 24 2020 already describes 'a Large Family Day Care Home in Alameda' using 'three rooms of a beautiful sun-lit home' overlooking the Alameda lagoon, and speaks of preparing 'to reopen our school' after Covid, so it ran by 2020 (likely before March 2020); Chabad of Alameda itself began in Aug 2017, so not before then. Its chabad.org listing went up Jan 5 2021 (now 1516 Oak Street, #316); the site's domain has since lapsed. Its chabad.org listing went up on Jan 5 2021 (chabad.org's own record), so it existed by then.",
    "after": 2017,
    "by": 2020
   },
@@ -3324,10 +3344,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2025,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/7041260",
-   "note": "No source found. Rabbi Yaakov and Batsheva Zarchi, at Congregation Chevra Thilim's address (751 25th Ave); therebbesimpact.com: 2025; listing number about Oct 2025."
+   "note": "No source found. Rabbi Yaakov and Batsheva Zarchi, at Congregation Chevra Thilim's address (751 25th Ave); therebbesimpact.com: 2025; listing number about Oct 2025. Its chabad.org listing went up on Oct 27 2025 (chabad.org's own record), so it existed by then.",
+   "by": 2025
   },
   "7434852": {
    "name": "Chabad of Sausalito",
@@ -3335,10 +3356,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2026,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/7434852",
-   "note": "No source found. Rabbi Sholom (Sholem) and Raizel (née Wilhelm) Lebovics; its listing number is about July 2026."
+   "note": "No source found. Rabbi Sholom (Sholem) and Raizel (née Wilhelm) Lebovics; its listing number is about July 2026. Its chabad.org listing went up on Aug 19 2026 (chabad.org's own record), so it existed by then.",
+   "by": 2026
   },
   "312357": {
    "name": "Chabad of Roseville",
@@ -3612,10 +3634,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2022,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/5567943",
-   "note": "No year found. Run by Chabad of Mammoth Lakes' Notiks (same phone and website; Mammoth from 2019); its chabad.org listing number points to 2022 (a lead)."
+   "note": "No year found. Run by Chabad of Mammoth Lakes' Notiks (same phone and website; Mammoth from 2019); its chabad.org listing number points to 2022 (a lead). Its chabad.org listing went up on Jun 30 2022 (chabad.org's own record), so it existed by then.",
+   "by": 2022
   },
   "5473825": {
    "name": "Chabad of Montecito",
@@ -3653,10 +3676,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2007,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/520208",
-   "note": "No year found. Chabad of Camarillo's summer camp, hosted at Gan Camarillo (same dot); the listing number points to about 2007 (a lead)."
+   "note": "No year found. Chabad of Camarillo's summer camp, hosted at Gan Camarillo (same dot); the listing number points to about 2007 (a lead). Its chabad.org listing went up on May 15 2007 (chabad.org's own record), so it existed by then.",
+   "by": 2007
   },
   "5653972": {
    "name": "Sacramento Jewish Academy",
@@ -3763,10 +3787,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2006,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://crownheights.info/chabad-news/928557/new-shluchim-to-serve-jewish-students-at-the-university-of-california-at-riverside/",
-   "note": "No year found. Its chabad.org listing dates from about 2006 (the Fusses' campus work; same dot as Riverside, 2005); Rabbi Mendel and Chani Kleyman moved out to it in late 2025 (CrownHeights.info, Nov 30 2025)."
+   "note": "No year found. Its chabad.org listing dates from about 2006 (the Fusses' campus work; same dot as Riverside, 2005); Rabbi Mendel and Chani Kleyman moved out to it in late 2025 (CrownHeights.info, Nov 30 2025). Its chabad.org listing went up on Feb 4 2006 (chabad.org's own record), so it existed by then.",
+   "by": 2006
   },
   "118229": {
    "name": "Chabad of Rancho Mirage - The Torah Oasis",
@@ -3784,10 +3809,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2008,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabadpd.com/",
-   "note": "No source found (Rabbi Mendy and Shaindy Friedman, who also run the Aleph Schoolhouse). Its chabad.org listing number points to about 2008 (a lead)."
+   "note": "No source found (Rabbi Mendy and Shaindy Friedman, who also run the Aleph Schoolhouse). Its chabad.org listing number points to about 2008 (a lead). Its chabad.org listing went up on Mar 16 2008 (chabad.org's own record), so it existed by then.",
+   "by": 2008
   },
   "4539630": {
    "name": "Chabad Indio",
@@ -4135,7 +4161,7 @@
    "how": "range",
    "confidence": "range",
    "source": "https://www.sdjewishworld.com/2022/11/10/doctor-who-became-a-rabbi-runs-chabad-shul-in-rancho-bernardo/",
-   "note": "San Diego Jewish World, Nov 10 2022 (Donald H. Harrison, 'Doctor Who Became a Rabbi Runs Chabad Shul in Rancho Bernardo'): the Trestmans chose to sever their ties to Chabad of Poway 'after Rabbi Yisroel Goldstein was convicted' (2020); 'Because people were wary of meeting indoors during the COVID-19 pandemic, they decided to establish at the side of their home a prayer tent where a daily minyan could be held outside. At that time, they named their congregation Bais Betzalel ... because they were not yet formally affiliated with Chabad. Since that time, Rabbi Yonah Fradkin ... and Rabbi Baruch Shlomo Cunin ... have designated Trestman as the North County Inland shaliach'. So it began between 2020 and 2022 (the listing number also points to 2022).",
+   "note": "San Diego Jewish World, Nov 10 2022 (Donald H. Harrison, 'Doctor Who Became a Rabbi Runs Chabad Shul in Rancho Bernardo'): the Trestmans chose to sever their ties to Chabad of Poway 'after Rabbi Yisroel Goldstein was convicted' (2020); 'Because people were wary of meeting indoors during the COVID-19 pandemic, they decided to establish at the side of their home a prayer tent where a daily minyan could be held outside. At that time, they named their congregation Bais Betzalel ... because they were not yet formally affiliated with Chabad. Since that time, Rabbi Yonah Fradkin ... and Rabbi Baruch Shlomo Cunin ... have designated Trestman as the North County Inland shaliach'. So it began between 2020 and 2022 (the listing number also points to 2022). Its chabad.org listing went up on Nov 22 2024 (chabad.org's own record), so it existed by then.",
    "after": 2020,
    "earlier": [
     {
@@ -4152,10 +4178,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2006,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/news/article_cdo/aid/2781131/jewish/Cross-Border-Rabbi-Serves-Mexico-and-California-Jewish-Communities.htm",
-   "note": "No year of its own found. The Polichencos' cross-border program, born when they moved from Tijuana (1993) to Chula Vista and kept serving Tijuana (Chabad.org News, Dec 2014); its chabad.org listing dates from about 2006 (a lead)."
+   "note": "No year of its own found. The Polichencos' cross-border program, born when they moved from Tijuana (1993) to Chula Vista and kept serving Tijuana (Chabad.org News, Dec 2014); its chabad.org listing dates from about 2006 (a lead). Its chabad.org listing went up on Dec 7 2005 (chabad.org's own record), so it existed by then.",
+   "by": 2005
   },
   "118537": {
    "name": "Beth Eliyahu Torah Center",
@@ -4240,10 +4267,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2018,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://anash.org/orange-county-torah-welcomed-into-chabad-israeli-center/",
-   "note": "No year found: Rabbi Rafi Dadon 'founded Chabad Israeli OC several years ago together with his wife' (Anash.org). therebbesimpact.com: 2016 for the Dadons, 2018 for the center."
+   "note": "No year found: Rabbi Rafi Dadon 'founded Chabad Israeli OC several years ago together with his wife' (Anash.org). therebbesimpact.com: 2016 for the Dadons, 2018 for the center. Its chabad.org listing went up on Jun 15 2020 (chabad.org's own record), so it existed by then.",
+   "by": 2020
   },
   "6409781": {
    "name": "Chabad of Rancho Penasquitos",
@@ -4371,10 +4399,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 1977,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabadpb.org/templates/articlecco_cdo/aid/721341/jewish/Mikvah.htm",
-   "note": "No year found. At 6115 Montezuma Rd, the SDSU Chabad House's address (that house opened 1975-77); listed in chabad.org's first directory (about 2003)."
+   "note": "No year found. At 6115 Montezuma Rd, the SDSU Chabad House's address (that house opened 1975-77); listed in chabad.org's first directory (about 2003). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "by": 2004
   },
   "174719": {
    "name": "Chabad Jewish Center of Tustin",
@@ -5459,10 +5488,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2018,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/4174950",
-   "note": "No year found (Rabbi Mendel Yiftach, son of Marina del Rey's Rabbi Yiftach-Hashem). The listing number (4174950) is from about late 2018."
+   "note": "No year found (Rabbi Mendel Yiftach, son of Marina del Rey's Rabbi Yiftach-Hashem). The listing number (4174950) is from about late 2018. Its chabad.org listing went up on Oct 30 2018 (chabad.org's own record), so it existed by then.",
+   "by": 2018
   },
   "3059305": {
    "name": "Chabad of Mar Vista",
@@ -5588,10 +5618,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2015,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/3100552",
-   "note": "No year found (Rabbi Menachem Mendel Levitansky). The listing number (3100552) is from late 2015. Same dot as Chabad of SMC (2007)."
+   "note": "No year found (Rabbi Menachem Mendel Levitansky). The listing number (3100552) is from late 2015. Same dot as Chabad of SMC (2007). Its chabad.org listing went up on Oct 27 2015 (chabad.org's own record), so it existed by then.",
+   "by": 2015
   },
   "2835709": {
    "name": "Cteen",
@@ -5643,10 +5674,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2020,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/4935385",
-   "note": "No year found (Rabbi Mendel and Rivky Lehrer). therebbesimpact.com: 2020; the listing number (4935385) is from January 2021."
+   "note": "No year found (Rabbi Mendel and Rivky Lehrer). therebbesimpact.com: 2020; the listing number (4935385) is from January 2021. Its chabad.org listing went up on Dec 2 2020 (chabad.org's own record), so it existed by then.",
+   "by": 2020
   },
   "4371683": {
    "name": "Chabad in South Westwood",
@@ -5801,7 +5833,8 @@
    "how": "range",
    "confidence": "range",
    "source": "https://chabadinfo.com/news/kollel-tifereth-zekainim-enriching-the-lives-of-seniors/",
-   "note": "No year found for the LA branch (Rabbi Yitzchok Arnold, 506 N. Alta Vista). The Tiferet Zekeinim program was founded by the Rebbe in 1980 (5740), so not before then; therebbesimpact.com's 1975 can't be right."
+   "note": "No year found for the LA branch (Rabbi Yitzchok Arnold, 506 N. Alta Vista). The Tiferet Zekeinim program was founded by the Rebbe in 1980 (5740), so not before then; therebbesimpact.com's 1975 can't be right. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "by": 2004
   },
   "3252627": {
    "name": "Beverly Hills Hotel Shabbat Services",
@@ -5809,10 +5842,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2016,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.beverlyhillsjc.org/",
-   "note": "No year found (Rabbi Yossi Cunin's services at the Beverly Hills Hotel). The listing number (3252627) is from early 2016. Same dot as Chabad in the Hills."
+   "note": "No year found (Rabbi Yossi Cunin's services at the Beverly Hills Hotel). The listing number (3252627) is from early 2016. Same dot as Chabad in the Hills. Its chabad.org listing went up on Mar 29 2016 (chabad.org's own record), so it existed by then.",
+   "by": 2016
   },
   "118442": {
    "name": "Chabad in the Hills - Beverly Hills",
@@ -5856,10 +5890,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2017,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/7001638",
-   "note": "No year found (director Mushkie Bitton). therebbesimpact.com: 2017 for the Bittons; the listing number (7001638) is from about September 2025."
+   "note": "No year found (director Mushkie Bitton). therebbesimpact.com: 2017 for the Bittons; the listing number (7001638) is from about September 2025. Its chabad.org listing went up on Aug 20 2025 (chabad.org's own record), so it existed by then.",
+   "by": 2025
   },
   "3004418": {
    "name": "Chai Tots PreSchool",
@@ -5867,10 +5902,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2015,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabadchatsworth.com/templates/articlecco_cdo/aid/6831721/jewish/About-Us.htm",
-   "note": "No year found (Chabad of Chatsworth's preschool, 20731 Devonshire St; Chabad of Chatsworth itself is 2003). The listing number (3004418) is from September 2015."
+   "note": "No year found (Chabad of Chatsworth's preschool, 20731 Devonshire St; Chabad of Chatsworth itself is 2003). The listing number (3004418) is from September 2015. Its chabad.org listing went up on Jul 14 2015 (chabad.org's own record), so it existed by then.",
+   "by": 2015
   },
   "757557": {
    "name": "Chabad of Lake Encino",
@@ -5915,10 +5951,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2013,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.baisnochum.org/templates/articlecco_cdo/aid/5584714/jewish/About-Us.htm",
-   "note": "No year found. Its About page: founded by the late Rabbi Mendel and Mira Labkowsky, who married in 1980 and were later sent to Los Angeles. therebbesimpact.com: 2013; the listing number (4182118) is from late 2018."
+   "note": "No year found. Its About page: founded by the late Rabbi Mendel and Mira Labkowsky, who married in 1980 and were later sent to Los Angeles. therebbesimpact.com: 2013; the listing number (4182118) is from late 2018. Its chabad.org listing went up on Oct 31 2018 (chabad.org's own record), so it existed by then.",
+   "by": 2018
   },
   "6134441": {
    "name": "Chabad Youth Los Angeles",
@@ -5926,10 +5963,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2018,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/6134441",
-   "note": "No year found (Rabbi Zalman Goodman). therebbesimpact.com: 2018. Same dot as West Coast Headquarters (1965), so the dot is dated."
+   "note": "No year found (Rabbi Zalman Goodman). therebbesimpact.com: 2018. Same dot as West Coast Headquarters (1965), so the dot is dated. Its chabad.org listing went up on Oct 18 2023 (chabad.org's own record), so it existed by then.",
+   "by": 2023
   },
   "968732": {
    "name": "Chabad of Downtown East",
@@ -5966,10 +6004,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2012,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabadwestwood.com/templates/articlecco_cdo/aid/2036359/jewish/About-Us.htm",
-   "note": "No year found (Rabbi Shalom Dovber and Zelda Rochel Cunin). The listing number (1878002) and its site's first pages are from 2012."
+   "note": "No year found (Rabbi Shalom Dovber and Zelda Rochel Cunin). The listing number (1878002) and its site's first pages are from 2012. Its chabad.org listing went up on Jun 5 2012 (chabad.org's own record), so it existed by then.",
+   "by": 2012
   },
   "6294855": {
    "name": "Friendship Circle of Los Angeles",
@@ -5977,10 +6016,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2003,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/6294855",
-   "note": "No year found. therebbesimpact.com: 2003. Same dot as Chabad of Beverlywood (2001), so the dot is dated."
+   "note": "No year found. therebbesimpact.com: 2003. Same dot as Chabad of Beverlywood (2001), so the dot is dated. Its chabad.org listing went up on Jan 25 2024 (chabad.org's own record), so it existed by then.",
+   "by": 2024
   },
   "120080": {
    "name": "Gan Chaya Jewish Early Childhood Center",
@@ -5991,7 +6031,7 @@
    "how": "range",
    "confidence": "range",
    "source": "https://web.archive.org/web/20080630231455/http://www.chabadbw.com/templates/articlecco_cdo/aid/62397/jewish/Synagogue-Services.htm",
-   "note": "No start year found (Mrs. Channa Hecht; the preschool of Chabad of Brentwood, 1985). It is in chabad.org's first directory (its listing went up July 22 2004, when that directory was put online), so it ran by then; in 2008 it was at 1620 S. Bundy Dr., where Chabad of Brentwood South held its first services (Chabad of Brentwood's site, archived June 30 2008). Now 647 S. Saltair Ave. Not in the Chinuch Office's 2012-13 preschool directory.",
+   "note": "No start year found (Mrs. Channa Hecht; the preschool of Chabad of Brentwood, 1985). It is in chabad.org's first directory (its listing went up July 22 2004, when that directory was put online), so it ran by then; in 2008 it was at 1620 S. Bundy Dr., where Chabad of Brentwood South held its first services (Chabad of Brentwood's site, archived June 30 2008). Now 647 S. Saltair Ave. Not in the Chinuch Office's 2012-13 preschool directory. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
    "by": 2004,
    "earlier": [
     {
@@ -6008,20 +6048,22 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2000,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://collive.com/kollel-tiferes-menachem-los-angeles-celebrates-smicha/",
-   "note": "No year found (Rabbi Dovid Schmukler). therebbesimpact.com: 2000. Same dot as Yeshiva Ohr Elchonon Chabad (1977), so the dot is dated."
+   "note": "No year found (Rabbi Dovid Schmukler). therebbesimpact.com: 2000. Same dot as Yeshiva Ohr Elchonon Chabad (1977), so the dot is dated. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "by": 2004
   },
   "119728": {
    "name": "Mivtzoim",
    "city": "Los Angeles",
    "shetach": "west-coast",
    "year": null,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/119728",
-   "note": "No year found; the listing has no personnel. In chabad.org's first directory (about 2003)."
+   "note": "No year found; the listing has no personnel. In chabad.org's first directory (about 2003). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "by": 2004
   },
   "120085": {
    "name": "The Garden School-Chabad Preschools",
@@ -6029,10 +6071,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 1990,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/120085",
-   "note": "No year found. therebbesimpact.com: 1990 for Rabbi Yossi and Chami Cunin. Same dot as Bais Chaya Mushka (1988), so the dot is dated."
+   "note": "No year found. therebbesimpact.com: 1990 for Rabbi Yossi and Chami Cunin. Same dot as Bais Chaya Mushka (1988), so the dot is dated. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "by": 2004
   },
   "3021804": {
    "name": "The Shul of Beverly Hills",
@@ -6040,10 +6083,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2010,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.theshulbh.org/templates/articlecco_cdo/aid/6164270/jewish/About.htm",
-   "note": "No year found (Rabbi Chaim and Chaya Sperlin). therebbesimpact.com: 2010; the listing number (3021804) is from late 2015."
+   "note": "No year found (Rabbi Chaim and Chaya Sperlin). therebbesimpact.com: 2010; the listing number (3021804) is from late 2015. Its chabad.org listing went up on Jan 11 2016 (chabad.org's own record), so it existed by then.",
+   "by": 2016
   },
   "120081": {
    "name": "Westside Hebrew School",
@@ -6051,10 +6095,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 1981,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/120081",
-   "note": "No year found (the Chabad Israel Center's Hebrew school, Yemini). Same dot as the Chabad Israel Center (1982) and Gan Chabad (1990), so the dot is dated."
+   "note": "No year found (the Chabad Israel Center's Hebrew school, Yemini). Same dot as the Chabad Israel Center (1982) and Gan Chabad (1990), so the dot is dated. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "by": 2004
   },
   "6040554": {
    "name": "Chabad of the Palisades Village",
@@ -6062,10 +6107,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2023,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/6040554",
-   "note": "No year found (Rabbi Avi and Ita Cunin). therebbesimpact.com: 2023; the listing number (6040554) is from about mid-2023."
+   "note": "No year found (Rabbi Avi and Ita Cunin). therebbesimpact.com: 2023; the listing number (6040554) is from about mid-2023. Its chabad.org listing went up on Sep 5 2023 (chabad.org's own record), so it existed by then.",
+   "by": 2023
   },
   "117963": {
    "name": "Blauner Youth Center",
@@ -6083,20 +6129,22 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2003,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabadofthevalley.com/templates/articlecco_cdo/aid/219436/jewish/TarzanaEncino.htm",
-   "note": "No year found (Rabbi Yanky and Hindy Kahn). therebbesimpact.com: 2003; in chabad.org's first directory (about 2003)."
+   "note": "No year found (Rabbi Yanky and Hindy Kahn). therebbesimpact.com: 2003; in chabad.org's first directory (about 2003). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "by": 2004
   },
   "577665": {
    "name": "Hebrew School",
    "city": "West Hollywood",
    "shetach": "west-coast",
    "year": null,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/577665",
-   "note": "No year found (Rodal). Same dot as the Chabad Russian Immigrant Program (1972), so the dot is dated."
+   "note": "No year found (Rodal). Same dot as the Chabad Russian Immigrant Program (1972), so the dot is dated. Its chabad.org listing went up on Oct 10 2007 (chabad.org's own record), so it existed by then.",
+   "by": 2007
   },
   "117579": {
    "name": "Chabad of Westlake Village",
@@ -6294,10 +6342,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2016,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/3758005",
-   "note": "No year found. therebbesimpact.com: 2016; the listing number (3758005) is from about mid-2017."
+   "note": "No year found. therebbesimpact.com: 2016; the listing number (3758005) is from about mid-2017. Its chabad.org listing went up on Aug 17 2017 (chabad.org's own record), so it existed by then.",
+   "by": 2017
   },
   "3448653": {
    "name": "Chabad of Las Vegas Blvd",
@@ -6305,10 +6354,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2016,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://chabadofthestrip.com/",
-   "note": "No year found (Rabbi Levi Harlig; also called Chabad of the Strip). therebbesimpact.com: 2016; the listing number (3448653) is from late 2016."
+   "note": "No year found (Rabbi Levi Harlig; also called Chabad of the Strip). therebbesimpact.com: 2016; the listing number (3448653) is from late 2016. Its chabad.org listing went up on Nov 1 2016 (chabad.org's own record), so it existed by then.",
+   "by": 2016
   },
   "119961": {
    "name": "Talmud Torah",
@@ -6316,10 +6366,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 1979,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/119961",
-   "note": "No year found (listed as a preschool). In chabad.org's first directory (about 2003); therebbesimpact.com's oldest lead is 1979 (Rabbi Moishe Baruch and Pesha ...), before Chabad of Southern Nevada (1990), so unconfirmed."
+   "note": "No year found (listed as a preschool). In chabad.org's first directory (about 2003); therebbesimpact.com's oldest lead is 1979 (Rabbi Moishe Baruch and Pesha ...), before Chabad of Southern Nevada (1990), so unconfirmed. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "by": 2004
   },
   "286052": {
    "name": "Camp Gan Israel",
@@ -6327,10 +6378,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2005,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/286052",
-   "note": "No year found. The listing number (286052) is from about 2005."
+   "note": "No year found. The listing number (286052) is from about 2005. Its chabad.org listing went up on May 31 2005 (chabad.org's own record), so it existed by then.",
+   "by": 2005
   },
   "6902208": {
    "name": "Chabad Cares Northern Nevada",
@@ -6338,10 +6390,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2025,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/6902208",
-   "note": "No year found. The listing number (6902208) is from about mid-2025."
+   "note": "No year found. The listing number (6902208) is from about mid-2025. Its chabad.org listing went up on Jun 9 2025 (chabad.org's own record), so it existed by then.",
+   "by": 2025
   },
   "118644": {
    "name": "Chabad Hebrew Center",
@@ -6374,10 +6427,11 @@
    "shetach": "west-coast",
    "year": null,
    "lead": 2006,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "source": "https://www.chabad.org/jewish-centers/405427",
-   "note": "No year found. The listing number (405427) is from about 2006."
+   "note": "No year found. The listing number (405427) is from about 2006. Its chabad.org listing went up on Jul 20 2006 (chabad.org's own record), so it existed by then.",
+   "by": 2006
   },
   "1990199": {
    "name": "Chabad of Southwest Las Vegas",

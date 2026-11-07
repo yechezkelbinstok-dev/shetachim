@@ -3137,7 +3137,7 @@
   {
    "id": "victoria",
    "name": "Victoria",
-   "headShliach": "Disputed — Chaim Tzvi Groner; Yoselle Gutnick; Hendel Serebryanski",
+   "headShliach": "Disputed — Chaim Tzvi Groner; Yoselle Gutnick",
    "capital": {
     "centerId": "117782",
     "for": "Chaim Tzvi Groner",
@@ -3162,14 +3162,6 @@
      "city": "East St. Kilda",
      "lat": -37.86722,
      "lon": 145.00387
-    },
-    {
-     "centerId": "117755",
-     "for": "Hendel Serebryanski",
-     "name": "Merkos L'inyonei Chinuch",
-     "city": "East St. Kilda",
-     "lat": -37.87215,
-     "lon": 144.99912
     }
    ],
    "labelState": "AU-VIC"

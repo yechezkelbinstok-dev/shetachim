@@ -94,3 +94,31 @@ dated 216, missing 85.
   (lead 1978), Chabad in the Hills (1997), Westlake Village (1985), Gan Chaya, Mt. Olympus, the Las Vegas Talmud Torah,
   the Chabad Hebrew Center (Las Vegas). Searches now go through plain web search and fetch first, Firecrawl only when a
   site blocks (owner, Nov 6).
+
+## The hard round (Nov 6-7)
+Owner (Nov 6): "I want this research to be the best" (Firecrawl allowed again), and to hear how much is left
+(`python3 work/founding-years/progress.py west-coast small michigan`). Entries go in batch files,
+`work/founding-years/batches/west-coast-NN.json` (22 on), applied with add.py.
+- **Re-check of the WebFetch-based entries (Nov 6):** every West Coast entry whose source had been read only through
+  WebFetch's summary was re-read on the raw page: the 1990 Orange County history, J.'s 2014 Bay Area story and its May
+  2012 Burlingame/Novato item, KESQ (Rancho Mirage), the Jewish Journal (Lake Balboa), Beverly Hills's campaign page.
+  All held. One fix: Beverly Hills's source now points to the 'Foot In The Door' campaign page that has the quote.
+- **New sources that worked:**
+  - The California Digital Newspaper Collection (cdnc.ucr.edu; through Firecrawl, curl gets a bot check). Its
+    search with `&f=XML` returns only the hit counts by year and paper (1 credit), which shows the first year a
+    name appears; `?a=d&d=<id>&f=XML` returns an article's text (1 credit). Papers with Chabad news: J. / the
+    Northern California Jewish Bulletin, the North County Times, the Coronado Eagle and Journal, the Topanga
+    Messenger, the Ventura County Star, the Thousand Oaks Star (to about 2001), the Argonaut (Marina del Rey), the
+    Desert Sun (only to 1993). Found this way: Coronado 2005, Topanga 2003, Westlake Village 1985.
+  - The 2016-17 Jewish OC Community Directory (a PDF with 'Founded:' for every Orange County congregation): Tustin
+    2004, North Irvine 2007, Aliso Viejo 2008; checks for Newport Beach 2001, Mission Viejo (1995 there), Laguna Beach.
+  - Chabad.org News's yearly campus round-up (Oct 31 2017, '14 New Chabad Campus Centers Opened This Year'): Chapman
+    2017-02, Middlebury 2017-08, URI 2016, San Jose State 2016-08. JNS's 'A new Chabad every three days' (Nov 2022)
+    names that year's new centers (Northwest Vermont; Arizona's Ahwatukee, Downtown-South Scottsdale and an Israeli
+    center in Phoenix).
+  - Firecrawl's research agent (`firecrawl_agent`), given 10-18 centers at a time and told to quote the sentence and
+    give the page: its first batch found a dated source for all 10 (Chabad in the Hills 1997, North Hollywood 1981,
+    Beach Cities 1996, Mt. Olympus ~1998, SCV ~1999, Chabad Hebrew Center 2003, Miracle Mile 2004 ...). Every quote it
+    gives is then checked on the page itself before it goes in; the note says the agent found it.
+- **Not a source:** the Oholei Torah alumni list's year beside each name is a class year (Rabbi Mendy Begun '2010' runs
+  a center from about 2020), not a founding year.

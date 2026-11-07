@@ -1,0 +1,52 @@
+{
+ "120046": {
+  "name": "Chabad Coastal Hebrew School",
+  "city": "Carlsbad",
+  "shetach": "west-coast",
+  "year": 1990,
+  "date": "1990-09",
+  "how": "news",
+  "confidence": "high",
+  "source": "https://cdnc.ucr.edu/?a=d&d=NCBCB19900901.1.19",
+  "note": "North County Blade-Citizen, Sept 1 1990 ('Chabad opens school'; California Digital Newspaper Collection): 'Chabad at La Costa, 7663 Galleon Way, announces the opening of a Talmud Torah Hebrew school. The Talmud Torah is for children ages 6 to 13 and will meet twice a week in the afternoons ... Classes will begin during the week of Sept. 10 ... Call Rabbi Eilfort'. This listing is Chabad at La Costa's Hebrew school (Rabbi Yeruchem Eilfort; the center from 1989).",
+  "lead": 1990,
+  "earlier": [
+   {
+    "where": "7663 Galleon Way, Carlsbad (Chabad at La Costa's first address)",
+    "from": 1990,
+    "until": 1991,
+    "source": "https://cdnc.ucr.edu/?a=d&d=NCBCB19900901.1.19"
+   },
+   {
+    "where": "1980 La Costa Ave, on the La Costa Resort and Spa's grounds (from June 1991, 'two classrooms ... afternoon Hebrew School')",
+    "from": 1991,
+    "until": null,
+    "source": "https://cdnc.ucr.edu/?a=d&d=NCBCB19910601.1.18"
+   }
+  ]
+ },
+ "117941": {
+  "name": "Chabad at La Costa",
+  "city": "Carlsbad",
+  "shetach": "west-coast",
+  "year": 1989,
+  "how": "stated",
+  "confidence": "high",
+  "source": "https://www.chabadatlacosta.com/templates/articlecco_cdo/aid/783574/jewish/Rabbi-Eilfort.htm",
+  "note": "The center's own pages: 'In the summer of 1989 the Eilforts moved to San Diego ... and founded Chabad at La Costa by having High Holiday services'; 'founded in the summer of '89'; its LinkedIn: founded 1989. (They moved to Carlsbad itself in 1990.)",
+  "earlier": [
+   {
+    "where": "7663 Galleon Way, Carlsbad",
+    "from": 1990,
+    "until": 1991,
+    "source": "https://cdnc.ucr.edu/?a=d&d=NCBCB19900901.1.19"
+   },
+   {
+    "where": "1980 La Costa Ave, on the property of La Costa Resort and Spa ('larger facilities ... two classrooms, a large yard ... a large synagogue and social hall', dedicated June 2 1991)",
+    "from": 1991,
+    "until": null,
+    "source": "https://cdnc.ucr.edu/?a=d&d=NCBCB19910601.1.18"
+   }
+  ]
+ }
+}

@@ -2898,23 +2898,31 @@
    "name": "Camp Gan Israel Contra Costa",
    "city": "Danville",
    "shetach": "west-coast",
-   "year": null,
+   "year": 1999,
+   "how": "first-mention",
+   "confidence": "medium",
+   "source": "https://cdnc.ucr.edu/?a=d&d=JW19990423.2.136.28.1",
+   "note": "First mention: J. The Jewish News of Northern California, Apr 23 1999 (camp advertisements; California Digital Newspaper Collection): 'Camp Gan Israel - Walnut Creek Chabad of Contra Costa 1530 ...'. J.'s 1998 camp ads list other Chabad camps (Camp Gan Israel of Chabad South Bay, Palo Alto) but not this one, and Chabad of Contra Costa itself began in Sept 1996. A first mention, so medium. Now in Danville.",
    "lead": 2003,
-   "how": "not-found",
-   "confidence": "open",
-   "source": "https://www.chabad.org/jewish-centers/120212",
-   "note": "No year found. Chabad of Contra Costa's day camp (the center from 1996); its listing is in chabad.org's first directory (about 2003), so probably by then (a lead)."
+   "earlier": [
+    {
+     "where": "Walnut Creek (as 'Camp Gan Israel - Walnut Creek', at Chabad of Contra Costa, 1530 ...)",
+     "from": 1999,
+     "until": null,
+     "source": "https://cdnc.ucr.edu/?a=d&d=JW19990423.2.136.28.1"
+    }
+   ]
   },
   "831477": {
    "name": "Camp Gan Israel SF",
    "city": "San Francisco",
    "shetach": "west-coast",
-   "year": null,
-   "lead": 2009,
-   "how": "not-found",
-   "confidence": "open",
-   "source": "https://www.chabad.org/jewish-centers/831477",
-   "note": "No year found. Chabad of SF and the Shalom School's day camp (the Langers); its chabad.org listing number points to about 2009 (the camp may be older)."
+   "year": 2001,
+   "how": "first-mention",
+   "confidence": "medium",
+   "source": "https://cdnc.ucr.edu/?a=d&d=JW20010511.2.138.4",
+   "note": "First mention: J. The Jewish News of Northern California, May 11 2001 (camp advertisements; California Digital Newspaper Collection): 'Camp Gan Israel, SF Chabad SF 750 26th Ave. San Francisco'. Earlier J. camp ads (1998-1999) don't list it. A first mention, so medium; the chabad.org listing (about 2009) is much later.",
+   "lead": 2009
   },
   "1554205": {
    "name": "Chabad of Daly City",
@@ -3545,7 +3553,21 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.chabadatlacosta.com/templates/articlecco_cdo/aid/783574/jewish/Rabbi-Eilfort.htm",
-   "note": "The center's own pages: 'In the summer of 1989 the Eilforts moved to San Diego ... and founded Chabad at La Costa by having High Holiday services'; 'founded in the summer of '89'; its LinkedIn: founded 1989. (They moved to Carlsbad itself in 1990.)"
+   "note": "The center's own pages: 'In the summer of 1989 the Eilforts moved to San Diego ... and founded Chabad at La Costa by having High Holiday services'; 'founded in the summer of '89'; its LinkedIn: founded 1989. (They moved to Carlsbad itself in 1990.)",
+   "earlier": [
+    {
+     "where": "7663 Galleon Way, Carlsbad",
+     "from": 1990,
+     "until": 1991,
+     "source": "https://cdnc.ucr.edu/?a=d&d=NCBCB19900901.1.19"
+    },
+    {
+     "where": "1980 La Costa Ave, on the property of La Costa Resort and Spa ('larger facilities ... two classrooms, a large yard ... a large synagogue and social hall', dedicated June 2 1991)",
+     "from": 1991,
+     "until": null,
+     "source": "https://cdnc.ucr.edu/?a=d&d=NCBCB19910601.1.18"
+    }
+   ]
   },
   "118206": {
    "name": "Chabad Jewish Center of Mission Viejo",
@@ -4027,12 +4049,27 @@
    "name": "Chabad Coastal Hebrew School",
    "city": "Carlsbad",
    "shetach": "west-coast",
-   "year": null,
+   "year": 1990,
+   "date": "1990-09",
+   "how": "news",
+   "confidence": "high",
+   "source": "https://cdnc.ucr.edu/?a=d&d=NCBCB19900901.1.19",
+   "note": "North County Blade-Citizen, Sept 1 1990 ('Chabad opens school'; California Digital Newspaper Collection): 'Chabad at La Costa, 7663 Galleon Way, announces the opening of a Talmud Torah Hebrew school. The Talmud Torah is for children ages 6 to 13 and will meet twice a week in the afternoons ... Classes will begin during the week of Sept. 10 ... Call Rabbi Eilfort'. This listing is Chabad at La Costa's Hebrew school (Rabbi Yeruchem Eilfort; the center from 1989).",
    "lead": 1990,
-   "how": "not-found",
-   "confidence": "open",
-   "source": "https://www.chabadatlacosta.com/",
-   "note": "No year found. Chabad at La Costa's Hebrew school (the center from 1989); listed in chabad.org's first directory (about 2003)."
+   "earlier": [
+    {
+     "where": "7663 Galleon Way, Carlsbad (Chabad at La Costa's first address)",
+     "from": 1990,
+     "until": 1991,
+     "source": "https://cdnc.ucr.edu/?a=d&d=NCBCB19900901.1.19"
+    },
+    {
+     "where": "1980 La Costa Ave, on the La Costa Resort and Spa's grounds (from June 1991, 'two classrooms ... afternoon Hebrew School')",
+     "from": 1991,
+     "until": null,
+     "source": "https://cdnc.ucr.edu/?a=d&d=NCBCB19910601.1.18"
+    }
+   ]
   },
   "118546": {
    "name": "Chabad House at UCLA",

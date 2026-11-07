@@ -31,7 +31,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | new-jersey | 91 | 48 | 3 |  | 6 |  | 34 | 40 | 84 | 33 |
 | new-mexico | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | newfoundland-and-labrador | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
-| none | 9 | 6 | 1 |  | 2 |  |  | 2 | 9 | 2 |
+| none | 9 | 6 | 2 |  | 1 |  |  | 1 | 9 | 1 |
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | oklahoma | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | ottawa | 11 | 7 |  |  | 4 |  |  | 4 | 9 | 2 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | kansas-missouri | 16 |  |  |  |  |  | 16 | 16 | 16 | 16 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
 | british-columbia | 13 |  |  |  |  |  | 13 | 13 | 13 | 13 |
-| **all** | 1969 | 553 | 149 | 1 | 122 | 49 | 1095 | 1266 | 1765 | 1087 |
+| **all** | 1969 | 553 | 150 | 1 | 121 | 49 | 1095 | 1265 | 1765 | 1086 |

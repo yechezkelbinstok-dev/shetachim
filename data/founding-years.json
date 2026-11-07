@@ -1013,9 +1013,10 @@
    "lead": 2023,
    "how": "range",
    "source": "https://therebbesimpact.com/",
-   "note": "No source found. therebbesimpact.com: 'Chabad of Stony Point', 2023; chabad.org's listing number (6169151) is from about 2023. Rabbi Shea Werner (with Rabbi Shmuel Amram, per a congressional proclamation, COLlive); 17 Phillips Drive. Its chabad.org listing went up on Dec 5 2023 (chabad.org's own record), so it existed by then.",
+   "note": "No source found. therebbesimpact.com: 'Chabad of Stony Point', 2023; chabad.org's listing number (6169151) is from about 2023. Rabbi Shea Werner (with Rabbi Shmuel Amram, per a congressional proclamation, COLlive); 17 Phillips Drive. Its chabad.org listing went up on Dec 5 2023 (chabad.org's own record), so it existed by then. Anash.org, Oct 25 2019: 'Rabbi Shea Werner, who recently moved to Crown Heights from Oak Park, Michigan', where he had been Rav for over 20 years; so Stony Point began after Oct 2019.",
    "confidence": "range",
-   "by": 2023
+   "by": 2023,
+   "after": 2019
   },
   "117966": {
    "name": "American Friends of Lubavitch (Chabad)",
@@ -3812,8 +3813,16 @@
    "how": "range",
    "confidence": "range",
    "source": "https://www.chabadpd.com/",
-   "note": "No source found (Rabbi Mendy and Shaindy Friedman, who also run the Aleph Schoolhouse). Its chabad.org listing number points to about 2008 (a lead). Its chabad.org listing went up on Mar 16 2008 (chabad.org's own record), so it existed by then.",
-   "by": 2008
+   "note": "No source found (Rabbi Mendy and Shaindy Friedman, who also run the Aleph Schoolhouse). Its chabad.org listing number points to about 2008 (a lead). Its chabad.org listing went up on Mar 16 2008 (chabad.org's own record), so it existed by then. The Jewish Federation of the Desert's Jewish Community News, January 2019: 'CHABAD OF PALM DESERT, Rabbi Mendy Friedman. Services in a private home.' It is now at 45-445 Portola Ave, Suite 1.",
+   "by": 2008,
+   "earlier": [
+    {
+     "where": "services in a private home",
+     "from": null,
+     "until": null,
+     "source": "https://jfedps.org/assets/19-01.pdf"
+    }
+   ]
   },
   "4539630": {
    "name": "Chabad Indio",
@@ -4270,8 +4279,16 @@
    "how": "range",
    "confidence": "range",
    "source": "https://anash.org/orange-county-torah-welcomed-into-chabad-israeli-center/",
-   "note": "No year found: Rabbi Rafi Dadon 'founded Chabad Israeli OC several years ago together with his wife' (Anash.org). therebbesimpact.com: 2016 for the Dadons, 2018 for the center. Its chabad.org listing went up on Jun 15 2020 (chabad.org's own record), so it existed by then.",
-   "by": 2020
+   "note": "No year found: Rabbi Rafi Dadon 'founded Chabad Israeli OC several years ago together with his wife' (Anash.org). therebbesimpact.com: 2016 for the Dadons, 2018 for the center. Its chabad.org listing went up on Jun 15 2020 (chabad.org's own record), so it existed by then. Anash.org, Sept 13 2023: 'About two years ago the Chabad House moved to a new residence and prayer services are held there every Shabbos'; its first Sefer Torah came that week.",
+   "by": 2020,
+   "earlier": [
+    {
+     "where": "its first home in Irvine, before 'a new residence' about 2021 (address not found)",
+     "from": null,
+     "until": 2021,
+     "source": "https://anash.org/orange-county-torah-welcomed-into-chabad-israeli-center/"
+    }
+   ]
   },
   "6409781": {
    "name": "Chabad of Rancho Penasquitos",
@@ -6225,7 +6242,15 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.sierrasun.com/news/chabad-of-northern-nevada-expands-outreach-strengthens-jewish-community/",
-   "note": "Sierra Sun: 'Founded in 1997, Chabad of Northern Nevada operates a central hub in Reno' (Rabbi Mendel and Sarah Cunin); its own site: begun 'more than two decades ago'. Its Aleph Academy preschool was founded 2008 (Chinuch Office directory)."
+   "note": "Sierra Sun: 'Founded in 1997, Chabad of Northern Nevada operates a central hub in Reno' (Rabbi Mendel and Sarah Cunin); its own site: begun 'more than two decades ago'. Its Aleph Academy preschool was founded 2008 (Chinuch Office directory). COLlive, June 16 2009: 'Chabad of Northern Nevada's new center was opened in Reno recently, at a grand dedication ceremony attended by Nevada Governor Jim Gibbons' (with a day school, senior programs and a kosher kitchen). Now at 1175 W. Moana Lane.",
+   "earlier": [
+    {
+     "where": "its quarters before the new Reno center dedicated in June 2009 (address not found)",
+     "from": 1997,
+     "until": 2009,
+     "source": "https://collive.com/reno-chabad-center-opens/"
+    }
+   ]
   },
   "118296": {
    "name": "Chabad of Henderson",

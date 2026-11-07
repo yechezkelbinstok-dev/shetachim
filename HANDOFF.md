@@ -53,11 +53,12 @@ listings. Both outlines reach the page unsimplified and off the map's grid (`EXA
 geo.json's `exactArcs`, the tiles' `ex` lines). **No "Shetach" above a shetach's name on its card** (owner, Nov 7:
 "get rid of the word shetach it makes no sense actually"); the sub-shetach card's "Sub-shetach" is as it was (not
 asked).
-**The map opens on Streets, and a Physical ⇄ Streets button sits over the +** (owner, Nov 7: "There should be a
-button to switch between physical and steeets on top of the plus zoom button", "Also streets should be default going
-forward"): `#zbase` in `#zoomctl` shows the map it switches to (mountains: Physical; a folded map: Streets) and clicks
-the panel's Map button for it; from Tinted it goes to Streets, from Political to Physical. If the street map's style
-doesn't load, the page opens on Political with "The street map couldn't load."
+**The map opens on Streets, and a Streets ⇄ Political button sits over the +** (owner, Nov 7: "There should be a
+button to switch between ... steeets on top of the plus zoom button", "Also streets should be default going forward",
+then, on a first version that switched to Physical: "No no no no no the button is between streets and POLITICAL"):
+`#zbase` in `#zoomctl` shows the map it switches to (a map of countries: Political; a road: Streets) and clicks the
+panel's Map button for it; from Physical or Tinted it goes to Streets. If the street map's style doesn't load, the
+page opens on Political with "The street map couldn't load."
 **Mushroom networks go by their own names** (owner, Nov 7: "Shouldn't kanelskys network be called Bris Avrohom? In
 general a lot are just named after head when maybe they can have a better name no? Like Phillipines maybe should just
 be called Chabad Phillipines", then "not chabad of Japan - that implies is the real chabad of Japan unlike in the

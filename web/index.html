@@ -462,6 +462,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   box-shadow: 0 0 0 2px var(--panel), 0 0 0 3.5px color-mix(in srgb, var(--t) 75%, var(--ink) 25%), 0 2px 6px rgba(0,0,0,.18); }
 #card .cc-person.big .cc-ph { width: 66px; height: 66px; }
 #card .cc-person.has-ph { gap: 13px; }
+#card .cc-person.has-ph + .cc-person.has-ph { margin-top: 10px; } /* a disputed shetach's claimants, one under the other */
 :root[data-ps] #card .cc-people:has(.has-ph) { border-inline-start: 0; padding-inline-start: 0; background: none; }
 /* (preview: the other ways to show the shliach) */
 :root[data-ps] #card .cc-more { margin-inline-start: 0; }
@@ -3465,6 +3466,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const initialsOf = (name) => { const w = String(name || '').replace(/^(Disputed|במחלוקת)\s*[—–-]?\s*/, '').split(/[;,]/)[0].trim().split(/\s+/).filter((x) => !/^(family|משפחת)$/.test(x));
     return w.length ? initials(w[0], w.length > 1 ? w[w.length - 1] : '') : ''; };
   const PERSON_ICON = '<svg class="pi" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5.2" r="2.7" fill="none" stroke="currentColor" stroke-width="1.4"/><path d="M2.8 14c.6-2.9 2.7-4.4 5.2-4.4s4.6 1.5 5.2 4.4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>';
+  const DISPUTED_PHOTOS = { victoria: ['victoria-groner', 'victoria-gutnick'] }; // web/img/heads/<name>.jpg, one per claimant, in the head's order
   const HEAD_PHOTO = new Set(["west-coast", "alaska", "washington", "oregon", "hawaii", "idaho", "montana", "wyoming", "utah", "colorado", "arizona", "new-mexico", "nebraska", "upper-midwest", "iowa", "wisconsin", "illinois", "michigan", "northeast-ohio", "central-ohio", "southern-ohio", "indiana", "kentucky", "tennessee", "oklahoma", "arkansas", "texas", "louisiana-mississippi", "alabama", "georgia", "florida", "the-carolinas", "virginia", "western-pennsylvania", "pennsylvania", "new-jersey", "maryland", "washington-dc", "rockland", "upstate-new-york", "maine", "vermont", "central-massachusetts", "connecticut", "new-haven", "south-area", "merrimack-valley", "north-shore-of-massachusetts", "alberta", "manitoba-saskatchewan", "ontario", "newfoundland-and-labrador", "austria", "belgium", "bulgaria", "croatia", "cyprus", "czech-republic", "denmark", "estonia", "finland", "france", "germany", "greece", "hungary", "iceland", "ireland", "israel", "italy", "latvia", "lithuania", "lower-balkans", "malta", "montenegro", "morocco", "netherlands", "norway", "poland", "portugal", "qatar", "russia", "serbia", "slovakia", "spain", "turkey", "united-arab-emirates", "saudi-arabia", "south-africa", "central-africa", "mauritius", "china", "thailand", "singapore", "south-korea", "nepal", "kazakhstan", "azerbaijan", "kyrgyzstan", "armenia", "georgia-country", "taiwan", "new-south-wales", "north-queensland", "south-australia", "western-australia"]);
   const photoIf = (s, list) => { if (!s || s.vaadFirst || !HEAD_PHOTO.has(s.id) || !list) return ''; const p = list.filter((x) => !x.isDeceased).find(isMale);
     return p && p.lastName && String(s._enHead || s.headShliach || '').includes(p.lastName) ? s.id : ''; };
@@ -3842,6 +3844,11 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     // a family at the head (Pinson, Blumenfeld): "Shluchim: Pinson family" (they are the shluchim there)
     // its shape on the small map (its flagship starred), its name big; who leads it with his initials; its flagship; its
     // numbers; "Zoom in" along its foot
+    // a disputed shetach (Victoria): each claimant on his own line with his photo, in the order of the head's list
+    // (owner, Nov 7: "just use the older one so you can do both")
+    const disputedLead = (s, t) => { const names = DISPUTED.exec(s.headShliach)[2].replace(/^\s*[—–-]\s*/, '').split(';').map((x) => x.trim()).filter(Boolean);
+      const label = `${esc(s.headTitle || tr('Head shliach'))} <span class="flag">(${HE ? 'במחלוקת' : 'disputed'})</span>`;
+      return `<div class="cc-people" style="--t:${t}">${names.map((n, i) => personRow(initialsOf(n), esc(n), '', t, i ? '' : label, true, DISPUTED_PHOTOS[s.id][i] || '')).join('')}</div>`; };
     const t = tintOf(s), lead = (label, name, photo = '') => `<div class="cc-people" style="--t:${t}">${personRow(initialsOf(name), headHTML(name), '', t, label, true, photo)}</div>`;
     const mini = miniMap(s.pieces, `s:${s.id}`, t, caps.map((c) => ({ lon: c.lon, lat: c.lat, kind: 'star' })), 72);
     const nC = centersInShetach(s), nM = mushroomsInShetach(s);
@@ -3852,6 +3859,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         : s.headShliach && s.vaad && s.vaadFirst ? `${vaadBlock(s, t)}${headRow(s)}`
         : s.headShliach && !s.vaad && s.vaadMembers && VAAD_PHOTOS[s.id] ? vaadBlock(s, t, headHTML(s.headShliach), esc(s.headTitle || tr('Leadership')))
         : s.headShliach && !s.vaad && s.vaadMembers ? membersHTML(s, `${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}`)
+        : s.headShliach && DISPUTED_PHOTOS[s.id] && DISPUTED.test(s.headShliach) ? disputedLead(s, t)
         : s.headShliach ? `${lead(esc(s.headTitle || tr('Head shliach')), s.headShliach, HEAD_PHOTO.has(s.id) ? s.id : '')}${s.vaad ? `<div style="margin-top:11px">${vaadHTML(s)}</div>` : ''}` : ''}</div>${capital}
       ${ccTiles(nC, nM)}</div>`; // (no "Zoom in" along its foot: owner, Nov 5, "Get rid of zoom in, takes up unnecessary space nobody needs it")
   }

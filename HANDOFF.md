@@ -39,7 +39,8 @@ island inside New South Wales like the Gold Coast exclave.
 live for New South Wales (Pinchus Feldman, COLlive Jan 2025), North Queensland (Ari Rubin, Cairns Post Dec 2025), South
 Australia (Yossi Engel, ABC Dec 2025) and Western Australia (Shalom White, his Instagram Mar 2026; his Nov 2026 post is
 an AI-drawn graphic, not used). Not done: Tasmania (owner: skip), Brisbane (Levi Jaffe: only a 2019 portrait, his beard
-is white in May 2026), Victoria (no recent Groner photo, and one photo on a disputed card would favour one side).
+is white in May 2026), Victoria first had none; then (owner: "just use the older one so you can do both") its card shows both claimants, each with
+his photo (Groner: AJN 2017, the newest of him alone; Gutnick: Jerusalem Post 2025), `DISPUTED_PHOTOS` in web/index.html.
 **Sri Lanka is in no shetach** (owner, Nov 7: "sri Lanka is not official- give it the phillipines treatment please"):
 its five houses are Rabbi Mendy Crombie's mushroom network (Colombo its flagship); the `sri-lanka` shetach and its
 Hebrew entry are gone and `blank` has `{ "country": "LKA" }`, as for the Philippines and Bolivia.

@@ -174,3 +174,25 @@ notes already written were mined for the old places they mention (batches small-
   (base64 alphabet A-Z a-z 0-9 - _), and `(id >> 23) + 1314220021721` is the posting time in ms. Checked on known posts
   (Martha's Vineyard, Oct 2022; Palisades, Dec 2024). Chabad.org's 'WELCOME! New Chabad Center in X' posts come months
   after the listing (Bexley: listing July 2025, post April 2026), so they date the post, not the start.
+- **Archived chabad.org listing pages, for moves (Wayback, through Firecrawl):** the CDX query
+  `web.archive.org/cdx/search/cdx?url=chabad.org/centers/default_cdo/aid/<id>&matchType=prefix&fl=timestamp,original&filter=statuscode:200&collapse=timestamp:4&limit=8`
+  (1 credit) gives the first capture of each year; `web.archive.org/web/<timestamp>id_/<original>` with
+  `includeTags: ["h1"]` (1 credit, ~300 tokens) returns the page whose metadata `description` reads "Name - street,
+  city - Rabbi X" (captures from about 2009 on; the 2008 ones have none). Comparing the first capture with today's
+  address, then a later capture or two to bracket the change, gave 58 West Coast, 15 small-shetach and 3 Michigan
+  moves on Nov 7 (batches west-coast-46/47/48, small-14, michigan-12/13), some with three or four earlier addresses
+  (Toluca Lake: Lankershim 2010, Riverside Dr 2012, Landale 2014-15, Strohm 2016, Willowcrest now; Santa Clara:
+  Agnew 2016, Warburton 2017, Brookside 2018, Pruneridge 2019). Things to know: an empty CDX answer comes back as a
+  Firecrawl "failed" error (no captures, not a block); slugs change, so use the prefix query, not a guessed URL; some
+  listings were reused (117950 was the OSU house until 2011, then Chabad of Columbus); a 2019-or-later copy with no
+  street means the street was hidden, not that the center moved. Since 2022 listings live at
+  `chabad.org/jewish-centers/<id>/...`, so newer copies need the CDX prefix `chabad.org/jewish-centers/<id>`; centers
+  opened in 2020 or later mostly have no archived copy at all. Still unchecked: the West Coast centers whose CDX
+  queries timed out (Dana Point, Concord, San Leandro, Almaden, Blauner, Maayon Yisroel, Petaluma, Encinitas, Chapman,
+  Hollywood West, Grass Valley, La Quinta) and most opened after 2019.
+- **The 2004-2008 chabad.org directory (Wayback):** listings were then at `chabad.org/centers/default.asp?aid=<id>`
+  (many 117xxx-119xxx ids archived, often Jan-Feb 2007; `&print=true` copies too) with an "Address:" row, and
+  `chabad.org/Article.asp?AID=9337` (later `centers/default_cdo/aid/9337/jewish/California.htm`) was the California
+  city list (its city pages were not archived). The pages are ~3k tokens; Firecrawl's `query` format answers from the
+  page for 5 credits with a few lines. Six checked (High Desert, Santa Barbara, Richmond Torah Center, Marin, Delaware,
+  Metairie; Fresno and Palo Alto too) all had today's address, and two came back 404, so the sweep was stopped there.

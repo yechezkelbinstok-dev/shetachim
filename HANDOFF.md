@@ -61,15 +61,31 @@ panel's Map button for it; from Physical or Tinted it goes to Streets. If the st
 page opens on Political with "The street map couldn't load."
 **The Countries map, redone** (owner, Nov 7: "Countries mode should have an option to make Us and Canada full countries
 with their real borders I think", "Also stuff like lower Balkans and stuff should be split also in country mode also the
-country cards look horrible and atrocious rn"): **"USA & Canada as whole countries"** (a switch under Borders with
-Countries or Both, in the world views; remembered): one colour each (`cw`), no state or province lines (their lines
-are their own kind, `regna`, left out; on the street maps `st-line-state` leaves out `na` US/CA), named "United
-States" and "Canada", and one card each. **The heads' names split by country** with Countries: each country's part
-of a shetach named on its own (`S.splits`: the Lower Balkans' Yoel Kaplan over Albania, Kosovo, North Macedonia,
-Bosnia and northern Greece each). **The country card** is built as a shetach's: no "Country"/"State" over the name,
-its colour on the map, each shetach covering it as a head with his photo (the shetach's or its part's name over his
-where it isn't the country's own, the most centers first; a whole USA's after the first four folded under "+55
-more"), the country's own head as a person too, then the count.
+country cards look horrible and atrocious rn"; then, on the first try at it: "it should have just been a switch to show
+states or not and also include Mexico and the like and also like it should have fucking not had 4 big head shluchim and
+shoe more they all should have been formatted like show more is currently fornatted", and "Actually even in states mode
+mexico should be one country"). **Mexico is always one country** on the Countries map (`ONE`; `polState` gives its
+pieces `MEX`; on the street maps `st-line-state` leaves out `na` MEX). **A States switch** (`#show-states`, `state.states`,
+on by default, remembered as `shetachim-states`; under Borders with Countries or Both, in the world views that have the
+USA, Canada or Australia; the US & Canada, USA and Canada views always show their states, `statesShown`): off, the
+USA, Canada and Australia (`SPLIT`) are one country each, one colour each (`cw`),
+no state lines (their lines are their own kind, `regna`, left out; on the street maps `st-line-state` leaves out their
+`na`), named "United States", "Canada", "Australia" (`WHOLE_NAMES`, Hebrew too), one card each. It replaced the
+first try's "USA & Canada as whole countries" (whose remembered "on" now reads as States off). **The heads' names
+split by country** with Countries: each country's part of a shetach named on its own (`S.splits`: the Lower Balkans'
+Yoel Kaplan over Albania, Kosovo, North Macedonia, Bosnia and northern Greece each). **The country card**: no
+"Country"/"State" over the name, its colour on the map, then **every shetach covering it as one line**, as the "+N
+more" lines were (`ctxRow`: its colour, its or its part's name bold, its head), the most centers first, no big heads
+and no fold; the country's own head (Kenya's in Central Africa) a line the same way in the country's colour
+("Head shliach in Kenya · …"); then the count.
+**A head's photo only beside the head himself** (owner, Nov 7: "ur fucking stupid ass put a picture of nosson next to
+Avrohom Gurary"): a flagship's card shows the first man listed there, and `photoIf` used to give him the head's photo
+when only the surname matched (Upstate New York: Avrohom Gurary listed first, Nosson's photo; Kazakhstan: Elchanan
+Cohen, Yeshaya Cohen's photo). Now `isHead` wants the surname and a given name the same, or the same name spelled
+otherwise (`NAME_FORMS`: Shea/Sheya, Joseph/Yosef, Avrohom/Avremel, Schmukler/Shmukler…), or the middle name's initial
+(Boruch S. Cunin for Shlomo Cunin). Checked on every flagship: Upstate New York and Kazakhstan lost the wrong photo,
+New Mexico (Chaim Schmukler) and Denmark (Yitzchok Loewenthal) gained the right one, the other 92 are as they were. A
+new spelling of a head's name on chabad.org drops his photo there (the safe way) until it's added to `NAME_FORMS`.
 **Mushroom networks go by their own names** (owner, Nov 7: "Shouldn't kanelskys network be called Bris Avrohom? In
 general a lot are just named after head when maybe they can have a better name no? Like Phillipines maybe should just
 be called Chabad Phillipines", then "not chabad of Japan - that implies is the real chabad of Japan unlike in the

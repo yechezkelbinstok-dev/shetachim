@@ -1667,16 +1667,6 @@
       }
     },
     {
-      "id": "sri-lanka",
-      "name": "Sri Lanka",
-      "short": "Sri L.",
-      "headShliach": "Mendy Crombie",
-      "territory": [
-        "LKA"
-      ],
-      "capital": { "centerId": "extra-sri-lanka-colombo" }
-    },
-    {
       "id": "china",
       "name": "China",
       "short": "China",
@@ -2387,7 +2377,8 @@
   "blank": [
     { "state": "US-NY", "shape": "monsey", "name": "Monsey (out of Rockland)" },
     { "country": "BOL", "name": "Bolivia: on the map, with its centers (the La Paz mushroom), in no shetach" },
-    { "country": "PHL", "name": "Philippines: on the map, with its centers (Rabbi Yossi Levy's network, all mushrooms), in no shetach" }
+    { "country": "PHL", "name": "Philippines: on the map, with its centers (Rabbi Yossi Levy's network, all mushrooms), in no shetach" },
+    { "country": "LKA", "name": "Sri Lanka: on the map, with its centers (Rabbi Mendy Crombie's network, all mushrooms), in no shetach" }
   ],
   "notShownWhenBlank": [
     "CA-BC",

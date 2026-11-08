@@ -77,9 +77,16 @@ Toronto; "head-Shliach of Ontario"); British Columbia Nov 1974 and Alberta 1988 
 1977 (Hayes); the Maritimes 1995 (Feldman, Halifax, Grossbaum's son-in-law); Essex County (Windsor) to Michigan's
 2009; Saskatchewan June 2011 (Saskatoon, its first Chabad, in Altein's shetach); Newfoundland Feb 2017 (the
 Chernitskys, from Montreal). Grossbaum (Anash, 2019): "Back then, there were opportunities to go out to states and
-provinces, greater territories on behalf of the Rebbe and Merkos". Asked the owner: Ottawa Grossbaum's 1974–77?
-the Maritimes (before 1995) and Newfoundland (before 2017) Montreal's? Saskatchewan Altein's before 2011? Windsor
-Grossbaum's before 2009?
+provinces, greater territories on behalf of the Rebbe and Merkos". **Splits in Canada** (owner, Nov 8): Ottawa was
+Grossbaum's from 5734 until Hayes (1977) ("Yes I would assume ottowa used to be grossbaums"), Windsor too until
+Michigan's (2009) ("Same with windsor"). Saskatchewan was Altein's by the owner's rule (below): "Over the decades, we
+have been sending Roving Rabbis to Regina" (Altein, 2013). The Maritimes (before 1995) and Newfoundland (before 2017)
+were in no shetach: no earlier activity found for the Maritimes; Newfoundland had holiday packages and visiting
+yeshiva students in the 2010s, but whose is not known.
+
+**The owner's rule for "was it his before?"** (Nov 8): "usually I would assume it was only theirs if they were doing
+some sort of activity there or if they were explicitly sent to those names places by the Rebbe or merkoz like how
+levitin was sent to all those places".
 
 **Head changes**: Central Massachusetts (Moshe Yitzchak Hecht 1942, Hershel Fogelman 5706, Mendel 5773), New Haven (Moshe Hecht to Sheya, 1992),
 Virginia (Yankel Kranz to Yossel, 1991), Southern Ohio (Kalmanson to Mangel, 1995, owner), Colorado (Yisroel Meir

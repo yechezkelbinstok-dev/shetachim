@@ -54,6 +54,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | upper-midwest | 19 | 10 | 3 |  | 6 |  |  | 6 | 19 | 6 |
 | utah | 4 | 3 | 1 |  |  |  |  | 0 | 4 | 0 |
 | vermont | 8 | 5 | 2 |  | 1 |  |  | 1 | 8 | 1 |
+| virginia | 19 | 4 | 1 |  |  |  | 14 | 14 | 19 | 14 |
 | washington-dc | 5 | 2 | 3 |  |  |  |  | 0 | 5 | 0 |
 | west-coast | 331 | 198 | 93 |  | 40 |  |  | 40 | 301 | 18 |
 | wisconsin | 23 | 9 | 5 |  | 9 |  |  | 9 | 20 | 6 |
@@ -71,5 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | colorado | 23 |  |  |  |  |  | 23 | 23 | 21 | 21 |
 | upstate-new-york | 22 |  |  |  |  |  | 22 | 22 | 21 | 21 |
 | oregon | 19 |  |  |  |  |  | 19 | 19 | 17 | 17 |
-| virginia | 19 |  |  |  |  |  | 19 | 19 | 19 | 19 |
-| **all** | 1969 | 771 | 216 | 1 | 224 | 48 | 709 | 981 | 1765 | 814 |
+| **all** | 1969 | 775 | 217 | 1 | 224 | 48 | 704 | 976 | 1765 | 809 |

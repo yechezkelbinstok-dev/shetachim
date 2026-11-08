@@ -36,3 +36,14 @@ so their stories are read only where CrownHeights.info or COLlive reprinted them
   began in 2006) and the mikvah (all by 2004), Colel Tiferes Zekainim (by 2015), Westville (by 2006), CTeen (by
   2021), Downtown New Haven (by 2022; a Chabad menorah lighting at Union Station in Dec 2021), Young Anash (by 2024).
 - COLlive began refusing requests (403) late in this pass; quotes from it were read before that.
+
+## Virginia (batch virginia-01, partial): 5 of 19 listings so far, 4 high
+- Richmond (Chabad of Virginia) 1976: CrownHeights.info (2011), Rabbi Yankel Kranz founded it "in 1976 at the
+  direction of the Rebbe". Alexandria-Arlington 2001 ("Since its inception in 2001"; it marked "Five Incredible Years"
+  in June 2007). UVA January 2002 (Lubavitch.com, Aug 2002: the Mayers "arrived ... last January"). Virginia Tech
+  2007 (the Librescu Chabad House "opening next month", July 2007; listed Sept 2007).
+- Northern Virginia (Fairfax) about 1991, medium: its 16th anniversary in June 2007.
+- Leads for the rest: Tysons (Rabbi Levi Deitsch's center; his "last ten years" before Nov 2010), Reston (a fourth
+  NOVA center "scheduled to open this fall" in 2007, the Fajnlands), James Madison (COLlive, Oct 2012), Loudoun
+  (COLlive, Aug 2018), Williamsburg (COLlive, June 2021), Fredericksburg (CrownHeights.info, Aug 2024), GMU and VCU
+  (new shluchim 2022 and 2024; listed 2015).

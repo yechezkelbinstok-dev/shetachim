@@ -51,7 +51,11 @@ The data is `data/shetach-history.json` (its `about` explains every field). Thes
 - Mississippi to Louisiana's, Aug 2014 (owner's example).
 - **Nevada to the West Coast, 1989**: the Rebbe's answer at the end of 5749 put a Las Vegas Chabad House "under his
   [Cunin's] responsibility like all other matters there"; earlier proposals had been turned down; first shliach 1990.
-- **North Dakota (2011) and South Dakota (Dec 2016) to the Upper Midwest**, with their first shluchim.
+- **North Dakota to the Upper Midwest, 2011**, with its first shliach (before: only 'itinerant leaders and rabbinical
+  students'). **South Dakota: Nebraska's (Katzman) from the mid-1980s, the Upper Midwest's from Dec 2016**: "Since the
+  mid-1980s, Rabbi Mendel Katzman, Chabad-Lubavitch emissary to nearby Omaha, Neb., has also made periodic visits to
+  assist the community" (Chabad.org, Nov 2016), until Feller appointed its first shliach (the owner's rule: activity
+  there). A PNW-style move.
 - **Connecticut to Deren's**: Western Massachusetts from 1974 (Amherst), Connecticut by about 1990 ("Merkos considered
   me wholly responsible for the entire state of Connecticut"); New Haven County has been the Hechts' since 1946.
 - **Windsor (Essex County, Ontario) to Michigan's**, 2009, with its first shliach.
@@ -81,8 +85,9 @@ provinces, greater territories on behalf of the Rebbe and Merkos". **Splits in C
 Grossbaum's from 5734 until Hayes (1977) ("Yes I would assume ottowa used to be grossbaums"), Windsor too until
 Michigan's (2009) ("Same with windsor"). Saskatchewan was Altein's by the owner's rule (below): "Over the decades, we
 have been sending Roving Rabbis to Regina" (Altein, 2013). The Maritimes (before 1995) and Newfoundland (before 2017)
-were in no shetach: no earlier activity found for the Maritimes; Newfoundland had holiday packages and visiting
-yeshiva students in the 2010s, but whose is not known.
+were in no shetach: no earlier activity found for the Maritimes; Newfoundland had holiday packages from "a
+Chabad-connected rabbi", Rabbi Gorelik (CJN, Apr 2016; which Gorelik is not known), and bochurim for yomim tovim paid
+for by a local businessman (the Chernitskys).
 
 **The owner's rule for "was it his before?"** (Nov 8): "usually I would assume it was only theirs if they were doing
 some sort of activity there or if they were explicitly sent to those names places by the Rebbe or merkoz like how

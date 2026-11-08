@@ -628,9 +628,15 @@
       "title": "Blowing Into Newfoundland! (Lubavitch.com)",
       "date": "2020-08-13",
       "quote": "Chabad representatives began visiting Newfoundland and sending Holiday packages in the 2010s."
+     },
+     {
+      "url": "https://thecjn.ca/news/st-johns-jewish-community-one-of-the-oldest-in-canada/",
+      "title": "St. John's Jewish community one of the oldest in Canada (CJN)",
+      "date": "2016-04-10",
+      "quote": "Representatives of Chabad have also started visiting in recent years and a Chabad-connected rabbi has even been sending small presents on Jewish holidays, including shmurah matzah at Passover."
      }
     ],
-    "note": "Owner, Nov 8: \"Newfoundland, I think, only got one recently, maybe.\" Before 2017: 'Chabad representatives began visiting Newfoundland and sending Holiday packages in the 2010s' (Lubavitch.com, Aug 2020), a seder's matzah came 'from Rabbi Gorelik' (CJN, 2016, as quoted there), and a donor paid for yeshiva students to visit for the holidays (Lubavitch.com, July 2026); whose activity it was is not known, so by the owner's rule it was in no shetach before 2017 (owner, Nov 8: \"I don't know about maritimes and Newfoundland\")."
+    "note": "Owner, Nov 8: \"Newfoundland, I think, only got one recently, maybe.\" Before 2017: 'Chabad representatives began visiting Newfoundland and sending Holiday packages in the 2010s' (Lubavitch.com, Aug 2020), a seder's matzah came 'from Rabbi Gorelik' (CJN, 2016, as quoted there), and a donor paid for yeshiva students to visit for the holidays (Lubavitch.com, July 2026); whose activity it was is not known, so by the owner's rule it was in no shetach before 2017 (owner, Nov 8: \"I don't know about maritimes and Newfoundland\"). The CJN (11 Apr 2016): 'Representatives of Chabad have also started visiting in recent years and a Chabad-connected rabbi has even been sending small presents on Jewish holidays, including shmurah matzah at Passover' ('the matzah from Rabbi Gorelik'); which Rabbi Gorelik is not known (online: Rabbi Yerachmiel Gorelik of Chabad of Northern Colorado, Fort Collins; a Rabbi Gorelik in Grand Junction; Rabbi David Gorelik, a kashrus rabbi; none tied to Newfoundland). The Chernitskys (COLlive, Feb 2024): before them, 'a Newfie businessman who regularly paid for bochurim to fly out to the island for yomim tovim'."
    }
   ],
   "CA-NS:maritimes": [
@@ -1447,9 +1453,15 @@
       "title": "Chabad Jewish Center of North Dakota",
       "via": "data/founding-years.json, 2027612",
       "note": "Chabad.org (on CrownHeights.info, 28 May 2025): 'When she and her husband, Rabbi Yonah Grossman, moved to Fargo in 2011'; Valley News Live (5 Dec 2021): 'Rabbi Yonah and his wife Esti Grossman moved to Fargo in 2011 to open the Chabad Jewish Center'. Medium: Lubavitch.com (on CrownHeights.info, 21 Nov 2012) calls them the Grossmans 'who have recently moved to Fargo', announced at that month's Kinus, and the chabad.org listing went up Nov 6 2012. Now 1234 Broadway N."
+     },
+     {
+      "url": "https://crownheights.info/shlichus/48466/few-and-far-between-n-d-jews-welcome-chabad",
+      "title": "Few and Far Between, N.D. Jews Welcome Chabad (CrownHeights.info)",
+      "date": "2012-11-21",
+      "quote": "In the past, local Jewish organizations have relied mainly on itinerant leaders and rabbinical students for any formal Jewish education."
      }
     ],
-    "note": "North Dakota's first Chabad center; the state is in the Upper Midwest shetach (the owner's data)."
+    "note": "North Dakota's first Chabad center; the state is in the Upper Midwest shetach (the owner's data). Before 2011: 'local Jewish organizations have relied mainly on itinerant leaders and rabbinical students for any formal Jewish education' (CrownHeights.info, Nov 2012); no head's activity found, so by the owner's rule in no shetach before."
    }
   ],
   "US-NE:nebraska": [
@@ -1809,6 +1821,21 @@
   ],
   "US-SD:upper-midwest": [
    {
+    "shetach": "nebraska",
+    "from": "1986",
+    "how": "stated",
+    "confidence": "medium",
+    "sources": [
+     {
+      "url": "https://www.theyeshivaworld.com/?p=491139",
+      "title": "Chabad Opens Center in 50th State: South Dakota (The Yeshiva World, from Chabad.org)",
+      "date": "2016-11-29",
+      "quote": "(Since the mid-1980s, Rabbi Mendel Katzman, Chabad-Lubavitch emissary to nearby Omaha, Neb., has also made periodic visits to assist the community.)"
+     }
+    ],
+    "note": "By the owner's rule (activity there, Nov 8), South Dakota was Katzman's (Nebraska) while he made periodic visits, from the mid-1980s (he came to Omaha in 1986). The roving rabbis who visited 'from the outset' were Merkos's own program, not a head's."
+   },
+   {
     "shetach": "upper-midwest",
     "from": "2016-12-24",
     "how": "stated",
@@ -1819,9 +1846,15 @@
       "title": "Chabad Jewish Center of South Dakota",
       "via": "data/founding-years.json, 3451535",
       "note": "JTA (in the St. Louis Jewish Light, 27 Dec 2016): 'Rabbi Mendel and Mussie Alperowitz and their children arrived on Dec. 24 in Sioux Falls, where they will open a Chabad center.' Its chabad.org listing went up Nov 16 2016. Now 4901 S Isabel Pl, Suite 200."
+     },
+     {
+      "url": "https://www.theyeshivaworld.com/?p=491139",
+      "title": "Chabad Opens Center in 50th State: South Dakota (The Yeshiva World, from Chabad.org)",
+      "date": "2016-11-29",
+      "quote": "The appointment was made by regional director Rabbi Moshe Feller of Upper Midwest Merkos Lubavitch"
      }
     ],
-    "note": "South Dakota's first Chabad center; the state is in the Upper Midwest shetach (the owner's data)."
+    "note": "South Dakota's first resident shliach (Rabbi Mendel Alperowitz, Sioux Falls), appointed by Feller: from then the Upper Midwest's."
    }
   ],
   "US-TN:tennessee": [

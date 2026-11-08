@@ -9465,11 +9465,18 @@
    "city": "Oxford",
    "shetach": "florida",
    "year": 2009,
-   "season": "fall",
    "how": "news",
    "source": "https://www.chabad.org/news/article_cdo/aid/1225552/jewish/Central-Fla-Sees-a-Circumcision-First.htm",
-   "note": "Chabad.org (6 June 2010), on Rabbi Yossi and Chanie Hecht's Chabad-Lubavitch Jewish Center of Marion County: 'Ocala saw its first Orthodox synagogue just last fall' (fall 2009). The Hechts may have arrived a little earlier. The center later moved from Ocala toward The Villages (JTA). IRS: 'Chabad Lubavitch Jewish Center Of Marion County Inc', exempt from Sept 2010.",
-   "confidence": "medium"
+   "note": "2009, from two Chabad.org reports on Rabbi Yossi and Chanie Hecht's Chabad-Lubavitch Jewish Center of Marion County: 'Ocala saw its first Orthodox synagogue just last fall' (6 June 2010, so fall 2009) and 'Ocala's aging Jewish community got its first permanent Chabad House a year-and-a-half ago' (14 Nov 2010, so about spring 2009). The center later moved from Ocala toward The Villages (JTA; now in Oxford). IRS: 'Chabad Lubavitch Jewish Center Of Marion County Inc', exempt from Sept 2010.",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "Ocala (Chabad-Lubavitch Jewish Center of Marion County)",
+     "from": 2009,
+     "until": null,
+     "source": "https://www.chabad.org/news/article_cdo/aid/1353768"
+    }
+   ]
   },
   "994623": {
    "name": "Chabad Spanish Center",

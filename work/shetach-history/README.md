@@ -46,15 +46,29 @@ Quad Cities follow), **New Mexico its own and covering a neighbour** (Chabad Lub
 UNM Chabad House; was 1992). Agreeing with the data already in: Idaho, Montana, Wyoming (Levitin), West Virginia
 (Kranz), South Carolina (Groner), Delaware (Avremel Shemtov), Oregon its own.
 
-**For the owner to settle** (noted on each area, not put in as periods):
-- Mississippi is blue with Louisiana its only orange neighbour: Rivkin's by 1984, not only from 2014. The owner's word
-  ("just never had, like Mississippi, until Rifkin sent the shliach there") stands until he says otherwise.
-- Kentucky is blue, but Ohio is tan and Virginia its only orange neighbour; the owner has it Kalmanson's (1975-85).
-- Utah (California, via Nevada, or New Mexico), Nebraska before 1986 (no orange neighbour; Minnesota likeliest),
-  Oklahoma (Texas or New Mexico), Arkansas (Texas or Louisiana).
-- Vermont, New Hampshire and Maine, covered from Massachusetts: by which head (Prus, Deren or Fogelman). Vermont is
-  blue though the same booklet lists "Chabad of Vermont, 5 Hickok Place, Burlington".
-- In the booklet's caption of the 24 March 1983 Oval Office visit, Feller is "Mid-West Director".
+**Settled after the owner's answers (Nov 8; "you're the one who made the timeline ... you should know"):**
+- **Utah: the West Coast's from Nov 1976** (Deseret News, 10 Nov 1976: a University of Utah workshop "Sponsored by the
+  Lubavitcher Chabad ... will feature Rabbis Abraham [Levitansky] from Santa Monica, Calif., and C. Engel, from Long
+  Beach, Calif."; the student paper the next day: "Rabbi Levitansky and Rabbi Engel of the Lubavitcher Chabad will meet
+  with Jewish students"), its own from the Zippels (1992). Utah Digital Newspapers, read through Firecrawl.
+- **Mississippi: Rivkin's from 1984** (served from Louisiana on the map; by the owner's rule, activity makes it his),
+  its first resident shliach Aug 2014. The owner's earlier "just never had ... until Rifkin sent the shliach" is in the
+  note.
+- **South Dakota: Feller's by 1984, Katzman's from 1986 (his visits), Feller's from Dec 2016.** (Briefly merged into
+  Feller's throughout; restored, owner: "Didn't you say there was a tekufa that Nebraska's shliach served SD??")
+- **Kentucky:** the owner's Kalmanson stays (the map's Ohio is tan, but it doesn't say who covered Kentucky).
+- **Southern New Jersey** is its own piece in the history (`extraAreas`, the seven southern counties): Avremel's by
+  Aug 1980, Herson's after Oct 1980 (when, not found; the RCA lists its houses today).
+
+**Still not found:**
+- New Mexico's second state (its centre was orange): not Utah or Colorado, so Oklahoma or the El Paso corner of Texas.
+  Oklahoma's newspaper archive (Gateway to Oklahoma History) has a robot check even through Firecrawl; Albuquerque's
+  1984 director is not named anywhere found (the Southwest Jewish Archives' site has an expired certificate; Tobias's
+  Jews in New Mexico since World War II is a lending-only book).
+- Nebraska before 1986 (no orange neighbour; Minnesota likeliest), Oklahoma (Texas or New Mexico), Arkansas (Texas or
+  Louisiana), and which Massachusetts head covered Vermont, New Hampshire and Maine.
+- In the booklet's caption of the 24 March 1983 Oval Office visit, Feller is "Mid-West Director"; on its map his
+  Minnesota covers the Dakotas (and, likely, Nebraska); Wisconsin, Iowa, Illinois, Michigan and Missouri had their own.
 
 A later American Friends of Lubavitch list (an "Education Day, U.S.A., 1986" advertisement, May 1986, in the other
 Reagan folder, 40-219-6927380-037-013-2025.pdf, p. 47) has Kentucky (Louisville), Iowa (Des Moines and West Des Moines),

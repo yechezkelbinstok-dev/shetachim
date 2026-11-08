@@ -1,5 +1,5 @@
 {
- "about": "Shetach territories and heads over time, the United States first (the owner's idea, Nov 6; started Nov 8). It holds what a map of any year needs: whose shetach each area was in, and who headed each shetach. 'areas' is keyed by the map's piece id, '<state>:<shetach id>' as in web/data/centers.geojson ('US-OR:oregon' is Oregon, 'US-OH:michigan' the Toledo area, 'US-WV:western-pennsylvania' West Virginia). Its periods run oldest first: from a period's 'from' until the next period's 'from', the area was part of that period's 'shetach', given by the id in data/shetachim.json of that head's shetach today (Levitin's Pacific Northwest is 'washington'). Before the first period the area was in no shetach, as far as is known. 'heads' is keyed by shetach id: its heads, oldest first, each {head, from, name (what the shetach was called then, where it differs)}; a shetach with one head since it began lists him from its start, with the sources on the area period that starts it. 'events' is keyed by shetach id: vaads, passings and the like, each {date, what, sources}. Dates are 'YYYY', 'YYYY-MM' or 'YYYY-MM-DD'; when only bounds are known, 'from' is null and 'fromBound' is {after, by}. 'how': owner (the owner's own statement, taken as fact; owner, Nov 8: \"I'm telling you as a fact ... I just need to figure out when each one split off. Stop trying to verify my facts\"), stated (a source states it), news (a report from the time), anniversary (counted back), range (only bounds). 'confidence', as in data/founding-years.json: high (a report from the time, or the shetach's own statement, and nothing against it), medium (one later source, a count back, or sources a year apart), low, range, open; none on 'owner' periods. 'sources': [{url, title, date (the source's own), quote (its words), via (where an earlier session found it), note}]. When an area was in another head's shetach before its own (the owner, Nov 8): \"usually I would assume it was only theirs if they were doing some sort of activity there or if they were explicitly sent to those names places by the Rebbe or merkoz like how levitin was sent to all those places\". Research notes: work/shetach-history/README.md.",
+ "about": "Shetach territories and heads over time, the United States first (the owner's idea, Nov 6; started Nov 8). It holds what a map of any year needs: whose shetach each area was in, and who headed each shetach. 'areas' is keyed by the map's piece id, '<state>:<shetach id>' as in web/data/centers.geojson ('US-OR:oregon' is Oregon, 'US-OH:michigan' the Toledo area, 'US-WV:western-pennsylvania' West Virginia). Its periods run oldest first: from a period's 'from' until the next period's 'from', the area was part of that period's 'shetach', given by the id in data/shetachim.json of that head's shetach today (Levitin's Pacific Northwest is 'washington'). Before the first period the area was in no shetach, as far as is known. 'heads' is keyed by shetach id: its heads, oldest first, each {head, from, name (what the shetach was called then, where it differs)}; a shetach with one head since it began lists him from its start, with the sources on the area period that starts it. 'events' is keyed by shetach id: vaads, passings and the like, each {date, what, sources}. Dates are 'YYYY', 'YYYY-MM' or 'YYYY-MM-DD'; when only bounds are known, 'from' is null and 'fromBound' is {after, by}. 'how': owner (the owner's own statement, taken as fact; owner, Nov 8: \"I'm telling you as a fact ... I just need to figure out when each one split off. Stop trying to verify my facts\"), stated (a source states it), news (a report from the time), anniversary (counted back), range (only bounds). 'confidence', as in data/founding-years.json: high (a report from the time, or the shetach's own statement, and nothing against it), medium (one later source, a count back, or sources a year apart), low, range, open; none on 'owner' periods. 'sources': [{url, title, date (the source's own), quote (its words), via (where an earlier session found it), note}]. When an area was in another head's shetach before its own (the owner, Nov 8): \"usually I would assume it was only theirs if they were doing some sort of activity there or if they were explicitly sent to those names places by the Rebbe or merkoz like how levitin was sent to all those places\". 'extraAreas' are pieces for the history only, cut out of a map piece where part of it had another past (Southern New Jersey, Avremel Shemtov's in 1980, out of US-NJ:new-jersey): {name, carvedFrom (the piece), counties (Census GEOIDs), note}; their periods are under 'areas' like any other, and the rest of the piece follows the piece's own periods. Research notes: work/shetach-history/README.md.",
  "heads": {
   "alabama": [
    {
@@ -1544,10 +1544,20 @@
   "US-MS:louisiana-mississippi": [
    {
     "shetach": "louisiana-mississippi",
-    "from": "2014-08",
-    "how": "stated",
-    "confidence": "high",
+    "from": null,
+    "fromBound": {
+     "by": "1985-03"
+    },
+    "how": "news",
+    "confidence": "medium",
     "sources": [
+     {
+      "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+      "title": "American Friends of Lubavitch booklet, about 1984: map of Lubavitch's coverage of the US (Reagan Library)",
+      "date": "1984",
+      "quote": "Lubavitch is reaching every community in the United States through its active Eighty-two Centers in Thirty-four of the states. The other states, where there is not as yet a Lubavitcher Center established, are being served by one of the above. ... The national map is therefore divided in three categories: These states where a Lubavitcher Center is present; These states whose Centers cover more than one state; States which are covered by other states",
+      "note": "Nevada is blue (covered by another state); California, Cunin's, is the only orange state next to it. A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
+     },
      {
       "url": "https://www.chabadneworleans.com/221664",
       "title": "Chabad of Louisiana, history",
@@ -1562,7 +1572,7 @@
       "note": "A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
      }
     ],
-    "note": "Owner, Nov 8: areas \"that just never had, like Mississippi, until Rifkin sent the shliach there\" (Rabbi Akiva and Hannah Hall). On the AFL map of about 1984 Mississippi is blue (covered by another state) and Louisiana (Rivkin) is its only orange neighbour: that would make it Rivkin's long before 2014. The owner's word (it 'just never had' one until 2014) stands; raised with him Nov 8."
+    "note": "Served from Louisiana by about 1984: Mississippi is blue (covered by another state) on the AFL map and Louisiana, Rivkin's, is its only neighbour covering others; by the owner's rule (activity there) his from then. Its first resident shliach came in Aug 2014 (Chabad of Southern Mississippi, Biloxi). The owner had said, Nov 8, that it 'just never had' one 'until Rifkin sent the shliach there' (Aug 2014); after the map he left the call to this file ('you're the one who ... made the timeline ... you should know')."
    }
   ],
   "US-MT:montana": [
@@ -1706,7 +1716,7 @@
       "quote": "Shemtov is regional director of the American Friends of Lubavitch which includes Pennsylvania and Southern New Jersey."
      }
     ],
-    "note": "Southern New Jersey was Avremel Shemtov's (Pennsylvania) in 1980: JTA Aug 1980, 'regional director of the American Friends of Lubavitch which includes Pennsylvania and Southern New Jersey'; Oct 1980, 'regional head ... in Pennsylvania, southern New Jersey and Delaware'. Today its Chabad houses (Cherry Hill, Medford, Vineland, Ventnor, Princeton, Toms River) are listed by the Rabbinical College of America, which says all New Jersey's shluchim are part of it. When the south moved to Herson is not known (Atlantic City's Chabad house is from about 1984, Cherry Hill's 1993). New Jersey is one piece on the map, so this split is in this note only."
+    "note": "Southern New Jersey was Avremel Shemtov's (Pennsylvania) in 1980: JTA Aug 1980, 'regional director of the American Friends of Lubavitch which includes Pennsylvania and Southern New Jersey'; Oct 1980, 'regional head ... in Pennsylvania, southern New Jersey and Delaware'. Today its Chabad houses (Cherry Hill, Medford, Vineland, Ventnor, Princeton, Toms River) are listed by the Rabbinical College of America, which says all New Jersey's shluchim are part of it. When the south moved to Herson is not known (Atlantic City's Chabad house is from about 1984, Cherry Hill's 1993). Its history is on US-NJ:south-jersey (extraAreas), a piece for the history only (owner, Nov 8)."
    }
   ],
   "US-NM:new-mexico": [
@@ -1739,7 +1749,7 @@
     "fromBound": {
      "by": "1985-03"
     },
-    "note": "Chabad Lubavitch of New Mexico, Albuquerque, with a Chabad House by the University of New Mexico, by about 1984, and orange on the map (covering another state too). Who ran it is not found. Chabad of New Mexico dates itself from 1992 (the Schmuklers): a new head. Earlier this file started New Mexico at 1992."
+    "note": "Chabad Lubavitch of New Mexico, Albuquerque, with a Chabad House by the University of New Mexico, by about 1984, and orange on the map (covering another state too). Who ran it is not found. Chabad of New Mexico dates itself from 1992 (the Schmuklers): a new head. Earlier this file started New Mexico at 1992. Which second state its centre covered is not found: not Utah (the West Coast's, from 1976) or Colorado (its own centre, Denver), so Oklahoma or the El Paso corner of Texas; Oklahoma's newspaper archive (Gateway to Oklahoma History) has a robot check, even through Firecrawl."
    }
   ],
   "US-NV:west-coast": [
@@ -2079,7 +2089,7 @@
       "note": "South Dakota is blue; Minnesota (Feller) is the only orange state next to it. A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
      }
     ],
-    "note": "Covered from Minnesota by about 1984 (the AFL map). From 1986 Katzman (Omaha) made periodic visits (the next period, by the owner's activity rule); in Dec 2016 Feller, as regional director, appointed its first resident shliach. Whether Katzman's visits made it his, or were help within Feller's region, is open."
+    "note": "Covered from Minnesota on the AFL map of about 1984 (Minnesota, Feller's, the only orange neighbour). From 1986 Rabbi Mendel Katzman of Omaha made periodic visits (the next period, by the owner's rule: activity there makes it his; owner, Nov 8: \"Didn't you say there was a tekufa that Nebraska's shliach served SD??\"). Feller's again from Dec 2016, when he appointed its first resident shliach."
    },
    {
     "shetach": "nebraska",
@@ -2160,6 +2170,35 @@
   ],
   "US-UT:utah": [
    {
+    "shetach": "west-coast",
+    "from": "1976-11",
+    "how": "news",
+    "confidence": "medium",
+    "sources": [
+     {
+      "url": "https://newspapers.lib.utah.edu/details?id=26358941",
+      "title": "Deseret News, 10 Nov 1976, p. 23 (Utah Digital Newspapers)",
+      "date": "1976-11-10",
+      "quote": "An afternoon workshop on Jewish social and cultural problems and solutions will be held Nov. 14 at the University of Utah Union Den beginning at 1:30 p.m. Sponsored by the Lubavitcher Chabad Jewish student fraternity, a worldwide organization, the workshop will feature Rabbis Abraham [Levitansky] from Santa Monica, Calif., and C. Engel, from Long Beach, Calif.",
+      "note": "OCR; the first rabbi's name is garbled there ('Loiitane ... ki') and read from the student paper below. Read through Firecrawl."
+     },
+     {
+      "url": "https://newspapers.lib.utah.edu/details?id=23312263",
+      "title": "The Daily Utah Chronicle (University of Utah), 11 Nov 1976, p. 3",
+      "date": "1976-11-11",
+      "quote": "Rabbis meet: Rabbi Levitansky and Rabbi Engel of the Lubavitcher Chabad will meet with Jewish students Sunday at 1:30 p.m. in the Union Den. Kosher refreshments will be served at the workshop."
+     },
+     {
+      "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+      "title": "American Friends of Lubavitch booklet, about 1984: map of Lubavitch's coverage of the US (Reagan Library)",
+      "date": "1984",
+      "quote": "Lubavitch is reaching every community in the United States through its active Eighty-two Centers in Thirty-four of the states. The other states, where there is not as yet a Lubavitcher Center established, are being served by one of the above. ... The national map is therefore divided in three categories: These states where a Lubavitcher Center is present; These states whose Centers cover more than one state; States which are covered by other states",
+      "note": "Nevada is blue (covered by another state); California, Cunin's, is the only orange state next to it. A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
+     }
+    ],
+    "note": "Cunin's West Coast shluchim (Santa Monica and Long Beach) held a workshop for Jewish students at the University of Utah on 14 Nov 1976: by the owner's rule (activity there), the West Coast's from then. On the AFL map of about 1984 Utah is still covered from a neighbour, and Nevada next door was the West Coast's. Its own shetach from the Zippels (1992). Their son's line 'My first birthday was the first Chabad activity in the state of Utah' (Salt Lake Tribune, 2022) counts only resident Chabad."
+   },
+   {
     "shetach": "utah",
     "from": "1992-07",
     "how": "stated",
@@ -2172,7 +2211,7 @@
       "note": "The Zippels came to Salt Lake City in 1992 (the Rebbe's blessing 1 Mar 1992); most reports say July 1992 (others fall, or April); 25 years marked in 2018, 30 in 2022 (KSL)."
      }
     ],
-    "note": "On the AFL map of about 1984 Utah is blue (covered by another state); it touches no orange state except New Mexico at the Four Corners, and Nevada next door was covered from California, so California or New Mexico: not shown which. Before 1992 its period stays blank until that is settled."
+    "note": "On the AFL map of about 1984 Utah is blue (covered by another state); it touches no orange state except New Mexico at the Four Corners, and Nevada next door was covered from California, so California or New Mexico: not shown which. Before 1992 its period stays blank until that is settled. Before: the West Coast's (previous period)."
    }
   ],
   "US-VA:virginia": [
@@ -2326,7 +2365,68 @@
     ],
     "note": "Wyoming's first Chabad center (Jackson)."
    }
+  ],
+  "US-NJ:south-jersey": [
+   {
+    "shetach": "pennsylvania",
+    "from": null,
+    "fromBound": {
+     "by": "1980-08"
+    },
+    "how": "news",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.jta.org/archive/carter-appoints-rabbi-to-an-advisory-council-on-education",
+      "title": "Carter Appoints Rabbi to an Advisory Council on Education (JTA)",
+      "date": "1980-08-04",
+      "quote": "Shemtov is regional director of the American Friends of Lubavitch which includes Pennsylvania and Southern New Jersey."
+     },
+     {
+      "url": "https://www.jta.org/archive/the-newly-appointed-20-member-u-s-intergovernmental-advisory",
+      "title": "The newly appointed 20 member U.S. Intergovernmental Advisory Council on Education ... (JTA)",
+      "date": "1980-10-07",
+      "quote": "Shemtov is director of the American Friends of Lubavitch and regional head of the Lubavither movement in Pennsylvania, southern New Jersey and Delaware. His office is in Philadelphia"
+     }
+    ],
+    "note": "Avremel Shemtov's (Philadelphia) in 1980: 'regional director of the American Friends of Lubavitch which includes Pennsylvania and Southern New Jersey' (JTA, Aug 1980). Since when is not known (he came in 1961)."
+   },
+   {
+    "shetach": "new-jersey",
+    "from": null,
+    "fromBound": {
+     "after": "1980-10",
+     "by": "2026-11"
+    },
+    "how": "range",
+    "confidence": "range",
+    "sources": [
+     {
+      "url": "https://www.rca.edu/templates/articlecco_cdo/aid/343441/jewish/RCA-Chabad-Impact-Around-New-Jersey.htm/page/2",
+      "title": "RCA: Chabad Impact Around New Jersey (Rabbinical College of America)",
+      "quote": "All shluchim (emissaries) and Chabad Houses are part of the Rabbinical College of America.",
+      "note": "Read Nov 8 2026 (WebFetch): its New Jersey list includes Chabad Lubavitch of Camden County (Cherry Hill), Chabad in Medford, Chabad House of Vineland and Chabad at the Shore (Ventnor). Undated page."
+     }
+    ],
+    "note": "Herson's (the Rabbinical College of America's) today. When it moved is not found: Atlantic City's Chabad house dates from the 1980s (the Rapoports, 'among the first shluchim to New Jersey'), Chabad of Atlantic County (Margate) from about 1992, Cherry Hill's from 1993; none says who sent them. The 'by' is only the date the RCA's list was read."
+   }
   ]
+ },
+ "extraAreas": {
+  "US-NJ:south-jersey": {
+   "name": "Southern New Jersey",
+   "carvedFrom": "US-NJ:new-jersey",
+   "counties": [
+    "34001",
+    "34005",
+    "34007",
+    "34009",
+    "34011",
+    "34015",
+    "34033"
+   ],
+   "note": "Atlantic, Burlington, Camden, Cape May, Cumberland, Gloucester and Salem counties (Census GEOIDs): the usual seven of South Jersey; what the JTA's 'southern New Jersey' of 1980 took in exactly is not known. A piece for the history only (owner, Nov 8: 'yes to the south Jersey thing'): today it is part of New Jersey's shetach like the rest of the state, so the current map does not cut it."
+  }
  },
  "events": {
   "florida": [

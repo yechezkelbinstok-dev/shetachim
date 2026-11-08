@@ -254,6 +254,25 @@ able to click the flagships and see a card".
   1972. Western Pennsylvania from 1941 (Yeshiva Schools' own history: Rabbi Mordechai Dov Altein; the Derens 1942).
 - New Brunswick and Prince Edward Island follow Nova Scotia's Maritimes; the sliver of New York in Southern Ontario's
   piece follows Ontario (left out of names).
+- **Drawing (owner, Nov 8: "frame rate when moving around is atrocious and it's crashy"):** on canvases, not SVG (the
+  SVG held some 2 MB of path text and the page kept every year's shapes, about 150 MB; now about 16 MB). Every line is
+  projected once, at four levels of detail picked by zoom; a shetach's pieces are filled as one shape (no seams). The
+  map is on one canvas and the stars, names and outlines on another; while the map is being moved the map's canvas is
+  slid and scaled by the browser and drawn again a few times a second and when the move ends (on a slow phone the
+  names slide with it too). No `closePath` in the paths (in Chrome it costs more with every ring). Names never overlap:
+  the biggest shetachim first, a name with no room left shows when zoomed in; names and stars grow with the zoom only
+  up to a point.
+- **Cards, as on the main map (owner, Nov 8: "the center cards RN are horrible"; the Rebbeim "should be proper with
+  portraits like the actual map"):** a shetach's (its colour, its name that year big, the head that year with his photo
+  or initials and years, its flagship); a flagship's ("<shetach> flagship center" and its years there, its name, what
+  it is and where, its chabad.org page as an icon, the head); 770's (and Crown Heights's) the main map's world card:
+  "World Headquarters", its leader with his portrait, from 1941 to 10 Shevat 5711 the Rebbe under the Frierdiker Rebbe
+  (chairman of Merkos L'Inyonei Chinuch, as the source says). No "zy\"a" in English and no chabad.org link on 770's
+  card (owner, Nov 8). On a phone held upright the card is at the top (the shetachim are at the bottom there).
+  Center names, types, cities and pages: `web/data/history-centers.json` (written by the same script).
+- **Full provinces** is in a settings menu behind the gear (owner, Nov 8). The Canadian pieces are cut again from one
+  set of lines in the build (`renode`), so a province shown whole has no line inside it. The shapes are simplified for
+  a phone (islands under 60 km² dropped, lines to about a kilometre).
 - **Flagships** (`flagships` in the data): where the head's own center was, from when. Moves are in for Michigan
   (Detroit, Oak Park, Farmington Hills, Oak Park), the Upper Midwest (Minneapolis, St. Paul, Highland Park, West St.
   Paul), Kansas City (Holmes Road, then Overland Park by 2010), Tennessee (Posner's Sherith Israel in Nashville, Memphis

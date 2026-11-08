@@ -250,7 +250,9 @@ thirteen no better recent photo has been found yet (the list is there, with what
     US and Canada, each shetach's flagship as a star, moving as the data says; a Heads mode with photos; light and
     dark). The owner's rules for it are in the README (no explanatory text, no faint lines, empty land all alike, names
     that fit the year, no area-by-area history list). Its shapes: `web/data/history-geo.json`
-    (`scripts/build-history-geo.py`; rebuild when geo.json changes). Next: past heads' photos, the flagships still
+    (`scripts/build-history-geo.py`; rebuild when geo.json changes). Redrawn on canvases for speed (it was slow and
+    crashed on phones), its cards made like the main map's, 770's with the Rebbeim's portraits (README: Drawing, Cards).
+    Next: past heads' photos, the flagships still
     open, and the open questions. The founding years of Virginia
     (5 of 19 done), Oregon and Upstate New York wait until this is done.
   - **Owner (Nov 8): WebFetch is a model's answer, not the page, so it can miss or bend a detail.** Every entry with a

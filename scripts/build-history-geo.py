@@ -78,6 +78,33 @@ def multi(ps):
     return ps[0] if len(ps) == 1 else MultiPolygon(ps)
 
 
+def renode(geoms):
+    """The same pieces, cut again from one set of lines: where two of them meet, both edges then have the same points
+    (two sources drawing one line with different points leave two edges, which the page would draw as a line)."""
+    from shapely.ops import polygonize
+    from shapely.prepared import prep
+    faces = list(polygonize(unary_union([g.boundary for g in geoms])))
+    preps = [prep(g) for g in geoms]
+    owned, loose = [[] for _ in geoms], []
+    for f in faces:
+        pt = f.representative_point()
+        k = next((k for k, pg in enumerate(preps) if pg.contains(pt)), None)
+        (loose if k is None else owned[k]).append(f)
+    # a sliver in none of them (where two sources part a little) goes to the piece it shares the most edge with;
+    # a lake or a real gap stays as it is
+    for f in loose:
+        if f.area > 1e-3:
+            continue
+        best, bl = None, 0
+        for k, g in enumerate(geoms):
+            ln = f.boundary.intersection(g.boundary).length
+            if ln > bl:
+                best, bl = k, ln
+        if best is not None:
+            owned[best].append(f)
+    return [multi(polys(unary_union(fs))) if fs else g for g, fs in zip(geoms, owned)]
+
+
 def main():
     topo = json.load(open(GEO))
     arcs = arcs_of(topo)
@@ -116,6 +143,7 @@ def main():
     # piece of its own ('north'), so the page can show the provinces whole (its switch) or not
     out = json.load(open(OUTSIDE))
     oarcs = arcs_of(out)
+    rest_ca = None
     provinces = {f['properties']['NAME_1']: shape(f['geometry']).buffer(0) for f in json.load(open(CA_PROVINCES))['features']}
     for g in out['objects'][list(out['objects'])[0]]['geometries']:
         c = g['properties'].get('country')
@@ -134,19 +162,48 @@ def main():
             rest = gg.difference(unary_union(taken)) if taken else gg
             ps = [p for p in polys(rest) if p.area > 1e-4]
             if ps:
-                near.append(multi(ps))
+                rest_ca = multi(ps)
+                near.append(rest_ca)
         elif c in ('GRL', 'SPM'):
             near.append(gg)
+
+    # all of Canada's pieces (the shetachim's, the provinces' north, the rest) cut from one set of lines
+    ca = [a for a in areas if a[0]['country'] == 'CA']
+    k_rest = next(k for k, g in enumerate(near) if g is rest_ca)
+    renoded = renode([a[1] for a in ca] + [rest_ca])
+    for a, g in zip(ca, renoded[:-1]):
+        a[1] = g
+    near[k_rest] = renoded[-1]
 
     tmp = tempfile.mkdtemp()
     fa, fo = os.path.join(tmp, 'areas.json'), os.path.join(tmp, 'outside.json')
     json.dump({'type': 'FeatureCollection', 'features': [{'type': 'Feature', 'properties': p, 'geometry': mapping(g)} for p, g in areas]}, open(fa, 'w'))
     json.dump({'type': 'FeatureCollection', 'features': [{'type': 'Feature', 'properties': {}, 'geometry': mapping(g)} for g in near]}, open(fo, 'w'))
     ms = os.path.join(ROOT, 'node_modules/.bin/mapshaper')
-    subprocess.run([ms, '-i', fa, fo, 'combine-files', '-o', OUT, 'format=topojson', 'quantization=1000000'], check=True)
+    # (light for a phone: islands under 60 km² dropped, lines simplified to about a kilometre; a national map)
+    subprocess.run([ms, '-i', fa, fo, 'combine-files', '-filter-islands', 'min-area=60km2', '-simplify', 'interval=1000', 'keep-shapes',
+                    '-o', OUT, 'format=topojson', 'quantization=1000000'], check=True)
     t = json.load(open(OUT))
     print(OUT, os.path.getsize(OUT), 'bytes;', {k: len(v.get('geometries', [])) for k, v in t['objects'].items()})
 
 
+def centers():
+    """web/data/history-centers.json: the flagship centers' own listings (name, type, city, chabad.org page), for their
+    cards on the page, without its loading all of web/data/centers.geojson."""
+    s = json.load(open(os.path.join(ROOT, 'web/data/shetachim.json')))['shetachim']
+    hist = json.load(open(HIST))
+    ids = {str(c.get('centerId')) for x in s for c in (x.get('capitals') or ([x['capital']] if x.get('capital') else [])) if c and c.get('centerId')}
+    ids |= {str(f['centerId']) for fs in hist.get('flagships', {}).values() for f in fs if f.get('centerId')}
+    out = {}
+    for f in json.load(open(os.path.join(ROOT, 'web/data/centers.geojson')))['features']:
+        for c in f['properties']['centers']:
+            if str(c.get('id')) in ids:
+                out[str(c['id'])] = {k: c.get(k) for k in ('name', 'type', 'city', 'slug') if c.get(k)}
+    path = os.path.join(ROOT, 'web/data/history-centers.json')
+    json.dump(out, open(path, 'w'), ensure_ascii=False, separators=(',', ':'))
+    print(path, len(out), 'centers')
+
+
 if __name__ == '__main__':
     main()
+    centers()

@@ -11,3 +11,10 @@ on them; chabad.org listing dates (`api/content/<id>/metadata`) and lubavitch.co
 - North Shore: the Mochkins began in Sept 2015; the listing now names Rabbi Mordechai Slavin (2025). Kept as 2015, medium.
 - East Van: no founding source, no director on the listing: range, by its listing date (July 29 2010).
 - Not used: the Vancouver Courier piece (403 to this tool), CanadaHelps and the CRA charity search (scripts only).
+
+## Kansas–Missouri (batch kansas-missouri-01): 15 of 16 dots dated
+- The Kansas City Jewish Chronicle (kcjc.com, its own search works: /component/search/?searchword=...) and the St. Louis
+  Jewish Light (stljewishlight.org, readable with a browser user agent) carry nearly every opening.
+- Kansas City: the JTA Daily Bulletin of 6 Jan 1970 reports the regional office opening (Rabbi Sholem B. Wineberg, 24).
+- St. Louis: 1980 (Jewish Light 2006) against 1981 (Chabad.org) and 1982 (the 2007 '25 years'): medium.
+- Kirkwood: new (listing April 2026), no news yet: range.

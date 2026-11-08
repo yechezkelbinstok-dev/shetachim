@@ -20,6 +20,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | idaho | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | indiana | 7 | 5 | 1 |  | 1 |  |  | 1 | 7 | 1 |
 | iowa | 9 | 6 | 2 |  | 1 |  |  | 1 | 7 | 0 |
+| kansas-missouri | 16 | 13 | 2 |  | 1 |  |  | 1 | 16 | 1 |
 | kentucky | 7 | 5 | 1 |  | 1 |  |  | 1 | 5 | 1 |
 | louisiana-mississippi | 8 | 6 | 1 |  | 1 |  |  | 1 | 5 | 0 |
 | maine | 3 | 2 | 1 |  |  |  |  | 0 | 3 | 0 |
@@ -70,6 +71,5 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | upper-midwest | 19 |  |  |  |  |  | 19 | 19 | 19 | 19 |
 | virginia | 19 |  |  |  |  |  | 19 | 19 | 19 | 19 |
 | new-haven | 16 |  |  |  |  |  | 16 | 16 | 14 | 14 |
-| kansas-missouri | 16 |  |  |  |  |  | 16 | 16 | 16 | 16 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
-| **all** | 1969 | 648 | 183 | 1 | 160 | 51 | 926 | 1137 | 1765 | 964 |
+| **all** | 1969 | 661 | 185 | 1 | 161 | 51 | 910 | 1122 | 1765 | 949 |

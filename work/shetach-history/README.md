@@ -21,6 +21,45 @@ The data is `data/shetach-history.json` (its `about` explains every field). Thes
 - Same standards as the founding years: every date with its source and quote; a list or an "N years ago" is a count
   back (medium at best); only bounds = a range; a month or day kept when it turns up.
 
+## The 1984 map (found Nov 8): Lubavitch's own map of who covered which state
+
+A booklet of American Friends of Lubavitch on the Rebbe (made after the National Scroll of Honor, 24 March 1983), kept
+in the Reagan Library (Max Green files, folder "Lubavitch (1 of 2)", PDF page 39:
+https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf ; copy here:
+`afl-map-about-1984.jpg`), has a map of the US in three colours: "Lubavitch is reaching every community in the United
+States through its active Eighty-two Centers in Thirty-four of the states. The other states, where there is not as yet
+a Lubavitcher Center established, are being served by one of the above. ... These states where a Lubavitcher Center is
+present; These states whose Centers cover more than one state; States which are covered by other states". Its list of
+centres (pp. 44-47) has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so the map is from 1984 or early 1985.
+
+- **Covering other states (orange):** Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania,
+  Virginia, North Carolina, Massachusetts.
+- **Covered by others (blue):** Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma,
+  Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine.
+- **Own centre (tan):** the rest drawn (Alaska and Hawaii are not).
+
+The map doesn't say who covers whom; where a blue state has one orange neighbour it is taken as covered by it.
+Put in the data (by early 1985): **Nevada the West Coast's** (was 1989), **North Dakota the Upper Midwest's** (was 2011),
+**South Dakota the Upper Midwest's** before Katzman's visits (kept from 1986, then Feller's shliach 2016), **Iowa its
+own** (Lubavitch of Iowa, Des Moines, in the list; Rabbi Moishe Kasowitz its director in 1989, JTA; was 1992; the
+Quad Cities follow), **New Mexico its own and covering a neighbour** (Chabad Lubavitch of New Mexico, Albuquerque, and a
+UNM Chabad House; was 1992). Agreeing with the data already in: Idaho, Montana, Wyoming (Levitin), West Virginia
+(Kranz), South Carolina (Groner), Delaware (Avremel Shemtov), Oregon its own.
+
+**For the owner to settle** (noted on each area, not put in as periods):
+- Mississippi is blue with Louisiana its only orange neighbour: Rivkin's by 1984, not only from 2014. The owner's word
+  ("just never had, like Mississippi, until Rifkin sent the shliach there") stands until he says otherwise.
+- Kentucky is blue, but Ohio is tan and Virginia its only orange neighbour; the owner has it Kalmanson's (1975-85).
+- Utah (California, via Nevada, or New Mexico), Nebraska before 1986 (no orange neighbour; Minnesota likeliest),
+  Oklahoma (Texas or New Mexico), Arkansas (Texas or Louisiana).
+- Vermont, New Hampshire and Maine, covered from Massachusetts: by which head (Prus, Deren or Fogelman). Vermont is
+  blue though the same booklet lists "Chabad of Vermont, 5 Hickok Place, Burlington".
+- In the booklet's caption of the 24 March 1983 Oval Office visit, Feller is "Mid-West Director".
+
+A later American Friends of Lubavitch list (an "Education Day, U.S.A., 1986" advertisement, May 1986, in the other
+Reagan folder, 40-219-6927380-037-013-2025.pdf, p. 47) has Kentucky (Louisville), Iowa (Des Moines and West Des Moines),
+Tennessee at 3600 West End Ave., Nashville (Posner's shul), Vermont (158 N. Willard St., Burlington); no map.
+
 ## The model
 
 - An **area** is a map piece, `<state>:<shetach id>` (web/data/centers.geojson's `piece`). Its periods say whose

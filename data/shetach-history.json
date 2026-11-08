@@ -185,8 +185,30 @@
   ],
   "iowa": [
    {
+    "head": "Moishe Kasowitz",
+    "from": null,
+    "fromBound": {
+     "by": "1989-05"
+    },
+    "how": "news",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.jta.org/archive/federal-court-upholds-iowa-ruling-barring-overnight-menorah-display",
+      "title": "Federal Court Upholds Iowa Ruling Barring Overnight Menorah Display (JTA)",
+      "date": "1989-05-10",
+      "quote": "The state of Iowa did not discriminate against the Lubavitch movement in 1986 when it refused to allow the organization to leave a Chanukah menorah standing on the grounds of the state Capitol overnight ... \"Naturally we're very disappointed in the court's decision,\" said Rabbi Moishe Kasowitz, director of Lubavitch of Iowa."
+     }
+    ],
+    "note": "Director of Lubavitch of Iowa in May 1989; when he began, and who was there in 1984, not found."
+   },
+   {
     "head": "Yossi Jacobson",
-    "from": "1992"
+    "from": "1992",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [],
+    "note": "'Since 1992, when Rabbi Yossi and Chanie Jacobson first established Lubavitch of Iowa in Des Moines' (Chabad.org; sources on US-IA:iowa)."
    }
   ],
   "kansas-missouri": [
@@ -314,7 +336,11 @@
   "new-mexico": [
    {
     "head": "Chaim Shmukler",
-    "from": "1992"
+    "from": "1992",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [],
+    "note": "'Established with the blessing of the Lubavitcher Rebbe in 1992' (its About page). Who headed Chabad Lubavitch of New Mexico before (by about 1984) is not known."
    }
   ],
   "newfoundland-and-labrador": [
@@ -466,7 +492,8 @@
   "upper-midwest": [
    {
     "head": "Moshe Feller",
-    "from": "1961-12"
+    "from": "1961-12",
+    "note": "In the AFL booklet's photo caption (24 March 1983) he is 'Mid-West Director'; on its map of about 1984 Minnesota is orange (covering the Dakotas)."
    }
   ],
   "upstate-new-york": [
@@ -887,7 +914,8 @@
       "via": "data/founding-years.json, 117902",
       "note": "Congressional Record, 27 Mar 2025 (guest chaplain): Rabbi Ciment moved to Little Rock with his wife in 1992; his profile (opensiddur.org): 'In 1992, he and his wife established themselves in Little Rock, Arkansas as Shluchim'; the Jewish Virtual Library lists Lubavitch of Arkansas (1992). One UALR page says 'founded in 1993'."
      }
-    ]
+    ],
+    "note": "On the AFL map of about 1984 Arkansas is blue (covered by another state); its orange neighbours are Texas and Louisiana: not shown which."
    }
   ],
   "US-AZ:arizona": [
@@ -1050,6 +1078,13 @@
       "title": "Carter Appoints Rabbi to an Advisory Council on Education (JTA)",
       "date": "1980-08-04",
       "quote": "Shemtov is regional director of the American Friends of Lubavitch which includes Pennsylvania and Southern New Jersey."
+     },
+     {
+      "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+      "title": "American Friends of Lubavitch booklet, about 1984: map of Lubavitch's coverage of the US (Reagan Library)",
+      "date": "1984",
+      "quote": "Lubavitch is reaching every community in the United States through its active Eighty-two Centers in Thirty-four of the states. The other states, where there is not as yet a Lubavitcher Center established, are being served by one of the above. ... The national map is therefore divided in three categories: These states where a Lubavitcher Center is present; These states whose Centers cover more than one state; States which are covered by other states",
+      "note": "Delaware is blue; Pennsylvania (Avremel Shemtov) is orange. A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
      }
     ],
     "note": "Avremel Shemtov (Philadelphia) was 'regional head of the Lubavitcher movement in Pennsylvania, southern New Jersey and Delaware' (JTA, Oct 1980). Since when is not known (he came to Philadelphia in 1961), so 'by Oct 1980'. Found Nov 8 in a sweep of the JTA archive. Delaware's own shetach from Chabad of Delaware (Vogel, 1987): whether Vogel came as Avremel's shliach first, and when Delaware became a shetach of its own, is not known; 1987 is the natural reading."
@@ -1120,9 +1155,12 @@
   "US-IA:illinois": [
    {
     "shetach": "iowa",
-    "from": "1992",
+    "from": null,
     "how": "owner",
-    "note": "Owner, Nov 8: \"I would assume Quad City was part of Iowa\" (Jacobson's Lubavitch of Iowa, from 1992; sources on US-IA:iowa)."
+    "note": "Owner, Nov 8: \"I would assume Quad City was part of Iowa\". Iowa's own shetach dates from about 1984 (Lubavitch of Iowa, Des Moines; sources on US-IA:iowa).",
+    "fromBound": {
+     "by": "1985-03"
+    }
    },
    {
     "shetach": "illinois",
@@ -1143,17 +1181,40 @@
   "US-IA:iowa": [
    {
     "shetach": "iowa",
-    "from": "1992",
-    "how": "stated",
+    "from": null,
+    "how": "news",
     "confidence": "high",
     "sources": [
+     {
+      "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+      "title": "The same booklet, pp. 44-47: 'addresses of Lubavitcher Centers in their respective states' (about 1984)",
+      "date": "1984",
+      "quote": "IOWA Chabad Lubavitch of Iowa, 2932 University Ave., Des Moines",
+      "note": "Iowa is tan on the booklet's map (a state with its own centre)."
+     },
+     {
+      "url": "https://www.jta.org/archive/focus-on-issues-legal-struggle-over-menorahs-creches",
+      "title": "Focus on Issues: Legal Struggle over Menorahs, Creches (JTA)",
+      "date": "1986-12-26",
+      "quote": "Krinsky said Des Moines Lubavitchers are considering alternatives, such as displaying the menorah in other sites or erecting it on State Capitol grounds for several hours each non-Sabbath night of Chanukah, and then dismantling it."
+     },
+     {
+      "url": "https://www.jta.org/archive/federal-court-upholds-iowa-ruling-barring-overnight-menorah-display",
+      "title": "Federal Court Upholds Iowa Ruling Barring Overnight Menorah Display (JTA)",
+      "date": "1989-05-10",
+      "quote": "The state of Iowa did not discriminate against the Lubavitch movement in 1986 when it refused to allow the organization to leave a Chanukah menorah standing on the grounds of the state Capitol overnight ... \"Naturally we're very disappointed in the court's decision,\" said Rabbi Moishe Kasowitz, director of Lubavitch of Iowa."
+     },
      {
       "url": "https://crownheights.info/shlichus/521853/in-iowa-rabbi-serves-up-great-food-and-greater-wisdom",
       "title": "Lubavitch of Iowa",
       "via": "data/founding-years.json, 117609",
       "note": "Chabad.org: 'Since 1992, when Rabbi Yossi and Chanie Jacobson first established Lubavitch of Iowa in Des Moines'; the Jewish Virtual Library also has 1992."
      }
-    ]
+    ],
+    "fromBound": {
+     "by": "1985-03"
+    },
+    "note": "Lubavitch of Iowa (Des Moines) existed by about 1984 (the AFL list), put a menorah on the State Capitol grounds in Dec 1986, and in May 1989 its director was Rabbi Moishe Kasowitz (JTA). The Jacobsons' Lubavitch of Iowa dates itself from 1992: a new head, not a new shetach. Who began it is not known. Earlier this file started Iowa at 1992."
    }
   ],
   "US-ID:idaho": [
@@ -1165,7 +1226,16 @@
      "after": "1972-11-07",
      "by": "1972-12-05"
     },
-    "note": "Levitin's start: Kislev 5733 (7 Nov - 5 Dec 1972; see the heads)."
+    "note": "Levitin's start: Kislev 5733 (7 Nov - 5 Dec 1972; see the heads).",
+    "sources": [
+     {
+      "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+      "title": "American Friends of Lubavitch booklet, about 1984: map of Lubavitch's coverage of the US (Reagan Library)",
+      "date": "1984",
+      "quote": "Lubavitch is reaching every community in the United States through its active Eighty-two Centers in Thirty-four of the states. The other states, where there is not as yet a Lubavitcher Center established, are being served by one of the above. ... The national map is therefore divided in three categories: These states where a Lubavitcher Center is present; These states whose Centers cover more than one state; States which are covered by other states",
+      "note": "Idaho is blue; Washington (Levitin) is orange next to it. A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
+     }
+    ]
    },
    {
     "shetach": "idaho",
@@ -1242,7 +1312,17 @@
    {
     "shetach": "southern-ohio",
     "from": "1975-09",
-    "how": "owner"
+    "how": "owner",
+    "note": "On the AFL map of about 1984 Kentucky is blue (covered by another state), but Ohio is tan, and Virginia (Kranz) is its only orange neighbour; the owner has it Kalmanson's (1975-85), which stands.",
+    "sources": [
+     {
+      "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+      "title": "American Friends of Lubavitch booklet, about 1984: map of Lubavitch's coverage of the US (Reagan Library)",
+      "date": "1984",
+      "quote": "Lubavitch is reaching every community in the United States through its active Eighty-two Centers in Thirty-four of the states. The other states, where there is not as yet a Lubavitcher Center established, are being served by one of the above. ... The national map is therefore divided in three categories: These states where a Lubavitcher Center is present; These states whose Centers cover more than one state; States which are covered by other states",
+      "note": "A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
+     }
+    ]
    },
    {
     "shetach": "kentucky",
@@ -1402,7 +1482,7 @@
       "note": "'this would be a new branch of Merkos, so Rabbi Hodakov gave his authorization'; Rabbi Weg 'to open a new branch in the state of Oklahoma and Rabbi Wilansky in the state of Maine'; 'The Wegs arrived in Oklahoma right after Pesach' (5747)"
      }
     ],
-    "note": "One of the new Merkos branches of 5747 (Derher, above)."
+    "note": "One of the new Merkos branches of 5747 (Derher, above). On the AFL map of about 1984 Maine is blue (covered by another state), from Massachusetts (orange); which Massachusetts head is not shown."
    }
   ],
   "US-MI:michigan": [
@@ -1473,9 +1553,16 @@
       "title": "Chabad of Louisiana, history",
       "quote": "In August of 2014 Chabad of Southern Mississippi was founded in Biloxi serving the Gulf Coast region",
       "via": "data/founding-years.json, 2637896"
+     },
+     {
+      "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+      "title": "American Friends of Lubavitch booklet, about 1984: map of Lubavitch's coverage of the US (Reagan Library)",
+      "date": "1984",
+      "quote": "Lubavitch is reaching every community in the United States through its active Eighty-two Centers in Thirty-four of the states. The other states, where there is not as yet a Lubavitcher Center established, are being served by one of the above. ... The national map is therefore divided in three categories: These states where a Lubavitcher Center is present; These states whose Centers cover more than one state; States which are covered by other states",
+      "note": "A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
      }
     ],
-    "note": "Owner, Nov 8: areas \"that just never had, like Mississippi, until Rifkin sent the shliach there\" (Rabbi Akiva and Hannah Hall)."
+    "note": "Owner, Nov 8: areas \"that just never had, like Mississippi, until Rifkin sent the shliach there\" (Rabbi Akiva and Hannah Hall). On the AFL map of about 1984 Mississippi is blue (covered by another state) and Louisiana (Rivkin) is its only orange neighbour: that would make it Rivkin's long before 2014. The owner's word (it 'just never had' one until 2014) stands; raised with him Nov 8."
    }
   ],
   "US-MT:montana": [
@@ -1487,7 +1574,16 @@
      "after": "1972-11-07",
      "by": "1972-12-05"
     },
-    "note": "Levitin's start: Kislev 5733 (7 Nov - 5 Dec 1972; see the heads)."
+    "note": "Levitin's start: Kislev 5733 (7 Nov - 5 Dec 1972; see the heads).",
+    "sources": [
+     {
+      "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+      "title": "American Friends of Lubavitch booklet, about 1984: map of Lubavitch's coverage of the US (Reagan Library)",
+      "date": "1984",
+      "quote": "Lubavitch is reaching every community in the United States through its active Eighty-two Centers in Thirty-four of the states. The other states, where there is not as yet a Lubavitcher Center established, are being served by one of the above. ... The national map is therefore divided in three categories: These states where a Lubavitcher Center is present; These states whose Centers cover more than one state; States which are covered by other states",
+      "note": "Montana is blue. A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
+     }
+    ]
    },
    {
     "shetach": "montana",
@@ -1526,8 +1622,8 @@
   "US-ND:upper-midwest": [
    {
     "shetach": "upper-midwest",
-    "from": "2011",
-    "how": "stated",
+    "from": null,
+    "how": "news",
     "confidence": "medium",
     "sources": [
      {
@@ -1541,9 +1637,19 @@
       "title": "Few and Far Between, N.D. Jews Welcome Chabad (CrownHeights.info)",
       "date": "2012-11-21",
       "quote": "In the past, local Jewish organizations have relied mainly on itinerant leaders and rabbinical students for any formal Jewish education."
+     },
+     {
+      "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+      "title": "American Friends of Lubavitch booklet, about 1984: map of Lubavitch's coverage of the US (Reagan Library)",
+      "date": "1984",
+      "quote": "Lubavitch is reaching every community in the United States through its active Eighty-two Centers in Thirty-four of the states. The other states, where there is not as yet a Lubavitcher Center established, are being served by one of the above. ... The national map is therefore divided in three categories: These states where a Lubavitcher Center is present; These states whose Centers cover more than one state; States which are covered by other states",
+      "note": "North Dakota is blue; Minnesota (Feller, 'Mid-West Director' in the same booklet's photo caption of March 1983) is the only orange state next to it. A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
      }
     ],
-    "note": "North Dakota's first Chabad center; the state is in the Upper Midwest shetach (the owner's data). Before 2011: 'local Jewish organizations have relied mainly on itinerant leaders and rabbinical students for any formal Jewish education' (CrownHeights.info, Nov 2012); no head's activity found, so by the owner's rule in no shetach before."
+    "note": "Covered from Minnesota by about 1984 (the AFL map; Minnesota the only orange neighbour). Its first resident shliach and Chabad center came in 2011; before that 'local Jewish organizations have relied mainly on itinerant leaders and rabbinical students' (CrownHeights.info, Nov 2012). Earlier this file had it in no shetach before 2011.",
+    "fromBound": {
+     "by": "1985-03"
+    }
    }
   ],
   "US-NE:nebraska": [
@@ -1560,7 +1666,7 @@
       "note": "The center's own building site: 'Touching Hearts since 1986'; a 2018 feature: the Katzmans were assigned to Omaha in 1986 (chaptzem.blogspot.com, 'Joyful Hasidic couple have spread light'). A 1992 notice spoke of 'five years of consistent programming' and a 2005 article of the 18th anniversary, both 1987: the first programs may be 1987."
      }
     ],
-    "note": "Nebraska's own timeline calls the Katzmans the Rebbe's emissaries 'to the Mid-American region' (1986): whether that meant more than Nebraska is not known."
+    "note": "Nebraska's own timeline calls the Katzmans the Rebbe's emissaries 'to the Mid-American region' (1986): whether that meant more than Nebraska is not known. On the AFL map of about 1984 Nebraska is blue (covered by another state) before the Katzmans came; no orange state borders it (Minnesota, which covered the Dakotas, is the likeliest; not shown)."
    }
   ],
   "US-NH:new-hampshire": [
@@ -1576,7 +1682,8 @@
       "via": "data/founding-years.json, 117652",
       "note": "'Chabad Lubavitch of New Hampshire, founded in 1989'; the Krinskys 'have been based out of central Manchester since 1989'. The state's first Chabad house. lubavitch.com's center directory as archived Aug 31 2011 lists it at 7 Camelot Place, Manchester; it is now at 1234 River Road, so it moved after 2011 (when, not found)."
      }
-    ]
+    ],
+    "note": "On the AFL map of about 1984 New Hampshire is blue (covered by another state), from Massachusetts (orange); which Massachusetts head is not shown."
    }
   ],
   "US-NJ:new-jersey": [
@@ -1605,25 +1712,42 @@
   "US-NM:new-mexico": [
    {
     "shetach": "new-mexico",
-    "from": "1992",
-    "how": "stated",
+    "from": null,
+    "how": "news",
     "confidence": "high",
     "sources": [
+     {
+      "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+      "title": "The same booklet, pp. 44-47: 'addresses of Lubavitcher Centers in their respective states' (about 1984)",
+      "date": "1984",
+      "quote": "NEW MEXICO Chabad Lubavitch of New Mexico, 4800 Eubank N.E., Albuquerque / Chabad House, 1801 Sigma Chi N.E., Albuquerque"
+     },
+     {
+      "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+      "title": "American Friends of Lubavitch booklet, about 1984: map of Lubavitch's coverage of the US (Reagan Library)",
+      "date": "1984",
+      "quote": "Lubavitch is reaching every community in the United States through its active Eighty-two Centers in Thirty-four of the states. The other states, where there is not as yet a Lubavitcher Center established, are being served by one of the above. ... The national map is therefore divided in three categories: These states where a Lubavitcher Center is present; These states whose Centers cover more than one state; States which are covered by other states",
+      "note": "New Mexico is orange: its centre covered more than one state (its blue neighbours are Oklahoma and, at the Four Corners, Utah; the map does not say which). A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
+     },
      {
       "url": "https://chabadnm.org/6164502",
       "title": "Chabad of New Mexico",
       "via": "data/founding-years.json, 117962",
       "note": "Its About page: 'Established with the blessing of the Lubavitcher Rebbe in 1992', directed by Rabbi Chaim and Devorah Leah Schmukler. Open at 4000 San Pedro Blvd. NE by Dec 1995 (a bar mitzvah invitation in the Southwest Jewish Archives)."
      }
-    ]
+    ],
+    "fromBound": {
+     "by": "1985-03"
+    },
+    "note": "Chabad Lubavitch of New Mexico, Albuquerque, with a Chabad House by the University of New Mexico, by about 1984, and orange on the map (covering another state too). Who ran it is not found. Chabad of New Mexico dates itself from 1992 (the Schmuklers): a new head. Earlier this file started New Mexico at 1992."
    }
   ],
   "US-NV:west-coast": [
    {
     "shetach": "west-coast",
-    "from": "1989",
-    "how": "stated",
-    "confidence": "high",
+    "from": null,
+    "how": "news",
+    "confidence": "medium",
     "sources": [
      {
       "url": "https://derher.org/wp-content/uploads/22-av-5774-09.pdf",
@@ -1636,9 +1760,19 @@
       "title": "Chabad of Southern Nevada",
       "via": "data/founding-years.json, 117662",
       "note": "The center's own site: 'Established in 1990 in Rabbi Shea & Dina Harlig's living room'; UNLV's Southern Nevada Jewish Heritage Project: 'established in 1990 by Rabbi Shea Harlig and his wife Dina'. (therebbesimpact.com's 1986 is for Rabbi Yoseph and Rochel Chaiton.)"
+     },
+     {
+      "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+      "title": "American Friends of Lubavitch booklet, about 1984: map of Lubavitch's coverage of the US (Reagan Library)",
+      "date": "1984",
+      "quote": "Lubavitch is reaching every community in the United States through its active Eighty-two Centers in Thirty-four of the states. The other states, where there is not as yet a Lubavitcher Center established, are being served by one of the above. ... The national map is therefore divided in three categories: These states where a Lubavitcher Center is present; These states whose Centers cover more than one state; States which are covered by other states",
+      "note": "Nevada is blue (covered by another state); California, Cunin's, is the only orange state next to it. A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
      }
     ],
-    "note": "Nevada had no shliach before; it joined the West Coast with the Rebbe's answer (summer 1989), its first shliach (Chabad of Southern Nevada) from 1990."
+    "note": "Nevada had no shliach before; it joined the West Coast with the Rebbe's answer (summer 1989), its first shliach (Chabad of Southern Nevada) from 1990. Earlier this file started Nevada at 1989 (the Rebbe's answer putting a Las Vegas Chabad House under Cunin's responsibility 'like all other matters there'); the map of about 1984 already has Nevada covered from a neighbour, and California is the only one that covered others. First resident shliach 1990 (Harlig).",
+    "fromBound": {
+     "by": "1985-03"
+    }
    }
   ],
   "US-NY:eastern-new-york": [
@@ -1812,7 +1946,7 @@
       "note": "A Derher profile: 'Since 5747' (1987) Rabbi Yehuda and Etel Weg have served; they arrived in Oklahoma 'right after Pesach' (spring 1987). Chabad of Oklahoma's first house."
      }
     ],
-    "note": "A new Merkos branch, not part of Texas's or anyone's shetach before."
+    "note": "A new Merkos branch, not part of Texas's or anyone's shetach before. On the AFL map of about 1984 Oklahoma is blue (covered by another state); its orange neighbours are Texas and New Mexico: not shown which."
    }
   ],
   "US-OR:oregon": [
@@ -1842,6 +1976,13 @@
       "url": "https://www.jewishportland.org/jewishreview/jr-stories/monthly-mitzvah-tzedakah",
       "title": "Monthly Mitzvah: Tzedakah (Jewish Review)",
       "quote": "On Jan. 15, 1984 (Rosh Chodesh Shevat), Rabbi Moshe Wilhelm and family arrived in Portland and founded Chabad of Oregon."
+     },
+     {
+      "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+      "title": "American Friends of Lubavitch booklet, about 1984: map of Lubavitch's coverage of the US (Reagan Library)",
+      "date": "1984",
+      "quote": "Lubavitch is reaching every community in the United States through its active Eighty-two Centers in Thirty-four of the states. The other states, where there is not as yet a Lubavitcher Center established, are being served by one of the above. ... The national map is therefore divided in three categories: These states where a Lubavitcher Center is present; These states whose Centers cover more than one state; States which are covered by other states",
+      "note": "Oregon is tan (its own centre: Chabad Lubavitch of Oregon, Portland). A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
      }
     ],
     "note": "15 Jan 1984 was 11 Shevat 5744; Rosh Chodesh Shevat was 5 Jan, so the day is uncertain; January 1984 either way."
@@ -1908,12 +2049,38 @@
       "title": "Chabad Center for Jewish Life",
       "via": "data/founding-years.json, 117649",
       "note": "The News & Observer (CrownHeights.info, 12 Dec 2008): 'The first Chabad House in the Tar Heel state was started in 1980 by Rabbi Yossi Groner of Charlotte.' Chabad.org (CrownHeights.info, 29 March 2025): 'Chabad in Charlotte was founded by Mushka's grandparents, Rabbi Yossi and Mariashi Groner, in 1980'. Rabbi Groner's own account (JEM, interviewed 2013; Anash.org, 9 Oct 2025): head emissary to North and South Carolina 'since 1980'; other biographies: sent 'in the summer of 1980'."
+     },
+     {
+      "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+      "title": "American Friends of Lubavitch booklet, about 1984: map of Lubavitch's coverage of the US (Reagan Library)",
+      "date": "1984",
+      "quote": "Lubavitch is reaching every community in the United States through its active Eighty-two Centers in Thirty-four of the states. The other states, where there is not as yet a Lubavitcher Center established, are being served by one of the above. ... The national map is therefore divided in three categories: These states where a Lubavitcher Center is present; These states whose Centers cover more than one state; States which are covered by other states",
+      "note": "South Carolina is blue; North Carolina (Groner) is orange. A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
      }
     ],
     "note": "The shetach is both states (the owner's data); Groner's first house was Charlotte (1980)."
    }
   ],
   "US-SD:upper-midwest": [
+   {
+    "shetach": "upper-midwest",
+    "from": null,
+    "fromBound": {
+     "by": "1985-03"
+    },
+    "how": "news",
+    "confidence": "medium",
+    "sources": [
+     {
+      "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+      "title": "American Friends of Lubavitch booklet, about 1984: map of Lubavitch's coverage of the US (Reagan Library)",
+      "date": "1984",
+      "quote": "Lubavitch is reaching every community in the United States through its active Eighty-two Centers in Thirty-four of the states. The other states, where there is not as yet a Lubavitcher Center established, are being served by one of the above. ... The national map is therefore divided in three categories: These states where a Lubavitcher Center is present; These states whose Centers cover more than one state; States which are covered by other states",
+      "note": "South Dakota is blue; Minnesota (Feller) is the only orange state next to it. A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
+     }
+    ],
+    "note": "Covered from Minnesota by about 1984 (the AFL map). From 1986 Katzman (Omaha) made periodic visits (the next period, by the owner's activity rule); in Dec 2016 Feller, as regional director, appointed its first resident shliach. Whether Katzman's visits made it his, or were help within Feller's region, is open."
+   },
    {
     "shetach": "nebraska",
     "from": "1986",
@@ -2004,7 +2171,8 @@
       "via": "data/founding-years.json, 117910",
       "note": "The Zippels came to Salt Lake City in 1992 (the Rebbe's blessing 1 Mar 1992); most reports say July 1992 (others fall, or April); 25 years marked in 2018, 30 in 2022 (KSL)."
      }
-    ]
+    ],
+    "note": "On the AFL map of about 1984 Utah is blue (covered by another state); it touches no orange state except New Mexico at the Four Corners, and Nevada next door was covered from California, so California or New Mexico: not shown which. Before 1992 its period stays blank until that is settled."
    }
   ],
   "US-VA:virginia": [
@@ -2038,7 +2206,7 @@
       "note": "Chabad.org (20 Dec 2018): 'In the winter of 1983' Rabbi Yitzchok and Zeesy Raskin were appointed by the Rebbe 'as the new Chabad-Lubavitch emissaries to Vermont'; one of their first acts was a menorah at City Hall. A Chabad article also says they opened the center in 1983, but the Brattleboro Reformer (2012) and Front Porch Forum say 1984. Rabbi Eliyahu and Draizy Junik, now its directors, came in 2014. Checked (Nov 7): its own site (https://www.chabadvt.org/templates/articlecco_cdo/aid/447745/jewish/About-Chabad-of-Burlington.htm): 'Founded by Rabbi Yitzchok and Zeesy Raskin in 1984'; so appointed in the winter of 1983 and founded 1984 — the year taken is the center's own (was 1983), medium as the two are a year apart."
      }
     ],
-    "note": "Appointed by the Rebbe 'in the winter of 1983' (Chabad.org, 2018); in Vermont from 1984."
+    "note": "Appointed by the Rebbe 'in the winter of 1983' (Chabad.org, 2018); in Vermont from 1984. On the AFL map of about 1984 Vermont is blue (covered by another state, from Massachusetts, orange), though the same booklet lists 'Chabad of Vermont, 5 Hickok Place, Burlington': the Raskins may first have come under a Massachusetts office (Deren's, Amherst, is nearest; in 1998 he was 'regional director for southern and western New England', JTA). Not settled."
    }
   ],
   "US-WA:washington": [
@@ -2087,6 +2255,13 @@
       "title": "Chabad may soon have a W.Va. house (Pittsburgh Jewish Chronicle, on CrownHeights.info)",
       "date": "2007-03-20",
       "quote": "Officially, Chabad activities in West Virginia are supervised by Chabad of Virginia. However, because Morgantown is so close to Pittsburgh, Rabbi Yisroel Rosenfeld of the Lubavitch Center is also assisting Gurevitz in establishing a Morgantown presence."
+     },
+     {
+      "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+      "title": "American Friends of Lubavitch booklet, about 1984: map of Lubavitch's coverage of the US (Reagan Library)",
+      "date": "1984",
+      "quote": "Lubavitch is reaching every community in the United States through its active Eighty-two Centers in Thirty-four of the states. The other states, where there is not as yet a Lubavitcher Center established, are being served by one of the above. ... The national map is therefore divided in three categories: These states where a Lubavitcher Center is present; These states whose Centers cover more than one state; States which are covered by other states",
+      "note": "West Virginia is blue; Virginia (Kranz) and Pennsylvania are its orange neighbours. A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
      }
     ]
    },
@@ -2125,7 +2300,16 @@
     "fromBound": {
      "after": "1972-11-07",
      "by": "1972-12-05"
-    }
+    },
+    "sources": [
+     {
+      "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+      "title": "American Friends of Lubavitch booklet, about 1984: map of Lubavitch's coverage of the US (Reagan Library)",
+      "date": "1984",
+      "quote": "Lubavitch is reaching every community in the United States through its active Eighty-two Centers in Thirty-four of the states. The other states, where there is not as yet a Lubavitcher Center established, are being served by one of the above. ... The national map is therefore divided in three categories: These states where a Lubavitcher Center is present; These states whose Centers cover more than one state; States which are covered by other states",
+      "note": "Wyoming is blue. A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
+     }
+    ]
    },
    {
     "shetach": "wyoming",

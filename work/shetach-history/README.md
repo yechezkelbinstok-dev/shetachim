@@ -48,6 +48,17 @@ The data is `data/shetach-history.json` (its `about` explains every field). Thes
   and directed American Friends of Lubavitch, Chabad's office in Washington, and organized the National Menorah from
   1979; so 'by 1979', the start not found.
 
+- **Delaware: Avremel Shemtov's (Pennsylvania) by Oct 1980, its own from 1987 (Vogel).** JTA, 7 Oct 1980: "Shemtov is
+  director of the American Friends of Lubavitch and regional head of the Lubavither movement in Pennsylvania, southern
+  New Jersey and Delaware. His office is in Philadelphia". The Vogels are "regional directors of Chabad-Lubavitch of
+  Delaware since 1987". Since when Delaware was his is not known (he came in 1961). A PNW-style split, found Nov 8 by
+  sweeping the JTA archive (its search API, every 'Lubavitch'/'Chabad' + state or city, 1955-95).
+- **Southern New Jersey: Avremel's in 1980** (JTA, Aug 1980: "regional director of the American Friends of Lubavitch
+  which includes Pennsylvania and Southern New Jersey"; and the Oct 1980 line above), **Herson's today** (the Rabbinical
+  College of America lists Cherry Hill, Medford, Vineland, Ventnor, Princeton and Toms River and says all New Jersey's
+  shluchim are part of it). When it moved is not known (Atlantic City's Chabad house about 1984, Cherry Hill's 1993).
+  Not on the map: New Jersey is one piece, so this sits in New Jersey's note until the owner wants a South Jersey piece.
+
 **Additions** (blank land joining a shetach when its head sends the first shliach, like Mississippi):
 - Mississippi to Louisiana's, Aug 2014 (owner's example).
 - **Nevada to the West Coast, 1989**: the Rebbe's answer at the end of 5749 put a Las Vegas Chabad House "under his

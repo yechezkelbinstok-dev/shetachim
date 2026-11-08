@@ -260,10 +260,14 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       const s = pieces.map((_, i) => keyAt(i, Y));
       NB.forEach((list, i) => { if (!s[i]) return; touch(s[i]); for (const j of list) if (s[j] && s[j] !== s[i]) { touch(s[i]).add(s[j]); touch(s[j]).add(s[i]); } });
     }
+    // neighbours never alike; neighbours' neighbours not alike either where the colours allow (Greater New York and
+    // Pennsylvania across New Jersey)
     const color = new Map(), used = new Array(8).fill(0);
     [...adj.keys()].sort((a, b) => adj.get(b).size - adj.get(a).size || (a < b ? -1 : 1)).forEach((k) => {
       const taken = new Set([...adj.get(k)].map((n) => color.get(n)));
-      let best = -1; for (let c = 0; c < 8; c++) if (!taken.has(c) && (best < 0 || used[c] < used[best])) best = c;
+      const near = new Set(); for (const n of adj.get(k)) for (const m of adj.get(n)) if (m !== k) near.add(color.get(m));
+      let best = -1, score = (c) => (near.has(c) ? 1000 : 0) + used[c];
+      for (let c = 0; c < 8; c++) if (!taken.has(c) && (best < 0 || score(c) < score(best))) best = c;
       if (best < 0) best = 0; color.set(k, best); used[best]++;
     });
     return color;

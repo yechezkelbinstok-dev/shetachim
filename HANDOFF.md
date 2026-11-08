@@ -31,6 +31,9 @@ shluchim's photos, vaad and board faces, the count line, no Zoom in); a center's
 corner beside the ✕ (owner, Nov 6: "I told you to turn it into an icon and not this horrible thing" about the
 "chabad.org ↗" pill, then, on a round icon floating at the end of the sub line: "look how horribly it's situated";
 `pageChip`, `.cc-icon`); head photos for the USA, Canada, Europe, the Middle East, Africa and Asia (Africa and Asia added Nov 6, late); the Rebbeim's portraits.
+**A Photos switch** (owner, Nov 8: "Make an option please to turn off pictures of head shluchim and stuff"): under
+More options (`#show-photos`, `photosOn`, on by default, remembered as `shetachim-photos`). Off, the cards show no
+photos at all: a head his initials, a vaad its plain list of names (no honeycomb), the Rebbeim's cards no portraits.
 **Victoria's dispute is Groner and Gutnick only** (owner, Nov 7: "get rid of hendel he's not a actual claimant it's just
 groner and gutnick"; this replaces the Nov 4 "Nvm keep hendel for now" below). **ACT is part of Victoria** (owner, Nov 7: "ACT should be part of
 Victoria also"): the `act` shetach (Shmueli Feldman) and its Hebrew entry are gone; Victoria's territory has AU-ACT, an

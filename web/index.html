@@ -655,6 +655,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           <label class="check" for="show-cities"><input type="checkbox" id="show-cities" checked> <span class="legend-ring" aria-hidden="true"></span> Cities with shluchim</label>
           <label class="check" for="show-capitals"><input type="checkbox" id="show-capitals" checked> <svg class="legend-star" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path id="star-shape"/></svg> Shetach flagships</label>
           <label class="check" for="show-mushrooms"><input type="checkbox" id="show-mushrooms"> <svg class="legend-mushroom" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M1.5 8.2C1.5 4.6 4.4 2 8 2s6.5 2.6 6.5 6.2c0 .5-.4.8-.9.8H2.4c-.5 0-.9-.3-.9-.8z" fill="#c0392b"/><circle cx="5.2" cy="5.6" r="1.1" fill="#fff"/><circle cx="9.4" cy="4.4" r="0.9" fill="#fff"/><circle cx="11.4" cy="7" r="0.8" fill="#fff"/><path d="M6.2 9h3.6l.5 4.6c.1.8-.5 1.4-1.3 1.4H7c-.8 0-1.4-.6-1.3-1.4z" fill="#efe3cf" stroke="#8a7a62" stroke-width=".6"/></svg> Mushrooms</label>
+          <!-- the photos on the cards (head shluchim, vaads' faces, the Rebbeim's portraits) shown or not (owner, Nov 8:
+               "Make an option please to turn off pictures of head shluchim and stuff"); off, initials as before -->
+          <label class="check" for="show-photos"><input type="checkbox" id="show-photos" checked> <svg class="legend-photo" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#d9dee6"/><circle cx="8" cy="6.3" r="2.4" fill="#7b8698"/><path d="M3.6 13.2c.8-2.3 2.4-3.4 4.4-3.4s3.6 1.1 4.4 3.4A7 7 0 0 1 3.6 13.2z" fill="#7b8698"/></svg> Photos</label>
           <label class="check" for="show-empty"><input type="checkbox" id="show-empty" checked> <span class="legend-empty" aria-hidden="true"></span> Rest of the world</label>
           <label class="check" for="show-rest-borders"><input type="checkbox" id="show-rest-borders"> <span class="legend-rest" aria-hidden="true"></span> Borders of the rest of the world</label>
           <label class="check" for="show-sea" id="sea-row"><input type="checkbox" id="show-sea" checked> <span class="legend-sea" aria-hidden="true"></span> Blue sea</label>
@@ -791,6 +794,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // the family whose houses are ringed (from the search): declared before the Mushrooms switch's handler, which reads it
   let marked = null;
   try { mushroomsOn = localStorage.getItem('shetachim-mushrooms') === 'on'; } catch (e) {}
+  // the cards' photos (the Photos option, on unless turned off; remembered): off, a head shows his initials, a vaad its
+  // list of names, the Rebbeim's cards no portraits
+  let photosOn = true;
+  try { photosOn = localStorage.getItem('shetachim-photos') !== 'off'; } catch (e) { /* on */ }
   // Mushroom networks (owner, Nov 4: "mushroom networks should be able to be visualized somehow on the map"): the houses
   // of one network (extra-centers.json "network") joined by dashed lines, the shortest set that joins them all. Shown
   // only when asked (owner: "only … if I press smth not just if I press one of the shrooms"): a mushroom's card has
@@ -850,7 +857,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'Latin America & Caribbean': 'אמריקה הלטינית והאיים הקריביים',
     Map: 'מפה', Physical: 'פיזית', Tinted: 'פיזית צבועה', Political: 'מדינית', Borders: 'גבולות', States: 'מדינות', Countries: 'ארצות', Both: 'שניהם',
     'Lighter:': 'בהיר יותר:', 'Part of Israel:': 'חלק מישראל:', Gaza: 'עזה', Lebanon: 'לבנון', Syria: 'סוריה', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', Off: 'ללא',
-    'More options': 'אפשרויות נוספות', 'Regions & countries': 'אזורים ומדינות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Shetach flagships': 'המוסדות המרכזיים', Mushrooms: 'פטריות', Mushroom: 'פטרייה', 'Mushroom marker': 'סימון פטריות', 'Mushroom networks': 'רשתות פטריות', Dot: 'נקודה', 'Sub-shetachim': 'תת־שטחים', 'Sub-shetach': 'תת־שטח', Shetach: 'שטח', 'Regional director': 'שליח אזורי', 'Rest of the world': 'שאר העולם', 'Borders of the rest of the world': 'גבולות שאר העולם', 'Held by Israel': 'בשליטת ישראל', 'Blue sea': 'ים כחול', Streets: 'רחובות',
+    'More options': 'אפשרויות נוספות', 'Regions & countries': 'אזורים ומדינות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Shetach flagships': 'המוסדות המרכזיים', Mushrooms: 'פטריות', Photos: 'תמונות', Mushroom: 'פטרייה', 'Mushroom marker': 'סימון פטריות', 'Mushroom networks': 'רשתות פטריות', Dot: 'נקודה', 'Sub-shetachim': 'תת־שטחים', 'Sub-shetach': 'תת־שטח', Shetach: 'שטח', 'Regional director': 'שליח אזורי', 'Rest of the world': 'שאר העולם', 'Borders of the rest of the world': 'גבולות שאר העולם', 'Held by Israel': 'בשליטת ישראל', 'Blue sea': 'ים כחול', Streets: 'רחובות',
     Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד', Dots: 'נקודות', Solid: 'מלאות', 'See-through': 'שקופות', Classic: 'קלאסיות',
     'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
     'Download maps (SVG, PNG)': 'הורדת מפות (SVG, PNG)', 'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
@@ -3629,6 +3636,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const photoIf = (s, list) => { if (!s || s.vaadFirst || !HEAD_PHOTO.has(s.id) || !list) return ''; const p = list.filter((x) => !x.isDeceased).find(isMale);
     return isHead(p, s._enHead || s.headShliach) ? s.id : ''; };
   const personRow = (ini, name, pos, t, label = '', big = false, photo = '') => {
+    if (!photosOn) photo = '';
     const v = document.documentElement.dataset.ps || 'initials';
     const txt = (lbl, p2) => `<span class="cc-ptext">${lbl ? `<span class="lbl">${lbl}</span>` : ''}<b>${name}</b>${p2 ? `<span class="pos">${esc(p2)}</span>` : ''}</span>`;
     if (photo) return `<div class="cc-person has-ph${big ? ' big' : ''}"><img class="cc-ph" src="img/heads/${photo}.jpg" alt="">${txt(label, pos)}</div>`;
@@ -3844,7 +3852,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'the-rebbe': { en: 'The Rebbe', he: 'נשיא דורנו', img: true },
   };
   const REBBE_KEY = Object.fromEntries(Object.entries(REBBE).map(([k, r]) => [r.en, k]));
-  const rebbePic = (k, w) => { const r = REBBE[k];
+  const rebbePic = (k, w) => { const r = REBBE[k]; if (!photosOn) return '';
     const alt = r && r.book ? (HE ? `${r.he}: שער ${r.book[1]}` : `${r.en}: title page of ${r.book[0]}`) : r ? (HE ? r.he : r.en) : '';
     return r && r.img ? `<span class="rb-pic" style="--w:${w}px"><img src="img/rebbeim/${k}.jpg" alt="${esc(alt)}" title="${esc(alt)}" loading="lazy"></span>` : ''; };
   const rebbeimHTML = ({ title, rebbeim }) => `<section class="hc-sec"><h3 class="hc-label">${esc(HE ? title[1] : title[0])}</h3><ol class="tl">${
@@ -3994,8 +4002,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // uk hanholo next"; its name is the head line's, under its own title)
   function vaadBlock(s, t, name = esc(s.vaad), label = tr('Leadership')) {
     const n = (s.vaadMembers || []).filter((m) => m.role !== 'Alternate').length;
-    return `<div class="cc-vaad" style="--t:${t}">${VAAD_PHOTOS[s.id] ? hiveHTML(s, t) : ''}<div class="cc-vtext"><span class="lbl">${label}</span><b>${name}</b>${
-      membersHTML(s, n ? `${n} ${HE ? 'חברים' : 'members'}` : (HE ? 'חברים' : 'Members'), VAAD_PHOTOS[s.id] || null)}</div></div>`;
+    const ph = (photosOn && VAAD_PHOTOS[s.id]) || null;
+    return `<div class="cc-vaad" style="--t:${t}">${ph ? hiveHTML(s, t) : ''}<div class="cc-vtext"><span class="lbl">${label}</span><b>${name}</b>${
+      membersHTML(s, n ? `${n} ${HE ? 'חברים' : 'members'}` : (HE ? 'חברים' : 'Members'), ph)}</div></div>`;
   }
   // the head shliach's mark on the "שליח ראשי:" line (owner, Nov 5: "the person icon next to shliach rooshi - maybe make a
   // custom one with like a hat and stuff? Still exact same minimalist style"): a fedora over a bearded face, drawn as
@@ -4026,7 +4035,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         : s.noCentralLeadership ? `<p class="cc-sub">${tr('No centralized leadership')}</p>`
         : s.headShliach && / family$|^משפחת /.test(s.headShliach) ? lead(HE ? 'שלוחים' : 'Shluchim', s.headShliach)
         : s.headShliach && s.vaad && s.vaadFirst ? `${vaadBlock(s, t)}${headRow(s)}`
-        : s.headShliach && !s.vaad && s.vaadMembers && VAAD_PHOTOS[s.id] ? vaadBlock(s, t, headHTML(s.headShliach), esc(s.headTitle || tr('Leadership')))
+        : s.headShliach && !s.vaad && s.vaadMembers && photosOn && VAAD_PHOTOS[s.id] ? vaadBlock(s, t, headHTML(s.headShliach), esc(s.headTitle || tr('Leadership')))
         : s.headShliach && !s.vaad && s.vaadMembers ? membersHTML(s, `${esc(s.headTitle || tr('Head shliach'))}: ${headHTML(s.headShliach)}`)
         : s.headShliach && DISPUTED_PHOTOS[s.id] && DISPUTED.test(s.headShliach) ? disputedLead(s, t)
         : s.headShliach ? `${lead(esc(s.headTitle || tr('Head shliach')), s.headShliach, HEAD_PHOTO.has(s.id) ? s.id : '')}${s.vaad ? `<div style="margin-top:11px">${vaadHTML(s)}</div>` : ''}` : ''}</div>${capital}
@@ -4143,6 +4152,12 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     apply();
   });
   $('#show-sea').addEventListener('change', (e) => { state.sea = e.target.checked; apply(); });
+  $('#show-photos').checked = photosOn;
+  $('#show-photos').addEventListener('change', (e) => {
+    photosOn = e.target.checked;
+    try { localStorage.setItem('shetachim-photos', photosOn ? 'on' : 'off'); } catch (err) { /* not remembered */ }
+    hideCard(); // (the next card opened is drawn with them or without)
+  });
   $('#show-mushrooms').checked = mushroomsOn;
   pressed('mushroomLook', state.mushroomLook);
   // (in place: the dots, cities, counts and search change at once, the map stays where it is)

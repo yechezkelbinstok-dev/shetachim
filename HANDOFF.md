@@ -277,7 +277,9 @@ thirteen no better recent photo has been found yet (the list is there, with what
   covered stand ("Stop trying to verify my facts"; they go in as `how: owner`); the research dates when each part split
   off, splits first ("I'm sure there's more examples like that. So I need you to find those"). The pilot on his
   examples is done (the Northwest, Kalmanson's Ohio–Indiana–Kentucky, the Virginias, Mississippi, Newfoundland,
-  Herson, Korf); the sweep of every other US shetach for splits is next (the list is in the notes).
+  Herson, Korf), and the sweep of the other US shetachim is under way: 51 of 68 US map pieces have their history
+  (left: Michigan, Illinois, Western Pennsylvania, Wyoming, Massachusetts, New York; then Canada). What's found, what's
+  open and the sources that worked are in the notes.
 - **Founding years, the West Coast (Nov 6, first pass done).** Owner: "let's jump into the West Coast. Do this properly
   ... The goal is every single blue dot we find the date for ... keep track continuously of how many are missing from
   the various ones, so we can do a round of the harder ones later on ... all the info needs to be kept properly. But go

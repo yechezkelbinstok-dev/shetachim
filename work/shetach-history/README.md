@@ -29,88 +29,91 @@ The data is `data/shetach-history.json` (its `about` explains every field). Thes
 - So a map of year Y: each area takes the shetach of its period at Y; areas with the same shetach merge into one.
   Before an area's first period it is blank.
 
-## Done (Nov 8): the pilot on the owner's examples
+## What is in the file (Nov 8): 51 of the 68 US pieces, 3 of the 10 Canadian
 
-| Area | Periods |
-|---|---|
-| Washington | Levitin from 1972 (sent with the Rebbe's 71 new institutions of 11 Nissan 5732; came in 5733) |
-| Oregon | Levitin's 1972 (owner); its own from **Jan 1984** (Wilhelm; Jewish Review, Feb 1984) |
-| British Columbia | Levitin's 1972 (owner); its own from **Nov 1974** (Wineberg) |
-| Alberta | Levitin's 1972 (owner, unsure); its own from **1988** (Matusof) |
-| Alaska | Levitin's 1972 (owner; Derher: "the Pacific Northwest, which included Alaska"); its own from **1991** (Greenberg) |
-| Idaho | Levitin's 1972 (owner); its own from **Apr 2004** (Lifshitz) |
-| Montana | Levitin's 1972 (owner); its own from **early 2007** (Bruk) |
-| Northeast Ohio | Alevsky from **1972**, before Kalmanson came, so never Kalmanson's |
-| Southern Ohio | Kalmanson from **Sept 1975** (Cincinnati Post, May 1977); Mangel from 1995 (owner: Kalmanson "kicked off the year after gimmel tammuz") |
-| Central Ohio | Kalmanson's 1975 (owner); its own from **1991** (Kaltmann) |
-| Toledo area | Kalmanson's 1975 (owner: "all those parts of Ohio, I think"); Michigan's from **1987** (Yossi Shemtov) |
-| Indiana | Kalmanson's 1975 (owner); its own from **1981** (Grossbaum) |
-| Kentucky | Kalmanson's 1975 (owner); its own from **Mar 1985** (Litvin) |
-| Virginia | Yankel Kranz from **1976** ("the Virginias"); his son Yossel from Aug 1991 (after his father's passing, 6 Elul 5751) |
-| West Virginia | Kranz's 1976 (owner); Western Pennsylvania's **after Sept 2007, by Dec 2013** (range) |
-| Louisiana / Mississippi | Rivkin from **Nov 1975**; Mississippi joins in **Aug 2014** (Biloxi) |
-| Newfoundland | its own from **Feb 2017** (Chernitsky) |
-| New Jersey | Moshe Herson from **1965**; Mendy Herson from the shloshim, **2025**, with a vaad (first vaad about 2010; new one June 2025) |
-| Florida | Avrohom Korf from **1960**; a vaad of seven named **Feb 2020**; Benjy Korf from **Aug 2025** (Merkos, at the shloshim) |
+**Splits** (an area moving from one head's shetach to another's):
+- The Northwest (owner): Levitin from 1972; BC its own Nov 1974, Oregon Jan 1984, Alberta 1988 (owner unsure it was
+  his), Alaska 1991, Idaho Apr 2004, Montana early 2007; Washington is what's left.
+- Kalmanson's (owner): from Sept 1975; Indiana its own 1981, Kentucky Mar 1985, the Toledo area to Michigan 1987,
+  Central Ohio 1991. Northeast Ohio was Alevsky's from 1972, before Kalmanson came, so never his.
+- West Virginia: Kranz's from 1976 (owner); Western Pennsylvania's after Sept 2007, by Dec 2013. Its first shliach
+  (Gurevitz, Morgantown, 2007) came "under the aegis of Chabad-Lubavitch of Virginia"; by Dec 2013 the house "falls
+  under the auspices of the Lubavitch Center of Pittsburgh". So it moved after him, not with him.
+- **Washington DC (new, to confirm with the owner):** in the Maryland head's hands before it had its own. Kaplan asked
+  the Rebbe in the late 5730s about opening a Chabad House in Washington, and in summer 5745 (1985) about a center "in
+  the heart of Washington" (Derher, "Pinpoints: Baltimore", written with his help). Its own head, Levi Shemtov, from
+  1992. (American Friends of Lubavitch, Chabad's government office in Washington, was run by Avremel Shemtov of
+  Philadelphia, Levi's father; that is a national office, not the shetach.)
+
+**Additions** (blank land joining a shetach when its head sends the first shliach, like Mississippi):
+- Mississippi to Louisiana's, Aug 2014 (owner's example).
+- **Nevada to the West Coast, 1989**: the Rebbe's answer at the end of 5749 put a Las Vegas Chabad House "under his
+  [Cunin's] responsibility like all other matters there"; earlier proposals had been turned down; first shliach 1990.
+- **North Dakota (2011) and South Dakota (Dec 2016) to the Upper Midwest**, with their first shluchim.
+- **Connecticut to Deren's**: Western Massachusetts from 1974 (Amherst), Connecticut by about 1990 ("Merkos considered
+  me wholly responsible for the entire state of Connecticut"); New Haven County has been the Hechts' since 1946.
+
+**New shetachim on blank land** (no earlier head found): Wisconsin Oct 1968, Kansas–Missouri Jan 1970 (both states
+from the start: JTA, "will serve the states of Missouri and Kansas"; St. Louis, 1980, came within it), Texas May
+1972, Maryland 5734, Arizona Jan 1977, Colorado 1978, Rhode Island 1979, the Carolinas 1980, Alabama 1982, Georgia
+1984, Vermont 1984, Nebraska 1986, Oklahoma Apr 1987 and Maine 1987 ("new branches of Merkos in four states", 5747),
+Delaware 1987, Hawaii Aug 1987, New Hampshire 1989, Iowa, Arkansas, New Mexico and Utah 1992, Tennessee 1994.
+The oldest: New Haven 1946, Pennsylvania (Philadelphia) 1961, the Upper Midwest Dec 1961, the West Coast 1965, New
+Jersey 1965, Florida 1960.
+
+**Head changes**: New Haven (Moshe Hecht to Sheya, 1992), Virginia (Yankel Kranz to Yossel, 1991), Southern Ohio
+(Kalmanson to Mangel, 1995, owner), Colorado (Yisroel Meir Popack to Mendel, 2022), New Jersey (Moshe Herson to Mendy,
+2025, with a vaad; the first vaad about 2010), Florida (Avrohom Korf named a vaad Feb 2020; Benjy Korf Aug 2025),
+Northeast Ohio (Alevsky to Greenberg, 2026, owner).
 
 Things found on the way:
-- **West Virginia did not move with its first shliach.** Zalman Gurevitz opened Morgantown in 2007 "under the aegis
-  of Chabad-Lubavitch of Virginia" (Chabad.org, Sept 2007; Pittsburgh's Jewish Chronicle, Mar 2007: "Officially,
-  Chabad activities in West Virginia are supervised by Chabad of Virginia", with Rosenfeld helping). By Dec 2013 the
-  house "falls under the auspices of the Lubavitch Center of Pittsburgh". To narrow: archived copies of the Morgantown
-  house's site or chabad.org listing (541856) between 2008 and 2013, the Pittsburgh Chronicle's archive, and Chabad of
-  the Virginias' and Pittsburgh's own branch lists in those years.
-- **Two Kranzes.** The first head of the Virginias was Rabbi Yaakov Noach (Yankel) Kranz (1976–1991); Yossel is his
-  son. Their organization is still called Chabad of the Virginias.
-- **Levitin's office describes a wider region than his shetach.** Anash.org, Aug 4 2021: "Chabad of the Pacific North
-  West covers British Colombia, Alberta, Alaska, Montana, Oregon, Wyoming and Washington, with nearly 200 shluchim";
-  Chabad of Seattle's "Our Story": "The region spans ... Washington, Oregon, Alaska, Idaho and Montana ... spreads into
-  Canada, including the provinces of British Columbia and Alberta". That is the old region's name living on, not
-  today's shetach (owner: today only Washington is his). It is the one hint that **Wyoming** was in it too; the owner
-  didn't list Wyoming (its own head from May 2008, Mendelsohn).
-- Before Levitin (1972): roving rabbis in Fairbanks from the summer of 1970 (Chabad.org); no head known for the
-  Northwest.
+- Levitin's office still describes the old wide region: Anash.org, Aug 4 2021: "Chabad of the Pacific North West
+  covers British Colombia, Alberta, Alaska, Montana, Oregon, Wyoming and Washington, with nearly 200 shluchim".
+  The one hint that **Wyoming** was his too (the owner didn't list it; its own head from May 2008).
+- Merkos counted its regional offices: Feller's was "the fourth division of Merkos" in the USA (1961-62), Cunin "the
+  fifth Shliach of the Rebbe in the USA" (1965), Kansas City "its eighth regional office" (Jan 1970).
+- Kalmanson's organization kept the name Chabad of Southern Ohio (the JTA in Dec 2002 calls him its regional
+  director); the owner's 1995 is when he stopped being head shliach.
+- Nebraska's own timeline calls the Katzmans (1986) the Rebbe's emissaries "to the Mid-American region": whether
+  that meant more than Nebraska is not known.
 
 ## Open
 
-- West Virginia's exact move (above). Yossel Kranz's start (Aug 1991 is his father's passing). Mangel's start
-  (1995 is the natural reading of the owner's words). The Florida vaad of 2023 (a search summary says 273 shluchim
-  elected a new one; Anash's page, anash.org/?p=559466, answered 403: not read).
+- West Virginia's exact move (2007–2013): narrow it with archived copies of the Morgantown house's site or its
+  chabad.org listing (541856), and of Pittsburgh's and Chabad of the Virginias' branch lists.
+- To ask the owner: Wyoming in Levitin's start? Washington DC as Maryland's before 1992?
+- Yossel Kranz's start (Aug 1991 is his father's passing); Mangel's (1995 is the natural reading); Sheya Hecht's
+  (1992, his father's passing); the Florida vaad of 2023 (Anash's page, anash.org/?p=559466, answered 403).
 - Who, if anyone, had southern and central Ohio, Indiana and Kentucky before Sept 1975, and the Northwest before 1972.
 
-## Next: the sweep for more splits (the owner's ask)
+## Not done yet
 
-Every US shetach (and Canada as it comes) that began after its neighbours may have been part of an older one. The
-older heads (by their flagship's year, data/founding-years.json) and the later ones near them, to check:
+US: Michigan (1958; Windsor's Essex County since 2009 is Michigan's: CA-ON:michigan), Illinois (and the Quad Cities
+piece of Iowa), Western Pennsylvania (Pittsburgh had a shliach from 1943, Rabbi Sholom Posner; Rosenfeld's start),
+Wyoming, the Massachusetts areas (Boston and the five sub-areas: were they Boston's first?), and New York (New York
+City, Crown Heights, Monsey, Rockland, Eastern New York, Upstate New York). Canada: Quebec, Ontario, Ottawa,
+Manitoba–Saskatchewan, the Maritimes.
 
-- West Coast (Cunin, 1965): Arizona, Hawaii (1987), Utah (1992), New Mexico (1992); the Northwest before 1972.
-- Upper Midwest (Feller, 1962): Wisconsin, Iowa (1992), Nebraska (1986), Kansas–Missouri, Montana.
-- Michigan (Shemtov, 1958): Ohio before 1972, Indiana.
-- Texas (Lazaroff, 1972): Oklahoma (1987), Arkansas (1992), New Mexico, Louisiana before 1975.
-- Florida (Korf, 1960): Georgia (1984), Alabama (1982), the Carolinas (1980), Tennessee (1994).
-- Philadelphia (Avremel Shemtov, 1961): Delaware (1987), Western Pennsylvania, Maryland.
-- Maryland (Kaplan): Washington DC (1992), Delaware, Northern Virginia.
-- Boston (Prus): Rhode Island (1979), Vermont (1984), Maine (1987), New Hampshire (1989), Connecticut, and the
-  Massachusetts sub-areas (South Area 1987, North Shore 1992, Merrimack Valley 1992, Cape Cod 1995, Central MA).
-- Illinois (Moscowitz): Wisconsin, Iowa (the Quad Cities), Kansas–Missouri, Indiana.
-- Colorado: Wyoming, Utah, New Mexico, Nebraska, Kansas.
-- New York: Rockland (1983), Monsey, Eastern NY (Rubin), Upstate NY (Gurary), New Haven.
-- Canada: Ottawa (1977), the Maritimes (1995), Manitoba–Saskatchewan (1972), from Montreal or Toronto.
+## Sources that worked
 
-How to find them: each later head's arrival story usually says who sent him or whose auspices he came under ("under
-the auspices of", "under the aegis of", "sent by Rabbi X of ..."); an older head's obituary or anniversary story
-usually lists what he first covered; old organization names keep old regions ("Chabad of the Virginias", "the
-Upper Midwest", "the Pacific Northwest", "the Carolinas"); a 1970s–80s newspaper's title for a head ("director for
-Ohio, Kentucky and Indiana") dates his region.
+- **A Chassidisher Derher.** Its "Pinpoints" series (5785: Alaska, Oklahoma, Buffalo, Baltimore, Worcester MA) and
+  its interviews with the first heads (Feller, Cunin, Lazaroff, Korf, Wilhelm, Lipskar; list at derher.org/articleindex/,
+  read through Firecrawl). Read so far: Alaska (excerpt), Oklahoma, Baltimore, Feller, Cunin. Still to read: Buffalo
+  (5785-5-2.pdf), Worcester (5785-11-10.pdf), Lazaroff (56-Iyar-5777-09.pdf), Korf (44-Iyar-5776-08.pdf), Wilhelm
+  (76-Teves-5779-...Portland-Oregon.pdf). A PDF costs one credit a page.
+- **The JTA archive** (jta.org/archive, plain curl): 1960s–70s bulletins on new Merkos regional offices.
+- Founding years (`data/founding-years.json`): the first shliach of a state is usually its shetach's start; its sources
+  are copied with `via`.
+- Obituaries and anniversary stories (COLlive, Anash, CrownHeights.info, Chabad.org, local Jewish papers).
 
 ## Access notes (Nov 8)
 
 - anash.org article pages answer plain curl (only its wp-json API has a bot check); collive.com answers 403 (read
-  through Firecrawl); chabad.org through WebFetch or Firecrawl; crownheights.info, lubavitch.com,
-  localjewishnews.com, jewishindependent.ca, jewishportland.org: curl.
-- derher.org blocks downloads; Firecrawl's search shows excerpts of its PDFs. The Cincinnati Judaica Fund's catalogue
-  has a robot check; the search index shows its descriptions. The Detroit Jewish News archive puts a Cloudflare check
-  in front of curl.
+  through Firecrawl); chabad.org through WebFetch or Firecrawl; crownheights.info, lubavitch.com, jta.org,
+  localjewishnews.com, jewishindependent.ca, jewishportland.org, jewishchronicle.org: curl.
+- derher.org blocks plain downloads (Firecrawl reads its PDFs). The Cincinnati Judaica Fund's catalogue has a robot
+  check; the search index shows its descriptions. The Detroit Jewish News archive has a Cloudflare check.
+- chabad.org's centers API has no regional-office field (checked: neither the locator data nor the location API).
 - Hebrew dates: hebcal.com's converter (`/converter?cfg=json&hy=5751&hm=Elul&hd=6&h2g=1`), plain curl.
-- Firecrawl used on Nov 8: 7 searches (14 credits) and 5 page reads (5 credits), plus one PDF read the owner
-  stopped partway.
+- Firecrawl on Nov 8: 7 searches (14 credits) and 11 page reads (38 credits), about 52 in all, plus a PDF read the
+  owner stopped partway.

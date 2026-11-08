@@ -1,51 +1,10 @@
 {
  "about": "Shetach territories and heads over time, the United States first (the owner's idea, Nov 6; started Nov 8). It holds what a map of any year needs: whose shetach each area was in, and who headed each shetach. 'areas' is keyed by the map's piece id, '<state>:<shetach id>' as in web/data/centers.geojson ('US-OR:oregon' is Oregon, 'US-OH:michigan' the Toledo area, 'US-WV:western-pennsylvania' West Virginia). Its periods run oldest first: from a period's 'from' until the next period's 'from', the area was part of that period's 'shetach', given by the id in data/shetachim.json of that head's shetach today (Levitin's Pacific Northwest is 'washington'). Before the first period the area was in no shetach, as far as is known. 'heads' is keyed by shetach id: its heads, oldest first, each {head, from, name (what the shetach was called then, where it differs)}; a shetach with one head since it began lists him from its start, with the sources on the area period that starts it. 'events' is keyed by shetach id: vaads, passings and the like, each {date, what, sources}. Dates are 'YYYY', 'YYYY-MM' or 'YYYY-MM-DD'; when only bounds are known, 'from' is null and 'fromBound' is {after, by}. 'how': owner (the owner's own statement, taken as fact; owner, Nov 8: \"I'm telling you as a fact ... I just need to figure out when each one split off. Stop trying to verify my facts\"), stated (a source states it), news (a report from the time), anniversary (counted back), range (only bounds). 'confidence', as in data/founding-years.json: high (a report from the time, or the shetach's own statement, and nothing against it), medium (one later source, a count back, or sources a year apart), low, range, open; none on 'owner' periods. 'sources': [{url, title, date (the source's own), quote (its words), via (where an earlier session found it), note}]. Research notes: work/shetach-history/README.md.",
  "heads": {
-  "washington": [
+  "alabama": [
    {
-    "head": "Sholom Ber Levitin",
-    "from": "1972",
-    "name": "Pacific Northwest",
-    "how": "stated",
-    "confidence": "high",
-    "sources": [
-     {
-      "url": "https://www.chabadofseattle.org/templates/articlecco_cdo/aid/4495510/jewish/Our-Story.htm",
-      "title": "Our Story - Chabad Lubavitch of Greater Seattle",
-      "quote": "They came to Seattle in 1972, sent by the late Lubavitcher Rebbe Menachem Mendel Schneerson O.B.M."
-     },
-     {
-      "url": "https://anash.org/washington-and-arizona-pledge-10-new-shluchim/",
-      "title": "Washington Pledges 10 New Shluchim (Anash.org)",
-      "date": "2022-01-31",
-      "quote": "the story of how he was sent on shlichus by the Rebbe, as part of marking the Rebbe's shnas hashivim on Yud Alef Nissan Tof Shin Lamed Bais. The Rebbe said he would be adding seventy-one new institutions around the world. Rabbi and Rebbetzin Levitin were chosen as one of the Rebbe's new shluchim and so this year will also mark fifty years of Chabad of Washington State."
-     },
-     {
-      "url": "https://derher.org/wp-content/uploads/5785-1-10.pdf",
-      "title": "A Chassidisher Derher, 5785, 'Pinpoints'",
-      "quote": "Rabbi Sholom Ber Levitin, who traveled on shli- chus to Seattle in 5733, was appointed by the Rebbe for the Pacific Northwest, which included Alaska. He held ...",
-      "note": "the search index's excerpt (Firecrawl search); the PDF itself was not read (derher.org blocks plain downloads)"
-     }
-    ],
-    "note": "Chosen after 11 Nissan 5732 (March 1972); 5733 runs Sept 1972 - Sept 1973. Anash.org (Aug 4 2021) dates the founding of Chabad of the Pacific North West to 1973."
-   }
-  ],
-  "oregon": [
-   {
-    "head": "Moshe Wilhelm",
-    "from": "1984-01"
-   }
-  ],
-  "idaho": [
-   {
-    "head": "Mendel Lifshitz",
-    "from": "2004-04"
-   }
-  ],
-  "montana": [
-   {
-    "head": "Chaim Bruk",
-    "from": "2007"
+    "head": "Yossi Posner",
+    "from": "1982"
    }
   ],
   "alaska": [
@@ -54,46 +13,28 @@
     "from": "1991"
    }
   ],
-  "british-columbia": [
-   {
-    "head": "Yitzchok Wineberg",
-    "from": "1974-11"
-   }
-  ],
   "alberta": [
    {
     "head": "Menachem Matusof",
     "from": "1988"
    }
   ],
-  "northeast-ohio": [
+  "arizona": [
    {
-    "head": "Leibel Alevsky",
-    "from": "1972",
-    "how": "stated",
-    "confidence": "high",
-    "note": "sources on area US-OH:northeast-ohio"
-   },
-   {
-    "head": "Zushe Greenberg",
-    "from": "2026-04-20",
-    "how": "owner",
-    "note": "Alevsky passed away 20 Apr 2026 (3 Iyar 5786); nothing published names a successor; the owner's choice (Oct 10): \"let's do Greenberg for the Ohio area\". 'from' is Alevsky's passing."
+    "head": "Zalman Levertov",
+    "from": "1977-01"
    }
   ],
-  "southern-ohio": [
+  "arkansas": [
    {
-    "head": "Sholom Ber Kalmanson",
-    "from": "1975-09",
-    "how": "news",
-    "confidence": "high",
-    "note": "sources on area US-OH:southern-ohio"
-   },
+    "head": "Pinchus Ciment",
+    "from": "1992"
+   }
+  ],
+  "british-columbia": [
    {
-    "head": "Yisroel Mangel",
-    "from": "1995",
-    "how": "owner",
-    "note": "Owner, Nov 8: \"Kalmanson was kicked off the year after gimmel tammuz\" (Gimmel Tammuz 5754 was 12 June 1994); owner, Nov 1: \"Yisroel Mangel is head shliach of Southern Ohio\". That Mangel followed at once is the natural reading, not stated."
+    "head": "Yitzchok Wineberg",
+    "from": "1974-11"
    }
   ],
   "central-ohio": [
@@ -102,16 +43,109 @@
     "from": "1991"
    }
   ],
+  "colorado": [
+   {
+    "head": "Yisroel Meir Popack",
+    "from": "1978"
+   },
+   {
+    "head": "Mendel Popack",
+    "from": "2022",
+    "how": "owner",
+    "note": "his father passed away in 2022; Mendel Popack is the head in the owner's data"
+   }
+  ],
+  "connecticut": [
+   {
+    "head": "Yisroel Deren",
+    "from": "1974"
+   }
+  ],
+  "delaware": [
+   {
+    "head": "Chuni Vogel",
+    "from": "1987"
+   }
+  ],
+  "florida": [
+   {
+    "head": "Avrohom Korf",
+    "from": "1960",
+    "how": "stated",
+    "confidence": "high",
+    "note": "sources on area US-FL:florida; from Feb 2020 with a vaad (events)"
+   },
+   {
+    "head": "Benjy (Bentzion) Korf",
+    "from": "2025-08",
+    "how": "news",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://anash.org/at-florida-kinus-merkos-names-new-head-shliach-of-florida/",
+      "title": "At Florida Kinus, Merkos Names New Head Shliach of Florida (Anash.org)",
+      "date": "2025-08-06",
+      "quote": "At the regional Kinus hashluchim of Florida – coinciding with the Shloshim of Florida's longtime Head Shliach, Rabbi Avraham Korf, a\"h – his son, Rabbi Bentzion Korf, Executive Director of the Lubavitch Educational Center (LEC) of Miami, was named as the new Head Shliach of the state of Florida."
+     }
+    ]
+   }
+  ],
+  "georgia": [
+   {
+    "head": "Yossi New",
+    "from": "1984"
+   }
+  ],
+  "hawaii": [
+   {
+    "head": "Itchel Krasnjansky",
+    "from": "1987-08"
+   }
+  ],
+  "idaho": [
+   {
+    "head": "Mendel Lifshitz",
+    "from": "2004-04"
+   }
+  ],
   "indiana": [
    {
     "head": "Avrohom Grossbaum",
     "from": "1981"
    }
   ],
+  "iowa": [
+   {
+    "head": "Yossi Jacobson",
+    "from": "1992"
+   }
+  ],
+  "kansas-missouri": [
+   {
+    "head": "Sholom Wineberg",
+    "from": "1970-01"
+   }
+  ],
   "kentucky": [
    {
     "head": "Avrohom Litvin",
     "from": "1985-03"
+   }
+  ],
+  "louisiana-mississippi": [
+   {
+    "head": "Zelig Rivkin",
+    "from": "1975-11"
+   }
+  ],
+  "maryland": [
+   {
+    "head": "Shmuel Kaplan",
+    "from": null,
+    "fromBound": {
+     "after": "1973-09",
+     "by": "1974-09"
+    }
    }
   ],
   "michigan": [
@@ -129,40 +163,35 @@
     ]
    }
   ],
-  "virginia": [
+  "montana": [
    {
-    "head": "Yaakov Noach (Yankel) Kranz",
-    "from": "1976",
-    "name": "the Virginias",
-    "how": "stated",
-    "confidence": "high",
-    "note": "sources on area US-VA:virginia"
+    "head": "Chaim Bruk",
+    "from": "2007"
+   }
+  ],
+  "nebraska": [
+   {
+    "head": "Mendel Katzman",
+    "from": "1986"
+   }
+  ],
+  "new-hampshire": [
+   {
+    "head": "Levi Krinsky",
+    "from": "1989"
+   }
+  ],
+  "new-haven": [
+   {
+    "head": "Moshe Hecht",
+    "from": "1946"
    },
    {
-    "head": "Yossel Kranz",
-    "from": "1991-08",
-    "how": "stated",
+    "head": "Sheya Hecht",
+    "from": "1992",
+    "how": "news",
     "confidence": "medium",
-    "note": "His father passed away on 6 Elul 5751 (16 Aug 1991) after directing Chabad in the state for 15 years; Yossel is the son who took over (executive director of 'Chabad of the Virginias' in 2011). When exactly he was named is not found."
-   }
-  ],
-  "western-pennsylvania": [
-   {
-    "head": "Yisroel Rosenfeld",
-    "from": null,
-    "note": "not researched yet"
-   }
-  ],
-  "louisiana-mississippi": [
-   {
-    "head": "Zelig Rivkin",
-    "from": "1975-11"
-   }
-  ],
-  "newfoundland-and-labrador": [
-   {
-    "head": "Chanan Chernitsky",
-    "from": "2017-02"
+    "note": "'Sheya Hecht, who took over as headmaster of the school in 1992 when his father died' (New Haven Register, 2007); that he became head shliach then is the natural reading."
    }
   ],
   "new-jersey": [
@@ -195,108 +224,239 @@
     "note": "Appointed at the shloshim, on behalf of Merkos, 'with the support of a Vaad'; his father passed away 23 Jan 2025 (23 Teves 5785)."
    }
   ],
-  "florida": [
+  "new-mexico": [
    {
-    "head": "Avrohom Korf",
-    "from": "1960",
+    "head": "Chaim Shmukler",
+    "from": "1992"
+   }
+  ],
+  "newfoundland-and-labrador": [
+   {
+    "head": "Chanan Chernitsky",
+    "from": "2017-02"
+   }
+  ],
+  "northeast-ohio": [
+   {
+    "head": "Leibel Alevsky",
+    "from": "1972",
     "how": "stated",
     "confidence": "high",
-    "note": "sources on area US-FL:florida; from Feb 2020 with a vaad (events)"
+    "note": "sources on area US-OH:northeast-ohio"
    },
    {
-    "head": "Benjy (Bentzion) Korf",
-    "from": "2025-08",
+    "head": "Zushe Greenberg",
+    "from": "2026-04-20",
+    "how": "owner",
+    "note": "Alevsky passed away 20 Apr 2026 (3 Iyar 5786); nothing published names a successor; the owner's choice (Oct 10): \"let's do Greenberg for the Ohio area\". 'from' is Alevsky's passing."
+   }
+  ],
+  "oregon": [
+   {
+    "head": "Moshe Wilhelm",
+    "from": "1984-01"
+   }
+  ],
+  "pennsylvania": [
+   {
+    "head": "Avremel Shemtov",
+    "from": "1961"
+   }
+  ],
+  "rhode-island": [
+   {
+    "head": "Yehoshua Laufer",
+    "from": "1979"
+   }
+  ],
+  "southern-ohio": [
+   {
+    "head": "Sholom Ber Kalmanson",
+    "from": "1975-09",
     "how": "news",
+    "confidence": "high",
+    "note": "sources on area US-OH:southern-ohio"
+   },
+   {
+    "head": "Yisroel Mangel",
+    "from": "1995",
+    "how": "owner",
+    "note": "Owner, Nov 8: \"Kalmanson was kicked off the year after gimmel tammuz\" (Gimmel Tammuz 5754 was 12 June 1994); owner, Nov 1: \"Yisroel Mangel is head shliach of Southern Ohio\". That Mangel followed at once is the natural reading, not stated."
+   }
+  ],
+  "tennessee": [
+   {
+    "head": "Levi Klein",
+    "from": "1994"
+   }
+  ],
+  "texas": [
+   {
+    "head": "Shimon Lazaroff",
+    "from": "1972-05-10"
+   }
+  ],
+  "the-carolinas": [
+   {
+    "head": "Yossi Groner",
+    "from": "1980"
+   }
+  ],
+  "upper-midwest": [
+   {
+    "head": "Moshe Feller",
+    "from": "1961-12"
+   }
+  ],
+  "utah": [
+   {
+    "head": "Benny Zippel",
+    "from": "1992-07"
+   }
+  ],
+  "vermont": [
+   {
+    "head": "Yitzchok Raskin",
+    "from": "1984"
+   }
+  ],
+  "virginia": [
+   {
+    "head": "Yaakov Noach (Yankel) Kranz",
+    "from": "1976",
+    "name": "the Virginias",
+    "how": "stated",
+    "confidence": "high",
+    "note": "sources on area US-VA:virginia"
+   },
+   {
+    "head": "Yossel Kranz",
+    "from": "1991-08",
+    "how": "stated",
+    "confidence": "medium",
+    "note": "His father passed away on 6 Elul 5751 (16 Aug 1991) after directing Chabad in the state for 15 years; Yossel is the son who took over (executive director of 'Chabad of the Virginias' in 2011). When exactly he was named is not found."
+   }
+  ],
+  "washington": [
+   {
+    "head": "Sholom Ber Levitin",
+    "from": "1972",
+    "name": "Pacific Northwest",
+    "how": "stated",
     "confidence": "high",
     "sources": [
      {
-      "url": "https://anash.org/at-florida-kinus-merkos-names-new-head-shliach-of-florida/",
-      "title": "At Florida Kinus, Merkos Names New Head Shliach of Florida (Anash.org)",
-      "date": "2025-08-06",
-      "quote": "At the regional Kinus hashluchim of Florida – coinciding with the Shloshim of Florida's longtime Head Shliach, Rabbi Avraham Korf, a\"h – his son, Rabbi Bentzion Korf, Executive Director of the Lubavitch Educational Center (LEC) of Miami, was named as the new Head Shliach of the state of Florida."
+      "url": "https://www.chabadofseattle.org/templates/articlecco_cdo/aid/4495510/jewish/Our-Story.htm",
+      "title": "Our Story - Chabad Lubavitch of Greater Seattle",
+      "quote": "They came to Seattle in 1972, sent by the late Lubavitcher Rebbe Menachem Mendel Schneerson O.B.M."
+     },
+     {
+      "url": "https://anash.org/washington-and-arizona-pledge-10-new-shluchim/",
+      "title": "Washington Pledges 10 New Shluchim (Anash.org)",
+      "date": "2022-01-31",
+      "quote": "the story of how he was sent on shlichus by the Rebbe, as part of marking the Rebbe's shnas hashivim on Yud Alef Nissan Tof Shin Lamed Bais. The Rebbe said he would be adding seventy-one new institutions around the world. Rabbi and Rebbetzin Levitin were chosen as one of the Rebbe's new shluchim and so this year will also mark fifty years of Chabad of Washington State."
+     },
+     {
+      "url": "https://derher.org/wp-content/uploads/5785-1-10.pdf",
+      "title": "A Chassidisher Derher, 5785, 'Pinpoints'",
+      "quote": "Rabbi Sholom Ber Levitin, who traveled on shli- chus to Seattle in 5733, was appointed by the Rebbe for the Pacific Northwest, which included Alaska. He held ...",
+      "note": "the search index's excerpt (Firecrawl search); the PDF itself was not read (derher.org blocks plain downloads)"
      }
-    ]
+    ],
+    "note": "Chosen after 11 Nissan 5732 (March 1972); 5733 runs Sept 1972 - Sept 1973. Anash.org (Aug 4 2021) dates the founding of Chabad of the Pacific North West to 1973."
+   }
+  ],
+  "washington-dc": [
+   {
+    "head": "Levi Shemtov",
+    "from": "1992"
+   }
+  ],
+  "west-coast": [
+   {
+    "head": "Shlomo Cunin",
+    "from": "1965"
+   }
+  ],
+  "western-pennsylvania": [
+   {
+    "head": "Yisroel Rosenfeld",
+    "from": null,
+    "note": "not researched yet"
+   }
+  ],
+  "wisconsin": [
+   {
+    "head": "Yisroel Shmotkin",
+    "from": "1968-10"
    }
   ]
  },
  "areas": {
-  "US-WA:washington": [
+  "CA-AB:alberta": [
    {
     "shetach": "washington",
     "from": "1972",
-    "how": "owner"
-   }
-  ],
-  "US-OR:oregon": [
-   {
-    "shetach": "washington",
-    "from": "1972",
-    "how": "owner"
+    "how": "owner",
+    "note": "Owner, Nov 8: \"maybe even, I think the province next to British Columbia, I think maybe that's it. I'm not sure, though.\""
    },
    {
-    "shetach": "oregon",
-    "from": "1984-01",
-    "how": "news",
-    "confidence": "high",
-    "sources": [
-     {
-      "url": "https://collive.com/oregon-recalls-fresh-shliach/",
-      "title": "Oregon Recalls Fresh Shliach (Polina Olsen, Jewish Review, on COLlive)",
-      "date": "2009-01-08",
-      "quote": "Then, in February 1984, one article announced “New family arrives here,” with photos of Rabbi Moshe Wilhelm, his wife Devorah and their two young children, Motti and Simi. They'd just spent two years in Australia and came to Portland at the request of the New York Chabad Lubavitch Rebbe."
-     },
-     {
-      "url": "https://www.jewishportland.org/jewishreview/jr-stories/monthly-mitzvah-tzedakah",
-      "title": "Monthly Mitzvah: Tzedakah (Jewish Review)",
-      "quote": "On Jan. 15, 1984 (Rosh Chodesh Shevat), Rabbi Moshe Wilhelm and family arrived in Portland and founded Chabad of Oregon."
-     }
-    ],
-    "note": "15 Jan 1984 was 11 Shevat 5744; Rosh Chodesh Shevat was 5 Jan, so the day is uncertain; January 1984 either way."
-   }
-  ],
-  "US-ID:idaho": [
-   {
-    "shetach": "washington",
-    "from": "1972",
-    "how": "owner"
-   },
-   {
-    "shetach": "idaho",
-    "from": "2004-04",
+    "shetach": "alberta",
+    "from": "1988",
     "how": "stated",
     "confidence": "high",
     "sources": [
      {
-      "url": "https://www.jewishidaho.com/about",
-      "title": "Chabad Lubavitch of Idaho, About",
-      "quote": "Rabbi & Mrs. Lifshitz moved to Boise in April 2004 to establish Chabad Lubavitch of Idaho",
-      "via": "data/founding-years.json, 118662"
+      "url": "https://jhssa.org/wp-content/uploads/2023/02/Chabad-Lubavitch-of-Alberta-fonds.pdf",
+      "title": "Chabad-Lubavitch of Alberta fonds (Jewish Historical Society of Southern Alberta)",
+      "via": "data/founding-years.json, 117787",
+      "note": "Chabad became a full-time presence in Calgary in 1988 with the arrival of Rabbi Menachem and Rochel Matusof; its emissaries first came in 1981 to run a summer day camp. One Lubavitch.com piece says 1986."
      }
-    ],
-    "note": "the first Chabad shluchim in Idaho"
+    ]
    }
   ],
-  "US-MT:montana": [
+  "CA-BC:british-columbia": [
    {
     "shetach": "washington",
     "from": "1972",
     "how": "owner"
    },
    {
-    "shetach": "montana",
-    "from": "2007",
+    "shetach": "british-columbia",
+    "from": "1974-11",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.lubavitch.com/celebrating-30-years-in-vancouver/",
+      "title": "Celebrating 30 Years in Vancouver (Lubavitch.com)",
+      "quote": "They arrived with one young baby in November 1974 and set about revitalizing the Jewish infrastructure in Vancouver."
+     },
+     {
+      "url": "https://www.jewishindependent.ca/gold-plate-celebration/",
+      "title": "Gold Plate celebration (Jewish Independent)",
+      "date": "2014-12-19",
+      "quote": "Chabad Lubavitch BC held its 39th Annual Gold Plate Dinner, paying tribute to the Rebbe, his vision and 40 years in British Columbia on Dec. 2, at Schara Tzedeck Synagogue."
+     }
+    ],
+    "note": "The Western Jewish Bulletin (28 Oct 2005, now offline) as quoted by a search: 'It was November 1974 when the rabbi first came to Vancouver on a mission directed by the late Lubavitcher Rebbe'."
+   }
+  ],
+  "CA-NL:newfoundland-and-labrador": [
+   {
+    "shetach": "newfoundland-and-labrador",
+    "from": "2017-02",
     "how": "news",
     "confidence": "high",
     "sources": [
      {
-      "url": "https://crownheights.info/shlichus/5515/bozeman-getting-full-time-rabbi",
-      "title": "Bozeman Getting Full-Time Rabbi (CrownHeights.info, from the Bozeman press)",
-      "date": "2007-03-13",
-      "quote": "A Jewish rabbi is moving here",
-      "via": "data/founding-years.json, 486805"
+      "url": "https://crownheights.info/shlichus/567832/new-shluchim-to-newfoundland",
+      "title": "New Shluchim to Newfoundland (CrownHeights.info)",
+      "via": "data/founding-years.json, 3610901",
+      "note": "the Chernitskys moved from Montreal to St. John's in February 2017 (also Jewish Press, 1 Mar 2017)"
      }
     ],
-    "note": "Chaim and Chavie Bruk 'arrived in Bozeman in early 2007' (J., Aug 2009); the first permanent Chabad center in Montana."
+    "note": "Owner, Nov 8: \"Newfoundland, I think, only got one recently, maybe.\""
    }
   ],
   "US-AK:alaska": [
@@ -329,94 +489,606 @@
     ]
    }
   ],
-  "CA-BC:british-columbia": [
+  "US-AL:alabama": [
+   {
+    "shetach": "alabama",
+    "from": "1982",
+    "how": "stated",
+    "confidence": "medium",
+    "sources": [
+     {
+      "url": "https://www.chabad.org/article.asp?aid=585088",
+      "title": "Chabad of Alabama",
+      "via": "data/founding-years.json, 117538",
+      "note": "A Chabad.org article: Rabbi Yosef Posner 'settled here with wife Frumie in 1987' (the Friedmans joined in 1993). But in the Huntsville Times (Sept 2010) Rabbi Posner recalled 'my beginning here in Birmingham (in the early '80s)' — perhaps visits before he settled. Checked (Nov 7): Southern Jewish Life, July 10 2026 ('Chabad of Alabama establishes a foundation', https://southernjewishlife.substack.com/p/chabad-of-alabama-establishes-a-foundation): 'Chabad in Birmingham was established in 1982, the Posners arrived in 1987.' That fits Rabbi Posner's 'my beginning here in Birmingham (in the early '80s)'; so the year is Chabad's start in Birmingham, 1982 (was 1987, the Posners' settling). Medium: who began it in 1982 isn't said."
+     }
+    ]
+   }
+  ],
+  "US-AR:arkansas": [
+   {
+    "shetach": "arkansas",
+    "from": "1992",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.govinfo.gov/content/pkg/CREC-2025-03-27/html/CREC-2025-03-27-pt1-PgH1305-6.htm",
+      "title": "Lubavitch of Arkansas",
+      "via": "data/founding-years.json, 117902",
+      "note": "Congressional Record, 27 Mar 2025 (guest chaplain): Rabbi Ciment moved to Little Rock with his wife in 1992; his profile (opensiddur.org): 'In 1992, he and his wife established themselves in Little Rock, Arkansas as Shluchim'; the Jewish Virtual Library lists Lubavitch of Arkansas (1992). One UALR page says 'founded in 1993'."
+     }
+    ]
+   }
+  ],
+  "US-AZ:arizona": [
+   {
+    "shetach": "arizona",
+    "from": "1977-01",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.jewishaz.com/community/chabad-celebrates-50-years-in-arizona/article_1bf059b4-675e-41a4-a645-9f56413979bf.html",
+      "title": "Chabad Lubavitch of Arizona",
+      "via": "data/founding-years.json, 117539",
+      "note": "Jewish News of Greater Phoenix (8 June 2026, 'Chabad celebrates 50 years in Arizona'): 'Shortly after arriving in January 1977, Zalman and Tzipi mailed over 5,000 shalach manos'; 'Chabad also organized a megillah reading in February 1977'. The Jewish News (8 Feb 2002, its 25th anniversary): 'The synagogue first met in a garage at Third Avenue and McDowell Road. In 1978, Chabad moved to Maryland Avenue and 15th Street'; 'In 1990, the congregation moved to its current location at 2110 E. Lincoln Drive in Phoenix' (bought in 1989, per the 2026 article). One Jewish News piece (2 June 2026) has them moving to Phoenix 'in 1976'."
+     }
+    ]
+   }
+  ],
+  "US-CA:west-coast": [
+   {
+    "shetach": "west-coast",
+    "from": "1965",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://derher.org/wp-content/uploads/22-av-5774-09.pdf",
+      "title": "A Chassidisher Derher, Av 5774, 'Conquering California' (interview with Rabbi Shlomo Cunin)",
+      "quote": "After Pesach I had the tremendous zechus of being sent by the Rebbe to California as the fifth Shliach of the Rebbe in the USA."
+     },
+     {
+      "url": "https://jweekly.com/2014/06/20/the-rebbes-army-chabad-keeps-growing-in-the-bay-area/",
+      "title": "Chabad West Coast Headquarters",
+      "via": "data/founding-years.json, 117555",
+      "note": "J. (June 2014): 'In 1965 he [the Rebbe] sent Rabbi Boruch Shlomo Cunin to Los Angeles'; Wikipedia (Shlomo Cunin): appointed head shliach to the West Coast in 1965, though it also says he 'began West Coast Chabad in 1967'. The headquarters is at 741 Gayley Ave, the UCLA Chabad House (bought 1969). therebbesimpact.com's 1959 is wrong. Checked (Nov 6): Chabad.org ('Nothing is Impossible', by Rabbi Cunin): 'Since 1965, Rabbi Shlomo Cunin has served as the director of Chabad of the West Coast'."
+     }
+    ],
+    "note": "After Pesach 5725 (Pesach ended 24 Apr 1965). The Rebbe at the parting yechidus: 'You should conquer the entire California!'"
+   }
+  ],
+  "US-CO:colorado": [
+   {
+    "shetach": "colorado",
+    "from": "1978",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.coloradochabad.com/templates/articlecco_cdo/aid/6076298/jewish/In-Tribute.htm",
+      "title": "In Tribute (Chabad Lubavitch of Colorado)",
+      "quote": "Rabbi Popack founded Chabad Lubavitch of Colorado in 1978 and served as its director until his passing in 2022.",
+      "note": "read through WebFetch"
+     }
+    ]
+   }
+  ],
+  "US-CT:connecticut": [
+   {
+    "shetach": "connecticut",
+    "from": null,
+    "fromBound": {
+     "after": "1974",
+     "by": "1990"
+    },
+    "how": "range",
+    "confidence": "range",
+    "sources": [
+     {
+      "url": "https://collive.com/the-rebbes-child/",
+      "title": "The Rebbe's Child (Rabbi Yisrael and Vivi Deren, Chabad of Connecticut and Western Massachusetts; COLlive)",
+      "date": "2024-05-24",
+      "quote": "Sixteen years later, Rabbi Chadakov called to let me know that Stamford desperately needed a shliach. It had been made clear through other interactions that Merkos considered me wholly responsible for the entire state of Connecticut, so Stamford's problem was my problem.",
+      "note": "Merkos (Rabbi Chadakov) assigned them to Amherst, Massachusetts; 'the Rebbe circled Amherst'. Elsewhere: sent in 1974 to establish a Chabad House at UMass Amherst; the organization was 'Chabad-Lubavitch of Western and Southern New England'."
+     }
+    ],
+    "note": "Deren's region grew from Western Massachusetts into Connecticut (a 1985 account, as a search quotes it: he 'started the Chabad Houses in Amherst, then Springfield and in northern Connecticut'); by about 1990 ('Sixteen years later') Merkos counted all of Connecticut his. New Haven County stayed the Hechts'."
+   }
+  ],
+  "US-CT:new-haven": [
+   {
+    "shetach": "new-haven",
+    "from": "1946",
+    "how": "stated",
+    "confidence": "medium",
+    "sources": [
+     {
+      "url": "https://crownheights.info/shlichus/9720/3-generations-of-hechts-prove-strong-mentors",
+      "title": "3 Generations of Hechts Prove Strong Mentors (New Haven Register, on CrownHeights.info)",
+      "date": "2007-12-24",
+      "quote": "his own father, the late Rabbi Moshe Yitzchok Hecht, founded the New Haven Hebrew Day School in the 1940s beginning with a few students. Moshe Hecht also brought the Chabad movement to Greater New Haven"
+     }
+    ],
+    "note": "1946: Chabadpedia (a lead): the Frierdiker Rebbe sent Rabbi Moshe Yitzchak Hecht in Elul 1946; his wife 'arrived in New Haven in 1946' (a Chabad.org-hosted account, as a search quotes it)."
+   }
+  ],
+  "US-DC:washington-dc": [
+   {
+    "shetach": "maryland",
+    "from": null,
+    "fromBound": {
+     "after": "1973-09",
+     "by": "1980-09"
+    },
+    "how": "stated",
+    "confidence": "medium",
+    "sources": [
+     {
+      "url": "https://derher.org/wp-content/uploads/5785-7-10.pdf",
+      "title": "A Chassidisher Derher, Nissan 5785, 'Pinpoints: Baltimore, MD'",
+      "quote": "At one point in the late 5730s, he was considering whether to open a Chabad House in Washington, D.C. for students or whether to open a Chabad house 10 miles outside the city, where most D.C. commuters lived. ... When Rabbi Kaplan later wrote (in the summer of 5745) that he was interested in opening a Jewish center in the heart of Washington, the Rebbe wrote that he could do so \"if there will be a proper administration.\""
+     }
+    ],
+    "note": "Washington was the Maryland head's to open in (late 5730s, summer 5745). Separately, American Friends of Lubavitch, Chabad's government office in Washington, was directed by Rabbi Avremel Shemtov of Philadelphia (his letterhead in 1981), Levi Shemtov's father. To confirm with the owner."
+   },
+   {
+    "shetach": "washington-dc",
+    "from": "1992",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.jta.org/2020/12/06/politics/joe-biden-poured-him-a-drink-and-he-gave-jared-kushner-an-aliyah-rabbi-levi-shemtov-is-optimistic-about-d-c-s-transition",
+      "title": "American Friends of Lubavitch (Chabad)",
+      "via": "data/founding-years.json, 117966",
+      "note": "JTA (Dec 2020): Rabbi Levi Shemtov has run Chabad's Washington operations since 1992; Washington Jewish Week: in the early 1990s it worked out of a small Capitol Hill townhouse; the $2 million center in the embassy district opened in July 1999 (Washington Post). American Friends of Lubavitch itself, under Rabbi Abraham Shemtov, was active in Washington by 1984."
+     }
+    ]
+   }
+  ],
+  "US-DE:delaware": [
+   {
+    "shetach": "delaware",
+    "from": "1987",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.chabad.org/article.asp?aid=2436773",
+      "title": "Chabad Lubavitch of Delaware",
+      "via": "data/founding-years.json, 117586",
+      "note": "'Chabad of Delaware was launched in 1987, recalled Rabbi Chuni Vogel'; elsewhere 'established in 1987'; CrownHeights.info: the Vogels, 'regional directors of Chabad-Lubavitch of Delaware since 1987'."
+     }
+    ]
+   }
+  ],
+  "US-FL:florida": [
+   {
+    "shetach": "florida",
+    "from": "1960",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://crownheights.info/chabad-news/914330/bde-rabbi-avrohom-korf-92-obm",
+      "title": "BDE: Rabbi Avrohom Korf, 92, OBM (CrownHeights.info)",
+      "date": "2025-07-08",
+      "quote": "When the Korfs arrived in Miami Beach in 1960, they found themselves in a Jewish dessert, void of spiritual life."
+     }
+    ]
+   }
+  ],
+  "US-GA:georgia": [
+   {
+    "shetach": "georgia",
+    "from": "1984",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://crownheights.info/shlichus/8482/the-rebbes-minyan",
+      "title": "Chabad Lubavitch of Georgia",
+      "via": "data/founding-years.json, 117607",
+      "note": "The Atlanta Jewish Times (CrownHeights.info, 9 Oct 2007, 'The Rebbe's Minyan'): 'When Rabbi New arrived in what is now the city of Sandy Springs in 1984 ... he set up the only Chabad center in Georgia, dubbed Chabad of Georgia'; also 'since Rabbi Yossi New arrived 23 years ago in an area where Chabad had failed to establish a foothold more than a decade earlier'. Chabad.org (CrownHeights.info, 9 Sept 2014): 'It's been 30 years since Rabbi Yossi and Dassie New first arrived in Atlanta'; '\"It was 1984 ...\"'. Its synagogue is Congregation Beth Tefillah, Sandy Springs."
+     }
+    ]
+   }
+  ],
+  "US-HI:hawaii": [
+   {
+    "shetach": "hawaii",
+    "from": "1987-08",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.chabad.org/article.asp?aid=596066",
+      "title": "Chabad of Hawaii",
+      "via": "data/founding-years.json, 117608",
+      "note": "Chabad.org, 18 Nov 2007: Rabbi Itchel and Pearl Krasnjansky 'arrived in August 1987 with a toddler'; 'the culmination of 20 years of Chabad-Lubavitch activities in Hawaii'. The Star-Bulletin (2001): they moved from New York about 14 years before. lubavitch.com's center directory as archived Dec 28 2009 lists it at 410 Atkinson Drive, the Ala Moana Hotel, Honolulu; it is now at 2241 Kapiolani Blvd 6th Floor, so it moved after 2009 (dated below). Archived copies of its chabad.org listing (Wayback Machine) date the move: still at that address in Feb 2015; so it moved to the present address after Feb 2015."
+     }
+    ]
+   }
+  ],
+  "US-IA:iowa": [
+   {
+    "shetach": "iowa",
+    "from": "1992",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://crownheights.info/shlichus/521853/in-iowa-rabbi-serves-up-great-food-and-greater-wisdom",
+      "title": "Lubavitch of Iowa",
+      "via": "data/founding-years.json, 117609",
+      "note": "Chabad.org: 'Since 1992, when Rabbi Yossi and Chanie Jacobson first established Lubavitch of Iowa in Des Moines'; the Jewish Virtual Library also has 1992."
+     }
+    ]
+   }
+  ],
+  "US-ID:idaho": [
    {
     "shetach": "washington",
     "from": "1972",
     "how": "owner"
    },
    {
-    "shetach": "british-columbia",
-    "from": "1974-11",
+    "shetach": "idaho",
+    "from": "2004-04",
     "how": "stated",
     "confidence": "high",
     "sources": [
      {
-      "url": "https://www.lubavitch.com/celebrating-30-years-in-vancouver/",
-      "title": "Celebrating 30 Years in Vancouver (Lubavitch.com)",
-      "quote": "They arrived with one young baby in November 1974 and set about revitalizing the Jewish infrastructure in Vancouver."
-     },
-     {
-      "url": "https://www.jewishindependent.ca/gold-plate-celebration/",
-      "title": "Gold Plate celebration (Jewish Independent)",
-      "date": "2014-12-19",
-      "quote": "Chabad Lubavitch BC held its 39th Annual Gold Plate Dinner, paying tribute to the Rebbe, his vision and 40 years in British Columbia on Dec. 2, at Schara Tzedeck Synagogue."
+      "url": "https://www.jewishidaho.com/about",
+      "title": "Chabad Lubavitch of Idaho, About",
+      "quote": "Rabbi & Mrs. Lifshitz moved to Boise in April 2004 to establish Chabad Lubavitch of Idaho",
+      "via": "data/founding-years.json, 118662"
      }
     ],
-    "note": "The Western Jewish Bulletin (28 Oct 2005, now offline) as quoted by a search: 'It was November 1974 when the rabbi first came to Vancouver on a mission directed by the late Lubavitcher Rebbe'."
+    "note": "the first Chabad shluchim in Idaho"
    }
   ],
-  "CA-AB:alberta": [
+  "US-IN:indiana": [
    {
-    "shetach": "washington",
-    "from": "1972",
-    "how": "owner",
-    "note": "Owner, Nov 8: \"maybe even, I think the province next to British Columbia, I think maybe that's it. I'm not sure, though.\""
+    "shetach": "southern-ohio",
+    "from": "1975-09",
+    "how": "owner"
    },
    {
-    "shetach": "alberta",
-    "from": "1988",
-    "how": "stated",
+    "shetach": "indiana",
+    "from": "1981",
+    "how": "anniversary",
     "confidence": "high",
     "sources": [
      {
-      "url": "https://jhssa.org/wp-content/uploads/2023/02/Chabad-Lubavitch-of-Alberta-fonds.pdf",
-      "title": "Chabad-Lubavitch of Alberta fonds (Jewish Historical Society of Southern Alberta)",
-      "via": "data/founding-years.json, 117787",
-      "note": "Chabad became a full-time presence in Calgary in 1988 with the arrival of Rabbi Menachem and Rochel Matusof; its emissaries first came in 1981 to run a summer day camp. One Lubavitch.com piece says 1986."
+      "url": "https://crownheights.info/shlichus/477354/after-34-years-new-home-for-indiana-jewish-community",
+      "title": "After 34 Years, New Home for Indiana Jewish Community (Chabad.org, via CrownHeights.info)",
+      "date": "2015-03-16",
+      "via": "data/founding-years.json, 117619",
+      "note": "Rabbi Avrohom and Nini Grossbaum, 'more than three decades in Indianapolis'; their son's page: sent by the Rebbe 'in the early 1980's'."
      }
     ]
    }
   ],
-  "US-OH:northeast-ohio": [
+  "US-KS:kansas-missouri": [
    {
-    "shetach": "northeast-ohio",
-    "from": "1972",
-    "how": "stated",
-    "confidence": "high",
-    "sources": [
-     {
-      "url": "https://localjewishnews.com/2014/07/03/chabad-extends-outreach-from-eight-northeast-ohio-locations/",
-      "title": "Chabad extends outreach from eight Northeast Ohio locations (Cleveland Jewish News)",
-      "date": "2014-07-03",
-      "quote": "When Rabbi Leibel Alevsky and his wife, Devorah, were sent to Cleveland in 1972 by Rabbi Menachem Mendel Schneerson to establish the first Chabad house in Cleveland and eastern Ohio, they could not have imagined how the movement would grow regionally under their leadership."
-     },
-     {
-      "url": "https://crownheights.info/chabad-news/944830/rabbi-leibel-alevsky-86-powerhouse-innovator-who-built-chabad-in-cleveland/",
-      "title": "Rabbi Leibel Alevsky, 86, Powerhouse Innovator Who Built Chabad in Cleveland (CrownHeights.info)",
-      "date": "2026-04-27",
-      "quote": "Over his five decades as executive director of Chabad of Cleveland, Alevsky touched thousands of lives"
-     }
-    ],
-    "note": "Alevsky came three years before Kalmanson, so this part of Ohio was never Kalmanson's (the owner, Nov 8: \"Could be there was a Levski already, though\")."
-   }
-  ],
-  "US-OH:southern-ohio": [
-   {
-    "shetach": "southern-ohio",
-    "from": "1975-09",
+    "shetach": "kansas-missouri",
+    "from": "1970-01",
     "how": "news",
     "confidence": "high",
     "sources": [
      {
-      "url": "https://www.cincinnatijudaicafund.com/Detail/objects/1593",
-      "title": "Article on the Cincinnati Chabad Movement and Rabbi Sholom B. Kalmanson, 5.10.1977 (Cincinnati Judaica Fund)",
-      "date": "1977-05-10",
-      "quote": "The Local Chabad House has been operating since September 1975, first at 7719 Reading Road, Roselawn, and since last July on Summit Road.",
-      "note": "the catalogue's description of a May 1977 Cincinnati Post article, from the search index (the page itself has a robot check)"
+      "url": "https://www.jta.org/archive/lubavitcher-educational-organization-opens-branch-in-kansas-city",
+      "title": "Lubavitcher Educational Organization Opens Branch in Kansas City (JTA)",
+      "date": "1970-01-06",
+      "quote": "Markos L'Inyonei Chinuch, the educational arm of the Lubavitcher movement, has opened its eighth regional office in the United States at Kansas City, Mo. The new office, which will serve the states of Missouri and Kansas, is headed by Rabbi Sholem B. Wineberg, 24, a graduate of the Central Lubavitcher Yeshiva."
+     }
+    ]
+   }
+  ],
+  "US-KY:kentucky": [
+   {
+    "shetach": "southern-ohio",
+    "from": "1975-09",
+    "how": "owner"
+   },
+   {
+    "shetach": "kentucky",
+    "from": "1985-03",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://jewishlouisville.org/?p=21171",
+      "title": "Chabad at 30 (Jewish Louisville)",
+      "date": "2015-01-22",
+      "quote": "In March of 1985, Rabbi Avrohom and Goldie Litvin moved to Louisville",
+      "via": "data/founding-years.json, 117621"
+     }
+    ]
+   }
+  ],
+  "US-LA:louisiana-mississippi": [
+   {
+    "shetach": "louisiana-mississippi",
+    "from": "1975-11",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.chabadneworleans.com/221664",
+      "title": "Chabad of Louisiana, history",
+      "quote": "In November of 1975",
+      "via": "data/founding-years.json, 117623",
+      "note": "the Rebbe sent Rabbi Zelig and Bluma Rivkin to New Orleans (a Chabad.org obituary's 1973 is an outlier)"
+     }
+    ]
+   }
+  ],
+  "US-MA:connecticut": [
+   {
+    "shetach": "connecticut",
+    "from": "1974",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://collive.com/the-rebbes-child/",
+      "title": "The Rebbe's Child (Rabbi Yisrael and Vivi Deren, Chabad of Connecticut and Western Massachusetts; COLlive)",
+      "date": "2024-05-24",
+      "quote": "Sixteen years later, Rabbi Chadakov called to let me know that Stamford desperately needed a shliach. It had been made clear through other interactions that Merkos considered me wholly responsible for the entire state of Connecticut, so Stamford's problem was my problem.",
+      "note": "Merkos (Rabbi Chadakov) assigned them to Amherst, Massachusetts; 'the Rebbe circled Amherst'. Elsewhere: sent in 1974 to establish a Chabad House at UMass Amherst; the organization was 'Chabad-Lubavitch of Western and Southern New England'."
      }
     ],
-    "note": "Summer 5735 (1975) by another account."
+    "note": "Western Massachusetts (Amherst, then Springfield): Deren's from 1974."
+   }
+  ],
+  "US-MD:maryland": [
+   {
+    "shetach": "maryland",
+    "from": null,
+    "fromBound": {
+     "after": "1973-09",
+     "by": "1974-09"
+    },
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://derher.org/wp-content/uploads/5785-7-10.pdf",
+      "title": "A Chassidisher Derher, Nissan 5785, 'Pinpoints: Baltimore, MD' (with thanks to Rabbi Shmuel Kaplan, 'head shliach of the state of Maryland')",
+      "quote": "In 5734, Rabbi Shmuel and Mrs. Rochel Kaplan were sent by the Rebbe on shlichus to Baltimore. ... The Rebbe also made it clear that Rabbi Kaplan should be based in Baltimore, and not live in another area (although the Rebbe did allow him to bring shluchim to other places).",
+      "note": "Before him, Rabbi Yitzchok (Itche) Springer was the Rebbe's shliach in Baltimore from the 5720s (a teacher who opened a Beis Lubavitch) until 5732."
+     }
+    ],
+    "note": "5734 runs Sept 1973 - Sept 1974."
+   }
+  ],
+  "US-ME:maine": [
+   {
+    "shetach": "maine",
+    "from": "1987",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.chabadofmaine.com/templates/articlecco_cdo/aid/6052817/jewish/Meet-our-Staff.htm",
+      "title": "Chabad Lubavitch of Maine",
+      "via": "data/founding-years.json, 117638",
+      "note": "Its staff page: 'He arrived in Portland, Maine together with his wife Chana in 1987'; a Portland Press Herald piece by his son and a 2019 travel article ('since 1987') agree. lubavitch.com's center directory as archived Aug 30 2011 lists it at 101 Craigie Street, Portland; it is now at 11 Pomeroy street, so it moved after 2011 (when, not found)."
+     },
+     {
+      "url": "https://derher.org/wp-content/uploads/5785-3-9.pdf",
+      "title": "A Chassidisher Derher, Kislev 5785, 'Pinpoints: Oklahoma'",
+      "quote": "Around that time, the Rebbe approved a plan to open new branches of Merkos in four states, and they were offered the opportunity to open a branch in Oklahoma.",
+      "note": "'this would be a new branch of Merkos, so Rabbi Hodakov gave his authorization'; Rabbi Weg 'to open a new branch in the state of Oklahoma and Rabbi Wilansky in the state of Maine'; 'The Wegs arrived in Oklahoma right after Pesach' (5747)"
+     }
+    ],
+    "note": "One of the new Merkos branches of 5747 (Derher, above)."
+   }
+  ],
+  "US-MN:upper-midwest": [
+   {
+    "shetach": "upper-midwest",
+    "from": "1961-12",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://derher.org/wp-content/uploads/10-tammuz-5773-06.pdf",
+      "title": "A Chassidisher Derher, Tammuz 5773, interview with Rabbi Moshe Feller",
+      "quote": "We received instructions from the Merkos office that we would be the fourth division of Merkos to be opened by Shluchim in USA.",
+      "note": "married 14 Kislev 5722; parting yechidus 13 Teves 5722 (20 Dec 1961) 'leading up to our imminent departure to Shlichus'"
+     },
+     {
+      "url": "https://crownheights.info/shlichus/533631/after-55-years-of-work-in-minnesota-couple-to-be-honored",
+      "title": "Upper Midwest Merkos - Lubavitch House",
+      "via": "data/founding-years.json, 117647",
+      "note": "Chabad.org (on CrownHeights.info, 17 May 2016): 'It's been 55 years since Rabbi Moshe and Mindelle Feller set out to found Upper Midwest Merkos–Chabad Lubavitch in Minnesota in the winter of 1961, a mere month after their marriage.' Mindelle Feller's obituary (CrownHeights.info, 6 Dec 2017): she moved there with her husband 'to found Chabad-Lubavitch of Minnesota in 1961'. Medium: Chabad.org (on CrownHeights.info, 24 Jan 2012, 'Marking Half a Century') says 'That was in 1962'. Homes (2016 article): 'After two years of living in the rabbi's father's house in Minneapolis', St. Paul; 'In 1965, the Fellers opened the Lubavitch House in a 12-room home'; it 'was burned by arsonists in 1968', then 'a mansion in Highland Park'; 'In 2000, Chabad again relocated to a new 23,000-square-foot facility in West St. Paul' (400 Marie Ave. W.)."
+     }
+    ],
+    "note": "the Rebbe's word to Feller's father: 'We'll send Moshe to Minnesota!'; Upper Midwest Merkos from the winter of 1961-62"
+   }
+  ],
+  "US-MO:kansas-missouri": [
+   {
+    "shetach": "kansas-missouri",
+    "from": "1970-01",
+    "how": "news",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.jta.org/archive/lubavitcher-educational-organization-opens-branch-in-kansas-city",
+      "title": "Lubavitcher Educational Organization Opens Branch in Kansas City (JTA)",
+      "date": "1970-01-06",
+      "quote": "Markos L'Inyonei Chinuch, the educational arm of the Lubavitcher movement, has opened its eighth regional office in the United States at Kansas City, Mo. The new office, which will serve the states of Missouri and Kansas, is headed by Rabbi Sholem B. Wineberg, 24, a graduate of the Central Lubavitcher Yeshiva."
+     }
+    ],
+    "note": "Both states from the start. St. Louis's Chabad (Rabbi Yosef Landa, 1980) came within it; its directory listing says Chabad of Greater St. Louis 'covers Missouri and southern Illinois'."
+   }
+  ],
+  "US-MS:louisiana-mississippi": [
+   {
+    "shetach": "louisiana-mississippi",
+    "from": "2014-08",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.chabadneworleans.com/221664",
+      "title": "Chabad of Louisiana, history",
+      "quote": "In August of 2014 Chabad of Southern Mississippi was founded in Biloxi serving the Gulf Coast region",
+      "via": "data/founding-years.json, 2637896"
+     }
+    ],
+    "note": "Owner, Nov 8: areas \"that just never had, like Mississippi, until Rifkin sent the shliach there\" (Rabbi Akiva and Hannah Hall)."
+   }
+  ],
+  "US-MT:montana": [
+   {
+    "shetach": "washington",
+    "from": "1972",
+    "how": "owner"
+   },
+   {
+    "shetach": "montana",
+    "from": "2007",
+    "how": "news",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://crownheights.info/shlichus/5515/bozeman-getting-full-time-rabbi",
+      "title": "Bozeman Getting Full-Time Rabbi (CrownHeights.info, from the Bozeman press)",
+      "date": "2007-03-13",
+      "quote": "A Jewish rabbi is moving here",
+      "via": "data/founding-years.json, 486805"
+     }
+    ],
+    "note": "Chaim and Chavie Bruk 'arrived in Bozeman in early 2007' (J., Aug 2009); the first permanent Chabad center in Montana."
+   }
+  ],
+  "US-NC:the-carolinas": [
+   {
+    "shetach": "the-carolinas",
+    "from": "1980",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://crownheights.info/shlichus/14624/a-home-at-chabad",
+      "title": "Chabad Center for Jewish Life",
+      "via": "data/founding-years.json, 117649",
+      "note": "The News & Observer (CrownHeights.info, 12 Dec 2008): 'The first Chabad House in the Tar Heel state was started in 1980 by Rabbi Yossi Groner of Charlotte.' Chabad.org (CrownHeights.info, 29 March 2025): 'Chabad in Charlotte was founded by Mushka's grandparents, Rabbi Yossi and Mariashi Groner, in 1980'. Rabbi Groner's own account (JEM, interviewed 2013; Anash.org, 9 Oct 2025): head emissary to North and South Carolina 'since 1980'; other biographies: sent 'in the summer of 1980'."
+     }
+    ],
+    "note": "The shetach is both states (the owner's data); Groner's first house was Charlotte (1980)."
+   }
+  ],
+  "US-ND:upper-midwest": [
+   {
+    "shetach": "upper-midwest",
+    "from": "2011",
+    "how": "stated",
+    "confidence": "medium",
+    "sources": [
+     {
+      "url": "https://crownheights.info/chabad-news/910251/north-dakotas-new-mikvah-returns-pillar-of-jewish-life-to-northern-plains",
+      "title": "Chabad Jewish Center of North Dakota",
+      "via": "data/founding-years.json, 2027612",
+      "note": "Chabad.org (on CrownHeights.info, 28 May 2025): 'When she and her husband, Rabbi Yonah Grossman, moved to Fargo in 2011'; Valley News Live (5 Dec 2021): 'Rabbi Yonah and his wife Esti Grossman moved to Fargo in 2011 to open the Chabad Jewish Center'. Medium: Lubavitch.com (on CrownHeights.info, 21 Nov 2012) calls them the Grossmans 'who have recently moved to Fargo', announced at that month's Kinus, and the chabad.org listing went up Nov 6 2012. Now 1234 Broadway N."
+     }
+    ],
+    "note": "North Dakota's first Chabad center; the state is in the Upper Midwest shetach (the owner's data)."
+   }
+  ],
+  "US-NE:nebraska": [
+   {
+    "shetach": "nebraska",
+    "from": "1986",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://building.ochabad.com",
+      "title": "Chabad-Lubavitch of Nebraska",
+      "via": "data/founding-years.json, 117651",
+      "note": "The center's own building site: 'Touching Hearts since 1986'; a 2018 feature: the Katzmans were assigned to Omaha in 1986 (chaptzem.blogspot.com, 'Joyful Hasidic couple have spread light'). A 1992 notice spoke of 'five years of consistent programming' and a 2005 article of the 18th anniversary, both 1987: the first programs may be 1987."
+     }
+    ],
+    "note": "Nebraska's own timeline calls the Katzmans the Rebbe's emissaries 'to the Mid-American region' (1986): whether that meant more than Nebraska is not known."
+   }
+  ],
+  "US-NH:new-hampshire": [
+   {
+    "shetach": "new-hampshire",
+    "from": "1989",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://jewishnh.org/community-directory/chabadlubavitch-of-new-hampshire",
+      "title": "Chabad of New Hampshire",
+      "via": "data/founding-years.json, 117652",
+      "note": "'Chabad Lubavitch of New Hampshire, founded in 1989'; the Krinskys 'have been based out of central Manchester since 1989'. The state's first Chabad house. lubavitch.com's center directory as archived Aug 31 2011 lists it at 7 Camelot Place, Manchester; it is now at 1234 River Road, so it moved after 2011 (when, not found)."
+     }
+    ]
+   }
+  ],
+  "US-NJ:new-jersey": [
+   {
+    "shetach": "new-jersey",
+    "from": "1965",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://anash.org/rabbi-moshe-herson-90-ah/",
+      "title": "Rabbi Moshe Herson, 90, A\"H (Anash.org)",
+      "date": "2025-01-23",
+      "quote": "After his chasunah, in 5725 (1965), the Rebbe appointed Rabbi Herson as his shliach to the state of New Jersey."
+     }
+    ]
+   }
+  ],
+  "US-NM:new-mexico": [
+   {
+    "shetach": "new-mexico",
+    "from": "1992",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://chabadnm.org/6164502",
+      "title": "Chabad of New Mexico",
+      "via": "data/founding-years.json, 117962",
+      "note": "Its About page: 'Established with the blessing of the Lubavitcher Rebbe in 1992', directed by Rabbi Chaim and Devorah Leah Schmukler. Open at 4000 San Pedro Blvd. NE by Dec 1995 (a bar mitzvah invitation in the Southwest Jewish Archives)."
+     }
+    ]
+   }
+  ],
+  "US-NV:west-coast": [
+   {
+    "shetach": "west-coast",
+    "from": "1989",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://derher.org/wp-content/uploads/22-av-5774-09.pdf",
+      "title": "A Chassidisher Derher, Av 5774, 'Conquering California'",
+      "quote": "Like all other matters of California – Rabbi Shlomo Cunin should be informed about all this, and surely he will research the situation there etc. and decide whether to do this or not, and if yes, what and in which way etc. Regardless, this is under his responsibility like all other matters there.",
+      "note": "the Rebbe's answer, on an Erev Shabbos Mevorchim at the end of 5749, to Rabbi Moshe Kotlarsky's proposal of a Chabad House in Las Vegas (earlier proposals had been turned down); Cunin then found Rabbi Shea Harlig, 'the first Shliach to Los Vegas'"
+     },
+     {
+      "url": "https://chabadlv.org/about-us/",
+      "title": "Chabad of Southern Nevada",
+      "via": "data/founding-years.json, 117662",
+      "note": "The center's own site: 'Established in 1990 in Rabbi Shea & Dina Harlig's living room'; UNLV's Southern Nevada Jewish Heritage Project: 'established in 1990 by Rabbi Shea Harlig and his wife Dina'. (therebbesimpact.com's 1986 is for Rabbi Yoseph and Rochel Chaiton.)"
+     }
+    ],
+    "note": "Nevada had no shliach before; it joined the West Coast with the Rebbe's answer (summer 1989), its first shliach (Chabad of Southern Nevada) from 1990."
    }
   ],
   "US-OH:central-ohio": [
@@ -465,46 +1137,208 @@
     ]
    }
   ],
-  "US-IN:indiana": [
+  "US-OH:northeast-ohio": [
    {
-    "shetach": "southern-ohio",
-    "from": "1975-09",
-    "how": "owner"
-   },
-   {
-    "shetach": "indiana",
-    "from": "1981",
-    "how": "anniversary",
-    "confidence": "high",
-    "sources": [
-     {
-      "url": "https://crownheights.info/shlichus/477354/after-34-years-new-home-for-indiana-jewish-community",
-      "title": "After 34 Years, New Home for Indiana Jewish Community (Chabad.org, via CrownHeights.info)",
-      "date": "2015-03-16",
-      "via": "data/founding-years.json, 117619",
-      "note": "Rabbi Avrohom and Nini Grossbaum, 'more than three decades in Indianapolis'; their son's page: sent by the Rebbe 'in the early 1980's'."
-     }
-    ]
-   }
-  ],
-  "US-KY:kentucky": [
-   {
-    "shetach": "southern-ohio",
-    "from": "1975-09",
-    "how": "owner"
-   },
-   {
-    "shetach": "kentucky",
-    "from": "1985-03",
+    "shetach": "northeast-ohio",
+    "from": "1972",
     "how": "stated",
     "confidence": "high",
     "sources": [
      {
-      "url": "https://jewishlouisville.org/?p=21171",
-      "title": "Chabad at 30 (Jewish Louisville)",
-      "date": "2015-01-22",
-      "quote": "In March of 1985, Rabbi Avrohom and Goldie Litvin moved to Louisville",
-      "via": "data/founding-years.json, 117621"
+      "url": "https://localjewishnews.com/2014/07/03/chabad-extends-outreach-from-eight-northeast-ohio-locations/",
+      "title": "Chabad extends outreach from eight Northeast Ohio locations (Cleveland Jewish News)",
+      "date": "2014-07-03",
+      "quote": "When Rabbi Leibel Alevsky and his wife, Devorah, were sent to Cleveland in 1972 by Rabbi Menachem Mendel Schneerson to establish the first Chabad house in Cleveland and eastern Ohio, they could not have imagined how the movement would grow regionally under their leadership."
+     },
+     {
+      "url": "https://crownheights.info/chabad-news/944830/rabbi-leibel-alevsky-86-powerhouse-innovator-who-built-chabad-in-cleveland/",
+      "title": "Rabbi Leibel Alevsky, 86, Powerhouse Innovator Who Built Chabad in Cleveland (CrownHeights.info)",
+      "date": "2026-04-27",
+      "quote": "Over his five decades as executive director of Chabad of Cleveland, Alevsky touched thousands of lives"
+     }
+    ],
+    "note": "Alevsky came three years before Kalmanson, so this part of Ohio was never Kalmanson's (the owner, Nov 8: \"Could be there was a Levski already, though\")."
+   }
+  ],
+  "US-OH:southern-ohio": [
+   {
+    "shetach": "southern-ohio",
+    "from": "1975-09",
+    "how": "news",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.cincinnatijudaicafund.com/Detail/objects/1593",
+      "title": "Article on the Cincinnati Chabad Movement and Rabbi Sholom B. Kalmanson, 5.10.1977 (Cincinnati Judaica Fund)",
+      "date": "1977-05-10",
+      "quote": "The Local Chabad House has been operating since September 1975, first at 7719 Reading Road, Roselawn, and since last July on Summit Road.",
+      "note": "the catalogue's description of a May 1977 Cincinnati Post article, from the search index (the page itself has a robot check)"
+     }
+    ],
+    "note": "Summer 5735 (1975) by another account."
+   }
+  ],
+  "US-OK:oklahoma": [
+   {
+    "shetach": "oklahoma",
+    "from": "1987-04",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://derher.org/wp-content/uploads/5785-3-9.pdf",
+      "title": "A Chassidisher Derher, Kislev 5785, 'Pinpoints: Oklahoma'",
+      "quote": "Around that time, the Rebbe approved a plan to open new branches of Merkos in four states, and they were offered the opportunity to open a branch in Oklahoma.",
+      "note": "'this would be a new branch of Merkos, so Rabbi Hodakov gave his authorization'; Rabbi Weg 'to open a new branch in the state of Oklahoma and Rabbi Wilansky in the state of Maine'; 'The Wegs arrived in Oklahoma right after Pesach' (5747)"
+     },
+     {
+      "url": "https://derher.org/wp-content/uploads/5785-3-9.pdf",
+      "title": "Chabad House Lubavitch",
+      "via": "data/founding-years.json, 117712",
+      "note": "A Derher profile: 'Since 5747' (1987) Rabbi Yehuda and Etel Weg have served; they arrived in Oklahoma 'right after Pesach' (spring 1987). Chabad of Oklahoma's first house."
+     }
+    ],
+    "note": "A new Merkos branch, not part of Texas's or anyone's shetach before."
+   }
+  ],
+  "US-OR:oregon": [
+   {
+    "shetach": "washington",
+    "from": "1972",
+    "how": "owner"
+   },
+   {
+    "shetach": "oregon",
+    "from": "1984-01",
+    "how": "news",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://collive.com/oregon-recalls-fresh-shliach/",
+      "title": "Oregon Recalls Fresh Shliach (Polina Olsen, Jewish Review, on COLlive)",
+      "date": "2009-01-08",
+      "quote": "Then, in February 1984, one article announced “New family arrives here,” with photos of Rabbi Moshe Wilhelm, his wife Devorah and their two young children, Motti and Simi. They'd just spent two years in Australia and came to Portland at the request of the New York Chabad Lubavitch Rebbe."
+     },
+     {
+      "url": "https://www.jewishportland.org/jewishreview/jr-stories/monthly-mitzvah-tzedakah",
+      "title": "Monthly Mitzvah: Tzedakah (Jewish Review)",
+      "quote": "On Jan. 15, 1984 (Rosh Chodesh Shevat), Rabbi Moshe Wilhelm and family arrived in Portland and founded Chabad of Oregon."
+     }
+    ],
+    "note": "15 Jan 1984 was 11 Shevat 5744; Rosh Chodesh Shevat was 5 Jan, so the day is uncertain; January 1984 either way."
+   }
+  ],
+  "US-PA:pennsylvania": [
+   {
+    "shetach": "pennsylvania",
+    "from": "1961",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://collive.com/too-cool-for-shul/",
+      "title": "Lubavitcher Center",
+      "via": "data/founding-years.json, 117715",
+      "note": "Philadelphia City Paper (COLlive, 28 Aug 2009): 'Philadelphia became one of the first major U.S. cities with an outpost when Rabbi Avrohom Shemtov began his mission here in 1961, out in the far Northeast on Castor Avenue, where he still resides.' (The Lubavitcher Center, NE Philadelphia; Shemtov also began Torah classes on campus in 1962.)"
+     }
+    ]
+   }
+  ],
+  "US-RI:rhode-island": [
+   {
+    "shetach": "rhode-island",
+    "from": "1979",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://chabadinfo.com/?p=119620",
+      "title": "Merkos - Chabad of Rhode Island / Chabad of Providence",
+      "via": "data/founding-years.json, 117723",
+      "note": "ChabadInfo: Rabbi Yehoshua and Mishla Laufer 'established the Providence-based Chabad Center of greater Rhode Island in 1979'. 360-362 Hope Street."
+     }
+    ]
+   }
+  ],
+  "US-SC:the-carolinas": [
+   {
+    "shetach": "the-carolinas",
+    "from": "1980",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://crownheights.info/shlichus/14624/a-home-at-chabad",
+      "title": "Chabad Center for Jewish Life",
+      "via": "data/founding-years.json, 117649",
+      "note": "The News & Observer (CrownHeights.info, 12 Dec 2008): 'The first Chabad House in the Tar Heel state was started in 1980 by Rabbi Yossi Groner of Charlotte.' Chabad.org (CrownHeights.info, 29 March 2025): 'Chabad in Charlotte was founded by Mushka's grandparents, Rabbi Yossi and Mariashi Groner, in 1980'. Rabbi Groner's own account (JEM, interviewed 2013; Anash.org, 9 Oct 2025): head emissary to North and South Carolina 'since 1980'; other biographies: sent 'in the summer of 1980'."
+     }
+    ],
+    "note": "The shetach is both states (the owner's data); Groner's first house was Charlotte (1980)."
+   }
+  ],
+  "US-SD:upper-midwest": [
+   {
+    "shetach": "upper-midwest",
+    "from": "2016-12-24",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://stljewishlight.org/world-news/chabad-rabbi-and-family-move-to-south-dakota-giving-state-its-only-full-time-rabbi",
+      "title": "Chabad Jewish Center of South Dakota",
+      "via": "data/founding-years.json, 3451535",
+      "note": "JTA (in the St. Louis Jewish Light, 27 Dec 2016): 'Rabbi Mendel and Mussie Alperowitz and their children arrived on Dec. 24 in Sioux Falls, where they will open a Chabad center.' Its chabad.org listing went up Nov 16 2016. Now 4901 S Isabel Pl, Suite 200."
+     }
+    ],
+    "note": "South Dakota's first Chabad center; the state is in the Upper Midwest shetach (the owner's data)."
+   }
+  ],
+  "US-TN:tennessee": [
+   {
+    "shetach": "tennessee",
+    "from": "1994",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://crownheights.info/shlichus/8221/chabad-expands-jewish-communities-in-tennessees-top-three-cities",
+      "title": "Chabad Lubavitch of Tennessee",
+      "via": "data/founding-years.json, 117977",
+      "note": "Lubavitch.com (11 Sept 2007, via CrownHeights.info): 'When Chabad of Memphis opened in 1994, it found a close-knit Jewish community of 10,000'. Rabbi Levi and Rivka Klein (therebbesimpact.com: 1994)."
+     }
+    ],
+    "note": "Nashville had a Chabad rav from 1949, Rabbi Zalman Posner, sent by the Frierdiker Rebbe to its shul; the shetach dates from Chabad of Memphis (1994)."
+   }
+  ],
+  "US-TX:texas": [
+   {
+    "shetach": "texas",
+    "from": "1972-05-10",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.lubavitch.com/a-30th-b-day-for-chabad-of-the-lone-star-state/",
+      "title": "Chabad Lubavitch Center Regional Hdqts.",
+      "via": "data/founding-years.json, 117731",
+      "note": "Lubavitch.com, 11 March 2003 ('A 30th B-day for Chabad of the Lone Star State'): Chabad Lubavitch of Texas 'celebrated 30 years in the state' on 9 March 2003; 'in 1972, when Rabbi Shimon and Chiena Lazaroff ... came to Houston'. The Jewish Herald-Voice's 2022 section on Chabad's 50 years in Texas (ChabadInfo, 'Chabad's 50-year Lone Star Journey'): 'When the Lazaroffs first arrived in Houston on May 10, 1972'; construction of the center on Fondren Road (the first Chabad center built from the ground up) began in 1977 and it opened for the High Holy Days in 1978 (CrownHeights.info, Jan 2007, says the center was founded in 1976); before that, an apartment."
+     }
+    ]
+   }
+  ],
+  "US-UT:utah": [
+   {
+    "shetach": "utah",
+    "from": "1992-07",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://sltrib.com/religion/2018/05/23/after-25-years-in-mormon-land-rabbi-benny-zippels-mission-remains-the-same-reach-out-to-every-jew-every-utahn",
+      "title": "Chabad Lubavitch of Utah",
+      "via": "data/founding-years.json, 117910",
+      "note": "The Zippels came to Salt Lake City in 1992 (the Rebbe's blessing 1 Mar 1992); most reports say July 1992 (others fall, or April); 25 years marked in 2018, 30 in 2022 (KSL)."
      }
     ]
    }
@@ -524,6 +1358,47 @@
       "note": "also: Rabbi Yaakov Noach \"Yankel\" Kranz 'directed Chabad-Lubavitch activities in the state for 15 years'"
      }
     ]
+   }
+  ],
+  "US-VT:vermont": [
+   {
+    "shetach": "vermont",
+    "from": "1984",
+    "how": "stated",
+    "confidence": "medium",
+    "sources": [
+     {
+      "url": "https://crownheights.info/chabad-news/628755/after-100-years-vermonts-little-jerusalem-comes-full-circle",
+      "title": "Chabad of Vermont",
+      "via": "data/founding-years.json, 117736",
+      "note": "Chabad.org (20 Dec 2018): 'In the winter of 1983' Rabbi Yitzchok and Zeesy Raskin were appointed by the Rebbe 'as the new Chabad-Lubavitch emissaries to Vermont'; one of their first acts was a menorah at City Hall. A Chabad article also says they opened the center in 1983, but the Brattleboro Reformer (2012) and Front Porch Forum say 1984. Rabbi Eliyahu and Draizy Junik, now its directors, came in 2014. Checked (Nov 7): its own site (https://www.chabadvt.org/templates/articlecco_cdo/aid/447745/jewish/About-Chabad-of-Burlington.htm): 'Founded by Rabbi Yitzchok and Zeesy Raskin in 1984'; so appointed in the winter of 1983 and founded 1984 — the year taken is the center's own (was 1983), medium as the two are a year apart."
+     }
+    ],
+    "note": "Appointed by the Rebbe 'in the winter of 1983' (Chabad.org, 2018); in Vermont from 1984."
+   }
+  ],
+  "US-WA:washington": [
+   {
+    "shetach": "washington",
+    "from": "1972",
+    "how": "owner"
+   }
+  ],
+  "US-WI:wisconsin": [
+   {
+    "shetach": "wisconsin",
+    "from": "1968-10",
+    "how": "news",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.jewishchronicle.org/2019/07/07/after-more-than-50-years-lubavitch-leader-is-still-on-a-mission/",
+      "title": "After more than 50 years, Lubavitch leader is still on a mission (Wisconsin Jewish Chronicle)",
+      "date": "2019-07-07",
+      "quote": "Shmotkin brought the Chabad movement to Wisconsin back in October of 1968."
+     }
+    ],
+    "note": "Lubavitch of Wisconsin: 'In 1968 the Rebbe appointed Rabbi Yisroel and B. Devorah Shmotkin as the Shluchim to the state of Wisconsin' (chabadwi.org, as quoted by a search). The seventh Merkos regional office, by the JTA's count of January 1970 (Kansas City the eighth)."
    }
   ],
   "US-WV:western-pennsylvania": [
@@ -564,89 +1439,6 @@
      }
     ],
     "note": "West Virginia's first shliach, (Shneur) Zalman Gurevitz, opened in Morgantown in 2007 under Chabad of Virginia, with Rosenfeld helping; by Dec 2013 the house was under Pittsburgh. So the move came after the first shliach, not with him (the owner, Nov 8: \"once West Virginia got a shliach under Rosenfeld, that changed the calculus\")."
-   }
-  ],
-  "US-LA:louisiana-mississippi": [
-   {
-    "shetach": "louisiana-mississippi",
-    "from": "1975-11",
-    "how": "stated",
-    "confidence": "high",
-    "sources": [
-     {
-      "url": "https://www.chabadneworleans.com/221664",
-      "title": "Chabad of Louisiana, history",
-      "quote": "In November of 1975",
-      "via": "data/founding-years.json, 117623",
-      "note": "the Rebbe sent Rabbi Zelig and Bluma Rivkin to New Orleans (a Chabad.org obituary's 1973 is an outlier)"
-     }
-    ]
-   }
-  ],
-  "US-MS:louisiana-mississippi": [
-   {
-    "shetach": "louisiana-mississippi",
-    "from": "2014-08",
-    "how": "stated",
-    "confidence": "high",
-    "sources": [
-     {
-      "url": "https://www.chabadneworleans.com/221664",
-      "title": "Chabad of Louisiana, history",
-      "quote": "In August of 2014 Chabad of Southern Mississippi was founded in Biloxi serving the Gulf Coast region",
-      "via": "data/founding-years.json, 2637896"
-     }
-    ],
-    "note": "Owner, Nov 8: areas \"that just never had, like Mississippi, until Rifkin sent the shliach there\" (Rabbi Akiva and Hannah Hall)."
-   }
-  ],
-  "CA-NL:newfoundland-and-labrador": [
-   {
-    "shetach": "newfoundland-and-labrador",
-    "from": "2017-02",
-    "how": "news",
-    "confidence": "high",
-    "sources": [
-     {
-      "url": "https://crownheights.info/shlichus/567832/new-shluchim-to-newfoundland",
-      "title": "New Shluchim to Newfoundland (CrownHeights.info)",
-      "via": "data/founding-years.json, 3610901",
-      "note": "the Chernitskys moved from Montreal to St. John's in February 2017 (also Jewish Press, 1 Mar 2017)"
-     }
-    ],
-    "note": "Owner, Nov 8: \"Newfoundland, I think, only got one recently, maybe.\""
-   }
-  ],
-  "US-NJ:new-jersey": [
-   {
-    "shetach": "new-jersey",
-    "from": "1965",
-    "how": "stated",
-    "confidence": "high",
-    "sources": [
-     {
-      "url": "https://anash.org/rabbi-moshe-herson-90-ah/",
-      "title": "Rabbi Moshe Herson, 90, A\"H (Anash.org)",
-      "date": "2025-01-23",
-      "quote": "After his chasunah, in 5725 (1965), the Rebbe appointed Rabbi Herson as his shliach to the state of New Jersey."
-     }
-    ]
-   }
-  ],
-  "US-FL:florida": [
-   {
-    "shetach": "florida",
-    "from": "1960",
-    "how": "stated",
-    "confidence": "high",
-    "sources": [
-     {
-      "url": "https://crownheights.info/chabad-news/914330/bde-rabbi-avrohom-korf-92-obm",
-      "title": "BDE: Rabbi Avrohom Korf, 92, OBM (CrownHeights.info)",
-      "date": "2025-07-08",
-      "quote": "When the Korfs arrived in Miami Beach in 1960, they found themselves in a Jewish dessert, void of spiritual life."
-     }
-    ]
    }
   ]
  },
@@ -709,6 +1501,17 @@
    {
     "date": "1995",
     "what": "Kalmanson removed as head shliach (owner, Nov 8: \"Kalmanson was kicked off the year after gimmel tammuz\")."
+   },
+   {
+    "date": "2002-12",
+    "what": "His organization kept the name: the JTA, on the Supreme Court's order allowing the menorah in Cincinnati's Fountain Square, calls him 'regional director of Chabad of Southern Ohio'.",
+    "sources": [
+     {
+      "url": "https://www.jta.org/archive/u-s-supreme-court-intervenes-to-allow-menorah-in-cincinnati",
+      "title": "U.S. Supreme Court Intervenes to Allow Menorah in Cincinnati (JTA)",
+      "note": "as a search quotes it"
+     }
+    ]
    }
   ],
   "northeast-ohio": [

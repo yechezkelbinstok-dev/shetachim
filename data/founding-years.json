@@ -9305,7 +9305,15 @@
    "how": "news",
    "source": "https://crownheights.info/shlichus/6428/world-travelers-now-call-orlando-and-their-chabad-house-home",
    "note": "Chabad.edu (CrownHeights.info, 15 May 2007), on Rabbi Chaim and Rivkie Lipskier, co-directors of 'the new Chabad house at the University of Central Florida': 'Chabad opened its doors at the end of this school year's fall semester' (Dec 2006); the first Shabbat dinner drew 12 students. Heritage (Jan 2016): a permanent home near campus 'after nine years'; a new student center opened in 2023.",
-   "confidence": "high"
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "Orlando: the Lipskiers' 3,000-square-foot home, about five miles from campus (Shabbat for 100-200 students)",
+     "from": 2006,
+     "until": 2023,
+     "source": "https://www.chabad.org/news/article_cdo/aid/6146502"
+    }
+   ]
   },
   "589520": {
    "name": "Chabad of Royal Palm Beach",
@@ -11325,7 +11333,21 @@
    "how": "anniversary",
    "source": "https://crownheights.info/shlichus/388781/hunterdons-10th-ann-celebrates-college-stability",
    "note": "CrownHeights.info, 8 June 2013: 'On Wednesday, May 29th Chabad of Hunterdon County celebrated its 10th Anniversary Dinner Banquet'; a 2009 banquet marked its sixth anniversary; elsewhere 'established in 2003 by Rabbi Eli and Rachel Kornfeld'. (One article and the IRS record say 2004.) Now in Annandale/Clinton Township.",
-   "confidence": "high"
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "a very modest room with a small makeshift ark (its first space)",
+     "from": 2003,
+     "until": null,
+     "source": "https://www.chabad.org/news/article_cdo/aid/6749112"
+    },
+    {
+     "where": "Clinton: a storefront in a strip mall near today's building (about 2,500 sq ft; a sanctuary and a room for kiddush)",
+     "from": null,
+     "until": 2021,
+     "source": "https://www.chabad.org/news/article_cdo/aid/6749112"
+    }
+   ]
   },
   "118627": {
    "name": "Chabad in Medford",
@@ -12348,7 +12370,15 @@
    "how": "news",
    "confidence": "high",
    "source": "https://www.chabad.org/news/article_cdo/aid/2319816",
-   "note": "Chabad.org, 2 Sept 2013 ('Big Cattle, Big Hats and a Bigger Chabad Center'): Rabbi Mendel and Leah Blecher 'came to the community in 2011', working out of their home at first. CrownHeights.info (5 Feb 2014) agrees: the growth 'since he founded Chabad of The Woodlands three years ago'."
+   "note": "Chabad.org, 2 Sept 2013 ('Big Cattle, Big Hats and a Bigger Chabad Center'): Rabbi Mendel and Leah Blecher 'came to the community in 2011', working out of their home at first. CrownHeights.info (5 Feb 2014) agrees: the growth 'since he founded Chabad of The Woodlands three years ago'.",
+   "earlier": [
+    {
+     "where": "The Woodlands: the Blechers' home (with rented spaces for holiday events)",
+     "from": 2011,
+     "until": 2013,
+     "source": "https://www.chabad.org/news/article_cdo/aid/2319816"
+    }
+   ]
   },
   "397245": {
    "name": "Chabad of the Rio Grande Valley",
@@ -13316,7 +13346,15 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.chabadnf.org/templates/articlecco_cdo/aid/799186/jewish/Chabad-of-North-Fulton.htm",
-   "note": "Its own page: 'Chabad of North Fulton was established in 1998 to serve as a center for Jewish life and education in North Fulton County'; 'From 1998-2008 we operated under the name \"Chabad of Alpharetta\"', renamed in January 2009 after Johns Creek and Milton were incorporated. The Atlanta Jewish Times (9 Oct 2007): Rabbi Hirshy Minkowicz 'is entering his ninth year along the new border between Alpharetta and Johns Creek'."
+   "note": "Its own page: 'Chabad of North Fulton was established in 1998 to serve as a center for Jewish life and education in North Fulton County'; 'From 1998-2008 we operated under the name \"Chabad of Alpharetta\"', renamed in January 2009 after Johns Creek and Milton were incorporated. The Atlanta Jewish Times (9 Oct 2007): Rabbi Hirshy Minkowicz 'is entering his ninth year along the new border between Alpharetta and Johns Creek'.",
+   "earlier": [
+    {
+     "where": "Alpharetta: a home-based synagogue (Rabbi Hirshy and Rashi Minkowicz's home), before Rashi's Campus on Jones Bridge Road (built about 2016-17)",
+     "from": 1998,
+     "until": null,
+     "source": "https://www.chabad.org/news/article_cdo/aid/3482667"
+    }
+   ]
   },
   "118517": {
    "name": "The Chabad Enrichment Center of Gwinnett",

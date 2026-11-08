@@ -45,8 +45,16 @@
   "season": "summer",
   "how": "news",
   "source": "https://crownheights.info/general/2732/chabad-at-the-shore-hopes-for-sunny-minyan",
-  "note": "The Jewish Exponent (CrownHeights.info, 19 July 2006): 'Chabad-Lubavitch has opened a storefront synagogue in the heart of Ventnor, just blocks from the beach and boardwalk. The synagogue, called Chabad at the Shore, is being run by Chabad of Atlantic County'; Rabbi Shmuel Rapoport enlisted his son Rabbi Avrohom Rapoport to run it. In June 2008 a new Ventnor location (South Jersey Jewish Times).",
-  "confidence": "high"
+  "note": "The Jewish Exponent (CrownHeights.info, 19 July 2006): 'Chabad-Lubavitch has opened a storefront synagogue in the heart of Ventnor, just blocks from the beach and boardwalk. The synagogue, called Chabad at the Shore, is being run by Chabad of Atlantic County'; Rabbi Shmuel Rapoport enlisted his son Rabbi Avrohom Rapoport to run it. CrownHeights.info (17 June 2008): Chabad at the Shore opened 'its new location in the heart of Ventnor, at 6412 Ventnor Ave.', home of the Chabad Ventnor Shul.",
+  "confidence": "high",
+  "earlier": [
+   {
+    "where": "Ventnor: a storefront synagogue in the heart of town, blocks from the beach and boardwalk",
+    "from": 2006,
+    "until": 2008,
+    "source": "https://crownheights.info/general/2732/chabad-at-the-shore-hopes-for-sunny-minyan"
+   }
+  ]
  },
  "117655": {
   "name": "Chabad at the Shore",

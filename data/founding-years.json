@@ -11766,12 +11766,28 @@
    "confidence": "medium"
   },
   "118280": {
-   "after": 1998,
-   "by": 2000,
-   "how": "range",
-   "confidence": "range",
+   "name": "Chabad of Chester County & Western Main Line",
+   "city": "Devon",
+   "shetach": "pennsylvania",
+   "year": 1998,
+   "how": "anniversary",
+   "confidence": "medium",
    "source": "https://www.chabad.org/news/article_cdo/aid/1402411",
-   "note": "Chabad.org, 4 Jan 2011 ('Suburban Synagogue and Mosque Sit Side by Side'): 'In 1998, he [Rabbi Yossi Kaplan] was in Brooklyn, looking for a place to start a Chabad House'; the family first rented a home and other space for programs; 'by September 2000, they were able to rent what he described as a huge building' in Berwyn; the Devon property was bought in Dec 2002. IRS: ruling April 2001. So it began after 1998 and by Sept 2000."
+   "note": "Chabad.org, 4 Jan 2011 ('Suburban Synagogue and Mosque Sit Side by Side'; also the Intermountain Jewish News): 'In 1998, he [Rabbi Yossi Kaplan] was in Brooklyn, looking for a place to start a Chabad House'; with their two babies the Kaplans moved to the area, 'rented an apartment, and used other available rented space for their programs'; 'by September, 2000, they were able to rent what he described as a huge building for services and events'; then a home and adjoining dance studio in Devon, bought in Dec 2002 (today's center, next to the Islamic Society). A congregant 'who's been a regular at the Chabad center for 12 years now' also points to 1998. IRS: ruling April 2001. Worked out, not stated: medium.",
+   "earlier": [
+    {
+     "where": "Chester County: a rented apartment and other rented space for programs",
+     "from": 1998,
+     "until": 2000,
+     "source": "https://www.chabad.org/news/article_cdo/aid/1402411"
+    },
+    {
+     "where": "Berwyn: a large rented building for services and events",
+     "from": 2000,
+     "until": 2002,
+     "source": "https://www.chabad.org/news/article_cdo/aid/1402411"
+    }
+   ]
   },
   "118420": {
    "name": "Chabad of the Abingtons - Jewish Discovery Center",

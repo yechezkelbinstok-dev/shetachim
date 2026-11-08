@@ -271,7 +271,13 @@ thirteen no better recent photo has been found yet (the list is there, with what
   as well as many other provinces and territories but as those places got shluchim/head shluchim it decreased. Same with
   let's say Mississippi being blank till rivkin sent someone there or WV moving at some point from Kranz to Rosenfeld
   I'm sure there's other examples as well so I need research done into that as well". So: for each shetach, when its
-  head shliach was appointed, what it covered then, and each year it shrank, grew or changed hands. Not started.
+  head shliach was appointed, what it covered then, and each year it shrank, grew or changed hands. **Started Nov 8**
+  (owner: "Right now what I want is this border shift thing"; a site feature, the United States first): the data is
+  `data/shetach-history.json`, the notes `work/shetach-history/README.md`. **Owner:** his facts on what a shetach
+  covered stand ("Stop trying to verify my facts"; they go in as `how: owner`); the research dates when each part split
+  off, splits first ("I'm sure there's more examples like that. So I need you to find those"). The pilot on his
+  examples is done (the Northwest, Kalmanson's Ohio–Indiana–Kentucky, the Virginias, Mississippi, Newfoundland,
+  Herson, Korf); the sweep of every other US shetach for splits is next (the list is in the notes).
 - **Founding years, the West Coast (Nov 6, first pass done).** Owner: "let's jump into the West Coast. Do this properly
   ... The goal is every single blue dot we find the date for ... keep track continuously of how many are missing from
   the various ones, so we can do a round of the harder ones later on ... all the info needs to be kept properly. But go

@@ -242,6 +242,12 @@ thirteen no better recent photo has been found yet (the list is there, with what
     first pass done, 6 of 16 with a year (5 high, 1 medium, 10 ranges; 16 counts the Oxford extra). Virginia under way
     (5 of 19 so far, 4 high); Oregon and Upstate New York next, then a second pass on the ranges. COLlive started refusing plain requests (403) on
     Nov 8 after a long run of searches; not worked around.
+  - **Third session, from Nov 8 (late): the shetach history (US and Canada), picked up from the session that ran out
+    of usage** (owner: "another session was in the middle of making the history page meaning the ones with just shifting
+    borders not centers or anything and only the US and Canada but then it ran out of usage limits so can you pick up
+    where it left off?"). Files `data/shetach-history.json`, `work/shetach-history/README.md`. First the three pieces
+    left (New York City, Crown Heights, Monsey), then the open questions in the README. The founding years of Virginia
+    (5 of 19 done), Oregon and Upstate New York wait until this is done.
   - **Owner (Nov 8): WebFetch is a model's answer, not the page, so it can miss or bend a detail.** Every entry with a
     year (847 on Nov 8) keeps its source link and 820 quote the page, so all of them can be checked against their own
     page: an audit (curl first, Firecrawl for the ~160 chabad.org-hosted pages curl can't read) is planned but on the

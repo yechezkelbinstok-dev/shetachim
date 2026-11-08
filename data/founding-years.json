@@ -8040,8 +8040,16 @@
    "year": 1989,
    "how": "stated",
    "source": "https://issuu.com/ellavorovitch/docs/west_boca_programs5780/3",
-   "note": "West Boca's program guide: Rabbi Zalman and Chani Bukiet moved to Boca Raton in 1989 to establish a Chabad center (with the Denburgs, Central Boca); 'In 1989 Chabad opened centers in Central and West Boca'. Its building was finished in 2016 (Clio).",
-   "confidence": "high"
+   "note": "West Boca's program guide: Rabbi Zalman and Chani Bukiet moved to Boca Raton in 1989 to establish a Chabad center (with the Denburgs, Central Boca); 'In 1989 Chabad opened centers in Central and West Boca'. Chabad.org (24 April 2014): 'After 20 years in the same location' (a rented storefront at Kimberly and Lyons Road, across from Century Village) its lease was ending and it was moving eight blocks west to Kimberly and Route 441, 'the first synagogue west of Route 441'; its building was finished in 2016 (Clio) and the new facility on two acres opened before the High Holidays in 2017 (Chabad.org, 15 June 2017).",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "Boca Raton: a rented storefront in a shopping center at Kimberly Boulevard and Lyons Road, across from Century Village (about 20 years there as of 2014)",
+     "from": null,
+     "until": null,
+     "source": "https://www.chabad.org/news/article_cdo/aid/2562036"
+    }
+   ]
   },
   "117598": {
    "name": "Merkos Lubavitch of Florida",
@@ -8286,8 +8294,16 @@
    "year": 2000,
    "how": "stated",
    "source": "https://www.wtxl.com/news/local-news/fire-destroys-tallahassee-jewish-center-rabbi-plans-to-rebuild",
-   "note": "Chabad-Lubavitch of the Panhandle 'was established in 2000' by Rabbi Schneur Zalman and Chanie Oirechman, for FSU students and Tallahassee (news of the May 2022 fire that destroyed its building; Lubavitch.com). Panama City Beach, Destin and Pensacola grew from it.",
-   "confidence": "high"
+   "note": "Chabad-Lubavitch of the Panhandle 'was established in 2000' by Rabbi Schneur Zalman and Chanie Oirechman, for FSU students and Tallahassee (news of the May 2022 fire that destroyed its building; Lubavitch.com). Chabad.org (28 May 2014): at first they ran it 'from their five-bedroom home, using three of the bedrooms and the main living space for programs'; 'Nine years ago, the couple moved into a new building' (about 2005); in April 2014 they bought a 3-acre property (a church) on the edge of campus for a center four times larger. Panama City Beach, Destin and Pensacola grew from it.",
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "Tallahassee: the Oirechmans' five-bedroom home (three bedrooms and the living space used for programs)",
+     "from": 2000,
+     "until": 2005,
+     "source": "https://www.chabad.org/news/article_cdo/aid/2598538"
+    }
+   ]
   },
   "118367": {
    "name": "Chabad of East Boca Raton",
@@ -13144,7 +13160,15 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://crownheights.info/shlichus/452809/atlanta-jewish-community-sees-400-growth/",
-   "note": "Chabad.org (CrownHeights.info, 9 Sept 2014): Rabbi Michoel Refson: 'The first week we hosted Shabbat dinner when we arrived in 2005, we had four students around the table'. Agreeing: Chabad.org, 1 May 2008: the 'three-year-old' Chabad House; 'When they arrived to the school three years ago'. Its own center (279 Meigs Street) was due to open in fall 2008."
+   "note": "Chabad.org (CrownHeights.info, 9 Sept 2014): Rabbi Michoel Refson: 'The first week we hosted Shabbat dinner when we arrived in 2005, we had four students around the table'. Agreeing: Chabad.org, 1 May 2008: the 'three-year-old' Chabad House; 'When they arrived to the school three years ago'. Its own center (279 Meigs Street) was due to open in fall 2008.",
+   "earlier": [
+    {
+     "where": "Athens: the Refsons' home (Shabbat dinners for students)",
+     "from": 2005,
+     "until": 2008,
+     "source": "https://www.chabad.org/news/article_cdo/aid/668599"
+    }
+   ]
   },
   "6500282": {
    "name": "CMCH Elementary",

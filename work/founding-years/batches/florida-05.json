@@ -1,9 +1,117 @@
 {
- "118356": {"name": "Chabad Lubavitch of the Panhandle - Tallahassee", "city": "Tallahassee", "shetach": "florida", "year": 2000, "how": "stated", "source": "https://www.wtxl.com/news/local-news/fire-destroys-tallahassee-jewish-center-rabbi-plans-to-rebuild", "note": "Chabad-Lubavitch of the Panhandle 'was established in 2000' by Rabbi Schneur Zalman and Chanie Oirechman, for FSU students and Tallahassee (news of the May 2022 fire that destroyed its building; Lubavitch.com). Panama City Beach, Destin and Pensacola grew from it.", "confidence": "high"},
- "118367": {"name": "Chabad of East Boca Raton", "city": "Boca Raton", "shetach": "florida", "year": 1999, "date": "1999-09", "how": "stated", "source": "https://www.bocaratontribune.com/bocaratonnews/2010/05/chabad-of-east-boca-holds-auction-to-mark-anniversary-prepare-for-move-to-new-site/?amp", "note": "Boca Raton Tribune (May 2010, its 10th anniversary): Chabad of Boca Raton appointed Rabbi Ruvi and Ahuva New to open an East Boca branch in September 1999; it began in their living room, then a storefront on Palmetto Park Road, then from 2002 a larger rented facility; a site at 770 East Palmetto Park Road was gifted by Irving and Judy Litwak.", "confidence": "high", "earlier": [{"where": "Rabbi Ruvi and Ahuva New's living room", "from": 1999, "until": null, "source": "https://www.bocaratontribune.com/bocaratonnews/2010/05/chabad-of-east-boca-holds-auction-to-mark-anniversary-prepare-for-move-to-new-site/?amp"}, {"where": "a storefront on Palmetto Park Road", "from": null, "until": 2002, "source": "https://www.bocaratontribune.com/bocaratonnews/2010/05/chabad-of-east-boca-holds-auction-to-mark-anniversary-prepare-for-move-to-new-site/?amp"}, {"where": "a larger rented facility", "from": 2002, "until": null, "source": "https://www.bocaratontribune.com/bocaratonnews/2010/05/chabad-of-east-boca-holds-auction-to-mark-anniversary-prepare-for-move-to-new-site/?amp"}]},
- "118379": {"name": "Lubavitch Chabad Jewish Student Center", "city": "Gainesville", "shetach": "florida", "year": 2000, "how": "stated", "source": "https://www.chabad.org/article.asp?aid=2488566", "note": "Chabad.org: Rabbi Berl and Chanie Goldman have seen Jewish life at UF grow 'since they first arrived in 2000'; a 2010 report: 'ten years after moving to Gainesville to establish a student Jewish center'. Early on it ran from tents, trailers and temporary buildings; the 23,000 sq ft Tabacinic center at 2021 NW Fifth Ave. came later.", "confidence": "high"},
- "118475": {"name": "Chabad of Coral Springs", "city": "Coral Springs", "shetach": "florida", "year": 1986, "how": "stated", "source": "https://anash.org/chabad-of-coral-springs-celebrates-36-years-and-counting", "note": "Anash ('Chabad of Coral Springs celebrates 36 years and counting'): established in 1986, when Rabbi Yossi and Rivka Denburg were sent to South Florida to build a Hebrew day school and a Chabad House; his brother-in-law Rabbi Avraham Friedman became executive director in 1991. Coral Springs Talk (2023): its 36th anniversary (so 1987). therebbesimpact.com: 1987.", "confidence": "medium"},
- "118411": {"name": "Chabad Key Biscayne Jewish Center", "city": "Key Biscayne", "shetach": "florida", "year": 1999, "how": "anniversary", "source": "https://www.lubavitch.com/sun-and-surf-and-soul", "note": "Lubavitch.com, 11 Nov 2002: 'three years ago, Rabbi Yoel and Rivka Caroline began introducing various Jewish activities' on Key Biscayne; Chabad of Key Biscayne 'moved into a home of its own just in time Rosh Hashana 5763' (Sept 2002) at 211 Greenwood Drive. Now 101 Harbor Drive (Rabbi Avremel Caroline).", "confidence": "medium", "earlier": [{"where": "211 Greenwood Drive, Key Biscayne", "from": 2002, "until": null, "source": "https://www.lubavitch.com/sun-and-surf-and-soul"}]},
- "118437": {"name": "Chabad of South Orlando", "city": "Orlando", "shetach": "florida", "year": 2000, "how": "anniversary", "source": "https://heritagefl.com/story/2015/04/03/features/chabad-of-south-orlandos-new-home/4209.html", "note": "Heritage Florida Jewish News, 3 Apr 2015: 'After having a presence in the southwest Orlando area for 15 years' (so 2000); another account: 'the 2000 arrival of Rabbi Yosef and Chani Konikov'. Other sources say they were hired in 1998 or began in 1999. Earlier on Tamarind Circle; the Center of Jewish Life at 7347 Sand Lake Road from about 2015.", "confidence": "medium", "earlier": [{"where": "Tamarind Circle, Orlando", "from": null, "until": null, "source": "https://crownheights.info/shlichus/454908/new-orlando-center-to-serve-jewish-locals-tourists"}]},
- "118514": {"name": "Downtown Jewish Center Chabad", "city": "Fort Lauderdale", "shetach": "florida", "year": 2000, "how": "directory", "source": "https://lasolasboulevard.com/members/downtown-jewish-center-chabad-(djcc)", "note": "Directory listings (Las Olas Boulevard association; MapQuest): established in 2000 by Rabbi Schneur and Devorah Kaplan, 900 E Broward Blvd. therebbesimpact.com: the couple 2000. (VIN News, 2009: then not on chabad.org's list.) Only directories: to check.", "confidence": "low"}
+ "118356": {
+  "name": "Chabad Lubavitch of the Panhandle - Tallahassee",
+  "city": "Tallahassee",
+  "shetach": "florida",
+  "year": 2000,
+  "how": "stated",
+  "source": "https://www.wtxl.com/news/local-news/fire-destroys-tallahassee-jewish-center-rabbi-plans-to-rebuild",
+  "note": "Chabad-Lubavitch of the Panhandle 'was established in 2000' by Rabbi Schneur Zalman and Chanie Oirechman, for FSU students and Tallahassee (news of the May 2022 fire that destroyed its building; Lubavitch.com). Chabad.org (28 May 2014): at first they ran it 'from their five-bedroom home, using three of the bedrooms and the main living space for programs'; 'Nine years ago, the couple moved into a new building' (about 2005); in April 2014 they bought a 3-acre property (a church) on the edge of campus for a center four times larger. Panama City Beach, Destin and Pensacola grew from it.",
+  "confidence": "high",
+  "earlier": [
+   {
+    "where": "Tallahassee: the Oirechmans' five-bedroom home (three bedrooms and the living space used for programs)",
+    "from": 2000,
+    "until": 2005,
+    "source": "https://www.chabad.org/news/article_cdo/aid/2598538"
+   }
+  ]
+ },
+ "118367": {
+  "name": "Chabad of East Boca Raton",
+  "city": "Boca Raton",
+  "shetach": "florida",
+  "year": 1999,
+  "date": "1999-09",
+  "how": "stated",
+  "source": "https://www.bocaratontribune.com/bocaratonnews/2010/05/chabad-of-east-boca-holds-auction-to-mark-anniversary-prepare-for-move-to-new-site/?amp",
+  "note": "Boca Raton Tribune (May 2010, its 10th anniversary): Chabad of Boca Raton appointed Rabbi Ruvi and Ahuva New to open an East Boca branch in September 1999; it began in their living room, then a storefront on Palmetto Park Road, then from 2002 a larger rented facility; a site at 770 East Palmetto Park Road was gifted by Irving and Judy Litwak.",
+  "confidence": "high",
+  "earlier": [
+   {
+    "where": "Rabbi Ruvi and Ahuva New's living room",
+    "from": 1999,
+    "until": null,
+    "source": "https://www.bocaratontribune.com/bocaratonnews/2010/05/chabad-of-east-boca-holds-auction-to-mark-anniversary-prepare-for-move-to-new-site/?amp"
+   },
+   {
+    "where": "a storefront on Palmetto Park Road",
+    "from": null,
+    "until": 2002,
+    "source": "https://www.bocaratontribune.com/bocaratonnews/2010/05/chabad-of-east-boca-holds-auction-to-mark-anniversary-prepare-for-move-to-new-site/?amp"
+   },
+   {
+    "where": "a larger rented facility",
+    "from": 2002,
+    "until": null,
+    "source": "https://www.bocaratontribune.com/bocaratonnews/2010/05/chabad-of-east-boca-holds-auction-to-mark-anniversary-prepare-for-move-to-new-site/?amp"
+   }
+  ]
+ },
+ "118379": {
+  "name": "Lubavitch Chabad Jewish Student Center",
+  "city": "Gainesville",
+  "shetach": "florida",
+  "year": 2000,
+  "how": "stated",
+  "source": "https://www.chabad.org/article.asp?aid=2488566",
+  "note": "Chabad.org: Rabbi Berl and Chanie Goldman have seen Jewish life at UF grow 'since they first arrived in 2000'; a 2010 report: 'ten years after moving to Gainesville to establish a student Jewish center'. Early on it ran from tents, trailers and temporary buildings; the 23,000 sq ft Tabacinic center at 2021 NW Fifth Ave. came later.",
+  "confidence": "high"
+ },
+ "118475": {
+  "name": "Chabad of Coral Springs",
+  "city": "Coral Springs",
+  "shetach": "florida",
+  "year": 1986,
+  "how": "stated",
+  "source": "https://anash.org/chabad-of-coral-springs-celebrates-36-years-and-counting",
+  "note": "Anash ('Chabad of Coral Springs celebrates 36 years and counting'): established in 1986, when Rabbi Yossi and Rivka Denburg were sent to South Florida to build a Hebrew day school and a Chabad House; his brother-in-law Rabbi Avraham Friedman became executive director in 1991. Coral Springs Talk (2023): its 36th anniversary (so 1987). therebbesimpact.com: 1987.",
+  "confidence": "medium"
+ },
+ "118411": {
+  "name": "Chabad Key Biscayne Jewish Center",
+  "city": "Key Biscayne",
+  "shetach": "florida",
+  "year": 1999,
+  "how": "anniversary",
+  "source": "https://www.lubavitch.com/sun-and-surf-and-soul",
+  "note": "Lubavitch.com, 11 Nov 2002: 'three years ago, Rabbi Yoel and Rivka Caroline began introducing various Jewish activities' on Key Biscayne; Chabad of Key Biscayne 'moved into a home of its own just in time Rosh Hashana 5763' (Sept 2002) at 211 Greenwood Drive. Now 101 Harbor Drive (Rabbi Avremel Caroline).",
+  "confidence": "medium",
+  "earlier": [
+   {
+    "where": "211 Greenwood Drive, Key Biscayne",
+    "from": 2002,
+    "until": null,
+    "source": "https://www.lubavitch.com/sun-and-surf-and-soul"
+   }
+  ]
+ },
+ "118437": {
+  "name": "Chabad of South Orlando",
+  "city": "Orlando",
+  "shetach": "florida",
+  "year": 2000,
+  "how": "anniversary",
+  "source": "https://heritagefl.com/story/2015/04/03/features/chabad-of-south-orlandos-new-home/4209.html",
+  "note": "Heritage Florida Jewish News, 3 Apr 2015: 'After having a presence in the southwest Orlando area for 15 years' (so 2000); another account: 'the 2000 arrival of Rabbi Yosef and Chani Konikov'. Other sources say they were hired in 1998 or began in 1999. Earlier on Tamarind Circle; the Center of Jewish Life at 7347 Sand Lake Road from about 2015.",
+  "confidence": "medium",
+  "earlier": [
+   {
+    "where": "Tamarind Circle, Orlando",
+    "from": null,
+    "until": null,
+    "source": "https://crownheights.info/shlichus/454908/new-orlando-center-to-serve-jewish-locals-tourists"
+   }
+  ]
+ },
+ "118514": {
+  "name": "Downtown Jewish Center Chabad",
+  "city": "Fort Lauderdale",
+  "shetach": "florida",
+  "year": 2000,
+  "how": "directory",
+  "source": "https://lasolasboulevard.com/members/downtown-jewish-center-chabad-(djcc)",
+  "note": "Directory listings (Las Olas Boulevard association; MapQuest): established in 2000 by Rabbi Schneur and Devorah Kaplan, 900 E Broward Blvd. therebbesimpact.com: the couple 2000. (VIN News, 2009: then not on chabad.org's list.) Only directories: to check.",
+  "confidence": "low"
+ }
 }

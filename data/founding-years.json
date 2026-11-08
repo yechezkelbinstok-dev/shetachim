@@ -8255,7 +8255,15 @@
    "how": "stated",
    "source": "https://www.chabad.org/article.asp?aid=1132205",
    "note": "Chabad.org, 22 Feb 2010 ('Florida Jews Mark Half a Century of Chabad Activities'): Rabbi Yaakov Zucker 'arrived as a newlywed in 1995, sent there by the Korfs', and directs the Chabad Jewish Center of the Florida Keys and Key West.",
-   "confidence": "high"
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "Key West: a mobile home in an isolated part of town (the old Chabad House, holding 50 people at most)",
+     "from": null,
+     "until": 2008,
+     "source": "https://www.chabad.org/news/article_cdo/aid/721117"
+    }
+   ]
   },
   "118198": {
    "name": "Chabad of Weston Center for Jewish Life",
@@ -11158,8 +11166,23 @@
    "season": "Rosh Hashanah",
    "how": "news",
    "source": "https://www.lubavitch.com/hoboken-gets-a-new-synagogue-first-in-100-years",
-   "note": "Lubavitch.com / Patch: Rabbi Moshe and Shaindel Schapiro founded the Chabad in 2001, having come to Hoboken to conduct Rosh Hashana services in September 2001; Jewish Link (2025): 'When we first moved here 24 years ago'. Its center at 80 Park St. (2011) was Hoboken's first new synagogue in about 100 years. IRS-free entity: Chabad of Hoboken and Jersey City.",
-   "confidence": "high"
+   "note": "Lubavitch.com / Patch: Rabbi Moshe and Shaindel Schapiro founded the Chabad in 2001, having come to Hoboken to conduct Rosh Hashana services in September 2001; Chabad.org (24 Oct 2014): 'The rabbi and his wife started their programming in Hoboken in September 2001, just after 9/11'; Jewish Link (2025): 'When we first moved here 24 years ago'. Chabad.org (2014): it used temporary spaces for Shabbat services and meals until Hurricane Sandy (Oct 2012) washed them away, then the rabbi's own house; its first permanent home, the Weisfeld Family Chabad Jewish Center at 80 Park Ave., opened in Sept 2014 as Hoboken's first new synagogue in about 100 years. chabad.org now gives 720 Monroe Street. Entity: Chabad of Hoboken and Jersey City.",
+   "confidence": "high",
+   "date": "2001-09",
+   "earlier": [
+    {
+     "where": "Hoboken: temporary spaces for Shabbat services and meals (washed away by Hurricane Sandy)",
+     "from": 2001,
+     "until": 2012,
+     "source": "https://www.chabad.org/news/article_cdo/aid/2740679"
+    },
+    {
+     "where": "Hoboken: Rabbi Moshe Schapiro's house",
+     "from": 2012,
+     "until": 2014,
+     "source": "https://www.chabad.org/news/article_cdo/aid/2740679"
+    }
+   ]
   },
   "118527": {
    "name": "Chabad of South Brunswick",
@@ -11938,7 +11961,21 @@
    "how": "stated",
    "source": "https://thebrownandwhite.com/2016/10/19/lehigh-chabad-family/",
    "note": "The Brown and White (Lehigh), 19 Oct 2016: 'Zalman Greenberg decided to create Chabad at Lehigh in 2008'; another Brown and White profile: in July 2008 Dit and Zalman Greenberg moved to Bethlehem. The former Kulik Funeral Home became its center (Joachim Schaufeld Center for Jewish Life) in 2016.",
-   "confidence": "high"
+   "confidence": "high",
+   "earlier": [
+    {
+     "where": "Bethlehem: the Greenbergs' first homes near campus (big events in a tent across two neighbors' backyards)",
+     "from": 2008,
+     "until": 2012,
+     "source": "https://www.chabad.org/news/article_cdo/aid/1817964"
+    },
+    {
+     "where": "Bethlehem: a circa-1866 mansion, a former fraternity house five minutes from campus (the Rohr Jewish Student Center)",
+     "from": 2012,
+     "until": 2016,
+     "source": "https://www.chabad.org/news/article_cdo/aid/1817964"
+    }
+   ]
   },
   "1337772": {
    "name": "Chabad Serving Drexel University - Rohr Jewish Student Center",

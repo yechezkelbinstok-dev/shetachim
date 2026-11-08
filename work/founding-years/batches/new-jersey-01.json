@@ -226,8 +226,23 @@
   "season": "Rosh Hashanah",
   "how": "news",
   "source": "https://www.lubavitch.com/hoboken-gets-a-new-synagogue-first-in-100-years",
-  "note": "Lubavitch.com / Patch: Rabbi Moshe and Shaindel Schapiro founded the Chabad in 2001, having come to Hoboken to conduct Rosh Hashana services in September 2001; Jewish Link (2025): 'When we first moved here 24 years ago'. Its center at 80 Park St. (2011) was Hoboken's first new synagogue in about 100 years. IRS-free entity: Chabad of Hoboken and Jersey City.",
-  "confidence": "high"
+  "note": "Lubavitch.com / Patch: Rabbi Moshe and Shaindel Schapiro founded the Chabad in 2001, having come to Hoboken to conduct Rosh Hashana services in September 2001; Chabad.org (24 Oct 2014): 'The rabbi and his wife started their programming in Hoboken in September 2001, just after 9/11'; Jewish Link (2025): 'When we first moved here 24 years ago'. Chabad.org (2014): it used temporary spaces for Shabbat services and meals until Hurricane Sandy (Oct 2012) washed them away, then the rabbi's own house; its first permanent home, the Weisfeld Family Chabad Jewish Center at 80 Park Ave., opened in Sept 2014 as Hoboken's first new synagogue in about 100 years. chabad.org now gives 720 Monroe Street. Entity: Chabad of Hoboken and Jersey City.",
+  "confidence": "high",
+  "date": "2001-09",
+  "earlier": [
+   {
+    "where": "Hoboken: temporary spaces for Shabbat services and meals (washed away by Hurricane Sandy)",
+    "from": 2001,
+    "until": 2012,
+    "source": "https://www.chabad.org/news/article_cdo/aid/2740679"
+   },
+   {
+    "where": "Hoboken: Rabbi Moshe Schapiro's house",
+    "from": 2012,
+    "until": 2014,
+    "source": "https://www.chabad.org/news/article_cdo/aid/2740679"
+   }
+  ]
  },
  "118527": {
   "name": "Chabad of South Brunswick",

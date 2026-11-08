@@ -222,7 +222,21 @@
   "how": "stated",
   "source": "https://thebrownandwhite.com/2016/10/19/lehigh-chabad-family/",
   "note": "The Brown and White (Lehigh), 19 Oct 2016: 'Zalman Greenberg decided to create Chabad at Lehigh in 2008'; another Brown and White profile: in July 2008 Dit and Zalman Greenberg moved to Bethlehem. The former Kulik Funeral Home became its center (Joachim Schaufeld Center for Jewish Life) in 2016.",
-  "confidence": "high"
+  "confidence": "high",
+  "earlier": [
+   {
+    "where": "Bethlehem: the Greenbergs' first homes near campus (big events in a tent across two neighbors' backyards)",
+    "from": 2008,
+    "until": 2012,
+    "source": "https://www.chabad.org/news/article_cdo/aid/1817964"
+   },
+   {
+    "where": "Bethlehem: a circa-1866 mansion, a former fraternity house five minutes from campus (the Rohr Jewish Student Center)",
+    "from": 2012,
+    "until": 2016,
+    "source": "https://www.chabad.org/news/article_cdo/aid/1817964"
+   }
+  ]
  },
  "1337772": {
   "name": "Chabad Serving Drexel University - Rohr Jewish Student Center",

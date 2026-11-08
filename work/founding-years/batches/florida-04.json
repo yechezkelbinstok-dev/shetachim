@@ -1,10 +1,112 @@
 {
- "117948": {"name": "Hollywood Community Synagogue - Chabad", "city": "Hollywood", "shetach": "florida", "year": 1990, "how": "stated", "source": "https://collive.com/evicted-rabbi-reclaims-his-center/", "note": "COLlive, 3 July 2015: after the eviction on Tisha B'Av 5774 (Aug 2014), Rabbi Joseph Korf said the restart 'was 1990 all over again', i.e. as when they began; the center was reclaimed on 12 Tammuz 5775 (June 2015). The Sun-Sentinel had it moving out of its house at 2215 N. 46th Ave. therebbesimpact.com: the center and Joseph & Elisheva Korf 1990. Only indirect: to check.", "confidence": "medium"},
- "117960": {"name": "Chabad Lubavitch of Southwest Broward", "city": "Cooper City", "shetach": "florida", "year": 1992, "how": "anniversary", "source": "https://collive.com/raising-funds-for-a-chabad-center-without-borders/", "note": "COLlive, 18 July 2022: Rabbi Pinny and Gitty Andrusier 'moved to Florida to be trailblazing shluchim, opening Chabad of Southwest Broward (SWB) in Cooper City', 'operating out of a small modest modular trailer for 30 years'. therebbesimpact.com: the couple 1992, the center 1993.", "confidence": "medium", "earlier": [{"where": "a small modular trailer, Cooper City", "from": 1992, "until": null, "source": "https://collive.com/raising-funds-for-a-chabad-center-without-borders/"}]},
- "117969": {"name": "Chabad Lubavitch of Greater Daytona", "city": "Ormond Beach", "shetach": "florida", "year": 1993, "how": "stated", "source": "https://www.chabaddaytona.org/6487715", "note": "Its own site: established in 1993; COLlive: Rabbi Pinchas Ezagui 'has been in Daytona since 1993'; news of 2008-10 ('15 years', '17 years') agree.", "confidence": "high"},
- "117991": {"name": "Chabad Lubavitch of Greater Boynton Beach", "city": "Boynton Beach", "shetach": "florida", "year": 1994, "how": "stated", "source": "https://www.chabadboynton.com/templates/articlecco_cdo/aid/2196287/jewish/About-Us.htm", "note": "Its own pages: Rabbi Sholom and Dinie Ciment 'arrive in Boynton in 1994'; its mission statement: founded 1994 with a handful of members. (Sun-Sentinel, May 2008: small 'thirteen years ago'.)", "confidence": "high"},
- "118196": {"name": "Chabad Jewish Center of the Florida Keys", "city": "Key West", "shetach": "florida", "year": 1995, "how": "stated", "source": "https://www.chabad.org/article.asp?aid=1132205", "note": "Chabad.org, 22 Feb 2010 ('Florida Jews Mark Half a Century of Chabad Activities'): Rabbi Yaakov Zucker 'arrived as a newlywed in 1995, sent there by the Korfs', and directs the Chabad Jewish Center of the Florida Keys and Key West.", "confidence": "high"},
- "118198": {"name": "Chabad of Weston Center for Jewish Life", "city": "Weston", "shetach": "florida", "year": 1996, "how": "stated", "source": "https://issuu.com/ourcityweston/docs/wes_0223/s/18362876", "note": "Our City Weston (Feb 2023): Chabad of Weston 'has been serving the local Jewish community since it first opened in 1996' (Rabbi Yisroel and Leah Spalter). Its new 16,000 sq ft center was built while it ran from a trailer for two years (Lubavitch.com).", "confidence": "high"},
- "118284": {"name": "Chabad Jewish Center of Martin & S. Lucie County", "city": "Palm City", "shetach": "florida", "year": 1995, "how": "anniversary", "source": "https://jewishwebsite.com/?p=33554", "note": "10 Sept 2018: Rabbi Shlomo and Daniella Uminer's Chabad center, 'which they founded when they moved here from Brooklyn 23 years ago' (so 1995); Lubavitch.com: they have led the community for 23 years. therebbesimpact.com: 1999. A 2.5-acre campus on Sunset Trail, Palm City.", "confidence": "medium"},
- "118287": {"name": "Chabad Lubavitch of Sunny Isles Beach", "city": "Sunny Isles Beach", "shetach": "florida", "year": 1994, "how": "stated", "source": "https://www.tribester.com/organizer/cyp-sunny-isles", "note": "Its CYP page: 'Our synagogue began as Sunny Isles Chabad in 1994 even before Sunny Isles Beach was incorporated or named as a city', in 'a small office space on the second floor of the RK Plaza at 170th Street'; 'Various moves followed until eventually, the congregation moved to the ground floor of the King David in 2004.' (That this page is Rabbi Yisrael Baron's congregation is inferred: it is Chabad of Sunny Isles Beach's young-professionals page.)", "confidence": "medium", "earlier": [{"where": "an office on the second floor of RK Plaza, 170th Street", "from": 1994, "until": null, "source": "https://www.tribester.com/organizer/cyp-sunny-isles"}, {"where": "the ground floor of the King David", "from": 2004, "until": null, "source": "https://www.tribester.com/organizer/cyp-sunny-isles"}]}
+ "117948": {
+  "name": "Hollywood Community Synagogue - Chabad",
+  "city": "Hollywood",
+  "shetach": "florida",
+  "year": 1990,
+  "how": "stated",
+  "source": "https://collive.com/evicted-rabbi-reclaims-his-center/",
+  "note": "COLlive, 3 July 2015: after the eviction on Tisha B'Av 5774 (Aug 2014), Rabbi Joseph Korf said the restart 'was 1990 all over again', i.e. as when they began; the center was reclaimed on 12 Tammuz 5775 (June 2015). The Sun-Sentinel had it moving out of its house at 2215 N. 46th Ave. therebbesimpact.com: the center and Joseph & Elisheva Korf 1990. Only indirect: to check.",
+  "confidence": "medium"
+ },
+ "117960": {
+  "name": "Chabad Lubavitch of Southwest Broward",
+  "city": "Cooper City",
+  "shetach": "florida",
+  "year": 1992,
+  "how": "anniversary",
+  "source": "https://collive.com/raising-funds-for-a-chabad-center-without-borders/",
+  "note": "COLlive, 18 July 2022: Rabbi Pinny and Gitty Andrusier 'moved to Florida to be trailblazing shluchim, opening Chabad of Southwest Broward (SWB) in Cooper City', 'operating out of a small modest modular trailer for 30 years'. therebbesimpact.com: the couple 1992, the center 1993.",
+  "confidence": "medium",
+  "earlier": [
+   {
+    "where": "a small modular trailer, Cooper City",
+    "from": 1992,
+    "until": null,
+    "source": "https://collive.com/raising-funds-for-a-chabad-center-without-borders/"
+   }
+  ]
+ },
+ "117969": {
+  "name": "Chabad Lubavitch of Greater Daytona",
+  "city": "Ormond Beach",
+  "shetach": "florida",
+  "year": 1993,
+  "how": "stated",
+  "source": "https://www.chabaddaytona.org/6487715",
+  "note": "Its own site: established in 1993; COLlive: Rabbi Pinchas Ezagui 'has been in Daytona since 1993'; news of 2008-10 ('15 years', '17 years') agree.",
+  "confidence": "high"
+ },
+ "117991": {
+  "name": "Chabad Lubavitch of Greater Boynton Beach",
+  "city": "Boynton Beach",
+  "shetach": "florida",
+  "year": 1994,
+  "how": "stated",
+  "source": "https://www.chabadboynton.com/templates/articlecco_cdo/aid/2196287/jewish/About-Us.htm",
+  "note": "Its own pages: Rabbi Sholom and Dinie Ciment 'arrive in Boynton in 1994'; its mission statement: founded 1994 with a handful of members. (Sun-Sentinel, May 2008: small 'thirteen years ago'.)",
+  "confidence": "high"
+ },
+ "118196": {
+  "name": "Chabad Jewish Center of the Florida Keys",
+  "city": "Key West",
+  "shetach": "florida",
+  "year": 1995,
+  "how": "stated",
+  "source": "https://www.chabad.org/article.asp?aid=1132205",
+  "note": "Chabad.org, 22 Feb 2010 ('Florida Jews Mark Half a Century of Chabad Activities'): Rabbi Yaakov Zucker 'arrived as a newlywed in 1995, sent there by the Korfs', and directs the Chabad Jewish Center of the Florida Keys and Key West.",
+  "confidence": "high",
+  "earlier": [
+   {
+    "where": "Key West: a mobile home in an isolated part of town (the old Chabad House, holding 50 people at most)",
+    "from": null,
+    "until": 2008,
+    "source": "https://www.chabad.org/news/article_cdo/aid/721117"
+   }
+  ]
+ },
+ "118198": {
+  "name": "Chabad of Weston Center for Jewish Life",
+  "city": "Weston",
+  "shetach": "florida",
+  "year": 1996,
+  "how": "stated",
+  "source": "https://issuu.com/ourcityweston/docs/wes_0223/s/18362876",
+  "note": "Our City Weston (Feb 2023): Chabad of Weston 'has been serving the local Jewish community since it first opened in 1996' (Rabbi Yisroel and Leah Spalter). Its new 16,000 sq ft center was built while it ran from a trailer for two years (Lubavitch.com).",
+  "confidence": "high"
+ },
+ "118284": {
+  "name": "Chabad Jewish Center of Martin & S. Lucie County",
+  "city": "Palm City",
+  "shetach": "florida",
+  "year": 1995,
+  "how": "anniversary",
+  "source": "https://jewishwebsite.com/?p=33554",
+  "note": "10 Sept 2018: Rabbi Shlomo and Daniella Uminer's Chabad center, 'which they founded when they moved here from Brooklyn 23 years ago' (so 1995); Lubavitch.com: they have led the community for 23 years. therebbesimpact.com: 1999. A 2.5-acre campus on Sunset Trail, Palm City.",
+  "confidence": "medium"
+ },
+ "118287": {
+  "name": "Chabad Lubavitch of Sunny Isles Beach",
+  "city": "Sunny Isles Beach",
+  "shetach": "florida",
+  "year": 1994,
+  "how": "stated",
+  "source": "https://www.tribester.com/organizer/cyp-sunny-isles",
+  "note": "Its CYP page: 'Our synagogue began as Sunny Isles Chabad in 1994 even before Sunny Isles Beach was incorporated or named as a city', in 'a small office space on the second floor of the RK Plaza at 170th Street'; 'Various moves followed until eventually, the congregation moved to the ground floor of the King David in 2004.' (That this page is Rabbi Yisrael Baron's congregation is inferred: it is Chabad of Sunny Isles Beach's young-professionals page.)",
+  "confidence": "medium",
+  "earlier": [
+   {
+    "where": "an office on the second floor of RK Plaza, 170th Street",
+    "from": 1994,
+    "until": null,
+    "source": "https://www.tribester.com/organizer/cyp-sunny-isles"
+   },
+   {
+    "where": "the ground floor of the King David",
+    "from": 2004,
+    "until": null,
+    "source": "https://www.tribester.com/organizer/cyp-sunny-isles"
+   }
+  ]
+ }
 }

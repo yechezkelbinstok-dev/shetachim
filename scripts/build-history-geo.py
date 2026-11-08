@@ -4,7 +4,8 @@
 It takes the US and Canadian pieces of web/data/geo.json as they are, cuts out the pieces that only the history needs
 (data/shetach-history.json's extraAreas: South Jersey out of New Jersey by its seven counties, Southeast Ohio out of
 the Northeast Ohio piece south of a straight line), and adds the land around them that no US or Canadian shetach covers
-(the rest of Canada, Greenland, Mexico, Central America and the Caribbean), so every border is shared point for point.
+(the rest of Canada, Greenland, Mexico, Central America and the Caribbean), so every border is shared point for point;
+the provinces' unclaimed north is cut by province into pieces of its own ('north': true), for the page's whole-provinces switch.
 Run from the repository root:  python3 -I scripts/build-history-geo.py   (needs shapely, and mapshaper from npm)
 """
 import json, os, subprocess, sys, tempfile
@@ -16,6 +17,8 @@ GEO = os.path.join(ROOT, 'web/data/geo.json')
 OUTSIDE = os.path.join(ROOT, 'web/data/outside.json')
 HIST = os.path.join(ROOT, 'data/shetach-history.json')
 COUNTIES = os.path.join(ROOT, '.cache/county.json')
+CA_PROVINCES = os.path.join(ROOT, '.cache/gadm36_CAN_1.json')
+NORTH = {'Ontario': 'CA-ON', 'Québec': 'CA-QC', 'Manitoba': 'CA-MB', 'Saskatchewan': 'CA-SK', 'British Columbia': 'CA-BC', 'Alberta': 'CA-AB', 'Newfoundland and Labrador': 'CA-NL'}
 OUT = os.path.join(ROOT, 'web/data/history-geo.json')
 NEAR = {'MEX', 'GTM', 'BLZ', 'HND', 'SLV', 'NIC', 'CRI', 'PAN', 'CUB', 'BHS', 'JAM', 'HTI', 'DOM', 'PRI', 'TCA', 'CYM', 'BMU'}
 OHIO_CUT = 40.45  # Southeast Ohio: the Northeast Ohio piece south of this latitude (Athens, Marietta, Steubenville)
@@ -108,14 +111,32 @@ def main():
     nj[1] = multi(polys(nj[1].difference(sj)))
     areas.append([dict(nj[0], id='US-NJ:south-jersey', part='South Jersey'), multi(polys(sj))])
 
-    # the land around: the rest of Canada, Greenland, Saint Pierre and Miquelon (outside.json), Mexico and its neighbours
+    # the land around: the rest of Canada, Greenland, Saint Pierre and Miquelon (outside.json), Mexico and its neighbours.
+    # The provinces' own unclaimed north (the main map leaves it off) is cut out of the rest of Canada by province, as a
+    # piece of its own ('north'), so the page can show the provinces whole (its switch) or not
     out = json.load(open(OUTSIDE))
     oarcs = arcs_of(out)
+    provinces = {f['properties']['NAME_1']: shape(f['geometry']).buffer(0) for f in json.load(open(CA_PROVINCES))['features']}
     for g in out['objects'][list(out['objects'])[0]]['geometries']:
-        if g['properties'].get('country') in ('CA', 'GRL', 'SPM'):
-            gg = geom_of(g, oarcs)
-            if gg is not None and not gg.is_empty:
-                near.append(gg)
+        c = g['properties'].get('country')
+        gg = geom_of(g, oarcs)
+        if gg is None or gg.is_empty:
+            continue
+        if c == 'CA':
+            gg = gg.buffer(0)
+            taken = []
+            for name, st in NORTH.items():
+                part = multi([p for p in polys(gg.intersection(provinces[name])) if p.area > 1e-4])
+                if part.is_empty or part.area < 1e-3:
+                    continue
+                areas.append([{'id': f'{st}:north', 'state': st, 'name': name, 'abbr': st[3:], 'country': 'CA', 'shetach': '', 'north': True}, part])
+                taken.append(part)
+            rest = gg.difference(unary_union(taken)) if taken else gg
+            ps = [p for p in polys(rest) if p.area > 1e-4]
+            if ps:
+                near.append(multi(ps))
+        elif c in ('GRL', 'SPM'):
+            near.append(gg)
 
     tmp = tempfile.mkdtemp()
     fa, fo = os.path.join(tmp, 'areas.json'), os.path.join(tmp, 'outside.json')

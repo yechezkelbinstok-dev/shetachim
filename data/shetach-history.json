@@ -1,5 +1,5 @@
 {
- "about": "Shetach territories and heads over time, the United States first (the owner's idea, Nov 6; started Nov 8). It holds what a map of any year needs: whose shetach each area was in, and who headed each shetach. 'areas' is keyed by the map's piece id, '<state>:<shetach id>' as in web/data/centers.geojson ('US-OR:oregon' is Oregon, 'US-OH:michigan' the Toledo area, 'US-WV:western-pennsylvania' West Virginia). Its periods run oldest first: from a period's 'from' until the next period's 'from', the area was part of that period's 'shetach', given by the id in data/shetachim.json of that head's shetach today (Levitin's Pacific Northwest is 'washington'). Before the first period the area was in no shetach, as far as is known. 'heads' is keyed by shetach id: its heads, oldest first, each {head, from, name (what the shetach was called then, where it differs)}; a shetach with one head since it began lists him from its start, with the sources on the area period that starts it. 'events' is keyed by shetach id: vaads, passings and the like, each {date, what, sources}. Dates are 'YYYY', 'YYYY-MM' or 'YYYY-MM-DD'; when only bounds are known, 'from' is null and 'fromBound' is {after, by}. 'how': owner (the owner's own statement, taken as fact; owner, Nov 8: \"I'm telling you as a fact ... I just need to figure out when each one split off. Stop trying to verify my facts\"), stated (a source states it), news (a report from the time), anniversary (counted back), range (only bounds). 'confidence', as in data/founding-years.json: high (a report from the time, or the shetach's own statement, and nothing against it), medium (one later source, a count back, or sources a year apart), low, range, open; none on 'owner' periods. 'sources': [{url, title, date (the source's own), quote (its words), via (where an earlier session found it), note}]. When an area was in another head's shetach before its own (the owner, Nov 8): \"usually I would assume it was only theirs if they were doing some sort of activity there or if they were explicitly sent to those names places by the Rebbe or merkoz like how levitin was sent to all those places\". 'extraAreas' are pieces for the history only, cut out of a map piece where part of it had another past (Southern New Jersey, Avremel Shemtov's in 1980, out of US-NJ:new-jersey): {name, carvedFrom (the piece), counties (Census GEOIDs), note}; their periods are under 'areas' like any other, and the rest of the piece follows the piece's own periods. Research notes: work/shetach-history/README.md. 'flagships' is keyed by shetach id: where its flagship (the head's own center) was, oldest first, each {from (or fromBound), where, lat, lon, centerId (a chabad.org listing, where it is one), via or source}; a shetach not in it had its flagship at today's capital (web/data/shetachim.json) from its start. Moves within a city whose dates are not known (an address only as of a directory snapshot) are left out. A head's 'he' is his name in Hebrew where he is not today's head (web/data/he.json has today's).",
+ "about": "Shetach territories and heads over time, the United States first (the owner's idea, Nov 6; started Nov 8). It holds what a map of any year needs: whose shetach each area was in, and who headed each shetach. 'areas' is keyed by the map's piece id, '<state>:<shetach id>' as in web/data/centers.geojson ('US-OR:oregon' is Oregon, 'US-OH:michigan' the Toledo area, 'US-WV:western-pennsylvania' West Virginia). Its periods run oldest first: from a period's 'from' until the next period's 'from', the area was part of that period's 'shetach', given by the id in data/shetachim.json of that head's shetach today (Levitin's Pacific Northwest is 'washington'). Before the first period the area was in no shetach, as far as is known. 'heads' is keyed by shetach id: its heads, oldest first, each {head, from, name (what the shetach was called then, where it differs)}; a shetach with one head since it began lists him from its start, with the sources on the area period that starts it. 'events' is keyed by shetach id: vaads, passings and the like, each {date, what, sources}. Dates are 'YYYY', 'YYYY-MM' or 'YYYY-MM-DD'; when only bounds are known, 'from' is null and 'fromBound' is {after, by}. 'how': owner (the owner's own statement, taken as fact; owner, Nov 8: \"I'm telling you as a fact ... I just need to figure out when each one split off. Stop trying to verify my facts\"), stated (a source states it), news (a report from the time), anniversary (counted back), range (only bounds). 'confidence', as in data/founding-years.json: high (a report from the time, or the shetach's own statement, and nothing against it), medium (one later source, a count back, or sources a year apart), low, range, open; none on 'owner' periods. 'sources': [{url, title, date (the source's own), quote (its words), via (where an earlier session found it), note}]. When an area was in another head's shetach before its own (the owner, Nov 8): \"usually I would assume it was only theirs if they were doing some sort of activity there or if they were explicitly sent to those names places by the Rebbe or merkoz like how levitin was sent to all those places\". 'extraAreas' are pieces for the history only, cut out of a map piece where part of it had another past (Southern New Jersey, Avremel Shemtov's in 1980, out of US-NJ:new-jersey): {name, carvedFrom (the piece), counties (Census GEOIDs), note}; their periods are under 'areas' like any other, and the rest of the piece follows the piece's own periods. Research notes: work/shetach-history/README.md. 'flagships' is keyed by shetach id: where its flagship (the head's own center) was, oldest first, each {from (or fromBound), where, lat, lon, centerId (a chabad.org listing, where it is one), via or source}; a shetach not in it had its flagship at today's capital (web/data/shetachim.json) from its start. Moves within a city whose dates are not known (an address only as of a directory snapshot) are left out. A head's 'he' is his name in Hebrew where he is not today's head (web/data/he.json has today's). A head's 'portrait' is a Rebbe's picture in web/img/rebbeim/ (data/rebbeim-portraits.json); 'with' lists who is named under him on the card (the Rebbe under the Frierdiker Rebbe, as chairman of Merkos, from 1941).",
  "heads": {
   "alabama": [
    {
@@ -639,6 +639,42 @@
    {
     "head": "Zalman Mendelsohn",
     "from": "2008-05"
+   }
+  ],
+  "crown-heights": [
+   {
+    "head": "The Frierdiker Rebbe",
+    "he": "אדמו״ר הריי״צ",
+    "portrait": "frierdiker-rebbe",
+    "from": "1940-08-16",
+    "how": "owner",
+    "with": [
+     {
+      "name": "The Rebbe",
+      "he": "נשיא דורנו",
+      "portrait": "the-rebbe",
+      "role": "Merkos L'Inyonei Chinuch",
+      "roleHe": "מרכז לעניני חינוך",
+      "from": "1941-06-23",
+      "sources": [
+       {
+        "url": "https://en.wikipedia.org/wiki/770_Eastern_Parkway",
+        "title": "770 Eastern Parkway (Wikipedia)",
+        "quote": "When Rabbi Menachem Mendel Schneerson arrived from Vichy France to New York in 1941, his father-in-law appointed him as chairman of Merkos L'Inyonei Chinuch."
+       }
+      ],
+      "note": "Arrived in New York on 28 Sivan 5701 (23 June 1941)."
+     }
+    ],
+    "note": "Owner, Nov 8: '770 should ofc change from the friederker Rebbe (you can have the Rebbe listed under him tho since the Rebbe had a key role in merkoz) to the Rebbe once the Rebbe took the nesseius. But in the gap year between the yud Shevats I guess keep friederker Rebbe'."
+   },
+   {
+    "head": "The Rebbe",
+    "he": "נשיא דורנו",
+    "portrait": "the-rebbe",
+    "from": "1951-01-17",
+    "how": "owner",
+    "note": "10 Shevat 5711 (17 January 1951), when the Rebbe accepted the nesius, a year after the Frierdiker Rebbe's passing (10 Shevat 5710, 28 January 1950); the year between stays the Frierdiker Rebbe's (owner, Nov 8)."
    }
   ]
  },

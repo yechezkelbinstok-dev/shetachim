@@ -232,6 +232,14 @@ able to click the flagships and see a card".
   more than Washington) and the Virginias (with West Virginia). Nebraska stays Nebraska with Katzman's South Dakota
   visits; Pennsylvania stays Pennsylvania with DC, Delaware and South Jersey. A period with only bounds shows from its
   'by' (only an 'after': from that year).
+- **770 (Crown Heights):** the Frierdiker Rebbe from 16 Aug 1940, with the Rebbe named under him (chairman of Merkos
+  L'Inyonei Chinuch, from his arrival on 28 Sivan 5701, June 1941); the Rebbe from 10 Shevat 5711 (17 Jan 1951), the
+  year between the two Yud Shevats staying the Frierdiker Rebbe's (owner, Nov 8). Their portraits (web/img/rebbeim/) in
+  the gilded frame of the main map's cards. 770's star is drawn more than twice the size of the others (owner: "why
+  isn't the 770 main flagship much bigger").
+- **Full provinces** (a switch; owner, Nov 8): off, the Canadian provinces show only their shetachim's parts, as on the
+  main map; on, each province's unclaimed north goes with its biggest piece (Northern Ontario with Southern Ontario's,
+  Labrador's interior with Newfoundland's). The north pieces are cut by province in history-geo.json ('north': true).
 - **Heads:** a head with no date shows from his earliest known bound (Rosenfeld from 1978, when he became dean of
   Yeshiva Schools; Mochkin from 1952, when he came to Montreal); a shetach whose heads aren't in this file (Maine,
   Oklahoma) shows today's head from its start. Photos: `data/head-photos.json` where its 'head' is that year's head;

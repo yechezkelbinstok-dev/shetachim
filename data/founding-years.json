@@ -10362,10 +10362,11 @@
    "shetach": "florida",
    "year": null,
    "lead": 2019,
-   "how": "not-found",
-   "source": null,
-   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2019.",
-   "confidence": "open"
+   "how": "range",
+   "source": "https://collive.com/shluchim-to-panama-city-beach/",
+   "note": "The mikvah of Chabad of Panama City Beach (mikvah.org: 4117 Thomas Drive; supervised by Rabbi Mendel Havlin). COLlive, 24 Dec 2018: Rabbi Mendy and Chaya Havlin 'are moving to Panama City Beach ... and will establish a Chabad House there'; COLlive (31 Aug 2020): the community was helping them buy a home and Chabad center. So the mikvah came after 2018; when it opened is not found. (Achdut Israel's mikvah in Panama City Beach, about 2014-15, is a different one.) Lead: the chabad.org listing is from about 2019.",
+   "confidence": "range",
+   "after": 2018
   },
   "4732397": {
    "name": "Chabad of North Beach",
@@ -10679,13 +10680,11 @@
    "name": "Chabad of North Port",
    "city": "North Port",
    "shetach": "florida",
-   "year": null,
-   "by": 2026,
-   "lead": 2026,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/421844866",
-   "note": "IRS (ProPublica): 'Chabad Of North Port Inc', care of Yisroel Sputz, exempt from 2026-07, so it existed by then. Start year not found yet; lead: the chabad.org listing is from about 2026.",
-   "confidence": "range"
+   "year": 2026,
+   "how": "news",
+   "source": "https://collive.com/new-shluchim-to-floridas-west-coast/",
+   "note": "COLlive, 14 June 2026 ('New Shluchim to Florida's West Coast'): 'Rabbi Srolik and Nechama Sputz, together with their son Levi, will be establishing Chabad of North Port, Florida' (south Sarasota County). IRS: Chabad Of North Port Inc (care of Yisroel Sputz), exempt from July 2026. Both give 2026.",
+   "confidence": "high"
   },
   "7361269": {
    "name": "Chabad at University of Tampa",

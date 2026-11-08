@@ -205,6 +205,11 @@ thirteen no better recent photo has been found yet (the list is there, with what
     the rest are ranges or open: Doylestown about 2006, the Lipsker Israeli center 1964-2009, Penn Wynne by 2007
     with its four homes). Texas: 42 of 48 (`texas-01..03`). Firecrawl is no longer used to get past sites that
     block automated requests (Anash, Sunbiz): owner's rule on bot checks; COLlive often carries the same story.
+    Lists that date many centers at once: Lubavitch News Service, 3 Dec 2005 (crownheights.info/general/1064):
+    the 19 campus teams sent out in 2005 (Georgia, Colorado, UConn, Florida Atlantic/Lynn, Hofstra, Einstein,
+    Wisconsin, Clark, Drake, Western Washington, Yale, CCNY, UNLV, Arizona, UC Riverside, Kansas, CSUN); the
+    Merkos 'New Shluchim' grant lists (COLlive, 2 June and 19 Nov 2022: couples in their first years, by city);
+    COLlive/CrownHeights.info 'New Shluchim to ...' posts, searchable by the rabbi's surname through their WP APIs.
     Georgia (Nov 8): 22 of 24 (`georgia-01..03`; the 2007 Atlanta Jewish
     Times survey 'The Rebbe's Minyan', on CrownHeights.info, dates most of the old Atlanta centers). The Carolinas
     (Nov 8): 20 of 23 (`the-carolinas-01`). Alabama (its six entries moved to `alabama-01`): all 5 dots have a year;

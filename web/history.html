@@ -547,8 +547,10 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   langBtn.onclick = () => { try { localStorage.setItem('shetachim-lang', HE ? 'en' : 'he'); } catch (e) {} const q = new URLSearchParams(location.search); q.set('lang', HE ? 'en' : 'he'); location.search = q.toString(); };
   $('#home').href = HE ? './?lang=he' : './';
   function initialYear() { const q = +new URLSearchParams(location.search).get('y'); return q >= MIN && q <= MAX ? q : MAX; }
-  let rt = null; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(layout, 150); });
-  layout();
+  // every year's shapes worked out ahead, while the page is idle, so play runs smoothly
+  const warm = () => { const ys = CHANGES.slice(); const idle = window.requestIdleCallback || ((f) => setTimeout(f, 40)); const step = () => { const y = ys.shift(); if (y == null) return; config(y); idle(step); }; idle(step); };
+  let rt = null; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { layout(); warm(); }, 150); });
+  layout(); warm();
   window.__history = { nameOf: (sid, Y) => nameOf(sid, Y), groups: (Y) => [...config(Y).groups.keys()], headAt: (sid, Y) => { const h = headAt(sid, Y); return h && h.x.head; } };
 })();
 </script>

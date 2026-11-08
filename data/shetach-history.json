@@ -2857,6 +2857,29 @@
     "via": "data/founding-years.json, 117621 (earlier)",
     "note": "The Almara Circle house burned down in April 2022."
    }
+  ],
+  "connecticut": [
+   {
+    "from": "1974",
+    "where": "the Chabad House at UMass, Amherst, Mass. (address not found)",
+    "lat": 42.37319,
+    "lon": -72.51988,
+    "via": "data/shetach-history.json, areas US-MA:connecticut",
+    "note": "Merkos sent the Derens to Amherst in 1974 (COLlive, 'The Rebbe's Child', May 2024); then Springfield (when, not found)."
+   },
+   {
+    "from": null,
+    "fromBound": {
+     "by": "1987"
+    },
+    "where": "Chabad Lubavitch of Connecticut & Western Massachusetts, Stamford",
+    "centerId": "2948789",
+    "lat": 41.04112,
+    "lon": -73.54174,
+    "source": "https://www.jewishledger.com/2016/06/chabad-emissary-stamford-native-rivky-berman-29-inspired-many/",
+    "quote": "Born in Stamford, Berman was the daughter of Rabbi Yisrael and Vivi Deren, regional director for the Fairfield County Chabads.",
+    "note": "Rivky Berman died in May 2016 aged 29, so the Derens were in Stamford by 1987. Deren (COLlive, 2024): 'Sixteen years later, Rabbi Chadakov called to let me know that Stamford desperately needed a shliach.'"
+   }
   ]
  }
 }

@@ -221,7 +221,8 @@ only names, years and controls.
   OSU house, New Albany by 2014), New Jersey (Newark, Morristown from 1971), Arizona, Texas, Indiana and Kentucky
   (their first homes, from the founding years' `earlier`); Crown Heights is 770 from 16 Aug 1940. A shetach not listed
   shows today's capital from its start. Addresses known only from a directory snapshot (no dates) are left out.
-  Open: Connecticut (Deren in Amherst from 1974, Stamford from when?), Ontario (Toronto to Thornhill), Upstate New
+  Connecticut: Amherst from 1974, Stamford by 1987 (a daughter born there, Jewish Ledger 2016); Springfield in
+  between, not dated. Open: Ontario (Toronto to Thornhill), Upstate New
   York (the Chabad House of Buffalo to Getzville), Iowa and New Mexico before 1992 (other directors, same cities).
 
 ## Open

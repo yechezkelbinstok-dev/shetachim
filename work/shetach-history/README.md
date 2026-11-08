@@ -41,11 +41,11 @@ The data is `data/shetach-history.json` (its `about` explains every field). Thes
 - West Virginia: Kranz's from 1976 (owner); Western Pennsylvania's after Sept 2007, by Dec 2013. Its first shliach
   (Gurevitz, Morgantown, 2007) came "under the aegis of Chabad-Lubavitch of Virginia"; by Dec 2013 the house "falls
   under the auspices of the Lubavitch Center of Pittsburgh". So it moved after him, not with him.
-- **Washington DC (new, to confirm with the owner):** in the Maryland head's hands before it had its own. Kaplan asked
-  the Rebbe in the late 5730s about opening a Chabad House in Washington, and in summer 5745 (1985) about a center "in
-  the heart of Washington" (Derher, "Pinpoints: Baltimore", written with his help). Its own head, Levi Shemtov, from
-  1992. (American Friends of Lubavitch, Chabad's government office in Washington, was run by Avremel Shemtov of
-  Philadelphia, Levi's father; that is a national office, not the shetach.)
+- **Washington DC: Avremel Shemtov's (Philadelphia) until his son Levi's, 1992.** Owner, Nov 8: "You do fucking
+  realize DC was Avremel's before it was Levy's, right?" (after this file had first put it under Maryland, from Kaplan
+  asking the Rebbe about opening there: a mistake, since the evidence for Avremel was already in hand). Avremel founded
+  and directed American Friends of Lubavitch, Chabad's office in Washington, and organized the National Menorah from
+  1979; so 'by 1979', the start not found.
 
 **Additions** (blank land joining a shetach when its head sends the first shliach, like Mississippi):
 - Mississippi to Louisiana's, Aug 2014 (owner's example).
@@ -71,7 +71,7 @@ Northeast Ohio (Alevsky to Greenberg, 2026, owner).
 Things found on the way:
 - Levitin's office still describes the old wide region: Anash.org, Aug 4 2021: "Chabad of the Pacific North West
   covers British Colombia, Alberta, Alaska, Montana, Oregon, Wyoming and Washington, with nearly 200 shluchim".
-  The one hint that **Wyoming** was his too (the owner didn't list it; its own head from May 2008).
+  That put **Wyoming** in his start too (the owner agreed, Nov 8); its own head from May 2008.
 - Merkos counted its regional offices: Feller's was "the fourth division of Merkos" in the USA (1961-62), Cunin "the
   fifth Shliach of the Rebbe in the USA" (1965), Kansas City "its eighth regional office" (Jan 1970).
 - Kalmanson's organization kept the name Chabad of Southern Ohio (the JTA in Dec 2002 calls him its regional
@@ -83,9 +83,8 @@ Things found on the way:
 
 - West Virginia's exact move (2007–2013): narrow it with archived copies of the Morgantown house's site or its
   chabad.org listing (541856), and of Pittsburgh's and Chabad of the Virginias' branch lists.
-- Washington DC before 1992: the owner doubts it was Maryland's ("Why the fuck would DC be part of Maryland before
-  1992?"); the only evidence is Kaplan asking the Rebbe about opening there (none of it says DC was his, and nothing
-  shows he opened anything). Waiting on the owner.
+- When Washington DC became Avremel Shemtov's (by 1979): the founding of American Friends of Lubavitch (its 50th
+  anniversary was marked about 2024-25).
 - Yossel Kranz's start (Aug 1991 is his father's passing); Mangel's (1995 is the natural reading); Sheya Hecht's
   (1992, his father's passing); the Florida vaad of 2023 (Anash's page, anash.org/?p=559466, answered 403).
 - Who, if anyone, had southern and central Ohio, Indiana and Kentucky before Sept 1975, and the Northwest before 1972.

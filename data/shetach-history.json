@@ -622,22 +622,33 @@
   ],
   "US-DC:washington-dc": [
    {
-    "shetach": "maryland",
+    "shetach": "pennsylvania",
     "from": null,
     "fromBound": {
-     "after": "1973-09",
-     "by": "1980-09"
+     "by": "1979-12"
     },
-    "how": "stated",
-    "confidence": "medium",
+    "how": "owner",
     "sources": [
      {
-      "url": "https://derher.org/wp-content/uploads/5785-7-10.pdf",
-      "title": "A Chassidisher Derher, Nissan 5785, 'Pinpoints: Baltimore, MD'",
-      "quote": "At one point in the late 5730s, he was considering whether to open a Chabad House in Washington, D.C. for students or whether to open a Chabad house 10 miles outside the city, where most D.C. commuters lived. ... When Rabbi Kaplan later wrote (in the summer of 5745) that he was interested in opening a Jewish center in the heart of Washington, the Rebbe wrote that he could do so \"if there will be a proper administration.\""
+      "url": "https://www.washingtonjewishweek.com/thousands-attend-45th-national-menorah-lighting-in-dc/",
+      "title": "Thousands Attend 45th National Menorah Lighting in DC (Washington Jewish Week)",
+      "date": "2024-12-30",
+      "quote": "Rabbi Levi Shemtov, the executive vice president of American Friends of Lubavitch, emceed the event, which he and his father, Rabbi Abraham Shemtov, have organized for decades.",
+      "note": "'the yearly tradition now in its 45th year'; the National Menorah began in 1979 (the Carter administration)"
+     },
+     {
+      "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+      "title": "Reagan Library: a 1981 letter on American Friends of Lubavitch letterhead",
+      "date": "1981",
+      "note": "signed by Rabbi Abraham Shemtov as director (as a search describes it; not read)"
      }
     ],
-    "note": "Washington was the Maryland head's to open in (late 5730s, summer 5745). Separately, American Friends of Lubavitch, Chabad's government office in Washington, was directed by Rabbi Avremel Shemtov of Philadelphia (his letterhead in 1981), Levi Shemtov's father. To confirm with the owner."
+    "note": "Owner, Nov 8: \"You do fucking realize DC was Avremel's before it was Levy's, right?\" Rabbi Avremel (Abraham) Shemtov of Philadelphia founded and directed American Friends of Lubavitch, Chabad's office in Washington. When DC became his is not found, so only 'by' the first National Menorah. (The Maryland head, Kaplan, asked the Rebbe in the late 5730s about opening a Chabad House in Washington, which the Rebbe did not approve, and in summer 5745 about a center in the heart of the city, 'if there will be a proper administration' (Derher, 'Pinpoints: Baltimore'); that was a question, not his shetach.)",
+    "kaplanSource": {
+     "url": "https://derher.org/wp-content/uploads/5785-7-10.pdf",
+     "title": "A Chassidisher Derher, Nissan 5785, 'Pinpoints: Baltimore, MD'",
+     "quote": "At one point in the late 5730s, he was considering whether to open a Chabad House in Washington, D.C. for students or whether to open a Chabad house 10 miles outside the city, where most D.C. commuters lived. ... When Rabbi Kaplan later wrote (in the summer of 5745) that he was interested in opening a Jewish center in the heart of Washington, the Rebbe wrote that he could do so \"if there will be a proper administration.\""
+    }
    },
    {
     "shetach": "washington-dc",
@@ -651,7 +662,8 @@
       "via": "data/founding-years.json, 117966",
       "note": "JTA (Dec 2020): Rabbi Levi Shemtov has run Chabad's Washington operations since 1992; Washington Jewish Week: in the early 1990s it worked out of a small Capitol Hill townhouse; the $2 million center in the embassy district opened in July 1999 (Washington Post). American Friends of Lubavitch itself, under Rabbi Abraham Shemtov, was active in Washington by 1984."
      }
-    ]
+    ],
+    "note": "Levi Shemtov, Avremel's son, ran Chabad's Washington operations from 1992 (JTA); the American Friends of Lubavitch office in Washington had him as its first full-time director."
    }
   ],
   "US-DE:delaware": [

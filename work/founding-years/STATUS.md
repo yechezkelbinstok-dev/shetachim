@@ -46,6 +46,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | tennessee | 7 | 7 |  |  |  |  |  | 0 | 7 | 0 |
 | texas | 58 | 33 | 12 |  | 4 | 2 | 7 | 13 | 48 | 6 |
 | the-carolinas | 25 | 15 | 5 |  | 4 | 1 |  | 5 | 23 | 3 |
+| upper-midwest | 19 | 10 | 3 |  | 6 |  |  | 6 | 19 | 6 |
 | utah | 4 | 3 | 1 |  |  |  |  | 0 | 4 | 0 |
 | vermont | 8 | 5 | 2 |  | 1 |  |  | 1 | 8 | 1 |
 | washington-dc | 5 | 2 | 3 |  |  |  |  | 0 | 5 | 0 |
@@ -68,8 +69,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | wisconsin | 23 |  |  |  |  |  | 23 | 23 | 20 | 20 |
 | upstate-new-york | 22 |  |  |  |  |  | 22 | 22 | 21 | 21 |
 | oregon | 19 |  |  |  |  |  | 19 | 19 | 17 | 17 |
-| upper-midwest | 19 |  |  |  |  |  | 19 | 19 | 19 | 19 |
 | virginia | 19 |  |  |  |  |  | 19 | 19 | 19 | 19 |
 | new-haven | 16 |  |  |  |  |  | 16 | 16 | 14 | 14 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
-| **all** | 1969 | 660 | 186 | 1 | 161 | 51 | 910 | 1122 | 1765 | 949 |
+| **all** | 1969 | 670 | 189 | 1 | 167 | 51 | 891 | 1109 | 1765 | 936 |

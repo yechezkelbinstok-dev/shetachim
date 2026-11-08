@@ -216,7 +216,14 @@ thirteen no better recent photo has been found yet (the list is there, with what
   - **Third session: Arizona, Kansas–Missouri, British Columbia, Upper Midwest (from Nov 8; owner: "I think it's time
     to do Arizona, along with both Winebergs and feller shetach"). Batches `batches/arizona-NN.json`,
     `batches/kansas-missouri-NN.json`, `batches/british-columbia-NN.json`, `batches/upper-midwest-NN.json`; notes
-    `work/founding-years/arizona-winebergs-feller.md`.**
+    `work/founding-years/arizona-winebergs-feller.md`.** State (Nov 8): British Columbia 12 of 13 dots, Kansas–Missouri
+    15 of 16, Upper Midwest 13 of 19 (all 19 researched; the other 6 are ranges), Arizona not started. Every year in
+    these four batches rests on text read off the page itself (curl, or Firecrawl markdown), never on WebFetch.
+  - **Owner (Nov 8): WebFetch is a model's answer, not the page, so it can miss or bend a detail.** Every entry with a
+    year (847 on Nov 8) keeps its source link and 820 quote the page, so all of them can be checked against their own
+    page: an audit (curl first, Firecrawl for the ~160 chabad.org-hosted pages curl can't read) is planned but on the
+    back burner (owner: "Let's put that on the back burner for now"). Quotes taken from a second source are named in
+    the note but have no link field, so an audit can only check them by hand.
   - How (the rules are in the standing rules below; the method in `work/founding-years/west-coast.md` and
     `michigan-pilot.md`):
     1. `python3 work/founding-years/listings.py <shetach>` lists its dots and listings (`--missing`: only the dots

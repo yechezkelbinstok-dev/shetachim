@@ -18,3 +18,25 @@ on them; chabad.org listing dates (`api/content/<id>/metadata`) and lubavitch.co
 - Kansas City: the JTA Daily Bulletin of 6 Jan 1970 reports the regional office opening (Rabbi Sholem B. Wineberg, 24).
 - St. Louis: 1980 (Jewish Light 2006) against 1981 (Chabad.org) and 1982 (the 2007 '25 years'): medium.
 - Kirkwood: new (listing April 2026), no news yet: range.
+
+## Upper Midwest (batch upper-midwest-01): 13 of 19 dots dated, all 19 researched
+- chabad.org's centers API (`/api/v2/chabadorg/centers/<id>`, plain curl) gives each listing's website, personnel and
+  departments: six of the 19 are departments of Upper Midwest Merkos (117647) or of Rochester (117646), which is why
+  several have no year of their own.
+- lubavitch.com's 2009-2011 city lists (Wayback through Firecrawl, 1 credit each; check first with the free
+  `archive.org/wayback/available?url=...` API, `&` written as `%26`) gave the old addresses and directors for Duluth,
+  St. Paul, St. Louis Park, West St. Paul and Rochester. Plain curl to web.archive.org pages and the CDX API is blocked
+  here (egress policy), the availability API is not.
+- Upper Midwest Merkos: winter 1961 (Chabad.org 2016, the 2017 obituary) against 1962 (Chabad.org 2012): medium.
+- The Lubavitch Cheder Day School is the 'Chabad Lubavitch Jewish Educational Center' listing: 1977.
+- Duluth: the listing was Rabbi Boruch Greenwald's Chabad Lubavitch of Northern Minnesota (Mayor's 'Chabad Week',
+  Dec 2003: 'throughout the past two years'); the Rosses came in Oct 2018 under the same corporation. Kept as about
+  2001, medium.
+- North Dakota: 2011 in two later sources, 'recently moved' in Nov 2012 and a Nov 2012 listing: medium.
+- Ranges (no year found): the mikvah office, St. Louis Park, Chabad Lubavitch Education (by 2004), Oneg Shabbos (by
+  1995, AJW: 'more than 20 years'), It's Good To Know (IRS, by 2005), Macalester-Groveland (by its Sept 2021 listing).
+- AJW (ajwnews.com) and TC Jewfolk search through WordPress: `/wp-json/wp/v2/posts?search=<words>&orderby=date&order=asc`.
+- Not used: chabadpedia.com (Cloudflare blocks it; not worked around), the Austin Daily Herald's 2017 Rochester piece
+  (its page didn't load), the Minnesota DHS licence lookup (a form).
+- Every quoted phrase was checked against its page (a small checker, scratchpad `tools/quotecheck.py`); the one
+  mismatch (Wikipedia's 'a.k.a.', not 'also known as') was fixed.

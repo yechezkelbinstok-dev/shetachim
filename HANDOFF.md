@@ -230,7 +230,8 @@ thirteen no better recent photo has been found yet (the list is there, with what
     these four batches rests on text read off the page itself (curl, or Firecrawl markdown), never on WebFetch.
     **Then Wisconsin, Illinois and Northeast Ohio (Cleveland), from Nov 8 (owner: "Wisconsin, Illinois, Cleveland
     next."). Batches `batches/wisconsin-NN.json`, `batches/illinois-NN.json`, `batches/northeast-ohio-NN.json`; notes
-    `work/founding-years/wisconsin-illinois-ohio.md`.**
+    `work/founding-years/wisconsin-illinois-ohio.md`.** State (Nov 8): Wisconsin done, 14 of 23 listings with a year
+    (14 of 20 dots; 9 high, 5 medium, 9 ranges; all researched). Northeast Ohio next, then Illinois.
   - **Owner (Nov 8): WebFetch is a model's answer, not the page, so it can miss or bend a detail.** Every entry with a
     year (847 on Nov 8) keeps its source link and 820 quote the page, so all of them can be checked against their own
     page: an audit (curl first, Firecrawl for the ~160 chabad.org-hosted pages curl can't read) is planned but on the

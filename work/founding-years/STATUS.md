@@ -52,6 +52,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | vermont | 8 | 5 | 2 |  | 1 |  |  | 1 | 8 | 1 |
 | washington-dc | 5 | 2 | 3 |  |  |  |  | 0 | 5 | 0 |
 | west-coast | 331 | 198 | 93 |  | 40 |  |  | 40 | 301 | 18 |
+| wisconsin | 23 | 9 | 5 |  | 9 |  |  | 9 | 20 | 6 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | new-york-city | 200 |  |  |  |  |  | 200 | 200 | 176 | 176 |
 | quebec | 72 |  |  |  |  |  | 72 | 72 | 59 | 59 |
@@ -66,10 +67,9 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | western-pennsylvania | 27 |  |  |  |  |  | 27 | 27 | 24 | 24 |
 | northeast-ohio | 27 |  |  |  |  |  | 27 | 27 | 23 | 23 |
 | colorado | 23 |  |  |  |  |  | 23 | 23 | 21 | 21 |
-| wisconsin | 23 |  |  |  |  |  | 23 | 23 | 20 | 20 |
 | upstate-new-york | 22 |  |  |  |  |  | 22 | 22 | 21 | 21 |
 | oregon | 19 |  |  |  |  |  | 19 | 19 | 17 | 17 |
 | virginia | 19 |  |  |  |  |  | 19 | 19 | 19 | 19 |
 | new-haven | 16 |  |  |  |  |  | 16 | 16 | 14 | 14 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
-| **all** | 1969 | 705 | 195 | 1 | 172 | 48 | 848 | 1068 | 1765 | 899 |
+| **all** | 1969 | 714 | 200 | 1 | 181 | 48 | 825 | 1054 | 1765 | 885 |

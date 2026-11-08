@@ -37,6 +37,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | new-mexico | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | newfoundland-and-labrador | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
+| northeast-ohio | 27 | 20 | 3 |  | 4 |  |  | 4 | 23 | 1 |
 | oklahoma | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | ottawa | 11 | 7 |  |  | 4 |  |  | 4 | 9 | 2 |
 | pennsylvania | 61 | 30 | 10 |  | 17 | 4 |  | 21 | 57 | 20 |
@@ -65,11 +66,10 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | washington | 33 |  |  |  |  |  | 33 | 33 | 31 | 31 |
 | connecticut | 33 |  |  |  |  |  | 33 | 33 | 32 | 32 |
 | western-pennsylvania | 27 |  |  |  |  |  | 27 | 27 | 24 | 24 |
-| northeast-ohio | 27 |  |  |  |  |  | 27 | 27 | 23 | 23 |
 | colorado | 23 |  |  |  |  |  | 23 | 23 | 21 | 21 |
 | upstate-new-york | 22 |  |  |  |  |  | 22 | 22 | 21 | 21 |
 | oregon | 19 |  |  |  |  |  | 19 | 19 | 17 | 17 |
 | virginia | 19 |  |  |  |  |  | 19 | 19 | 19 | 19 |
 | new-haven | 16 |  |  |  |  |  | 16 | 16 | 14 | 14 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
-| **all** | 1969 | 714 | 200 | 1 | 181 | 48 | 825 | 1054 | 1765 | 885 |
+| **all** | 1969 | 734 | 203 | 1 | 185 | 48 | 798 | 1031 | 1765 | 863 |

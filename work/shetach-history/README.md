@@ -270,6 +270,12 @@ able to click the flagships and see a card".
   (chairman of Merkos L'Inyonei Chinuch, as the source says). No "zy\"a" in English and no chabad.org link on 770's
   card (owner, Nov 8). On a phone held upright the card is at the top (the shetachim are at the bottom there).
   Center names, types, cities and pages: `web/data/history-centers.json` (written by the same script).
+- **Hebrew years** (a setting; owner, Nov 8: "in the Hebrew mode the default should be Hebrew years in Hebrew"): on, the
+  timeline goes by Hebrew years, each date in the Hebrew year it fell in (the browser's own Hebrew calendar: Kalmanson's
+  Sept 1975 is תשל״ו), a date with only a year in the Hebrew year most of it was, one with a month mid-month; shown as
+  תשמ״ו in Hebrew, 5746 in English. On by default in Hebrew, off in English; kept per language.
+- **זצוקללה״ה נבג״מ זי״ע** after the Rebbeim's names on 770's card (a setting; owner, Nov 8): on by default in Hebrew,
+  off in English (no "zy\"a" in English, owner, Nov 8); kept per language.
 - **Full provinces** is in a settings menu behind the gear (owner, Nov 8). The Canadian pieces are cut again from one
   set of lines in the build (`renode`), so a province shown whole has no line inside it. The shapes are simplified for
   a phone (islands under 60 km² dropped, lines to about a kilometre).

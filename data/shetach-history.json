@@ -45,6 +45,10 @@
   ],
   "central-massachusetts": [
    {
+    "head": "Moshe Yitzchak Hecht",
+    "from": "1942-06"
+   },
+   {
     "head": "Hershel Fogelman",
     "from": null,
     "fromBound": {
@@ -203,6 +207,18 @@
     "from": "1975-11"
    }
   ],
+  "manitoba-saskatchewan": [
+   {
+    "head": "Avrohom Altein",
+    "from": "1972"
+   }
+  ],
+  "maritimes": [
+   {
+    "head": "Mendel Feldman",
+    "from": "1995"
+   }
+  ],
   "maryland": [
    {
     "head": "Shmuel Kaplan",
@@ -328,16 +344,47 @@
     "note": "Alevsky passed away 20 Apr 2026 (3 Iyar 5786); nothing published names a successor; the owner's choice (Oct 10): \"let's do Greenberg for the Ohio area\". 'from' is Alevsky's passing."
    }
   ],
+  "ontario": [
+   {
+    "head": "Zalman Grossbaum",
+    "from": null,
+    "fromBound": {
+     "after": "1973-09",
+     "by": "1974-09"
+    }
+   }
+  ],
   "oregon": [
    {
     "head": "Moshe Wilhelm",
     "from": "1984-01"
    }
   ],
+  "ottawa": [
+   {
+    "head": "Dovid Hayes",
+    "from": "1977"
+   }
+  ],
   "pennsylvania": [
    {
     "head": "Avremel Shemtov",
     "from": "1961"
+   }
+  ],
+  "quebec": [
+   {
+    "head": "Berel Mochkin",
+    "from": null,
+    "sources": [
+     {
+      "url": "https://chabadpedia.com/index.php/Shalom_Dovber_(Berel)_Mochkin",
+      "title": "Shalom Dovber (Berel) Mochkin (Chabadpedia)",
+      "quote": "In 5712/1952, his family moved to Montreal, Canada. In 5719/1959, together with Rabbi Reuven Tzvi Yehuda Feigelstock, he established Camp Gan Israel in Montreal. ... He was appointed by the Rebbe as a shliach in Montreal.",
+      "note": "a wiki, read through Firecrawl"
+     }
+    ],
+    "note": "When he became head shliach, and who led the region before him, not found. He also chairs Tzeirei Agudas Chabad of Canada."
    }
   ],
   "rhode-island": [
@@ -481,7 +528,7 @@
    {
     "head": "Yisroel Rosenfeld",
     "from": null,
-    "note": "not researched yet"
+    "note": "When he became head, and the heads before him, not found; dean of Yeshiva Schools of Pittsburgh from 1978."
    }
   ],
   "wisconsin": [
@@ -547,6 +594,22 @@
     "note": "The Western Jewish Bulletin (28 Oct 2005, now offline) as quoted by a search: 'It was November 1974 when the rabbi first came to Vancouver on a mission directed by the late Lubavitcher Rebbe'."
    }
   ],
+  "CA-MB:manitoba-saskatchewan": [
+   {
+    "shetach": "manitoba-saskatchewan",
+    "from": "1972",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.chabadwinnipeg.org/templates/articlecco_cdo/aid/1019836/jewish/Historical-Outline-of-Growth.htm",
+      "title": "Chabad-Lubavitch of Winnipeg",
+      "via": "data/founding-years.json, 117789",
+      "note": "Its own Historical Outline of Growth: '1972: Lubavitch Centre established in Winnipeg by Rabbi A. Altein.' The CJN (13 July 2026): Rabbi Avrohom and Brocha Altein 'moved to Winnipeg in 1972'. (The same outline: South End branch on Grant Avenue 1994; Jewish Learning Centre on Mathers Avenue built from 2010, opened Chanukah 2011.) lubavitch.com's center directory as archived Dec 28 2009 lists it at 2095 Sinclair Street, Winnipeg (the Lubavitch Centre of Winnipeg, North End); its listing is now at 1845 Mathers Avenue, the Jewish Learning Centre that its own outline says opened Chanukah 2011 (the Chabad Jewish Learning Institute was at 901 Shaftesbury Blvd. in 2009)."
+     }
+    ]
+   }
+  ],
   "CA-NL:newfoundland-and-labrador": [
    {
     "shetach": "newfoundland-and-labrador",
@@ -564,6 +627,23 @@
     "note": "Owner, Nov 8: \"Newfoundland, I think, only got one recently, maybe.\""
    }
   ],
+  "CA-NS:maritimes": [
+   {
+    "shetach": "maritimes",
+    "from": "1995",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://crownheights.info/shlichus/10259/in-remote-halifax-a-jewish-community-comes-into-its-own",
+      "title": "Chabad-Lubavitch of the Maritimes",
+      "via": "data/founding-years.json, 117790",
+      "note": "24 Jan 2008: 'Thirteen years ago, Chabad representatives Rabbi Mendel and Bassie Feldman and one month old Zevi moved to Halifax to stay.' Anash.org: shluchim in Halifax 'since 5755 (1995), when they established Chabad Lubavitch of the Maritimes' (5755 = autumn 1994 to summer 1995). lubavitch.com's center directory as archived Dec 28 2009 lists it at 5595 Fenwick Street, Halifax; it is now at 1171 Waterloo Street, so it moved after 2009 (dated below). Archived copies of its chabad.org listing (Wayback Machine) date the move: at the present address by Jan 2015, so it moved there between 2009 and Jan 2015."
+     }
+    ],
+    "note": "Chabad Lubavitch of the Maritimes (Halifax), for Nova Scotia, New Brunswick and Prince Edward Island. Rabbi Mendel Feldman is Rabbi Zalman Grossbaum's son-in-law (Chronicle Herald). Before 1995: Montreal's? (asked Nov 8)."
+   }
+  ],
   "CA-ON:michigan": [
    {
     "shetach": "michigan",
@@ -579,6 +659,86 @@
      }
     ],
     "note": "Essex County, Ontario (Windsor): Michigan's with its first shliach, 2009 (the owner's data puts it in Michigan's shetach)."
+   }
+  ],
+  "CA-ON:ontario": [
+   {
+    "shetach": "ontario",
+    "from": null,
+    "fromBound": {
+     "after": "1973-09",
+     "by": "1974-09"
+    },
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://anash.org/the-pioneering-shliach-who-conquered-toronto/",
+      "title": "The Pioneering Shliach Who Conquered Toronto (Anash.org)",
+      "date": "2019-12-01",
+      "quote": "46 years ago, in the year 5734 (1974), Rabbi Zalman and Mrs. [Esther Grossbaum went on shlichus]",
+      "note": "also: 'Back then, there were opportunities to go out to states and provinces, greater territories on behalf of the Rebbe and Merkos ... When it came to Toronto, the Rebbe gave his blessing.'"
+     }
+    ],
+    "note": "5734. Rabbi Yossi Gansburg, who came in 1975, found Grossbaum 'running Chabad activities in Toronto for about a year' (as a search quotes it); a Lubavitch.com piece's 1980 is a later stage. He is 'head-Shliach of Ontario' (COLlive) and 'head emissary of Southern Ontario' (Lubavitch.com)."
+   }
+  ],
+  "CA-ON:ottawa": [
+   {
+    "shetach": "ottawa",
+    "from": "1977",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://torahday.ca/people/2332517/rabbi-dovid-hayes",
+      "title": "Chabad Lubavitch of Ottawa",
+      "via": "data/founding-years.json, 119209",
+      "note": "Torah Day School's profile: 'Rabbi Hayes moved to Ottawa in 1977 together with his wife Chana and newborn daughter, as an emissary of Chabad Lubavitch'; he helped open a preschool, afternoon school, day camp and day school. therebbesimpact.com: the couple 1977, the center 1978."
+     }
+    ],
+    "note": "Grossbaum, 'head-Shliach of Ontario' from 1974, came first and appointed shluchim in Ottawa (the Caytaks of Wellington West); whether Ottawa was his until Hayes (1977) is the owner's to say (asked Nov 8)."
+   }
+  ],
+  "CA-QC:quebec": [
+   {
+    "shetach": "quebec",
+    "from": "1941-10",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://anash.org/montreal-yeshiva-celebrates-80-years/",
+      "title": "Montreal Yeshiva Celebrates 80 Years (Anash.org)",
+      "date": "2021-10-10",
+      "quote": "The anash community of Montreal gathered with the bochurim of Yeshivas Tomchei Tmimim Montreal on Motzei Shabbos for a special farbrengen marking 80 years since the Yeshiva's establishment in 5702."
+     },
+     {
+      "url": "https://www.lubavitch.com/founder-of-chabad-institutions-in-canada-94/",
+      "title": "Founder of Chabad Institutions in Canada, 94 (Lubavitch.com)",
+      "date": "2010-04-07",
+      "quote": "He was then sent from Shanghai as an emissary by the previous Lubavitcher Rebbe to Montreal.",
+      "note": "Rabbi Moshe Eliyahu Gerlitzky, 'one of the founders of the Rabbinical College of Canada and Chabad in Canada'"
+     }
+    ],
+    "note": "Chabadpedia: the Frierdiker Rebbe founded the yeshiva on 3 Cheshvan 5702 (24 Oct 1941), the day after the nine students from Shanghai arrived."
+   }
+  ],
+  "CA-SK:manitoba-saskatchewan": [
+   {
+    "shetach": "manitoba-saskatchewan",
+    "from": "2011-06",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://collive.com/chabad-opens-in-saskatchewan/",
+      "title": "Chabad-Lubavitch of Saskatoon",
+      "via": "data/founding-years.json, 1344050",
+      "note": "COLlive, 25 July 2011: Rabbi Raphael and Sarah Kats 'moved from Brooklyn, N.Y., to Saskatoon one month ago' to open Saskatchewan's first Chabad house (the Saskatchewan Jewish Discovery Centre), in their home. The CJN also gives June 2011. He had visited as a rabbinical student in 2010."
+     }
+    ],
+    "note": "Saskatchewan's first Chabad center (Saskatoon; Regina from 2013). In Altein's shetach in the owner's data; whether it was his before 2011 is the owner's to say (asked Nov 8)."
    }
   ],
   "US-AK:alaska": [
@@ -1012,11 +1172,7 @@
   "US-MA:central-massachusetts": [
    {
     "shetach": "central-massachusetts",
-    "from": null,
-    "fromBound": {
-     "after": "1945-09",
-     "by": "1946-09"
-    },
+    "from": "1942-06",
     "how": "stated",
     "confidence": "high",
     "sources": [
@@ -1027,7 +1183,7 @@
       "note": "The Worcester yeshiva, Achei Tmimim, opened on 12 Tammuz 5702 (1942) under Rabbi Moshe Yitzchak Hecht; Rabbi Fogelman continued 'until his passing in 5773'."
      }
     ],
-    "note": "5706."
+    "note": "The Worcester yeshiva, Achei Tmimim, opened on 12 Tammuz 5702 (27 June 1942) under Rabbi Moshe Yitzchak Hecht, whom the Frierdiker Rebbe appointed its head that summer; in 5706 Rabbi Hershel Fogelman succeeded him (Hecht went to New Haven) and stayed for life."
    }
   ],
   "US-MA:connecticut": [
@@ -1353,6 +1509,16 @@
   ],
   "US-NY:eastern-new-york": [
    {
+    "shetach": "upstate-new-york",
+    "from": null,
+    "fromBound": {
+     "after": "1970-09",
+     "by": "1971-09"
+    },
+    "how": "owner",
+    "note": "Owner, Nov 8: \"I assume it was Gurary before Rubin yeah\" (Gurary came to Buffalo in 5731; sources on US-NY:upstate-new-york)."
+   },
+   {
     "shetach": "eastern-new-york",
     "from": "1974",
     "how": "anniversary",
@@ -1556,6 +1722,23 @@
       "note": "Philadelphia City Paper (COLlive, 28 Aug 2009): 'Philadelphia became one of the first major U.S. cities with an outpost when Rabbi Avrohom Shemtov began his mission here in 1961, out in the far Northeast on Castor Avenue, where he still resides.' (The Lubavitcher Center, NE Philadelphia; Shemtov also began Torah classes on campus in 1962.)"
      }
     ]
+   }
+  ],
+  "US-PA:western-pennsylvania": [
+   {
+    "shetach": "western-pennsylvania",
+    "from": "1942",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://collive.com/the-rebbes-child/",
+      "title": "The Rebbe's Child (Rabbi Yisrael and Vivi Deren; COLlive)",
+      "date": "2024-05-24",
+      "quote": "My grandparents, Rabbi Yechezkel and Heny Deren AH, were sent to Pittsburgh by the Frierdiker Rebbe in 1942. There, they opened the first Jewish day school of its kind in the country."
+     }
+    ],
+    "note": "Chabadpedia: the Frierdiker Rebbe sent Rabbi Sholom Posner to Pittsburgh in 5703 (1943) to set up a branch of Tomchei Tmimim. West Virginia joined after Sept 2007 (US-WV:western-pennsylvania)."
    }
   ],
   "US-RI:rhode-island": [

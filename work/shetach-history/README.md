@@ -29,7 +29,7 @@ The data is `data/shetach-history.json` (its `about` explains every field). Thes
 - So a map of year Y: each area takes the shetach of its period at Y; areas with the same shetach merge into one.
   Before an area's first period it is blank.
 
-## What is in the file (Nov 8): 64 of the 68 US pieces, 4 of the 10 Canadian
+## What is in the file (Nov 8): 65 of the 68 US pieces, all 10 Canadian
 
 **Splits** (an area moving from one head's shetach to another's):
 - The Northwest (owner): Levitin from 1972; BC its own Nov 1974, Oregon Jan 1984, Alberta 1988 (owner unsure it was
@@ -63,13 +63,25 @@ Massachusetts 5706 (Hershel Fogelman; the Worcester yeshiva from 1942), Michigan
 (Philadelphia) 1961, the Upper Midwest Dec 1961, the West Coast 1965, New Jersey 1965, Wisconsin Oct 1968,
 Kansas–Missouri Jan 1970 (both states from the start: JTA, "will serve the states of Missouri and Kansas"; St.
 Louis, 1980, came within it), Upstate New York 5731 (Nosson Gurary, Buffalo; a Lubavitch yeshiva there from 1943),
-Texas May 1972, Maryland 5734, Eastern New York 1974 (the Rubins, Albany), Eastern Massachusetts 1975 (Prus),
+Texas May 1972, Maryland 5734, Eastern New York 1974 (the Rubins, Albany; Gurary's before, owner: "I assume it was
+Gurary before Rubin yeah"), Eastern Massachusetts 1975 (Prus),
 Illinois 1977 (Daniel Moscowitz), Arizona Jan 1977, Colorado 1978, Rhode Island 1979, the Carolinas 1980, Alabama
 1982, Rockland 1983, Georgia 1984, Vermont 1984, Nebraska 1986, the South Area 1987, Oklahoma Apr 1987 and Maine 1987
 ("new branches of Merkos in four states", 5747), Delaware 1987, Hawaii Aug 1987, New Hampshire 1989, the North Shore
 and Merrimack Valley 1992, Iowa, Arkansas, New Mexico and Utah 1992, Tennessee 1994, Cape Cod 1995.
 
-**Head changes**: Central Massachusetts (Hershel Fogelman to Mendel, 5773), New Haven (Moshe Hecht to Sheya, 1992),
+**Canada** (owner, Nov 8: "please do Canada now"): Quebec from the Montreal yeshiva, 3 Cheshvan 5702 (Oct 1941; the
+nine students the Frierdiker Rebbe brought from Shanghai), Berel Mochkin its head (in Montreal from 1952, Camp Gan
+Israel 1959; when he became head not found); Manitoba from 1972 (Altein, Winnipeg); Ontario 5734 (Grossbaum,
+Toronto; "head-Shliach of Ontario"); British Columbia Nov 1974 and Alberta 1988 (Levitin's before, owner); Ottawa
+1977 (Hayes); the Maritimes 1995 (Feldman, Halifax, Grossbaum's son-in-law); Essex County (Windsor) to Michigan's
+2009; Saskatchewan June 2011 (Saskatoon, its first Chabad, in Altein's shetach); Newfoundland Feb 2017 (the
+Chernitskys, from Montreal). Grossbaum (Anash, 2019): "Back then, there were opportunities to go out to states and
+provinces, greater territories on behalf of the Rebbe and Merkos". Asked the owner: Ottawa Grossbaum's 1974–77?
+the Maritimes (before 1995) and Newfoundland (before 2017) Montreal's? Saskatchewan Altein's before 2011? Windsor
+Grossbaum's before 2009?
+
+**Head changes**: Central Massachusetts (Moshe Yitzchak Hecht 1942, Hershel Fogelman 5706, Mendel 5773), New Haven (Moshe Hecht to Sheya, 1992),
 Virginia (Yankel Kranz to Yossel, 1991), Southern Ohio (Kalmanson to Mangel, 1995, owner), Colorado (Yisroel Meir
 Popack to Mendel, 2022), Illinois (Daniel Moscowitz to Meir, Mar 2014), New Jersey (Moshe Herson to Mendy, 2025, with
 a vaad; the first vaad about 2010), Florida (Avrohom Korf named a vaad Feb 2020; Benjy Korf Aug 2025), Northeast Ohio
@@ -97,9 +109,9 @@ Things found on the way:
   states.
 - Nebraska's own timeline calls the Katzmans (1986) the Rebbe's emissaries "to the Mid-American region": whether
   that meant more than Nebraska is not known.
-- The Frierdiker Rebbe's yeshivos of the 1940s (Achei Tmimim in Worcester 1942, Pittsburgh 1943, Buffalo 1943, New
-  Haven) came before any head shliach; they count as a shetach's start only where the man became its head
-  (Fogelman in Worcester, Hecht in New Haven).
+- A shetach starts with the first lasting institution the Rebbeim sent there: Montreal's yeshiva (Oct 1941),
+  Worcester's (June 1942), Pittsburgh's day school (1942), New Haven (1946). Buffalo's yeshiva (1943) closed, so
+  Upstate New York starts with Gurary (5731).
 
 ## Open
 
@@ -117,9 +129,8 @@ Things found on the way:
 
 ## Not done yet
 
-US: New York City (Tzach), Crown Heights and Monsey (no head), Western Pennsylvania (Chabad in Pittsburgh from 1942,
-the Derens, and 1943, Rabbi Sholom Posner's yeshiva; Rosenfeld's start as head not found; dean of Yeshiva Schools
-from 1978). Canada: Quebec, Ontario, Ottawa, Manitoba–Saskatchewan, the Maritimes.
+US: New York City (Tzach), Crown Heights and Monsey (no head). Western Pennsylvania's line of heads before
+Rosenfeld (the area is in, from 1942). Then the world, when the owner says.
 
 ## Sources that worked
 

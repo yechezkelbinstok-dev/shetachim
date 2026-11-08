@@ -2616,9 +2616,10 @@
     "34009",
     "34011",
     "34015",
+    "34029",
     "34033"
    ],
-   "note": "Atlantic, Burlington, Camden, Cape May, Cumberland, Gloucester and Salem counties (Census GEOIDs): the usual seven of South Jersey; what the JTA's 'southern New Jersey' of 1980 took in exactly is not known. A piece for the history only (owner, Nov 8: 'yes to the south Jersey thing'): today it is part of New Jersey's shetach like the rest of the state, so the current map does not cut it; web/history.html draws it (scripts/build-history-geo.py)."
+   "note": "Atlantic, Burlington, Camden, Cape May, Cumberland, Gloucester, Ocean and Salem counties (Census GEOIDs). Owner, Nov 8, with a county map (his line along Mercer's and Monmouth's southern borders): 'there should be more to South Jersey' (Ocean County added). What the JTA's 'southern New Jersey' of 1980 took in exactly is not known. A piece for the history only: today it is part of New Jersey's shetach like the rest of the state, so the current map does not cut it; web/history.html draws it (scripts/build-history-geo.py)."
   },
   "US-OH:southeast-ohio": {
    "name": "Southeast Ohio",

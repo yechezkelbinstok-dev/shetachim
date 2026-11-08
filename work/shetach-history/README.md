@@ -205,28 +205,33 @@ Things found on the way:
 ## The page: web/history.html (Nov 8, the third session)
 
 The shetachim of the US and Canada year by year (a slider and play), with each shetach's flagship as a star and
-nothing else. Two modes: **Shetachim** (names) and **Heads** (the head shliach that year, with his photo; coloured by
-head, so a change of head shows). Light and dark (a switch, kept with the main map's setting), English and Hebrew.
+nothing else. Two modes: **Shetachim** (their names) and **Heads** (each year's head shliach, by name, coloured by head
+so a change of head shows). A tap on a shetach: the head's photo, name and years, the shetach and its flagship; a tap
+on a star: the flagship's own card (its name, place, years there, its shetach and head). Light and dark (a switch,
+kept with the main map's setting), English and Hebrew. Hawaii in a box off the lower 48's south-west, with its name,
+as on the main map.
 **Owner (Nov 8):** "the ones with just shifting borders not centers or anything and only the US and Canada"; "it should
 have but only flagship center"; "flagships very much changed over time? You have to factor that in too"; "this website
 BETTER NOT ... HAVE THE AI SLOP EXPLANATORY TEXT": **no explanatory text on the page**, only names, years and
-controls; "I did NOT ASK FOR THE STATE BY STATE CLICKABLE HISTORY THING": a tap shows only the head (photo, name,
-years), the shetach's name and its flagship. Also from him: no faint lines ("Faint lines in many places"): lines only
-where a shetach meets something else, none inside a shetach or between pieces of empty land; land with no shetach
-looks the same whether a shetach comes there later or never ("why the f*** are they distinguished"); names that fit
-what the shetach covered that year ("why is it called Upper Midwest when it's only minnesota? You have to be smart");
-a head-shluchim mode ("doesn't the research have specifically head shluchim? Why ... is that not a mode here"); the
-head photos as on the main map.
+controls; "I did NOT ASK FOR THE STATE BY STATE CLICKABLE HISTORY THING"; no faint lines ("Faint lines in many
+places"): lines only where a shetach meets something else, none inside a shetach or between pieces of empty land; land
+with no shetach looks the same whether a shetach comes there later or never; names that fit what the shetach covered
+that year ("why is it called Upper Midwest when it's only minnesota? You have to be smart") but **no renaming for
+territory on the side** ("Nebraska and South Dakota makes ZERO sense since South Dakota was barely part of that guys
+shlichus while the three for kalmanson prob does make sense"); a head-shluchim mode, but **no photos on the map**
+("Why are the photos on the actual map????? I never asked for that"): the photos are on the card only; "you should be
+able to click the flagships and see a card".
 - **Shapes:** `web/data/history-geo.json`, built by `scripts/build-history-geo.py` (shapely and mapshaper) from the
-  main map's pieces, with two pieces only the history has: **South Jersey** (its seven counties, out of New Jersey) and
+  main map's pieces, with two pieces only the history has: **South Jersey** (its eight counties, Ocean with them, out of New Jersey; the owner's county map, Nov 8) and
   **Southeast Ohio** (the Northeast Ohio piece south of 40.45°N: Athens, Marietta, Steubenville), and the land around
   (the rest of Canada, Greenland, Mexico and its neighbours) sharing every border. Rebuild it when geo.json changes.
-- **Names** (the page works them out from what the shetach covered that year): one whole state, its name (Minnesota,
-  California, Louisiana, Manitoba, Ontario); one part with a name of its own (Western Massachusetts); several states
-  under a state's name, the others added (Pennsylvania, South Jersey, Delaware & DC; Nebraska & South Dakota; Ohio,
-  Indiana & Kentucky, then Ohio & Kentucky, then Southern & Central Ohio, then Southern Ohio); otherwise today's name.
-  Two old names: the Pacific Northwest (Levitin's while it had more than Washington) and the Virginias (with West
-  Virginia). A period with only bounds shows from its 'by' (only an 'after': from that year).
+- **Names:** today's name, except where all a shetach had that year was one whole state or one named part (Minnesota
+  for the Upper Midwest, California for the West Coast, Louisiana, Manitoba, Ontario for Grossbaum with Ottawa,
+  Western Massachusetts for Deren in 1974), and three of their own: Kalmanson's (Ohio, Indiana & Kentucky; then Ohio
+  & Kentucky; then Southern & Central Ohio; Southern Ohio from 1991), the Pacific Northwest (Levitin's while it had
+  more than Washington) and the Virginias (with West Virginia). Nebraska stays Nebraska with Katzman's South Dakota
+  visits; Pennsylvania stays Pennsylvania with DC, Delaware and South Jersey. A period with only bounds shows from its
+  'by' (only an 'after': from that year).
 - **Heads:** a head with no date shows from his earliest known bound (Rosenfeld from 1978, when he became dean of
   Yeshiva Schools; Mochkin from 1952, when he came to Montreal); a shetach whose heads aren't in this file (Maine,
   Oklahoma) shows today's head from its start. Photos: `data/head-photos.json` where its 'head' is that year's head;

@@ -40,7 +40,7 @@ html, body { height: 100%; margin: 0; }
 body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); overflow: hidden; -webkit-tap-highlight-color: transparent; }
 #app { position: fixed; inset: 0; }
 #map { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; user-select: none; -webkit-user-select: none; }
-.fill, .borders, .sel, .flash, .flag, .ring { vector-effect: non-scaling-stroke; }
+.fill, .borders, .sel, .flash, .flag, .box { vector-effect: non-scaling-stroke; }
 .land { fill: var(--land); stroke: none; }
 .fill { stroke-width: .6; stroke-linejoin: round; transition: fill .35s ease, stroke .35s ease; pointer-events: none; }
 .piece { fill: transparent; stroke: none; cursor: pointer; }
@@ -51,10 +51,12 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
 @keyframes flash { 0% { opacity: .95; } 100% { opacity: 0; } }
 .label { font-family: var(--font); font-weight: 650; fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-linejoin: round; text-anchor: middle; pointer-events: none; }
 .flag { fill: var(--dot); stroke: var(--halo); stroke-width: 1.3; cursor: pointer; }
-.av { cursor: pointer; }
-.ring { fill: none; stroke: var(--halo); stroke-width: 2; }
-.ini { fill: var(--av); }
-.ini-t { fill: #fff; font-family: var(--font); font-weight: 700; text-anchor: middle; dominant-baseline: central; pointer-events: none; }
+.hit { fill: transparent; cursor: pointer; }
+.box { fill: var(--bg); stroke: var(--muted); stroke-opacity: .6; stroke-width: 1; }
+.box-name { font: 600 11px var(--font); fill: var(--muted); }
+.card .fh { display: flex; align-items: flex-start; gap: 10px; }
+.card .st { flex: none; color: var(--dot); font-size: 22px; line-height: 1; margin-top: 1px; }
+.card .sub { color: var(--muted); font-size: 13px; margin-top: 2px; }
 
 .year { position: absolute; top: max(10px, env(safe-area-inset-top)); inset-inline-start: 14px; font: 800 44px/1 var(--font); letter-spacing: -.02em; color: var(--ink); text-shadow: 0 0 8px var(--bg), 0 0 3px var(--bg); pointer-events: none; font-variant-numeric: tabular-nums; }
 .tools { position: absolute; top: max(10px, env(safe-area-inset-top)); inset-inline-end: 10px; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
@@ -87,7 +89,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
 </head>
 <body>
 <div id="app">
-  <svg id="map" role="img"><defs><clipPath id="circ" clipPathUnits="objectBoundingBox"><circle cx=".5" cy=".5" r=".5"/></clipPath></defs></svg>
+  <svg id="map" role="img"></svg>
   <div class="year" id="year"></div>
   <div class="tools">
     <div class="row">
@@ -211,29 +213,15 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     if (sid === 'southern-ohio' && states.size > 1) return join(['US-OH', 'US-IN', 'US-KY'].filter((st) => states.has(st)).map((st) => stateName(st, states.get(st)[0])));
     const today = todayOf.get(sid) || new Set();
     if (today.size === idx.length && idx.every((i) => today.has(i))) return todayName(sid);
+    // all it had was one state (Minnesota for the Upper Midwest, California for the West Coast) or one part with a name
     if (states.size === 1) {
       const [st, list] = [...states][0];
       if (whole(st)) return stateName(st, list[0]);
       if (list.length === 1) { const id = pieces[list[0]].properties.id, pn = PART[id] || (partNames[st] && partNames[st][pieces[list[0]].properties.shetach]); if (pn) return HE ? pn[1] : pn[0]; }
-      return todayName(sid);
     }
-    // several states: the state of its pieces today, then the whole states and the history's own parts it also had
-    const count = new Map(); for (const i of today) count.set(pieces[i].properties.state, (count.get(pieces[i].properties.state) || 0) + 1);
-    const core = [...count].sort((a, b) => b[1] - a[1])[0];
-    const coreState = core ? core[0] : [...states.keys()][0];
-    const tn = todayName(sid), cn = stateName(coreState, (states.get(coreState) || idx)[0]);
-    if (!tn.includes(HE ? cn : pieces[(states.get(coreState) || idx)[0]].properties.name) && sid !== 'southern-ohio') return tn;
-    const extra = [];
-    for (const [st, list] of states) {
-      if (st === coreState) continue;
-      if (whole(st)) extra.push({ n: stateName(st, list[0]), a: list.reduce((s, i) => s + area(i), 0) });
-      else for (const i of list) if (PART[pieces[i].properties.id]) extra.push({ n: HE ? PART[pieces[i].properties.id][1] : PART[pieces[i].properties.id][0], a: area(i) });
-    }
-    if (!extra.length) return tn;
-    extra.sort((a, b) => b.a - a.a);
-    return join([cn, ...extra.map((e) => e.n)]);
+    // otherwise its name (Nebraska with Katzman's South Dakota visits is still Nebraska)
+    return todayName(sid);
   }
-  const AREA = new Map(); const area = (i) => AREA.get(i) ?? AREA.set(i, d3.geoArea(topojson.feature(topo, pieces[i]))).get(i);
 
   // ---------- heads ----------
   const NAME_FORMS = [['avrohom', 'avraham', 'avremel', 'avremi'], ['yisroel', 'yisrael'], ['sheya', 'shea'], ['mendel', 'mendy', 'menachem'], ['yaakov', 'yakov', 'jacob', 'yankel'],
@@ -289,7 +277,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   // ---------- drawing ----------
   const svg = d3.select('#map');
   const root = svg.append('g');
-  const gOut = root.append('g'), gFill = root.append('g'), gPieces = root.append('g'), gLines = root.append('g'), gSel = root.append('g'), gFlags = root.append('g'), gLabels = root.append('g');
+  const gOut = root.append('g'), gFill = root.append('g'), gPieces = root.append('g'), gLines = root.append('g'), gSel = root.append('g'), gLabels = root.append('g'), gFlags = root.append('g');
   const coll = (geoms) => ({ type: 'GeometryCollection', geometries: geoms });
   const mainIdx = pieces.map((g, i) => i).filter((i) => !isHI(pieces[i]));
   const mainGeoms = mainIdx.map((i) => pieces[i]), hiGeoms = pieces.filter(isHI);
@@ -309,14 +297,22 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     if (narrow) { const b = path.bounds(topojson.merge(topo, fitGeoms)), [tx, ty] = proj.translate(); proj.translate([tx, ty + Math.max(0, (H - bottom - 24) - b[1][1])]); path = d3.geoPath(proj); }
     const [[bx0, by0], [bx1, by1]] = path.bounds(topojson.merge(topo, fitGeoms));
     STAR = Math.max(28, Math.min(80, (bx1 - bx0) / 14));
-    const w = Math.max(60, 0.12 * (bx1 - bx0));
+    // Hawaii in a box off the lower 48's south-west, below California, as on the main map
+    const [[lx0], [lx1]] = path.bounds(topojson.merge(topo, mainGeoms.filter((g) => g.properties.country === 'US' && g.properties.state !== 'US-AK')));
+    const L48 = lx1 - lx0, bpad = 0.004 * L48, bw = 0.11 * L48;
+    const fitTo = { type: 'MultiPoint', coordinates: [[-160.6, 18.8], [-154.7, 22.4]] };
     projHI = d3.geoConicEqualArea().rotate([157, 0]).center([-3, 19.9]).parallels([8, 18]).precision(0.2);
-    const x0 = bx0 + 0.02 * (bx1 - bx0), y1 = by1 - 0.02 * (by1 - by0);
-    projHI.fitExtent([[x0, y1 - w * 0.62], [x0 + w, y1]], { type: 'MultiPoint', coordinates: [[-160.6, 18.8], [-154.7, 22.4]] });
+    projHI.fitWidth(bw - 2 * bpad, { type: 'Feature', geometry: fitTo, properties: {} });
+    const [[hx0, hy0], [hx1, hy1]] = d3.geoPath(projHI).bounds(fitTo);
+    const boxX = lx0 - 0.01 * L48, boxY = proj([-117, 28.6])[1], boxH = hy1 - hy0 + 2 * bpad + 12;
+    projHI.translate([projHI.translate()[0] + boxX + bpad - hx0, projHI.translate()[1] + boxY + bpad + 12 - hy0]);
     pathHI = d3.geoPath(projHI);
     gOut.selectAll('*').remove(); gPieces.selectAll('*').remove(); gLines.selectAll('*').remove();
     // all the land as one shape (no seams), the shetachim over it each as one shape
-    gOut.append('path').attr('class', 'land').attr('d', (path(topojson.merge(topo, [...mainGeoms, ...outside])) || '') + (pathHI(topojson.merge(topo, hiGeoms)) || ''));
+    gOut.append('path').attr('class', 'land').attr('d', path(topojson.merge(topo, [...mainGeoms, ...outside])) || '');
+    gOut.append('rect').attr('class', 'box').attr('x', boxX).attr('y', boxY).attr('width', bw).attr('height', boxH);
+    gOut.append('text').attr('class', 'box-name').attr('x', HE ? boxX + bw - 5 : boxX + 5).attr('y', boxY + 13).attr('text-anchor', HE ? 'end' : 'start').text(HE ? 'הוואי' : 'Hawaii');
+    gOut.append('path').attr('class', 'land').attr('d', pathHI(topojson.merge(topo, hiGeoms)) || '');
     gFill.selectAll('*').remove();
     pieceSel = gPieces.selectAll('path').data(pieces).join('path').attr('class', 'piece')
       .attr('d', (g) => (isHI(g) ? pathHI : path)(topojson.feature(topo, g)))
@@ -376,6 +372,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     return c;
   }
   function wrap(name) {
+    if (name.length > 9 && !name.includes(' ') && name.includes('-')) { const k = name.indexOf('-'); return [name.slice(0, k + 1), name.slice(k + 1)]; }
     if (name.length <= 9 || !name.includes(' ')) return [name];
     const mid = name.length / 2; let at = -1, bd = Infinity;
     for (let k = 0; k < name.length; k++) if (name[k] === ' ' && Math.abs(k - mid) < bd) { bd = Math.abs(k - mid); at = k; }
@@ -398,9 +395,10 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       out.push({ sid, f, x: p[0], y: p[1], r: Math.sqrt(STAR / 3) / Math.sqrt(K) });
     }
     const star = d3.symbol(d3.symbolStar, STAR)();
-    gFlags.selectAll('path').data(out, (d) => d.sid).join('path').attr('class', 'flag').attr('d', star)
+    gFlags.selectAll('g.fg').data(out, (d) => d.sid).join((e) => { const g = e.append('g').attr('class', 'fg'); g.append('circle').attr('class', 'hit'); g.append('path').attr('class', 'flag').attr('d', star); return g; })
       .attr('transform', (d) => `translate(${d.x},${d.y}) scale(${1 / Math.sqrt(K)})`)
-      .on('click', (ev, d) => { ev.stopPropagation(); selectSid(d.sid); });
+      .on('click', (ev, d) => { ev.stopPropagation(); selectFlag(d.sid); })
+      .call((g) => { g.select('.hit').attr('r', 16 * Math.sqrt(K) / K); g.select('.flag').attr('d', star); });
     return out;
   }
   function drawLabels(c, Y, stars) {
@@ -408,16 +406,12 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     for (const [sid, S] of c.spots) {
       if (MODE === 'heads') {
         const h = headAt(sid, Y); if (!h) continue;
-        const name = headName(sid, h), photo = photoOf(sid, h);
-        const ar = Math.max(9, Math.min(17, Math.sqrt(S.area) / 7)) / Math.sqrt(K);
-        if (S.r < ar * 0.9) continue;
-        const fs = Math.max(9.5, Math.min(12, Math.sqrt(S.area) / 9)) / Math.sqrt(K);
-        let lines = wrap(name); let tw = Math.max(...lines.map((t) => t.length)) * fs * 0.56;
-        if (S.r * 3.4 < tw) { lines = [surnameOf(name)]; tw = lines[0].length * fs * 0.56; }
-        const showName = S.r * 3.4 >= tw && S.r >= ar + lines.length * fs * 0.6;
-        const hh = 2 * ar + (showName ? lines.length * fs * 1.1 + 2 : 0);
-        const y = clear(S.x, S.y, Math.max(2 * ar, showName ? tw : 0), hh, stars, Math.max(0, S.r - hh / 2));
-        out.push({ sid, kind: 'head', x: S.x, y, ar, fs, lines: showName ? lines : [], photo, ini: initialsOf(name), hh });
+        const name = headName(sid, h);
+        const fs = Math.max(9.5, Math.min(13, Math.sqrt(S.area) / 8.5)) / Math.sqrt(K);
+        let lines = wrap(name), wid = Math.max(...lines.map((x) => x.length)) * fs * 0.56, hgt = lines.length * fs * 1.1;
+        if (S.r < hgt * 0.5 || S.r * 3.4 < wid) { lines = [surnameOf(name)]; wid = lines[0].length * fs * 0.56; hgt = fs * 1.1; }
+        if (S.r < hgt * 0.5 || S.r * 3.4 < wid) continue;
+        out.push({ sid, kind: 'name', x: S.x, y: clear(S.x, S.y, wid, hgt, stars, Math.max(0, S.r - hgt / 2)), fs, lines });
       } else {
         const lines = wrap(nameOf(sid, Y));
         const fs = Math.max(9.5, Math.min(13.5, Math.sqrt(S.area) / 8)) / Math.sqrt(K);
@@ -433,16 +427,6 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       if (d.kind === 'name') {
         const t = g.append('text').attr('class', 'label').style('font-size', `${d.fs}px`).style('stroke-width', `${3 / K}px`);
         d.lines.forEach((ln, k) => t.append('tspan').attr('x', 0).attr('dy', k === 0 ? `${(0.35 - (d.lines.length - 1) * 0.55)}em` : '1.1em').text(ln));
-        return;
-      }
-      const top = -d.hh / 2, cy = top + d.ar;
-      const av = g.append('g').attr('class', 'av').on('click', (ev) => { ev.stopPropagation(); selectSid(d.sid); });
-      if (d.photo) av.append('image').attr('href', d.photo).attr('x', -d.ar).attr('y', cy - d.ar).attr('width', 2 * d.ar).attr('height', 2 * d.ar).attr('clip-path', 'url(#circ)').attr('preserveAspectRatio', 'xMidYMid slice');
-      else { av.append('circle').attr('class', 'ini').attr('cx', 0).attr('cy', cy).attr('r', d.ar); av.append('text').attr('class', 'ini-t').attr('x', 0).attr('y', cy).style('font-size', `${d.ar * 0.85}px`).text(d.ini); }
-      av.append('circle').attr('class', 'ring').attr('cx', 0).attr('cy', cy).attr('r', d.ar);
-      if (d.lines.length) {
-        const t = g.append('text').attr('class', 'label').style('font-size', `${d.fs}px`).style('stroke-width', `${3 / K}px`);
-        d.lines.forEach((ln, k) => t.append('tspan').attr('x', 0).attr('y', cy + d.ar + 2 / Math.sqrt(K) + d.fs * (0.85 + k * 1.1)).text(ln));
       }
     });
   }
@@ -476,6 +460,15 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   // ---------- the card: the head that year, his shetach, his flagship ----------
   const esc = (s) => String(s).replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
   function selectSid(sid) { selected = { sid }; showCard(); }
+  function selectFlag(sid) { selected = { sid, flag: true }; showCard(); }
+  // the flagship that year and its years at that place
+  function flagSpan(sid, Y) {
+    const list = hist.flagships && hist.flagships[sid];
+    if (!list) return { from: sidStart.get(sid), to: null };
+    let k = -1; list.forEach((x, j) => { const st = startOf(x); if (st && st.y <= Y) k = j; });
+    const nx = list[k + 1] && startOf(list[k + 1]);
+    return { from: startOf(list[k]).y, to: nx ? nx.y : null };
+  }
   function closeCard() { selected = null; $('#card').hidden = true; gSel.selectAll('.sel').remove(); }
   function showCard() {
     const Y = cur.Y, sid = selected.sid, c = config(Y), idx = c.groups.get(sid);
@@ -484,6 +477,18 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     gSel.append('path').attr('class', 'sel').attr('d', outline(idx));
     const h = headAt(sid, Y), out = [];
     const shLine = `<div class="sh"><span class="sw" style="background:${colourOf(sid, Y)}"></span>${esc(nameOf(sid, Y))}</div>`;
+    if (selected.flag) {
+      const f = flagAt(sid, Y); if (!f) return closeCard();
+      const sp = flagSpan(sid, Y), c = f.centerId && CAP.get(String(f.centerId));
+      const hn = HE && he && c && he.centers && he.centers[c.name];
+      const title = c ? (hn || c.name) : flagText(f), place = c ? ((HE && he && he.cities && he.cities[c.city]) || c.city) : '';
+      out.push(`<div class="fh"><span class="st">★</span><div><div class="nm">${esc(title)}</div>${place ? `<div class="sub">${esc(place)}</div>` : ''}<div class="yr">${esc(sp.to ? `${sp.from}–${sp.to}` : `${sp.from}–`)}</div></div></div>`);
+      out.push(`<div class="fl">${shLine.replace('class="sh"', 'class="sh" style="margin:0"')}${h ? `<div class="sub">${esc(headName(sid, h))}</div>` : ''}</div>`);
+      const card = $('#card');
+      card.innerHTML = out.join('') + '<button class="x" type="button" aria-label="Close">×</button>';
+      card.hidden = false; card.querySelector('.x').onclick = closeCard;
+      return;
+    }
     if (h) {
       const name = headName(sid, h), photo = photoOf(sid, h);
       const span = h.to ? `${h.from}–${h.to}` : `${h.from}–`;

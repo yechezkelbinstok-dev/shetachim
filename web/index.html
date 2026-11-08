@@ -204,8 +204,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #more > summary::-webkit-details-marker, #views > summary::-webkit-details-marker { display: none; }
 #more > summary::after, #views > summary::after { content: '▾'; margin-inline-start: 6px; font-size: 11px; }
 #more[open] > summary::after, #views[open] > summary::after { content: '▴'; }
-.more-body { display: flex; flex-direction: column; gap: 14px; padding-top: 10px; }
-.more-body .checks { display: flex; flex-direction: column; gap: 7px; }
+.more-body { display: flex; flex-direction: column; gap: 12px; padding-top: 10px; }
+.checks { display: flex; flex-direction: column; gap: 7px; }
+/* More options in named groups, each under a line; a control's own name under its group's is a quiet sub-label */
+.grp { display: flex; flex-direction: column; gap: 7px; min-width: 0; }
+.grp + .grp { padding-top: 12px; border-top: 1px solid var(--panel-line); }
+.grp-t { margin: 0; font: 600 10.5px var(--font-map); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.grp fieldset.ctl legend { margin-bottom: 5px; font: 500 12.5px var(--font-map); letter-spacing: 0; text-transform: none; }
 .legend-sea { display: inline-block; width: 12px; height: 10px; border-radius: 2px; background: #a9c7f2; }
 .legend-empty { display: inline-block; width: 12px; height: 10px; border-radius: 2px; background: var(--empty); border: 1px solid var(--map-ink); opacity: .7; }
 .legend-rest { display: inline-block; width: 12px; height: 10px; border-radius: 2px; background: linear-gradient(90deg, var(--empty) 42%, var(--map-ink) 42% 58%, var(--empty) 58%); border: 1px solid var(--map-ink); opacity: .7; }
@@ -548,6 +553,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   #panel-toggle.x { width: 34px; height: 34px; padding: 0; display: grid; place-items: center; color: inherit; } /* the open sheet's close button: an X, round like the theme button */
   #panel-toggle.x svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
   #panel.collapsed #panel-body { display: none; }
+  #more > summary, #views > summary { padding: 7px 0; } /* a finger's height */
   #zoomctl { bottom: calc(var(--sheet, 64px) + 12px); }
   #card, #card.pinned { left: 16px !important; right: 16px; top: auto !important; bottom: calc(var(--sheet, 64px) + 12px); width: auto; max-height: 45%; }
 }
@@ -605,16 +611,6 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         </details>
       </fieldset>
       <fieldset class="ctl">
-        <legend>Map</legend>
-        <div class="seg" data-name="base">
-          <button type="button" data-value="political" aria-pressed="false">Political</button>
-          <button type="button" data-value="streets" aria-pressed="true">Streets</button>
-          <button type="button" data-value="physical" aria-pressed="false">Physical</button>
-          <button type="button" data-value="tinted" aria-pressed="false">Tinted</button>
-        </div>
-        <p id="base-msg" class="note" role="status" hidden></p>
-      </fieldset>
-      <fieldset class="ctl">
         <legend>Borders</legend>
         <div class="seg" data-name="borders">
           <button type="button" data-value="shetach" aria-pressed="true">Shetachim</button>
@@ -647,63 +643,90 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
           <button type="button" data-value="off" aria-pressed="false">Off</button>
         </div>
       </fieldset>
+      <!-- what is drawn, the two switches used all the time (owner, Nov 8: only the necessary ones up front); the rest is in More options -->
+      <fieldset class="ctl">
+        <legend>On the map</legend>
+        <div class="checks">
+          <label class="check" for="show-dots"><input type="checkbox" id="show-dots" checked> <span class="legend-dot" aria-hidden="true"></span> Chabad centers</label>
+          <label class="check" for="show-mushrooms"><input type="checkbox" id="show-mushrooms"> <svg class="legend-mushroom" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M1.5 8.2C1.5 4.6 4.4 2 8 2s6.5 2.6 6.5 6.2c0 .5-.4.8-.9.8H2.4c-.5 0-.9-.3-.9-.8z" fill="#c0392b"/><circle cx="5.2" cy="5.6" r="1.1" fill="#fff"/><circle cx="9.4" cy="4.4" r="0.9" fill="#fff"/><circle cx="11.4" cy="7" r="0.8" fill="#fff"/><path d="M6.2 9h3.6l.5 4.6c.1.8-.5 1.4-1.3 1.4H7c-.8 0-1.4-.6-1.3-1.4z" fill="#efe3cf" stroke="#8a7a62" stroke-width=".6"/></svg> Mushrooms</label>
+        </div>
+      </fieldset>
+      <!-- everything not needed day to day, in named groups (owner, Nov 8: "a lot of options that are absolutely not needed on a day-to-day basis those can be tucked away") -->
       <details id="more">
         <summary>More options</summary>
         <div class="more-body">
-          <div class="checks">
-          <label class="check" for="show-dots"><input type="checkbox" id="show-dots" checked> <span class="legend-dot" aria-hidden="true"></span> Chabad centers</label>
-          <label class="check" for="show-cities"><input type="checkbox" id="show-cities" checked> <span class="legend-ring" aria-hidden="true"></span> Cities with shluchim</label>
-          <label class="check" for="show-capitals"><input type="checkbox" id="show-capitals" checked> <svg class="legend-star" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path id="star-shape"/></svg> Shetach flagships</label>
-          <label class="check" for="show-mushrooms"><input type="checkbox" id="show-mushrooms"> <svg class="legend-mushroom" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M1.5 8.2C1.5 4.6 4.4 2 8 2s6.5 2.6 6.5 6.2c0 .5-.4.8-.9.8H2.4c-.5 0-.9-.3-.9-.8z" fill="#c0392b"/><circle cx="5.2" cy="5.6" r="1.1" fill="#fff"/><circle cx="9.4" cy="4.4" r="0.9" fill="#fff"/><circle cx="11.4" cy="7" r="0.8" fill="#fff"/><path d="M6.2 9h3.6l.5 4.6c.1.8-.5 1.4-1.3 1.4H7c-.8 0-1.4-.6-1.3-1.4z" fill="#efe3cf" stroke="#8a7a62" stroke-width=".6"/></svg> Mushrooms</label>
-          <!-- the photos on the cards (head shluchim, vaads' faces, the Rebbeim's portraits) shown or not (owner, Nov 8:
-               "Make an option please to turn off pictures of head shluchim and stuff"); off, initials as before -->
-          <label class="check" for="show-photos"><input type="checkbox" id="show-photos" checked> <svg class="legend-photo" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#d9dee6"/><circle cx="8" cy="6.3" r="2.4" fill="#7b8698"/><path d="M3.6 13.2c.8-2.3 2.4-3.4 4.4-3.4s3.6 1.1 4.4 3.4A7 7 0 0 1 3.6 13.2z" fill="#7b8698"/></svg> Photos</label>
-          <label class="check" for="show-empty"><input type="checkbox" id="show-empty" checked> <span class="legend-empty" aria-hidden="true"></span> Rest of the world</label>
-          <label class="check" for="show-rest-borders"><input type="checkbox" id="show-rest-borders"> <span class="legend-rest" aria-hidden="true"></span> Borders of the rest of the world</label>
-          <label class="check" for="show-sea" id="sea-row"><input type="checkbox" id="show-sea" checked> <span class="legend-sea" aria-hidden="true"></span> Blue sea</label>
+          <div class="grp" role="group" aria-labelledby="grp-map">
+            <h3 class="grp-t" id="grp-map">Map</h3>
+            <div class="seg" data-name="base">
+              <button type="button" data-value="political" aria-pressed="false">Political</button>
+              <button type="button" data-value="streets" aria-pressed="true">Streets</button>
+              <button type="button" data-value="physical" aria-pressed="false">Physical</button>
+              <button type="button" data-value="tinted" aria-pressed="false">Tinted</button>
+            </div>
+            <p id="base-msg" class="note" role="status" hidden></p>
+            <fieldset class="ctl" id="colors-ctl">
+              <legend>Colors</legend>
+              <div class="seg" data-name="color">
+                <button type="button" data-value="colorful" aria-pressed="true">Colorful</button>
+                <button type="button" data-value="plain" aria-pressed="false">Plain</button>
+              </div>
+            </fieldset>
+            <fieldset class="ctl" id="alaska-ctl" hidden>
+              <legend>Alaska</legend>
+              <div class="seg" data-name="alaska">
+                <button type="button" data-value="box" aria-pressed="true">In a box</button>
+                <button type="button" data-value="place" aria-pressed="false">In place</button>
+              </div>
+            </fieldset>
+            <div class="checks">
+              <label class="check" for="show-empty"><input type="checkbox" id="show-empty" checked> <span class="legend-empty" aria-hidden="true"></span> Rest of the world</label>
+              <label class="check" for="show-rest-borders"><input type="checkbox" id="show-rest-borders"> <span class="legend-rest" aria-hidden="true"></span> Borders of the rest of the world</label>
+              <label class="check" for="show-sea" id="sea-row"><input type="checkbox" id="show-sea" checked> <span class="legend-sea" aria-hidden="true"></span> Blue sea</label>
+            </div>
           </div>
-        <fieldset class="ctl" id="dots-ctl">
-          <legend>Dots</legend>
-          <div class="seg" data-name="dotStyle">
-            <button type="button" data-value="solid" aria-pressed="true">Solid</button>
-            <button type="button" data-value="faded" aria-pressed="false">See-through</button>
-            <button type="button" data-value="classic" aria-pressed="false">Classic</button>
+          <div class="grp" role="group" aria-labelledby="grp-markers">
+            <h3 class="grp-t" id="grp-markers">Markers</h3>
+            <div class="checks">
+              <label class="check" for="show-cities"><input type="checkbox" id="show-cities" checked> <span class="legend-ring" aria-hidden="true"></span> Cities with shluchim</label>
+              <label class="check" for="show-capitals"><input type="checkbox" id="show-capitals" checked> <svg class="legend-star" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path id="star-shape"/></svg> Shetach flagships</label>
+            </div>
+            <fieldset class="ctl" id="dots-ctl">
+              <legend>Dots</legend>
+              <div class="seg" data-name="dotStyle">
+                <button type="button" data-value="solid" aria-pressed="true">Solid</button>
+                <button type="button" data-value="faded" aria-pressed="false">See-through</button>
+                <button type="button" data-value="classic" aria-pressed="false">Classic</button>
+              </div>
+            </fieldset>
+            <fieldset class="ctl" id="dotcolor-ctl">
+              <legend>Dot color</legend>
+              <div class="seg" data-name="dotColor">
+                <button type="button" data-value="gold" aria-pressed="false">Gold</button>
+                <button type="button" data-value="red" aria-pressed="false">Red</button>
+                <button type="button" data-value="black" aria-pressed="false">Black</button>
+                <button type="button" data-value="navy" aria-pressed="true">Navy</button>
+                <button type="button" data-value="green" aria-pressed="false">Green</button>
+                <button type="button" data-value="purple" aria-pressed="false">Purple</button>
+              </div>
+            </fieldset>
+            <fieldset class="ctl" id="mushlook-ctl" hidden>
+              <legend>Mushroom marker</legend>
+              <div class="seg" data-name="mushroomLook">
+                <button type="button" data-value="dot" aria-pressed="true">Dot</button>
+                <button type="button" data-value="icon" aria-pressed="false">Mushroom</button>
+              </div>
+              <label class="check" for="show-networks"><input type="checkbox" id="show-networks"> <span class="legend-net" aria-hidden="true"></span> Mushroom networks</label>
+              <ul id="net-list" hidden></ul>
+            </fieldset>
           </div>
-        </fieldset>
-        <fieldset class="ctl" id="dotcolor-ctl">
-          <legend>Dot color</legend>
-          <div class="seg" data-name="dotColor">
-            <button type="button" data-value="gold" aria-pressed="false">Gold</button>
-            <button type="button" data-value="red" aria-pressed="false">Red</button>
-            <button type="button" data-value="black" aria-pressed="false">Black</button>
-            <button type="button" data-value="navy" aria-pressed="true">Navy</button>
-            <button type="button" data-value="green" aria-pressed="false">Green</button>
-            <button type="button" data-value="purple" aria-pressed="false">Purple</button>
+          <div class="grp" role="group" aria-labelledby="grp-cards">
+            <h3 class="grp-t" id="grp-cards">Cards</h3>
+            <div class="checks">
+              <!-- the photos on the cards (head shluchim, vaads' faces, the Rebbeim's portraits) shown or not (owner, Nov 8:
+                   "Make an option please to turn off pictures of head shluchim and stuff"); off, initials as before -->
+              <label class="check" for="show-photos"><input type="checkbox" id="show-photos" checked> <svg class="legend-photo" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#d9dee6"/><circle cx="8" cy="6.3" r="2.4" fill="#7b8698"/><path d="M3.6 13.2c.8-2.3 2.4-3.4 4.4-3.4s3.6 1.1 4.4 3.4A7 7 0 0 1 3.6 13.2z" fill="#7b8698"/></svg> Photos</label>
+            </div>
           </div>
-        </fieldset>
-        <fieldset class="ctl" id="mushlook-ctl" hidden>
-          <legend>Mushroom marker</legend>
-          <div class="seg" data-name="mushroomLook">
-            <button type="button" data-value="dot" aria-pressed="true">Dot</button>
-            <button type="button" data-value="icon" aria-pressed="false">Mushroom</button>
-          </div>
-          <label class="check" for="show-networks"><input type="checkbox" id="show-networks"> <span class="legend-net" aria-hidden="true"></span> Mushroom networks</label>
-          <ul id="net-list" hidden></ul>
-        </fieldset>
-        <fieldset class="ctl" id="alaska-ctl" hidden>
-          <legend>Alaska</legend>
-          <div class="seg" data-name="alaska">
-            <button type="button" data-value="box" aria-pressed="true">In a box</button>
-            <button type="button" data-value="place" aria-pressed="false">In place</button>
-          </div>
-        </fieldset>
-        <fieldset class="ctl" id="colors-ctl">
-          <legend>Colors</legend>
-          <div class="seg" data-name="color">
-            <button type="button" data-value="colorful" aria-pressed="true">Colorful</button>
-            <button type="button" data-value="plain" aria-pressed="false">Plain</button>
-          </div>
-        </fieldset>
         </div>
       </details>
       <a id="downloads" class="downloads" href="download.html">Download maps (SVG, PNG)</a>
@@ -857,7 +880,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'Latin America & Caribbean': 'אמריקה הלטינית והאיים הקריביים',
     Map: 'מפה', Physical: 'פיזית', Tinted: 'פיזית צבועה', Political: 'מדינית', Borders: 'גבולות', States: 'מדינות', Countries: 'ארצות', Both: 'שניהם',
     'Lighter:': 'בהיר יותר:', 'Part of Israel:': 'חלק מישראל:', Gaza: 'עזה', Lebanon: 'לבנון', Syria: 'סוריה', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', Off: 'ללא',
-    'More options': 'אפשרויות נוספות', 'Regions & countries': 'אזורים ומדינות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Shetach flagships': 'המוסדות המרכזיים', Mushrooms: 'פטריות', Photos: 'תמונות', Mushroom: 'פטרייה', 'Mushroom marker': 'סימון פטריות', 'Mushroom networks': 'רשתות פטריות', Dot: 'נקודה', 'Sub-shetachim': 'תת־שטחים', 'Sub-shetach': 'תת־שטח', Shetach: 'שטח', 'Regional director': 'שליח אזורי', 'Rest of the world': 'שאר העולם', 'Borders of the rest of the world': 'גבולות שאר העולם', 'Held by Israel': 'בשליטת ישראל', 'Blue sea': 'ים כחול', Streets: 'רחובות',
+    'More options': 'אפשרויות נוספות', 'Regions & countries': 'אזורים ומדינות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Shetach flagships': 'המוסדות המרכזיים', Mushrooms: 'פטריות', Photos: 'תמונות', 'On the map': 'על המפה', Markers: 'סימונים', Cards: 'כרטיסים', Mushroom: 'פטרייה', 'Mushroom marker': 'סימון פטריות', 'Mushroom networks': 'רשתות פטריות', Dot: 'נקודה', 'Sub-shetachim': 'תת־שטחים', 'Sub-shetach': 'תת־שטח', Shetach: 'שטח', 'Regional director': 'שליח אזורי', 'Rest of the world': 'שאר העולם', 'Borders of the rest of the world': 'גבולות שאר העולם', 'Held by Israel': 'בשליטת ישראל', 'Blue sea': 'ים כחול', Streets: 'רחובות',
     Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד', Dots: 'נקודות', Solid: 'מלאות', 'See-through': 'שקופות', Classic: 'קלאסיות',
     'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
     'Download maps (SVG, PNG)': 'הורדת מפות (SVG, PNG)', 'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',

@@ -31,8 +31,19 @@ shluchim's photos, vaad and board faces, the count line, no Zoom in); a center's
 corner beside the ✕ (owner, Nov 6: "I told you to turn it into an icon and not this horrible thing" about the
 "chabad.org ↗" pill, then, on a round icon floating at the end of the sub line: "look how horribly it's situated";
 `pageChip`, `.cc-icon`); head photos for the USA, Canada, Europe, the Middle East, Africa and Asia (Africa and Asia added Nov 6, late); the Rebbeim's portraits.
-**A Photos switch** (owner, Nov 8: "Make an option please to turn off pictures of head shluchim and stuff"): under
-More options (`#show-photos`, `photosOn`, on by default, remembered as `shetachim-photos`). Off, the cards show no
+**The options panel is two tiers** (owner, Nov 8, mostly on his phone: "Settings has grown massive, don't you think it's
+time to organize it?"; "a lot of options that are absolutely not needed on a day-to-day basis ... can be tucked away";
+what opens when you press Options "should only be like the actual necessary ones"; "the section should be done
+properly"). **Up front:** Show (World, Regions & countries), Borders (with Sub-shetachim and the rows that appear with
+Countries or Both), Labels, and **On the map** (Chabad centers, Mushrooms): it fits a phone's sheet without scrolling.
+**More options** holds the rest in three groups: **Map** (the style, Colors, Alaska, Rest of the world and its
+borders, Blue sea), **Markers** (Cities with shluchim, Shetach flagships, Dots, Dot color, and with Mushrooms on the
+Mushroom marker and networks) and **Cards** (Photos). Every control kept its id and its handler; only where it sits
+changed. *(Suggestion, not agreed: which options are "necessary" is Claude's pick; if he uses something from More
+options every day, move it up front. The Hebrew for the new names, על המפה / סימונים / כרטיסים, is Claude's too.)*
+New rarely-used options go in the More options group they belong to.
+**A Photos switch** (owner, Nov 8: "Make an option please to turn off pictures of head shluchim and stuff"): in More
+options, under Cards (`#show-photos`, `photosOn`, on by default, remembered as `shetachim-photos`). Off, the cards show no
 photos at all: a head his initials, a vaad its plain list of names (no honeycomb), the Rebbeim's cards no portraits.
 **Victoria's dispute is Groner and Gutnick only** (owner, Nov 7: "get rid of hendel he's not a actual claimant it's just
 groner and gutnick"; this replaces the Nov 4 "Nvm keep hendel for now" below). **ACT is part of Victoria** (owner, Nov 7: "ACT should be part of
@@ -3507,7 +3518,7 @@ Later in the same round:
   map is always in place). The page is titled **Chabad Shetachim** (was plain "Shetachim").
 - Alberta's name is centred on Alberta proper (`labelState: "CA-AB"` in the data), not the territories' strip, while Alberta is on screen (>500 px²).
 - Alaska/Hawaii boxes (political map): on a phone the map is framed above the *closed* bar plus a strip for the boxes (opening the sheet never moves the map; names re-place around it); the boxes fade out once zoomed in (Oct 5, the owner was confused by the shrunken ones left on top of the map) and come back at the whole view, have a solid background, and names/cities keep clear of them.
-- Panel: Show has only World up front; the other views (Europe … Canada) are under "Regions & countries" (`#views`, collapsed by default; owner, Oct 7). Then Map, Borders, Labels; **More options** (a collapsed `<details id="more">`) holds the Chabad centers / cities / capitals checkboxes, Alaska, Colors. New rarely-used options go there.
+- Panel: Show has only World up front; the other views (Europe … Canada) are under "Regions & countries" (`#views`, collapsed by default; owner, Oct 7). Then Borders, Labels, On the map (Chabad centers, Mushrooms); **More options** (a collapsed `<details id="more">`) holds the rest in the groups Map / Markers / Cards (Nov 8: see START HERE). New rarely-used options go there, in the group they belong to.
 - **Upper Midwest** (owner, Oct 1): North and South Dakota joined Minnesota under Moshe Feller; the shetach is now
   "Upper Midwest" (id `upper-midwest`, territory US-MN, US-ND, US-SD). The North Dakota (Yonah Grossman) and South
   Dakota (Mendel Alperowitz) shetachim are gone.

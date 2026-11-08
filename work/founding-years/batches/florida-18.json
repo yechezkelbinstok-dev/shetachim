@@ -51,8 +51,22 @@
   "season": "summer",
   "how": "anniversary",
   "source": "https://gotowncrier.com/?p=13505",
-  "note": "Town-Crier (1 Feb 2013, its 'Bar Mitzvah'): 'Chabad is celebrating 13 years of reaching out to the community'; Rabbi Mendy Muskal: 'Within six weeks of arrival, we already had a group of people for a High Holiday get-together' (so summer 1999). Wellington the Magazine (1 Dec 2025): the Muskals have been in Wellington 'for more than 25 years', moving from Kentucky, which agrees. IRS: 'Chabad Lubavitch Of Wellington Inc', exempt from Feb 2002.",
-  "confidence": "high"
+  "note": "Town-Crier (1 Feb 2013, its 'Bar Mitzvah'): 'Chabad is celebrating 13 years of reaching out to the community'; Rabbi Mendy Muskal: 'Within six weeks of arrival, we already had a group of people for a High Holiday get-together' (so summer 1999). Lubavitch.com (5 Nov 2003): 'When the Muskals took up residence in Wellington in 1999, they invited all three of the Jewish families they knew to a meeting in their living room'; the first High Holidays were in a community meeting room; 'By the second year, they were in a rented public school building'; the Hebrew school met 'in various rental locations and even in the Muskal home'; in Oct 2003 it opened its own center in the Wellington Plaza Shopping Center. Wellington the Magazine (1 Dec 2025): the Muskals have been in Wellington 'for more than 25 years', moving from Kentucky. IRS: 'Chabad Lubavitch Of Wellington Inc', exempt from Feb 2002.",
+  "confidence": "high",
+  "earlier": [
+   {
+    "where": "Wellington: the Muskals' living room, and a community meeting room for its first High Holidays",
+    "from": 1999,
+    "until": 2000,
+    "source": "https://www.lubavitch.com/palm-beach-mayor-cuts-ribbon-at-opening-of-wellington-jewish-center/"
+   },
+   {
+    "where": "Wellington: a rented public school building (High Holidays) and various rented rooms for the Hebrew school",
+    "from": 2000,
+    "until": 2003,
+    "source": "https://www.lubavitch.com/palm-beach-mayor-cuts-ribbon-at-opening-of-wellington-jewish-center/"
+   }
+  ]
  },
  "4045086": {
   "name": "Chabad of Nocatee",

@@ -29,7 +29,7 @@ The data is `data/shetach-history.json` (its `about` explains every field). Thes
 - So a map of year Y: each area takes the shetach of its period at Y; areas with the same shetach merge into one.
   Before an area's first period it is blank.
 
-## What is in the file (Nov 8): 52 of the 68 US pieces, 3 of the 10 Canadian
+## What is in the file (Nov 8): 64 of the 68 US pieces, 4 of the 10 Canadian
 
 **Splits** (an area moving from one head's shetach to another's):
 - The Northwest (owner): Levitin from 1972; BC its own Nov 1974, Oregon Jan 1984, Alberta 1988 (owner unsure it was
@@ -54,19 +54,26 @@ The data is `data/shetach-history.json` (its `about` explains every field). Thes
 - **North Dakota (2011) and South Dakota (Dec 2016) to the Upper Midwest**, with their first shluchim.
 - **Connecticut to Deren's**: Western Massachusetts from 1974 (Amherst), Connecticut by about 1990 ("Merkos considered
   me wholly responsible for the entire state of Connecticut"); New Haven County has been the Hechts' since 1946.
+- **Windsor (Essex County, Ontario) to Michigan's**, 2009, with its first shliach.
+- **The Quad Cities piece of Iowa (Davenport, Bettendorf) to Illinois's**, about 2005 (Chabad of the Quad-Cities).
 
-**New shetachim on blank land** (no earlier head found): Wisconsin Oct 1968, Kansas–Missouri Jan 1970 (both states
-from the start: JTA, "will serve the states of Missouri and Kansas"; St. Louis, 1980, came within it), Texas May
-1972, Maryland 5734, Arizona Jan 1977, Colorado 1978, Rhode Island 1979, the Carolinas 1980, Alabama 1982, Georgia
-1984, Vermont 1984, Nebraska 1986, Oklahoma Apr 1987 and Maine 1987 ("new branches of Merkos in four states", 5747),
-Delaware 1987, Hawaii Aug 1987, New Hampshire 1989, Iowa, Arkansas, New Mexico and Utah 1992, Tennessee 1994.
-The oldest: New Haven 1946, Pennsylvania (Philadelphia) 1961, the Upper Midwest Dec 1961, the West Coast 1965, New
-Jersey 1965, Florida 1960.
+**Shetachim and their starts** (no earlier head found unless said): New Haven 1946 (Moshe Hecht), Central
+Massachusetts 5706 (Hershel Fogelman; the Worcester yeshiva from 1942), Michigan 1958, Florida 1960, Pennsylvania
+(Philadelphia) 1961, the Upper Midwest Dec 1961, the West Coast 1965, New Jersey 1965, Wisconsin Oct 1968,
+Kansas–Missouri Jan 1970 (both states from the start: JTA, "will serve the states of Missouri and Kansas"; St.
+Louis, 1980, came within it), Upstate New York 5731 (Nosson Gurary, Buffalo; a Lubavitch yeshiva there from 1943),
+Texas May 1972, Maryland 5734, Eastern New York 1974 (the Rubins, Albany), Eastern Massachusetts 1975 (Prus),
+Illinois 1977 (Daniel Moscowitz), Arizona Jan 1977, Colorado 1978, Rhode Island 1979, the Carolinas 1980, Alabama
+1982, Rockland 1983, Georgia 1984, Vermont 1984, Nebraska 1986, the South Area 1987, Oklahoma Apr 1987 and Maine 1987
+("new branches of Merkos in four states", 5747), Delaware 1987, Hawaii Aug 1987, New Hampshire 1989, the North Shore
+and Merrimack Valley 1992, Iowa, Arkansas, New Mexico and Utah 1992, Tennessee 1994, Cape Cod 1995.
 
-**Head changes**: New Haven (Moshe Hecht to Sheya, 1992), Virginia (Yankel Kranz to Yossel, 1991), Southern Ohio
-(Kalmanson to Mangel, 1995, owner), Colorado (Yisroel Meir Popack to Mendel, 2022), New Jersey (Moshe Herson to Mendy,
-2025, with a vaad; the first vaad about 2010), Florida (Avrohom Korf named a vaad Feb 2020; Benjy Korf Aug 2025),
-Northeast Ohio (Alevsky to Greenberg, 2026, owner).
+**Head changes**: Central Massachusetts (Hershel Fogelman to Mendel, 5773), New Haven (Moshe Hecht to Sheya, 1992),
+Virginia (Yankel Kranz to Yossel, 1991), Southern Ohio (Kalmanson to Mangel, 1995, owner), Colorado (Yisroel Meir
+Popack to Mendel, 2022), Illinois (Daniel Moscowitz to Meir, Mar 2014), New Jersey (Moshe Herson to Mendy, 2025, with
+a vaad; the first vaad about 2010), Florida (Avrohom Korf named a vaad Feb 2020; Benjy Korf Aug 2025), Northeast Ohio
+(Alevsky to Greenberg, 2026, owner), Eastern New York (Yisroel Rubin, who passed away 3 Oct 2026, to the Rubin family,
+owner).
 
 Things found on the way:
 - Levitin's office still describes the old wide region: Anash.org, Aug 4 2021: "Chabad of the Pacific North West
@@ -78,9 +85,15 @@ Things found on the way:
   director); the owner's 1995 is when he stopped being head shliach.
 - Nebraska's own timeline calls the Katzmans (1986) the Rebbe's emissaries "to the Mid-American region": whether
   that meant more than Nebraska is not known.
+- The Frierdiker Rebbe's yeshivos of the 1940s (Achei Tmimim in Worcester 1942, Pittsburgh 1943, Buffalo 1943, New
+  Haven) came before any head shliach; they count as a shetach's start only where the man became its head
+  (Fogelman in Worcester, Hecht in New Haven).
 
 ## Open
 
+- **To ask the owner:** were the South Area (1987), the North Shore and Merrimack Valley (1992) and Cape Cod (1995)
+  Prus's before their own heads (he has been "Chabad representative to Eastern Massachusetts since 1975")? Was the
+  Quad Cities piece Jacobson's Iowa (1992) before Illinois's (about 2005)?
 - West Virginia's exact move (2007–2013): narrow it with archived copies of the Morgantown house's site or its
   chabad.org listing (541856), and of Pittsburgh's and Chabad of the Virginias' branch lists.
 - When Washington DC became Avremel Shemtov's (by 1979): the founding of American Friends of Lubavitch (its 50th
@@ -91,19 +104,16 @@ Things found on the way:
 
 ## Not done yet
 
-US: Michigan (1958; Windsor's Essex County since 2009 is Michigan's: CA-ON:michigan), Illinois (and the Quad Cities
-piece of Iowa), Western Pennsylvania (Pittsburgh had a shliach from 1943, Rabbi Sholom Posner; Rosenfeld's start),
-the Massachusetts areas (Boston and the five sub-areas: were they Boston's first?), and New York (New York
-City, Crown Heights, Monsey, Rockland, Eastern New York, Upstate New York). Canada: Quebec, Ontario, Ottawa,
-Manitoba–Saskatchewan, the Maritimes.
+US: New York City (Tzach), Crown Heights and Monsey (no head), Western Pennsylvania (Chabad in Pittsburgh from 1942,
+the Derens, and 1943, Rabbi Sholom Posner's yeshiva; Rosenfeld's start as head not found; dean of Yeshiva Schools
+from 1978). Canada: Quebec, Ontario, Ottawa, Manitoba–Saskatchewan, the Maritimes.
 
 ## Sources that worked
 
 - **A Chassidisher Derher.** Its "Pinpoints" series (5785: Alaska, Oklahoma, Buffalo, Baltimore, Worcester MA) and
   its interviews with the first heads (Feller, Cunin, Lazaroff, Korf, Wilhelm, Lipskar; list at derher.org/articleindex/,
-  read through Firecrawl). Read so far: Alaska (excerpt), Oklahoma, Baltimore, Feller, Cunin. Still to read: Buffalo
-  (5785-5-2.pdf), Worcester (5785-11-10.pdf), Lazaroff (56-Iyar-5777-09.pdf), Korf (44-Iyar-5776-08.pdf), Wilhelm
-  (76-Teves-5779-...Portland-Oregon.pdf). A PDF costs one credit a page.
+  read through Firecrawl). Read so far: Alaska (excerpt), Oklahoma, Baltimore, Buffalo, Worcester, Feller, Cunin. Still to read: Lazaroff
+  (56-Iyar-5777-09.pdf), Korf (44-Iyar-5776-08.pdf), Wilhelm (76-Teves-5779-...Portland-Oregon.pdf). A PDF costs one credit a page.
 - **The JTA archive** (jta.org/archive, plain curl): 1960s–70s bulletins on new Merkos regional offices.
 - Founding years (`data/founding-years.json`): the first shliach of a state is usually its shetach's start; its sources
   are copied with `via`.
@@ -118,5 +128,5 @@ Manitoba–Saskatchewan, the Maritimes.
   check; the search index shows its descriptions. The Detroit Jewish News archive has a Cloudflare check.
 - chabad.org's centers API has no regional-office field (checked: neither the locator data nor the location API).
 - Hebrew dates: hebcal.com's converter (`/converter?cfg=json&hy=5751&hm=Elul&hd=6&h2g=1`), plain curl.
-- Firecrawl on Nov 8: 7 searches (14 credits) and 11 page reads (38 credits), about 52 in all, plus a PDF read the
+- Firecrawl on Nov 8: 7 searches (14 credits) and 12 page reads (51 credits), about 65 in all, plus a PDF read the
   owner stopped partway.

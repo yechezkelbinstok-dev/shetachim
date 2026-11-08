@@ -37,6 +37,32 @@
     "from": "1974-11"
    }
   ],
+  "cape-cod-and-the-islands": [
+   {
+    "head": "Kuti Alperowitz",
+    "from": "1995"
+   }
+  ],
+  "central-massachusetts": [
+   {
+    "head": "Hershel Fogelman",
+    "from": null,
+    "fromBound": {
+     "after": "1945-09",
+     "by": "1946-09"
+    }
+   },
+   {
+    "head": "Mendel Fogelman",
+    "from": null,
+    "fromBound": {
+     "after": "2012-09",
+     "by": "2013-09"
+    },
+    "how": "owner",
+    "note": "his father passed away in 5773; Mendel Fogelman is the head in the owner's data"
+   }
+  ],
   "central-ohio": [
    {
     "head": "Areyah Kaltmann",
@@ -65,6 +91,24 @@
    {
     "head": "Chuni Vogel",
     "from": "1987"
+   }
+  ],
+  "eastern-massachusetts": [
+   {
+    "head": "Chaim Prus",
+    "from": "1975"
+   }
+  ],
+  "eastern-new-york": [
+   {
+    "head": "Yisroel Rubin",
+    "from": "1974"
+   },
+   {
+    "head": "Rubin family",
+    "from": "2026-10-03",
+    "how": "owner",
+    "note": "Rabbi Yisroel Rubin passed away on Shemini Atzeres, 22 Tishrei 5787 (3 Oct 2026); 'Rubin family' is the owner's entry"
    }
   ],
   "florida": [
@@ -108,6 +152,27 @@
     "from": "2004-04"
    }
   ],
+  "illinois": [
+   {
+    "head": "Daniel Moscowitz",
+    "from": "1977"
+   },
+   {
+    "head": "Meir Moscowitz",
+    "from": "2014-03",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.lubavitch.com/regional-director-of-chabad-of-illinois-daniel-moscowitz-59/",
+      "title": "Regional Director of Chabad of Illinois, Daniel Moscowitz, 59 (Lubavitch.com)",
+      "date": "2014-03-04",
+      "quote": "The Chicago-born rabbi led the city's Chabad community since 1977. Under his leadership as head Chabad representative to the state, Chabad of Illinois established some 37 new institutions around the state."
+     }
+    ],
+    "note": "his father passed away on 2 Adar II 5774 (4 Mar 2014); Rabbi Meir Shimon Moscowitz is now its regional director"
+   }
+  ],
   "indiana": [
    {
     "head": "Avrohom Grossbaum",
@@ -146,6 +211,12 @@
      "after": "1973-09",
      "by": "1974-09"
     }
+   }
+  ],
+  "merrimack-valley": [
+   {
+    "head": "Asher Bronstein",
+    "from": "1992"
    }
   ],
   "michigan": [
@@ -236,6 +307,12 @@
     "from": "2017-02"
    }
   ],
+  "north-shore-of-massachusetts": [
+   {
+    "head": "Yossi Lipsker",
+    "from": "1992"
+   }
+  ],
   "northeast-ohio": [
    {
     "head": "Leibel Alevsky",
@@ -267,6 +344,18 @@
    {
     "head": "Yehoshua Laufer",
     "from": "1979"
+   }
+  ],
+  "rockland": [
+   {
+    "head": "Avremel Kotlarsky",
+    "from": "1983"
+   }
+  ],
+  "south-area": [
+   {
+    "head": "Mendel Gurkow",
+    "from": "1987"
    }
   ],
   "southern-ohio": [
@@ -306,6 +395,16 @@
    {
     "head": "Moshe Feller",
     "from": "1961-12"
+   }
+  ],
+  "upstate-new-york": [
+   {
+    "head": "Nosson Gurary",
+    "from": null,
+    "fromBound": {
+     "after": "1970-09",
+     "by": "1971-09"
+    }
    }
   ],
   "utah": [
@@ -463,6 +562,23 @@
      }
     ],
     "note": "Owner, Nov 8: \"Newfoundland, I think, only got one recently, maybe.\""
+   }
+  ],
+  "CA-ON:michigan": [
+   {
+    "shetach": "michigan",
+    "from": "2009",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.shaareyzedekwindsor.com/index.php/about-our-synagogue/rabbismessage?start=21",
+      "title": "Chabad Jewish Centre of Windsor",
+      "via": "data/founding-years.json, 1851659",
+      "note": "Congregation Shaarey Zedek, Windsor: 'Rabbi Galperin became the rabbi at Congregation Shaarey Zedek in June, 2009.' CrownHeights.info, 2 Aug 2012 (https://crownheights.info/shlichus/45935/canadian-towns-jewish-community-revitalized): local families 'three years ago welcomed Rabbi Sholom and Rivka Galperin into their community'; they 'established a Chabad House separate from the synagogue in their home' (no year given for that). Essex County, Ontario is in the Michigan shetach (owner, Oct 1); the first pass of the pilot left it out."
+     }
+    ],
+    "note": "Essex County, Ontario (Windsor): Michigan's with its first shliach, 2009 (the owner's data puts it in Michigan's shetach)."
    }
   ],
   "US-AK:alaska": [
@@ -730,6 +846,23 @@
     ]
    }
   ],
+  "US-IA:illinois": [
+   {
+    "shetach": "illinois",
+    "from": "2005",
+    "how": "anniversary",
+    "confidence": "medium",
+    "sources": [
+     {
+      "url": "https://www.jta.org/2021/11/01/united-states/4-cities-2-states-1-synagogue-campus-and-rabbi-the-jews-of-the-illinois-iowa-quad-cities-are-learning-to-share",
+      "title": "4 cities, 2 states, 1 synagogue campus and rabbi (JTA)",
+      "date": "2021-11-01",
+      "quote": "Chabad Lubavitch of the Quad-Cities, which opened its doors in Bettendorf 16 years ago"
+     }
+    ],
+    "note": "Rabbi Shneur Cadaner. The Quad Cities piece (Davenport and Pleasant Valley Township) is Illinois's (the owner, Oct 13). Whether it was in Jacobson's Iowa (1992) before is not known: to ask."
+   }
+  ],
   "US-IA:iowa": [
    {
     "shetach": "iowa",
@@ -766,6 +899,23 @@
      }
     ],
     "note": "the first Chabad shluchim in Idaho"
+   }
+  ],
+  "US-IL:illinois": [
+   {
+    "shetach": "illinois",
+    "from": "1977",
+    "how": "stated",
+    "confidence": "medium",
+    "sources": [
+     {
+      "url": "https://www.lubavitch.com/regional-director-of-chabad-of-illinois-daniel-moscowitz-59/",
+      "title": "Regional Director of Chabad of Illinois, Daniel Moscowitz, 59 (Lubavitch.com)",
+      "date": "2014-03-04",
+      "quote": "The Chicago-born rabbi led the city's Chabad community since 1977. Under his leadership as head Chabad representative to the state, Chabad of Illinois established some 37 new institutions around the state."
+     }
+    ],
+    "note": "Chabad.org's obituary has the Rebbe sending the Moscowitzes to Chicago in 1975 (as a search quotes it); led it from 1977."
    }
   ],
   "US-IN:indiana": [
@@ -845,6 +995,44 @@
     ]
    }
   ],
+  "US-MA:cape-cod-and-the-islands": [
+   {
+    "shetach": "cape-cod-and-the-islands",
+    "from": "1995",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.capenews.net/falmouth/news/new-jewish-chabad-center-to-begin-offering-services-next-month-in-falmouth/article_a3769b5f-e61c-590b-832d-d84dc5295741.html",
+      "title": "Chabad Lubavitch of Cape Cod",
+      "via": "data/founding-years.json, 118178",
+      "note": "Rabbi Yekusiel (Kuti) and Devorah Alperowitz have served Cape Cod and the islands 'since 1995' (a feature); Anash: 'for the past twenty-eight years'; the Cape News (Sept 2024): founded in Hyannis 'almost 30 years ago'."
+     }
+    ],
+    "note": "In Eastern Massachusetts: whether it was Prus's (from 1975) before its own head is the owner's to say (asked Nov 8)."
+   }
+  ],
+  "US-MA:central-massachusetts": [
+   {
+    "shetach": "central-massachusetts",
+    "from": null,
+    "fromBound": {
+     "after": "1945-09",
+     "by": "1946-09"
+    },
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://derher.org/wp-content/uploads/5785-11-10.pdf",
+      "title": "A Chassidisher Derher, Menachem Av 5785, 'Pinpoints: Worcester, MA'",
+      "quote": "In 5706, the Frierdiker Rebbe sent Rabbi Hershel Fogelman to succeed Rabbi Hecht, who was needed to lead another Achei Tmimim branch, while Rabbi Fogelman remained in Worcester for life.",
+      "note": "The Worcester yeshiva, Achei Tmimim, opened on 12 Tammuz 5702 (1942) under Rabbi Moshe Yitzchak Hecht; Rabbi Fogelman continued 'until his passing in 5773'."
+     }
+    ],
+    "note": "5706."
+   }
+  ],
   "US-MA:connecticut": [
    {
     "shetach": "connecticut",
@@ -861,6 +1049,74 @@
      }
     ],
     "note": "Western Massachusetts (Amherst, then Springfield): Deren's from 1974."
+   }
+  ],
+  "US-MA:eastern-massachusetts": [
+   {
+    "shetach": "eastern-massachusetts",
+    "from": "1975",
+    "how": "news",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://crownheights.info/shlichus/36263/newton-chabad-prepares-for-move-to-new-home",
+      "title": "Newton Chabad prepares for move to new home (Newton Tab, on CrownHeights.info)",
+      "date": "2011-07-17",
+      "quote": "It was Rabbi Schneerson who sent Rabbi and Mrs. Prus to the Boston area in 1975."
+     }
+    ],
+    "note": "Prus is 'Head Shliach of Eastern Massachusetts' and 'Chabad representative to Eastern Massachusetts since 1975' (lubavitch.com, as the Nov 3 research has it)."
+   }
+  ],
+  "US-MA:merrimack-valley": [
+   {
+    "shetach": "merrimack-valley",
+    "from": "1992",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://crownheights.info/shlichus/403519/young-couple-opens-massachusetts-towns-first-shul",
+      "title": "Chabad Lubavitch Jewish Center of Merrimack Valley",
+      "via": "data/founding-years.json, 117895",
+      "note": "Wicked Local, 1 Oct 2013: Rabbi Asher Bronstein, 'Just like when we came 21 years ago (to Andover)'. Not settled: the Lawrence History Center holds the 'Chabad Lubavitch of the Merrimack Valley First Annual Founders' Dinner' journal, dated only 'c. 1990'; Merrimack Valley Lubavitch Inc.'s IRS ruling is 1994. Checked (Nov 7): its own staff page (https://www.chabadmv.com/templates/articlecco_cdo/aid/2194385/jewish/Our-Rabbis-Rebbetzins.htm): 'Rabbi Asher Bronstein, together with his wife Faigy ... has been serving the local Jews in the Merrimack Valley since 1992'. Two sources agree, so high (the 'c. 1990' founders' dinner journal is undated)."
+     }
+    ],
+    "note": "In Eastern Massachusetts: whether it was Prus's (from 1975) before its own head is the owner's to say (asked Nov 8)."
+   }
+  ],
+  "US-MA:north-shore-of-massachusetts": [
+   {
+    "shetach": "north-shore-of-massachusetts",
+    "from": "1992",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.lubavitch.com/a-bar-mitzvah-year-for-jewish-life-north-of-boston/",
+      "title": "Chabad Lubavitch of the North Shore",
+      "via": "data/founding-years.json, 117908",
+      "note": "Lubavitch.com, 3 July 2005: Chabad of the North Shore 'began in 1992 with a small office in the oceanside town of Swampscott'; Rabbi Yossi and Layah Lipsker 'founded the organization in 1992' (also Lubavitch.com, 28 Oct 2024). Its IRS record dates from June 1993."
+     }
+    ],
+    "note": "In Eastern Massachusetts: whether it was Prus's (from 1975) before its own head is the owner's to say (asked Nov 8)."
+   }
+  ],
+  "US-MA:south-area": [
+   {
+    "shetach": "south-area",
+    "from": "1987",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://teacherstrading.com/shop/Torahstudies",
+      "title": "Shaloh House Chabad of the South Area",
+      "via": "data/founding-years.json, 117632",
+      "note": "His profile: 'In the summer of 1987, Rabbi Gurkow started and led a community Shabbat Service at the Shaloh House in Stoughton, MA ... they moved to Stoughton, MA to start the Shaloh House Lubavitch Educational Center.' Stoughton Journal (COLlive, 'And then I met Chabad'): 'Gurkow first got involved in the mid '80s.' (GuideStar's 1991 is the IRS ruling year.)"
+     }
+    ],
+    "note": "In Eastern Massachusetts: whether it was Prus's (from 1975) before its own head is the owner's to say (asked Nov 8)."
    }
   ],
   "US-MD:maryland": [
@@ -905,6 +1161,22 @@
      }
     ],
     "note": "One of the new Merkos branches of 5747 (Derher, above)."
+   }
+  ],
+  "US-MI:michigan": [
+   {
+    "shetach": "michigan",
+    "from": "1958",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.lubavitch.com/jewish-life-in-michigan-booming-at-the-50-year-mark/",
+      "title": "Chabad Lubavitch of Michigan",
+      "via": "data/founding-years.json, 117640",
+      "note": "In 1958 the Rebbe sent Rabbi Berel and Batsheva Shemtov to Detroit (Detroit Jewish News, 12 Sept 1958: 'Chabad Has Finally Arrived in Detroit'); the Lubavitch Foundation of Michigan was organized in 1959. Began in Detroit, now in Oak Park. Where it has been (Detroit Jewish News): its regional office was at the Lubavitcher Center, 14000 W. Nine Mile, Oak Park, through Aug 1980; in Jan 1989 the Michigan Lubavitch Foundation (Rabbi Yitschak Kagan, director) and Rabbi Berel Shemtov had their offices in the Lubavitch Center, 28555 Middlebelt Rd., Farmington Hills; by 2003 the Foundation was at 14100 W. Nine Mile, Oak Park, its address now."
+     }
+    ]
    }
   ],
   "US-MN:upper-midwest": [
@@ -1107,6 +1379,60 @@
      }
     ],
     "note": "Nevada had no shliach before; it joined the West Coast with the Rebbe's answer (summer 1989), its first shliach (Chabad of Southern Nevada) from 1990."
+   }
+  ],
+  "US-NY:eastern-new-york": [
+   {
+    "shetach": "eastern-new-york",
+    "from": "1974",
+    "how": "anniversary",
+    "confidence": "medium",
+    "sources": [
+     {
+      "url": "https://anash.org/friends-to-honor-50-years-of-shluchim-to-new-york-capitol/",
+      "title": "Friends to Honor 50 Years of Shluchim to New York Capital (Anash.org)",
+      "date": "2024-11-22",
+      "quote": "50 years ago, Rabbi Yisroel and Rochel Rubin set out as the Rebbe's Shluchim to Albany, New York, and the Capital Region."
+     }
+    ],
+    "note": "Other accounts also give 1974; JNS has Sukkos 1973."
+   }
+  ],
+  "US-NY:rockland": [
+   {
+    "shetach": "rockland",
+    "from": "1983",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.chabadofrockland.org/templates/articlecco_cdo/aid/6516114/jewish/About-Us.htm",
+      "title": "Chabad of Rockland",
+      "via": "data/founding-years.json, 117691",
+      "note": "Its About page: 'Established in 1983 under the dedicated direction of Rabbi Avremel Kotlarsky and his wife, Chany.' A 2004 Chabad.org article: Rabbi Mordechai Altein bought the property in 1982 so the Achei Temimim school could move from the Bronx to New City; the building went up in 1991."
+     }
+    ]
+   }
+  ],
+  "US-NY:upstate-new-york": [
+   {
+    "shetach": "upstate-new-york",
+    "from": null,
+    "fromBound": {
+     "after": "1970-09",
+     "by": "1971-09"
+    },
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://derher.org/wp-content/uploads/5785-5-2.pdf",
+      "title": "A Chassidisher Derher, Shevat 5785, 'Pinpoints: Buffalo, NY' (with thanks to Rabbi Mendel Gurary)",
+      "quote": "In 5731, Rabbi Nosson Gurary (along with his wife Miriam a\"h) moved to Buffalo to establish the Chabad House of Buffalo, one of the first campus Chabad houses.",
+      "note": "Before him: a branch of Achei Tmimim in Buffalo from 5703 (1943; Rabbi Hershel Fogelman its first menahel), reopened by Rabbi Mottel Zajac in 5720 for three years; no regional head."
+     }
+    ],
+    "note": "5731."
    }
   ],
   "US-OH:central-ohio": [

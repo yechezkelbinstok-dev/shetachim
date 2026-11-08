@@ -19,6 +19,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | georgia | 27 | 18 | 5 |  | 4 |  |  | 4 | 24 | 2 |
 | hawaii | 7 | 4 | 1 |  | 2 |  |  | 2 | 7 | 2 |
 | idaho | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
+| illinois | 59 | 29 | 8 |  | 22 |  |  | 22 | 54 | 18 |
 | indiana | 7 | 5 | 1 |  | 1 |  |  | 1 | 7 | 1 |
 | iowa | 9 | 6 | 2 |  | 1 |  |  | 1 | 7 | 0 |
 | kansas-missouri | 16 | 12 | 3 |  | 1 |  |  | 1 | 16 | 1 |
@@ -58,7 +59,6 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | new-york-city | 200 |  |  |  |  |  | 200 | 200 | 176 | 176 |
 | quebec | 72 |  |  |  |  |  | 72 | 72 | 59 | 59 |
 | ontario | 61 |  |  |  |  |  | 61 | 61 | 56 | 56 |
-| illinois | 59 |  |  |  |  |  | 59 | 59 | 54 | 54 |
 | maryland | 55 |  |  |  |  |  | 55 | 55 | 48 | 48 |
 | eastern-new-york | 50 |  |  |  |  |  | 50 | 50 | 47 | 47 |
 | crown-heights | 48 |  |  |  |  |  | 48 | 48 | 24 | 24 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | virginia | 19 |  |  |  |  |  | 19 | 19 | 19 | 19 |
 | new-haven | 16 |  |  |  |  |  | 16 | 16 | 14 | 14 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
-| **all** | 1969 | 734 | 203 | 1 | 185 | 48 | 798 | 1031 | 1765 | 863 |
+| **all** | 1969 | 763 | 211 | 1 | 207 | 48 | 739 | 994 | 1765 | 827 |

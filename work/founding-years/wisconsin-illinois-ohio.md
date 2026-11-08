@@ -50,3 +50,31 @@ for every listing. Goal: high confidence (owner, Nov 8), so mediums and ranges s
 - Ranges: Semach Sedek, the Akron Hebrew school (1989-2007), Chabad's Enrichment Programs (by its April 2008 listing),
   CYP Cleveland (2011-2022).
 - No Firecrawl used.
+
+## Illinois (batch illinois-01): 59 listings, 37 with a year (36 of 54 dots), 29 high; 22 ranges for a second pass
+- Sources that answer from here: JUF News (www.juf.org, WordPress search), COLlive and CrownHeights.info (they carry
+  Chabad.org's Chicago stories, which chabad.org itself serves only behind a Cloudflare check), lubavitch.com, the Daily
+  Northwestern, the Daily Illini and the Chicago Maroon (WordPress), and the downstate BLOX papers (qctimes.com,
+  pantagraph.com, thesouthern.com, news-gazette.com). The Daily Herald is behind an Incapsula check (not used); the
+  Chicago Jewish News site does not answer. The Quad-City Times hides its article text (only captions are readable).
+- Two overviews date most of the old centers: Chabad.org, 21 Nov 2019 ("50th Chabad Center Opens in Illinois", on
+  COLlive: Northwestern and the Cheder 1979, Highland Park 1981, Skokie 1982, Peoria 2001, Bucktown 2005, Glencoe and
+  Norwood Park 2019) and Chabad.org, 12 July 2022 ("Growth of Chicago's Jewish Communities", on CrownHeights.info: the
+  Hechts 1942, the Moscowitzes 1975, Skokie 1982).
+- The regional office: 1977 (its 30th anniversary in June 2007; "since 1977" in 2014). Medium, because the 2022 article
+  says the Moscowitzes were sent in 1975. Before them Rabbi Shlomo Zalman Hecht (sent 1942, Anshei Lubavitch) was the
+  state's head shliach until his passing (1979). For `data/shetach-history.json` (another session's file): Illinois's
+  heads would then be Hecht (1942) before Daniel Moscowitz; not changed here.
+- B'nei Ruven: 1958, when it invited Rabbi Shusterman (the Rebbe's shliach in Chicago from 1947); the congregation is
+  older. Medium.
+- Mediums also: F.R.E.E. of Chicago (Reitza Kosofsky "since 1973"), Northwestern (1979 against the 1976 implied in a
+  2016 JUF piece), the Girls High School (1990; the Chinuch directory says 1989), the Mesivta (1996, the directory only),
+  River North (2015, but its listing is from Aug 2013), Arlington Heights (2019; Chanukah events and the listing in
+  late 2018).
+- Ranges (22): mostly suburban Chabad houses with no opening story found yet (Northbrook, Northwest Suburban, Glenview,
+  Gurnee, Elgin, Deerfield, Riverwoods, Uptown, South Loop, Wheeling, Lake Zurich, Lincoln Square, Lincolnwood, Hinsdale)
+  and departments (the F.R.E.E. Hebrew school and Riverwoods branch, the Jewish Learning Society, Jewish Bradley Chabad,
+  Skokie CTeen, Wellsprings, the Springfield government-affairs office). Next pass: the centers' own sites (several are
+  chabad.org-hosted), the Chicago Jewish News archive if reachable, and the suburban Pioneer Press / TribLocal stories
+  that CrownHeights.info reprinted.
+- No Firecrawl used for Illinois.

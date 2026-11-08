@@ -8864,8 +8864,16 @@
    "year": 1999,
    "how": "news",
    "source": "https://collive.com/south-beach-rabbi-takes-to-streets/",
-   "note": "Miami Herald (COLlive, 24 July 2011): 'Katz's RV ministry, Chabad on Wheels, started 12 years ago, when he was completing rabbinical school in New York' (count back: 1999); 'Katz has opened a bricks-and-mortar synagogue on Lincoln Lane'. IRS: 'Chabad House On Wheels', Rabbi Zev Katz, ruling June 2002.",
-   "confidence": "medium"
+   "note": "Miami Herald (COLlive, 24 July 2011): 'Katz's RV ministry, Chabad on Wheels, started 12 years ago, when he was completing rabbinical school in New York' (count back: 1999); 'Katz has opened a bricks-and-mortar synagogue on Lincoln Lane'. Chabad.org (29 April 2008): Rabbi Zev Katz 'came to the area ten years ago with a mobile worship space known as a Mitzvah Tank' (count back: 1998); that month its synagogue and Hebrew school, in a rented building, were 'found torched in an apparent arson', and services moved to 'a rented space nearby'. IRS: 'Chabad House On Wheels', Rabbi Zev Katz, ruling June 2002. Count-backs a year apart: medium.",
+   "confidence": "medium",
+   "earlier": [
+    {
+     "where": "Miami Beach: a rented building (its synagogue and Hebrew school), burned in an apparent arson in April 2008; then a rented space nearby",
+     "from": null,
+     "until": 2008,
+     "source": "https://www.chabad.org/news/article_cdo/aid/665954"
+    }
+   ]
   },
   "290969": {
    "name": "Chabad of N.E. Hollywood & Dania",

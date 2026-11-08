@@ -10,6 +10,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | alaska | 4 | 3 | 1 |  |  |  |  | 0 | 4 | 0 |
 | alberta | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | arkansas | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
+| british-columbia | 13 | 9 | 3 |  | 1 |  |  | 1 | 13 | 1 |
 | cape-cod-and-the-islands | 4 | 3 |  |  | 1 |  |  | 1 | 4 | 1 |
 | central-ohio | 4 | 2 | 1 |  | 1 |  |  | 1 | 4 | 1 |
 | delaware | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
@@ -71,5 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | new-haven | 16 |  |  |  |  |  | 16 | 16 | 14 | 14 |
 | kansas-missouri | 16 |  |  |  |  |  | 16 | 16 | 16 | 16 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
-| british-columbia | 13 |  |  |  |  |  | 13 | 13 | 13 | 13 |
-| **all** | 1969 | 639 | 180 | 1 | 159 | 51 | 939 | 1149 | 1765 | 976 |
+| **all** | 1969 | 648 | 183 | 1 | 160 | 51 | 926 | 1137 | 1765 | 964 |

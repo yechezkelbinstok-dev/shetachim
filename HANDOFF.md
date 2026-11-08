@@ -210,6 +210,9 @@ thirteen no better recent photo has been found yet (the list is there, with what
     Wisconsin, Clark, Drake, Western Washington, Yale, CCNY, UNLV, Arizona, UC Riverside, Kansas, CSUN); the
     Merkos 'New Shluchim' grant lists (COLlive, 2 June and 19 Nov 2022: couples in their first years, by city);
     COLlive/CrownHeights.info 'New Shluchim to ...' posts, searchable by the rabbi's surname through their WP APIs.
+    Former locations: the chabad.org center API record (`/api/v2/chabadorg/centers/<id>?format=jsonapi`) lists
+    the center's Chabad.org news; its 'new building / new home / breaks ground' stories usually say where the
+    center was before (homes, storefronts, rented halls) and when it moved.
     Georgia (Nov 8): 22 of 24 (`georgia-01..03`; the 2007 Atlanta Jewish
     Times survey 'The Rebbe's Minyan', on CrownHeights.info, dates most of the old Atlanta centers). The Carolinas
     (Nov 8): 20 of 23 (`the-carolinas-01`). Alabama (its six entries moved to `alabama-01`): all 5 dots have a year;

@@ -183,11 +183,17 @@ thirteen no better recent photo has been found yet (the list is there, with what
     month or day save it ... (or season which equates to a range ofc)"; "if you come across that a center used to be
     somewhere else save as well as maybe when it moved"; "If by some miracle you finish Florida completely then new
     Jersey next, followed by Pennsylvania". Batches: `batches/florida-NN.json`; notes: `work/founding-years/florida.md`.
-    State (Nov 7): every Florida listing has an entry; 141 of 219 dots have a year (121 high, 20 medium), 41
-    are ranges (an IRS ruling, a Sunbiz filing or a dated mention says "existed by"), 37 open. Many came from the
-    centers' own About pages (WebFetch reads chabad.org-hosted sites; plain curl gets a Cloudflare check). New Jersey: 51 of 84
-    dots have a year (48 high, 3 medium), 6 ranges, 27 open (`batches/new-jersey-01.json`, `-02.json`). Pennsylvania (started Nov 7): 28 of 57 dots have a
-    year (24 high, 4 medium), 7 ranges (`batches/pennsylvania-01.json`). **Owner** (Nov 7): "I WANT HIGH
+    State (Nov 8): Florida: every listing has an entry; 147 of 219 dots have a year, 72 left (mostly 1990s-2000s
+    Miami-Dade and Broward centers held as ranges by an IRS ruling, a Sunbiz filing or a dated mention; the
+    Sun-Sentinel blocks this tool and the UF Jewish Floridian archive was down). Many came from the centers' own About
+    pages (WebFetch reads chabad.org-hosted sites; plain curl gets a Cloudflare check). New Jersey: 62 of 84 dots
+    (`batches/new-jersey-01..03.json`). Pennsylvania: 32 of 57 (`pennsylvania-01..02`; 19 listings not researched
+    yet). Texas: 41 of 48 (`texas-01..02`). Georgia (Nov 8): 22 of 24 (`georgia-01..03`; the 2007 Atlanta Jewish
+    Times survey 'The Rebbe's Minyan', on CrownHeights.info, dates most of the old Atlanta centers). The Carolinas
+    (Nov 8): 20 of 23 (`the-carolinas-01`). Alabama (its six entries moved to `alabama-01`): all 5 dots have a year;
+    Chabad of Alabama (1982 per Southern Jewish Life vs the Posners' 1987) and Huntsville (2010, re-founded 2015)
+    stay medium, Chabad on Wheels a range. Georgia Historic Newspapers answers searches but rate-limits (429);
+    DigitalNC (the Charlotte Jewish News) does not answer from here. **Owner** (Nov 7): "I WANT HIGH
     CONFIDENCE FROM ALL OF THEM"; search each center individually, not only its own site and chabad.org; finish the
     easier New Jersey ones, then back to Florida's non-high dots.
   - How (the rules are in the standing rules below; the method in `work/founding-years/west-coast.md` and

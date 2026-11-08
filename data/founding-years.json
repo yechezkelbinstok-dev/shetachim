@@ -12720,7 +12720,7 @@
    "confidence": "range",
    "by": 1996,
    "source": "https://projects.propublica.org/nonprofits/organizations/223410413",
-   "note": "IRS (ProPublica): Lubavitch On The Palisades, 11 Harold St, Tenafly, exempt from March 1996, so it existed by then. The Jewish Standard (CrownHeights.info, 15 Sept 2006): 'The center's current sanctuary, built nine years ago' (about 1997); The Record (CrownHeights.info, 6 July 2011): 'Seven times in the past 14 years, the center has filed applications before city boards to expand its Harold Street quarters'. Its own site's About page has a 'Celebrating 25 Years' heading, undated. When Rabbi Mordechai and Malkie Shain began is not stated."
+   "note": "IRS (ProPublica): Lubavitch On The Palisades, 11 Harold St, Tenafly, exempt from March 1996, so it existed by then. The Jewish Standard (CrownHeights.info, 15 Sept 2006): 'The center's current sanctuary, built nine years ago' (about 1997); Shturem (CrownHeights.info, 15 Jan 2007): construction of a new Chabad House 'will begin soon on the same plot of land the previous Chabad House was on' (Rabbi Mordechai and Malka Shain); The Record (CrownHeights.info, 6 July 2011): 'Seven times in the past 14 years, the center has filed applications before city boards to expand its Harold Street quarters'. Its own site's About page has a 'Celebrating 25 Years' heading, undated. When the Shains began is not stated."
   },
   "924164": {
    "name": "Chabad-Lubavitch of Morganville",
@@ -12976,10 +12976,12 @@
    "city": "Fair Lawn",
    "shetach": "new-jersey",
    "year": null,
-   "how": "not-found",
-   "confidence": "open",
+   "how": "range",
+   "confidence": "range",
    "lead": 2026,
-   "note": "No dated source found yet (Nov 2026 searches). CTeen of Anshei Lubavitch of Fair Lawn (Rabbi Levi Neubort). Lead: its chabad.org listing (7403210) is from about 2026."
+   "note": "CTeen of Anshei Lubavitch of Fair Lawn (Rabbi Levi Neubort). COLlive, 19 Jan 2011: Rabbi Levi Neubort and his wife 'have been appointed Shluchim to Fair Lawn, NJ' (by Rabbi Moshe Herson with Rabbi Ephraim Simon); COLlive (29 Oct 2018, 8 Nov 2023): the Neuborts direct Anshei Lubavitch, 'one of the world's oldest Lubavitch mosdos', its preschool and day camp. So its CTeen began after the Neuborts came in 2011; when is not found. Lead: its chabad.org listing (7403210) is from about 2026.",
+   "after": 2011,
+   "source": "https://collive.com/new-shluchim-to-new-jersey-3/"
   },
   "7425308": {
    "name": "Chabad at Drew University",

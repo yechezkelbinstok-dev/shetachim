@@ -118,6 +118,12 @@
     "from": null,
     "until": null,
     "source": "https://crownheights.info/shlichus/454908/new-orlando-center-to-serve-jewish-locals-tourists"
+   },
+   {
+    "where": "Orlando: Universal Boulevard (its location in 2014, before the move to Sand Lake Road)",
+    "from": null,
+    "until": 2015,
+    "source": "https://crownheights.info/shlichus/454908/new-orlando-center-to-serve-jewish-locals-tourists/"
    }
   ]
  },
@@ -191,7 +197,15 @@
   "how": "news",
   "source": "https://crownheights.info/shlichus/8113/new-torah-dedication-for-chabad-of-southside",
   "note": "CrownHeights.info, 4 Sept 2007: 'Just a short year after first opening its doors, Chabad of Southside in Jacksonville, Florida welcomed a brand new Torah'; Patch (Jacksonville), on the Finker-Frenkel Chabad Center: it 'has serviced the area's hundreds of college students and the larger Jacksonville community since opening its doors in 2006'. Rabbi Shmuel (Shmuli) and Chana Novack; early on in rented meeting rooms and libraries; the 12,000 sq ft center opened in 2019.",
-  "confidence": "high"
+  "confidence": "high",
+  "earlier": [
+   {
+    "where": "Jacksonville: a small facility near UNF, outgrown by 2016 (a $2.4 million building was then planned)",
+    "from": 2006,
+    "until": null,
+    "source": "https://crownheights.info/shlichus/543620/2-4-million-building-planned-for-jacksonville-campus/"
+   }
+  ]
  },
  "347029": {
   "name": "Chabad Jewish Center of Doral",

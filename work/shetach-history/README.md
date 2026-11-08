@@ -204,26 +204,53 @@ Things found on the way:
 
 ## The page: web/history.html (Nov 8, the third session)
 
-The shetachim of the US and Canada year by year (a slider and play), drawn from this file on the main map's own
-pieces (web/data/geo.json), with each shetach's flagship as a star and nothing else. **Owner (Nov 8):** "the ones with
-just shifting borders not centers or anything and only the US and Canada", then "it should have but only flagship
-center", "flagships very much changed over time? You have to factor that in too (remember there's already some moves
-in the data)", and "this website BETTER NOT ... HAVE THE AI SLOP EXPLANATORY TEXT": **no explanatory text on the page**,
-only names, years and controls.
-- A period with only bounds shows from its 'by' year. A shetach's old name (Pacific Northwest, the Virginias) shows
-  while it covers more than its piece today. Colours: one per shetach for the whole timeline, neighbours never alike.
-- New Brunswick and Prince Edward Island (no history of their own) follow Nova Scotia's Maritimes; the sliver of New
-  York in Southern Ontario's piece follows Ontario. Southern New Jersey (extraAreas) isn't drawn: no county shapes.
-- **Flagships** (`flagships` in the data): where the head's own center was, from when. Moves between cities are
-  in for Michigan (Detroit, Oak Park, Farmington Hills, Oak Park), the Upper Midwest (Minneapolis, St. Paul, Highland
-  Park, West St. Paul), Kansas City (Holmes Road, then Overland Park by 2010), Tennessee (Posner's Sherith Israel in
-  Nashville, Memphis from 1994), Southern Ohio (Kalmanson's Cincinnati, Mangel's Blue Ash from 1995), Central Ohio (the
-  OSU house, New Albany by 2014), New Jersey (Newark, Morristown from 1971), Arizona, Texas, Indiana and Kentucky
-  (their first homes, from the founding years' `earlier`); Crown Heights is 770 from 16 Aug 1940. A shetach not listed
-  shows today's capital from its start. Addresses known only from a directory snapshot (no dates) are left out.
-  Connecticut: Amherst from 1974, Stamford by 1987 (a daughter born there, Jewish Ledger 2016); Springfield in
-  between, not dated. Open: Ontario (Toronto to Thornhill), Upstate New
-  York (the Chabad House of Buffalo to Getzville), Iowa and New Mexico before 1992 (other directors, same cities).
+The shetachim of the US and Canada year by year (a slider and play), with each shetach's flagship as a star and
+nothing else. Two modes: **Shetachim** (names) and **Heads** (the head shliach that year, with his photo; coloured by
+head, so a change of head shows). Light and dark (a switch, kept with the main map's setting), English and Hebrew.
+**Owner (Nov 8):** "the ones with just shifting borders not centers or anything and only the US and Canada"; "it should
+have but only flagship center"; "flagships very much changed over time? You have to factor that in too"; "this website
+BETTER NOT ... HAVE THE AI SLOP EXPLANATORY TEXT": **no explanatory text on the page**, only names, years and
+controls; "I did NOT ASK FOR THE STATE BY STATE CLICKABLE HISTORY THING": a tap shows only the head (photo, name,
+years), the shetach's name and its flagship. Also from him: no faint lines ("Faint lines in many places"): lines only
+where a shetach meets something else, none inside a shetach or between pieces of empty land; land with no shetach
+looks the same whether a shetach comes there later or never ("why the f*** are they distinguished"); names that fit
+what the shetach covered that year ("why is it called Upper Midwest when it's only minnesota? You have to be smart");
+a head-shluchim mode ("doesn't the research have specifically head shluchim? Why ... is that not a mode here"); the
+head photos as on the main map.
+- **Shapes:** `web/data/history-geo.json`, built by `scripts/build-history-geo.py` (shapely and mapshaper) from the
+  main map's pieces, with two pieces only the history has: **South Jersey** (its seven counties, out of New Jersey) and
+  **Southeast Ohio** (the Northeast Ohio piece south of 40.45°N: Athens, Marietta, Steubenville), and the land around
+  (the rest of Canada, Greenland, Mexico and its neighbours) sharing every border. Rebuild it when geo.json changes.
+- **Names** (the page works them out from what the shetach covered that year): one whole state, its name (Minnesota,
+  California, Louisiana, Manitoba, Ontario); one part with a name of its own (Western Massachusetts); several states
+  under a state's name, the others added (Pennsylvania, South Jersey, Delaware & DC; Nebraska & South Dakota; Ohio,
+  Indiana & Kentucky, then Ohio & Kentucky, then Southern & Central Ohio, then Southern Ohio); otherwise today's name.
+  Two old names: the Pacific Northwest (Levitin's while it had more than Washington) and the Virginias (with West
+  Virginia). A period with only bounds shows from its 'by' (only an 'after': from that year).
+- **Heads:** a head with no date shows from his earliest known bound (Rosenfeld from 1978, when he became dean of
+  Yeshiva Schools; Mochkin from 1952, when he came to Montreal); a shetach whose heads aren't in this file (Maine,
+  Oklahoma) shows today's head from its start. Photos: `data/head-photos.json` where its 'head' is that year's head;
+  initials otherwise (past heads have no photos yet: Posner, Kalmanson, Moshe Herson, Avrohom Korf, Alevsky, Yankel
+  Kranz, Daniel Moscowitz, Kasowitz, Rubin, Popack, the Hechts, Hershel Fogelman; and of today's: British Columbia,
+  Delaware, Eastern Massachusetts, Eastern New York, Kansas-Missouri, the Maritimes, New Hampshire, Ottawa, Quebec,
+  Rhode Island).
+- **Changes made for the owner (Nov 8):** Southeast Ohio is Kalmanson's from 1975, Central Ohio's from 1991 (taken
+  with its neighbour; not found), Alevsky's only from the Ohio University shliach (Aug 2015). South Jersey: Herson's
+  from 1965 ("shliach to the state of New Jersey"), Avremel's by 1980 (JTA), Herson's again by June 2007 (he appointed
+  Gloucester County's shliach). Saskatchewan: Altein's by 1993 (the roving rabbis' notes go back to 1993), not from
+  1972. Western Pennsylvania from 1941 (Yeshiva Schools' own history: Rabbi Mordechai Dov Altein; the Derens 1942).
+- New Brunswick and Prince Edward Island follow Nova Scotia's Maritimes; the sliver of New York in Southern Ontario's
+  piece follows Ontario (left out of names).
+- **Flagships** (`flagships` in the data): where the head's own center was, from when. Moves are in for Michigan
+  (Detroit, Oak Park, Farmington Hills, Oak Park), the Upper Midwest (Minneapolis, St. Paul, Highland Park, West St.
+  Paul), Kansas City (Holmes Road, then Overland Park by 2010), Tennessee (Posner's Sherith Israel in Nashville, Memphis
+  from 1994), Southern Ohio (Kalmanson's Chabad House on Reading Road from Sept 1975 and Summit Road from July 1976, then
+  Mangel's Blue Ash from 1995), Central Ohio (the OSU house, New Albany by 2014), New Jersey (Newark, Morristown from
+  1971), Connecticut (Amherst from 1974, Stamford by 1987; Springfield in between, not dated), Arizona, Texas, Indiana
+  and Kentucky (their first homes, from the founding years' `earlier`); Crown Heights is 770 from 16 Aug 1940. A
+  shetach not listed shows today's capital from its start. Addresses known only from a directory snapshot (no dates)
+  are left out. Open: Ontario (Toronto to Thornhill), Upstate New York (the Chabad House of Buffalo to Getzville), Iowa
+  and New Mexico before 1992 (other directors, same cities).
 
 ## Open
 

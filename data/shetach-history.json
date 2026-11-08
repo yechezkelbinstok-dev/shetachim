@@ -1,5 +1,5 @@
 {
- "about": "Shetach territories and heads over time, the United States first (the owner's idea, Nov 6; started Nov 8). It holds what a map of any year needs: whose shetach each area was in, and who headed each shetach. 'areas' is keyed by the map's piece id, '<state>:<shetach id>' as in web/data/centers.geojson ('US-OR:oregon' is Oregon, 'US-OH:michigan' the Toledo area, 'US-WV:western-pennsylvania' West Virginia). Its periods run oldest first: from a period's 'from' until the next period's 'from', the area was part of that period's 'shetach', given by the id in data/shetachim.json of that head's shetach today (Levitin's Pacific Northwest is 'washington'). Before the first period the area was in no shetach, as far as is known. 'heads' is keyed by shetach id: its heads, oldest first, each {head, from, name (what the shetach was called then, where it differs)}; a shetach with one head since it began lists him from its start, with the sources on the area period that starts it. 'events' is keyed by shetach id: vaads, passings and the like, each {date, what, sources}. Dates are 'YYYY', 'YYYY-MM' or 'YYYY-MM-DD'; when only bounds are known, 'from' is null and 'fromBound' is {after, by}. 'how': owner (the owner's own statement, taken as fact; owner, Nov 8: \"I'm telling you as a fact ... I just need to figure out when each one split off. Stop trying to verify my facts\"), stated (a source states it), news (a report from the time), anniversary (counted back), range (only bounds). 'confidence', as in data/founding-years.json: high (a report from the time, or the shetach's own statement, and nothing against it), medium (one later source, a count back, or sources a year apart), low, range, open; none on 'owner' periods. 'sources': [{url, title, date (the source's own), quote (its words), via (where an earlier session found it), note}]. When an area was in another head's shetach before its own (the owner, Nov 8): \"usually I would assume it was only theirs if they were doing some sort of activity there or if they were explicitly sent to those names places by the Rebbe or merkoz like how levitin was sent to all those places\". 'extraAreas' are pieces for the history only, cut out of a map piece where part of it had another past (Southern New Jersey, Avremel Shemtov's in 1980, out of US-NJ:new-jersey): {name, carvedFrom (the piece), counties (Census GEOIDs), note}; their periods are under 'areas' like any other, and the rest of the piece follows the piece's own periods. Research notes: work/shetach-history/README.md. 'flagships' is keyed by shetach id: where its flagship (the head's own center) was, oldest first, each {from (or fromBound), where, lat, lon, centerId (a chabad.org listing, where it is one), via or source}; a shetach not in it had its flagship at today's capital (web/data/shetachim.json) from its start. Moves within a city whose dates are not known (an address only as of a directory snapshot) are left out.",
+ "about": "Shetach territories and heads over time, the United States first (the owner's idea, Nov 6; started Nov 8). It holds what a map of any year needs: whose shetach each area was in, and who headed each shetach. 'areas' is keyed by the map's piece id, '<state>:<shetach id>' as in web/data/centers.geojson ('US-OR:oregon' is Oregon, 'US-OH:michigan' the Toledo area, 'US-WV:western-pennsylvania' West Virginia). Its periods run oldest first: from a period's 'from' until the next period's 'from', the area was part of that period's 'shetach', given by the id in data/shetachim.json of that head's shetach today (Levitin's Pacific Northwest is 'washington'). Before the first period the area was in no shetach, as far as is known. 'heads' is keyed by shetach id: its heads, oldest first, each {head, from, name (what the shetach was called then, where it differs)}; a shetach with one head since it began lists him from its start, with the sources on the area period that starts it. 'events' is keyed by shetach id: vaads, passings and the like, each {date, what, sources}. Dates are 'YYYY', 'YYYY-MM' or 'YYYY-MM-DD'; when only bounds are known, 'from' is null and 'fromBound' is {after, by}. 'how': owner (the owner's own statement, taken as fact; owner, Nov 8: \"I'm telling you as a fact ... I just need to figure out when each one split off. Stop trying to verify my facts\"), stated (a source states it), news (a report from the time), anniversary (counted back), range (only bounds). 'confidence', as in data/founding-years.json: high (a report from the time, or the shetach's own statement, and nothing against it), medium (one later source, a count back, or sources a year apart), low, range, open; none on 'owner' periods. 'sources': [{url, title, date (the source's own), quote (its words), via (where an earlier session found it), note}]. When an area was in another head's shetach before its own (the owner, Nov 8): \"usually I would assume it was only theirs if they were doing some sort of activity there or if they were explicitly sent to those names places by the Rebbe or merkoz like how levitin was sent to all those places\". 'extraAreas' are pieces for the history only, cut out of a map piece where part of it had another past (Southern New Jersey, Avremel Shemtov's in 1980, out of US-NJ:new-jersey): {name, carvedFrom (the piece), counties (Census GEOIDs), note}; their periods are under 'areas' like any other, and the rest of the piece follows the piece's own periods. Research notes: work/shetach-history/README.md. 'flagships' is keyed by shetach id: where its flagship (the head's own center) was, oldest first, each {from (or fromBound), where, lat, lon, centerId (a chabad.org listing, where it is one), via or source}; a shetach not in it had its flagship at today's capital (web/data/shetachim.json) from its start. Moves within a city whose dates are not known (an address only as of a directory snapshot) are left out. A head's 'he' is his name in Hebrew where he is not today's head (web/data/he.json has today's).",
  "heads": {
   "alabama": [
    {
@@ -46,7 +46,8 @@
   "central-massachusetts": [
    {
     "head": "Moshe Yitzchak Hecht",
-    "from": "1942-06"
+    "from": "1942-06",
+    "he": "משה יצחק העכט"
    },
    {
     "head": "Hershel Fogelman",
@@ -54,7 +55,8 @@
     "fromBound": {
      "after": "1945-09",
      "by": "1946-09"
-    }
+    },
+    "he": "הערשל פוגלמן"
    },
    {
     "head": "Mendel Fogelman",
@@ -76,7 +78,8 @@
   "colorado": [
    {
     "head": "Yisroel Meir Popack",
-    "from": "1978"
+    "from": "1978",
+    "he": "ישראל מאיר פופאק"
    },
    {
     "head": "Mendel Popack",
@@ -106,7 +109,8 @@
   "eastern-new-york": [
    {
     "head": "Yisroel Rubin",
-    "from": "1974"
+    "from": "1974",
+    "he": "ישראל רובין"
    },
    {
     "head": "Rubin family",
@@ -121,7 +125,8 @@
     "from": "1960",
     "how": "stated",
     "confidence": "high",
-    "note": "sources on area US-FL:florida; from Feb 2020 with a vaad (events)"
+    "note": "sources on area US-FL:florida; from Feb 2020 with a vaad (events)",
+    "he": "אברהם קורף"
    },
    {
     "head": "Benjy (Bentzion) Korf",
@@ -159,7 +164,8 @@
   "illinois": [
    {
     "head": "Daniel Moscowitz",
-    "from": "1977"
+    "from": "1977",
+    "he": "דניאל מוסקוביץ"
    },
    {
     "head": "Meir Moscowitz",
@@ -200,7 +206,8 @@
       "quote": "The state of Iowa did not discriminate against the Lubavitch movement in 1986 when it refused to allow the organization to leave a Chanukah menorah standing on the grounds of the state Capitol overnight ... \"Naturally we're very disappointed in the court's decision,\" said Rabbi Moishe Kasowitz, director of Lubavitch of Iowa."
      }
     ],
-    "note": "Director of Lubavitch of Iowa in May 1989; when he began, and who was there in 1984, not found."
+    "note": "Director of Lubavitch of Iowa in May 1989; when he began, and who was there in 1984, not found.",
+    "he": "משה קסוביץ"
    },
    {
     "head": "Yossi Jacobson",
@@ -293,7 +300,8 @@
   "new-haven": [
    {
     "head": "Moshe Hecht",
-    "from": "1946"
+    "from": "1946",
+    "he": "משה העכט"
    },
    {
     "head": "Sheya Hecht",
@@ -309,7 +317,8 @@
     "from": "1965",
     "how": "stated",
     "confidence": "high",
-    "note": "sources on area US-NJ:new-jersey"
+    "note": "sources on area US-NJ:new-jersey",
+    "he": "משה הרסון"
    },
    {
     "head": "Mendy Herson",
@@ -371,7 +380,8 @@
     "from": "1972",
     "how": "stated",
     "confidence": "high",
-    "note": "sources on area US-OH:northeast-ohio"
+    "note": "sources on area US-OH:northeast-ohio",
+    "he": "לייבל אלעווסקי"
    },
    {
     "head": "Zushe Greenberg",
@@ -420,7 +430,10 @@
       "note": "a wiki, read through Firecrawl"
      }
     ],
-    "note": "When he became head shliach, and who led the region before him, not found. He also chairs Tzeirei Agudas Chabad of Canada."
+    "note": "When he became head shliach, and who led the region before him, not found. He also chairs Tzeirei Agudas Chabad of Canada. Shown from 1952, when his family moved to Montreal (the earliest he could have been head).",
+    "fromBound": {
+     "after": "1952"
+    }
    }
   ],
   "rhode-island": [
@@ -447,7 +460,8 @@
     "from": "1975-09",
     "how": "news",
     "confidence": "high",
-    "note": "sources on area US-OH:southern-ohio"
+    "note": "sources on area US-OH:southern-ohio",
+    "he": "שלום בער קלמנסון"
    },
    {
     "head": "Yisroel Mangel",
@@ -463,7 +477,8 @@
     "how": "stated",
     "confidence": "high",
     "sources": [],
-    "note": "Sources on the area's period (US-TN:tennessee)."
+    "note": "Sources on the area's period (US-TN:tennessee).",
+    "he": "זלמן פוזנר"
    },
    {
     "head": "Levi Klein",
@@ -535,7 +550,8 @@
     "name": "the Virginias",
     "how": "stated",
     "confidence": "high",
-    "note": "sources on area US-VA:virginia"
+    "note": "sources on area US-VA:virginia",
+    "he": "יעקב נח (יענקל) קרנץ"
    },
    {
     "head": "Yossel Kranz",
@@ -600,7 +616,17 @@
    {
     "head": "Yisroel Rosenfeld",
     "from": null,
-    "note": "When he became head, and the heads before him, not found; dean of Yeshiva Schools of Pittsburgh from 1978."
+    "note": "When he became head shliach, and the heads before him, not found: shown from 1978, when he became dean of Yeshiva Schools of Pittsburgh (the Lubavitch school; he handed it over in 2020 and remains head of the Lubavitch Center).",
+    "fromBound": {
+     "by": "1978"
+    },
+    "sources": [
+     {
+      "url": "https://www.yeshivaschools.com/mission/",
+      "title": "Mission & History (Yeshiva Schools of Pittsburgh)",
+      "quote": "In 1978, Rabbi Yisroel Rosenfeld became the dean of Yeshiva Schools."
+     }
+    ]
    }
   ],
   "wisconsin": [
@@ -840,9 +866,9 @@
   "CA-SK:manitoba-saskatchewan": [
    {
     "shetach": "manitoba-saskatchewan",
-    "from": "1972",
-    "how": "stated",
-    "confidence": "medium",
+    "from": null,
+    "how": "range",
+    "confidence": "range",
     "sources": [
      {
       "url": "https://crownheights.info/shlichus/381312/chabad-strikes-gold-in-canadian-frontier",
@@ -856,9 +882,20 @@
       "title": "Chabad-Lubavitch of Saskatoon",
       "via": "data/founding-years.json, 1344050",
       "note": "COLlive, 25 July 2011: Rabbi Raphael and Sarah Kats 'moved from Brooklyn, N.Y., to Saskatoon one month ago' to open Saskatchewan's first Chabad house (the Saskatchewan Jewish Discovery Centre), in their home. The CJN also gives June 2011. He had visited as a rabbinical student in 2010."
+     },
+     {
+      "url": "https://crownheights.info/merkos-shlichus/7333/new-york-chabadniks-tour-saskatchewan/",
+      "title": "New York Chabadniks tour Saskatchewan (CrownHeights.info)",
+      "date": "2007-07-11",
+      "quote": "They looked through some old notes and found a 1993 phone number for a Holocaust survivor in the town.",
+      "note": "the roving rabbis' notes on Saskatchewan go back to 1993 (Weyburn)."
      }
     ],
-    "note": "By the owner's rule (activity there, Nov 8), Saskatchewan was Altein's before it had a shliach of its own: he had sent roving rabbis to Regina 'over the decades'; 'from' is his own start (Winnipeg, 1972), since when the visits began is not stated. Saskatchewan's first resident shliach: Saskatoon, June 2011 (Rabbi Raphael Kats); Regina from 2013."
+    "note": "Owner, Nov 8: 'why is Manitoba Saskatchewan right away both of them when originally it was probably only one of them right? I guess look into when activities started to be done in Sask'. Altein (2013): 'Over the decades, we have been sending Roving Rabbis to Regina'; the roving rabbis' notes go back to 1993, so Saskatchewan was his by 1993 (when the visits began, not found). Its first resident shliach: Saskatoon, June 2011 (Rabbi Raphael Kats); Regina, summer 2013 (the Simmondses).",
+    "fromBound": {
+     "after": "1972",
+     "by": "1993"
+    }
    }
   ],
   "US-AK:alaska": [
@@ -2114,10 +2151,15 @@
   "US-PA:western-pennsylvania": [
    {
     "shetach": "western-pennsylvania",
-    "from": "1942",
+    "from": "1941",
     "how": "stated",
-    "confidence": "high",
+    "confidence": "medium",
     "sources": [
+     {
+      "url": "https://www.yeshivaschools.com/mission/",
+      "title": "Mission & History (Yeshiva Schools of Pittsburgh)",
+      "quote": "Yeshiva Schools began in 1941 under the leadership of Rabbi Yosef Yitzchak Schneerson, the sixth Lubavitcher Rebbe. The Previous Rebbe personally sent Rabbi Mordechai Dov Altein to begin an after school program in the city, among other initiatives."
+     },
      {
       "url": "https://collive.com/the-rebbes-child/",
       "title": "The Rebbe's Child (Rabbi Yisrael and Vivi Deren; COLlive)",
@@ -2125,7 +2167,7 @@
       "quote": "My grandparents, Rabbi Yechezkel and Heny Deren AH, were sent to Pittsburgh by the Frierdiker Rebbe in 1942. There, they opened the first Jewish day school of its kind in the country."
      }
     ],
-    "note": "Chabadpedia: the Frierdiker Rebbe sent Rabbi Sholom Posner to Pittsburgh in 5703 (1943) to set up a branch of Tomchei Tmimim. West Virginia joined after Sept 2007 (US-WV:western-pennsylvania)."
+    "note": "1941 by the school's own history (Rabbi Mordechai Dov Altein, sent by the Frierdiker Rebbe); the Derens came in 1942 (COLlive) and Rabbi Sholom Posner in 5703 (1943, Chabadpedia): medium, sources a year apart. Chabadpedia: the Frierdiker Rebbe sent Rabbi Sholom Posner to Pittsburgh in 5703 (1943) to set up a branch of Tomchei Tmimim. West Virginia joined after Sept 2007 (US-WV:western-pennsylvania)."
    }
   ],
   "US-RI:rhode-island": [
@@ -2465,9 +2507,25 @@
   ],
   "US-NJ:south-jersey": [
    {
+    "shetach": "new-jersey",
+    "from": "1965",
+    "how": "stated",
+    "confidence": "medium",
+    "sources": [
+     {
+      "url": "https://anash.org/rabbi-moshe-herson-90-ah/",
+      "title": "Rabbi Moshe Herson, 90, A\"H (Anash.org)",
+      "date": "2025-01-23",
+      "quote": "After his chasunah, in 5725 (1965), the Rebbe appointed Rabbi Herson as his shliach to the state of New Jersey."
+     }
+    ],
+    "note": "Herson was appointed 'shliach to the state of New Jersey' (1965); by 1980 the south was Avremel's (next period)."
+   },
+   {
     "shetach": "pennsylvania",
     "from": null,
     "fromBound": {
+     "after": "1965",
      "by": "1980-08"
     },
     "how": "news",
@@ -2486,18 +2544,25 @@
       "quote": "Shemtov is director of the American Friends of Lubavitch and regional head of the Lubavither movement in Pennsylvania, southern New Jersey and Delaware. His office is in Philadelphia"
      }
     ],
-    "note": "Avremel Shemtov's (Philadelphia) in 1980: 'regional director of the American Friends of Lubavitch which includes Pennsylvania and Southern New Jersey' (JTA, Aug 1980). Since when is not known (he came in 1961)."
+    "note": "Avremel Shemtov's (Philadelphia) in 1980: 'regional director of the American Friends of Lubavitch which includes Pennsylvania and Southern New Jersey' (JTA, Aug 1980). Since when is not known (he came in 1961). Owner, Nov 8: 'Avremel owning South NJ and Delaware'."
    },
    {
     "shetach": "new-jersey",
     "from": null,
     "fromBound": {
      "after": "1980-10",
-     "by": "2026-11"
+     "by": "2007-06"
     },
     "how": "range",
     "confidence": "range",
     "sources": [
+     {
+      "url": "https://crownheights.info/shlichus/6927/new-shluchim-to-new-jersey-5/",
+      "title": "New Shluchim to New Jersey! (CrownHeights.info)",
+      "date": "2007-06-16",
+      "quote": "They were appointed by Rabbi Moshe Herson (Head Shliach to NJ) and Rabbi Yisroel Rapoport (Chabad of Cumberland and Gloucester Counties).",
+      "note": "Rabbi Avi and Mina Richler, to Gloucester County (South Jersey)."
+     },
      {
       "url": "https://www.rca.edu/templates/articlecco_cdo/aid/343441/jewish/RCA-Chabad-Impact-Around-New-Jersey.htm/page/2",
       "title": "RCA: Chabad Impact Around New Jersey (Rabbinical College of America)",
@@ -2505,7 +2570,38 @@
       "note": "Read Nov 8 2026 (WebFetch): its New Jersey list includes Chabad Lubavitch of Camden County (Cherry Hill), Chabad in Medford, Chabad House of Vineland and Chabad at the Shore (Ventnor). Undated page."
      }
     ],
-    "note": "Herson's (the Rabbinical College of America's) today. When it moved is not found: Atlantic City's Chabad house dates from the 1980s (the Rapoports, 'among the first shluchim to New Jersey'), Chabad of Atlantic County (Margate) from about 1992, Cherry Hill's from 1993; none says who sent them. The 'by' is only the date the RCA's list was read."
+    "note": "Herson's again by June 2007, when he appointed Gloucester County's shliach; since when, not found (Atlantic County's Chabad from 1984, Cherry Hill's from 1993; neither says who sent them)."
+   }
+  ],
+  "US-OH:southeast-ohio": [
+   {
+    "shetach": "southern-ohio",
+    "from": "1975-09",
+    "how": "owner",
+    "note": "Owner, Nov 8: Kalmanson 'was given basically all those parts of Ohio, I think' (Ohio outside Alevsky's part). Sources on US-OH:southern-ohio."
+   },
+   {
+    "shetach": "central-ohio",
+    "from": "1991",
+    "how": "range",
+    "confidence": "low",
+    "note": "Not found: taken with Central Ohio (the Kaltmanns, Columbus, 1991), its neighbour, when Central Ohio was cut from Kalmanson's; otherwise his shetach would have been in two pieces."
+   },
+   {
+    "shetach": "northeast-ohio",
+    "from": "2015-08",
+    "how": "news",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.clevelandjewishnews.com/news/local_news/chabad-expands-reach-to-westlake-ohio-university/article_eb709be4-56fe-11e5-afd9-4379320d1e86.html",
+      "title": "Chabad expands reach to Westlake, Ohio University (Cleveland Jewish News)",
+      "date": "2015-09-11",
+      "quote": "Chabad opened its doors at 100 Morris Ave. in Athens in mid-August during student move-in week.",
+      "via": "data/founding-years.json, 2842082"
+     }
+    ],
+    "note": "Rabbi Levi Raichik 'is spearheading the Chabad at Ohio University in Athens' (Chabad of Cleveland's)."
    }
   ]
  },
@@ -2522,7 +2618,13 @@
     "34015",
     "34033"
    ],
-   "note": "Atlantic, Burlington, Camden, Cape May, Cumberland, Gloucester and Salem counties (Census GEOIDs): the usual seven of South Jersey; what the JTA's 'southern New Jersey' of 1980 took in exactly is not known. A piece for the history only (owner, Nov 8: 'yes to the south Jersey thing'): today it is part of New Jersey's shetach like the rest of the state, so the current map does not cut it."
+   "note": "Atlantic, Burlington, Camden, Cape May, Cumberland, Gloucester and Salem counties (Census GEOIDs): the usual seven of South Jersey; what the JTA's 'southern New Jersey' of 1980 took in exactly is not known. A piece for the history only (owner, Nov 8: 'yes to the south Jersey thing'): today it is part of New Jersey's shetach like the rest of the state, so the current map does not cut it; web/history.html draws it (scripts/build-history-geo.py)."
+  },
+  "US-OH:southeast-ohio": {
+   "name": "Southeast Ohio",
+   "carvedFrom": "US-OH:northeast-ohio",
+   "cut": "the Northeast Ohio piece south of 40.45°N (a straight line, like the owner's other Ohio borders)",
+   "note": "Athens, Marietta, Steubenville and the Ohio River counties at the foot of today's Northeast Ohio piece. Owner, Nov 8: 'until that shliach went to that campus why would Alevsky shape be like that I think change it': Alevsky's from the Ohio University shliach (Aug 2015). A piece for the history only, cut by scripts/build-history-geo.py."
   }
  },
  "events": {
@@ -2728,10 +2830,18 @@
   "southern-ohio": [
    {
     "from": "1975-09",
-    "where": "Cincinnati: Rabbi Sholom Ber Kalmanson (address not found)",
-    "lat": 39.10128,
-    "lon": -84.51274,
-    "via": "data/shetach-history.json, heads southern-ohio"
+    "where": "the Chabad House, 7719 Reading Road, Roselawn, Cincinnati",
+    "lat": 39.20255,
+    "lon": -84.4557,
+    "source": "https://www.cincinnatijudaicafund.com/Detail/objects/1593",
+    "quote": "The Local Chabad House has been operating since September 1975, first at 7719 Reading Road, Roselawn, and since last July on Summit Road."
+   },
+   {
+    "from": "1976-07",
+    "where": "the Chabad House on Summit Road, Roselawn, Cincinnati (number not found)",
+    "lat": 39.19404,
+    "lon": -84.47409,
+    "source": "https://www.cincinnatijudaicafund.com/Detail/objects/1593"
    },
    {
     "from": "1995",

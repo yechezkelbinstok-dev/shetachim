@@ -10831,17 +10831,17 @@
    "name": "Chabad at the Shore",
    "city": "Ventnor",
    "shetach": "new-jersey",
-   "year": 1992,
-   "how": "news",
-   "source": "https://crownheights.info/general/2732/chabad-at-the-shore-hopes-for-sunny-minyan",
-   "note": "This listing is Chabad of Atlantic County (ChabadAC.com, Rabbi Shmuel Rapoport), today at 6605 Atlantic Avenue, Ventnor (a former church, opened Aug 2015). The Jewish Exponent (19 July 2006): 'Chabad of Atlantic County, a roughly 14-year-old organization based in Margate, N.J.' (count back: about 1992). To check against a second source.",
-   "confidence": "medium",
+   "year": 1984,
+   "how": "stated",
+   "source": "https://crownheights.info/shlichus/547903/new-shluchim-to-jersey-shore",
+   "note": "This listing is Chabad of Atlantic County (ChabadAC.com, Rabbi Shmuel Rapoport), today at 6605 Atlantic Avenue, Ventnor (a former church, opened Aug 2015). NJ.com (CrownHeights.info, 13 Sept 2016): 'Rabbi Rapoport's parents, Rabbi Shmuel and Tova Rapoport, were sent in 1984 by the Lubavitcher Rebbe ... to establish a Chabad-Lubavitch center for the community' (in Atlantic City). Agreeing: Chabad.org (CrownHeights.info, 31 July 2011): 'Shmuel and Tova Rapoport first moved to the Shore close to three decades ago'; the Jewish Exponent (CrownHeights.info, 31 July 2008): 'For more than two decades, Chabad of Atlantic County has run Jewish programs throughout the South Jersey area', headquartered in Margate. Only the Jewish Exponent of 19 July 2006 differs ('a roughly 14-year-old organization based in Margate', about 1992).",
+   "confidence": "high",
    "earlier": [
     {
-     "where": "Margate, N.J. (its first base)",
-     "from": 1992,
-     "until": null,
-     "source": "https://crownheights.info/general/2732/chabad-at-the-shore-hopes-for-sunny-minyan"
+     "where": "Margate, N.J. (its headquarters, the Pinchus Kiedjan Chabad House)",
+     "from": null,
+     "until": 2015,
+     "source": "https://crownheights.info/shlichus/12400/chabad-opens-new-ventnor-location-launches-summer-programming/"
     }
    ]
   },
@@ -12623,6 +12623,111 @@
    "lead": 2010,
    "source": "https://projects.propublica.org/nonprofits/organizations/454345607",
    "note": "IRS (ProPublica): Friendship Circle Of Greater Mercer County A Nj Nonprofit Corporation, Princeton, exempt from Dec 2012, so it existed by then; its start not found. Rabbi Shmuel Dovid and Mushky Wilhelm. Lead: its chabad.org listing (1110855) is from about 2010."
+  },
+  "405402": {
+   "name": "Mei Menachem Community Mikvah",
+   "city": "Rockaway",
+   "shetach": "new-jersey",
+   "year": 2009,
+   "date": "2009-07-13",
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.onetorahway.org/templates/articlecco_cdo/aid/938508/jewish/Mikvah-Inauguration.htm",
+   "note": "Its own site (Chabad Center of Northwest NJ), 'Mikvah Inauguration': photos 'at the inauguration of Mikvah Mei Menachem, on Monday, July 13, 2009'; 'the first Community Mikvah established in Northwest New Jersey', in the Chabad Educational Center, which opened in the fall of 2008 and was dedicated in June 2009 (Lubavitch.com, 12 June 2009). Its chabad.org listing (405402) is from about 2006, while it was being planned."
+  },
+  "828109": {
+   "name": "Hebrew High",
+   "city": "Rockaway",
+   "shetach": "new-jersey",
+   "year": 2005,
+   "how": "news",
+   "confidence": "medium",
+   "source": "https://crownheights.info/general/1015/new-center-to-rise-in-new-jersey",
+   "note": "Lubavitch.com (CrownHeights.info, 24 Nov 2005), at the groundbreaking of the Chabad Educational Center: 'the popularity of its preschool, classes, Hebrew school and new Hebrew high have filled its cozy synagogue and ground floor classrooms'. New in the fall of 2005; whether it began that school year or the one before is not stated: medium. It moved into the new Chabad Educational Center when it opened in the fall of 2008.",
+   "earlier": [
+    {
+     "where": "Chabad Center of Northwest NJ, One Torah Way, Rockaway",
+     "from": 2005,
+     "until": 2008,
+     "source": "https://www.onetorahway.org/templates/articlecco_cdo/aid/1990765/jewish/About-Us.htm"
+    }
+   ]
+  },
+  "118912": {
+   "name": "Chabad Early Learning Center",
+   "city": "Rockaway",
+   "shetach": "new-jersey",
+   "year": null,
+   "how": "range",
+   "confidence": "range",
+   "after": 1988,
+   "by": 2005,
+   "lead": 2002,
+   "source": "https://crownheights.info/general/1015/new-center-to-rise-in-new-jersey",
+   "note": "The preschool of the Chabad Center of Northwest NJ (established at the start of 1988). Lubavitch.com, 24 Nov 2005: 'Preschool director Flory Heller' at the groundbreaking of the Educational Center; the Daily Record (CrownHeights.info, 15 Nov 2005): the center had become 'a synagogue, a preschool and a Hebrew school that has already outgrown its 10-year home on Torah Way'. So there by 2005; its start not stated. It moved into the Chabad Educational Center when it opened in the fall of 2008 (its About page). Lead: its chabad.org listing (118912) is from about 2002.",
+   "earlier": [
+    {
+     "where": "Chabad Center of Northwest NJ, One Torah Way, Rockaway",
+     "from": null,
+     "until": 2008,
+     "source": "https://www.onetorahway.org/templates/articlecco_cdo/aid/1990765/jewish/About-Us.htm"
+    }
+   ]
+  },
+  "120058": {
+   "name": "David Hoffman Hebrew School",
+   "city": "Rockaway",
+   "shetach": "new-jersey",
+   "year": null,
+   "how": "range",
+   "confidence": "range",
+   "after": 1988,
+   "by": 2005,
+   "lead": 2003,
+   "source": "https://crownheights.info/general/958/chabad-education-center-helps-jews-break-new-ground",
+   "note": "The Hebrew school of the Chabad Center of Northwest NJ (established at the start of 1988; at first the Hersons held Shabbat services and 'eventually classes for children, men and women' in a VFW hall, then from about 1995 in their building on Torah Way). The Daily Record (CrownHeights.info, 15 Nov 2005): 'a Hebrew school that has already outgrown its 10-year home on Torah Way'; Lubavitch.com (24 Nov 2005): 'Hebrew School director Sarah Herson'. So there by 2005; its own start not stated. It moved into the Chabad Educational Center in the fall of 2008. Lead: its chabad.org listing (120058) is from about 2003.",
+   "earlier": [
+    {
+     "where": "Chabad Center of Northwest NJ, One Torah Way, Rockaway",
+     "from": null,
+     "until": 2008,
+     "source": "https://www.onetorahway.org/templates/articlecco_cdo/aid/1990765/jewish/About-Us.htm"
+    }
+   ]
+  },
+  "118338": {
+   "name": "Chabad of Livingston",
+   "city": "Livingston",
+   "shetach": "new-jersey",
+   "year": 1996,
+   "season": "summer",
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://crownheights.info/chabad-news/677495/it-takes-a-lifetown-n-j-project-a-model-for-inclusive-community-building",
+   "note": "Chabad.org (CrownHeights.info, 26 Aug 2019, 'It Takes a LifeTown'): 'When the Grossbaums arrived in Livingston, in the summer of 1996 to serve as Chabad emissaries they immersed themselves in developing Jewish educational programs ... under the auspices of the Rabbinical College of America.' Rabbi Zalman and Toba Grossbaum then founded the Friendship Circle (about 2000) and LifeTown. IRS: Chabad of Livingston Inc, exempt from March 2018 (a later registration)."
+  },
+  "483891": {
+   "name": "Mikvah Chana",
+   "city": "Livingston",
+   "shetach": "new-jersey",
+   "year": 2006,
+   "date": "2006-12",
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/shlichus/5279/mikvah-ritual-finds-new-adherents/",
+   "note": "The Star-Ledger (CrownHeights.info, 27 Feb 2007, 'Mikvah Ritual finds new Adherents'): 'Mikvah Chana, which opened in December in Livingston', in a house built on North Livingston Avenue; Rabbi Zalman Grossbaum of Chabad of Livingston quoted."
+  },
+  "3633173": {
+   "name": "Chabad House Margate",
+   "city": "Margate",
+   "shetach": "new-jersey",
+   "year": null,
+   "how": "range",
+   "confidence": "range",
+   "after": 1984,
+   "by": 2006,
+   "source": "https://crownheights.info/general/2732/chabad-at-the-shore-hopes-for-sunny-minyan",
+   "note": "The Margate Chabad House of Chabad of Atlantic County (Rabbi Shmuel and Tova Rapoport, sent to the Shore in 1984): its headquarters, 'based in Margate, N.J.' (Jewish Exponent, 19 July 2006). The South Jersey Jewish Times (CrownHeights.info, 17 June 2008), as the Ventnor shul opened: 'The Pinchus Kiedjan Chabad House in Margate will continue to be used for educational classes, JLI courses, Chabad offices and the Gan Israel Day Camp.' So there by 2006; when the Margate house began is not stated. Its own chabad.org listing (3633173) is from about 2017, after the main center moved to a former church in Ventnor (Aug 2015)."
   }
  }
 }

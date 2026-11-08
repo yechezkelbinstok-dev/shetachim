@@ -213,6 +213,10 @@ thirteen no better recent photo has been found yet (the list is there, with what
     DigitalNC (the Charlotte Jewish News) does not answer from here. **Owner** (Nov 7): "I WANT HIGH
     CONFIDENCE FROM ALL OF THEM"; search each center individually, not only its own site and chabad.org; finish the
     easier New Jersey ones, then back to Florida's non-high dots.
+  - **Third session: Arizona, Kansas–Missouri, British Columbia, Upper Midwest (from Nov 8; owner: "I think it's time
+    to do Arizona, along with both Winebergs and feller shetach"). Batches `batches/arizona-NN.json`,
+    `batches/kansas-missouri-NN.json`, `batches/british-columbia-NN.json`, `batches/upper-midwest-NN.json`; notes
+    `work/founding-years/arizona-winebergs-feller.md`.**
   - How (the rules are in the standing rules below; the method in `work/founding-years/west-coast.md` and
     `michigan-pilot.md`):
     1. `python3 work/founding-years/listings.py <shetach>` lists its dots and listings (`--missing`: only the dots

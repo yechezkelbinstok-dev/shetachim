@@ -9529,11 +9529,11 @@
    "city": "Tampa",
    "shetach": "florida",
    "year": null,
-   "lead": 1994,
-   "how": "not-found",
-   "source": null,
-   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 1994.",
-   "confidence": "open"
+   "how": "range",
+   "source": "https://www.chabad.org/news/article_cdo/aid/1569007",
+   "note": "Chabad.org, 13 July 2011 ('Tampa Suburb Awaits First-Ever Synagogue'): Rabbi Yossi and Sulha Dubrowski 'have directed Chabad-Lubavitch of Tampa Bay for more than 30 years and run Hebrew Academy, a Jewish day school for students in preschool through eighth grade', so it existed by 1981 (therebbesimpact.com's 1994 is wrong). The St. Petersburg Times (CrownHeights.info, 22 July 2011): they lead it in the Carrollwood area (now 14908 Pennington Road). Its first year is not found.",
+   "confidence": "range",
+   "by": 1981
   },
   "117701": {
    "name": "Chabad Lubavitch of Coconut Creek & W Pompano Beach",

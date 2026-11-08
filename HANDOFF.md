@@ -403,6 +403,10 @@ thirteen no better recent photo has been found yet (the list is there, with what
   WebFetch hands back a small model's summary of a page, not the page, so read a source raw (Firecrawl markdown, or
   curl) before resting a year on it. Never work around a bot check or a paywall.
 - Founding years: US and Canada only. Owner (Nov 6): "Not Mexico!!!!! Wtf".
+- Founding years: the goal is high confidence. Owner (Nov 8): "The goal is to have every single one high confidence.
+  So that's the metric I want ... it makes sense to keep a medium confidence in the interim ... But the goal is 100%
+  high. Or let's say like 90-95% high". Report progress as the share of listings that are high (Nov 8: 699 of 1,969,
+  35%; 78% of those with a year), and go back to mediums and ranges to make them high, not only to new listings.
 - Founding years: moves are a big part of the data. Owner (Nov 7): "Have you been also ... finding dates of moving and
   old as well as new location???? I hope so if not I'll be mad because that's a big part of the data". Check every
   center for moves, not only when a source happens to say so: its state filing history (address changes with dates),

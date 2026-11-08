@@ -233,7 +233,11 @@ thirteen no better recent photo has been found yet (the list is there, with what
     `work/founding-years/wisconsin-illinois-ohio.md`.** State (Nov 8): Wisconsin done, 14 of 23 listings with a year
     (14 of 20 dots; 9 high, 5 medium, 9 ranges; all researched). Northeast Ohio done, the whole shetach, 23 of 27
     with a year (22 of 23 dots; 20 high, 3 medium, 4 ranges). Illinois: all 59 researched, 37 with a year (36 of 54
-    dots; 29 high, 8 medium, 22 ranges); a second pass on the 22 ranges is next.
+    dots; 29 high, 8 medium, 22 ranges); a second pass on the 22 ranges comes later.
+    **Then Central Massachusetts, New Haven, Virginia, Oregon and Upstate New York, from Nov 8 (owner: "Get started on
+    Central Massachusetts, New Haven, Virginia, Oregon, and upstate New York."). Batches
+    `batches/central-massachusetts-NN.json`, `batches/new-haven-NN.json`, `batches/virginia-NN.json`,
+    `batches/oregon-NN.json`, `batches/upstate-new-york-NN.json`; notes `work/founding-years/five-shetachim.md`.**
   - **Owner (Nov 8): WebFetch is a model's answer, not the page, so it can miss or bend a detail.** Every entry with a
     year (847 on Nov 8) keeps its source link and 820 quote the page, so all of them can be checked against their own
     page: an audit (curl first, Firecrawl for the ~160 chabad.org-hosted pages curl can't read) is planned but on the

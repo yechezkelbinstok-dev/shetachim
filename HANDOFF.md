@@ -187,8 +187,11 @@ thirteen no better recent photo has been found yet (the list is there, with what
     Miami-Dade and Broward centers held as ranges by an IRS ruling, a Sunbiz filing or a dated mention; the
     Sun-Sentinel blocks this tool and the UF Jewish Floridian archive was down). Many came from the centers' own About
     pages (WebFetch reads chabad.org-hosted sites; plain curl gets a Cloudflare check). New Jersey: 62 of 84 dots
-    (`batches/new-jersey-01..03.json`). Pennsylvania: 32 of 57 (`pennsylvania-01..02`; 19 listings not researched
-    yet). Texas: 41 of 48 (`texas-01..02`). Georgia (Nov 8): 22 of 24 (`georgia-01..03`; the 2007 Atlanta Jewish
+    (`batches/new-jersey-01..04.json`). Pennsylvania: 36 of 57, every listing researched (`pennsylvania-01..04`;
+    the rest are ranges or open: Doylestown about 2006, the Lipsker Israeli center 1964-2009, Penn Wynne by 2007
+    with its four homes). Texas: 42 of 48 (`texas-01..03`). Firecrawl is no longer used to get past sites that
+    block automated requests (Anash, Sunbiz): owner's rule on bot checks; COLlive often carries the same story.
+    Georgia (Nov 8): 22 of 24 (`georgia-01..03`; the 2007 Atlanta Jewish
     Times survey 'The Rebbe's Minyan', on CrownHeights.info, dates most of the old Atlanta centers). The Carolinas
     (Nov 8): 20 of 23 (`the-carolinas-01`). Alabama (its six entries moved to `alabama-01`): all 5 dots have a year;
     Chabad of Alabama (1982 per Southern Jewish Life vs the Posners' 1987) and Huntsville (2010, re-founded 2015)

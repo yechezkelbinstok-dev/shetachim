@@ -29,11 +29,13 @@ The data is `data/shetach-history.json` (its `about` explains every field). Thes
 - So a map of year Y: each area takes the shetach of its period at Y; areas with the same shetach merge into one.
   Before an area's first period it is blank.
 
-## What is in the file (Nov 8): 51 of the 68 US pieces, 3 of the 10 Canadian
+## What is in the file (Nov 8): 52 of the 68 US pieces, 3 of the 10 Canadian
 
 **Splits** (an area moving from one head's shetach to another's):
 - The Northwest (owner): Levitin from 1972; BC its own Nov 1974, Oregon Jan 1984, Alberta 1988 (owner unsure it was
-  his), Alaska 1991, Idaho Apr 2004, Montana early 2007; Washington is what's left.
+  his), Alaska 1991, Idaho Apr 2004, Montana early 2007, Wyoming May 2008 (owner, Nov 8, on his office's 2021
+  description that includes it: "Yes, if his offices thing includes it, then it makes sense"); Washington is what's
+  left.
 - Kalmanson's (owner): from Sept 1975; Indiana its own 1981, Kentucky Mar 1985, the Toledo area to Michigan 1987,
   Central Ohio 1991. Northeast Ohio was Alevsky's from 1972, before Kalmanson came, so never his.
 - West Virginia: Kranz's from 1976 (owner); Western Pennsylvania's after Sept 2007, by Dec 2013. Its first shliach
@@ -81,7 +83,9 @@ Things found on the way:
 
 - West Virginia's exact move (2007–2013): narrow it with archived copies of the Morgantown house's site or its
   chabad.org listing (541856), and of Pittsburgh's and Chabad of the Virginias' branch lists.
-- To ask the owner: Wyoming in Levitin's start? Washington DC as Maryland's before 1992?
+- Washington DC before 1992: the owner doubts it was Maryland's ("Why the fuck would DC be part of Maryland before
+  1992?"); the only evidence is Kaplan asking the Rebbe about opening there (none of it says DC was his, and nothing
+  shows he opened anything). Waiting on the owner.
 - Yossel Kranz's start (Aug 1991 is his father's passing); Mangel's (1995 is the natural reading); Sheya Hecht's
   (1992, his father's passing); the Florida vaad of 2023 (Anash's page, anash.org/?p=559466, answered 403).
 - Who, if anyone, had southern and central Ohio, Indiana and Kentucky before Sept 1975, and the Northwest before 1972.
@@ -90,7 +94,7 @@ Things found on the way:
 
 US: Michigan (1958; Windsor's Essex County since 2009 is Michigan's: CA-ON:michigan), Illinois (and the Quad Cities
 piece of Iowa), Western Pennsylvania (Pittsburgh had a shliach from 1943, Rabbi Sholom Posner; Rosenfeld's start),
-Wyoming, the Massachusetts areas (Boston and the five sub-areas: were they Boston's first?), and New York (New York
+the Massachusetts areas (Boston and the five sub-areas: were they Boston's first?), and New York (New York
 City, Crown Heights, Monsey, Rockland, Eastern New York, Upstate New York). Canada: Quebec, Ontario, Ottawa,
 Manitoba–Saskatchewan, the Maritimes.
 

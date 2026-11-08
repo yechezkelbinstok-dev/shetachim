@@ -390,6 +390,12 @@
     "head": "Yisroel Shmotkin",
     "from": "1968-10"
    }
+  ],
+  "wyoming": [
+   {
+    "head": "Zalman Mendelsohn",
+    "from": "2008-05"
+   }
   ]
  },
  "areas": {
@@ -1439,6 +1445,29 @@
      }
     ],
     "note": "West Virginia's first shliach, (Shneur) Zalman Gurevitz, opened in Morgantown in 2007 under Chabad of Virginia, with Rosenfeld helping; by Dec 2013 the house was under Pittsburgh. So the move came after the first shliach, not with him (the owner, Nov 8: \"once West Virginia got a shliach under Rosenfeld, that changed the calculus\")."
+   }
+  ],
+  "US-WY:wyoming": [
+   {
+    "shetach": "washington",
+    "from": "1972",
+    "how": "owner",
+    "note": "Owner, Nov 8: \"Yes, if his offices thing includes it, then it makes sense\": Anash.org (Aug 4 2021): \"Chabad of the Pacific North West covers British Colombia, Alberta, Alaska, Montana, Oregon, Wyoming and Washington\"."
+   },
+   {
+    "shetach": "wyoming",
+    "from": "2008-05",
+    "how": "news",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://crownheights.info/shlichus/11843/chabad-lubavitch-emissaries-are-wyomings-only-full-time-jewish-spiritual-leaders",
+      "title": "Chabad-Lubavitch of Wyoming",
+      "via": "data/founding-years.json, 672689",
+      "note": "8 May 2008: 'Rabbi Zalman and Raizy Mendelsohn arrived in the mountainous state of Wyoming on Thursday' to open the state's first Chabad center (the Jackson Hole Star-Tribune gave May 6). In 2023 they had been Wyoming's only shluchim 'for the past 15 years'. (therebbesimpact.com's 2007 is wrong.)"
+     }
+    ],
+    "note": "Wyoming's first Chabad center (Jackson)."
    }
   ]
  },

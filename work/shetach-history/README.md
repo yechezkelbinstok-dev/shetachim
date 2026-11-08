@@ -84,6 +84,17 @@ Things found on the way:
   fifth Shliach of the Rebbe in the USA" (1965), Kansas City "its eighth regional office" (Jan 1970).
 - Kalmanson's organization kept the name Chabad of Southern Ohio (the JTA in Dec 2002 calls him its regional
   director); the owner's 1995 is when he stopped being head shliach.
+- **The PNW pattern is rare in print.** The older heads' own accounts and the JTA notices of the time describe one-state
+  offices (Milwaukee, "its seventh in the United States", Nov 1968; Kansas City, "will serve the states of Missouri
+  and Kansas", Jan 1970); the later states' stories describe them as new (Oklahoma and Maine "new branches of Merkos",
+  1987), with only visiting bochurim before. Owner (Nov 8): "I'm sure they exist". Leads still open: **Atlanta** had a
+  Chabad Center with a director, Rabbi Shlomo Bluming (3330 Peachtree Road; Southern Israelite listings Apr 1979, May
+  1980, 1983), before Rabbi New (1984): under whom, not found (the Georgia newspaper archive has a browser check);
+  Western Massachusetts before Deren (1974), Fogelman's?; Eastern New York before the Rubins (1974), Gurary's?;
+  Connecticut outside New Haven before Deren; Canada (Montreal's reach to Ottawa, the Maritimes, Newfoundland).
+- JTA's site search (`https://www.jta.org/wp-json/wp/v2/search?search=...&per_page=50`, plain curl) lists its archive
+  stories; its notices of new Lubavitch regional offices are short and name the city, the number, and sometimes the
+  states.
 - Nebraska's own timeline calls the Katzmans (1986) the Rebbe's emissaries "to the Mid-American region": whether
   that meant more than Nebraska is not known.
 - The Frierdiker Rebbe's yeshivos of the 1940s (Achei Tmimim in Worcester 1942, Pittsburgh 1943, Buffalo 1943, New

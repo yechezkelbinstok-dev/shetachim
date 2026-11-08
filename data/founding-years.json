@@ -12248,12 +12248,12 @@
    "name": "Camp Gan Israel South Padre Island Texas",
    "city": "South Padre Island",
    "shetach": "texas",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2007,
-   "source": "https://www.chabad.org/news/article_cdo/aid/538763",
-   "note": "Chabad.org, 11 July 2007 ('A Splashing Success'): campers at 'the Chabad-Lubavitch Camp Gan Israel on South Padre Island' spent 'sixteen action-packed days on the island'; 'The camp welcomed kids from across the dry expanse of Texas.' So running by summer 2007; its first year not stated. Today Rabbi Asher Hecht (Rio Grande Valley) is its director."
+   "year": 2006,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://www.lubavitch.com/experimental-camp-a-success/",
+   "note": "Lubavitch.com (3 Aug 2006, 'Experimental Camp A Success'; also CrownHeights.info, 30 July 2006): Camp Gan Israel on South Padre Island's '2006 summer session' was its first: 'this newly founded camp is a longtime dream of Rabbis Asher Hecht and Eli Laber'; 'The theme of this inaugural summer was an instructive-based water camp'; 'In this inaugural year' it took only Texas children. Chabad.org (11 July 2007) describes its next summer. Rabbi Asher Hecht (Chabad of the Rio Grande Valley) directs it.",
+   "season": "summer"
   },
   "117919": {
    "name": "Chabad at Texas Medical Center",
@@ -12621,10 +12621,12 @@
    "city": "Haltom City",
    "shetach": "texas",
    "year": null,
-   "how": "not-found",
-   "confidence": "open",
-   "note": "No dated source found yet (Nov 2026 searches). The Hillel Academy of Tarrant County in Haltom City, school leader Rabbi Dov Mandel (Chabad of Fort Worth, there since 2002). Lead: its chabad.org listing (2259836) is from about 2013.",
-   "lead": 2013
+   "how": "range",
+   "confidence": "range",
+   "note": "IRS: Hillel Academy Of Tarrant County (Fort Worth), ruling Oct 2014, so it existed by then. The school in Haltom City; school leader Rabbi Dov Mandel (Chabad of Fort Worth, there since 2002). Its first year is not found. Lead: its chabad.org listing (2259836) is from about 2013.",
+   "lead": 2013,
+   "by": 2014,
+   "source": "https://projects.propublica.org/nonprofits/organizations/463030410"
   },
   "4106454": {
    "name": "Chabad of Preston Hollow",

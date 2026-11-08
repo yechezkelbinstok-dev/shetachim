@@ -55,7 +55,8 @@ The data is `data/shetach-history.json` (its `about` explains every field). Thes
 - **Connecticut to Deren's**: Western Massachusetts from 1974 (Amherst), Connecticut by about 1990 ("Merkos considered
   me wholly responsible for the entire state of Connecticut"); New Haven County has been the Hechts' since 1946.
 - **Windsor (Essex County, Ontario) to Michigan's**, 2009, with its first shliach.
-- **The Quad Cities piece of Iowa (Davenport, Bettendorf) to Illinois's**, about 2005 (Chabad of the Quad-Cities).
+- **The Quad Cities piece of Iowa (Davenport, Bettendorf): Jacobson's Iowa from 1992 (owner: "I would assume Quad City
+  was part of Iowa"), Illinois's from about 2005** (Chabad of the Quad-Cities). A small split.
 
 **Shetachim and their starts** (no earlier head found unless said): New Haven 1946 (Moshe Hecht), Central
 Massachusetts 5706 (Hershel Fogelman; the Worcester yeshiva from 1942), Michigan 1958, Florida 1960, Pennsylvania
@@ -91,9 +92,10 @@ Things found on the way:
 
 ## Open
 
-- **To ask the owner:** were the South Area (1987), the North Shore and Merrimack Valley (1992) and Cape Cod (1995)
-  Prus's before their own heads (he has been "Chabad representative to Eastern Massachusetts since 1975")? Was the
-  Quad Cities piece Jacobson's Iowa (1992) before Illinois's (about 2005)?
+- **Eastern Massachusetts is one shetach (Prus, from 1975) in the history for now** (owner, Nov 8: "honestly I don't
+  know ... just for now, Massachusetts, the east would be one thing for now. Because honestly, I'm still not sure about
+  that whole situation"); the South Area (1987), the North Shore and Merrimack Valley (1992) and Cape Cod (1995) are
+  kept in the notes of their areas, not as splits.
 - West Virginia's exact move (2007–2013): narrow it with archived copies of the Morgantown house's site or its
   chabad.org listing (541856), and of Pittsburgh's and Chabad of the Virginias' branch lists.
 - When Washington DC became Avremel Shemtov's (by 1979): the founding of American Friends of Lubavitch (its 50th

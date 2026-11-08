@@ -848,6 +848,12 @@
   ],
   "US-IA:illinois": [
    {
+    "shetach": "iowa",
+    "from": "1992",
+    "how": "owner",
+    "note": "Owner, Nov 8: \"I would assume Quad City was part of Iowa\" (Jacobson's Lubavitch of Iowa, from 1992; sources on US-IA:iowa)."
+   },
+   {
     "shetach": "illinois",
     "from": "2005",
     "how": "anniversary",
@@ -860,7 +866,7 @@
       "quote": "Chabad Lubavitch of the Quad-Cities, which opened its doors in Bettendorf 16 years ago"
      }
     ],
-    "note": "Rabbi Shneur Cadaner. The Quad Cities piece (Davenport and Pleasant Valley Township) is Illinois's (the owner, Oct 13). Whether it was in Jacobson's Iowa (1992) before is not known: to ask."
+    "note": "Rabbi Shneur Cadaner. The Quad Cities piece (Davenport and Pleasant Valley Township) is Illinois's (the owner, Oct 13)."
    }
   ],
   "US-IA:iowa": [
@@ -997,19 +1003,10 @@
   ],
   "US-MA:cape-cod-and-the-islands": [
    {
-    "shetach": "cape-cod-and-the-islands",
-    "from": "1995",
-    "how": "stated",
-    "confidence": "high",
-    "sources": [
-     {
-      "url": "https://www.capenews.net/falmouth/news/new-jewish-chabad-center-to-begin-offering-services-next-month-in-falmouth/article_a3769b5f-e61c-590b-832d-d84dc5295741.html",
-      "title": "Chabad Lubavitch of Cape Cod",
-      "via": "data/founding-years.json, 118178",
-      "note": "Rabbi Yekusiel (Kuti) and Devorah Alperowitz have served Cape Cod and the islands 'since 1995' (a feature); Anash: 'for the past twenty-eight years'; the Cape News (Sept 2024): founded in Hyannis 'almost 30 years ago'."
-     }
-    ],
-    "note": "In Eastern Massachusetts: whether it was Prus's (from 1975) before its own head is the owner's to say (asked Nov 8)."
+    "shetach": "eastern-massachusetts",
+    "from": "1975",
+    "how": "owner",
+    "note": "Owner, Nov 8: \"just for now, Massachusetts, the east would be one thing for now. Because honestly, I'm still not sure about that whole situation\": in the history, Eastern Massachusetts stays one shetach (Prus), though the map today has this area as its own. Its own head's start, kept for later: 1995 (Kuti Alperowitz; data/founding-years.json, 118178)."
    }
   ],
   "US-MA:central-massachusetts": [
@@ -1070,53 +1067,26 @@
   ],
   "US-MA:merrimack-valley": [
    {
-    "shetach": "merrimack-valley",
-    "from": "1992",
-    "how": "stated",
-    "confidence": "high",
-    "sources": [
-     {
-      "url": "https://crownheights.info/shlichus/403519/young-couple-opens-massachusetts-towns-first-shul",
-      "title": "Chabad Lubavitch Jewish Center of Merrimack Valley",
-      "via": "data/founding-years.json, 117895",
-      "note": "Wicked Local, 1 Oct 2013: Rabbi Asher Bronstein, 'Just like when we came 21 years ago (to Andover)'. Not settled: the Lawrence History Center holds the 'Chabad Lubavitch of the Merrimack Valley First Annual Founders' Dinner' journal, dated only 'c. 1990'; Merrimack Valley Lubavitch Inc.'s IRS ruling is 1994. Checked (Nov 7): its own staff page (https://www.chabadmv.com/templates/articlecco_cdo/aid/2194385/jewish/Our-Rabbis-Rebbetzins.htm): 'Rabbi Asher Bronstein, together with his wife Faigy ... has been serving the local Jews in the Merrimack Valley since 1992'. Two sources agree, so high (the 'c. 1990' founders' dinner journal is undated)."
-     }
-    ],
-    "note": "In Eastern Massachusetts: whether it was Prus's (from 1975) before its own head is the owner's to say (asked Nov 8)."
+    "shetach": "eastern-massachusetts",
+    "from": "1975",
+    "how": "owner",
+    "note": "Owner, Nov 8: \"just for now, Massachusetts, the east would be one thing for now. Because honestly, I'm still not sure about that whole situation\": in the history, Eastern Massachusetts stays one shetach (Prus), though the map today has this area as its own. Its own head's start, kept for later: 1992 (Asher Bronstein; data/founding-years.json, 117895)."
    }
   ],
   "US-MA:north-shore-of-massachusetts": [
    {
-    "shetach": "north-shore-of-massachusetts",
-    "from": "1992",
-    "how": "stated",
-    "confidence": "high",
-    "sources": [
-     {
-      "url": "https://www.lubavitch.com/a-bar-mitzvah-year-for-jewish-life-north-of-boston/",
-      "title": "Chabad Lubavitch of the North Shore",
-      "via": "data/founding-years.json, 117908",
-      "note": "Lubavitch.com, 3 July 2005: Chabad of the North Shore 'began in 1992 with a small office in the oceanside town of Swampscott'; Rabbi Yossi and Layah Lipsker 'founded the organization in 1992' (also Lubavitch.com, 28 Oct 2024). Its IRS record dates from June 1993."
-     }
-    ],
-    "note": "In Eastern Massachusetts: whether it was Prus's (from 1975) before its own head is the owner's to say (asked Nov 8)."
+    "shetach": "eastern-massachusetts",
+    "from": "1975",
+    "how": "owner",
+    "note": "Owner, Nov 8: \"just for now, Massachusetts, the east would be one thing for now. Because honestly, I'm still not sure about that whole situation\": in the history, Eastern Massachusetts stays one shetach (Prus), though the map today has this area as its own. Its own head's start, kept for later: 1992 (Yossi Lipsker; data/founding-years.json, 117908)."
    }
   ],
   "US-MA:south-area": [
    {
-    "shetach": "south-area",
-    "from": "1987",
-    "how": "stated",
-    "confidence": "high",
-    "sources": [
-     {
-      "url": "https://teacherstrading.com/shop/Torahstudies",
-      "title": "Shaloh House Chabad of the South Area",
-      "via": "data/founding-years.json, 117632",
-      "note": "His profile: 'In the summer of 1987, Rabbi Gurkow started and led a community Shabbat Service at the Shaloh House in Stoughton, MA ... they moved to Stoughton, MA to start the Shaloh House Lubavitch Educational Center.' Stoughton Journal (COLlive, 'And then I met Chabad'): 'Gurkow first got involved in the mid '80s.' (GuideStar's 1991 is the IRS ruling year.)"
-     }
-    ],
-    "note": "In Eastern Massachusetts: whether it was Prus's (from 1975) before its own head is the owner's to say (asked Nov 8)."
+    "shetach": "eastern-massachusetts",
+    "from": "1975",
+    "how": "owner",
+    "note": "Owner, Nov 8: \"just for now, Massachusetts, the east would be one thing for now. Because honestly, I'm still not sure about that whole situation\": in the history, Eastern Massachusetts stays one shetach (Prus), though the map today has this area as its own. Its own head's start, kept for later: 1987 (Mendel Gurkow; data/founding-years.json, 117632)."
    }
   ],
   "US-MD:maryland": [

@@ -217,7 +217,8 @@ thirteen no better recent photo has been found yet (the list is there, with what
     to do Arizona, along with both Winebergs and feller shetach"). Batches `batches/arizona-NN.json`,
     `batches/kansas-missouri-NN.json`, `batches/british-columbia-NN.json`, `batches/upper-midwest-NN.json`; notes
     `work/founding-years/arizona-winebergs-feller.md`.** State (Nov 8): British Columbia 12 of 13 dots, Kansas–Missouri
-    15 of 16, Upper Midwest 13 of 19 (all 19 researched; the other 6 are ranges), Arizona not started. Every year in
+    15 of 16, Upper Midwest 13 of 19 (all 19 researched; the other 6 are ranges), Arizona 35 of 43 listings (32 of 38
+    dots; all researched, 8 ranges): all four done. Every year in
     these four batches rests on text read off the page itself (curl, or Firecrawl markdown), never on WebFetch.
   - **Owner (Nov 8): WebFetch is a model's answer, not the page, so it can miss or bend a detail.** Every entry with a
     year (847 on Nov 8) keeps its source link and 820 quote the page, so all of them can be checked against their own

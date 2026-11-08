@@ -40,3 +40,20 @@ on them; chabad.org listing dates (`api/content/<id>/metadata`) and lubavitch.co
   (its page didn't load), the Minnesota DHS licence lookup (a form).
 - Every quoted phrase was checked against its page (a small checker, scratchpad `tools/quotecheck.py`); the one
   mismatch (Wikipedia's 'a.k.a.', not 'also known as') was fixed.
+
+## Arizona (batch arizona-01): 35 of 43 listings dated (32 of 38 dots), all 43 researched
+- The Jewish News of Greater Phoenix (jewishaz.com, a BLOX site) answers searches as JSON, earliest first:
+  `/search/?f=json&q="<phrase>"&t=article&l=8&s=start_time&sd=asc` (scratchpad `jn.sh`). Its online archive starts
+  about 1996; nearly every Phoenix-area opening since then was reported there, usually with the month.
+- Its 'Synagogue timeline' (17 Aug 2007) lists Scottsdale 1992, East Valley 1997, West Valley 2000, ASU 2003, North
+  Phoenix 2004, Anthem 2005, Mesa 2006; each was then confirmed by a report from the time.
+- The Jewish News of 8 Feb 2002 (the 25th anniversary) has Phoenix's homes: a garage at Third Ave and McDowell (1977),
+  Maryland Ave and 15th St (1978), 2110 E. Lincoln Drive (1990).
+- The Arizona Jewish Post (Tucson; WordPress, `/wp-json/wp/v2/posts?search=`; online from 2010) covers Tucson.
+- Tucson: 1984 (Jewish News 2002) against 1983 (Arizona Jewish Post 2017): medium, 1984.
+- Chabad of Arizona often lists a center on chabad.org months before the couple arrives (Goodyear, Gilbert, Oro Valley,
+  Paradise Valley, Fountain Hills, Buckeye, Casa Grande): the year is the arrival or opening, the listing date in the note.
+- Ranges: Mazal Tov Gifts (2004), Camp Gan Izzy (2010), Chabad on River (2000-2006), Sedona (2017), 7th Street and the
+  Israeli Center (2022), San Tan Valley (2024), CTeen Phoenix (its listing 2021; a C-Teen program began in 2010-11).
+- Read through Firecrawl (chabad.org-hosted sites that refuse curl): Chabad Tucson's About page, and the 7th Street,
+  Israeli Center, San Tan Valley and Sedona home pages; none gave a year. Not read: Anash (blocks automated reading).

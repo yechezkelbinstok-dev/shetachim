@@ -197,11 +197,11 @@ thirteen no better recent photo has been found yet (the list is there, with what
     month or day save it ... (or season which equates to a range ofc)"; "if you come across that a center used to be
     somewhere else save as well as maybe when it moved"; "If by some miracle you finish Florida completely then new
     Jersey next, followed by Pennsylvania". Batches: `batches/florida-NN.json`; notes: `work/founding-years/florida.md`.
-    State (Nov 8): Florida: every listing has an entry; 147 of 219 dots have a year, 72 left (mostly 1990s-2000s
+    State (Nov 8): Florida: every listing has an entry; 150 of 219 dots have a year, 69 left (mostly 1990s-2000s
     Miami-Dade and Broward centers held as ranges by an IRS ruling, a Sunbiz filing or a dated mention; the
     Sun-Sentinel blocks this tool and the UF Jewish Floridian archive was down). Many came from the centers' own About
     pages (WebFetch reads chabad.org-hosted sites; plain curl gets a Cloudflare check). New Jersey: 62 of 84 dots
-    (`batches/new-jersey-01..04.json`). Pennsylvania: 36 of 57, every listing researched (`pennsylvania-01..04`;
+    (`batches/new-jersey-01..04.json`). Pennsylvania: 37 of 57, every listing researched (`pennsylvania-01..04`;
     the rest are ranges or open: Doylestown about 2006, the Lipsker Israeli center 1964-2009, Penn Wynne by 2007
     with its four homes). Texas: 42 of 48 (`texas-01..03`). Firecrawl is no longer used to get past sites that
     block automated requests (Anash, Sunbiz): owner's rule on bot checks; COLlive often carries the same story.

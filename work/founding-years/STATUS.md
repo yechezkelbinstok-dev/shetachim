@@ -43,6 +43,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | southern-ohio | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | tennessee | 7 | 7 |  |  |  |  |  | 0 | 7 | 0 |
 | texas | 58 | 32 | 12 |  | 4 | 3 | 7 | 14 | 48 | 7 |
+| the-carolinas | 25 | 15 | 5 |  | 1 |  | 4 | 5 | 23 | 3 |
 | utah | 4 | 3 | 1 |  |  |  |  | 0 | 4 | 0 |
 | vermont | 8 | 5 | 2 |  | 1 |  |  | 1 | 8 | 1 |
 | washington-dc | 5 | 2 | 3 |  |  |  |  | 0 | 5 | 0 |
@@ -61,7 +62,6 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | connecticut | 33 |  |  |  |  |  | 33 | 33 | 32 | 32 |
 | western-pennsylvania | 27 |  |  |  |  |  | 27 | 27 | 24 | 24 |
 | northeast-ohio | 27 |  |  |  |  |  | 27 | 27 | 23 | 23 |
-| the-carolinas | 25 |  |  |  |  |  | 25 | 25 | 23 | 23 |
 | colorado | 23 |  |  |  |  |  | 23 | 23 | 21 | 21 |
 | wisconsin | 23 |  |  |  |  |  | 23 | 23 | 20 | 20 |
 | upstate-new-york | 22 |  |  |  |  |  | 22 | 22 | 21 | 21 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | kansas-missouri | 16 |  |  |  |  |  | 16 | 16 | 16 | 16 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
 | british-columbia | 13 |  |  |  |  |  | 13 | 13 | 13 | 13 |
-| **all** | 1969 | 621 | 172 | 1 | 144 | 48 | 983 | 1175 | 1765 | 1002 |
+| **all** | 1969 | 636 | 177 | 1 | 145 | 48 | 962 | 1155 | 1765 | 982 |

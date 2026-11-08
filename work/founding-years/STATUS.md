@@ -36,7 +36,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | oklahoma | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | ottawa | 11 | 7 |  |  | 4 |  |  | 4 | 9 | 2 |
-| pennsylvania | 61 | 30 | 8 |  | 14 |  | 9 | 23 | 57 | 22 |
+| pennsylvania | 61 | 30 | 9 |  | 18 | 4 |  | 22 | 57 | 21 |
 | rhode-island | 8 | 5 | 1 |  | 2 |  |  | 2 | 7 | 1 |
 | rockland | 5 | 2 |  |  | 3 |  |  | 3 | 5 | 3 |
 | south-area | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | kansas-missouri | 16 |  |  |  |  |  | 16 | 16 | 16 | 16 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
 | british-columbia | 13 |  |  |  |  |  | 13 | 13 | 13 | 13 |
-| **all** | 1969 | 637 | 179 | 1 | 155 | 49 | 948 | 1152 | 1765 | 979 |
+| **all** | 1969 | 637 | 180 | 1 | 159 | 53 | 939 | 1151 | 1765 | 978 |

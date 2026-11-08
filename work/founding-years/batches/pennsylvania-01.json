@@ -153,13 +153,19 @@
   "name": "Lubavitch of Bucks County",
   "city": "Newtown",
   "shetach": "pennsylvania",
-  "year": null,
-  "by": 2005,
-  "how": "range",
-  "source": "https://crownheights.info/general/705/new-beginning-for-jewish-community",
-  "note": "Philadelphia Inquirer (CrownHeights.info, 6 Oct 2005): the $1.5 million Glazier Center in a former Baptist church in Newtown Borough, Rabbi Yehuda Shemtov executive director; so it existed by 2005. Its own site has a 'Branding' page (chabad.org page no. 3878085, from about 2017-18, not read) introduced at 'The 25th anniversary milestone', which would point to about 1992-93: a lead only. Lubavitch.com (undated): an awards dinner marked 'thirteen years of Lubavitch Chabad in Bucks County'.",
-  "confidence": "range",
-  "lead": 1993
+  "year": 1993,
+  "how": "anniversary",
+  "source": "https://jewishexponent.com/growing-lubavitch-of-yardley-looks-ahead-to-another-year/",
+  "note": "About 1993, counted back twice. The Jewish Exponent, 30 Aug 2023: 'The Lubavitch of Bucks County started in Yardley 30 years ago but moved to Newtown'; its own site's 'Branding' page (from about 2017-18) speaks of 'The 25th anniversary milestone'. The Philadelphia Inquirer (CrownHeights.info, 6 Oct 2005): the $1.5 million Glazier Jewish Center in a former Baptist church in Newtown Borough opened on the eve of Rosh Hashanah 2005, Rabbi Yehuda Shemtov executive director. No source states the year itself: medium.",
+  "confidence": "medium",
+  "earlier": [
+   {
+    "where": "Yardley (where it started)",
+    "from": 1993,
+    "until": null,
+    "source": "https://jewishexponent.com/growing-lubavitch-of-yardley-looks-ahead-to-another-year/"
+   }
+  ]
  },
  "2761055": {
   "name": "Chabad of North Pocono",

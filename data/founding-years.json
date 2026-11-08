@@ -11806,13 +11806,19 @@
    "name": "Lubavitch of Bucks County",
    "city": "Newtown",
    "shetach": "pennsylvania",
-   "year": null,
-   "by": 2005,
-   "how": "range",
-   "source": "https://crownheights.info/general/705/new-beginning-for-jewish-community",
-   "note": "Philadelphia Inquirer (CrownHeights.info, 6 Oct 2005): the $1.5 million Glazier Center in a former Baptist church in Newtown Borough, Rabbi Yehuda Shemtov executive director; so it existed by 2005. Its own site has a 'Branding' page (chabad.org page no. 3878085, from about 2017-18, not read) introduced at 'The 25th anniversary milestone', which would point to about 1992-93: a lead only. Lubavitch.com (undated): an awards dinner marked 'thirteen years of Lubavitch Chabad in Bucks County'.",
-   "confidence": "range",
-   "lead": 1993
+   "year": 1993,
+   "how": "anniversary",
+   "source": "https://jewishexponent.com/growing-lubavitch-of-yardley-looks-ahead-to-another-year/",
+   "note": "About 1993, counted back twice. The Jewish Exponent, 30 Aug 2023: 'The Lubavitch of Bucks County started in Yardley 30 years ago but moved to Newtown'; its own site's 'Branding' page (from about 2017-18) speaks of 'The 25th anniversary milestone'. The Philadelphia Inquirer (CrownHeights.info, 6 Oct 2005): the $1.5 million Glazier Jewish Center in a former Baptist church in Newtown Borough opened on the eve of Rosh Hashanah 2005, Rabbi Yehuda Shemtov executive director. No source states the year itself: medium.",
+   "confidence": "medium",
+   "earlier": [
+    {
+     "where": "Yardley (where it started)",
+     "from": 1993,
+     "until": null,
+     "source": "https://jewishexponent.com/growing-lubavitch-of-yardley-looks-ahead-to-another-year/"
+    }
+   ]
   },
   "2761055": {
    "name": "Chabad of North Pocono",
@@ -12958,6 +12964,59 @@
    "confidence": "open",
    "lead": 2026,
    "note": "No dated source found yet (Nov 2026 searches). Under Rabbi Shalom Lubin (Chabad of SE Morris County, Madison). Lead: its chabad.org listing (7425308) is from about 2026."
+  },
+  "2751379": {
+   "name": "Chabad Student Center - Allentown, PA",
+   "city": "Allentown",
+   "shetach": "pennsylvania",
+   "year": 2015,
+   "date": "2015-09",
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/shlichus/499494/new-shluchim-to-pennsylvania-5/",
+   "note": "CrownHeights.info, 6 Sept 2015 ('New Shluchim to Pennsylvania'): Rabbi Boruch and Rivkah Greenberg 'will be moving on Shlichus to Allentown, Pennsylvania, where they will establish a campus Chabad House at Muhlenberg College', under Chabad of Allentown (Rabbi Yaacov and Deborah Halperin)."
+  },
+  "1618146": {
+   "name": "Chabad Lubavitch of Yardley",
+   "city": "Yardley",
+   "shetach": "pennsylvania",
+   "year": 2015,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://jewishexponent.com/growing-lubavitch-of-yardley-looks-ahead-to-another-year/",
+   "note": "Jewish Exponent, 30 Aug 2023: 'Rabbi Zalman Blecher and Rebbetzin Chaya Blecher arrived in Yardley in the secular year of 2015'; 'So that's what we've been doing since 2015 as an affiliate of the Lubavitch of Bucks County'; it rents space on Yardley Newtown Road. But its chabad.org listing (1618146) and The Shul at Yardley's (1618143) are both from about 2011, so Lubavitch of Bucks County may have had something in Yardley before them: medium."
+  },
+  "1618143": {
+   "name": "The Shul at Yardley",
+   "city": "Yardley",
+   "shetach": "pennsylvania",
+   "year": 2015,
+   "how": "same-place",
+   "confidence": "medium",
+   "source": "https://jewishexponent.com/growing-lubavitch-of-yardley-looks-ahead-to-another-year/",
+   "note": "The shul of the Lubavitch of Yardley (Rabbi Zalman Blecher, who came in 2015; the Jewish Exponent, 2023: after they moved they 'had trouble attracting a minyan to Shabbat services'). Its chabad.org listing (1618143) is from about 2011, like Chabad Lubavitch of Yardley's: medium."
+  },
+  "117722": {
+   "name": "Chabad of Scranton",
+   "city": "Scranton",
+   "shetach": "pennsylvania",
+   "year": null,
+   "how": "range",
+   "confidence": "range",
+   "by": 2008,
+   "lead": 2002,
+   "source": "https://crownheights.info/notices/12490/boruch-dayan-haemes-mrs-sima-itkin-obm/",
+   "note": "CrownHeights.info, 24 June 2008: 'Harav Leibel Itkin a Shliach in Scranton, PA'; COLlive, 10 Dec 2008: a Mumbai memorial in Scranton 'organized by Shliach Laibel Itkin'. So there by 2008; its start not found. Rabbi Yehuda (Leibel) Itkin was also a contract chaplain at SCI Waymart from 1993 (Pennsylvania Dept. of Corrections, 2023) and is senior rabbi of Ohav Zedek in Scranton. Lead: its chabad.org listing (117722) is from the first batch of listings, about 2000-03."
+  },
+  "117714": {
+   "name": "Bais Menachem Youth Development Program",
+   "city": "Kingston",
+   "shetach": "pennsylvania",
+   "year": 1999,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://amimagazine.org/?p=2002",
+   "note": "Ami Magazine, 24 May 2017 ('Revitalization by the River'): 'His son, Rabbi Uri Perlman, founded a yeshivah for boys in need of an alternative educational environment, in 1999'; its first rebbeim formed the nucleus of Kingston's Chabad community. Anash.org (27 July 2020): 'The first anash families began moving in when his son, Rabbi Uri Perlman, opened the Bais Menachem yeshiva twenty years ago.' Rabbi Zvi Perlman, the first Lubavitcher there, came as a rebbe at the Hebrew day school in 1977."
   }
  }
 }

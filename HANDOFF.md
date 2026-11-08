@@ -238,6 +238,10 @@ thirteen no better recent photo has been found yet (the list is there, with what
     Central Massachusetts, New Haven, Virginia, Oregon, and upstate New York."). Batches
     `batches/central-massachusetts-NN.json`, `batches/new-haven-NN.json`, `batches/virginia-NN.json`,
     `batches/oregon-NN.json`, `batches/upstate-new-york-NN.json`; notes `work/founding-years/five-shetachim.md`.**
+    State (Nov 8): Central Massachusetts first pass done, 7 of 14 with a year (3 high, 4 medium, 7 ranges); New Haven
+    first pass done, 6 of 16 with a year (5 high, 1 medium, 10 ranges; 16 counts the Oxford extra). Virginia, Oregon
+    and Upstate New York next, then a second pass on the ranges. COLlive started refusing plain requests (403) on
+    Nov 8 after a long run of searches; not worked around.
   - **Owner (Nov 8): WebFetch is a model's answer, not the page, so it can miss or bend a detail.** Every entry with a
     year (847 on Nov 8) keeps its source link and 820 quote the page, so all of them can be checked against their own
     page: an audit (curl first, Firecrawl for the ~160 chabad.org-hosted pages curl can't read) is planned but on the

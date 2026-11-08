@@ -13,6 +13,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | arkansas | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | british-columbia | 13 | 9 | 3 |  | 1 |  |  | 1 | 13 | 1 |
 | cape-cod-and-the-islands | 4 | 3 |  |  | 1 |  |  | 1 | 4 | 1 |
+| central-massachusetts | 14 | 3 | 4 |  | 7 |  |  | 7 | 12 | 5 |
 | central-ohio | 4 | 2 | 1 |  | 1 |  |  | 1 | 4 | 1 |
 | delaware | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | florida | 240 | 136 | 21 |  | 46 | 37 |  | 83 | 219 | 69 |
@@ -34,6 +35,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | montana | 6 | 5 | 1 |  |  |  |  | 0 | 6 | 0 |
 | nebraska | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | new-hampshire | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
+| new-haven | 16 | 5 | 1 |  | 10 |  |  | 10 | 14 | 8 |
 | new-jersey | 91 | 59 | 4 |  | 19 | 4 | 5 | 28 | 84 | 22 |
 | new-mexico | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | newfoundland-and-labrador | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
@@ -70,6 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | upstate-new-york | 22 |  |  |  |  |  | 22 | 22 | 21 | 21 |
 | oregon | 19 |  |  |  |  |  | 19 | 19 | 17 | 17 |
 | virginia | 19 |  |  |  |  |  | 19 | 19 | 19 | 19 |
-| new-haven | 16 |  |  |  |  |  | 16 | 16 | 14 | 14 |
-| central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
-| **all** | 1969 | 763 | 211 | 1 | 207 | 48 | 739 | 994 | 1765 | 827 |
+| **all** | 1969 | 771 | 216 | 1 | 224 | 48 | 709 | 981 | 1765 | 814 |

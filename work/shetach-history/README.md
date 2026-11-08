@@ -32,7 +32,8 @@ The data is `data/shetach-history.json` (its `about` explains every field). Thes
 ## What is in the file (Nov 8): 65 of the 68 US pieces, all 10 Canadian
 
 **Splits** (an area moving from one head's shetach to another's):
-- The Northwest (owner): Levitin from 1972; BC its own Nov 1974, Oregon Jan 1984, Alberta 1988 (owner unsure it was
+- The Northwest (owner): Levitin from Kislev 5733 (Nov–Dec 1972; Hebrew Chabadpedia: "החל בחודש כסלו תשל"ג לפעול
+  בשליחות הרבי במדינת וושינגטון"); BC its own Nov 1974, Oregon Jan 1984, Alberta 1988 (owner unsure it was
   his), Alaska 1991, Idaho Apr 2004, Montana early 2007, Wyoming May 2008 (owner, Nov 8, on his office's 2021
   description that includes it: "Yes, if his offices thing includes it, then it makes sense"); Washington is what's
   left.
@@ -72,7 +73,10 @@ Gurary before Rubin yeah"), Eastern Massachusetts 1975 (Prus),
 Illinois 1977 (Daniel Moscowitz), Arizona Jan 1977, Colorado 1978, Rhode Island 1979, the Carolinas 1980, Alabama
 1982, Rockland 1983, Georgia 1984, Vermont 1984, Nebraska 1986, the South Area 1987, Oklahoma Apr 1987 and Maine 1987
 ("new branches of Merkos in four states", 5747), Delaware 1987, Hawaii Aug 1987, New Hampshire 1989, the North Shore
-and Merrimack Valley 1992, Iowa, Arkansas, New Mexico and Utah 1992, Tennessee 1994, Cape Cod 1995.
+and Merrimack Valley 1992, Iowa, Arkansas, New Mexico and Utah 1992, Cape Cod 1995. **Tennessee 1949** (corrected Nov 8 from 1994):
+Rabbi Zalman Posner, sent by the Frierdiker Rebbe in 1949 as rav of Sherith Israel, Nashville (Akiva day school 1954),
+"Head Shliach to the state of Tennessee for 65 years" (CrownHeights.info notice, Apr 2014); Levi Klein's Chabad of
+Tennessee (Memphis) from mid-1994, the umbrella in Nashville by Oct 2007. Posner's daughter is Vivi Deren (Connecticut).
 
 **Canada** (owner, Nov 8: "please do Canada now"): Quebec from the Montreal yeshiva, 3 Cheshvan 5702 (Oct 1941; the
 nine students the Frierdiker Rebbe brought from Shanghai), Berel Mochkin its head (in Montreal from 1952, Camp Gan
@@ -93,7 +97,7 @@ for by a local businessman (the Chernitskys).
 some sort of activity there or if they were explicitly sent to those names places by the Rebbe or merkoz like how
 levitin was sent to all those places".
 
-**Head changes**: Central Massachusetts (Moshe Yitzchak Hecht 1942, Hershel Fogelman 5706, Mendel 5773), New Haven (Moshe Hecht to Sheya, 1992),
+**Head changes**: Tennessee (Zalman Posner 1949 to Levi Klein, 1994 or later), Central Massachusetts (Moshe Yitzchak Hecht 1942, Hershel Fogelman 5706, Mendel 5773), New Haven (Moshe Hecht to Sheya, 1992),
 Virginia (Yankel Kranz to Yossel, 1991), Southern Ohio (Kalmanson to Mangel, 1995, owner), Colorado (Yisroel Meir
 Popack to Mendel, 2022), Illinois (Daniel Moscowitz to Meir, Mar 2014), New Jersey (Moshe Herson to Mendy, 2025, with
 a vaad; the first vaad about 2010), Florida (Avrohom Korf named a vaad Feb 2020; Benjy Korf Aug 2025), Northeast Ohio

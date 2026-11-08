@@ -422,8 +422,33 @@
   ],
   "tennessee": [
    {
+    "head": "Zalman Posner",
+    "from": "1949",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [],
+    "note": "Sources on the area's period (US-TN:tennessee)."
+   },
+   {
     "head": "Levi Klein",
-    "from": "1994"
+    "from": "1994",
+    "how": "stated",
+    "confidence": "medium",
+    "sources": [
+     {
+      "url": "https://crownheights.info/shlichus/8221/chabad-expands-jewish-communities-in-tennessees-top-three-cities",
+      "title": "Chabad Lubavitch of Tennessee",
+      "via": "data/founding-years.json, 117977",
+      "note": "Lubavitch.com (11 Sept 2007, via CrownHeights.info): 'When Chabad of Memphis opened in 1994, it found a close-knit Jewish community of 10,000'. Rabbi Levi and Rivka Klein (therebbesimpact.com: 1994)."
+     },
+     {
+      "url": "https://www.lubavitch.com/chabad-opens-student-center-at-vanderbilt-university/",
+      "title": "Chabad Opens Student Center at Vanderbilt University (Lubavitch.com)",
+      "date": "2007-10-24",
+      "quote": "The opening of Chabad center at Vanderbilt is in merit of Rabbi Zalman and Rebbetzin Risya Posner and is under the auspices of Chabad of Tennessee."
+     }
+    ],
+    "note": "Klein founded Chabad of Tennessee in Memphis in mid-1994 and is 'Head Shliach of Tennessee' (ChabadInfo); by Oct 2007 Chabad of Tennessee was the umbrella in Nashville too. Posner's notice counts him head for 65 years (to 2014), so the handover may be later than 1994: 1994 is the natural reading, not a stated date."
    }
   ],
   "texas": [
@@ -486,7 +511,7 @@
   "washington": [
    {
     "head": "Sholom Ber Levitin",
-    "from": "1972",
+    "from": null,
     "name": "Pacific Northwest",
     "how": "stated",
     "confidence": "high",
@@ -507,9 +532,19 @@
       "title": "A Chassidisher Derher, 5785, 'Pinpoints'",
       "quote": "Rabbi Sholom Ber Levitin, who traveled on shli- chus to Seattle in 5733, was appointed by the Rebbe for the Pacific Northwest, which included Alaska. He held ...",
       "note": "the search index's excerpt (Firecrawl search); the PDF itself was not read (derher.org blocks plain downloads)"
+     },
+     {
+      "url": "https://chabadpedia.co.il/wiki/%D7%A9%D7%9C%D7%95%D7%9D_%D7%93%D7%95%D7%91%D7%A2%D7%A8_%D7%9C%D7%95%D7%99%D7%98%D7%99%D7%9F",
+      "title": "שלום דובער לויטין (Chabadpedia, Hebrew)",
+      "quote": "הינו שליח הרבי למדינות צפון מערב ארצות הברית ... החל בחודש כסלו תשל\"ג לפעול בשליחות הרבי במדינת וושינגטון, כשהוא מתיישב בעיר סיאטל",
+      "note": "'the Rebbe's shliach to the states of the northwest United States ... began in the month of Kislev 5733 to work on the Rebbe's shlichus in the state of Washington, settling in Seattle'. Kislev 5733 = 7 Nov - 5 Dec 1972 (hebcal)."
      }
     ],
-    "note": "Chosen after 11 Nissan 5732 (March 1972); 5733 runs Sept 1972 - Sept 1973. Anash.org (Aug 4 2021) dates the founding of Chabad of the Pacific North West to 1973."
+    "note": "Chosen after 11 Nissan 5732 (March 1972); began in Seattle in Kislev 5733 (7 Nov - 5 Dec 1972, Chabadpedia), which fits the Derher's 5733. Anash.org (Aug 4 2021) dates the founding of Chabad of the Pacific North West to 1973.",
+    "fromBound": {
+     "after": "1972-11-07",
+     "by": "1972-12-05"
+    }
    }
   ],
   "washington-dc": [
@@ -548,9 +583,13 @@
   "CA-AB:alberta": [
    {
     "shetach": "washington",
-    "from": "1972",
+    "from": null,
     "how": "owner",
-    "note": "Owner, Nov 8: \"maybe even, I think the province next to British Columbia, I think maybe that's it. I'm not sure, though.\""
+    "note": "Owner, Nov 8: \"maybe even, I think the province next to British Columbia, I think maybe that's it. I'm not sure, though.\" Levitin's start: Kislev 5733 (7 Nov - 5 Dec 1972; see the heads).",
+    "fromBound": {
+     "after": "1972-11-07",
+     "by": "1972-12-05"
+    }
    },
    {
     "shetach": "alberta",
@@ -570,8 +609,13 @@
   "CA-BC:british-columbia": [
    {
     "shetach": "washington",
-    "from": "1972",
-    "how": "owner"
+    "from": null,
+    "how": "owner",
+    "fromBound": {
+     "after": "1972-11-07",
+     "by": "1972-12-05"
+    },
+    "note": "Levitin's start: Kislev 5733 (7 Nov - 5 Dec 1972; see the heads)."
    },
    {
     "shetach": "british-columbia",
@@ -783,9 +827,13 @@
   "US-AK:alaska": [
    {
     "shetach": "washington",
-    "from": "1972",
+    "from": null,
     "how": "owner",
-    "note": "Derher (heads.washington): Levitin 'was appointed by the Rebbe for the Pacific Northwest, which included Alaska'."
+    "note": "Derher (heads.washington): Levitin 'was appointed by the Rebbe for the Pacific Northwest, which included Alaska'. Levitin's start: Kislev 5733 (7 Nov - 5 Dec 1972; see the heads).",
+    "fromBound": {
+     "after": "1972-11-07",
+     "by": "1972-12-05"
+    }
    },
    {
     "shetach": "alaska",
@@ -1087,8 +1135,13 @@
   "US-ID:idaho": [
    {
     "shetach": "washington",
-    "from": "1972",
-    "how": "owner"
+    "from": null,
+    "how": "owner",
+    "fromBound": {
+     "after": "1972-11-07",
+     "by": "1972-12-05"
+    },
+    "note": "Levitin's start: Kislev 5733 (7 Nov - 5 Dec 1972; see the heads)."
    },
    {
     "shetach": "idaho",
@@ -1404,8 +1457,13 @@
   "US-MT:montana": [
    {
     "shetach": "washington",
-    "from": "1972",
-    "how": "owner"
+    "from": null,
+    "how": "owner",
+    "fromBound": {
+     "after": "1972-11-07",
+     "by": "1972-12-05"
+    },
+    "note": "Levitin's start: Kislev 5733 (7 Nov - 5 Dec 1972; see the heads)."
    },
    {
     "shetach": "montana",
@@ -1729,8 +1787,13 @@
   "US-OR:oregon": [
    {
     "shetach": "washington",
-    "from": "1972",
-    "how": "owner"
+    "from": null,
+    "how": "owner",
+    "fromBound": {
+     "after": "1972-11-07",
+     "by": "1972-12-05"
+    },
+    "note": "Levitin's start: Kislev 5733 (7 Nov - 5 Dec 1972; see the heads)."
    },
    {
     "shetach": "oregon",
@@ -1860,18 +1923,25 @@
   "US-TN:tennessee": [
    {
     "shetach": "tennessee",
-    "from": "1994",
+    "from": "1949",
     "how": "stated",
     "confidence": "high",
     "sources": [
      {
-      "url": "https://crownheights.info/shlichus/8221/chabad-expands-jewish-communities-in-tennessees-top-three-cities",
-      "title": "Chabad Lubavitch of Tennessee",
-      "via": "data/founding-years.json, 117977",
-      "note": "Lubavitch.com (11 Sept 2007, via CrownHeights.info): 'When Chabad of Memphis opened in 1994, it found a close-knit Jewish community of 10,000'. Rabbi Levi and Rivka Klein (therebbesimpact.com: 1994)."
+      "url": "https://www.lubavitch.com/rabbi-zalman-i-posner-emissary-author-leader/",
+      "title": "Rabbi Zalman I. Posner, Emissary, Author, Leader (Lubavitch.com)",
+      "date": "2014-04-27",
+      "quote": "In 1949, shortly before his marriage to the late Risya Kazarnovsky, Posner was sent by the previous Rebbe to fill a rabbinic post at Congregation Sherith Israel in Nashville, TN. ... In 1954, the Posners founded Akiva day school with only five children in two grades."
+     },
+     {
+      "url": "https://crownheights.info/notices/433746/boruch-dayan-hoemes-rabbi-zalman-posner-obm",
+      "title": "Boruch Dayan Hoemes: Rabbi Zalman Posner, OBM (CrownHeights.info)",
+      "date": "2014-04-24",
+      "quote": "Head Shliach to the state of Tennessee for 65 years ... Rabbi Zalman Posner was sent as a Chabad Shliach to revitalize Jewish life in Tennessee",
+      "note": "read through WebFetch (plain curl returned nothing)"
      }
     ],
-    "note": "Nashville had a Chabad rav from 1949, Rabbi Zalman Posner, sent by the Frierdiker Rebbe to its shul; the shetach dates from Chabad of Memphis (1994)."
+    "note": "Rabbi Zalman Posner, sent by the Frierdiker Rebbe in 1949 as rav of Sherith Israel, Nashville; Akiva day school from 1954. His notice calls him 'Head Shliach to the state of Tennessee for 65 years' (to his passing, 23 Apr 2014). Chabad of Tennessee (Memphis, Rabbi Levi Klein) from mid-1994; by Oct 2007 Nashville's Vanderbilt center was 'under the auspices of Chabad of Tennessee' (Lubavitch.com). Earlier this file started Tennessee at 1994, taking Posner as a shul rav only; the 1949 start follows the rule used for New Haven and Worcester (the first lasting thing the Rebbeim sent)."
    }
   ],
   "US-TX:texas": [
@@ -1943,8 +2013,13 @@
   "US-WA:washington": [
    {
     "shetach": "washington",
-    "from": "1972",
-    "how": "owner"
+    "from": null,
+    "how": "owner",
+    "fromBound": {
+     "after": "1972-11-07",
+     "by": "1972-12-05"
+    },
+    "note": "Levitin's start: Kislev 5733 (7 Nov - 5 Dec 1972; see the heads)."
    }
   ],
   "US-WI:wisconsin": [
@@ -2013,9 +2088,13 @@
   "US-WY:wyoming": [
    {
     "shetach": "washington",
-    "from": "1972",
+    "from": null,
     "how": "owner",
-    "note": "Owner, Nov 8: \"Yes, if his offices thing includes it, then it makes sense\": Anash.org (Aug 4 2021): \"Chabad of the Pacific North West covers British Colombia, Alberta, Alaska, Montana, Oregon, Wyoming and Washington\"."
+    "note": "Owner, Nov 8: \"Yes, if his offices thing includes it, then it makes sense\": Anash.org (Aug 4 2021): \"Chabad of the Pacific North West covers British Colombia, Alberta, Alaska, Montana, Oregon, Wyoming and Washington\". Levitin's start: Kislev 5733 (7 Nov - 5 Dec 1972; see the heads).",
+    "fromBound": {
+     "after": "1972-11-07",
+     "by": "1972-12-05"
+    }
    },
    {
     "shetach": "wyoming",

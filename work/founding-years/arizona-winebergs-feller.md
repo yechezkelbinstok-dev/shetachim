@@ -57,3 +57,17 @@ on them; chabad.org listing dates (`api/content/<id>/metadata`) and lubavitch.co
   Israeli Center (2022), San Tan Valley (2024), CTeen Phoenix (its listing 2021; a C-Teen program began in 2010-11).
 - Read through Firecrawl (chabad.org-hosted sites that refuse curl): Chabad Tucson's About page, and the 7th Street,
   Israeli Center, San Tan Valley and Sedona home pages; none gave a year. Not read: Anash (blocks automated reading).
+
+## Arizona, second pass toward high (batch arizona-02, Nov 8)
+- Owner's metric is now the share that is high. Arizona went from 27 to 32 of 43 high (74%).
+- Raised: Tucson 1984 (Arizona Jewish Post 2025: 'Shemtov has led the congregation since 1984'), Russian Programs 1996
+  (Jewish News, Dec 1996), CTeen Phoenix Aug 2011 (Chabad of Arizona's C-Teen, followed to the Rimlers' listing), the UA
+  house (its director now runs 'the Chabad House on campus'), Casa Grande 2021 (Casa Grande Dispatch, May 2021: 'recently
+  moved'), the Israeli Center 2022 (COLlive, Dec 2022).
+- Lowered: Goodyear to 2010, medium (CrownHeights.info 2021: founded 'In 2010'; the 2011 article has the move).
+- Sedona now 2017, medium (its listing and its IRS exemption are both from 2017).
+- Searchable local papers: pinalcentral.com (Casa Grande Dispatch) and tucson.com (Arizona Daily Star) are BLOX sites
+  (the same JSON search as jewishaz.com); IRS rulings through ProPublica's API
+  (`projects.propublica.org/nonprofits/api/v2/search.json?q=<name>&state%5Bid%5D=AZ`).
+- Still not high: Downtown Phoenix, the Jewish Care Network, South Scottsdale, Kitchen 18, Sedona, Goodyear (medium);
+  Mazal Tov Gifts, Camp Gan Izzy, Chabad on River, 7th Street, San Tan Valley (ranges).

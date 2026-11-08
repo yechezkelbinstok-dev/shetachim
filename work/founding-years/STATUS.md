@@ -9,7 +9,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | alabama | 6 | 3 | 2 |  | 1 |  |  | 1 | 5 | 0 |
 | alaska | 4 | 3 | 1 |  |  |  |  | 0 | 4 | 0 |
 | alberta | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
-| arizona | 43 | 27 | 8 |  | 8 |  |  | 8 | 38 | 6 |
+| arizona | 43 | 32 | 6 |  | 5 |  |  | 5 | 38 | 4 |
 | arkansas | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | british-columbia | 13 | 9 | 3 |  | 1 |  |  | 1 | 13 | 1 |
 | cape-cod-and-the-islands | 4 | 3 |  |  | 1 |  |  | 1 | 4 | 1 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | virginia | 19 |  |  |  |  |  | 19 | 19 | 19 | 19 |
 | new-haven | 16 |  |  |  |  |  | 16 | 16 | 14 | 14 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
-| **all** | 1969 | 700 | 197 | 1 | 175 | 48 | 848 | 1071 | 1765 | 901 |
+| **all** | 1969 | 705 | 195 | 1 | 172 | 48 | 848 | 1068 | 1765 | 899 |

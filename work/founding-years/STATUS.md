@@ -30,13 +30,13 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | montana | 6 | 5 | 1 |  |  |  |  | 0 | 6 | 0 |
 | nebraska | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | new-hampshire | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
-| new-jersey | 91 | 60 | 3 |  | 18 | 5 | 5 | 28 | 84 | 22 |
+| new-jersey | 91 | 59 | 4 |  | 18 | 5 | 5 | 28 | 84 | 22 |
 | new-mexico | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | newfoundland-and-labrador | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | oklahoma | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | ottawa | 11 | 7 |  |  | 4 |  |  | 4 | 9 | 2 |
-| pennsylvania | 61 | 28 | 7 |  | 7 |  | 19 | 26 | 57 | 25 |
+| pennsylvania | 61 | 30 | 8 |  | 14 |  | 9 | 23 | 57 | 22 |
 | rhode-island | 8 | 5 | 1 |  | 2 |  |  | 2 | 7 | 1 |
 | rockland | 5 | 2 |  |  | 3 |  |  | 3 | 5 | 3 |
 | south-area | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | kansas-missouri | 16 |  |  |  |  |  | 16 | 16 | 16 | 16 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
 | british-columbia | 13 |  |  |  |  |  | 13 | 13 | 13 | 13 |
-| **all** | 1969 | 636 | 177 | 1 | 148 | 49 | 958 | 1155 | 1765 | 982 |
+| **all** | 1969 | 637 | 179 | 1 | 155 | 49 | 948 | 1152 | 1765 | 979 |

@@ -14,7 +14,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | central-ohio | 4 | 2 | 1 |  | 1 |  |  | 1 | 4 | 1 |
 | delaware | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | florida | 240 | 132 | 22 |  | 46 | 40 |  | 86 | 219 | 72 |
-| georgia | 27 | 9 | 2 |  |  |  | 16 | 16 | 24 | 13 |
+| georgia | 27 | 18 | 5 |  | 4 |  |  | 4 | 24 | 2 |
 | hawaii | 7 | 4 | 1 |  | 2 |  |  | 2 | 7 | 2 |
 | idaho | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | indiana | 7 | 5 | 1 |  | 1 |  |  | 1 | 7 | 1 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | kansas-missouri | 16 |  |  |  |  |  | 16 | 16 | 16 | 16 |
 | central-massachusetts | 14 |  |  |  |  |  | 14 | 14 | 12 | 12 |
 | british-columbia | 13 |  |  |  |  |  | 13 | 13 | 13 | 13 |
-| **all** | 1969 | 612 | 169 | 1 | 140 | 48 | 999 | 1187 | 1765 | 1013 |
+| **all** | 1969 | 621 | 172 | 1 | 144 | 48 | 983 | 1175 | 1765 | 1002 |

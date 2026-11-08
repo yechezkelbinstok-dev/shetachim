@@ -82,7 +82,7 @@ Tennessee at 3600 West End Ave., Nashville (Posner's shul), Vermont (158 N. Will
 - So a map of year Y: each area takes the shetach of its period at Y; areas with the same shetach merge into one.
   Before an area's first period it is blank.
 
-## What is in the file (Nov 8): 65 of the 68 US pieces, all 10 Canadian
+## What is in the file (Nov 8): all 68 US pieces, all 10 Canadian
 
 **Splits** (an area moving from one head's shetach to another's):
 - The Northwest (owner): Levitin from Kislev 5733 (Nov–Dec 1972; Hebrew Chabadpedia: "החל בחודש כסלו תשל"ג לפעול
@@ -161,6 +161,15 @@ for by a local businessman (the Chernitskys).
 some sort of activity there or if they were explicitly sent to those names places by the Rebbe or merkoz like how
 levitin was sent to all those places".
 
+**New York** (the third session, Nov 8, after the history session ran out of usage): **Crown Heights from 16 Aug
+1940** (770 bought as the Frierdiker Rebbe's home, shul and offices; Lubavitch.com, Haaretz); **Greater New York from
+1955**, Tzach (Tzeirei Agudas Chabad, the Lubavitch Youth Organization, founded by the Rebbe in 1955; it "oversees
+Chabad's outreach activities in the New York Metropolitan area"); before it the city's work ran straight from 770
+(Merkos, 1942), with no shetach head. Long Island's first Chabad houses: "the late 1970s and '80s" (Anchelle Perl
+from 1976). **Monsey by 1983**: its first shliach, Rabbi Simcha Werner of the NCFJE, is "Rockland's first Shliach"
+(Chabadinfo, 2015), so before Kotlarsky's Chabad of Rockland (1983); his own year not found (therebbesimpact.com is said
+to give 1971; its pages don't load here). **For the owner:** was the rest of Rockland Werner's before 1983?
+
 **Head changes**: Tennessee (Zalman Posner 1949 to Levi Klein, 1994 or later), Central Massachusetts (Moshe Yitzchak Hecht 1942, Hershel Fogelman 5706, Mendel 5773), New Haven (Moshe Hecht to Sheya, 1992),
 Virginia (Yankel Kranz to Yossel, 1991), Southern Ohio (Kalmanson to Mangel, 1995, owner), Colorado (Yisroel Meir
 Popack to Mendel, 2022), Illinois (Daniel Moscowitz to Meir, Mar 2014), New Jersey (Moshe Herson to Mendy, 2025, with
@@ -209,7 +218,7 @@ Things found on the way:
 
 ## Not done yet
 
-US: New York City (Tzach), Crown Heights and Monsey (no head). Western Pennsylvania's line of heads before
+US: Western Pennsylvania's line of heads before
 Rosenfeld (the area is in, from 1942). Then the world, when the owner says.
 
 ## Sources that worked

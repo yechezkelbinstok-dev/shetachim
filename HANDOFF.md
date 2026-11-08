@@ -245,8 +245,8 @@ thirteen no better recent photo has been found yet (the list is there, with what
   - **Third session, from Nov 8 (late): the shetach history (US and Canada), picked up from the session that ran out
     of usage** (owner: "another session was in the middle of making the history page meaning the ones with just shifting
     borders not centers or anything and only the US and Canada but then it ran out of usage limits so can you pick up
-    where it left off?"). Files `data/shetach-history.json`, `work/shetach-history/README.md`. First the three pieces
-    left (New York City, Crown Heights, Monsey), then the open questions in the README. The founding years of Virginia
+    where it left off?"). Files `data/shetach-history.json`, `work/shetach-history/README.md`. The three pieces left
+    (New York City 1955, Crown Heights 1940, Monsey by 1983) are in; now the open questions in the README. The founding years of Virginia
     (5 of 19 done), Oregon and Upstate New York wait until this is done.
   - **Owner (Nov 8): WebFetch is a model's answer, not the page, so it can miss or bend a detail.** Every entry with a
     year (847 on Nov 8) keeps its source link and 820 quote the page, so all of them can be checked against their own
@@ -305,8 +305,8 @@ thirteen no better recent photo has been found yet (the list is there, with what
   covered stand ("Stop trying to verify my facts"; they go in as `how: owner`); the research dates when each part split
   off, splits first ("I'm sure there's more examples like that. So I need you to find those"). The pilot on his
   examples is done (the Northwest, Kalmanson's Ohio–Indiana–Kentucky, the Virginias, Mississippi, Newfoundland,
-  Herson, Korf), and the sweep of the other US shetachim is under way: 65 of 68 US map pieces and all 10 Canadian
-  have their history (left: New York City, Crown Heights, Monsey). What's found, what's
+  Herson, Korf), and the sweep of the other US shetachim is under way: all 68 US map pieces and all 10 Canadian
+  have their history (New York City, Crown Heights and Monsey added by the third session, Nov 8). What's found, what's
   open and the sources that worked are in the notes.
 - **Founding years, the West Coast (Nov 6, first pass done).** Owner: "let's jump into the West Coast. Do this properly
   ... The goal is every single blue dot we find the date for ... keep track continuously of how many are missing from

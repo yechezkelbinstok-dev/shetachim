@@ -343,6 +343,16 @@
     "note": "'Established with the blessing of the Lubavitcher Rebbe in 1992' (its About page). Who headed Chabad Lubavitch of New Mexico before (by about 1984) is not known."
    }
   ],
+  "new-york-city": [
+   {
+    "head": "Tzach",
+    "from": "1955",
+    "name": "Greater New York",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Tzeirei Agudas Chabad (the Lubavitch Youth Organization), the owner's 'Tzach'; its leadership today is a vaad (the owner's map: Kasriel Kastel, Shlomo Friedman, Sholom Tenenbaum, Tuvia Teldon, Leibel Baumgarten). Sources on area US-NY:new-york-city."
+   }
+  ],
   "newfoundland-and-labrador": [
    {
     "head": "Chanan Chernitsky",
@@ -1810,6 +1820,93 @@
      }
     ],
     "note": "Other accounts also give 1974; JNS has Sukkos 1973."
+   }
+  ],
+  "US-NY:crown-heights": [
+   {
+    "shetach": "crown-heights",
+    "from": "1940-08-16",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.lubavitch.com/august-16-1940-770-purchased/",
+      "title": "August 16, 1940: 770 Purchased (Lubavitch.com)",
+      "date": "2020-08-16",
+      "quote": "It was on August 16, 1940, that 770 Eastern Parkway, the Gothic Revival style building, was purchased by Chabad-Lubavitch (Agudas Chassidei Chabad) to be used as the personal residence, office, yeshiva and shul of the sixth Lubavitcher Rebbe, Rabbi Joseph I. Schneersohn."
+     },
+     {
+      "url": "https://crownheights.info/chabad-news/497769/75th-anniversary-of-770s-purchase/",
+      "title": "75th Anniversary of 770’s Purchase (Haaretz, on CrownHeights.info)",
+      "date": "2015-08-17",
+      "quote": "Yesterday, August 16, marks 75 years since the Previous Lubavitcher Rebbe bought the building of 770 Eastern Parkway, which subsequently became the headquarters – and a symbol – of the Chabad movement."
+     }
+    ],
+    "note": "Crown Heights has no head (the owner's map). It starts with 770: bought on 16 Aug 1940 as the Frierdiker Rebbe's home, shul and offices, Lubavitch's headquarters ever since. He had reached New York in March 1940."
+   }
+  ],
+  "US-NY:monsey": [
+   {
+    "shetach": "monsey",
+    "from": null,
+    "fromBound": {
+     "by": "1983"
+    },
+    "how": "range",
+    "confidence": "range",
+    "sources": [
+     {
+      "url": "https://crownheights.info/chabad-news/456866/historical-simchas-beis-hashoeva-in-monsey/",
+      "title": "Historical Simchas Beis Hashoeva in Monsey (CrownHeights.info)",
+      "date": "2014-10-21",
+      "quote": "Monsey’s first Shliach, Rabbi Simcha Werner , director of NCFJE Chabad of Rockland, inspired the crowd"
+     },
+     {
+      "url": "https://chabadinfo.com/news/hundreds-attend-siyum-harambam-in-monsey/",
+      "title": "Hundreds Attend Siyum Harambam in Monsey (Chabadinfo)",
+      "date": "2015-01-22",
+      "quote": "in conjunction with NCFJE of Rockland under the leadership of Rockland’s first Shliach Rabbi Simcha Werner"
+     },
+     {
+      "url": "https://crownheights.info/photo-galleries/26411/monsey-yeshivah-first-dinner-marking-10-years/",
+      "title": "Monsey Yeshivah First Dinner Marking 10 Years (MonseyChabad.com, on CrownHeights.info)",
+      "date": "2010-05-17",
+      "quote": "Rabbi Simcha Werner is the pioneer of Lubavitch in Monsey"
+     }
+    ],
+    "note": "Monsey has no head (the owner's map: the Monsey Lubavitch community and its institutions). It starts with its first shliach, Rabbi Simcha Werner of the NCFJE: 'Rockland’s first Shliach', so before Rabbi Avremel Kotlarsky's Chabad of Rockland (1983); his year is not found in a source read (therebbesimpact.com is said to give 1971, not read). Its own institutions: Yeshivas Menachem Mendel (2000), Heichal Menachem (Dec 1998), Cheder Chabad (1999), Beis Chaya Mushka (2006). Open for the owner: whether the rest of Rockland was Werner's before 1983."
+   }
+  ],
+  "US-NY:new-york-city": [
+   {
+    "shetach": "new-york-city",
+    "from": "1955",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://crownheights.info/chabad-news/574950/inspiration-commitment-tzach-kinus/",
+      "title": "Inspiration and Commitment at Tzach Kinus (CrownHeights.info)",
+      "date": "2017-05-04",
+      "quote": "An electrifying Kinus Celebration marked the 62st anniversary of the founding of “Tzach,” Tzeirei Agudas Chabad Hamerkozis, also known as the Lubavitch Youth Organization, by the Rebbe in 1955.",
+      "note": "also: 'Members of the Board of Lubavitch Youth Organization which oversees Chabad’s outreach activities in the New York Metropolitan area'; Rabbi Kasriel Kastel, 'Director of Tzeirei Agudas Chabad Hamerkozis', on 'more than 65 Chabad centers'."
+     },
+     {
+      "url": "https://crownheights.info/chabad-news/874898/rabbi-shmuel-butman-81-raised-the-jewish-profile-in-new-york-and-beyond/",
+      "title": "Rabbi Shmuel Butman, 81, Raised the Jewish Profile in New York and Beyond (Chabad.org, on CrownHeights.info)",
+      "date": "2024-07-25",
+      "quote": "The Rebbe had founded the organization in 1955 to lead many of Chabad’s outreach efforts",
+      "note": "Butman joined 'the fledgling Lubavitch Youth Organization (known by its Hebrew acronym, Tzach)' after his marriage in 1966, as 'the organization’s second employee (the first was Rabbi Leibel Alevskly, now director of Chabad of Cleveland)'."
+     },
+     {
+      "url": "https://crownheights.info/chabad-news/727190/long-island-jewish-newspaper-covers-chabad-titles-lubavitch-conquers-long-island/",
+      "title": "Long Island Jewish Newspaper Covers Chabad (CrownHeights.info)",
+      "date": "2021-03-22",
+      "quote": "When Chabad first moved to Long Island in the late 1970s and ‘80s, it was met with suspicion by much of the Jewish community",
+      "note": "also: Rabbi Anchelle Perl 'started as a teacher at a day camp in the Oceanside-Long Beach area in 1976'."
+     }
+    ],
+    "note": "Greater New York's head on the owner's map is Tzach (Tzeirei Agudas Chabad, the Lubavitch Youth Organization), which the Rebbe founded in 1955 and which 'oversees Chabad’s outreach activities in the New York Metropolitan area'. Before it, the work in the city was run straight from 770 (Merkos L'Inyonei Chinuch, from 1942), with no shetach head; Crown Heights (1940) is its own piece. Long Island's first Chabad houses came in 'the late 1970s and ‘80s' (Rabbi Anchelle Perl from 1976); Long Island and Westchester are in this piece, so they take its periods."
    }
   ],
   "US-NY:rockland": [

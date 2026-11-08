@@ -8183,7 +8183,21 @@
    "how": "range",
    "source": "https://www.southfloridasuntimes.com/news-2/remembering-rabbi-dovid-bryn:-a-south-florida-legend",
    "note": "Founded 'in the late 1980s' by Rabbi Dovid Bryn (South Florida Sun Times; the Jewish Press: 'the local Chabad center in the 1980's'); after his death in 2002 Rabbi Moishe and Layah Kievman have led it (Chabad.org, Jan 2022). Exact year not found yet.",
-   "confidence": "range"
+   "confidence": "range",
+   "earlier": [
+    {
+     "where": "a kosher pizza shop, closed on Saturdays, where Rabbi Dovid Bryn opened a Shabbat minyan (late 1980s)",
+     "from": null,
+     "until": null,
+     "source": "https://www.chabad.org/news/article_cdo/aid/5518495"
+    },
+    {
+     "where": "the California Club mall (the congregation was then the 'California Club Shul')",
+     "from": null,
+     "until": null,
+     "source": "https://www.chabad.org/news/article_cdo/aid/5518495"
+    }
+   ]
   },
   "117948": {
    "name": "Hollywood Community Synagogue - Chabad",

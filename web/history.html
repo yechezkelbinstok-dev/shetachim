@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shetachim by Year</title>
+<script>try { const q = new URLSearchParams(location.search).get('lang'); if (q) localStorage.setItem('shetachim-lang', q); if ((q || localStorage.getItem('shetachim-lang')) === 'he') { document.documentElement.lang = 'he'; document.documentElement.dir = 'rtl'; document.title = 'השטחים לפי שנה'; } } catch (e) {}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=Heebo:wght@400..800&display=swap">
+<style>
+:root {
+  --bg: #f1f3f0; --ink: #1e2b32; --halo: #ffffff; --muted: #5a6870; --dot: #163e74;
+  --panel: #fbfcfb; --panel-line: #d2d9dc; --accent: #1d4f8f; --accent-soft: #e3ebf5;
+  --c1: #f0e1a2; --c2: #cce1b5; --c3: #efc7c1; --c4: #c5d9ee; --c5: #f3cfa9; --c6: #d8c8e5; --c7: #bcded6; --c8: #e1d8be;
+  --empty: #dcdfdb; --outside: #e6e8e4; --sea: #f1f3f0;
+  --font: "Inter", "Heebo", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --shadow: 0 1px 2px rgb(20 35 45 / .08), 0 6px 20px rgb(20 35 45 / .10);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1518; --ink: #e6edf0; --halo: #0f1518; --muted: #9baab0; --dot: #f1cf78;
+    --panel: #152025; --panel-line: #2b3a41; --accent: #93b8ec; --accent-soft: #22344a;
+    --c1: #5a5026; --c2: #394e30; --c3: #5c3a36; --c4: #2e435f; --c5: #5c4228; --c6: #473957; --c7: #294c45; --c8: #494434;
+    --empty: #2f383c; --outside: #1a2226; --sea: #0f1518;
+    --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 8px 24px rgb(0 0 0 / .35);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1518; --ink: #e6edf0; --halo: #0f1518; --muted: #9baab0; --dot: #f1cf78;
+  --panel: #152025; --panel-line: #2b3a41; --accent: #93b8ec; --accent-soft: #22344a;
+  --c1: #5a5026; --c2: #394e30; --c3: #5c3a36; --c4: #2e435f; --c5: #5c4228; --c6: #473957; --c7: #294c45; --c8: #494434;
+  --empty: #2f383c; --outside: #1a2226; --sea: #0f1518;
+  --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 8px 24px rgb(0 0 0 / .35);
+  color-scheme: dark;
+}
+html, body { height: 100%; margin: 0; }
+[hidden] { display: none !important; }
+body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); overflow: hidden; -webkit-tap-highlight-color: transparent; }
+#app { position: fixed; inset: 0; }
+#map { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; user-select: none; -webkit-user-select: none; }
+.piece, .coast, .states, .borders, .sel, .flash, .inset-frame, .flag { vector-effect: non-scaling-stroke; }
+.piece { stroke-width: .6; stroke-linejoin: round; transition: fill .35s ease, stroke .35s ease; cursor: pointer; }
+.outside { fill: var(--outside); stroke: none; }
+.coast { fill: none; stroke: var(--ink); stroke-opacity: .34; stroke-width: .6; stroke-linejoin: round; }
+.states { fill: none; stroke: var(--ink); stroke-opacity: .16; stroke-width: .45; stroke-dasharray: 2 2; }
+.borders { fill: none; stroke: var(--ink); stroke-opacity: .7; stroke-width: 1.05; stroke-linejoin: round; stroke-linecap: round; }
+.sel { fill: none; stroke: var(--accent); stroke-width: 2.4; stroke-linejoin: round; pointer-events: none; }
+.flash { fill: none; stroke: var(--accent); stroke-width: 3; stroke-linejoin: round; pointer-events: none; opacity: 0; }
+.flash.on { animation: flash 1.6s ease-out; }
+@keyframes flash { 0% { opacity: .95; } 100% { opacity: 0; } }
+.label { font: 600 12px var(--font); fill: var(--ink); paint-order: stroke; stroke: var(--halo); stroke-width: 3px; stroke-linejoin: round; text-anchor: middle; pointer-events: none; }
+.flag { fill: var(--dot); stroke: var(--halo); stroke-width: 1.4; cursor: pointer; transition: transform .35s ease; }
+.inset-frame { fill: none; stroke: var(--ink); stroke-opacity: .18; stroke-width: .8; }
+
+.year { position: absolute; top: max(10px, env(safe-area-inset-top)); inset-inline-start: 14px; font: 800 44px/1 var(--font); letter-spacing: -.02em; color: var(--ink); text-shadow: 0 0 6px var(--bg), 0 0 2px var(--bg); pointer-events: none; font-variant-numeric: tabular-nums; }
+.top-right { position: absolute; top: max(10px, env(safe-area-inset-top)); inset-inline-end: 10px; display: flex; gap: 6px; }
+.chip { appearance: none; border: 1px solid var(--panel-line); background: var(--panel); color: var(--ink); font: 600 13px var(--font); height: 34px; min-width: 34px; padding: 0 10px; border-radius: 17px; box-shadow: var(--shadow); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+
+.bar { position: absolute; left: 50%; transform: translateX(-50%); bottom: max(12px, env(safe-area-inset-bottom)); width: min(720px, calc(100% - 20px)); background: var(--panel); border: 1px solid var(--panel-line); border-radius: 16px; box-shadow: var(--shadow); padding: 8px 10px; box-sizing: border-box; display: flex; align-items: center; gap: 8px; direction: ltr; }
+.bar button { appearance: none; border: 0; background: var(--accent-soft); color: var(--accent); width: 38px; height: 38px; border-radius: 19px; flex: none; cursor: pointer; display: grid; place-items: center; }
+.bar button svg { width: 18px; height: 18px; fill: currentColor; }
+.bar .step { background: transparent; width: 30px; }
+#slider { flex: 1; min-width: 0; accent-color: var(--accent); height: 30px; }
+
+.card { position: absolute; inset-inline-start: 10px; bottom: calc(max(12px, env(safe-area-inset-bottom)) + 66px); width: min(330px, calc(100% - 20px)); background: var(--panel); border: 1px solid var(--panel-line); border-radius: 14px; box-shadow: var(--shadow); padding: 12px 14px 12px; box-sizing: border-box; }
+.card h2 { margin: 0 26px 2px 0; font: 700 17px/1.25 var(--font); display: flex; align-items: center; gap: 8px; }
+[dir="rtl"] .card h2 { margin: 0 0 2px 26px; }
+.card .sw { width: 12px; height: 12px; border-radius: 3px; flex: none; border: 1px solid rgb(0 0 0 / .15); }
+.card .head { color: var(--ink); font-weight: 600; }
+.card .since, .card .area { color: var(--muted); font-size: 13px; }
+.card .hist { margin: 8px 0 0; padding: 0; list-style: none; font-size: 13px; }
+.card .hist li { display: flex; gap: 8px; padding: 3px 0; border-top: 1px solid var(--panel-line); cursor: pointer; }
+.card .hist li b { font-variant-numeric: tabular-nums; min-width: 58px; font-weight: 600; }
+.card .hist li.now { color: var(--accent); }
+.card .x { position: absolute; top: 6px; inset-inline-end: 6px; appearance: none; border: 0; background: transparent; color: var(--muted); width: 30px; height: 30px; font-size: 20px; cursor: pointer; border-radius: 15px; }
+.err { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); }
+</style>
+</head>
+<body>
+<div id="app">
+  <svg id="map" role="img"></svg>
+  <div class="year" id="year"></div>
+  <div class="top-right">
+    <button class="chip" id="lang" type="button"></button>
+    <a class="chip" id="home" href="./" aria-label="Map">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M15 5.1 9 3 3 5v16l6-2.1 6 2.1 6-2V3l-6 2.1zM10 5.4l4 1.4v11.8l-4-1.4V5.4zM5 6.4l3-1v11.8l-3 1V6.4zm14 11.2-3 1V6.8l3-1v11.8z"/></svg>
+    </a>
+  </div>
+  <div class="card" id="card" hidden></div>
+  <div class="bar">
+    <button class="step" id="prev" type="button" aria-label="Previous change"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM9.5 12 18 18V6z"/></svg></button>
+    <button id="play" type="button" aria-label="Play"><svg viewBox="0 0 24 24"><path id="playIcon" d="M7 5v14l12-7z"/></svg></button>
+    <button class="step" id="next" type="button" aria-label="Next change"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM6 18l8.5-6L6 6z"/></svg></button>
+    <input id="slider" type="range" step="1" aria-label="Year">
+  </div>
+  <div class="err" id="err" hidden></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script>
+(async function () {
+  'use strict';
+  const $ = (s) => document.querySelector(s);
+  let HE = document.documentElement.lang === 'he';
+  const get = (u) => fetch(u, { cache: 'no-cache' }).then((r) => { if (!r.ok) throw new Error(`${u}: ${r.status}`); return r.json(); });
+  let topo, sfile, hist, outside, he = null;
+  try {
+    [topo, sfile, hist, outside] = await Promise.all([get('data/geo.json'), get('data/shetachim.json'), get('../data/shetach-history.json'), get('data/outside-lo.json').catch(() => null)]);
+    if (HE) he = await get('data/he.json').catch(() => null);
+  } catch (err) {
+    const e = $('#err'); e.hidden = false; e.textContent = HE ? 'הנתונים לא נטענו' : "The data didn't load"; return;
+  }
+  function decodeArcs(t) {
+    if (!t || !t.transform) return t;
+    const { scale: [kx, ky], translate: [dx, dy] } = t.transform;
+    for (const arc of t.arcs) { let x = 0, y = 0; for (const p of arc) { x += p[0]; y += p[1]; p[0] = Math.round((x * kx + dx) * 1e6) / 1e6; p[1] = Math.round((y * ky + dy) * 1e6) / 1e6; } }
+    delete t.transform; return t;
+  }
+  decodeArcs(topo); decodeArcs(outside);
+  if (topo.exactArcs) for (const [i, ring] of Object.entries(topo.exactArcs)) topo.arcs[+i] = ring;
+
+  // ---------- the data ----------
+  const SH = new Map(sfile.shetachim.map((s) => [s.id, s]));
+  const pieces = topo.objects.areas.geometries.filter((g) => g.properties.country === 'US' || g.properties.country === 'CA');
+  const isHI = (g) => g.properties.state === 'US-HI';
+  const yr = (s) => +String(s).slice(0, 4);
+  function startOf(p) {
+    if (!p) return null;
+    if (p.from) return { y: yr(p.from), at: String(p.from) };
+    const b = p.fromBound || {};
+    if (b.by) return { y: yr(b.by), by: String(b.by), after: b.after ? String(b.after) : null };
+    if (b.after) return { y: yr(b.after) + 1, after: String(b.after) };
+    return null;
+  }
+  const areaKeys = Object.keys(hist.areas);
+  // a piece with no history of its own (New Brunswick, PEI) takes that of the piece of its shetach that has one
+  const P = pieces.map((g) => {
+    const id = g.properties.id, sid = g.properties.shetach;
+    let key = hist.areas[id] ? id : areaKeys.find((k) => k.split(':')[1] === sid && k.slice(0, 2) === id.slice(0, 2));
+    const list = key ? hist.areas[key] : [];
+    return { g, key, own: key === id, periods: list.map((p) => ({ sid: p.shetach || null, st: startOf(p), p })).filter((q) => q.st) };
+  });
+  const sidAt = (i, Y) => { let s = null; for (const q of P[i].periods) if (q.st.y <= Y) s = q.sid; return s; };
+  function headAt(sid, Y) {
+    let h = null;
+    (hist.heads[sid] || []).forEach((x, k) => { const st = startOf(x); const y = st ? st.y : (k === 0 ? -Infinity : null); if (y != null && y <= Y) h = { x, st }; });
+    return h;
+  }
+  const sidStart = new Map();
+  for (const a of P) for (const q of a.periods) if (q.sid && (!sidStart.has(q.sid) || q.st.y < sidStart.get(q.sid))) sidStart.set(q.sid, q.st.y);
+  // the flagship: where the head's center was that year (hist.flagships), else today's capital from the shetach's start
+  function flagAt(sid, Y) {
+    const list = hist.flagships && hist.flagships[sid];
+    if (list) { let f = null; for (const x of list) { const st = startOf(x); if (st && st.y <= Y) f = x; } return f; }
+    const c = (SH.get(sid) || {}).capital;
+    return c && c.lat != null && sidStart.has(sid) && sidStart.get(sid) <= Y ? { where: `${c.name}, ${c.city}`, lat: c.lat, lon: c.lon, centerId: c.centerId } : null;
+  }
+  const years = new Set();
+  for (const a of P) for (const q of a.periods) years.add(q.st.y);
+  for (const hs of Object.values(hist.heads)) for (const x of hs) { const st = startOf(x); if (st) years.add(st.y); }
+  for (const fs of Object.values(hist.flagships || {})) for (const x of fs) { const st = startOf(x); if (st) years.add(st.y); }
+  const NOW = new Date().getFullYear();
+  const MIN = Math.min(...years), MAX = Math.max(NOW, ...[...years].filter((y) => y <= NOW));
+  const CHANGES = [...years].filter((y) => y >= MIN && y <= MAX).sort((a, b) => a - b);
+
+  // ---------- names ----------
+  const HIST_HE = { 'Pacific Northwest': 'צפון־מערב הפסיפי', 'the Virginias': 'הווירג׳יניות', 'Greater New York': null };
+  const shName = (sid, Y) => {
+    const h = Y != null && headAt(sid, Y);
+    // a shetach's old name (Pacific Northwest) while it covered more than its piece today
+    const wide = Y != null && (config(Y).groups.get(sid) || []).length > 1;
+    const old = wide && h && h.x.name && h.x.name !== (SH.get(sid) || {}).name ? h.x.name : null;
+    if (HE) { if (old && HIST_HE[old]) return HIST_HE[old]; const t = he && he.shetachim && he.shetachim[sid]; if (t && t.name) return t.name; }
+    const n = old || (SH.get(sid) || {}).name || sid;
+    return n.charAt(0).toUpperCase() + n.slice(1);
+  };
+  const headName = (sid, x) => {
+    if (HE && he && he.shetachim && he.shetachim[sid] && (SH.get(sid) || {}).headShliach === x.head && he.shetachim[sid].headShliach) return he.shetachim[sid].headShliach;
+    return x.head;
+  };
+  const multi = new Set(); { const c = new Map(); for (const g of pieces) c.set(g.properties.state, (c.get(g.properties.state) || 0) + 1); for (const [s, n] of c) if (n > 1) multi.add(s); }
+  const areaName = (g) => {
+    const p = g.properties, pn = sfile.partNames && sfile.partNames[p.state] && sfile.partNames[p.state][p.shetach];
+    if (pn) return HE ? pn[1] : pn[0];
+    if (multi.has(p.state)) return shName(p.shetach, null);
+    return HE && he && he.areas && he.areas[p.state] ? he.areas[p.state] : p.name;
+  };
+  const MONTHS = (loc) => Array.from({ length: 12 }, (_, m) => new Intl.DateTimeFormat(loc, { month: 'short' }).format(new Date(2000, m, 15)));
+  const fmtDate = (s) => {
+    if (!s) return '';
+    const [y, m, d] = String(s).split('-'); const mo = m ? MONTHS(HE ? 'he' : 'en')[+m - 1] : '';
+    return d ? `${+d} ${mo} ${y}` : m ? `${mo} ${y}` : y;
+  };
+  const fmtStart = (st) => !st ? '' : st.at ? fmtDate(st.at) : st.by && st.after ? `${fmtDate(st.after)}–${fmtDate(st.by)}` : st.by ? (HE ? `עד ${fmtDate(st.by)}` : `by ${fmtDate(st.by)}`) : fmtDate(st.after);
+
+  // ---------- colours: one per shetach for the whole timeline; neighbours never share one ----------
+  const NB = topojson.neighbors(pieces);
+  const adj = new Map(); const touch = (k) => adj.get(k) || adj.set(k, new Set()).get(k);
+  for (const Y of CHANGES) {
+    const s = pieces.map((_, i) => sidAt(i, Y));
+    NB.forEach((list, i) => { if (!s[i]) return; touch(s[i]); for (const j of list) if (s[j] && s[j] !== s[i]) { touch(s[i]).add(s[j]); touch(s[j]).add(s[i]); } });
+  }
+  for (const sid of sidStart.keys()) touch(sid);
+  const COLOR = new Map(), used = new Array(8).fill(0);
+  [...adj.keys()].sort((a, b) => adj.get(b).size - adj.get(a).size || (a < b ? -1 : 1)).forEach((k) => {
+    const taken = new Set([...adj.get(k)].map((n) => COLOR.get(n)));
+    let best = -1; for (let c = 0; c < 8; c++) if (!taken.has(c) && (best < 0 || used[c] < used[best])) best = c;
+    if (best < 0) best = 0; COLOR.set(k, best); used[best]++;
+  });
+  const fillOf = (sid) => sid ? `var(--c${COLOR.get(sid) + 1})` : 'var(--empty)';
+
+  // ---------- drawing ----------
+  const svg = d3.select('#map');
+  const root = svg.append('g');
+  const gOut = root.append('g'), gPieces = root.append('g'), gLines = root.append('g'), gSel = root.append('g'), gLabels = root.append('g'), gFlags = root.append('g');
+  const coll = (geoms) => ({ type: 'GeometryCollection', geometries: geoms });
+  const mainIdx = pieces.map((g, i) => i).filter((i) => !isHI(pieces[i])), hiIdx = pieces.map((g, i) => i).filter((i) => isHI(pieces[i]));
+  const mainGeoms = mainIdx.map((i) => pieces[i]), hiGeoms = hiIdx.map((i) => pieces[i]);
+  const idIndex = new Map(pieces.map((g, i) => [g, i]));
+  let STAR = 60, W = 0, H = 0, proj, projHI, path, pathHI, hiBox = null, K = 1;
+  const outsideFeats = outside ? topojson.feature(outside, outside.objects[Object.keys(outside.objects)[0]]).features.filter((f) => {
+    const [[x0, y0], [x1, y1]] = d3.geoBounds(f); return x0 < x1 && x1 < -40 && x0 > -180 && y1 > 10 && y0 < 85;
+  }) : [];
+  let pieceSel, cur = { Y: null, key: null }, selected = null;
+
+  function layout() {
+    W = innerWidth; H = innerHeight;
+    svg.attr('viewBox', `0 0 ${W} ${H}`);
+    const top = 64, bottom = 74, pad = 10;
+    proj = d3.geoConicEqualArea().parallels([30, 58]).rotate([96, 0]).precision(0.2);
+    // a narrow screen fits the lower 48 (the rest is a pan away); a wide one, the US and Canada whole
+    const fitGeoms = W / (H - top - bottom) < 1.1 ? mainGeoms.filter((g) => g.properties.country === 'US' && g.properties.state !== 'US-AK') : mainGeoms;
+    proj.fitExtent([[pad, top], [W - pad, H - bottom]], topojson.merge(topo, fitGeoms));
+    path = d3.geoPath(proj);
+    if (fitGeoms !== mainGeoms) { // (on a phone, the lower 48 low on the screen, so Canada fills the top)
+      const b = path.bounds(topojson.merge(topo, fitGeoms)), [tx, ty] = proj.translate();
+      proj.translate([tx, ty + Math.max(0, (H - bottom - 24) - b[1][1])]); path = d3.geoPath(proj);
+    }
+    const [[bx0, by0], [bx1, by1]] = path.bounds(topojson.merge(topo, fitGeoms));
+    STAR = Math.max(28, Math.min(80, (bx1 - bx0) / 14));
+    const w = Math.max(60, 0.12 * (bx1 - bx0));
+    projHI = d3.geoConicEqualArea().rotate([157, 0]).center([-3, 19.9]).parallels([8, 18]).precision(0.2);
+    const fitTo = { type: 'MultiPoint', coordinates: [[-160.6, 18.8], [-154.7, 22.4]] };
+    const x0 = bx0 + 0.02 * (bx1 - bx0), y1 = by1 - 0.02 * (by1 - by0);
+    projHI.fitExtent([[x0, y1 - w * 0.62], [x0 + w, y1]], fitTo);
+    pathHI = d3.geoPath(projHI);
+    hiBox = [[x0 - 4, y1 - w * 0.62 - 4], [x0 + w + 4, y1 + 4]];
+    drawStatic();
+    cur.key = null; render(cur.Y == null ? initialYear() : cur.Y, false);
+  }
+  const pathOf = (i) => (isHI(pieces[i]) ? pathHI : path);
+  function meshD(geoms, filter, p) { return p(topojson.mesh(topo, coll(geoms), filter)) || ''; }
+  function drawStatic() {
+    gOut.selectAll('*').remove(); gPieces.selectAll('*').remove(); gLines.selectAll('*').remove();
+    gOut.selectAll('path').data(outsideFeats).join('path').attr('class', 'outside').attr('d', path);
+    pieceSel = gPieces.selectAll('path').data(pieces).join('path').attr('class', 'piece')
+      .attr('d', (g, i) => pathOf(i)(topojson.feature(topo, g)))
+      .on('click', (ev, g) => { ev.stopPropagation(); select(idIndex.get(g)); });
+    gLines.append('path').attr('class', 'states').attr('d', meshD(mainGeoms, (a, b) => a !== b && a.properties.state !== b.properties.state, path));
+    gLines.append('path').attr('class', 'borders').attr('id', 'borders');
+    gLines.append('path').attr('class', 'coast').attr('d', meshD(mainGeoms, (a, b) => a === b, path) + meshD(hiGeoms, (a, b) => a === b, pathHI));
+    gLines.append('rect').attr('class', 'inset-frame').attr('x', hiBox[0][0]).attr('y', hiBox[0][1]).attr('width', hiBox[1][0] - hiBox[0][0]).attr('height', hiBox[1][1] - hiBox[0][1]).attr('rx', 6);
+  }
+
+  // a label's spot: the point of the shape farthest from its edge (a coarse grid, then a finer one)
+  function spot(ring) {
+    const step = Math.max(1, Math.floor(ring.length / 220)); const r = ring.filter((_, k) => k % step === 0);
+    if (r.length < 3) return null;
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    for (const [x, y] of r) { if (x < x0) x0 = x; if (y < y0) y0 = y; if (x > x1) x1 = x; if (y > y1) y1 = y; }
+    const dist = (x, y) => { let m = Infinity; for (let k = 0, j = r.length - 1; k < r.length; j = k++) { const [ax, ay] = r[j], [bx, by] = r[k]; const dx = bx - ax, dy = by - ay; const t = Math.max(0, Math.min(1, ((x - ax) * dx + (y - ay) * dy) / (dx * dx + dy * dy || 1))); const ex = ax + t * dx - x, ey = ay + t * dy - y; const d = ex * ex + ey * ey; if (d < m) m = d; } return Math.sqrt(m); };
+    let best = null, bd = -1;
+    const pass = (cx0, cy0, cx1, cy1, n) => { for (let a = 0; a <= n; a++) for (let b = 0; b <= n; b++) { const x = cx0 + (cx1 - cx0) * a / n, y = cy0 + (cy1 - cy0) * b / n; if (!d3.polygonContains(r, [x, y])) continue; const d = dist(x, y) * (1 - 0.15 * Math.abs((y - (y0 + y1) / 2) / ((y1 - y0) || 1))); if (d > bd) { bd = d; best = [x, y]; } } };
+    pass(x0, y0, x1, y1, 16);
+    if (best) { const sx = (x1 - x0) / 16, sy = (y1 - y0) / 16; pass(best[0] - sx, best[1] - sy, best[0] + sx, best[1] + sy, 8); }
+    return best ? { p: best, r: bd } : null;
+  }
+  const CACHE = new Map();
+  function config(Y) {
+    const s = pieces.map((_, i) => sidAt(i, Y));
+    const key = s.join('|');
+    if (CACHE.has(key)) return CACHE.get(key);
+    const byId = new Map(pieces.map((g, i) => [g, s[i]]));
+    const borders = meshD(mainGeoms, (a, b) => a !== b && byId.get(a) !== byId.get(b), path);
+    const groups = new Map();
+    pieces.forEach((g, i) => { if (s[i]) (groups.get(s[i]) || groups.set(s[i], []).get(s[i])).push(i); });
+    const labels = [];
+    for (const [sid, idx] of groups) {
+      const main = idx.filter((i) => !isHI(pieces[i]));
+      const use = main.length ? main : idx, pr = main.length ? proj : projHI;
+      const m = topojson.merge(topo, use.map((i) => pieces[i]));
+      // the label in its biggest part on the screen (the Northwest's on Washington, not on Alaska off the edge)
+      let bestRing = null, bestA = 0, bestScore = -1;
+      for (const poly of m.coordinates) {
+        const ring = poly[0].map((c) => pr(c)).filter(Boolean);
+        if (ring.length < 3) continue;
+        const a = Math.abs(d3.polygonArea(ring)), [cx, cy] = d3.polygonCentroid(ring);
+        const score = a * (cx > 0 && cx < W && cy > 50 && cy < H - 70 ? 1 : 0.02);
+        if (score > bestScore) { bestScore = score; bestA = a; bestRing = ring; }
+      }
+      const sp = bestRing && bestA > 60 ? spot(bestRing) : null;
+      if (sp) labels.push({ sid, x: sp.p[0], y: sp.p[1], r: sp.r, area: bestA });
+    }
+    const c = { key, s, borders, groups, labels };
+    CACHE.set(key, c);
+    return c;
+  }
+  function wrap(name) {
+    if (name.length <= 9 || !name.includes(' ')) return [name];
+    const mid = name.length / 2; let at = -1, bd = Infinity;
+    for (let k = 0; k < name.length; k++) if (name[k] === ' ' && Math.abs(k - mid) < bd) { bd = Math.abs(k - mid); at = k; }
+    return [name.slice(0, at), name.slice(at + 1)];
+  }
+  function drawLabels(c, Y) {
+    const out = [];
+    for (const L of c.labels) {
+      const lines = wrap(shName(L.sid, Y));
+      const fs = Math.max(9, Math.min(13.5, Math.sqrt(L.area) / 8)) / Math.sqrt(K);
+      const wid = Math.max(...lines.map((t) => t.length)) * fs * 0.56, hgt = lines.length * fs * 1.1;
+      if (L.r < hgt * 0.5 || L.r * 3.4 < wid) continue;
+      out.push({ ...L, lines, fs });
+    }
+    gLabels.selectAll('text').data(out, (d) => d.sid).join('text').attr('class', 'label')
+      .attr('transform', (d) => `translate(${d.x},${d.y})`).style('font-size', (d) => `${d.fs}px`).style('stroke-width', `${3 / K}px`)
+      .each(function (d) {
+        const t = d3.select(this); t.selectAll('tspan').remove();
+        d.lines.forEach((ln, k) => t.append('tspan').attr('x', 0).attr('dy', k === 0 ? `${(0.35 - (d.lines.length - 1) * 0.55)}em` : '1.1em').text(ln));
+      });
+  }
+  function drawFlags(c, Y) {
+    const seen = new Set(), out = [];
+    for (const sid of c.groups.keys()) {
+      const f = flagAt(sid, Y); if (!f) continue;
+      const k = f.centerId || `${f.lat},${f.lon}`; if (seen.has(k)) continue; seen.add(k);
+      const hi = f.lon < -150 && f.lat < 25; const p = (hi ? projHI : proj)([f.lon, f.lat]); if (!p) continue;
+      out.push({ sid, f, x: p[0], y: p[1] });
+    }
+    const star = d3.symbol(d3.symbolStar, STAR)();
+    gFlags.selectAll('path').data(out, (d) => d.sid).join('path').attr('class', 'flag').attr('d', star)
+      .attr('transform', (d) => `translate(${d.x},${d.y}) scale(${1 / Math.sqrt(K)})`).style('stroke-width', `${1.4}px`)
+      .on('click', (ev, d) => { ev.stopPropagation(); selectSid(d.sid); });
+  }
+  function render(Y, animate = true) {
+    Y = Math.max(MIN, Math.min(MAX, Y));
+    const prev = cur.Y; cur.Y = Y;
+    $('#year').textContent = Y;
+    $('#slider').value = Y;
+    const c = config(Y);
+    pieceSel.style('fill', (g, i) => fillOf(c.s[i])).style('stroke', (g, i) => fillOf(c.s[i]));
+    d3.select('#borders').attr('d', c.borders);
+    drawLabels(c, Y); drawFlags(c, Y);
+    if (animate && prev != null && prev !== Y && Math.abs(prev - Y) === 1) flash(prev, Y);
+    cur.key = c.key;
+    if (selected) showCard();
+    try { const q = new URLSearchParams(location.search); q.set('y', Y); history.replaceState(null, '', `${location.pathname}?${q}`); } catch (e) {}
+  }
+  function flash(a, b) {
+    const ca = config(a), cb = config(b);
+    const changed = pieces.map((_, i) => i).filter((i) => ca.s[i] !== cb.s[i]);
+    gSel.selectAll('.flash').remove();
+    if (!changed.length) return;
+    const main = changed.filter((i) => !isHI(pieces[i])), hi = changed.filter((i) => isHI(pieces[i]));
+    const d = (main.length ? path(topojson.merge(topo, main.map((i) => pieces[i]))) : '') + (hi.length ? pathHI(topojson.merge(topo, hi.map((i) => pieces[i]))) : '');
+    gSel.append('path').attr('class', 'flash').attr('d', d).node().getBoundingClientRect();
+    gSel.select('.flash').classed('on', true);
+  }
+
+  // ---------- the card ----------
+  function select(i) { selected = { i, sid: null }; showCard(); }
+  function selectSid(sid) { selected = { i: null, sid }; showCard(); }
+  function showCard() {
+    const Y = cur.Y, card = $('#card');
+    const i = selected.i, sid = i != null ? sidAt(i, Y) : selected.sid;
+    gSel.selectAll('.sel').remove();
+    const h = [];
+    if (sid) {
+      const c = config(Y), idx = c.groups.get(sid) || [];
+      const main = idx.filter((k) => !isHI(pieces[k])), hi = idx.filter((k) => isHI(pieces[k]));
+      const d = (main.length ? path(topojson.merge(topo, main.map((k) => pieces[k]))) : '') + (hi.length ? pathHI(topojson.merge(topo, hi.map((k) => pieces[k]))) : '');
+      gSel.append('path').attr('class', 'sel').attr('d', d);
+      const hd = headAt(sid, Y);
+      h.push(`<h2><span class="sw" style="background:${fillOf(sid)}"></span>${esc(shName(sid, Y))}</h2>`);
+      if (hd) h.push(`<div class="head">${esc(headName(sid, hd.x))}</div><div class="since">${hd.st ? esc(fmtStart(hd.st)) : ''}</div>`);
+      const f = flagAt(sid, Y);
+      if (f) h.push(`<div class="area">★ ${esc(f.where.replace(/ \((address not found|[^)]*)\)$/, ''))}</div>`);
+    } else if (i != null) {
+      h.push(`<h2><span class="sw" style="background:var(--empty)"></span>${esc(areaName(pieces[i]))}</h2>`);
+    }
+    if (i != null && P[i].periods.length) {
+      const now = (() => { let k = -1; P[i].periods.forEach((q, j) => { if (q.st.y <= Y) k = j; }); return k; })();
+      if (sid) h.push(`<div class="area">${esc(areaName(pieces[i]))}</div>`);
+      h.push('<ul class="hist">' + P[i].periods.map((q, j) => `<li data-y="${q.st.y}" class="${j === now ? 'now' : ''}"><b>${esc(fmtStart(q.st))}</b><span>${esc(q.sid ? shName(q.sid, q.st.y) : '—')}</span></li>`).join('') + '</ul>');
+    }
+    card.innerHTML = h.join('') + '<button class="x" type="button" aria-label="Close">×</button>';
+    card.hidden = false;
+    card.querySelector('.x').onclick = () => { selected = null; card.hidden = true; gSel.selectAll('.sel').remove(); };
+    card.querySelectorAll('li[data-y]').forEach((li) => { li.onclick = () => { stop(); render(+li.dataset.y); }; });
+  }
+  const esc = (s) => String(s).replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
+  svg.on('click', () => { if (selected) { selected = null; $('#card').hidden = true; gSel.selectAll('.sel').remove(); } });
+
+  // ---------- zoom ----------
+  const zoom = d3.zoom().scaleExtent([1, 40]).on('zoom', (ev) => {
+    const k0 = K; K = ev.transform.k; root.attr('transform', ev.transform);
+    if (Math.abs(k0 - K) > 1e-3) { const c = config(cur.Y); drawLabels(c, cur.Y); drawFlags(c, cur.Y); }
+  });
+  svg.call(zoom).on('dblclick.zoom', null);
+
+  // ---------- controls ----------
+  const slider = $('#slider'); slider.min = MIN; slider.max = MAX;
+  slider.addEventListener('input', () => { stop(); render(+slider.value); });
+  let timer = null;
+  const playIcon = $('#playIcon');
+  function stop() { if (timer) { clearInterval(timer); timer = null; playIcon.setAttribute('d', 'M7 5v14l12-7z'); $('#play').setAttribute('aria-label', 'Play'); } }
+  function play() {
+    if (timer) return stop();
+    if (cur.Y >= MAX) render(MIN, false);
+    playIcon.setAttribute('d', 'M6 5h4v14H6zM14 5h4v14h-4z'); $('#play').setAttribute('aria-label', 'Pause');
+    timer = setInterval(() => { if (cur.Y >= MAX) return stop(); render(cur.Y + 1); }, 650);
+  }
+  $('#play').onclick = play;
+  $('#prev').onclick = () => { stop(); const y = [...CHANGES].reverse().find((v) => v < cur.Y); if (y != null) render(y, false); };
+  $('#next').onclick = () => { stop(); const y = CHANGES.find((v) => v > cur.Y); if (y != null) render(y, false); };
+  addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { stop(); render(cur.Y + (e.key === 'ArrowRight' ? 1 : -1)); e.preventDefault(); }
+    if (e.key === ' ') { play(); e.preventDefault(); }
+  });
+  const langBtn = $('#lang');
+  langBtn.textContent = HE ? 'EN' : 'עב';
+  langBtn.onclick = () => { try { localStorage.setItem('shetachim-lang', HE ? 'en' : 'he'); } catch (e) {} const q = new URLSearchParams(location.search); q.set('lang', HE ? 'en' : 'he'); location.search = q.toString(); };
+  $('#home').href = HE ? './?lang=he' : './';
+  function initialYear() { const q = +new URLSearchParams(location.search).get('y'); return q >= MIN && q <= MAX ? q : MAX; }
+  let rt = null; addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { CACHE.clear(); layout(); }, 150); });
+  layout();
+  window.__history = { labels: () => config(cur.Y).labels };
+})();
+</script>
+</body>
+</html>

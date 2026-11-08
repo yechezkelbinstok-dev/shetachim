@@ -202,6 +202,28 @@ Things found on the way:
   Worcester's (June 1942), Pittsburgh's day school (1942), New Haven (1946). Buffalo's yeshiva (1943) closed, so
   Upstate New York starts with Gurary (5731).
 
+## The page: web/history.html (Nov 8, the third session)
+
+The shetachim of the US and Canada year by year (a slider and play), drawn from this file on the main map's own
+pieces (web/data/geo.json), with each shetach's flagship as a star and nothing else. **Owner (Nov 8):** "the ones with
+just shifting borders not centers or anything and only the US and Canada", then "it should have but only flagship
+center", "flagships very much changed over time? You have to factor that in too (remember there's already some moves
+in the data)", and "this website BETTER NOT ... HAVE THE AI SLOP EXPLANATORY TEXT": **no explanatory text on the page**,
+only names, years and controls.
+- A period with only bounds shows from its 'by' year. A shetach's old name (Pacific Northwest, the Virginias) shows
+  while it covers more than its piece today. Colours: one per shetach for the whole timeline, neighbours never alike.
+- New Brunswick and Prince Edward Island (no history of their own) follow Nova Scotia's Maritimes; the sliver of New
+  York in Southern Ontario's piece follows Ontario. Southern New Jersey (extraAreas) isn't drawn: no county shapes.
+- **Flagships** (`flagships` in the data): where the head's own center was, from when. Moves between cities are
+  in for Michigan (Detroit, Oak Park, Farmington Hills, Oak Park), the Upper Midwest (Minneapolis, St. Paul, Highland
+  Park, West St. Paul), Kansas City (Holmes Road, then Overland Park by 2010), Tennessee (Posner's Sherith Israel in
+  Nashville, Memphis from 1994), Southern Ohio (Kalmanson's Cincinnati, Mangel's Blue Ash from 1995), Central Ohio (the
+  OSU house, New Albany by 2014), New Jersey (Newark, Morristown from 1971), Arizona, Texas, Indiana and Kentucky
+  (their first homes, from the founding years' `earlier`); Crown Heights is 770 from 16 Aug 1940. A shetach not listed
+  shows today's capital from its start. Addresses known only from a directory snapshot (no dates) are left out.
+  Open: Connecticut (Deren in Amherst from 1974, Stamford from when?), Ontario (Toronto to Thornhill), Upstate New
+  York (the Chabad House of Buffalo to Getzville), Iowa and New Mexico before 1992 (other directors, same cities).
+
 ## Open
 
 - **Eastern Massachusetts is one shetach (Prus, from 1975) in the history for now** (owner, Nov 8: "honestly I don't

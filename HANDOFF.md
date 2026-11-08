@@ -246,7 +246,9 @@ thirteen no better recent photo has been found yet (the list is there, with what
     of usage** (owner: "another session was in the middle of making the history page meaning the ones with just shifting
     borders not centers or anything and only the US and Canada but then it ran out of usage limits so can you pick up
     where it left off?"). Files `data/shetach-history.json`, `work/shetach-history/README.md`. The three pieces left
-    (New York City 1955, Crown Heights 1940, Monsey by 1983) are in; now the open questions in the README. The founding years of Virginia
+    (New York City 1955, Crown Heights 1940, Monsey by 1983) are in. **The page is up: `web/history.html`** (borders by year,
+    US and Canada, each shetach's flagship as a star, moving as the data says; owner: no explanatory text on it). Next:
+    the flagships still open (README) and the open questions. The founding years of Virginia
     (5 of 19 done), Oregon and Upstate New York wait until this is done.
   - **Owner (Nov 8): WebFetch is a model's answer, not the page, so it can miss or bend a detail.** Every entry with a
     year (847 on Nov 8) keeps its source link and 820 quote the page, so all of them can be checked against their own

@@ -825,6 +825,16 @@
   ],
   "washington-dc": [
    {
+    "head": "Avremel Shemtov",
+    "from": null,
+    "fromBound": {
+     "by": "1979-12"
+    },
+    "how": "owner",
+    "he": "אברהם שם טוב",
+    "note": "Owner, Nov 9: DC its own shetach with Avremel as its head until Levi. He founded and directed American Friends of Lubavitch in Washington; shown from the first National Menorah (Dec 1979), when it is first known to be his (sources on area US-DC:washington-dc)."
+   },
+   {
     "head": "Levi Shemtov",
     "from": "1992",
     "how": "stated",
@@ -1418,7 +1428,7 @@
   ],
   "US-DC:washington-dc": [
    {
-    "shetach": "pennsylvania",
+    "shetach": "washington-dc",
     "from": null,
     "fromBound": {
      "by": "1979-12"
@@ -1439,7 +1449,7 @@
       "note": "signed by Rabbi Abraham Shemtov as director (as a search describes it; not read)"
      }
     ],
-    "note": "Owner, Nov 8: \"You do fucking realize DC was Avremel's before it was Levy's, right?\" Rabbi Avremel (Abraham) Shemtov of Philadelphia founded and directed American Friends of Lubavitch, Chabad's office in Washington. When DC became his is not found, so only 'by' the first National Menorah. (The Maryland head, Kaplan, asked the Rebbe in the late 5730s about opening a Chabad House in Washington, which the Rebbe did not approve, and in summer 5745 about a center in the heart of the city, 'if there will be a proper administration' (Derher, 'Pinpoints: Baltimore'); that was a question, not his shetach.)",
+    "note": "Owner, Nov 9: \"shouldn't DC and Penn be seperate just with same head for the tkufah where avremel ran it before Levi??\" (Nov 8: \"You do fucking realize DC was Avremel's before it was Levy's, right?\"): its own shetach, American Friends of Lubavitch's Washington office, headed by Avremel Shemtov until his son Levi (1992). Owner, Nov 8: \"You do fucking realize DC was Avremel's before it was Levy's, right?\" Rabbi Avremel (Abraham) Shemtov of Philadelphia founded and directed American Friends of Lubavitch, Chabad's office in Washington. When DC became his is not found, so only 'by' the first National Menorah. (The Maryland head, Kaplan, asked the Rebbe in the late 5730s about opening a Chabad House in Washington, which the Rebbe did not approve, and in summer 5745 about a center in the heart of the city, 'if there will be a proper administration' (Derher, 'Pinpoints: Baltimore'); that was a question, not his shetach.)",
     "kaplanSource": {
      "url": "https://derher.org/wp-content/uploads/5785-7-10.pdf",
      "title": "A Chassidisher Derher, Nissan 5785, 'Pinpoints: Baltimore, MD'",
@@ -2960,17 +2970,10 @@
     "note": "Owner, Nov 8: Kalmanson 'was given basically all those parts of Ohio, I think' (Ohio outside Alevsky's part). Sources on US-OH:southern-ohio."
    },
    {
-    "shetach": "central-ohio",
-    "from": "1991",
-    "how": "range",
-    "confidence": "low",
-    "note": "Not found: taken with Central Ohio (the Kaltmanns, Columbus, 1991), its neighbour, when Central Ohio was cut from Kalmanson's; otherwise his shetach would have been in two pieces."
-   },
-   {
     "shetach": "northeast-ohio",
-    "from": "2015-08",
-    "how": "news",
-    "confidence": "high",
+    "from": "1991",
+    "how": "owner",
+    "note": "Owner, Nov 9: \"maybe the year kaltman comes down is the year Alevsky gets what Greenberg has now\": when Central Ohio was cut from Kalmanson's (the Kaltmanns, Columbus, 1991), this part went to Alevsky's Northeast Ohio, as it is today (was: taken with Central Ohio, a guess). Alevsky's own house at Ohio University, Athens, opened Aug 2015.",
     "sources": [
      {
       "url": "https://www.clevelandjewishnews.com/news/local_news/chabad-expands-reach-to-westlake-ohio-university/article_eb709be4-56fe-11e5-afd9-4379320d1e86.html",
@@ -2979,8 +2982,7 @@
       "quote": "Chabad opened its doors at 100 Morris Ave. in Athens in mid-August during student move-in week.",
       "via": "data/founding-years.json, 2842082"
      }
-    ],
-    "note": "Rabbi Levi Raichik 'is spearheading the Chabad at Ohio University in Athens' (Chabad of Cleveland's)."
+    ]
    }
   ],
   "CA-NB:maritimes": [
@@ -3901,14 +3903,18 @@
   ],
   "washington-dc": [
    {
-    "from": "1992",
+    "from": null,
     "where": "American Friends of Lubavitch (Chabad), Washington",
     "centerId": "117966",
     "lat": 38.91553,
     "lon": -77.04699,
     "name": "American Friends of Lubavitch (Chabad)",
     "city": "Washington",
-    "via": "data/founding-years.json, 117966"
+    "via": "data/founding-years.json, 117966",
+    "fromBound": {
+     "by": "1979-12"
+    },
+    "note": "American Friends of Lubavitch's Washington office, from Avremel's start (the star at today's office: moves within a city whose dates are not known are left out)."
    }
   ],
   "west-coast": [

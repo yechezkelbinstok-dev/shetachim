@@ -23511,12 +23511,11 @@
    "name": "Chabad Hope Center / The Family Store",
    "city": "Montreal, QC",
    "shetach": "quebec",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2017,
-   "source": "https://www.chabad.org/api/content/3827161/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2017-10-26, so it existed by then. Director: Yossi Kessler."
+   "year": 2008,
+   "how": "news",
+   "confidence": "medium",
+   "source": "https://crownheights.info/shlichus/574826/family-store-helps-keep-kosher-food-affordable/",
+   "note": "Lubavitch.com on CrownHeights.info, 2 May 2017 ('The Family Store Helps Keep Kosher Food Affordable'): Rabbi Yossi Kessler, 'who founded and directs the store with Rabbi Itchy Treitel': 'Nine years ago, we opened the store'. Medium: counted back (about 2008); this listing only went up in 2017."
   },
   "117803": {
    "name": "Chabad Chai Center",
@@ -24083,12 +24082,11 @@
    "name": "Chabad of Trois-Rivières",
    "city": "Trois-Rivières, QC",
    "shetach": "quebec",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2024,
-   "source": "https://www.chabad.org/api/content/6673125/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2024-12-09, so it existed by then. Director: Aaron Spiro."
+   "year": 2024,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/chabad-news/888043/canadas-historic-trois-rivieres-gets-its-first-rabbi-in-70-years/",
+   "note": "Chabad.org on CrownHeights.info, 29 Nov 2024: 'Rabbi Aaron and Amanda Spiro, natives of Montreal, have officially established Chabad-Lubavitch of Trois-Rivières'. Lubavitch.com, 24 Dec 2024: from 2021 they had been visiting the city once a month for Shabbat and holiday programmes. Its chabad.org listing went up 9 Dec 2024."
   },
   "6729898": {
    "name": "ChabadHeart",

@@ -22226,12 +22226,12 @@
    "name": "Mesivta Lubavitch Baltimore",
    "city": "Baltimore, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2022,
-   "source": "https://www.chabad.org/api/content/5694978/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2022-11-08, so it existed by then. Director: Zev Gopin."
+   "year": 2022,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/chabad-news/760348/new-baltimore-mesivta-for-5783-shnas-halimudim/",
+   "note": "CrownHeights.info, 6 Feb 2022 ('New Baltimore Mesivta For 5783 Shnas Halimudim'): 'A new Mesivta in Balitmore will open IY\"H' for the 5783 school year (from Sept 2022), with Rabbi Mendel Kaminker as interim menahel. Its chabad.org listing went up 8 Nov 2022.",
+   "season": "fall"
   },
   "6809931": {
    "name": "Chabad Girls High School - Baltimore",
@@ -22281,45 +22281,41 @@
    "name": "Chabad Lubavitch Center of Eastern Shore",
    "city": "Ocean City, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/118207/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Lead, not checked: the Jewish Link says Rabbi Noam and Cohava Cohen have directed the Ocean City centre for about 20 years. Director: Noam Shimon Cohen."
+   "year": 1996,
+   "how": "news",
+   "confidence": "medium",
+   "source": "https://jewishlink.news/looking-for-a-different-beach-try-ocean-city-md/",
+   "note": "The Jewish Link, 2 June 2016: 'Rabbi Cohen and his wife, Cohava, have been directing the center there for 20 years.' Del Marva Now on CrownHeights.info, 22 July 2011: Rabbi Noam Cohen of the Ocean City-based Chabad Lubavitch Center, 'an Ocean City resident for 15 years'. Medium: both counted back (about 1996)."
   },
   "118382": {
    "name": "Chabad of Bethesda",
    "city": "Bethesda, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/118382/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Leads, not checked and in conflict: Washington Jewish Week says Chabad of Bethesda was established in 1999; COLlive says Rabbi Bentzion and Zlata Geisinsky left Potomac in 2000 to found Chabad of Bethesda-Chevy Chase. Director: Sender Geisinsky."
+   "year": 1999,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://www.washingtonjewishweek.com/?p=88684",
+   "note": "Washington Jewish Week, 22 June 2023: 'Chabad of Bethesda was established in a commercial property in 1999'; Rabbi Bentzion and Zlata Geisinsky founded it (their son Rabbi Sender Geisinsky leads it now). A 2010 tribute to Zlata Geisinsky (zlatasimpact.blogspot.com): 'The pair moved to Bethesda nearly 11 years ago'. Medium: Washington Jewish Week on CrownHeights.info, 28 Nov 2012, says 'In 2000, they left their work at the Chabad center in Potomac, to found Chabad of Bethesda-Chevy Chase': a year apart."
   },
   "118536": {
    "name": "Chabad Israeli Center of Rockville",
    "city": "Rockville, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/118536/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Shlomo Beitsh."
+   "year": 2002,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://www.washingtonjewishweek.com/rockvilles-chabad-israeli-center-to-open-new-synagogue-israeli-community-center/",
+   "note": "Washington Jewish Week, 2 Sept 2025: 'The Chabad Israeli Center of Rockville saw its start in 2002, when Beitsh and his wife moved from Brooklyn to Rockville.' Medium: one source so far (a Times of Israel blog is said to give summer 2002; not read)."
   },
   "118581": {
    "name": "Chabad of Owings Mills",
    "city": "Owings Mills, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/118581/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Rabbi Nochum Katsenelenbogen started a weekly service 'In 2005, the year he arrived' (CrownHeights.info, 19 Sept 2011, https://crownheights.info/shlichus/37803/rabbi-k-is-looking-for-a-permanent-home/), but the listing is from 2004, so the year is left open. Director: Nochum Katsenelenbogen."
+   "year": 2003,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://crownheights.info/shlichus/37803/rabbi-k-is-looking-for-a-permanent-home/",
+   "note": "CrownHeights.info, 19 Sept 2011: Chabad of Owings Mills was 'Founded in 2003, it didn't start programming until 2005 with the arrival of Katsenelenbogen, his wife, Chanie'; 'In 2005, the year he arrived, Katsenelenbogen started a weekly worship service'. Its chabad.org listing is in the first online directory (July 2004). Medium: one source."
   },
   "118591": {
    "name": "ARIEL Chabad",
@@ -22380,45 +22376,42 @@
    "name": "Chabad of Downtown",
    "city": "Baltimore, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2007,
-   "source": "https://www.chabad.org/api/content/547217/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2007-10-15, so it existed by then. Director: Levi Druk."
+   "year": 2007,
+   "how": "anniversary",
+   "confidence": "medium",
+   "source": "https://collive.com/chabad-of-downtown-baltimore-marks-13/",
+   "note": "Baltimore Jewish Living on COLlive (read through Firecrawl), 8 Dec 2020: Chabad of Downtown Baltimore (Rabbi Levi and Chani Druk) 'marked its 13th anniversary' ('Chabad of Baltimore's bar mitzvah anniversary'); its chabad.org listing went up 15 Oct 2007. Medium: the same article also says 'Founded in 2008': a year apart."
   },
   "704078": {
    "name": "Chabad-Lubavitch of Towson",
    "city": "Towson, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2008,
-   "source": "https://www.chabad.org/api/content/704078/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2008-07-20, so it existed by then. Director: Mendy Rivkin."
+   "year": 2008,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/shlichus/14303/chabads-towson-debut/",
+   "note": "Baltimore Jewish Times on CrownHeights.info, 20 Nov 2008 ('Chabad's Towson Debut'): 'Last July, Rabbi Mendy and Sheiny Rivkin took posts as the new Chabad shluchim, or emissaries, at Towson University'; Rivkin had to 'start from scratch'. Its chabad.org listing went up 20 July 2008.",
+   "date": "2008-07"
   },
   "768404": {
    "name": "Chabad Lubavitch of Frederick",
    "city": "Frederick, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2009,
-   "source": "https://www.chabad.org/api/content/768404/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2009-08-25, so it existed by then. Director: Boruch Sholom Labkowski."
+   "year": 2008,
+   "how": "news",
+   "confidence": "medium",
+   "source": "https://mikveh.blogspot.com/2008/10/chabad-to-establish-presence-in.html",
+   "note": "The Frederick News-Post, reprinted 30 Oct 2008 ('Chabad to establish presence in Frederick'): 'Boruch Labkowski, a New York-based rabbi, has started a local chapter of Chabad in Frederick and is also the group's director.' Medium: the Frederick News-Post on CrownHeights.info (2011) says 'Labkowski formed Chabad of Frederick in 2009', and its chabad.org listing went up 25 Aug 2009: a year apart."
   },
   "1327970": {
    "name": "Chabad of Clarksville",
    "city": "Clarksville, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2010,
-   "source": "https://www.chabad.org/api/content/1327970/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2010-10-15, so it existed by then. Director: Yosef Chaim Sufrin."
+   "year": 2010,
+   "how": "news",
+   "confidence": "medium",
+   "source": "https://www.jewishtelegraph.com/prof_165.html",
+   "note": "Jewish Telegraph profile (about 2012): Leeds-born Rabbi Yosef Chaim Sufrin 'is making a massive impact since establishing a Chabad House there two years ago' in Clarksville. Its chabad.org listing went up 15 Oct 2010. Medium: counted back, and the profile's exact date isn't shown."
   },
   "1379569": {
    "name": "Chabad Israeli Center of Baltimore",
@@ -22512,12 +22505,11 @@
    "name": "Chabad of Chevy Chase",
    "city": "Chevy Chase, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2015,
-   "source": "https://www.chabad.org/api/content/3043157/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2015-08-26, so it existed by then. Director: Zalman Minkowitz."
+   "year": 2015,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/shlichus/474063/new-shluchim-to-maryland-4/",
+   "note": "CrownHeights.info, 17 Feb 2015 ('New Shluchim to Maryland'): 'Rabbi Shneur Zalman and Mushka Minkowitz will be moving on Shlichus to the Chevy Chase area of Maryland', appointed by Rabbi Bentzion Geisinsky of Merkaz Menachem Chabad; 'will be moving to their new post shortly'. Its chabad.org listing went up 26 Aug 2015."
   },
   "3310908": {
    "name": "Chabad of Greater Laurel",
@@ -22556,12 +22548,11 @@
    "name": "Chabad of Catonsville & UMBC",
    "city": "Baltimore, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2019,
-   "source": "https://www.chabad.org/api/content/4262951/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2019-01-17, so it existed by then. Director: Dovid Reyder."
+   "year": 2019,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.wmar2news.com/news/region/baltimore-county/catonsville-rabbi-on-australia-shooting-were-going-to-increase-in-light",
+   "note": "WMAR-2 News, 15 Dec 2025: Rabbi Dovid Reyder 'arrived in 2019 to serve Jewish students and the Catonsville community, which he said lacked an official Jewish presence before the congregation began its work.' Its chabad.org listing went up 17 Jan 2019."
   },
   "4563151": {
    "name": "Simcha Educational Center",
@@ -22578,12 +22569,11 @@
    "name": "Chabad of Ellicott City",
    "city": "Ellicott City, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2020,
-   "source": "https://www.chabad.org/api/content/4578619/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2020-01-07, so it existed by then. Director: Yanky Baron."
+   "year": 2020,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://www.lubavitch.com/photo_gallery/new-shluchim-to-ellicott-city/",
+   "note": "Lubavitch.com, 16 June 2020 ('New Shluchim to Ellicott City'): 'Rabbi Yanky and Leah Baron will join the team at Chabad of Columbia, Maryland, establishing a new Chabad community in Ellicott City'. Its chabad.org listing went up 7 Jan 2020."
   },
   "4821900": {
    "name": "Chabad of South Baltimore & University of Maryland Baltimore",
@@ -22622,23 +22612,21 @@
    "name": "Chabad Lubavitch of Bowie Maryland",
    "city": "Bowie, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2024,
-   "source": "https://www.chabad.org/api/content/6447578/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2024-07-02, so it existed by then. Director: Eli Baron."
+   "year": 2024,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/chabad-news/861430/new-shluchim-to-the-city-of-bowie-md/",
+   "note": "CrownHeights.info, 7 Apr 2024 ('New Shluchim To The City of Bowie, MD'): Rabbi Eli and Chaya Mushka Baron 'will shortly assume a new Shlichus position'; 'the Barons will open the first permanent Chabad Center in the city of Bowie.' Its chabad.org listing went up 2 July 2024."
   },
   "6518301": {
    "name": "Chabad of Glen Burnie and Pasadena",
    "city": "Pasadena, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2024,
-   "source": "https://www.chabad.org/api/content/6518301/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2024-08-05, so it existed by then. Director: Mendel Mintz."
+   "year": 2024,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/chabad-news/876570/miriam-mintz-30-beloved-educator-and-just-appointed-chabad-emissary/",
+   "note": "Chabad.org on CrownHeights.info, 17 Aug 2024 (Miriam Mintz, 30): with her husband Rabbi Mendel Mintz 'she was preparing to relocate to Baltimore's southern suburbs, where they were starting a Chabad Center to serve Pasadena and Glen Burnie'; 'A little more than a month ago ... they finalized the plans for their new Chabad center'. Its chabad.org listing went up 5 Aug 2024."
   },
   "6602677": {
    "name": "Chabad of West Pikesville",
@@ -22688,12 +22676,11 @@
    "name": "Chabad of Kent Island",
    "city": "Chester, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2026,
-   "source": "https://www.chabad.org/api/content/7269663/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2026-04-13, so it existed by then. Director: Menachem M Stern."
+   "year": 2026,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/chabad-news/947422/new-shluchim-to-historic-kent-island/",
+   "note": "CrownHeights.info, 20 May 2026 ('New Shluchim to Historic Kent Island'): 'Rabbi Mendel and Rivky Stern ... are establishing a new Shlichus based in Kent Island, serving the entire Upper Eastern Shore of Maryland'. Its chabad.org listing went up 13 Apr 2026."
   },
   "7402508": {
    "name": "CTeen of Baltimore",

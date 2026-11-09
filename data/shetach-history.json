@@ -661,11 +661,14 @@
   "southern-ohio": [
    {
     "head": "Sholom Ber Kalmanson",
-    "from": "1975-09",
-    "how": "news",
-    "confidence": "high",
-    "note": "sources on area US-OH:southern-ohio",
-    "he": "שלום בער קלמנסון"
+    "from": null,
+    "how": "owner",
+    "note": "Owner, Nov 9: \"Kalmanson was sent lamed gimmel\" (5733: Sept 1972 to Sept 1973; was Sept 1975, the Cincinnati Chabad House's opening). sources on area US-OH:southern-ohio",
+    "he": "שלום בער קלמנסון",
+    "fromBound": {
+     "after": "1972-09",
+     "by": "1973-09"
+    }
    },
    {
     "head": "Yisroel Mangel",
@@ -853,11 +856,21 @@
   ],
   "western-pennsylvania": [
    {
-    "head": "Mordechai Dov Altein",
+    "head": "Kevutzah",
+    "group": [
+     "Yisroel Meir Altein",
+     "Mordechai Dov Altein",
+     "Dovid Eidelman"
+    ],
+    "groupHe": [
+     "ישראל מאיר אלטיין",
+     "מרדכי דב אלטיין",
+     "דוד איידלמן"
+    ],
+    "role": "Kevutzah",
+    "roleHe": "קבוצה",
     "from": "1941-12-07",
-    "he": "מרדכי דב אלטיין",
-    "how": "stated",
-    "confidence": "high",
+    "how": "owner",
     "sources": [
      {
       "url": "https://jewishchronicle.timesofisrael.com/a-postcard-from-the-early-days-of-yeshiva-schools/",
@@ -866,9 +879,7 @@
       "quote": "On December 7, 1941, in the shadow of Pearl Harbor, the Frierdiker Rebbe dispatched Rabbi Altein to Pittsburgh “to learn Torah and create activities among the youth.” ... By summer, Rabbi Mordechai Dov Altein had started Yeshiva Achei T’mimim, the first Lubavitch yeshiva in America outside of New York."
      }
     ],
-    "note": "Sent by the Frierdiker Rebbe (Toldos Chabad B'artzos Habris and his letters of 5702, as the Chronicle's author read them); he stayed as principal till summer 1944, then went to New Haven. The Derens came in 1942 (COLlive). Not a head shliach: a young shliach of the Frierdiker Rebbe sent 'to learn Torah and create activities among the youth'; he began the afterschool program and the yeshiva. Owner, Nov 9: \"someone was not a head shliach. The guy was running a yeshiva, the Kramer guy, right? That's not a head shliach\".",
-    "role": "Shliach",
-    "roleHe": "שליח"
+    "note": "Owner, Nov 9: \"the first kevutzah of bochurim to Pittsburgh was three bochurim, no hanholo and it was three not just one - Yisroel Meir Altein, Mordechai Dov Altein, and Dovid Eidelman\". The date is Mordechai Dov Altein's dispatch by the Frierdiker Rebbe (Pittsburgh Jewish Chronicle). Shown as a group with no one over them. Named 'Kevutzah' (owner, Nov 9: \"Name it kevutzah of bochurim or smth or kevutzah\")."
    },
    {
     "head": "Sholom Posner",
@@ -1713,8 +1724,13 @@
   "US-IN:indiana": [
    {
     "shetach": "southern-ohio",
-    "from": "1975-09",
-    "how": "owner"
+    "from": null,
+    "how": "owner",
+    "fromBound": {
+     "after": "1972-09",
+     "by": "1973-09"
+    },
+    "note": "Owner, Nov 9: \"Kalmanson was sent lamed gimmel\" (5733: Sept 1972 to Sept 1973; was Sept 1975, the Cincinnati Chabad House's opening). "
    },
    {
     "shetach": "indiana",
@@ -1751,9 +1767,9 @@
   "US-KY:kentucky": [
    {
     "shetach": "southern-ohio",
-    "from": "1975-09",
+    "from": null,
     "how": "owner",
-    "note": "On the AFL map of about 1984 Kentucky is blue (covered by another state), but Ohio is tan, and Virginia (Kranz) is its only orange neighbour; the owner has it Kalmanson's (1975-85), which stands.",
+    "note": "Owner, Nov 9: \"Kalmanson was sent lamed gimmel\" (5733: Sept 1972 to Sept 1973; was Sept 1975, the Cincinnati Chabad House's opening). On the AFL map of about 1984 Kentucky is blue (covered by another state), but Ohio is tan, and Virginia (Kranz) is its only orange neighbour; the owner has it Kalmanson's (1975-85), which stands.",
     "sources": [
      {
       "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
@@ -1762,7 +1778,11 @@
       "quote": "Lubavitch is reaching every community in the United States through its active Eighty-two Centers in Thirty-four of the states. The other states, where there is not as yet a Lubavitcher Center established, are being served by one of the above. ... The national map is therefore divided in three categories: These states where a Lubavitcher Center is present; These states whose Centers cover more than one state; States which are covered by other states",
       "note": "A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
      }
-    ]
+    ],
+    "fromBound": {
+     "after": "1972-09",
+     "by": "1973-09"
+    }
    },
    {
     "shetach": "kentucky",
@@ -2395,9 +2415,13 @@
   "US-OH:central-ohio": [
    {
     "shetach": "southern-ohio",
-    "from": "1975-09",
+    "from": null,
     "how": "owner",
-    "note": "Owner, Nov 8: \"there was no Kaltman yet, so he had that\"."
+    "note": "Owner, Nov 9: \"Kalmanson was sent lamed gimmel\" (5733: Sept 1972 to Sept 1973; was Sept 1975, the Cincinnati Chabad House's opening). Owner, Nov 8: \"there was no Kaltman yet, so he had that\".",
+    "fromBound": {
+     "after": "1972-09",
+     "by": "1973-09"
+    }
    },
    {
     "shetach": "central-ohio",
@@ -2418,9 +2442,13 @@
   "US-OH:michigan": [
    {
     "shetach": "southern-ohio",
-    "from": "1975-09",
+    "from": null,
     "how": "owner",
-    "note": "Owner, Nov 8: Kalmanson \"was given basically all those parts of Ohio, I think\" (Ohio outside Alevsky's part, so the Toledo area too)."
+    "note": "Owner, Nov 9: \"Kalmanson was sent lamed gimmel\" (5733: Sept 1972 to Sept 1973; was Sept 1975, the Cincinnati Chabad House's opening). Owner, Nov 8: Kalmanson \"was given basically all those parts of Ohio, I think\" (Ohio outside Alevsky's part, so the Toledo area too).",
+    "fromBound": {
+     "after": "1972-09",
+     "by": "1973-09"
+    }
    },
    {
     "shetach": "michigan",
@@ -2464,9 +2492,8 @@
   "US-OH:southern-ohio": [
    {
     "shetach": "southern-ohio",
-    "from": "1975-09",
-    "how": "news",
-    "confidence": "high",
+    "from": null,
+    "how": "owner",
     "sources": [
      {
       "url": "https://www.cincinnatijudaicafund.com/Detail/objects/1593",
@@ -2476,7 +2503,11 @@
       "note": "the catalogue's description of a May 1977 Cincinnati Post article, from the search index (the page itself has a robot check)"
      }
     ],
-    "note": "Summer 5735 (1975) by another account."
+    "note": "Owner, Nov 9: \"Kalmanson was sent lamed gimmel\" (5733: Sept 1972 to Sept 1973; was Sept 1975, the Cincinnati Chabad House's opening). Summer 5735 (1975) by another account.",
+    "fromBound": {
+     "after": "1972-09",
+     "by": "1973-09"
+    }
    }
   ],
   "US-OK:oklahoma": [
@@ -3011,9 +3042,13 @@
   "US-OH:southeast-ohio": [
    {
     "shetach": "southern-ohio",
-    "from": "1975-09",
+    "from": null,
     "how": "owner",
-    "note": "Owner, Nov 8: Kalmanson 'was given basically all those parts of Ohio, I think' (Ohio outside Alevsky's part). Sources on US-OH:southern-ohio."
+    "note": "Owner, Nov 9: \"Kalmanson was sent lamed gimmel\" (5733: Sept 1972 to Sept 1973; was Sept 1975, the Cincinnati Chabad House's opening). Owner, Nov 8: Kalmanson 'was given basically all those parts of Ohio, I think' (Ohio outside Alevsky's part). Sources on US-OH:southern-ohio.",
+    "fromBound": {
+     "after": "1972-09",
+     "by": "1973-09"
+    }
    },
    {
     "shetach": "northeast-ohio",

@@ -177,6 +177,11 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
 #card .cc-headrow .pi { flex: none; width: 16px; height: 16px; margin: 1px -1px 0; color: var(--muted); }
 #card .cc-headrow .pos { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 #card .cc-vline { margin-top: 11px; }
+#card .cc-grp { margin: 0 0 8px; }
+#card .cc-grp .lbl { color: var(--muted); font: 700 10px/1.4 var(--font); letter-spacing: .08em; text-transform: uppercase; }
+:root[lang="he"] #card .cc-grp .lbl { font-size: 11px; letter-spacing: 0; }
+#card .cc-grp .pos { color: var(--muted); font-size: 12.5px; }
+#card .cc-grp ~ .cc-people + .cc-people { margin-top: 7px; }
 #card .cc-vline .lbl { color: var(--muted); }
 </style>
 </head>
@@ -425,14 +430,18 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   const CAP = new Map(); for (const s of sfile.shetachim) for (const c of (s.capitals || (s.capital ? [s.capital] : []))) if (c && c.centerId) CAP.set(String(c.centerId), c);
   const heWords = (name) => { const w = tokens(name), last = w.pop(); if (!he) return name;
     return [...w.map((x) => (he.first && he.first[x]) || x), (he.last && he.last[last]) || last].join(' '); };
+  // a group with no one over them (Pittsburgh's first kevutzah of three bochurim: owner, Nov 9, "three bochurim, no
+  // hanholo"; "Name it ... kevutzah"): its role is its name, its members' names under it
+  const groupOf = (h) => (h.x.group || []).map((n, j) => (HE && h.x.groupHe && h.x.groupHe[j]) || n);
   const headName = (sid, h) => {
+    if (h.x.group) return roleOf(h);
     if (!HE) return h.x.head;
     if (h.x.he) return h.x.he;
     const t = he && he.shetachim && he.shetachim[sid];
     return h.last && t && t.headShliach && sameMan(h.x.head, (SH.get(sid) || {}).headShliach) ? t.headShliach : heWords(h.x.head);
   };
   // a head's surname (Heads, where the whole name has no room): in Hebrew as the dictionary has it (שם טוב, not טוב)
-  const surnameOf = (sid, h) => { const w = tokens(h.x.head), last = w[w.length - 1] || '';
+  const surnameOf = (sid, h) => { if (h.x.group) return roleOf(h); const w = tokens(h.x.head), last = w[w.length - 1] || '';
     if (!HE) return last;
     const d = he && he.last && he.last[last]; if (d) return d;
     const hn = headName(sid, h).split(/\s+/); return hn[hn.length - 1] || last; };
@@ -671,6 +680,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       if (MODE === 'heads') {
         const h = headAt(sid, Y); if (!h) continue;
         const name = headName(sid, h), sur = surnameOf(sid, h), vz = vaadAt(sid, Y);
+        if (h.x.group) { const sn = groupOf(h).map((n) => n.split(/\s+/).pop()); out.push({ sid, S, cands: [{ lines: [name], sub: [sn.join(' · ')] }, { lines: [name] }], base: Math.max(9.5, Math.min(13, Math.sqrt(S.area) / 8.5)) }); continue; }
         // where a vaad leads (Florida, New Jersey), the label is the vaad, his name under it, smaller (as on the main map)
         const vn = vz && vz.v.vaadFirst ? (HE && vz.v.nameHe) || vz.v.name : null;
         const cands = vn ? [{ lines: wrap(vn), sub: [name] }, { lines: wrap(vn), sub: [sur] }, { lines: wrap(vn) }, { lines: [sur] }]
@@ -908,6 +918,8 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   const kindOf = (f) => { const k = KIND[f.kind]; return k ? L(k[0], k[1]) : f.kind; };
   // the head that year, his photo where there is one (his initials otherwise), his years
   function headBlock(sid, h, t, big, Y) {
+    if (h.x.group) return `<p class="cc-grp"><span class="lbl">${esc(roleOf(h))}</span> <span class="pos">${esc(yearsOf(h.from, h.to))}</span></p>${
+      groupOf(h).map((n) => `<div class="cc-people" style="--t:${t}">${personRow({ ini: initialsOf(n), name: esc(n), t })}</div>`).join('')}`;
     const name = headName(sid, h);
     const rows = [personRow({ ini: initialsOf(name), name: esc(name), pos: yearsOf(h.from, h.to), t, label: esc(roleOf(h)), big, photo: photoOf(sid, h) })];
     for (const w of h.x.with || []) {

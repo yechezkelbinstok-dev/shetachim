@@ -281,7 +281,9 @@ thirteen no better recent photo has been found yet (the list is there, with what
     **Portraits (Nov 9, done):** the Rebbe's picture now changes with his age on the history page's 770 card (owner:
     "Make the Rebbe's picture change as he got older"; "They need to be proper, nice portraits"; a small corner
     watermark is fine, crop it off): the-rebbe-1950s (chabad.org gallery, "early 1950's") until 1959, the-rebbe-1960s
-    1960-71, the-rebbe-1970s (colour) 1972-83, the-rebbe (colour, about 1987; also the main map's) from 1984; the
+    1960-71, the-rebbe-1970s (colour) 1972-83, the-rebbe-1980s (colour, about 1987) 1984-89, the-rebbe (JEM's colour
+    portrait at Sunday dollars, 1986-92; also the main map's) from 1990, 5750 (owner: "Shouldn't the last one be him in
+    the nuns??? And a nice picture of course"); the
     1960s and 1970s ones are undated in chabad.org's gallery and placed by the beard. Sources and crops in
     data/rebbeim-portraits.json; `agedPic` in web/history.html. JEM's photo archive (photos.jemedia.org) has dated
     portraits but its galleries need a sign-in and its event photos carry a big centre watermark: not used. The

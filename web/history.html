@@ -959,7 +959,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   const honor = () => (!TITLES ? '' : HE ? ` <span class="hon">${HONOR}</span>` : ` <bdi class="hon" lang="he">${HONOR}</bdi>`);
   const ALT = { 'frierdiker-rebbe': ['The Frierdiker Rebbe', 'אדמו״ר הריי״צ'], 'the-rebbe': ['The Rebbe', 'נשיא דורנו'] };
   // the Rebbe's picture by the year on the map, as he got older (owner, Nov 9; data/rebbeim-portraits.json says which is which)
-  const agedPic = (k, Y) => k !== 'the-rebbe' ? k : Y < 1960 ? 'the-rebbe-1950s' : Y < 1972 ? 'the-rebbe-1960s' : Y < 1984 ? 'the-rebbe-1970s' : k;
+  const agedPic = (k, Y) => k !== 'the-rebbe' ? k : Y < 1960 ? 'the-rebbe-1950s' : Y < 1972 ? 'the-rebbe-1960s' : Y < 1984 ? 'the-rebbe-1970s' : Y < 1990 ? 'the-rebbe-1980s' : k;
   const rbPic = (k, w, Y) => { const a = ALT[k]; return `<span class="rb-pic" style="--w:${w}px"><img src="img/rebbeim/${esc(agedPic(k, Y))}.jpg" alt="${esc(a ? L(a[0], a[1]) : '')}"></span>`; };
   function worldCard(sid, Y) {
     const h = headAt(sid, Y), f = flagAt(sid, Y), c = centerOf(f), rows = [];

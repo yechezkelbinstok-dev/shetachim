@@ -66,6 +66,14 @@ UNM Chabad House; was 1992). Agreeing with the data already in: Idaho, Montana, 
   Nov 1983). Chabadpedia: the Rebbe's shliach in Berkeley and Albuquerque. When he left is not found; his line runs to
   Shmukler (1992). The shetach now starts by Feb 1980 (was by early 1985).
 
+- **The Upper Midwest from Dec 1961** (found Nov 9): Mindelle Feller, 'the Rebbe told us that he wanted us to go there to
+  establish Chabad in the Upper Midwest' (Bais Chana's tribute); Upper Midwest Merkos from the winter of 1961. By the
+  owner's rule (explicitly sent to named places), the Dakotas, Iowa (with the Quad Cities) and Wisconsin are Feller's
+  from then until their own shluchim (Wisconsin Oct 1968, Iowa by early 1985; the Dakotas stay his, South Dakota with
+  Katzman's visits from 1986). Which states 'the Upper Midwest' means is not spelled out: the usual sense.
+- **Grey areas checked, nothing found:** Washington and Oregon before Levitin (1972): Seattle's Jewish Transcript (the
+  Seattle Public Library's digitized pages, its CONTENTdm search) has no Chabad activity there before him.
+
 **Still not found:**
 - New Mexico's second state (its centre was orange): not Utah or Colorado, so Oklahoma or the El Paso corner of Texas.
   Oklahoma's newspaper archive (Gateway to Oklahoma History) has a robot check even through Firecrawl; Albuquerque's

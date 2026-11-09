@@ -1566,6 +1566,20 @@
   ],
   "US-IA:illinois": [
    {
+    "shetach": "upper-midwest",
+    "from": "1961-12",
+    "how": "stated",
+    "confidence": "medium",
+    "sources": [
+     {
+      "url": "https://baischana.org/light-8/",
+      "title": "Eighth Night: Mindelle Feller, of blessed memory (Bais Chana)",
+      "quote": "She was married for barely a month when she and her husband, Rabbi Moshe Feller, set out to found Upper Midwest Merkos–Chabad Lubavitch in Minnesota in the winter of 1961 at the behest of the Rebbe ... “But the Rebbe told us that he wanted us to go there to establish Chabad in the Upper Midwest, and we went with joy.”"
+     }
+    ],
+    "note": "Feller was sent 'to establish Chabad in the Upper Midwest' (Mindelle Feller; Upper Midwest Merkos from the winter of 1961): by the owner's rule (Nov 8: theirs where they were 'explicitly sent to those names places by the Rebbe or merkoz'), the region's states were his from the start, until they had shluchim of their own. Which states 'the Upper Midwest' took in is not spelled out; the usual sense is Minnesota, Wisconsin, Iowa and the Dakotas (Michigan had its own head from 1958). Found Nov 9."
+   },
+   {
     "shetach": "iowa",
     "from": null,
     "how": "owner",
@@ -1591,6 +1605,20 @@
    }
   ],
   "US-IA:iowa": [
+   {
+    "shetach": "upper-midwest",
+    "from": "1961-12",
+    "how": "stated",
+    "confidence": "medium",
+    "sources": [
+     {
+      "url": "https://baischana.org/light-8/",
+      "title": "Eighth Night: Mindelle Feller, of blessed memory (Bais Chana)",
+      "quote": "She was married for barely a month when she and her husband, Rabbi Moshe Feller, set out to found Upper Midwest Merkos–Chabad Lubavitch in Minnesota in the winter of 1961 at the behest of the Rebbe ... “But the Rebbe told us that he wanted us to go there to establish Chabad in the Upper Midwest, and we went with joy.”"
+     }
+    ],
+    "note": "Feller was sent 'to establish Chabad in the Upper Midwest' (Mindelle Feller; Upper Midwest Merkos from the winter of 1961): by the owner's rule (Nov 8: theirs where they were 'explicitly sent to those names places by the Rebbe or merkoz'), the region's states were his from the start, until they had shluchim of their own. Which states 'the Upper Midwest' took in is not spelled out; the usual sense is Minnesota, Wisconsin, Iowa and the Dakotas (Michigan had its own head from 1958). Found Nov 9."
+   },
    {
     "shetach": "iowa",
     "from": null,
@@ -2044,10 +2072,15 @@
   "US-ND:upper-midwest": [
    {
     "shetach": "upper-midwest",
-    "from": null,
-    "how": "news",
+    "from": "1961-12",
+    "how": "stated",
     "confidence": "medium",
     "sources": [
+     {
+      "url": "https://baischana.org/light-8/",
+      "title": "Eighth Night: Mindelle Feller, of blessed memory (Bais Chana)",
+      "quote": "She was married for barely a month when she and her husband, Rabbi Moshe Feller, set out to found Upper Midwest Merkos–Chabad Lubavitch in Minnesota in the winter of 1961 at the behest of the Rebbe ... “But the Rebbe told us that he wanted us to go there to establish Chabad in the Upper Midwest, and we went with joy.”"
+     },
      {
       "url": "https://crownheights.info/chabad-news/910251/north-dakotas-new-mikvah-returns-pillar-of-jewish-life-to-northern-plains",
       "title": "Chabad Jewish Center of North Dakota",
@@ -2068,10 +2101,7 @@
       "note": "North Dakota is blue; Minnesota (Feller, 'Mid-West Director' in the same booklet's photo caption of March 1983) is the only orange state next to it. A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
      }
     ],
-    "note": "Covered from Minnesota by about 1984 (the AFL map; Minnesota the only orange neighbour). Its first resident shliach and Chabad center came in 2011; before that 'local Jewish organizations have relied mainly on itinerant leaders and rabbinical students' (CrownHeights.info, Nov 2012). Earlier this file had it in no shetach before 2011.",
-    "fromBound": {
-     "by": "1985-03"
-    }
+    "note": "Feller was sent 'to establish Chabad in the Upper Midwest' (Mindelle Feller; Upper Midwest Merkos from the winter of 1961): by the owner's rule (Nov 8: theirs where they were 'explicitly sent to those names places by the Rebbe or merkoz'), the region's states were his from the start, until they had shluchim of their own. Which states 'the Upper Midwest' took in is not spelled out; the usual sense is Minnesota, Wisconsin, Iowa and the Dakotas (Michigan had its own head from 1958). Found Nov 9. Was: by about 1984 (the AFL map). Covered from Minnesota by about 1984 (the AFL map; Minnesota the only orange neighbour). Its first resident shliach and Chabad center came in 2011; before that 'local Jewish organizations have relied mainly on itinerant leaders and rabbinical students' (CrownHeights.info, Nov 2012). Earlier this file had it in no shetach before 2011."
    }
   ],
   "US-NE:nebraska": [
@@ -2592,13 +2622,15 @@
   "US-SD:upper-midwest": [
    {
     "shetach": "upper-midwest",
-    "from": null,
-    "fromBound": {
-     "by": "1985-03"
-    },
-    "how": "news",
+    "from": "1961-12",
+    "how": "stated",
     "confidence": "medium",
     "sources": [
+     {
+      "url": "https://baischana.org/light-8/",
+      "title": "Eighth Night: Mindelle Feller, of blessed memory (Bais Chana)",
+      "quote": "She was married for barely a month when she and her husband, Rabbi Moshe Feller, set out to found Upper Midwest Merkos–Chabad Lubavitch in Minnesota in the winter of 1961 at the behest of the Rebbe ... “But the Rebbe told us that he wanted us to go there to establish Chabad in the Upper Midwest, and we went with joy.”"
+     },
      {
       "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
       "title": "American Friends of Lubavitch booklet, about 1984: map of Lubavitch's coverage of the US (Reagan Library)",
@@ -2607,7 +2639,7 @@
       "note": "South Dakota is blue; Minnesota (Feller) is the only orange state next to it. A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
      }
     ],
-    "note": "Covered from Minnesota on the AFL map of about 1984 (Minnesota, Feller's, the only orange neighbour). From 1986 Rabbi Mendel Katzman of Omaha made periodic visits (the next period, by the owner's rule: activity there makes it his; owner, Nov 8: \"Didn't you say there was a tekufa that Nebraska's shliach served SD??\"). Feller's again from Dec 2016, when he appointed its first resident shliach."
+    "note": "Feller was sent 'to establish Chabad in the Upper Midwest' (Mindelle Feller; Upper Midwest Merkos from the winter of 1961): by the owner's rule (Nov 8: theirs where they were 'explicitly sent to those names places by the Rebbe or merkoz'), the region's states were his from the start, until they had shluchim of their own. Which states 'the Upper Midwest' took in is not spelled out; the usual sense is Minnesota, Wisconsin, Iowa and the Dakotas (Michigan had its own head from 1958). Found Nov 9. Was: by about 1984 (the AFL map). Covered from Minnesota on the AFL map of about 1984 (Minnesota, Feller's, the only orange neighbour). From 1986 Rabbi Mendel Katzman of Omaha made periodic visits (the next period, by the owner's rule: activity there makes it his; owner, Nov 8: \"Didn't you say there was a tekufa that Nebraska's shliach served SD??\"). Feller's again from Dec 2016, when he appointed its first resident shliach."
    },
    {
     "shetach": "nebraska",
@@ -2779,6 +2811,20 @@
    }
   ],
   "US-WI:wisconsin": [
+   {
+    "shetach": "upper-midwest",
+    "from": "1961-12",
+    "how": "stated",
+    "confidence": "medium",
+    "sources": [
+     {
+      "url": "https://baischana.org/light-8/",
+      "title": "Eighth Night: Mindelle Feller, of blessed memory (Bais Chana)",
+      "quote": "She was married for barely a month when she and her husband, Rabbi Moshe Feller, set out to found Upper Midwest Merkos–Chabad Lubavitch in Minnesota in the winter of 1961 at the behest of the Rebbe ... “But the Rebbe told us that he wanted us to go there to establish Chabad in the Upper Midwest, and we went with joy.”"
+     }
+    ],
+    "note": "Feller was sent 'to establish Chabad in the Upper Midwest' (Mindelle Feller; Upper Midwest Merkos from the winter of 1961): by the owner's rule (Nov 8: theirs where they were 'explicitly sent to those names places by the Rebbe or merkoz'), the region's states were his from the start, until they had shluchim of their own. Which states 'the Upper Midwest' took in is not spelled out; the usual sense is Minnesota, Wisconsin, Iowa and the Dakotas (Michigan had its own head from 1958). Found Nov 9."
+   },
    {
     "shetach": "wisconsin",
     "from": "1968-10",

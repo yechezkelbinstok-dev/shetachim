@@ -38,7 +38,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | new-haven | 16 | 5 | 1 |  | 10 |  |  | 10 | 14 | 8 |
 | new-jersey | 91 | 59 | 4 |  | 19 | 4 | 5 | 28 | 84 | 22 |
 | new-mexico | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
-| new-york-city | 200 | 33 | 26 |  | 3 |  | 138 | 141 | 176 | 118 |
+| new-york-city | 200 | 33 | 28 |  | 139 |  |  | 139 | 176 | 116 |
 | newfoundland-and-labrador | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | northeast-ohio | 27 | 20 | 3 |  | 4 |  |  | 4 | 23 | 1 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | colorado | 23 |  |  |  |  |  | 23 | 23 | 21 | 21 |
 | upstate-new-york | 22 |  |  |  |  |  | 22 | 22 | 21 | 21 |
 | oregon | 19 |  |  |  |  |  | 19 | 19 | 17 | 17 |
-| **all** | 1969 | 808 | 243 | 1 | 227 | 48 | 642 | 917 | 1765 | 751 |
+| **all** | 1969 | 808 | 245 | 1 | 363 | 48 | 504 | 915 | 1765 | 749 |

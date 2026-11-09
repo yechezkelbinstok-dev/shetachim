@@ -48,7 +48,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | northeast-ohio | 27 | 20 | 3 |  | 4 |  |  | 4 | 23 | 1 |
 | oklahoma | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
-| ontario | 61 | 2 | 8 |  | 51 |  |  | 51 | 56 | 46 |
+| ontario | 61 | 12 | 8 |  | 41 |  |  | 41 | 56 | 36 |
 | oregon | 19 | 5 |  |  | 14 |  |  | 14 | 17 | 12 |
 | ottawa | 11 | 7 |  |  | 4 |  |  | 4 | 9 | 2 |
 | pennsylvania | 61 | 30 | 10 |  | 17 | 4 |  | 21 | 57 | 20 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | wisconsin | 23 | 9 | 5 |  | 9 |  |  | 9 | 20 | 6 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | crown-heights | 48 |  |  |  |  |  | 48 | 48 | 24 | 24 |
-| **all** | 1969 | 866 | 335 | 2 | 658 | 48 | 60 | 766 | 1765 | 606 |
+| **all** | 1969 | 876 | 335 | 2 | 648 | 48 | 60 | 756 | 1765 | 596 |

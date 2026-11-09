@@ -864,21 +864,11 @@
   ],
   "western-pennsylvania": [
    {
-    "head": "Kevutzah of bochurim",
-    "group": [
-     "Yisroel Meir Altein",
-     "Mordechai Dov Altein",
-     "Dovid Eidelman"
-    ],
-    "groupHe": [
-     "ישראל מאיר אלטיין",
-     "מרדכי דב אלטיין",
-     "דוד איידלמן"
-    ],
-    "role": "Kevutzah of bochurim",
-    "roleHe": "קבוצת בחורים",
+    "head": "Mordechai Dov Altein",
     "from": "1941-12-07",
-    "how": "owner",
+    "he": "מרדכי דב אלטיין",
+    "how": "stated",
+    "confidence": "high",
     "sources": [
      {
       "url": "https://jewishchronicle.timesofisrael.com/a-postcard-from-the-early-days-of-yeshiva-schools/",
@@ -887,7 +877,9 @@
       "quote": "On December 7, 1941, in the shadow of Pearl Harbor, the Frierdiker Rebbe dispatched Rabbi Altein to Pittsburgh “to learn Torah and create activities among the youth.” ... By summer, Rabbi Mordechai Dov Altein had started Yeshiva Achei T’mimim, the first Lubavitch yeshiva in America outside of New York."
      }
     ],
-    "note": "Owner, Nov 9: \"the first kevutzah of bochurim to Pittsburgh was three bochurim, no hanholo and it was three not just one - Yisroel Meir Altein, Mordechai Dov Altein, and Dovid Eidelman\". The date is Mordechai Dov Altein's dispatch by the Frierdiker Rebbe (Pittsburgh Jewish Chronicle). Shown as a group with no one over them. Named 'Kevutzah of bochurim' (owner, Nov 9: \"Name it kevutzah of bochurim or smth or kevutzah\"; \"pls don't make kevutzah like a last name\")."
+    "note": "Sent by the Frierdiker Rebbe (Toldos Chabad B'artzos Habris and his letters of 5702, as the Chronicle's author read them); he stayed as principal till summer 1944, then went to New Haven. The Derens came in 1942 (COLlive). Not a head shliach: a young shliach of the Frierdiker Rebbe sent 'to learn Torah and create activities among the youth'; he began the afterschool program and the yeshiva. Owner, Nov 9: \"someone was not a head shliach. The guy was running a yeshiva, the Kramer guy, right? That's not a head shliach\". Owner, Nov 9 (later): \"I was wrong about the kevutza thing it was indeed just that dude\" (shown for a while as a kevutzah of three bochurim).",
+    "role": "Shliach",
+    "roleHe": "שליח"
    },
    {
     "head": "Sholom Posner",

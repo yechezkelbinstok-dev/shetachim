@@ -274,6 +274,17 @@ thirteen no better recent photo has been found yet (the list is there, with what
     (`scripts/build-history-geo.py`; rebuild when geo.json changes). Redrawn on canvases for speed (it was slow and
     crashed on phones), its cards made like the main map's, 770's with the Rebbeim's portraits (README: Drawing, Cards);
     settings: Hebrew years (default in Hebrew), זצוקללה״ה נבג״מ זי״ע (default in Hebrew), Full provinces.
+  - **Nov 9 (late): labels.** Heads mode shows whole names only, never a surname alone (owner: "Stop with this last name
+    bullshit"); no Rebbe's name on the map at all (owner: "don't put any of the Rebbe's names"; Crown Heights has no
+    label in Heads, its star stays); the mode button in Hebrew is "שלוחים" (owner: "Take away roshim just shluchim").
+    The Rebbeim's Hebrew in the data: כ״ק אדמו״ר מוהריי״צ / כ״ק אדמו״ר נשיא דורנו (for the cards).
+    **Not done (owner asked): color portraits.** "switch to a color or properly colorized picture of the friederker
+    Rebbe and a color one of the Rebbe" — for web/img/rebbeim/frierdiker-rebbe.jpg and the-rebbe.jpg (shared with the
+    main map; data/rebbeim-portraits.json, scripts/head-photos/rebbeim-portraits.py needs the head-photos venv with
+    Pillow, the system Python's PIL is broken). Candidates found, not yet checked: a colorized Frierdiker Rebbe
+    (collive.com/wp-content/uploads/photos/2009/07/nf_3423_103423.jpg, 800x1020, COLlive's 'Previous Rebbe's Red
+    Beard'), chabad.org's w2.chabad.org/media/images/893/SHDN8931739.jpg; for the Rebbe, a color photo of good quality
+    (chabad.org / JEM). Look at them before using; crop to 300x375 as the script does.
   - **Nov 9 (late): names in the early years and Rockland.** When a year has 15 shetachim or fewer, a shape too small for
     its name still gets it, set over it or just beside it, clear of the others (owner: "in the early years when it's
     important to see every single one ... maybe don't do lines maybe put it over it"; no lines). Monsey's piece is part

@@ -685,12 +685,14 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       const S = spotOf(idx); if (!S) continue;
       if (MODE === 'heads') {
         const h = headAt(sid, Y); if (!h) continue;
+        // (no Rebbe's name on the map: owner, Nov 9, "don't put any of the Rebbe's names")
+        if (h.x.portrait) continue;
         const name = headName(sid, h), sur = surnameOf(sid, h), vz = vaadAt(sid, Y);
         if (h.x.group) { const sn = groupOf(h).map((n) => n.split(/\s+/).pop()); out.push({ sid, S, cands: [{ lines: wrap(name), sub: [sn.join(' · ')] }, { lines: wrap(name) }], base: Math.max(9.5, Math.min(13, Math.sqrt(S.area) / 8.5)) }); continue; }
         // where a vaad leads (Florida, New Jersey), the label is the vaad, his name under it, smaller (as on the main map)
         const vn = vz && vz.v.vaadFirst ? (HE && vz.v.nameHe) || vz.v.name : null;
-        const cands = vn ? [{ lines: wrap(vn), sub: [name] }, { lines: wrap(vn), sub: [sur] }, { lines: wrap(vn) }, { lines: [sur] }]
-          : [{ lines: wrap(name) }, { lines: [sur] }];
+        // (the whole name, never a surname alone: owner, Nov 9, "Stop with this last name bullshit")
+        const cands = vn ? [{ lines: wrap(vn), sub: [name] }, { lines: wrap(vn) }] : [{ lines: wrap(name) }];
         out.push({ sid, S, cands, base: Math.max(9.5, Math.min(13, Math.sqrt(S.area) / 8.5)) });
       } else out.push({ sid, S, cands: [{ lines: wrap(nameOf(sid, Y)) }], base: Math.max(9.5, Math.min(13.5, Math.sqrt(S.area) / 8)) });
     }
@@ -853,12 +855,13 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       // single one ... maybe put it over it"), a shape too small for its name still gets it: set over the shape (or just
       // above or below it, clear of the other names)
       if (!at && view.texts.length <= 15) {
-        const cd = lb.cands[lb.cands.length - 1], rows = [...cd.lines.map((t) => ({ t, s: 1 })), ...(cd.sub || []).map((t) => ({ t, s: SUB }))];
+        const cd = lb.cands[0], rows = [...cd.lines.map((t) => ({ t, s: 1 })), ...(cd.sub || []).map((t) => ({ t, s: SUB }))];
         const w = Math.max(...rows.map((r) => widthOf(r.t, fm * r.s))), h = rows.reduce((a, r) => a + r.s, 0) * fm * 1.1, rr = Math.sqrt(S.area / Math.PI) + 4 / k;
-        for (const [dx, dy] of [[0, 0], [0, -1], [0, 1], [-1, 0], [1, 0], [-1, -1], [1, -1], [-1, 1], [1, 1]]) {
-          const x = S.x + dx * (w / 2 + rr), y = S.y + dy * (h / 2 + rr);
-          if (!onName(x, y, w, h)) { at = { rows, w, h, y, x }; break; }
-        }
+        // (all of it on the screen where it can be)
+        const inView = (x, y) => { const [ux, uy] = T.apply([x, y]), hw = w * k / 2, hh = h * k / 2; return ux - hw > 4 && ux + hw < W - 4 && uy - hh > 4 && uy + hh < H - 4; };
+        const spots = [[0, 0], [0, -1], [0, 1], [-1, 0], [1, 0], [-1, -1], [1, -1], [-1, 1], [1, 1]].map(([dx, dy]) => [S.x + dx * (w / 2 + rr), S.y + dy * (h / 2 + rr)]);
+        const p = spots.find(([x, y]) => inView(x, y) && !onName(x, y, w, h)) || spots.find(([x, y]) => !onName(x, y, w, h));
+        if (p) at = { rows, w, h, x: p[0], y: p[1] };
       }
       if (!at) continue;
       const ax = at.x ?? S.x;
@@ -1103,7 +1106,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   // Shetachim / Heads
   const modeBtns = [...document.querySelectorAll('#mode button')];
   modeBtns[0].textContent = L('Shetachim', 'שטחים');
-  modeBtns[1].textContent = L('Heads', 'ראשי שלוחים');
+  modeBtns[1].textContent = L('Heads', 'שלוחים');
   const setMode = (m) => {
     MODE = m; modeBtns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.m === m)));
     try { localStorage.setItem('shetachim-history-mode', m); } catch (e) {}

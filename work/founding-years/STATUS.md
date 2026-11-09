@@ -15,11 +15,11 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | cape-cod-and-the-islands | 4 | 3 |  |  | 1 |  |  | 1 | 4 | 1 |
 | central-massachusetts | 14 | 3 | 4 |  | 7 |  |  | 7 | 12 | 5 |
 | central-ohio | 4 | 2 | 1 |  | 1 |  |  | 1 | 4 | 1 |
-| colorado | 23 | 4 | 7 |  | 12 |  |  | 12 | 21 | 11 |
-| connecticut | 33 | 6 | 10 |  | 17 |  |  | 17 | 32 | 17 |
+| colorado | 23 | 6 | 8 |  | 9 |  |  | 9 | 21 | 8 |
+| connecticut | 33 | 8 | 10 |  | 15 |  |  | 15 | 32 | 15 |
 | delaware | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | eastern-massachusetts | 35 | 6 | 6 |  | 23 |  |  | 23 | 32 | 21 |
-| eastern-new-york | 50 | 3 | 9 |  | 38 |  |  | 38 | 47 | 35 |
+| eastern-new-york | 50 | 5 | 10 |  | 35 |  |  | 35 | 47 | 32 |
 | florida | 240 | 136 | 21 |  | 46 | 37 |  | 83 | 219 | 69 |
 | georgia | 27 | 18 | 5 |  | 4 |  |  | 4 | 24 | 2 |
 | hawaii | 7 | 4 | 1 |  | 2 |  |  | 2 | 7 | 2 |
@@ -49,10 +49,10 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | northeast-ohio | 27 | 20 | 3 |  | 4 |  |  | 4 | 23 | 1 |
 | oklahoma | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | ontario | 61 | 12 | 8 |  | 41 |  |  | 41 | 56 | 36 |
-| oregon | 19 | 5 |  |  | 14 |  |  | 14 | 17 | 12 |
+| oregon | 19 | 7 | 1 |  | 11 |  |  | 11 | 17 | 9 |
 | ottawa | 11 | 7 |  |  | 4 |  |  | 4 | 9 | 2 |
 | pennsylvania | 61 | 30 | 10 |  | 17 | 4 |  | 21 | 57 | 20 |
-| quebec | 72 | 4 | 10 | 1 | 57 |  |  | 57 | 59 | 45 |
+| quebec | 72 | 5 | 10 | 1 | 56 |  |  | 56 | 59 | 44 |
 | rhode-island | 8 | 5 | 1 |  | 2 |  |  | 2 | 7 | 1 |
 | rockland | 5 | 2 |  |  | 3 |  |  | 3 | 5 | 3 |
 | south-area | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
@@ -61,10 +61,10 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | texas | 58 | 33 | 12 |  | 4 | 2 | 7 | 13 | 48 | 6 |
 | the-carolinas | 25 | 15 | 5 |  | 4 | 1 |  | 5 | 23 | 3 |
 | upper-midwest | 19 | 10 | 3 |  | 6 |  |  | 6 | 19 | 6 |
-| upstate-new-york | 22 | 6 |  |  | 16 |  |  | 16 | 21 | 15 |
+| upstate-new-york | 22 | 8 | 3 |  | 11 |  |  | 11 | 21 | 10 |
 | utah | 4 | 3 | 1 |  |  |  |  | 0 | 4 | 0 |
 | vermont | 8 | 5 | 2 |  | 1 |  |  | 1 | 8 | 1 |
-| virginia | 19 | 8 | 1 |  | 10 |  |  | 10 | 19 | 10 |
+| virginia | 19 | 13 | 1 |  | 5 |  |  | 5 | 19 | 5 |
 | washington | 33 | 13 | 5 |  | 15 |  |  | 15 | 31 | 13 |
 | washington-dc | 5 | 2 | 3 |  |  |  |  | 0 | 5 | 0 |
 | west-coast | 331 | 198 | 93 |  | 40 |  |  | 40 | 301 | 18 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | wisconsin | 23 | 9 | 5 |  | 9 |  |  | 9 | 20 | 6 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | crown-heights | 48 |  |  |  |  |  | 48 | 48 | 24 | 24 |
-| **all** | 1969 | 878 | 338 | 2 | 643 | 48 | 60 | 751 | 1765 | 592 |
+| **all** | 1969 | 894 | 344 | 2 | 621 | 48 | 60 | 729 | 1765 | 570 |

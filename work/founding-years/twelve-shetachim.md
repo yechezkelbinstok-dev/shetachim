@@ -82,3 +82,11 @@ so pass two can find them. No IRS lookups in the first pass. Leads that weren't 
   Chabad farm 2014, Colonie 2018 (medium: listed July 2017).
 - Bounds (38), first pass. Left open on purpose: Bethlehem (2011 vs a 2010 listing), Clifton Park (18 years in 2025 vs
   a 2005 listing), Oneonta (2012 vs a Jan 2011 listing). Saratoga's 2000 is a lead.
+
+## Maryland (batches maryland-01, -02): 55 listings, 8 with a year
+- Lubavitch of Maryland (Baltimore) 1974 (the Kaplans), Howard County 1986 (the Barons), Upper Montgomery County
+  summer 1990, UMD 1995 (the Backmans), Johns Hopkins 2003, Silver Spring about 2004 (medium), Harford (Bel Air)
+  Sept 2010, JCrafts 2012.
+- Bounds (47), first pass. Leads in notes: Bethesda 1999 or 2000, ARIEL 2005 (incorporated; listed 2004), Potomac's
+  sanctuary "eleven years in the making" in 2004, Ocean City about 20 years. Owings Mills (2005 vs a 2004 listing)
+  is left open.

@@ -1,0 +1,94 @@
+{
+ "119653": {
+  "name": "Yeshiva Schools",
+  "city": "Pittsburgh, PA",
+  "shetach": "western-pennsylvania",
+  "year": 1942,
+  "how": "stated",
+  "confidence": "high",
+  "source": "https://jewishchronicle.timesofisrael.com/a-postcard-from-the-early-days-of-yeshiva-schools/",
+  "note": "The Pittsburgh Jewish Chronicle (9 Jan 2020, 'A postcard from the early days of Yeshiva Schools'): on Dec 7 1941 the Frierdiker Rebbe sent Rabbi Mordechai Dov Altein to Pittsburgh; 'By summer, Rabbi Mordechai Dov Altein had started Yeshiva Achei T'mimim, the first Lubavitch yeshiva in America outside of New York', run from three places at once (2124 Murray Avenue, Anshe Lubovitz in the Hill District, Adath Israel in Oakland), then one school at Adath Israel; Rabbi Sholom Posner came in summer 1943 and the yeshiva 'soon moved into a house ... at 3329 Dawson Street in Oakland'. Yeshiva Schools' own history: 'In 1978, Rabbi Yisroel Rosenfeld became the dean'.",
+  "season": "summer",
+  "earlier": [
+   {
+    "where": "three places at once: 2124 Murray Avenue, Anshe Lubovitz (Hill District) and Adath Israel (Oakland)",
+    "from": 1942,
+    "until": 1942,
+    "source": "https://jewishchronicle.timesofisrael.com/a-postcard-from-the-early-days-of-yeshiva-schools/"
+   },
+   {
+    "where": "Adath Israel, Oakland",
+    "from": 1942,
+    "until": null,
+    "source": "https://jewishchronicle.timesofisrael.com/a-postcard-from-the-early-days-of-yeshiva-schools/"
+   },
+   {
+    "where": "3329 Dawson Street, Oakland",
+    "from": null,
+    "until": null,
+    "source": "https://jewishchronicle.timesofisrael.com/a-postcard-from-the-early-days-of-yeshiva-schools/"
+   }
+  ]
+ },
+ "117720": {
+  "name": "Chabad House on Campus - Pittsburgh",
+  "city": "Pittsburgh, PA",
+  "shetach": "western-pennsylvania",
+  "year": 1988,
+  "how": "stated",
+  "confidence": "high",
+  "source": "https://crownheights.info/chabad-news/683962/pittsburgh-university-chabad-on-campus-celebrates-31st-anniversary",
+  "note": "CrownHeights.info (31 Oct 2019): on Oct 26 2019 'Pittsburgh University Chabad House on Campus celebrated its 31st Anniversary' (so 1988); the Pittsburgh Jewish Chronicle: 'Since the organization first arrived in Pittsburgh in 1988' (read through a search summary). Rabbi Shmuel and Sara Weinstein; it began in their North Oakland home (Pitt News)."
+ },
+ "118222": {
+  "name": "The Aleph Institute - N.E. Regional Headquarters",
+  "city": "Pittsburgh, PA",
+  "shetach": "western-pennsylvania",
+  "year": 1991,
+  "how": "stated",
+  "confidence": "medium",
+  "source": "https://en.wikipedia.org/wiki/North_Eastern_US_Aleph_Institute",
+  "note": "Wikipedia: Aleph Institute (North East US) was founded in 1991 by Rabbi Moishe Mayir Vogel; his Aleph biography: he settled in Pittsburgh that year (both read through search summaries). Medium: Aleph's own About page gives 1994 (with unfilled template text). Now 5804 Beacon Street (the Hyman & Martha Rogal Center)."
+ },
+ "118288": {
+  "name": "Chabad of the South Hills",
+  "city": "Pittsburgh, PA",
+  "shetach": "western-pennsylvania",
+  "year": 1998,
+  "how": "anniversary",
+  "confidence": "medium",
+  "source": "https://crownheights.info/shlichus/6486/chabad-planning-to-move-by-fall",
+  "note": "The Pittsburgh Post-Gazette (on CrownHeights.info, 17 May 2007): 'Chabad came to the South Hills nine years ago, starting first in the basement of Rabbi Rosenblum's Mt. Lebanon home, and then moving to a building on North Wren Drive, before spending the past five years on Bower Hill Road' (so about 1998; Bower Hill Road from about 2002); it was to move again that fall. Medium: a count back.",
+  "earlier": [
+   {
+    "where": "the basement of Rabbi Rosenblum's Mt. Lebanon home",
+    "from": 1998,
+    "until": null,
+    "source": "https://crownheights.info/shlichus/6486/chabad-planning-to-move-by-fall"
+   },
+   {
+    "where": "a building on North Wren Drive",
+    "from": null,
+    "until": 2002,
+    "source": "https://crownheights.info/shlichus/6486/chabad-planning-to-move-by-fall"
+   },
+   {
+    "where": "Bower Hill Road",
+    "from": 2002,
+    "until": 2007,
+    "source": "https://crownheights.info/shlichus/6486/chabad-planning-to-move-by-fall"
+   }
+  ]
+ },
+ "1641277": {
+  "name": "B'nai Emunoh Chabad - Greenfield",
+  "city": "Pittsburgh, PA",
+  "shetach": "western-pennsylvania",
+  "year": 2011,
+  "how": "news",
+  "confidence": "high",
+  "source": "https://crownheights.info/chabad-news/38166/80-year-old-pittsburg-shul-goes-lubavitch",
+  "note": "The Pittsburgh Jewish Chronicle (on CrownHeights.info, 7 Oct 2011): 'B'nai Emunoh Congregation in Greenfield has transferred the title to its synagogue to Chabad Lubavitch of Pittsburgh, and has changed its name to B'nai Emunoh Chabad'; Rabbi Chonie Friedman 'has already begun to lead services'. (The congregation itself is about 80 years old.)",
+  "date": "2011-10"
+ }
+}

@@ -199,6 +199,10 @@ thirteen no better recent photo has been found yet (the list is there, with what
     mid-size ones (the list in the next bullet), the big ones (Florida 219 dots, NYC 177, New Jersey 84, Quebec 59,
     Pennsylvania 57, Ontario 56, Illinois 54, Texas 48, Maryland 48, Eastern NY 47) last. Write here what you took:
     "Second session: ___ (from <date>)".
+    **History session, next (Nov 9; owner: "Okay do other shetachim you haven't done yet please"): Western Pennsylvania,
+    Virginia (the rest), Oregon, Upstate New York, Colorado, Connecticut, Washington, Eastern Massachusetts, Eastern
+    New York, Maryland, Ontario, Quebec (not Crown Heights). Batches `batches/<shetach>-NN.json`; notes
+    `work/founding-years/twelve-shetachim.md`.**
     **History session: New York City (the `new-york-city` shetach, not Crown Heights), from Nov 9 (owner: "Start on new
     york metro ig", "Not crown heights"); batches `batches/new-york-city-NN.json`, notes `work/founding-years/new-york-city.md`.**
     **Second session: Florida, then New Jersey, then Pennsylvania (from Nov 6); Texas too (from Nov 7; owner: "Go back to

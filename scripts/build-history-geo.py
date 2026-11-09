@@ -2,7 +2,8 @@
 """Builds web/data/history-geo.json, the shapes of web/history.html (the shetachim of the US and Canada by year).
 
 It takes the US and Canadian pieces of web/data/geo.json as they are, cuts out the pieces that only the history needs
-(data/shetach-history.json's extraAreas: South Jersey out of New Jersey by its counties, Southeast Ohio out of the
+(data/shetach-history.json's extraAreas: South Jersey out of New Jersey by its counties, Cleveland (Cuyahoga County) out
+of Northeast Ohio, Southeast Ohio out of the
 Northeast Ohio piece south of a straight line), and adds the rest of Canada (the land no Canadian shetach covers), so
 every border is shared point for point; the provinces' unclaimed north is cut by province into pieces of its own
 ('north': true), for the page's whole-provinces switch. Only the US and Canada: no Mexico, Central America, Caribbean or
@@ -125,9 +126,17 @@ def main():
     ne[1] = multi(polys(core))
     areas.append([dict(ne[0], id='US-OH:southeast-ohio', part='Southeast Ohio'), multi(polys(tail))])
 
+    # Cleveland (Cuyahoga County) out of the rest of the Northeast Ohio piece: Alevsky's first shetach, before the rest of
+    # the northeast was his (owner, Nov 9: "when Alevsky was first sent I think it should just be Cleveland")
+    cf = json.load(open(COUNTIES))['features']
+    cle_counties = set(hist['extraAreas']['US-OH:cleveland']['counties'])
+    cuy = unary_union([shape(f['geometry']) for f in cf if f['properties']['GEOID'] in cle_counties]).buffer(0)
+    cle = ne[1].intersection(cuy)
+    ne[1] = multi([p for p in polys(ne[1].difference(cuy)) if p.area > 1e-6])
+    areas.append([dict(ne[0], id='US-OH:cleveland', part='Cleveland'), multi([p for p in polys(cle) if p.area > 1e-6])])
+
     # South Jersey out of New Jersey: the piece less New Jersey's other counties, its southern part
     sj_counties = set(hist['extraAreas']['US-NJ:south-jersey']['counties'])
-    cf = json.load(open(COUNTIES))['features']
     north = unary_union([shape(f['geometry']) for f in cf if f['properties']['STATEFP'] == '34' and f['properties']['GEOID'] not in sj_counties])
     nj = next(a for a in areas if a[0]['id'] == 'US-NJ:new-jersey')
     rest = nj[1].difference(north)

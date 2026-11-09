@@ -107,3 +107,14 @@ so pass two can find them. No IRS lookups in the first pass. Leads that weren't 
 ## First pass, all twelve (Nov 9)
 118 of 449 listings have a year (331 left, 74%). Pass two: the bounds (their notes say "first pass only"), starting with the old
 centres listed in 2004, whose bound is weakest; leads are in the notes.
+
+## Confidence audit (Nov 9, after the owner asked whether high and medium were being done properly)
+The file's rule: high = a report from that year, or the centre itself, and nothing against it; medium = counted
+back, a first mention, one secondary source, or sources a year apart; low = one weak source. Of the 97 years the first
+pass added from Virginia on, 70 had been rated high, and 31 of those rested on one later article, an anniversary count,
+or sources a year apart. They are now medium (and Mada low), each note saying why. Kept high: a report from that
+year, the centre's own page or the shliach's own words, two sources that agree, or one source plus a chabad.org
+listing made that same year (after 2004). Newton and Camp Emunah kept high with a second source found in the sweep.
+Now: 39 high, 57 medium, 1 low. Across the twelve: 54 of 449 listings high (12%; 46% of the 118 with a year).
+Every medium still needs a second, independent source before a shetach is called done (HANDOFF rule); that is pass
+two. `progress.py` now prints the HIGH share first (the owner's metric, Nov 8).

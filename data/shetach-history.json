@@ -512,11 +512,42 @@
   "new-york-city": [
    {
     "head": "Tzach",
+    "he": "צעירי אגודת חב״ד",
+    "role": "Leadership",
+    "roleHe": "הנהלה",
+    "org": true,
     "from": "1955",
     "name": "Greater New York",
     "how": "stated",
     "confidence": "high",
-    "note": "Tzeirei Agudas Chabad (the Lubavitch Youth Organization), the owner's 'Tzach'; its leadership today is a vaad (the owner's map: Kasriel Kastel, Shlomo Friedman, Sholom Tenenbaum, Tuvia Teldon, Leibel Baumgarten). Sources on area US-NY:new-york-city."
+    "note": "Tzeirei Agudas Chabad (the Lubavitch Youth Organization), the owner's 'Tzach'; its leadership today is a vaad (the owner's map: Kasriel Kastel, Shlomo Friedman, Sholom Tenenbaum, Tuvia Teldon, Leibel Baumgarten). Sources on area US-NY:new-york-city. Shown as the main map shows it (owner, Nov 9: 'WHY ... IS TZACH SHLIACH ROSHI AND NOT LIKE HOW IT IS BY THE MAIN SHETACHIM AND WHY ... IS IT IN ENGLISH'): 'Leadership' (הנהלה), צעירי אגודת חב״ד in Hebrew; its members (today's, from the main map) only in the present year, since when each joined is not known.",
+    "members": [
+     {
+      "firstName": "Kasriel",
+      "lastName": "Kastel",
+      "photo": "img/vaad/new-york-city-kastel.jpg"
+     },
+     {
+      "firstName": "Shlomo",
+      "lastName": "Friedman",
+      "photo": "img/vaad/new-york-city-friedman.jpg"
+     },
+     {
+      "firstName": "Sholom",
+      "lastName": "Tenenbaum",
+      "photo": "img/vaad/new-york-city-tenenbaum.jpg"
+     },
+     {
+      "firstName": "Tuvia",
+      "lastName": "Teldon",
+      "photo": "img/vaad/new-york-city-teldon.jpg"
+     },
+     {
+      "firstName": "Leibel",
+      "lastName": "Baumgarten",
+      "photo": "img/vaad/new-york-city-baumgarten.jpg"
+     }
+    ]
    }
   ],
   "newfoundland-and-labrador": [

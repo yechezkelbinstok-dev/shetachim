@@ -1032,6 +1032,9 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   const headRow = (sid, h) => `<div class="cc-flagrow cc-headrow">${HEAD_ICON}<span><span class="lbl">${esc(roleOf(h))}:</span> ${esc(headName(sid, h))} <span class="pos">· ${esc(yearsOf(h.from, h.to))}</span></span></div>`;
   // the head and the vaad that year: a vaad that leads above him (vaadFirst), any other under him
   function leadHTML(sid, h, t, big, Y) {
+    // an organisation that leads (Greater New York's Tzach): as the main map shows it, "Leadership" (הנהלה), its name, its
+    // years; its members' faces only in the present year (today's, from the main map: when each joined is not known)
+    if (h.x.org) return vaadBlock({ v: { name: h.x.head, nameHe: h.x.he, members: Y >= NOW ? h.x.members || [] : [] }, n: -1, from: h.from, to: h.to }, t);
     const vz = vaadAt(sid, Y);
     if (vz && vz.v.vaadFirst) return `${vaadBlock(vz, t)}${headRow(sid, h)}`;
     if (!vz) return headBlock(sid, h, t, big, Y);
@@ -1177,7 +1180,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   if (document.fonts && document.fonts.load) Promise.all([document.fonts.load(`600 12px Inter`), HE ? document.fonts.load('600 12px Heebo', 'אבג') : null]).then(() => { WID.clear(); redraw('all'); }, () => {});
   window.__history = { nameOf: (sid, Y) => nameOf(sid, Y), groups: (Y) => [...config(Y).groups.keys()], headAt: (sid, Y) => { const h = headAt(sid, Y); return h && h.x.head; },
     stats: () => ({ ms: +lastMs.toFixed(2), k: T.k, level: levelNow(T.k), points: PA.map((A) => A.reduce((n, r) => n + r.length / 2, 0)) }),
-    screen: (lon, lat) => T.apply(proj([lon, lat])), spot: (sid, Y) => { const idx = config(Y).groups.get(sid); return idx ? spotOf(idx) : null; } };
+    screen: (lon, lat) => T.apply(proj([lon, lat])), spot: (sid, Y) => { const idx = config(Y).groups.get(sid); return idx ? spotOf(idx) : null; }, select: (sid) => selectSid(sid) };
 })();
 </script>
 </body>

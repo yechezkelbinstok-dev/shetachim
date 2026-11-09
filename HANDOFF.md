@@ -287,6 +287,11 @@ thirteen no better recent photo has been found yet (the list is there, with what
     portraits but its galleries need a sign-in and its event photos carry a big centre watermark: not used. The
     Frierdiker Rebbe: no colourised photograph found (COLlive's and the others are paintings), so his stays the
     black-and-white photograph; if the owner wants a painting instead, ask first.
+  - **Nov 9: Tzach on the history page as on the main map.** Greater New York's head (Tzach) shows as "Leadership" /
+    "הנהלה" with its name in Hebrew (צעירי אגודת חב״ד), not "שליח ראשי: Tzach" (owner, angry: "WHY ... IS TZACH SHLIACH
+    ROSHI AND NOT LIKE HOW IT IS BY THE MAIN SHETACHIM AND WHY ... IS IT IN ENGLISH"). The head entry has `org: true`,
+    `he`, `role`/`roleHe` and today's members (the main map's five, with photos), shown only in the present year (when
+    each joined is not known). Any other organisation that heads a shetach in the history should get the same.
   - **Nov 9 (late): names in the early years and Rockland.** When a year has 15 shetachim or fewer, a shape too small for
     its name still gets it, set over it or just beside it, clear of the others (owner: "in the early years when it's
     important to see every single one ... maybe don't do lines maybe put it over it"; no lines). Monsey's piece is part

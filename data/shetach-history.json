@@ -3946,6 +3946,63 @@
     "quote": "Chabad Lubavitch of Getzville, 2501 No. Forest Rd., Getzville",
     "note": "In the American Friends of Lubavitch list of about 1984 (the 1984 map's booklet); the star is at today's centre in the same area (moves within a city whose dates are not known are left out)."
    }
+  ],
+  "virginia": [
+   {
+    "from": "1976",
+    "where": "Chabad of Virginia, 212 Gaskins Road, Richmond",
+    "centerId": "117734",
+    "lat": 37.58779,
+    "lon": -77.60152,
+    "name": "Chabad of Virginia",
+    "city": "Richmond",
+    "via": "data/founding-years.json, 117734",
+    "source": "https://collive.com/25th-yartzeit-of-rabbi-yankel-kranz/",
+    "quote": "In 1983 he opened the Tidewater branch of Chabad Lubavitch in Virginia Beach and hired Rabbi Aaron and Reichel Margolin to be its director.",
+    "note": "Yankel Kranz founded the Richmond center in 1976 (Lubavitch.com, 2014) and lived in Richmond; the AFL list of about 1984 has 'Chabad Lubavitch of Richmond, 212 Gaskins Rd.', today's address. Its 'Chabad Lubavitch of Virginia' in Virginia Beach was the Tidewater branch he opened in 1983 under the Margolins, not his own."
+   }
+  ],
+  "illinois": [
+   {
+    "from": "1977",
+    "where": "a small apartment in Chicago (address not found)",
+    "lat": 41.8781,
+    "lon": -87.6298,
+    "name": "A small Chicago apartment",
+    "nameHe": "דירה קטנה בשיקגו",
+    "city": "Chicago",
+    "source": "https://crownheights.info/chabad-news/6773/chabad-of-illinois-celebrates-thirty-years/",
+    "quote": "Over the past thirty years Lubavitch Chabad of Illinois has grown from a one-man operation in a small Chicago apartment to a legion of more than thirty institutions",
+    "note": "The star is on the city."
+   },
+   {
+    "from": null,
+    "fromBound": {
+     "by": "1985-03"
+    },
+    "where": "Chabad Lubavitch of Greater Chicago, Regional Center, 2014 Orrington Ave., Evanston (the Chabad House at Northwestern)",
+    "lat": 42.0557,
+    "lon": -87.6797,
+    "name": "Chabad Lubavitch of Greater Chicago, Regional Center",
+    "nameHe": "חב״ד ליובאוויטש שיקגו רבתי, המרכז האזורי",
+    "city": "Evanston",
+    "cityHe": "אוונסטון",
+    "source": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+    "quote": "Chabad Lubavitch of Greater Chicago, Regional Center, 2014 Orrington St., Evanston",
+    "note": "In the American Friends of Lubavitch list of about 1984. Moscowitz founded the Northwestern Chabad House there within a year of coming (Chicago Tribune obituary, 2014: 'Within a year he founded what became the Tannenbaum Chabad House at Northwestern University in Evanston'); since when it was the regional center is not found."
+   },
+   {
+    "from": "1995",
+    "where": "Bais Menachem, Howard Street, Chicago (today's Lubavitch Chabad of Illinois)",
+    "centerId": "117610",
+    "lat": 42.01922,
+    "lon": -87.70058,
+    "name": "Lubavitch Chabad of Illinois",
+    "city": "Chicago",
+    "source": "https://www.lubavitch.com/new-770-replica-to-serve-as-innovative-headquarters-for-chabad-of-illinois/",
+    "quote": "In 1995, Rabbi Moscowitz and Rabbi Baruch Epstein rented a run-down storefront ... and opened Bais Menachem, a synagogue on the northern border of Chicago's Rogers Park neighborhood ... The Bais Menachem building had office space to host the main offices of Chabad of Illinois",
+    "note": "From 1995, its opening; when the offices moved in exactly is not said. The new headquarters on Howard Street (a 770 replica) broke ground in April 2022."
+   }
   ]
  },
  "vaads": {

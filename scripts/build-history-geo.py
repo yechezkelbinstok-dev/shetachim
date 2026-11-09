@@ -136,6 +136,29 @@ def main():
     nj[1] = multi(polys(nj[1].difference(sj)))
     areas.append([dict(nj[0], id='US-NJ:south-jersey', part='South Jersey'), multi(polys(sj))])
 
+    # the first years' cities (owner, Nov 9: "for those years before Posner and Mochkin came to just make it the city"):
+    # Pittsburgh (the city, out of Western Pennsylvania's piece) and Montreal (its island, out of Quebec's)
+    sub = json.load(open(os.path.join(ROOT, '.cache/county-subdivision-42.json')))
+    pgh = unary_union([shape(f['geometry']) for f in (sub['features'] if 'features' in sub else sub) if f['properties'].get('GEOID') == '4200361000'])
+    wpa = next(a for a in areas if a[0]['id'] == 'US-PA:western-pennsylvania')
+    cut = wpa[1].intersection(pgh)
+    wpa[1] = multi(polys(wpa[1].difference(cut)))
+    areas.append([dict(wpa[0], id='US-PA:pittsburgh', part='Pittsburgh'), multi(polys(cut))])
+    mtl = unary_union([shape(f['geometry']) for f in json.load(open(os.path.join(ROOT, '.cache/gadm41_CAN_2.json')))['features']
+                       if f['properties']['NAME_2'] == 'Communauté-Urbaine-de-Montréal']).buffer(0)
+    qc = next(a for a in areas if a[0]['id'] == 'CA-QC:quebec')
+    cut = qc[1].intersection(mtl)
+    qc[1] = multi(polys(qc[1].difference(cut)))
+    areas.append([dict(qc[0], id='CA-QC:montreal', part='Montreal'), multi(polys(cut))])
+
+    # and Worcester before the Fogelmans (owner, Nov 9: "Also the one in Massachusetts before fogelman came")
+    sub = json.load(open(os.path.join(ROOT, '.cache/county-subdivision-25.json')))
+    wor = unary_union([shape(f['geometry']) for f in (sub['features'] if 'features' in sub else sub) if f['properties'].get('GEOID') == '2502782000'])
+    cm = next(a for a in areas if a[0]['id'] == 'US-MA:central-massachusetts')
+    cut = cm[1].intersection(wor)
+    cm[1] = multi(polys(cm[1].difference(cut)))
+    areas.append([dict(cm[0], id='US-MA:worcester', part='Worcester'), multi(polys(cut))])
+
     # the rest of Canada (outside.json). The provinces' own unclaimed north (the main map leaves it off) is cut out of it
     # by province, as a piece of its own ('north'), so the page can show the provinces whole (its switch) or not
     out = json.load(open(OUTSIDE))

@@ -1832,7 +1832,6 @@
   "US-MA:central-massachusetts": [
    {
     "shetach": "central-massachusetts",
-    "from": "1942-06",
     "how": "stated",
     "confidence": "high",
     "sources": [
@@ -1843,7 +1842,11 @@
       "note": "The Worcester yeshiva, Achei Tmimim, opened on 12 Tammuz 5702 (1942) under Rabbi Moshe Yitzchak Hecht; Rabbi Fogelman continued 'until his passing in 5773'."
      }
     ],
-    "note": "The Worcester yeshiva, Achei Tmimim, opened on 12 Tammuz 5702 (27 June 1942) under Rabbi Moshe Yitzchak Hecht, whom the Frierdiker Rebbe appointed its head that summer; in 5706 Rabbi Hershel Fogelman succeeded him (Hecht went to New Haven) and stayed for life."
+    "note": "Owner, Nov 9: 'for those years before Posner and Mochkin came to just make it the city and not the whole state' (and 'Also the one in Massachusetts before fogelman came'). Central Massachusetts beyond Worcester from the Fogelmans' coming; before, Worcester only (US-MA:worcester). The Worcester yeshiva, Achei Tmimim, opened on 12 Tammuz 5702 (27 June 1942) under Rabbi Moshe Yitzchak Hecht, whom the Frierdiker Rebbe appointed its head that summer; in 5706 Rabbi Hershel Fogelman succeeded him (Hecht went to New Haven) and stayed for life.",
+    "fromBound": {
+     "after": "1945-09",
+     "by": "1946-09"
+    }
    }
   ],
   "US-MA:connecticut": [
@@ -3105,6 +3108,67 @@
     ],
     "note": "Prince Edward Island: the Feldmans were sent 'as Shluchim to the Maritime provinces' (owner's rule, Nov 8: theirs where they were explicitly sent), from their start in Halifax, January 1995. Before that no shliach is found here (was borrowed from Nova Scotia's piece in the page)."
    }
+  ],
+  "US-PA:pittsburgh": [
+   {
+    "shetach": "western-pennsylvania",
+    "from": "1941-12-07",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://jewishchronicle.timesofisrael.com/a-postcard-from-the-early-days-of-yeshiva-schools/",
+      "title": "A postcard from the early days of Yeshiva Schools (Pittsburgh Jewish Chronicle)",
+      "date": "2020-01-09",
+      "quote": "On December 7, 1941, in the shadow of Pearl Harbor, the Frierdiker Rebbe dispatched Rabbi Altein to Pittsburgh “to learn Torah and create activities among the youth.” ... By summer, Rabbi Mordechai Dov Altein had started Yeshiva Achei T’mimim, the first Lubavitch yeshiva in America outside of New York."
+     }
+    ],
+    "note": "Owner, Nov 9: 'for those years before Posner and Mochkin came to just make it the city and not the whole state' (and 'Also the one in Massachusetts before fogelman came'). Pittsburgh only from Rabbi Mordechai Dov Altein's coming until Rabbi Sholom Posner's (1943), when Western Pennsylvania begins."
+   }
+  ],
+  "CA-QC:montreal": [
+   {
+    "shetach": "quebec",
+    "from": "1941-10",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.rabbikramerslegacy.com/about-rabbi-kramer/",
+      "title": "About Rabbi Kramer (Rabbi Kramer's Legacy)",
+      "quote": "Thus, hardly a day after his arrival in Montreal, on Motzei Shabbos, the yeshiva was established with Rabbi Kramer as its acting director. ... By the mid-1950s there were five hundred students and Rabbi Kramer had officially assumed the role of director upon the instructions of the previous Lubavitcher Rebbe."
+     },
+     {
+      "url": "https://col.org.il/news/113862",
+      "title": "77 שנה להקמת 'תומכי תמימים' מונטריאול על ידי הריי\"צ (COL)",
+      "date": "2018-10-12",
+      "quote": "למחרת הגיעם לעיר נפתחה הישיבה, מנהלה היה, מאז ועד לפטירתו, הרב אריה לייב קרמר. בראש הישיבה עמד הרב יצחק הכהן הענדל."
+     },
+     {
+      "url": "https://collive.com/montreals-legendary-leader/",
+      "title": "Montreal's Legendary Leader (COLlive)",
+      "quote": "Rabbi Kramer directed the institution for 58 years, until his death at age 81."
+     }
+    ],
+    "note": "Owner, Nov 9: 'for those years before Posner and Mochkin came to just make it the city and not the whole state' (and 'Also the one in Massachusetts before fogelman came'). Montreal only from the yeshiva (Oct 1941, Rabbi Leib Kramer) until Rabbi Berel Mochkin's coming (1952), when Quebec begins."
+   }
+  ],
+  "US-MA:worcester": [
+   {
+    "shetach": "central-massachusetts",
+    "from": "1942-06",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://derher.org/wp-content/uploads/5785-11-10.pdf",
+      "title": "A Chassidisher Derher, Menachem Av 5785, 'Pinpoints: Worcester, MA'",
+      "quote": "In 5706, the Frierdiker Rebbe sent Rabbi Hershel Fogelman to succeed Rabbi Hecht, who was needed to lead another Achei Tmimim branch, while Rabbi Fogelman remained in Worcester for life.",
+      "note": "The Worcester yeshiva, Achei Tmimim, opened on 12 Tammuz 5702 (1942) under Rabbi Moshe Yitzchak Hecht; Rabbi Fogelman continued 'until his passing in 5773'."
+     }
+    ],
+    "note": "Owner, Nov 9: 'for those years before Posner and Mochkin came to just make it the city and not the whole state' (and 'Also the one in Massachusetts before fogelman came'). Worcester only from the Hechts' coming (June 1942) until the Fogelmans'. The Worcester yeshiva, Achei Tmimim, opened on 12 Tammuz 5702 (27 June 1942) under Rabbi Moshe Yitzchak Hecht, whom the Frierdiker Rebbe appointed its head that summer; in 5706 Rabbi Hershel Fogelman succeeded him (Hecht went to New Haven) and stayed for life."
+   }
   ]
  },
  "extraAreas": {
@@ -3128,6 +3192,24 @@
    "carvedFrom": "US-OH:northeast-ohio",
    "cut": "the Northeast Ohio piece south of 40.45°N (a straight line, like the owner's other Ohio borders)",
    "note": "Athens, Marietta, Steubenville and the Ohio River counties at the foot of today's Northeast Ohio piece. Owner, Nov 8: 'until that shliach went to that campus why would Alevsky shape be like that I think change it': Alevsky's from the Ohio University shliach (Aug 2015). A piece for the history only, cut by scripts/build-history-geo.py."
+  },
+  "US-PA:pittsburgh": {
+   "name": "Pittsburgh",
+   "carvedFrom": "US-PA:western-pennsylvania",
+   "geoid": "4200361000",
+   "note": "The city of Pittsburgh, for Western Pennsylvania before Posner (owner, Nov 9)."
+  },
+  "CA-QC:montreal": {
+   "name": "Montreal",
+   "carvedFrom": "CA-QC:quebec",
+   "gadm": "Communauté-Urbaine-de-Montréal (GADM 4.1 level 2: the island)",
+   "note": "Montreal, for Quebec before Mochkin (owner, Nov 9)."
+  },
+  "US-MA:worcester": {
+   "name": "Worcester",
+   "carvedFrom": "US-MA:central-massachusetts",
+   "geoid": "2502782000",
+   "note": "The city of Worcester, for Central Massachusetts before the Fogelmans (owner, Nov 9)."
   }
  },
  "events": {

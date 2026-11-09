@@ -274,6 +274,15 @@ thirteen no better recent photo has been found yet (the list is there, with what
     (`scripts/build-history-geo.py`; rebuild when geo.json changes). Redrawn on canvases for speed (it was slow and
     crashed on phones), its cards made like the main map's, 770's with the Rebbeim's portraits (README: Drawing, Cards);
     settings: Hebrew years (default in Hebrew), זצוקללה״ה נבג״מ זי״ע (default in Hebrew), Full provinces.
+  - **Nov 9 (late): the first years are the city only** (owner: "I wasn't telling it to frickin' get rid of them. I just
+    meant for those years before Posner and Mochkin came to just make it the city and not the whole state"; "Also the
+    one in Massachusetts before fogelman came"). Pieces US-PA:pittsburgh (the city, from Altein, Dec 1941),
+    CA-QC:montreal (the island, from Oct 1941, Leib Kramer), US-MA:worcester (the city, from the Hechts, June 1942),
+    carved in build-history-geo.py (.cache/county-subdivision-42/-25.json, .cache/gadm41_CAN_2.json, downloaded from
+    geodata.ucdavis.edu gadm4.1); the state or province from Posner (1943), Mochkin (1952), the Fogelmans (1945-46).
+    **Open, the owner asked:** "should fogelman initially be the entire Massachusetts?" Eastern Massachusetts is
+    Prus's from 1975 and Western Massachusetts Deren's from 1974; before then they are blank. Find whether Fogelman was
+    head for all Massachusetts (or New England) before them; no source in the repo says so yet.
   - **▶ Nov 9: the history page (web/history.html), WHAT STILL NEEDS FIXING — the owner is angry it was half done
     ("the goal here is to be accurate"; "you need to properly do research on these things").** Done and pushed Nov 9:
     no heads or flagships of today put back in time (the page shows only `heads` and `flagships` the history file

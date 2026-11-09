@@ -20058,12 +20058,11 @@
    "name": "Roitman Chabad Center at Cornell University",
    "city": "Ithaca, NY",
    "shetach": "upstate-new-york",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/117688/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Lead, not checked: a faculty-directory site says Rabbi Eli Silberstein's Roitman Chabad Center was established in 1984. Director: Eli Silberstein."
+   "year": 1984,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.lawschool.cornell.edu/faculty-research/faculty-directory/eli-silberstein/",
+   "note": "Cornell Law School's faculty page for Rabbi Eli Silberstein (adjunct professor): 'Rabbi Eli Silberstein is the founder and director of the Roitman Chabad Center which was established in 1984.' The IRS recognized The Roitman Chabad Center at Cornell Inc from 1986 (GuideStar), which agrees. Its chabad.org listing is in the first online directory (2004)."
   },
   "117693": {
    "name": "Kessler Family Chabad Center",
@@ -21685,12 +21684,19 @@
    "name": "Troy Chabad Center",
    "city": "Troy, NY",
    "shetach": "eastern-new-york",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/117698/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Leible Morrison."
+   "year": 1982,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://crownheights.info/shlichus/546813/chabad-synagogue-makes-it-on-to-national-register-of-historic-places/",
+   "note": "Albany Times-Union interview with Rabbi Leible and Elisheva Morrison, on CrownHeights.info, 5 Sept 2016: 'In 1982, they came to Troy where they live in the Chabad House on South Lake Avenue and he is the spiritual leader of Beth Tephilah Synagogue on River Street'; Rabbi Morrison: 'In 1982, the Lubavitcher rebbe sent my wife and me to Troy to run a mikva, a ritual bath, and help the community.' The 1984 Lubavitch list has 'Chabad Lubavitch of Troy, 2306 15th Ave.'",
+   "earlier": [
+    {
+     "where": "Chabad Lubavitch of Troy, 2306 15th Ave. (the 1984 Lubavitch list, p. 46)",
+     "from": null,
+     "until": null,
+     "source": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf"
+    }
+   ]
   },
   "117700": {
    "name": "Chabad of the Catskills",
@@ -21718,12 +21724,11 @@
    "name": "Mikvah Chabad",
    "city": "Troy, NY",
    "shetach": "eastern-new-york",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/119480/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Elisheva Morrison."
+   "year": 1982,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://crownheights.info/shlichus/546813/chabad-synagogue-makes-it-on-to-national-register-of-historic-places/",
+   "note": "Rabbi Leible Morrison (Albany Times-Union, on CrownHeights.info, 5 Sept 2016): 'In 1982, the Lubavitcher rebbe sent my wife and me to Troy to run a mikva, a ritual bath, and help the community.' The year is when the Morrisons began running it; medium, as the mikvah itself may be older. Director: Elisheva Morrison."
   },
   "119795": {
    "name": "Mikvah",

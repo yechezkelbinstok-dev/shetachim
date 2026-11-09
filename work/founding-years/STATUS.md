@@ -19,7 +19,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | connecticut | 33 | 9 | 12 |  | 12 |  |  | 12 | 32 | 12 |
 | delaware | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | eastern-massachusetts | 35 | 7 | 6 |  | 22 |  |  | 22 | 32 | 20 |
-| eastern-new-york | 50 | 5 | 11 |  | 34 |  |  | 34 | 47 | 31 |
+| eastern-new-york | 50 | 6 | 12 |  | 32 |  |  | 32 | 47 | 29 |
 | florida | 240 | 138 | 21 |  | 45 | 36 |  | 81 | 219 | 68 |
 | georgia | 27 | 18 | 5 |  | 4 |  |  | 4 | 24 | 2 |
 | hawaii | 7 | 4 | 1 |  | 2 |  |  | 2 | 7 | 2 |
@@ -61,7 +61,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | texas | 58 | 33 | 12 |  | 4 | 2 | 7 | 13 | 48 | 6 |
 | the-carolinas | 25 | 15 | 5 |  | 4 | 1 |  | 5 | 23 | 3 |
 | upper-midwest | 19 | 10 | 3 |  | 6 |  |  | 6 | 19 | 6 |
-| upstate-new-york | 22 | 9 | 3 |  | 10 |  |  | 10 | 21 | 9 |
+| upstate-new-york | 22 | 10 | 3 |  | 9 |  |  | 9 | 21 | 8 |
 | utah | 4 | 3 | 1 |  |  |  |  | 0 | 4 | 0 |
 | vermont | 8 | 5 | 2 |  | 1 |  |  | 1 | 8 | 1 |
 | virginia | 19 | 15 | 1 |  | 3 |  |  | 3 | 19 | 3 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | wisconsin | 23 | 9 | 5 |  | 9 |  |  | 9 | 20 | 6 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | crown-heights | 48 |  |  |  |  |  | 48 | 48 | 24 | 24 |
-| **all** | 1969 | 915 | 354 | 2 | 591 | 47 | 60 | 698 | 1765 | 543 |
+| **all** | 1969 | 917 | 355 | 2 | 588 | 47 | 60 | 695 | 1765 | 540 |

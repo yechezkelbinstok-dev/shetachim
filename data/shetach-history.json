@@ -864,7 +864,7 @@
   ],
   "western-pennsylvania": [
    {
-    "head": "Kevutzah",
+    "head": "Kevutzah of bochurim",
     "group": [
      "Yisroel Meir Altein",
      "Mordechai Dov Altein",
@@ -875,8 +875,8 @@
      "מרדכי דב אלטיין",
      "דוד איידלמן"
     ],
-    "role": "Kevutzah",
-    "roleHe": "קבוצה",
+    "role": "Kevutzah of bochurim",
+    "roleHe": "קבוצת בחורים",
     "from": "1941-12-07",
     "how": "owner",
     "sources": [
@@ -887,7 +887,7 @@
       "quote": "On December 7, 1941, in the shadow of Pearl Harbor, the Frierdiker Rebbe dispatched Rabbi Altein to Pittsburgh “to learn Torah and create activities among the youth.” ... By summer, Rabbi Mordechai Dov Altein had started Yeshiva Achei T’mimim, the first Lubavitch yeshiva in America outside of New York."
      }
     ],
-    "note": "Owner, Nov 9: \"the first kevutzah of bochurim to Pittsburgh was three bochurim, no hanholo and it was three not just one - Yisroel Meir Altein, Mordechai Dov Altein, and Dovid Eidelman\". The date is Mordechai Dov Altein's dispatch by the Frierdiker Rebbe (Pittsburgh Jewish Chronicle). Shown as a group with no one over them. Named 'Kevutzah' (owner, Nov 9: \"Name it kevutzah of bochurim or smth or kevutzah\")."
+    "note": "Owner, Nov 9: \"the first kevutzah of bochurim to Pittsburgh was three bochurim, no hanholo and it was three not just one - Yisroel Meir Altein, Mordechai Dov Altein, and Dovid Eidelman\". The date is Mordechai Dov Altein's dispatch by the Frierdiker Rebbe (Pittsburgh Jewish Chronicle). Shown as a group with no one over them. Named 'Kevutzah of bochurim' (owner, Nov 9: \"Name it kevutzah of bochurim or smth or kevutzah\"; \"pls don't make kevutzah like a last name\")."
    },
    {
     "head": "Sholom Posner",
@@ -2248,10 +2248,15 @@
   "US-NV:west-coast": [
    {
     "shetach": "west-coast",
-    "from": null,
-    "how": "news",
-    "confidence": "medium",
+    "from": "1965",
+    "how": "owner",
     "sources": [
+     {
+      "url": "https://jewishjournal.com/community/5691/",
+      "title": "Rabbi vs. Rabbi (Jewish Journal)",
+      "date": "2002-03-21",
+      "quote": "He opened the first Chabad house in Westwood, and has since, with the Rebbe's permission, appointed hundreds of emissaries to more than 100 Chabad centers, reaching communities as diverse as Fresno and Las Vegas."
+     },
      {
       "url": "https://derher.org/wp-content/uploads/22-av-5774-09.pdf",
       "title": "A Chassidisher Derher, Av 5774, 'Conquering California'",
@@ -2272,10 +2277,7 @@
       "note": "Nevada is blue (covered by another state); California, Cunin's, is the only orange state next to it. A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
      }
     ],
-    "note": "Nevada had no shliach before; it joined the West Coast with the Rebbe's answer (summer 1989), its first shliach (Chabad of Southern Nevada) from 1990. Earlier this file started Nevada at 1989 (the Rebbe's answer putting a Las Vegas Chabad House under Cunin's responsibility 'like all other matters there'); the map of about 1984 already has Nevada covered from a neighbour, and California is the only one that covered others. First resident shliach 1990 (Harlig).",
-    "fromBound": {
-     "by": "1985-03"
-    }
+    "note": "Owner, Nov 9: \"yes on cumin Nevada and utah from when he was first sent\" (Cunin, sent to the West Coast in 1965; no one else was near). Was: by about 1984 (the AFL map: Nevada covered from California). Nevada had no shliach before; it joined the West Coast with the Rebbe's answer (summer 1989), its first shliach (Chabad of Southern Nevada) from 1990. Earlier this file started Nevada at 1989 (the Rebbe's answer putting a Las Vegas Chabad House under Cunin's responsibility 'like all other matters there'); the map of about 1984 already has Nevada covered from a neighbour, and California is the only one that covered others. First resident shliach 1990 (Harlig)."
    }
   ],
   "US-NY:eastern-new-york": [
@@ -2769,9 +2771,8 @@
   "US-UT:utah": [
    {
     "shetach": "west-coast",
-    "from": "1976-11",
-    "how": "news",
-    "confidence": "medium",
+    "from": "1965",
+    "how": "owner",
     "sources": [
      {
       "url": "https://newspapers.lib.utah.edu/details?id=26358941",
@@ -2794,7 +2795,7 @@
       "note": "Nevada is blue (covered by another state); California, Cunin's, is the only orange state next to it. A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
      }
     ],
-    "note": "Cunin's West Coast shluchim (Santa Monica and Long Beach) held a workshop for Jewish students at the University of Utah on 14 Nov 1976: by the owner's rule (activity there), the West Coast's from then. On the AFL map of about 1984 Utah is still covered from a neighbour, and Nevada next door was the West Coast's. Its own shetach from the Zippels (1992). Their son's line 'My first birthday was the first Chabad activity in the state of Utah' (Salt Lake Tribune, 2022) counts only resident Chabad."
+    "note": "Owner, Nov 9: \"yes on cumin Nevada and utah from when he was first sent\" (Cunin, sent to the West Coast in 1965; no one else was near). Was: from Nov 1976 (the University of Utah workshop by his Los Angeles rabbis, the sources here). Cunin's West Coast shluchim (Santa Monica and Long Beach) held a workshop for Jewish students at the University of Utah on 14 Nov 1976: by the owner's rule (activity there), the West Coast's from then. On the AFL map of about 1984 Utah is still covered from a neighbour, and Nevada next door was the West Coast's. Its own shetach from the Zippels (1992). Their son's line 'My first birthday was the first Chabad activity in the state of Utah' (Salt Lake Tribune, 2022) counts only resident Chabad."
    },
    {
     "shetach": "utah",

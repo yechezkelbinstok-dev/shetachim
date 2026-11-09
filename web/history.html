@@ -683,7 +683,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       if (MODE === 'heads') {
         const h = headAt(sid, Y); if (!h) continue;
         const name = headName(sid, h), sur = surnameOf(sid, h), vz = vaadAt(sid, Y);
-        if (h.x.group) { const sn = groupOf(h).map((n) => n.split(/\s+/).pop()); out.push({ sid, S, cands: [{ lines: [name], sub: [sn.join(' · ')] }, { lines: [name] }], base: Math.max(9.5, Math.min(13, Math.sqrt(S.area) / 8.5)) }); continue; }
+        if (h.x.group) { const sn = groupOf(h).map((n) => n.split(/\s+/).pop()); out.push({ sid, S, cands: [{ lines: wrap(name), sub: [sn.join(' · ')] }, { lines: wrap(name) }], base: Math.max(9.5, Math.min(13, Math.sqrt(S.area) / 8.5)) }); continue; }
         // where a vaad leads (Florida, New Jersey), the label is the vaad, his name under it, smaller (as on the main map)
         const vn = vz && vz.v.vaadFirst ? (HE && vz.v.nameHe) || vz.v.name : null;
         const cands = vn ? [{ lines: wrap(vn), sub: [name] }, { lines: wrap(vn), sub: [sur] }, { lines: wrap(vn) }, { lines: [sur] }]

@@ -52,7 +52,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | oregon | 19 | 9 | 2 |  | 8 |  |  | 8 | 17 | 6 |
 | ottawa | 11 | 8 |  |  | 3 |  |  | 3 | 9 | 2 |
 | pennsylvania | 61 | 30 | 10 |  | 17 | 4 |  | 21 | 57 | 20 |
-| quebec | 72 | 5 | 12 | 1 | 54 |  |  | 54 | 59 | 42 |
+| quebec | 72 | 6 | 13 | 1 | 52 |  |  | 52 | 59 | 40 |
 | rhode-island | 8 | 5 | 1 |  | 2 |  |  | 2 | 7 | 1 |
 | rockland | 5 | 2 |  |  | 3 |  |  | 3 | 5 | 3 |
 | south-area | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | wisconsin | 23 | 9 | 5 |  | 9 |  |  | 9 | 20 | 6 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | crown-heights | 48 |  |  |  |  |  | 48 | 48 | 24 | 24 |
-| **all** | 1969 | 914 | 353 | 2 | 593 | 47 | 60 | 700 | 1765 | 545 |
+| **all** | 1969 | 915 | 354 | 2 | 591 | 47 | 60 | 698 | 1765 | 543 |

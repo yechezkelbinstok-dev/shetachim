@@ -23838,12 +23838,19 @@
    "name": "Rohr Chabad of NDG",
    "city": "Montreal, QC",
    "shetach": "quebec",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2008,
-   "source": "https://www.chabad.org/api/content/757095/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2008-10-28, so it existed by then. Director: Yisroel Bernath."
+   "year": 2008,
+   "how": "anniversary",
+   "confidence": "medium",
+   "source": "https://collive.com/chabad-takes-over-former-church/",
+   "note": "The Canadian Jewish News (Janice Arnold) on COLlive, 7 Oct 2013 ('Chabad Takes Over Former Church'): during the High Holidays Chabad of NDG moved into a former church; 'The synagogue/community centre was located in trendy Monkland Village for five years, led by the charismatic young Rabbi Yisroel Bernath.' Medium: counted back; its chabad.org listing went up 28 Oct 2008, which agrees.",
+   "earlier": [
+    {
+     "where": "Monkland Village, Notre-Dame-de-Grâce (its first home)",
+     "from": 2008,
+     "until": 2013,
+     "source": "https://collive.com/chabad-takes-over-former-church/"
+    }
+   ]
   },
   "6577379": {
    "name": "Mikvah Golda",
@@ -23871,12 +23878,12 @@
    "name": "Chabad Centre for Jewish Life S. Lazare",
    "city": "S. Lazare, QC",
    "shetach": "quebec",
-   "year": 2010,
+   "year": 2009,
    "how": "news",
-   "confidence": "medium",
-   "source": "https://collive.com/new-shluchim-to-quebec/",
-   "note": "COLlive, 19 Jan 2010 ('New Shluchim to Quebec'): 'Two weeks ago, Rabbi Nochum and Malki Labkowski and their children Mendele and Ita, have moved to the off-island suburb of Montreal', St. Lazare, which 'has experienced rapid growth in recent years'. Medium: its chabad.org listing went up 19 Oct 2009, a few months before the move.",
-   "date": "2010-01"
+   "confidence": "high",
+   "source": "https://collive.com/cant-wait-for-the-rabbi/",
+   "note": "The Hudson Gazette (Jim Duff) on COLlive, 3 Feb 2010 ('Can't Wait for the Rabbi'): 'With the arrival in December of the Chabad Jewish Community Centre on Côte St. Charles, that has changed'; 'Last Rosh Shoshanna [Rosh Hashanah, Sept 2009], Rabbi Labkowski held services at Auberge du Rigaud' for forty people. COLlive, 19 Jan 2010 ('New Shluchim to Quebec', https://collive.com/new-shluchim-to-quebec/): 'Two weeks ago, Rabbi Nochum and Malki Labkowski and their children ... have moved to the off-island suburb'. The year is their first services there (High Holidays 2009); its chabad.org listing went up 19 Oct 2009.",
+   "season": "High Holidays"
   },
   "1215189": {
    "name": "Yeshiva Tomchei Tmimim Or Menachem",
@@ -23915,12 +23922,12 @@
    "name": "Chabad South Shore / Rive-Sud",
    "city": "Brossard, QC",
    "shetach": "quebec",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2011,
-   "source": "https://www.chabad.org/api/content/1604353/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2011-08-28, so it existed by then. Director: Zalman Samama."
+   "year": 2010,
+   "how": "news",
+   "confidence": "medium",
+   "source": "https://collive.com/south-shores-spiritual-revival/",
+   "note": "Chabad.org on COLlive, 12 Mar 2012 ('South Shore's Spiritual Revival'): Rabbi Zalman Samama 'and his wife, Sterna Sarah, moved to the area in October 2010 with their two children'; a resident 'hadn't seen anything recently until a few months ago, when Samama and his family bought a house in Brossard'. Medium: COLlive, 19 Sept 2012, says instead 'A year ago, Shluchim Zalman and Sterna Sarah Samama moved to Brossard'; its chabad.org listing went up 28 Aug 2011.",
+   "date": "2010-10"
   },
   "1617611": {
    "name": "Chabad of Sherbrooke",

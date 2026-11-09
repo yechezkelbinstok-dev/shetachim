@@ -25,12 +25,12 @@
   "name": "Chabad Centre for Jewish Life S. Lazare",
   "city": "S. Lazare, QC",
   "shetach": "quebec",
-  "year": 2010,
+  "year": 2009,
   "how": "news",
-  "confidence": "medium",
-  "source": "https://collive.com/new-shluchim-to-quebec/",
-  "note": "COLlive, 19 Jan 2010 ('New Shluchim to Quebec'): 'Two weeks ago, Rabbi Nochum and Malki Labkowski and their children Mendele and Ita, have moved to the off-island suburb of Montreal', St. Lazare, which 'has experienced rapid growth in recent years'. Medium: its chabad.org listing went up 19 Oct 2009, a few months before the move.",
-  "date": "2010-01"
+  "confidence": "high",
+  "source": "https://collive.com/cant-wait-for-the-rabbi/",
+  "note": "The Hudson Gazette (Jim Duff) on COLlive, 3 Feb 2010 ('Can't Wait for the Rabbi'): 'With the arrival in December of the Chabad Jewish Community Centre on Côte St. Charles, that has changed'; 'Last Rosh Shoshanna [Rosh Hashanah, Sept 2009], Rabbi Labkowski held services at Auberge du Rigaud' for forty people. COLlive, 19 Jan 2010 ('New Shluchim to Quebec', https://collive.com/new-shluchim-to-quebec/): 'Two weeks ago, Rabbi Nochum and Malki Labkowski and their children ... have moved to the off-island suburb'. The year is their first services there (High Holidays 2009); its chabad.org listing went up 19 Oct 2009.",
+  "season": "High Holidays"
  },
  "262675": {
   "name": "Rabbinical College of Quebec",
@@ -41,5 +41,34 @@
   "confidence": "medium",
   "source": "https://collive.com/farbrengen-marks-80-years-of-tomchei-tmimim-montreal/",
   "note": "COLlive, 10 Oct 2021 ('Farbrengen Marks 80 Years of Tomchei Tmimim Montreal'): 'The Farbrengen marked 80 years since the establishment of Yeshivas Tomchei Tmimim in Montreal in 5702' (the year from Sept 1941). COLlive, 15 June 2020: 'For 77 years, the Rabbinical College of Quebec has educated, elevated, and inspired the global Chabad community' ('Montreal Zal'), which counts back to about 1943. Medium: secondary sources two years apart; its chabad.org listing went up only in 2005."
+ },
+ "1604353": {
+  "name": "Chabad South Shore / Rive-Sud",
+  "city": "Brossard, QC",
+  "shetach": "quebec",
+  "year": 2010,
+  "how": "news",
+  "confidence": "medium",
+  "source": "https://collive.com/south-shores-spiritual-revival/",
+  "note": "Chabad.org on COLlive, 12 Mar 2012 ('South Shore's Spiritual Revival'): Rabbi Zalman Samama 'and his wife, Sterna Sarah, moved to the area in October 2010 with their two children'; a resident 'hadn't seen anything recently until a few months ago, when Samama and his family bought a house in Brossard'. Medium: COLlive, 19 Sept 2012, says instead 'A year ago, Shluchim Zalman and Sterna Sarah Samama moved to Brossard'; its chabad.org listing went up 28 Aug 2011.",
+  "date": "2010-10"
+ },
+ "757095": {
+  "name": "Rohr Chabad of NDG",
+  "city": "Montreal, QC",
+  "shetach": "quebec",
+  "year": 2008,
+  "how": "anniversary",
+  "confidence": "medium",
+  "source": "https://collive.com/chabad-takes-over-former-church/",
+  "note": "The Canadian Jewish News (Janice Arnold) on COLlive, 7 Oct 2013 ('Chabad Takes Over Former Church'): during the High Holidays Chabad of NDG moved into a former church; 'The synagogue/community centre was located in trendy Monkland Village for five years, led by the charismatic young Rabbi Yisroel Bernath.' Medium: counted back; its chabad.org listing went up 28 Oct 2008, which agrees.",
+  "earlier": [
+   {
+    "where": "Monkland Village, Notre-Dame-de-Grâce (its first home)",
+    "from": 2008,
+    "until": 2013,
+    "source": "https://collive.com/chabad-takes-over-former-church/"
+   }
+  ]
  }
 }

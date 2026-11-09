@@ -10864,14 +10864,14 @@
   },
   "4951069": {
    "name": "Ckids Gan Israel Florida",
-   "city": "Parkland",
+   "city": "Parkland, FL",
    "shetach": "florida",
-   "year": null,
-   "lead": 2020,
-   "how": "not-found",
-   "source": null,
-   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2020.",
-   "confidence": "open"
+   "year": 2020,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://collive.com/new-gan-izzy-overnight-camp-to-open-in-florida/",
+   "note": "COLlive, 10 June 2020 ('New \"Gan Izzy Overnight Camp\" to Open in Florida'): 'the brand new CKids Gan Israel is launching a magnificent ten-day camp session for boys from grades four to seven', a Merkos 302 pilot overnight camp in South Florida, hosted that year at Camp Gan Israel Florida's campsite in Lake Worth; 'The professional and experienced staff, led by directors Rabbi Levi and Chaya Plotkin'. COLlive, 14 Jan 2021: Rabbi Levi Plotkin 'is camp director alongside his wife Chaya'. Its chabad.org listing went up 6 Jan 2021.",
+   "season": "summer"
   },
   "120130": {
    "name": "Chabad Hebrew School",
@@ -18123,12 +18123,11 @@
    "name": "CTeen Upper West Side",
    "city": "New York, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2019,
-   "source": "https://www.chabad.org/api/content/4444340/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2019-11-14, so it existed by then. Director: Eliyahu Sapochkinsky."
+   "year": 2019,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://collive.com/new-shluchim-to-manhattans-upper-west-side/",
+   "note": "COLlive, 5 Sept 2019 ('New Shluchim to Manhattan's Upper West Side'): 'Rabbi Eliyahu and Shayna Sapochkinsky, with their son Mendel, have recently moved on Shlichus to the Upper West Side of Manhattan', appointed by Rabbi Shlomo Kugel of Chabad of the West Side; 'Eliyahu and Shayna have extensive experience teaching and working with teens'. Its chabad.org listing went up 14 Nov 2019."
   },
   "117911": {
    "name": "Chabad of Sheepshead Bay",
@@ -18849,12 +18848,12 @@
    "name": "Chabad Pelham",
    "city": "Pelham, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2013,
-   "source": "https://www.chabad.org/api/content/2293335/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2013-10-28, so it existed by then. Director: Levi Groner."
+   "year": 2013,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://collive.com/new-shluchim-to-westchester-ny/",
+   "note": "COLlive, 28 July 2013 ('New Shluchim to Westchester, NY'): 'In honor of Chof Menachem Av, Rabbi Levi and Chayale Groner were appointed as the new Chabad Shluchim in Pelham, an affluent suburban town in Westchester County, New York.' Its chabad.org listing went up 28 Oct 2013.",
+   "date": "2013-07"
   },
   "2354985": {
    "name": "Chabad at Adelphi University",
@@ -18898,7 +18897,7 @@
    "confidence": "range",
    "by": 2014,
    "source": "https://www.chabad.org/api/content/2613667/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2014-06-23, so it existed by then. Director: Yaakov Yosef Raskin."
+   "note": "No founding year found yet. Its chabad.org listing went up 2014-06-23, so it existed by then. COLlive, 22 Dec 2015 ('New Shluchim to Long Island', https://collive.com/new-shluchim-to-long-island-1/): Rabbi Yaakov Yosef and Chaya Raskin 'have recently moved with their 2 children to Huntington Village'; 'Since their move a few months ago ... The Raskins have hosted the area's first High holiday services'; appointed by Rabbi and Mrs. Asher Vaisfiche of the Melville Chabad Center. That is more than a year after the listing, so the year is left open. Director: Yaakov Yosef Raskin."
   },
   "2698274": {
    "name": "Chabad of Windsor Terrace",
@@ -18970,12 +18969,12 @@
    "name": "Chabad of Brooklyn Law School",
    "city": "Brooklyn, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2016,
-   "source": "https://www.chabad.org/api/content/3211203/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2016-03-29, so it existed by then."
+   "year": 2016,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://collive.com/new-shluchim-to-brooklyn-law/",
+   "note": "COLlive, 30 Aug 2016 ('New Shluchim to Brooklyn Law'): 'Chabad on Campus is proud to announce the opening of a new Chabad House serving Jewish students at Brooklyn Law School. Beginning this fall semester, Rabbi Eliyahu and Shaindy Raskin (nee Holtzberg) have opened their home to Jewish students'. Its chabad.org listing went up 29 Mar 2016.",
+   "season": "fall"
   },
   "3211263": {
    "name": "Chabad Colleges Downtown Brooklyn",
@@ -21453,12 +21452,11 @@
    "name": "Chabad at Northeastern University",
    "city": "Boston, MA",
    "shetach": "eastern-massachusetts",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2014,
-   "source": "https://www.chabad.org/api/content/2562117/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2014-07-25, so it existed by then. Director: Mendy Posner."
+   "year": 2014,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://collive.com/new-shluchim-to-boston/",
+   "note": "COLlive, 25 Apr 2014 ('New Shluchim to Boston'): 'Rabbi Mendy and Mussy Posner have been appointed as the new Shluchim to the Fenway-Huntington Ave. area of Boston'; 'Their work will focus primarily on the Jewish students at the prominent Northeastern University'. Its chabad.org listing went up 25 July 2014."
   },
   "2786528": {
    "name": "Cambridge Jewish Center of the Arts",
@@ -23883,12 +23881,12 @@
    "name": "Chabad Centre for Jewish Life S. Lazare",
    "city": "S. Lazare, QC",
    "shetach": "quebec",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2009,
-   "source": "https://www.chabad.org/api/content/1013109/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2009-10-19, so it existed by then. Director: Nachum Labkowski."
+   "year": 2010,
+   "how": "news",
+   "confidence": "medium",
+   "source": "https://collive.com/new-shluchim-to-quebec/",
+   "note": "COLlive, 19 Jan 2010 ('New Shluchim to Quebec'): 'Two weeks ago, Rabbi Nochum and Malki Labkowski and their children Mendele and Ita, have moved to the off-island suburb of Montreal', St. Lazare, which 'has experienced rapid growth in recent years'. Medium: its chabad.org listing went up 19 Oct 2009, a few months before the move.",
+   "date": "2010-01"
   },
   "1215189": {
    "name": "Yeshiva Tomchei Tmimim Or Menachem",

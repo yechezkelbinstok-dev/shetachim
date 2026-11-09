@@ -18,9 +18,9 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | colorado | 23 | 6 | 8 |  | 9 |  |  | 9 | 21 | 8 |
 | connecticut | 33 | 9 | 12 |  | 12 |  |  | 12 | 32 | 12 |
 | delaware | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
-| eastern-massachusetts | 35 | 6 | 6 |  | 23 |  |  | 23 | 32 | 21 |
+| eastern-massachusetts | 35 | 7 | 6 |  | 22 |  |  | 22 | 32 | 20 |
 | eastern-new-york | 50 | 5 | 11 |  | 34 |  |  | 34 | 47 | 31 |
-| florida | 240 | 137 | 21 |  | 45 | 37 |  | 82 | 219 | 68 |
+| florida | 240 | 138 | 21 |  | 45 | 36 |  | 81 | 219 | 68 |
 | georgia | 27 | 18 | 5 |  | 4 |  |  | 4 | 24 | 2 |
 | hawaii | 7 | 4 | 1 |  | 2 |  |  | 2 | 7 | 2 |
 | idaho | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
@@ -43,7 +43,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | new-haven | 16 | 5 | 1 |  | 10 |  |  | 10 | 14 | 8 |
 | new-jersey | 91 | 59 | 4 |  | 19 | 4 | 5 | 28 | 84 | 22 |
 | new-mexico | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
-| new-york-city | 200 | 21 | 46 |  | 133 |  |  | 133 | 176 | 110 |
+| new-york-city | 200 | 24 | 46 |  | 130 |  |  | 130 | 176 | 108 |
 | newfoundland-and-labrador | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | northeast-ohio | 27 | 20 | 3 |  | 4 |  |  | 4 | 23 | 1 |
@@ -52,7 +52,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | oregon | 19 | 9 | 2 |  | 8 |  |  | 8 | 17 | 6 |
 | ottawa | 11 | 7 |  |  | 4 |  |  | 4 | 9 | 2 |
 | pennsylvania | 61 | 30 | 10 |  | 17 | 4 |  | 21 | 57 | 20 |
-| quebec | 72 | 5 | 10 | 1 | 56 |  |  | 56 | 59 | 44 |
+| quebec | 72 | 5 | 11 | 1 | 55 |  |  | 55 | 59 | 43 |
 | rhode-island | 8 | 5 | 1 |  | 2 |  |  | 2 | 7 | 1 |
 | rockland | 5 | 2 |  |  | 3 |  |  | 3 | 5 | 3 |
 | south-area | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | wisconsin | 23 | 9 | 5 |  | 9 |  |  | 9 | 20 | 6 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | crown-heights | 48 |  |  |  |  |  | 48 | 48 | 24 | 24 |
-| **all** | 1969 | 905 | 348 | 2 | 606 | 48 | 60 | 714 | 1765 | 555 |
+| **all** | 1969 | 910 | 349 | 2 | 601 | 47 | 60 | 708 | 1765 | 551 |

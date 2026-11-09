@@ -13,6 +13,12 @@ Method, as for New York City (`new-york-city.md`):
 What stays undated gets a 'by' bound: the listing date, or an earlier IRS date of an organization with the same name
 and place.
 
+**From Virginia on: first pass only** (owner, Nov 9: get the "pass one" ones out of the way across many shetachim; don't
+do the ones that take a lot of digging). Per centre: the CrownHeights.info and lubavitch.com sweep, read raw, and a
+single web search for the old main centres; a year goes in only when a page states it and the page has been read raw.
+Anything that needs more than that gets a listing-date bound whose note says "first pass only ... not dug into yet",
+so pass two can find them. No IRS lookups in the first pass. Leads that weren't checked are in the notes as leads.
+
 ## Western Pennsylvania (batches western-pennsylvania-01 to -04): 27 listings, 16 with a year (11 high, 5 medium)
 - Yeshiva Schools 1942: Altein's Yeshiva Achei T'mimim, summer 1942.
 - Chabad Lubavitch of Western PA 1943 (medium): founded by the Posners, from their arrival.
@@ -23,3 +29,22 @@ and place.
 - Bounds (11): Fox Chapel by 2003 (IRS), Squirrel Hill, the girls' school, Keren Rachem and the mikvah by 2004,
   Shadyside by 2006, Monroeville by 2008, jGrads by 2016, CYP by 2019 (IRS), Chabad of Greenfield by 2020, Chabad of
   the Hospitals by 2022.
+
+## Virginia (batches virginia-01 to -03): 19 listings, 9 with a year
+- Richmond 1976, Northern Virginia 1991 (medium) and three more from the earlier session (virginia-01).
+- Tidewater 1979 (Jewish News, 2018 and 2019), Tysons Sept 2002, Reston and Herndon fall 2007, Gainesville 2017.
+- Bounds (10), first pass: Shenandoah by 2012; VCU and GMU by 2015 (their present couples came in 2024 and 2022);
+  Loudoun by 2018; Winchester by 2019; Springfield-Burke by 2020; Williamsburg by 2021; Fredericksburg by 2024;
+  Charlottesville and Nova YJP by 2025.
+
+## Oregon (batches oregon-01, -02): 19 listings, 5 with a year
+- Chabad Lubavitch of Oregon 1984 (the Wilhelms), Ashland 2003, Hillsboro Jan 2007, Portland campuses Aug 2007,
+  Bend Nov 2007.
+- Bounds (14), first pass. Eugene's present couple came in late 2015 (the listing is from 2004). NE Portland: the
+  couple "moved to Northeast Portland in 2012", but the listing is from Nov 2011, so it's left open.
+
+## Upstate New York (batches upstate-new-york-01, -02): 22 listings, 6 with a year
+- Buffalo's Chabad House 1971, University of Rochester 1981 (the Vogels), Binghamton 1985, Chautauqua summer 2001,
+  Clinton 2014, Niagara Falls USA 2024.
+- Bounds (16), first pass. Notes carry leads for Cornell (1984?) and Syracuse (1984 or 1991?), and say that Torah
+  Temimah of Buffalo goes back to the 1970s and merged into Ohr Temimim in 2008.

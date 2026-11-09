@@ -43,6 +43,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | northeast-ohio | 27 | 20 | 3 |  | 4 |  |  | 4 | 23 | 1 |
 | oklahoma | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
+| oregon | 19 | 5 |  |  | 14 |  |  | 14 | 17 | 12 |
 | ottawa | 11 | 7 |  |  | 4 |  |  | 4 | 9 | 2 |
 | pennsylvania | 61 | 30 | 10 |  | 17 | 4 |  | 21 | 57 | 20 |
 | rhode-island | 8 | 5 | 1 |  | 2 |  |  | 2 | 7 | 1 |
@@ -53,9 +54,10 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | texas | 58 | 33 | 12 |  | 4 | 2 | 7 | 13 | 48 | 6 |
 | the-carolinas | 25 | 15 | 5 |  | 4 | 1 |  | 5 | 23 | 3 |
 | upper-midwest | 19 | 10 | 3 |  | 6 |  |  | 6 | 19 | 6 |
+| upstate-new-york | 22 | 6 |  |  | 16 |  |  | 16 | 21 | 15 |
 | utah | 4 | 3 | 1 |  |  |  |  | 0 | 4 | 0 |
 | vermont | 8 | 5 | 2 |  | 1 |  |  | 1 | 8 | 1 |
-| virginia | 19 | 4 | 1 |  |  |  | 14 | 14 | 19 | 14 |
+| virginia | 19 | 8 | 1 |  | 10 |  |  | 10 | 19 | 10 |
 | washington-dc | 5 | 2 | 3 |  |  |  |  | 0 | 5 | 0 |
 | west-coast | 331 | 198 | 93 |  | 40 |  |  | 40 | 301 | 18 |
 | western-pennsylvania | 27 | 11 | 5 |  | 11 |  |  | 11 | 24 | 10 |
@@ -70,6 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | washington | 33 |  |  |  |  |  | 33 | 33 | 31 | 31 |
 | connecticut | 33 |  |  |  |  |  | 33 | 33 | 32 | 32 |
 | colorado | 23 |  |  |  |  |  | 23 | 23 | 21 | 21 |
-| upstate-new-york | 22 |  |  |  |  |  | 22 | 22 | 21 | 21 |
-| oregon | 19 |  |  |  |  |  | 19 | 19 | 17 | 17 |
-| **all** | 1969 | 821 | 251 | 1 | 371 | 48 | 477 | 896 | 1765 | 732 |
+| **all** | 1969 | 836 | 251 | 1 | 411 | 48 | 422 | 881 | 1765 | 717 |

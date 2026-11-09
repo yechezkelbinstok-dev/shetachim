@@ -154,19 +154,47 @@ def main():
                 part = multi([p for p in polys(gg.intersection(provinces[name])) if p.area > 1e-4])
                 if part.is_empty or part.area < 1e-3:
                     continue
-                areas.append([{'id': f'{st}:north', 'state': st, 'name': name, 'abbr': st[3:], 'country': 'CA', 'shetach': '', 'north': True}, part])
-                taken.append(part)
-            rest = gg.difference(unary_union(taken)) if taken else gg
+                entry = [{'id': f'{st}:north', 'state': st, 'name': name, 'abbr': st[3:], 'country': 'CA', 'shetach': '', 'north': True}, part]
+                areas.append(entry)
+                taken.append(entry)
+            rest = gg.difference(unary_union([e[1] for e in taken])) if taken else gg
+            # where the provinces' lines and this land's edge part a little, thin slivers of it are left along the
+            # border (between Alaska and British Columbia's north, the owner's 'broken line', Nov 9): each goes to the
+            # province piece it lies against, so no grey sliver (and no line) is left between them
+            keep = []
+            from shapely.prepared import prep
+            touch = [(e, prep(e[1])) for e in taken]
+            for p in polys(rest):
+                thin = p.area < 0.05 or 2 * p.area / p.length < 0.03
+                best, bl = None, 0.0
+                if thin:
+                    for e, pe in touch:
+                        if not pe.intersects(p):
+                            continue
+                        ln = p.boundary.intersection(e[1].boundary).length
+                        if ln > bl:
+                            best, bl = e, ln
+                if best is not None and bl > 0:
+                    best.append(p)
+                else:
+                    keep.append(p)
+            for e in taken:
+                if len(e) > 2:
+                    e[1] = multi(polys(unary_union([e[1]] + e[2:])))
+                    del e[2:]
+            rest = unary_union(keep) if keep else rest
             ps = [p for p in polys(rest) if p.area > 1e-4]
             if ps:
                 rest_ca = multi(ps)
                 near.append(rest_ca)
 
-    # all of Canada's pieces (the shetachim's, the provinces' north, the rest) cut from one set of lines
-    ca = [a for a in areas if a[0]['country'] == 'CA']
+    # every piece (the US's and Canada's, the history's own cuts, the provinces' north, the rest of Canada) cut from one
+    # set of lines, so that where two meet they have the same points: the US-Canada border too (owner, Nov 9, on the
+    # Alaska-British Columbia line drawn in pieces inside one shetach: "What's the deal with this British Columbia Alaska
+    # border??????")
     k_rest = next(k for k, g in enumerate(near) if g is rest_ca)
-    renoded = renode([a[1] for a in ca] + [rest_ca])
-    for a, g in zip(ca, renoded[:-1]):
+    renoded = renode([a[1] for a in areas] + [rest_ca])
+    for a, g in zip(areas, renoded[:-1]):
         a[1] = g
     near[k_rest] = renoded[-1]
 
@@ -174,7 +202,7 @@ def main():
     fa, fo = os.path.join(tmp, 'areas.json'), os.path.join(tmp, 'outside.json')
     json.dump({'type': 'FeatureCollection', 'features': [{'type': 'Feature', 'properties': p, 'geometry': mapping(g)} for p, g in areas]}, open(fa, 'w'))
     json.dump({'type': 'FeatureCollection', 'features': [{'type': 'Feature', 'properties': {}, 'geometry': mapping(g)} for g in near]}, open(fo, 'w'))
-    ms = os.path.join(ROOT, 'node_modules/.bin/mapshaper')
+    ms = os.environ.get('MAPSHAPER') or os.path.join(ROOT, 'node_modules/.bin/mapshaper')
     # (light for a phone: islands under 60 km² dropped, lines simplified to about a kilometre; a national map)
     subprocess.run([ms, '-i', fa, fo, 'combine-files', '-filter-islands', 'min-area=60km2', '-simplify', 'interval=1000', 'keep-shapes',
                     '-o', OUT, 'format=topojson', 'quantization=1000000'], check=True)

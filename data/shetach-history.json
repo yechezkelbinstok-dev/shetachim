@@ -71,7 +71,9 @@
     "he": "משה יצחק העכט",
     "how": "stated",
     "confidence": "high",
-    "note": "Sources on area US-MA:central-massachusetts (its period from 1942-06), checked Nov 9: it names him as the one who began it then."
+    "note": "Sources on area US-MA:central-massachusetts (its period from 1942-06), checked Nov 9: it names him as the one who began it then. Not a head shliach: he opened and ran the Worcester yeshiva, Achei Tmimim (12 Tammuz 5702), until he was sent to lead another branch in 5706. Owner, Nov 9: \"someone was not a head shliach. The guy was running a yeshiva, the Kramer guy, right? That's not a head shliach\".",
+    "role": "Yeshiva director",
+    "roleHe": "מנהל הישיבה"
    },
    {
     "head": "Hershel Fogelman",
@@ -608,7 +610,9 @@
       "quote": "Rabbi Kramer directed the institution for 58 years, until his death at age 81."
      }
     ],
-    "note": "Rabbi (Aryeh) Leib Kramer, one of the Shanghai students, ran the Montreal yeshiva (Tomchei Tmimim, the Rabbinical College of Canada) from the day it opened, 24 Oct 1941, until he passed away in 1999; Chabad.org calls him 'longtime director of the Chabad institutions in Montreal'. Its rosh yeshiva was Rabbi Yitzchak Hendel. He is Quebec's head until Berel Mochkin's line starts (1952, the earliest Mochkin could have been head; when the headship passed is not found)."
+    "note": "Rabbi (Aryeh) Leib Kramer, one of the Shanghai students, ran the Montreal yeshiva (Tomchei Tmimim, the Rabbinical College of Canada) from the day it opened, 24 Oct 1941, until he passed away in 1999; Chabad.org calls him 'longtime director of the Chabad institutions in Montreal'. Its rosh yeshiva was Rabbi Yitzchak Hendel. He is Quebec's head until Berel Mochkin's line starts (1952, the earliest Mochkin could have been head; when the headship passed is not found). Not a head shliach: he ran the Montreal yeshiva (Tomchei Tmimim) from the day it opened. Owner, Nov 9: \"someone was not a head shliach. The guy was running a yeshiva, the Kramer guy, right? That's not a head shliach\".",
+    "role": "Yeshiva director",
+    "roleHe": "מנהל הישיבה"
    },
    {
     "head": "Berel Mochkin",
@@ -677,8 +681,10 @@
     "how": "stated",
     "confidence": "high",
     "sources": [],
-    "note": "Sources on the area's period (US-TN:tennessee).",
-    "he": "זלמן פוזנר"
+    "note": "Sources on the area's period (US-TN:tennessee). Not a head shliach: sent by the Frierdiker Rebbe in 1949 as rav of Congregation Sherith Israel, Nashville. Owner, Nov 9: \"someone was not a head shliach. The guy was running a yeshiva, the Kramer guy, right? That's not a head shliach\".",
+    "he": "זלמן פוזנר",
+    "role": "Rav",
+    "roleHe": "רב הקהילה"
    },
    {
     "head": "Levi Klein",
@@ -850,7 +856,9 @@
       "quote": "On December 7, 1941, in the shadow of Pearl Harbor, the Frierdiker Rebbe dispatched Rabbi Altein to Pittsburgh “to learn Torah and create activities among the youth.” ... By summer, Rabbi Mordechai Dov Altein had started Yeshiva Achei T’mimim, the first Lubavitch yeshiva in America outside of New York."
      }
     ],
-    "note": "Sent by the Frierdiker Rebbe (Toldos Chabad B'artzos Habris and his letters of 5702, as the Chronicle's author read them); he stayed as principal till summer 1944, then went to New Haven. The Derens came in 1942 (COLlive)."
+    "note": "Sent by the Frierdiker Rebbe (Toldos Chabad B'artzos Habris and his letters of 5702, as the Chronicle's author read them); he stayed as principal till summer 1944, then went to New Haven. The Derens came in 1942 (COLlive). Not a head shliach: a young shliach of the Frierdiker Rebbe sent 'to learn Torah and create activities among the youth'; he began the afterschool program and the yeshiva. Owner, Nov 9: \"someone was not a head shliach. The guy was running a yeshiva, the Kramer guy, right? That's not a head shliach\".",
+    "role": "Shliach",
+    "roleHe": "שליח"
    },
    {
     "head": "Sholom Posner",
@@ -872,7 +880,9 @@
       "note": "search excerpt"
      }
     ],
-    "note": "Sent by the Frierdiker Rebbe in summer 1943 (Chabadpedia: 5703, to set up a branch of Tomchei Tmimim); head until Rosenfeld's line starts (1978, when Rosenfeld became the school's dean; when the headship passed is not found)."
+    "note": "Sent by the Frierdiker Rebbe in summer 1943 (Chabadpedia: 5703, to set up a branch of Tomchei Tmimim); head until Rosenfeld's line starts (1978, when Rosenfeld became the school's dean; when the headship passed is not found). Not a head shliach: sent to set up a branch of Tomchei Tmimim, he ran Yeshiva Achei Tmimim (the Yeshiva Schools). Owner, Nov 9: \"someone was not a head shliach. The guy was running a yeshiva, the Kramer guy, right? That's not a head shliach\".",
+    "role": "Yeshiva director",
+    "roleHe": "מנהל הישיבה"
    },
    {
     "head": "Yisroel Rosenfeld",
@@ -3259,7 +3269,8 @@
     "via": "data/shetach-history.json, areas US-TN:tennessee",
     "name": "Congregation Sherith Israel",
     "city": "Nashville",
-    "nameHe": "קהילת שארית ישראל"
+    "nameHe": "קהילת שארית ישראל",
+    "kind": "shul"
    },
    {
     "from": "1994",
@@ -3550,6 +3561,18 @@
   "central-massachusetts": [
    {
     "from": "1942-06",
+    "where": "Yeshiva Achei Tmimim, 22 Newton Avenue, Worcester",
+    "lat": 42.27207,
+    "lon": -71.82384,
+    "name": "Yeshiva Achei Tmimim",
+    "nameHe": "ישיבת אחי תמימים",
+    "city": "Worcester",
+    "kind": "yeshiva",
+    "via": "data/shetach-history.json, areas US-MA:central-massachusetts",
+    "note": "The yeshiva Moshe Yitzchak Hecht opened on 12 Tammuz 5702 (the Derher there); the AFL list of about 1984 has it at 22 Newton Ave., today's Chabad Lubavitch of Central Massachusetts."
+   },
+   {
+    "from": null,
     "where": "Chabad Lubavitch of Central Massachusetts, Worcester",
     "centerId": "117633",
     "lat": 42.27184,
@@ -3557,7 +3580,11 @@
     "name": "Chabad Lubavitch of Central Massachusetts",
     "city": "Worcester",
     "via": "data/founding-years.json, 117633",
-    "note": "About 1984: 'Yeshiva Achei Tmimim, 22 Newton Ave., Worcester' (AFL list). Moves within a city whose dates are not known are left out."
+    "note": "From Hershel Fogelman's start (5706). About 1984: 'Yeshiva Achei Tmimim, 22 Newton Ave., Worcester' (AFL list). Moves within a city whose dates are not known are left out.",
+    "fromBound": {
+     "after": "1945-09",
+     "by": "1946-09"
+    }
    }
   ],
   "delaware": [
@@ -4097,7 +4124,8 @@
     "city": "Pittsburgh",
     "source": "https://jewishchronicle.timesofisrael.com/a-postcard-from-the-early-days-of-yeshiva-schools/",
     "quote": "By summer, Rabbi Mordechai Dov Altein had started Yeshiva Achei T'mimim, the first Lubavitch yeshiva in America outside of New York. The afterschool program was based in three places at once ... Over the fall, Rabbi Altein consolidated this sprawling operation into one school at Adath Israel.",
-    "note": "Summer 1942 (before it, an afterschool program in a private home from Dec 1941). The star is on the city."
+    "note": "Summer 1942 (before it, an afterschool program in a private home from Dec 1941). The star is on the city.",
+    "kind": "yeshiva"
    },
    {
     "from": "1943",
@@ -4109,7 +4137,8 @@
     "city": "Pittsburgh",
     "source": "https://jewishchronicle.timesofisrael.com/a-postcard-from-the-early-days-of-yeshiva-schools/",
     "quote": "Rabbi Sholom Posner arrived in Pittsburgh in the summer of 1943. He turned Yeshiva Achei T'mimim into the parochial school it is today ... The yeshiva soon moved into a house with a surprisingly expansive yard at 3329 Dawson Street in Oakland.",
-    "note": "'Soon' after summer 1943; shown from Posner's start."
+    "note": "'Soon' after summer 1943; shown from Posner's start.",
+    "kind": "yeshiva"
    },
    {
     "from": null,
@@ -4137,7 +4166,8 @@
     "city": "Montreal",
     "source": "https://collive.com/montreals-legendary-leader/",
     "quote": "A day after their arrival, Yeshivas Tomchei Tmimim Lubavitch of Montreal, the Rabbinical College of Canada, was established, and the next day, the first class was held in the Nusach Ari Synagogue on Pine Avenue.",
-    "note": "Kramer's yeshiva (he directed it from the day it opened, 24 Oct 1941). The star is near Pine Avenue (the synagogue's address not found)."
+    "note": "Kramer's yeshiva (he directed it from the day it opened, 24 Oct 1941). The star is near Pine Avenue (the synagogue's address not found).",
+    "kind": "yeshiva"
    },
    {
     "from": null,
@@ -4245,7 +4275,7 @@
     "from": "2020-02",
     "name": "Vaad Hashluchim of Florida",
     "nameHe": "ועד השלוחים בפלורידה",
-    "vaadFirst": true,
+    "vaadFirst": false,
     "members": [
      {
       "firstName": "Sholom Ber",
@@ -4287,7 +4317,7 @@
       "quote": "The letter names Rabbi Sholom Ber Dubov, Rabbi Yossie Biston, Rabbi Zalman Bukiet, Rabbi Yisroel Frankforter, Rabbi Chaim Dovid Janowski, Rabbi Zalman Levitin, and Rabbi Dov Schochet as the boards members. ... Rabbi Korf notes that the Vaads decisions in matters of placement of new Shluchim, contracts between Shluchim, arbitration, and uniform codes will be final."
      }
     ],
-    "note": "Named in Rabbi Avrohom Korf's letter of Yud Shvat 5780 (events.florida). Leading (vaadFirst): he would 'defer all decisions to them and will accept their decisions as final'. Towns not in the letter."
+    "note": "Named in Rabbi Avrohom Korf's letter of Yud Shvat 5780 (events.florida). Beside him, not over him (owner, Nov 9: \"avremels first va'ad was more power sharing so don't make him fully under like Benjy\"): Korf's follow-up, 'I would never give up my Shlichus'; the vaad's decisions final in placement, contracts, arbitration and uniform codes. Towns not in the letter."
    },
    {
     "from": "2023-02",

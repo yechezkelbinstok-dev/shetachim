@@ -321,7 +321,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     vs.forEach((v, j) => { const st = startOf(v); if (st && st.y <= Y) k = j; });
     if (k < 0) return null;
     const nx = vs[k + 1] && startOf(vs[k + 1]);
-    return { v: vs[k], from: startOf(vs[k]).y, to: nx ? nx.y : null };
+    return { v: vs[k], n: k, from: startOf(vs[k]).y, to: nx ? nx.y : null };
   }
   // the timeline (by the ordinary years, or by Hebrew years): when each piece's periods start, each shetach's start, the
   // years where anything changes
@@ -365,7 +365,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     if (!c) {
       const groups = new Map();
       s.forEach((sid, i) => { if (sid) (groups.get(sid) || groups.set(sid, []).get(sid)).push(i); });
-      for (const idx of groups.values()) idx.key = idx.join(',');
+      for (const [sid, idx] of groups) { idx.key = idx.join(','); idx.sid = sid; }
       c = { key, s, groups }; CFG.set(key, c);
     }
     CFGY.set(yk, c);
@@ -579,25 +579,36 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   }
   const SPOT = new Map();
   function spotOf(idx) {
-    if (SPOT.has(idx.key)) return SPOT.get(idx.key);
+    const sk = `${idx.sid}|${idx.key}`;
+    if (SPOT.has(sk)) return SPOT.get(sk);
     const main = idx.filter((i) => !isHI(pieces[i]) && !P[i].sliver);
     const use = main.length ? main : idx.filter((i) => !P[i].sliver), pr = main.length ? proj : projHI;
     let res = null;
     if (use.length) {
       const m = topojson.merge(topo, use.map((i) => pieces[i]));
-      // the label in its biggest part on the screen (the Northwest's on Washington, not on Alaska off the edge)
+      // the label on the shetach's own land, where its head is (Levitin's on Washington, not on Wyoming: owner, Nov 9,
+      // "what the hell is going on with levitin just being over Wyoming when his actual main thing is Washington"):
+      // the part holding its own piece (the piece named for it) or else its flagship; failing both, its biggest part
+      // on the screen (the Northwest's on Washington, not on Alaska off the edge)
+      const home = use.filter((i) => String(pieces[i].properties.id).split(':')[1] === idx.sid);
+      const hm = home.length && topojson.merge(topo, home.map((i) => pieces[i]));
+      const homeAt = (ring) => {
+        if (hm) for (const hp of hm.coordinates) { const r = hp[0].map((c) => pr(c)).filter(Boolean); if (r.length > 2 && d3.polygonContains(ring, d3.polygonCentroid(r))) return true; }
+        const f = !hm && flagAt(idx.sid, cur.Y ?? NOW), fp = f && pr([f.lon, f.lat]);
+        return !!fp && d3.polygonContains(ring, fp);
+      };
       let bestRing = null, bestA = 0, bestScore = -1;
       for (const poly of m.coordinates) {
         const ring = poly[0].map((c) => pr(c)).filter(Boolean);
         if (ring.length < 3) continue;
         const a = Math.abs(d3.polygonArea(ring)), [cx, cy] = d3.polygonCentroid(ring);
-        const score = a * (cx > 0 && cx < W && cy > 50 && cy < H - 70 ? 1 : 0.02);
+        const score = a * (cx > 0 && cx < W && cy > 50 && cy < H - 70 ? 1 : 0.02) * (a > 40 && homeAt(ring) ? 1e6 : 1);
         if (score > bestScore) { bestScore = score; bestA = a; bestRing = ring; }
       }
       const sp = bestRing && bestA > 40 ? spot(bestRing) : null;
       if (sp) res = { x: sp.p[0], y: sp.p[1], r: sp.r, area: bestA };
     }
-    SPOT.set(idx.key, res);
+    SPOT.set(sk, res);
     return res;
   }
 
@@ -642,7 +653,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       const f = flagAt(sid, Y); if (!f) continue;
       const k = String(f.centerId || `${f.lat},${f.lon}`); if (seen.has(k) && sid !== 'crown-heights') continue;
       const hi = f.lon < -150 && f.lat < 25; const p = (hi ? projHI : proj)([f.lon, f.lat]); if (!p) continue;
-      seen.set(k, { sid, f, x: p[0], y: p[1], big: k === WORLD_HQ ? 2.2 : 1 });
+      seen.set(k, { sid, f, kind: f.kind || '', x: p[0], y: p[1], big: k === WORLD_HQ ? 2.2 : 1 });
     }
     return [...seen.values()].sort((a, b) => a.big - b.big);
   }
@@ -778,6 +789,8 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   // the flagship stars: a little bigger as the map zooms in; 770's more than twice the size
   const starR = (big) => Math.sqrt(STAR * big * big * 0.8908130915292852);
   const STARS = new Map();
+  const DOTS = new Map();
+  const dotPath = (big) => { const key = `${STAR}|${big}`; if (!DOTS.has(key)) { const p = new Path2D(); p.arc(0, 0, starR(big) * 0.42, 0, 2 * Math.PI); DOTS.set(key, p); } return DOTS.get(key); };
   const starPath = (big) => { const key = `${STAR}|${big}`; if (!STARS.has(key)) STARS.set(key, new Path2D(d3.symbol(d3.symbolStar, STAR * big * big)())); return STARS.get(key); };
   // (stars and names grow a little as the map zooms in, not without end)
   const starGrow = (k) => Math.min(Math.sqrt(k), 1.8), nameGrow = (k) => Math.min(Math.sqrt(k), 1.5);
@@ -789,7 +802,9 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       if (x < -r || y < -r || x > W + r || y > H + r) continue;
       c.setTransform(d * s, 0, 0, d * s, d * x, d * y);
       c.lineWidth = 1.3 / s;
-      const p = starPath(st.big); c.fill(p); c.stroke(p);
+      // (a lone yeshiva, school or shul is not a flagship: owner, Nov 9, "it's not a flagship center if it's just one
+      // yeshiva and that's it"; a round dot, not a star)
+      const p = st.kind ? dotPath(st.big) : starPath(st.big); c.fill(p); c.stroke(p);
     }
     c.setTransform(d, 0, 0, d, 0, 0);
   }
@@ -862,7 +877,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   const esc = (s) => String(s).replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
   const TYPE_HE = { 'Chabad House': 'בית חב״ד', 'Day School': 'בית ספר', 'Jewish Community Center': 'מרכז קהילתי יהודי', 'Social Services': 'שירותי רווחה', Synagogue: 'בית כנסת' };
   const STAR_D = d3.symbol(d3.symbolStar, 55)();
-  const icon = (k) => (k === 'star' ? `<svg class="ic" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path d="${STAR_D}" fill="currentColor"/></svg>`
+  const icon = (k) => (k === 'dot' ? '<svg class="ic" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><circle r="3.6" fill="currentColor"/></svg>' : k === 'star' ? `<svg class="ic" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path d="${STAR_D}" fill="currentColor"/></svg>`
     : '<svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 3.5h-3v9h9v-3M9.5 3.5h3v3M12.5 3.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>');
   const CLOSE = `<button type="button" class="close" aria-label="${L('Close', 'סגירה')}"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>`;
   const ON_ORG = L('Open on chabad.org', 'לעמוד ב-chabad.org');
@@ -885,10 +900,16 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     return photo ? `<div class="cc-person has-ph${big ? ' big' : ''}"><img class="cc-ph" src="${esc(photo)}" alt="">${txt}</div>`
       : `<div class="cc-person${big ? ' big' : ''}"><span class="cc-av${big ? ' big' : ''}" style="--t:${t}">${esc(ini)}</span>${txt}</div>`;
   };
+  // who he was: 'Head shliach', or what he really was where he was not one (owner, Nov 9: "The guy was running a yeshiva,
+  // the Kramer guy, right? That's not a head shliach"): heads' 'role' (Yeshiva director, Rav ...)
+  const roleOf = (h) => (h.x.role ? (HE && h.x.roleHe) || h.x.role : L('Head shliach', 'שליח ראשי'));
+  // what a centre that is not a flagship was (flagships' 'kind')
+  const KIND = { yeshiva: ['Yeshiva', 'ישיבה'], school: ['School', 'בית ספר'], shul: ['Shul', 'בית כנסת'] };
+  const kindOf = (f) => { const k = KIND[f.kind]; return k ? L(k[0], k[1]) : f.kind; };
   // the head that year, his photo where there is one (his initials otherwise), his years
   function headBlock(sid, h, t, big, Y) {
     const name = headName(sid, h);
-    const rows = [personRow({ ini: initialsOf(name), name: esc(name), pos: yearsOf(h.from, h.to), t, label: L('Head shliach', 'שליח ראשי'), big, photo: photoOf(sid, h) })];
+    const rows = [personRow({ ini: initialsOf(name), name: esc(name), pos: yearsOf(h.from, h.to), t, label: esc(roleOf(h)), big, photo: photoOf(sid, h) })];
     for (const w of h.x.with || []) {
       const st = startOf(w); if (st && st.y > Y) continue;
       const n = HE && w.he ? w.he : w.name;
@@ -925,7 +946,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   // page; the head that year
   function flagCard(sid, Y) {
     const f = flagAt(sid, Y), c = centerOf(f), t = colourOf(sid, Y), h = headAt(sid, Y), sp = flagSpan(sid, Y), nm = nameOf(sid, Y);
-    const kick = `<p class="cc-kick flag">${icon('star')}${esc(L(`${nm} flagship center`, `המוסד המרכזי של ${nm}`))}${sp.from != null ? ` · ${esc(yearsOf(sp.from, sp.to))}` : ''}</p>`;
+    const kick = `<p class="cc-kick flag">${f.kind ? '' : icon('star')}${esc(f.kind ? kindOf(f) : L(`${nm} flagship center`, `המוסד המרכזי של ${nm}`))}${sp.from != null ? ` · ${esc(yearsOf(sp.from, sp.to))}` : ''}</p>`;
     const now = isNow(sid, f), url = now ? pageOf(f, c) : '', act = url ? `<a class="cc-chip cc-icon" href="${esc(url)}" target="_blank" rel="noopener" title="${ON_ORG}" aria-label="${ON_ORG}">${icon('ext')}</a>` : '';
     return `${ccHead({ t, kick, title: esc(flagName(sid, f)), sub: esc([now && c ? cType(c) : '', flagCity(sid, f)].filter(Boolean).join(' · ')), act })}${h ? `<div class="cc-body">${leadHTML(sid, h, t, false, Y)}</div>` : ''}`;
   }
@@ -933,15 +954,15 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   const memberName = (m) => { const n = `${m.firstName} ${m.lastName}`; return HE ? heWords(n) : n; };
   const townOf = (m) => (m.town ? (HE && he && he.cities && (he.cities[`${m.town}|${m.state || ''}`] || he.cities[m.town])) || m.town : '');
   const ROLE = { Head: ['Head', 'יו״ר'], Alternate: ['Alternate', 'ממלא מקום'] };
-  const roleOf = (m) => { const r = ROLE[m.role]; return r ? L(r[0], r[1]) : m.role || ''; };
+  const memberRole = (m) => { const r = ROLE[m.role]; return r ? L(r[0], r[1]) : m.role || ''; };
   // its members, a row each (his photo or his initials, his name, his town); the chairman's role a tag by his name; an
   // alternate after the rest, apart and smaller (owner, Oct 13: "shouldn't have the same prominence")
   function membersHTML(list, line, t) {
     const alt = (m) => m.role === 'Alternate';
-    const row = (m) => { const sub = [alt(m) ? roleOf(m) : '', townOf(m)].filter(Boolean).map(esc).join(' · ');
+    const row = (m) => { const sub = [alt(m) ? memberRole(m) : '', townOf(m)].filter(Boolean).map(esc).join(' · ');
       const face = m.photo ? `<img class="vm-ph" src="${esc(m.photo)}" alt="">` : `<span class="vm-ph vm-av" style="--t:${t}">${esc(initialsOf(memberName(m)))}</span>`;
       return `<li class="vm${alt(m) ? ' alt' : ''}${m.role === 'Head' ? ' hd' : ''}">${face}<span class="vm-t"><span class="vm-n"><b>${esc(memberName(m))}</b>${
-        m.role && !alt(m) ? `<span class="vm-role">${esc(roleOf(m))}</span>` : ''}</span>${sub ? `<span class="vm-town">${sub}</span>` : ''}</span></li>`; };
+        m.role && !alt(m) ? `<span class="vm-role">${esc(memberRole(m))}</span>` : ''}</span>${sub ? `<span class="vm-town">${sub}</span>` : ''}</span></li>`; };
     return `<details class="vaad"><summary>${line}</summary><ul>${[...list.filter((m) => !alt(m)), ...list.filter(alt)].map(row).join('')}</ul></details>`;
   }
   // its faces in rows of a honeycomb (each row offset half a face from the next), its chairman in the middle; only where
@@ -961,29 +982,32 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       return `<img class="${mi === hi ? 'hd' : ''}" src="${esc(m.photo)}" alt="${esc(memberName(m))}" title="${esc(memberName(m))}" style="inset-inline-start:${sp.x}px;top:${sp.y}px">`; }).join('')}</div>`;
   }
   const vaadName = (v) => esc((HE && v.nameHe) || v.name);
+  // which vaad it is (owner, Nov 9: "add like first or second to show diff sessions"), and its years
+  const ORD = [['First', 'ראשון'], ['Second', 'שני'], ['Third', 'שלישי'], ['Fourth', 'רביעי']];
+  const vaadWhen = (vz) => { const o = ORD[vz.n]; return [o ? L(`${o[0]} vaad`, `ועד ${o[1]}`) : '', yearsOf(vz.from, vz.to)].filter(Boolean).join(' · '); };
   // a vaad that leads: its faces, "Leadership", its name and years, its members
   function vaadBlock(vz, t) {
     const list = vz.v.membersKnown === false ? [] : vz.v.members || [], full = list.filter((m) => m.role !== 'Alternate');
     const hive = full.length && full.every((m) => m.photo) ? hiveHTML(full, t) : '';
-    return `<div class="cc-vaad" style="--t:${t}">${hive}<div class="cc-vtext"><span class="lbl">${L('Leadership', 'הנהלה')}</span><b>${vaadName(vz.v)}</b><span class="pos">${esc(yearsOf(vz.from, vz.to))}</span>${
+    return `<div class="cc-vaad" style="--t:${t}">${hive}<div class="cc-vtext"><span class="lbl">${L('Leadership', 'הנהלה')}</span><b>${vaadName(vz.v)}</b><span class="pos">${esc(vaadWhen(vz))}</span>${
       list.length ? membersHTML(list, full.length ? L(`${full.length} members`, `${full.length} חברים`) : L('Members', 'חברים'), t) : ''}</div></div>`;
   }
   // the head shliach under a vaad that leads: one line, his mark a fedora over a bearded face (the main map's)
   const HEAD_ICON = '<svg class="pi" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.8 6.2C4.9 5.3 11.1 5.3 14.2 6.2M4.9 5.6C4.8 3.6 5.4 2 6.6 1.9C7.3 1.8 7.6 2.4 8 2.4S8.7 1.8 9.4 1.9C10.6 2 11.2 3.6 11.1 5.6M4.9 7.4C4.9 10.6 6 13.1 7.3 14C7.7 14.3 8.3 14.3 8.7 14C10 13.1 11.1 10.6 11.1 7.4M6.6 10C7.5 10.6 8.5 10.6 9.4 10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-  const headRow = (sid, h) => `<div class="cc-flagrow cc-headrow">${HEAD_ICON}<span><span class="lbl">${L('Head shliach', 'שליח ראשי')}:</span> ${esc(headName(sid, h))} <span class="pos">· ${esc(yearsOf(h.from, h.to))}</span></span></div>`;
+  const headRow = (sid, h) => `<div class="cc-flagrow cc-headrow">${HEAD_ICON}<span><span class="lbl">${esc(roleOf(h))}:</span> ${esc(headName(sid, h))} <span class="pos">· ${esc(yearsOf(h.from, h.to))}</span></span></div>`;
   // the head and the vaad that year: a vaad that leads above him (vaadFirst), any other under him
   function leadHTML(sid, h, t, big, Y) {
     const vz = vaadAt(sid, Y);
     if (vz && vz.v.vaadFirst) return `${vaadBlock(vz, t)}${headRow(sid, h)}`;
     if (!vz) return headBlock(sid, h, t, big, Y);
     const list = vz.v.membersKnown === false ? [] : vz.v.members || [];
-    const line = `<span class="lbl">${L('Leadership', 'הנהלה')}:</span> ${vaadName(vz.v)} <span class="pos">· ${esc(yearsOf(vz.from, vz.to))}</span>`;
+    const line = `<span class="lbl">${L('Leadership', 'הנהלה')}:</span> ${vaadName(vz.v)} <span class="pos">· ${esc(vaadWhen(vz))}</span>`;
     return `${headBlock(sid, h, t, big, Y)}<div class="cc-vline">${list.length ? membersHTML(list, line, t) : `<div class="cc-flagrow cc-headrow" style="margin-top:0"><span>${line}</span></div>`}</div>`;
   }
   // a shetach: its colour, its name that year big; its head (and vaad) that year; its flagship
   function shetachCard(sid, Y) {
     const t = colourOf(sid, Y), h = headAt(sid, Y), f = flagAt(sid, Y);
-    const body = `${h ? leadHTML(sid, h, t, true, Y) : ''}${f ?`<div class="cc-flagrow">${icon('star')}<span><span class="lbl">${L('Flagship', 'מוסד מרכזי')}:</span> ${esc([flagName(sid, f), flagCity(sid, f)].filter(Boolean).join(', '))}</span></div>` : ''}`;
+    const body = `${h ? leadHTML(sid, h, t, true, Y) : ''}${f ?`<div class="cc-flagrow">${f.kind ? icon('dot') : icon('star')}<span><span class="lbl">${f.kind ? kindOf(f) : L('Flagship', 'מוסד מרכזי')}:</span> ${esc([flagName(sid, f), flagCity(sid, f)].filter(Boolean).join(', '))}</span></div>` : ''}`;
     return `${ccHead({ t, title: esc(nameOf(sid, Y)), big: true })}${body ? `<div class="cc-body">${body}</div>` : ''}`;
   }
   function selectSid(sid) { selected = { sid }; showCard(); }

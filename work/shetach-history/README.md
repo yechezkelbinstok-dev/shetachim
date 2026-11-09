@@ -242,6 +242,13 @@ able to click the flagships and see a card".
   main map's pieces, with two pieces only the history has: **South Jersey** (its eight counties, Ocean with them, out of New Jersey; the owner's county map, Nov 8) and
   **Southeast Ohio** (the Northeast Ohio piece south of 40.45°N: Athens, Marietta, Steubenville), and the land around
   (the rest of Canada, Greenland, Mexico and its neighbours) sharing every border. Rebuild it when geo.json changes.
+- **Owner's corrections, Nov 9 (later):** the US-Canada border drawn in pieces inside one shetach (Alaska and British
+  Columbia): every piece is now cut from one set of lines (scripts/build-history-geo.py renodes the US's pieces too),
+  and the thin slivers of 'the rest of Canada' left between Alaska and BC's north go to the province piece beside them.
+  A shetach's name sits on its own land (Levitin's on Washington, not Wyoming). Vaads are numbered (First vaad, Second
+  vaad); Korf's first (2020) was power-sharing, so it is shown beside him, not over him. Men who were not head shluchim
+  carry their real role (`role`): Kramer and Sholom Posner and Moshe Yitzchak Hecht 'Yeshiva director', Altein
+  'Shliach', Zalman Posner 'Rav'; a lone yeshiva or shul is not a flagship (`kind`: a dot, 'Yeshiva:' / 'Shul:').
 - **Vaads** (`vaads`, Nov 9; owner: "what happened to the new Jersey and Florida vaads???"): Florida's from Feb 2020
   (the seven named in Korf's letter; leading, since he deferred all decisions to them) and the elected one from Feb 2023;
   New Jersey's original vaad from about 2010 (only Ephraim Simon known, so it is named under Moshe Herson without

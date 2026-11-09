@@ -227,6 +227,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #zoomctl svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; }
 #zoomctl button[hidden] { display: none; }
 #zoomctl #zbase svg { width: 18px; height: 18px; stroke-width: 1.6; stroke-linejoin: round; }
+/* the shetachim by year (web/history.html): a clock at the top of the map's buttons (owner, Nov 8) */
+#zoomctl a { width: 38px; height: 38px; display: grid; place-items: center; color: inherit; }
+#zoomctl a:hover { background: var(--accent-soft); }
+#zoomctl a + button { border-top: 1px solid var(--panel-line); }
 
 /* ---- info card ---- */
 #card {
@@ -745,6 +749,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   </div>
 
   <div id="zoomctl" role="group" aria-label="Zoom">
+    <a id="history" href="history.html" aria-label="Shetachim by year" title="Shetachim by year"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8a5 5 0 1 0 1.46-3.54"/><path d="M2.8 2.3v3h3"/><path d="M8 5.3V8l2 1.3"/></svg></a>
     <button id="zbase" type="button" hidden><svg viewBox="0 0 16 16" aria-hidden="true"></svg></button>
     <button id="zin" type="button" aria-label="Zoom in"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M3 8h10"/></svg></button>
     <button id="zout" type="button" aria-label="Zoom out"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10"/></svg></button>
@@ -882,7 +887,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'Lighter:': 'בהיר יותר:', 'Part of Israel:': 'חלק מישראל:', Gaza: 'עזה', Lebanon: 'לבנון', Syria: 'סוריה', Labels: 'שמות', 'Shetach name': 'שם השטח', 'Head shliach': 'שליח ראשי', Off: 'ללא',
     'More options': 'אפשרויות נוספות', 'Regions & countries': 'אזורים ומדינות', 'Chabad centers': 'מוסדות חב״ד', 'Cities with shluchim': 'ערים עם שלוחים', 'Shetach capitals': 'בירות השטחים', 'Shetach flagships': 'המוסדות המרכזיים', Mushrooms: 'פטריות', Photos: 'תמונות', 'On the map': 'על המפה', Markers: 'סימונים', Cards: 'כרטיסים', Mushroom: 'פטרייה', 'Mushroom marker': 'סימון פטריות', 'Mushroom networks': 'רשתות פטריות', Dot: 'נקודה', 'Sub-shetachim': 'תת־שטחים', 'Sub-shetach': 'תת־שטח', Shetach: 'שטח', 'Regional director': 'שליח אזורי', 'Rest of the world': 'שאר העולם', 'Borders of the rest of the world': 'גבולות שאר העולם', 'Held by Israel': 'בשליטת ישראל', 'Blue sea': 'ים כחול', Streets: 'רחובות',
     Alaska: 'אלסקה', 'In a box': 'במסגרת', 'In place': 'במקומה', Colors: 'צבעים', Colorful: 'צבעוני', Plain: 'אחיד', Dots: 'נקודות', Solid: 'מלאות', 'See-through': 'שקופות', Classic: 'קלאסיות',
-    'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום',
+    'Zoom in': 'התקרבות', 'Zoom out': 'התרחקות', 'Show all': 'הצגת הכול', 'Load the latest version': 'טעינת הגרסה העדכנית', Zoom: 'זום', 'Shetachim by year': 'השטחים לפי שנה',
     'Download maps (SVG, PNG)': 'הורדת מפות (SVG, PNG)', 'Map options': 'אפשרויות המפה', 'Map of Chabad shetachim and centers': 'מפת שטחי חב״ד ומוסדותיה', 'Light mode': 'מצב בהיר', 'Dark mode': 'מצב כהה',
     'Loading…': 'טוען…', "This browser can't show the physical map.": 'הדפדפן הזה לא יכול להציג את המפה הפיזית.', "The physical map couldn't load.": 'המפה הפיזית לא נטענה.', "The street map couldn't load.": 'מפת הרחובות לא נטענה.',
     'Open on chabad.org': 'לעמוד ב-chabad.org', 'World Headquarters': 'המטה העולמי', 'Same address': 'אותה כתובת', City: 'עיר', Population: 'אוכלוסייה',
@@ -945,6 +950,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     };
     walk(document.body);
     $('#downloads').href = HE ? 'download.html?lang=he' : 'download.html';
+    $('#history').href = HE ? 'history.html?lang=he' : 'history.html';
     $('#lang-toggle').textContent = HE ? 'EN' : 'עב';
     $('#lang-toggle').lang = HE ? 'en' : 'he';
     $('#lang-toggle').title = HE ? 'English' : 'עברית';

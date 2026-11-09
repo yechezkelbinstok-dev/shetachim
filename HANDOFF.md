@@ -253,6 +253,47 @@ thirteen no better recent photo has been found yet (the list is there, with what
     (`scripts/build-history-geo.py`; rebuild when geo.json changes). Redrawn on canvases for speed (it was slow and
     crashed on phones), its cards made like the main map's, 770's with the Rebbeim's portraits (README: Drawing, Cards);
     settings: Hebrew years (default in Hebrew), זצוקללה״ה נבג״מ זי״ע (default in Hebrew), Full provinces.
+  - **▶ Nov 9: the history page (web/history.html), WHAT STILL NEEDS FIXING — the owner is angry it was half done
+    ("the goal here is to be accurate"; "you need to properly do research on these things").** Done and pushed Nov 9:
+    no heads or flagships of today put back in time (the page shows only `heads` and `flagships` the history file
+    has); a shetach is drawn only in years it has a documented head (sidAt → headAt); only US and Canada land (no
+    Mexico, Central America, Caribbean, Greenland; build-history-geo.py); flagships shown by a clean `name` and
+    `city` per entry (no raw addresses); Kentucky's and Kansas City's undated houses replaced by what the sources say
+    (star on the city); Southern Ohio's Blue Ash split at Sept 2004; New Jersey's Newark yeshiva sourced (Anash
+    obituary); names: "Yankel Kranz", "Benjy Korf" (no nickname in brackets); Hebrew surnames from he.json (שם טוב, not
+    טוב); South Jersey and Delaware Avremel Shemtov's from 1961 (owner: "Just give it to Avremel the year he came on
+    shlichus"), South Jersey Herson's by 2007; a clock button on the main map (top of the zoom buttons) to the page.
+    **Still to do, in order:**
+    1. **The vaads are not on the history page at all** (owner: "what happened to the new Jersey and Florida
+       vaads???"). Show them as the main map does (vaadFirst: the vaad block above "Head shliach: …"; label
+       "Leadership"; in Heads mode the vaad's name as the label with the head under it, index.html ~line 1549).
+       Florida: Vaad Hashluchim of Florida from Feb 2020, members named in Korf's letter (CrownHeights.info, 19 Feb
+       2020, crownheights.info/chabad-news/698295): Sholom Ber Dubov, Yossie Biston, Zalman Bukiet, Yisroel
+       Frankforter, Chaim Dovid Janowski, Zalman Levitin, Dov Schochet; from Feb 2023 the elected vaad (anash.org/new-
+       members-elected-to-floridas-vaad-hashluchim, 28 Feb 2023): Raichik (head), Biston, Goldman, Lipskar, Levitin,
+       Kessler, Zaklos, alternate Dubov (web/data/shetachim.json; photos web/img/vaad/). New Jersey: "New Jersey's
+       original Vaad" from about 2010 (members not known; Ephraim Simon was on it) and the vaad elected June 2025
+       (anash.org/new-vaad-hashluchim-elected-in-new-jersey): Lubin, Richler, Leverton, Gourarie (3 years), Simon
+       (one year). The facts are in data/shetach-history.json `events`; add a `vaads` key and draw it.
+    2. **Heads missing (those years are now blank on the map; research and add, with sources):** Western
+       Pennsylvania 1941–1977 (Rabbi Mordechai Dov Altein 1941, the Derens 1942, Rabbi Sholom Posner sent 5703 to set
+       up Tomchei Tmimim: who was head when, before Rosenfeld 1978); Quebec 1941–1951 (before Berel Mochkin 1952; the
+       Montreal yeshiva from 24 Oct 1941); Iowa 1985–1988 (Lubavitch of Iowa by 1984; Kasowitz by May 1989); New
+       Mexico 1985–1991 (Chabad Lubavitch of New Mexico by 1984; Shmukler 1992); Maine from 1987 (no heads entry;
+       main map: Moshe Wilansky — verify he founded it in 1987); Oklahoma from 1987 (no heads entry; main map: Yehuda
+       Weg today; Derher's Oklahoma "Pinpoints" names the first shluchim); Monsey (no head on the owner's main map;
+       Rabbi Simcha Werner was "Monsey's first shliach": ask the owner).
+    3. **Flagships for the 49 shetachim with none** (no star now, which is right until researched): where the head's
+       own center was, from when, sourced, each with `name` and `city` as it was then (data/founding-years.json has
+       many founding years and `earlier` addresses; chabad.org About pages; JTA; local papers). Current list: every
+       shetach in `areas` not in `flagships`.
+    4. **Heads' own sources:** 50 `heads` entries have no `sources` and no `how` (they rest on the area's sources).
+       Check each against its area's source that it names that man as head from that date; fix any that don't.
+    5. **New Brunswick and Prince Edward Island** take Nova Scotia's Maritimes history (Feldman, 1995) with no source
+       of their own (P in history.html borrows it): find since when they were his, or leave them blank.
+    6. Hebrew names for the flagships (`nameHe`): none yet; the page shows the English name in Hebrew for past ones.
+    7. Florida's 2023 vaad and New Jersey's: Simon's one-year term (June 2025) may have ended: check.
+    Test with the Playwright scripts in the scratchpad pattern (quick.js: groups per year, no page errors).
     Next: past heads' photos, the flagships still
     open, and the open questions. The founding years of Virginia
     (5 of 19 done), Oregon and Upstate New York wait until this is done.

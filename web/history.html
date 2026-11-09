@@ -245,16 +245,14 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     const a = d3.geoArea(topojson.feature(topo, g)), m = mainOfState.get(g.properties.state);
     if (!m || a > m.a) mainOfState.set(g.properties.state, { i, a });
   });
-  const ownSid = (i, Y) => { let s = null; for (const q of P[i].periods) if (q.st.y <= Y) s = q.sid; return s; };
+  // (a shetach is shown only in years it has a head the history gives: owner, Nov 9, "How can you have a shetach with no
+  // head shliach?")
+  const ownSid = (i, Y) => { let s = null; for (const q of P[i].periods) if (q.st.y <= Y) s = q.sid; return s && headAt(s, Y) ? s : null; };
   const sidAt = (i, Y, full = FULL) => { if (!P[i].north) return ownSid(i, Y); const m = mainOfState.get(pieces[i].properties.state); return full && m ? ownSid(m.i, Y) : null; };
   const sidStart = new Map();
-  // the head that year (the history's heads; with none there, today's head from the shetach's start)
-  function headsOf(sid) {
-    const hs = hist.heads[sid];
-    if (hs && hs.length) return hs;
-    const s = SH.get(sid);
-    return s && s.headShliach ? [{ head: s.headShliach, from: String(sidStart.get(sid) || '') }] : [];
-  }
+  // the heads and flagships are the history's own, and only those: nothing of today's is put back in time where the
+  // history has nothing (owner, Nov 9)
+  const headsOf = (sid) => hist.heads[sid] || [];
   function headAt(sid, Y) {
     const hs = headsOf(sid); let k = -1;
     hs.forEach((x, j) => { const st = startOf(x); const y = st ? st.y : (j === 0 ? -Infinity : null); if (y != null && y <= Y) k = j; });
@@ -263,17 +261,16 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     const st = startOf(hs[k]);
     return { x: hs[k], last: k === hs.length - 1, from: st ? st.y : sidStart.get(sid), to: next ? next.y : null };
   }
-  // the flagship that year: where the head's own center was (hist.flagships), else today's capital from the shetach's start
+  // the flagship that year: where the head's own center was (hist.flagships)
   function flagAt(sid, Y) {
-    const list = hist.flagships && hist.flagships[sid];
-    if (list) { let f = null; for (const x of list) { const st = startOf(x); if (st && st.y <= Y) f = x; } return f; }
-    const c = (SH.get(sid) || {}).capital;
-    return c && c.lat != null && sidStart.has(sid) && sidStart.get(sid) <= Y ? { where: `${c.name}, ${c.city}`, lat: c.lat, lon: c.lon, centerId: c.centerId } : null;
+    const list = (hist.flagships || {})[sid] || [];
+    let f = null; for (const x of list) { const st = startOf(x); if (st && st.y <= Y) f = x; }
+    return f;
   }
   // the flagship that year and its years at that place
   function flagSpan(sid, Y) {
-    const list = hist.flagships && hist.flagships[sid];
-    if (!list) return { from: sidStart.get(sid), to: null };
+    const list = (hist.flagships || {})[sid];
+    if (!list) return { from: null, to: null };
     let k = -1; list.forEach((x, j) => { const st = startOf(x); if (st && st.y <= Y) k = j; });
     const nx = list[k + 1] && startOf(list[k + 1]);
     return { from: startOf(list[k]).y, to: nx ? nx.y : null };
@@ -376,22 +373,21 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   const WORLD_HQ = '117678'; // 770
   const PHOTO = new Map(); for (const p of photos.photos || []) (PHOTO.get(p.id) || PHOTO.set(p.id, []).get(p.id)).push(p);
   const photoOf = (sid, h) => { const p = (PHOTO.get(sid) || []).find((r) => sameMan(r.head, h.x.head)); return p ? p.file : ''; };
-  // a flagship's name in Hebrew where it is a center with one (web/data/he.json), its own words otherwise
   const CAP = new Map(); for (const s of sfile.shetachim) for (const c of (s.capitals || (s.capital ? [s.capital] : []))) if (c && c.centerId) CAP.set(String(c.centerId), c);
-  const flagText = (f) => {
-    const c = HE && he && f.centerId && CAP.get(String(f.centerId));
-    const hn = c && he.centers && he.centers[c.name];
-    if (hn) return `${hn}, ${(he.cities && he.cities[c.city]) || c.city}`;
-    return f.where.replace(/ \((address not found|number not found)\)/, '');
-  };
+  const heWords = (name) => { const w = tokens(name), last = w.pop(); if (!he) return name;
+    return [...w.map((x) => (he.first && he.first[x]) || x), (he.last && he.last[last]) || last].join(' '); };
   const headName = (sid, h) => {
     if (!HE) return h.x.head;
     if (h.x.he) return h.x.he;
     const t = he && he.shetachim && he.shetachim[sid];
-    return h.last && t && t.headShliach ? t.headShliach : h.x.head;
+    return h.last && t && t.headShliach && sameMan(h.x.head, (SH.get(sid) || {}).headShliach) ? t.headShliach : heWords(h.x.head);
   };
+  // a head's surname (Heads, where the whole name has no room): in Hebrew as the dictionary has it (שם טוב, not טוב)
+  const surnameOf = (sid, h) => { const w = tokens(h.x.head), last = w[w.length - 1] || '';
+    if (!HE) return last;
+    const d = he && he.last && he.last[last]; if (d) return d;
+    const hn = headName(sid, h).split(/\s+/); return hn[hn.length - 1] || last; };
   const initialsOf = (name) => { const w = tokens(name).filter((x) => !/^(family|משפחת)$/i.test(x)); return w.length ? (w[0][0] + (w.length > 1 ? w[w.length - 1][0] : '')).toUpperCase() : ''; };
-  const surnameOf = (name) => { const w = tokens(name); return w[w.length - 1] || ''; };
 
   // ---------- colours: one per shetach (or per head, in Heads) for the whole timeline; neighbours never share one ----------
   const NB = topojson.neighbors(pieces);
@@ -615,7 +611,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       if (MODE === 'heads') {
         const h = headAt(sid, Y); if (!h) continue;
         const name = headName(sid, h);
-        out.push({ sid, S, lines: wrap(name), alt: [surnameOf(name)], base: Math.max(9.5, Math.min(13, Math.sqrt(S.area) / 8.5)) });
+        out.push({ sid, S, lines: wrap(name), alt: [surnameOf(sid, h)], base: Math.max(9.5, Math.min(13, Math.sqrt(S.area) / 8.5)) });
       } else out.push({ sid, S, lines: wrap(nameOf(sid, Y)), alt: null, base: Math.max(9.5, Math.min(13.5, Math.sqrt(S.area) / 8)) });
     }
     return out;
@@ -814,7 +810,11 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   const cCity = (c) => (c.city ? (HE && he && he.cities && he.cities[c.city]) || c.city : '');
   const cType = (c) => (c.type ? (HE && TYPE_HE[c.type]) || c.type : '');
   const pageOf = (f, c) => (c && c.slug ? `https://www.chabad.org/jewish-centers/${encodeURIComponent(String(f.centerId))}/${c.slug.split('/').map(encodeURIComponent).join('/')}` : '');
-  const flagLine = (f) => { const c = centerOf(f); return c ? [cName(c), cCity(c)].filter(Boolean).join(', ') : flagText(f); };
+  // a flagship as it was then: its name and town in the history; today's listing (its Hebrew name, what it is, its page)
+  // only for the one that is still the flagship
+  const isNow = (sid, f) => { const list = (hist.flagships || {})[sid] || []; return !!f && !!f.centerId && list[list.length - 1] === f; };
+  const flagName = (sid, f) => { const c = isNow(sid, f) && centerOf(f); return c ? cName(c) : (HE && f.nameHe) || f.name || f.where; };
+  const flagCity = (sid, f) => { const c = isNow(sid, f) && centerOf(f), city = c ? c.city : f.city; return city ? (HE && he && he.cities && he.cities[city]) || city : ''; };
   const yearsOf = (from, to) => (from == null ? '' : to != null ? `${yearText(from)}–${yearText(to)}` : L(`Since ${yearText(from)}`, `מאז ${yearText(from)}`));
   const ccHead = ({ t, kick = '', title, sub = '', big = false, act = '' }) => `<header class="cc-head" style="--t:${t}"><div class="cc-htext">${kick}<h2 class="cc-title${big ? ' big' : ''}">${title}</h2>${
     act ? `<div class="cc-subrow">${sub ? `<p class="cc-sub">${sub}</p>` : ''}${act}</div>` : sub ? `<p class="cc-sub">${sub}</p>` : ''}</div></header>`;
@@ -864,13 +864,13 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   function flagCard(sid, Y) {
     const f = flagAt(sid, Y), c = centerOf(f), t = colourOf(sid, Y), h = headAt(sid, Y), sp = flagSpan(sid, Y), nm = nameOf(sid, Y);
     const kick = `<p class="cc-kick flag">${icon('star')}${esc(L(`${nm} flagship center`, `המוסד המרכזי של ${nm}`))}${sp.from != null ? ` · ${esc(yearsOf(sp.from, sp.to))}` : ''}</p>`;
-    const url = pageOf(f, c), act = url ? `<a class="cc-chip cc-icon" href="${esc(url)}" target="_blank" rel="noopener" title="${ON_ORG}" aria-label="${ON_ORG}">${icon('ext')}</a>` : '';
-    return `${ccHead({ t, kick, title: esc(c ? cName(c) : flagText(f)), sub: esc(c ? [cType(c), cCity(c)].filter(Boolean).join(' · ') : ''), act })}${h ? `<div class="cc-body">${headBlock(sid, h, t, false, Y)}</div>` : ''}`;
+    const now = isNow(sid, f), url = now ? pageOf(f, c) : '', act = url ? `<a class="cc-chip cc-icon" href="${esc(url)}" target="_blank" rel="noopener" title="${ON_ORG}" aria-label="${ON_ORG}">${icon('ext')}</a>` : '';
+    return `${ccHead({ t, kick, title: esc(flagName(sid, f)), sub: esc([now && c ? cType(c) : '', flagCity(sid, f)].filter(Boolean).join(' · ')), act })}${h ? `<div class="cc-body">${headBlock(sid, h, t, false, Y)}</div>` : ''}`;
   }
   // a shetach: its colour, its name that year big; its head that year; its flagship
   function shetachCard(sid, Y) {
     const t = colourOf(sid, Y), h = headAt(sid, Y), f = flagAt(sid, Y);
-    const body = `${h ? headBlock(sid, h, t, true, Y) : ''}${f ? `<div class="cc-flagrow">${icon('star')}<span><span class="lbl">${L('Flagship', 'מוסד מרכזי')}:</span> ${esc(flagLine(f))}</span></div>` : ''}`;
+    const body = `${h ? headBlock(sid, h, t, true, Y) : ''}${f ? `<div class="cc-flagrow">${icon('star')}<span><span class="lbl">${L('Flagship', 'מוסד מרכזי')}:</span> ${esc([flagName(sid, f), flagCity(sid, f)].filter(Boolean).join(', '))}</span></div>` : ''}`;
     return `${ccHead({ t, title: esc(nameOf(sid, Y)), big: true })}${body ? `<div class="cc-body">${body}</div>` : ''}`;
   }
   function selectSid(sid) { selected = { sid }; showCard(); }

@@ -126,10 +126,10 @@
     "how": "stated",
     "confidence": "high",
     "note": "sources on area US-FL:florida; from Feb 2020 with a vaad (events)",
-    "he": "אברהם קורף"
+    "he": "אברהם קארף"
    },
    {
-    "head": "Benjy (Bentzion) Korf",
+    "head": "Benjy Korf",
     "from": "2025-08",
     "how": "news",
     "confidence": "high",
@@ -140,7 +140,8 @@
       "date": "2025-08-06",
       "quote": "At the regional Kinus hashluchim of Florida – coinciding with the Shloshim of Florida's longtime Head Shliach, Rabbi Avraham Korf, a\"h – his son, Rabbi Bentzion Korf, Executive Director of the Lubavitch Educational Center (LEC) of Miami, was named as the new Head Shliach of the state of Florida."
      }
-    ]
+    ],
+    "he": "בן־ציון קארף"
    }
   ],
   "georgia": [
@@ -545,13 +546,13 @@
   ],
   "virginia": [
    {
-    "head": "Yaakov Noach (Yankel) Kranz",
+    "head": "Yankel Kranz",
     "from": "1976",
     "name": "the Virginias",
     "how": "stated",
     "confidence": "high",
     "note": "sources on area US-VA:virginia",
-    "he": "יעקב נח (יענקל) קרנץ"
+    "he": "יענקל קרנץ"
    },
    {
     "head": "Yossel Kranz",
@@ -1143,11 +1144,8 @@
   "US-DE:delaware": [
    {
     "shetach": "pennsylvania",
-    "from": null,
-    "fromBound": {
-     "by": "1980-10"
-    },
-    "how": "news",
+    "from": "1961",
+    "how": "owner",
     "confidence": "high",
     "sources": [
      {
@@ -1170,7 +1168,7 @@
       "note": "Delaware is blue; Pennsylvania (Avremel Shemtov) is orange. A booklet of American Friends of Lubavitch on the Rebbe (after the National Scroll of Honor of 24 March 1983), in the Reagan Library's Max Green files, folder 'Lubavitch (1 of 2)', PDF page 39. Read from the scan's colours: covering more than one state (orange): Washington, California, Minnesota, New Mexico, Texas, Louisiana, Pennsylvania, Virginia, North Carolina, Massachusetts; covered by other states (blue): Idaho, Montana, Wyoming, Nevada, Utah, North Dakota, South Dakota, Nebraska, Oklahoma, Arkansas, Mississippi, Kentucky, West Virginia, South Carolina, Delaware, Vermont, New Hampshire, Maine (Alaska and Hawaii not drawn). The map does not say which state covers which. Dated by the booklet's list of centres (pp. 44-47): it has Oregon's (opened Jan 1984) but not Kentucky's (Mar 1985), so 1984 or early 1985. Found Nov 8."
      }
     ],
-    "note": "Avremel Shemtov (Philadelphia) was 'regional head of the Lubavitcher movement in Pennsylvania, southern New Jersey and Delaware' (JTA, Oct 1980). Since when is not known (he came to Philadelphia in 1961), so 'by Oct 1980'. Found Nov 8 in a sweep of the JTA archive. Delaware's own shetach from Chabad of Delaware (Vogel, 1987): whether Vogel came as Avremel's shliach first, and when Delaware became a shetach of its own, is not known; 1987 is the natural reading."
+    "note": "Owner, Nov 9: 'Just give it to Avremel the year he came on shlichus, Delaware and South Jersey' (Avremel Shemtov, Philadelphia, 1961). Avremel Shemtov (Philadelphia) was 'regional head of the Lubavitcher movement in Pennsylvania, southern New Jersey and Delaware' (JTA, Oct 1980). Since when is not known (he came to Philadelphia in 1961), so 'by Oct 1980'. Found Nov 8 in a sweep of the JTA archive. Delaware's own shetach from Chabad of Delaware (Vogel, 1987): whether Vogel came as Avremel's shliach first, and when Delaware became a shetach of its own, is not known; 1987 is the natural reading."
    },
    {
     "shetach": "delaware",
@@ -2543,28 +2541,9 @@
   ],
   "US-NJ:south-jersey": [
    {
-    "shetach": "new-jersey",
-    "from": "1965",
-    "how": "stated",
-    "confidence": "medium",
-    "sources": [
-     {
-      "url": "https://anash.org/rabbi-moshe-herson-90-ah/",
-      "title": "Rabbi Moshe Herson, 90, A\"H (Anash.org)",
-      "date": "2025-01-23",
-      "quote": "After his chasunah, in 5725 (1965), the Rebbe appointed Rabbi Herson as his shliach to the state of New Jersey."
-     }
-    ],
-    "note": "Herson was appointed 'shliach to the state of New Jersey' (1965); by 1980 the south was Avremel's (next period)."
-   },
-   {
     "shetach": "pennsylvania",
-    "from": null,
-    "fromBound": {
-     "after": "1965",
-     "by": "1980-08"
-    },
-    "how": "news",
+    "from": "1961",
+    "how": "owner",
     "confidence": "high",
     "sources": [
      {
@@ -2580,7 +2559,7 @@
       "quote": "Shemtov is director of the American Friends of Lubavitch and regional head of the Lubavither movement in Pennsylvania, southern New Jersey and Delaware. His office is in Philadelphia"
      }
     ],
-    "note": "Avremel Shemtov's (Philadelphia) in 1980: 'regional director of the American Friends of Lubavitch which includes Pennsylvania and Southern New Jersey' (JTA, Aug 1980). Since when is not known (he came in 1961). Owner, Nov 8: 'Avremel owning South NJ and Delaware'."
+    "note": "Owner, Nov 9: 'Just give it to Avremel the year he came on shlichus, Delaware and South Jersey' (Avremel Shemtov, Philadelphia, 1961). Avremel Shemtov's (Philadelphia) in 1980: 'regional director of the American Friends of Lubavitch which includes Pennsylvania and Southern New Jersey' (JTA, Aug 1980). Since when is not known (he came in 1961). Owner, Nov 8: 'Avremel owning South NJ and Delaware'."
    },
    {
     "shetach": "new-jersey",
@@ -2751,16 +2730,21 @@
     "lat": 40.66903,
     "lon": -73.94282,
     "centerId": "117678",
-    "source": "https://www.lubavitch.com/august-16-1940-770-purchased/"
+    "source": "https://www.lubavitch.com/august-16-1940-770-purchased/",
+    "name": "770 Eastern Parkway",
+    "city": "Brooklyn"
    }
   ],
   "michigan": [
    {
-    "from": "1958",
+    "from": "1959",
     "where": "Detroit (address not found)",
     "lat": 42.33155,
     "lon": -83.04664,
-    "via": "data/founding-years.json, 117640 (earlier)"
+    "via": "data/founding-years.json, 117640 (earlier)",
+    "name": "Lubavitch Foundation of Michigan",
+    "city": "Detroit",
+    "note": "The Shemtovs came to Detroit in Sept 1958; the Lubavitch Foundation of Michigan was organized in 1959 (data/founding-years.json, 117640). Its address in Detroit is not found: the star is on the city."
    },
    {
     "from": null,
@@ -2770,7 +2754,9 @@
     "where": "the Lubavitcher Center at Cong. Mishkan Israel, 14000 W. Nine Mile Rd., Oak Park",
     "lat": 42.45978,
     "lon": -83.18704,
-    "via": "data/founding-years.json, 117640 (earlier)"
+    "via": "data/founding-years.json, 117640 (earlier)",
+    "name": "Lubavitcher Center",
+    "city": "Oak Park"
    },
    {
     "from": null,
@@ -2781,7 +2767,9 @@
     "where": "the Lubavitch Center, 28555 Middlebelt Rd., Farmington Hills",
     "lat": 42.50607,
     "lon": -83.33932,
-    "via": "data/founding-years.json, 117640 (earlier)"
+    "via": "data/founding-years.json, 117640 (earlier)",
+    "name": "Lubavitch Center",
+    "city": "Farmington Hills"
    },
    {
     "from": null,
@@ -2793,7 +2781,9 @@
     "centerId": "117640",
     "lat": 42.45994,
     "lon": -83.18833,
-    "via": "data/founding-years.json, 117640"
+    "via": "data/founding-years.json, 117640",
+    "name": "Chabad Lubavitch of Michigan",
+    "city": "Oak Park"
    }
   ],
   "upper-midwest": [
@@ -2802,38 +2792,51 @@
     "where": "Rabbi Feller's father's house, Minneapolis (address not found)",
     "lat": 44.9773,
     "lon": -93.26547,
-    "via": "data/founding-years.json, 117647 (earlier)"
+    "via": "data/founding-years.json, 117647 (earlier)",
+    "name": "Rabbi Feller's father's house",
+    "city": "Minneapolis"
    },
    {
     "from": "1965",
     "where": "the Lubavitch House, St. Paul (address not found)",
     "lat": 44.94975,
     "lon": -93.0931,
-    "via": "data/founding-years.json, 117647 (earlier)"
+    "via": "data/founding-years.json, 117647 (earlier)",
+    "name": "Lubavitch House",
+    "city": "St. Paul"
    },
    {
     "from": "1968",
     "where": "a mansion in Highland Park, St. Paul",
     "lat": 44.91253,
     "lon": -93.1772,
-    "via": "data/founding-years.json, 117647 (earlier)"
+    "via": "data/founding-years.json, 117647 (earlier)",
+    "name": "A mansion in Highland Park",
+    "city": "St. Paul"
    },
    {
     "from": "2000",
-    "where": "Upper Midwest Merkos - Lubavitch House, West S. Paul",
+    "where": "Upper Midwest Merkos - Lubavitch House, 400 Marie Ave. W., West St. Paul",
     "centerId": "117647",
     "lat": 44.89012,
     "lon": -93.10168,
-    "via": "data/founding-years.json, 117647 (earlier)"
+    "via": "data/founding-years.json, 117647 (earlier)",
+    "name": "Upper Midwest Merkos – Lubavitch House",
+    "city": "West St. Paul"
    }
   ],
   "kansas-missouri": [
    {
     "from": "1970-01",
-    "where": "the old Chabad House on Holmes Road, Kansas City, Mo. (address not found)",
-    "lat": 39.10011,
-    "lon": -94.57814,
-    "via": "data/founding-years.json, 117620 (earlier)"
+    "where": "the Merkos regional office in Kansas City, Mo. (address not found)",
+    "lat": 39.0997,
+    "lon": -94.5786,
+    "via": "data/founding-years.json, 117620 (earlier)",
+    "name": "Merkos regional office",
+    "city": "Kansas City, Mo.",
+    "source": "https://www.jta.org/archive/lubavitcher-educational-organization-opens-branch-in-kansas-city",
+    "quote": "Markos L'Inyonei Chinuch ... has opened its eighth regional office in the United States at Kansas City, Mo. The new office, which will serve the states of Missouri and Kansas, is headed by Rabbi Sholem B. Wineberg, 24",
+    "note": "'The old Chabad House on Holmes' (Kansas City Jewish Chronicle, 2010) has no date, so it is not put here; the star is on the city."
    },
    {
     "from": null,
@@ -2844,7 +2847,9 @@
     "centerId": "117620",
     "lat": 38.93945,
     "lon": -94.65616,
-    "via": "data/founding-years.json, 117620"
+    "via": "data/founding-years.json, 117620",
+    "name": "Chabad House Center of Kansas City",
+    "city": "Overland Park"
    }
   ],
   "tennessee": [
@@ -2853,7 +2858,9 @@
     "where": "Congregation Sherith Israel, 3600 West End Ave., Nashville (Rabbi Zalman Posner)",
     "lat": 36.13587,
     "lon": -86.82255,
-    "via": "data/shetach-history.json, areas US-TN:tennessee"
+    "via": "data/shetach-history.json, areas US-TN:tennessee",
+    "name": "Congregation Sherith Israel",
+    "city": "Nashville"
    },
    {
     "from": "1994",
@@ -2861,7 +2868,9 @@
     "centerId": "117977",
     "lat": 35.07897,
     "lon": -89.84142,
-    "via": "data/founding-years.json, 117977"
+    "via": "data/founding-years.json, 117977",
+    "name": "Chabad of Tennessee",
+    "city": "Memphis"
    }
   ],
   "southern-ohio": [
@@ -2871,23 +2880,39 @@
     "lat": 39.20255,
     "lon": -84.4557,
     "source": "https://www.cincinnatijudaicafund.com/Detail/objects/1593",
-    "quote": "The Local Chabad House has been operating since September 1975, first at 7719 Reading Road, Roselawn, and since last July on Summit Road."
+    "quote": "The Local Chabad House has been operating since September 1975, first at 7719 Reading Road, Roselawn, and since last July on Summit Road.",
+    "name": "Chabad House on Reading Road",
+    "city": "Cincinnati"
    },
    {
     "from": "1976-07",
     "where": "the Chabad House on Summit Road, Roselawn, Cincinnati (number not found)",
     "lat": 39.19404,
     "lon": -84.47409,
-    "source": "https://www.cincinnatijudaicafund.com/Detail/objects/1593"
+    "source": "https://www.cincinnatijudaicafund.com/Detail/objects/1593",
+    "name": "Chabad House on Summit Road",
+    "city": "Cincinnati"
    },
    {
     "from": "1995",
-    "where": "Chabad Jewish Center, Cincinnati",
+    "where": "Chabad of Blue Ash: first the Mangels' apartment in Hunters Creek, then a building on Kenwood Road (when, not found)",
+    "lat": 39.232,
+    "lon": -84.3783,
+    "via": "data/founding-years.json, 117703",
+    "note": "Rabbi Yisroel Mangel (in Cincinnati from 1990) head from 1995 (owner). Chabad.org News (Oct 2025): the Rebbe 'sent the Mangels to Cincinnati in 1990, where they established Chabad of Blue Ash'; its Hunt Road center from Sept 2004. The star is on Blue Ash until then.",
+    "name": "Chabad of Blue Ash",
+    "city": "Blue Ash"
+   },
+   {
+    "from": "2004-09",
+    "where": "Chabad Jewish Center, Hunt Road, Blue Ash",
+    "name": "Chabad Jewish Center",
+    "city": "Blue Ash",
     "centerId": "117703",
     "lat": 39.2256,
     "lon": -84.40097,
     "via": "data/founding-years.json, 117703",
-    "note": "Rabbi Yisroel Mangel (in Cincinnati from 1990) head from 1995 (owner)."
+    "note": "The Hunt Road center was in use from Sept 2004, its grand opening 11 Sept 2005 (Community Press, 7 Sept 2005)."
    }
   ],
   "central-ohio": [
@@ -2896,7 +2921,9 @@
     "where": "Schottenstein Chabad House (the OSU house), 207 East 15th Avenue, Columbus",
     "lat": 39.99969,
     "lon": -83.00232,
-    "via": "data/founding-years.json, 117950"
+    "via": "data/founding-years.json, 117950",
+    "name": "Chabad House at Ohio State",
+    "city": "Columbus"
    },
    {
     "from": null,
@@ -2908,7 +2935,9 @@
     "centerId": "117950",
     "lat": 40.08184,
     "lon": -82.82389,
-    "via": "data/founding-years.json, 117950"
+    "via": "data/founding-years.json, 117950",
+    "name": "Chabad of Columbus",
+    "city": "New Albany"
    }
   ],
   "new-jersey": [
@@ -2917,7 +2946,11 @@
     "where": "the Rabbinical College of America's first home, Newark (address not found)",
     "lat": 40.73566,
     "lon": -74.17237,
-    "via": "data/founding-years.json, 425138"
+    "via": "data/founding-years.json, 425138",
+    "name": "Rabbinical College of America",
+    "city": "Newark",
+    "source": "https://anash.org/rabbi-moshe-herson-90-ah/",
+    "quote": "In 5720 (1960), the Rebbe sent him to Newark, New Jersey, to serve as a mashpia in a newly-established yeshiva ... This yeshiva ... became a center for Chabad activities across the state. Later, the yeshiva relocated to Morristown"
    },
    {
     "from": "1971",
@@ -2926,7 +2959,9 @@
     "lat": 40.80546,
     "lon": -74.49872,
     "via": "data/founding-years.json, 425138",
-    "note": "'The school moved from the Newark site in 1971' (the college's own history)."
+    "note": "'The school moved from the Newark site in 1971' (the college's own history).",
+    "name": "Rabbinical College of America",
+    "city": "Morristown"
    }
   ],
   "arizona": [
@@ -2935,14 +2970,18 @@
     "where": "a garage at Third Avenue and McDowell Road, Phoenix",
     "lat": 33.466,
     "lon": -112.0781,
-    "via": "data/founding-years.json, 117539 (earlier)"
+    "via": "data/founding-years.json, 117539 (earlier)",
+    "name": "A garage on Third Avenue and McDowell Road",
+    "city": "Phoenix"
    },
    {
     "from": "1978",
     "where": "Maryland Avenue and 15th Street, Phoenix",
     "lat": 33.531,
     "lon": -112.0495,
-    "via": "data/founding-years.json, 117539 (earlier)"
+    "via": "data/founding-years.json, 117539 (earlier)",
+    "name": "Chabad House on Maryland Avenue",
+    "city": "Phoenix"
    },
    {
     "from": "1990",
@@ -2950,7 +2989,9 @@
     "centerId": "117539",
     "lat": 33.53917,
     "lon": -112.03549,
-    "via": "data/founding-years.json, 117539 (earlier)"
+    "via": "data/founding-years.json, 117539 (earlier)",
+    "name": "Chabad Lubavitch of Arizona",
+    "city": "Phoenix"
    }
   ],
   "texas": [
@@ -2959,7 +3000,9 @@
     "where": "the Lazaroffs' apartment, North Braeswood Boulevard at Stella Link Road, Houston",
     "lat": 29.696,
     "lon": -95.44,
-    "via": "data/founding-years.json, 117731 (earlier)"
+    "via": "data/founding-years.json, 117731 (earlier)",
+    "name": "The Lazaroffs' apartment",
+    "city": "Houston"
    },
    {
     "from": "1978",
@@ -2967,7 +3010,9 @@
     "centerId": "117731",
     "lat": 29.66133,
     "lon": -95.50923,
-    "via": "data/founding-years.json, 117731 (earlier)"
+    "via": "data/founding-years.json, 117731 (earlier)",
+    "name": "Chabad Lubavitch Center",
+    "city": "Houston"
    }
   ],
   "indiana": [
@@ -2976,7 +3021,9 @@
     "where": "the Grossbaums' home, Indianapolis (address not found)",
     "lat": 39.76833,
     "lon": -86.15835,
-    "via": "data/founding-years.json, 117619 (earlier)"
+    "via": "data/founding-years.json, 117619 (earlier)",
+    "name": "The Grossbaums' home",
+    "city": "Indianapolis"
    },
    {
     "from": "2015",
@@ -2984,25 +3031,22 @@
     "centerId": "117619",
     "lat": 39.92872,
     "lon": -86.20771,
-    "via": "data/founding-years.json, 117619 (earlier)"
+    "via": "data/founding-years.json, 117619 (earlier)",
+    "name": "Chabad Center for Jewish Life",
+    "city": "Carmel"
    }
   ],
   "kentucky": [
    {
     "from": "1985-03",
-    "where": "the Chabad House on Almara Circle, Louisville",
-    "lat": 38.226,
-    "lon": -85.64517,
-    "via": "data/founding-years.json, 117621 (earlier)"
-   },
-   {
-    "from": "2022",
-    "where": "Chabad of Kentucky, Louisville",
+    "name": "Chabad of Kentucky",
+    "city": "Louisville",
+    "where": "Chabad of Kentucky, Louisville (its first address not found)",
     "centerId": "117621",
-    "lat": 38.2255,
-    "lon": -85.64593,
-    "via": "data/founding-years.json, 117621 (earlier)",
-    "note": "The Almara Circle house burned down in April 2022."
+    "lat": 38.2527,
+    "lon": -85.7585,
+    "via": "data/founding-years.json, 117621",
+    "note": "'In March of 1985, Rabbi Avrohom and Goldie Litvin moved to Louisville' to open Chabad's branch for Kentucky (Jewish Louisville, 2015). Its houses since (Almara Circle, burned April 2022; 3706 Dutchmans Lane in 2009; today's) have no dates, so the star is on the city."
    }
   ],
   "connecticut": [
@@ -3012,7 +3056,9 @@
     "lat": 42.37319,
     "lon": -72.51988,
     "via": "data/shetach-history.json, areas US-MA:connecticut",
-    "note": "Merkos sent the Derens to Amherst in 1974 (COLlive, 'The Rebbe's Child', May 2024); then Springfield (when, not found)."
+    "note": "Merkos sent the Derens to Amherst in 1974 (COLlive, 'The Rebbe's Child', May 2024); then Springfield (when, not found).",
+    "name": "Chabad House at UMass",
+    "city": "Amherst, Mass."
    },
    {
     "from": null,
@@ -3025,7 +3071,9 @@
     "lon": -73.54174,
     "source": "https://www.jewishledger.com/2016/06/chabad-emissary-stamford-native-rivky-berman-29-inspired-many/",
     "quote": "Born in Stamford, Berman was the daughter of Rabbi Yisrael and Vivi Deren, regional director for the Fairfield County Chabads.",
-    "note": "Rivky Berman died in May 2016 aged 29, so the Derens were in Stamford by 1987. Deren (COLlive, 2024): 'Sixteen years later, Rabbi Chadakov called to let me know that Stamford desperately needed a shliach.'"
+    "note": "Rivky Berman died in May 2016 aged 29, so the Derens were in Stamford by 1987. Deren (COLlive, 2024): 'Sixteen years later, Rabbi Chadakov called to let me know that Stamford desperately needed a shliach.'",
+    "name": "Chabad Lubavitch of Connecticut & Western Massachusetts",
+    "city": "Stamford"
    }
   ]
  }

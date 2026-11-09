@@ -69,7 +69,7 @@ institution today, 5 a successor or building, 9 not matched.
   - Posner's Chabad of Tennessee on Whitland Ave.: still listed Sept 2011; Posner died April 2014. Tiechtel's Chabad
     of Nashville (1999) is the successor.
 - **Still running, no listing of its own (1):** Miami's Yeshiva Gedolah, 40 years in Feb 2014.
-- **Not found yet (8):** Beverly Hills' Congregation Lubavitch (9017 W. Pico), Ohel Yosef Yitzchak (Willoughby Ave.),
+- **Not found yet (8; open from 1984, end unknown up to today, not cut at 1984):** Beverly Hills' Congregation Lubavitch (9017 W. Pico), Ohel Yosef Yitzchak (Willoughby Ave.),
   North Dade, Kendale Lakes, Tiferes Bachurim's Miami program, Highland Park N.J., the Seattle yeshiva, and Madison's
   Maon Yeladim.
 - The 2002 chabad.org directory pages were never archived. The lubavitch.com pages from Dec 2009 to Sept 2011 were

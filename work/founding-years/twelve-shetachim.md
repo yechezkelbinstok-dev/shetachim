@@ -97,3 +97,13 @@ so pass two can find them. No IRS lookups in the first pass. Leads that weren't 
   (medium: a directory), Mississauga 2003 (medium), JYN 2007, Durham 2010, Innisfil 2021.
 - Bounds (51), first pass. Yeshivas Lubavitch Toronto: founded 5717 (1956-57) and refounded about 1996, in its note.
   Armour Heights (not on chabad.org) has no listing date, so no bound.
+
+## Quebec (batches quebec-01, -02): 72 listings, 13 with a year
+- Rabbinical College of Canada fall 1941, Beth Rivkah 1956, JRCC Montreal 1973 (medium), Côte St. Luc 1986, Chabad
+  Lifeline 1989 (Project PRIDE), Montreal Torah Center 1991, Mada 1993 (medium), Chabad of the Town (TMR) 2003,
+  Mont-Tremblant about 2005 (medium), Quebec City 2006 (two listings), Kollel Beth Yossef 2006, Saint-Sauveur 2011.
+- Bounds (59), first pass.
+
+## First pass, all twelve (Nov 9)
+118 of 449 listings have a year (331 left, 74%). Pass two: the bounds (their notes say "first pass only"), starting with the old
+centres listed in 2004, whose bound is weakest; leads are in the notes.

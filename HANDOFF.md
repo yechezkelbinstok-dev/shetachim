@@ -202,7 +202,9 @@ thirteen no better recent photo has been found yet (the list is there, with what
     **History session, next (Nov 9; owner: "Okay do other shetachim you haven't done yet please"): Western Pennsylvania,
     Virginia (the rest), Oregon, Upstate New York, Colorado, Connecticut, Washington, Eastern Massachusetts, Eastern
     New York, Maryland, Ontario, Quebec (not Crown Heights). Batches `batches/<shetach>-NN.json`; notes
-    `work/founding-years/twelve-shetachim.md`.**
+    `work/founding-years/twelve-shetachim.md`.** First pass done Nov 9 for all twelve (owner: get the "pass one" ones out
+    of the way; don't do the ones that take a lot of digging): 118 of 449 listings have a year. The rest are bounds whose
+    notes say "first pass only ... not dug into yet", often with leads; pass two is still to do.
     **History session: New York City (the `new-york-city` shetach, not Crown Heights), from Nov 9 (owner: "Start on new
     york metro ig", "Not crown heights"); batches `batches/new-york-city-NN.json`, notes `work/founding-years/new-york-city.md`.**
     **Second session: Florida, then New Jersey, then Pennsylvania (from Nov 6); Texas too (from Nov 7; owner: "Go back to

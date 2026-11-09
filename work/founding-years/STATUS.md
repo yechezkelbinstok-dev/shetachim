@@ -15,7 +15,11 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | cape-cod-and-the-islands | 4 | 3 |  |  | 1 |  |  | 1 | 4 | 1 |
 | central-massachusetts | 14 | 3 | 4 |  | 7 |  |  | 7 | 12 | 5 |
 | central-ohio | 4 | 2 | 1 |  | 1 |  |  | 1 | 4 | 1 |
+| colorado | 23 | 7 | 4 |  | 12 |  |  | 12 | 21 | 11 |
+| connecticut | 33 | 9 | 7 |  | 17 |  |  | 17 | 32 | 17 |
 | delaware | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
+| eastern-massachusetts | 35 | 4 | 3 |  | 28 |  |  | 28 | 32 | 26 |
+| eastern-new-york | 50 | 8 | 4 |  | 38 |  |  | 38 | 47 | 35 |
 | florida | 240 | 136 | 21 |  | 46 | 37 |  | 83 | 219 | 69 |
 | georgia | 27 | 18 | 5 |  | 4 |  |  | 4 | 24 | 2 |
 | hawaii | 7 | 4 | 1 |  | 2 |  |  | 2 | 7 | 2 |
@@ -29,6 +33,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | maine | 3 | 2 | 1 |  |  |  |  | 0 | 3 | 0 |
 | manitoba-saskatchewan | 6 | 5 |  |  | 1 |  |  | 1 | 6 | 1 |
 | maritimes | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
+| maryland | 55 | 7 | 1 |  | 47 |  |  | 47 | 48 | 40 |
 | merrimack-valley | 4 | 3 |  |  | 1 |  |  | 1 | 4 | 1 |
 | michigan | 38 | 25 | 9 | 1 | 3 |  |  | 3 | 33 | 1 |
 | monsey | 9 | 6 | 2 |  | 1 |  |  | 1 | 9 | 1 |
@@ -43,9 +48,11 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | northeast-ohio | 27 | 20 | 3 |  | 4 |  |  | 4 | 23 | 1 |
 | oklahoma | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
+| ontario | 61 | 7 | 3 |  | 51 |  |  | 51 | 56 | 46 |
 | oregon | 19 | 5 |  |  | 14 |  |  | 14 | 17 | 12 |
 | ottawa | 11 | 7 |  |  | 4 |  |  | 4 | 9 | 2 |
 | pennsylvania | 61 | 30 | 10 |  | 17 | 4 |  | 21 | 57 | 20 |
+| quebec | 72 | 9 | 4 |  | 59 |  |  | 59 | 59 | 46 |
 | rhode-island | 8 | 5 | 1 |  | 2 |  |  | 2 | 7 | 1 |
 | rockland | 5 | 2 |  |  | 3 |  |  | 3 | 5 | 3 |
 | south-area | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
@@ -58,18 +65,11 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | utah | 4 | 3 | 1 |  |  |  |  | 0 | 4 | 0 |
 | vermont | 8 | 5 | 2 |  | 1 |  |  | 1 | 8 | 1 |
 | virginia | 19 | 8 | 1 |  | 10 |  |  | 10 | 19 | 10 |
+| washington | 33 | 4 | 1 |  | 28 |  |  | 28 | 31 | 26 |
 | washington-dc | 5 | 2 | 3 |  |  |  |  | 0 | 5 | 0 |
 | west-coast | 331 | 198 | 93 |  | 40 |  |  | 40 | 301 | 18 |
 | western-pennsylvania | 27 | 11 | 5 |  | 11 |  |  | 11 | 24 | 10 |
 | wisconsin | 23 | 9 | 5 |  | 9 |  |  | 9 | 20 | 6 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
-| quebec | 72 |  |  |  |  |  | 72 | 72 | 59 | 59 |
-| ontario | 61 |  |  |  |  |  | 61 | 61 | 56 | 56 |
-| maryland | 55 |  |  |  |  |  | 55 | 55 | 48 | 48 |
-| eastern-new-york | 50 |  |  |  |  |  | 50 | 50 | 47 | 47 |
 | crown-heights | 48 |  |  |  |  |  | 48 | 48 | 24 | 24 |
-| eastern-massachusetts | 35 |  |  |  |  |  | 35 | 35 | 32 | 32 |
-| washington | 33 |  |  |  |  |  | 33 | 33 | 31 | 31 |
-| connecticut | 33 |  |  |  |  |  | 33 | 33 | 32 | 32 |
-| colorado | 23 |  |  |  |  |  | 23 | 23 | 21 | 21 |
-| **all** | 1969 | 836 | 251 | 1 | 411 | 48 | 422 | 881 | 1765 | 717 |
+| **all** | 1969 | 891 | 278 | 1 | 691 | 48 | 60 | 799 | 1765 | 638 |

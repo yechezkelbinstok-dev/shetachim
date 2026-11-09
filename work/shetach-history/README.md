@@ -71,6 +71,12 @@ UNM Chabad House; was 1992). Agreeing with the data already in: Idaho, Montana, 
   owner's rule (explicitly sent to named places), the Dakotas, Iowa (with the Quad Cities) and Wisconsin are Feller's
   from then until their own shluchim (Wisconsin Oct 1968, Iowa by early 1985; the Dakotas stay his, South Dakota with
   Katzman's visits from 1986). Which states 'the Upper Midwest' means is not spelled out: the usual sense.
+- **Illinois from Dec 1942** (found Nov 9): Rabbi Shlomo Zalman Hecht, the Frierdiker Rebbe's choice as rav of Anshei
+  Lubavitch (Lawndale; Warsaw Bikur Cholim, Peterson Park, from the mid-1960s), 'the Head Shliach of the state' (JUF
+  News, 2014) until he passed away, 24 Menachem Av 5739 (Aug 1979); Moscowitz succeeded him then (in Chicago from
+  1975/77). Was: Illinois from 1977.
+- **Connecticut (outside New Haven County) Deren's from 1977** (found Nov 9): Rabbi Joseph Gopin came from Deren's
+  Amherst Chabad House to Hartford (Chabad of Greater Hartford's 49th year in Nov 2026). Was: by about 1990.
 - **Grey areas checked, nothing found:** Washington and Oregon before Levitin (1972): Seattle's Jewish Transcript (the
   Seattle Public Library's digitized pages, its CONTENTdm search) has no Chabad activity there before him.
 

@@ -220,27 +220,35 @@
   ],
   "illinois": [
    {
-    "head": "Daniel Moscowitz",
-    "from": "1977",
-    "he": "דניאל מוסקוביץ",
-    "how": "stated",
-    "confidence": "medium",
-    "note": "Sources on area US-IL:illinois (its period from 1977), checked Nov 9: it names him as the one who began it then."
-   },
-   {
-    "head": "Meir Moscowitz",
-    "from": "2014-03",
+    "head": "Shlomo Zalman Hecht",
+    "from": "1942-12",
+    "he": "שלמה זלמן העכט",
     "how": "stated",
     "confidence": "high",
     "sources": [
      {
-      "url": "https://www.lubavitch.com/regional-director-of-chabad-of-illinois-daniel-moscowitz-59/",
-      "title": "Regional Director of Chabad of Illinois, Daniel Moscowitz, 59 (Lubavitch.com)",
-      "date": "2014-03-04",
-      "quote": "The Chicago-born rabbi led the city's Chabad community since 1977. Under his leadership as head Chabad representative to the state, Chabad of Illinois established some 37 new institutions around the state."
+      "url": "https://www.chabad.org/news/article_cdo/aid/4265602/jewish/The-150-Year-Old-Chicago-Synagogue-the-Rebbe-Didnt-Let-Die.htm",
+      "title": "The 150-Year-Old Chicago Synagogue the Rebbe Didn't Let Die (Chabad.org)",
+      "quote": "The candidate the Rebbe had in mind was none other than Rabbi Shlomo Zalman (Solomon S.) Hecht ... Finally, as 1942 came to a close, the Hechts relocated to Chicago. ... In the mid-1960s, Rabbi Hecht accepted a rabbinic position at the large and well-established Warsaw Bickur Cholim Congregation in Peterson Park.",
+      "note": "The Frierdiker Rebbe chose him as rav of Congregation Anshei Lubavitch (Lawndale). He passed away on Friday 24 Menachem Av 5739 (Aug 1979; Chicago Tribune, 20 Aug 1979)."
+     },
+     {
+      "url": "https://www.juf.org/rabbi-daniel-moscowitz-regional-director-chabad-lubavitch-of-illinois-dies/",
+      "title": "Rabbi Daniel Moscowitz, Regional Director, Chabad-Lubavitch of Illinois, Dies (JUF News)",
+      "date": "2014-03-05",
+      "quote": "Rabbi Shlomo Zalman Hecht of Congregation Anshei Lubavitch, the Head Shliach of the state, succeeding him upon his passing.",
+      "note": "as a search quotes it"
      }
     ],
-    "note": "his father passed away on 2 Adar II 5774 (4 Mar 2014); Rabbi Meir Shimon Moscowitz is now its regional director"
+    "note": "The Frierdiker Rebbe's choice as rav of Anshei Lubavitch; 'the Head Shliach of the state' (JUF News, 2014) until his passing, 24 Menachem Av 5739."
+   },
+   {
+    "head": "Daniel Moscowitz",
+    "from": "1979-08-17",
+    "he": "דניאל מוסקוביץ",
+    "how": "stated",
+    "confidence": "medium",
+    "note": "Succeeded Rabbi Shlomo Zalman Hecht as head shliach 'upon his passing' (JUF News, 2014), 24 Menachem Av 5739 (17 Aug 1979); in Chicago from 1975 (sent by the Rebbe) and leading Chabad's work in the city from 1977 (lubavitch.com). Sources on area US-IL:illinois (its period from 1977), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "indiana": [
@@ -1401,14 +1409,16 @@
   "US-CT:connecticut": [
    {
     "shetach": "connecticut",
-    "from": null,
-    "fromBound": {
-     "after": "1974",
-     "by": "1990"
-    },
-    "how": "range",
-    "confidence": "range",
+    "from": "1977",
+    "how": "anniversary",
+    "confidence": "medium",
     "sources": [
+     {
+      "url": "https://www.chabadhartford.com/",
+      "title": "Chabad House of Greater Hartford",
+      "quote": "Gala 2026: Join us on November 11 for Chabad's Annual Gala as we celebrate 49 years of Chabad of Greater Hartford ... Forty seven years ago, Rabbi Joseph Gopin and his wife Miriam moved from Amherst, Massachusetts to Hartford, Connecticut. They set up shop in a small West Hartford apartment",
+      "note": "49 years in Nov 2026: 1977 (its About text's 'forty seven years' is older)."
+     },
      {
       "url": "https://collive.com/the-rebbes-child/",
       "title": "The Rebbe's Child (Rabbi Yisrael and Vivi Deren, Chabad of Connecticut and Western Massachusetts; COLlive)",
@@ -1417,7 +1427,7 @@
       "note": "Merkos (Rabbi Chadakov) assigned them to Amherst, Massachusetts; 'the Rebbe circled Amherst'. Elsewhere: sent in 1974 to establish a Chabad House at UMass Amherst; the organization was 'Chabad-Lubavitch of Western and Southern New England'."
      }
     ],
-    "note": "Deren's region grew from Western Massachusetts into Connecticut (a 1985 account, as a search quotes it: he 'started the Chabad Houses in Amherst, then Springfield and in northern Connecticut'); by about 1990 ('Sixteen years later') Merkos counted all of Connecticut his. New Haven County stayed the Hechts'."
+    "note": "Deren's from 1977, when Rabbi Joseph Gopin came from Deren's Amherst (UMass) Chabad House to Hartford (found Nov 9; was: by about 1990, when Merkos counted all of Connecticut his). The 1984 AFL list has 'Chabad Lubavitch of West Hartford, Chabad House, 798 Farmington Ave.' beside 'Chabad Lubavitch of Connecticut, 261 Derby Ave., Orange' (Hecht's, New Haven County). Deren's region grew from Western Massachusetts into Connecticut (a 1985 account, as a search quotes it: he 'started the Chabad Houses in Amherst, then Springfield and in northern Connecticut'); by about 1990 ('Sixteen years later') Merkos counted all of Connecticut his. New Haven County stayed the Hechts'."
    }
   ],
   "US-CT:new-haven": [
@@ -1707,18 +1717,25 @@
   "US-IL:illinois": [
    {
     "shetach": "illinois",
-    "from": "1977",
+    "from": "1942-12",
     "how": "stated",
-    "confidence": "medium",
+    "confidence": "high",
     "sources": [
      {
-      "url": "https://www.lubavitch.com/regional-director-of-chabad-of-illinois-daniel-moscowitz-59/",
-      "title": "Regional Director of Chabad of Illinois, Daniel Moscowitz, 59 (Lubavitch.com)",
-      "date": "2014-03-04",
-      "quote": "The Chicago-born rabbi led the city's Chabad community since 1977. Under his leadership as head Chabad representative to the state, Chabad of Illinois established some 37 new institutions around the state."
+      "url": "https://www.chabad.org/news/article_cdo/aid/4265602/jewish/The-150-Year-Old-Chicago-Synagogue-the-Rebbe-Didnt-Let-Die.htm",
+      "title": "The 150-Year-Old Chicago Synagogue the Rebbe Didn't Let Die (Chabad.org)",
+      "quote": "The candidate the Rebbe had in mind was none other than Rabbi Shlomo Zalman (Solomon S.) Hecht ... Finally, as 1942 came to a close, the Hechts relocated to Chicago. ... In the mid-1960s, Rabbi Hecht accepted a rabbinic position at the large and well-established Warsaw Bickur Cholim Congregation in Peterson Park.",
+      "note": "The Frierdiker Rebbe chose him as rav of Congregation Anshei Lubavitch (Lawndale). He passed away on Friday 24 Menachem Av 5739 (Aug 1979; Chicago Tribune, 20 Aug 1979)."
+     },
+     {
+      "url": "https://www.juf.org/rabbi-daniel-moscowitz-regional-director-chabad-lubavitch-of-illinois-dies/",
+      "title": "Rabbi Daniel Moscowitz, Regional Director, Chabad-Lubavitch of Illinois, Dies (JUF News)",
+      "date": "2014-03-05",
+      "quote": "Rabbi Shlomo Zalman Hecht of Congregation Anshei Lubavitch, the Head Shliach of the state, succeeding him upon his passing.",
+      "note": "as a search quotes it"
      }
     ],
-    "note": "Chabad.org's obituary has the Rebbe sending the Moscowitzes to Chicago in 1975 (as a search quotes it); led it from 1977."
+    "note": "Rabbi Shlomo Zalman Hecht, sent by the Frierdiker Rebbe at the end of 1942, was 'the Head Shliach of the state' until he passed away in Aug 1979; Moscowitz (in Chicago from 1975/77) succeeded him (JUF News). Found Nov 9; was: Illinois from 1977. Chabad.org's obituary has the Rebbe sending the Moscowitzes to Chicago in 1975 (as a search quotes it); led it from 1977."
    }
   ],
   "US-IN:indiana": [
@@ -4160,22 +4177,33 @@
   ],
   "illinois": [
    {
-    "from": "1977",
-    "where": "a small apartment in Chicago (address not found)",
-    "lat": 41.8781,
-    "lon": -87.6298,
-    "name": "A small Chicago apartment",
-    "nameHe": "דירה קטנה בשיקגו",
+    "from": "1942-12",
+    "where": "Congregation Anshei Lubavitch, Lawndale, Chicago (its address not found; the star is on Lawndale)",
+    "lat": 41.8625,
+    "lon": -87.714,
+    "name": "Congregation Anshei Lubavitch",
+    "nameHe": "קהילת אנשי ליובאוויטש",
     "city": "Chicago",
-    "source": "https://crownheights.info/chabad-news/6773/chabad-of-illinois-celebrates-thirty-years/",
-    "quote": "Over the past thirty years Lubavitch Chabad of Illinois has grown from a one-man operation in a small Chicago apartment to a legion of more than thirty institutions",
-    "note": "The star is on the city."
+    "source": "https://www.chabad.org/news/article_cdo/aid/4265602/jewish/The-150-Year-Old-Chicago-Synagogue-the-Rebbe-Didnt-Let-Die.htm",
+    "quote": "Regarding those years in Lawndale ... the bustle of Chassidic life that went on"
    },
    {
     "from": null,
     "fromBound": {
-     "by": "1985-03"
+     "after": "1963",
+     "by": "1967"
     },
+    "where": "Warsaw Bikur Cholim Congregation, Peterson Park, Chicago",
+    "lat": 41.9953,
+    "lon": -87.7262,
+    "name": "Warsaw Bikur Cholim Congregation",
+    "nameHe": "קהילת ורשה ביקור חולים",
+    "city": "Chicago",
+    "source": "https://www.chabad.org/news/article_cdo/aid/4265602/jewish/The-150-Year-Old-Chicago-Synagogue-the-Rebbe-Didnt-Let-Die.htm",
+    "quote": "In the mid-1960s, Rabbi Hecht accepted a rabbinic position at the large and well-established Warsaw Bickur Cholim Congregation in Peterson Park."
+   },
+   {
+    "from": "1979-08",
     "where": "Chabad Lubavitch of Greater Chicago, Regional Center, 2014 Orrington Ave., Evanston (the Chabad House at Northwestern)",
     "lat": 42.05447,
     "lon": -87.68018,
@@ -4185,7 +4213,7 @@
     "cityHe": "אוונסטון",
     "source": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
     "quote": "Chabad Lubavitch of Greater Chicago, Regional Center, 2014 Orrington St., Evanston",
-    "note": "In the American Friends of Lubavitch list of about 1984. Moscowitz founded the Northwestern Chabad House there within a year of coming (Chicago Tribune obituary, 2014: 'Within a year he founded what became the Tannenbaum Chabad House at Northwestern University in Evanston'); since when it was the regional center is not found."
+    "note": "From Moscowitz's start as head (Aug 1979): he founded the Northwestern Chabad House within a year of coming to Chicago (Chicago Tribune obituary), and it was the regional center by about 1984 (the AFL list). In the American Friends of Lubavitch list of about 1984. Moscowitz founded the Northwestern Chabad House there within a year of coming (Chicago Tribune obituary, 2014: 'Within a year he founded what became the Tannenbaum Chabad House at Northwestern University in Evanston'); since when it was the regional center is not found."
    },
    {
     "from": "1995",

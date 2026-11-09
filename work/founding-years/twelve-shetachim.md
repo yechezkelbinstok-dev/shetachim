@@ -90,3 +90,10 @@ so pass two can find them. No IRS lookups in the first pass. Leads that weren't 
 - Bounds (47), first pass. Leads in notes: Bethesda 1999 or 2000, ARIEL 2005 (incorporated; listed 2004), Potomac's
   sanctuary "eleven years in the making" in 2004, Ocean City about 20 years. Owings Mills (2005 vs a 2004 listing)
   is left open.
+
+## Ontario (batches ontario-01, -02): 61 listings, 10 with a year
+- Southern Ontario 1974 (medium: "arrived in the area in 1980" elsewhere; the Grossbaums), JRCC 1980 (the
+  Zaltzmans), Markham 1985, London's Friends of Lubavitch 1986 (the Blocks), Flamingo 1998, Bais Chomesh 1999
+  (medium: a directory), Mississauga 2003 (medium), JYN 2007, Durham 2010, Innisfil 2021.
+- Bounds (51), first pass. Yeshivas Lubavitch Toronto: founded 5717 (1956-57) and refounded about 1996, in its note.
+  Armour Heights (not on chabad.org) has no listing date, so no bound.

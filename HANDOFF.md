@@ -262,7 +262,7 @@ thirteen no better recent photo has been found yet (the list is there, with what
     (star on the city); Southern Ohio's Blue Ash split at Sept 2004; New Jersey's Newark yeshiva sourced (Anash
     obituary); names: "Yankel Kranz", "Benjy Korf" (no nickname in brackets); Hebrew surnames from he.json (שם טוב, not
     טוב); South Jersey and Delaware Avremel Shemtov's from 1961 (owner: "Just give it to Avremel the year he came on
-    shlichus"), South Jersey Herson's by 2007; a clock button on the main map (top of the zoom buttons) to the page.
+    shlichus"), South Jersey Herson's by 2007 (since Nov 9: from 1984, Rapoport in Atlantic County; README); a clock button on the main map (top of the zoom buttons) to the page.
     **Still to do, in order:**
     1. **The vaads are not on the history page at all** (owner: "what happened to the new Jersey and Florida
        vaads???"). Show them as the main map does (vaadFirst: the vaad block above "Head shliach: …"; label

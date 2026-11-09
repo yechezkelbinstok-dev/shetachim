@@ -1797,7 +1797,7 @@
       "quote": "Shemtov is regional director of the American Friends of Lubavitch which includes Pennsylvania and Southern New Jersey."
      }
     ],
-    "note": "Southern New Jersey was Avremel Shemtov's (Pennsylvania) in 1980: JTA Aug 1980, 'regional director of the American Friends of Lubavitch which includes Pennsylvania and Southern New Jersey'; Oct 1980, 'regional head ... in Pennsylvania, southern New Jersey and Delaware'. Today its Chabad houses (Cherry Hill, Medford, Vineland, Ventnor, Princeton, Toms River) are listed by the Rabbinical College of America, which says all New Jersey's shluchim are part of it. When the south moved to Herson is not known (Atlantic City's Chabad house is from about 1984, Cherry Hill's 1993). Its history is on US-NJ:south-jersey (extraAreas), a piece for the history only (owner, Nov 8)."
+    "note": "Southern New Jersey was Avremel Shemtov's (Pennsylvania) until 1984: JTA Aug 1980, 'regional director of the American Friends of Lubavitch which includes Pennsylvania and Southern New Jersey'; Oct 1980, 'regional head ... in Pennsylvania, southern New Jersey and Delaware'. Herson's from 1984, when Rabbi Shmuel D. Rapoport came to Atlantic County as director of Friends of Lubavitch of Atlantic County (in Herson's New Jersey delegation, May 1984); Atlantic, Cumberland and Mercer are in Herson's list of regional offices in Feb 1993, Camden by Feb 2000. Its history is on US-NJ:south-jersey (extraAreas), a piece for the history only (owner, Nov 8)."
    }
   ],
   "US-NM:new-mexico": [
@@ -2563,14 +2563,43 @@
    },
    {
     "shetach": "new-jersey",
-    "from": null,
-    "fromBound": {
-     "after": "1980-10",
-     "by": "2007-06"
-    },
-    "how": "range",
-    "confidence": "range",
+    "from": "1984",
+    "how": "news",
+    "confidence": "high",
     "sources": [
+     {
+      "url": "https://www.jhsnj-archives.org/?a=d&d=njjn19840510-01.1.11",
+      "title": "Birthday Celebration (New Jersey Jewish News, p. 11)",
+      "date": "1984-05-10",
+      "quote": "U.S. Sen. Frank Lautenberg greets the New Jersey delegation attending the reception in honor of Rabbi Menachem Schneerson — the Lubavitcher Rebbe's — 82nd birthday. From left are Rabbi Yisroel Brod, director of Friends of Lubavitch of Bergen County; Sen. Lautenberg; Rabbi Moshe Herson, dean of the Rabbinical College of America in Morristown; Rabbi Shmuel D. Rapoport, director of Friends of Lubavitch of Atlantic County; ...",
+      "via": "Jewish Historical Society of New Jersey archives, read through Firecrawl"
+     },
+     {
+      "url": "https://www.facebook.com/groups/njsynagogues/posts/325775359680977/",
+      "title": "Chabad at the Shore and the Chai Center in Ventnor (New Jersey synagogues group)",
+      "quote": "In 1984 Rabbi Shmuel Rapoport arrived in South Jersey as a representative of the Chabad Lubavitch movement.",
+      "note": "Search excerpt."
+     },
+     {
+      "url": "https://www.israelnationalnews.com/news/202766",
+      "title": "The Jewish miracle in Atlantic City (Arutz Sheva)",
+      "date": "2015-11-03",
+      "quote": "I moved to the Atlantic City area as a child ... We were sent by the Lubavitcher Rebbe; my father was one of the first shlichim [emissaries] to New Jersey.",
+      "note": "Rabbi Avrohom Rapoport, Shmuel Rapoport's son."
+     },
+     {
+      "url": "https://www.jhsnj-archives.org/?a=d&d=njjn19930218-01.1.20",
+      "title": "Rabbinical College of America (New Jersey Jewish News, p. 20)",
+      "date": "1993-02-18",
+      "quote": "Over the years, our affiliated organizations and regional offices have spread across the state ... The regional offices listed here ... Chabad Lubavitch of Atlantic County Rabbi Shmuel D. Rapaport ... Chabad Lubavitch of Cumberland County Rabbi Yisroel Rapaport ... Chabad Lubavitch of Mercer County Rabbi Dovid Dubov",
+      "note": "Signed by Rabbi Moshe Herson, Dean."
+     },
+     {
+      "url": "https://www.jhsnj-archives.org/?a=d&d=njjn20000203-01.1.60",
+      "title": "Rabbinical College of America (New Jersey Jewish News, p. 60)",
+      "date": "2000-02-03",
+      "quote": "Project of: Rabbinical College of America - Lubavitch ... Chabad Lubavitch of Cumberland County ... Chabad of Camden County ... Lubavitch of Atlantic County ..."
+     },
      {
       "url": "https://crownheights.info/shlichus/6927/new-shluchim-to-new-jersey-5/",
       "title": "New Shluchim to New Jersey! (CrownHeights.info)",
@@ -2585,7 +2614,7 @@
       "note": "Read Nov 8 2026 (WebFetch): its New Jersey list includes Chabad Lubavitch of Camden County (Cherry Hill), Chabad in Medford, Chabad House of Vineland and Chabad at the Shore (Ventnor). Undated page."
      }
     ],
-    "note": "Herson's again by June 2007, when he appointed Gloucester County's shliach; since when, not found (Atlantic County's Chabad from 1984, Cherry Hill's from 1993; neither says who sent them)."
+    "note": "Herson's from 1984, when the first shliach in the south came: Rabbi Shmuel D. Rapoport to Atlantic County (Atlantic City, then Margate), 'one of the first shlichim to New Jersey' (his son). By May 1984 he was in Herson's New Jersey delegation as director of Friends of Lubavitch of Atlantic County, the name of Herson's other houses (Bergen; Middlesex and Monmouth). From then on every house in the south is Herson's: Cumberland (Vineland, Yisroel Rapoport, 1987) and Mercer in his list of regional offices, Feb 1993; Camden County (Cherry Hill, Mangel, 1993) by Feb 2000; Gloucester appointed by him, June 2007; all New Jersey's shluchim part of the Rabbinical College today. Before 1984 the south had no shliach of its own and was served from Philadelphia (JTA 1980: Avremel's region 'includes Pennsylvania and Southern New Jersey'). Was 'by June 2007' until Nov 9 (owner: 'it just makes no sense that it was only his from 2007')."
    }
   ],
   "US-OH:southeast-ohio": [

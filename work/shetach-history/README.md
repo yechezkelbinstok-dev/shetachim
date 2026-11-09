@@ -57,8 +57,8 @@ UNM Chabad House; was 1992). Agreeing with the data already in: Idaho, Montana, 
 - **South Dakota: Feller's by 1984, Katzman's from 1986 (his visits), Feller's from Dec 2016.** (Briefly merged into
   Feller's throughout; restored, owner: "Didn't you say there was a tekufa that Nebraska's shliach served SD??")
 - **Kentucky:** the owner's Kalmanson stays (the map's Ohio is tan, but it doesn't say who covered Kentucky).
-- **Southern New Jersey** is its own piece in the history (`extraAreas`, the seven southern counties): Avremel's by
-  Aug 1980, Herson's after Oct 1980 (when, not found; the RCA lists its houses today).
+- **Southern New Jersey** is its own piece in the history (`extraAreas`, the eight southern counties): Avremel's from
+  1961 (owner), Herson's from 1984 (below).
 
 **Still not found:**
 - New Mexico's second state (its centre was orange): not Utah or Colorado, so Oklahoma or the El Paso corner of Texas.
@@ -109,8 +109,19 @@ Tennessee at 3600 West End Ave., Nashville (Posner's shul), Vermont (158 N. Will
 - **Southern New Jersey: Avremel's in 1980** (JTA, Aug 1980: "regional director of the American Friends of Lubavitch
   which includes Pennsylvania and Southern New Jersey"; and the Oct 1980 line above), **Herson's today** (the Rabbinical
   College of America lists Cherry Hill, Medford, Vineland, Ventnor, Princeton and Toms River and says all New Jersey's
-  shluchim are part of it). When it moved is not known (Atlantic City's Chabad house about 1984, Cherry Hill's 1993).
-  Not on the map: New Jersey is one piece, so this sits in New Jersey's note until the owner wants a South Jersey piece.
+  shluchim are part of it).
+- **Southern New Jersey: Herson's from 1984** (found Nov 9, after the owner: "it just makes no sense that it was only
+  his from 2007"; the Jewish Historical Society of New Jersey's archive of the New Jersey Jewish News, read through
+  Firecrawl). The whole story: Avremel came to Philadelphia in 1961 and served the south (owner: from 1961); Herson was
+  made the Rebbe's shliach to the state in 1965 and built from the north (Bergen, then Rutgers, "and from there, to the
+  entire state"); the south had no shliach of its own until 1984, and in 1980 it was still in Avremel's region (JTA).
+  In 1984 Rabbi Shmuel D. Rapoport came to Atlantic County, "one of the first shlichim to New Jersey" (his son, Arutz
+  Sheva 2015), and by May 1984 he stood in Herson's New Jersey delegation as "director of Friends of Lubavitch of
+  Atlantic County" (NJJN, 10 May 1984, p. 11), the name of Herson's other houses. After that every house in the south is
+  Herson's: his list of the Rabbinical College's regional offices in Feb 1993 has Atlantic (Shmuel Rapoport),
+  Cumberland (Yisroel Rapoport, Vineland, 1987) and Mercer (NJJN, 18 Feb 1993, p. 20); Camden (Cherry Hill, 1993) is a
+  "Project of: Rabbinical College of America" by Feb 2000 (NJJN, 3 Feb 2000, p. 60); he appointed Gloucester's shliach in
+  June 2007; today all New Jersey's shluchim are the Rabbinical College's. The data had 'by June 2007' until then.
 
 **Additions** (blank land joining a shetach when its head sends the first shliach, like Mississippi):
 - Mississippi to Louisiana's, Aug 2014 (owner's example).
@@ -250,7 +261,7 @@ able to click the flagships and see a card".
 - **Changes made for the owner (Nov 8):** Southeast Ohio is Kalmanson's from 1975, Central Ohio's from 1991 (taken
   with its neighbour; not found), Alevsky's only from the Ohio University shliach (Aug 2015). South Jersey: Herson's
   from 1965 ("shliach to the state of New Jersey"), Avremel's by 1980 (JTA), Herson's again by June 2007 (he appointed
-  Gloucester County's shliach). Saskatchewan: Altein's by 1993 (the roving rabbis' notes go back to 1993), not from
+  Gloucester County's shliach); since Nov 9: Avremel's from 1961, Herson's from 1984 (Rapoport, Atlantic County). Saskatchewan: Altein's by 1993 (the roving rabbis' notes go back to 1993), not from
   1972. Western Pennsylvania from 1941 (Yeshiva Schools' own history: Rabbi Mordechai Dov Altein; the Derens 1942).
 - New Brunswick and Prince Edward Island follow Nova Scotia's Maritimes; the sliver of New York in Southern Ontario's
   piece follows Ontario (left out of names).

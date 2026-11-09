@@ -297,9 +297,11 @@ thirteen no better recent photo has been found yet (the list is there, with what
   - **Nov 9 (late): names in the early years and Rockland.** When a year has 15 shetachim or fewer, a shape too small for
     its name still gets it, set over it or just beside it, clear of the others (owner: "in the early years when it's
     important to see every single one ... maybe don't do lines maybe put it over it"; no lines). Monsey's piece is part
-    of Kotlarsky's Rockland from 1983 (owner: "why tf is Rockland empty, pick a damn shetach for it"); before 1983
-    Rockland is blank: Rabbi Simcha Werner ("Rockland's first shliach", NCFJE) came earlier, year not found
-    (therebbesimpact.com is said to give 1971, not read): find it and give him Rockland from then.
+    of Kotlarsky's Rockland from 1983 (owner: "why tf is Rockland empty, pick a damn shetach for it"); Rockland (and
+    Monsey) is Greater New York's (Tzach, from 1955: "the NYC Metro area", its campus list takes in Rockland's colleges)
+    until 1969, then Rabbi Simcha Werner's Rockland (NCFJE Monsey "since 1969", KMR; "Rockland's first Shliach"), then
+    Kotlarsky's from 1983 (owner, Nov 9: "figure out which shetach Rockland was in because it's ridiculous that it's a
+    gap before it gets a shliach").
   - **Nov 9 (late): the first years are the city only** (owner: "I wasn't telling it to frickin' get rid of them. I just
     meant for those years before Posner and Mochkin came to just make it the city and not the whole state"; "Also the
     one in Massachusetts before fogelman came"). Pieces US-PA:pittsburgh (the city, from Altein, Dec 1941),

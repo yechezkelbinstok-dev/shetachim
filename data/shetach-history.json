@@ -681,6 +681,13 @@
   ],
   "rockland": [
    {
+    "head": "Simcha Werner",
+    "from": "1969",
+    "how": "stated",
+    "confidence": "medium",
+    "note": "Rockland's first shliach (NCFJE of Rockland, Monsey), from 1969: sources on area US-NY:rockland (its period from 1969). He stays in Monsey after 1983; the shetach's head from then is Kotlarsky (the owner's map)."
+   },
+   {
     "head": "Avremel Kotlarsky",
     "from": "1983",
     "how": "stated",
@@ -2359,6 +2366,42 @@
   ],
   "US-NY:monsey": [
    {
+    "shetach": "new-york-city",
+    "from": "1955",
+    "how": "inferred",
+    "confidence": "medium",
+    "sources": [
+     {
+      "url": "https://www.chabadlyo.org/colleges",
+      "title": "Colleges & Universities (Lubavitch Youth Organization, Tzach)",
+      "quote": "50 colleges served by Chabad in the NYC Metro area, Long Island, and Westchester ... SUNY Rockland Community College ... Nyack College ... St. Thomas Aquinas College ... Lubavitch Youth Organization Serving the NYC Metro area since 1955",
+      "note": "read Nov 9; its list takes in Rockland County's colleges"
+     }
+    ],
+    "note": "Owner, Nov 9: 'figure out which shetach Rockland was in because it's ridiculous that it's a gap before it gets a shliach'. Rockland is in the New York metropolitan area, which Tzach (from 1955) covers, as Westchester and Long Island are in the Greater New York piece; until its first shliach (1969)."
+   },
+   {
+    "shetach": "rockland",
+    "from": "1969",
+    "how": "stated",
+    "confidence": "medium",
+    "sources": [
+     {
+      "url": "https://www.kmrtours.com/palm-springs-lectures-and-shiurim-2/",
+      "title": "Lectures and Shiurim: Rabbi Simcha Werner (KMR)",
+      "quote": "Rabbi Werner has been the director of the Monsey branch of the National Committee for the Furtherance of Jewish Education (NCFJE) since 1969",
+      "note": "read Nov 9"
+     },
+     {
+      "url": "https://chabadinfo.com/news/hundreds-attend-siyum-harambam-in-monsey/",
+      "title": "Hundreds Attend Siyum Harambam in Monsey (Chabadinfo)",
+      "date": "2015-01-22",
+      "quote": "in conjunction with NCFJE of Rockland under the leadership of Rockland’s first Shliach Rabbi Simcha Werner"
+     }
+    ],
+    "note": "Rockland's first shliach, Rabbi Simcha Werner (NCFJE of Rockland, in Monsey), from 1969; an Anash.org piece calls him 'the Rebbe's first shliach to Rockland County' (search snippet only: Anash refuses our reads); therebbesimpact.com is said to give 1971 (not read)."
+   },
+   {
     "shetach": "rockland",
     "from": "1983",
     "how": "owner",
@@ -2383,7 +2426,7 @@
       "quote": "Rabbi Simcha Werner is the pioneer of Lubavitch in Monsey"
      }
     ],
-    "note": "Owner, Nov 9: 'why tf is Rockland empty, pick a damn shetach for it'. Monsey has no head of its own (the owner's main map), so on the history map it is part of Rabbi Avremel Kotlarsky's Rockland from 1983. Its first shliach, Rabbi Simcha Werner (NCFJE, 'Rockland's first Shliach'), came before; his year is not found. Earlier note: Monsey has no head (the owner's map: the Monsey Lubavitch community and its institutions). It starts with its first shliach, Rabbi Simcha Werner of the NCFJE: 'Rockland’s first Shliach', so before Rabbi Avremel Kotlarsky's Chabad of Rockland (1983); his year is not found in a source read (therebbesimpact.com is said to give 1971, not read). Its own institutions: Yeshivas Menachem Mendel (2000), Heichal Menachem (Dec 1998), Cheder Chabad (1999), Beis Chaya Mushka (2006). Open for the owner: whether the rest of Rockland was Werner's before 1983."
+    "note": "Owner, Nov 9: 'why tf is Rockland empty, pick a damn shetach for it'. Monsey has no head of its own (the owner's main map), so on the history map it is part of Rabbi Avremel Kotlarsky's Rockland from 1983. Its first shliach, Rabbi Simcha Werner (NCFJE, 'Rockland's first Shliach'), came in 1969 (the period before this). Earlier note: Monsey has no head (the owner's map: the Monsey Lubavitch community and its institutions). It starts with its first shliach, Rabbi Simcha Werner of the NCFJE: 'Rockland’s first Shliach', so before Rabbi Avremel Kotlarsky's Chabad of Rockland (1983); his year is not found in a source read (therebbesimpact.com is said to give 1971, not read). Its own institutions: Yeshivas Menachem Mendel (2000), Heichal Menachem (Dec 1998), Cheder Chabad (1999), Beis Chaya Mushka (2006). Open for the owner: whether the rest of Rockland was Werner's before 1983."
    }
   ],
   "US-NY:new-york-city": [
@@ -2419,6 +2462,42 @@
    }
   ],
   "US-NY:rockland": [
+   {
+    "shetach": "new-york-city",
+    "from": "1955",
+    "how": "inferred",
+    "confidence": "medium",
+    "sources": [
+     {
+      "url": "https://www.chabadlyo.org/colleges",
+      "title": "Colleges & Universities (Lubavitch Youth Organization, Tzach)",
+      "quote": "50 colleges served by Chabad in the NYC Metro area, Long Island, and Westchester ... SUNY Rockland Community College ... Nyack College ... St. Thomas Aquinas College ... Lubavitch Youth Organization Serving the NYC Metro area since 1955",
+      "note": "read Nov 9; its list takes in Rockland County's colleges"
+     }
+    ],
+    "note": "Owner, Nov 9: 'figure out which shetach Rockland was in because it's ridiculous that it's a gap before it gets a shliach'. Rockland is in the New York metropolitan area, which Tzach (from 1955) covers, as Westchester and Long Island are in the Greater New York piece; until its first shliach (1969)."
+   },
+   {
+    "shetach": "rockland",
+    "from": "1969",
+    "how": "stated",
+    "confidence": "medium",
+    "sources": [
+     {
+      "url": "https://www.kmrtours.com/palm-springs-lectures-and-shiurim-2/",
+      "title": "Lectures and Shiurim: Rabbi Simcha Werner (KMR)",
+      "quote": "Rabbi Werner has been the director of the Monsey branch of the National Committee for the Furtherance of Jewish Education (NCFJE) since 1969",
+      "note": "read Nov 9"
+     },
+     {
+      "url": "https://chabadinfo.com/news/hundreds-attend-siyum-harambam-in-monsey/",
+      "title": "Hundreds Attend Siyum Harambam in Monsey (Chabadinfo)",
+      "date": "2015-01-22",
+      "quote": "in conjunction with NCFJE of Rockland under the leadership of Rockland’s first Shliach Rabbi Simcha Werner"
+     }
+    ],
+    "note": "Rockland's first shliach, Rabbi Simcha Werner (NCFJE of Rockland, in Monsey), from 1969; an Anash.org piece calls him 'the Rebbe's first shliach to Rockland County' (search snippet only: Anash refuses our reads); therebbesimpact.com is said to give 1971 (not read)."
+   },
    {
     "shetach": "rockland",
     "from": "1983",

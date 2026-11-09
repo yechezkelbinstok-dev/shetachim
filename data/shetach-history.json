@@ -195,11 +195,24 @@
     "head": "Moishe Kasowitz",
     "from": null,
     "fromBound": {
-     "by": "1989-05"
+     "by": "1986-12"
     },
     "how": "news",
     "confidence": "high",
     "sources": [
+     {
+      "url": "https://law.justia.com/cases/federal/district-courts/FSupp/684/610/1896350/",
+      "title": "Lubavitch of Iowa, Inc. v. Walters, 684 F. Supp. 610 (S.D. Iowa 1988)",
+      "quote": "Plaintiff Moishe B. Kasowitz is an ordained rabbi and the State Director of plaintiff Lubavitch of Iowa, Inc. (Lubavitch). On December 10, 1986, ...",
+      "note": "search excerpt; the page itself is behind a robot check"
+     },
+     {
+      "url": "https://cdnc.ucr.edu/?a=d&d=HS19861227.1.4",
+      "title": "Hanford Sentinel, 27 Dec 1986, p. 4 (AP)",
+      "date": "1986-12-27",
+      "quote": "... Des Moines, Rabbi Moishe Kasowitz said the Iowa attorney generals office had agreed to allow a two-hour display Sunday of a 20-foot menorah outside the ...",
+      "note": "search excerpt"
+     },
      {
       "url": "https://www.jta.org/archive/federal-court-upholds-iowa-ruling-barring-overnight-menorah-display",
       "title": "Federal Court Upholds Iowa Ruling Barring Overnight Menorah Display (JTA)",
@@ -207,7 +220,7 @@
       "quote": "The state of Iowa did not discriminate against the Lubavitch movement in 1986 when it refused to allow the organization to leave a Chanukah menorah standing on the grounds of the state Capitol overnight ... \"Naturally we're very disappointed in the court's decision,\" said Rabbi Moishe Kasowitz, director of Lubavitch of Iowa."
      }
     ],
-    "note": "Director of Lubavitch of Iowa in May 1989; when he began, and who was there in 1984, not found.",
+    "note": "Director of Lubavitch of Iowa in May 1989; when he began, and who was there in 1984, not found. Nov 9: by Dec 1986 (the court's facts and the AP story on the Capitol menorah), was by May 1989. Who ran Lubavitch of Iowa from about 1984 till then is not found; he may have founded it.",
     "he": "משה קסוביץ"
    },
    {
@@ -421,6 +434,32 @@
   ],
   "quebec": [
    {
+    "head": "Leib Kramer",
+    "from": "1941-10",
+    "he": "לייב קרמר",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.rabbikramerslegacy.com/about-rabbi-kramer/",
+      "title": "About Rabbi Kramer (Rabbi Kramer's Legacy)",
+      "quote": "Thus, hardly a day after his arrival in Montreal, on Motzei Shabbos, the yeshiva was established with Rabbi Kramer as its acting director. ... By the mid-1950s there were five hundred students and Rabbi Kramer had officially assumed the role of director upon the instructions of the previous Lubavitcher Rebbe."
+     },
+     {
+      "url": "https://col.org.il/news/113862",
+      "title": "77 שנה להקמת 'תומכי תמימים' מונטריאול על ידי הריי\"צ (COL)",
+      "date": "2018-10-12",
+      "quote": "למחרת הגיעם לעיר נפתחה הישיבה, מנהלה היה, מאז ועד לפטירתו, הרב אריה לייב קרמר. בראש הישיבה עמד הרב יצחק הכהן הענדל."
+     },
+     {
+      "url": "https://collive.com/montreals-legendary-leader/",
+      "title": "Montreal's Legendary Leader (COLlive)",
+      "quote": "Rabbi Kramer directed the institution for 58 years, until his death at age 81."
+     }
+    ],
+    "note": "Rabbi (Aryeh) Leib Kramer, one of the Shanghai students, ran the Montreal yeshiva (Tomchei Tmimim, the Rabbinical College of Canada) from the day it opened, 24 Oct 1941, until he passed away in 1999; Chabad.org calls him 'longtime director of the Chabad institutions in Montreal'. Its rosh yeshiva was Rabbi Yitzchak Hendel. He is Quebec's head until Berel Mochkin's line starts (1952, the earliest Mochkin could have been head; when the headship passed is not found)."
+   },
+   {
     "head": "Berel Mochkin",
     "from": null,
     "sources": [
@@ -615,6 +654,44 @@
   ],
   "western-pennsylvania": [
    {
+    "head": "Mordechai Dov Altein",
+    "from": "1941-12-07",
+    "he": "מרדכי דב אלטיין",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://jewishchronicle.timesofisrael.com/a-postcard-from-the-early-days-of-yeshiva-schools/",
+      "title": "A postcard from the early days of Yeshiva Schools (Pittsburgh Jewish Chronicle)",
+      "date": "2020-01-09",
+      "quote": "On December 7, 1941, in the shadow of Pearl Harbor, the Frierdiker Rebbe dispatched Rabbi Altein to Pittsburgh “to learn Torah and create activities among the youth.” ... By summer, Rabbi Mordechai Dov Altein had started Yeshiva Achei T’mimim, the first Lubavitch yeshiva in America outside of New York."
+     }
+    ],
+    "note": "Sent by the Frierdiker Rebbe (Toldos Chabad B'artzos Habris and his letters of 5702, as the Chronicle's author read them); he stayed as principal till summer 1944, then went to New Haven. The Derens came in 1942 (COLlive)."
+   },
+   {
+    "head": "Sholom Posner",
+    "from": "1943",
+    "he": "שלום פוזנר",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://jewishchronicle.timesofisrael.com/a-postcard-from-the-early-days-of-yeshiva-schools/",
+      "title": "A postcard from the early days of Yeshiva Schools (Pittsburgh Jewish Chronicle)",
+      "date": "2020-01-09",
+      "quote": "Rabbi Sholom Posner arrived in Pittsburgh in the summer of 1943. He turned Yeshiva Achei T’mimim into the parochial school it is today"
+     },
+     {
+      "url": "https://www.academia.edu/40639749/RIGHTEOUS_LIVES_THE_STORY_OF_RABBI_SHOLOM_AND_REBBETZIN_CHAYA_POSNER_AND_THE_YESHIVA_SCHOOLS",
+      "title": "Righteous Lives: The Story of Rabbi Sholom and Rebbetzin Chaya Posner and the Yeshiva Schools",
+      "quote": "In 1943, the Rebbe sent Rabbi Posner to start Yeshiva Achie Temimim.",
+      "note": "search excerpt"
+     }
+    ],
+    "note": "Sent by the Frierdiker Rebbe in summer 1943 (Chabadpedia: 5703, to set up a branch of Tomchei Tmimim); head until Rosenfeld's line starts (1978, when Rosenfeld became the school's dean; when the headship passed is not found)."
+   },
+   {
     "head": "Yisroel Rosenfeld",
     "from": null,
     "note": "When he became head shliach, and the heads before him, not found: shown from 1978, when he became dean of Yeshiva Schools of Pittsburgh (the Lubavitch school; he handed it over in 2020 and remains head of the Lubavitch Center).",
@@ -676,6 +753,45 @@
     "from": "1951-01-17",
     "how": "owner",
     "note": "10 Shevat 5711 (17 January 1951), when the Rebbe accepted the nesius, a year after the Frierdiker Rebbe's passing (10 Shevat 5710, 28 January 1950); the year between stays the Frierdiker Rebbe's (owner, Nov 8)."
+   }
+  ],
+  "maine": [
+   {
+    "head": "Moshe Wilansky",
+    "from": "1987",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.chabadofmaine.com/templates/articlecco_cdo/aid/6052817/jewish/Meet-our-Staff.htm",
+      "title": "Meet our Staff (Chabad Lubavitch of Maine)",
+      "quote": "He arrived in Portland, Maine together with his wife Chana in 1987"
+     },
+     {
+      "url": "https://derher.org/wp-content/uploads/5785-3-9.pdf",
+      "title": "A Chassidisher Derher, Kislev 5785, 'Pinpoints: Oklahoma'",
+      "quote": "Rabbi Weg 'to open a new branch in the state of Oklahoma and Rabbi Wilansky in the state of Maine' ... 'The Wegs arrived in Oklahoma right after Pesach'",
+      "note": "as quoted on US-ME:maine and US-OK:oklahoma"
+     }
+    ],
+    "note": "Founded Merkos's new branch in Maine in 5747 and heads it today (the main map)."
+   }
+  ],
+  "oklahoma": [
+   {
+    "head": "Yehuda Weg",
+    "from": "1987-04",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://derher.org/wp-content/uploads/5785-3-9.pdf",
+      "title": "A Chassidisher Derher, Kislev 5785, 'Pinpoints: Oklahoma'",
+      "quote": "Rabbi Weg 'to open a new branch in the state of Oklahoma and Rabbi Wilansky in the state of Maine' ... 'The Wegs arrived in Oklahoma right after Pesach'",
+      "note": "as quoted on US-ME:maine and US-OK:oklahoma"
+     }
+    ],
+    "note": "Opened Merkos's new branch in Oklahoma right after Pesach 5747 and heads it today (the main map)."
    }
   ]
  },

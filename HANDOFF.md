@@ -275,7 +275,7 @@ thirteen no better recent photo has been found yet (the list is there, with what
        original Vaad" from about 2010 (members not known; Ephraim Simon was on it) and the vaad elected June 2025
        (anash.org/new-vaad-hashluchim-elected-in-new-jersey): Lubin, Richler, Leverton, Gourarie (3 years), Simon
        (one year). The facts are in data/shetach-history.json `events`; add a `vaads` key and draw it.
-    2. **Heads missing (those years are now blank on the map; research and add, with sources):** Western
+    2. **Nov 9: added** Western Pennsylvania (Mordechai Dov Altein 7 Dec 1941, Sholom Posner summer 1943; Pittsburgh Jewish Chronicle), Quebec (Leib Kramer, the Montreal yeshiva's director from 24 Oct 1941), Iowa (Kasowitz by Dec 1986: the court case and the AP), Maine (Wilansky 1987), Oklahoma (Weg Apr 1987). **Still open:** Iowa 1985–86 and New Mexico 1985–91 (not found), Monsey. Was: **Heads missing (those years are now blank on the map; research and add, with sources):** Western
        Pennsylvania 1941–1977 (Rabbi Mordechai Dov Altein 1941, the Derens 1942, Rabbi Sholom Posner sent 5703 to set
        up Tomchei Tmimim: who was head when, before Rosenfeld 1978); Quebec 1941–1951 (before Berel Mochkin 1952; the
        Montreal yeshiva from 24 Oct 1941); Iowa 1985–1988 (Lubavitch of Iowa by 1984; Kasowitz by May 1989); New

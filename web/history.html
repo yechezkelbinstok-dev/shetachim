@@ -968,7 +968,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   // ---------- a vaad on a card, as on the main map ----------
   const memberName = (m) => { const n = `${m.firstName} ${m.lastName}`; return HE ? heWords(n) : n; };
   const townOf = (m) => (m.town ? (HE && he && he.cities && (he.cities[`${m.town}|${m.state || ''}`] || he.cities[m.town])) || m.town : '');
-  const ROLE = { Head: ['Head', 'יו״ר'], Alternate: ['Alternate', 'ממלא מקום'] };
+  const ROLE = { Head: ['Head', 'ראש הוועד'], Alternate: ['Alternate', 'ממלא מקום'] }; // owner, Nov 9: "Rosh HaVaad", not Yor
   const memberRole = (m) => { const r = ROLE[m.role]; return r ? L(r[0], r[1]) : m.role || ''; };
   // its members, a row each (his photo or his initials, his name, his town); the chairman's role a tag by his name; an
   // alternate after the rest, apart and smaller (owner, Oct 13: "shouldn't have the same prominence")

@@ -177,6 +177,18 @@ and judge looks at the size the card shows. Progress: ten changed and live (the 
 thirteen no better recent photo has been found yet (the list is there, with what was tried).
 
 **Open (the owner's):**
+- **⚠ Placeholder end dates that MUST be revisited** (owner, Nov 9: "give them an ending date because they have to have
+  one but absolutely needs to be noted somewhere that it needs to be revisited in the future"). In
+  `data/centers-1984.json`, 11 of the 1984 centres have an `end` that no source gives: `endIsPlaceholder: true`, with
+  `revisit` saying what to look for, all listed in the file's top-level `revisit`.
+  - Eight end in 2004, the year of chabad.org's first directory: Beverly Hills' Congregation Lubavitch (9017 W. Pico),
+    Ohel Yosef Yitzchak, North Dade, Kendale Lakes, Tiferes Bachurim's Miami program, Highland Park N.J., the Seattle
+    yeshiva, and Madison's Maon Yeladim.
+  - Drizin's two Albuquerque centres end in 1992 (the Schmuklers came).
+  - Posner's Nashville office ends in 2014 (his death).
+  - Where to look: the Jewish Floridian (UF Digital Collections, free) for the Florida ones; Florida's nonprofit
+    registry (Sunbiz, behind a bot check, so Firecrawl stealth); California's business registry; local Jewish papers.
+  - Replace each placeholder with a sourced end and drop its flag.
 - **Founding years, two sessions at once (owner, Nov 6, latest: "Put smth in handoff so I can get another session to
   work on a diff part of country").** Who has what (change only your own line):
   - *The West Coast window:* the hard round on California + Nevada, the 35 small shetachim and the 9 dots in no

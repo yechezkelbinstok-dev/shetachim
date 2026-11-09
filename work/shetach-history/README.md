@@ -73,9 +73,10 @@ institution today, 5 a successor or building, 9 not matched.
 - **Not found yet (8):** Beverly Hills' Congregation Lubavitch (9017 W. Pico), Ohel Yosef Yitzchak (Willoughby Ave.),
   North Dade, Kendale Lakes, Tiferes Bachurim's Miami program, Highland Park N.J., the Seattle yeshiva, and Madison's
   Maon Yeladim.
-- **How a centre with no known end is treated** (owner: cutting them at 1984 is wrong, "it could have run way past
+- **How a centre with no known end is treated (placeholders: MUST BE REVISITED, see HANDOFF.md)** (owner: cutting them at 1984 is wrong, "it could have run way past
   1984", and so is running them to today):
-  - It shows as open through `lastSeen` and closed from `assumedEnd`; between the two, its end is unknown.
+  - It shows as open through `lastSeen` and closed from `end`; between the two, its end is unknown. Where no source gives
+    `end`, `endIsPlaceholder` is true and `revisit` says what to look for.
   - It is never open today: none of the 8 is in today's directory, counting the 2,045 sub-listings
     (`data/raw/chabad-sublistings.json`, fetched Nov 9).
   - The 8 assume 2004. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing

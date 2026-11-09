@@ -1,5 +1,5 @@
 {
- "about": "The Lubavitch centres of about 1984, as American Friends of Lubavitch listed them: 'On the following pages we are sharing with you information of the addresses of Lubavitcher Centers in their respective states.' The booklet says 'Eighty-two Centers in Thirty-four of the states'; its list has 105 entries in 30 states (schools, camps and offices at a centre's address listed apart), and leaves out metropolitan New York and Canada. Read from the page images (Nov 9 2026), not the PDF's text layer, which garbles several lines. Each entry: state, name and street as printed (spelling kept, 'Berkley' and 'Orrington St.' as printed), city, the PDF page, lat/lon from OpenStreetMap's geocoder ('located': by the street address, or by the town only where the address was not found), and 'today': the centre in today's directory (web/data/centers.geojson) that is the same institution ('link': 'same'), carries on its work without being the same organization ('successor'), or stands in the same building ('building'); for 'same', 'place' says whether today's listing is at the same place (within 400 m of the 1984 address), has moved, or was not checked (the 1984 address not found). 'today' is null where nothing in today's directory matches. Matches by name, director and address; those marked 'probably' in the note are less sure. 'fate' (added Nov 9 2026, for the entries that were not in today's directory or only matched a building or successor): what became of it ('moved', 'renamed', 'merged', 'closed', 'still running', or 'not found'), the year or bounds where known ('year', 'after', 'by'), 'confidence', a 'text' saying what the sources say, and the 'sources'. Read from news, the centres' own histories, and the Wayback Machine's copies of the lubavitch.com directory (Dec 2009 to Sept 2011). For an entry with no centre today, 'lastSeen' is the last year a source shows it open, 'goneBy' the first year it is known to be gone or no longer listed ('goneByHow'), and 'assumedEnd' the year used as its end when no source gives one ('assumedHow' says why). It is shown as open through 'lastSeen', with its end unknown from then to 'assumedEnd', and closed after that; never open today. 'today' was matched against the main listings and, since Nov 9 2026, the 2,045 sub-listings (schools, camps, shuls) under the US and Canada centres too ('subListingOf').",
+ "about": "The Lubavitch centres of about 1984, as American Friends of Lubavitch listed them: 'On the following pages we are sharing with you information of the addresses of Lubavitcher Centers in their respective states.' The booklet says 'Eighty-two Centers in Thirty-four of the states'; its list has 105 entries in 30 states (schools, camps and offices at a centre's address listed apart), and leaves out metropolitan New York and Canada. Read from the page images (Nov 9 2026), not the PDF's text layer, which garbles several lines. Each entry: state, name and street as printed (spelling kept, 'Berkley' and 'Orrington St.' as printed), city, the PDF page, lat/lon from OpenStreetMap's geocoder ('located': by the street address, or by the town only where the address was not found), and 'today': the centre in today's directory (web/data/centers.geojson) that is the same institution ('link': 'same'), carries on its work without being the same organization ('successor'), or stands in the same building ('building'); for 'same', 'place' says whether today's listing is at the same place (within 400 m of the 1984 address), has moved, or was not checked (the 1984 address not found). 'today' is null where nothing in today's directory matches. Matches by name, director and address; those marked 'probably' in the note are less sure. 'fate' (added Nov 9 2026, for the entries that were not in today's directory or only matched a building or successor): what became of it ('moved', 'renamed', 'merged', 'closed', 'still running', or 'not found'), the year or bounds where known ('year', 'after', 'by'), 'confidence', a 'text' saying what the sources say, and the 'sources'. Read from news, the centres' own histories, and the Wayback Machine's copies of the lubavitch.com directory (Dec 2009 to Sept 2011). For an entry with no centre today, 'lastSeen' is the last year a source shows it open, 'goneBy' the first year it is known to be gone or no longer listed ('goneByHow'), and 'end' the year it closes in this data; where no source gives it, 'endIsPlaceholder' is true, 'endHow' says why that year, and 'revisit' says what to look for (these must be revisited). It is shown as open through 'lastSeen', with its end unknown from then to 'end', and closed after that; never open today. 'today' was matched against the main listings and, since Nov 9 2026, the 2,045 sub-listings (schools, camps, shuls) under the US and Canada centres too ('subListingOf').",
  "source": {
   "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
   "title": "American Friends of Lubavitch booklet on the Rebbe (Reagan Library, Max Green files, folder 'Lubavitch (1 of 2)'), its list of centres",
@@ -20,7 +20,8 @@
    "renamed": 2,
    "closed": 3,
    "merged": 1
-  }
+  },
+  "endsToRevisit": 11
  },
  "centers": [
   {
@@ -321,8 +322,10 @@
     "lastSeen": 1984,
     "goneBy": 2026,
     "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)",
-    "assumedEnd": 2004,
-    "assumedHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
+    "end": 2004,
+    "endIsPlaceholder": true,
+    "revisit": "Placeholder end, not found in any source: revisit (Jewish newspapers of the area, state nonprofit records, old directories) and replace with a sourced end.",
+    "endHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
    }
   },
   {
@@ -343,8 +346,10 @@
     "lastSeen": 1984,
     "goneBy": 2026,
     "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)",
-    "assumedEnd": 2004,
-    "assumedHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
+    "end": 2004,
+    "endIsPlaceholder": true,
+    "revisit": "Placeholder end, not found in any source: revisit (Jewish newspapers of the area, state nonprofit records, old directories) and replace with a sourced end.",
+    "endHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
    }
   },
   {
@@ -688,8 +693,10 @@
     "lastSeen": 1984,
     "goneBy": 2026,
     "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)",
-    "assumedEnd": 2004,
-    "assumedHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
+    "end": 2004,
+    "endIsPlaceholder": true,
+    "revisit": "Placeholder end, not found in any source: revisit (Jewish newspapers of the area, state nonprofit records, old directories) and replace with a sourced end.",
+    "endHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
    }
   },
   {
@@ -785,8 +792,10 @@
     "lastSeen": 1984,
     "goneBy": 2026,
     "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)",
-    "assumedEnd": 2004,
-    "assumedHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
+    "end": 2004,
+    "endIsPlaceholder": true,
+    "revisit": "Placeholder end, not found in any source: revisit (Jewish newspapers of the area, state nonprofit records, old directories) and replace with a sourced end.",
+    "endHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
    }
   },
   {
@@ -854,8 +863,10 @@
     "lastSeen": 1984,
     "goneBy": 2026,
     "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)",
-    "assumedEnd": 2004,
-    "assumedHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
+    "end": 2004,
+    "endIsPlaceholder": true,
+    "revisit": "Placeholder end, not found in any source: revisit (Jewish newspapers of the area, state nonprofit records, old directories) and replace with a sourced end.",
+    "endHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
    }
   },
   {
@@ -1471,8 +1482,10 @@
     "lastSeen": 1984,
     "goneBy": 2026,
     "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)",
-    "assumedEnd": 2004,
-    "assumedHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
+    "end": 2004,
+    "endIsPlaceholder": true,
+    "revisit": "Placeholder end, not found in any source: revisit (Jewish newspapers of the area, state nonprofit records, old directories) and replace with a sourced end.",
+    "endHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
    }
   },
   {
@@ -1520,8 +1533,10 @@
     "lastSeen": 1984,
     "goneBy": 2009,
     "goneByHow": "not in lubavitch.com's Albuquerque list, Dec 2009 (only Chabad of New Mexico)",
-    "assumedEnd": 1992,
-    "assumedHow": "Assumed: the Schmuklers came in 1992 to set up Chabad of New Mexico, and no one else is known in Albuquerque between."
+    "end": 1992,
+    "endIsPlaceholder": true,
+    "revisit": "End inferred from the Schmuklers' coming (1992), not a source on Drizin's closing: revisit.",
+    "endHow": "Assumed: the Schmuklers came in 1992 to set up Chabad of New Mexico, and no one else is known in Albuquerque between."
    }
   },
   {
@@ -1545,8 +1560,10 @@
     "lastSeen": 1984,
     "goneBy": 2009,
     "goneByHow": "not in lubavitch.com's Albuquerque list, Dec 2009 (only Chabad of New Mexico)",
-    "assumedEnd": 1992,
-    "assumedHow": "Assumed: the Schmuklers came in 1992 to set up Chabad of New Mexico, and no one else is known in Albuquerque between."
+    "end": 1992,
+    "endIsPlaceholder": true,
+    "revisit": "End inferred from the Schmuklers' coming (1992), not a source on Drizin's closing: revisit.",
+    "endHow": "Assumed: the Schmuklers came in 1992 to set up Chabad of New Mexico, and no one else is known in Albuquerque between."
    }
   },
   {
@@ -1927,8 +1944,10 @@
     "lastSeen": 2011,
     "goneBy": 2026,
     "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)",
-    "assumedEnd": 2014,
-    "assumedHow": "Assumed: it was Rabbi Posner's own office, and he died in April 2014."
+    "end": 2014,
+    "endIsPlaceholder": true,
+    "revisit": "End inferred from Rabbi Posner's death (2014), not a source on the office closing: revisit.",
+    "endHow": "Assumed: it was Rabbi Posner's own office, and he died in April 2014."
    }
   },
   {
@@ -2084,8 +2103,10 @@
     "lastSeen": 1984,
     "goneBy": 2026,
     "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)",
-    "assumedEnd": 2004,
-    "assumedHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
+    "end": 2004,
+    "endIsPlaceholder": true,
+    "revisit": "Placeholder end, not found in any source: revisit (Jewish newspapers of the area, state nonprofit records, old directories) and replace with a sourced end.",
+    "endHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
    }
   },
   {
@@ -2148,9 +2169,90 @@
     "lastSeen": 1984,
     "goneBy": 2011,
     "goneByHow": "not in lubavitch.com's Madison list, Sept 2011 (which lists the Chabad House and the UW Chabad); it may only have stopped being listed apart",
-    "assumedEnd": 2004,
-    "assumedHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
+    "end": 2004,
+    "endIsPlaceholder": true,
+    "revisit": "Placeholder end, not found in any source: revisit (Jewish newspapers of the area, state nonprofit records, old directories) and replace with a sourced end.",
+    "endHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
    }
+  }
+ ],
+ "revisit": [
+  {
+   "index": 14,
+   "name": "Congregation Lubavitch of Beverly Hills",
+   "city": "Los Angeles",
+   "end": 2004,
+   "why": "Placeholder end, not found in any source: revisit (Jewish newspapers of the area, state nonprofit records, old directories) and replace with a sourced end."
+  },
+  {
+   "index": 15,
+   "name": "Congregation Ohel Yosef Yitzchak",
+   "city": "Los Angeles",
+   "end": 2004,
+   "why": "Placeholder end, not found in any source: revisit (Jewish newspapers of the area, state nonprofit records, old directories) and replace with a sourced end."
+  },
+  {
+   "index": 33,
+   "name": "Chabad of North Dade",
+   "city": "North Miami Beach",
+   "end": 2004,
+   "why": "Placeholder end, not found in any source: revisit (Jewish newspapers of the area, state nonprofit records, old directories) and replace with a sourced end."
+  },
+  {
+   "index": 37,
+   "name": "Synagogue of Kendale Lakes",
+   "city": "Miami",
+   "end": 2004,
+   "why": "Placeholder end, not found in any source: revisit (Jewish newspapers of the area, state nonprofit records, old directories) and replace with a sourced end."
+  },
+  {
+   "index": 40,
+   "name": "Yeshiva Tiferes Bachurim, New Direction Program",
+   "city": "Miami Beach",
+   "end": 2004,
+   "why": "Placeholder end, not found in any source: revisit (Jewish newspapers of the area, state nonprofit records, old directories) and replace with a sourced end."
+  },
+  {
+   "index": 71,
+   "name": "Chabad Lubavitch of Highland Park",
+   "city": "Highland Park",
+   "end": 2004,
+   "why": "Placeholder end, not found in any source: revisit (Jewish newspapers of the area, state nonprofit records, old directories) and replace with a sourced end."
+  },
+  {
+   "index": 73,
+   "name": "Chabad Lubavitch of New Mexico",
+   "city": "Albuquerque",
+   "end": 1992,
+   "why": "End inferred from the Schmuklers' coming (1992), not a source on Drizin's closing: revisit."
+  },
+  {
+   "index": 74,
+   "name": "Chabad House",
+   "city": "Albuquerque",
+   "end": 1992,
+   "why": "End inferred from the Schmuklers' coming (1992), not a source on Drizin's closing: revisit."
+  },
+  {
+   "index": 93,
+   "name": "Chabad Lubavitch of Tennessee",
+   "city": "Nashville",
+   "end": 2014,
+   "why": "End inferred from Rabbi Posner's death (2014), not a source on the office closing: revisit."
+  },
+  {
+   "index": 101,
+   "name": "Yeshivah Gedolah",
+   "city": "Seattle",
+   "end": 2004,
+   "why": "Placeholder end, not found in any source: revisit (Jewish newspapers of the area, state nonprofit records, old directories) and replace with a sourced end."
+  },
+  {
+   "index": 104,
+   "name": "Maon Yeladim School",
+   "city": "Madison",
+   "end": 2004,
+   "why": "Placeholder end, not found in any source: revisit (Jewish newspapers of the area, state nonprofit records, old directories) and replace with a sourced end."
   }
  ]
 }

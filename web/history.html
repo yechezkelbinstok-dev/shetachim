@@ -958,16 +958,18 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   let TITLES = (() => { try { const v = localStorage.getItem(`shetachim-history-titles-${HE ? 'he' : 'en'}`); return v == null ? HE : v === '1'; } catch (e) { return HE; } })();
   const honor = () => (!TITLES ? '' : HE ? ` <span class="hon">${HONOR}</span>` : ` <bdi class="hon" lang="he">${HONOR}</bdi>`);
   const ALT = { 'frierdiker-rebbe': ['The Frierdiker Rebbe', 'אדמו״ר הריי״צ'], 'the-rebbe': ['The Rebbe', 'נשיא דורנו'] };
-  const rbPic = (k, w) => { const a = ALT[k]; return `<span class="rb-pic" style="--w:${w}px"><img src="img/rebbeim/${esc(k)}.jpg" alt="${esc(a ? L(a[0], a[1]) : '')}"></span>`; };
+  // the Rebbe's picture by the year on the map, as he got older (owner, Nov 9; data/rebbeim-portraits.json says which is which)
+  const agedPic = (k, Y) => k !== 'the-rebbe' ? k : Y < 1960 ? 'the-rebbe-1950s' : Y < 1972 ? 'the-rebbe-1960s' : Y < 1984 ? 'the-rebbe-1970s' : k;
+  const rbPic = (k, w, Y) => { const a = ALT[k]; return `<span class="rb-pic" style="--w:${w}px"><img src="img/rebbeim/${esc(agedPic(k, Y))}.jpg" alt="${esc(a ? L(a[0], a[1]) : '')}"></span>`; };
   function worldCard(sid, Y) {
     const h = headAt(sid, Y), f = flagAt(sid, Y), c = centerOf(f), rows = [];
     if (h) {
       const t = REBBE[h.x.portrait];
-      rows.push(`<div class="rebbe-row">${h.x.portrait ? rbPic(h.x.portrait, 64) : ''}<p class="rebbe"><span class="role">${L('Leader:', 'נשיא הדור:')}</span> ${esc(t ? L(t[0], t[1]) : headName(sid, h))}${t ? honor() : ''}</p></div>`);
+      rows.push(`<div class="rebbe-row">${h.x.portrait ? rbPic(h.x.portrait, 64, Y) : ''}<p class="rebbe"><span class="role">${L('Leader:', 'נשיא הדור:')}</span> ${esc(t ? L(t[0], t[1]) : headName(sid, h))}${t ? honor() : ''}</p></div>`);
       for (const w of h.x.with || []) {
         const st = startOf(w); if (st && st.y > Y) continue;
         const n = UNDER[w.portrait];
-        rows.push(`<div class="rebbe-row under">${w.portrait ? rbPic(w.portrait, 48) : ''}<div class="rb-txt"><p class="rebbe sm">${esc(n ? L(n[0], n[1]) : HE && w.he ? w.he : w.name)}${n ? honor() : ''}</p>${
+        rows.push(`<div class="rebbe-row under">${w.portrait ? rbPic(w.portrait, 48, Y) : ''}<div class="rb-txt"><p class="rebbe sm">${esc(n ? L(n[0], n[1]) : HE && w.he ? w.he : w.name)}${n ? honor() : ''}</p>${
           w.role ? `<p class="meta">${esc(HE && w.roleHe ? w.roleHe : w.role)}</p>` : ''}</div></div>`);
       }
     }

@@ -278,13 +278,15 @@ thirteen no better recent photo has been found yet (the list is there, with what
     bullshit"); no Rebbe's name on the map at all (owner: "don't put any of the Rebbe's names"; Crown Heights has no
     label in Heads, its star stays); the mode button in Hebrew is "שלוחים" (owner: "Take away roshim just shluchim").
     The Rebbeim's Hebrew in the data: כ״ק אדמו״ר מוהריי״צ / כ״ק אדמו״ר נשיא דורנו (for the cards).
-    **Not done (owner asked): color portraits.** "switch to a color or properly colorized picture of the friederker
-    Rebbe and a color one of the Rebbe" — for web/img/rebbeim/frierdiker-rebbe.jpg and the-rebbe.jpg (shared with the
-    main map; data/rebbeim-portraits.json, scripts/head-photos/rebbeim-portraits.py needs the head-photos venv with
-    Pillow, the system Python's PIL is broken). Candidates found, not yet checked: a colorized Frierdiker Rebbe
-    (collive.com/wp-content/uploads/photos/2009/07/nf_3423_103423.jpg, 800x1020, COLlive's 'Previous Rebbe's Red
-    Beard'), chabad.org's w2.chabad.org/media/images/893/SHDN8931739.jpg; for the Rebbe, a color photo of good quality
-    (chabad.org / JEM). Look at them before using; crop to 300x375 as the script does.
+    **Portraits (Nov 9, done):** the Rebbe's picture now changes with his age on the history page's 770 card (owner:
+    "Make the Rebbe's picture change as he got older"; "They need to be proper, nice portraits"; a small corner
+    watermark is fine, crop it off): the-rebbe-1950s (chabad.org gallery, "early 1950's") until 1959, the-rebbe-1960s
+    1960-71, the-rebbe-1970s (colour) 1972-83, the-rebbe (colour, about 1987; also the main map's) from 1984; the
+    1960s and 1970s ones are undated in chabad.org's gallery and placed by the beard. Sources and crops in
+    data/rebbeim-portraits.json; `agedPic` in web/history.html. JEM's photo archive (photos.jemedia.org) has dated
+    portraits but its galleries need a sign-in and its event photos carry a big centre watermark: not used. The
+    Frierdiker Rebbe: no colourised photograph found (COLlive's and the others are paintings), so his stays the
+    black-and-white photograph; if the owner wants a painting instead, ask first.
   - **Nov 9 (late): names in the early years and Rockland.** When a year has 15 shetachim or fewer, a shape too small for
     its name still gets it, set over it or just beside it, clear of the others (owner: "in the early years when it's
     important to see every single one ... maybe don't do lines maybe put it over it"; no lines). Monsey's piece is part

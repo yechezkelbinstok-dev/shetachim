@@ -24,7 +24,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | georgia | 27 | 18 | 5 |  | 4 |  |  | 4 | 24 | 2 |
 | hawaii | 7 | 4 | 1 |  | 2 |  |  | 2 | 7 | 2 |
 | idaho | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
-| illinois | 59 | 30 | 8 |  | 21 |  |  | 21 | 54 | 17 |
+| illinois | 59 | 30 | 9 |  | 20 |  |  | 20 | 54 | 16 |
 | indiana | 7 | 5 | 1 |  | 1 |  |  | 1 | 7 | 1 |
 | iowa | 9 | 6 | 2 |  | 1 |  |  | 1 | 7 | 0 |
 | kansas-missouri | 16 | 13 | 3 |  |  |  |  | 0 | 16 | 0 |
@@ -43,7 +43,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | new-haven | 16 | 5 | 1 |  | 10 |  |  | 10 | 14 | 8 |
 | new-jersey | 91 | 59 | 4 |  | 19 | 4 | 5 | 28 | 84 | 22 |
 | new-mexico | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
-| new-york-city | 200 | 24 | 46 |  | 130 |  |  | 130 | 176 | 108 |
+| new-york-city | 200 | 25 | 47 |  | 128 |  |  | 128 | 176 | 106 |
 | newfoundland-and-labrador | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | northeast-ohio | 27 | 20 | 3 |  | 4 |  |  | 4 | 23 | 1 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | wisconsin | 23 | 9 | 5 |  | 9 |  |  | 9 | 20 | 6 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | crown-heights | 48 |  |  |  |  |  | 48 | 48 | 24 | 24 |
-| **all** | 1969 | 910 | 349 | 2 | 601 | 47 | 60 | 708 | 1765 | 551 |
+| **all** | 1969 | 911 | 351 | 2 | 598 | 47 | 60 | 705 | 1765 | 548 |

@@ -16539,13 +16539,11 @@
    "name": "Jewish Bradley Chabad",
    "city": "Peoria, IL",
    "shetach": "illinois",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "after": 2001,
-   "by": 2008,
-   "source": "https://www.lubavitch.com/kosher-comes-to-bradley-university/",
-   "note": "No start date found yet: Jewish Bradley Chabad, a department of Chabad of Peoria (118486, 2001; Rabbi Eli Langsam). Lubavitch.com (3 Sept 2010): Bradley University building two kosher kitchens. Its chabad.org listing went up May 21 2008, so it existed by then."
+   "year": 2001,
+   "how": "anniversary",
+   "confidence": "medium",
+   "source": "https://collive.com/celebrating-a-decade-in-peoria/",
+   "note": "COLlive, 24 Nov 2011 ('Celebrating a Decade in Peoria'): 'the Chabad Jewish Center of Peoria and Bradley University ... celebrated 10 years this past Sunday, November 20', at the Bradley Student Center Ballroom; a Bradley dean spoke of 'Rabbi Eli and Sarah Langsam, who have had such a significant impact in Peoria and at Bradley over the past ten years.' Jewish Bradley Chabad is a department of Chabad of Peoria (118486, 2001). Medium: counted back, and this department's own chabad.org listing only went up 21 May 2008."
   },
   "1296807": {
    "name": "Chabad Jewish Community Center",
@@ -18650,12 +18648,11 @@
    "name": "The Chelsea Shul & Rohr Center for Jgrads",
    "city": "New York, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2008,
-   "source": "https://www.chabad.org/api/content/709099/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2008-08-04, so it existed by then. Director: Chezky Wolff."
+   "year": 2008,
+   "how": "anniversary",
+   "confidence": "medium",
+   "source": "https://collive.com/bar-mitzvah-celebration-for-chabad-serving-cardozo/",
+   "note": "COLlive, 13 Dec 2021 ('Bar Mitzvah Celebration for Chabad Serving Cardozo'): on 30 Nov 2021 'The Rohr Center for JGrads NYC and Chabad Cardozo celebrated 13 years of Chabad at the Cardozo School of Law', so from 2008. Medium: counted back, and it dates the Cardozo work rather than the Chelsea centre itself; its chabad.org listing went up 4 Aug 2008, which agrees. Director: Chezky Wolff."
   },
   "710262": {
    "name": "Chabad-Lubavitch of Yonkers",
@@ -18793,12 +18790,12 @@
    "name": "Chabad of Hewlett",
    "city": "Hewlett, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2011,
-   "source": "https://www.chabad.org/api/content/1487398/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2011-04-05, so it existed by then. Director: Nochem Tenenboim."
+   "year": 2011,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://collive.com/theres-a-new-chabad-in-town/",
+   "note": "The South Shore Standard (Susan Varghese) on COLlive, 13 Nov 2011 ('There's a New Chabad in Town'): Rabbi Nochem and Rivka Tenenboim 'are leading the new Chabad of Hewlett, a division of the Chabad of the Five Towns'; 'the Tenenboims have been holding classes and activities at their home since April'. Its chabad.org listing went up 5 Apr 2011.",
+   "date": "2011-04"
   },
   "1658534": {
    "name": "Chabad Jewish Center",

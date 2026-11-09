@@ -274,6 +274,12 @@ thirteen no better recent photo has been found yet (the list is there, with what
     (`scripts/build-history-geo.py`; rebuild when geo.json changes). Redrawn on canvases for speed (it was slow and
     crashed on phones), its cards made like the main map's, 770's with the Rebbeim's portraits (README: Drawing, Cards);
     settings: Hebrew years (default in Hebrew), זצוקללה״ה נבג״מ זי״ע (default in Hebrew), Full provinces.
+  - **Nov 9 (late): names in the early years and Rockland.** When a year has 15 shetachim or fewer, a shape too small for
+    its name still gets it, set over it or just beside it, clear of the others (owner: "in the early years when it's
+    important to see every single one ... maybe don't do lines maybe put it over it"; no lines). Monsey's piece is part
+    of Kotlarsky's Rockland from 1983 (owner: "why tf is Rockland empty, pick a damn shetach for it"); before 1983
+    Rockland is blank: Rabbi Simcha Werner ("Rockland's first shliach", NCFJE) came earlier, year not found
+    (therebbesimpact.com is said to give 1971, not read): find it and give him Rockland from then.
   - **Nov 9 (late): the first years are the city only** (owner: "I wasn't telling it to frickin' get rid of them. I just
     meant for those years before Posner and Mochkin came to just make it the city and not the whole state"; "Also the
     one in Massachusetts before fogelman came"). Pieces US-PA:pittsburgh (the city, from Altein, Dec 1941),

@@ -620,6 +620,8 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       }
       const sp = bestRing && bestA > 40 ? spot(bestRing) : null;
       if (sp) res = { x: sp.p[0], y: sp.p[1], r: sp.r, area: bestA };
+      // (a shape too small for any spot, a city: its middle, for a name off to the side on a line)
+      else if (bestRing) { const [cx, cy] = d3.polygonCentroid(bestRing); res = { x: cx, y: cy, r: 0, area: bestA }; }
     }
     SPOT.set(sk, res);
     return res;
@@ -847,9 +849,21 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
         const y = ys.find((yy) => !onName(S.x, yy, w, h) && !onStar(S.x, yy, w, h)) ?? ys.find((yy) => !onName(S.x, yy, w, h));
         if (y != null) { at = { rows, w, h, y }; break; }
       }
+      // in the early years, when every one matters (owner, Nov 9: "in the early years when it's important to see every
+      // single one ... maybe put it over it"), a shape too small for its name still gets it: set over the shape (or just
+      // above or below it, clear of the other names)
+      if (!at && view.texts.length <= 15) {
+        const cd = lb.cands[lb.cands.length - 1], rows = [...cd.lines.map((t) => ({ t, s: 1 })), ...(cd.sub || []).map((t) => ({ t, s: SUB }))];
+        const w = Math.max(...rows.map((r) => widthOf(r.t, fm * r.s))), h = rows.reduce((a, r) => a + r.s, 0) * fm * 1.1, rr = Math.sqrt(S.area / Math.PI) + 4 / k;
+        for (const [dx, dy] of [[0, 0], [0, -1], [0, 1], [-1, 0], [1, 0], [-1, -1], [1, -1], [-1, 1], [1, 1]]) {
+          const x = S.x + dx * (w / 2 + rr), y = S.y + dy * (h / 2 + rr);
+          if (!onName(x, y, w, h)) { at = { rows, w, h, y, x }; break; }
+        }
+      }
       if (!at) continue;
-      placed.push([S.x - at.w / 2, at.y - at.h / 2, S.x + at.w / 2, at.y + at.h / 2]);
-      const [sx, sy] = T.apply([S.x, at.y]);
+      const ax = at.x ?? S.x;
+      placed.push([ax - at.w / 2, at.y - at.h / 2, ax + at.w / 2, at.y + at.h / 2]);
+      const [sx, sy] = T.apply([ax, at.y]);
       if (sx < -150 || sx > W + 150 || sy < -60 || sy > H + 60) continue;
       out.push({ sx, sy, rows: at.rows, fs });
     }

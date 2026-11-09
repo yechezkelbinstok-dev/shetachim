@@ -4003,6 +4003,74 @@
     "quote": "In 1995, Rabbi Moscowitz and Rabbi Baruch Epstein rented a run-down storefront ... and opened Bais Menachem, a synagogue on the northern border of Chicago's Rogers Park neighborhood ... The Bais Menachem building had office space to host the main offices of Chabad of Illinois",
     "note": "From 1995, its opening; when the offices moved in exactly is not said. The new headquarters on Howard Street (a 770 replica) broke ground in April 2022."
    }
+  ],
+  "western-pennsylvania": [
+   {
+    "from": "1942",
+    "where": "Yeshiva Achei T'mimim, Pittsburgh (in three places: 2124 Murray Avenue, Anshe Lubovitz in the Hill District, Adath Israel in Oakland)",
+    "lat": 40.4406,
+    "lon": -79.9959,
+    "name": "Yeshiva Achei Tmimim",
+    "nameHe": "ישיבת אחי תמימים",
+    "city": "Pittsburgh",
+    "source": "https://jewishchronicle.timesofisrael.com/a-postcard-from-the-early-days-of-yeshiva-schools/",
+    "quote": "By summer, Rabbi Mordechai Dov Altein had started Yeshiva Achei T'mimim, the first Lubavitch yeshiva in America outside of New York. The afterschool program was based in three places at once ... Over the fall, Rabbi Altein consolidated this sprawling operation into one school at Adath Israel.",
+    "note": "Summer 1942 (before it, an afterschool program in a private home from Dec 1941). The star is on the city."
+   },
+   {
+    "from": "1943",
+    "where": "Yeshiva Achei T'mimim, 3329 Dawson Street, Oakland, Pittsburgh",
+    "lat": 40.4334,
+    "lon": -79.9586,
+    "name": "Yeshiva Achei Tmimim",
+    "nameHe": "ישיבת אחי תמימים",
+    "city": "Pittsburgh",
+    "source": "https://jewishchronicle.timesofisrael.com/a-postcard-from-the-early-days-of-yeshiva-schools/",
+    "quote": "Rabbi Sholom Posner arrived in Pittsburgh in the summer of 1943. He turned Yeshiva Achei T'mimim into the parochial school it is today ... The yeshiva soon moved into a house with a surprisingly expansive yard at 3329 Dawson Street in Oakland.",
+    "note": "'Soon' after summer 1943; shown from Posner's start."
+   },
+   {
+    "from": null,
+    "fromBound": {
+     "by": "1978"
+    },
+    "where": "Chabad Lubavitch of Western PA, Pittsburgh",
+    "centerId": "117721",
+    "lat": 40.43223,
+    "lon": -79.92783,
+    "name": "Chabad Lubavitch of Western PA",
+    "city": "Pittsburgh",
+    "via": "data/shetach-history.json, heads (Rosenfeld)",
+    "note": "Rosenfeld's own center, from his line's start (1978, when he became dean of the yeshiva; when he became head is not found)."
+   }
+  ],
+  "quebec": [
+   {
+    "from": "1941-10",
+    "where": "Yeshivas Tomchei Tmimim Lubavitch of Montreal (the Rabbinical College of Canada); its first class in the Nusach Ari Synagogue, Pine Avenue",
+    "lat": 45.5146,
+    "lon": -73.58,
+    "name": "Yeshivas Tomchei Tmimim Lubavitch",
+    "nameHe": "ישיבת תומכי תמימים ליובאוויטש",
+    "city": "Montreal",
+    "source": "https://collive.com/montreals-legendary-leader/",
+    "quote": "A day after their arrival, Yeshivas Tomchei Tmimim Lubavitch of Montreal, the Rabbinical College of Canada, was established, and the next day, the first class was held in the Nusach Ari Synagogue on Pine Avenue.",
+    "note": "Kramer's yeshiva (he directed it from the day it opened, 24 Oct 1941). The star is near Pine Avenue (the synagogue's address not found)."
+   },
+   {
+    "from": null,
+    "fromBound": {
+     "after": "1952"
+    },
+    "where": "Chabad Lubavitch Youth Organization, Montreal",
+    "centerId": "117801",
+    "lat": 45.50258,
+    "lon": -73.57742,
+    "name": "Chabad Lubavitch Youth Organization",
+    "city": "Montreal",
+    "via": "data/shetach-history.json, heads (Mochkin)",
+    "note": "Mochkin's own center, from his line's start (1952, the earliest he could have been head; not found when)."
+   }
   ]
  },
  "vaads": {

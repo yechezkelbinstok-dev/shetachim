@@ -264,7 +264,7 @@ thirteen no better recent photo has been found yet (the list is there, with what
     טוב); South Jersey and Delaware Avremel Shemtov's from 1961 (owner: "Just give it to Avremel the year he came on
     shlichus"), South Jersey Herson's by 2007 (since Nov 9: from 1984, Rapoport in Atlantic County; README); a clock button on the main map (top of the zoom buttons) to the page.
     **Still to do, in order:**
-    1. **The vaads are not on the history page at all** (owner: "what happened to the new Jersey and Florida
+    1. **Done Nov 9** (data `vaads`; the card and the Heads label as on the main map). **The vaads are not on the history page at all** (owner: "what happened to the new Jersey and Florida
        vaads???"). Show them as the main map does (vaadFirst: the vaad block above "Head shliach: …"; label
        "Leadership"; in Heads mode the vaad's name as the label with the head under it, index.html ~line 1549).
        Florida: Vaad Hashluchim of Florida from Feb 2020, members named in Korf's letter (CrownHeights.info, 19 Feb
@@ -292,7 +292,7 @@ thirteen no better recent photo has been found yet (the list is there, with what
     5. **New Brunswick and Prince Edward Island** take Nova Scotia's Maritimes history (Feldman, 1995) with no source
        of their own (P in history.html borrows it): find since when they were his, or leave them blank.
     6. Hebrew names for the flagships (`nameHe`): none yet; the page shows the English name in Hebrew for past ones.
-    7. Florida's 2023 vaad and New Jersey's: Simon's one-year term (June 2025) may have ended: check.
+    7. Florida's 2023 vaad and New Jersey's: Simon's one-year term (June 2025) may have ended: check. (Nov 9: no change reported for either; Simon kept, as the main map has him.)
     Test with the Playwright scripts in the scratchpad pattern (quick.js: groups per year, no page errors).
     Next: past heads' photos, the flagships still
     open, and the open questions. The founding years of Virginia

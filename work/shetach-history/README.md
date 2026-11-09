@@ -236,6 +236,11 @@ able to click the flagships and see a card".
   main map's pieces, with two pieces only the history has: **South Jersey** (its eight counties, Ocean with them, out of New Jersey; the owner's county map, Nov 8) and
   **Southeast Ohio** (the Northeast Ohio piece south of 40.45°N: Athens, Marietta, Steubenville), and the land around
   (the rest of Canada, Greenland, Mexico and its neighbours) sharing every border. Rebuild it when geo.json changes.
+- **Vaads** (`vaads`, Nov 9; owner: "what happened to the new Jersey and Florida vaads???"): Florida's from Feb 2020
+  (the seven named in Korf's letter; leading, since he deferred all decisions to them) and the elected one from Feb 2023;
+  New Jersey's original vaad from about 2010 (only Ephraim Simon known, so it is named under Moshe Herson without
+  members) and the one elected June 2025 (leading). As on the main map: a leading vaad's faces, "Leadership", its name
+  and members above the head shliach's line, and in Heads the vaad's name as the label with the head under it, smaller.
 - **Names:** today's name, except where all a shetach had that year was one whole state or one named part (Minnesota
   for the Upper Midwest, California for the West Coast, Louisiana, Manitoba, Ontario for Grossbaum with Ottawa,
   Western Massachusetts for Deren in 1974), and three of their own: Kalmanson's (Ohio, Indiana & Kentucky; then Ohio

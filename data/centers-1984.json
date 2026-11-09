@@ -1,5 +1,5 @@
 {
- "about": "The Lubavitch centres of about 1984, as American Friends of Lubavitch listed them: 'On the following pages we are sharing with you information of the addresses of Lubavitcher Centers in their respective states.' The booklet says 'Eighty-two Centers in Thirty-four of the states'; its list has 105 entries in 30 states (schools, camps and offices at a centre's address listed apart), and leaves out metropolitan New York and Canada. Read from the page images (Nov 9 2026), not the PDF's text layer, which garbles several lines. Each entry: state, name and street as printed (spelling kept, 'Berkley' and 'Orrington St.' as printed), city, the PDF page, lat/lon from OpenStreetMap's geocoder ('located': by the street address, or by the town only where the address was not found), and 'today': the centre in today's directory (web/data/centers.geojson) that is the same institution ('link': 'same'), carries on its work without being the same organization ('successor'), or stands in the same building ('building'); for 'same', 'place' says whether today's listing is at the same place (within 400 m of the 1984 address), has moved, or was not checked (the 1984 address not found). 'today' is null where nothing in today's directory matches. Matches by name, director and address; those marked 'probably' in the note are less sure.",
+ "about": "The Lubavitch centres of about 1984, as American Friends of Lubavitch listed them: 'On the following pages we are sharing with you information of the addresses of Lubavitcher Centers in their respective states.' The booklet says 'Eighty-two Centers in Thirty-four of the states'; its list has 105 entries in 30 states (schools, camps and offices at a centre's address listed apart), and leaves out metropolitan New York and Canada. Read from the page images (Nov 9 2026), not the PDF's text layer, which garbles several lines. Each entry: state, name and street as printed (spelling kept, 'Berkley' and 'Orrington St.' as printed), city, the PDF page, lat/lon from OpenStreetMap's geocoder ('located': by the street address, or by the town only where the address was not found), and 'today': the centre in today's directory (web/data/centers.geojson) that is the same institution ('link': 'same'), carries on its work without being the same organization ('successor'), or stands in the same building ('building'); for 'same', 'place' says whether today's listing is at the same place (within 400 m of the 1984 address), has moved, or was not checked (the 1984 address not found). 'today' is null where nothing in today's directory matches. Matches by name, director and address; those marked 'probably' in the note are less sure. 'fate' (added Nov 9 2026, for the entries that were not in today's directory or only matched a building or successor): what became of it ('moved', 'renamed', 'merged', 'closed', 'still running', or 'not found'), the year or bounds where known ('year', 'after', 'by'), 'confidence', a 'text' saying what the sources say, and the 'sources'. Read from news, the centres' own histories, and the Wayback Machine's copies of the lubavitch.com directory (Dec 2009 to Sept 2011).",
  "source": {
   "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
   "title": "American Friends of Lubavitch booklet on the Rebbe (Reagan Library, Max Green files, folder 'Lubavitch (1 of 2)'), its list of centres",
@@ -9,9 +9,18 @@
  },
  "summary": {
   "entries": 105,
-  "sameToday": 81,
+  "sameToday": 90,
   "samePlaceToday": 32,
-  "notFoundToday": 19
+  "notFoundToday": 9,
+  "withFate": 22,
+  "fates": {
+   "moved": 7,
+   "not found": 8,
+   "still running": 1,
+   "renamed": 2,
+   "closed": 3,
+   "merged": 1
+  }
  },
  "centers": [
   {
@@ -97,8 +106,26 @@
    "lat": 33.8145,
    "lon": -117.94151,
    "located": "the street address",
-   "today": null,
-   "note": "No Chabad centre in Anaheim in today's directory."
+   "today": {
+    "centerId": "117580",
+    "name": "North County Chabad Center",
+    "city": "Yorba Linda",
+    "link": "same",
+    "kmFromToday": 15.36,
+    "place": "moved"
+   },
+   "note": "The same centre: Rabbi Dovid Eliezrie's, which moved from Anaheim to Yorba Linda in 1988 (today's North County Chabad Center).",
+   "fate": {
+    "what": "moved",
+    "year": 1988,
+    "date": "1988-07",
+    "confidence": "high",
+    "text": "Rabbi Dovid and Stella Eliezrie came to Anaheim in the fall of 1982, to a small synagogue religious Israelis had started. As families moved toward Yorba Linda and Anaheim Hills, 'In July of 1988 ... a 2 acre campus was purchased' in Yorba Linda: North County Chabad Center, Congregation Beth Meir HaCohen.",
+    "sources": [
+     "https://chabadnews.us/Old%20Aricles/AT%2000007.htm",
+     "https://en.wikipedia.org/wiki/David_(Dovid)_Eliezrie"
+    ]
+   }
   },
   {
    "state": "US-CA",
@@ -147,8 +174,23 @@
    "lat": 34.43975,
    "lon": -119.76126,
    "located": "the street address",
-   "today": null,
-   "note": "Not in today's directory under Santa Barbara."
+   "today": {
+    "centerId": "117567",
+    "name": "Chabad of S. Barbara",
+    "city": "S. Barbara",
+    "link": "same",
+    "kmFromToday": 6.62,
+    "place": "moved"
+   },
+   "note": "The same centre: today's directory spells it \"Chabad of S. Barbara\" (Rabbi Yosef Loschak's, founded 1979), now at a later address.",
+   "fate": {
+    "what": "moved",
+    "confidence": "high",
+    "text": "Not a closure: today's directory writes Santa as 'S.', so the name search missed it. Chabad of S. Barbara, founded 1979 by Rabbi Yosef and Devorah Loschak, is the same centre at a later address.",
+    "sources": [
+     "https://www.sbchabad.org/templates/articlecco_cdo/aid/91324/jewish/About-Us.htm"
+    ]
+   }
   },
   {
    "state": "US-CA",
@@ -271,7 +313,12 @@
    "lon": -118.38827,
    "located": "the street address",
    "today": null,
-   "note": "Not found under this name; on the same block today: the Chabad Persian Youth Center and Bais Chaya Mushka."
+   "note": "Not found under this name; on the same block today: the Chabad Persian Youth Center and Bais Chaya Mushka.",
+   "fate": {
+    "what": "not found",
+    "confidence": "open",
+    "text": "Not found. Nothing under this name after 1984; the block (9017-9051 W. Pico) is today West Coast Chabad's Pico campus (Bais Chaya Mushka at 9051)."
+   }
   },
   {
    "state": "US-CA",
@@ -283,7 +330,12 @@
    "lon": -118.36957,
    "located": "the street address",
    "today": null,
-   "note": "Not in today's directory."
+   "note": "Not in today's directory.",
+   "fate": {
+    "what": "not found",
+    "confidence": "open",
+    "text": "Not found. No source names it after 1984."
+   }
   },
   {
    "state": "US-CA",
@@ -612,7 +664,15 @@
    "lon": -80.16255,
    "located": "the town only (the address was not found)",
    "today": null,
-   "note": "Not in today's directory under this name."
+   "note": "Not in today's directory under this name.",
+   "fate": {
+    "what": "not found",
+    "confidence": "open",
+    "text": "Not found. Chabad Chayil (Highland Lakes, about 4 km away) came later: Rabbi Dovid Bryn founded it in the late 1980s.",
+    "sources": [
+     "https://www.southfloridasuntimes.com/news-2/remembering-rabbi-dovid-bryn:-a-south-florida-legend"
+    ]
+   }
   },
   {
    "state": "US-FL",
@@ -642,8 +702,24 @@
    "lat": 28.05072,
    "lon": -82.39757,
    "located": "the street address",
-   "today": null,
-   "note": "Not found; the nearest today is the Chabad at the University of South Florida, about a kilometre away."
+   "today": {
+    "centerId": "117605",
+    "name": "Chabad Lubavitch of Tampa Bay",
+    "city": "Tampa",
+    "link": "same",
+    "kmFromToday": 13.94,
+    "place": "moved"
+   },
+   "note": "Probably the same centre: Rabbi Yossi and Sulha Dubrowski's Chabad Lubavitch of Tampa Bay, which they had led for more than 30 years by 2011 (so since 1981 or before), today in Carrollwood.",
+   "fate": {
+    "what": "moved",
+    "confidence": "medium",
+    "text": "Probably Rabbi Yossi and Sulha Dubrowski's: by July 2011 they had 'directed Chabad-Lubavitch of Tampa Bay for more than 30 years', so they were Tampa's Chabad in 1984. It is today in the Carrollwood area, 14908 Pennington Rd. When it left 52nd St. is not found.",
+    "sources": [
+     "https://www.chabad.org/news/article_cdo/aid/1569007",
+     "https://crownheights.info/shlichus/36388/tampa-chabad-house-has-a-new-home"
+    ]
+   }
   },
   {
    "state": "US-FL",
@@ -660,7 +736,16 @@
     "city": "Miami Beach",
     "link": "building"
    },
-   "note": "Not a separate listing today; 1140 Alton Rd. is today's Merkos Lubavitch of Florida."
+   "note": "Not a separate listing today; 1140 Alton Rd. is today's Merkos Lubavitch of Florida.",
+   "fate": {
+    "what": "still running",
+    "by": 2014,
+    "confidence": "medium",
+    "text": "Still running in Feb 2014: Chabad.org, 'Florida Yeshiva Recalls Roots as It Celebrates 40 Years' (founded fall 1973 by eleven bochurim with Rabbi Yehuda Leib Schapiro; later 'a large complex on Alton Road in South Miami Beach'). It has no listing of its own today.",
+    "sources": [
+     "https://crownheights.info/chabad-news/426006/florida-yeshiva-recalls-roots-at-it-celebrates-40-years"
+    ]
+   }
   },
   {
    "state": "US-FL",
@@ -672,7 +757,12 @@
    "lon": -80.42756,
    "located": "the street address",
    "today": null,
-   "note": "Not in today's directory."
+   "note": "Not in today's directory.",
+   "fate": {
+    "what": "not found",
+    "confidence": "open",
+    "text": "Not found. No source names it after 1984; Kendall's Chabad today is Rabbi Yossi Harlig's (Kendall & Pinecrest)."
+   }
   },
   {
    "state": "US-FL",
@@ -701,8 +791,25 @@
    "lat": 25.99962,
    "lon": -80.13686,
    "located": "the street address",
-   "today": null,
-   "note": "Not in today's directory."
+   "today": {
+    "centerId": "117595",
+    "name": "Chabad of South Broward",
+    "city": "Hallandale",
+    "link": "same",
+    "kmFromToday": 1.44,
+    "place": "moved"
+   },
+   "note": "The same shul: Rabbi Raphael Tennenhaus's Congregation Levi Yitzchok-Lubavitch, today Chabad of South Broward in Hallandale.",
+   "fate": {
+    "what": "moved",
+    "confidence": "high",
+    "text": "Rabbi Raphael and Goldie Tennenhaus began in December 1980 in a small shul on Wiley Street, Hollywood, first called 'Shomrei Hadas Chabad' and renamed Congregation Levi Yitzchok-Lubavitch with the Rebbe's consent. It is today Chabad of South Broward, 1295 E. Hallandale Beach Blvd., Hallandale (in 2015 it was renovating its headquarters there). When it left Wiley St. is not found.",
+    "sources": [
+     "https://collive.com/dancing-through-the-tears-chabad-of-south-broward-part-i/",
+     "https://crownheights.info/chabad-news/917533/changing-the-name-of-a-shul-to-congregation-levi-yitzchok-lubavitch",
+     "https://www.jewishpress.com/sections/community/south-florida/chabad-of-south-broward-expands-facility/2015/06/05/"
+    ]
+   }
   },
   {
    "state": "US-FL",
@@ -714,7 +821,12 @@
    "lon": -80.14131,
    "located": "the street address",
    "today": null,
-   "note": "Not in Miami today (Tiferes Bachurim later moved to Morristown, N.J.; not a separate listing)."
+   "note": "Not in today's directory: a Miami program of Tiferes Bachurim, the Morristown yeshiva (1972), which has no listing of its own.",
+   "fate": {
+    "what": "not found",
+    "confidence": "open",
+    "text": "Not found. Tiferes Bachurim itself is Morristown's (1972, Rabbi Moshe Herson); no Miami branch is found after 1984."
+   }
   },
   {
    "state": "US-GA",
@@ -854,8 +966,23 @@
    "lat": 39.08481,
    "lon": -77.16043,
    "located": "the street address",
-   "today": null,
-   "note": "Not in today's directory (today's Chabad of Rockville is a later centre)."
+   "today": {
+    "centerId": "118382",
+    "name": "Chabad of Bethesda",
+    "city": "Bethesda",
+    "link": "same",
+    "kmFromToday": 12.98,
+    "place": "moved"
+   },
+   "note": "Probably the same centre: Rabbi Bentzion Geisinsky came to Rockville in 1983, set up a centre there, then moved to Potomac and then Bethesda (today's Chabad of Bethesda).",
+   "fate": {
+    "what": "moved",
+    "confidence": "medium",
+    "text": "Probably Rabbi Bentzion and Zlata Geisinsky's: 'Zlata moved to Rockville, Maryland, with her husband, Rabbi Bentzion Geisinsky, in 1983'; 'After setting up a center there, they moved to nearby Potomac, and again to Bethesda'. Today's Chabad of Bethesda has a Geisinsky as co-director. Years of the two moves not found.",
+    "sources": [
+     "https://www.lubavitch.com/bethesda-chevy-chase-jewish-communities-see-remarkable-growth/"
+    ]
+   }
   },
   {
    "state": "US-MD",
@@ -1142,8 +1269,24 @@
    "lat": 42.45953,
    "lon": -83.18214,
    "located": "the town only (the address was not found)",
-   "today": null,
-   "note": "Its office was at the Michigan headquarters; the camp is not a separate listing today."
+   "today": {
+    "centerId": "119457",
+    "name": "Camp Gan Israel-Kalkaska",
+    "city": "Kalkaska",
+    "link": "same",
+    "kmFromToday": 289.85,
+    "place": "not checked"
+   },
+   "note": "The same camp: Camp Gan Israel of Detroit (est. 1961), first at Fenton, at Kalkaska by May 1987. The 1984 address is its office at the Michigan headquarters.",
+   "fate": {
+    "what": "renamed",
+    "confidence": "high",
+    "text": "Camp Gan Israel Detroit, 'Established 5721 - 1961', bought at Fenton in the Shemtovs' first years and later moved to Lake Valley Road, Kalkaska (there by May 1987). Today's Camp Gan Israel-Kalkaska; the 1984 list gives its office at 14000 W. Nine Mile Rd.",
+    "sources": [
+     "https://www.shluchim.org/main/inside_camp.asp?id=41521",
+     "https://digital.bentley.umich.edu/djnews/djn.1987.05.15.001/61"
+    ]
+   }
   },
   {
    "state": "US-MN",
@@ -1173,8 +1316,24 @@
    "lat": 44.91761,
    "lon": -93.17456,
    "located": "the street address",
-   "today": null,
-   "note": "Not in today's directory."
+   "today": {
+    "centerId": "117536",
+    "name": "Chabad Lubavitch Jewish Educational Center",
+    "city": "S. Paul",
+    "link": "same",
+    "kmFromToday": 0.62,
+    "place": "moved"
+   },
+   "note": "The same school: the Lubavitch Cheder Day School (founded 1977), listed today as Chabad Lubavitch Jewish Educational Center.",
+   "fate": {
+    "what": "renamed",
+    "confidence": "high",
+    "text": "Still running: the Lubavitch Cheder Day School, founded 1977 in the basement of the Lubavitch House, at 1758 Ford Parkway in the Sept 2011 lubavitch.com directory and in 2023-24; today's directory lists it as Chabad Lubavitch Jewish Educational Center (lubavitch.com now gives 1810 Montreal Ave.).",
+    "sources": [
+     "https://crownheights.info/shlichus/533631/after-55-years-of-work-in-minnesota-couple-to-be-honored",
+     "https://en.wikipedia.org/wiki/Lubavitch_Cheder_Day_School"
+    ]
+   }
   },
   {
    "state": "US-MN",
@@ -1186,7 +1345,18 @@
    "lon": -93.14937,
    "located": "the street address",
    "today": null,
-   "note": "Not in today's directory (Bais Chana Women International is no separate listing)."
+   "note": "Not in today's directory (Bais Chana Women International is no separate listing).",
+   "fate": {
+    "what": "moved",
+    "year": 2000,
+    "confidence": "medium",
+    "text": "Bais Chana (founded summer 1971 by Rabbis Moshe Feller and Manis Friedman) was born at the Lubavitch House, 15 Montcalm Court, the Highland Park mansion Chabad used from 1968; in 2000 the Lubavitch House moved to 400 Marie Ave. W., West St. Paul, and the AJW directory lists Bais Chana there. It runs on as Bais Chana Women International, with no listing of its own in today's directory.",
+    "sources": [
+     "https://crownheights.info/shlichus/533631/after-55-years-of-work-in-minnesota-couple-to-be-honored",
+     "https://www.chabad.org/article.asp?aid=1749351",
+     "https://www.ajwnews.com/?p=1693"
+    ]
+   }
   },
   {
    "state": "US-MO",
@@ -1255,7 +1425,12 @@
    "lon": -74.4262,
    "located": "the town only (the address was not found)",
    "today": null,
-   "note": "Not in today's directory under Highland Park, N.J."
+   "note": "Not in today's directory under Highland Park, N.J.",
+   "fate": {
+    "what": "not found",
+    "confidence": "open",
+    "text": "Not found. Rabbi Yosef Carlebach (Rutgers Chabad, 1978) lived in Highland Park; today's Chabad of Edison is in Highland Park (118 Washington Ave.). No source ties either to 307 S. Second St."
+   }
   },
   {
    "state": "US-NJ",
@@ -1291,7 +1466,17 @@
     "city": "Albuquerque",
     "link": "successor"
    },
-   "note": "Not the same organization: Chabad of New Mexico was set up by the Schmuklers in 1992. Rabbi Chaim Itche Drizin's 'Chabad Lubavitch of New Mexico' is not in today's directory."
+   "note": "Not the same organization: Chabad of New Mexico was set up by the Schmuklers in 1992. Rabbi Chaim Itche Drizin's 'Chabad Lubavitch of New Mexico' is not in today's directory.",
+   "fate": {
+    "what": "closed",
+    "after": 1984,
+    "by": 1992,
+    "confidence": "medium",
+    "text": "Rabbi Chaim Itche Drizin's (in Albuquerque by Feb 1980, last seen in the UNM student paper Nov 1983; the student centre still ran in Nov 1984). Gone by 1992, when the Schmuklers came to set up Chabad of New Mexico; in Dec 2009 lubavitch.com listed only theirs in Albuquerque.",
+    "sources": [
+     "http://web.archive.org/web/20091228152239/http://lubavitch.com/centers/list.html?Country=&City=Albuquerque"
+    ]
+   }
   },
   {
    "state": "US-NM",
@@ -1303,7 +1488,17 @@
    "lon": -106.65099,
    "located": "the town only (the address was not found)",
    "today": null,
-   "note": "The Chabad Jewish Student Center by UNM (Drizin's, opened Oct 1980): not in today's directory."
+   "note": "The Chabad Jewish Student Center by UNM (Drizin's, opened Oct 1980): not in today's directory.",
+   "fate": {
+    "what": "closed",
+    "after": 1984,
+    "by": 1992,
+    "confidence": "medium",
+    "text": "Rabbi Chaim Itche Drizin's (in Albuquerque by Feb 1980, last seen in the UNM student paper Nov 1983; the student centre still ran in Nov 1984). Gone by 1992, when the Schmuklers came to set up Chabad of New Mexico; in Dec 2009 lubavitch.com listed only theirs in Albuquerque.",
+    "sources": [
+     "http://web.archive.org/web/20091228152239/http://lubavitch.com/centers/list.html?Country=&City=Albuquerque"
+    ]
+   }
   },
   {
    "state": "US-NY",
@@ -1387,8 +1582,24 @@
    "lat": 42.95342,
    "lon": -78.82377,
    "located": "the street address",
-   "today": null,
-   "note": "Not in today's directory; the name 'Chabad House of Buffalo' is today Getzville's (the entry above)."
+   "today": {
+    "centerId": "117976",
+    "name": "Chabad House of Buffalo",
+    "city": "Getzville",
+    "link": "same",
+    "kmFromToday": 7.32,
+    "place": "moved"
+   },
+   "note": "The same organization: Chabad of Buffalo (Rabbi Noson Gurary) left its Main Street house in 1992 and kept its Getzville house (1976), today's Chabad House of Buffalo.",
+   "fate": {
+    "what": "merged",
+    "year": 1992,
+    "confidence": "medium",
+    "text": "Rabbi Noson and Miriam Gurary opened the Chabad House at 3292 Main St. (across from UB's South Campus) in 1971; Jewish Buffalo History lists it there '1971-1992', and Chabad of Buffalo at 2450 N. Forest Rd., Getzville, '1976-current'. So the Main Street house closed in 1992 and its work went on from Getzville.",
+    "sources": [
+     "https://jewishbuffalohistory.org/synagogues/chabad-house-of-buffalo/"
+    ]
+   }
   },
   {
    "state": "US-NY",
@@ -1399,8 +1610,23 @@
    "lat": 43.11885,
    "lon": -77.62145,
    "located": "the street address",
-   "today": null,
-   "note": "Not found; the nearest today is the University of Rochester's Rohr Chabad House."
+   "today": {
+    "centerId": "117693",
+    "name": "Kessler Family Chabad Center",
+    "city": "Rochester",
+    "link": "same",
+    "kmFromToday": 4.51,
+    "place": "moved"
+   },
+   "note": "Probably the same centre: Rabbi Nechemia and Masha Vogel's, who started Chabad in Rochester in 1981 from their home by the University of Rochester; today their Kessler Family Chabad Center, and the campus house is the Rohr Chabad House.",
+   "fate": {
+    "what": "moved",
+    "confidence": "medium",
+    "text": "Probably the Vogels': 'In 1981, Rabbi Nechemia and Masha Vogel first established Chabad at the University of Rochester', opening their small home to students (Lattimore Rd. borders the campus). In summer 2004 their son-in-law, Rabbi Asher Yaras, took the campus work (today's Rohr Chabad House, new building Sept 2013) and the Vogels turned to Rochester-wide work (today's Kessler Family Chabad Center). Whether 36 Lattimore was their home is not confirmed.",
+    "sources": [
+     "https://www.chabad.org/article.asp?aid=2332590"
+    ]
+   }
   },
   {
    "state": "US-NY",
@@ -1633,8 +1859,25 @@
    "lat": 36.1318,
    "lon": -86.82938,
    "located": "the street address",
-   "today": null,
-   "note": "Not in today's directory (Rabbi Zalman Posner's; today's Chabad of Nashville is a later centre)."
+   "today": {
+    "centerId": "211894",
+    "name": "Chabad of Nashville",
+    "city": "Nashville",
+    "link": "successor"
+   },
+   "note": "Rabbi Zalman Posner's office; he died in April 2014. Today's Chabad of Nashville is Rabbi Yitzchok Tiechtel's (established 1999), not the same organization.",
+   "fate": {
+    "what": "closed",
+    "after": 2011,
+    "by": 2014,
+    "confidence": "medium",
+    "text": "Still there in Sept 2011: lubavitch.com listed 'Chabad of Nashville', 3730 Whitland Avenue, Rabbi Zalman Posner. Rabbi Posner, sent to Nashville in 1949, died on Wednesday, April 23 (2014), aged 87. Today the name Chabad of Nashville is Rabbi Yitzchok Tiechtel's centre (established 1999, 95 Bellevue Rd.).",
+    "sources": [
+     "http://web.archive.org/web/2011/http://lubavitch.com/centers/list.html?Country=&City=Nashville",
+     "https://lubavitch.com/chabad-lubavitch-mourns-senior-representative-to-nashville",
+     "https://news.vanderbilt.edu/2014/12/23/obituary-rabbi-zalman-i-posner-53-bridge-builder"
+    ]
+   }
   },
   {
    "state": "US-TX",
@@ -1781,7 +2024,12 @@
     "city": "Seattle",
     "link": "building"
    },
-   "note": "The yeshiva is not in today's directory; its building, 5220 20th Ave N.E., is today's Congregation Shaarei Tefilah - Lubavitch."
+   "note": "The yeshiva is not in today's directory; its building, 5220 20th Ave N.E., is today's Congregation Shaarei Tefilah - Lubavitch.",
+   "fate": {
+    "what": "not found",
+    "confidence": "open",
+    "text": "Not found. When the yeshiva closed is not found; its building is today's Congregation Shaarei Tefilah - Lubavitch."
+   }
   },
   {
    "state": "US-WI",
@@ -1831,7 +2079,16 @@
    "lon": -89.43878,
    "located": "the street address",
    "today": null,
-   "note": "Not in today's directory."
+   "note": "Not in today's directory.",
+   "fate": {
+    "what": "not found",
+    "confidence": "open",
+    "text": "Not found. The Matusofs' preschool (a 2008 article mentions it); in Dec 2009 and Sept 2011 lubavitch.com listed only the Chabad House at 1722 Regent St. and the UW Chabad in Madison. When it closed is not found.",
+    "sources": [
+     "https://www.jewishchronicle.org/2008/03/31/rabbi-yona-and-faygie-matusof-mark-25-years-of-chabad-work-in-madison/",
+     "http://web.archive.org/web/2011/http://lubavitch.com/centers/list.html?Country=&City=Madison"
+    ]
+   }
   }
  ]
 }

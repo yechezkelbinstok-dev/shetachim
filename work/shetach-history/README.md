@@ -48,10 +48,32 @@ UNM Chabad House; was 1992). Agreeing with the data already in: Idaho, Montana, 
 
 **Its list as data: `data/centers-1984.json`** (Nov 9; owner: "that file or whatever needs to become data with addresses"):
 the 105 entries read from the page images, geocoded, each linked to today's centre where it is the same institution.
-81 are the same institution today (32 at the same place, the rest moved or renamed), 5 are a successor or a later
-institution in the same building, and 19 are not in today's directory (Anaheim, Santa Barbara, the Kendale Lakes and
-Hollywood synagogues, Albuquerque's two, Highland Park N.J., Buffalo's Main Street house, Rochester, Rockville, Drizin's
-New Mexico, Posner's Tennessee ...). It does not cover metropolitan New York or Canada.
+It does not cover metropolitan New York or Canada.
+
+**What became of the ones not in today's directory** (Nov 9; owner: "You need to find out when they closed. Or turned
+into another center."). Each now has a `fate` with year or bounds, confidence and sources. After this, 90 are the same
+institution today, 5 a successor or building, 9 not matched.
+- **Moved or renamed, the same centre today (10):**
+  - Anaheim: became Yorba Linda's North County Chabad Center, July 1988 (Eliezrie).
+  - Santa Barbara: not a real miss; the directory spells it "S. Barbara" (Loschak, 1979).
+  - Hollywood's Congregation Levi Yitzchok on Wiley St.: today Chabad of South Broward in Hallandale (Tennenhaus, Dec 1980).
+  - Tampa: probably Dubrowski's Chabad of Tampa Bay (theirs since 1981 or before).
+  - Rockville: probably Geisinsky's (came 1983; then Potomac, then Bethesda).
+  - Camp Gan Israel of Mid-West: Detroit's 1961 camp, today at Kalkaska.
+  - St. Paul's Lubavitch Day School: today's Lubavitch Cheder.
+  - Buffalo's 3292 Main St. house: 1971–1992 (Jewish Buffalo History), then only Getzville.
+  - Rochester: probably the Vogels' (1981).
+  - Bais Chana: left 15 Montcalm Ct. with the Lubavitch House in 2000; no listing of its own today.
+- **Closed (3):**
+  - Drizin's two Albuquerque centres: between 1984 and 1992 (only Schmukler's in the Dec 2009 lubavitch.com list).
+  - Posner's Chabad of Tennessee on Whitland Ave.: still listed Sept 2011; Posner died April 2014. Tiechtel's Chabad
+    of Nashville (1999) is the successor.
+- **Still running, no listing of its own (1):** Miami's Yeshiva Gedolah, 40 years in Feb 2014.
+- **Not found yet (8):** Beverly Hills' Congregation Lubavitch (9017 W. Pico), Ohel Yosef Yitzchak (Willoughby Ave.),
+  North Dade, Kendale Lakes, Tiferes Bachurim's Miami program, Highland Park N.J., the Seattle yeshiva, and Madison's
+  Maon Yeladim.
+- The 2002 chabad.org directory pages were never archived. The lubavitch.com pages from Dec 2009 to Sept 2011 were
+  (1 credit each through Firecrawl), but some captures came back empty, so only a centre that shows up in one counts.
 
 **Settled after the owner's answers (Nov 8; "you're the one who made the timeline ... you should know"):**
 - **Utah: the West Coast's from Nov 1976** (Deseret News, 10 Nov 1976: a University of Utah workshop "Sponsored by the

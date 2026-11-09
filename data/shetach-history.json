@@ -331,7 +331,7 @@
   "maritimes": [
    {
     "head": "Mendel Feldman",
-    "from": "1995",
+    "from": "1995-01",
     "how": "stated",
     "confidence": "high",
     "note": "Sources on area CA-NS:maritimes (its period from 1995), checked Nov 9: it names him as the one who began it then."
@@ -1051,10 +1051,16 @@
   "CA-NS:maritimes": [
    {
     "shetach": "maritimes",
-    "from": "1995",
+    "from": "1995-01",
     "how": "stated",
     "confidence": "high",
     "sources": [
+     {
+      "url": "https://www.chabadmaritimes.com/templates/articlecco_cdo/aid/340774/jewish/About-Us.htm",
+      "title": "About Us (Chabad-Lubavitch of the Maritimes)",
+      "quote": "In January 1995, Rabbi Mendel & Bassie Feldman settled in Halifax, Nova Scotia as Shluchim to the Maritime provinces.",
+      "note": "search excerpt"
+     },
      {
       "url": "https://crownheights.info/shlichus/10259/in-remote-halifax-a-jewish-community-comes-into-its-own",
       "title": "Chabad-Lubavitch of the Maritimes",
@@ -1062,7 +1068,7 @@
       "note": "24 Jan 2008: 'Thirteen years ago, Chabad representatives Rabbi Mendel and Bassie Feldman and one month old Zevi moved to Halifax to stay.' Anash.org: shluchim in Halifax 'since 5755 (1995), when they established Chabad Lubavitch of the Maritimes' (5755 = autumn 1994 to summer 1995). lubavitch.com's center directory as archived Dec 28 2009 lists it at 5595 Fenwick Street, Halifax; it is now at 1171 Waterloo Street, so it moved after 2009 (dated below). Archived copies of its chabad.org listing (Wayback Machine) date the move: at the present address by Jan 2015, so it moved there between 2009 and Jan 2015."
      }
     ],
-    "note": "Chabad Lubavitch of the Maritimes (Halifax), for Nova Scotia, New Brunswick and Prince Edward Island. Rabbi Mendel Feldman is Rabbi Zalman Grossbaum's son-in-law (Chronicle Herald). No earlier activity found by anyone's shluchim, so in no shetach before 1995 (owner, Nov 8: \"I don't know about maritimes\")."
+    "note": "Chabad Lubavitch of the Maritimes (Halifax), for Nova Scotia, New Brunswick and Prince Edward Island. Rabbi Mendel Feldman is Rabbi Zalman Grossbaum's son-in-law (Chronicle Herald). No earlier activity found by anyone's shluchim, so in no shetach before 1995 (owner, Nov 8: \"I don't know about maritimes\"). January 1995 by its own About page (was 1995)."
    }
   ],
   "CA-ON:michigan": [
@@ -2912,6 +2918,40 @@
     ],
     "note": "Rabbi Levi Raichik 'is spearheading the Chabad at Ohio University in Athens' (Chabad of Cleveland's)."
    }
+  ],
+  "CA-NB:maritimes": [
+   {
+    "shetach": "maritimes",
+    "from": "1995-01",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.chabadmaritimes.com/templates/articlecco_cdo/aid/340774/jewish/About-Us.htm",
+      "title": "About Us (Chabad-Lubavitch of the Maritimes)",
+      "quote": "In January 1995, Rabbi Mendel & Bassie Feldman settled in Halifax, Nova Scotia as Shluchim to the Maritime provinces.",
+      "note": "search excerpt"
+     }
+    ],
+    "note": "New Brunswick: the Feldmans were sent 'as Shluchim to the Maritime provinces' (owner's rule, Nov 8: theirs where they were explicitly sent), from their start in Halifax, January 1995. Before that no shliach is found here (was borrowed from Nova Scotia's piece in the page)."
+   }
+  ],
+  "CA-PE:maritimes": [
+   {
+    "shetach": "maritimes",
+    "from": "1995-01",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://www.chabadmaritimes.com/templates/articlecco_cdo/aid/340774/jewish/About-Us.htm",
+      "title": "About Us (Chabad-Lubavitch of the Maritimes)",
+      "quote": "In January 1995, Rabbi Mendel & Bassie Feldman settled in Halifax, Nova Scotia as Shluchim to the Maritime provinces.",
+      "note": "search excerpt"
+     }
+    ],
+    "note": "Prince Edward Island: the Feldmans were sent 'as Shluchim to the Maritime provinces' (owner's rule, Nov 8: theirs where they were explicitly sent), from their start in Halifax, January 1995. Before that no shliach is found here (was borrowed from Nova Scotia's piece in the page)."
+   }
   ]
  },
  "extraAreas": {
@@ -3544,7 +3584,7 @@
   ],
   "maritimes": [
    {
-    "from": "1995",
+    "from": "1995-01",
     "where": "Chabad-Lubavitch of the Maritimes, Halifax",
     "centerId": "117790",
     "lat": 44.63556,

@@ -1,0 +1,1837 @@
+{
+ "about": "The Lubavitch centres of about 1984, as American Friends of Lubavitch listed them: 'On the following pages we are sharing with you information of the addresses of Lubavitcher Centers in their respective states.' The booklet says 'Eighty-two Centers in Thirty-four of the states'; its list has 105 entries in 30 states (schools, camps and offices at a centre's address listed apart), and leaves out metropolitan New York and Canada. Read from the page images (Nov 9 2026), not the PDF's text layer, which garbles several lines. Each entry: state, name and street as printed (spelling kept, 'Berkley' and 'Orrington St.' as printed), city, the PDF page, lat/lon from OpenStreetMap's geocoder ('located': by the street address, or by the town only where the address was not found), and 'today': the centre in today's directory (web/data/centers.geojson) that is the same institution ('link': 'same'), carries on its work without being the same organization ('successor'), or stands in the same building ('building'); for 'same', 'place' says whether today's listing is at the same place (within 400 m of the 1984 address), has moved, or was not checked (the 1984 address not found). 'today' is null where nothing in today's directory matches. Matches by name, director and address; those marked 'probably' in the note are less sure.",
+ "source": {
+  "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+  "title": "American Friends of Lubavitch booklet on the Rebbe (Reagan Library, Max Green files, folder 'Lubavitch (1 of 2)'), its list of centres",
+  "pages": "44-47",
+  "date": "about 1984",
+  "note": "Made after the National Scroll of Honor (24 March 1983); its list has Oregon's centre (opened Jan 1984) but not Kentucky's (Mar 1985). Its map of who covered which state: work/shetach-history/README.md, 'The 1984 map'."
+ },
+ "summary": {
+  "entries": 105,
+  "sameToday": 81,
+  "samePlaceToday": 32,
+  "notFoundToday": 19
+ },
+ "centers": [
+  {
+   "state": "US-AL",
+   "name": "Chabad Lubavitch of Birmingham",
+   "street": "3348 Stoneridge Lane",
+   "city": "Birmingham",
+   "page": 44,
+   "lat": 33.52068,
+   "lon": -86.80243,
+   "located": "the town only (the address was not found)",
+   "today": {
+    "centerId": "117538",
+    "name": "Chabad of Alabama",
+    "city": "Birmingham",
+    "link": "same",
+    "place": "not checked"
+   },
+   "note": "Today 'Chabad of Alabama' (Rabbi Yossi Posner, Birmingham)."
+  },
+  {
+   "state": "US-AZ",
+   "name": "Chabad Lubavitch of Phoenix, Regional Center",
+   "street": "1536 E. Maryland Ave.",
+   "city": "Phoenix",
+   "page": 44,
+   "lat": 33.53105,
+   "lon": -112.04898,
+   "located": "the street address",
+   "today": {
+    "centerId": "117539",
+    "name": "Chabad Lubavitch of Arizona",
+    "city": "Phoenix",
+    "link": "same",
+    "kmFromToday": 1.54,
+    "place": "moved"
+   },
+   "note": "Today 'Chabad Lubavitch of Arizona'; it moved to 2110 E. Lincoln Drive in 1990 (Jewish News, 2002)."
+  },
+  {
+   "state": "US-AZ",
+   "name": "Chabad Center of Tucson",
+   "street": "6200 N. Oracle Rd.",
+   "city": "Tucson",
+   "page": 44,
+   "lat": 32.2811,
+   "lon": -110.97809,
+   "located": "the street address",
+   "today": {
+    "centerId": "117540",
+    "name": "Chabad Lubavitch of Tucson",
+    "city": "Tucson",
+    "link": "same",
+    "kmFromToday": 6.87,
+    "place": "moved"
+   },
+   "note": "Today 'Chabad Lubavitch of Tucson'."
+  },
+  {
+   "state": "US-CA",
+   "name": "West Coast Headquarters",
+   "street": "741 Gayley Avenue",
+   "city": "Los Angeles",
+   "page": 44,
+   "lat": 34.0646,
+   "lon": -118.44818,
+   "located": "the street address",
+   "today": {
+    "centerId": "117555",
+    "name": "Chabad West Coast Headquarters",
+    "city": "Los Angeles",
+    "link": "same",
+    "kmFromToday": 0.03,
+    "place": "same place"
+   }
+  },
+  {
+   "state": "US-CA",
+   "name": "Chabad Lubavitch of Anaheim",
+   "street": "1335 South Euclid",
+   "city": "Anaheim",
+   "page": 44,
+   "lat": 33.8145,
+   "lon": -117.94151,
+   "located": "the street address",
+   "today": null,
+   "note": "No Chabad centre in Anaheim in today's directory."
+  },
+  {
+   "state": "US-CA",
+   "name": "Chabad Lubavitch of Berkley",
+   "street": "2340 Piedmont Avenue",
+   "city": "Berkeley",
+   "page": 44,
+   "lat": 37.8681,
+   "lon": -122.25245,
+   "located": "the street address",
+   "today": {
+    "centerId": "117543",
+    "name": "Chabad House Berkeley",
+    "city": "Berkeley",
+    "link": "same",
+    "kmFromToday": 2.19,
+    "place": "moved"
+   },
+   "note": "Today 'Chabad House Berkeley'."
+  },
+  {
+   "state": "US-CA",
+   "name": "Chabad Lubavitch of the Peninsula",
+   "street": "3671 Evergreen Drive",
+   "city": "Palo Alto",
+   "page": 44,
+   "lat": 37.42795,
+   "lon": -122.10927,
+   "located": "the street address",
+   "today": {
+    "centerId": "117564",
+    "name": "Chabad of Greater South Bay",
+    "city": "Palo Alto",
+    "link": "same",
+    "kmFromToday": 1.27,
+    "place": "moved"
+   },
+   "note": "Today 'Chabad of Greater South Bay' (Rabbi Yosef Levin, Palo Alto)."
+  },
+  {
+   "state": "US-CA",
+   "name": "Chabad Lubavitch of Santa Barbara",
+   "street": "4141 State Street, Suite E-1",
+   "city": "Santa Barbara",
+   "page": 44,
+   "lat": 34.43975,
+   "lon": -119.76126,
+   "located": "the street address",
+   "today": null,
+   "note": "Not in today's directory under Santa Barbara."
+  },
+  {
+   "state": "US-CA",
+   "name": "Chabad Lubavitch of Palm Springs",
+   "street": "425 Avenida Ortega",
+   "city": "Palm Springs",
+   "page": 44,
+   "lat": 33.8021,
+   "lon": -116.54192,
+   "located": "the street address",
+   "today": {
+    "centerId": "117563",
+    "name": "Chabad of Palm Springs",
+    "city": "Palm Springs",
+    "link": "same",
+    "kmFromToday": 0.08,
+    "place": "same place"
+   }
+  },
+  {
+   "state": "US-CA",
+   "name": "Chabad Lubavitch of Conejo",
+   "street": "741 Lakefield Road, Suite E",
+   "city": "Westlake Village",
+   "page": 44,
+   "lat": 34.15728,
+   "lon": -118.83122,
+   "located": "the street address",
+   "today": {
+    "centerId": "117541",
+    "name": "Chabad of the Conejo",
+    "city": "Agoura Hills",
+    "link": "same",
+    "kmFromToday": 4.52,
+    "place": "moved"
+   },
+   "note": "Today 'Chabad of the Conejo' (Rabbi Moshe Bryski), in Agoura Hills."
+  },
+  {
+   "state": "US-CA",
+   "name": "Chabad Lubavitch of Encino",
+   "street": "4915 Hayvenhurst Avenue",
+   "city": "Encino",
+   "page": 44,
+   "lat": 34.15981,
+   "lon": -118.49245,
+   "located": "the street address",
+   "today": {
+    "centerId": "118385",
+    "name": "Chabad of Encino",
+    "city": "Encino",
+    "link": "same",
+    "kmFromToday": 0.05,
+    "place": "same place"
+   }
+  },
+  {
+   "state": "US-CA",
+   "name": "Chabad Lubavitch Youth Center",
+   "street": "18211 Burbank Blvd.",
+   "city": "Tarzana",
+   "page": 44,
+   "lat": 34.1724,
+   "lon": -118.52905,
+   "located": "the street address",
+   "today": {
+    "centerId": "117963",
+    "name": "Blauner Youth Center",
+    "city": "Tarzana",
+    "link": "same",
+    "kmFromToday": 0.04,
+    "place": "same place"
+   },
+   "note": "Today the Blauner Youth Center (Tarzana), beside Chabad of the Valley's headquarters."
+  },
+  {
+   "state": "US-CA",
+   "name": "Chabad Lubavitch of North Hollywood",
+   "street": "13079 Chandler Blvd.",
+   "city": "Van Nuys",
+   "page": 44,
+   "lat": 34.17002,
+   "lon": -118.44851,
+   "located": "the street address",
+   "today": {
+    "centerId": "117577",
+    "name": "Chabad of North Hollywood",
+    "city": "Sherman Oaks",
+    "link": "same",
+    "kmFromToday": 2.82,
+    "place": "moved"
+   },
+   "note": "Today 'Chabad of North Hollywood' (Rabbi Nachman Abend), listed in Sherman Oaks."
+  },
+  {
+   "state": "US-CA",
+   "name": "Chabad Lubavitch of North Beverly Hills",
+   "street": "409 North Foothill",
+   "city": "Beverly Hills",
+   "page": 44,
+   "lat": 34.06965,
+   "lon": -118.39631,
+   "located": "the town only (the address was not found)",
+   "today": {
+    "centerId": "117544",
+    "name": "Chabad of Beverly Hills",
+    "city": "Beverly Hills",
+    "link": "same",
+    "place": "not checked"
+   },
+   "note": "Today 'Chabad of Beverly Hills' (Rabbi Yosef Shusterman), 409 Foothill Road."
+  },
+  {
+   "state": "US-CA",
+   "name": "Congregation Lubavitch of Beverly Hills",
+   "street": "9017 West Pico Blvd.",
+   "city": "Los Angeles",
+   "page": 44,
+   "lat": 34.05559,
+   "lon": -118.38827,
+   "located": "the street address",
+   "today": null,
+   "note": "Not found under this name; on the same block today: the Chabad Persian Youth Center and Bais Chaya Mushka."
+  },
+  {
+   "state": "US-CA",
+   "name": "Congregation Ohel Yosef Yitzchak",
+   "street": "8263 Willoughby Ave.",
+   "city": "Los Angeles",
+   "page": 44,
+   "lat": 34.08718,
+   "lon": -118.36957,
+   "located": "the street address",
+   "today": null,
+   "note": "Not in today's directory."
+  },
+  {
+   "state": "US-CA",
+   "name": "Chabad Mid-City Center",
+   "street": "420 North Fairfax Ave.",
+   "city": "Los Angeles",
+   "page": 44,
+   "lat": 34.07919,
+   "lon": -118.36132,
+   "located": "the street address",
+   "today": {
+    "centerId": "117560",
+    "name": "Chabad Mid City Center",
+    "city": "Los Angeles",
+    "link": "same",
+    "kmFromToday": 0.14,
+    "place": "same place"
+   }
+  },
+  {
+   "state": "US-CA",
+   "name": "Yeshiva Ohr Elchonon Chabad Rabbinical College & High School",
+   "street": "7215 Waring Ave.",
+   "city": "Los Angeles",
+   "page": 44,
+   "lat": 34.08536,
+   "lon": -118.34664,
+   "located": "the street address",
+   "today": {
+    "centerId": "117557",
+    "name": "Yeshiva Ohr Elchonon Chabad",
+    "city": "Los Angeles",
+    "link": "same",
+    "kmFromToday": 0.01,
+    "place": "same place"
+   }
+  },
+  {
+   "state": "US-CA",
+   "name": "Chabad Russian Synagogue",
+   "street": "221 South La Brea Ave.",
+   "city": "Los Angeles",
+   "page": 44,
+   "lat": 34.07053,
+   "lon": -118.34412,
+   "located": "the street address",
+   "today": {
+    "centerId": "117558",
+    "name": "Chabad Russian Immigrant Program & Synagogue",
+    "city": "West Hollywood",
+    "link": "same",
+    "kmFromToday": 2.48,
+    "place": "moved"
+   },
+   "note": "Today 'Chabad Russian Immigrant Program & Synagogue', listed in West Hollywood."
+  },
+  {
+   "state": "US-CA",
+   "name": "Chabad Lubavitch of the Bay Area",
+   "street": "1428 17th Street",
+   "city": "Santa Monica",
+   "page": 44,
+   "lat": 34.02591,
+   "lon": -118.48243,
+   "located": "the street address",
+   "today": {
+    "centerId": "117572",
+    "name": "Chabad in Simcha Monica",
+    "city": "S. Monica",
+    "link": "same",
+    "kmFromToday": 0.04,
+    "place": "same place"
+   },
+   "note": "Today Rabbi Levitansky's Chabad of Santa Monica ('Chabad in Simcha Monica'), same address."
+  },
+  {
+   "state": "US-CA",
+   "name": "Chabad Lubavitch of South Bay",
+   "street": "24412 Narbonne Ave.",
+   "city": "Lomita",
+   "page": 44,
+   "lat": 33.80369,
+   "lon": -118.31954,
+   "located": "the street address",
+   "today": {
+    "centerId": "117551",
+    "name": "Chabad of South Bay",
+    "city": "Lomita",
+    "link": "same",
+    "kmFromToday": 0.0,
+    "place": "same place"
+   },
+   "note": "Today 'Chabad of South Bay' (Rabbi Eli Hecht)."
+  },
+  {
+   "state": "US-CA",
+   "name": "Congregation Lubavitch of Long Beach",
+   "street": "3981 Atlantic Ave.",
+   "city": "Long Beach",
+   "page": 44,
+   "lat": 33.83037,
+   "lon": -118.1851,
+   "located": "the street address",
+   "today": {
+    "centerId": "118408",
+    "name": "Congregation Lubavitch",
+    "city": "Long Beach",
+    "link": "same",
+    "kmFromToday": 0.05,
+    "place": "same place"
+   },
+   "note": "Today 'Congregation Lubavitch', Long Beach."
+  },
+  {
+   "state": "US-CA",
+   "name": "Hebrew Academy Lubavitch",
+   "street": "14401 Willow Lane",
+   "city": "Westminster",
+   "page": 44,
+   "lat": 33.7541,
+   "lon": -118.019,
+   "located": "the street address",
+   "today": {
+    "centerId": "117552",
+    "name": "The Hebrew Academy",
+    "city": "Huntington Beach",
+    "link": "same",
+    "kmFromToday": 0.16,
+    "place": "same place"
+   },
+   "note": "Today 'The Hebrew Academy', listed in Huntington Beach."
+  },
+  {
+   "state": "US-CA",
+   "name": "Chabad Lubavitch of Irvine",
+   "street": "4872 Royce Rd.",
+   "city": "Irvine",
+   "page": 44,
+   "lat": 33.65978,
+   "lon": -117.81341,
+   "located": "the street address",
+   "today": {
+    "centerId": "117548",
+    "name": "Chabad of Irvine",
+    "city": "Irvine",
+    "link": "same",
+    "kmFromToday": 2.48,
+    "place": "moved"
+   }
+  },
+  {
+   "state": "US-CA",
+   "name": "Chabad Lubavitch of La Jolla",
+   "street": "8950 Villa La Jolla Dr. #1225",
+   "city": "La Jolla",
+   "page": 44,
+   "lat": 32.87071,
+   "lon": -117.23619,
+   "located": "the street address",
+   "today": {
+    "centerId": "118431",
+    "name": "Chabad of La Jolla",
+    "city": "La Jolla",
+    "link": "same",
+    "kmFromToday": 4.25,
+    "place": "moved"
+   }
+  },
+  {
+   "state": "US-CA",
+   "name": "Chabad House in San Diego",
+   "street": "6115 Montezuma Rd.",
+   "city": "San Diego",
+   "page": 44,
+   "lat": 32.77047,
+   "lon": -117.06841,
+   "located": "the street address",
+   "today": {
+    "centerId": "118548",
+    "name": "Chabad - Jewish Student Life of San Diego",
+    "city": "S. Diego",
+    "link": "same",
+    "kmFromToday": 0.0,
+    "place": "same place"
+   },
+   "note": "Today 'Chabad - Jewish Student Life of San Diego', by San Diego State, same address."
+  },
+  {
+   "state": "US-CA",
+   "name": "Chabad House of San Francisco",
+   "street": "2415 Van Ness Ave., #203",
+   "city": "San Francisco",
+   "page": 44,
+   "lat": 37.7979,
+   "lon": -122.42423,
+   "located": "the street address",
+   "today": {
+    "centerId": "117571",
+    "name": "Chabad of S. Francisco",
+    "city": "S. Francisco",
+    "link": "same",
+    "kmFromToday": 1.37,
+    "place": "moved"
+   },
+   "note": "Today 'Chabad of San Francisco' (Rabbi Yosef Langer)."
+  },
+  {
+   "state": "US-CA",
+   "name": "Chabad Drug Rehabilitation Center",
+   "street": "1952 Robertson Blvd.",
+   "city": "Los Angeles",
+   "page": 44,
+   "lat": 34.04348,
+   "lon": -118.38687,
+   "located": "the street address",
+   "today": {
+    "centerId": "699932",
+    "name": "Chabad Residential Treatment Center",
+    "city": "Los Angeles",
+    "link": "same",
+    "kmFromToday": 3.48,
+    "place": "moved"
+   },
+   "note": "Today the 'Chabad Residential Treatment Center'."
+  },
+  {
+   "state": "US-CO",
+   "name": "Chabad Lubavitch of Colorado",
+   "street": "85 Forest Street",
+   "city": "Denver",
+   "page": 44,
+   "lat": 39.79268,
+   "lon": -104.92705,
+   "located": "the street address",
+   "today": {
+    "centerId": "5964928",
+    "name": "Chabad Lubavitch of Colorado",
+    "city": "Denver",
+    "link": "same",
+    "kmFromToday": 9.3,
+    "place": "moved"
+   },
+   "note": "Today 'Chabad Lubavitch of Colorado' (the Popacks)."
+  },
+  {
+   "state": "US-CT",
+   "name": "Chabad Lubavitch of Connecticut",
+   "street": "261 Derby Ave.",
+   "city": "Orange",
+   "page": 44,
+   "lat": 41.29967,
+   "lon": -73.00807,
+   "located": "the street address",
+   "today": {
+    "centerId": "117961",
+    "name": "Southern Connecticut Hebrew Academy",
+    "city": "Orange",
+    "link": "same",
+    "kmFromToday": 0.01,
+    "place": "same place"
+   },
+   "note": "Today the Southern Connecticut Hebrew Academy (the Hechts), same address."
+  },
+  {
+   "state": "US-CT",
+   "name": "Chabad Lubavitch of West Hartford, Chabad House",
+   "street": "798 Farmington Ave.",
+   "city": "West Hartford",
+   "page": 44,
+   "lat": 41.76506,
+   "lon": -72.7282,
+   "located": "the street address",
+   "today": {
+    "centerId": "117585",
+    "name": "Chabad House of Greater Hartford",
+    "city": "West Hartford",
+    "link": "same",
+    "kmFromToday": 2.6,
+    "place": "moved"
+   },
+   "note": "Today 'Chabad House of Greater Hartford' (Rabbi Yosef Gopin), 2352 Albany Avenue."
+  },
+  {
+   "state": "US-CT",
+   "name": "Chabad Lubavitch of New Haven, Chabad House",
+   "street": "298 Norton St.",
+   "city": "New Haven",
+   "page": 44,
+   "lat": 41.31959,
+   "lon": -72.94547,
+   "located": "the street address",
+   "today": {
+    "centerId": "117583",
+    "name": "Rabbinical Institute of New Haven",
+    "city": "New Haven",
+    "link": "building"
+   },
+   "note": "The Chabad House is not a separate listing today; its address, 298 Norton St., is today's Rabbinical Institute of New Haven."
+  },
+  {
+   "state": "US-FL",
+   "name": "Chabad Lubavitch of Florida, Regional Office",
+   "street": "1140 Alton Rd.",
+   "city": "Miami Beach",
+   "page": 45,
+   "lat": 25.78245,
+   "lon": -80.14131,
+   "located": "the street address",
+   "today": {
+    "centerId": "117598",
+    "name": "Merkos Lubavitch of Florida",
+    "city": "Miami Beach",
+    "link": "same",
+    "kmFromToday": 0.01,
+    "place": "same place"
+   },
+   "note": "Today 'Merkos Lubavitch of Florida', same address."
+  },
+  {
+   "state": "US-FL",
+   "name": "Chabad of North Dade",
+   "street": "2590 N.E. 202nd St.",
+   "city": "North Miami Beach",
+   "page": 45,
+   "lat": 25.93315,
+   "lon": -80.16255,
+   "located": "the town only (the address was not found)",
+   "today": null,
+   "note": "Not in today's directory under this name."
+  },
+  {
+   "state": "US-FL",
+   "name": "Chabad of South Dade, Jewish Student Center",
+   "street": "1540 Albenga Ave.",
+   "city": "Coral Gables",
+   "page": 45,
+   "lat": 25.71388,
+   "lon": -80.28427,
+   "located": "the street address",
+   "today": {
+    "centerId": "118534",
+    "name": "Chabad @ University of Miami",
+    "city": "Coral Gables",
+    "link": "same",
+    "kmFromToday": 0.7,
+    "place": "moved"
+   },
+   "note": "Probably today's 'Chabad @ University of Miami' (Coral Gables)."
+  },
+  {
+   "state": "US-FL",
+   "name": "Chabad House",
+   "street": "1314 No. 52nd St.",
+   "city": "Tampa",
+   "page": 45,
+   "lat": 28.05072,
+   "lon": -82.39757,
+   "located": "the street address",
+   "today": null,
+   "note": "Not found; the nearest today is the Chabad at the University of South Florida, about a kilometre away."
+  },
+  {
+   "state": "US-FL",
+   "name": "Yeshiva Gedolah of Greater Miami",
+   "street": "1140 Alton Rd.",
+   "city": "Miami Beach",
+   "page": 45,
+   "lat": 25.78245,
+   "lon": -80.14131,
+   "located": "the street address",
+   "today": {
+    "centerId": "117598",
+    "name": "Merkos Lubavitch of Florida",
+    "city": "Miami Beach",
+    "link": "building"
+   },
+   "note": "Not a separate listing today; 1140 Alton Rd. is today's Merkos Lubavitch of Florida."
+  },
+  {
+   "state": "US-FL",
+   "name": "Synagogue of Kendale Lakes",
+   "street": "14456 Kendale Lakes Blvd.",
+   "city": "Miami",
+   "page": 45,
+   "lat": 25.69055,
+   "lon": -80.42756,
+   "located": "the street address",
+   "today": null,
+   "note": "Not in today's directory."
+  },
+  {
+   "state": "US-FL",
+   "name": "Synagogue of Inverrary",
+   "street": "7770 N.W. 44th St.",
+   "city": "Sunrise",
+   "page": 45,
+   "lat": 26.16669,
+   "lon": -80.27876,
+   "located": "the town only (the address was not found)",
+   "today": {
+    "centerId": "117596",
+    "name": "Synagogue of Inverrary - Chabad",
+    "city": "Lauderhill",
+    "link": "same",
+    "place": "not checked"
+   },
+   "note": "Today 'Synagogue of Inverrary - Chabad', listed in Lauderhill."
+  },
+  {
+   "state": "US-FL",
+   "name": "Congregation Levi Yitzchok",
+   "street": "1504 Wiley St.",
+   "city": "Hollywood",
+   "page": 45,
+   "lat": 25.99962,
+   "lon": -80.13686,
+   "located": "the street address",
+   "today": null,
+   "note": "Not in today's directory."
+  },
+  {
+   "state": "US-FL",
+   "name": "Yeshiva Tiferes Bachurim, New Direction Program",
+   "street": "1140 Alton Rd.",
+   "city": "Miami Beach",
+   "page": 45,
+   "lat": 25.78245,
+   "lon": -80.14131,
+   "located": "the street address",
+   "today": null,
+   "note": "Not in Miami today (Tiferes Bachurim later moved to Morristown, N.J.; not a separate listing)."
+  },
+  {
+   "state": "US-GA",
+   "name": "Chabad of Georgia",
+   "street": "6520 Roswell Rd.",
+   "city": "Atlanta",
+   "page": 45,
+   "lat": 33.85723,
+   "lon": -84.38195,
+   "located": "the street address",
+   "today": {
+    "centerId": "117607",
+    "name": "Chabad Lubavitch of Georgia",
+    "city": "Atlanta",
+    "link": "same",
+    "kmFromToday": 4.19,
+    "place": "moved"
+   }
+  },
+  {
+   "state": "US-IL",
+   "name": "Chabad Lubavitch of Greater Chicago, Regional Center",
+   "street": "2014 Orrington St.",
+   "city": "Evanston",
+   "page": 45,
+   "lat": 42.05447,
+   "lon": -87.68018,
+   "located": "the street address",
+   "today": {
+    "centerId": "117614",
+    "name": "Tannenbaum Chabad House",
+    "city": "Evanston",
+    "link": "same",
+    "kmFromToday": 0.01,
+    "place": "same place"
+   },
+   "note": "Today the Tannenbaum Chabad House at Northwestern, same address (2014 Orrington Avenue; the list has 'St.')."
+  },
+  {
+   "state": "US-IL",
+   "name": "Chabad Lubavitch North Suburban",
+   "street": "1871 Sheahan Ct.",
+   "city": "Highland Park",
+   "page": 45,
+   "lat": 42.18367,
+   "lon": -87.79932,
+   "located": "the town only (the address was not found)",
+   "today": {
+    "centerId": "117615",
+    "name": "North Suburban Lubavitch Chabad - Central Avenue Synagogue",
+    "city": "Highland Park",
+    "link": "same",
+    "place": "not checked"
+   },
+   "note": "Today 'North Suburban Lubavitch Chabad - Central Avenue Synagogue'."
+  },
+  {
+   "state": "US-IL",
+   "name": "Chabad Lubavitch of Skokie",
+   "street": "8632 Trumbull St.",
+   "city": "Skokie",
+   "page": 45,
+   "lat": 42.0263,
+   "lon": -87.75211,
+   "located": "the town only (the address was not found)",
+   "today": {
+    "centerId": "117617",
+    "name": "Lubavitch Chabad of Skokie",
+    "city": "Skokie",
+    "link": "same",
+    "place": "not checked"
+   },
+   "note": "Today 'Lubavitch Chabad of Skokie'."
+  },
+  {
+   "state": "US-IN",
+   "name": "Chabad Lubavitch of Indiana",
+   "street": "816 West 64th Street",
+   "city": "Indianapolis",
+   "page": 45,
+   "lat": 39.87229,
+   "lon": -86.17343,
+   "located": "the street address",
+   "today": {
+    "centerId": "117619",
+    "name": "Lubavitch of Indiana - Chabad Center for Jewish Life",
+    "city": "Indianapolis",
+    "link": "same",
+    "kmFromToday": 6.92,
+    "place": "moved"
+   },
+   "note": "Today 'Lubavitch of Indiana - Chabad Center for Jewish Life'; it moved in 2015."
+  },
+  {
+   "state": "US-IA",
+   "name": "Chabad Lubavitch of Iowa",
+   "street": "2932 University Ave.",
+   "city": "Des Moines",
+   "page": 45,
+   "lat": 41.60028,
+   "lon": -93.65742,
+   "located": "the street address",
+   "today": {
+    "centerId": "117609",
+    "name": "Lubavitch of Iowa",
+    "city": "Des Moines",
+    "link": "same",
+    "kmFromToday": 3.64,
+    "place": "moved"
+   },
+   "note": "Today 'Lubavitch of Iowa'."
+  },
+  {
+   "state": "US-LA",
+   "name": "Chabad Lubavitch of Louisiana",
+   "street": "7037 Freret St.",
+   "city": "New Orleans",
+   "page": 45,
+   "lat": 29.94014,
+   "lon": -90.12303,
+   "located": "the street address",
+   "today": {
+    "centerId": "117623",
+    "name": "Chabad-Lubavitch of Louisiana",
+    "city": "New Orleans",
+    "link": "same",
+    "kmFromToday": 0.01,
+    "place": "same place"
+   }
+  },
+  {
+   "state": "US-MD",
+   "name": "Chabad Lubavitch of Rockville",
+   "street": "311 West Montgomery Ave.",
+   "city": "Rockville",
+   "page": 45,
+   "lat": 39.08481,
+   "lon": -77.16043,
+   "located": "the street address",
+   "today": null,
+   "note": "Not in today's directory (today's Chabad of Rockville is a later centre)."
+  },
+  {
+   "state": "US-MD",
+   "name": "Chabad Lubavitch of Maryland, Chabad House",
+   "street": "5721 Park Heights Ave.",
+   "city": "Baltimore",
+   "page": 45,
+   "lat": 39.35436,
+   "lon": -76.68638,
+   "located": "the street address",
+   "today": {
+    "centerId": "117634",
+    "name": "Chabad Center and Lubavitch of Maryland",
+    "city": "Baltimore",
+    "link": "same",
+    "kmFromToday": 2.56,
+    "place": "moved"
+   },
+   "note": "Today 'Chabad Center and Lubavitch of Maryland' (Rabbi Shmuel Kaplan)."
+  },
+  {
+   "state": "US-MA",
+   "name": "Chabad Lubavitch of Massachusetts, Chabad House",
+   "street": "30 No. Hadley Rd.",
+   "city": "Amherst",
+   "page": 45,
+   "lat": 42.38379,
+   "lon": -72.52789,
+   "located": "the street address",
+   "today": {
+    "centerId": "117624",
+    "name": "Chabad House At Amherst",
+    "city": "Amherst",
+    "link": "same",
+    "kmFromToday": 0.01,
+    "place": "same place"
+   },
+   "note": "Today 'Chabad House At Amherst' (the Derens' first house)."
+  },
+  {
+   "state": "US-MA",
+   "name": "Chabad House of Greater Boston",
+   "street": "491 Commonwealth Ave.",
+   "city": "Boston",
+   "page": 45,
+   "lat": 42.34931,
+   "lon": -71.09432,
+   "located": "the street address",
+   "today": {
+    "centerId": "1591836",
+    "name": "Chabad of Eastern Massachusetts",
+    "city": "Boston",
+    "link": "same",
+    "kmFromToday": 0.0,
+    "place": "same place"
+   },
+   "note": "Today 'Chabad of Eastern Massachusetts' (Rabbi Chaim Prus), same address."
+  },
+  {
+   "state": "US-MA",
+   "name": "Chabad Lubavitch of Framingham",
+   "street": "74 Joseph Rd.",
+   "city": "Framingham",
+   "page": 45,
+   "lat": 42.32893,
+   "lon": -71.41628,
+   "located": "the street address",
+   "today": {
+    "centerId": "117626",
+    "name": "Congregation Bais Chabad",
+    "city": "Framingham",
+    "link": "same",
+    "kmFromToday": 0.03,
+    "place": "same place"
+   },
+   "note": "Today 'Congregation Bais Chabad', Framingham."
+  },
+  {
+   "state": "US-MA",
+   "name": "Shaloh School",
+   "street": "68 Smith Rd.",
+   "city": "Milton",
+   "page": 45,
+   "lat": 42.25591,
+   "lon": -71.10869,
+   "located": "the street address",
+   "today": {
+    "centerId": "117632",
+    "name": "Shaloh House Chabad of the South Area",
+    "city": "Stoughton",
+    "link": "same",
+    "kmFromToday": 13.66,
+    "place": "moved"
+   },
+   "note": "The Shaloh School became the Shaloh House (Rabbi Mendel Gurkow), now in Stoughton (Chabad of the South Area)."
+  },
+  {
+   "state": "US-MA",
+   "name": "New England Hebrew Academy",
+   "street": "9 Prescott St.",
+   "city": "Brookline",
+   "page": 45,
+   "lat": 42.34877,
+   "lon": -71.11081,
+   "located": "the street address",
+   "today": {
+    "centerId": "117625",
+    "name": "New England Hebrew Academy",
+    "city": "Brookline",
+    "link": "same",
+    "kmFromToday": 0.03,
+    "place": "same place"
+   }
+  },
+  {
+   "state": "US-MA",
+   "name": "Yeshiva Achei Tmimim",
+   "street": "22 Newton Ave.",
+   "city": "Worcester",
+   "page": 45,
+   "lat": 42.27207,
+   "lon": -71.82384,
+   "located": "the street address",
+   "today": {
+    "centerId": "117633",
+    "name": "Chabad Lubavitch of Central Massachusetts",
+    "city": "Worcester",
+    "link": "same",
+    "kmFromToday": 0.03,
+    "place": "same place"
+   },
+   "note": "Its building is today's Chabad Lubavitch of Central Massachusetts, same address."
+  },
+  {
+   "state": "US-MA",
+   "name": "Chabad Synagogue and Center",
+   "street": "22 Newton Ave.",
+   "city": "Worcester",
+   "page": 45,
+   "lat": 42.27207,
+   "lon": -71.82384,
+   "located": "the street address",
+   "today": {
+    "centerId": "117633",
+    "name": "Chabad Lubavitch of Central Massachusetts",
+    "city": "Worcester",
+    "link": "same",
+    "kmFromToday": 0.03,
+    "place": "same place"
+   }
+  },
+  {
+   "state": "US-MA",
+   "name": "Lubavitch Yeshiva Academy",
+   "street": "1148 Converse St.",
+   "city": "Longmeadow",
+   "page": 45,
+   "lat": 42.06013,
+   "lon": -72.54063,
+   "located": "the street address",
+   "today": {
+    "centerId": "117628",
+    "name": "Lubavitch Yeshiva Academy",
+    "city": "Longmeadow",
+    "link": "same",
+    "kmFromToday": 0.03,
+    "place": "same place"
+   }
+  },
+  {
+   "state": "US-MI",
+   "name": "Chabad Lubavitch of Michigan, Regional Office",
+   "street": "14000 West Nine Mile Rd.",
+   "city": "Oak Park",
+   "page": 46,
+   "lat": 42.45953,
+   "lon": -83.18214,
+   "located": "the town only (the address was not found)",
+   "today": {
+    "centerId": "117640",
+    "name": "Chabad Lubavitch of Michigan",
+    "city": "Oak Park",
+    "link": "same",
+    "place": "not checked"
+   }
+  },
+  {
+   "state": "US-MI",
+   "name": "University of Michigan Chabad House",
+   "street": "715 Hill St.",
+   "city": "Ann Arbor",
+   "page": 46,
+   "lat": 42.2722,
+   "lon": -83.73981,
+   "located": "the street address",
+   "today": {
+    "centerId": "117639",
+    "name": "Chabad House of Ann Arbor",
+    "city": "Ann Arbor",
+    "link": "same",
+    "kmFromToday": 0.0,
+    "place": "same place"
+   },
+   "note": "Today 'Chabad House of Ann Arbor', same address."
+  },
+  {
+   "state": "US-MI",
+   "name": "Chabad Lubavitch of Grand Rapids",
+   "street": "1910 Michigan Ave., N.E.",
+   "city": "Grand Rapids",
+   "page": 46,
+   "lat": 42.96324,
+   "lon": -85.66786,
+   "located": "the town only (the address was not found)",
+   "today": {
+    "centerId": "118632",
+    "name": "Chabad House of Western Michigan",
+    "city": "Grand Rapids",
+    "link": "same",
+    "place": "not checked"
+   },
+   "note": "Today 'Chabad House of Western Michigan'."
+  },
+  {
+   "state": "US-MI",
+   "name": "Bais Chabad of W. Bloomfield",
+   "street": "5595 W. Maple Rd.",
+   "city": "West Bloomfield",
+   "page": 46,
+   "lat": 42.54298,
+   "lon": -83.35637,
+   "located": "the street address",
+   "today": {
+    "centerId": "117645",
+    "name": "Chabad Torah Center of West Bloomfield",
+    "city": "West Bloomfield",
+    "link": "same",
+    "kmFromToday": 0.08,
+    "place": "same place"
+   },
+   "note": "Today 'Chabad Torah Center of West Bloomfield', same address."
+  },
+  {
+   "state": "US-MI",
+   "name": "Bais Chabad of Farmington Hills",
+   "street": "32276 Tarenyton Ave.",
+   "city": "Farmington Hills",
+   "page": 46,
+   "lat": 42.48531,
+   "lon": -83.37716,
+   "located": "the town only (the address was not found)",
+   "today": {
+    "centerId": "117641",
+    "name": "Chabad House of Farmington Hills",
+    "city": "Farmington Hills",
+    "link": "same",
+    "place": "not checked"
+   }
+  },
+  {
+   "state": "US-MI",
+   "name": "Mishkan Israel Nusach H'ari Lubavitch Center",
+   "street": "14000 West Nine Mile Rd.",
+   "city": "Oak Park",
+   "page": 46,
+   "lat": 42.45953,
+   "lon": -83.18214,
+   "located": "the town only (the address was not found)",
+   "today": {
+    "centerId": "119458",
+    "name": "Congregation Mishkan Israel",
+    "city": "Oak Park",
+    "link": "same",
+    "place": "not checked"
+   },
+   "note": "Today 'Congregation Mishkan Israel', Oak Park."
+  },
+  {
+   "state": "US-MI",
+   "name": "Camp Gan Israel of Mid-West",
+   "street": "14000 West Nine Mile Road",
+   "city": "Oak Park",
+   "page": 46,
+   "lat": 42.45953,
+   "lon": -83.18214,
+   "located": "the town only (the address was not found)",
+   "today": null,
+   "note": "Its office was at the Michigan headquarters; the camp is not a separate listing today."
+  },
+  {
+   "state": "US-MN",
+   "name": "Chabad Lubavitch of Upper Mid-West",
+   "street": "15 Montcalm Ct.",
+   "city": "St. Paul",
+   "page": 46,
+   "lat": 44.91951,
+   "lon": -93.14937,
+   "located": "the street address",
+   "today": {
+    "centerId": "117647",
+    "name": "Upper Midwest Merkos - Lubavitch House",
+    "city": "West S. Paul",
+    "link": "same",
+    "kmFromToday": 4.98,
+    "place": "moved"
+   },
+   "note": "Today 'Upper Midwest Merkos - Lubavitch House' (Rabbi Moshe Feller)."
+  },
+  {
+   "state": "US-MN",
+   "name": "Lubavitch Day School",
+   "street": "1758 Ford Parkway",
+   "city": "St. Paul",
+   "page": 46,
+   "lat": 44.91761,
+   "lon": -93.17456,
+   "located": "the street address",
+   "today": null,
+   "note": "Not in today's directory."
+  },
+  {
+   "state": "US-MN",
+   "name": "Bais Chana School",
+   "street": "15 Montcalm Ct.",
+   "city": "St. Paul",
+   "page": 46,
+   "lat": 44.91951,
+   "lon": -93.14937,
+   "located": "the street address",
+   "today": null,
+   "note": "Not in today's directory (Bais Chana Women International is no separate listing)."
+  },
+  {
+   "state": "US-MO",
+   "name": "Chabad Lubavitch of Missouri, Regional Office",
+   "street": "8901 Holmes St.",
+   "city": "Kansas City",
+   "page": 46,
+   "lat": 39.25555,
+   "lon": -94.5715,
+   "located": "the street address",
+   "today": {
+    "centerId": "117620",
+    "name": "Chabad House Center of Kansas City",
+    "city": "Overland Park",
+    "link": "same",
+    "kmFromToday": 35.9,
+    "place": "moved"
+   },
+   "note": "Today 'Chabad House Center of Kansas City', in Overland Park."
+  },
+  {
+   "state": "US-MO",
+   "name": "Chabad House of St. Louis",
+   "street": "921 Gay St.",
+   "city": "University City",
+   "page": 46,
+   "lat": 38.66635,
+   "lon": -90.34594,
+   "located": "the street address",
+   "today": {
+    "centerId": "117648",
+    "name": "Chabad of Greater St. Louis Regional Headquarters",
+    "city": "St. Louis",
+    "link": "same",
+    "kmFromToday": 0.73,
+    "place": "moved"
+   },
+   "note": "Probably today's 'Chabad of Greater St. Louis Regional Headquarters'."
+  },
+  {
+   "state": "US-NJ",
+   "name": "Chabad Lubavitch of New Jersey, Regional Office, Rabbinical College",
+   "street": "226 Sussex Ave.",
+   "city": "Morristown",
+   "page": 46,
+   "lat": 40.80574,
+   "lon": -74.49902,
+   "located": "the street address",
+   "today": {
+    "centerId": "117657",
+    "name": "Lubavitch of New Jersey Regional Hdqts.",
+    "city": "Morristown",
+    "link": "same",
+    "kmFromToday": 0.04,
+    "place": "same place"
+   },
+   "note": "Today 'Lubavitch of New Jersey Regional Hdqts.' and the Rabbinical College, same address."
+  },
+  {
+   "state": "US-NJ",
+   "name": "Chabad Lubavitch of Highland Park",
+   "street": "307 South Second St.",
+   "city": "Highland Park",
+   "page": 46,
+   "lat": 40.49974,
+   "lon": -74.4262,
+   "located": "the town only (the address was not found)",
+   "today": null,
+   "note": "Not in today's directory under Highland Park, N.J."
+  },
+  {
+   "state": "US-NJ",
+   "name": "Friends of Lubavitch",
+   "street": "409 Grand Ave., #7",
+   "city": "Englewood",
+   "page": 46,
+   "lat": 40.88027,
+   "lon": -73.97924,
+   "located": "the street address",
+   "today": {
+    "centerId": "117660",
+    "name": "Friends of Lubavitch of Bergen County",
+    "city": "Teaneck",
+    "link": "same",
+    "kmFromToday": 4.15,
+    "place": "moved"
+   },
+   "note": "Today 'Friends of Lubavitch of Bergen County', in Teaneck."
+  },
+  {
+   "state": "US-NM",
+   "name": "Chabad Lubavitch of New Mexico",
+   "street": "4800 Eubank N.E.",
+   "city": "Albuquerque",
+   "page": 46,
+   "lat": 35.07933,
+   "lon": -106.53276,
+   "located": "the street address",
+   "today": {
+    "centerId": "117962",
+    "name": "Chabad of New Mexico",
+    "city": "Albuquerque",
+    "link": "successor"
+   },
+   "note": "Not the same organization: Chabad of New Mexico was set up by the Schmuklers in 1992. Rabbi Chaim Itche Drizin's 'Chabad Lubavitch of New Mexico' is not in today's directory."
+  },
+  {
+   "state": "US-NM",
+   "name": "Chabad House",
+   "street": "1801 Sigma Chi N.E.",
+   "city": "Albuquerque",
+   "page": 46,
+   "lat": 35.0841,
+   "lon": -106.65099,
+   "located": "the town only (the address was not found)",
+   "today": null,
+   "note": "The Chabad Jewish Student Center by UNM (Drizin's, opened Oct 1980): not in today's directory."
+  },
+  {
+   "state": "US-NY",
+   "name": "Kiryat Gan Israel",
+   "street": null,
+   "city": "New York",
+   "page": 46,
+   "lat": 40.71273,
+   "lon": -74.00602,
+   "located": "the town only (the address was not found)",
+   "today": {
+    "centerId": "119793",
+    "name": "Camp Gan Israel",
+    "city": "Parksville",
+    "link": "same",
+    "place": "not checked"
+   },
+   "note": "Kiryat Gan Israel: Camp Gan Israel, Parksville, N.Y."
+  },
+  {
+   "state": "US-NY",
+   "name": "Chabad Lubavitch of New York, State Capital",
+   "street": "122 South Main St.",
+   "city": "Albany",
+   "page": 46,
+   "lat": 42.65369,
+   "lon": -73.92898,
+   "located": "the street address",
+   "today": {
+    "centerId": "117663",
+    "name": "Chabad of the Capital District",
+    "city": "Albany",
+    "link": "same",
+    "kmFromToday": 11.08,
+    "place": "moved"
+   },
+   "note": "Today 'Chabad of the Capital District' (the Rubins)."
+  },
+  {
+   "state": "US-NY",
+   "name": "Chabad Lubavitch of Troy",
+   "street": "2306 15th Ave.",
+   "city": "Troy",
+   "page": 46,
+   "lat": 42.72841,
+   "lon": -73.69179,
+   "located": "the town only (the address was not found)",
+   "today": {
+    "centerId": "117698",
+    "name": "Troy Chabad Center",
+    "city": "Troy",
+    "link": "same",
+    "place": "not checked"
+   },
+   "note": "Today 'Troy Chabad Center'."
+  },
+  {
+   "state": "US-NY",
+   "name": "Chabad Lubavitch of Getzville",
+   "street": "2501 No. Forest Rd.",
+   "city": "Getzville",
+   "page": 46,
+   "lat": 43.02432,
+   "lon": -78.76783,
+   "located": "the town only (the address was not found)",
+   "today": {
+    "centerId": "117976",
+    "name": "Chabad House of Buffalo",
+    "city": "Getzville",
+    "link": "same",
+    "place": "not checked"
+   },
+   "note": "Today 'Chabad House of Buffalo', in Getzville."
+  },
+  {
+   "state": "US-NY",
+   "name": "Chabad House of Buffalo",
+   "street": "3292 Main St.",
+   "city": "Buffalo",
+   "page": 46,
+   "lat": 42.95342,
+   "lon": -78.82377,
+   "located": "the street address",
+   "today": null,
+   "note": "Not in today's directory; the name 'Chabad House of Buffalo' is today Getzville's (the entry above)."
+  },
+  {
+   "state": "US-NY",
+   "name": "Chabad House of Rochester",
+   "street": "36 Lattimore",
+   "city": "Rochester",
+   "page": 46,
+   "lat": 43.11885,
+   "lon": -77.62145,
+   "located": "the street address",
+   "today": null,
+   "note": "Not found; the nearest today is the University of Rochester's Rohr Chabad House."
+  },
+  {
+   "state": "US-NY",
+   "name": "Chabad House of Syracuse",
+   "street": "211 Lockwood Rd.",
+   "city": "Syracuse",
+   "page": 46,
+   "lat": 43.03867,
+   "lon": -76.08845,
+   "located": "the street address",
+   "today": {
+    "centerId": "117697",
+    "name": "Chabad-Lubavitch of Central New York",
+    "city": "Syracuse",
+    "link": "same",
+    "kmFromToday": 3.22,
+    "place": "moved"
+   },
+   "note": "Today 'Chabad-Lubavitch of Central New York'."
+  },
+  {
+   "state": "US-NC",
+   "name": "Chabad Lubavitch of North Carolina",
+   "street": "6500 New Hall Rd.",
+   "city": "Charlotte",
+   "page": 46,
+   "lat": 35.22721,
+   "lon": -80.84308,
+   "located": "the town only (the address was not found)",
+   "today": {
+    "centerId": "117649",
+    "name": "Chabad Center for Jewish Life",
+    "city": "Charlotte",
+    "link": "same",
+    "place": "not checked"
+   },
+   "note": "Today 'Chabad Center for Jewish Life', Charlotte (Rabbi Yossi Groner)."
+  },
+  {
+   "state": "US-OH",
+   "name": "Chabad Lubavitch of Cincinnati",
+   "street": "1636 Summit Rd.",
+   "city": "Cincinnati",
+   "page": 46,
+   "lat": 39.20265,
+   "lon": -84.45826,
+   "located": "the street address",
+   "today": {
+    "centerId": "117703",
+    "name": "Chabad Jewish Center",
+    "city": "Cincinnati",
+    "link": "same",
+    "kmFromToday": 5.56,
+    "place": "moved"
+   },
+   "note": "Today 'Chabad Jewish Center', Blue Ash (it moved from Summit Road)."
+  },
+  {
+   "state": "US-OH",
+   "name": "Chabad House of Cleveland",
+   "street": "2004 So. Green Rd.",
+   "city": "South Euclid",
+   "page": 47,
+   "lat": 41.50522,
+   "lon": -81.51955,
+   "located": "the street address",
+   "today": {
+    "centerId": "117708",
+    "name": "Chabad of Cleveland",
+    "city": "Cleveland",
+    "link": "same",
+    "kmFromToday": 1.54,
+    "place": "moved"
+   },
+   "note": "Today 'Chabad of Cleveland'."
+  },
+  {
+   "state": "US-OH",
+   "name": "House of Tradition",
+   "street": "57 East 14th Ave.",
+   "city": "Columbus",
+   "page": 47,
+   "lat": 39.99857,
+   "lon": -83.00614,
+   "located": "the street address",
+   "today": {
+    "centerId": "349392",
+    "name": "Schottenstein Chabad House",
+    "city": "Columbus",
+    "link": "successor"
+   },
+   "note": "Probably the Ohio State Chabad House of its day; today's is the Schottenstein Chabad House, 207 E. 15th Ave."
+  },
+  {
+   "state": "US-OR",
+   "name": "Chabad Lubavitch of Oregon",
+   "street": "2340 South West Vermont",
+   "city": "Portland",
+   "page": 47,
+   "lat": 45.52025,
+   "lon": -122.67419,
+   "located": "the town only (the address was not found)",
+   "today": {
+    "centerId": "118188",
+    "name": "Chabad Lubavitch of Oregon",
+    "city": "Portland",
+    "link": "same",
+    "place": "not checked"
+   }
+  },
+  {
+   "state": "US-PA",
+   "name": "Chabad Lubavitch of Pennsylvania: Lubavitch Center",
+   "street": "7622 Castor Ave.",
+   "city": "Philadelphia",
+   "page": 47,
+   "lat": 40.0568,
+   "lon": -75.06126,
+   "located": "the street address",
+   "today": {
+    "centerId": "117715",
+    "name": "Lubavitcher Center",
+    "city": "Philadelphia",
+    "link": "same",
+    "kmFromToday": 0.01,
+    "place": "same place"
+   },
+   "note": "Today 'Lubavitcher Center', same address (Avremel Shemtov's)."
+  },
+  {
+   "state": "US-PA",
+   "name": "Lubavitch House University City",
+   "street": "4032 Spruce St.",
+   "city": "Philadelphia",
+   "page": 47,
+   "lat": 39.95183,
+   "lon": -75.20445,
+   "located": "the street address",
+   "today": {
+    "centerId": "117716",
+    "name": "Lubavitch House of Philadelphia",
+    "city": "Philadelphia",
+    "link": "same",
+    "kmFromToday": 4.18,
+    "place": "moved"
+   },
+   "note": "Today 'Lubavitch House of Philadelphia'."
+  },
+  {
+   "state": "US-PA",
+   "name": "Yeshiva School for Boys",
+   "street": "2410 5th Ave.",
+   "city": "Pittsburgh",
+   "page": 47,
+   "lat": 40.4561,
+   "lon": -79.91017,
+   "located": "the street address",
+   "today": {
+    "centerId": "119653",
+    "name": "Yeshiva Schools",
+    "city": "Pittsburgh",
+    "link": "same",
+    "kmFromToday": 3.05,
+    "place": "moved"
+   },
+   "note": "Today the Yeshiva Schools (boys and girls together at 2100 Wightman St.)."
+  },
+  {
+   "state": "US-PA",
+   "name": "Yeshiva School for Girls",
+   "street": "2100 Wightman St.",
+   "city": "Pittsburgh",
+   "page": 47,
+   "lat": 40.43233,
+   "lon": -79.92782,
+   "located": "the street address",
+   "today": {
+    "centerId": "119653",
+    "name": "Yeshiva Schools",
+    "city": "Pittsburgh",
+    "link": "same",
+    "kmFromToday": 0.01,
+    "place": "same place"
+   },
+   "note": "Today the Yeshiva Schools, same address."
+  },
+  {
+   "state": "US-PA",
+   "name": "Chabad House of Pittsburgh",
+   "street": "315 So. Belfield Ave.",
+   "city": "Pittsburgh",
+   "page": 47,
+   "lat": 40.4407,
+   "lon": -80.00257,
+   "located": "the town only (the address was not found)",
+   "today": {
+    "centerId": "117720",
+    "name": "Chabad House on Campus - Pittsburgh",
+    "city": "Pittsburgh",
+    "link": "same",
+    "place": "not checked"
+   },
+   "note": "Probably today's 'Chabad House on Campus - Pittsburgh' (Bellefield Ave. is by the University of Pittsburgh)."
+  },
+  {
+   "state": "US-RI",
+   "name": "Chabad Lubavitch of Rhode Island",
+   "street": "48 Savoy St.",
+   "city": "Providence",
+   "page": 47,
+   "lat": 41.84419,
+   "lon": -71.39549,
+   "located": "the street address",
+   "today": {
+    "centerId": "117723",
+    "name": "Merkos - Chabad of Rhode Island / Chabad of Providence",
+    "city": "Providence",
+    "link": "same",
+    "kmFromToday": 1.04,
+    "place": "moved"
+   },
+   "note": "Today 'Merkos - Chabad of Rhode Island' (Rabbi Yehoshua Laufer), 360 Hope Street."
+  },
+  {
+   "state": "US-TN",
+   "name": "Chabad Lubavitch of Tennessee",
+   "street": "3730 Whitland Ave.",
+   "city": "Nashville",
+   "page": 47,
+   "lat": 36.1318,
+   "lon": -86.82938,
+   "located": "the street address",
+   "today": null,
+   "note": "Not in today's directory (Rabbi Zalman Posner's; today's Chabad of Nashville is a later centre)."
+  },
+  {
+   "state": "US-TX",
+   "name": "Chabad Lubavitch of Texas, Regional Office, Lubavitch Center",
+   "street": "10900 Fondren Rd.",
+   "city": "Houston",
+   "page": 47,
+   "lat": 29.66084,
+   "lon": -95.5089,
+   "located": "the street address",
+   "today": {
+    "centerId": "117731",
+    "name": "Chabad Lubavitch Center Regional Hdqts.",
+    "city": "Houston",
+    "link": "same",
+    "kmFromToday": 0.06,
+    "place": "same place"
+   },
+   "note": "Today 'Chabad Lubavitch Center Regional Hdqts.', same address."
+  },
+  {
+   "state": "US-TX",
+   "name": "Chabad House",
+   "street": "2101 Nueces",
+   "city": "Austin",
+   "page": 47,
+   "lat": 30.28415,
+   "lon": -97.74376,
+   "located": "the street address",
+   "today": {
+    "centerId": "536472",
+    "name": "The Igor Tulchinsky Chabad Campus at the University of Texas at Austin",
+    "city": "Austin",
+    "link": "same",
+    "kmFromToday": 0.0,
+    "place": "same place"
+   },
+   "note": "The Chabad House by the University of Texas: today the Igor Tulchinsky Chabad Campus at the University of Texas, same address."
+  },
+  {
+   "state": "US-VT",
+   "name": "Chabad of Vermont",
+   "street": "5 Hickok Place",
+   "city": "Burlington",
+   "page": 47,
+   "lat": 44.48131,
+   "lon": -73.20908,
+   "located": "the street address",
+   "today": {
+    "centerId": "117736",
+    "name": "Chabad of Vermont",
+    "city": "Burlington",
+    "link": "same",
+    "kmFromToday": 0.5,
+    "place": "moved"
+   }
+  },
+  {
+   "state": "US-VA",
+   "name": "Chabad Lubavitch of Virginia",
+   "street": "372 So. Independence, Suite 111",
+   "city": "Virginia Beach",
+   "page": 47,
+   "lat": 36.82921,
+   "lon": -76.13523,
+   "located": "the street address",
+   "today": {
+    "centerId": "117735",
+    "name": "Chabad Lubavitch of Tidewater",
+    "city": "Norfolk",
+    "link": "same",
+    "kmFromToday": 15.04,
+    "place": "moved"
+   },
+   "note": "Today 'Chabad Lubavitch of Tidewater' (the Margolins), listed in Norfolk."
+  },
+  {
+   "state": "US-VA",
+   "name": "Chabad Lubavitch of Fairfax",
+   "street": "3924 Persimmon Dr.",
+   "city": "Fairfax",
+   "page": 47,
+   "lat": 38.84311,
+   "lon": -77.26872,
+   "located": "the street address",
+   "today": {
+    "centerId": "117733",
+    "name": "Chabad Lubavitch of Northern Virginia",
+    "city": "Fairfax",
+    "link": "same",
+    "kmFromToday": 0.71,
+    "place": "moved"
+   },
+   "note": "Today 'Chabad Lubavitch of Northern Virginia', Fairfax."
+  },
+  {
+   "state": "US-VA",
+   "name": "Chabad Lubavitch of Richmond",
+   "street": "212 Gaskins Rd.",
+   "city": "Richmond",
+   "page": 47,
+   "lat": 37.53851,
+   "lon": -77.43428,
+   "located": "the town only (the address was not found)",
+   "today": {
+    "centerId": "117734",
+    "name": "Chabad of Virginia",
+    "city": "Richmond",
+    "link": "same",
+    "place": "same place"
+   },
+   "note": "Today 'Chabad of Virginia', still at 212 Gaskins Road (data/founding-years.json)."
+  },
+  {
+   "state": "US-WA",
+   "name": "Chabad Lubavitch of Washington",
+   "street": "4541 19th Ave., N.E.",
+   "city": "Seattle",
+   "page": 47,
+   "lat": 47.60383,
+   "lon": -122.33006,
+   "located": "the town only (the address was not found)",
+   "today": {
+    "centerId": "117737",
+    "name": "Regional Offices of Chabad-Lubavitch of the Pacific Northwest & Seattle",
+    "city": "Seattle",
+    "link": "same",
+    "place": "not checked"
+   },
+   "note": "Today the 'Regional Offices of Chabad-Lubavitch of the Pacific Northwest & Seattle'."
+  },
+  {
+   "state": "US-WA",
+   "name": "Yeshivah Gedolah",
+   "street": "5220 20th Ave., N.E.",
+   "city": "Seattle",
+   "page": 47,
+   "lat": 47.60383,
+   "lon": -122.33006,
+   "located": "the town only (the address was not found)",
+   "today": {
+    "centerId": "118400",
+    "name": "Cong. Shaarei Tefilah - Lubavitch",
+    "city": "Seattle",
+    "link": "building"
+   },
+   "note": "The yeshiva is not in today's directory; its building, 5220 20th Ave N.E., is today's Congregation Shaarei Tefilah - Lubavitch."
+  },
+  {
+   "state": "US-WI",
+   "name": "Chabad Lubavitch of Wisconsin",
+   "street": "3109 No. Lake Drive",
+   "city": "Milwaukee",
+   "page": 47,
+   "lat": 43.07499,
+   "lon": -87.87253,
+   "located": "the street address",
+   "today": {
+    "centerId": "117740",
+    "name": "Lubavitch of Wisconsin",
+    "city": "Milwaukee",
+    "link": "same",
+    "kmFromToday": 0.0,
+    "place": "same place"
+   },
+   "note": "Today 'Lubavitch of Wisconsin', same address."
+  },
+  {
+   "state": "US-WI",
+   "name": "Chabad Lubavitch of Madison",
+   "street": "613 Howard Place",
+   "city": "Madison",
+   "page": 47,
+   "lat": 43.07619,
+   "lon": -89.39388,
+   "located": "the street address",
+   "today": {
+    "centerId": "304247",
+    "name": "Chabad at the University of Wisconsin",
+    "city": "Madison",
+    "link": "same",
+    "kmFromToday": 0.16,
+    "place": "same place"
+   },
+   "note": "Today 'Chabad at the University of Wisconsin', same address."
+  },
+  {
+   "state": "US-WI",
+   "name": "Maon Yeladim School",
+   "street": "3802 Regent St.",
+   "city": "Madison",
+   "page": 47,
+   "lat": 43.06809,
+   "lon": -89.43878,
+   "located": "the street address",
+   "today": null,
+   "note": "Not in today's directory."
+  }
+ ]
+}

@@ -46,6 +46,13 @@ Quad Cities follow), **New Mexico its own and covering a neighbour** (Chabad Lub
 UNM Chabad House; was 1992). Agreeing with the data already in: Idaho, Montana, Wyoming (Levitin), West Virginia
 (Kranz), South Carolina (Groner), Delaware (Avremel Shemtov), Oregon its own.
 
+**Its list as data: `data/centers-1984.json`** (Nov 9; owner: "that file or whatever needs to become data with addresses"):
+the 105 entries read from the page images, geocoded, each linked to today's centre where it is the same institution.
+81 are the same institution today (32 at the same place, the rest moved or renamed), 5 are a successor or a later
+institution in the same building, and 19 are not in today's directory (Anaheim, Santa Barbara, the Kendale Lakes and
+Hollywood synagogues, Albuquerque's two, Highland Park N.J., Buffalo's Main Street house, Rochester, Rockville, Drizin's
+New Mexico, Posner's Tennessee ...). It does not cover metropolitan New York or Canada.
+
 **Settled after the owner's answers (Nov 8; "you're the one who made the timeline ... you should know"):**
 - **Utah: the West Coast's from Nov 1976** (Deseret News, 10 Nov 1976: a University of Utah workshop "Sponsored by the
   Lubavitcher Chabad ... will feature Rabbis Abraham [Levitansky] from Santa Monica, Calif., and C. Engel, from Long

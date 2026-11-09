@@ -877,9 +877,9 @@
       "quote": "On December 7, 1941, in the shadow of Pearl Harbor, the Frierdiker Rebbe dispatched Rabbi Altein to Pittsburgh “to learn Torah and create activities among the youth.” ... By summer, Rabbi Mordechai Dov Altein had started Yeshiva Achei T’mimim, the first Lubavitch yeshiva in America outside of New York."
      }
     ],
-    "note": "Sent by the Frierdiker Rebbe (Toldos Chabad B'artzos Habris and his letters of 5702, as the Chronicle's author read them); he stayed as principal till summer 1944, then went to New Haven. The Derens came in 1942 (COLlive). Not a head shliach: a young shliach of the Frierdiker Rebbe sent 'to learn Torah and create activities among the youth'; he began the afterschool program and the yeshiva. Owner, Nov 9: \"someone was not a head shliach. The guy was running a yeshiva, the Kramer guy, right? That's not a head shliach\". Owner, Nov 9 (later): \"I was wrong about the kevutza thing it was indeed just that dude\" (shown for a while as a kevutzah of three bochurim).",
-    "role": "Shliach",
-    "roleHe": "שליח"
+    "note": "Sent by the Frierdiker Rebbe (Toldos Chabad B'artzos Habris and his letters of 5702, as the Chronicle's author read them); he stayed as principal till summer 1944, then went to New Haven. The Derens came in 1942 (COLlive). Not a head shliach: a young shliach of the Frierdiker Rebbe sent 'to learn Torah and create activities among the youth'; he began the afterschool program and the yeshiva. Owner, Nov 9: \"someone was not a head shliach. The guy was running a yeshiva, the Kramer guy, right? That's not a head shliach\". Owner, Nov 9 (later): \"I was wrong about the kevutza thing it was indeed just that dude\" (shown for a while as a kevutzah of three bochurim). Owner, Nov 9 (later): \"Yeshiva founder ig not shliach for sure\".",
+    "role": "Yeshiva founder",
+    "roleHe": "מייסד הישיבה"
    },
    {
     "head": "Sholom Posner",
@@ -1221,25 +1221,20 @@
   "CA-QC:quebec": [
    {
     "shetach": "quebec",
-    "from": "1941-10",
-    "how": "stated",
-    "confidence": "high",
+    "how": "owner",
     "sources": [
      {
-      "url": "https://anash.org/montreal-yeshiva-celebrates-80-years/",
-      "title": "Montreal Yeshiva Celebrates 80 Years (Anash.org)",
-      "date": "2021-10-10",
-      "quote": "The anash community of Montreal gathered with the bochurim of Yeshivas Tomchei Tmimim Montreal on Motzei Shabbos for a special farbrengen marking 80 years since the Yeshiva's establishment in 5702."
-     },
-     {
-      "url": "https://www.lubavitch.com/founder-of-chabad-institutions-in-canada-94/",
-      "title": "Founder of Chabad Institutions in Canada, 94 (Lubavitch.com)",
-      "date": "2010-04-07",
-      "quote": "He was then sent from Shanghai as an emissary by the previous Lubavitcher Rebbe to Montreal.",
-      "note": "Rabbi Moshe Eliyahu Gerlitzky, 'one of the founders of the Rabbinical College of Canada and Chabad in Canada'"
+      "url": "https://chabadpedia.com/index.php/Shalom_Dovber_(Berel)_Mochkin",
+      "title": "Shalom Dovber (Berel) Mochkin (Chabadpedia)",
+      "quote": "In 5712/1952, his family moved to Montreal, Canada. In 5719/1959, together with Rabbi Reuven Tzvi Yehuda Feigelstock, he established Camp Gan Israel in Montreal. ... He was appointed by the Rebbe as a shliach in Montreal.",
+      "note": "a wiki, read through Firecrawl"
      }
     ],
-    "note": "Chabadpedia: the Frierdiker Rebbe founded the yeshiva on 3 Cheshvan 5702 (24 Oct 1941), the day after the nine students from Shanghai arrived."
+    "note": "Owner, Nov 9: \"for now start it with Mochkin and posner respectively ig. But before them - definetely not the whole state\": the area starts with Rabbi Berel Mochkin, shown from 1952 (when his family moved to Montreal, the earliest he could have been head; when he became head is not found). Before that there was the Montreal yeshiva (from 24 Oct 1941), not a region; it shows as its dot. Was: from Oct 1941 (the yeshiva).",
+    "from": null,
+    "fromBound": {
+     "after": "1952"
+    }
    }
   ],
   "CA-SK:manitoba-saskatchewan": [
@@ -2602,23 +2597,24 @@
   "US-PA:western-pennsylvania": [
    {
     "shetach": "western-pennsylvania",
-    "from": "1941",
-    "how": "stated",
-    "confidence": "medium",
+    "from": "1943",
+    "how": "owner",
+    "confidence": "high",
     "sources": [
      {
-      "url": "https://www.yeshivaschools.com/mission/",
-      "title": "Mission & History (Yeshiva Schools of Pittsburgh)",
-      "quote": "Yeshiva Schools began in 1941 under the leadership of Rabbi Yosef Yitzchak Schneerson, the sixth Lubavitcher Rebbe. The Previous Rebbe personally sent Rabbi Mordechai Dov Altein to begin an after school program in the city, among other initiatives."
+      "url": "https://jewishchronicle.timesofisrael.com/a-postcard-from-the-early-days-of-yeshiva-schools/",
+      "title": "A postcard from the early days of Yeshiva Schools (Pittsburgh Jewish Chronicle)",
+      "date": "2020-01-09",
+      "quote": "Rabbi Sholom Posner arrived in Pittsburgh in the summer of 1943. He turned Yeshiva Achei T’mimim into the parochial school it is today"
      },
      {
-      "url": "https://collive.com/the-rebbes-child/",
-      "title": "The Rebbe's Child (Rabbi Yisrael and Vivi Deren; COLlive)",
-      "date": "2024-05-24",
-      "quote": "My grandparents, Rabbi Yechezkel and Heny Deren AH, were sent to Pittsburgh by the Frierdiker Rebbe in 1942. There, they opened the first Jewish day school of its kind in the country."
+      "url": "https://www.academia.edu/40639749/RIGHTEOUS_LIVES_THE_STORY_OF_RABBI_SHOLOM_AND_REBBETZIN_CHAYA_POSNER_AND_THE_YESHIVA_SCHOOLS",
+      "title": "Righteous Lives: The Story of Rabbi Sholom and Rebbetzin Chaya Posner and the Yeshiva Schools",
+      "quote": "In 1943, the Rebbe sent Rabbi Posner to start Yeshiva Achie Temimim.",
+      "note": "search excerpt"
      }
     ],
-    "note": "1941 by the school's own history (Rabbi Mordechai Dov Altein, sent by the Frierdiker Rebbe); the Derens came in 1942 (COLlive) and Rabbi Sholom Posner in 5703 (1943, Chabadpedia): medium, sources a year apart. Chabadpedia: the Frierdiker Rebbe sent Rabbi Sholom Posner to Pittsburgh in 5703 (1943) to set up a branch of Tomchei Tmimim. West Virginia joined after Sept 2007 (US-WV:western-pennsylvania)."
+    "note": "Owner, Nov 9: \"for now start it with Mochkin and posner respectively ig. But before them - definetely not the whole state\": the area starts with Rabbi Sholom Posner (summer 1943). Before that (Altein's afterschool programme from Dec 1941 and the yeshiva by summer 1942) there was only the Pittsburgh yeshiva, not a region; it shows as its dot. Was: from 1941 (the school's own history), with the Derens from 1942 (COLlive). West Virginia joined after Sept 2007 (US-WV:western-pennsylvania)."
    }
   ],
   "US-RI:rhode-island": [

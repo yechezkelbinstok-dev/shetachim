@@ -285,8 +285,8 @@ thirteen no better recent photo has been found yet (the list is there, with what
     1960s and 1970s ones are undated in chabad.org's gallery and placed by the beard. Sources and crops in
     data/rebbeim-portraits.json; `agedPic` in web/history.html. JEM's photo archive (photos.jemedia.org) has dated
     portraits but its galleries need a sign-in and its event photos carry a big centre watermark: not used. The
-    Frierdiker Rebbe: no colourised photograph found (COLlive's and the others are paintings), so his stays the
-    black-and-white photograph; if the owner wants a painting instead, ask first.
+    Frierdiker Rebbe's is now the colourised version of the same photograph, from the Chabad Tel Aviv page the owner
+    sent (chabadtlv.org, Frierdiger_Rebbe-color-Medium.jpg); shared with the main map.
   - **Nov 9: Tzach on the history page as on the main map.** Greater New York's head (Tzach) shows as "Leadership" /
     "הנהלה" with its name in Hebrew (צעירי אגודת חב״ד), not "שליח ראשי: Tzach" (owner, angry: "WHY ... IS TZACH SHLIACH
     ROSHI AND NOT LIKE HOW IT IS BY THE MAIN SHETACHIM AND WHY ... IS IT IN ENGLISH"). The head entry has `org: true`,

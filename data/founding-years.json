@@ -21266,12 +21266,11 @@
    "name": "Coolidge Corner Chabad Chai Center",
    "city": "Brookline, MA",
    "shetach": "eastern-massachusetts",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2005,
-   "source": "https://www.chabad.org/api/content/259795/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2005-02-15, so it existed by then. Director: Mayshe Schwartz."
+   "year": 2005,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://www.lubavitch.com/new-chabad-centers-in-mass/",
+   "note": "Lubavitch.com, 26 Jan 2005 ('New Chabad Centers in Mass.'): Rabbi Yehuda Krinsky 'has announced the opening of two new Chabad-Lubavitch centers in the Boston area': Coolidge Corner in Brookline, directed by Rabbi and Mrs. Mayshe Schwartz. Its chabad.org listing went up in Feb 2005."
   },
   "7396864": {
    "name": "YJP Boston",
@@ -21343,12 +21342,12 @@
    "name": "Chabad Serving Tufts University",
    "city": "Somerville, MA",
    "shetach": "eastern-massachusetts",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/118574/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Lead, not checked: the Tufts Daily (Dec 2003) already has Rabbi Tzvi Backman heading the Chabad House. Director: Tzvi H. Backman."
+   "year": 2002,
+   "how": "news",
+   "confidence": "medium",
+   "source": "https://www.tuftsdaily.com/article/2003/12/and-you-thought-kaballah-was-the-only-game-in-town",
+   "note": "The Tufts Daily, Dec 2003: 'The Chabad House arrived on campus last fall' (fall 2002), with Rabbi Tzvi Backman, 'who heads the Chabad House'. The Tufts Daily (Oct 2013): the Backmans started it after a recommendation from Rabbi Hirschy Zarchi of Harvard's Chabad. Medium: one source, and 'last fall' is relative. (Tufts's student government recognized Chabad in May 2005, the Forward reported.)",
+   "season": "fall"
   },
   "119717": {
    "name": "Lubavitch Pre-School",
@@ -21376,12 +21375,11 @@
    "name": "Chabad of Newton Centre",
    "city": "Newton Centre, MA",
    "shetach": "eastern-massachusetts",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2005,
-   "source": "https://www.chabad.org/api/content/259213/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2005-02-07, so it existed by then. Director: Moshe Lieberman."
+   "year": 2005,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://www.lubavitch.com/new-chabad-centers-in-mass/",
+   "note": "Lubavitch.com, 26 Jan 2005 ('New Chabad Centers in Mass.'): Rabbi Yehuda Krinsky 'has announced the opening of two new Chabad-Lubavitch centers in the Boston area': Newton Center, directed by Rabbi and Mrs. Moshe Lieberman. Its chabad.org listing went up in Feb 2005."
   },
   "278349": {
    "name": "Chabad Shul of Brighton",
@@ -21519,12 +21517,11 @@
    "name": "Chabad of Watertown",
    "city": "Watertown, MA",
    "shetach": "eastern-massachusetts",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2025,
-   "source": "https://www.chabad.org/api/content/5105754/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2025-04-08, so it existed by then. Director: Dovid Zaltzman."
+   "year": 2021,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/chabad-news/743848/new-shluchim-empowered-and-inspired-at-yesodos-leshlichus-seminar/",
+   "note": "CrownHeights.info, 26 Aug 2021: Rabbi Dovid Zaltzman, 'a new Shliach to Watertown, MA'. Its chabad.org listing's publication date is 8 Apr 2025, but its number (5105754) is from the same series as listings made in spring 2021 (5103013, North Seattle, went up 25 Apr 2021), so it was first made then."
   },
   "6277702": {
    "name": "Cambridge Preschool of the Arts - Somerville",
@@ -21541,12 +21538,11 @@
    "name": "Chabad West Serving Boston University",
    "city": "Brookline, MA",
    "shetach": "eastern-massachusetts",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2024,
-   "source": "https://www.chabad.org/api/content/6539621/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2024-08-05, so it existed by then. Director: Yisroel Posner."
+   "year": 2024,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/chabad-news/889580/chabad-responds-to-tragedy-by-expanding-global-outreach-100-new-centers-to-be-established/",
+   "note": "CrownHeights.info, 4 Dec 2024, on seed funding for 'one hundred new Chabad centers in underserved areas', shows 'Rabbi Yisroel and Zelda Posner at Chabad West Serving Boston University'. Its chabad.org listing went up 5 Aug 2024."
   },
   "6929032": {
    "name": "YJP of the South Shore",

@@ -18,7 +18,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | colorado | 23 | 4 | 7 |  | 12 |  |  | 12 | 21 | 11 |
 | connecticut | 33 | 6 | 10 |  | 17 |  |  | 17 | 32 | 17 |
 | delaware | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
-| eastern-massachusetts | 35 | 2 | 5 |  | 28 |  |  | 28 | 32 | 26 |
+| eastern-massachusetts | 35 | 6 | 6 |  | 23 |  |  | 23 | 32 | 21 |
 | eastern-new-york | 50 | 3 | 9 |  | 38 |  |  | 38 | 47 | 35 |
 | florida | 240 | 136 | 21 |  | 46 | 37 |  | 83 | 219 | 69 |
 | georgia | 27 | 18 | 5 |  | 4 |  |  | 4 | 24 | 2 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | wisconsin | 23 | 9 | 5 |  | 9 |  |  | 9 | 20 | 6 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | crown-heights | 48 |  |  |  |  |  | 48 | 48 | 24 | 24 |
-| **all** | 1969 | 862 | 334 | 2 | 663 | 48 | 60 | 771 | 1765 | 611 |
+| **all** | 1969 | 866 | 335 | 2 | 658 | 48 | 60 | 766 | 1765 | 606 |

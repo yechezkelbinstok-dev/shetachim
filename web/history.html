@@ -876,7 +876,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   // only for the one that is still the flagship
   const isNow = (sid, f) => { const list = (hist.flagships || {})[sid] || []; return !!f && !!f.centerId && list[list.length - 1] === f; };
   const flagName = (sid, f) => { const c = isNow(sid, f) && centerOf(f); return c ? cName(c) : (HE && f.nameHe) || f.name || f.where; };
-  const flagCity = (sid, f) => { const c = isNow(sid, f) && centerOf(f), city = c ? c.city : f.city; return city ? (HE && he && he.cities && he.cities[city]) || city : ''; };
+  const flagCity = (sid, f) => { const c = isNow(sid, f) && centerOf(f), city = c ? c.city : f.city; return city ? (HE && ((!c && f.cityHe) || (he && he.cities && he.cities[city]))) || city : ''; };
   const yearsOf = (from, to) => (from == null ? '' : to != null ? `${yearText(from)}–${yearText(to)}` : L(`Since ${yearText(from)}`, `מאז ${yearText(from)}`));
   const ccHead = ({ t, kick = '', title, sub = '', big = false, act = '' }) => `<header class="cc-head" style="--t:${t}"><div class="cc-htext">${kick}<h2 class="cc-title${big ? ' big' : ''}">${title}</h2>${
     act ? `<div class="cc-subrow">${sub ? `<p class="cc-sub">${sub}</p>` : ''}${act}</div>` : sub ? `<p class="cc-sub">${sub}</p>` : ''}</div></header>`;

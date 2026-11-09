@@ -291,7 +291,7 @@ thirteen no better recent photo has been found yet (the list is there, with what
        Check each against its area's source that it names that man as head from that date; fix any that don't.
     5. **Done Nov 9:** their own areas from Jan 1995 (the Feldmans 'settled in Halifax ... as Shluchim to the Maritime provinces', its About page). Was: **New Brunswick and Prince Edward Island** take Nova Scotia's Maritimes history (Feldman, 1995) with no source
        of their own (P in history.html borrows it): find since when they were his, or leave them blank.
-    6. Hebrew names for the flagships (`nameHe`): none yet; the page shows the English name in Hebrew for past ones.
+    6. **Done Nov 9** (`nameHe` on the 18 past flagships, `cityHe` where he.json has no town; the page uses them). Was: Hebrew names for the flagships (`nameHe`): none yet; the page shows the English name in Hebrew for past ones.
     7. Florida's 2023 vaad and New Jersey's: Simon's one-year term (June 2025) may have ended: check. (Nov 9: no change reported for either; Simon kept, as the main map has him.)
     Test with the Playwright scripts in the scratchpad pattern (quick.js: groups per year, no page errors).
     Next: past heads' photos, the flagships still

@@ -3220,6 +3220,520 @@
     "name": "Chabad Lubavitch of Connecticut & Western Massachusetts",
     "city": "Stamford"
    }
+  ],
+  "alabama": [
+   {
+    "from": "1982",
+    "where": "Chabad of Alabama, Birmingham",
+    "centerId": "117538",
+    "lat": 33.46848,
+    "lon": -86.73954,
+    "name": "Chabad of Alabama",
+    "city": "Birmingham",
+    "via": "data/founding-years.json, 117538"
+   }
+  ],
+  "alaska": [
+   {
+    "from": "1991",
+    "where": "Lubavitch Jewish Center of Alaska, Anchorage",
+    "centerId": "117927",
+    "lat": 61.18982,
+    "lon": -149.86103,
+    "name": "Lubavitch Jewish Center of Alaska",
+    "city": "Anchorage",
+    "via": "data/founding-years.json, 117927"
+   }
+  ],
+  "alberta": [
+   {
+    "from": "1988",
+    "where": "Chabad Lubavitch of Alberta, Calgary",
+    "centerId": "117787",
+    "lat": 50.99347,
+    "lon": -114.06125,
+    "name": "Chabad Lubavitch of Alberta",
+    "city": "Calgary",
+    "via": "data/founding-years.json, 117787"
+   }
+  ],
+  "arkansas": [
+   {
+    "from": "1992",
+    "where": "Lubavitch of Arkansas, Little Rock",
+    "centerId": "117902",
+    "lat": 34.79204,
+    "lon": -92.40462,
+    "name": "Lubavitch of Arkansas",
+    "city": "Little Rock",
+    "via": "data/founding-years.json, 117902"
+   }
+  ],
+  "british-columbia": [
+   {
+    "from": "1974-11",
+    "where": "Chabad-Lubavitch of British Columbia, Vancouver",
+    "centerId": "117788",
+    "lat": 49.23361,
+    "lon": -123.12765,
+    "name": "Chabad-Lubavitch of British Columbia",
+    "city": "Vancouver",
+    "via": "data/founding-years.json, 117788"
+   }
+  ],
+  "central-massachusetts": [
+   {
+    "from": "1942-06",
+    "where": "Chabad Lubavitch of Central Massachusetts, Worcester",
+    "centerId": "117633",
+    "lat": 42.27184,
+    "lon": -71.82396,
+    "name": "Chabad Lubavitch of Central Massachusetts",
+    "city": "Worcester",
+    "via": "data/founding-years.json, 117633",
+    "note": "About 1984: 'Yeshiva Achei Tmimim, 22 Newton Ave., Worcester' (AFL list). Moves within a city whose dates are not known are left out."
+   }
+  ],
+  "delaware": [
+   {
+    "from": "1987",
+    "where": "Chabad Lubavitch of Delaware, Wilmington",
+    "centerId": "117586",
+    "lat": 39.79836,
+    "lon": -75.49719,
+    "name": "Chabad Lubavitch of Delaware",
+    "city": "Wilmington",
+    "via": "data/founding-years.json, 117586"
+   }
+  ],
+  "florida": [
+   {
+    "from": "1960",
+    "where": "Merkos Lubavitch of Florida, Miami Beach",
+    "centerId": "117598",
+    "lat": 25.78242,
+    "lon": -80.14142,
+    "name": "Merkos Lubavitch of Florida",
+    "city": "Miami Beach",
+    "via": "data/founding-years.json, 117598",
+    "note": "About 1984: 'Chabad Lubavitch of Florida, Regional Office, 1140 Alton Rd., Miami Beach' (AFL list). Moves within a city whose dates are not known are left out."
+   }
+  ],
+  "georgia": [
+   {
+    "from": "1984",
+    "where": "Chabad Lubavitch of Georgia, Atlanta",
+    "centerId": "117607",
+    "lat": 33.89273,
+    "lon": -84.36682,
+    "name": "Chabad Lubavitch of Georgia",
+    "city": "Atlanta",
+    "via": "data/founding-years.json, 117607",
+    "note": "About 1984: 'Chabad of Georgia, 6520 Roswell Rd., Atlanta' (AFL list). Moves within a city whose dates are not known are left out."
+   }
+  ],
+  "hawaii": [
+   {
+    "from": "1987-08",
+    "where": "Chabad of Hawaii, Honolulu",
+    "centerId": "117608",
+    "lat": 21.28808,
+    "lon": -157.82947,
+    "name": "Chabad of Hawaii",
+    "city": "Honolulu",
+    "via": "data/founding-years.json, 117608"
+   }
+  ],
+  "idaho": [
+   {
+    "from": "2004-04",
+    "where": "Chabad Lubavitch of Idaho, Boise",
+    "centerId": "118662",
+    "lat": 43.58768,
+    "lon": -116.29468,
+    "name": "Chabad Lubavitch of Idaho",
+    "city": "Boise",
+    "via": "data/founding-years.json, 118662"
+   }
+  ],
+  "louisiana-mississippi": [
+   {
+    "from": "1975-11",
+    "where": "Chabad-Lubavitch of Louisiana, New Orleans",
+    "centerId": "117623",
+    "lat": 29.94009,
+    "lon": -90.12296,
+    "name": "Chabad-Lubavitch of Louisiana",
+    "city": "New Orleans",
+    "via": "data/founding-years.json, 117623",
+    "note": "About 1984: 'Chabad Lubavitch of Louisiana, 7037 Farret St., New Orleans' (AFL list). Moves within a city whose dates are not known are left out."
+   }
+  ],
+  "maine": [
+   {
+    "from": "1987",
+    "where": "Chabad Lubavitch of Maine, Portland",
+    "centerId": "117638",
+    "lat": 43.66433,
+    "lon": -70.30165,
+    "name": "Chabad Lubavitch of Maine",
+    "city": "Portland",
+    "via": "data/founding-years.json, 117638"
+   }
+  ],
+  "manitoba-saskatchewan": [
+   {
+    "from": "1972",
+    "where": "Chabad-Lubavitch of Winnipeg, Winnipeg",
+    "centerId": "117789",
+    "lat": 49.85412,
+    "lon": -97.20307,
+    "name": "Chabad-Lubavitch of Winnipeg",
+    "city": "Winnipeg",
+    "via": "data/founding-years.json, 117789"
+   }
+  ],
+  "maritimes": [
+   {
+    "from": "1995",
+    "where": "Chabad-Lubavitch of the Maritimes, Halifax",
+    "centerId": "117790",
+    "lat": 44.63556,
+    "lon": -63.58701,
+    "name": "Chabad-Lubavitch of the Maritimes",
+    "city": "Halifax",
+    "via": "data/founding-years.json, 117790"
+   }
+  ],
+  "montana": [
+   {
+    "from": "2007",
+    "where": "Chabad-Lubavitch of Montana, Bozeman",
+    "centerId": "486805",
+    "lat": 45.6714,
+    "lon": -111.0133,
+    "name": "Chabad-Lubavitch of Montana",
+    "city": "Bozeman",
+    "via": "data/founding-years.json, 486805"
+   }
+  ],
+  "nebraska": [
+   {
+    "from": "1986",
+    "where": "Chabad-Lubavitch of Nebraska, Omaha",
+    "centerId": "117651",
+    "lat": 41.24068,
+    "lon": -96.10118,
+    "name": "Chabad-Lubavitch of Nebraska",
+    "city": "Omaha",
+    "via": "data/founding-years.json, 117651"
+   }
+  ],
+  "new-hampshire": [
+   {
+    "from": "1989",
+    "where": "Chabad of New Hampshire, Manchester",
+    "centerId": "117652",
+    "lat": 43.02421,
+    "lon": -71.47038,
+    "name": "Chabad of New Hampshire",
+    "city": "Manchester",
+    "via": "data/founding-years.json, 117652"
+   }
+  ],
+  "new-mexico": [
+   {
+    "from": "1992",
+    "where": "Chabad of New Mexico, Albuquerque",
+    "centerId": "117962",
+    "lat": 35.13012,
+    "lon": -106.57722,
+    "name": "Chabad of New Mexico",
+    "city": "Albuquerque",
+    "via": "data/founding-years.json, 117962"
+   }
+  ],
+  "newfoundland-and-labrador": [
+   {
+    "from": "2017-02",
+    "where": "Chabad of Newfoundland, St. John's",
+    "centerId": "3610901",
+    "lat": 47.57949,
+    "lon": -52.72506,
+    "name": "Chabad of Newfoundland",
+    "city": "St. John's",
+    "via": "data/founding-years.json, 3610901"
+   }
+  ],
+  "northeast-ohio": [
+   {
+    "from": "1972",
+    "where": "Chabad of Cleveland, Cleveland",
+    "centerId": "117708",
+    "lat": 41.49162,
+    "lon": -81.51632,
+    "name": "Chabad of Cleveland",
+    "city": "Cleveland",
+    "via": "data/founding-years.json, 117708",
+    "note": "About 1984: 'Chabad House of Cleveland, 2004 So. Green Rd., South Euclid' (AFL list). Moves within a city whose dates are not known are left out."
+   }
+  ],
+  "oklahoma": [
+   {
+    "from": "1987-04",
+    "where": "Chabad House Lubavitch, Tulsa",
+    "centerId": "117712",
+    "lat": 36.06703,
+    "lon": -95.96725,
+    "name": "Chabad House Lubavitch",
+    "city": "Tulsa",
+    "via": "data/founding-years.json, 117712"
+   }
+  ],
+  "ottawa": [
+   {
+    "from": "1977",
+    "where": "Chabad Lubavitch of Ottawa, Ottawa",
+    "centerId": "119209",
+    "lat": 45.37894,
+    "lon": -75.74195,
+    "name": "Chabad Lubavitch of Ottawa",
+    "city": "Ottawa",
+    "via": "data/founding-years.json, 119209"
+   }
+  ],
+  "pennsylvania": [
+   {
+    "from": "1961",
+    "where": "Lubavitcher Center, Philadelphia",
+    "centerId": "117715",
+    "lat": 40.05673,
+    "lon": -75.06133,
+    "name": "Lubavitcher Center",
+    "city": "Philadelphia",
+    "via": "data/founding-years.json, 117715",
+    "note": "About 1984: 'Lubavitch Center, 7622 Castor Ave., Philadelphia' (AFL list). Moves within a city whose dates are not known are left out."
+   }
+  ],
+  "rhode-island": [
+   {
+    "from": "1979",
+    "where": "Merkos - Chabad of Rhode Island / Chabad of Providence, Providence",
+    "centerId": "117723",
+    "lat": 41.83609,
+    "lon": -71.40168,
+    "name": "Merkos - Chabad of Rhode Island / Chabad of Providence",
+    "city": "Providence",
+    "via": "data/founding-years.json, 117723",
+    "note": "About 1984: 'Chabad Lubavitch of Rhode Island, 48 Savoy St., Providence' (AFL list). Moves within a city whose dates are not known are left out."
+   }
+  ],
+  "rockland": [
+   {
+    "from": "1983",
+    "where": "Chabad of Rockland, New City",
+    "centerId": "117691",
+    "lat": 41.16494,
+    "lon": -73.98942,
+    "name": "Chabad of Rockland",
+    "city": "New City",
+    "via": "data/founding-years.json, 117691"
+   }
+  ],
+  "the-carolinas": [
+   {
+    "from": "1980",
+    "where": "Chabad Center for Jewish Life, Charlotte",
+    "centerId": "117649",
+    "lat": 35.15092,
+    "lon": -80.77219,
+    "name": "Chabad Center for Jewish Life",
+    "city": "Charlotte",
+    "via": "data/founding-years.json, 117649",
+    "note": "About 1984: 'Chabad Lubavitch of North Carolina, 6500 New Hall Rd., Charlotte' (AFL list). Moves within a city whose dates are not known are left out."
+   }
+  ],
+  "utah": [
+   {
+    "from": "1992-07",
+    "where": "Chabad Lubavitch of Utah, Salt Lake City",
+    "centerId": "117910",
+    "lat": 40.73198,
+    "lon": -111.85964,
+    "name": "Chabad Lubavitch of Utah",
+    "city": "Salt Lake City",
+    "via": "data/founding-years.json, 117910"
+   }
+  ],
+  "vermont": [
+   {
+    "from": "1984",
+    "where": "Chabad of Vermont, Burlington",
+    "centerId": "117736",
+    "lat": 44.47905,
+    "lon": -73.20365,
+    "name": "Chabad of Vermont",
+    "city": "Burlington",
+    "via": "data/founding-years.json, 117736",
+    "note": "About 1984: 'Chabad of Vermont, 5 Hickok Place, Burlington' (AFL list). Moves within a city whose dates are not known are left out."
+   }
+  ],
+  "washington-dc": [
+   {
+    "from": "1992",
+    "where": "American Friends of Lubavitch (Chabad), Washington",
+    "centerId": "117966",
+    "lat": 38.91553,
+    "lon": -77.04699,
+    "name": "American Friends of Lubavitch (Chabad)",
+    "city": "Washington",
+    "via": "data/founding-years.json, 117966"
+   }
+  ],
+  "west-coast": [
+   {
+    "from": "1965",
+    "where": "Chabad West Coast Headquarters, Los Angeles",
+    "centerId": "117555",
+    "lat": 34.06451,
+    "lon": -118.44847,
+    "name": "Chabad West Coast Headquarters",
+    "city": "Los Angeles",
+    "via": "data/founding-years.json, 117555",
+    "note": "About 1984: 'West Coast Headquarters, 741 Gayley Avenue, Los Angeles' (AFL list). Moves within a city whose dates are not known are left out."
+   }
+  ],
+  "wisconsin": [
+   {
+    "from": "1968-10",
+    "where": "Lubavitch of Wisconsin, Milwaukee",
+    "centerId": "117740",
+    "lat": 43.07499,
+    "lon": -87.87252,
+    "name": "Lubavitch of Wisconsin",
+    "city": "Milwaukee",
+    "via": "data/founding-years.json, 117740",
+    "note": "About 1984: 'Chabad Lubavitch of Wisconsin, 3109 No. La[ke Dr.], [Milwaukee]' (AFL list). Moves within a city whose dates are not known are left out."
+   }
+  ],
+  "wyoming": [
+   {
+    "from": "2008-05",
+    "where": "Chabad-Lubavitch of Wyoming, Jackson",
+    "centerId": "672689",
+    "lat": 43.46952,
+    "lon": -110.78917,
+    "name": "Chabad-Lubavitch of Wyoming",
+    "city": "Jackson",
+    "via": "data/founding-years.json, 672689"
+   }
+  ],
+  "colorado": [
+   {
+    "from": "1978",
+    "where": "Chabad Lubavitch of Colorado, Denver",
+    "centerId": "5964928",
+    "lat": 39.70913,
+    "lon": -104.92197,
+    "name": "Chabad Lubavitch of Colorado",
+    "city": "Denver",
+    "via": "data/shetach-history.json, heads",
+    "note": "No founding year on file for this listing; the head began in this city (his heads entry), so the star is at today's centre from his start (moves within a city whose dates are not known are left out). About 1984: 'Chabad Lubavitch of Colorado, 85 Forest Street, Denver' (AFL list)."
+   }
+  ],
+  "eastern-new-york": [
+   {
+    "from": "1974",
+    "where": "Chabad of the Capital District, Albany",
+    "centerId": "117663",
+    "lat": 42.65963,
+    "lon": -73.79373,
+    "name": "Chabad of the Capital District",
+    "city": "Albany",
+    "via": "data/shetach-history.json, heads",
+    "note": "No founding year on file for this listing; the head began in this city (his heads entry), so the star is at today's centre from his start (moves within a city whose dates are not known are left out). About 1984: 'Chabad Lubavitch of New York, State Capital, 122 South Main St., Albany' (AFL list)."
+   }
+  ],
+  "maryland": [
+   {
+    "from": null,
+    "fromBound": {
+     "after": "1973-09",
+     "by": "1974-09"
+    },
+    "where": "Chabad Center and Lubavitch of Maryland, Baltimore",
+    "centerId": "117634",
+    "lat": 39.37622,
+    "lon": -76.67699,
+    "name": "Chabad Center and Lubavitch of Maryland",
+    "city": "Baltimore",
+    "via": "data/shetach-history.json, heads",
+    "note": "No founding year on file for this listing; the head began in this city (his heads entry), so the star is at today's centre from his start (moves within a city whose dates are not known are left out). About 1984: 'Chabad Lubavitch of Maryland, Chabad House, 5721 Park Heights ..., Baltimore' (AFL list)."
+   }
+  ],
+  "oregon": [
+   {
+    "from": "1984-01",
+    "where": "Chabad Lubavitch of Oregon, Portland",
+    "centerId": "118188",
+    "lat": 45.47573,
+    "lon": -122.7027,
+    "name": "Chabad Lubavitch of Oregon",
+    "city": "Portland",
+    "via": "data/shetach-history.json, heads",
+    "note": "No founding year on file for this listing; the head began in this city (his heads entry), so the star is at today's centre from his start (moves within a city whose dates are not known are left out). About 1984: 'Chabad Lubavitch of Oregon, 2340 South West Vermont, Portland' (AFL list)."
+   }
+  ],
+  "washington": [
+   {
+    "from": null,
+    "fromBound": {
+     "after": "1972-11-07",
+     "by": "1972-12-05"
+    },
+    "where": "Regional Offices of Chabad-Lubavitch of the Pacific Northwest & Seattle, Seattle",
+    "centerId": "117737",
+    "lat": 47.71901,
+    "lon": -122.29124,
+    "name": "Regional Offices of Chabad-Lubavitch of the Pacific Northwest & Seattle",
+    "city": "Seattle",
+    "via": "data/shetach-history.json, heads",
+    "note": "No founding year on file for this listing; the head began in this city (his heads entry), so the star is at today's centre from his start (moves within a city whose dates are not known are left out). About 1984: 'Chabad Lubavitch of Washington, 4541 19th Ave., N.E., Seattle' (AFL list)."
+   }
+  ],
+  "iowa": [
+   {
+    "from": null,
+    "fromBound": {
+     "by": "1985-03"
+    },
+    "where": "Lubavitch of Iowa, Des Moines",
+    "centerId": "117609",
+    "lat": 41.59508,
+    "lon": -93.70069,
+    "name": "Lubavitch of Iowa",
+    "city": "Des Moines",
+    "source": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+    "quote": "Chabad Lubavitch of Iowa, 2932 University Ave., Des Moines",
+    "note": "In the American Friends of Lubavitch list of about 1984 (the 1984 map's booklet); the star is at today's centre in the same area (moves within a city whose dates are not known are left out)."
+   }
+  ],
+  "upstate-new-york": [
+   {
+    "from": null,
+    "fromBound": {
+     "by": "1985-03"
+    },
+    "where": "Chabad House of Buffalo, Getzville",
+    "centerId": "117976",
+    "lat": 43.01114,
+    "lon": -78.78038,
+    "name": "Chabad House of Buffalo",
+    "city": "Getzville",
+    "source": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+    "quote": "Chabad Lubavitch of Getzville, 2501 No. Forest Rd., Getzville",
+    "note": "In the American Friends of Lubavitch list of about 1984 (the 1984 map's booklet); the star is at today's centre in the same area (moves within a city whose dates are not known are left out)."
+   }
   ]
  },
  "vaads": {

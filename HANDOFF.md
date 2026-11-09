@@ -283,7 +283,7 @@ thirteen no better recent photo has been found yet (the list is there, with what
        main map: Moshe Wilansky — verify he founded it in 1987); Oklahoma from 1987 (no heads entry; main map: Yehuda
        Weg today; Derher's Oklahoma "Pinpoints" names the first shluchim); Monsey (no head on the owner's main map;
        Rabbi Simcha Werner was "Monsey's first shliach": ask the owner).
-    3. **Flagships for the 49 shetachim with none** (no star now, which is right until researched): where the head's
+    3. **Nov 9: 40 done** (today's capital from its founding year where the head began in that city, data/founding-years.json; Iowa and Upstate New York by early 1985 from the 1984 AFL list). **Still none:** Illinois (the AFL list has the regional center in Evanston about 1984; today Chicago: when it moved?), Virginia (AFL: Chabad Lubavitch of Virginia in Virginia Beach about 1984, Richmond separate; today Richmond), Ontario (Thornhill today; Toronto first), Quebec (Kramer's yeshiva, then Mochkin's), Western Pennsylvania, New Haven (Orange today), Eastern Massachusetts, New York City, Monsey. Was: **Flagships for the 49 shetachim with none** (no star now, which is right until researched): where the head's
        own center was, from when, sourced, each with `name` and `city` as it was then (data/founding-years.json has
        many founding years and `earlier` addresses; chabad.org About pages; JTA; local papers). Current list: every
        shetach in `areas` not in `flagships`.

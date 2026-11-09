@@ -48,3 +48,17 @@ so pass two can find them. No IRS lookups in the first pass. Leads that weren't 
   Clinton 2014, Niagara Falls USA 2024.
 - Bounds (16), first pass. Notes carry leads for Cornell (1984?) and Syracuse (1984 or 1991?), and say that Torah
   Temimah of Buffalo goes back to the 1970s and merged into Ohr Temimim in 2008.
+
+## Colorado (batches colorado-01, -02): 23 listings, 11 with a year
+- Chabad Lubavitch of Colorado 1978 (medium: 1979 elsewhere; Rabbi Popack), Boulder 1991 (the Scheiners), Bais
+  Menachem 2000 (medium), Aspen summer 2000, Southern Colorado 2001, Westminster about 2003 (medium), South Metro
+  Denver 2004, CU Boulder Sept 2005, Northern Colorado 2005, Vail 2006 (medium: listed Dec 2005), Longmont Sept 2006.
+- Bounds (12), first pass.
+
+## Connecticut (batches connecticut-01, -02): 33 listings, 16 with a year
+- LYA (Springfield) 1945 (medium: when Rabbi Gordon was sent), Amherst 1974, Hartford 1977 (the Gopins, the first in
+  Connecticut), Stamford 1988, NW Connecticut about 1995 (medium), Greenwich Sept 1996, Westport 1997, Farmington
+  Valley 1998, U of Hartford 2000 (medium: the first full-time couple), Glastonbury 2001, the Friendship Circle 2002
+  (medium, two listings), Berkshire County about 2004 (medium), UConn summer 2005, New Canaan about 2010 (medium),
+  Old Greenwich 2023.
+- Bounds (17), first pass; New London, Waterbury and Ridgefield had nothing on the surface.

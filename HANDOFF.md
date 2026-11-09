@@ -287,7 +287,7 @@ thirteen no better recent photo has been found yet (the list is there, with what
        own center was, from when, sourced, each with `name` and `city` as it was then (data/founding-years.json has
        many founding years and `earlier` addresses; chabad.org About pages; JTA; local papers). Current list: every
        shetach in `areas` not in `flagships`.
-    4. **Heads' own sources:** 50 `heads` entries have no `sources` and no `how` (they rest on the area's sources).
+    4. **Done Nov 9:** all 50 now carry how/confidence and a note naming the area period (or founding-years entry) whose source names him, checked by name and date. Was: **Heads' own sources:** 50 `heads` entries have no `sources` and no `how` (they rest on the area's sources).
        Check each against its area's source that it names that man as head from that date; fix any that don't.
     5. **New Brunswick and Prince Edward Island** take Nova Scotia's Maritimes history (Feldman, 1995) with no source
        of their own (P in history.html borrows it): find since when they were his, or leave them blank.

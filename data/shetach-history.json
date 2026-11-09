@@ -4,50 +4,74 @@
   "alabama": [
    {
     "head": "Yossi Posner",
-    "from": "1982"
+    "from": "1982",
+    "how": "stated",
+    "confidence": "medium",
+    "note": "Sources on area US-AL:alabama (its period from 1982), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "alaska": [
    {
     "head": "Yosef Greenberg",
-    "from": "1991"
+    "from": "1991",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-AK:alaska (its period from 1991), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "alberta": [
    {
     "head": "Menachem Matusof",
-    "from": "1988"
+    "from": "1988",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area CA-AB:alberta (its period from 1988), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "arizona": [
    {
     "head": "Zalman Levertov",
-    "from": "1977-01"
+    "from": "1977-01",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-AZ:arizona (its period from 1977-01), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "arkansas": [
    {
     "head": "Pinchus Ciment",
-    "from": "1992"
+    "from": "1992",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-AR:arkansas (its period from 1992), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "british-columbia": [
    {
     "head": "Yitzchok Wineberg",
-    "from": "1974-11"
+    "from": "1974-11",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area CA-BC:british-columbia (its period from 1974-11), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "cape-cod-and-the-islands": [
    {
     "head": "Kuti Alperowitz",
-    "from": "1995"
+    "from": "1995",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Source: data/founding-years.json, 118178 (1995), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "central-massachusetts": [
    {
     "head": "Moshe Yitzchak Hecht",
     "from": "1942-06",
-    "he": "משה יצחק העכט"
+    "he": "משה יצחק העכט",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-MA:central-massachusetts (its period from 1942-06), checked Nov 9: it names him as the one who began it then."
    },
    {
     "head": "Hershel Fogelman",
@@ -56,7 +80,10 @@
      "after": "1945-09",
      "by": "1946-09"
     },
-    "he": "הערשל פוגלמן"
+    "he": "הערשל פוגלמן",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-MA:central-massachusetts, checked Nov 9: the Derher there, 'In 5706, the Frierdiker Rebbe sent Rabbi Hershel Fogelman to succeed Rabbi Hecht'."
    },
    {
     "head": "Mendel Fogelman",
@@ -72,14 +99,20 @@
   "central-ohio": [
    {
     "head": "Areyah Kaltmann",
-    "from": "1991"
+    "from": "1991",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-OH:central-ohio (its period from 1991), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "colorado": [
    {
     "head": "Yisroel Meir Popack",
     "from": "1978",
-    "he": "ישראל מאיר פופאק"
+    "he": "ישראל מאיר פופאק",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-CO:colorado (its period from 1978), checked Nov 9: it names him as the one who began it then."
    },
    {
     "head": "Mendel Popack",
@@ -91,26 +124,38 @@
   "connecticut": [
    {
     "head": "Yisroel Deren",
-    "from": "1974"
+    "from": "1974",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-MA:connecticut (its period from 1974), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "delaware": [
    {
     "head": "Chuni Vogel",
-    "from": "1987"
+    "from": "1987",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-DE:delaware (its period from 1987), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "eastern-massachusetts": [
    {
     "head": "Chaim Prus",
-    "from": "1975"
+    "from": "1975",
+    "how": "news",
+    "confidence": "high",
+    "note": "Sources on area US-MA:eastern-massachusetts (its period from 1975), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "eastern-new-york": [
    {
     "head": "Yisroel Rubin",
     "from": "1974",
-    "he": "ישראל רובין"
+    "he": "ישראל רובין",
+    "how": "anniversary",
+    "confidence": "medium",
+    "note": "Sources on area US-NY:eastern-new-york (its period from 1974), checked Nov 9: it names him as the one who began it then."
    },
    {
     "head": "Rubin family",
@@ -147,26 +192,38 @@
   "georgia": [
    {
     "head": "Yossi New",
-    "from": "1984"
+    "from": "1984",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-GA:georgia (its period from 1984), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "hawaii": [
    {
     "head": "Itchel Krasnjansky",
-    "from": "1987-08"
+    "from": "1987-08",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-HI:hawaii (its period from 1987-08), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "idaho": [
    {
     "head": "Mendel Lifshitz",
-    "from": "2004-04"
+    "from": "2004-04",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-ID:idaho (its period from 2004-04), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "illinois": [
    {
     "head": "Daniel Moscowitz",
     "from": "1977",
-    "he": "דניאל מוסקוביץ"
+    "he": "דניאל מוסקוביץ",
+    "how": "stated",
+    "confidence": "medium",
+    "note": "Sources on area US-IL:illinois (its period from 1977), checked Nov 9: it names him as the one who began it then."
    },
    {
     "head": "Meir Moscowitz",
@@ -187,7 +244,10 @@
   "indiana": [
    {
     "head": "Avrohom Grossbaum",
-    "from": "1981"
+    "from": "1981",
+    "how": "anniversary",
+    "confidence": "high",
+    "note": "Sources on area US-IN:indiana (its period from 1981), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "iowa": [
@@ -235,31 +295,46 @@
   "kansas-missouri": [
    {
     "head": "Sholom Wineberg",
-    "from": "1970-01"
+    "from": "1970-01",
+    "how": "news",
+    "confidence": "high",
+    "note": "Sources on area US-KS:kansas-missouri (its period from 1970-01), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "kentucky": [
    {
     "head": "Avrohom Litvin",
-    "from": "1985-03"
+    "from": "1985-03",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-KY:kentucky (its period from 1985-03), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "louisiana-mississippi": [
    {
     "head": "Zelig Rivkin",
-    "from": "1975-11"
+    "from": "1975-11",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-LA:louisiana-mississippi (its period from 1975-11), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "manitoba-saskatchewan": [
    {
     "head": "Avrohom Altein",
-    "from": "1972"
+    "from": "1972",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area CA-MB:manitoba-saskatchewan (its period from 1972), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "maritimes": [
    {
     "head": "Mendel Feldman",
-    "from": "1995"
+    "from": "1995",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area CA-NS:maritimes (its period from 1995), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "maryland": [
@@ -269,13 +344,19 @@
     "fromBound": {
      "after": "1973-09",
      "by": "1974-09"
-    }
+    },
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-MD:maryland (its period from 1974-09), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "merrimack-valley": [
    {
     "head": "Asher Bronstein",
-    "from": "1992"
+    "from": "1992",
+    "how": "anniversary",
+    "confidence": "high",
+    "note": "Source: data/founding-years.json, 117895 (1992), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "michigan": [
@@ -296,26 +377,38 @@
   "montana": [
    {
     "head": "Chaim Bruk",
-    "from": "2007"
+    "from": "2007",
+    "how": "news",
+    "confidence": "high",
+    "note": "Sources on area US-MT:montana (its period from 2007), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "nebraska": [
    {
     "head": "Mendel Katzman",
-    "from": "1986"
+    "from": "1986",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-NE:nebraska (its period from 1986), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "new-hampshire": [
    {
     "head": "Levi Krinsky",
-    "from": "1989"
+    "from": "1989",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-NH:new-hampshire (its period from 1989), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "new-haven": [
    {
     "head": "Moshe Hecht",
     "from": "1946",
-    "he": "משה העכט"
+    "he": "משה העכט",
+    "how": "stated",
+    "confidence": "medium",
+    "note": "Sources on area US-CT:new-haven (its period from 1946), checked Nov 9: it names him as the one who began it then."
    },
    {
     "head": "Sheya Hecht",
@@ -379,13 +472,19 @@
   "newfoundland-and-labrador": [
    {
     "head": "Chanan Chernitsky",
-    "from": "2017-02"
+    "from": "2017-02",
+    "how": "news",
+    "confidence": "high",
+    "note": "Sources on area CA-NL:newfoundland-and-labrador (its period from 2017-02), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "north-shore-of-massachusetts": [
    {
     "head": "Yossi Lipsker",
-    "from": "1992"
+    "from": "1992",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Source: data/founding-years.json, 117908 (1992), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "northeast-ohio": [
@@ -411,25 +510,37 @@
     "fromBound": {
      "after": "1973-09",
      "by": "1974-09"
-    }
+    },
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area CA-ON:ontario (its period from 1974-09), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "oregon": [
    {
     "head": "Moshe Wilhelm",
-    "from": "1984-01"
+    "from": "1984-01",
+    "how": "news",
+    "confidence": "high",
+    "note": "Sources on area US-OR:oregon (its period from 1984-01), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "ottawa": [
    {
     "head": "Dovid Hayes",
-    "from": "1977"
+    "from": "1977",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area CA-ON:ottawa (its period from 1977), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "pennsylvania": [
    {
     "head": "Avremel Shemtov",
-    "from": "1961"
+    "from": "1961",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-PA:pennsylvania (its period from 1961), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "quebec": [
@@ -479,19 +590,28 @@
   "rhode-island": [
    {
     "head": "Yehoshua Laufer",
-    "from": "1979"
+    "from": "1979",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-RI:rhode-island (its period from 1979), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "rockland": [
    {
     "head": "Avremel Kotlarsky",
-    "from": "1983"
+    "from": "1983",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-NY:rockland (its period from 1983), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "south-area": [
    {
     "head": "Mendel Gurkow",
-    "from": "1987"
+    "from": "1987",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Source: data/founding-years.json, 117632 (1987), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "southern-ohio": [
@@ -545,20 +665,28 @@
   "texas": [
    {
     "head": "Shimon Lazaroff",
-    "from": "1972-05-10"
+    "from": "1972-05-10",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-TX:texas (its period from 1972-05-10), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "the-carolinas": [
    {
     "head": "Yossi Groner",
-    "from": "1980"
+    "from": "1980",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-NC:the-carolinas (its period from 1980), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "upper-midwest": [
    {
     "head": "Moshe Feller",
     "from": "1961-12",
-    "note": "In the AFL booklet's photo caption (24 March 1983) he is 'Mid-West Director'; on its map of about 1984 Minnesota is orange (covering the Dakotas)."
+    "note": "In the AFL booklet's photo caption (24 March 1983) he is 'Mid-West Director'; on its map of about 1984 Minnesota is orange (covering the Dakotas). Sources on area US-MN:upper-midwest (its period from 1961-12), checked Nov 9: it names him as the one who began it then.",
+    "how": "stated",
+    "confidence": "high"
    }
   ],
   "upstate-new-york": [
@@ -568,19 +696,28 @@
     "fromBound": {
      "after": "1970-09",
      "by": "1971-09"
-    }
+    },
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-NY:upstate-new-york (its period from 1971-09), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "utah": [
    {
     "head": "Benny Zippel",
-    "from": "1992-07"
+    "from": "1992-07",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-UT:utah (its period from 1992-07), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "vermont": [
    {
     "head": "Yitzchok Raskin",
-    "from": "1984"
+    "from": "1984",
+    "how": "stated",
+    "confidence": "medium",
+    "note": "Sources on area US-VT:vermont (its period from 1984), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "virginia": [
@@ -643,13 +780,19 @@
   "washington-dc": [
    {
     "head": "Levi Shemtov",
-    "from": "1992"
+    "from": "1992",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-DC:washington-dc (its period from 1992), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "west-coast": [
    {
     "head": "Shlomo Cunin",
-    "from": "1965"
+    "from": "1965",
+    "how": "stated",
+    "confidence": "high",
+    "note": "Sources on area US-CA:west-coast (its period from 1965), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "western-pennsylvania": [
@@ -710,13 +853,19 @@
   "wisconsin": [
    {
     "head": "Yisroel Shmotkin",
-    "from": "1968-10"
+    "from": "1968-10",
+    "how": "news",
+    "confidence": "high",
+    "note": "Sources on area US-WI:wisconsin (its period from 1968-10), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "wyoming": [
    {
     "head": "Zalman Mendelsohn",
-    "from": "2008-05"
+    "from": "2008-05",
+    "how": "news",
+    "confidence": "high",
+    "note": "Sources on area US-WY:wyoming (its period from 2008-05), checked Nov 9: it names him as the one who began it then."
    }
   ],
   "crown-heights": [

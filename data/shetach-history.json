@@ -451,6 +451,46 @@
   ],
   "new-mexico": [
    {
+    "head": "Chaim Itche Drizin",
+    "from": null,
+    "fromBound": {
+     "by": "1980-02"
+    },
+    "he": "חיים איטשע דריזין",
+    "how": "news",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://digitalrepository.unm.edu/cgi/viewcontent.cgi?article=1029&context=daily_lobo_1980",
+      "title": "New Mexico Daily Lobo, 28 Feb 1980",
+      "date": "1980-02-28",
+      "quote": "Rabbi Chaim Drizin will lead Purim Services and the Megilloh Reading",
+      "via": "UNM Digital Repository (the New Mexico Daily Lobo), read through Firecrawl stealth (Nov 9)"
+     },
+     {
+      "url": "https://digitalrepository.unm.edu/cgi/viewcontent.cgi?article=1093&context=daily_lobo_1980",
+      "title": "Center Opens on Jewish New Year (New Mexico Daily Lobo, 8 Sept 1980)",
+      "date": "1980-09-08",
+      "quote": "UNM students of Jewish heritage will have a center of their own with the opening of the Chabad Jewish Student Center. The center, located at 1801 Sigma Chi St., is scheduled to open on Oct.10. ... said Rabbi Chaim Drizin, director of Chabad activities in New Mexico.",
+      "via": "UNM Digital Repository (the New Mexico Daily Lobo), read through Firecrawl stealth (Nov 9)"
+     },
+     {
+      "url": "https://digitalrepository.unm.edu/cgi/viewcontent.cgi?article=1140&context=daily_lobo_1983",
+      "title": "New Mexico Daily Lobo, 10 Nov 1983",
+      "date": "1983-11-10",
+      "quote": "Saturday, November 12, 8pm with Rabbi Chaim I. Drizin ... Chabad House 1801 Sigma Chi NE (south of Lomas between University and Yale)",
+      "via": "UNM Digital Repository (the New Mexico Daily Lobo), read through Firecrawl stealth (Nov 9)"
+     },
+     {
+      "url": "https://chabadpedia.co.il/index.php?search=%D7%90%D7%9C%D7%91%D7%95%D7%A7%D7%A8%D7%A7%D7%99&fulltext=1",
+      "title": "דרייזין (פירושונים) (Chabadpedia)",
+      "quote": "הרב חיים יצחק דריזין - שליח הרבי בעיירות ברקלי קליפורניה, אלבוקרקי ניו מקסיקו.",
+      "via": "a wiki, read through Firecrawl"
+     }
+    ],
+    "note": "Rabbi Chaim Itche Drizin. When he came and when he left are not found (in Albuquerque by Feb 1980, last seen in the student paper Nov 1983; the Chabad Student Center still ran in Nov 1984 with no rabbi named); his line runs until Shmukler's (1992), with no one else known in between."
+   },
+   {
     "head": "Chaim Shmukler",
     "from": "1992",
     "how": "stated",
@@ -2079,6 +2119,20 @@
     "confidence": "high",
     "sources": [
      {
+      "url": "https://digitalrepository.unm.edu/cgi/viewcontent.cgi?article=1029&context=daily_lobo_1980",
+      "title": "New Mexico Daily Lobo, 28 Feb 1980",
+      "date": "1980-02-28",
+      "quote": "Rabbi Chaim Drizin will lead Purim Services and the Megilloh Reading",
+      "via": "UNM Digital Repository (the New Mexico Daily Lobo), read through Firecrawl stealth (Nov 9)"
+     },
+     {
+      "url": "https://digitalrepository.unm.edu/cgi/viewcontent.cgi?article=1093&context=daily_lobo_1980",
+      "title": "Center Opens on Jewish New Year (New Mexico Daily Lobo, 8 Sept 1980)",
+      "date": "1980-09-08",
+      "quote": "UNM students of Jewish heritage will have a center of their own with the opening of the Chabad Jewish Student Center. The center, located at 1801 Sigma Chi St., is scheduled to open on Oct.10. ... said Rabbi Chaim Drizin, director of Chabad activities in New Mexico.",
+      "via": "UNM Digital Repository (the New Mexico Daily Lobo), read through Firecrawl stealth (Nov 9)"
+     },
+     {
       "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
       "title": "The same booklet, pp. 44-47: 'addresses of Lubavitcher Centers in their respective states' (about 1984)",
       "date": "1984",
@@ -2099,9 +2153,9 @@
      }
     ],
     "fromBound": {
-     "by": "1985-03"
+     "by": "1980-02"
     },
-    "note": "Chabad Lubavitch of New Mexico, Albuquerque, with a Chabad House by the University of New Mexico, by about 1984, and orange on the map (covering another state too). Who ran it is not found. Chabad of New Mexico dates itself from 1992 (the Schmuklers): a new head. Earlier this file started New Mexico at 1992. Which second state its centre covered is not found: not Utah (the West Coast's, from 1976) or Colorado (its own centre, Denver), so Oklahoma or the El Paso corner of Texas; Oklahoma's newspaper archive (Gateway to Oklahoma History) has a robot check, even through Firecrawl."
+    "note": "Rabbi Chaim (Itche) Drizin, 'director of Chabad activities in New Mexico' (Daily Lobo, Sept 1980), led Purim services by Feb 1980 and opened the Chabad Jewish Student Center at 1801 Sigma Chi NE, by UNM, in Oct 1980; still there Nov 1983 (the paper's last mention of him found). Chabadpedia: 'the Rebbe's shliach in Berkeley, California and Albuquerque, New Mexico' (he ran Berkeley's Chabad House from 1972). Was 'by 1985-03' (the AFL list) until Nov 9. Chabad Lubavitch of New Mexico, Albuquerque, with a Chabad House by the University of New Mexico, by about 1984, and orange on the map (covering another state too). Who ran it is not found. Chabad of New Mexico dates itself from 1992 (the Schmuklers): a new head. Earlier this file started New Mexico at 1992. Which second state its centre covered is not found: not Utah (the West Coast's, from 1976) or Colorado (its own centre, Denver), so Oklahoma or the El Paso corner of Texas; Oklahoma's newspaper archive (Gateway to Oklahoma History) has a robot check, even through Firecrawl."
    }
   ],
   "US-NV:west-coast": [
@@ -3655,6 +3709,33 @@
   ],
   "new-mexico": [
    {
+    "from": "1980-10",
+    "where": "Chabad Jewish Student Center, 1801 Sigma Chi Road NE, Albuquerque (by UNM)",
+    "lat": 35.0877,
+    "lon": -106.624,
+    "name": "Chabad Jewish Student Center",
+    "nameHe": "מרכז הסטודנטים היהודי של חב״ד",
+    "city": "Albuquerque",
+    "source": "https://digitalrepository.unm.edu/cgi/viewcontent.cgi?article=1093&context=daily_lobo_1980",
+    "quote": "The center, located at 1801 Sigma Chi St., is scheduled to open on Oct.10.",
+    "note": "Opened by Drizin; 'Chabad House 1801 Sigma Chi NE' with him in Nov 1983."
+   },
+   {
+    "from": null,
+    "fromBound": {
+     "by": "1985-03"
+    },
+    "where": "Chabad Lubavitch of New Mexico, 4800 Eubank Blvd NE, Albuquerque",
+    "lat": 35.1351,
+    "lon": -106.5333,
+    "name": "Chabad Lubavitch of New Mexico",
+    "nameHe": "חב״ד ליובאוויטש ניו מקסיקו",
+    "city": "Albuquerque",
+    "source": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
+    "quote": "Chabad Lubavitch of New Mexico, 4800 Eubank N.E., Albuquerque; Chabad House, 1801 Sigma Chi N.E., Albuquerque",
+    "note": "The AFL list of about 1984 puts the state organization at Eubank, the Chabad House at Sigma Chi."
+   },
+   {
     "from": "1992",
     "where": "Chabad of New Mexico, Albuquerque",
     "centerId": "117962",
@@ -3662,7 +3743,8 @@
     "lon": -106.57722,
     "name": "Chabad of New Mexico",
     "city": "Albuquerque",
-    "via": "data/founding-years.json, 117962"
+    "via": "data/founding-years.json, 117962",
+    "note": "Shmukler's, 'established ... in 1992' (its About page)."
    }
   ],
   "newfoundland-and-labrador": [
@@ -3981,8 +4063,8 @@
      "by": "1985-03"
     },
     "where": "Chabad Lubavitch of Greater Chicago, Regional Center, 2014 Orrington Ave., Evanston (the Chabad House at Northwestern)",
-    "lat": 42.0557,
-    "lon": -87.6797,
+    "lat": 42.05447,
+    "lon": -87.68018,
     "name": "Chabad Lubavitch of Greater Chicago, Regional Center",
     "nameHe": "חב״ד ליובאוויטש שיקגו רבתי, המרכז האזורי",
     "city": "Evanston",
@@ -4020,8 +4102,8 @@
    {
     "from": "1943",
     "where": "Yeshiva Achei T'mimim, 3329 Dawson Street, Oakland, Pittsburgh",
-    "lat": 40.4334,
-    "lon": -79.9586,
+    "lat": 40.43829,
+    "lon": -79.95193,
     "name": "Yeshiva Achei Tmimim",
     "nameHe": "ישיבת אחי תמימים",
     "city": "Pittsburgh",
@@ -4070,6 +4152,90 @@
     "city": "Montreal",
     "via": "data/shetach-history.json, heads (Mochkin)",
     "note": "Mochkin's own center, from his line's start (1952, the earliest he could have been head; not found when)."
+   }
+  ],
+  "eastern-massachusetts": [
+   {
+    "from": "1981",
+    "where": "Chabad House of Greater Boston, 491 Commonwealth Avenue, Kenmore Square, Boston",
+    "centerId": "1591836",
+    "lat": 42.34935,
+    "lon": -71.09432,
+    "name": "Chabad of Eastern Massachusetts",
+    "city": "Boston",
+    "source": "https://www.chabadboston.org/templates/articlecco_cdo/aid/827129/jewish/About-Us.htm",
+    "quote": "Rabbi Chaim Prus established the Chabad House in Kenmore Square in 1981. ... He is responsible for the establishment of Chabad Houses in Eastern Massachusetts.",
+    "note": "Today's 'Chabad of Eastern Massachusetts', 491 Commonwealth Avenue (the AFL list of about 1984 has 'Chabad House of Greater Boston, 491 Commonwealth Ave.'). Where Prus was based 1975-81 is not found."
+   }
+  ],
+  "ontario": [
+   {
+    "from": null,
+    "fromBound": {
+     "after": "1973-09",
+     "by": "1974-09"
+    },
+    "where": "a building on the corner of Bathurst Street and Edinburgh Drive, North York, Toronto",
+    "lat": 43.7424,
+    "lon": -79.4355,
+    "name": "Chabad Lubavitch",
+    "nameHe": "חב״ד ליובאוויטש",
+    "city": "North York",
+    "cityHe": "נורת׳ יורק",
+    "source": "https://www.chabad.ca/templates/articlecco_cdo/aid/3583030/jewish/Our-History.htm",
+    "quote": "It was in the year 1974 that Rabbi and Mrs. Zalman and Esther Grossbaum arrived in Toronto to undertake the newly established Chabad Lubavitch organization. Starting with a modest building on the corner of Bathurst and Edinburgh Drive in North York",
+    "note": "The star is at the corner (approximate)."
+   },
+   {
+    "from": "1982",
+    "where": "Chabad Lubavitch Community Centre, 770 Chabad Gate, Thornhill",
+    "centerId": "117797",
+    "lat": 43.79879,
+    "lon": -79.44527,
+    "name": "Chabad Lubavitch Of Southern Ontario",
+    "city": "Thornhill",
+    "source": "https://www.chabad.ca/templates/articlecco_cdo/aid/3583030/jewish/Our-History.htm",
+    "quote": "In 1980 Chabad Lubavitch acquired a 3 acre site in the up-and-coming Village of Thornhill. And by the summer of 1982, the 28,000 sq. ft. Chabad Lubavitch Community Centre was completed and inaugurated."
+   }
+  ],
+  "new-haven": [
+   {
+    "from": "1946",
+    "where": "New Haven Hebrew Day School, New Haven (its first address not found)",
+    "lat": 41.3083,
+    "lon": -72.9279,
+    "name": "New Haven Hebrew Day School",
+    "nameHe": "בית הספר היומי העברי של ניו הייבן",
+    "city": "New Haven",
+    "cityHe": "ניו הייבן",
+    "source": "https://howardblas.com/2005/03/16/new-haven-day-school-unveils-new-name-new-vision/",
+    "quote": "New Haven Hebrew Day School was founded by Rabbi Sheya Hecht's father, Rabbi Moshe Hecht, in 1946.",
+    "note": "The star is on the city."
+   },
+   {
+    "from": "1970",
+    "where": "261 Derby Avenue, Orange (today's Southern Connecticut Hebrew Academy)",
+    "centerId": "117961",
+    "lat": 41.29964,
+    "lon": -73.00802,
+    "name": "Southern Connecticut Hebrew Academy",
+    "city": "Orange",
+    "source": "https://www.jewishnewhaven.org/press-releases/southern-connecticut-hebrew-academy-like-mother-like-daughter",
+    "quote": "SCHA was founded in 1946 in New Haven by Rabbi Hecht with only four students at the time, and was moved to its current, more spacious campus in Orange in 1970.",
+    "note": "Named Southern Connecticut Hebrew Academy from March 2005; the AFL list of about 1984 has 'Chabad Lubavitch of Connecticut, 261 Derby Ave., Orange'."
+   }
+  ],
+  "new-york-city": [
+   {
+    "from": "1955",
+    "where": "770 Eastern Parkway, Brooklyn",
+    "centerId": "117678",
+    "lat": 40.66897,
+    "lon": -73.94282,
+    "name": "Chabad Lubavitch Headquarters",
+    "city": "Brooklyn",
+    "via": "web/data/shetachim.json (the owner's map: Greater New York's capital is 770)",
+    "note": "Tzach's own star is 770's (drawn once, as Crown Heights')."
    }
   ]
  },

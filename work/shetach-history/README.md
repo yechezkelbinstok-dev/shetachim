@@ -60,6 +60,12 @@ UNM Chabad House; was 1992). Agreeing with the data already in: Idaho, Montana, 
 - **Southern New Jersey** is its own piece in the history (`extraAreas`, the eight southern counties): Avremel's from
   1961 (owner), Herson's from 1984 (below).
 
+- **New Mexico: Rabbi Chaim Itche Drizin's by Feb 1980** (found Nov 9 in the UNM student paper, the New Mexico Daily
+  Lobo, read through Firecrawl stealth: 'Rabbi Chaim Drizin, director of Chabad activities in New Mexico', Sept 1980,
+  opening the Chabad Jewish Student Center at 1801 Sigma Chi NE on 10 Oct 1980; Purim services Feb 1980; still there
+  Nov 1983). Chabadpedia: the Rebbe's shliach in Berkeley and Albuquerque. When he left is not found; his line runs to
+  Shmukler (1992). The shetach now starts by Feb 1980 (was by early 1985).
+
 **Still not found:**
 - New Mexico's second state (its centre was orange): not Utah or Colorado, so Oklahoma or the El Paso corner of Texas.
   Oklahoma's newspaper archive (Gateway to Oklahoma History) has a robot check even through Firecrawl; Albuquerque's

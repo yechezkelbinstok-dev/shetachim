@@ -63,15 +63,29 @@ institution today, 5 a successor or building, 9 not matched.
   - St. Paul's Lubavitch Day School: today's Lubavitch Cheder.
   - Buffalo's 3292 Main St. house: 1971–1992 (Jewish Buffalo History), then only Getzville.
   - Rochester: probably the Vogels' (1981).
-  - Bais Chana: left 15 Montcalm Ct. with the Lubavitch House in 2000; no listing of its own today.
+  - Bais Chana: left 15 Montcalm Ct. with the Lubavitch House in 2000; listed there today as a sub-listing (118004).
+  - Also found among the sub-listings: Miami's Yeshiva Gedolah (117599, still at 1140 Alton Rd.) and, probably, New
+    Haven's Chabad House (Congregation Lubavitch, 300 Norton St., next door to 298).
 - **Closed (3):**
   - Drizin's two Albuquerque centres: between 1984 and 1992 (only Schmukler's in the Dec 2009 lubavitch.com list).
   - Posner's Chabad of Tennessee on Whitland Ave.: still listed Sept 2011; Posner died April 2014. Tiechtel's Chabad
     of Nashville (1999) is the successor.
-- **Still running, no listing of its own (1):** Miami's Yeshiva Gedolah, 40 years in Feb 2014.
-- **Not found yet (8; open from 1984, end unknown up to today, not cut at 1984):** Beverly Hills' Congregation Lubavitch (9017 W. Pico), Ohel Yosef Yitzchak (Willoughby Ave.),
+- **Not found yet (8):** Beverly Hills' Congregation Lubavitch (9017 W. Pico), Ohel Yosef Yitzchak (Willoughby Ave.),
   North Dade, Kendale Lakes, Tiferes Bachurim's Miami program, Highland Park N.J., the Seattle yeshiva, and Madison's
   Maon Yeladim.
+- **How a centre with no known end is treated** (owner: cutting them at 1984 is wrong, "it could have run way past
+  1984", and so is running them to today):
+  - It shows as open through `lastSeen` and closed from `assumedEnd`; between the two, its end is unknown.
+  - It is never open today: none of the 8 is in today's directory, counting the 2,045 sub-listings
+    (`data/raw/chabad-sublistings.json`, fetched Nov 9).
+  - The 8 assume 2004. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing
+    shows them in it or after.
+  - Drizin's assume 1992 (the Schmuklers came to set up Chabad of New Mexico).
+  - Posner's assumes 2014 (his death).
+  - Any later source showing one open moves its end.
+- **Why not the 2004 directory itself:** the 562 listings from 2004 that have since been deleted return nothing from
+  chabad.org's API (HTTP 204), and their pages are gone, so their names can't be recovered. Of the 2004 IDs, 676 are
+  sub-listings still live.
 - The 2002 chabad.org directory pages were never archived. The lubavitch.com pages from Dec 2009 to Sept 2011 were
   (1 credit each through Firecrawl), but some captures came back empty, so only a centre that shows up in one counts.
 

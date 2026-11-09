@@ -1,5 +1,5 @@
 {
- "about": "The Lubavitch centres of about 1984, as American Friends of Lubavitch listed them: 'On the following pages we are sharing with you information of the addresses of Lubavitcher Centers in their respective states.' The booklet says 'Eighty-two Centers in Thirty-four of the states'; its list has 105 entries in 30 states (schools, camps and offices at a centre's address listed apart), and leaves out metropolitan New York and Canada. Read from the page images (Nov 9 2026), not the PDF's text layer, which garbles several lines. Each entry: state, name and street as printed (spelling kept, 'Berkley' and 'Orrington St.' as printed), city, the PDF page, lat/lon from OpenStreetMap's geocoder ('located': by the street address, or by the town only where the address was not found), and 'today': the centre in today's directory (web/data/centers.geojson) that is the same institution ('link': 'same'), carries on its work without being the same organization ('successor'), or stands in the same building ('building'); for 'same', 'place' says whether today's listing is at the same place (within 400 m of the 1984 address), has moved, or was not checked (the 1984 address not found). 'today' is null where nothing in today's directory matches. Matches by name, director and address; those marked 'probably' in the note are less sure. 'fate' (added Nov 9 2026, for the entries that were not in today's directory or only matched a building or successor): what became of it ('moved', 'renamed', 'merged', 'closed', 'still running', or 'not found'), the year or bounds where known ('year', 'after', 'by'), 'confidence', a 'text' saying what the sources say, and the 'sources'. Read from news, the centres' own histories, and the Wayback Machine's copies of the lubavitch.com directory (Dec 2009 to Sept 2011). For an entry with no centre today, 'lastSeen' is the last year a source shows it open, and 'goneBy' the first year it is known to be gone or no longer listed ('goneByHow' says how; 'likelyBy' is a likelier, unproven end). Between 'lastSeen' and 'goneBy' its end is unknown: it may have run on anywhere in that span, so it is not cut off at 'lastSeen'. With no earlier proof, 'goneBy' is 2026, today's directory.",
+ "about": "The Lubavitch centres of about 1984, as American Friends of Lubavitch listed them: 'On the following pages we are sharing with you information of the addresses of Lubavitcher Centers in their respective states.' The booklet says 'Eighty-two Centers in Thirty-four of the states'; its list has 105 entries in 30 states (schools, camps and offices at a centre's address listed apart), and leaves out metropolitan New York and Canada. Read from the page images (Nov 9 2026), not the PDF's text layer, which garbles several lines. Each entry: state, name and street as printed (spelling kept, 'Berkley' and 'Orrington St.' as printed), city, the PDF page, lat/lon from OpenStreetMap's geocoder ('located': by the street address, or by the town only where the address was not found), and 'today': the centre in today's directory (web/data/centers.geojson) that is the same institution ('link': 'same'), carries on its work without being the same organization ('successor'), or stands in the same building ('building'); for 'same', 'place' says whether today's listing is at the same place (within 400 m of the 1984 address), has moved, or was not checked (the 1984 address not found). 'today' is null where nothing in today's directory matches. Matches by name, director and address; those marked 'probably' in the note are less sure. 'fate' (added Nov 9 2026, for the entries that were not in today's directory or only matched a building or successor): what became of it ('moved', 'renamed', 'merged', 'closed', 'still running', or 'not found'), the year or bounds where known ('year', 'after', 'by'), 'confidence', a 'text' saying what the sources say, and the 'sources'. Read from news, the centres' own histories, and the Wayback Machine's copies of the lubavitch.com directory (Dec 2009 to Sept 2011). For an entry with no centre today, 'lastSeen' is the last year a source shows it open, 'goneBy' the first year it is known to be gone or no longer listed ('goneByHow'), and 'assumedEnd' the year used as its end when no source gives one ('assumedHow' says why). It is shown as open through 'lastSeen', with its end unknown from then to 'assumedEnd', and closed after that; never open today. 'today' was matched against the main listings and, since Nov 9 2026, the 2,045 sub-listings (schools, camps, shuls) under the US and Canada centres too ('subListingOf').",
  "source": {
   "url": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf",
   "title": "American Friends of Lubavitch booklet on the Rebbe (Reagan Library, Max Green files, folder 'Lubavitch (1 of 2)'), its list of centres",
@@ -9,9 +9,9 @@
  },
  "summary": {
   "entries": 105,
-  "sameToday": 90,
-  "samePlaceToday": 32,
-  "notFoundToday": 9,
+  "sameToday": 93,
+  "samePlaceToday": 34,
+  "notFoundToday": 8,
   "withFate": 22,
   "fates": {
    "moved": 7,
@@ -320,7 +320,9 @@
     "text": "Not found. Nothing under this name after 1984; the block (9017-9051 W. Pico) is today West Coast Chabad's Pico campus (Bais Chaya Mushka at 9051).",
     "lastSeen": 1984,
     "goneBy": 2026,
-    "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)"
+    "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)",
+    "assumedEnd": 2004,
+    "assumedHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
    }
   },
   {
@@ -340,7 +342,9 @@
     "text": "Not found. No source names it after 1984.",
     "lastSeen": 1984,
     "goneBy": 2026,
-    "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)"
+    "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)",
+    "assumedEnd": 2004,
+    "assumedHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
    }
   },
   {
@@ -634,12 +638,15 @@
    "lon": -72.94547,
    "located": "the street address",
    "today": {
-    "centerId": "117583",
-    "name": "Rabbinical Institute of New Haven",
+    "centerId": "119711",
+    "name": "Congregation Lubavitch",
     "city": "New Haven",
-    "link": "building"
+    "link": "same",
+    "kmFromToday": 0.01,
+    "place": "same place",
+    "subListingOf": "117583"
    },
-   "note": "The Chabad House is not a separate listing today; its address, 298 Norton St., is today's Rabbinical Institute of New Haven."
+   "note": "Probably the same: the 1984 Chabad House at 298 Norton St. is next door to today's Congregation Lubavitch, 300 Norton St. (Rabbi Yitzchok Kalmenson), a sub-listing of the Rabbinical Institute of New Haven."
   },
   {
    "state": "US-FL",
@@ -680,7 +687,9 @@
     ],
     "lastSeen": 1984,
     "goneBy": 2026,
-    "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)"
+    "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)",
+    "assumedEnd": 2004,
+    "assumedHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
    }
   },
   {
@@ -740,20 +749,22 @@
    "lon": -80.14131,
    "located": "the street address",
    "today": {
-    "centerId": "117598",
-    "name": "Merkos Lubavitch of Florida",
+    "centerId": "117599",
+    "name": "Yeshiva Gedola Rabbinical College of Greater Miami",
     "city": "Miami Beach",
-    "link": "building"
+    "link": "same",
+    "kmFromToday": 0.01,
+    "place": "same place",
+    "subListingOf": "117598"
    },
-   "note": "Not a separate listing today; 1140 Alton Rd. is today's Merkos Lubavitch of Florida.",
+   "note": "The same yeshiva: Yeshiva Gedola Rabbinical College of Greater Miami (Rabbi Leib Schapiro), a sub-listing of Merkos Lubavitch of Florida at 1140 Alton Rd.",
    "fate": {
     "what": "still running",
     "confidence": "medium",
-    "text": "Still running in Feb 2014: Chabad.org, 'Florida Yeshiva Recalls Roots as It Celebrates 40 Years' (founded fall 1973 by eleven bochurim with Rabbi Yehuda Leib Schapiro; later 'a large complex on Alton Road in South Miami Beach'). It has no listing of its own today.",
+    "text": "Still running: listed today as a sub-listing of Merkos Lubavitch of Florida, at 1140 Alton Rd. (Chabad.org marked its 40 years in Feb 2014).",
     "sources": [
      "https://crownheights.info/chabad-news/426006/florida-yeshiva-recalls-roots-at-it-celebrates-40-years"
-    ],
-    "lastSeen": 2014
+    ]
    }
   },
   {
@@ -773,7 +784,9 @@
     "text": "Not found. No source names it after 1984; Kendall's Chabad today is Rabbi Yossi Harlig's (Kendall & Pinecrest).",
     "lastSeen": 1984,
     "goneBy": 2026,
-    "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)"
+    "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)",
+    "assumedEnd": 2004,
+    "assumedHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
    }
   },
   {
@@ -840,7 +853,9 @@
     "text": "Not found. Tiferes Bachurim itself is Morristown's (1972, Rabbi Moshe Herson); no Miami branch is found after 1984.",
     "lastSeen": 1984,
     "goneBy": 2026,
-    "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)"
+    "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)",
+    "assumedEnd": 2004,
+    "assumedHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
    }
   },
   {
@@ -1359,13 +1374,21 @@
    "lat": 44.91951,
    "lon": -93.14937,
    "located": "the street address",
-   "today": null,
-   "note": "Not in today's directory (Bais Chana Women International is no separate listing).",
+   "today": {
+    "centerId": "118004",
+    "name": "Bais Chana",
+    "city": "West S. Paul",
+    "link": "same",
+    "kmFromToday": 4.98,
+    "place": "moved",
+    "subListingOf": "117647"
+   },
+   "note": "The same school: Bais Chana (Rabbi Manis Friedman, dean), a sub-listing of Upper Midwest Merkos at 400 Marie Ave. W., West St. Paul.",
    "fate": {
     "what": "moved",
     "year": 2000,
     "confidence": "medium",
-    "text": "Bais Chana (founded summer 1971 by Rabbis Moshe Feller and Manis Friedman) was born at the Lubavitch House, 15 Montcalm Court, the Highland Park mansion Chabad used from 1968; in 2000 the Lubavitch House moved to 400 Marie Ave. W., West St. Paul, and the AJW directory lists Bais Chana there. It runs on as Bais Chana Women International, with no listing of its own in today's directory.",
+    "text": "Bais Chana (founded summer 1971 by Rabbis Moshe Feller and Manis Friedman) was born at the Lubavitch House, 15 Montcalm Court, the Highland Park mansion Chabad used from 1968; in 2000 the Lubavitch House moved to 400 Marie Ave. W., West St. Paul, and the AJW directory lists Bais Chana there. It is listed there today as a sub-listing of the Lubavitch House (Bais Chana Women International).",
     "sources": [
      "https://crownheights.info/shlichus/533631/after-55-years-of-work-in-minnesota-couple-to-be-honored",
      "https://www.chabad.org/article.asp?aid=1749351",
@@ -1447,7 +1470,9 @@
     "text": "Not found. Rabbi Yosef Carlebach (Rutgers Chabad, 1978) lived in Highland Park; today's Chabad of Edison is in Highland Park (118 Washington Ave.). No source ties either to 307 S. Second St.",
     "lastSeen": 1984,
     "goneBy": 2026,
-    "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)"
+    "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)",
+    "assumedEnd": 2004,
+    "assumedHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
    }
   },
   {
@@ -1495,7 +1520,8 @@
     "lastSeen": 1984,
     "goneBy": 2009,
     "goneByHow": "not in lubavitch.com's Albuquerque list, Dec 2009 (only Chabad of New Mexico)",
-    "likelyBy": 1992
+    "assumedEnd": 1992,
+    "assumedHow": "Assumed: the Schmuklers came in 1992 to set up Chabad of New Mexico, and no one else is known in Albuquerque between."
    }
   },
   {
@@ -1519,7 +1545,8 @@
     "lastSeen": 1984,
     "goneBy": 2009,
     "goneByHow": "not in lubavitch.com's Albuquerque list, Dec 2009 (only Chabad of New Mexico)",
-    "likelyBy": 1992
+    "assumedEnd": 1992,
+    "assumedHow": "Assumed: the Schmuklers came in 1992 to set up Chabad of New Mexico, and no one else is known in Albuquerque between."
    }
   },
   {
@@ -1900,7 +1927,8 @@
     "lastSeen": 2011,
     "goneBy": 2026,
     "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)",
-    "likelyBy": 2014
+    "assumedEnd": 2014,
+    "assumedHow": "Assumed: it was Rabbi Posner's own office, and he died in April 2014."
    }
   },
   {
@@ -2055,7 +2083,9 @@
     "text": "Not found. When the yeshiva closed is not found; its building is today's Congregation Shaarei Tefilah - Lubavitch.",
     "lastSeen": 1984,
     "goneBy": 2026,
-    "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)"
+    "goneByHow": "not in today's chabad.org directory (fetched Oct 2026)",
+    "assumedEnd": 2004,
+    "assumedHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
    }
   },
   {
@@ -2117,7 +2147,9 @@
     ],
     "lastSeen": 1984,
     "goneBy": 2011,
-    "goneByHow": "not in lubavitch.com's Madison list, Sept 2011 (which lists the Chabad House and the UW Chabad); it may only have stopped being listed apart"
+    "goneByHow": "not in lubavitch.com's Madison list, Sept 2011 (which lists the Chabad House and the UW Chabad); it may only have stopped being listed apart",
+    "assumedEnd": 2004,
+    "assumedHow": "Assumed: no source shows it after 1984, and it is not in today's directory, main listings or sub-listings. chabad.org's first online directory (July 2004) was meant to list every centre, and nothing shows this one in it or after, so it counts as closed by 2004. If a later source shows it open, the end moves."
    }
   }
  ]

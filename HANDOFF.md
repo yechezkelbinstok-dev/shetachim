@@ -726,7 +726,7 @@ scripts/card-preview/history/; make new changes in the page itself):
    it can get better than that even" (so it may get better still). `data-cnt` = line (head | zoom | box also in the file);
    under it (owner, Nov 9) a second line, a person mark and "N shluchim" (שלוחים): the men only (Rabbi, Mr., Dr.,
    Professor; not deceased; two women doctors left out by name in `NOT_MEN`), each counted once by name however many
-   centers list him — on shetach, sub-shetach and country cards (`shluchimOf`, `shluchimInPieces`). 487 centers list nobody;
+   centers list him, never a mushroom's people even with Mushrooms on — on shetach, sub-shetach and country cards (`shluchimOf`, `shluchimInPieces`). 487 centers list nobody;
 5. a vaad that leads (Florida, New Jersey: `vaadFirst`): a honeycomb of its members' faces (34 px, its head in the
    middle with a ring; the page's `VAAD_PHOTOS`, from data/vaad-photos.json; the alternate left out), "הנהלה", its
    name and "7 חברים" (opens the list). The head shliach is a plain line "שליח ראשי: ..." with a person mark, and no

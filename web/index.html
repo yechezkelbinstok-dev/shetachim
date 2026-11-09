@@ -993,7 +993,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const counts = new Map(), mush = new Map(), shl = new Map(); // (centers per piece, how many of them are mushrooms, its shluchim)
       for (const d of ds) {
         counts.set(d.piece, (counts.get(d.piece) || 0) + d.centers.length);
-        for (const c of d.centers) for (const k of shluchimOf(c)) { if (!shl.has(d.piece)) shl.set(d.piece, new Set()); shl.get(d.piece).add(k); }
+        for (const c of d.centers) if (!c.mushroom) for (const k of shluchimOf(c)) { if (!shl.has(d.piece)) shl.set(d.piece, new Set()); shl.get(d.piece).add(k); }
         const m = d.centers.filter((c) => c.mushroom).length;
         if (m) mush.set(d.piece, (mush.get(d.piece) || 0) + m);
       }
@@ -1008,7 +1008,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
   // The shluchim (men only; owner, Nov 9: "the total amount of shluchim ... (males only) so not centers because centers
   // often have multiple"): a center's living men (Rabbi, Mr., Dr., Professor; a few doctors listed are women), each
-  // counted once however many centers list him, by his name.
+  // counted once however many centers list him, by his name. Never a mushroom's people, Mushrooms on or off (owner,
+  // Nov 9: "no mushrooms, separate even when mushrooms turned on").
   const NOT_MEN = new Set(['delia emma benchetrit', 'davida murray']);
   function shluchimOf(c) {
     const out = [];
@@ -2541,7 +2542,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     if (!SUB_COUNTS.has(k)) {
       const polys = subPolys(s);
       let n = 0, m = 0; const who = new Set();
-      for (const d of dots) if (polys.some((poly) => insideRings(d.lon, d.lat, poly))) { n += d.centers.length; m += d.centers.filter((c) => c.mushroom).length; for (const c of d.centers) for (const x of shluchimOf(c)) who.add(x); }
+      for (const d of dots) if (polys.some((poly) => insideRings(d.lon, d.lat, poly))) { n += d.centers.length; m += d.centers.filter((c) => c.mushroom).length; for (const c of d.centers) if (!c.mushroom) for (const x of shluchimOf(c)) who.add(x); }
       SUB_COUNTS.set(k, [n, m, who.size]);
     }
     return SUB_COUNTS.get(k);

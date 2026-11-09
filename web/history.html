@@ -391,7 +391,10 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   pieces.forEach((g, i) => { if (!P[i].sliver) (todayOf.get(g.properties.shetach) || todayOf.set(g.properties.shetach, new Set()).get(g.properties.shetach)).add(i); });
   const todayName = (sid) => { const t = HE && he && he.shetachim && he.shetachim[sid]; return (t && t.name) || (SH.get(sid) || {}).name || sid; };
   const join = (list) => { if (list.length < 2) return list[0]; const last = list[list.length - 1]; return HE ? `${list.slice(0, -1).join(', ')} ${last.startsWith('ו') ? 'ו־' : 'ו'}${last}` : `${list.slice(0, -1).join(', ')} & ${last}`; };
+  // a name a shetach had in its years (hist.names: Alevsky's 'Cleveland' until the shetach grew, owner, Nov 9)
+  const namedAt = (sid, Y) => { let n = null; for (const x of (hist.names || {})[sid] || []) { const st = startOf(x); if (st && st.y <= Y) n = x; } return n && n.name ? L(n.name, n.nameHe || n.name) : null; };
   function nameOf(sid, Y) {
+    const named = namedAt(sid, Y); if (named) return named;
     const c = config(Y);
     const idx = (c.groups.get(sid) || []).filter((i) => !P[i].sliver && !P[i].north);
     if (!idx.length) return todayName(sid);

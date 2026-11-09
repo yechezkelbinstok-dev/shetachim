@@ -74,3 +74,11 @@ so pass two can find them. No IRS lookups in the first pass. Leads that weren't 
   Menachem 2000, Chestnut Hill 2001, Brandeis fall 2001 (medium).
 - Bounds (28), first pass. New England Hebrew Academy by 1947 (IRS; 1944 is a lead). South Shore's couple says 2015,
   but its listing is from 2004, so it's left open. Shaloh House "late 1960s" is in its note.
+
+## Eastern New York (batches eastern-new-york-01 to -03): 50 listings, 12 with a year
+- Camp Emunah 1953, Camp Gan Israel (Parksville) 1956, Chabad of the Capital District 1974 (medium: one notice says
+  1973; the Rubins), Shabbos House 1975, Maimonides Hebrew Day School 1980, Delmar 1986, Ulster County 2001 (medium:
+  Rabbi Hecht at Agudas Achim), New Paltz Aug 2003, Orange County 2004, Vassar about 2012 (medium), the Pardess
+  Chabad farm 2014, Colonie 2018 (medium: listed July 2017).
+- Bounds (38), first pass. Left open on purpose: Bethlehem (2011 vs a 2010 listing), Clifton Park (18 years in 2025 vs
+  a 2005 listing), Oneonta (2012 vs a Jan 2011 listing). Saratoga's 2000 is a lead.

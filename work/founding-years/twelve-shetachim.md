@@ -118,3 +118,7 @@ listing made that same year (after 2004). Newton and Camp Emunah kept high with 
 Now: 39 high, 57 medium, 1 low. Across the twelve: 54 of 449 listings high (12%; 46% of the 118 with a year).
 Every medium still needs a second, independent source before a shetach is called done (HANDOFF rule); that is pass
 two. `progress.py` now prints the HIGH share first (the owner's metric, Nov 8).
+The same audit on this session's earlier work (New York City and Western Pennsylvania): 17 more highs on one later
+source, a first mention, a count or a plan only are now medium (15 in NYC, 2 in Western PA; each note
+ends "(Nov 9 audit)"). All of this session's work (NYC, Western PA and the twelve): 72 of 649 listings high (11%;
+40% of the 182 with a year). Whole map: 843 of 1,969 high (42.8%; 72% of the 1,170 with a year).

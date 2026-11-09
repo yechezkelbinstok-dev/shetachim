@@ -43,7 +43,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | new-haven | 16 | 5 | 1 |  | 10 |  |  | 10 | 14 | 8 |
 | new-jersey | 91 | 59 | 4 |  | 19 | 4 | 5 | 28 | 84 | 22 |
 | new-mexico | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
-| new-york-city | 200 | 35 | 29 |  | 136 |  |  | 136 | 176 | 113 |
+| new-york-city | 200 | 20 | 44 |  | 136 |  |  | 136 | 176 | 113 |
 | newfoundland-and-labrador | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | northeast-ohio | 27 | 20 | 3 |  | 4 |  |  | 4 | 23 | 1 |
@@ -68,8 +68,8 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | washington | 33 | 2 | 3 |  | 28 |  |  | 28 | 31 | 26 |
 | washington-dc | 5 | 2 | 3 |  |  |  |  | 0 | 5 | 0 |
 | west-coast | 331 | 198 | 93 |  | 40 |  |  | 40 | 301 | 18 |
-| western-pennsylvania | 27 | 11 | 5 |  | 11 |  |  | 11 | 24 | 10 |
+| western-pennsylvania | 27 | 9 | 7 |  | 11 |  |  | 11 | 24 | 10 |
 | wisconsin | 23 | 9 | 5 |  | 9 |  |  | 9 | 20 | 6 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | crown-heights | 48 |  |  |  |  |  | 48 | 48 | 24 | 24 |
-| **all** | 1969 | 860 | 308 | 2 | 691 | 48 | 60 | 799 | 1765 | 638 |
+| **all** | 1969 | 843 | 325 | 2 | 691 | 48 | 60 | 799 | 1765 | 638 |

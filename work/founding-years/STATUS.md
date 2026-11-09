@@ -65,11 +65,11 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | utah | 4 | 3 | 1 |  |  |  |  | 0 | 4 | 0 |
 | vermont | 8 | 5 | 2 |  | 1 |  |  | 1 | 8 | 1 |
 | virginia | 19 | 8 | 1 |  | 10 |  |  | 10 | 19 | 10 |
-| washington | 33 | 2 | 3 |  | 28 |  |  | 28 | 31 | 26 |
+| washington | 33 | 13 | 5 |  | 15 |  |  | 15 | 31 | 13 |
 | washington-dc | 5 | 2 | 3 |  |  |  |  | 0 | 5 | 0 |
 | west-coast | 331 | 198 | 93 |  | 40 |  |  | 40 | 301 | 18 |
 | western-pennsylvania | 27 | 9 | 7 |  | 11 |  |  | 11 | 24 | 10 |
 | wisconsin | 23 | 9 | 5 |  | 9 |  |  | 9 | 20 | 6 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | crown-heights | 48 |  |  |  |  |  | 48 | 48 | 24 | 24 |
-| **all** | 1969 | 851 | 332 | 2 | 676 | 48 | 60 | 784 | 1765 | 624 |
+| **all** | 1969 | 862 | 334 | 2 | 663 | 48 | 60 | 771 | 1765 | 611 |

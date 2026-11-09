@@ -20857,18 +20857,17 @@
    "how": "news",
    "confidence": "medium",
    "source": "https://www.columbian.com/news/2013/apr/28/crowd-celebrates-jewish-oasis-chabad-center/",
-   "note": "The Columbian, 28 Apr 2013: 'It's been 10 years since Rabbi Shmulik and Tzivie Greenberg traveled from Brooklyn to make Vancouver their home', marking the centre's decade. CrownHeights.info, 23 June 2006 (the centre's opening on June 11): 'It was only three years ago that he and his wife, Tzivie, moved to Vancouver and started holding Shavuot services in their living room'. Medium: both are counted back ('three years ago', '10 years since'); no stated year yet (Nov 9 audit)."
+   "note": "The Columbian, 28 Apr 2013: 'It's been 10 years since Rabbi Shmulik and Tzivie Greenberg traveled from Brooklyn to make Vancouver their home', marking the centre's decade. CrownHeights.info, 23 June 2006 (the centre's opening on June 11): 'It was only three years ago that he and his wife, Tzivie, moved to Vancouver and started holding Shavuot services in their living room'. Medium: both are counted back ('three years ago', '10 years since'); no stated year yet (Nov 9 audit). Lubavitch.com, 27 Jan 2005, counted Vancouver among 'three new centers in Washington State': 'Vancouver, Clark County ... is now served by Rabbi Shmulik and Tzivia Greenberg'."
   },
   "164329": {
    "name": "Chabad of the Central Cascades",
    "city": "Issaquah, WA",
    "shetach": "washington",
-   "year": 2005,
-   "how": "stated",
+   "year": 2004,
+   "how": "news",
    "confidence": "medium",
-   "source": "https://www.lubavitch.com/new-torah-for-chabad-of-central-cascades/",
-   "note": "Lubavitch.com, 17 Sept 2009: 'In the summer of 2005, Rabbi Shalom Dovber (Berry) and Nechama Farkash arrived in Central Cascades.' Medium: its chabad.org listing went up earlier, on 25 Aug 2004.",
-   "season": "summer"
+   "source": "https://www.lubavitch.com/three-new-centers-in-washington-state/",
+   "note": "Lubavitch.com, 27 Jan 2005 ('Three new centers in Washington State'): 'Just east of Seattle is Issaquah, King County, the new home of Rabbi Sholom Ber and Nechama Farkash.' Its chabad.org listing went up 25 Aug 2004. Medium: Lubavitch.com, 17 Sept 2009, says 'In the summer of 2005, Rabbi Shalom Dovber (Berry) and Nechama Farkash arrived in Central Cascades', which the Jan 2005 report contradicts."
   },
   "4080577": {
    "name": "Chabad Jewish Center of Renton",
@@ -20962,12 +20961,12 @@
    "name": "Chabad of Pierce County",
    "city": "Tacoma, WA",
    "shetach": "washington",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/118645/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Lead, not checked: a web search says Rabbi Zalman Heber started Chabad of Pierce County in November 2003. CrownHeights.info (29 May 2012) has Rabbi Heber building Tacoma's first new synagogue since 1968. Director: Mendel Kesselman."
+   "year": 2003,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://crownheights.info/shlichus/44265/chabad-builds-first-shul-in-tacoma-since-1968/",
+   "note": "The News Tribune on CrownHeights.info, 29 May 2012: 'Heber started Chabad of Pierce County in November 2003.' The News Tribune on CrownHeights.info, 1 Sept 2010: 'Since moving from New York seven years ago, Heber has held services in the basement of his West End house'. Lubavitch.com, 27 Jan 2005 ('Three new centers in Washington State'): 'Tacoma, Pierce County ... the arrival of Rabbi Zalman and Miriam Heber'. Rabbi Heber resigned in 2019; Rabbi Mendel Kesselman directs it now.",
+   "date": "2003-11"
   },
   "159410": {
    "name": "The Friendship Circle of Washington",
@@ -20984,23 +20983,21 @@
    "name": "Chabad at the University of Washington",
    "city": "Seattle, WA",
    "shetach": "washington",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/216023/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2004-10-25, so it existed by then. Director: Mendel Weingarten."
+   "year": 2004,
+   "how": "news",
+   "confidence": "medium",
+   "source": "https://crownheights.info/shlichus/30395/why-i-love-chabad-at-university-of-washington/",
+   "note": "CrownHeights.info, 1 Dec 2010: 'Chabad at University of Washington, led by Rabbi Elie and Chaya Rochel Estrin, recently held a benefit event to celebrate their sixth year on campus' (about 2005); its chabad.org listing went up 25 Oct 2004. Medium: counted back, a year off the listing. Rabbi Mendel and Miriam Weingarten direct it now."
   },
   "355518": {
    "name": "Rohr Center for Jewish Life",
    "city": "Bellingham, WA",
    "shetach": "washington",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2006,
-   "source": "https://www.chabad.org/api/content/355518/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2006-02-02, so it existed by then. Director: Avremi Yarmush."
+   "year": 2006,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/general/2370/jewish-students-at-western-get-their-own-place-of-worship/",
+   "note": "The Western Front on CrownHeights.info, 6 June 2006: 'Jewish students at Western are getting their own place of worship with the opening of the first Chabad House in Bellingham', with Rabbi Levi Backman 'the newly appointed co-director of Chabad of Bellingham'. The Bellingham Herald on CrownHeights.info, 16 June 2006: late in 2005 'Rabbi Levi Backman was preparing to establish a Chabad House here.' Its chabad.org listing went up 2 Feb 2006. Rabbi Avremi and Nissa Yarmush direct it now."
   },
   "438639": {
    "name": "Chabad of Snohomish County",
@@ -21017,23 +21014,21 @@
    "name": "Chabad of Spokane County",
    "city": "Spokane, WA",
    "shetach": "washington",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2007,
-   "source": "https://www.chabad.org/api/content/525757/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2007-06-01, so it existed by then. Director: Yisroel Hahn."
+   "year": 2007,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://www.spokesman.com/stories/2007/jun/23/a-jewish-welcome/",
+   "note": "The Spokesman-Review, 23 June 2007 ('A Jewish welcome'): 'Rabbi Yisroel Hahn, right, his wife, Sarah Hahn, and their son, Eliezer, recently moved to Spokane from Brooklyn and are opening a Chabad Center ... in their home.' Its chabad.org listing went up 1 June 2007."
   },
   "627208": {
    "name": "Chabad Jewish Center of Olympia",
    "city": "Olympia, WA",
    "shetach": "washington",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2008,
-   "source": "https://www.chabad.org/api/content/627208/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2008-01-20, so it existed by then. Director: Yosef Schtroks."
+   "year": 2007,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.jewisholympia.com/templates/articlecco_cdo/aid/7134025/jewish/About-Us.htm",
+   "note": "Its own 'About Us' (read through Firecrawl): 'Chabad Jewish Center of Olympia was founded in 2007'; 'Rabbi Yosef and Rivky Schtroks moved to Olympia just before Chanukah of 2016 to lead' it. Its chabad.org listing went up 20 Jan 2008."
   },
   "1908052": {
    "name": "Hebrew School",
@@ -21050,23 +21045,23 @@
    "name": "Chabad of NW Seattle",
    "city": "Seattle, WA",
    "shetach": "washington",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2015,
-   "source": "https://www.chabad.org/api/content/3026673/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2015-08-31, so it existed by then. Director: Yoni Levitin."
+   "year": 2015,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.chabadnwseattle.com/templates/articlecco_cdo/aid/3056197/jewish/About-Us.htm",
+   "note": "Its own 'About Us' (read through Firecrawl): 'Rabbi Yoni & Mushka Levitin founded the Chabad Chapter of NW Seattle in the Summer of 2015.' Its chabad.org listing went up 31 Aug 2015.",
+   "season": "summer"
   },
   "3027906": {
    "name": "Chabad Mercer Island",
    "city": "Mercer Island, WA",
    "shetach": "washington",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2015,
-   "source": "https://www.chabad.org/api/content/3027906/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2015-10-13, so it existed by then. Director: Nissan Kornfeld."
+   "year": 2015,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.chabadmercerisland.org/templates/articlecco_cdo/aid/3096610/jewish/Our-Story.htm",
+   "note": "Its own 'Our Story' (read through Firecrawl): 'Rabbi Nissan & Mushka Kornfeld founded Chabad Mercer Island in the fall of 2015.' Its chabad.org listing went up 13 Oct 2015.",
+   "season": "fall"
   },
   "3096341": {
    "name": "Chabad of Queen Anne - Magnolia",
@@ -21094,34 +21089,33 @@
    "name": "Chabad of Capitol Hill",
    "city": "Seattle, WA",
    "shetach": "washington",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2016,
-   "source": "https://www.chabad.org/api/content/3113908/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2016-01-26, so it existed by then. Director: Levi Levitin."
+   "year": 2015,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.capitolhillseattle.com/2016/12/chabad-of-capitol-hill-aims-to-reach-every-jew-latkeh-and-challah-help/",
+   "note": "CHS Capitol Hill Seattle, 15 Dec 2016 (read through Firecrawl): Rabbi Levi and Rivkah Levitin 'in October 2015 ... began the Chabad of Capitol Hill'; 'We're only a year old,' Levi said. Its chabad.org listing went up 26 Jan 2016.",
+   "date": "2015-10"
   },
   "3487329": {
    "name": "Chabad of Kirkland",
    "city": "Kirkland, WA",
    "shetach": "washington",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2016,
-   "source": "https://www.chabad.org/api/content/3487329/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2016-11-18, so it existed by then. Director: Chaim Shoul Rivkin."
+   "year": 2017,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://www.jewishkirkland.com/templates/articlecco_cdo/aid/3875774/jewish/About-Us.htm",
+   "note": "Its own 'About Us' (read through Firecrawl): 'In spring of 2017, Rabbi Chaim Shoul and Sarale Rivkin along with their son Mendel embarked on their journey to bring Judaism to Kirkland, they immediately founded the first ever Jewish center in the area'. Medium: its chabad.org listing went up earlier, on 18 Nov 2016.",
+   "season": "spring"
   },
   "4093988": {
    "name": "Chabad Jewish Center of Shoreline",
    "city": "Shoreline, WA",
    "shetach": "washington",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2018,
-   "source": "https://www.chabad.org/api/content/4093988/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2018-08-21, so it existed by then. Director: Sadya Davidoff."
+   "year": 2018,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://www.shorelineareanews.com/2018/08/new-rabbi-to-establish-chabad-jewish.html",
+   "note": "Shoreline Area News, Aug 2018: 'New Rabbi to establish Chabad Jewish Center in Shoreline' (Rabbi Sadya Davidoff). Its chabad.org listing went up 21 Aug 2018."
   },
   "4161193": {
    "name": "Chabad of Bainbridge Island",
@@ -21160,34 +21154,31 @@
    "name": "Chabad of Maple Valley",
    "city": "Maple Valley, WA",
    "shetach": "washington",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2022,
-   "source": "https://www.chabad.org/api/content/5502685/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2022-06-16, so it existed by then. Director: Shmuly Gurary."
+   "year": 2022,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/chabad-news/783899/new-shluchim-to-maple-valley-wa/",
+   "note": "CrownHeights.info, 27 July 2022 ('New Shluchim To Maple Valley, WA'): Rabbi Shmuly and Shevy Gurary 'will be moving on Shlichus to Maple Valley'; 'The new Shluchim will be opening Chabad of Maple Valley ... in a place with no prior Jewish infrastructure.' Its chabad.org listing went up 16 June 2022."
   },
   "5977289": {
    "name": "Chabad of Skagit County",
    "city": "Mount Vernon, WA",
    "shetach": "washington",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2023,
-   "source": "https://www.chabad.org/api/content/5977289/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2023-06-08, so it existed by then. Director: Shmuel Silver."
+   "year": 2023,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/chabad-news/831904/new-shluchim-announced-to-skagit-county-washington/",
+   "note": "CrownHeights.info, 17 Aug 2023 ('New Shluchim Announced to Skagit County, Washington'): Rabbi Shmuli and Shevy Silver 'will be moving out on Shlichus to Skagit County'. Its chabad.org listing went up 8 June 2023."
   },
   "6469119": {
    "name": "Chabad North East Seattle",
    "city": "Seattle, WA",
    "shetach": "washington",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2024,
-   "source": "https://www.chabad.org/api/content/6469119/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2024-07-17, so it existed by then. Director: Yossi Rodal."
+   "year": 2024,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/shlichus/871682/new-shluchim-to-northeast-seattle/",
+   "note": "CrownHeights.info, 4 July 2024 ('New Shluchim To Northeast Seattle'): Rabbi Yossi and Zelda Rodal 'were appointed by Rabbi Sholom Ber and Chanie Levitin as the new shluchim to Northeast Seattle'; they 'are going to lead Congregation Shaarie Tefillah Lubavitch'. Its chabad.org listing went up 17 July 2024."
   },
   "118250": {
    "name": "Chabad Lubavitch of Cambridge",

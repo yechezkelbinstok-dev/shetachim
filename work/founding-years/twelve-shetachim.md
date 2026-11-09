@@ -122,3 +122,27 @@ The same audit on this session's earlier work (New York City and Western Pennsyl
 source, a first mention, a count or a plan only are now medium (15 in NYC, 2 in Western PA; each note
 ends "(Nov 9 audit)"). All of this session's work (NYC, Western PA and the twelve): 72 of 649 listings high (11%;
 40% of the 182 with a year). Whole map: 843 of 1,969 high (42.8%; 72% of the 1,170 with a year).
+
+## Research after the first pass (Nov 9, later the same day): new years first
+Batches maryland-03/04, washington-03, eastern-massachusetts-03/04, ontario-03/04, quebec-03/04, ottawa-01,
+new-york-city-12/13, virginia-04/05, oregon-03/04, colorado-03, upstate-new-york-03 to -05, eastern-new-york-04/05,
+connecticut-03/04, kansas-missouri-02, arizona-03, florida-23, illinois-02, west-coast-51. Each year read from its
+source (curl, or a site's own WordPress search API), quoted in the note, and checked against the listing's chabad.org
+date (`/api/content/<id>/metadata?tid=7152`, publicationDate).
+- **COLlive's own search is free and returns the full text**: `https://collive.com/wp-json/wp/v2/posts?search=...
+  &_fields=date,link,title,content` (and `?slug=<slug>` for one post). No Firecrawl credits needed. Its "New Shluchim
+  to X" posts (about 7,900 posts mention "new shluchim", 2008-2026) were matched to undated listings by town and
+  director, then read one by one. Same API works for the Jewish Exponent (Philadelphia), the Jewish Ledger
+  (Connecticut), J. Weekly (Bay Area), the Jewish Independent (BC) and the Jewish Post & News (Winnipeg).
+- **Washington Jewish Week** articles from about 2023 on sit behind a free sign-up wall; not read (rule: no getting
+  around a paywall). Older ones are open.
+- **Merkos lists**: CrownHeights.info, 4 Dec 2024 ("100 New Centers To Be Established", fifty new shluchim named) is
+  used as a report from that year that a centre is new; with a same-year listing it gives high (Babcock Ranch, San Tan
+  Valley, NE Portland). The 2022 "New Shluchim" grants are two-year grants "to jumpstart" couples in their first years,
+  so (as an earlier session decided) they are not used alone for a year.
+- **First activity vs. move**: holiday visits before a couple was named to a place (interns, family helping) do not set
+  the year; the year is the move or the first programmes as that centre's shluchim, whichever is earlier and has a
+  source (Steamboat Springs 2023: its Chanukah 2023 programmes and listing; Winchester 2019: the move, earlier holiday
+  visits noted). When the stated start is a year or more after the listing, the year is left open with the quote kept
+  (Huntington Village, Mohawk Valley).
+- Raised to high with a second source: Rabbinical College of Canada 1941 (CrownHeights.info 2016 and COLlive 2021).

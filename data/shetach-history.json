@@ -2485,20 +2485,25 @@
   ],
   "US-OH:northeast-ohio": [
    {
-    "shetach": "southern-ohio",
-    "from": null,
-    "fromBound": {
-     "after": "1972-09",
-     "by": "1973-09"
-    },
-    "how": "owner",
-    "note": "The rest of Northeast Ohio (outside Cleveland): Kalmanson's from his start (owner, Nov 8: he 'was given basically all those parts of Ohio'; Nov 9: sent in Lamed Gimmel, and Alevsky's first shetach only Cleveland)."
-   },
-   {
     "shetach": "northeast-ohio",
-    "from": "1991",
-    "how": "owner",
-    "note": "Owner, Nov 9: \"maybe the year kaltman comes down is the year Alevsky gets what Greenberg has now\": when Central Ohio was cut from Kalmanson's (the Kaltmanns, 1991), the rest of the northeast (with the southeast) became Alevsky's, the shetach of today. Sources for Alevsky on US-OH:cleveland."
+    "from": "1972",
+    "how": "stated",
+    "confidence": "high",
+    "sources": [
+     {
+      "url": "https://localjewishnews.com/2014/07/03/chabad-extends-outreach-from-eight-northeast-ohio-locations/",
+      "title": "Chabad extends outreach from eight Northeast Ohio locations (Cleveland Jewish News)",
+      "date": "2014-07-03",
+      "quote": "When Rabbi Leibel Alevsky and his wife, Devorah, were sent to Cleveland in 1972 by Rabbi Menachem Mendel Schneerson to establish the first Chabad house in Cleveland and eastern Ohio, they could not have imagined how the movement would grow regionally under their leadership."
+     },
+     {
+      "url": "https://crownheights.info/chabad-news/944830/rabbi-leibel-alevsky-86-powerhouse-innovator-who-built-chabad-in-cleveland/",
+      "title": "Rabbi Leibel Alevsky, 86, Powerhouse Innovator Who Built Chabad in Cleveland (CrownHeights.info)",
+      "date": "2026-04-27",
+      "quote": "Over his five decades as executive director of Chabad of Cleveland, Alevsky touched thousands of lives"
+     }
+    ],
+    "note": "Alevsky came three years before Kalmanson, so this part of Ohio was never Kalmanson's (the owner, Nov 8: \"Could be there was a Levski already, though\")."
    }
   ],
   "US-OH:southern-ohio": [
@@ -3111,29 +3116,6 @@
     ],
     "note": "Prince Edward Island: the Feldmans were sent 'as Shluchim to the Maritime provinces' (owner's rule, Nov 8: theirs where they were explicitly sent), from their start in Halifax, January 1995. Before that no shliach is found here (was borrowed from Nova Scotia's piece in the page)."
    }
-  ],
-  "US-OH:cleveland": [
-   {
-    "shetach": "northeast-ohio",
-    "from": "1972",
-    "how": "stated",
-    "confidence": "high",
-    "sources": [
-     {
-      "url": "https://localjewishnews.com/2014/07/03/chabad-extends-outreach-from-eight-northeast-ohio-locations/",
-      "title": "Chabad extends outreach from eight Northeast Ohio locations (Cleveland Jewish News)",
-      "date": "2014-07-03",
-      "quote": "When Rabbi Leibel Alevsky and his wife, Devorah, were sent to Cleveland in 1972 by Rabbi Menachem Mendel Schneerson to establish the first Chabad house in Cleveland and eastern Ohio, they could not have imagined how the movement would grow regionally under their leadership."
-     },
-     {
-      "url": "https://crownheights.info/chabad-news/944830/rabbi-leibel-alevsky-86-powerhouse-innovator-who-built-chabad-in-cleveland/",
-      "title": "Rabbi Leibel Alevsky, 86, Powerhouse Innovator Who Built Chabad in Cleveland (CrownHeights.info)",
-      "date": "2026-04-27",
-      "quote": "Over his five decades as executive director of Chabad of Cleveland, Alevsky touched thousands of lives"
-     }
-    ],
-    "note": "Alevsky's first shetach: Cleveland (owner, Nov 9). The 2014 Cleveland Jewish News has him sent 'to establish the first Chabad house in Cleveland and eastern Ohio'; the owner reads it as Cleveland first, the rest of the northeast his from 1991."
-   }
   ]
  },
  "extraAreas": {
@@ -3157,14 +3139,6 @@
    "carvedFrom": "US-OH:northeast-ohio",
    "cut": "the Northeast Ohio piece south of 40.45°N (a straight line, like the owner's other Ohio borders)",
    "note": "Athens, Marietta, Steubenville and the Ohio River counties at the foot of today's Northeast Ohio piece. Owner, Nov 8: 'until that shliach went to that campus why would Alevsky shape be like that I think change it': Alevsky's from the Ohio University shliach (Aug 2015). A piece for the history only, cut by scripts/build-history-geo.py."
-  },
-  "US-OH:cleveland": {
-   "name": "Cleveland",
-   "carvedFrom": "US-OH:northeast-ohio",
-   "counties": [
-    "39035"
-   ],
-   "note": "Cuyahoga County (Cleveland and its suburbs: Cleveland Heights, University Heights, South Euclid, Beachwood), cut out of the Northeast Ohio piece. Owner, Nov 9: \"when Alevsky was first sent I think it should just be Cleveland no? Maybe when the shetach changes to include more land you can have the name change\". A piece for the history only."
   }
  },
  "events": {

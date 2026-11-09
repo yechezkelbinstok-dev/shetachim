@@ -10711,15 +10711,13 @@
   },
   "6531223": {
    "name": "Chabad of Babcock Ranch - Charlotte County",
-   "city": "Punta Gorda",
+   "city": "Punta Gorda, FL",
    "shetach": "florida",
-   "year": null,
-   "by": 2025,
-   "lead": 2024,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/994210654",
-   "note": "IRS (ProPublica): 'Chabad Of Babcock Ranch - Charlotte County Inc', care of Menachem Mendel Jacobson, exempt from 2025-06, so it existed by then. Start year not found yet; lead: the chabad.org listing is from about 2024.",
-   "confidence": "range"
+   "year": 2024,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/chabad-news/889580/chabad-responds-to-tragedy-by-expanding-global-outreach-100-new-centers-to-be-established/",
+   "note": "CrownHeights.info, 4 Dec 2024 ('Chabad Responds to Tragedy by Expanding Global Outreach: 100 New Centers To Be Established'): Keren Hashluchim seed funding 'for one hundred new Chabad centers in underserved areas'; among 'The Fifty New Shluchim': 'Rabbi Mendel and Malky Jacobson at Chabad of Babcock Ranch, FL' (a new community Chabad House). Its chabad.org listing went up 1 Oct 2024; IRS (ProPublica): 'Chabad Of Babcock Ranch - Charlotte County Inc', care of Menachem Mendel Jacobson, exempt from 2025-06."
   },
   "6533668": {
    "name": "Centro Judaico De Miami",
@@ -14544,12 +14542,11 @@
    "name": "Chabad Jewish Center of Kirkwood",
    "city": "Kirkwood",
    "shetach": "kansas-missouri",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2026,
-   "source": "https://www.chabad.org/api/content/7285365/metadata?tid=7152",
-   "note": "Rabbi Levi Kesselman. No founding source found yet (new); its chabad.org listing went up April 13 2026, so it existed by then."
+   "year": 2026,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://collive.com/new-shluchim-to-kirkwood-missouri/",
+   "note": "COLlive, 16 Sept 2026 ('New Shluchim to Kirkwood, Missouri'): 'Rabbi Levi and Devora Leah Kesselman and their family have recently moved on shlichus to Kirkwood, Missouri, an inner suburb in the western St. Louis' area; 'The Kesselmans are establishing the first permanent Chabad presence in the community'; appointed by Rabbi Yosef Landa, Regional Director of Chabad of Greater St. Louis. Its chabad.org listing went up 13 Apr 2026."
   },
   "117647": {
    "name": "Upper Midwest Merkos - Lubavitch House",
@@ -15267,12 +15264,11 @@
    "name": "Chabad of San Tan Valley",
    "city": "San Tan Valley, AZ",
    "shetach": "arizona",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2024,
-   "source": "https://www.jewishsantan.com/",
-   "note": "No start date found: Rabbi Mendel and Rivky Wolowik's center (its site, read through Firecrawl, gives no year; no news found). Its chabad.org listing went up July 17 2024, so it existed by then."
+   "year": 2024,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/chabad-news/889580/chabad-responds-to-tragedy-by-expanding-global-outreach-100-new-centers-to-be-established/",
+   "note": "CrownHeights.info, 4 Dec 2024 ('Chabad Responds to Tragedy by Expanding Global Outreach: 100 New Centers To Be Established'): Keren Hashluchim seed funding 'for one hundred new Chabad centers in underserved areas'; among 'The Fifty New Shluchim': 'Rabbi Mendel and Rivky Wolowik at Chabad of San Tan Valley, AZ' (a new community Chabad House). Its chabad.org listing went up 17 July 2024; its own site gives no year."
   },
   "6659224": {
    "name": "Chabad of Buckeye",
@@ -16665,12 +16661,11 @@
    "name": "Chabad of Lincoln Square",
    "city": "Chicago, IL",
    "shetach": "illinois",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2024,
-   "source": "https://www.juf.org/chabad-seeks-permanent-homes-in-lakeview-and-lincoln-square/",
-   "note": "No start date found yet: Rabbi Choni Hertz's Chabad of Lincoln Square. JUF News (2 May 2019): Chabad's reach had extended to Lincoln Square by 2018 (outdoor menorah lightings), from Lakeview. Its chabad.org listing went up Jan 25 2024, so it existed by then."
+   "year": 2024,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://collive.com/new-shluchim-to-lincoln-square-chicago/",
+   "note": "COLlive, 16 May 2024 ('New Shluchim to Lincoln Square, Chicago'): 'Rabbi Choni and Shaina Hertz (nee Posner) have moved to Lincoln Square, Chicago, IL to establish the neighborhood's first permanent Chabad presence', appointed by Rabbi Baruch and Chanie Hertz of greater Lakeview and Rabbi Meir Shimon Moskowitz; 'The Hertz's are off to a great start, distributing over a hundred Matzahs to yidden for Pesach.' CrownHeights.info, 4 Dec 2024: 'Rabbi Choni and Shaina Hertz at Chabad of Lincoln Square, IL' among the fifty new shluchim of the 100 new centres. Its chabad.org listing went up 25 Jan 2024. (Before them, Chabad of Lakeview held outdoor menorah lightings in Lincoln Square by 2018: JUF News, 2 May 2019.)"
   },
   "6495490": {
    "name": "Chabad of Lincolnwood",
@@ -19746,12 +19741,11 @@
    "name": "Chabad Williamsburg Virginia",
    "city": "Williamsburg, VA",
    "shetach": "virginia",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2021,
-   "source": "https://www.chabad.org/api/content/4976610/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2021-02-24, so it existed by then. Director: Mendy Heber."
+   "year": 2021,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://collive.com/new-shluchim-to-williamsburg-virginia/",
+   "note": "COLlive, 6 June 2021 ('New Shluchim to Williamsburg, Virginia'): 'Rabbi Mendy and Esther Heber (nee Steinmetz), along with their daughter Devorah Leah, are the newest Chabad Shluchim to Williamsburg, Virginia'; Williamsburg 'is home to hundreds of Jewish students at the prestigious William & Mary'; 'They were appointed by the head shliach of Virginia, Rabbi Yossel Kranz.' Its chabad.org listing went up 24 Feb 2021."
   },
   "6442724": {
    "name": "Chabad of Fredericksburg",
@@ -19767,12 +19761,12 @@
    "name": "Chabad of Charlottesville",
    "city": "Charlottesville, VA",
    "shetach": "virginia",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2025,
-   "source": "https://www.chabad.org/api/content/6867362/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2025-04-24, so it existed by then. Director: Shlomo Mayer."
+   "year": 2002,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://www.lubavitch.com/new-center-in-charlottesville/",
+   "note": "The community side of Rabbi Shlomo and Chana Mayer's work. Lubavitch.com, 2 Aug 2002 ('New Center in Charlottesville'): 'Rabbi Shlomo and Chana Mayer arrived to this campus town, home to the University of Virginia and some 500 Jewish families, last January'; 'Torah classes and prayer services conducted at the Mayer's home off campus'. COLlive, 10 June 2025 ('New Shluchim Join Chabad of UVA', https://collive.com/new-shluchim-join-chabad-of-uva/): 'For the past 24 years, Reuvi's parents, Rabbi Shlomo and Channa Mayer, have been the heart of Chabad in Charlottesville—serving both students and the broader community'; their son Rabbi Reuvi and Shani Mayer now lead Chabad for UVA undergraduates, while the parents 'will continue to focus on graduate students, alumni, and the Charlottesville community'. This listing only went up 24 Apr 2025, when the work was split.",
+   "date": "2002-01"
   },
   "7019796": {
    "name": "Nova YJP",
@@ -19912,18 +19906,17 @@
    "confidence": "range",
    "by": 2010,
    "source": "https://www.chabad.org/api/content/1351834/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2010-11-24, so it existed by then. Director: Chayim Eliyohu Mishulovin."
+   "note": "No founding year found yet. Its chabad.org listing went up 2010-11-24, so it existed by then. COLlive, 6 Mar 2020 (https://collive.com/new-shluchim-to-young-adults-in-portland/): 'Rabbi Chayim and Simi Mishulovin directed Chabad's Young Professional programming in Portland for the past 15 years' (so from about 2005); Lubavitch.com (20 Feb 2024, Lamplighters ep. 42) calls the Jewish Oasis their 'innovative storefront/shmooze center', with no year. Director: Chayim Eliyohu Mishulovin."
   },
   "4461549": {
    "name": "Chabad Young Professionals Portland & Chabad Northwest Portland",
    "city": "Portland, OR",
    "shetach": "oregon",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2019,
-   "source": "https://www.chabad.org/api/content/4461549/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2019-08-14, so it existed by then. Director: Meir Posner."
+   "year": 2019,
+   "how": "first-mention",
+   "confidence": "medium",
+   "source": "https://collive.com/new-shluchim-to-young-adults-in-portland/",
+   "note": "COLlive, 6 Mar 2020 ('New Shluchim Begin Work With Young Adults in Portland'): 'Chabad of Oregon announces the opening of a full-time Chabad Young Professionals Chapter located in Portland's Northwest District under the leadership of Rabbi Meir and Sheina Posner'; before them 'Rabbi Chayim and Simi Mishulovin directed Chabad's Young Professional programming in Portland for the past 15 years.' Medium: its chabad.org listing went up 14 Aug 2019, before the announcement, so the year is that first mention."
   },
   "4494283": {
    "name": "Tigard Chabad Jewish Center",
@@ -19960,12 +19953,11 @@
    "name": "Chabad on Campus SW Portland",
    "city": "Portland, OR",
    "shetach": "oregon",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2022,
-   "source": "https://www.chabad.org/api/content/5609506/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2022-11-11, so it existed by then. Director: Eliyahu Citron."
+   "year": 2022,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://collive.com/new-shluchim-to-portland-colleges/",
+   "note": "COLlive, 21 Dec 2022 ('New Shluchim to Portland Colleges'): 'Rabbi Eliyahu and Chaya Citron (nee Turk) and their daughter Leah recently moved to Portland, Oregon to establish Chabad on Campus SW Portland', appointed by Rabbi Moshe Wilhelm; 'The main focus, however, will be on Lewis and Clark College.' Its chabad.org listing went up 11 Nov 2022."
   },
   "5801568": {
    "name": "Chabad of Corvallis",
@@ -19981,12 +19973,11 @@
    "name": "Chabad on Call NorthEast Portland",
    "city": "Portland, OR",
    "shetach": "oregon",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2024,
-   "source": "https://www.chabad.org/api/content/6671612/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2024-11-22, so it existed by then. Director: Eliyohu Elyovics."
+   "year": 2024,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/chabad-news/889580/chabad-responds-to-tragedy-by-expanding-global-outreach-100-new-centers-to-be-established/",
+   "note": "CrownHeights.info, 4 Dec 2024 ('Chabad Responds to Tragedy by Expanding Global Outreach: 100 New Centers To Be Established'): Keren Hashluchim seed funding 'for one hundred new Chabad centers in underserved areas'; among 'The Fifty New Shluchim': 'Rabbi Eliyahu and Chani Elyovics in Portland, OR' (under CKids). Its chabad.org listing went up 22 Nov 2024."
   },
   "117976": {
    "name": "Chabad House of Buffalo",
@@ -20201,12 +20192,11 @@
    "name": "Chabad at Ithaca College",
    "city": "Ithaca, NY",
    "shetach": "upstate-new-york",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2022,
-   "source": "https://www.chabad.org/api/content/5585945/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2022-08-11, so it existed by then. Director: Raffy Filler."
+   "year": 2022,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://collive.com/igniting-inspiration-in-ithaca/",
+   "note": "Rabbi Raffy and Chana Filler in their own words, COLlive, 7 June 2024 ('Igniting Inspiration in Ithaca'): 'when we were offered a post of our own at Ithaca College'; 'We're still in the beginning stages, having moved out just under two years ago'; a student 'was delighted to find that Ithaca College had just welcomed its own shluchim'. Its chabad.org listing went up 11 Aug 2022."
   },
   "6624983": {
    "name": "Chabad of the Southtowns",
@@ -20737,12 +20727,11 @@
    "name": "Chabad of Shelton",
    "city": "Shelton, CT",
    "shetach": "connecticut",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2018,
-   "source": "https://www.chabad.org/api/content/4161814/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2018-10-18, so it existed by then. Director: Shneur Brook, Leah Brook."
+   "year": 2018,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://collive.com/new-shluchim-to-connecticut-1/",
+   "note": "The Shelton Herald on COLlive, 30 Nov 2018 ('New Shluchim to Connecticut'): 'Rabbi Shneur and Leah Brook (nee Olidort) have founded the Chabad Center of Shelton-Monroe in their Soundview Avenue home'; Rabbi Brook 'moved to the city just less than a month ago'; 'the Shelton, Monroe area had no place for Jews to worship'. Its chabad.org listing went up 18 Oct 2018."
   },
   "5696796": {
    "name": "Yeshiva Campus",
@@ -20759,12 +20748,11 @@
    "name": "Camp Chomeish of New England",
    "city": "Moodus, CT",
    "shetach": "connecticut",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2022,
-   "source": "https://www.chabad.org/api/content/5702437/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2022-11-15, so it existed by then. Director: Sholom Ber Stock."
+   "year": 1998,
+   "how": "anniversary",
+   "confidence": "medium",
+   "source": "https://collive.com/camp-chomeish-announces-new-director/",
+   "note": "COLlive, 5 Jan 2023 ('Camp Chomeish Announces New Director'): Rabbi Sholom Ber and Mrs. Chaya Stock 'have been on hand for the 25 years from Camps inception'. COLlive, 16 July 2025: Rabbi Stock was 'the founder and director of Camp Chomeish Girls Camp' and a shliach in Connecticut 'for the past 35 years'. Medium: counted back (25 years before 2023); its chabad.org listing only went up 15 Nov 2022."
   },
   "5703684": {
    "name": "Chabad Young Professionals of Lower Fairfield County",
@@ -20803,12 +20791,12 @@
    "name": "Chabad of Williamstown",
    "city": "Williamstown, MA",
    "shetach": "connecticut",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2025,
-   "source": "https://www.chabad.org/api/content/7003311/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2025-09-08, so it existed by then. Rabbi Mendel and Tzivia Volovik moved to Williamstown in January 2026 'to launch a full-time Chabad presence on campus' at Williams College (CrownHeights.info, 29 Apr 2026, https://crownheights.info/chabad-news/945083/chabad-opens-at-americas-top-liberal-arts-college/); the listing went up earlier. Director: Mendel Volovik."
+   "year": 2026,
+   "how": "news",
+   "confidence": "medium",
+   "source": "https://crownheights.info/chabad-news/945083/chabad-opens-at-americas-top-liberal-arts-college/",
+   "note": "CrownHeights.info, 29 Apr 2026 ('Chabad Opens at America's Top Liberal Arts College'): 'This January, their son Rabbi Mendel and his wife Tzivia Volovik moved to Williamstown to launch a full-time Chabad presence on campus' (Williams College); before that, after October 7th, Jewish students had asked Rabbi Levi and Sara Volovik of Chabad of the Berkshires, 'about an hour's drive away', to bring Jewish infrastructure to the school. COLlive, 4 Mar 2026: the Voloviks 'are establishing the first Chabad Center at Williams College'. Medium: its chabad.org listing went up 8 Sept 2025, four months before the move.",
+   "date": "2026-01"
   },
   "7239334": {
    "name": "Chabad Lubavitch of Wilton",
@@ -21947,12 +21935,11 @@
    "name": "Congregation Ezrath Israel Chabad",
    "city": "Ellenville, NY",
    "shetach": "eastern-new-york",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2015,
-   "source": "https://www.chabad.org/api/content/2806356/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2015-01-20, so it existed by then. Director: Yakov Raskin."
+   "year": 2010,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://collive.com/ellenville-new-york-is-more-than-a-vacation-spot/",
+   "note": "COLlive, 31 May 2023 ('Ellenville, New York Is More Than a Vacation Spot'): Rabbi Yakov Raskin, 'Director of Chabad House of Ellenville'; 'He and his wife Chaya Raskin are now directing the Chabad Center which was founded in 2010.' Medium: one secondary source; its chabad.org listing went up 20 Jan 2015, and a separate Ellenville 'Hebrew School' listing (599872) went up in Nov 2007, which this does not explain."
   },
   "2840155": {
    "name": "Chabad of Rock Hill",
@@ -22492,12 +22479,11 @@
    "name": "Chabad of Greater Laurel",
    "city": "Laurel, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2016,
-   "source": "https://www.chabad.org/api/content/3310908/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2016-05-24, so it existed by then. Director: Mendel Fogelman."
+   "year": 2016,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://collive.com/new-shluchim-to-maryland-1/",
+   "note": "COLlive, 4 July 2016 ('New Shluchim to Maryland'): 'Rabbi Mendel and Mushkie Fogelman (nee Baron), along with their six-month old son Isser Dovid, have just arrived in Laurel, MD to serve as the local Chabad representatives in the area'; appointed by Rabbi Hillel and Chanie Baron of Howard County and approved by Rabbi Shmuel Kaplan. Its chabad.org listing went up 24 May 2016."
   },
   "3393989": {
    "name": "Chabad On Call - Greater Baltimore",

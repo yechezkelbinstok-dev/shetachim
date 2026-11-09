@@ -62,3 +62,15 @@ so pass two can find them. No IRS lookups in the first pass. Leads that weren't 
   (medium, two listings), Berkshire County about 2004 (medium), UConn summer 2005, New Canaan about 2010 (medium),
   Old Greenwich 2023.
 - Bounds (17), first pass; New London, Waterbury and Ridgefield had nothing on the surface.
+
+## Washington (batches washington-01, -02): 33 listings, 5 with a year
+- Chabad of the Pacific Northwest (Seattle) Oct 1972 (the Levitins), Eastside Torah Center (Bellevue) 1994, Clark
+  County 2003, Central Cascades summer 2005 (medium: listed Aug 2004), Renton Aug 2018.
+- Bounds (28), first pass; most are recent, with close listing dates. Leads in notes: Pierce County Nov 2003?,
+  the Cheder 2003 (IRS)?
+
+## Eastern Massachusetts (batches eastern-massachusetts-01, -02): 35 listings, 7 with a year
+- Chabad House of Greater Boston 1979 (medium), Sharon 1980, Cambridge 1997 (and Harvard, medium), Newton's Beth
+  Menachem 2000, Chestnut Hill 2001, Brandeis fall 2001 (medium).
+- Bounds (28), first pass. New England Hebrew Academy by 1947 (IRS; 1944 is a lead). South Shore's couple says 2015,
+  but its listing is from 2004, so it's left open. Shaloh House "late 1960s" is in its note.

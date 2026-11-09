@@ -2893,13 +2893,11 @@
    "name": "Chabad of Westboro Village",
    "city": "Ottawa, ON",
    "shetach": "ottawa",
-   "year": null,
-   "lead": 2019,
-   "how": "range",
-   "source": "https://www.chabad.org/centers/default_cdo/aid/4406734/jewish/Chabad-of-Westboro-Village.htm",
-   "note": "No source found; no director listed. therebbesimpact.com: 2019; chabad.org's listing number (4406734) is from about 2019 too. Its chabad.org listing went up on Jul 30 2019 (chabad.org's own record), so it existed by then.",
-   "confidence": "range",
-   "by": 2019
+   "year": 2019,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://collive.com/new-shluchim-to-ottawa-canada/",
+   "note": "COLlive, 3 June 2019 ('New Shluchim to Ottawa, Canada'): 'Rabbi Dovid and Mushky Caytak (nee Sirota), along with their family, are going to be moving on Shlichus to found Chabad of the Westboro area of Ottawa', under Rabbi Dovid Hayes. Its chabad.org listing went up 30 July 2019 (it names no director)."
   },
   "7475377": {
    "name": "Irving Aaron Kitchen of Kindness",
@@ -23133,12 +23131,11 @@
    "name": "Ohr Temimim",
    "city": "Thornhill, ON",
    "shetach": "ontario",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2015,
-   "source": "https://www.chabad.org/api/content/3108509/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2015-10-30, so it existed by then. Director: Eliezer Posner."
+   "year": 2015,
+   "how": "anniversary",
+   "confidence": "medium",
+   "source": "https://collive.com/toronto-mesivta-opens-new-horizons/",
+   "note": "COLlive, 25 Mar 2017 ('Toronto Mesivta Opens New Horizons'): 'Mesivta Ohr Temimim is a Lubavitch moisad located in Toronto'; 'In its successful two years of operation'; 'The Mesivta was opened in response to an overwhelming demand' (Rabbi Eliezer Posner, menahel). Medium: counted back; its chabad.org listing went up 30 Oct 2015, which agrees."
   },
   "3585579": {
    "name": "Chabad Newmarket",
@@ -23285,12 +23282,11 @@
    "name": "Chabad of King Township",
    "city": "Richmond Hill, ON",
    "shetach": "ontario",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2025,
-   "source": "https://www.chabad.org/api/content/7107123/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2025-11-26, so it existed by then. Director: Naftoli Shanowitz."
+   "year": 2025,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://collive.com/new-shluchim-to-king-township-ontario/",
+   "note": "COLlive, 7 Sept 2025 ('New Shluchim to King Township, Ontario'): 'King Township, Ontario, will now have its first permanent Chabad presence with the arrival of Rabbi Naftoli and Mushkie Shanowitz as Shluchim'; 'Until now, the area has not had a full-time Chabad presence'. Its chabad.org listing went up 26 Nov 2025."
   },
   "extra-ca-armour-heights": {
    "name": "Armour Heights Jewish Centre – Beth Joseph Chabad",
@@ -23745,12 +23741,11 @@
    "name": "Rabbinical College of Quebec",
    "city": "Montreal, QC",
    "shetach": "quebec",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2005,
-   "source": "https://www.chabad.org/api/content/262675/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2005-02-21, so it existed by then. Director: Leibel Kaplan."
+   "year": 1941,
+   "how": "anniversary",
+   "confidence": "medium",
+   "source": "https://collive.com/farbrengen-marks-80-years-of-tomchei-tmimim-montreal/",
+   "note": "COLlive, 10 Oct 2021 ('Farbrengen Marks 80 Years of Tomchei Tmimim Montreal'): 'The Farbrengen marked 80 years since the establishment of Yeshivas Tomchei Tmimim in Montreal in 5702' (the year from Sept 1941). COLlive, 15 June 2020: 'For 77 years, the Rabbinical College of Quebec has educated, elevated, and inspired the global Chabad community' ('Montreal Zal'), which counts back to about 1943. Medium: secondary sources two years apart; its chabad.org listing went up only in 2005."
   },
   "331810": {
    "name": "Chabad of Chomedey & Laval",

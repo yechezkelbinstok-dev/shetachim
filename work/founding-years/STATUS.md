@@ -48,11 +48,11 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | northeast-ohio | 27 | 20 | 3 |  | 4 |  |  | 4 | 23 | 1 |
 | oklahoma | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
-| ontario | 61 | 12 | 8 |  | 41 |  |  | 41 | 56 | 36 |
+| ontario | 61 | 13 | 9 |  | 39 |  |  | 39 | 56 | 34 |
 | oregon | 19 | 9 | 2 |  | 8 |  |  | 8 | 17 | 6 |
-| ottawa | 11 | 7 |  |  | 4 |  |  | 4 | 9 | 2 |
+| ottawa | 11 | 8 |  |  | 3 |  |  | 3 | 9 | 2 |
 | pennsylvania | 61 | 30 | 10 |  | 17 | 4 |  | 21 | 57 | 20 |
-| quebec | 72 | 5 | 11 | 1 | 55 |  |  | 55 | 59 | 43 |
+| quebec | 72 | 5 | 12 | 1 | 54 |  |  | 54 | 59 | 42 |
 | rhode-island | 8 | 5 | 1 |  | 2 |  |  | 2 | 7 | 1 |
 | rockland | 5 | 2 |  |  | 3 |  |  | 3 | 5 | 3 |
 | south-area | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | wisconsin | 23 | 9 | 5 |  | 9 |  |  | 9 | 20 | 6 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | crown-heights | 48 |  |  |  |  |  | 48 | 48 | 24 | 24 |
-| **all** | 1969 | 911 | 351 | 2 | 598 | 47 | 60 | 705 | 1765 | 548 |
+| **all** | 1969 | 913 | 353 | 2 | 594 | 47 | 60 | 701 | 1765 | 545 |

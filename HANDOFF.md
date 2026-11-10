@@ -412,6 +412,22 @@ thirteen no better recent photo has been found yet (the list is there, with what
        WebFetch reads them. Firecrawl search snippets often carry the sentence itself ("founded in 2007", "moved to
        Dumbo in 2005 to open"): a query like `"Chabad of X" <director surname> founded OR since OR opened` costs 2
        credits and found a year for about a third of the centers tried (batches `web-01`..`-06`).
+    4d. **Nov 10, end of a session (usage ran out; continue here).** Owner: "I didn't ask for crown heights I might
+       not do that" (leave Crown Heights alone unless he asks); goal "almost all high", but "For now focus on the ones
+       that still have zero dating" (the 382 undated dots first, upgrades second). He checks year changes closely ("I
+       trusted u"): say old -> new and why for every changed year. Done: `upgrades-01` (12 US mediums to high from
+       same-year CrownHeights.info/lubavitch.com reports; Kennesaw 2008->2007, Leander and Hewlett Neck 2023->2022).
+       **Sunbiz (Florida's registry):** owner: "Yes continue on sunbiz do the full scraping"; he had the Firecrawl
+       scrape tool allowed ("Add the permission": `.claude/settings.json` now allows `mcp__Firecrawl__firecrawl_scrape`;
+       before that the auto-mode classifier refused Sunbiz by every route). Firecrawl's catalogued provider
+       `search-sunbiz-org` (`entities/search`, query + `next_cursor`, 5 credits a page of 20; `entities/entity` by
+       document number, 5 credits) walked every "CHABAD..." name (324) and "LUBAVITCH..." name (12) into
+       `work/founding-years/sunbiz/names.tsv` (README there); 90 credits. Matches to undated Florida listings, with
+       what to enter and what still needs an entity page: `work/founding-years/sunbiz/florida-matches.md` (7 ready,
+       medium). New York: `work/founding-years/ny-address-matches.md` (corporations at each undated NY listing's
+       address, free; mostly later than the listings). Scripts used: `work/founding-years/tools/`. BizProfile's search
+       sits in a "paywall-wrapper": not used. Wayback (web.archive.org) and nyshistoricnewspapers.org don't answer from
+       the container. Firecrawl used this round: about 400 credits.
     5. In every update to the owner, say how much is left. `python3 work/founding-years/progress.py <your shetachim>`
        prints it ("LEFT: 48 of 48 dots (100.0%), ..."). Owner (Nov 6): "keep telling me how much left (amount and %)
        so I can steadily see progress".

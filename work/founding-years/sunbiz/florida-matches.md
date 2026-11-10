@@ -1,4 +1,4 @@
-# Florida: Sunbiz names matched to undated listings (Nov 10, not entered yet)
+# Florida: Sunbiz names matched to undated listings (Nov 10; all entered, batches florida-24 and florida-25)
 
 Filing year from the document number (N + 2-digit year + sequence; the sequence runs to about 13,000 a year, so it
 hints at the month). Rule (HANDOFF 4b): a filing counts only if it is EARLIER than the listing's chabad.org date;
@@ -44,3 +44,15 @@ to establish a Chabad presence on the campus.' Listing went up 2016-03-29. So 20
 Other name starts the Florida listings use: "THE SHUL", "JEWISH LEARNING CENTER", "BAIS/BETH CHABAD", "FRIENDSHIP
 CIRCLE", "CHAI TOTS", "GAN ISRAEL", "TORAH ACADEMY", "YESHIVA", "CONGREGATION ..." (search by each undated listing's
 own name rather than walking huge lists).
+
+## Done, Nov 10 (later): every record page opened (49, `entities/`, `entities.tsv`), batch florida-25
+Exact filing dates and officers replaced the document-number estimates. New years (the center's own corporation, filed
+before its listing, nothing earlier): 1529462 Palm Beach Island 2006 (10/24/2006, Shneur Z. Levitin) · 312423 Skylake
+2005 (01/05/2005, Rafi Rosenberg) · 527023 YJP Las Olas 2007 (02/20/2007, filed as Chabad of Las Olas) · 5505778 Chabad
+Shul Miami Gardens 2018 (01/30/2018, Shalom Kleinman) · 117892 Delray Beach 1992 (07/13/1992, Sholom B. Korf; was 2003 low)
+· 4921114 FIU Student Center 2020 (11/05/2020, a week before its 2020-11-12 listing: the sequence estimate above had put it
+after). All medium. Bounds only: 4630191 Boca Raton by 1991 (the couples came 1989), 269188 Deerfield Beach by 2005 (the
+1996 Chabad of Deerfield Beach was Rabbi Z. Goldstein's, not the Goldblatts'), listing-date bounds for Sunrise, Hollywood,
+Civic Center, Mid Miami Beach, West Lake Worth, Vero Beach; Normandy Isle by 2021. Tampa Bay stays by 1981 (Dubrowski
+filings 1985, 1988; a 1981 Chabad House, Inc. was Rabbi Eliezer Rivkin's). The old regional corporations agree with the
+years already entered (notes added).

@@ -1185,7 +1185,7 @@
    "lead": 2007,
    "how": "range",
    "source": "https://therebbesimpact.com/",
-   "note": "No source found (its own site gives no year). therebbesimpact.com: 2007; chabad.org's listing number (577207) is from about 2007 too; the IRS ruling for Congregation Chabad Jewish Center of Suffern Inc. is March 2010. Directed by Rabbi Shmuel and Devorah Gancz (the directory still names Rabbi Isaac Lefkowitz). Its chabad.org listing went up on Oct 9 2007 (chabad.org's own record), so it existed by then. Archived copies of its chabad.org listing (Wayback Machine) show it at 123 Route 59, Suffern (Feb 2010, Nov 2011, Jan 2015); it is now at 350 Haverstraw Road, Montebello, listed there by Apr 2016, so it moved there between Jan 2015 and Apr 2016. Its listing was already archived in June 2008, after the listing went up (Oct 9 2007), so this adds no earlier bound.",
+   "note": "No source found (its own site gives no year). therebbesimpact.com: 2007; chabad.org's listing number (577207) is from about 2007 too; the IRS ruling for Congregation Chabad Jewish Center of Suffern Inc. is March 2010. Directed by Rabbi Shmuel and Devorah Gancz (the directory still names Rabbi Isaac Lefkowitz). Its chabad.org listing went up on Oct 9 2007 (chabad.org's own record), so it existed by then. Archived copies of its chabad.org listing (Wayback Machine) show it at 123 Route 59, Suffern (Feb 2010, Nov 2011, Jan 2015); it is now at 350 Haverstraw Road, Montebello, listed there by Apr 2016, so it moved there between Jan 2015 and Apr 2016. Its listing was already archived in June 2008, after the listing went up (Oct 9 2007), so this adds no earlier bound. New York's register: CHABAD JEWISH CENTER OF SUFFERN, INC., filed 2008-04-14, after its chabad.org listing (2007-10-09), so not the year (HANDOFF 4b).",
    "confidence": "range",
    "by": 2007,
    "earlier": [
@@ -18034,12 +18034,11 @@
    "name": "Town of Oyster Bay Chabad",
    "city": "Woodbury, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/117686/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Shmuel Lipszyc."
+   "year": 1993,
+   "how": "directory",
+   "confidence": "medium",
+   "source": "https://data.ny.gov/resource/n9v6-gdp6.json",
+   "note": "A filing: New York's corporation register (Department of State, 'Active Corporations' open data, saved in work/founding-years/ny-dos/active-corporations.tsv) has CHABAD-LUBAVITCH OF PLAINVIEW, INC. (DOS ID 1769051), a not-for-profit filed 1993-11-02, care of Rabbi Shmuel Lipszyc, Syosset: this listing's director, and Plainview, Syosset and Woodbury are all in the Town of Oyster Bay. Its chabad.org listing went up 2004-07-22 and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: the center's own corporation, under an earlier name, medium). Earlier note: No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Shmuel Lipszyc."
   },
   "4444340": {
    "name": "CTeen Upper West Side",
@@ -18155,7 +18154,7 @@
    "confidence": "range",
    "by": 2004,
    "source": "https://www.chabad.org/api/content/118375/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Adam Stein."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Adam Stein. New York's register: CHABAD AT STONY BROOK INC, filed 2015-01-09, after its chabad.org listing (2004-07-22), so not the year (HANDOFF 4b)."
   },
   "118391": {
    "name": "Chabad of Bensonhurst",
@@ -18166,7 +18165,7 @@
    "confidence": "range",
    "by": 2004,
    "source": "https://www.chabad.org/api/content/118391/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Avrohom Hertz."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Avrohom Hertz. New York's register: CHABAD OF BENSONHURST, INC., filed 2020-10-29, after its chabad.org listing (2004-07-22), so not the year (HANDOFF 4b)."
   },
   "118489": {
    "name": "Chabad of Watermill",
@@ -18188,7 +18187,7 @@
    "confidence": "range",
    "by": 2004,
    "source": "https://www.chabad.org/api/content/118501/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Tzvi Stroh."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Tzvi Stroh. New York's register: CHABAD OF BAY RIDGE CORP., filed 2021-06-22, after its chabad.org listing (2004-07-22), so not the year (HANDOFF 4b)."
   },
   "118551": {
    "name": "Chabad of Brookville",
@@ -18330,7 +18329,7 @@
    "confidence": "range",
    "by": 2004,
    "source": "https://www.chabad.org/api/content/221245/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2004-11-11, so it existed by then. Director: Eli Goodman."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2004-11-11, so it existed by then. Director: Eli Goodman. New York's register: CHABAD LUBAVITCH OF THE BEACHES, INC., filed 2016-02-12, after its chabad.org listing (2004-07-22), so not the year (HANDOFF 4b)."
   },
   "223137": {
    "name": "Chabad of Washington Heights",
@@ -18426,7 +18425,7 @@
    "confidence": "range",
    "by": 2005,
    "source": "https://www.chabad.org/api/content/335328/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2005-12-09, so it existed by then. Director: Shneur Zalman Teitelbaum."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2005-12-09, so it existed by then. Director: Shneur Zalman Teitelbaum. New York's register: ROHR CHABAD HOUSE FOR THE MEDICAL COMMUNITY, INC., filed 2021-01-20, after its chabad.org listing, so not the year (HANDOFF 4b)."
   },
   "354284": {
    "name": "Chabad-Sutton",
@@ -18556,7 +18555,7 @@
    "confidence": "range",
    "by": 2008,
    "source": "https://www.chabad.org/api/content/636554/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2008-02-14, so it existed by then. Rabbi Zalmy and Mussia Plotke, 'White Plains, NY', are on Merkos's list of 2022 'New Shluchim Grants' (Anash, 19 Nov 2022); the IRS recognized 'Chabad Of White Plains Inc' (31 Soundview Ave.) from Nov 2025."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2008-02-14, so it existed by then. Rabbi Zalmy and Mussia Plotke, 'White Plains, NY', are on Merkos's list of 2022 'New Shluchim Grants' (Anash, 19 Nov 2022); the IRS recognized 'Chabad Of White Plains Inc' (31 Soundview Ave.) from Nov 2025. New York's register: CHABAD OF WHITE PLAINS INC., filed 2022-09-22, after its chabad.org listing, so not the year (HANDOFF 4b)."
   },
   "709099": {
    "name": "The Chelsea Shul & Rohr Center for Jgrads",
@@ -18609,7 +18608,7 @@
    "confidence": "range",
    "by": 2008,
    "source": "https://www.chabad.org/api/content/766703/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2008-11-14, so it existed by then. Director: Yochanan Marosov."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2008-11-14, so it existed by then. Director: Yochanan Marosov. New York's register: CHABAD OF MIDWOOD, INC., filed 2021-06-14, after its chabad.org listing, so not the year (HANDOFF 4b)."
   },
   "767793": {
    "name": "The Jewish Conversation",
@@ -18620,7 +18619,7 @@
    "confidence": "range",
    "by": 2008,
    "source": "https://www.chabad.org/api/content/767793/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2008-11-17, so it existed by then. Director: Yitzchok Itkin."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2008-11-17, so it existed by then. Director: Yitzchok Itkin. New York's register: THE JEWISH CONVERSATION INC., filed 2023-08-03, after its chabad.org listing, so not the year (HANDOFF 4b)."
   },
   "836703": {
    "name": "Jewish Latin Center",
@@ -18669,12 +18668,11 @@
    "name": "Chabad Jewish Center Prospect Heights West",
    "city": "Brooklyn, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2010,
-   "source": "https://www.chabad.org/api/content/1341865/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2010-11-01, so it existed by then. Director: Menachem M. Hecht."
+   "year": 2006,
+   "how": "directory",
+   "confidence": "low",
+   "source": "https://data.ny.gov/resource/n9v6-gdp6.json",
+   "note": "A filing: New York's corporation register (Department of State, 'Active Corporations' open data, saved in work/founding-years/ny-dos/active-corporations.tsv) has CHABAD OF PROSPECT HEIGHTS, INC., filed 2006-03-30, care of Shimon Hecht (Chabad of Park Slope). This listing (Prospect Heights West, Menachem M. Hecht) went up 2010-11-01. Low: the Hechts' Prospect Heights corporation, but there is also Chabad Prospect Heights East (Ari Kirschenbaum, 2005), so which center it belongs to is not certain (HANDOFF 4b: unclear body). Earlier note: No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2010-11-01, so it existed by then. Director: Menachem M. Hecht."
   },
   "1398239": {
    "name": "Chabad of ACP",
@@ -18685,7 +18683,7 @@
    "confidence": "range",
    "by": 2010,
    "source": "https://www.chabad.org/api/content/1398239/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2010-12-30, so it existed by then. Director: Yosef Y. Butman."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2010-12-30, so it existed by then. Director: Yosef Y. Butman. New York's register: CHABAD OF ARMONK, CHAPPAQUA AND PLEASANTVILLE, INC., filed 2014-05-27, after its chabad.org listing, so not the year (HANDOFF 4b)."
   },
   "1441397": {
    "name": "Bais Menachem Mendel",
@@ -18740,7 +18738,7 @@
    "confidence": "range",
    "by": 2012,
    "source": "https://www.chabad.org/api/content/2029974/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2012-11-07, so it existed by then. Director: Shimon Stillerman. Fire Island News, 17 Apr 2024 (interview): 'It was founded 10 ago. We first started coming out from Brooklyn to do groundwork and outreach ... and we then settled here 10 years ago' (about 2014), after the outreach trips; the chabad.org listing is older (2012), so the start is by 2012."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2012-11-07, so it existed by then. Director: Shimon Stillerman. Fire Island News, 17 Apr 2024 (interview): 'It was founded 10 ago. We first started coming out from Brooklyn to do groundwork and outreach ... and we then settled here 10 years ago' (about 2014), after the outreach trips; the chabad.org listing is older (2012), so the start is by 2012. New York's register: CHABAD OF ISLIP TOWNSHIP, INC., filed 2014-01-09, after its chabad.org listing (2012-11-07), so not the year (HANDOFF 4b)."
   },
   "2121036": {
    "name": "Chabad of Ditmas Park",
@@ -18806,7 +18804,7 @@
    "confidence": "range",
    "by": 2014,
    "source": "https://www.chabad.org/api/content/2613667/metadata?tid=7152",
-   "note": "No founding year found yet. Its chabad.org listing went up 2014-06-23, so it existed by then. COLlive, 22 Dec 2015 ('New Shluchim to Long Island', https://collive.com/new-shluchim-to-long-island-1/): Rabbi Yaakov Yosef and Chaya Raskin 'have recently moved with their 2 children to Huntington Village'; 'Since their move a few months ago ... The Raskins have hosted the area's first High holiday services'; appointed by Rabbi and Mrs. Asher Vaisfiche of the Melville Chabad Center. That is more than a year after the listing, so the year is left open. Director: Yaakov Yosef Raskin."
+   "note": "No founding year found yet. Its chabad.org listing went up 2014-06-23, so it existed by then. COLlive, 22 Dec 2015 ('New Shluchim to Long Island', https://collive.com/new-shluchim-to-long-island-1/): Rabbi Yaakov Yosef and Chaya Raskin 'have recently moved with their 2 children to Huntington Village'; 'Since their move a few months ago ... The Raskins have hosted the area's first High holiday services'; appointed by Rabbi and Mrs. Asher Vaisfiche of the Melville Chabad Center. That is more than a year after the listing, so the year is left open. Director: Yaakov Yosef Raskin. New York's register: CHABAD OF HUNTINGTON VILLAGE INC., filed 2016-04-08, after its chabad.org listing, so not the year (HANDOFF 4b)."
   },
   "2698274": {
    "name": "Chabad of Windsor Terrace",
@@ -18822,12 +18820,11 @@
    "name": "Chabad of Canarsie and Starrett City",
    "city": "Brooklyn, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2014,
-   "source": "https://www.chabad.org/api/content/2760734/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2014-11-13, so it existed by then. Director: Levi Yitzchok Tzfasman."
+   "year": 1990,
+   "how": "directory",
+   "confidence": "low",
+   "source": "https://data.ny.gov/resource/n9v6-gdp6.json",
+   "note": "A filing: New York's corporation register (Department of State, 'Active Corporations' open data, saved in work/founding-years/ny-dos/active-corporations.tsv) has CHABAD HOUSE OF CANARSIE, INC., filed 1990-07-24 and still active (917 82nd Street, Brooklyn). This listing (Rabbi Levi Yitzchok Tzfasman) went up 2014-11-13. Low: the earliest Canarsie corporation and still active, but the register names no officers, so that it is this center is not shown (HANDOFF 4b: unclear body). Earlier note: No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2014-11-13, so it existed by then. Director: Levi Yitzchok Tzfasman."
   },
   "3152405": {
    "name": "Chabad of Scarsdale",
@@ -19002,12 +18999,11 @@
    "name": "Mifal Hafatza",
    "city": "Brooklyn, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2022,
-   "source": "https://www.chabad.org/api/content/5487881/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2022-04-08, so it existed by then. Director: Yoel Naparstek."
+   "year": 2017,
+   "how": "directory",
+   "confidence": "medium",
+   "source": "https://data.ny.gov/resource/n9v6-gdp6.json",
+   "note": "A filing: New York's corporation register (Department of State, 'Active Corporations' open data, saved in work/founding-years/ny-dos/active-corporations.tsv) has MIFAL HAFATZA INC., filed 2017-12-28, care of Yoel Naparstek (this listing's director). Its chabad.org listing went up 2022-04-08, and nothing earlier shows it, so the filing is the year (HANDOFF 4b: own corporation, medium). Earlier note: No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2022-04-08, so it existed by then. Director: Yoel Naparstek."
   },
   "5554934": {
    "name": "The Chabad Center for Russian Speakers",
@@ -19039,7 +19035,7 @@
    "confidence": "range",
    "by": 2022,
    "source": "https://www.chabad.org/api/content/5568934/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2022-11-13, so it existed by then. Director: Schneur Zalman Mergui."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2022-11-13, so it existed by then. Director: Schneur Zalman Mergui. New York's register: CHABAD OF FOREST HILLS SOUTH INC., filed 2023-02-08, after its chabad.org listing (2022-11-13), so not the year (HANDOFF 4b)."
   },
   "5805649": {
    "name": "Chabad of Hewlett Neck & Old Woodmere",
@@ -21546,7 +21542,7 @@
    "confidence": "range",
    "by": 2010,
    "source": "https://www.chabad.org/api/content/1269036/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2010-08-08, so it existed by then. Rabbi Zalman and Chanie Simon 'moved to the area to expand Chabad's activities and cater to the entire town of Bethlehem' in 2011 (CrownHeights.info, 29 Oct 2016, https://crownheights.info/shlichus/552240/bethlehem-chabad-purchases-historic-adams-housep/); the listing is from 2010, and Chabad of Delmar has been there since 1986, so the year is left open. Director: Zalman Simon."
+   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2010-08-08, so it existed by then. Rabbi Zalman and Chanie Simon 'moved to the area to expand Chabad's activities and cater to the entire town of Bethlehem' in 2011 (CrownHeights.info, 29 Oct 2016, https://crownheights.info/shlichus/552240/bethlehem-chabad-purchases-historic-adams-housep/); the listing is from 2010, and Chabad of Delmar has been there since 1986, so the year is left open. Director: Zalman Simon. New York's register: DELMAR CHABAD CENTER, INC., filed 1996-05-21, 109 Elsmere Avenue, Delmar: Chabad House of Delmar's (listing 117683, from 1986), not shown to be Bethlehem Chabad's."
   },
   "150727": {
    "name": "Chabad of Ulster County",
@@ -21666,12 +21662,11 @@
    "name": "Camp L'man Achai",
    "city": "Andes, NY",
    "shetach": "eastern-new-york",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/120219/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Yitzchok Steinmetz."
+   "year": 2000,
+   "how": "directory",
+   "confidence": "low",
+   "source": "https://data.ny.gov/resource/n9v6-gdp6.json",
+   "note": "A filing: New York's corporation register (Department of State, 'Active Corporations' open data, saved in work/founding-years/ny-dos/active-corporations.tsv) has MIDRASH L'MAN ACHAI, a not-for-profit filed 2000-02-28 (Kew Gardens); also AMERICAN FRIENDS OF LMAN ACHAI, INC. (2008). The camp's listing went up 2004-07-22. Low: the L'man Achai organization's earliest corporation, not shown to be the camp itself (HANDOFF 4b: unclear body). Earlier note: No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Yitzchok Steinmetz."
   },
   "150726": {
    "name": "Chabad Lubavitch of Orange County",
@@ -21763,12 +21758,11 @@
    "name": "Chabad of Swan Lake",
    "city": "Swan Lake, NY",
    "shetach": "eastern-new-york",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2009,
-   "source": "https://www.chabad.org/api/content/1035617/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2009-11-08, so it existed by then. Director: Yossi Hurwitz."
+   "year": 2009,
+   "how": "directory",
+   "confidence": "low",
+   "source": "https://data.ny.gov/resource/n9v6-gdp6.json",
+   "note": "A filing: New York's corporation register (Department of State, 'Active Corporations' open data, saved in work/founding-years/ny-dos/active-corporations.tsv) has 105 CHABAD LLC, filed 2009-09-30, 105 Lake View Drive, Swan Lake; the listing went up 2009-11-08, five weeks later. Low: a property company, not the center's own nonprofit, but it puts Chabad in Swan Lake that autumn (HANDOFF 4b: unclear body; the same-year rule). Earlier note: No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2009-11-08, so it existed by then. Director: Yossi Hurwitz."
   },
   "1377561": {
    "name": "University Heights Chabad",
@@ -21812,7 +21806,7 @@
    "confidence": "range",
    "by": 2013,
    "source": "https://www.chabad.org/api/content/2313340/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2013-08-27, so it existed by then. Director: Dovid Gold."
+   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2013-08-27, so it existed by then. Director: Dovid Gold. New York's register: CHABAD OF PLATTSBURGH, INC., filed 2014-05-19, after its chabad.org listing (2013-08-27), so not the year (HANDOFF 4b)."
   },
   "2806356": {
    "name": "Congregation Ezrath Israel Chabad",
@@ -21843,7 +21837,7 @@
    "confidence": "range",
    "by": 2016,
    "source": "https://www.chabad.org/api/content/3367025/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2016-07-20, so it existed by then. Director: Shmuel Serebryanski."
+   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2016-07-20, so it existed by then. Director: Shmuel Serebryanski. New York's register: CHABAD OF EASTERN ORANGE COUNTY INC., filed 2020-01-03, after its chabad.org listing (2016-07-20), so not the year (HANDOFF 4b)."
   },
   "4475795": {
    "name": "Chabad of Woodstock",
@@ -23964,7 +23958,7 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://en.wikipedia.org/wiki/Agudas_Chasidei_Chabad",
-   "note": "Wikipedia: 'In 1940, after arriving in the United States, Schneersohn became president, effectively making the American branch the worldwide organization base'; Agudas Chasidei Chabad bought 770 Eastern Parkway in 1940 (Wikipedia, 770 Eastern Parkway). Founded by the Rebbe Rayatz in 1923; 'The American branch existed at least as far back as 1927' (elsewhere in New York, before Crown Heights). (Crown Heights, owner Nov 10: do the 12 real mosdos; the year it began in America, not in Europe or Eretz Yisroel.)"
+   "note": "Wikipedia: 'In 1940, after arriving in the United States, Schneersohn became president, effectively making the American branch the worldwide organization base'; Agudas Chasidei Chabad bought 770 Eastern Parkway in 1940 (Wikipedia, 770 Eastern Parkway). Founded by the Rebbe Rayatz in 1923; 'The American branch existed at least as far back as 1927' (elsewhere in New York, before Crown Heights). (Crown Heights, owner Nov 10: do the 12 real mosdos; the year it began in America, not in Europe or Eretz Yisroel.) New York's register also has AGUDAS HACHSIDIM ANSHAI CHABADD OF UNITED STATES, INC., a not-for-profit filed 1924-07-29 in Kings County (Brooklyn), so an American Agudas body existed from 1924; 1940 is kept as the year it became the movement's base at 770 (owner to decide)."
   },
   "117986": {
    "name": "Library of Agudas Chassidei Chabad",

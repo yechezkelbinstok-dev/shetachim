@@ -20,7 +20,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | crown-heights | 47 | 10 | 2 |  |  |  | 35 | 35 | 23 | 18 |
 | delaware | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | eastern-massachusetts | 35 | 9 | 7 | 3 | 16 |  |  | 16 | 32 | 14 |
-| eastern-new-york | 47 | 8 | 16 |  | 23 |  |  | 23 | 44 | 20 |
+| eastern-new-york | 47 | 8 | 16 | 2 | 21 |  |  | 21 | 44 | 18 |
 | florida | 235 | 138 | 39 | 20 | 15 | 23 |  | 38 | 214 | 25 |
 | georgia | 27 | 19 | 4 |  | 4 |  |  | 4 | 24 | 2 |
 | hawaii | 6 | 3 | 1 |  | 2 |  |  | 2 | 6 | 2 |
@@ -44,7 +44,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | new-haven | 15 | 5 | 5 | 1 | 4 |  |  | 4 | 13 | 3 |
 | new-jersey | 91 | 58 | 6 | 5 | 15 | 2 | 5 | 22 | 85 | 16 |
 | new-mexico | 5 | 5 |  |  |  |  |  | 0 | 5 | 0 |
-| new-york-city | 200 | 33 | 71 | 8 | 88 |  |  | 88 | 176 | 67 |
+| new-york-city | 200 | 33 | 73 | 10 | 84 |  |  | 84 | 176 | 63 |
 | newfoundland-and-labrador | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | northeast-ohio | 27 | 20 | 3 |  | 4 |  |  | 4 | 23 | 1 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | western-pennsylvania | 26 | 10 | 10 | 1 | 5 |  |  | 5 | 23 | 5 |
 | wisconsin | 22 | 9 | 5 | 2 | 6 |  |  | 6 | 19 | 5 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
-| **all** | 1937 | 962 | 438 | 75 | 388 | 28 | 46 | 462 | 1739 | 332 |
+| **all** | 1937 | 962 | 440 | 79 | 382 | 28 | 46 | 456 | 1739 | 326 |

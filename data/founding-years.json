@@ -11945,12 +11945,13 @@
    "name": "Chabad of North Pocono",
    "city": "Scranton",
    "shetach": "pennsylvania",
-   "year": 2020,
-   "how": "directory",
-   "source": "https://projects.propublica.org/nonprofits/organizations/473583913",
-   "note": "IRS: Chabad Of North Pocono (947 Clay Ave, Scranton), ruling March 2020, so it existed by then. Mitzvah Mobile; Rabbi Mendel Raices. Lead: therebbesimpact.com has Mendel & Chaya Raices 2011; the chabad.org listing (2761055) is from about 2014. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF NORTH POCONO' (EIN 47-3583913), 947 Clay Ave, Scranton, ruling Mar 2020. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start.",
-   "confidence": "low",
-   "lead": 2014
+   "year": null,
+   "how": "range",
+   "source": "https://www.chabad.org/api/content/2761055/metadata?tid=7152",
+   "note": "IRS: Chabad Of North Pocono (947 Clay Ave, Scranton), ruling March 2020, so it existed by then. Mitzvah Mobile; Rabbi Mendel Raices. Lead: therebbesimpact.com has Mendel & Chaya Raices 2011; the chabad.org listing (2761055) is from about 2014. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF NORTH POCONO' (EIN 47-3583913), 947 Clay Ave, Scranton, ruling Mar 2020. Its chabad.org listing went up Nov 13 2014, so it existed by then. Pennsylvania Department of State record (data.pa.gov): 'Chabad of North Pocono' (filing number 0004339720), created Mar 18 2015, 947 Clay Ave, Scranton. Both filings (the 2015 incorporation and the 2020 IRS ruling) come after the listing, so neither is taken as the year (Nov 10 re-check).",
+   "confidence": "range",
+   "lead": 2014,
+   "by": 2014
   },
   "117945": {
    "name": "Chabad House @ University of Pennsylvania",
@@ -13987,20 +13988,20 @@
    "how": "range",
    "confidence": "range",
    "after": 2005,
-   "by": 2015,
+   "by": 2006,
    "lead": 2006,
-   "source": "https://jewishexponent.com/chabad-of-doylestown-welcomes-jews-in-bucks-county-however-they-come/",
-   "note": "Chabad of Doylestown (300 E Swamp Rd). The Jewish Exponent (27 June 2025): 'Rabbi Mendel Prus has been the head of the Chabad of Doylestown for a little less than 20 years'; 'We really started from scratch'; their first Rosh Hashanah drew 35 people; about a decade ago it ran a campaign for a new facility. So it began after mid-2005 (about 2006). IRS: Chabad Lubavitch Of Doylestown Inc (300 E Swamp Rd), ruling May 2015."
+   "source": "https://www.chabad.org/api/content/347784/metadata?tid=7152",
+   "note": "Chabad of Doylestown (300 E Swamp Rd). The Jewish Exponent (27 June 2025): 'Rabbi Mendel Prus has been the head of the Chabad of Doylestown for a little less than 20 years'; 'We really started from scratch'; their first Rosh Hashanah drew 35 people; about a decade ago it ran a campaign for a new facility. So it began after mid-2005 (about 2006). IRS: Chabad Lubavitch Of Doylestown Inc (300 E Swamp Rd), ruling May 2015. Its chabad.org listing went up Jan 11 2006, so it existed by then: it began between mid-2005 and Jan 2006. Pennsylvania Department of State record (data.pa.gov): 'Lubavitch of Central Bucks County' (filing number 0000602378), domestic nonprofit corporation, created May 8 2006, 508 North St, Doylestown, four months after the listing, so not taken as the year."
   },
   "2929389": {
    "name": "Chabad-Lubavitch of Doylestown",
    "city": "Doylestown",
    "shetach": "pennsylvania",
-   "year": 2015,
+   "year": 2014,
    "how": "directory",
-   "confidence": "low",
-   "source": "https://projects.propublica.org/nonprofits/organizations/472691340",
-   "note": "The same Chabad of Doylestown (Rabbi Mendel Prus; website jewishdoylestown.com); this listing has its Jewish Community Center at 455 East Street. IRS: Chabad Lubavitch Of Doylestown Inc, ruling May 2015. The Jewish Exponent (27 June 2025) has Prus heading it 'for a little less than 20 years' (see 347784). When the East Street center opened is not found. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD LUBAVITCH OF DOYLESTOWN INC' (EIN 47-2691340), 300 E Swamp Rd, Doylestown, ruling May 2015. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start."
+   "confidence": "medium",
+   "source": "https://data.pa.gov/resource/xvd7-5r2c.json?filing_number=0004319646",
+   "note": "The same Chabad of Doylestown (Rabbi Mendel Prus; website jewishdoylestown.com); this listing has its Jewish Community Center at 455 East Street. IRS: Chabad Lubavitch Of Doylestown Inc, ruling May 2015. The Jewish Exponent (27 June 2025) has Prus heading it 'for a little less than 20 years' (see 347784). When the East Street center opened is not found. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD LUBAVITCH OF DOYLESTOWN INC' (EIN 47-2691340), 300 E Swamp Rd, Doylestown, ruling May 2015. Pennsylvania Department of State record (data.pa.gov, 'Registered Businesses in PA Current by County'): 'Chabad Lubavitch of Doylestown Inc' (filing number 0004319646), domestic nonprofit corporation, created Dec 29 2014, 508 North St, Doylestown; the first corporation, 'Lubavitch of Central Bucks County' (May 8 2006), is listing 347784's (earlier than the IRS ruling, so it replaces it.) A state filing of its own corporation, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
   },
   "3408190": {
    "name": "Chabad of Lewisburg",
@@ -14016,21 +14017,21 @@
    "name": "Chabad of Back Mountain",
    "city": "Back Mountain",
    "shetach": "pennsylvania",
-   "year": 2024,
+   "year": 2023,
    "how": "directory",
-   "confidence": "low",
-   "source": "https://projects.propublica.org/nonprofits/organizations/932277469",
-   "note": "IRS: Chabad Of Back Mountain (Shavertown), ruling June 2024, so it existed by then. Rabbi Shlomie Sirota. Its start is not found. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF BACK MOUNTAIN' (EIN 93-2277469), 25 Oldfield Rd, Shavertown, ruling June 2024. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start."
+   "confidence": "medium",
+   "source": "https://data.pa.gov/resource/xvd7-5r2c.json?filing_number=0013514097",
+   "note": "IRS: Chabad Of Back Mountain (Shavertown), ruling June 2024, so it existed by then. Rabbi Shlomie Sirota. Its start is not found. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF BACK MOUNTAIN' (EIN 93-2277469), 25 Oldfield Rd, Shavertown, ruling June 2024. Pennsylvania Department of State record (data.pa.gov, 'Registered Businesses in PA Current by County'): 'Chabad of Back Mountain' (filing number 0013514097), domestic nonprofit corporation, created July 5 2023, 25 Oldfield Rd, Shavertown (the listing's address) (earlier than the IRS ruling, so it replaces it.) A state filing of its own corporation, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
   },
   "1773417": {
    "name": "Chabad Israeli Center",
    "city": "Huntingdon Valley",
    "shetach": "pennsylvania",
-   "year": 2013,
+   "year": 2011,
    "how": "directory",
-   "confidence": "low",
-   "source": "https://projects.propublica.org/nonprofits/organizations/275000464",
-   "note": "IRS: Chabad Israeli Center Inc (3530 Buck Rd, Huntingdon Valley), ruling Dec 2013, so it existed by then; chabad.org now gives 2755 Philmont Avenue. Rabbi Levy Weber. Its undated Hebrew About page says 'Ten years ago, Rabbi Yitzchak Weber joined Rabbi Lipskar' (no date, so not used). Its start is not found. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD ISRAELI CENTER INC' (EIN 27-5000464), 3530 Buck Rd, Huntingdon Vy, ruling Dec 2013. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start."
+   "confidence": "medium",
+   "source": "https://data.pa.gov/resource/xvd7-5r2c.json?filing_number=0004016111",
+   "note": "IRS: Chabad Israeli Center Inc (3530 Buck Rd, Huntingdon Valley), ruling Dec 2013, so it existed by then; chabad.org now gives 2755 Philmont Avenue. Rabbi Levy Weber. Its undated Hebrew About page says 'Ten years ago, Rabbi Yitzchak Weber joined Rabbi Lipskar' (no date, so not used). Its start is not found. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD ISRAELI CENTER INC' (EIN 27-5000464), 3530 Buck Rd, Huntingdon Vy, ruling Dec 2013. Pennsylvania Department of State record (data.pa.gov, 'Registered Businesses in PA Current by County'): 'Chabad Israeli Center, Inc and H'vaada L'dovrei Ivrit Chabad' (filing number 0004016111), domestic nonprofit corporation, created Mar 9 2011, 2755 Philmont Ave, Huntingdon Valley (earlier than the IRS ruling, so it replaces it.) A state filing of its own corporation, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
   },
   "6162604": {
    "name": "Jewish Care On Call",
@@ -16949,19 +16950,19 @@
    "shetach": "new-haven",
    "year": 2021,
    "how": "directory",
-   "confidence": "low",
-   "source": "https://projects.propublica.org/nonprofits/organizations/871905901",
-   "note": "No start date found: CTeen of Greater New Haven (Rabbi Shalom Cheruff, Orange). Its chabad.org listing went up July 21 2021, so it existed by then. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CTEEN OF GREATER NEW HAVEN INC' (EIN 87-1905901), 642 Dogwood Rd, Orange, ruling Dec 2021. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start."
+   "confidence": "medium",
+   "source": "https://data.ct.gov/resource/n7gp-d28j.json?accountnumber=2314115",
+   "note": "No start date found: CTeen of Greater New Haven (Rabbi Shalom Cheruff, Orange). Its chabad.org listing went up July 21 2021, so it existed by then. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CTEEN OF GREATER NEW HAVEN INC' (EIN 87-1905901), 642 Dogwood Rd, Orange, ruling Dec 2021. Connecticut Secretary of the State record (data.ct.gov, 'Connecticut Business Registry - Business Master'): 'CTEEN OF GREATER NEW HAVEN INC' (account 2314115), religious corporation, registered July 27 2021 (the same year as the IRS ruling.) A state filing of its own corporation, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
   },
   "5381038": {
    "name": "Chabad of Downtown New Haven",
    "city": "New Haven, CT",
    "shetach": "new-haven",
-   "year": 2020,
+   "year": 2019,
    "how": "directory",
-   "confidence": "low",
-   "source": "https://projects.propublica.org/nonprofits/organizations/833553939",
-   "note": "No start date found yet: Rabbi Mendy Hecht's Chabad of Downtown New Haven (754 Chapel Street). New Haven Independent (1 Dec 2021): a Chabad menorah lighting at Union Station led by Rabbi Hecht. Its chabad.org listing went up Jan 18 2022, so it existed by then. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF DOWNTOWN NEW HAVEN INC' (EIN 83-3553939), 754 Chapel St 76, New Haven, ruling Sept 2020. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start."
+   "confidence": "medium",
+   "source": "https://data.ct.gov/resource/n7gp-d28j.json?accountnumber=1298688",
+   "note": "No start date found yet: Rabbi Mendy Hecht's Chabad of Downtown New Haven (754 Chapel Street). New Haven Independent (1 Dec 2021): a Chabad menorah lighting at Union Station led by Rabbi Hecht. Its chabad.org listing went up Jan 18 2022, so it existed by then. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF DOWNTOWN NEW HAVEN INC' (EIN 83-3553939), 754 Chapel St 76, New Haven, ruling Sept 2020. Connecticut Secretary of the State record (data.ct.gov, 'Connecticut Business Registry - Business Master'): 'CHABAD OF DOWNTOWN NEW HAVEN INC.' (account 1298688), religious corporation, registered Feb 7 2019 (earlier than the IRS ruling, so it replaces it.) A state filing of its own corporation, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
   },
   "6567613": {
    "name": "Young Anash",
@@ -18875,9 +18876,9 @@
    "shetach": "new-york-city",
    "year": 2003,
    "how": "directory",
-   "confidence": "low",
-   "source": "https://projects.propublica.org/nonprofits/organizations/061691298",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2016-01-04, so it existed by then. Director: Raphael Benchimol. IRS exempt-organization record (EO Business Master File, Nov 2026): 'ALEPH LEARNING CENTER' (EIN 06-1691298), 325 E 75Th St, New York, ruling Dec 2003. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start."
+   "confidence": "medium",
+   "source": "https://data.ny.gov/resource/n9v6-gdp6.json?dos_id=2891761",
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2016-01-04, so it existed by then. Director: Raphael Benchimol. IRS exempt-organization record (EO Business Master File, Nov 2026): 'ALEPH LEARNING CENTER' (EIN 06-1691298), 325 E 75Th St, New York, ruling Dec 2003. New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'ALEPH LEARNING CENTER' (DOS ID 2891761), New York County, first filed Apr 8 2003 (the same year as the IRS ruling.) A state filing of its own corporation, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
   },
   "3196458": {
    "name": "Chabad of Gravesend",
@@ -19190,11 +19191,11 @@
    "name": "Neiros Lehuir",
    "city": "Brooklyn, NY",
    "shetach": "new-york-city",
-   "year": 2026,
+   "year": 2025,
    "how": "directory",
-   "confidence": "low",
-   "source": "https://projects.propublica.org/nonprofits/organizations/393452880",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2026-04-13, so it existed by then. Director: Levi Ginsberg. IRS exempt-organization record (EO Business Master File, Nov 2026): 'NEIROS LEHUIR INC' (EIN 39-3452880), 1863 59Th Street, Brooklyn, ruling Apr 2026. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start."
+   "confidence": "medium",
+   "source": "https://data.ny.gov/resource/n9v6-gdp6.json?dos_id=7664583",
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2026-04-13, so it existed by then. Director: Levi Ginsberg. IRS exempt-organization record (EO Business Master File, Nov 2026): 'NEIROS LEHUIR INC' (EIN 39-3452880), 1863 59Th Street, Brooklyn, ruling Apr 2026. New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'NEIROS LEHUIR INC.' (DOS ID 7664583), Kings County, first filed July 20 2025 (earlier than the IRS ruling, so it replaces it.) A state filing of its own corporation, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
   },
   "7244635": {
    "name": "Camp Gan Israel",
@@ -19431,9 +19432,9 @@
    "shetach": "western-pennsylvania",
    "year": 2003,
    "how": "directory",
-   "confidence": "low",
-   "source": "https://projects.propublica.org/nonprofits/organizations/020679892",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. The IRS recognized 'Chabad Lubavitch Of Fox Chapel Inc' (Pittsburgh, 1343 Old Freeport Rd) from 2003-08 (ProPublica Nonprofit Explorer). IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD LUBAVITCH OF FOX CHAPEL INC' (EIN 02-0679892), 1343 Old Freeport Rd, Pittsburgh, ruling Aug 2003. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start."
+   "confidence": "medium",
+   "source": "https://data.pa.gov/resource/xvd7-5r2c.json?filing_number=0003121207",
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. The IRS recognized 'Chabad Lubavitch Of Fox Chapel Inc' (Pittsburgh, 1343 Old Freeport Rd) from 2003-08 (ProPublica Nonprofit Explorer). IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD LUBAVITCH OF FOX CHAPEL INC' (EIN 02-0679892), 1343 Old Freeport Rd, Pittsburgh, ruling Aug 2003. Pennsylvania Department of State record (data.pa.gov, 'Registered Businesses in PA Current by County'): 'Chabad Lubavitch of Fox Chapel, Inc.' (filing number 0003121207), domestic nonprofit corporation, created Jan 30 2003, 2214 Shady Ave, Pittsburgh (the same year as the IRS ruling.) A state filing of its own corporation, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
   },
   "119771": {
    "name": "Chabad of Squirrel Hill",
@@ -19518,9 +19519,9 @@
    "shetach": "western-pennsylvania",
    "year": 2019,
    "how": "directory",
-   "confidence": "low",
-   "source": "https://projects.propublica.org/nonprofits/organizations/842242074",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2022-03-28, so it existed by then. The IRS recognized 'Chabad Young Professionals Pittsburgh Inc' (Pittsburgh, 5404 Guarino Rd) from 2019-12 (ProPublica Nonprofit Explorer). Its 'new home', a loft in Pittsburgh's East End, was reported about 2021 (Chabadinfo, from the Pittsburgh Jewish Chronicle). Director: Henoch Rosenfeld. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD YOUNG PROFESSIONALS PITTSBURGH INC' (EIN 84-2242074), 5404 Guarino Rd, Pittsburgh, ruling Dec 2019. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start."
+   "confidence": "medium",
+   "source": "https://data.pa.gov/resource/xvd7-5r2c.json?filing_number=0006908996",
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2022-03-28, so it existed by then. The IRS recognized 'Chabad Young Professionals Pittsburgh Inc' (Pittsburgh, 5404 Guarino Rd) from 2019-12 (ProPublica Nonprofit Explorer). Its 'new home', a loft in Pittsburgh's East End, was reported about 2021 (Chabadinfo, from the Pittsburgh Jewish Chronicle). Director: Henoch Rosenfeld. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD YOUNG PROFESSIONALS PITTSBURGH INC' (EIN 84-2242074), 5404 Guarino Rd, Pittsburgh, ruling Dec 2019. Pennsylvania Department of State record (data.pa.gov, 'Registered Businesses in PA Current by County'): 'Chabad Young Professionals Pittsburgh Inc' (filing number 0006908996), domestic nonprofit corporation, created June 24 2019, 5404 Guarino Road, Pittsburgh (the same year as the IRS ruling.) A state filing of its own corporation, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
   },
   "5572550": {
    "name": "Chabad of the Hospitals",
@@ -20263,11 +20264,11 @@
    "name": "Chabad of South Denver",
    "city": "Denver, CO",
    "shetach": "colorado",
-   "year": 2003,
+   "year": 2001,
    "how": "directory",
-   "confidence": "low",
-   "source": "https://projects.propublica.org/nonprofits/organizations/841609995",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Yossi Serebryanski. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF SOUTH DENVER' (EIN 84-1609995), 2205 S High St, Denver, ruling Feb 2003. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start."
+   "confidence": "medium",
+   "source": "https://data.colorado.gov/resource/4ykn-tg5h.json?entityid=20011210210",
+   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Yossi Serebryanski. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF SOUTH DENVER' (EIN 84-1609995), 2205 S High St, Denver, ruling Feb 2003. Colorado Secretary of State record (data.colorado.gov, 'Business Entities in Colorado'): 'CHABAD OF SOUTH DENVER' (ID 20011210210), Colorado nonprofit corporation, formed Nov 1 2001, 2319 S Josephine St, Denver (earlier than the IRS ruling, so it replaces it.) A state filing of its own corporation, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
   },
   "118888": {
    "name": "WCRJ Community Center",
@@ -20349,11 +20350,11 @@
    "name": "Chabad of Broomfield",
    "city": "Broomfield, CO",
    "shetach": "colorado",
-   "year": 2023,
+   "year": 2022,
    "how": "directory",
-   "confidence": "low",
-   "source": "https://projects.propublica.org/nonprofits/organizations/883470633",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2024-07-17, so it existed by then. Director: Yossi Rapoport. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF BROOMFIELD' (EIN 88-3470633), 4300 Lexi Cir, Broomfield, ruling Apr 2023. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start."
+   "confidence": "medium",
+   "source": "https://data.colorado.gov/resource/4ykn-tg5h.json?entityid=20221738178",
+   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2024-07-17, so it existed by then. Director: Yossi Rapoport. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF BROOMFIELD' (EIN 88-3470633), 4300 Lexi Cir, Broomfield, ruling Apr 2023. Colorado Secretary of State record (data.colorado.gov, 'Business Entities in Colorado'): 'Chabad of Broomfield' (ID 20221738178), Colorado nonprofit corporation, formed July 27 2022, 3800 W 144th Ave, Broomfield (earlier than the IRS ruling, so it replaces it.) A state filing of its own corporation, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
   },
   "7419873": {
    "name": "Chabad of Golden",
@@ -20534,9 +20535,9 @@
    "shetach": "connecticut",
    "year": 2000,
    "how": "directory",
-   "confidence": "low",
-   "source": "https://projects.propublica.org/nonprofits/organizations/223713778",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Avrohom Sternberg. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF EASTERN CONNECTICUT' (EIN 22-3713778), 135 Plant St, New London, ruling June 2000. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start."
+   "confidence": "medium",
+   "source": "https://data.ct.gov/resource/n7gp-d28j.json?accountnumber=0646500",
+   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Avrohom Sternberg. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF EASTERN CONNECTICUT' (EIN 22-3713778), 135 Plant St, New London, ruling June 2000. Connecticut Secretary of the State record (data.ct.gov, 'Connecticut Business Registry - Business Master'): 'CHABAD OF EASTERN CONNECTICUT' (account 0646500), religious corporation, registered Mar 20 2000 (the same year as the IRS ruling.) A state filing of its own corporation, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
   },
   "119920": {
    "name": "Gan Israel Hebrew School",
@@ -20667,11 +20668,11 @@
    "name": "Farmington Chabad",
    "city": "Farmington, CT",
    "shetach": "connecticut",
-   "year": 2024,
+   "year": 2020,
    "how": "directory",
-   "confidence": "low",
-   "source": "https://projects.propublica.org/nonprofits/organizations/921854640",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2024-02-21, so it existed by then. Director: Shaya Gopin. IRS exempt-organization record (EO Business Master File, Nov 2026): 'FARMINGTON CHABAD' (EIN 92-1854640), 40 Mnt Spring Rd, Farmington, ruling Jan 2024. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start."
+   "confidence": "medium",
+   "source": "https://data.ct.gov/resource/n7gp-d28j.json?accountnumber=1367597",
+   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2024-02-21, so it existed by then. Director: Shaya Gopin. IRS exempt-organization record (EO Business Master File, Nov 2026): 'FARMINGTON CHABAD' (EIN 92-1854640), 40 Mnt Spring Rd, Farmington, ruling Jan 2024. Connecticut Secretary of the State record (data.ct.gov, 'Connecticut Business Registry - Business Master'): 'FARMINGTON CHABAD' (account 1367597), religious corporation, registered Nov 25 2020 (earlier than the IRS ruling, so it replaces it.) A state filing of its own corporation, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
   },
   "6978333": {
    "name": "Chabad of Norwich",

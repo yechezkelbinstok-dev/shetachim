@@ -1,13 +1,13 @@
 # Founding years: how good is each undated range
 
-456 undated listings (US + Canada; mikvahs left out). A range is only worth showing when both ends are known and close together. Regenerate: `python3 work/founding-years/ranges.py`.
+448 undated listings (US + Canada; mikvahs left out). A range is only worth showing when both ends are known and close together. Regenerate: `python3 work/founding-years/ranges.py`.
 
 | Kind | Listings | On the map for now? |
 |---|---|---|
 | Short: both ends, 5 years or less | 12 | yes, as a range |
-| Wide: both ends, 6–10 years | 3 | maybe |
-| Too wide: more than 10 years | 12 | no |
-| Only a latest year ('by') | 353 | no (no earliest end) |
+| Wide: both ends, 6–10 years | 4 | maybe |
+| Too wide: more than 10 years | 11 | no |
+| Only a latest year ('by') | 345 | no (no earliest end) |
 | Only an earliest year ('after') | 2 | no |
 | Nothing yet | 74 | no |
 
@@ -38,7 +38,7 @@
 - **1970–1975** (5 yr) Semach Sedek Shul, S. Euclid (northeast-ohio) · dot already dated · 119647
   The Russian synagogue of the Kazens' Russian Immigrant Aid Society. Cleveland Jewish News (13 July 2011): 'The Kazens formed the Russian Immigrant Aid Society (R.I.A.S.) in the early 1970s'. The CJN (10 April 2003): 'Walk into Sem…
 
-## Wide ranges (6–10 years): 3
+## Wide ranges (6–10 years): 4
 
 - **2000–2006** (6 yr) Chabad on River, Tucson (arizona) · 455508
   No start date found. Rabbi Rami and Chani Bigelman's center: the Jewish News (8 Feb 2002): 'Rabbi Rami and Chana Bigelman joined them in 2000' (Chabad of Tucson); the Arizona Jewish Post (24 March 2011): 'Chabad on River will welc…
@@ -46,20 +46,20 @@
   Chabad of North Bay Village's About page: 'In 2015 Rabbi Mendy & Mushka Dalfin joined our Congregation'; their own Chabad of Normandy Isle/Biscayne Point About page says only that 'our family moved to the 71st Street area of Miami…
 - **2006–2013** (7 yr) Gan Shalom Day Camp, Toronto (ontario) · 2104854
   info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2013-01-14, so it existed by then. Director: Chana S. Gansburg. A program of the Gansb…
+- **1994–2004** (10 yr) Chabad of Freehold, Freehold (new-jersey) · 118395
+  CrownHeights.info, 23 May 2006 (Chabad of Western Monmouth's 20 years): 'The Bernsteins moved to western Monmouth County in January 1994 to help expand Chabad outreach programs ... rabbi Bernstein and Mrs. Bernstein serve as the C…
 
-## Too wide (more than 10 years): 12
+## Too wide (more than 10 years): 11
 
 - **1996–2007** (11 yr) Chabad-Lubavitch of Southern Rensselaer County, East Greenbush (eastern-new-york) · 596689
   info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2007-11-19, so it existed by then. Director: Avraham Laber. Its own retreat site (greenbushretreat.com/about, read Nov 10 2026…
 - **2011–2022** (11 yr) CYP Cleveland, Cleveland (northeast-ohio) · 6892760
   No start date found: the young professionals arm of Chabad of Downtown Cleveland (2112170, from 2011). CrownHeights.info (27 Jan 2022): Rabbi Yossi Freedman, 'who together with his wife Chaya co-directs Chabad Young Professionals …
-- **1994–2006** (12 yr) Chabad of Freehold, Freehold (new-jersey) · 118395
-  CrownHeights.info, 23 May 2006 (Chabad of Western Monmouth's 20 years): 'The Bernsteins moved to western Monmouth County in January 1994 to help expand Chabad outreach programs ... rabbi Bernstein and Mrs. Bernstein serve as the C…
 - **1999–2011** (12 yr) Mercaz Menachem Chabad, Chevy Chase (maryland) · 1701833
   info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2011-12-07, so it existed by then. Director: Bentzion Geisinsky. Washington Jewish Wee…
-- **1988–2005** (17 yr) Chabad Early Learning Center, Rockaway (new-jersey) · dot already dated · 118912
+- **1988–2004** (16 yr) Chabad Early Learning Center, Rockaway (new-jersey) · dot already dated · 118912
   The preschool of the Chabad Center of Northwest NJ (established at the start of 1988). Lubavitch.com, 24 Nov 2005: 'Preschool director Flory Heller' at the groundbreaking of the Educational Center; the Daily Record (CrownHeights.i…
-- **1988–2005** (17 yr) David Hoffman Hebrew School, Rockaway (new-jersey) · dot already dated · 120058
+- **1988–2004** (16 yr) David Hoffman Hebrew School, Rockaway (new-jersey) · dot already dated · 120058
   The Hebrew school of the Chabad Center of Northwest NJ (established at the start of 1988; at first the Hersons held Shabbat services and 'eventually classes for children, men and women' in a VFW hall, then from about 1995 in their…
 - **1987–2005** (18 yr) Chabad of Chomedey & Laval, Chomedey (quebec) · 331810
   COLlive, 3 July 2012 ('City Marks Rabbi's 25 Years'): Rabbi David Raphael Banon 'is marking 25 years since he has been appointed spiritual leader of Centre Communautaire Sepharade in Chomedey and subsequently Chabad Shliach of Cho…
@@ -69,7 +69,7 @@
   The Margate Chabad House of Chabad of Atlantic County (Rabbi Shmuel and Tova Rapoport, sent to the Shore in 1984): its headquarters, 'based in Margate, N.J.' (Jewish Exponent, 19 July 2006). The South Jersey Jewish Times (CrownHei…
 - **1980–2004** (24 yr) Kolel Tiferet Zkanim Levi Yitzchok, Los Angeles (west-coast) · 117532
   No year found for the LA branch (Rabbi Yitzchok Arnold, 506 N. Alta Vista). The Tiferet Zekeinim program was founded by the Rebbe in 1980 (5740), so not before then; therebbesimpact.com's 1975 can't be right. Its chabad.org listin…
-- **1964–2009** (45 yr) Va'adah L'dovrei Ivrit Chabad, Philadelphia (pennsylvania) · 117718
+- **1964–2004** (40 yr) Va'adah L'dovrei Ivrit Chabad, Philadelphia (pennsylvania) · 117718
   Rabbi Zalman Lipsker's Israeli center (110 S 8th St). Lubavitch.com (23 Sept 2009) calls him 'Director of the Va'adah L'dovrei Ivrit Chabad – Israeli center in Philadelphia', so it existed by 2009. Anash (28 Jan 2025): Rabbi Shneu…
 - **1947–2004** (57 yr) Bais Chana Girls High School, Worcester (central-massachusetts) · 119447
   No year found: the Fogelmans' girls' high school in Worcester. Chabad.org (on CrownHeights.info, 5 Nov 2025): after 1947 'The couple later founded a girls' high school, which the Rebbe asked to be named Bais Chana'. Worcester Tele…
@@ -156,7 +156,7 @@
 - Yad L'Shliach, Brooklyn (crown-heights) · dot already dated · 261335 (not researched)
 - Yaldei Shluchei Harebbe, Brooklyn (crown-heights) · 1706966 (not researched)
 
-## Only a latest year ('by'): 353
+## Only a latest year ('by'): 345
 
 The latest the center could have started, with no earliest end. 'by 2004' is mostly the directory's first day (July 2004).
 
@@ -165,14 +165,13 @@ The latest the center could have started, with no earliest end. 'by 2004' is mos
 | 1970s | 1 |
 | 1980s | 2 |
 | 1990s | 8 |
-| 2000s | 153 |
-| 2010s | 116 |
-| 2020s | 73 |
+| 2000s | 155 |
+| 2010s | 117 |
+| 2020s | 62 |
 
 - by 2026: CTeen of Baltimore, Baltimore (maryland) · 7402508
 - by 2026: CYP SF, San Francisco (west-coast) · dot already dated · 6902804
 - by 2026: Camp Gan Israel, Sea Cliff (new-york-city) · 7244635
-- by 2026: Chabad Lubavitch of Wilton, Wilton (connecticut) · 7239334
 - by 2026: Chabad of Sausalito, Sausalito (west-coast) · 7434852
 - by 2026: Gan Chabad Preschool, Valley Stream (new-york-city) · dot already dated · 7438183
 - by 2026: IYYUN / CHABAD, Brooklyn (new-york-city) · 7295252
@@ -180,13 +179,10 @@ The latest the center could have started, with no earliest end. 'by 2004' is mos
 - by 2026: YJP Boston, Brookline (eastern-massachusetts) · dot already dated · 7396864
 - by 2025: CYP Oahu, Honolulu (hawaii) · 6969026
 - by 2025: Chabad Girls High School - Baltimore, Baltimore (maryland) · dot already dated · 6809931
-- by 2025: Chabad Jewish Center of Hinsdale, Hinsdale (illinois) · 7106260
 - by 2025: Chabad Jewish Monticello, Monticello (eastern-new-york) · 6983637
 - by 2025: Chabad Oceanview Jewish Center, Brooklyn (new-york-city) · dot already dated · 7105371
 - by 2025: Chabad for Diplomats, New York (new-york-city) · 6993775
 - by 2025: Chabad of Bexley, Bexley (central-ohio) · 6925466
-- by 2025: Chabad of Cabin-Glen-Brook, Bethesda (maryland) · 7111285
-- by 2025: Chabad of Clarksburg-Germantown, Clarksburg (maryland) · 7105410
 - by 2025: Chabad of Linden, Roselle park (new-jersey) · 6998028
 - by 2025: Chabad of Norwich, Norwich (connecticut) · 6978333
 - by 2025: Chabad of Prospect Lefferts Gardens, Brooklyn (new-york-city) · 6995078
@@ -201,38 +197,31 @@ The latest the center could have started, with no earliest end. 'by 2004' is mos
 - by 2024: Camp Gan Israel, Albany (eastern-new-york) · dot already dated · 6382479
 - by 2024: Chabad of Lincolnwood, Lincolnwood (illinois) · 6495490
 - by 2024: Chabad of Nantucket, Nantucket (cape-cod-and-the-islands) · 6525447
-- by 2024: Chabad of Wauwatosa, Wauwatosa (wisconsin) · 6490794
 - by 2024: Chabad of the Southtowns, Buffalo (upstate-new-york) · 6624983
 - by 2024: Irving Aaron Kitchen of Kindness, Ottawa (ottawa) · 7475377
-- by 2024: The Torah Center ATL, Atlanta (georgia) · dot already dated · 5867802
 - by 2024: Young Anash, New Haven (new-haven) · 6567613
 - by 2023: CYP - F.R.E.E., Brooklyn (new-york-city) · dot already dated · 5955485
 - by 2023: Chabad Lake Zurich, Lake Zurich (illinois) · 5992277
 - by 2023: Chabad Youth Los Angeles, Los Angeles (west-coast) · dot already dated · 6134441
-- by 2023: Chabad of Monticello, Monticello (eastern-new-york) · 5988088
 - by 2023: Chabad of the Palisades Village, Pacific Palisades (west-coast) · 6040554
 - by 2023: JLI - F.R.E.E., Brooklyn (new-york-city) · dot already dated · 5955538
-- by 2023: Ohev Zedek - Chabad, Scranton (pennsylvania) · 2734156
+- by 2023: The Torah Center ATL, Atlanta (georgia) · dot already dated · 5867802
 - by 2023: The Young Minyan, New York (new-york-city) · 5955505
-- by 2022: Chabad Buckhead & Brookhaven, Atlanta (georgia) · 4858926
-- by 2022: Chabad of Aston, Glen Mills (pennsylvania) · 4555491
 - by 2022: Chabad of Fishtown @ Northern Liberties, Philadelphia (new-jersey) · 5574170
 - by 2022: Chabad of Forest Hills South and Crescents, Rego Park (new-york-city) · 5568934
 - by 2022: Chabad of Pocono Pines, Pocono Lake (pennsylvania) · 5399392
-- by 2022: Chabad of Wheeling, Wheeling (illinois) · 5678758
 - by 2022: Chabad of the Boroughs, Worcester (central-massachusetts) · dot already dated · 5694945
 - by 2022: Chabad of the West Side Annex, New York (new-york-city) · 5321982
 - by 2022: Chabad on 7th Street, Phoenix (arizona) · 5370570
 - by 2022: Inyo Jewish Center, Bishop (west-coast) · 5567943
-- by 2022: The Chabad Jewish Center Of FiDi, New York (new-york-city) · 5525492
 - by 2022: Troy Chabad on Campus, Troy (eastern-new-york) · 5555239
 - by 2022: Yagdil Torah, Montreal (quebec) · 5688626
 - by 2021: Chabad Jewish Center of North Seattle, Seattle (washington) · 5103013
-- by 2021: Chabad Lubavitch of Montrose, Houston (texas) · 3394316
 - by 2021: Chabad Young Professionals Columbia, Columbia (maryland) · 5170652
 - by 2021: Chabad of Macalester-Groveland, S. Paul (upper-midwest) · 5228285
 - by 2021: Chabad of South Baltimore & University of Maryland Baltimore, Baltimore (maryland) · 4821900
-- by 2021: Gan Accademia, New York (new-york-city) · 5062547
+- by 2021: Gan Accademia, New York (new-york-city) · dot already dated · 5062547
+- by 2020: Chabad Buckhead & Brookhaven, Atlanta (georgia) · 4858926
 - by 2020: Chabad Israeli of Orange County, Irvine (west-coast) · 4667363
 - by 2020: Chabad Lubavitch of Springfield - Burke, West Springfield (virginia) · 4646307
 - by 2020: Chabad at CUMC, New York (new-york-city) · dot already dated · 4861143
@@ -244,11 +233,11 @@ The latest the center could have started, with no earliest end. 'by 2004' is mos
 - by 2020: Tzivos Hashem of Boro Park, Brooklyn (new-york-city) · 4636347
 - by 2019: Aleph Champ Hebrew School - John Wanless, Toronto (ontario) · 4480419
 - by 2019: CTeen Program, Brooklyn (new-york-city) · 4568477
-- by 2019: Chabad Israeli Center, S. Antonio (texas) · 3872731
 - by 2019: Chabad Jewish Centre of Woodbridge, Woodbridge (ontario) · 4585801
 - by 2019: Chabad Young Professionals of Rochester, Rochester (upstate-new-york) · 4568269
+- by 2019: Chabad of Aston, Glen Mills (pennsylvania) · 4555491
 - by 2019: Chabad of Smyrna, Marietta (georgia) · dot already dated · 4752247
-- by 2019: FiDi Hebrew School, New York (new-york-city) · 4422402
+- by 2019: FiDi Hebrew School, New York (new-york-city) · dot already dated · 4422402
 - by 2019: Levi Yitzchak Library, Cedarhurst (new-york-city) · 4276857
 - by 2019: Simcha Educational Center, Gaithersburg (maryland) · 4563151
 - by 2018: Bais Nochum, Los Angeles (west-coast) · 4182118
@@ -260,6 +249,7 @@ The latest the center could have started, with no earliest end. 'by 2004' is mos
 - by 2018: JRCC Bathurst & Lawrence, Toronto (ontario) · 4031052
 - by 2018: Smile on Seniors, Issaquah (washington) · 4237766
 - by 2017: Chabad Côte-des-Neiges, Montreal (quebec) · 3805014
+- by 2017: Chabad Israeli Center, S. Antonio (texas) · 3872731
 - by 2017: Chabad Lubavitch on the East Side, Toronto (ontario) · 3828697
 - by 2017: Chabad Newmarket, Newmarket (ontario) · 3585579
 - by 2017: Chabad SW Portland, Portland (oregon) · dot already dated · 3779201
@@ -272,6 +262,7 @@ The latest the center could have started, with no earliest end. 'by 2004' is mos
 - by 2017: YJP Las Vegas, Las Vegas (west-coast) · dot already dated · 3758005
 - by 2016: Beverly Hills Hotel Shabbat Services, Beverly Hills (west-coast) · dot already dated · 3252627
 - by 2016: Chabad Colleges Downtown Brooklyn, Brooklyn (new-york-city) · 3211263
+- by 2016: Chabad Lubavitch of Montrose, Houston (texas) · 3394316
 - by 2016: Chabad On Call - Greater Baltimore, Baltimore (maryland) · 3393989
 - by 2016: Chabad Westminster, Montreal West (quebec) · 3436159
 - by 2016: Chabad of Eastern Orange County, New Windsor (eastern-new-york) · 3367025
@@ -303,15 +294,15 @@ The latest the center could have started, with no earliest end. 'by 2004' is mos
 - by 2014: Chabad of Vero Beach, Vero Beach (florida) · 2757063
 - by 2014: Elmont Jewish Center, Elmont (new-york-city) · 2498555
 - by 2014: Hebrew School, New York (new-york-city) · 2537617
-- by 2014: Hillel Academy, Haltom City (texas) · 2259836
 - by 2014: Jewish Learning Center, Winter Haven (florida) · 2781552
 - by 2014: Jewish Women's Circle, Worcester (central-massachusetts) · dot already dated · 2659971
+- by 2014: Ohev Zedek - Chabad, Scranton (pennsylvania) · 2734156
 - by 2014: Yeshivas Lubavitch Toronto, Toronto (ontario) · 2567221
 - by 2013: Chabad at Adelphi University, Garden City (new-york-city) · 2354985
 - by 2013: Chabad at MIT, Cambridge (eastern-massachusetts) · 2406848
 - by 2013: Chabad of Ditmas Park, Brooklyn (new-york-city) · 2121036
 - by 2013: Chabad of Plattsburgh, Plattsburgh (eastern-new-york) · 2313340
-- by 2013: Hebrew School, Marlboro (new-jersey) · 119068
+- by 2013: Hillel Academy, Haltom City (texas) · 2259836
 - by 2013: International Jewish Student Center of Boston, Cambridge (eastern-massachusetts) · 2407885
 - by 2013: YJP of Cambridge-Somerville, Cambridge (eastern-massachusetts) · 2398513
 - by 2012: Chabad On the Go, Shoreline (washington) · 1878576
@@ -320,7 +311,6 @@ The latest the center could have started, with no earliest end. 'by 2004' is mos
 - by 2012: Chabad of Rockville, Rockville (maryland) · 1772269
 - by 2012: Chabad of The Shenandoah Valley, Harrisonburg (virginia) · 2036760
 - by 2012: Chabad of Westwood - Holmby, Los Angeles (west-coast) · 1878002
-- by 2012: Friendship Circle of Greater Mercer County, Princeton (new-jersey) · 1110855
 - by 2012: Hebrew School, Seattle (washington) · 1908052
 - by 2012: Jewish Women's Circle, Kingston (eastern-new-york) · 1922760
 - by 2012: Ovation Senior Home, Milwaukee (wisconsin) · 4441729
@@ -334,7 +324,6 @@ The latest the center could have started, with no earliest end. 'by 2004' is mos
 - by 2011: Chabad of Northeast Portland, Portland (oregon) · dot already dated · 1676554
 - by 2011: Chabad of Oneonta - Rohr Jewish Student Center, Oneonta (eastern-new-york) · 1421374
 - by 2011: Chabad of Sherbrooke, Sherbrooke (quebec) · 1617611
-- by 2011: Chabad-Lubavitch of Morganville, Morganville (new-jersey) · 924164
 - by 2011: Chayolei Tzivos Hashem, Montreal (quebec) · dot already dated · 1709582
 - by 2011: Community Hebrew School, Ville S. Laurent (quebec) · 1620511
 - by 2011: Gan Yisroel School, Brooklyn (new-york-city) · 1439356
@@ -353,6 +342,7 @@ The latest the center could have started, with no earliest end. 'by 2004' is mos
 - by 2010: Chabad of Nuns Island, Verdun (quebec) · 1341925
 - by 2010: Chabad of Yorktown, Yorktown Heights (new-york-city) · 1281832
 - by 2010: Friendship Circle of Baltimore, Baltimore (maryland) · dot already dated · 1235745
+- by 2010: Friendship Circle of Greater Mercer County, Princeton (new-jersey) · 1110855
 - by 2010: Jewish Oasis - Chabad, Portland (oregon) · 1351834
 - by 2010: Kiddie Gan Day Camp, Brooklyn (new-york-city) · dot already dated · 1156720
 - by 2010: Maayan Chai, Dallas (texas) · 5215392
@@ -361,13 +351,13 @@ The latest the center could have started, with no earliest end. 'by 2004' is mos
 - by 2009: Chabad Young Professionals UES, New York (new-york-city) · dot already dated · 1019019
 - by 2009: Chabad of Briarwood, Briarwood (new-york-city) · 887422
 - by 2009: Chabad of the Plaza District, New York (new-york-city) · dot already dated · 1012589
+- by 2009: Chabad-Lubavitch of Morganville, Morganville (new-jersey) · 924164
 - by 2009: Friendship Circle of Sharon, Sharon (eastern-massachusetts) · 833485
 - by 2008: BCM - Adult Education, Montreal (quebec) · 604448
 - by 2008: Chabad Jewish Center, Coral Springs (florida) · 711390
 - by 2008: Chabad Montreal West, Montreal (quebec) · 624989
 - by 2008: Chabad Russian Youth Center, Montreal (quebec) · 675951
 - by 2008: Chabad Youth Network of Florida, Boca Raton (florida) · 741144
-- by 2008: Chabad of Scranton, Scranton (pennsylvania) · 117722
 - by 2008: Chabad of Tribeca and SoHo, New York (new-york-city) · 734171
 - by 2008: Chabad of White Plains, White Plains (new-york-city) · 636554
 - by 2008: Chabad's Enrichment Programs, Beachwood (northeast-ohio) · dot already dated · 658716
@@ -388,8 +378,6 @@ The latest the center could have started, with no earliest end. 'by 2004' is mos
 - by 2007: Chabad at Brooklyn College, Brooklyn (new-york-city) · 477762
 - by 2007: Chabad of East Tampa, Temple Terrace (florida) · 6788826
 - by 2007: Chabad of Kirkland, Kirkland (quebec) · 545438
-- by 2007: Chabad of Penn Wynne, Philadelphia (pennsylvania) · 117717
-- by 2007: Chabad of Tamarac, Tamarac (florida) · dot already dated · 449759
 - by 2007: Chabad-Lubavitch of the South Coast, North Dartmouth (eastern-massachusetts) · 531506
 - by 2007: Friendship Circle of Brooklyn, Brooklyn (new-york-city) · 582828
 - by 2007: Hebrew School, Ellenville (eastern-new-york) · 599872
@@ -405,6 +393,7 @@ The latest the center could have started, with no earliest end. 'by 2004' is mos
 - by 2006: Chabad Jewish Learning Center, Oyster Bay (new-york-city) · 362254
 - by 2006: Chabad of Lake Success & University Gardens, Great Neck (new-york-city) · 393813
 - by 2006: Chabad of Shadyside, Pittsburgh (western-pennsylvania) · 432614
+- by 2006: Chabad of Tamarac, Tamarac (florida) · dot already dated · 449759
 - by 2006: Chabad of UCR, Riverside (west-coast) · dot already dated · 356137
 - by 2006: Chabad of Westville, New Haven (new-haven) · 345699
 - by 2006: Chabad of the South Shore, Staten Island (new-york-city) · 442309
@@ -457,9 +446,11 @@ The latest the center could have started, with no earliest end. 'by 2004' is mos
 - by 2004: Chabad of Montville Township, Pine Brook (new-jersey) · 118626
 - by 2004: Chabad of Park Heights, Baltimore (maryland) · 119448
 - by 2004: Chabad of Patchogue, Patchogue (new-york-city) · 118642
+- by 2004: Chabad of Penn Wynne, Philadelphia (pennsylvania) · 117717
 - by 2004: Chabad of Ridgefield, Ridgefield (connecticut) · 150725
 - by 2004: Chabad of S. Louis Park, St. Louis Park (upper-midwest) · 118314
 - by 2004: Chabad of SE Morris County, Florham Park (new-jersey) · 118579
+- by 2004: Chabad of Scranton, Scranton (pennsylvania) · 117722
 - by 2004: Chabad of Squirrel Hill, Pittsburgh (western-pennsylvania) · 119771
 - by 2004: Chabad of Waterbury, Waterbury (connecticut) · 150718
 - by 2004: Chabad of the Beaches, Long Beach (new-york-city) · 221245
@@ -480,6 +471,7 @@ The latest the center could have started, with no earliest end. 'by 2004' is mos
 - by 2004: Gan Israel Hebrew School, Weatogue (connecticut) · 119920
 - by 2004: Gan Israel School, Staten Island (new-york-city) · 118921
 - by 2004: Ganeinu Day Camp, West Bloomfield (michigan) · dot already dated · 119944
+- by 2004: Hebrew School, Marlboro (new-jersey) · 119068
 - by 2004: Hebrew School, Richmond Hill (ontario) · 118781
 - by 2004: Hebrew School, Valley Stream (new-york-city) · dot already dated · 118924
 - by 2004: Heichal Menachem, Brooklyn (new-york-city) · 118011

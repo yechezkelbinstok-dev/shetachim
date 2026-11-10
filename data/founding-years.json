@@ -19896,7 +19896,21 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://jewishbuffalohistory.org/organizations/chabad-house-of-buffalo/",
-   "note": "Jewish Buffalo History: 'Chabad House of Buffalo began as an outreach program to college age students at the University at Buffalo campuses and Buffalo State College in the early 1970s'; 'In 1971 Rabbi Noson Gurary and his wife Miriam established the Chabad House at 3292 Main Street, after running small amounts of programming from their apartment on Amherst Manor Drive.' CrownHeights.info, 2 Oct 2025: 'Rabbi Noson Gurary established the Chabad House of Buffalo in 1971'."
+   "note": "Jewish Buffalo History: 'Chabad House of Buffalo began as an outreach program to college age students at the University at Buffalo campuses and Buffalo State College in the early 1970s'; 'In 1971 Rabbi Noson Gurary and his wife Miriam established the Chabad House at 3292 Main Street, after running small amounts of programming from their apartment on Amherst Manor Drive.' CrownHeights.info, 2 Oct 2025: 'Rabbi Noson Gurary established the Chabad House of Buffalo in 1971'. Moves (Chabad of Buffalo's history page): first at 3292 Main Street; as the university built its Amherst campus, a new center at 185 Maple in Amherst burned weeks after opening; 'In November of 1975 Chabad purchased the location at 2450 North Forest Road in Getzville. The Center reopened in 1976' (its present address).",
+   "earlier": [
+    {
+     "where": "3292 Main Street, Buffalo (near the university's original campus)",
+     "from": 1971,
+     "until": 1975,
+     "source": "https://www.chabadbuffalo.com/chabad-history-in-buffalo/"
+    },
+    {
+     "where": "185 Maple, Amherst (a new center for the North Campus, ravaged by fire a few weeks after it opened)",
+     "from": 1975,
+     "until": 1975,
+     "source": "https://www.chabadbuffalo.com/chabad-history-in-buffalo/"
+    }
+   ]
   },
   "159422": {
    "name": "Rohr Chabad House - Center for Jewish Life",
@@ -19953,12 +19967,12 @@
    "name": "Bais Haknesset Hagadol - Lubavitch",
    "city": "Buffalo, NY",
    "shetach": "upstate-new-york",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/118228/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Shmaryahu Charitonow."
+   "year": 1984,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.chabadbuffalo.com/chabad-history-in-buffalo/",
+   "date": "1984-07-12",
+   "note": "Chabad of Buffalo's history page ('Chabad History in Buffalo', read Nov 10 2026), section '1984: Bais HaKnesset HaGadol-Lubavitch': 'On July 12, 1984, Chabad purchased the synagogue building at 500 Starin Avenue from Temple Beth David-Ner Israel. The building became Bais HaKnesset HaGadol-Lubavitch, commonly known as the Chabad Knesset Center'. Rabbi Shmaryahu and Shaina Charitonow settled in Buffalo in 1986. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Shmaryahu Charitonow."
   },
   "119464": {
    "name": "Torah Temimah School",
@@ -19967,9 +19981,9 @@
    "year": null,
    "how": "range",
    "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/119464/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Jewish Buffalo History (https://jewishbuffalohistory.org/?p=225534): the Torah Temimah Day School of Buffalo 'has a history that dates back to the 1970s', founded by Rabbi Noson and Miriam Gurary, first in their home; it merged with the Jewish Heritage Day School into Ohr Temimim in 2008. Whether this listing is that school is not checked. Director: Shmaryahu Charitonow."
+   "by": 1976,
+   "source": "https://www.chabadbuffalo.com/chabad-history-in-buffalo/",
+   "note": "Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Jewish Buffalo History (https://jewishbuffalohistory.org/?p=225534): the Torah Temimah Day School of Buffalo 'has a history that dates back to the 1970s', founded by Rabbi Noson and Miriam Gurary, first in their home; it merged with the Jewish Heritage Day School into Ohr Temimim in 2008. Whether this listing is that school is not checked. Director: Shmaryahu Charitonow. Chabad of Buffalo's history page (read Nov 10 2026): 'Rabbi Noson and Miriam Gurary expanded their work beyond the university with the establishment of Torah Temimah Day School in the mid-1970s'; 'In 1976, Shaina Ebert, later Shaina Charitonow, came to Buffalo to teach at Torah Temimah.' So it began in the mid-1970s, by 1976."
   },
   "117688": {
    "name": "Roitman Chabad Center at Cornell University",
@@ -22319,12 +22333,11 @@
    "name": "Cheder Chabad of Baltimore",
    "city": "Baltimore, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2012,
-   "source": "https://www.chabad.org/api/content/1991997/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2012-10-18, so it existed by then. Director: Elchonon Chaikin."
+   "year": 2007,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://collive.com/cheder-chabad-of-baltimore-purchases-new-3-5-acre-campus/",
+   "note": "COLlive (Oct 2026, 'Cheder Chabad of Baltimore Purchases New 3.5-Acre Campus'): 'Founded in 2007 by Rabbi Elchonon Lisbon, Cheder Chabad of Baltimore is an affiliate of Chabad-Lubavitch of Maryland'. Its chabad.org listing went up 2012-10-18, so it existed by then. Director: Elchonon Chaikin."
   },
   "2389837": {
    "name": "Chabad of Carroll County",

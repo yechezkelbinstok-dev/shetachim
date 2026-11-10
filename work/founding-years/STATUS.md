@@ -33,7 +33,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | maine | 3 | 2 | 1 |  |  |  |  | 0 | 3 | 0 |
 | manitoba-saskatchewan | 6 | 5 |  |  | 1 |  |  | 1 | 6 | 1 |
 | maritimes | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
-| maryland | 55 | 16 | 13 | 4 | 22 |  |  | 22 | 48 | 18 |
+| maryland | 55 | 17 | 13 | 4 | 21 |  |  | 21 | 48 | 17 |
 | merrimack-valley | 4 | 3 |  |  | 1 |  |  | 1 | 4 | 1 |
 | michigan | 38 | 25 | 9 | 1 | 3 |  |  | 3 | 33 | 1 |
 | monsey | 9 | 6 | 2 |  | 1 |  |  | 1 | 9 | 1 |
@@ -61,7 +61,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | texas | 58 | 33 | 12 |  | 4 | 2 | 7 | 13 | 48 | 6 |
 | the-carolinas | 25 | 16 | 5 | 2 | 1 | 1 |  | 2 | 23 | 1 |
 | upper-midwest | 19 | 10 | 3 |  | 6 |  |  | 6 | 19 | 6 |
-| upstate-new-york | 22 | 11 | 6 | 1 | 4 |  |  | 4 | 21 | 3 |
+| upstate-new-york | 22 | 12 | 6 | 1 | 3 |  |  | 3 | 21 | 2 |
 | utah | 4 | 3 | 1 |  |  |  |  | 0 | 4 | 0 |
 | vermont | 8 | 5 | 2 |  | 1 |  |  | 1 | 8 | 1 |
 | virginia | 19 | 15 | 1 |  | 3 |  |  | 3 | 19 | 3 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | wisconsin | 23 | 9 | 5 | 2 | 7 |  |  | 7 | 20 | 6 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | crown-heights | 48 |  |  |  |  |  | 48 | 48 | 24 | 24 |
-| **all** | 1972 | 947 | 433 | 67 | 425 | 40 | 60 | 525 | 1768 | 385 |
+| **all** | 1972 | 949 | 433 | 67 | 423 | 40 | 60 | 523 | 1768 | 383 |

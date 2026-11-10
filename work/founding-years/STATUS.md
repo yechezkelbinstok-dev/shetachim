@@ -20,8 +20,8 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | delaware | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | eastern-massachusetts | 35 | 7 | 6 | 3 | 19 |  |  | 19 | 32 | 17 |
 | eastern-new-york | 50 | 6 | 16 |  | 28 |  |  | 28 | 47 | 25 |
-| florida | 240 | 138 | 21 | 20 | 28 | 33 |  | 61 | 219 | 49 |
-| georgia | 27 | 18 | 5 | 1 | 3 |  |  | 3 | 24 | 1 |
+| florida | 240 | 138 | 21 | 11 | 37 | 33 |  | 70 | 219 | 57 |
+| georgia | 27 | 18 | 5 |  | 4 |  |  | 4 | 24 | 2 |
 | hawaii | 7 | 4 | 1 |  | 2 |  |  | 2 | 7 | 2 |
 | idaho | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | illinois | 59 | 30 | 9 | 2 | 18 |  |  | 18 | 54 | 15 |
@@ -41,7 +41,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | nebraska | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | new-hampshire | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | new-haven | 16 | 5 | 5 | 1 | 5 |  |  | 5 | 14 | 4 |
-| new-jersey | 94 | 59 | 7 | 8 | 12 | 3 | 5 | 20 | 87 | 14 |
+| new-jersey | 94 | 59 | 7 | 5 | 15 | 3 | 5 | 23 | 87 | 17 |
 | new-mexico | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | new-york-city | 200 | 25 | 67 | 8 | 100 |  |  | 100 | 176 | 79 |
 | newfoundland-and-labrador | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
@@ -51,7 +51,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | ontario | 61 | 13 | 12 |  | 36 |  |  | 36 | 56 | 31 |
 | oregon | 19 | 9 | 5 |  | 5 |  |  | 5 | 17 | 3 |
 | ottawa | 11 | 8 |  |  | 3 |  |  | 3 | 9 | 2 |
-| pennsylvania | 61 | 30 | 16 | 4 | 10 | 1 |  | 11 | 57 | 10 |
+| pennsylvania | 61 | 30 | 16 | 3 | 11 | 1 |  | 12 | 57 | 11 |
 | quebec | 72 | 7 | 25 | 11 | 29 |  |  | 29 | 59 | 21 |
 | rhode-island | 8 | 5 | 1 | 2 |  |  |  | 0 | 7 | 0 |
 | rockland | 5 | 2 | 1 |  | 2 |  |  | 2 | 5 | 2 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | wisconsin | 23 | 9 | 5 | 2 | 7 |  |  | 7 | 20 | 6 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | crown-heights | 48 |  |  |  |  |  | 48 | 48 | 24 | 24 |
-| **all** | 1972 | 918 | 420 | 75 | 459 | 40 | 60 | 559 | 1768 | 419 |
+| **all** | 1972 | 918 | 420 | 61 | 473 | 40 | 60 | 573 | 1768 | 432 |

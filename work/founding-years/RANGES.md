@@ -1,6 +1,6 @@
 # Founding years: how good is each undated range
 
-444 undated listings (US + Canada; mikvahs left out). A range is only worth showing when both ends are known and close together. Regenerate: `python3 work/founding-years/ranges.py`.
+409 undated listings (US + Canada; mikvahs left out). A range is only worth showing when both ends are known and close together. Regenerate: `python3 work/founding-years/ranges.py`.
 
 | Kind | Listings | On the map for now? |
 |---|---|---|
@@ -9,7 +9,7 @@
 | Too wide: more than 10 years | 11 | no |
 | Only a latest year ('by') | 341 | no (no earliest end) |
 | Only an earliest year ('after') | 2 | no |
-| Nothing yet | 74 | no |
+| Nothing yet | 39 | no |
 
 ## Short ranges (5 years or less): 12
 
@@ -79,26 +79,18 @@
 - after 2011: CTeen Of Fair Lawn, Fair Lawn (new-jersey) · 7403210
 - after 2018: Simha Maftsir Preschool, Wayne (new-jersey) · 5653140
 
-## Nothing yet: 74
+## Nothing yet: 39
 
-- 770 Visitors Center, Brooklyn (crown-heights) · dot already dated · 5965187 (not researched)
-- ALIYA, Brooklyn (crown-heights) · 120264 (not researched)
-- Aliya Girls, Brooklyn (crown-heights) · 2455396 (not researched)
-- American Friends of Chabad Venezuelan Jewry, Brooklyn (crown-heights) · 4436127 (not researched)
 - Beis Chana School for Girls, Miami (florida) · dot already dated · 120125
 - Beit Chabad, Sunrise (florida) · 440099
-- Beth Rivkah Headstart, Brooklyn (crown-heights) · 119810 (not researched)
 - CKids Hebrew School, Miami (florida) · dot already dated · 6540531
 - CTeen of Boca Raton, Boca Raton (florida) · dot already dated · 3031418
 - Chabad Business District, Weston (florida) · 6660858
 - Chabad Day School, Maitland (florida) · 119969
 - Chabad Hebrew School, Melbourne (florida) · dot already dated · 120130
-- Chabad Israeli Tourist and Delegations, Brooklyn (crown-heights) · 6993780 (not researched)
 - Chabad Jewish Learning Center, Harrisburg (pennsylvania) · dot already dated · 2052403
 - Chabad Kesher Foundation, Dallas (texas) · dot already dated · 118176 (not researched)
-- Chabad Lubavitch Headquarters, Brooklyn (crown-heights) · dot already dated · 117678 (not researched)
 - Chabad Lubavitch Jewish Community Center of Lake City, Gainesville (florida) · dot already dated · 6724874
-- Chabad Lubavitch Media Center, Brooklyn (crown-heights) · dot already dated · 118005 (not researched)
 - Chabad Lubavitch of South Coconut Creek and Wynmoor, Coconut Creek (florida) · dot already dated · 3372691
 - Chabad Torah Center, Morristown (new-jersey) · 3293279 (not researched)
 - Chabad Young Professionals DoBo, Boca Raton (florida) · 5527594
@@ -111,11 +103,6 @@
 - Chabad of Preston Hollow, Dallas (texas) · 4106454
 - Chabad of UNT, Dallas (texas) · dot already dated · 6504050 (not researched)
 - Chabad on Campus - DFW, Dallas (texas) · dot already dated · 1819160 (not researched)
-- Chabad on Campus International, Brooklyn (crown-heights) · 118590 (not researched)
-- Chinuch Office, Brooklyn (crown-heights) · dot already dated · 118568 (not researched)
-- Colel Chabad, Brooklyn (crown-heights) · 117672 (not researched)
-- Colel Menachem, Brooklyn (crown-heights) · dot already dated · 117666 (not researched)
-- Collel Menachem, Brooklyn (crown-heights) · 119722 (not researched)
 - Congregation Levi Yitzchak, Morristown (new-jersey) · dot already dated · 119957 (not researched)
 - Congregation Magen David, North Miami Beach (florida) · dot already dated · 4999951
 - Cteen Raleigh, Raleigh (the-carolinas) · dot already dated · 7401983
@@ -123,38 +110,16 @@
 - Friendship Circle, Paramus (new-jersey) · dot already dated · 359995 (not researched)
 - Friendship Garden, Houston (texas) · dot already dated · 4952330 (not researched)
 - Gan Israel Day Camp, Miami (florida) · dot already dated · 120127
-- Igud Mesivtos V'Yeshivos Lubavitch, Brooklyn (crown-heights) · dot already dated · 3009170 (not researched)
 - JUDA - Hebrew School, Boca Raton (florida) · 6668826
 - Jewish Community Council, Miami Beach (florida) · 374003
-- Jewish Educational Media, Brooklyn (crown-heights) · dot already dated · 118186 (not researched)
 - Jewish Learning Center of Fisher Island, Miami Beach (florida) · 1333035
 - Jewish Video Library - Chabad Torah Center, Miami Beach (florida) · 170160
-- Kehot Publication Society, Showroom, Brooklyn (crown-heights) · 119732 (not researched)
-- Lahak Hanochos Inc., Brooklyn (crown-heights) · dot already dated · 118193 (not researched)
-- Levi Yitzchok Library - LYO, Brooklyn (crown-heights) · dot already dated · 119962 (not researched)
-- Living Chassidus, Brooklyn (crown-heights) · dot already dated · 6762711 (not researched)
-- Lubavitch Youth Mitzvah Tank, Brooklyn (crown-heights) · 119921 (not researched)
 - Lubavitch of New Jersey Regional Hdqts., Morristown (new-jersey) · dot already dated · 117657 (not researched)
-- Machon L'Yahadus, Brooklyn (crown-heights) · 119688 (not researched)
-- Merkos Suite 302, Brooklyn (crown-heights) · 325693 (not researched)
-- Mitzvah Tank Organization, Brooklyn (crown-heights) · 1486042 (not researched)
 - My Yeshiva, Miami Gardens (florida) · dot already dated · 4250167
-- Or Hachasidus Publishing, Brooklyn (crown-heights) · 1567261 (not researched)
-- Shabbat Candles Campaign - Mivtza Neshek, Brooklyn (crown-heights) · 713395 (not researched)
-- Sichos in English, Brooklyn (crown-heights) · 117675 (not researched)
 - Skylake Chabad Shul, Miami (florida) · 5407765
-- TAG Counceling Programs, Brooklyn (crown-heights) · dot already dated · 120020 (not researched)
-- Taharas Hamishpacha International, Brooklyn (crown-heights) · 117664 (not researched)
 - The Fair Lawn Gemach, Fair Lawn (new-jersey) · 1420054
 - The Heights Chabad, Houston (texas) · dot already dated · 5554915 (not researched)
 - The Living Legacy, Paramus (new-jersey) · dot already dated · 150723 (not researched)
-- The Shluchim Office, Brooklyn (crown-heights) · dot already dated · 117979 (not researched)
-- United Lubavitcher Yeshivoth Mesivta & High School, Brooklyn (crown-heights) · 119812 (not researched)
-- Vaad Hanochos Hatmimim, Brooklyn (crown-heights) · dot already dated · 117673 (not researched)
-- Vaad Rabonei Lubavitch, Brooklyn (crown-heights) · dot already dated · 118201 (not researched)
-- Vaad Talmidei Hatmimim, Brooklyn (crown-heights) · dot already dated · 1601992 (not researched)
-- Yad L'Shliach, Brooklyn (crown-heights) · dot already dated · 261335 (not researched)
-- Yaldei Shluchei Harebbe, Brooklyn (crown-heights) · 1706966 (not researched)
 
 ## Only a latest year ('by'): 341
 

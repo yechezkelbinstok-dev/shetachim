@@ -5,13 +5,15 @@
 import json, collections
 # Mikvahs are left out of the counts (owner, Nov 10: "only mikvaos out - def don't delete data tho"): their data stays.
 def is_mikvah(c): return (c.get('type') or '').lower().startswith('mik') or 'mikv' in (c.get('name') or '').lower()
+# Crown Heights listings the owner chose not to research are out of the counts too (owner, Nov 10: "Take them out of
+# cheshbon"): a crown-heights listing with no entry in data/founding-years.json is skipped; the 12 central mosdos stay in.
 g = json.load(open('web/data/centers.geojson')); fy = json.load(open('data/founding-years.json'))['centers']
 listings = collections.defaultdict(list); dots = collections.defaultdict(list)   # dots: per shetach, the listings at each map point
 for f in g['features']:
     p = f['properties']
     if p.get('country') not in ('US', 'CA'): continue   # US and Canada only (owner, Nov 6: "Not Mexico!!!!!")
     sid = (p.get('piece') or ':none').split(':')[-1]
-    ids = [str(c['id']) for c in p.get('centers') or [] if not c.get('mushroom') and not is_mikvah(c)]
+    ids = [str(c['id']) for c in p.get('centers') or [] if not c.get('mushroom') and not is_mikvah(c) and not (((p.get('piece') or ':none').split(':')[-1] == 'crown-heights') and str(c['id']) not in fy)]
     listings[sid] += ids
     if ids: dots[sid].append(ids)
 rows = []; tot = collections.Counter()

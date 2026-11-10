@@ -1,6 +1,6 @@
 # Founding years: every listing still undated
 
-US + Canada, 444 listings without a year (mikvahs apart: 20). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
+US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
 
 ## new-york-city: 83
 
@@ -185,50 +185,6 @@ US + Canada, 444 listings without a year (mikvahs apart: 20). Per shetach: first
 **Mikvahs, out of the counts (2)**
 - Mikvah Israel, S. Diego (Leah Fradkin) — by 2004 · 120098
 - Mikvah, Reno (Chaya Sara Cunin) — by 2006 · 405427
-
-## crown-heights: 35
-
-**No year at the dot (19)**
-- ALIYA, Brooklyn (Moishe Feiglin) — not researched · 120264
-- Aliya Girls, Brooklyn (Meir New) — not researched · 2455396
-- American Friends of Chabad Venezuelan Jewry, Brooklyn — not researched · 4436127
-- Beth Rivkah Headstart, Brooklyn (Bentzion Stock) — not researched · 119810
-- Chabad Israeli Tourist and Delegations, Brooklyn (Yosef Yitzchok Noyman) — not researched · 6993780
-- Chabad on Campus International, Brooklyn (Yossy Gordon) — not researched · 118590
-- Colel Chabad, Brooklyn (Sholom Duchman) — not researched · 117672
-- Collel Menachem, Brooklyn (Binyomin Klein) — not researched · 119722
-- Kehot Publication Society, Showroom, Brooklyn (Yosef B. Friedman) — not researched · 119732
-- Lubavitch Youth Mitzvah Tank, Brooklyn (Levi Baumgarten) — not researched · 119921
-- Machon L'Yahadus, Brooklyn (Sholem Ber Hecht) — not researched · 119688
-- Merkos Suite 302, Brooklyn (Mendy Kotlarsky) — not researched · 325693
-- Mitzvah Tank Organization, Brooklyn (Mordy Hirsch) — not researched · 1486042
-- Or Hachasidus Publishing, Brooklyn (Avraham Mann) — not researched · 1567261
-- Shabbat Candles Campaign - Mivtza Neshek, Brooklyn — not researched · 713395
-- Sichos in English, Brooklyn (Shmuel Avtzon) — not researched · 117675
-- Taharas Hamishpacha International, Brooklyn (Chaya Sarah Zarchi) — not researched · 117664
-- United Lubavitcher Yeshivoth Mesivta & High School, Brooklyn — not researched · 119812
-- Yaldei Shluchei Harebbe, Brooklyn (Sholly Weiser) — not researched · 1706966
-
-**On a dated dot (16)**
-- 770 Visitors Center, Brooklyn — not researched · 5965187
-- Chabad Lubavitch Headquarters, Brooklyn (Yehuda Krinsky) — not researched · 117678
-- Chabad Lubavitch Media Center, Brooklyn (Zalman Shmotkin) — not researched · 118005
-- Chinuch Office, Brooklyn (Nochem Kaplan) — not researched · 118568
-- Colel Menachem, Brooklyn (Binyomin Klein) — not researched · 117666
-- Igud Mesivtos V'Yeshivos Lubavitch, Brooklyn (Mendel Itzinger) — not researched · 3009170
-- Jewish Educational Media, Brooklyn (Efroyim Grossberger) — not researched · 118186
-- Lahak Hanochos Inc., Brooklyn (Chaim Shaul Brook) — not researched · 118193
-- Levi Yitzchok Library - LYO, Brooklyn (Dovid A. Polter) — not researched · 119962
-- Living Chassidus, Brooklyn (Sharon Weiss) — not researched · 6762711
-- TAG Counceling Programs, Brooklyn — not researched · 120020
-- The Shluchim Office, Brooklyn (Gedalya Shemtov) — not researched · 117979
-- Vaad Hanochos Hatmimim, Brooklyn (Simon Jacobson) — not researched · 117673
-- Vaad Rabonei Lubavitch, Brooklyn (Nochum Schapiro) — not researched · 118201
-- Vaad Talmidei Hatmimim, Brooklyn (Tzvi Altein) — not researched · 1601992
-- Yad L'Shliach, Brooklyn (Shlomo Friedman) — not researched · 261335
-
-**Mikvahs, out of the counts (1)**
-- Womens' Mikvah, Brooklyn — not researched · 119808
 
 ## ontario: 26
 

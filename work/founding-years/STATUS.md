@@ -43,16 +43,16 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | new-haven | 16 | 5 | 1 | 2 | 8 |  |  | 8 | 14 | 6 |
 | new-jersey | 94 | 59 | 7 | 8 | 12 | 3 | 5 | 20 | 87 | 14 |
 | new-mexico | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
-| new-york-city | 200 | 25 | 63 | 10 | 102 |  |  | 102 | 176 | 80 |
+| new-york-city | 200 | 25 | 64 | 10 | 101 |  |  | 101 | 176 | 79 |
 | newfoundland-and-labrador | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | northeast-ohio | 27 | 20 | 3 |  | 4 |  |  | 4 | 23 | 1 |
 | oklahoma | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
-| ontario | 61 | 13 | 9 |  | 39 |  |  | 39 | 56 | 34 |
+| ontario | 61 | 13 | 12 |  | 36 |  |  | 36 | 56 | 31 |
 | oregon | 19 | 9 | 2 |  | 8 |  |  | 8 | 17 | 6 |
 | ottawa | 11 | 8 |  |  | 3 |  |  | 3 | 9 | 2 |
 | pennsylvania | 61 | 30 | 10 | 7 | 10 | 4 |  | 14 | 57 | 13 |
-| quebec | 72 | 7 | 12 | 1 | 52 |  |  | 52 | 59 | 40 |
+| quebec | 72 | 7 | 25 | 11 | 29 |  |  | 29 | 59 | 21 |
 | rhode-island | 8 | 5 | 1 | 2 |  |  |  | 0 | 7 | 0 |
 | rockland | 5 | 2 | 1 |  | 2 |  |  | 2 | 5 | 2 |
 | south-area | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | wisconsin | 23 | 9 | 5 | 2 | 7 |  |  | 7 | 20 | 6 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | crown-heights | 48 |  |  |  |  |  | 48 | 48 | 24 | 24 |
-| **all** | 1972 | 918 | 379 | 74 | 498 | 43 | 60 | 601 | 1768 | 454 |
+| **all** | 1972 | 918 | 396 | 84 | 471 | 43 | 60 | 574 | 1768 | 431 |

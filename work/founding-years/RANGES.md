@@ -1,13 +1,13 @@
 # Founding years: how good is each undated range
 
-448 undated listings (US + Canada; mikvahs left out). A range is only worth showing when both ends are known and close together. Regenerate: `python3 work/founding-years/ranges.py`.
+444 undated listings (US + Canada; mikvahs left out). A range is only worth showing when both ends are known and close together. Regenerate: `python3 work/founding-years/ranges.py`.
 
 | Kind | Listings | On the map for now? |
 |---|---|---|
 | Short: both ends, 5 years or less | 12 | yes, as a range |
 | Wide: both ends, 6–10 years | 4 | maybe |
 | Too wide: more than 10 years | 11 | no |
-| Only a latest year ('by') | 345 | no (no earliest end) |
+| Only a latest year ('by') | 341 | no (no earliest end) |
 | Only an earliest year ('after') | 2 | no |
 | Nothing yet | 74 | no |
 
@@ -156,7 +156,7 @@
 - Yad L'Shliach, Brooklyn (crown-heights) · dot already dated · 261335 (not researched)
 - Yaldei Shluchei Harebbe, Brooklyn (crown-heights) · 1706966 (not researched)
 
-## Only a latest year ('by'): 345
+## Only a latest year ('by'): 341
 
 The latest the center could have started, with no earliest end. 'by 2004' is mostly the directory's first day (July 2004).
 
@@ -167,7 +167,7 @@ The latest the center could have started, with no earliest end. 'by 2004' is mos
 | 1990s | 8 |
 | 2000s | 155 |
 | 2010s | 117 |
-| 2020s | 62 |
+| 2020s | 58 |
 
 - by 2026: CTeen of Baltimore, Baltimore (maryland) · 7402508
 - by 2026: CYP SF, San Francisco (west-coast) · dot already dated · 6902804
@@ -218,15 +218,11 @@ The latest the center could have started, with no earliest end. 'by 2004' is mos
 - by 2022: Yagdil Torah, Montreal (quebec) · 5688626
 - by 2021: Chabad Jewish Center of North Seattle, Seattle (washington) · 5103013
 - by 2021: Chabad Young Professionals Columbia, Columbia (maryland) · 5170652
-- by 2021: Chabad of Macalester-Groveland, S. Paul (upper-midwest) · 5228285
-- by 2021: Chabad of South Baltimore & University of Maryland Baltimore, Baltimore (maryland) · 4821900
 - by 2021: Gan Accademia, New York (new-york-city) · dot already dated · 5062547
 - by 2020: Chabad Buckhead & Brookhaven, Atlanta (georgia) · 4858926
 - by 2020: Chabad Israeli of Orange County, Irvine (west-coast) · 4667363
 - by 2020: Chabad Lubavitch of Springfield - Burke, West Springfield (virginia) · 4646307
 - by 2020: Chabad at CUMC, New York (new-york-city) · dot already dated · 4861143
-- by 2020: Chabad at Marist and CIA, Hyde Park (eastern-new-york) · 4782624
-- by 2020: Chabad of Burien and Federal Way, Normandy Park (washington) · 4922719
 - by 2020: Chabad of Canton, Canton (eastern-massachusetts) · 4881009
 - by 2020: Chabad of Gateway Cities, Lakewood (west-coast) · 4935385
 - by 2020: Chabad of Union City, Union City (west-coast) · 4830422

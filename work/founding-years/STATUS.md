@@ -20,7 +20,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | crown-heights | 47 | 10 | 2 |  |  |  | 35 | 35 | 23 | 18 |
 | delaware | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | eastern-massachusetts | 35 | 9 | 7 | 3 | 16 |  |  | 16 | 32 | 14 |
-| eastern-new-york | 47 | 9 | 16 | 2 | 20 |  |  | 20 | 44 | 17 |
+| eastern-new-york | 47 | 9 | 17 | 2 | 19 |  |  | 19 | 44 | 16 |
 | florida | 235 | 138 | 39 | 20 | 15 | 23 |  | 38 | 214 | 25 |
 | georgia | 27 | 19 | 4 |  | 4 |  |  | 4 | 24 | 2 |
 | hawaii | 6 | 3 | 1 |  | 2 |  |  | 2 | 6 | 2 |
@@ -34,7 +34,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | maine | 3 | 2 | 1 |  |  |  |  | 0 | 3 | 0 |
 | manitoba-saskatchewan | 5 | 4 |  |  | 1 |  |  | 1 | 5 | 1 |
 | maritimes | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
-| maryland | 55 | 19 | 13 | 4 | 19 |  |  | 19 | 48 | 15 |
+| maryland | 55 | 20 | 13 | 4 | 18 |  |  | 18 | 48 | 14 |
 | merrimack-valley | 4 | 3 |  |  | 1 |  |  | 1 | 4 | 1 |
 | michigan | 37 | 25 | 9 | 1 | 2 |  |  | 2 | 33 | 1 |
 | monsey | 9 | 6 | 2 |  | 1 |  |  | 1 | 9 | 1 |
@@ -61,15 +61,15 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | tennessee | 7 | 7 |  |  |  |  |  | 0 | 7 | 0 |
 | texas | 56 | 34 | 11 |  | 4 | 1 | 6 | 11 | 47 | 5 |
 | the-carolinas | 25 | 16 | 5 | 2 | 1 | 1 |  | 2 | 23 | 1 |
-| upper-midwest | 18 | 10 | 3 |  | 5 |  |  | 5 | 18 | 5 |
+| upper-midwest | 18 | 10 | 4 |  | 4 |  |  | 4 | 18 | 4 |
 | upstate-new-york | 22 | 12 | 6 | 1 | 3 |  |  | 3 | 21 | 2 |
 | utah | 4 | 3 | 1 |  |  |  |  | 0 | 4 | 0 |
 | vermont | 7 | 5 | 2 |  |  |  |  | 0 | 7 | 0 |
 | virginia | 19 | 15 | 1 |  | 3 |  |  | 3 | 19 | 3 |
-| washington | 32 | 15 | 5 | 1 | 11 |  |  | 11 | 31 | 10 |
+| washington | 32 | 16 | 5 | 1 | 10 |  |  | 10 | 31 | 9 |
 | washington-dc | 5 | 2 | 3 |  |  |  |  | 0 | 5 | 0 |
 | west-coast | 326 | 199 | 91 |  | 36 |  |  | 36 | 297 | 16 |
 | western-pennsylvania | 26 | 10 | 10 | 1 | 5 |  |  | 5 | 23 | 5 |
 | wisconsin | 22 | 10 | 5 | 2 | 5 |  |  | 5 | 19 | 4 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
-| **all** | 1937 | 968 | 441 | 80 | 374 | 28 | 46 | 448 | 1739 | 318 |
+| **all** | 1937 | 970 | 443 | 80 | 370 | 28 | 46 | 444 | 1739 | 314 |

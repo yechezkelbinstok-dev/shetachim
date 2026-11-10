@@ -1,6 +1,6 @@
 # Founding years: every listing still undated
 
-US + Canada, 448 listings without a year (mikvahs apart: 20). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
+US + Canada, 444 listings without a year (mikvahs apart: 20). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
 
 ## new-york-city: 83
 
@@ -324,14 +324,13 @@ US + Canada, 448 listings without a year (mikvahs apart: 20). Per shetach: first
 **Mikvahs, out of the counts (1)**
 - Mikvah Bais Chana, Morristown — nothing found yet · 119959
 
-## eastern-new-york: 20
+## eastern-new-york: 19
 
-**No year at the dot (18)**
+**No year at the dot (17)**
 - Bethlehem Chabad Hebrew School, Delmar (Zalman Simon) — by 2004 · 119465
 - Bethlehem Chabad, Delmar (Zalman Simon) — by 2010 · 1269036
 - Chabad Dutchess - Rhinebeck Jewish Center, Rhinebeck — by 2005 · 312343
 - Chabad Jewish Monticello, Monticello (Yosef Dovid Chanowitz) — by 2025 · 6983637
-- Chabad at Marist and CIA, Hyde Park (Moshe Kalmenson) — by 2020 · 4782624
 - Chabad of Clifton Park, Clifton Park (Yossi Rubin) — by 2005 · 316626
 - Chabad of Eastern Orange County, New Windsor (Shmuel Serebryanski) — by 2016 · 3367025
 - Chabad of Oneonta - Rohr Jewish Student Center, Oneonta (Meir Rubashkin) — by 2011 · 1421374
@@ -354,9 +353,9 @@ US + Canada, 448 listings without a year (mikvahs apart: 20). Per shetach: first
 - Mikvah Ma'ayan Chaya, Poughkeepsie — by 2004 · 120141
 - Mikvah, Monticello (Rochel Chanowitz) — by 2004 · 119795
 
-## maryland: 19
+## maryland: 18
 
-**No year at the dot (15)**
+**No year at the dot (14)**
 - ARIEL Chabad, Pikesville (Velvel Belinsky) — by 2004 · 118591
 - CTeen of Baltimore, Baltimore — by 2026 · 7402508
 - Chabad Israeli Center of Baltimore, Baltimore (Shmuel Gurary) — by 2010 · 1379569
@@ -368,7 +367,6 @@ US + Canada, 448 listings without a year (mikvahs apart: 20). Per shetach: first
 - Chabad of Park Heights, Baltimore (Elchonon Lisbon) — by 2004 · 119448
 - Chabad of Potomac Village, Potomac (Mendel Kaplan) — by 2005 · 321642
 - Chabad of Rockville, Rockville (Moishe Kavka) — by 2012 · 1772269
-- Chabad of South Baltimore & University of Maryland Baltimore, Baltimore (Yaakov Kaplan) — by 2021 · 4821900
 - Mercaz Menachem Chabad, Chevy Chase (Bentzion Geisinsky) — 1999–2011 · 1701833
 - Simcha Educational Center, Gaithersburg (Chana Raichik) — by 2019 · 4563151
 - Yeshivas Lubavitch of Baltimore, Baltimore (Levi Nejar) — by 2005 · 325787
@@ -459,14 +457,13 @@ US + Canada, 448 listings without a year (mikvahs apart: 20). Per shetach: first
 - Mikvah Chaya Mushka, El Paso (Chana Greenberg) — nothing found yet · 119660
 - Mikvah Tahara, Austin (Rochel Levertov) — not researched · 119659
 
-## washington: 11
+## washington: 10
 
-**No year at the dot (11)**
+**No year at the dot (10)**
 - Chabad Jewish Center of North Seattle, Seattle (Shneur Marasow) — by 2021 · 5103013
 - Chabad Jewish Russian Center, Shoreline (Yechezkel Rapoport) — by 2004 · 119845
 - Chabad On the Go, Shoreline (Yechezkel Rapoport) — by 2012 · 1878576
 - Chabad of Bainbridge Island, Bainbridge Island (Mendy Goldshmid) — by 2018 · 4161193
-- Chabad of Burien and Federal Way, Normandy Park (Moshe Wolff) — by 2020 · 4922719
 - Chabad of Downtown Seattle & Chabad Young Professionals Seattle, Seattle (Shmuel Levitin) — by 2015 · 3104923
 - Chai Center of Greater Seattle, Seattle (Elazar Bogomilsky) — by 2004 · 118399
 - Cong. Shaarei Tefilah - Lubavitch, Seattle (Yossi Rodal) — by 2004 · 118400
@@ -539,18 +536,6 @@ US + Canada, 448 listings without a year (mikvahs apart: 20). Per shetach: first
 **Mikvahs, out of the counts (1)**
 - Mikvah Chaya Moussia, Madison (Faygie Matusof) — 1980–2004 · 119680
 
-## upper-midwest: 5
-
-**No year at the dot (5)**
-- Chabad Lubavitch Education, West S. Paul (Menachem Mendel Feller) — by 2004 · 118506
-- Chabad Oneg Shabbos V'Yomtov, S. Paul (Yosaif Grossbaum) — by 1995 · 119759
-- Chabad of Macalester-Groveland, S. Paul (Tzemach Feller) — by 2021 · 5228285
-- Chabad of S. Louis Park, St. Louis Park (Yosef Y. Shagalow) — by 2004 · 118314
-- It's Good To Know, Hopkins (Manis Friedman) — by 2005 · 684361
-
-**Mikvahs, out of the counts (1)**
-- Chabad-Lubavitch Mikvah Information, S. Paul (Gershon Grossbaum) — by 2004 · 117988
-
 ## western-pennsylvania: 5
 
 **No year at the dot (5)**
@@ -605,6 +590,17 @@ US + Canada, 448 listings without a year (mikvahs apart: 20). Per shetach: first
 
 **Mikvahs, out of the counts (1)**
 - Lubavitch Mikvah, New Haven — by 2004 · 120111
+
+## upper-midwest: 4
+
+**No year at the dot (4)**
+- Chabad Lubavitch Education, West S. Paul (Menachem Mendel Feller) — by 2004 · 118506
+- Chabad Oneg Shabbos V'Yomtov, S. Paul (Yosaif Grossbaum) — by 1995 · 119759
+- Chabad of S. Louis Park, St. Louis Park (Yosef Y. Shagalow) — by 2004 · 118314
+- It's Good To Know, Hopkins (Manis Friedman) — by 2005 · 684361
+
+**Mikvahs, out of the counts (1)**
+- Chabad-Lubavitch Mikvah Information, S. Paul (Gershon Grossbaum) — by 2004 · 117988
 
 ## upstate-new-york: 3
 

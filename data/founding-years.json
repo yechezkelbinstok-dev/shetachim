@@ -20035,12 +20035,11 @@
    "name": "Chabad of Pittsford",
    "city": "Pittsford, NY",
    "shetach": "upstate-new-york",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2008,
-   "source": "https://www.chabad.org/api/content/707116/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2008-07-29, so it existed by then. Director: Yitzi Hein."
+   "year": 2008,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.jewishpittsford.com/",
+   "note": "Its own home page (in Firecrawl's search index, Nov 10 2026): 'Founded in 2008 to further Chabad of Rochester...'; the Minority Reporter (on its 18th-anniversary celebration): 'Founded in 2008, Chabad of Pittsford has developed programs for children, teenagers, adults and families'. Its chabad.org listing went up 2008-07-29, so it existed by then. Director: Yitzi Hein."
   },
   "2933889": {
    "name": "Chabad of Madison County",
@@ -21193,12 +21192,11 @@
    "name": "Chabad Jewish Center",
    "city": "Needham, MA",
    "shetach": "eastern-massachusetts",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/118370/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Mendel Krinsky."
+   "year": 2000,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.charidy.com/jewishneedham/TzemachKrinsky",
+   "note": "Its own 2025 Charidy campaign page (in Firecrawl's search index, Nov 10 2026): 'Since the year 2000, the Chabad Jewish Center has stood on the front lines of Jewish life'. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Mendel Krinsky."
   },
   "118512": {
    "name": "Chabad Israeli Center",
@@ -21290,12 +21288,11 @@
    "name": "Chabad of Downtown Boston",
    "city": "Boston, MA",
    "shetach": "eastern-massachusetts",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2011,
-   "source": "https://www.chabad.org/api/content/1681669/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2011-11-17, so it existed by then. Director: Yosef Zaklos."
+   "year": 2011,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://www.chabaddowntownboston.org/templates/articlecco_cdo/aid/7579780/jewish/Untitled.htm",
+   "note": "Its own pages (in Firecrawl's search index, Nov 10 2026): 'In 2011, Rabbi Yosef and Shayndel Zaklos were appointed to lead Chabad of Downtown Boston'; 'Since 2011, Rabbi Zaklos serves as the director of Chabad of Downtown Boston'. Medium: the year its directors were appointed; the chabad.org listing went up in 2011 too. Its chabad.org listing went up 2011-11-17, so it existed by then. Director: Yosef Zaklos."
   },
   "2398513": {
    "name": "YJP of Cambridge-Somerville",

@@ -381,11 +381,15 @@ thirteen no better recent photo has been found yet (the list is there, with what
        - `git checkout --ours data/founding-years.json` (in a rebase, "ours" is the remote's version);
        - re-apply your own batch files with add.py and rerun status.py;
        - `git add` both files, then `git rebase --continue`.
-    4b. **Not yet the same in both sessions:** a state filing (California Secretary of State, Florida Sunbiz) or an
-       IRS ruling date, when nothing better exists. The West Coast window enters it as the year (`how: directory`,
-       `medium`, the note saying it is the corporation's filing; the file's `about` lists an IRS record under
-       `directory`); the Florida session entered such dates as a `by` bound (a range). *(Suggestion, not agreed:)*
-       ask the owner which, then make the two match.
+    4b. **Filings count as the year (owner, Nov 10: "Filing date is either low or medium confidence, but it's data and
+       data is data").** A state filing (California Secretary of State, Florida Sunbiz, any state's incorporation) or
+       an IRS ruling date, when nothing earlier exists, is entered as the year: `how: directory`, `medium` for a
+       state incorporation of the center's own corporation, `low` for an IRS ruling (it can lag the start by years) or
+       for a parent's or an unclear corporation; the note says it is a filing and gives the record. Not when anything
+       earlier shows the center already existing (a listing, a news item, an earlier filing): then the filing is only
+       a later bound and the entry stays a range. Sessions that entered filings as `by` bounds: change them. The West
+       Coast window's sweep of the IRS exempt-organization files (all states) and Canada's charity registry is in
+       batches `filings-NN.json` (from Nov 10); re-apply them after your own batches if you re-apply.
     5. In every update to the owner, say how much is left. `python3 work/founding-years/progress.py <your shetachim>`
        prints it ("LEFT: 48 of 48 dots (100.0%), ..."). Owner (Nov 6): "keep telling me how much left (amount and %)
        so I can steadily see progress".

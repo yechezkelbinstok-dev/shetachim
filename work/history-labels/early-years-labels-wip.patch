@@ -1,0 +1,111 @@
+diff --git a/web/history.html b/web/history.html
+index 83bb94cb..fb1697e6 100644
+--- a/web/history.html
++++ b/web/history.html
+@@ -591,6 +591,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
+     return best ? { p: best, r: bd } : null;
+   }
+   const SPOT = new Map();
++  const FB = new Map(); // where a small shape's name went (by shetach, zoom and pan), worked out once per year shown
+   function spotOf(idx) {
+     const sk = `${idx.sid}|${idx.key}`;
+     if (SPOT.has(sk)) return SPOT.get(sk);
+@@ -653,7 +654,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
+     projHI.translate([projHI.translate()[0] + boxX + bpad - hx0, projHI.translate()[1] + boxY + bpad + 12 - hy0]);
+     BOX = { x: boxX, y: boxY, w: bw, h: boxH };
+     projectArcs();
+-    GP.clear(); BORD.clear(); SPOT.clear(); LAND = {}; selOut = null; flash = null;
++    GP.clear(); BORD.clear(); SPOT.clear(); FB.clear(); LAND = {}; selOut = null; flash = null;
+     render(cur.Y == null ? initialYear() : cur.Y, false);
+     warm();
+   }
+@@ -709,6 +710,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
+       if (!tw) tweens.set(sid, { from: to, to, t0: -1e9 });
+       else if (tw.to !== to) tweens.set(sid, { from: colourAt(tw, now), to, t0: now });
+     }
++    FB.clear();
+     view = { Y, c, stars: flagsOf(c, Y), texts: textsOf(c, Y) };
+     if (animate && prev != null && Math.abs(prev - Y) === 1) startFlash(prev, Y);
+     if (selected) showCard();
+@@ -835,7 +837,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
+   function drawLabels(c, k) {
+     const g = nameGrow(k), sg = starGrow(k);
+     const stars = view.stars.map((d) => ({ x: d.x, y: d.y, r: d.big * Math.sqrt(STAR / 3) * sg / k }));
+-    const placed = [], pad = 2 / k, out = [];
++    const placed = [], pad = 2 / k, out = [], lines = [];
+     const onStar = (x, y, w, h) => stars.some((st) => Math.abs(st.x - x) < w / 2 + st.r && Math.abs(st.y - y) < h / 2 + st.r);
+     const onName = (x, y, w, h) => placed.some((b) => x - w / 2 - pad < b[2] && x + w / 2 + pad > b[0] && y - h / 2 - pad < b[3] && y + h / 2 + pad > b[1]);
+     for (const lb of [...view.texts].sort((a, b) => b.S.area - a.S.area)) {
+@@ -854,22 +856,65 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
+       // in the early years, when every one matters (owner, Nov 9: "in the early years when it's important to see every
+       // single one ... maybe put it over it"), a shape too small for its name still gets it: set over the shape (or just
+       // above or below it, clear of the other names)
++      // (owner, Nov 10, a phone screenshot of 1968: Tzeirei Agudas Chabad's name out in the Atlantic, Herson's on 770's star
++      // and over Avremel Shemtov's, Fogelman's over empty New England, "what the fuck is going on here"): such a name goes
++      // where it covers no star, no other name and as little of another shetach as it can (the sea or land with none
++      // first), as close to its shape as that allows, with a thin line back to its shape
+       if (!at && view.texts.length <= 15) {
+         const cd = lb.cands[0], rows = [...cd.lines.map((t) => ({ t, s: 1 })), ...(cd.sub || []).map((t) => ({ t, s: SUB }))];
+-        const w = Math.max(...rows.map((r) => widthOf(r.t, fm * r.s))), h = rows.reduce((a, r) => a + r.s, 0) * fm * 1.1, rr = Math.sqrt(S.area / Math.PI) + 4 / k;
+-        // (all of it on the screen where it can be)
+-        const inView = (x, y) => { const [ux, uy] = T.apply([x, y]), hw = w * k / 2, hh = h * k / 2; return ux - hw > 4 && ux + hw < W - 4 && uy - hh > 4 && uy + hh < H - 4; };
+-        const spots = [[0, 0], [0, -1], [0, 1], [-1, 0], [1, 0], [-1, -1], [1, -1], [-1, 1], [1, 1]].map(([dx, dy]) => [S.x + dx * (w / 2 + rr), S.y + dy * (h / 2 + rr)]);
+-        const p = spots.find(([x, y]) => inView(x, y) && !onName(x, y, w, h)) || spots.find(([x, y]) => !onName(x, y, w, h));
+-        if (p) at = { rows, w, h, x: p[0], y: p[1] };
++        const w = Math.max(...rows.map((r) => widthOf(r.t, fm * r.s))), h = rows.reduce((a, r) => a + r.s, 0) * fm * 1.1, rr = Math.sqrt(S.area / Math.PI);
++        const fk = `${lb.sid}|${Math.round(Math.log2(k) * 8)}|${Math.round(T.x / 80)}|${Math.round(T.y / 80)}|${placed.length}`;
++        let p = FB.get(fk);
++        if (!p) {
++          // (all of it on the screen where it can be)
++          const inView = (x, y) => { const [ux, uy] = T.apply([x, y]), hw = w * k / 2, hh = h * k / 2; return ux - hw > 4 && ux + hw < W - 4 && uy - hh > 4 && uy + hh < H - 4; };
++          const l = levelNow(k), others = [...view.c.groups].filter(([s]) => s !== lb.sid).map(([, idx]) => groupPath(idx, l));
++          // how much of the box lies on another shetach (nine points of it)
++          const onOther = (x, y) => { let n = 0; bctx.save(); bctx.setTransform(1, 0, 0, 1, 0, 0);
++            for (const fx of [-0.45, 0, 0.45]) for (const fy of [-0.4, 0, 0.4]) if (others.some((gp) => bctx.isPointInPath(gp, x + fx * w, y + fy * h, 'evenodd'))) n++;
++            bctx.restore(); return n / 9; };
++          const pad = 3 / k, cands = [{ x: S.x, y: S.y, d: 0 }];
++          for (const gap of [5, 16, 32, 56, 90, 130, 180]) for (let a = 0; a < 24; a++) {
++            const ux = Math.cos(a * Math.PI / 12), uy = Math.sin(a * Math.PI / 12), g = rr + gap / k;
++            cands.push({ x: S.x + ux * (g + w / 2) , y: S.y + uy * (g + h / 2), d: gap });
++          }
++          // its line: from the shape to the nearest edge of the box; it may not cross another name's line or run
++          // through another name
++          const lineTo = (q) => [S.x, S.y, Math.max(q.x - w / 2, Math.min(q.x + w / 2, S.x)), Math.max(q.y - h / 2, Math.min(q.y + h / 2, S.y))];
++          const cross = (a, b) => { const o = (p1, p2, p3) => Math.sign((p2[0] - p1[0]) * (p3[1] - p1[1]) - (p2[1] - p1[1]) * (p3[0] - p1[0]));
++            const A = [a[0], a[1]], B = [a[2], a[3]], C = [b[0], b[1]], D = [b[2], b[3]]; return o(A, B, C) * o(A, B, D) < 0 && o(C, D, A) * o(C, D, B) < 0; };
++          const throughBox = (ln, bx) => { for (let t = 0.15; t < 0.95; t += 0.1) { const x = ln[0] + (ln[2] - ln[0]) * t, y = ln[1] + (ln[3] - ln[1]) * t; if (x > bx[0] && x < bx[2] && y > bx[1] && y < bx[3]) return true; } return false; };
++          let best = null, bs = Infinity;
++          for (const q of cands) {
++            if (onName(q.x, q.y, w + 2 * pad, h + 2 * pad) || onStar(q.x, q.y, w + 2 * pad, h + 2 * pad)) continue;
++            let xs = 0;
++            if (q.d > 0) { const ln = lineTo(q); if (placed.some((bx) => throughBox(ln, bx))) continue; xs = lines.filter((m) => cross(ln, m)).length; }
++            const s = q.d / 20 + 4 * onOther(q.x, q.y) + 3 * xs + (inView(q.x, q.y) ? 0 : 100);
++            if (s < bs) { bs = s; best = q; }
++          }
++          p = best ? { x: best.x, y: best.y, line: best.d > 0 ? lineTo(best) : null } : null;
++          FB.set(fk, p);
++        }
++        if (p) { at = { rows, w, h, x: p.x, y: p.y, line: !!p.line }; if (p.line) lines.push(p.line); }
+       }
+       if (!at) continue;
+       const ax = at.x ?? S.x;
+       placed.push([ax - at.w / 2, at.y - at.h / 2, ax + at.w / 2, at.y + at.h / 2]);
+       const [sx, sy] = T.apply([ax, at.y]);
+       if (sx < -150 || sx > W + 150 || sy < -60 || sy > H + 60) continue;
+-      out.push({ sx, sy, rows: at.rows, fs });
++      // a line from the shape to the nearest edge of its name
++      let line = null;
++      if (at.line) {
++        const [px, py] = T.apply([S.x, S.y]), hw = at.w * k / 2 + 2, hh = at.h * k / 2 + 1;
++        const ex = Math.max(sx - hw, Math.min(sx + hw, px)), ey = Math.max(sy - hh, Math.min(sy + hh, py));
++        line = [px, py, ex, ey];
++      }
++      out.push({ sx, sy, rows: at.rows, fs, line });
+     }
++    // the lines first (a halo under each), then the names over them
++    c.lineCap = 'round';
++    for (const o of out) if (o.line) { const [a, b2, e, f] = o.line; c.strokeStyle = COL.halo; c.lineWidth = 3; c.beginPath(); c.moveTo(a, b2); c.lineTo(e, f); c.stroke(); }
++    for (const o of out) if (o.line) { const [a, b2, e, f] = o.line; c.strokeStyle = COL.ink; c.lineWidth = 1.2; c.beginPath(); c.moveTo(a, b2); c.lineTo(e, f); c.stroke(); c.fillStyle = COL.ink; c.beginPath(); c.arc(a, b2, 2, 0, 2 * Math.PI); c.fill(); }
+     c.textAlign = 'center'; c.textBaseline = 'alphabetic'; c.direction = HE ? 'rtl' : 'ltr'; c.lineJoin = 'round'; c.lineWidth = 3;
+     // the rows stacked about the spot: each row's middle at its place in the block, its baseline 0.35 of its size below
+     const each = (fn) => { let font = ''; for (const o of out) {

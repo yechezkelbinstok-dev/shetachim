@@ -399,7 +399,10 @@ thirteen no better recent photo has been found yet (the list is there, with what
        (`filings-04`, `-05`). `filings-06` puts back 14 IRS years that came after the center's own chabad.org listing
        date. No open bulk registry found for Ontario, Washington, Florida (Sunbiz bulk is SFTP only, port 22
        blocked here), Massachusetts, Maryland, New Jersey, Illinois or California (Sunbiz search and Massachusetts'
-       CorpWeb are behind Cloudflare / Incapsula checks: not used). Canada's charities: open.canada.ca has a "List of
+       CorpWeb are behind Cloudflare / Incapsula checks. Owner, Nov 10: "you can just use stealth mode it's for
+       research it's fine", but Claude Code's auto-mode classifier denied a Firecrawl stealth scrape of Sunbiz that
+       day, so don't retry or route around it; ask the owner to change the permission himself if he wants it).
+       Canada's charities: open.canada.ca has a "List of
        charities" for every year 1990-2024; a charity's first year on the list is entered as a low-confidence year
        (`filings-07`; 1990 means only "by 1990"). Before entering any filing as a year, compare it with the
        listing's publication date from `api/content/<id>/metadata` (free): if the filing is later, it is only a bound.

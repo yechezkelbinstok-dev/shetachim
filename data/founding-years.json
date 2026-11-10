@@ -16461,12 +16461,12 @@
    "name": "Chabad Jewish Center of Gurnee",
    "city": "Grayslake, IL",
    "shetach": "illinois",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/v2/chabadorg/centers/118488",
-   "note": "No start date found yet: Rabbi Sholom Ber Tenenbaum's Chabad Jewish Center of Gurnee (17684 W. Gages Lake Road, Grayslake). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then."
+   "year": 2001,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.chabadofgurnee.com/templates/section_cdo/aid/7503324/jewish/Kabbalah-and-the-Hidden-Architecture-of-You.htm",
+   "date": "2001-09",
+   "note": "Its own site (a JLI course page, in Firecrawl's search index, Nov 10 2026): 'Rabbi Tenenbaum has served as founder and director of Chabad of Gurnee since September 2001.' No start date found yet: Rabbi Sholom Ber Tenenbaum's Chabad Jewish Center of Gurnee (17684 W. Gages Lake Road, Grayslake). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then."
   },
   "119646": {
    "name": "Shalom Hebrew School",
@@ -16537,23 +16537,22 @@
    "name": "Chabad Jewish Center of Elgin",
    "city": "Elgin, IL",
    "shetach": "illinois",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2012,
-   "source": "https://www.chabad.org/api/v2/chabadorg/centers/1882717",
-   "note": "No start date found yet: Rabbi Mendel Shemtov's Chabad Jewish Center of Elgin (30W509 Shoe Factory Road). Its chabad.org listing went up July 17 2012, so it existed by then."
+   "year": 2012,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://www.dailyherald.com/20121229/news/rabbi-wants-to-reach-out-to-every-jew-in-elgin-and-beyond/",
+   "season": "summer",
+   "note": "Daily Herald, 29 Dec 2012 (Elena Ferrarin, 'Rabbi wants to reach out to every Jew in Elgin and beyond'): 'Rabbi Mendel Shemtov has been running the Chabad of Elgin & Hoffman Estates since the summer'; 'Shemtov, who has been running the Jewish center since it opened this summer'. Its chabad.org listing went up July 17 2012. No start date found yet: Rabbi Mendel Shemtov's Chabad Jewish Center of Elgin (30W509 Shoe Factory Road). Its chabad.org listing went up July 17 2012, so it existed by then."
   },
   "2344265": {
    "name": "Chabad of Deerfield",
    "city": "Deerfield, IL",
    "shetach": "illinois",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2013,
-   "source": "https://crownheights.info/chabad-news/782147/growth-of-chicagos-jewish-communities-a-study-in-chabads-broad-impact/",
-   "note": "No start date found yet: Chabad of Deerfield, directed by Rabbi Chaim and Mina Schanowitz (Chabad.org, 12 July 2022). Its chabad.org listing went up Oct 14 2013, so it existed by then. 945 Sunset Court."
+   "year": 2013,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://www.ultracamp.com/assets/391/documents/CGIParentHandbook5774_03.pdf",
+   "note": "Camp Gan Israel (Chicago) parents' handbook for 5774 (2013-14): 'Chaim and his wife Mina moved to Deerfield this year to direct Chabad of Deerfield.' The chabad.org listing went up Oct 14 2013. Medium: 'this year' is the Jewish year 5774 (from Sept 2013). No start date found yet: Chabad of Deerfield, directed by Rabbi Chaim and Mina Schanowitz (Chabad.org, 12 July 2022). Its chabad.org listing went up Oct 14 2013, so it existed by then. 945 Sunset Court."
   },
   "2736692": {
    "name": "Chabad of Riverwoods",
@@ -20952,12 +20951,11 @@
    "name": "Chabad of Queen Anne - Magnolia",
    "city": "Seattle, WA",
    "shetach": "washington",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2015,
-   "source": "https://www.chabad.org/api/content/3096341/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2015-10-21, so it existed by then. Director: Shnear Levitin."
+   "year": 2015,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://limmudseattle2019.sched.com/speaker/chabadqueenanne",
+   "note": "Limmud Seattle 2019 speaker page for Rabbi Shnai Levitin: 'He moved back to Seattle three years ago with his wife and children to establish Chabad of Queen Anne - Magnolia.' Medium: counted back (about 2016), and the chabad.org listing went up in 2015, so 2015. Its chabad.org listing went up 2015-10-21, so it existed by then. Director: Shnear Levitin."
   },
   "3104923": {
    "name": "Chabad of Downtown Seattle & Chabad Young Professionals Seattle",
@@ -22137,9 +22135,9 @@
    "year": null,
    "how": "range",
    "confidence": "range",
-   "by": 2004,
+   "by": 1999,
    "source": "https://www.chabad.org/api/content/117637/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Lead, not checked: Connection Newspapers (June 2004) says the Chabad synagogue on Seven Locks Road dedicated its sanctuary 'after eleven years in the making'. Director: Mendel Bluming."
+   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Lead, not checked: Connection Newspapers (June 2004) says the Chabad synagogue on Seven Locks Road dedicated its sanctuary 'after eleven years in the making'. Director: Mendel Bluming. Washington Jewish Week (on CrownHeights.info, 28 Nov 2012, 'Chabad Father-Son Team Looks Toward Expansion'): in 2000 Rabbi Bentzion and Zlata Geisinsky 'left their work at the Chabad center in Potomac, to found Chabad of Bethesda-Chevy Chase' (established 1999, per listing 118382), so the Potomac center existed by 1999. Rabbi Mendel Bluming has led it 'since 2003' (his own pages); his parents are on its staff."
   },
   "118207": {
    "name": "Chabad Lubavitch Center of Eastern Shore",
@@ -22308,7 +22306,8 @@
    "confidence": "range",
    "by": 2011,
    "source": "https://www.chabad.org/api/content/1701833/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2011-12-07, so it existed by then. Director: Bentzion Geisinsky."
+   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2011-12-07, so it existed by then. Director: Bentzion Geisinsky. Washington Jewish Week (on CrownHeights.info, 28 Nov 2012): the Geisinskys founded Chabad of Bethesda-Chevy Chase in 1999-2000, and 'the current center and the one to be developed will do business under the name Mercaz Menachem Chabad', so this Chevy Chase listing dates from after 1999.",
+   "after": 1999
   },
   "1772269": {
    "name": "Chabad of Rockville",
@@ -22325,12 +22324,11 @@
    "name": "Chabad of Olney",
    "city": "Olney, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2012,
-   "source": "https://www.chabad.org/api/content/1901483/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2012-07-19, so it existed by then. Director: Bentzy Stolik."
+   "year": 2012,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://washingtonjewishweek.com/you-should-know-rabbi-bentzy-stolik/",
+   "note": "Washington Jewish Week ('You Should Know ... Rabbi Bentzy Stolik'): 'he and his wife moved from Brooklyn to Maryland in 2012 to found Chabad of Olney'. Its chabad.org listing went up 2012-07-19, so it existed by then. Director: Bentzy Stolik."
   },
   "1991997": {
    "name": "Cheder Chabad of Baltimore",
@@ -22347,12 +22345,11 @@
    "name": "Chabad of Carroll County",
    "city": "Sykesville, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2013,
-   "source": "https://www.chabad.org/api/content/2389837/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2013-11-11, so it existed by then. Director: Sholom Ber Cohen."
+   "year": 2012,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://www.baltimoresun.com/2019/12/20/baltimore-rabbis-using-quirky-menorahs-to-shine-light-on-hanukkah/",
+   "note": "The Baltimore Sun, 20 Dec 2019: 'When Rabbi Sholly Cohen and his wife, Feigie, moved to Sykesville to start Chabad of Carroll County in 2012'. Its chabad.org listing went up 2013-11-11, so it existed by then. Director: Sholom Ber Cohen."
   },
   "2736662": {
    "name": "Jewish Uniformed Service Association of Maryland",
@@ -22399,12 +22396,11 @@
    "name": "Chabad Lubavitch of Hunt Valley",
    "city": "Cockeysville, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2018,
-   "source": "https://www.chabad.org/api/content/4231595/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2018-12-12, so it existed by then. Director: Shalom Zirkind."
+   "year": 2017,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.jewishhuntvalley.com/templates/articlecco_cdo/aid/4447101/jewish/About-Us.htm",
+   "note": "Its own About page (read through WebFetch, Nov 10 2026): the Zirkinds have been 'Chabad emissaries in the Lutherville, Timonium and Hunt Valley neighborhoods, since 2017'. The Baltimore Jewish Times later wrote 'It's been almost a decade since the Chabad of Hunt Valley was started'. Its chabad.org listing went up 2018-12-12, so it existed by then. Director: Shalom Zirkind."
   },
   "4262951": {
    "name": "Chabad of Catonsville & UMBC",

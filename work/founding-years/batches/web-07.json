@@ -1,0 +1,53 @@
+{
+ "713289": {
+  "name": "Chabad of Maple",
+  "city": "Maple, ON",
+  "shetach": "ontario",
+  "year": 2008,
+  "how": "stated",
+  "confidence": "high",
+  "source": "https://www.chabadmaple.com/",
+  "note": "Its own home page (in Firecrawl's search index, Nov 10 2026): 'An affiliate of Chabad Lubavitch of Ontario, Chabad of Maple was founded in 2008 by Rabbi Chezky and Shaina Deren'; the City of Vaughan (Ward 4 Civic Hero Award, 2018): 'In 2008, he founded Chabad of Maple'. Its chabad.org listing went up 2008-10-05, so it existed by then. Director: Yechezkel Deren."
+ },
+ "282401": {
+  "name": "Chabad Lubavitch of Aurora",
+  "city": "Richmond Hill, ON",
+  "shetach": "ontario",
+  "year": 2005,
+  "how": "stated",
+  "confidence": "high",
+  "source": "https://www.chabadofaurora.com/",
+  "note": "Its own home page (in Firecrawl's search index, Nov 10 2026): 'An affiliate of Chabad Lubavitch of Ontario, Chabad of Oak Ridges/Aurora was founded in 2005 by Rabbi Yosef and Sara Hecht'. Its chabad.org listing went up 2005-05-24, so it existed by then. Director: Yosef Hecht."
+ },
+ "174317": {
+  "name": "Chabad Russian Center of Thornhill Woods",
+  "city": "Thornhill, ON",
+  "shetach": "ontario",
+  "year": 2002,
+  "how": "news",
+  "confidence": "medium",
+  "source": "https://collive.com/city-honors-local-shluchim/",
+  "note": "COLlive ('City Honors Local Shluchim'): 'Since 2002, Rabbi Hildeshaim and Chanie Hildeshaim have served as directors of the Jewish Russian Community Centre of Thornhill Woods.' Medium: the year its directors began; its registered charity appears from 2013. Its chabad.org listing went up 2004-09-09, so it existed by then. Director: Chaim Leib Hildeshaim."
+ },
+ "559424": {
+  "name": "Chabad of Kanata",
+  "city": "Ottawa, ON",
+  "shetach": "ottawa",
+  "year": null,
+  "lead": 2007,
+  "how": "range",
+  "source": "https://www.jewishottawa.com/our-community/community-directory?page=2",
+  "note": "Ottawa Jewish Bulletin (about 2021, 'Russian-speaking Jews more engaged with community thanks to Genesis grant'): 'Gershzon said in 2005, the \"Acheinu Board\" was established to address the growing needs of a Russian-speaking Jewish population, which eventually led to the development of the Chabad of Kanata by bringing Rabbi Gershzon to Ottawa', so after 2005 (https://www.ottawajewishbulletin.com/jewish-ottawa/russian-speaking-jews-more-engaged-with-community-thanks-to-genesis-grant). The Chesed Fund (undated): the Gershzons 'founded Chabad of Kanata almost two decades ago'. therebbesimpact.com and the listing number point to 2007 (leads). Its chabad.org listing went up on Sep 16 2007 (chabad.org's own record), so it existed by then. It began as the Jewish Russian Community Centre of Ottawa (JRCC Ottawa): its site, archived June 16 2008 (copyright 2007), names Rabbi Michoel Gershzon, regional director, and Mrs. Miriam Gershzon (https://web.archive.org/web/20080616173605/http://www.jrccottawa.org/), and lubavitch.com's directory as archived Aug 30 2011 lists the Jewish Russian Community Center of Ottawa at 15 Hansen Ave. (Kanata). Neither gives a founding year. Later sources disagree: the Ottawa Jewish Bulletin (15 Oct 2018) calls it 'Chabad of Kanata, established in 2009', and a Chesed Fund appeal says 'Michoel and Miriam founded Chabad of Kanata twenty years ago'; the chabad.org listing (2007) rules out 2009, so the range stays.",
+  "confidence": "range",
+  "after": 2005,
+  "by": 2007,
+  "earlier": [
+   {
+    "where": "15 Hansen Ave., Kanata, as the Jewish Russian Community Centre of Ottawa (JRCC Ottawa; its address in lubavitch.com's center directory as archived Aug 30 2011)",
+    "from": null,
+    "until": null,
+    "source": "https://web.archive.org/web/20110830150916/http://lubavitch.com/centers/list.html?Country=&City=Ottawa"
+   }
+  ]
+ }
+}

@@ -23623,12 +23623,11 @@
    "name": "Chabad of Dollard",
    "city": "Dollard-des-Ormeaux, QC",
    "shetach": "quebec",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2006,
-   "source": "https://www.chabad.org/api/content/442509/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2006-11-07, so it existed by then. Director: Leibel Fine. Quebec enterprise register (Registraire des entreprises, open data 'Registre des entreprises', file of Nov 1 2026): 'Communauté Chabad de Dollard' (NEQ 1168955814), constituted Mar 5 2013 at 103 Woodlawn, Dollard-des-Ormeaux; the umbrella corporation (NEQ 1143241058) declared 'CHABAD OF DOLLARD / JLI OF OUEST OF THE ISLAND' on Feb 1 2010. Nothing in the register is earlier than the listing, so no year from it."
+   "year": 2006,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://montrealgazette.com/news/west-island-rabbi-turns-to-tech-to-ensure-sons-bar-mitzvah-goes-on/",
+   "note": "Montreal Gazette ('West Island rabbi turns to tech to ensure son's bar mitzvah goes on'): Rabbi Leibel Fine is 'the rabbi at Chabad of Dollard since 2006'. Its chabad.org listing went up Nov 7 2006. Its chabad.org listing went up 2006-11-07, so it existed by then. Director: Leibel Fine. Quebec enterprise register (Registraire des entreprises, open data 'Registre des entreprises', file of Nov 1 2026): 'Communauté Chabad de Dollard' (NEQ 1168955814), constituted Mar 5 2013 at 103 Woodlawn, Dollard-des-Ormeaux; the umbrella corporation (NEQ 1143241058) declared 'CHABAD OF DOLLARD / JLI OF OUEST OF THE ISLAND' on Feb 1 2010. Nothing in the register is earlier than the listing, so no year from it."
   },
   "443207": {
    "name": "Heichal Menachem",
@@ -23727,12 +23726,11 @@
    "name": "Chabad of Old Montreal and Griffintown",
    "city": "Montreal, QC",
    "shetach": "quebec",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2009,
-   "source": "https://www.chabad.org/api/content/895293/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2009-07-02, so it existed by then. Director: Nissan Gansbourg. Quebec enterprise register (Registraire des entreprises, open data 'Registre des entreprises', file of Nov 1 2026): the association NEQ 3342042317 (the 'Gniwisch Family Charitable Trust' from 1995, 4750 Vézina) took the names 'ORGANISATION CHABAD DE CENTRE VILLE MONTRÉAL' and 'ORGANISATION CHABAD OF OLD MONTRÉAL' on Aug 17 2009, six weeks after the listing (July 2 2009); the center's own corporation, 'Communauté Chabad du Vieux-Montréal' / 'CHABAD DU VIEUX MONTRÉAL' (NEQ 1169102184), was constituted Apr 29 2013 at 687 Saint-Paul W (the listing's address). Not taken as the year."
+   "year": 2009,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://collive.com/chabad-opens-in-old-montreal/",
+   "note": "COLlive, 24 Oct 2009 ('Chabad Opens in Old Montreal'): 'Temporarily located in the Gault Hotel, the fledgling Chabad of Old Montreal center will seek to gain ground, New Shliach Rabbi Nissi Gansbourg says.' Its chabad.org listing went up July 2 2009. Its chabad.org listing went up 2009-07-02, so it existed by then. Director: Nissan Gansbourg. Quebec enterprise register (Registraire des entreprises, open data 'Registre des entreprises', file of Nov 1 2026): the association NEQ 3342042317 (the 'Gniwisch Family Charitable Trust' from 1995, 4750 Vézina) took the names 'ORGANISATION CHABAD DE CENTRE VILLE MONTRÉAL' and 'ORGANISATION CHABAD OF OLD MONTRÉAL' on Aug 17 2009, six weeks after the listing (July 2 2009); the center's own corporation, 'Communauté Chabad du Vieux-Montréal' / 'CHABAD DU VIEUX MONTRÉAL' (NEQ 1169102184), was constituted Apr 29 2013 at 687 Saint-Paul W (the listing's address). Not taken as the year."
   },
   "1013109": {
    "name": "Chabad Centre for Jewish Life S. Lazare",
@@ -23770,12 +23768,11 @@
    "name": "Dorval Jewish Centre",
    "city": "Dorval, QC",
    "shetach": "quebec",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2011,
-   "source": "https://www.chabad.org/api/content/1585033/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2011-08-03, so it existed by then. Director: Shmuel Kaufmann. Quebec enterprise register (Registraire des entreprises, open data 'Registre des entreprises', file of Nov 1 2026): 'Centre Juif Chabad de Dorval' / 'Dorval Jewish Centre' (NEQ 1176756725), constituted July 14 2021. Nothing in the register is earlier than the listing, so no year from it."
+   "year": 2011,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.jewishdorval.com/",
+   "note": "Its own home page (in Firecrawl's search index, Nov 10 2026): 'Under the direction of Rabbi Shmully Kaufmann and his wife Rivky, Chabad of Dorval, founded in 2011 offers youth programs...'; Chabad.org News ('Spiritual Revival Underway as Jewish Centers Pop Up') calls it 'the newly-established Chabad of Dorval'. Its chabad.org listing went up 2011-08-03, so it existed by then. Director: Shmuel Kaufmann. Quebec enterprise register (Registraire des entreprises, open data 'Registre des entreprises', file of Nov 1 2026): 'Centre Juif Chabad de Dorval' / 'Dorval Jewish Centre' (NEQ 1176756725), constituted July 14 2021. Nothing in the register is earlier than the listing, so no year from it."
   },
   "1604353": {
    "name": "Chabad South Shore / Rive-Sud",
@@ -23825,12 +23822,12 @@
    "name": "Chabad of Lasalle",
    "city": "Lasalle, QC",
    "shetach": "quebec",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2012,
-   "source": "https://www.chabad.org/api/content/2025470/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2012-11-01, so it existed by then. Director: Chaim A. Brand. Quebec enterprise register (Registraire des entreprises, open data 'Registre des entreprises', file of Nov 1 2026): 'Chabad LaSalle' (NEQ 1178598810), constituted Apr 3 2023, establishment 1650 Thierry (the listing's address). Nothing in the register is earlier than the listing, so no year from it."
+   "year": 2012,
+   "how": "news",
+   "confidence": "high",
+   "source": "http://blog.thesuburban.com/2013_02_24_archive.html",
+   "date": "2012-12",
+   "note": "The Suburban (Mike Cohen, Feb 2013): 'Chaim and Chanie Brand had just founded their Chabad centre last December'; COLlive: 'Chabad of Lasalle, which was opened in 2012 by Rabbi Chaim and Chanie Brand'. Its chabad.org listing went up Nov 1 2012. Its chabad.org listing went up 2012-11-01, so it existed by then. Director: Chaim A. Brand. Quebec enterprise register (Registraire des entreprises, open data 'Registre des entreprises', file of Nov 1 2026): 'Chabad LaSalle' (NEQ 1178598810), constituted Apr 3 2023, establishment 1650 Thierry (the listing's address). Nothing in the register is earlier than the listing, so no year from it."
   },
   "2463156": {
    "name": "Chabad des Etudiants",

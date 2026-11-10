@@ -7272,13 +7272,11 @@
    "name": "Friendship Circle of Los Angeles",
    "city": "Los Angeles",
    "shetach": "west-coast",
-   "year": null,
-   "lead": 2003,
-   "how": "range",
-   "confidence": "range",
-   "source": "https://www.chabad.org/jewish-centers/6294855",
-   "note": "No year found. therebbesimpact.com: 2003. Same dot as Chabad of Beverlywood (2001), so the dot is dated. Its chabad.org listing went up on Jan 25 2024 (chabad.org's own record), so it existed by then.",
-   "by": 2024
+   "year": 2003,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://www.fcla.org",
+   "note": "Its own site (home page, read Nov 10 2026) counts its volunteers 'since 2003'; therebbesimpact.com also has 2003. Medium: a count's starting year, not a founding statement. therebbesimpact.com: 2003. Same dot as Chabad of Beverlywood (2001), so the dot is dated. Its chabad.org listing went up on Jan 25 2024 (chabad.org's own record), so it existed by then."
   },
   "120080": {
    "name": "Gan Chaya Jewish Early Childhood Center",
@@ -13897,13 +13895,12 @@
    "name": "The Uptown Chabad",
    "city": "Charlotte",
    "shetach": "the-carolinas",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2016,
-   "lead": 2016,
-   "source": "https://newspapers.digitalnc.org/lccn/2002222009/2016-04-01/ed-1/seq-25.pdf",
-   "note": "The Charlotte Jewish News (April 2016) lists a young professionals' Seder led by Rabbi Motti and Chaya Groner at Chabad of Uptown, 410 North Smith Street, Suite IB (seen through a search result; DigitalNC could not be opened from here). So there by spring 2016; its start not found. IRS ruling 2022. Lead: its chabad.org listing (3201321) is from about 2015-16."
+   "year": 2015,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.theuptownchabad.com/about",
+   "date": "2015-11",
+   "note": "Its own site (About, read Nov 10 2026): 'Uptown Chabad for Young Professionals was founded in November 2015 through a grant by the Meromim Foundation'; 'Rabbi Motti and Chaya Groner established the Uptown Chabad for Young Professionals in February of 2016.' The Charlotte Jewish News (April 2016) lists a young professionals' Seder led by Rabbi Motti and Chaya Groner at Chabad of Uptown, 410 North Smith Street, Suite IB (seen through a search result; DigitalNC could not be opened from here). So there by spring 2016; its start not found. IRS ruling 2022. Lead: its chabad.org listing (3201321) is from about 2015-16."
   },
   "4090936": {
    "name": "Chabad of Greater Hilton Head",
@@ -18398,12 +18395,12 @@
    "name": "Chabad on Campus - Queens",
    "city": "Kew Gardens Hills, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2005,
-   "source": "https://www.chabad.org/api/content/259816/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2005-02-09, so it existed by then. Director: Shaul Wertheimer."
+   "year": 2004,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://qchabad.org/about/",
+   "season": "fall",
+   "note": "Its own site (About, read Nov 10 2026): 'Chabad of Queens College was established in the Fall of 2004 to meet the needs of the over 4000 Jewish students at Queens College.' Its chabad.org listing went up 2005-02-09, so it existed by then. Director: Shaul Wertheimer."
   },
   "313119": {
    "name": "The Chabad Loft",
@@ -18512,7 +18509,7 @@
    "confidence": "range",
    "by": 2006,
    "source": "https://www.chabad.org/api/content/442309/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2006-11-07, so it existed by then. Director: Levi Katzman."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2006-11-07, so it existed by then. Director: Levi Katzman. Its own site (About, read Nov 10 2026): 'Rabbi Levi and Freidy moved to Staten Island in 2014 to run Chabad of the South Shore', so the present couple came in 2014; the center is older (listing Nov 2006)."
   },
   "449325": {
    "name": "Chabad Israel Center",
@@ -18898,12 +18895,11 @@
    "name": "Chabad of Gravesend",
    "city": "Brooklyn, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2016,
-   "source": "https://www.chabad.org/api/content/3196458/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2016-01-12, so it existed by then. Director: Shimon Silver."
+   "year": 2013,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://www.jewishgravesend.com/about-us",
+   "note": "Its own site (About, read Nov 10 2026): the community began in the 1950s as the Beach Haven congregation under Rabbi Israel Wagner; 'Since 2013, Rabbi Shimmy and Sarah Silver and their family have dedicated their life to support the continued growth of family and youth programs.' Medium: the Chabad's start is taken from the Silvers' arrival. Its chabad.org listing went up 2016-01-12, so it existed by then. Director: Shimon Silver."
   },
   "3211203": {
    "name": "Chabad of Brooklyn Law School",
@@ -19520,12 +19516,11 @@
    "name": "jGrads Pittsburgh",
    "city": "Pittsburgh, PA",
    "shetach": "western-pennsylvania",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2016,
-   "source": "https://www.chabad.org/api/content/3533668/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2016-12-22, so it existed by then."
+   "year": 2003,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://www.jgradspgh.org/about",
+   "note": "Its own site (About, read Nov 10 2026): 'Rabbi Shua and Shoshana Hoexter have been welcoming Jewish graduate students into their home and community since 2003.' Medium: the work with graduate students dates from 2003; the jGrads name may be later. Its chabad.org listing went up 2016-12-22, so it existed by then."
   },
   "5474211": {
    "name": "Chabad Young Professionals Pittsburgh",
@@ -19798,7 +19793,7 @@
    "confidence": "range",
    "by": 2004,
    "source": "https://www.chabad.org/api/content/118557/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Rabbi Berel and Rivky Gurevitch came to run the campus Chabad House at the University of Oregon in late 2015 ('seven short weeks since we've been here', CrownHeights.info, 24 Jan 2016, https://crownheights.info/shlichus/519721/oregon-college-town-gets-infusion-of-jewish-life/); a Chabad House at the U of O campus in Eugene was already named in Sept 2007 (https://crownheights.info/shlichus/8210/chabad-reaches-out-to-students-faculty-at-metro-campuses/). Director: Berel Gurevitch. Oregon Secretary of State record (data.oregon.gov, 'Active Businesses - ALL'): 'CHABAD OF EUGENE' (registry number 113510697), registered Aug 6 2015 (239 E 14th Ave, Eugene). So the filing is after the listing and is not taken as the year."
+   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Rabbi Berel and Rivky Gurevitch came to run the campus Chabad House at the University of Oregon in late 2015 ('seven short weeks since we've been here', CrownHeights.info, 24 Jan 2016, https://crownheights.info/shlichus/519721/oregon-college-town-gets-infusion-of-jewish-life/); a Chabad House at the U of O campus in Eugene was already named in Sept 2007 (https://crownheights.info/shlichus/8210/chabad-reaches-out-to-students-faculty-at-metro-campuses/). Director: Berel Gurevitch. Oregon Secretary of State record (data.oregon.gov, 'Active Businesses - ALL'): 'CHABAD OF EUGENE' (registry number 113510697), registered Aug 6 2015 (239 E 14th Ave, Eugene). So the filing is after the listing and is not taken as the year. Its own site (About, read Nov 10 2026): 'Rabbi Berel and Rivky Gurevitch moved to Eugene, OR in 2015'; the center is older (listing July 2004)."
   },
   "119776": {
    "name": "Congregation Bais Menachem-Chabad",
@@ -20820,12 +20815,11 @@
    "name": "Menachem Mendel Seattle Cheder Day School",
    "city": "Seattle, WA",
    "shetach": "washington",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/118398/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Lead, not checked: a nonprofit-data site gives 2003 as the year the Menachem Mendel Seattle Cheder was formed (EIN 91-1962749). Director: Chaya Elishevitz."
+   "year": 1976,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.mmscdayschool.org/about",
+   "note": "Its own site (About, read Nov 10 2026): 'MMSC was established in 1976 established by Rabbi and Chanie Levitin under the auspices of the Lubavitcher Rebbe.' Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Lead, not checked: a nonprofit-data site gives 2003 as the year the Menachem Mendel Seattle Cheder was formed (EIN 91-1962749). Director: Chaya Elishevitz."
   },
   "118399": {
    "name": "Chai Center of Greater Seattle",
@@ -21382,12 +21376,11 @@
    "name": "Cambridge Preschool of the Arts",
    "city": "Cambridge, MA",
    "shetach": "eastern-massachusetts",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2016,
-   "source": "https://www.chabad.org/api/content/3467276/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2016-11-03, so it existed by then. Director: Elkie Zarchi."
+   "year": 2016,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.cambridgepreschool.org/about",
+   "note": "Its own site (About, read Nov 10 2026): 'When we opened our doors in 2016, we chose a Reggio-Emilia inspired approach.' Its chabad.org listing went up Nov 3 2016. Its chabad.org listing went up 2016-11-03, so it existed by then. Director: Elkie Zarchi."
   },
   "4881009": {
    "name": "Chabad of Canton",
@@ -21630,12 +21623,11 @@
    "name": "Chabad Lubavitch of Saratoga Springs",
    "city": "Saratoga Springs, NY",
    "shetach": "eastern-new-york",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/118482/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Lead, not checked: a web search says the Saratoga Chabad House was founded in 2000. Director: Avraham Abba Rubin."
+   "year": 2001,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.saratogachabad.com/about-us.html",
+   "note": "Its own site (About Us, read Nov 10 2026): 'Chabad has been serving Saratoga for over 25 years, and a full time Saratoga Chabad center was established in 2001 to serve year-round.' (Saratoga Chabad is a branch of Capital Chabad, which Rabbi Rubin founded in 1974.) Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Lead, not checked: a web search says the Saratoga Chabad House was founded in 2000. Director: Avraham Abba Rubin."
   },
   "119480": {
    "name": "Mikvah Chabad",
@@ -21776,7 +21768,8 @@
    "confidence": "range",
    "by": 2007,
    "source": "https://www.chabad.org/api/content/596689/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2007-11-19, so it existed by then. Director: Avraham Laber."
+   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2007-11-19, so it existed by then. Director: Avraham Laber. Its own retreat site (greenbushretreat.com/about, read Nov 10 2026) has a timeline: '1996 – Rabbi Avraham and Nechama Laber moved to the Capital Region Jewish community 1996 to serve as Shluchim'; '2009 – Est. Chabad of S. Rensselaer County'. The chabad.org listing is older (Nov 2007), so the 2009 'est.' is not the start; the range is 1996-2007.",
+   "after": 1996
   },
   "599872": {
    "name": "Hebrew School",
@@ -22470,12 +22463,12 @@
    "name": "Chabad of White Marsh",
    "city": "White Marsh, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2022,
-   "source": "https://www.chabad.org/api/content/5554365/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2022-07-06, so it existed by then. Director: Tzvi Schectman."
+   "year": 2021,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.jewishwhitemarsh.org/about/",
+   "date": "2021-10",
+   "note": "Its own site (About, read Nov 10 2026): 'Founded in October of 2021, Chabad of White Marsh is the 28th, and newest Chabad center in Maryland.' Its chabad.org listing went up 2022-07-06, so it existed by then. Director: Tzvi Schectman."
   },
   "6447578": {
    "name": "Chabad Lubavitch of Bowie Maryland",
@@ -22511,12 +22504,11 @@
    "name": "Young Jewish Professionals Towson",
    "city": "Towson, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2025,
-   "source": "https://www.chabad.org/api/content/6893339/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2025-12-24, so it existed by then. Director: Alex Colin."
+   "year": 2023,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.yjptowson.org",
+   "note": "Its own site (home page, read Nov 10 2026): 'Founded by Rabbi Alex and Chana Colin in 2023 as an initiative of Chabad of Towson'. Its chabad.org listing went up 2025-12-24, so it existed by then. Director: Alex Colin."
   },
   "7105410": {
    "name": "Chabad of Clarksburg-Germantown",
@@ -22922,12 +22914,11 @@
    "name": "Chabad on Bayview",
    "city": "Toronto, ON",
    "shetach": "ontario",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2007,
-   "source": "https://www.chabad.org/api/content/549656/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2007-08-15, so it existed by then. Director: Levi Gansburg. Corporations Canada (federal corporation 449353-2, https://ised-isde.canada.ca/cc/lgcy/fdrlCrpDtls.html?corpId=4493532): incorporated Sept 29 2008 as 'CHABAD LUBAVITCH OF YORK MILLS' (Part II, Canada Corporations Act), continued 2014, renamed 'Chabad on Bayview' Feb 2 2021; registered office 2437 Bayview Avenue (the listing's address). So the filing is after the listing and is not taken as the year."
+   "year": 2007,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.chabadbayview.com",
+   "note": "Its own site (home page, read Nov 10 2026): 'Chabad on Bayview was founded in 2007 by Rabbi Levi and Rivky Gansburg'. Its chabad.org listing went up Aug 15 2007; Corporations Canada has it incorporated Sept 29 2008 as 'Chabad Lubavitch of York Mills'. Its chabad.org listing went up 2007-08-15, so it existed by then. Director: Levi Gansburg. Corporations Canada (federal corporation 449353-2, https://ised-isde.canada.ca/cc/lgcy/fdrlCrpDtls.html?corpId=4493532): incorporated Sept 29 2008 as 'CHABAD LUBAVITCH OF YORK MILLS' (Part II, Canada Corporations Act), continued 2014, renamed 'Chabad on Bayview' Feb 2 2021; registered office 2437 Bayview Avenue (the listing's address). So the filing is after the listing and is not taken as the year."
   },
   "559415": {
    "name": "JRCC West Thornhill",
@@ -23067,7 +23058,7 @@
    "confidence": "range",
    "by": 2017,
    "source": "https://www.chabad.org/api/content/3828697/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2017-11-06, so it existed by then. Director: Shmuel Grossbaum."
+   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2017-11-06, so it existed by then. Director: Shmuel Grossbaum. Its own site (home page, read Nov 10 2026): 'Ever since Chabad on the East Side opened its doors in 2018'; the chabad.org listing is from Nov 2017, so the 2018 opening is its premises, not its start."
   },
   "4031052": {
    "name": "JRCC Bathurst & Lawrence",

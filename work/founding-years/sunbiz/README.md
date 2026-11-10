@@ -15,9 +15,9 @@ listing can be scraped as data into a file").
   Sunbiz itself sits behind a Cloudflare check, so plain requests get a 403.
 - `add_page.py` appends a page (tab-separated rows on stdin) and rewrites `names.tsv` sorted and deduplicated.
 
-Progress: "CHABAD..." names from the start (CHABAD ALBERTVILLE LLC) through CHABAD OF DOWNTOWN FORT LAUDERDALE
-(3 pages, Nov 10). Next cursor for the CHABAD walk:
-`https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?InquiryType=EntityName&inquiryDirectionType=ForwardList&searchNameOrder=CHABADDOWNTOWNFORTLAUDERDALE%20N080000088730&SearchTerm=CHABAD&entityId=N08000008873&listNameOrder=CHABADCHAPLAINCYNETWORK%20N160000034380`
+Progress: "CHABAD..." names from the start (CHABAD ALBERTVILLE LLC) through CHABAD LUBAVITCH OF SOUTHWEST FLORIDA
+(10 pages, 200 rows, Nov 10). Next cursor for the CHABAD walk:
+`https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResults?InquiryType=EntityName&inquiryDirectionType=ForwardList&searchNameOrder=CHABADLUBAVITCHSOUTHWESTFLORID%20N479070&SearchTerm=CHABAD&entityId=N47907&listNameOrder=CHABADLUBAVITCHNORTHBROWARDPAL%20N420670`
 
 A filing year is only a fallback: compare it with the listing's chabad.org publication date, and use it only when
 nothing earlier shows the center (HANDOFF section 4b).

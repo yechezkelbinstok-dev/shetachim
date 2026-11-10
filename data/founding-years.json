@@ -9838,13 +9838,11 @@
    "name": "Chabad of Palmetto Bay",
    "city": "Palmetto Bay",
    "shetach": "florida",
-   "year": null,
-   "lead": 2003,
-   "how": "range",
-   "source": "https://www.chabad.org/api/content/347421/metadata?tid=7152",
-   "note": "IRS (ProPublica): 'Chabad Of Palmetto Bay Inc', exempt from 2009-10, so it existed by then (a later re-registration is possible). Start year not found yet; lead: therebbesimpact.com 2003. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF PALMETTO BAY INC' (EIN 26-1368692), 16721 Sw 78Th Ct, Palmetto Bay, ruling Oct 2009. Its chabad.org listing went up Jan 10 2006, so it existed by then. The IRS ruling (Oct 2009) comes after the listing, so it is not the year (Nov 10 re-check of the filings sweep).",
-   "confidence": "range",
-   "by": 2006
+   "year": 2006,
+   "how": "directory",
+   "confidence": "medium",
+   "source": "https://www.linkedin.com/company/chabad-of-palmetto-bay-inc",
+   "note": "IRS (ProPublica): 'Chabad Of Palmetto Bay Inc', exempt from 2009-10, so it existed by then (a later re-registration is possible). Start year not found yet; lead: therebbesimpact.com 2003. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF PALMETTO BAY INC' (EIN 26-1368692), 16721 Sw 78Th Ct, Palmetto Bay, ruling Oct 2009. Its chabad.org listing went up Jan 10 2006, so it existed by then. Its LinkedIn company page (Chabad of Palmetto Bay & Deering Bay, 16721 SW 78th Ct) gives 'Founded: 2006'; the chabad.org listing went up Jan 10 2006. Medium: a self-written profile, but it agrees with the listing."
   },
   "350911": {
    "name": "Chabad of North Bay Village",

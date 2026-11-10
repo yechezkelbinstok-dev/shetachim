@@ -390,6 +390,15 @@ thirteen no better recent photo has been found yet (the list is there, with what
        a later bound and the entry stays a range. Sessions that entered filings as `by` bounds: change them. The West
        Coast window's sweep of the IRS exempt-organization files (all states) and Canada's charity registry is in
        batches `filings-NN.json` (from Nov 10); re-apply them after your own batches if you re-apply.
+       Free sources used so far (all plain curl, no credits): IRS EO files (`filings-01`); New York's Department of
+       State on data.ny.gov (`filings-02`, and the inactive names in `ekwr-p59j`); Quebec's enterprise register
+       (donneesquebec.ca 'Registre des entreprises', a 270 MB zip with each entity's constitution date and every
+       name it has declared, with dates) and Corporations Canada (`ised-isde.canada.ca/cc/lgcy/fdrlCrpDtls.html?corpId=N`
+       gives a federal corporation's whole name history, so the first Part II date, not the 2012-14 continuance)
+       (`filings-03`); Oregon, Colorado, Connecticut and Pennsylvania registries on their Socrata portals
+       (`filings-04`, `-05`). `filings-06` puts back 14 IRS years that came after the center's own chabad.org listing
+       date. No open bulk registry found for Ontario, Washington, Florida (Sunbiz bulk is SFTP only, port 22
+       blocked here), Massachusetts, Maryland, New Jersey, Illinois or California.
     5. In every update to the owner, say how much is left. `python3 work/founding-years/progress.py <your shetachim>`
        prints it ("LEFT: 48 of 48 dots (100.0%), ..."). Owner (Nov 6): "keep telling me how much left (amount and %)
        so I can steadily see progress".

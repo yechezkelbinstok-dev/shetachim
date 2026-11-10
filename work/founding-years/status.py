@@ -3,13 +3,15 @@
 # writes work/founding-years/STATUS.md (the running tally the owner asked for, Nov 6: "keep track continuously of how
 # many are missing ... so we can do a round of the harder ones later").
 import json, collections
+# Mikvahs are left out of the counts (owner, Nov 10: "only mikvaos out - def don't delete data tho"): their data stays.
+def is_mikvah(c): return (c.get('type') or '').lower().startswith('mik') or 'mikv' in (c.get('name') or '').lower()
 g = json.load(open('web/data/centers.geojson')); fy = json.load(open('data/founding-years.json'))['centers']
 listings = collections.defaultdict(list); dots = collections.defaultdict(list)   # dots: per shetach, the listings at each map point
 for f in g['features']:
     p = f['properties']
     if p.get('country') not in ('US', 'CA'): continue   # US and Canada only (owner, Nov 6: "Not Mexico!!!!!")
     sid = (p.get('piece') or ':none').split(':')[-1]
-    ids = [str(c['id']) for c in p.get('centers') or [] if not c.get('mushroom')]
+    ids = [str(c['id']) for c in p.get('centers') or [] if not c.get('mushroom') and not is_mikvah(c)]
     listings[sid] += ids
     if ids: dots[sid].append(ids)
 rows = []; tot = collections.Counter()

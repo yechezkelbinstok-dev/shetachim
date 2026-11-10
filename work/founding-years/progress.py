@@ -5,12 +5,14 @@
 #   python3 work/founding-years/progress.py                                 (every US + Canada shetach)
 # A dot (a map point) counts as done when any of its listings has a year; listings = blue dots' listings, no mushrooms.
 import json, collections, sys
+# Mikvahs are left out of the counts (owner, Nov 10: "only mikvaos out - def don't delete data tho"): their data stays.
+def is_mikvah(c): return (c.get('type') or '').lower().startswith('mik') or 'mikv' in (c.get('name') or '').lower()
 g = json.load(open('web/data/centers.geojson')); fy = json.load(open('data/founding-years.json'))['centers']
 dots = collections.defaultdict(list)
 for f in g['features']:
     p = f['properties']
     if p.get('country') not in ('US', 'CA'): continue   # US and Canada only (owner, Nov 6: "Not Mexico!!!!!")
-    ids = [str(c['id']) for c in p.get('centers') or [] if not c.get('mushroom')]
+    ids = [str(c['id']) for c in p.get('centers') or [] if not c.get('mushroom') and not is_mikvah(c)]
     if ids: dots[(p.get('piece') or ':none').split(':')[-1]].append(ids)
 started = {s for s, ds in dots.items() if any(fy.get(i) for d in ds for i in d)}
 groups = collections.OrderedDict()

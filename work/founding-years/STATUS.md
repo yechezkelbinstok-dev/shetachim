@@ -17,6 +17,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | central-ohio | 4 | 2 | 1 |  | 1 |  |  | 1 | 4 | 1 |
 | colorado | 22 | 6 | 10 | 1 | 5 |  |  | 5 | 20 | 4 |
 | connecticut | 33 | 9 | 15 | 2 | 7 |  |  | 7 | 32 | 7 |
+| crown-heights | 47 | 10 | 2 |  |  |  | 35 | 35 | 23 | 18 |
 | delaware | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | eastern-massachusetts | 35 | 9 | 7 | 3 | 16 |  |  | 16 | 32 | 14 |
 | eastern-new-york | 47 | 8 | 16 |  | 23 |  |  | 23 | 44 | 20 |
@@ -71,5 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | western-pennsylvania | 26 | 10 | 10 | 1 | 5 |  |  | 5 | 23 | 5 |
 | wisconsin | 22 | 9 | 5 | 2 | 6 |  |  | 6 | 19 | 5 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
-| crown-heights | 47 |  |  |  |  |  | 47 | 47 | 23 | 23 |
-| **all** | 1937 | 952 | 436 | 75 | 388 | 28 | 58 | 474 | 1739 | 337 |
+| **all** | 1937 | 962 | 438 | 75 | 388 | 28 | 46 | 462 | 1739 | 332 |

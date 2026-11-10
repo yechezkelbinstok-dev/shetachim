@@ -136,7 +136,7 @@ the whole thread read, via Firecrawl: the forum answers WebFetch with 403). Each
 chabad.org's directory and staff (data/raw), and its own site or the news. **Added 21** (87 mushrooms now), with new
 networks Turen family (Chicago's Moshiach Center, Rabbi Eli Turen, father of Rabbi Mendy Turen's Chabad of
 Springfield, IL), Mosheh Serebryanski (Byron Bay and the Gold Coast) and Maon Noam (three Toronto-area shuls); Rabbi
-Yossi Kanelsky's Marlboro center joins Mottel Kanelsky's network.
+Yossi Kanelsky's Marlboro center joins Mottel Kanelsky's network. **Then official (owner, Nov 10: "All the kanelskys besides mottel are under merkoz now take my word for it"):** Yossi Kanelsky's Marlboro Center for Jewish Life is no longer a mushroom (directly under Merkos, its note says why); only Mottel Kanelsky's Bris Avrohom stays a mushroom network (his son Avremi is listed at its Hillside headquarters, so that house stays as it is).
 **Owner (Nov 7), the rule for official vs. mushroom:** the owner's own shetach list is NOT proof ("The whole fucking
 point of this is that I made mistakes like by levy ... This is you independently figuring out if it was a mistake and
 then downgrading accordingly"); "If indeed they end up being official under merkoz (chabad.org isn't only

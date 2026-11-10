@@ -41,7 +41,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | nebraska | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | new-hampshire | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | new-haven | 16 | 5 | 1 |  | 10 |  |  | 10 | 14 | 8 |
-| new-jersey | 91 | 59 | 4 |  | 19 | 4 | 5 | 28 | 84 | 22 |
+| new-jersey | 92 | 59 | 5 |  | 19 | 4 | 5 | 28 | 85 | 22 |
 | new-mexico | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | new-york-city | 200 | 25 | 47 |  | 128 |  |  | 128 | 176 | 106 |
 | newfoundland-and-labrador | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | wisconsin | 23 | 9 | 5 |  | 9 |  |  | 9 | 20 | 6 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | crown-heights | 48 |  |  |  |  |  | 48 | 48 | 24 | 24 |
-| **all** | 1969 | 918 | 354 | 2 | 588 | 47 | 60 | 695 | 1765 | 540 |
+| **all** | 1970 | 918 | 355 | 2 | 588 | 47 | 60 | 695 | 1766 | 540 |

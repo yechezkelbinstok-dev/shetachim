@@ -398,7 +398,17 @@ thirteen no better recent photo has been found yet (the list is there, with what
        (`filings-03`); Oregon, Colorado, Connecticut and Pennsylvania registries on their Socrata portals
        (`filings-04`, `-05`). `filings-06` puts back 14 IRS years that came after the center's own chabad.org listing
        date. No open bulk registry found for Ontario, Washington, Florida (Sunbiz bulk is SFTP only, port 22
-       blocked here), Massachusetts, Maryland, New Jersey, Illinois or California.
+       blocked here), Massachusetts, Maryland, New Jersey, Illinois or California (Sunbiz search and Massachusetts'
+       CorpWeb are behind Cloudflare / Incapsula checks: not used). Canada's charities: open.canada.ca has a "List of
+       charities" for every year 1990-2024; a charity's first year on the list is entered as a low-confidence year
+       (`filings-07`; 1990 means only "by 1990"). Before entering any filing as a year, compare it with the
+       listing's publication date from `api/content/<id>/metadata` (free): if the filing is later, it is only a bound.
+    4c. **Fast free leads (Nov 10):** `www.chabad.org/api/v2/chabadorg/centers/<id>` (free JSON, no Cloudflare) gives a
+       listing's address, director and website. Independent center sites can be read with plain curl (a scan of 365
+       sites gave 11 years, batch `sites-01`); chabad.org-hosted (ChabadOne) sites give curl a Cloudflare check, and
+       WebFetch reads them. Firecrawl search snippets often carry the sentence itself ("founded in 2007", "moved to
+       Dumbo in 2005 to open"): a query like `"Chabad of X" <director surname> founded OR since OR opened` costs 2
+       credits and found a year for about a third of the centers tried (batches `web-01`..`-06`).
     5. In every update to the owner, say how much is left. `python3 work/founding-years/progress.py <your shetachim>`
        prints it ("LEFT: 48 of 48 dots (100.0%), ..."). Owner (Nov 6): "keep telling me how much left (amount and %)
        so I can steadily see progress".

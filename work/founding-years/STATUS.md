@@ -61,7 +61,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | texas | 58 | 33 | 12 |  | 4 | 2 | 7 | 13 | 48 | 6 |
 | the-carolinas | 25 | 16 | 5 | 2 | 1 | 1 |  | 2 | 23 | 1 |
 | upper-midwest | 19 | 10 | 3 |  | 6 |  |  | 6 | 19 | 6 |
-| upstate-new-york | 22 | 11 | 4 | 1 | 6 |  |  | 6 | 21 | 5 |
+| upstate-new-york | 22 | 11 | 6 | 1 | 4 |  |  | 4 | 21 | 3 |
 | utah | 4 | 3 | 1 |  |  |  |  | 0 | 4 | 0 |
 | vermont | 8 | 5 | 2 |  | 1 |  |  | 1 | 8 | 1 |
 | virginia | 19 | 15 | 1 |  | 3 |  |  | 3 | 19 | 3 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | wisconsin | 23 | 9 | 5 | 2 | 7 |  |  | 7 | 20 | 6 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | crown-heights | 48 |  |  |  |  |  | 48 | 48 | 24 | 24 |
-| **all** | 1972 | 941 | 430 | 67 | 434 | 40 | 60 | 534 | 1768 | 394 |
+| **all** | 1972 | 941 | 432 | 67 | 432 | 40 | 60 | 532 | 1768 | 392 |

@@ -19985,12 +19985,11 @@
    "name": "Kessler Family Chabad Center",
    "city": "Rochester, NY",
    "shetach": "upstate-new-york",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/117693/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Rabbi Nechemia and Masha Vogel came to Rochester in 1981 and began at the University of Rochester; in summer 2004, when their children the Yarases took over the campus house, the Vogels 'shifted their focus to Rochester-wide Chabad activities' (Chabad.org, 15 Sept 2013), now the Kessler Family Chabad Center (CrownHeights.info, 27 Dec 2022). When this community centre itself began is not stated. Director: Nechemia Vogel."
+   "year": 1981,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://www.chabadrochester.com/",
+   "note": "Chabad of Rochester's home page (in Firecrawl's search index, Nov 10 2026): 'Established in 1981 at the behest of the Rebbe, Chabad has a proven...'; the Kessler Family Chabad Center (1037 Winton Rd S, Brighton) is its main center, run by Rabbi Nechemia Vogel, who began Chabad at the University of Rochester in 1981 (listing 159422). Medium: the organization's year; when the Brighton center itself opened is not found. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Rabbi Nechemia and Masha Vogel came to Rochester in 1981 and began at the University of Rochester; in summer 2004, when their children the Yarases took over the campus house, the Vogels 'shifted their focus to Rochester-wide Chabad activities' (Chabad.org, 15 Sept 2013), now the Kessler Family Chabad Center (CrownHeights.info, 27 Dec 2022). When this community centre itself began is not stated. Director: Nechemia Vogel."
   },
   "117697": {
    "name": "Chabad-Lubavitch of Central New York",
@@ -20065,12 +20064,11 @@
    "name": "Chabad at RIT",
    "city": "West Henrietta, NY",
    "shetach": "upstate-new-york",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2016,
-   "source": "https://www.chabad.org/api/content/3373588/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2016-08-04, so it existed by then. Director: Yossi Cohen."
+   "year": 2016,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "http://www.chabadrochester.com/media/pdf/1031/RfYT10312474.pdf",
+   "note": "Chabad of Rochester's 36th-anniversary booklet ('36 YEARS ONE STORY', 2017): the Cohens moved 'to the edge of Rochester to start a new Chabad House serving the Jewish community at Rochester Institute of Technology'; a Chabad at RIT post (about 2024): 'What started out 8 years ago as a few students around our Shabbat table'. The chabad.org listing went up Aug 4 2016. Medium: counted back and the listing. Its chabad.org listing went up 2016-08-04, so it existed by then. Director: Yossi Cohen."
   },
   "4194029": {
    "name": "Chabad of the Mohawk Valley",

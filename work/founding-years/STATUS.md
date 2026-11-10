@@ -43,7 +43,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | new-haven | 16 | 5 | 5 | 1 | 5 |  |  | 5 | 14 | 4 |
 | new-jersey | 94 | 59 | 7 | 5 | 15 | 3 | 5 | 23 | 87 | 17 |
 | new-mexico | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
-| new-york-city | 200 | 28 | 70 | 8 | 94 |  |  | 94 | 176 | 73 |
+| new-york-city | 200 | 31 | 70 | 8 | 91 |  |  | 91 | 176 | 70 |
 | newfoundland-and-labrador | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | northeast-ohio | 27 | 20 | 3 |  | 4 |  |  | 4 | 23 | 1 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | wisconsin | 23 | 9 | 5 | 2 | 7 |  |  | 7 | 20 | 6 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | crown-heights | 48 |  |  |  |  |  | 48 | 48 | 24 | 24 |
-| **all** | 1972 | 934 | 428 | 67 | 443 | 40 | 60 | 543 | 1768 | 403 |
+| **all** | 1972 | 937 | 428 | 67 | 440 | 40 | 60 | 540 | 1768 | 400 |

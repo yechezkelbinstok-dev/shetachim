@@ -18371,12 +18371,11 @@
    "name": "Chabad of the West Sixties",
    "city": "New York, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2005,
-   "source": "https://www.chabad.org/api/content/223146/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2005-01-05, so it existed by then. Director: Yehuda Lipskier."
+   "year": 2005,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.chabadw60s.com/templates/articlecco_cdo/aid/6491410/jewish/About-Us.htm",
+   "note": "Its own About page (in Firecrawl's search index, Nov 10 2026): 'Chabad of the West Sixties was founded in 2005 with a heartfelt mission'. Its chabad.org listing went up 2005-01-05, so it existed by then. Director: Yehuda Lipskier."
   },
   "233897": {
    "name": "Chabad Hebrew Schools of Nassau County",
@@ -18619,12 +18618,11 @@
    "name": "Chabad for Young Professionals",
    "city": "New York, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2008,
-   "source": "https://www.chabad.org/api/content/765467/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2008-11-12, so it existed by then. Director: Levi Shmotkin."
+   "year": 2008,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.chabadyp.com/templates/articlecco_cdo/aid/2737911/jewish/Meet-the-Team.htm",
+   "note": "Its own Meet the Team page (in Firecrawl's search index, Nov 10 2026): 'Perel and Levi married in 2006 and founded Chabad Young Professionals two years later'; it 'was founded with Rabbi Levi and Perel Shmotkin as part of Chabad of Midtown'. Its chabad.org listing went up 2008-11-12, so it existed by then. Director: Levi Shmotkin."
   },
   "766703": {
    "name": "Chabad-Lubavitch of Midwood",
@@ -18652,12 +18650,12 @@
    "name": "Jewish Latin Center",
    "city": "New York, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2009,
-   "source": "https://www.chabad.org/api/content/836703/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2009-02-17, so it existed by then. Director: Mendy Weitman."
+   "year": 2009,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.jewishlatincenter.com/templates/articlecco_cdo/aid/1014344/jewish/Meet-The-Team.htm",
+   "date": "2009-09",
+   "note": "Its own Meet the Team page (in Firecrawl's search index, Nov 10 2026): 'In September of 2009, they founded the Jewish Latin Center in Downtown Manhattan'; The Forward ('A Hasidic Rabbi With a Latin Heart'): 'In 2009, Weitman and his wife, Frumie Weitman, started the Jewish Latin Center'. Its chabad.org listing went up 2009-02-17, so it existed by then. Director: Mendy Weitman."
   },
   "887422": {
    "name": "Chabad of Briarwood",
@@ -18766,7 +18764,7 @@
    "confidence": "range",
    "by": 2012,
    "source": "https://www.chabad.org/api/content/2029974/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2012-11-07, so it existed by then. Director: Shimon Stillerman."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2012-11-07, so it existed by then. Director: Shimon Stillerman. Fire Island News, 17 Apr 2024 (interview): 'It was founded 10 ago. We first started coming out from Brooklyn to do groundwork and outreach ... and we then settled here 10 years ago' (about 2014), after the outreach trips; the chabad.org listing is older (2012), so the start is by 2012."
   },
   "2121036": {
    "name": "Chabad of Ditmas Park",

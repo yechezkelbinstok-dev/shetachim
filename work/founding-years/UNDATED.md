@@ -1,10 +1,10 @@
 # Founding years: every listing still undated
 
-US + Canada, 329 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
+US + Canada, 327 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
 
-## new-york-city: 63
+## new-york-city: 62
 
-**No year at the dot (45)**
+**No year at the dot (42)**
 - Bais Menachem Mendel, Brooklyn — by 2011 · 1441397
 - Brownstone Gan Katan Preschool, Brooklyn — by 2014 · 2573862
 - CTeen Program, Brooklyn (Yisroel Langsam) — by 2019 · 4568477
@@ -36,13 +36,10 @@ US + Canada, 329 listings without a year (mikvahs apart: 19). Per shetach: first
 - Gan Chamesh Early Childhood Center, Woodmere (Chanie Wolowik) — by 2004 · 120268
 - Gan Israel School, Staten Island (Chana Katzman) — by 2004 · 118921
 - Gan on Greene - Fort Greene Preschool, Brooklyn — by 2015 · 3168881
-- Hebrew School, New York (Chana Paris) — by 2014 · 2537617
 - Hebrew School, White Plains — by 2007 · 599771
 - IYYUN / CHABAD, Brooklyn (DovBer Pinson) — by 2026 · 7295252
 - Levi Yitzchak Library, Cedarhurst — by 2019 · 4276857
 - Mayan Yisroel, Brooklyn (Yoseph Vigler) — by 2004 · 118573
-- Mini Gan Summer Camp, New York (Chana Paris) — by 2011 · 1426976
-- My Little School, New York (Chana Paris) — by 2010 · 1227811
 - New York Hebrew, New York (Menachem Shanowitz) — by 2004 · 118826
 - Oceanview Chabad House, Brooklyn (David Okunov) — by 2025 · 7144239
 - The Chabad Loft, New York (Yakov Bankhalter) — by 2005 · 313119
@@ -51,7 +48,7 @@ US + Canada, 329 listings without a year (mikvahs apart: 19). Per shetach: first
 - Tzivos Hashem of Boro Park, Brooklyn (Mendel Ginsberg) — by 2020 · 4636347
 - Yeshiva Mesivta Menachem, Hastings-On-Hudson (Zalman Heller) — by 2004 · 120254
 
-**On a dated dot (18)**
+**On a dated dot (20)**
 - CYP - F.R.E.E., Brooklyn (Dovid Okonov) — by 2023 · 5955485
 - Camp F.R.E.E. - Gan Israel, Brooklyn (Mayer Okunov) — by 2004 · 159405
 - Camp Gan Israel, Roslyn Heights — by 2005 · 283100
@@ -67,9 +64,11 @@ US + Canada, 329 listings without a year (mikvahs apart: 19). Per shetach: first
 - Gan Accademia, New York (Chaya Eber) — by 2021 · 5062547
 - Gan Chabad Preschool, Valley Stream — by 2026 · 7438183
 - Gan Israel Day Camp, Merrick (Chana Kramer) — by 2004 · 119471
+- Hebrew School, New York (Chana Paris) — by 2014 · 2537617
 - Hebrew School, Valley Stream (Itty Goldshmid) — by 2004 · 118924
 - JLI - F.R.E.E., Brooklyn — by 2023 · 5955538
 - Kiddie Gan Day Camp, Brooklyn (Moshe Hecht) — by 2010 · 1156720
+- Mini Gan Summer Camp, New York (Chana Paris) — by 2011 · 1426976
 
 ## florida: 35
 
@@ -347,16 +346,15 @@ US + Canada, 329 listings without a year (mikvahs apart: 19). Per shetach: first
 - Mikvah Chaya Mushka, El Paso (Chana Greenberg) — nothing found yet · 119660
 - Mikvah Tahara, Austin (Rochel Levertov) — not researched · 119659
 
-## washington: 8
+## washington: 7
 
-**No year at the dot (7)**
+**No year at the dot (6)**
 - Chabad Jewish Center of North Seattle, Seattle (Shneur Marasow) — by 2021 · 5103013
 - Chabad of Bainbridge Island, Bainbridge Island (Mendy Goldshmid) — by 2018 · 4161193
 - Chabad of Downtown Seattle & Chabad Young Professionals Seattle, Seattle (Shmuel Levitin) — by 2015 · 3104923
 - Chai Center of Greater Seattle, Seattle (Elazar Bogomilsky) — by 2004 · 118399
 - Hebrew School, Seattle (Avi Herbstman) — by 2012 · 1908052
 - Smile on Seniors, Issaquah (Shalom Dovber Farkash) — by 2018 · 4237766
-- The Friendship Circle of Washington, Mercer Island (Elazar Bogomilsky) — by 2004 · 159410
 
 **On a dated dot (1)**
 - Chabad On the Go, Shoreline (Yechezkel Rapoport) — by 2012 · 1878576

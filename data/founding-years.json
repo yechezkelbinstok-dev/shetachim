@@ -17790,12 +17790,11 @@
    "name": "My Little School",
    "city": "New York, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2010,
-   "source": "https://www.chabad.org/api/content/1227811/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2010-06-09, so it existed by then. Director: Chana Paris."
+   "year": 2010,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://www.mylittleschoolnyc.com/templates/articlecco_cdo/aid/6621302/jewish/Our-Team.htm",
+   "note": "Its own 'Our Team' page (read through Firecrawl, Nov 11): 'Rabbi Zalman & Chana Paris are the Executive Directors of Chabad of Tribeca, which My Little School is a division of. Recognizing the need for a nurturing & progressive Jewish Preschool in the neighborhood, Rabbi Zalman & Chana founded My Little School in 2010.' Its chabad.org listing went up in 2010 too."
   },
   "1426976": {
    "name": "Mini Gan Summer Camp",
@@ -20796,12 +20795,11 @@
    "name": "The Friendship Circle of Washington",
    "city": "Mercer Island, WA",
    "shetach": "washington",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/159410/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2004-08-09, so it existed by then. Director: Elazar Bogomilsky."
+   "year": 2004,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://mi-reporter.com/news/rabbi-bogomilsky-will-discuss-mental-health-at-march-21-rotary-meeting",
+   "note": "Mercer Island Reporter: Rabbi Elazar Bogomilsky 'is co-founder of the Friendship Circle of Washington and has been the organization's executive director since its inception in 2004'; another of its stories: created by Rabbi Elazar and Esther Bogomilsky '20 years ago'. Its chabad.org listing went up 2004-08-09. The Mercer Island office came later (Mercer Island Reporter, 9 Aug 2011, 'Friendship Circle opens Mercer Island location': an office/meeting space in the Windermere Office Plaza on 77th Avenue S.E.). Medium: later sources (search snippet for the first quote)."
   },
   "216023": {
    "name": "Chabad at the University of Washington",

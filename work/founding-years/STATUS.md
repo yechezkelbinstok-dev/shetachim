@@ -44,7 +44,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | new-haven | 15 | 5 | 6 | 1 | 3 |  |  | 3 | 13 | 2 |
 | new-jersey | 91 | 62 | 7 | 6 | 11 | 2 | 3 | 16 | 85 | 12 |
 | new-mexico | 5 | 5 |  |  |  |  |  | 0 | 5 | 0 |
-| new-york-city | 200 | 43 | 80 | 14 | 63 |  |  | 63 | 176 | 43 |
+| new-york-city | 200 | 44 | 80 | 14 | 62 |  |  | 62 | 176 | 42 |
 | newfoundland-and-labrador | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | northeast-ohio | 27 | 20 | 3 |  | 4 |  |  | 4 | 23 | 1 |
@@ -66,10 +66,10 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | utah | 4 | 3 | 1 |  |  |  |  | 0 | 4 | 0 |
 | vermont | 7 | 5 | 2 |  |  |  |  | 0 | 7 | 0 |
 | virginia | 19 | 15 | 1 | 1 | 2 |  |  | 2 | 19 | 2 |
-| washington | 32 | 17 | 5 | 2 | 8 |  |  | 8 | 31 | 7 |
+| washington | 32 | 17 | 6 | 2 | 7 |  |  | 7 | 31 | 6 |
 | washington-dc | 5 | 2 | 3 |  |  |  |  | 0 | 5 | 0 |
 | west-coast | 326 | 202 | 92 |  | 32 |  |  | 32 | 297 | 16 |
 | western-pennsylvania | 26 | 10 | 10 | 1 | 5 |  |  | 5 | 23 | 5 |
 | wisconsin | 22 | 10 | 5 | 2 | 5 |  |  | 5 | 19 | 4 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
-| **all** | 1902 | 1010 | 473 | 90 | 296 | 26 | 7 | 329 | 1721 | 234 |
+| **all** | 1902 | 1011 | 474 | 90 | 294 | 26 | 7 | 327 | 1721 | 232 |

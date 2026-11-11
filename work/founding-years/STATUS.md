@@ -13,7 +13,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | arkansas | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
 | british-columbia | 13 | 9 | 3 | 1 |  |  |  | 0 | 13 | 0 |
 | cape-cod-and-the-islands | 4 | 3 |  | 1 |  |  |  | 0 | 4 | 0 |
-| central-massachusetts | 13 | 4 | 4 | 4 | 1 |  |  | 1 | 11 | 1 |
+| central-massachusetts | 13 | 4 | 5 | 4 |  |  |  | 0 | 11 | 0 |
 | central-ohio | 4 | 2 | 1 | 1 |  |  |  | 0 | 4 | 0 |
 | colorado | 22 | 7 | 10 | 4 | 1 |  |  | 1 | 20 | 1 |
 | connecticut | 33 | 10 | 17 | 3 | 3 |  |  | 3 | 32 | 3 |
@@ -36,7 +36,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | maritimes | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | maryland | 55 | 22 | 16 | 16 | 1 |  |  | 1 | 48 | 1 |
 | merrimack-valley | 4 | 3 |  | 1 |  |  |  | 0 | 4 | 0 |
-| michigan | 37 | 25 | 9 | 1 | 2 |  |  | 2 | 33 | 1 |
+| michigan | 37 | 26 | 9 | 1 | 1 |  |  | 1 | 33 | 0 |
 | monsey | 9 | 6 | 3 |  |  |  |  | 0 | 9 | 0 |
 | montana | 5 | 4 | 1 |  |  |  |  | 0 | 5 | 0 |
 | nebraska | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
@@ -44,7 +44,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | new-haven | 15 | 5 | 6 | 4 |  |  |  | 0 | 13 | 0 |
 | new-jersey | 91 | 63 | 7 | 15 | 4 |  | 2 | 6 | 85 | 2 |
 | new-mexico | 5 | 5 |  |  |  |  |  | 0 | 5 | 0 |
-| new-york-city | 200 | 44 | 81 | 61 | 14 |  |  | 14 | 176 | 8 |
+| new-york-city | 200 | 44 | 84 | 61 | 11 |  |  | 11 | 176 | 5 |
 | newfoundland-and-labrador | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | northeast-ohio | 27 | 20 | 3 | 3 | 1 |  |  | 1 | 23 | 0 |
@@ -68,8 +68,8 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | virginia | 19 | 15 | 1 | 3 |  |  |  | 0 | 19 | 0 |
 | washington | 32 | 17 | 6 | 8 | 1 |  |  | 1 | 31 | 1 |
 | washington-dc | 5 | 2 | 3 |  |  |  |  | 0 | 5 | 0 |
-| west-coast | 326 | 202 | 92 | 24 | 8 |  |  | 8 | 297 | 3 |
+| west-coast | 326 | 202 | 93 | 24 | 7 |  |  | 7 | 297 | 2 |
 | western-pennsylvania | 26 | 10 | 10 | 3 | 3 |  |  | 3 | 23 | 3 |
 | wisconsin | 22 | 10 | 6 | 6 |  |  |  | 0 | 19 | 0 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
-| **all** | 1902 | 1015 | 482 | 331 | 67 | 4 | 3 | 74 | 1721 | 43 |
+| **all** | 1902 | 1016 | 487 | 331 | 61 | 4 | 3 | 68 | 1721 | 37 |

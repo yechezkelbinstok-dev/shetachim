@@ -1,18 +1,15 @@
 # Founding years: every listing still undated
 
-US + Canada, 74 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
+US + Canada, 68 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
 
-## new-york-city: 14
+## new-york-city: 11
 
-**No year at the dot (8)**
+**No year at the dot (5)**
 - Chabad House of Queens-Kew Gardens, Kew Gardens (Shmuel Tuvel) — by 2004 · 117974
 - Chabad of Bay Ridge, Brooklyn (Tzvi Stroh) — by 2004 · 118501
 - Chabad of Patchogue, Patchogue (Berel Sasonkin) — by 2004 · 118642
-- Gan Chamesh Early Childhood Center, Woodmere (Chanie Wolowik) — by 2004 · 120268
-- Gan Israel School, Staten Island (Chana Katzman) — by 2004 · 118921
 - Mayan Yisroel, Brooklyn (Yoseph Vigler) — by 2004 · 118573
 - New York Hebrew, New York (Menachem Shanowitz) — by 2004 · 118826
-- Yeshiva Mesivta Menachem, Hastings-On-Hudson (Zalman Heller) — by 2004 · 120254
 
 **On a dated dot (6)**
 - Camp F.R.E.E. - Gan Israel, Brooklyn (Mayer Okunov) — by 2004 · 159405
@@ -21,24 +18,6 @@ US + Canada, 74 listings without a year (mikvahs apart: 19). Per shetach: first 
 - F.R.E.E. Educational Center - Ohel Dovid, Brooklyn (Mayer Okunov) — by 2004 · 223158
 - Gan Israel Day Camp, Merrick (Chana Kramer) — by 2004 · 119471
 - Hebrew School, Valley Stream (Itty Goldshmid) — by 2004 · 118924
-
-## west-coast: 8
-
-**No year at the dot (3)**
-- Gan Chaya Jewish Early Childhood Center, Los Angeles (Channa Hecht) — by 2004 · 120080
-- Kolel Tiferet Zkanim Levi Yitzchok, Los Angeles (Yitzchok Arnold) — 1980–2004 · 117532
-- Mivtzoim, Los Angeles — by 2004 · 119728
-
-**On a dated dot (5)**
-- Kollel Tiferet Menachem - West Coast Rabbinical Seminary, Los Angeles (Dovid Schmukler) — by 2004 · 118776
-- Talmud Torah, Las Vegas (Dina Harlig) — by 2004 · 119961
-- The Garden School-Chabad Preschools, Los Angeles (Boruch S. Cunin) — by 2004 · 120085
-- The Ryzman Family Hebrew School, Tarzana (Yanky Kahn) — by 2004 · 119940
-- Westside Hebrew School, Los Angeles (Amitai Yemini) — by 2004 · 120081
-
-**Mikvahs, out of the counts (2)**
-- Mikvah Israel, S. Diego (Leah Fradkin) — by 2004 · 120098
-- Mikvah, Reno (Chaya Sara Cunin) — by 2006 · 405427
 
 ## florida: 7
 
@@ -57,6 +36,23 @@ US + Canada, 74 listings without a year (mikvahs apart: 19). Per shetach: first 
 - Mikvah Beit Yosef, Panama City Beach — 2018–2020 · 4629871
 - Mikvah Cape Coral, Cape Coral — nothing found yet · 3511251
 - Mikvah, Sarasota (Chaim S. Steinmetz) — by 2004 · 119142
+
+## west-coast: 7
+
+**No year at the dot (2)**
+- Kolel Tiferet Zkanim Levi Yitzchok, Los Angeles (Yitzchok Arnold) — 1980–2004 · 117532
+- Mivtzoim, Los Angeles — by 2004 · 119728
+
+**On a dated dot (5)**
+- Kollel Tiferet Menachem - West Coast Rabbinical Seminary, Los Angeles (Dovid Schmukler) — by 2004 · 118776
+- Talmud Torah, Las Vegas (Dina Harlig) — by 2004 · 119961
+- The Garden School-Chabad Preschools, Los Angeles (Boruch S. Cunin) — by 2004 · 120085
+- The Ryzman Family Hebrew School, Tarzana (Yanky Kahn) — by 2004 · 119940
+- Westside Hebrew School, Los Angeles (Amitai Yemini) — by 2004 · 120081
+
+**Mikvahs, out of the counts (2)**
+- Mikvah Israel, S. Diego (Leah Fradkin) — by 2004 · 120098
+- Mikvah, Reno (Chaya Sara Cunin) — by 2006 · 405427
 
 ## new-jersey: 6
 
@@ -89,7 +85,7 @@ US + Canada, 74 listings without a year (mikvahs apart: 19). Per shetach: first 
 **No year at the dot (3)**
 - Chabad of the Catskills, Fallsburg (Yaakov Taubenfliegel) — by 2004 · 117700
 - Shaloh Center 1, Dairyland — by 2004 · 120018
-- Shaloh Center 2, Napanoch — by 2004 · 119804
+- Shaloh Center 2, Napanoch — by 1999 · 119804
 
 **On a dated dot (1)**
 - Bethlehem Chabad Hebrew School, Delmar (Zalman Simon) — by 2004 · 119465
@@ -134,17 +130,6 @@ US + Canada, 74 listings without a year (mikvahs apart: 19). Per shetach: first 
 - Chabad of Ridgefield, Ridgefield (Sholom Deitsch) — by 2004 · 150725
 - Gan Israel Hebrew School, Weatogue (Blumie Samuels) — by 2004 · 119920
 
-## michigan: 2
-
-**No year at the dot (1)**
-- Food & Learning Center, Toledo (Yossi Shemtov) — by 2004 · 119975
-
-**On a dated dot (1)**
-- Ganeinu Day Camp, West Bloomfield (Chaya Devorah Bergstein) — by 2004 · 119944
-
-**Mikvahs, out of the counts (1)**
-- Lubavitch Mikvah, Oak Park (Moshe Zaklikofsky) — by 2004 · 119459
-
 ## pennsylvania: 2
 
 **No year at the dot (2)**
@@ -165,6 +150,14 @@ US + Canada, 74 listings without a year (mikvahs apart: 19). Per shetach: first 
 **Mikvahs, out of the counts (2)**
 - Mikvah Chaya Mushka, El Paso (Chana Greenberg) — nothing found yet · 119660
 - Mikvah Tahara, Austin (Rochel Levertov) — not researched · 119659
+
+## michigan: 1
+
+**On a dated dot (1)**
+- Ganeinu Day Camp, West Bloomfield (Chaya Devorah Bergstein) — by 2004 · 119944
+
+**Mikvahs, out of the counts (1)**
+- Lubavitch Mikvah, Oak Park (Moshe Zaklikofsky) — by 2004 · 119459
 
 ## upstate-new-york: 1
 
@@ -217,18 +210,15 @@ US + Canada, 74 listings without a year (mikvahs apart: 19). Per shetach: first 
 **No year at the dot (1)**
 - Camp Gan Israel, Louisville (Avrohom Litvin) — by 2004 · 119428
 
-## central-massachusetts: 1
-
-**No year at the dot (1)**
-- Bais Chana Girls High School, Worcester (Hershel Fogelman) — 1947–2004 · 119447
-
-**Mikvahs, out of the counts (1)**
-- Mikvah Lubavitch, Worcester (Rochel Fogelman) — by 2004 · 119446
-
 ## oregon: 1
 
 **No year at the dot (1)**
 - Congregation Bais Menachem-Chabad, Portland (Moshe Wilhelm) — by 2004 · 119776
+
+## central-massachusetts: 0
+
+**Mikvahs, out of the counts (1)**
+- Mikvah Lubavitch, Worcester (Rochel Fogelman) — by 2004 · 119446
 
 ## vermont: 0
 

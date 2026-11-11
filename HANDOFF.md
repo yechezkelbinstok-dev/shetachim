@@ -461,6 +461,10 @@ thirteen no better recent photo has been found yet (the list is there, with what
        contradict what we know. Still leads only; the owner was asked (Nov 11) whether the other 9 may go in as LOW.
        A cleanup bug in this session's batch scripts (it cut 'No founding year found yet (... CrownHeights.info ...)'
        at the first dot) left a fragment in 11 notes; fixed in the data and the batch files.
+    4g. **Nov 11 (late): the last 67, picked up and stopped when usage ran out.** 65 listings (35 dots) left. Entered:
+       Mayan Yisroel 2003 and Kesher Foundation (Dallas) 1998, both IRS rulings, low (`last-01`). Everything else
+       found (leads to verify, chabad.org's `mosad-id` as a clue to when an old directory entry was made, three
+       Firecrawl agent jobs still to read, archives not yet tried) is in `work/founding-years/last-67.md`: start there.
     5. In every update to the owner, say how much is left. `python3 work/founding-years/progress.py <your shetachim>`
        prints it ("LEFT: 48 of 48 dots (100.0%), ..."). Owner (Nov 6): "keep telling me how much left (amount and %)
        so I can steadily see progress".

@@ -44,7 +44,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | new-haven | 15 | 5 | 6 | 4 |  |  |  | 0 | 13 | 0 |
 | new-jersey | 91 | 63 | 7 | 15 | 4 |  | 2 | 6 | 85 | 2 |
 | new-mexico | 5 | 5 |  |  |  |  |  | 0 | 5 | 0 |
-| new-york-city | 200 | 44 | 84 | 61 | 11 |  |  | 11 | 176 | 5 |
+| new-york-city | 200 | 44 | 84 | 62 | 10 |  |  | 10 | 176 | 4 |
 | newfoundland-and-labrador | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | northeast-ohio | 27 | 20 | 3 | 3 | 1 |  |  | 1 | 23 | 0 |
@@ -59,7 +59,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | south-area | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | southern-ohio | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | tennessee | 7 | 7 |  |  |  |  |  | 0 | 7 | 0 |
-| texas | 56 | 37 | 11 | 7 |  |  | 1 | 1 | 47 | 0 |
+| texas | 56 | 37 | 11 | 8 |  |  |  | 0 | 47 | 0 |
 | the-carolinas | 25 | 16 | 5 | 4 |  |  |  | 0 | 23 | 0 |
 | upper-midwest | 18 | 10 | 4 | 1 | 3 |  |  | 3 | 18 | 3 |
 | upstate-new-york | 22 | 12 | 6 | 3 | 1 |  |  | 1 | 21 | 0 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | western-pennsylvania | 26 | 10 | 10 | 3 | 3 |  |  | 3 | 23 | 3 |
 | wisconsin | 22 | 10 | 6 | 6 |  |  |  | 0 | 19 | 0 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
-| **all** | 1902 | 1016 | 490 | 329 | 60 | 4 | 3 | 67 | 1721 | 36 |
+| **all** | 1902 | 1016 | 490 | 331 | 59 | 4 | 2 | 65 | 1721 | 35 |

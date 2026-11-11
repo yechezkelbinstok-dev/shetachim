@@ -1,14 +1,13 @@
 # Founding years: every listing still undated
 
-US + Canada, 67 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
+US + Canada, 65 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
 
-## new-york-city: 11
+## new-york-city: 10
 
-**No year at the dot (5)**
+**No year at the dot (4)**
 - Chabad House of Queens-Kew Gardens, Kew Gardens (Shmuel Tuvel) — by 2004 · 117974
 - Chabad of Bay Ridge, Brooklyn (Tzvi Stroh) — by 2004 · 118501
 - Chabad of Patchogue, Patchogue (Berel Sasonkin) — by 2004 · 118642
-- Mayan Yisroel, Brooklyn (Yoseph Vigler) — by 2004 · 118573
 - New York Hebrew, New York (Menachem Shanowitz) — by 2004 · 118826
 
 **On a dated dot (6)**
@@ -141,15 +140,6 @@ US + Canada, 67 listings without a year (mikvahs apart: 19). Per shetach: first 
 - Chabad of Ridgefield, Ridgefield (Sholom Deitsch) — by 2004 · 150725
 - Gan Israel Hebrew School, Weatogue (Blumie Samuels) — by 2004 · 119920
 
-## texas: 1
-
-**On a dated dot (1)**
-- Chabad Kesher Foundation, Dallas (Asher Goldschmidt) — not researched · 118176
-
-**Mikvahs, out of the counts (2)**
-- Mikvah Chaya Mushka, El Paso (Chana Greenberg) — nothing found yet · 119660
-- Mikvah Tahara, Austin (Rochel Levertov) — not researched · 119659
-
 ## michigan: 1
 
 **On a dated dot (1)**
@@ -218,6 +208,12 @@ US + Canada, 67 listings without a year (mikvahs apart: 19). Per shetach: first 
 
 **Mikvahs, out of the counts (1)**
 - Mikvah Lubavitch, Worcester (Rochel Fogelman) — by 2004 · 119446
+
+## texas: 0
+
+**Mikvahs, out of the counts (2)**
+- Mikvah Chaya Mushka, El Paso (Chana Greenberg) — nothing found yet · 119660
+- Mikvah Tahara, Austin (Rochel Levertov) — not researched · 119659
 
 ## vermont: 0
 

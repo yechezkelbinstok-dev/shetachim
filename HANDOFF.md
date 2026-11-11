@@ -444,6 +444,23 @@ thirteen no better recent photo has been found yet (the list is there, with what
        left official because Tzach's directory lists it (ask the owner). A fresh container's `npm run build`
        re-downloads the world borders and re-encodes every border file (geo.json, tiles): for a dots-only change commit
        only web/data/centers.geojson and cities.json (what changed for Manali), not the border files.
+    4f. **Nov 11 (later): the last undated dots.** 36 of 1,721 dots left (2.1%), every one with a 2004 listing (so no
+       listing-year fallback); `UNDATED.md` lists them. Tried for each: CrownHeights.info, lubavitch.com, web searches
+       and four Firecrawl research-agent runs (English and Hebrew); what checked out is in `main-03`, `sub-03`,
+       `sub-04`. Free sources that worked: the Chabad Chinuch Office's *Directory of Chabad Educational Institutions*
+       (PDFs: chinuchoffice.org/media/pdf/352/Ocxs3521475.pdf 2012-13, /1114/WRqC11144199.pdf 2019-20,
+       /1267/szkh12671837.pdf 2023-24; early childhood 2011-12 chabad.org/media/pdf/351/rjrx3515618.pdf; curl and
+       pdftotext; two columns, so check a 'Founded' line on the page image when an entry runs over a page break):
+       a school's 'Founded' year, entered medium (`how: list`); it also beat two IRS-ruling lows (New England Hebrew
+       Academy 1944, Shaloh House 1967). Sweeping every school against these directories is still to do. David M.
+       Noel's *A History of the Toledo Jewish Community 1895-2006* (archive.org full text) dated Toledo's programs.
+       Chabadpedia answers this container with 403 and a Firecrawl scrape of it was refused (bot-check
+       circumvention): read it only through search excerpts or the research agent. therebbesimpact.com rechecked on
+       the 489 high years where it has a 'Chabad Center' record: same year 75%, within a year 88%; for centers from
+       2004 or earlier only 62% and 81% (13% four or more years off), and 4 of its 13 years for the open dots
+       contradict what we know. Still leads only; the owner was asked (Nov 11) whether the other 9 may go in as LOW.
+       A cleanup bug in this session's batch scripts (it cut 'No founding year found yet (... CrownHeights.info ...)'
+       at the first dot) left a fragment in 11 notes; fixed in the data and the batch files.
     5. In every update to the owner, say how much is left. `python3 work/founding-years/progress.py <your shetachim>`
        prints it ("LEFT: 48 of 48 dots (100.0%), ..."). Owner (Nov 6): "keep telling me how much left (amount and %)
        so I can steadily see progress".

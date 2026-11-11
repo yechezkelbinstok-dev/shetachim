@@ -16,10 +16,10 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | central-massachusetts | 13 | 4 | 5 | 4 |  |  |  | 0 | 11 | 0 |
 | central-ohio | 4 | 2 | 1 | 1 |  |  |  | 0 | 4 | 0 |
 | colorado | 22 | 7 | 10 | 4 | 1 |  |  | 1 | 20 | 1 |
-| connecticut | 33 | 10 | 17 | 3 | 3 |  |  | 3 | 32 | 3 |
+| connecticut | 33 | 10 | 18 | 3 | 2 |  |  | 2 | 32 | 2 |
 | crown-heights | 12 | 10 | 2 |  |  |  |  | 0 | 5 | 0 |
 | delaware | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
-| eastern-massachusetts | 35 | 12 | 9 | 12 | 2 |  |  | 2 | 32 | 2 |
+| eastern-massachusetts | 35 | 12 | 11 | 10 | 2 |  |  | 2 | 32 | 2 |
 | eastern-new-york | 47 | 11 | 23 | 9 | 4 |  |  | 4 | 44 | 3 |
 | florida | 235 | 138 | 41 | 49 | 3 | 4 |  | 7 | 214 | 4 |
 | georgia | 27 | 19 | 5 | 3 |  |  |  | 0 | 24 | 0 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | western-pennsylvania | 26 | 10 | 10 | 3 | 3 |  |  | 3 | 23 | 3 |
 | wisconsin | 22 | 10 | 6 | 6 |  |  |  | 0 | 19 | 0 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
-| **all** | 1902 | 1016 | 487 | 331 | 61 | 4 | 3 | 68 | 1721 | 37 |
+| **all** | 1902 | 1016 | 490 | 329 | 60 | 4 | 3 | 67 | 1721 | 36 |

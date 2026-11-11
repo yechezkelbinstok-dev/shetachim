@@ -1,6 +1,6 @@
 # Founding years: every listing still undated
 
-US + Canada, 68 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
+US + Canada, 67 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
 
 ## new-york-city: 11
 
@@ -123,13 +123,6 @@ US + Canada, 68 listings without a year (mikvahs apart: 19). Per shetach: first 
 **Mikvahs, out of the counts (1)**
 - Mikvah Lubavitch, Pittsburgh — by 2004 · 120027
 
-## connecticut: 3
-
-**No year at the dot (3)**
-- Chabad Gan of Greenwich Preschool, Greenwich (Maryashie Deren) — by 2004 · 159682
-- Chabad of Ridgefield, Ridgefield (Sholom Deitsch) — by 2004 · 150725
-- Gan Israel Hebrew School, Weatogue (Blumie Samuels) — by 2004 · 119920
-
 ## pennsylvania: 2
 
 **No year at the dot (2)**
@@ -141,6 +134,12 @@ US + Canada, 68 listings without a year (mikvahs apart: 19). Per shetach: first 
 **No year at the dot (2)**
 - Chabad of the South Shore, Plymouth (Levi Lezell) — by 2004 · 164086
 - Lubavitch Pre-School, Brookline (Esther Ciment) — by 2004 · 119717
+
+## connecticut: 2
+
+**No year at the dot (2)**
+- Chabad of Ridgefield, Ridgefield (Sholom Deitsch) — by 2004 · 150725
+- Gan Israel Hebrew School, Weatogue (Blumie Samuels) — by 2004 · 119920
 
 ## texas: 1
 

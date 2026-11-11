@@ -1,6 +1,6 @@
 # Founding years: every listing still undated
 
-US + Canada, 78 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
+US + Canada, 74 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
 
 ## new-york-city: 14
 
@@ -73,10 +73,9 @@ US + Canada, 78 listings without a year (mikvahs apart: 19). Per shetach: first 
 **Mikvahs, out of the counts (1)**
 - Mikvah Bais Chana, Morristown — nothing found yet · 119959
 
-## quebec: 6
+## quebec: 5
 
-**No year at the dot (3)**
-- Centre Chabad, Montreal (Shalom Chriqui) — by 1995 · 117805
+**No year at the dot (2)**
 - Chabad Chabanel & Maison Belfield, Montreal (Zushe Silberstein) — by 1995 · 117810
 - Chabad V.s.L. & Chabad Bois Franc, Ville S. Laurent (Schneur Silberstein) — by 1995 · 118494
 
@@ -98,14 +97,6 @@ US + Canada, 78 listings without a year (mikvahs apart: 19). Per shetach: first 
 **Mikvahs, out of the counts (2)**
 - Mikvah Ma'ayan Chaya, Poughkeepsie — by 2004 · 120141
 - Mikvah, Monticello (Rochel Chanowitz) — by 2004 · 119795
-
-## pennsylvania: 4
-
-**No year at the dot (4)**
-- Chabad of Penn Wynne, Philadelphia (Moishe Brennan) — by 2004 · 117717
-- Chabad of Scranton, Scranton (Yehudah L. Itkin) — by 2004 · 117722
-- Lubavitch of Northwest Philadelphia, Philadelphia (Yitzchok Gurevitz) — by 2004 · 155891
-- Va'adah L'dovrei Ivrit Chabad, Philadelphia (Zalman Lipsker) — 1964–2004 · 117718
 
 ## ontario: 3
 
@@ -154,13 +145,11 @@ US + Canada, 78 listings without a year (mikvahs apart: 19). Per shetach: first 
 **Mikvahs, out of the counts (1)**
 - Lubavitch Mikvah, Oak Park (Moshe Zaklikofsky) — by 2004 · 119459
 
-## illinois: 2
+## pennsylvania: 2
 
-**No year at the dot (1)**
-- Rohr Chabad Center of Glenview, Glenview (Yishaya Benjaminson) — by 2004 · 118628
-
-**On a dated dot (1)**
-- Shalom Hebrew School, Riverwoods (Shmuel Notik) — by 2004 · 119646
+**No year at the dot (2)**
+- Lubavitch of Northwest Philadelphia, Philadelphia (Yitzchok Gurevitz) — by 2004 · 155891
+- Va'adah L'dovrei Ivrit Chabad, Philadelphia (Zalman Lipsker) — 1964–2004 · 117718
 
 ## eastern-massachusetts: 2
 
@@ -186,6 +175,11 @@ US + Canada, 78 listings without a year (mikvahs apart: 19). Per shetach: first 
 
 **On a dated dot (1)**
 - Congregation Lubavitch, Ottawa (Yehoshua Botnick) — by 2004 · 118409
+
+## illinois: 1
+
+**On a dated dot (1)**
+- Shalom Hebrew School, Riverwoods (Shmuel Notik) — by 2004 · 119646
 
 ## northeast-ohio: 1
 

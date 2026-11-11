@@ -25,7 +25,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | georgia | 27 | 19 | 5 | 3 |  |  |  | 0 | 24 | 0 |
 | hawaii | 6 | 3 | 1 | 2 |  |  |  | 0 | 6 | 0 |
 | idaho | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
-| illinois | 59 | 33 | 13 | 11 | 2 |  |  | 2 | 54 | 1 |
+| illinois | 59 | 33 | 14 | 11 | 1 |  |  | 1 | 54 | 0 |
 | indiana | 7 | 5 | 1 | 1 |  |  |  | 0 | 7 | 0 |
 | iowa | 9 | 6 | 2 | 1 |  |  |  | 0 | 7 | 0 |
 | kansas-missouri | 16 | 14 | 2 |  |  |  |  | 0 | 16 | 0 |
@@ -52,8 +52,8 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | ontario | 61 | 21 | 14 | 23 | 3 |  |  | 3 | 56 | 1 |
 | oregon | 19 | 11 | 6 | 1 | 1 |  |  | 1 | 17 | 1 |
 | ottawa | 11 | 9 |  | 1 | 1 |  |  | 1 | 9 | 0 |
-| pennsylvania | 61 | 30 | 16 | 11 | 4 |  |  | 4 | 57 | 4 |
-| quebec | 70 | 16 | 26 | 22 | 6 |  |  | 6 | 58 | 3 |
+| pennsylvania | 61 | 31 | 17 | 11 | 2 |  |  | 2 | 57 | 2 |
+| quebec | 70 | 16 | 26 | 23 | 5 |  |  | 5 | 58 | 2 |
 | rhode-island | 8 | 5 | 1 | 2 |  |  |  | 0 | 7 | 0 |
 | rockland | 5 | 2 | 1 | 2 |  |  |  | 0 | 5 | 0 |
 | south-area | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | western-pennsylvania | 26 | 10 | 10 | 3 | 3 |  |  | 3 | 23 | 3 |
 | wisconsin | 22 | 10 | 6 | 6 |  |  |  | 0 | 19 | 0 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
-| **all** | 1902 | 1014 | 480 | 330 | 71 | 4 | 3 | 78 | 1721 | 47 |
+| **all** | 1902 | 1015 | 482 | 331 | 67 | 4 | 3 | 74 | 1721 | 43 |

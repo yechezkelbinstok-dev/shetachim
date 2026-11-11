@@ -2616,13 +2616,11 @@
    "name": "National Committee for Jewish Education",
    "city": "Monsey, NY",
    "shetach": "monsey",
-   "year": null,
-   "lead": 2000,
-   "how": "range",
-   "source": "https://www.chabad.org/centers/default_cdo/aid/117690/jewish/National-Committee-for-Jewish-Education.htm",
-   "note": "Monsey (blank on the map, no shetach). No source found (Rabbi Simcha Werner). therebbesimpact.com: the institution 2000, Simcha & Chaya Werner from 1971; its listing number (117690) is from chabad.org's first directory (about 2003). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
-   "confidence": "range",
-   "by": 2004
+   "year": 1969,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://www.kmrtours.com/palm-springs-lectures-and-shiurim-2/",
+   "note": "KMR (read Nov 9, data/shetach-history.json): 'Rabbi Werner has been the director of the Monsey branch of the National Committee for the Furtherance of Jewish Education (NCFJE) since 1969'; Chabadinfo (22 Jan 2015): 'NCFJE of Rockland under the leadership of Rockland's first Shliach Rabbi Simcha Werner'. One later source for the year, so medium. Its chabad.org listing is in the first online directory (listings published July 22 2004)."
   },
   "118578": {
    "name": "Cheder Chabad of Monsey",
@@ -9583,12 +9581,19 @@
    "name": "Chabad Lubavitch of Tampa Bay",
    "city": "Tampa",
    "shetach": "florida",
-   "year": null,
-   "how": "range",
+   "year": 1981,
+   "how": "anniversary",
+   "confidence": "medium",
    "source": "https://www.chabad.org/news/article_cdo/aid/1569007",
-   "note": "Chabad.org, 13 July 2011 ('Tampa Suburb Awaits First-Ever Synagogue'): Rabbi Yossi and Sulha Dubrowski 'have directed Chabad-Lubavitch of Tampa Bay for more than 30 years and run Hebrew Academy, a Jewish day school for students in preschool through eighth grade', so it existed by 1981 (therebbesimpact.com's 1994 is wrong). The St. Petersburg Times (CrownHeights.info, 22 July 2011): they lead it in the Carrollwood area (now 14908 Pennington Road). Its first year is not found. Sunbiz (opened Nov 10, work/founding-years/sunbiz/entities/): CHABAD LUBAVITCH OF TAMPA, INC. (N07226), filed 01/22/1985, and CHABAD LUBAVITCH OF TAMPA BAY, INC. (N25402), filed 03/14/1988, both with Rabbi Yossie and Sulha Dubrowski as officers: both later than 'by 1981', so they do not change it. A separate CHABAD HOUSE, INC. (758590), filed 06/02/1981 with Rabbi Eliezer Rivkin as president, 13104 N 52nd Street, Tampa, dissolved 12/14/1982, is not the Dubrowskis'.",
-   "confidence": "range",
-   "by": 1981
+   "earlier": [
+    {
+     "where": "Chabad House, 1314 N. 52nd St., Tampa",
+     "from": null,
+     "until": null,
+     "source": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf (AFL list of centres, about 1984, p. 44-47)"
+    }
+   ],
+   "note": "Chabad.org, 13 July 2011 ('Tampa Suburb Awaits First-Ever Synagogue'): Rabbi Yossi and Sulha Dubrowski 'have directed Chabad-Lubavitch of Tampa Bay for more than 30 years', so 1981 or a little before (counted back, medium). The AFL list of about 1984 (data/centers-1984.json) has its 'Chabad House' at 1314 No. 52nd St., Tampa; Sunbiz has CHABAD LUBAVITCH OF TAMPA, INC. (filed 22 Jan 1985) and CHABAD LUBAVITCH OF TAMPA BAY, INC. (14 March 1988), both with the Dubrowskis; today it is in Carrollwood (14908 Pennington Road)."
   },
   "117701": {
    "name": "Chabad Lubavitch of Coconut Creek & W Pompano Beach",
@@ -13055,13 +13060,12 @@
    "name": "Chabad of Fishtown @ Northern Liberties",
    "city": "Philadelphia",
    "shetach": "new-jersey",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2022,
-   "lead": 2022,
-   "source": "https://collive.com/the-60-couples-who-will-receive-new-shluchim-grants/",
-   "note": "Merkos 'New Shluchim' grants (COLlive, 19 Nov 2022), a two-year grant for couples in their first years: 'Rabbi and Mrs. Berel and Bracha Paltiel, Fishtown, PA'. So there by Nov 2022; its start not found. Lead: its chabad.org listing (5574170) is from about 2022."
+   "year": 2022,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://jewishfishtown.org/",
+   "date": "2022-08",
+   "note": "Its own site (read with a plain request, Nov 11): 'Rabbi Berel and Bracha Leah Paltiel moved to Fishtown August 2022 and are excited to be joining the local Jewish community.' Its domain was registered in June 2022."
   },
   "5653140": {
    "name": "Simha Maftsir Preschool",
@@ -13886,11 +13890,11 @@
    "name": "Cteen Raleigh",
    "city": "Raleigh",
    "shetach": "the-carolinas",
-   "year": null,
-   "how": "not-found",
-   "confidence": "open",
-   "lead": 2026,
-   "note": "No dated source found yet (Nov 2026 searches). CTeen of Chabad of Raleigh (Rabbi Mendy Wilschanski), 7400 Falls of Neuse Rd. Lead: its chabad.org listing (7401983) is from about 2026."
+   "year": 2019,
+   "how": "bio",
+   "confidence": "low",
+   "source": "https://collive.com/new-shluchim-to-north-carolina-3/",
+   "note": "COLlive, 26 Aug 2019 ('New Shluchim to North Carolina'): Rabbi Mendy and Brocha Wilschanski 'have recently joined the team of Shluchim in Raleigh, NC' (Chabad of Raleigh's youth and teen work; on the Jan 2022 list of 20 new shluchim as 'Mendy Wilschanski Raleigh, NC'). The CTeen chapter's own start is not found; its chabad.org listing is only from 2026-09-16. So 2019, when its director came, low."
   },
   "117716": {
    "name": "Lubavitch House of Philadelphia",
@@ -18296,23 +18300,22 @@
    "name": "Chabad of the Beaches",
    "city": "Long Beach, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/221245/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2004-11-11, so it existed by then. Director: Eli Goodman. New York's register: CHABAD LUBAVITCH OF THE BEACHES, INC., filed 2016-02-12, after its chabad.org listing (2004-07-22), so not the year (HANDOFF 4b)."
+   "year": 2004,
+   "how": "directory",
+   "confidence": "medium",
+   "source": "https://firstliberty.org/cases/chabad-of-the-beaches/",
+   "note": "Its chabad.org listing went up 2004-11-11, so it existed by then. First Liberty's case page (the lawsuit filed July 2022): 'Seventeen years ago, Rabbi Eli Goodman, and his wife Beila, founded Chabad Lubavitch of the Beaches to serve the Jewish population of Long Beach Barrier Island' (about 2005; read with a plain request Nov 11); a court filing of Dec 2024 says nearly 20 years. The listing is earlier, so 2004, medium. Its synagogue merged with Temple Beth El of Long Beach (Chabad of the Beaches Beth El)."
   },
   "223137": {
    "name": "Chabad of Washington Heights",
    "city": "New York, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2005,
-   "source": "https://www.chabad.org/api/content/223137/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2005-01-05, so it existed by then. Director: Yakov D. Kirschenbaum."
+   "year": 2005,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/general/1007/new-shluchim-to-washington-heights/",
+   "date": "2005-11",
+   "note": "CrownHeights.info, 22 Nov 2005 ('New Shluchim to Washington Heights'): Rabbi Yackov Kirschenbaum 'will be moving on Shlichus to Washington Heights'. Its chabad.org listing went up earlier the same year (2005-01-05)."
   },
   "223146": {
    "name": "Chabad of the West Sixties",
@@ -18464,12 +18467,11 @@
    "name": "Mercaz Yisroel L'Chinuch",
    "city": "Brooklyn, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2006,
-   "source": "https://www.chabad.org/api/content/452757/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2006-12-05, so it existed by then. Director: Shneur Zalman Mendelsohn."
+   "year": 1999,
+   "how": "anniversary",
+   "confidence": "medium",
+   "source": "https://crownheights.info/chabad-news/39670/200-step-into-sarahs-tent-in-flatbush/",
+   "note": "CrownHeights.info, 7 Dec 2011 ('200 Step into Sarah's Tent in Flatbush'): 'Flatbush Shluchim, Rabbi Schneur Zalman and Sarah Mendelsohn ... gathered ... to celebrate twelve years since they first opened the doors to what they refer to as an Oasis of Chassidishe warmth'; 'Twelve years have whisked by, and not a day passes that one of the parents of our school won't...'. So about 1999. Counted back, so medium. Its chabad.org listing went up 2006-12-05."
   },
   "477762": {
    "name": "Chabad at Brooklyn College",
@@ -19538,12 +19540,11 @@
    "name": "Jewish Life at VCU",
    "city": "Richmond, VA",
    "shetach": "virginia",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2015,
+   "year": 2015,
+   "how": "directory",
+   "confidence": "low",
    "source": "https://www.chabad.org/api/content/2922904/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2015-04-29, so it existed by then. In July 2024 Rabbi Menachem and Daniela Lessoff moved to Richmond 'to launch Jewish Life at VCU, a new Chabad on Campus center' (Lubavitch.com, 25 Aug 2025, https://www.lubavitch.com/jewish-life-thrives-at-vcu/); the listing is older (2015), so a Chabad at VCU was listed before they came. Director: Menachem Mendel Lessoff. lubavitch.com, 25 Aug 2025 ('Jewish Life Thrives at VCU'): 'in July 2024, Rabbi Menachem and Daniela Lessoff moved to Richmond to launch Jewish Life at VCU — a new Chabad on Campus center'. The listing is from about 2015, so the stated start is years after it and the year is left open (twelve-shetachim.md rule)."
+   "note": "Its chabad.org listing went up 2015-04-29, so a VCU Chabad listing existed by then (a program of Chabad of Virginia). Lubavitch.com (25 Aug 2025, 'Jewish Life Thrives at VCU'): 'But in July 2024, Rabbi Menachem and Daniela Lessoff moved to Richmond to launch Jewish Life at VCU — a new Chabad on Campus center'. Whether the 2015 listing ran as a center is not found, so low."
   },
   "2953559": {
    "name": "Chabad at George Mason University",
@@ -19749,12 +19750,12 @@
    "name": "Jewish Oasis - Chabad",
    "city": "Portland, OR",
    "shetach": "oregon",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2010,
-   "source": "https://www.chabad.org/api/content/1351834/metadata?tid=7152",
-   "note": "No founding year found yet. Its chabad.org listing went up 2010-11-24, so it existed by then. COLlive, 6 Mar 2020 (https://collive.com/new-shluchim-to-young-adults-in-portland/): 'Rabbi Chayim and Simi Mishulovin directed Chabad's Young Professional programming in Portland for the past 15 years' (so from about 2005); Lubavitch.com (20 Feb 2024, Lamplighters ep. 42) calls the Jewish Oasis their 'innovative storefront/shmooze center', with no year. Director: Chayim Eliyohu Mishulovin."
+   "year": 2005,
+   "how": "news",
+   "confidence": "medium",
+   "source": "https://crownheights.info/general/84/new-shluchim-to-portland-orgeon/",
+   "date": "2005-04",
+   "note": "Rabbi Chayim Eliyohu Mishulovin's center. CrownHeights.info, 6 April 2005 ('New Shluchim to Portland, Oregon'): he 'will be moving on Shlichus to Portland, Oregon where they will establish a new Chabad House [in] the downtown area'; CrownHeights.info, 2 Dec 2005: 'Rabbi Chayim Mishulovin, who moved to Portland in April with his wife Simi to run Chabad youth programs, will oversee the store's operation' (the Everything Jewish store). Its chabad.org listing (as Jewish Oasis) went up only 2010-11-24, so the name may be later: medium."
   },
   "4461549": {
    "name": "Chabad Young Professionals Portland & Chabad Northwest Portland",
@@ -20565,12 +20566,11 @@
    "name": "Chabad Lubavitch of Connecticut & Western Massachusetts",
    "city": "Stamford, CT",
    "shetach": "connecticut",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2015,
-   "source": "https://www.chabad.org/api/content/2948789/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2015-05-13, so it existed by then. Director: Yisrael Deren."
+   "year": 1974,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://www.lubavitch.com/new-center-for-jewish-life-dedicated-in-stamford-ct/",
+   "note": "The regional office of Rabbi Yisrael and Vivi Deren. Lubavitch.com, 26 Dec 2016 ('New Center for Jewish Life Dedicated in Stamford, CT'): 'Rabbi Yisrael Deren, who founded the Chabad branch in Stamford in 1974 with his wife, Vivi'; he 'shared a letter he had received from the Lubavitcher Rebbe nearly 43 years ago to the date ... in honor of the dedication of the first Chabad he and his wife had opened in Amherst, Massachusetts' (about Dec 1973). COLlive (24 May 2024, 'The Rebbe's Child'): sent first to Amherst; Stamford came 'sixteen years later'. The region began in 1973-74: 1974, medium (sources a year apart). Its chabad.org listing went up 2015-05-13."
   },
   "4161814": {
    "name": "Chabad of Shelton",
@@ -21657,12 +21657,11 @@
    "name": "Chabad of Clifton Park",
    "city": "Clifton Park, NY",
    "shetach": "eastern-new-york",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2005,
+   "year": 2005,
+   "how": "directory",
+   "confidence": "medium",
    "source": "https://www.chabad.org/api/content/316626/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2005-09-27, so it existed by then. CrownHeights.info, 8 Aug 2025, marked '18 Years of Shlichus in Clifton Park' (about 2007), but the listing is from 2005, so the year is left open. Director: Yossi Rubin."
+   "note": "Its chabad.org listing went up 2005-09-27, so it existed by then. CrownHeights.info (15 Oct 2024): 'Eighteen years ago, Rabbi Yossi and Leah Rubin founded Clifton Park Chabad, starting with Torah Studies classes at the local library' (about 2006). The listing is earlier, so 2005, medium (sources a year apart)."
   },
   "541851": {
    "name": "Chabad at Union - The Rohr Jewish Student Center",
@@ -21688,13 +21687,11 @@
    "name": "Chabad-Lubavitch of Southern Rensselaer County",
    "city": "East Greenbush, NY",
    "shetach": "eastern-new-york",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2007,
+   "year": 2007,
+   "how": "directory",
+   "confidence": "medium",
    "source": "https://www.chabad.org/api/content/596689/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2007-11-19, so it existed by then. Director: Avraham Laber. Its own retreat site (greenbushretreat.com/about, read Nov 10 2026) has a timeline: '1996 – Rabbi Avraham and Nechama Laber moved to the Capital Region Jewish community 1996 to serve as Shluchim'; '2009 – Est. Chabad of S. Rensselaer County'. The chabad.org listing is older (Nov 2007), so the 2009 'est.' is not the start; the range is 1996-2007.",
-   "after": 1996
+   "note": "Its chabad.org listing went up 2007-11-19, so it existed by then. Its own site's timeline (greenbushretreat.com/about, read with a plain request Nov 11): '1996 – Rabbi Avraham and Nechama Laber moved to the Capital Region Jewish community 1996 to serve as Shluchim'; '1998 – Est. The Capital Region Bat Mitzvah Club'; '2009 – Est. Chabad of S. Rensselaer County'. The listing is earlier than the 2009 of the timeline, so 2007, medium."
   },
   "599872": {
    "name": "Hebrew School",
@@ -21814,12 +21811,11 @@
    "name": "Troy Chabad on Campus",
    "city": "Troy, NY",
    "shetach": "eastern-new-york",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2022,
-   "source": "https://www.chabad.org/api/content/5555239/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing went up 2022-07-06, so it existed by then. Director: Shlomo Morrison."
+   "year": 2022,
+   "how": "news",
+   "confidence": "medium",
+   "source": "https://crownheights.info/chabad-news/797484/kinus-hashluchim-5873-bringing-grand-total-to-120-sixty-new-shluchim-grants-announced-in-honor-of-kinus/",
+   "note": "Merkos 'New Shluchim' grants (CrownHeights.info and COLlive, 19 Nov 2022; the grants go to couples in their first years): 'Shomo and Chaya Morrison, Rensselaer Polytechnic Institute, Troy, NY'. Its chabad.org listing went up 2022-07-06. So 2022, medium (a grant list, not an opening report)."
   },
   "5763972": {
    "name": "Chabad of Columbia County",
@@ -22136,12 +22132,11 @@
    "name": "Chabad of Potomac Village",
    "city": "Potomac, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2005,
-   "source": "https://www.chabad.org/api/content/321642/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2005-10-21, so it existed by then. Director: Mendel Kaplan."
+   "year": 2005,
+   "how": "news",
+   "confidence": "high",
+   "source": "https://crownheights.info/shlichus/7261/youve-got-a-friend-project-pairs-teens-with-special-needs-youngsters/",
+   "note": "CrownHeights.info, 6 July 2007 ('You've Got a Friend'): 'the Kaplans, after arriving in Montgomery County about two years ago' (Rabbi Mendel and Chana Kaplan, Potomac Village); its chabad.org listing went up 2005-10-21. The two agree: 2005."
   },
   "325787": {
    "name": "Yeshivas Lubavitch of Baltimore",
@@ -22210,24 +22205,21 @@
    "name": "Chabad at Johns Hopkins Hospital",
    "city": "Baltimore, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2011,
-   "source": "https://www.chabad.org/api/content/1648946/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2011-10-17, so it existed by then. Rabbi Zev and Chani Gopin have been 'the face of Chabad at this elite research hospital and university since 2003' (Lubavitch.com, 1 Dec 2016); this hospital listing only went up in 2011. Director: Zev Gopin. lubavitch.com, 1 Dec 2016: 'Rabbi Zev and Chani Gopin are the face of Chabad at this elite research hospital and university since 2003' (Chabad of Johns Hopkins & Central Baltimore, listing 118606, is dated 2003); this hospital listing went up 2011-10-17 and when its own work began is not stated."
+   "year": 2003,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://www.lubavitch.com/chabad-at-johns-hopkins-hosts-13th-annual-dinner/",
+   "note": "Lubavitch.com, 1 Dec 2016 ('Chabad at Johns Hopkins Hosts 13th Annual Dinner'): 'Rabbi Zev and Chani Gopin are the face of Chabad at this elite research hospital and university since 2003.' One later source, so medium. Its chabad.org listing went up 2011-10-17."
   },
   "1701833": {
    "name": "Mercaz Menachem Chabad",
    "city": "Chevy Chase, MD",
    "shetach": "maryland",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2011,
+   "year": 2011,
+   "how": "directory",
+   "confidence": "medium",
    "source": "https://www.chabad.org/api/content/1701833/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2011-12-07, so it existed by then. Director: Bentzion Geisinsky. Washington Jewish Week (on CrownHeights.info, 28 Nov 2012): the Geisinskys founded Chabad of Bethesda-Chevy Chase in 1999-2000, and 'the current center and the one to be developed will do business under the name Mercaz Menachem Chabad', so this Chevy Chase listing dates from after 1999.",
-   "after": 1999
+   "note": "Its chabad.org listing went up 2011-12-07, so it existed by then. Washington Jewish Week (CrownHeights.info, 28 Nov 2012, 'Chabad Father-Son Team Looks Toward Expansion'): 'In 2000, they [Rabbi Bentzion and Rebbetzin Zlata Geisinsky] left their work at the Chabad center in Potomac, to found Chabad of Bethesda-Chevy Chase'; Bentzion Geisinsky will 'eventually open a separate Chabad center in Chevy Chase', and 'the current center and the one to be developed will do business under the name Mercaz Menachem Chabad'. This Chevy Chase listing is that name: 2011 by its listing, medium (the family's work there goes back to 2000)."
   },
   "1772269": {
    "name": "Chabad of Rockville",
@@ -22962,12 +22954,11 @@
    "name": "Chabad Lubavitch on the East Side",
    "city": "Toronto, ON",
    "shetach": "ontario",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2017,
+   "year": 2017,
+   "how": "directory",
+   "confidence": "medium",
    "source": "https://www.chabad.org/api/content/3828697/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2017-11-06, so it existed by then. Director: Shmuel Grossbaum. Its own site (home page, read Nov 10 2026): 'Ever since Chabad on the East Side opened its doors in 2018'; the chabad.org listing is from Nov 2017, so the 2018 opening is its premises, not its start."
+   "note": "Its chabad.org listing went up 2017-11-06, so it existed by then. Its own site (eschabad.com, read with a plain request Nov 11): 'Ever since Chabad on the East Side opened its doors in 2018...'. The listing is earlier, so 2017, medium."
   },
   "4031052": {
    "name": "JRCC Bathurst & Lawrence",
@@ -23058,12 +23049,12 @@
    "name": "JRCC Willowdale",
    "city": "Toronto, ON",
    "shetach": "ontario",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2025,
-   "source": "https://www.chabad.org/api/content/6990612/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing went up 2025-10-20, so it existed by then. Director: Yisroel Zaltzman."
+   "year": 2019,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://jrccwillowdale.org/",
+   "date": "2019-09",
+   "note": "Its own site (read with a plain request, Nov 11): 'in September 2019 - after spending an additional year learning near the Rebbe's synagogue in Brooklyn NY and continuing his Rabbinic studies in Manhattan NY - Rabbi Yisroel and Shaina moved to the Yonge and Finch area to serve both the local and broader community'. Its chabad.org listing is from 2025."
   },
   "7045323": {
    "name": "Chabad Jewish Centre of Georgina",
@@ -24041,6 +24032,16 @@
    "source": "https://collive.com/new-shluchim-to-open-14th-chabad-center-in-houston/",
    "date": "2022-09",
    "note": "COLlive, 28 Sept 2022 ('New Shluchim to Open 14th Chabad Center in Houston'): 'Rabbi Sholem and Aidele Vigler, along with their 3 children ... are heading out on shlichus to establish The Heights Chabad in Houston, Texas.'"
+  },
+  "117657": {
+   "name": "Lubavitch of New Jersey Regional Hdqts.",
+   "city": "Morristown, NJ",
+   "shetach": "new-jersey",
+   "year": 1965,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://crownheights.info/chabad-news/895694/rabbi-moshe-herson-90-built-chabad-of-new-jer",
+   "note": "The regional office of Rabbi Moshe Herson. Chabad.org's obituary (CrownHeights.info, 23 Jan 2025): 'In 1960, while still a student in 770, Herson was recruited to join the staff of the Chabad yeshivah in Newark'; 'it wasn't until 1965 when Herson officially assumed the role as the Rebbe's emissary to New Jersey.' Anash.org (23 Jan 2025): 'After his chasunah, in 5725 (1965), the Rebbe appointed Rabbi Herson as his shliach to the state of New Jersey.' The Rabbinical College of America, at the same address, began in Newark in 1956 and moved to Morristown in 1971 (rca.edu); the AFL list of about 1984 has this office at 226 Sussex Ave."
   }
  }
 }

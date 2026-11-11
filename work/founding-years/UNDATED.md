@@ -1,6 +1,6 @@
 # Founding years: every listing still undated
 
-US + Canada, 65 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
+US + Canada, 63 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
 
 ## new-york-city: 10
 
@@ -96,7 +96,7 @@ US + Canada, 65 listings without a year (mikvahs apart: 19). Per shetach: first 
 ## ontario: 3
 
 **No year at the dot (1)**
-- Hebrew School, Richmond Hill — by 2004 · 118781
+- Hebrew School, Richmond Hill — 1997–2004 · 118781
 
 **On a dated dot (2)**
 - Bais Chaya Mushka, Thornhill — by 2004 · 118898
@@ -128,25 +128,11 @@ US + Canada, 65 listings without a year (mikvahs apart: 19). Per shetach: first 
 - Lubavitch of Northwest Philadelphia, Philadelphia (Yitzchok Gurevitz) — by 2004 · 155891
 - Va'adah L'dovrei Ivrit Chabad, Philadelphia (Zalman Lipsker) — 1964–2004 · 117718
 
-## eastern-massachusetts: 2
-
-**No year at the dot (2)**
-- Chabad of the South Shore, Plymouth (Levi Lezell) — by 2004 · 164086
-- Lubavitch Pre-School, Brookline (Esther Ciment) — by 2004 · 119717
-
 ## connecticut: 2
 
 **No year at the dot (2)**
 - Chabad of Ridgefield, Ridgefield (Sholom Deitsch) — by 2004 · 150725
 - Gan Israel Hebrew School, Weatogue (Blumie Samuels) — by 2004 · 119920
-
-## michigan: 1
-
-**On a dated dot (1)**
-- Ganeinu Day Camp, West Bloomfield (Chaya Devorah Bergstein) — by 2004 · 119944
-
-**Mikvahs, out of the counts (1)**
-- Lubavitch Mikvah, Oak Park (Moshe Zaklikofsky) — by 2004 · 119459
 
 ## upstate-new-york: 1
 
@@ -199,10 +185,20 @@ US + Canada, 65 listings without a year (mikvahs apart: 19). Per shetach: first 
 **No year at the dot (1)**
 - Camp Gan Israel, Louisville (Avrohom Litvin) — by 2004 · 119428
 
+## eastern-massachusetts: 1
+
+**No year at the dot (1)**
+- Lubavitch Pre-School, Brookline (Esther Ciment) — by 2004 · 119717
+
 ## oregon: 1
 
 **No year at the dot (1)**
 - Congregation Bais Menachem-Chabad, Portland (Moshe Wilhelm) — by 2004 · 119776
+
+## michigan: 0
+
+**Mikvahs, out of the counts (1)**
+- Lubavitch Mikvah, Oak Park (Moshe Zaklikofsky) — by 2004 · 119459
 
 ## central-massachusetts: 0
 

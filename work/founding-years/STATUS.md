@@ -19,7 +19,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | connecticut | 33 | 10 | 18 | 3 | 2 |  |  | 2 | 32 | 2 |
 | crown-heights | 12 | 10 | 2 |  |  |  |  | 0 | 5 | 0 |
 | delaware | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
-| eastern-massachusetts | 35 | 12 | 11 | 10 | 2 |  |  | 2 | 32 | 2 |
+| eastern-massachusetts | 35 | 13 | 12 | 9 | 1 |  |  | 1 | 32 | 1 |
 | eastern-new-york | 47 | 11 | 23 | 9 | 4 |  |  | 4 | 44 | 3 |
 | florida | 235 | 138 | 41 | 49 | 3 | 4 |  | 7 | 214 | 4 |
 | georgia | 27 | 19 | 5 | 3 |  |  |  | 0 | 24 | 0 |
@@ -36,7 +36,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | maritimes | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
 | maryland | 55 | 22 | 16 | 16 | 1 |  |  | 1 | 48 | 1 |
 | merrimack-valley | 4 | 3 |  | 1 |  |  |  | 0 | 4 | 0 |
-| michigan | 37 | 26 | 9 | 1 | 1 |  |  | 1 | 33 | 0 |
+| michigan | 37 | 26 | 10 | 1 |  |  |  | 0 | 33 | 0 |
 | monsey | 9 | 6 | 3 |  |  |  |  | 0 | 9 | 0 |
 | montana | 5 | 4 | 1 |  |  |  |  | 0 | 5 | 0 |
 | nebraska | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | western-pennsylvania | 26 | 10 | 10 | 3 | 3 |  |  | 3 | 23 | 3 |
 | wisconsin | 22 | 10 | 6 | 6 |  |  |  | 0 | 19 | 0 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
-| **all** | 1902 | 1016 | 490 | 331 | 59 | 4 | 2 | 65 | 1721 | 35 |
+| **all** | 1902 | 1017 | 492 | 330 | 57 | 4 | 2 | 63 | 1721 | 34 |

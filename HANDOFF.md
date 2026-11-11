@@ -189,6 +189,22 @@ thirteen no better recent photo has been found yet (the list is there, with what
   - Where to look: the Jewish Floridian (UF Digital Collections, free) for the Florida ones; Florida's nonprofit
     registry (Sunbiz, behind a bot check, so Firecrawl stealth); California's business registry; local Jewish papers.
   - Replace each placeholder with a sourced end and drop its flag.
+- **▶ Founding years: CONTINUE HERE (Nov 11, late). 65 listings (35 dots) of 1,902 still have no year**, all from
+  chabad.org's first directory (July 2004). Owner (Nov 11): "try very hard to date the remaining ones. Think of all
+  possible ways to target each one individually, especially non subsidiaries like primaries"; he wants "a proper
+  year ... or an actual proper range", from real sources, and more dates, not fewer ("As long as you sourced it
+  properly, so later on I can make a different decision"). Mikvahs stay out for now.
+  **Read `work/founding-years/last-67.md` first.** In order:
+  1. Read the three Firecrawl research jobs that were still running (New York, Florida, Pennsylvania; ids in that
+     file; `firecrawl_agent_status`; results expire about Nov 12-13). Check each quote on its page, then enter.
+  2. Check and enter the leads listed there (Canton MA 2002, South Shore Plymouth 2015, Ganeinu Day Camp 1988,
+     Richmond Hill 1997, The Living Legacy about 2003, the Merrick camp's Suffolk years, three old addresses).
+  3. Go one by one through the rest with the archives not yet tried (list in that file) and Wayback copies
+     through Firecrawl (`web.archive.org/web/<ts>id_/<url>`; load the Firecrawl tools with ToolSearch "+firecrawl").
+  4. Ask the owner whether chabad.org's old-directory number (`mosad-id`, explained in that file) may give a LOW
+     year for the roughly 20 entries made in 2001-2004, as the listing year does for later ones. Not asked yet.
+  Lists: `work/founding-years/UNDATED.md`; batches so far this round `sweep-01..04`, `last-01`. Push to
+  `claude/bold-albattani-aqfnj9` (owner's OK given Nov 11).
 - **Founding years, two sessions at once (owner, Nov 6, latest: "Put smth in handoff so I can get another session to
   work on a diff part of country").** Who has what (change only your own line):
   - *The West Coast window:* the hard round on California + Nevada, the 35 small shetachim and the 9 dots in no

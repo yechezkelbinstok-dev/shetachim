@@ -1,10 +1,10 @@
 # Founding years: every listing still undated
 
-US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
+US + Canada, 368 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
 
-## new-york-city: 83
+## new-york-city: 75
 
-**No year at the dot (65)**
+**No year at the dot (57)**
 - Bais Menachem Mendel, Brooklyn — by 2011 · 1441397
 - Belle Harbor Chai Center, Rockaway Park (Levi Osdoba) — by 2006 · 428106
 - Brownstone Gan Katan Preschool, Brooklyn — by 2014 · 2573862
@@ -13,12 +13,8 @@ US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first
 - Chabad Colleges Downtown Brooklyn, Brooklyn (Eliyahu Raskin) — by 2016 · 3211263
 - Chabad Hebrew Schools of Nassau County, Merrick — by 2005 · 233897
 - Chabad House of Queens-Kew Gardens, Kew Gardens (Shmuel Tuvel) — by 2004 · 117974
-- Chabad Israel Center, Staten Island (Nachman Segal) — by 2004 · 216555
-- Chabad Jewish Center, Eastchester (Sruli Deitsch) — by 2011 · 1658534
 - Chabad Jewish Learning Center, Oyster Bay (Aaron Shain) — by 2006 · 362254
-- Chabad Jewish Student Center, Hempstead (Shmuel Lieberman) — by 2005 · 324583
 - Chabad Lubavitch of Boro Park, Brooklyn (Aron Ginsberg) — by 2004 · 118340
-- Chabad Lubavitch of Far Rockaway, Far Rockaway (Pesach Schmerling) — by 2004 · 118633
 - Chabad Young Professionals UWS, New York (Yisrael Kugel) — by 2012 · 1984490
 - Chabad at Adelphi University, Garden City (Yaakov Lipskier) — by 2013 · 2354985
 - Chabad at Brooklyn College, Brooklyn (Moshe Raichik) — by 2007 · 477762
@@ -26,7 +22,6 @@ US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first
 - Chabad for Diplomats, New York (Yosef Yitzchok Noyman) — by 2025 · 6993775
 - Chabad of ACP, Armonk (Yosef Y. Butman) — by 2010 · 1398239
 - Chabad of Bay Ridge, Brooklyn (Tzvi Stroh) — by 2004 · 118501
-- Chabad of Bensonhurst, Brooklyn (Avrohom Hertz) — by 2004 · 118391
 - Chabad of Briarwood, Briarwood (Dovi Steinmetz, Chani Steinmetz) — by 2009 · 887422
 - Chabad of Brookville, Brookville (Mendy Heber) — by 2004 · 118551
 - Chabad of Ditmas Park, Brooklyn (Yehuda Levin) — by 2013 · 2121036
@@ -36,18 +31,15 @@ US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first
 - Chabad of Lake Success & University Gardens, Great Neck (Dovid Ezagui) — by 2006 · 393813
 - Chabad of Patchogue, Patchogue (Berel Sasonkin) — by 2004 · 118642
 - Chabad of Prospect Lefferts Gardens, Brooklyn (Yisroel  Botnick) — by 2025 · 6995078
-- Chabad of Ridgewood Congregation Beit Aharon, Ridgewood (Nachum Sarytchev) — by 2018 · 4058792
 - Chabad of Tribeca and SoHo, New York (Zalman Paris) — by 2008 · 734171
 - Chabad of Washington Heights, New York (Yakov D. Kirschenbaum) — by 2005 · 223137
 - Chabad of White Plains, White Plains — by 2008 · 636554
 - Chabad of Yorktown, Yorktown Heights (Yehuda Heber) — by 2010 · 1281832
 - Chabad of the Beaches, Long Beach (Eli Goodman) — by 2004 · 221245
 - Chabad of the Diamond District, New York (Joshua Metzger) — by 2016 · 3502291
-- Chabad of the Medical Community, Bronx (Shneur Zalman Teitelbaum) — by 2005 · 335328
 - Chabad of the South Shore, Staten Island (Levi Katzman) — by 2006 · 442309
 - Chabad of the West Side Annex, New York — by 2022 · 5321982
 - Chabad-Lubavitch of Midwood, Brooklyn (Yochanan Marosov) — by 2008 · 766703
-- Chabad-Lubavitch of Yonkers, Yonkers (Mendy Hurwitz) — by 2008 · 710262
 - Elmont Jewish Center, Elmont — by 2014 · 2498555
 - Friendship Circle of Brooklyn, Brooklyn (Berel Majesky) — by 2007 · 582828
 - Gan Chamesh Early Childhood Center, Woodmere (Chanie Wolowik) — by 2004 · 120268
@@ -91,7 +83,7 @@ US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first
 - JLI - F.R.E.E., Brooklyn — by 2023 · 5955538
 - Kiddie Gan Day Camp, Brooklyn (Moshe Hecht) — by 2010 · 1156720
 
-## florida: 38
+## florida: 37
 
 **No year at the dot (25)**
 - Beit Chabad, Sunrise (Nachman Segal) — nothing found yet · 440099
@@ -120,7 +112,7 @@ US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first
 - Jewish Video Library - Chabad Torah Center, Miami Beach (Yitzchok Teitelbaum) — nothing found yet · 170160
 - Skylake Chabad Shul, Miami (Rafi Rosenberg) — nothing found yet · 5407765
 
-**On a dated dot (13)**
+**On a dated dot (12)**
 - Beis Chana School for Girls, Miami (Avrohom Korf) — nothing found yet · 120125
 - Beit Chabad South Beach, Miami Beach (Chagai Meffi) — by 2018 · 4120344
 - CKids Hebrew School, Miami (Mendel Klein) — nothing found yet · 6540531
@@ -128,7 +120,6 @@ US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first
 - Chabad Hebrew School, Melbourne (Shulamit Konikov) — nothing found yet · 120130
 - Chabad Lubavitch Jewish Community Center of Lake City, Gainesville (Mendel Goldman) — nothing found yet · 6724874
 - Chabad Lubavitch of South Coconut Creek and Wynmoor, Coconut Creek — nothing found yet · 3372691
-- Chabad of Boca Raton, Boca Raton (Zalman Bukiet, Moishe Denburg) — by 1991 · 4630191
 - Chabad of North East Broward, Parkland (Shuey Biston) — nothing found yet · 297715
 - Chabad of Tamarac, Tamarac (Mendy Engel) — by 2006 · 449759
 - Congregation Magen David, North Miami Beach (Levi Yitzchak Biton) — nothing found yet · 4999951
@@ -140,7 +131,7 @@ US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first
 - Mikvah Cape Coral, Cape Coral — nothing found yet · 3511251
 - Mikvah, Sarasota (Chaim S. Steinmetz) — by 2004 · 119142
 
-## west-coast: 36
+## west-coast: 32
 
 **No year at the dot (16)**
 - Bais Nochum, Los Angeles (Eliezer Labkowsky) — by 2018 · 4182118
@@ -160,18 +151,15 @@ US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first
 - Mivtzoim, Los Angeles — by 2004 · 119728
 - The Shul of Beverly Hills, Los Angeles — by 2016 · 3021804
 
-**On a dated dot (20)**
-- Bais Betzalel Chabad of Rancho Bernardo-Poway, S. Diego (Yehudah Trestman) — 2020–2022 · 5617397
+**On a dated dot (16)**
 - Beverly Hills Hotel Shabbat Services, Beverly Hills (Yossi Cunin) — by 2016 · 3252627
 - CTeen S. Monica, S. Monica (Menachem Mendel Levitansky) — by 2015 · 3100552
-- CYP SF, San Francisco (Shmulik Friedman) — by 2026 · 6902804
 - Camp Gan Israel, Camarillo (Yosef Muchnik) — by 2007 · 520208
 - Camp Gan Israel, Las Vegas (Dina Harlig) — by 2005 · 286052
 - Chabad Without Borders, S. Diego (Mendel Polichenco) — by 2005 · 334154
 - Chabad Youth Los Angeles, Los Angeles (Zalman Goodman) — by 2023 · 6134441
 - Chabad at UC Davis, Davis (Mendel Greenberg) — by 2017 · 3657377
 - Chabad of Las Vegas Blvd, Las Vegas (Levi Harlig) — by 2016 · 3448653
-- Chabad of UCR, Riverside (Mendel Kleyman) — by 2006 · 356137
 - Hebrew School, West Hollywood (Sholom Rodal) — by 2007 · 577665
 - Kollel Tiferet Menachem - West Coast Rabbinical Seminary, Los Angeles (Dovid Schmukler) — by 2004 · 118776
 - Talmud Torah, Las Vegas (Dina Harlig) — by 2004 · 119961
@@ -180,29 +168,26 @@ US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first
 - The Garden School-Chabad Preschools, Los Angeles (Boruch S. Cunin) — by 2004 · 120085
 - The Ryzman Family Hebrew School, Tarzana (Yanky Kahn) — by 2004 · 119940
 - Westside Hebrew School, Los Angeles (Amitai Yemini) — by 2004 · 120081
-- YJP Las Vegas, Las Vegas (Motti Harlig) — by 2017 · 3758005
 
 **Mikvahs, out of the counts (2)**
 - Mikvah Israel, S. Diego (Leah Fradkin) — by 2004 · 120098
 - Mikvah, Reno (Chaya Sara Cunin) — by 2006 · 405427
 
-## ontario: 26
+## ontario: 23
 
-**No year at the dot (24)**
+**No year at the dot (22)**
 - Aleph Champ Hebrew School - Allenby, Toronto — by 2015 · 2991533
 - Aleph Champ Hebrew School - John Wanless, Toronto — by 2019 · 4480419
 - Aleph Champ Hebrew School - Ledbury Park, Toronto — 2006–2008 · 702897
 - Aleph Champ Hebrew School - Summit Heights, Toronto — by 2015 · 2991535
 - Aleph Champ Hebrew School - West Prep, Toronto — by 2014 · 2488604
 - Chabad Jewish Centre of Barrie, Barrie (Mendel Nakkar) — by 2014 · 2746858
-- Chabad Jewish Centre of Woodbridge, Woodbridge (Shalom Ber Bakshi) — by 2019 · 4585801
 - Chabad Lubavitch on the East Side, Toronto (Shmuel Grossbaum) — by 2017 · 3828697
 - Chabad Newmarket, Newmarket (Mendy Grossbaum) — by 2017 · 3585579
 - Gan Shalom Day Camp, Toronto (Chana S. Gansburg) — 2006–2013 · 2104854
 - Hebrew School, Richmond Hill — by 2004 · 118781
 - JRCC @ Rockford, North York (Yoseph Y. Zaltzman) — by 2007 · 559417
 - JRCC Bathurst & Lawrence, Toronto — by 2018 · 4031052
-- JRCC East Thornhill, Thornhill — by 2007 · 559427
 - JRCC Maple Hebrew School, Maple — by 2025 · 7083267
 - JRCC Preschool & Daycare, Toronto (Chiena Zaltzman) — by 2004 · 118938
 - JRCC West Thornhill, Thornhill (Levi Jacobson) — by 2007 · 559415
@@ -214,13 +199,12 @@ US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first
 - The Jewish Women's Circle, Toronto (Chana S. Gansburg) — 2006–2008 · 735370
 - Yeshivas Lubavitch Toronto, Toronto (Akiva Wagner) — by 2014 · 2567221
 
-**On a dated dot (2)**
+**On a dated dot (1)**
 - Bais Chaya Mushka, Thornhill — by 2004 · 118898
-- Chabad at Western, London (Rabbi Spencer) — by 2004 · 119816
 
-## quebec: 25
+## quebec: 21
 
-**No year at the dot (17)**
+**No year at the dot (15)**
 - BCM - Adult Education, Montreal (Michoel Dahan) — by 2008 · 604448
 - Centre Chabad, Montreal (Shalom Chriqui) — by 1995 · 117805
 - Chabad Chabanel & Maison Belfield, Montreal (Zushe Silberstein) — by 1995 · 117810
@@ -229,90 +213,52 @@ US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first
 - Chabad Montreal West, Montreal (Pesach Sperlin) — by 2008 · 624989
 - Chabad Russian Youth Center, Montreal (Moshe Reikhtman) — by 2008 · 675951
 - Chabad V.s.L. & Chabad Bois Franc, Ville S. Laurent (Schneur Silberstein) — by 1995 · 118494
-- Chabad Westminster, Montreal West (Mendy Marlow) — by 2016 · 3436159
 - Chabad des Etudiants, Montreal (Shlomo Banon) — by 2014 · 2463156
 - Chabad of Chomedey & Laval, Chomedey (David Raphael Banon) — 1987–2005 · 331810
 - Chabad of Kirkland, Kirkland (Shmuel Cohen) — by 2007 · 545438
-- Chabad of Nuns Island, Verdun (Levi Itkin) — by 2010 · 1341925
 - Chabad of Sherbrooke, Sherbrooke (Moishe Notik) — by 2011 · 1617611
 - Community Hebrew School, Ville S. Laurent (Devorah Leah Silberstein) — by 2011 · 1620511
 - Heichal Menachem, Montreal (Boruch Aron Hus) — by 2006 · 443207
 - Yagdil Torah, Montreal (Shmuel Shuchat) — by 2022 · 5688626
 
-**On a dated dot (8)**
+**On a dated dot (6)**
 - Beth Hamedrash Lubavitch, Montreal (Itzchok Hendel) — by 1990 · 119156
 - Chabad @ CEGEP, Montreal (Elchonon Kazen) — by 2010 · 1252165
-- Chabad Chai Center, Montreal (Yossi Kessler) — by 1995 · 117803
 - Chai Friendship Club, Montreal — by 2004 · 119147
 - Chayolei Tzivos Hashem, Montreal (Shmuel Vaisfiche) — by 2011 · 1709582
 - Hebrew Day School Tots, Cote St. Luc (Sara Kramer) — by 2011 · 1407880
-- Teenage Social Center, Montreal (Naftoli Perlstein) — by 2004 · 119148
 - Torah Fax, Montreal (Zalmen Marozov) — by 2004 · 119154
 
-## new-jersey: 22
+## new-jersey: 18
 
-**No year at the dot (16)**
+**No year at the dot (13)**
 - CTeen Of Fair Lawn, Fair Lawn (Levi Neubort) — after 2011 · 7403210
 - Chabad House Margate, Margate — 1984–2006 · 3633173
 - Chabad House of Vineland, Vineland (Yisroel Rapoport) — 1987–1990 · 117661
 - Chabad Torah Center, Morristown (Boruch Benjaminson) — not researched · 3293279
 - Chabad at Drew University, Madison (Shalom Lubin) — nothing found yet · 7425308
 - Chabad of Fishtown @ Northern Liberties, Philadelphia (Berel Paltiel) — by 2022 · 5574170
-- Chabad of Freehold, Freehold (Avraham Bernstein) — 1994–2004 · 118395
 - Chabad of Linden, Roselle park (Menachem Mendel Gurary) — by 2025 · 6998028
 - Chabad of Montville Township, Pine Brook (Yosef Spalter) — by 2004 · 118626
-- Chabad of SE Morris County, Florham Park (Shalom Lubin) — by 2004 · 118579
 - Chabad-Lubavitch of Morganville, Morganville (Levi Wolosow) — by 2009 · 924164
-- Friends of Lubavitch of Bergen County, Teaneck (Ephraim Simon) — by 1981 · 117660
 - Friendship Circle of Greater Mercer County, Princeton (Shmuel Dovid Wilhelm) — by 2010 · 1110855
 - Hebrew School, Marlboro (Shmuel Volovik) — by 2004 · 119068
 - Simha Maftsir Preschool, Wayne — after 2018 · 5653140
 - The Fair Lawn Gemach, Fair Lawn — nothing found yet · 1420054
 
-**On a dated dot (6)**
+**On a dated dot (5)**
 - Chabad Early Learning Center, Rockaway (Sarah Herson) — 1988–2004 · 118912
 - Congregation Levi Yitzchak, Morristown (Chaim Schapiro) — not researched · 119957
 - David Hoffman Hebrew School, Rockaway (Sarah Herson) — 1988–2004 · 120058
-- Friendship Circle, Paramus (Zeesy Grossbaum) — not researched · 359995
 - Lubavitch of New Jersey Regional Hdqts., Morristown (Moshe Herson) — not researched · 117657
 - The Living Legacy, Paramus (Moshe Grossbaum) — not researched · 150723
 
 **Mikvahs, out of the counts (1)**
 - Mikvah Bais Chana, Morristown — nothing found yet · 119959
 
-## eastern-new-york: 19
+## maryland: 17
 
-**No year at the dot (17)**
-- Bethlehem Chabad Hebrew School, Delmar (Zalman Simon) — by 2004 · 119465
-- Bethlehem Chabad, Delmar (Zalman Simon) — by 2010 · 1269036
-- Chabad Dutchess - Rhinebeck Jewish Center, Rhinebeck — by 2005 · 312343
-- Chabad Jewish Monticello, Monticello (Yosef Dovid Chanowitz) — by 2025 · 6983637
-- Chabad of Clifton Park, Clifton Park (Yossi Rubin) — by 2005 · 316626
-- Chabad of Eastern Orange County, New Windsor (Shmuel Serebryanski) — by 2016 · 3367025
-- Chabad of Oneonta - Rohr Jewish Student Center, Oneonta (Meir Rubashkin) — by 2011 · 1421374
-- Chabad of Plattsburgh, Plattsburgh (Dovid Gold) — by 2013 · 2313340
-- Chabad of the Catskills, Fallsburg (Yaakov Taubenfliegel) — by 2004 · 117700
-- Chabad-Lubavitch of Southern Rensselaer County, East Greenbush (Avraham Laber) — 1996–2007 · 596689
-- Hebrew School, Ellenville — by 2007 · 599872
-- Jewish Women's Circle, Kingston — by 2012 · 1922760
-- Shaloh Center 1, Dairyland — by 2004 · 120018
-- Shaloh Center 2, Napanoch — by 2004 · 119804
-- The Friendship Circle, Albany — by 2005 · 303883
-- Troy Chabad on Campus, Troy (Shlomo Morrison) — by 2022 · 5555239
-- University Heights Chabad, Albany (Mendy Mathless) — by 2010 · 1377561
-
-**On a dated dot (2)**
-- Camp Gan Israel, Albany (Devora Leah Mathless) — by 2024 · 6382479
-- Chabad-Lubavitch of Greene County, Kingston (Avrohom Boruch Itkin) — by 2008 · 628828
-
-**Mikvahs, out of the counts (2)**
-- Mikvah Ma'ayan Chaya, Poughkeepsie — by 2004 · 120141
-- Mikvah, Monticello (Rochel Chanowitz) — by 2004 · 119795
-
-## maryland: 18
-
-**No year at the dot (14)**
-- ARIEL Chabad, Pikesville (Velvel Belinsky) — by 2004 · 118591
+**No year at the dot (13)**
 - CTeen of Baltimore, Baltimore — by 2026 · 7402508
 - Chabad Israeli Center of Baltimore, Baltimore (Shmuel Gurary) — by 2010 · 1379569
 - Chabad On Call - Greater Baltimore, Baltimore (Zalman Spitezki) — by 2016 · 3393989
@@ -333,46 +279,51 @@ US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first
 - Chabad of Aspen Hill, Rockville (Levi Raskin) — by 2015 · 2851386
 - Friendship Circle of Baltimore, Baltimore (Eli Solomon) — by 2010 · 1235745
 
-## eastern-massachusetts: 16
+## eastern-new-york: 17
 
 **No year at the dot (14)**
+- Chabad Jewish Monticello, Monticello (Yosef Dovid Chanowitz) — by 2025 · 6983637
+- Chabad of Clifton Park, Clifton Park (Yossi Rubin) — by 2005 · 316626
+- Chabad of Eastern Orange County, New Windsor (Shmuel Serebryanski) — by 2016 · 3367025
+- Chabad of Oneonta - Rohr Jewish Student Center, Oneonta (Meir Rubashkin) — by 2011 · 1421374
+- Chabad of Plattsburgh, Plattsburgh (Dovid Gold) — by 2013 · 2313340
+- Chabad of the Catskills, Fallsburg (Yaakov Taubenfliegel) — by 2004 · 117700
+- Chabad-Lubavitch of Southern Rensselaer County, East Greenbush (Avraham Laber) — 1996–2007 · 596689
+- Hebrew School, Ellenville — by 2007 · 599872
+- Jewish Women's Circle, Kingston — by 2012 · 1922760
+- Shaloh Center 1, Dairyland — by 2004 · 120018
+- Shaloh Center 2, Napanoch — by 2004 · 119804
+- The Friendship Circle, Albany — by 2005 · 303883
+- Troy Chabad on Campus, Troy (Shlomo Morrison) — by 2022 · 5555239
+- University Heights Chabad, Albany (Mendy Mathless) — by 2010 · 1377561
+
+**On a dated dot (3)**
+- Bethlehem Chabad Hebrew School, Delmar (Zalman Simon) — by 2004 · 119465
+- Camp Gan Israel, Albany (Devora Leah Mathless) — by 2024 · 6382479
+- Chabad-Lubavitch of Greene County, Kingston (Avrohom Boruch Itkin) — by 2008 · 628828
+
+**Mikvahs, out of the counts (2)**
+- Mikvah Ma'ayan Chaya, Poughkeepsie — by 2004 · 120141
+- Mikvah, Monticello (Rochel Chanowitz) — by 2004 · 119795
+
+## eastern-massachusetts: 13
+
+**No year at the dot (12)**
 - Cambridge Jewish Center of the Arts, Cambridge — by 2014 · 2786528
 - Cambridge Preschool of the Arts - Somerville, Somerville (Elkie Zarchi) — by 2024 · 6277702
 - Center For Jewish Life of Arlington - Belmont, Arlington (Avi Bukiet) — by 2014 · 2502272
-- Chabad Center of Lexington, Lexington (Alter Bukiet) — by 2004 · 117627
 - Chabad Israeli Center, Brookline (Shayke Lerner) — by 2004 · 118512
 - Chabad at MIT, Cambridge (Hirschy Zarchi) — by 2013 · 2406848
 - Chabad of Canton, Canton (Mendy Horowitz) — by 2020 · 4881009
 - Chabad of the South Shore, Plymouth (Levi Lezell) — by 2004 · 164086
 - Chabad-Lubavitch of the South Coast, North Dartmouth (Aaron Isaac Benjaminson) — by 2007 · 531506
-- Friendship Circle of Sharon, Sharon (Naftoli Minkowitz) — by 2009 · 833485
 - International Jewish Student Center of Boston, Cambridge (Hirschy Zarchi) — by 2013 · 2407885
 - Lubavitch Pre-School, Brookline (Esther Ciment) — by 2004 · 119717
 - YJP of Cambridge-Somerville, Cambridge — by 2013 · 2398513
 - YJP of the South Shore, Quincy (Levi Lezell) — by 2025 · 6929032
 
-**On a dated dot (2)**
-- Chabad of Eastern Massachusetts, Boston (Chaim Prus) — by 2011 · 1591836
+**On a dated dot (1)**
 - YJP Boston, Brookline (Mayshe Schwartz) — by 2026 · 7396864
-
-## illinois: 13
-
-**No year at the dot (11)**
-- Chabad Jewish Center of South Loop, Chicago (Mordechai Gershon) — by 2018 · 4127095
-- Chabad Jewish Community Center, Rockford (Chesky Rothman) — by 2010 · 1296807
-- Chabad Jewish Learning Society, Chicago — by 2007 · 572003
-- Chabad Lake Zurich, Lake Zurich (Shmuel Kesselman) — by 2023 · 5992277
-- Chabad of Lincolnwood, Lincolnwood (Moshe Wolf) — by 2024 · 6495490
-- Chabad of Riverwoods, Riverwoods (Sholom D. Notik) — by 2014 · 2736692
-- Chabad of Uptown, Chicago (Pessy Notik) — by 2016 · 3425677
-- F.R.E.E., Riverwoods (Shmuel Notik) — by 2005 · 280522
-- Lubavitch Chabad of IL - Government Affairs, Springfield (Avraham Kagan) — by 2017 · 3708223
-- Rohr Chabad Center of Glenview, Glenview (Yishaya Benjaminson) — by 2004 · 118628
-- Shalom Hebrew School, Riverwoods (Shmuel Notik) — by 2004 · 119646
-
-**On a dated dot (2)**
-- Lubavitch Chabad of Northbrook, Northbrook (Meir Shimon Moscowitz) — by 2004 · 118576
-- Skokie Cteen, Skokie — by 2011 · 1467290
 
 ## pennsylvania: 12
 
@@ -392,33 +343,28 @@ US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first
 **On a dated dot (1)**
 - Chabad Jewish Learning Center, Harrisburg (Mendy Pewzner) — nothing found yet · 2052403
 
-## texas: 11
+## illinois: 12
 
-**No year at the dot (5)**
-- Chabad Israeli Center, S. Antonio (Tal Shaul) — by 2017 · 3872731
-- Chabad Lubavitch of Montrose, Houston (Peretz Lazaroff) — by 2016 · 3394316
-- Chabad of Preston Hollow, Dallas (Levi Dubrawsky) — nothing found yet · 4106454
-- Hillel Academy, Haltom City (Dov Mandel) — by 2013 · 2259836
-- Maayan Chai, Dallas (Dan Lewin) — by 2010 · 5215392
+**No year at the dot (11)**
+- Chabad Jewish Center of South Loop, Chicago (Mordechai Gershon) — by 2018 · 4127095
+- Chabad Jewish Community Center, Rockford (Chesky Rothman) — by 2010 · 1296807
+- Chabad Jewish Learning Society, Chicago — by 2007 · 572003
+- Chabad Lake Zurich, Lake Zurich (Shmuel Kesselman) — by 2023 · 5992277
+- Chabad of Lincolnwood, Lincolnwood (Moshe Wolf) — by 2024 · 6495490
+- Chabad of Riverwoods, Riverwoods (Sholom D. Notik) — by 2014 · 2736692
+- Chabad of Uptown, Chicago (Pessy Notik) — by 2016 · 3425677
+- F.R.E.E., Riverwoods (Shmuel Notik) — by 2005 · 280522
+- Lubavitch Chabad of IL - Government Affairs, Springfield (Avraham Kagan) — by 2017 · 3708223
+- Rohr Chabad Center of Glenview, Glenview (Yishaya Benjaminson) — by 2004 · 118628
+- Shalom Hebrew School, Riverwoods (Shmuel Notik) — by 2004 · 119646
 
-**On a dated dot (6)**
-- Chabad Kesher Foundation, Dallas (Asher Goldschmidt) — not researched · 118176
-- Chabad Youth, El Paso (Levi Greenberg) — not researched · 1558736
-- Chabad of UNT, Dallas (Mendel Rubashkin) — not researched · 6504050
-- Chabad on Campus - DFW, Dallas (Levi Dubrawsky) — not researched · 1819160
-- Friendship Garden, Houston (Dovid Goldstein) — not researched · 4952330
-- The Heights Chabad, Houston — not researched · 5554915
+**On a dated dot (1)**
+- Skokie Cteen, Skokie — by 2011 · 1467290
 
-**Mikvahs, out of the counts (2)**
-- Mikvah Chaya Mushka, El Paso (Chana Greenberg) — nothing found yet · 119660
-- Mikvah Tahara, Austin (Rochel Levertov) — not researched · 119659
+## washington: 9
 
-## washington: 10
-
-**No year at the dot (10)**
+**No year at the dot (8)**
 - Chabad Jewish Center of North Seattle, Seattle (Shneur Marasow) — by 2021 · 5103013
-- Chabad Jewish Russian Center, Shoreline (Yechezkel Rapoport) — by 2004 · 119845
-- Chabad On the Go, Shoreline (Yechezkel Rapoport) — by 2012 · 1878576
 - Chabad of Bainbridge Island, Bainbridge Island (Mendy Goldshmid) — by 2018 · 4161193
 - Chabad of Downtown Seattle & Chabad Young Professionals Seattle, Seattle (Shmuel Levitin) — by 2015 · 3104923
 - Chai Center of Greater Seattle, Seattle (Elazar Bogomilsky) — by 2004 · 118399
@@ -427,23 +373,29 @@ US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first
 - Smile on Seniors, Issaquah (Shalom Dovber Farkash) — by 2018 · 4237766
 - The Friendship Circle of Washington, Mercer Island (Elazar Bogomilsky) — by 2004 · 159410
 
+**On a dated dot (1)**
+- Chabad On the Go, Shoreline (Yechezkel Rapoport) — by 2012 · 1878576
+
 **Mikvahs, out of the counts (1)**
 - Riki's Mikvah, Issaquah (Nechama Farkash) — by 2018 · 4237756
 
-## central-massachusetts: 6
+## texas: 8
 
 **No year at the dot (4)**
-- Acton-Concord Chabad, Acton (Yosef Polter) — by 2004 · 118351
-- Bais Chana Girls High School, Worcester (Hershel Fogelman) — 1947–2004 · 119447
-- Chabad House Jewish Center, Milford (Mendy Kievman) — by 2004 · 118413
-- Worcester Chabad on Campus, Worcester (Chani Fogelman) — by 2012 · 1906674
+- Chabad Israeli Center, S. Antonio (Tal Shaul) — by 2017 · 3872731
+- Chabad Lubavitch of Montrose, Houston (Peretz Lazaroff) — by 2016 · 3394316
+- Chabad of Preston Hollow, Dallas (Levi Dubrawsky) — nothing found yet · 4106454
+- Hillel Academy, Haltom City (Dov Mandel) — by 2013 · 2259836
 
-**On a dated dot (2)**
-- Chabad of the Boroughs, Worcester (Mendel Fogelman) — by 2022 · 5694945
-- Jewish Women's Circle, Worcester — by 2014 · 2659971
+**On a dated dot (4)**
+- Chabad Kesher Foundation, Dallas (Asher Goldschmidt) — not researched · 118176
+- Chabad Youth, El Paso (Levi Greenberg) — not researched · 1558736
+- Chabad of UNT, Dallas (Mendel Rubashkin) — not researched · 6504050
+- Friendship Garden, Houston (Dovid Goldstein) — not researched · 4952330
 
-**Mikvahs, out of the counts (1)**
-- Mikvah Lubavitch, Worcester (Rochel Fogelman) — by 2004 · 119446
+**Mikvahs, out of the counts (2)**
+- Mikvah Chaya Mushka, El Paso (Chana Greenberg) — nothing found yet · 119660
+- Mikvah Tahara, Austin (Rochel Levertov) — not researched · 119659
 
 ## connecticut: 6
 
@@ -455,28 +407,19 @@ US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first
 - Chabad of Waterbury, Waterbury (Joseph Eisenbach) — by 2004 · 150718
 - Gan Israel Hebrew School, Weatogue (Blumie Samuels) — by 2004 · 119920
 
-## oregon: 5
+## central-massachusetts: 5
 
 **No year at the dot (3)**
-- Chabad of Eugene, Eugene (Berel Gurevitch) — by 2004 · 118557
-- Congregation Bais Menachem-Chabad, Portland (Moshe Wilhelm) — by 2004 · 119776
-- Jewish Oasis - Chabad, Portland (Chayim Eliyohu Mishulovin) — by 2010 · 1351834
+- Acton-Concord Chabad, Acton (Yosef Polter) — by 2004 · 118351
+- Bais Chana Girls High School, Worcester (Hershel Fogelman) — 1947–2004 · 119447
+- Worcester Chabad on Campus, Worcester (Chani Fogelman) — by 2012 · 1906674
 
 **On a dated dot (2)**
-- Chabad SW Portland, Portland (Motti Wilhelm) — by 2017 · 3779201
-- Chabad of Northeast Portland, Portland (Chaim Wilhelm) — by 2011 · 1676554
-
-## colorado: 5
-
-**No year at the dot (5)**
-- Chabad @ Auraria Campus, Denver (Yisrael Moshe Ort) — by 2006 · 582782
-- Chabad Hebrew School, Greenwood Village (Hindy Mintz) — by 2007 · 482760
-- Ohr Avner Community Center of Colorado, Aurora (David Araiev) — by 2006 · 438221
-- The Garden Preschool & ELC, Greenwood Village (Hindy Mintz) — by 2011 · 1610180
-- WCRJ Community Center, Denver (Aharon Sirota) — by 2004 · 118888
+- Chabad of the Boroughs, Worcester (Mendel Fogelman) — by 2022 · 5694945
+- Jewish Women's Circle, Worcester — by 2014 · 2659971
 
 **Mikvahs, out of the counts (1)**
-- Mikvah Mei Menachem, Colorado Springs (Zelda Liberow) — by 2009 · 890052
+- Mikvah Lubavitch, Worcester (Rochel Fogelman) — by 2004 · 119446
 
 ## wisconsin: 5
 
@@ -504,15 +447,15 @@ US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first
 **Mikvahs, out of the counts (1)**
 - Mikvah Lubavitch, Pittsburgh — by 2004 · 120027
 
-## georgia: 4
+## oregon: 4
 
-**No year at the dot (2)**
-- Chabad Buckhead & Brookhaven, Atlanta (Yisrael New) — by 2020 · 4858926
-- Chabad of Savannah, Savannah (Zalman Refson) — by 2017 · 3698295
+**No year at the dot (3)**
+- Chabad of Eugene, Eugene (Berel Gurevitch) — by 2004 · 118557
+- Congregation Bais Menachem-Chabad, Portland (Moshe Wilhelm) — by 2004 · 119776
+- Jewish Oasis - Chabad, Portland (Chayim Eliyohu Mishulovin) — by 2010 · 1351834
 
-**On a dated dot (2)**
-- Chabad of Smyrna, Marietta (Avrohom Zaltzman) — by 2019 · 4752247
-- The Torah Center ATL, Atlanta (Ari Sollish) — by 2023 · 5867802
+**On a dated dot (1)**
+- Chabad SW Portland, Portland (Motti Wilhelm) — by 2017 · 3779201
 
 ## northeast-ohio: 4
 
@@ -534,18 +477,16 @@ US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first
 **On a dated dot (1)**
 - Mazal Tov Gifts - Book Store, Scottsdale (Yossi Levertov) — by 2004 · 119846
 
-## new-haven: 4
+## colorado: 4
 
-**No year at the dot (3)**
-- Chabad of Westville, New Haven (Chanoch Wineberg) — by 2006 · 345699
-- Chabad of the Shoreline, Guilford (Yossi Yaffe) — by 2004 · 118331
-- Young Anash, New Haven (Mendel Prescott) — by 2024 · 6567613
-
-**On a dated dot (1)**
-- Colel Tiferes Zekainim, New Haven (Berel Levitin) — by 2015 · 2856583
+**No year at the dot (4)**
+- Chabad Hebrew School, Greenwood Village (Hindy Mintz) — by 2007 · 482760
+- Ohr Avner Community Center of Colorado, Aurora (David Araiev) — by 2006 · 438221
+- The Garden Preschool & ELC, Greenwood Village (Hindy Mintz) — by 2011 · 1610180
+- WCRJ Community Center, Denver (Aharon Sirota) — by 2004 · 118888
 
 **Mikvahs, out of the counts (1)**
-- Lubavitch Mikvah, New Haven — by 2004 · 120111
+- Mikvah Mei Menachem, Colorado Springs (Zelda Liberow) — by 2009 · 890052
 
 ## upper-midwest: 4
 
@@ -567,14 +508,17 @@ US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first
 **On a dated dot (1)**
 - Torah Temimah School, Buffalo (Shmaryahu Charitonow) — by 1976 · 119464
 
-## ottawa: 3
+## new-haven: 3
 
 **No year at the dot (2)**
-- Chabad of Kanata, Ottawa (Michoel Gershzon) — 2005–2007 · 559424
-- Irving Aaron Kitchen of Kindness, Ottawa (Bassy Mendelsohn) — by 2024 · 7475377
+- Chabad of Westville, New Haven (Chanoch Wineberg) — by 2006 · 345699
+- Young Anash, New Haven (Mendel Prescott) — by 2024 · 6567613
 
 **On a dated dot (1)**
-- Congregation Lubavitch, Ottawa (Yehoshua Botnick) — by 2004 · 118409
+- Colel Tiferes Zekainim, New Haven (Berel Levitin) — by 2015 · 2856583
+
+**Mikvahs, out of the counts (1)**
+- Lubavitch Mikvah, New Haven — by 2004 · 120111
 
 ## virginia: 3
 
@@ -582,6 +526,15 @@ US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first
 - Chabad Lubavitch of Springfield - Burke, West Springfield (Shloime Adler) — by 2020 · 4646307
 - Chabad of The Shenandoah Valley, Harrisonburg (Mordy Leimdorfer) — by 2012 · 2036760
 - Jewish Life at VCU, Richmond (Menachem Mendel Lessoff) — by 2015 · 2922904
+
+## georgia: 3
+
+**No year at the dot (2)**
+- Chabad Buckhead & Brookhaven, Atlanta (Yisrael New) — by 2020 · 4858926
+- Chabad of Savannah, Savannah (Zalman Refson) — by 2017 · 3698295
+
+**On a dated dot (1)**
+- The Torah Center ATL, Atlanta (Ari Sollish) — by 2023 · 5867802
 
 ## michigan: 2
 
@@ -593,6 +546,14 @@ US + Canada, 409 listings without a year (mikvahs apart: 19). Per shetach: first
 
 **Mikvahs, out of the counts (1)**
 - Lubavitch Mikvah, Oak Park (Moshe Zaklikofsky) — by 2004 · 119459
+
+## ottawa: 2
+
+**No year at the dot (1)**
+- Chabad of Kanata, Ottawa (Michoel Gershzon) — 2005–2007 · 559424
+
+**On a dated dot (1)**
+- Congregation Lubavitch, Ottawa (Yehoshua Botnick) — by 2004 · 118409
 
 ## the-carolinas: 2
 

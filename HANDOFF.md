@@ -428,6 +428,22 @@ thirteen no better recent photo has been found yet (the list is there, with what
        address, free; mostly later than the listings). Scripts used: `work/founding-years/tools/`. BizProfile's search
        sits in a "paywall-wrapper": not used. Wayback (web.archive.org) and nyshistoricnewspapers.org don't answer from
        the container. Firecrawl used this round: about 400 credits.
+    4e. **Nov 11: the listing-year fallback (owner's rule).** Owner: "get going on dating the remaining. Prioritize
+       non-subsidiaries ... CTeen [etc.] will be after all main centers are done"; asked whether a center with no source
+       may take the year its chabad.org listing went up: "first find out based on ones we know their founding date and
+       their listing date if it's close enough but yeah I guess they can be low but obviously it must be noted". Checked:
+       of the 685 centers with a high-confidence year and a listing made after July 22 2004 (chabad.org's first day,
+       when the old directory was imported), 71% were listed the same year they began, 79% within a year, 82% within
+       two, 10% three or more years later, 8% before (announced early); listings made in late 2004 only 49% within a
+       year. So: a listing made from 2005 on gives a LOW year, `how: directory`, source the chabad.org listing, the note
+       saying so (batches `main-01`, 109 main centers, and `sub-01`, 70 subsidiaries on undated dots). Listings made in
+       2004 stay open and need real sources (Firecrawl's research agent was asked for founding years or the earliest
+       dated mention, Nov 11). A real source found later replaces the fallback. Listing dates for every US/Canada
+       listing: `api/content/<id>/metadata?tid=7152` (1,967 fetched in under a minute with 12 parallel curls).
+       **Chabad Manali is a mushroom** (owner, Nov 11), Kupchik family network; Goa-Anjuna is the other India house
+       left official because Tzach's directory lists it (ask the owner). A fresh container's `npm run build`
+       re-downloads the world borders and re-encodes every border file (geo.json, tiles): for a dots-only change commit
+       only web/data/centers.geojson and cities.json (what changed for Manali), not the border files.
     5. In every update to the owner, say how much is left. `python3 work/founding-years/progress.py <your shetachim>`
        prints it ("LEFT: 48 of 48 dots (100.0%), ..."). Owner (Nov 6): "keep telling me how much left (amount and %)
        so I can steadily see progress".

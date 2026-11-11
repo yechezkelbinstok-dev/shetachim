@@ -193,7 +193,7 @@ US + Canada, 63 listings without a year (mikvahs apart: 19). Per shetach: first 
 ## oregon: 1
 
 **No year at the dot (1)**
-- Congregation Bais Menachem-Chabad, Portland (Moshe Wilhelm) — by 2004 · 119776
+- Congregation Bais Menachem-Chabad, Portland (Moshe Wilhelm) — 1984–2004 · 119776
 
 ## michigan: 0
 

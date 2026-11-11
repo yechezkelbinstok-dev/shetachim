@@ -189,21 +189,25 @@ thirteen no better recent photo has been found yet (the list is there, with what
   - Where to look: the Jewish Floridian (UF Digital Collections, free) for the Florida ones; Florida's nonprofit
     registry (Sunbiz, behind a bot check, so Firecrawl stealth); California's business registry; local Jewish papers.
   - Replace each placeholder with a sourced end and drop its flag.
-- **▶ Founding years: CONTINUE HERE (Nov 11, late). 65 listings (35 dots) of 1,902 still have no year**, all from
+- **▶ Founding years: CONTINUE HERE (Nov 12). 63 listings (34 dots) of 1,902 still have no year**, all from
   chabad.org's first directory (July 2004). Owner (Nov 11): "try very hard to date the remaining ones. Think of all
   possible ways to target each one individually, especially non subsidiaries like primaries"; he wants "a proper
   year ... or an actual proper range", from real sources, and more dates, not fewer ("As long as you sourced it
   properly, so later on I can make a different decision"). Mikvahs stay out for now.
   **Read `work/founding-years/last-67.md` first.** In order:
-  1. Read the three Firecrawl research jobs that were still running (New York, Florida, Pennsylvania; ids in that
-     file; `firecrawl_agent_status`; results expire about Nov 12-13). Check each quote on its page, then enter.
-  2. Check and enter the leads listed there (Canton MA 2002, South Shore Plymouth 2015, Ganeinu Day Camp 1988,
-     Richmond Hill 1997, The Living Legacy about 2003, the Merrick camp's Suffolk years, three old addresses).
+  1. The three Firecrawl research jobs (New York, Florida, Pennsylvania; ids in that file) were run on another
+     Firecrawl account: `firecrawl_agent_status` answers 404 from the backup account. A session started with that
+     account connected can read them until about Nov 12-13; otherwise they are lost (rerun if worth it).
+  2. Done Nov 12 (`last-02`, `last-03`): Plymouth 2015 (the 2004 listing was an earlier South Shore center, IRS
+     Weymouth 2001, in the note), Ganeinu Day Camp 1988, Canton 2020 -> 2002, Richmond Hill's Hebrew school
+     1997-2004, Bais Menachem Portland 1984-2004, old addresses for Ridgefield, Hollywood and NW Philadelphia.
+     The Living Legacy lead was wrong (the 2010 sentence is about Friendship Circle). Merrick camp still open.
   3. Go one by one through the rest with the archives not yet tried (list in that file) and Wayback copies
      through Firecrawl (`web.archive.org/web/<ts>id_/<url>`; load the Firecrawl tools with ToolSearch "+firecrawl").
-  4. Ask the owner whether chabad.org's old-directory number (`mosad-id`, explained in that file) may give a LOW
-     year for the roughly 20 entries made in 2001-2004, as the listing year does for later ones. Not asked yet.
-  Lists: `work/founding-years/UNDATED.md`; batches so far this round `sweep-01..04`, `last-01`. Push to
+  4. Asked the owner (Nov 12) whether chabad.org's old-directory number (`mosad-id`) may give a LOW year for the
+     open entries made in 2001-2004. Checked on the 95 high years in that number band: same year 46%, within a
+     year 84%, founded 4+ years earlier 13% (weaker than the listing year's 71% same year).
+  Lists: `work/founding-years/UNDATED.md`; batches so far this round `sweep-01..04`, `last-01..03`. Push to
   `claude/bold-albattani-aqfnj9` (owner's OK given Nov 11).
 - **Founding years, two sessions at once (owner, Nov 6, latest: "Put smth in handoff so I can get another session to
   work on a diff part of country").** Who has what (change only your own line):

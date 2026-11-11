@@ -8096,7 +8096,7 @@
    "by": 1989,
    "how": "range",
    "source": "https://www.southfloridasuntimes.com/news-2/remembering-rabbi-dovid-bryn:-a-south-florida-legend",
-   "note": "Founded 'in the late 1980s' by Rabbi Dovid Bryn (South Florida Sun Times; the Jewish Press: 'the local Chabad center in the 1980's'); after his death in 2002 Rabbi Moishe and Layah Kievman have led it (Chabad.org, Jan 2022). Exact year not found yet. Sunbiz: CHABAD CHAYIL, INC. (N05000000764), filed 01/24/2005, president Moishe Kievman (record page opened Nov 10: work/founding-years/sunbiz/entities/N05000000764.json): the Kievmans' own later corporation, not the late-1980s start.",
+   "note": "Founded 'in the late 1980s' by Rabbi Dovid Bryn (South Florida Sun Times; the Jewish Press: 'the local Chabad center in the 1980's'); after his death in 2002 Rabbi Moishe and Layah Kievman have led it (Chabad.org, Jan 2022). Exact year not found yet. Sunbiz: CHABAD CHAYIL, INC. (N05000000764), filed 01/24/2005, president Moishe Kievman (record page opened Nov 10: work/founding-years/sunbiz/entities/N05000000764.json): the Kievmans' own later corporation, not the late-1980s start. Anash (Dec 2021, 'Chabad Highland Lakes breaks ground for $12 million center'): 'Chabad Chayil was founded as the local Chabad Center in the 1980's by the late Rabbi Dovid Bryn who passed away in 2002' (no year).",
    "confidence": "range",
    "earlier": [
     {
@@ -13890,7 +13890,7 @@
    "after": 1964,
    "by": 2004,
    "source": "https://www.lubavitch.com/chabad-representative-to-arad-dies/",
-   "note": "Rabbi Zalman Lipsker's Israeli center (110 S 8th St). Lubavitch.com (23 Sept 2009) calls him 'Director of the Va'adah L'dovrei Ivrit Chabad – Israeli center in Philadelphia', so it existed by 2009. Anash (28 Jan 2025): Rabbi Shneur Zalman and Feiga Lipsker's shlichus in Philadelphia 'began in 1964', at first as teachers in the school, joining Rabbi Avraham Shemtov. When the Israeli center itself began is not found. Pennsylvania Department of State record (data.pa.gov, 'Registered Businesses in PA Current by County'): 'Chabad Israeli Center, Inc and H'vaada L'dovrei Ivrit Chabad' (filing number 0004016111), created Mar 9 2011. So the filing is after the listing and is not taken as the year. Its chabad.org listing went up 2004-07-22, so it existed by 2004 (was 'by 2009')."
+   "note": "Rabbi Zalman Lipsker's Israeli center (110 S 8th St). Lubavitch.com (23 Sept 2009) calls him 'Director of the Va'adah L'dovrei Ivrit Chabad – Israeli center in Philadelphia', so it existed by 2009. Anash (28 Jan 2025): Rabbi Shneur Zalman and Feiga Lipsker's shlichus in Philadelphia 'began in 1964', at first as teachers in the school, joining Rabbi Avraham Shemtov. When the Israeli center itself began is not found. Pennsylvania Department of State record (data.pa.gov, 'Registered Businesses in PA Current by County'): 'Chabad Israeli Center, Inc and H'vaada L'dovrei Ivrit Chabad' (filing number 0004016111), created Mar 9 2011. So the filing is after the listing and is not taken as the year. Its chabad.org listing went up 2004-07-22, so it existed by 2004 (was 'by 2009'). COLlive (27 Jan 2025, new book about the Lipskers): 'Over the years, Rabbi and Mrs. Lipsker founded Va'adah L'dovrei Ivrit Chabad, one of the first Chabad Israeli centers in North America' (no year)."
   },
   "118618": {
    "name": "Chabad Living Legacy",
@@ -15223,12 +15223,6 @@
    "name": "The Shul",
    "city": "Milwaukee, WI",
    "shetach": "wisconsin",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2000,
-   "source": "https://www.jewishchronicle.org/2010/01/31/the-shul-finds-a-home-in-former-restaurant/",
-   "note": "No start date found for The Shul (Congregation Ahavat Yisrael, Bayside), Rabbi Shmaya Shmotkin's. Wisconsin Jewish Chronicle (31 Jan 2010): Jeff Langer 'has been a member of Congregation Ahavat Yisrael' for 'about 10 years' (so it existed by about 2000), and it had moved 'four or five times'. The Chronicle (undated, filed 31 March 2008, 'Handy volunteers'): 'The Shul actually began in the basement of Shmotkin's Bayside home, and then rented the Bayside Community Center every week'; 'About two years ago, it began renting two non-adjoining spaces' at the Audubon Court shopping center. On Dec. 17 (2009) the Bayside village board approved its move into the former Pandl's in Bayside restaurant, now 8825 N Lake Dr.",
    "earlier": [
     {
      "where": "the basement of Rabbi Shmaya Shmotkin's Bayside home",
@@ -15248,7 +15242,12 @@
      "until": 2010,
      "source": "https://www.jewishchronicle.org/2010/01/31/the-shul-finds-a-home-in-former-restaurant/"
     }
-   ]
+   ],
+   "year": 2002,
+   "how": "stated",
+   "confidence": "medium",
+   "source": "https://www.lubavitchofwi.org/templates/articlecco_cdo/aid/431954/jewish/Rabbi-Mendel-Shmotkin.htm",
+   "note": "Lubavitch of Wisconsin's biography of Rabbi Mendel Shmotkin (also on Hillel High's site): 'He also co-founded the Milwaukee Community Cheder (1997), The Shul in Bayside (2002), Bader Hillel High School (2012), and Chabad Lubavitch Torah Center in Glendale (2014).' Medium: the 2010 Chronicle's member of 'about 10 years' points to about 2000. Wisconsin Jewish Chronicle (31 Jan 2010): Jeff Langer 'has been a member of Congregation Ahavat Yisrael' for 'about 10 years' (so it existed by about 2000), and it had moved 'four or five times'. The Chronicle (undated, filed 31 March 2008, 'Handy volunteers'): 'The Shul actually began in the basement of Shmotkin's Bayside home, and then rented the Bayside Community Center every week'; 'About two years ago, it began renting two non-adjoining spaces' at the Audubon Court shopping center. On Dec. 17 (2009) the Bayside village board approved its move into the former Pandl's in Bayside restaurant, now 8825 N Lake Dr."
   },
   "213095": {
    "name": "The Peltz Center for Jewish Life",
@@ -17823,11 +17822,11 @@
    "name": "Chabad House of Flushing New York",
    "city": "Flushing, NY",
    "shetach": "new-york-city",
-   "year": 1997,
-   "how": "directory",
+   "year": 1980,
+   "how": "stated",
    "confidence": "medium",
-   "source": "https://data.ny.gov/resource/n9v6-gdp6.json?dos_id=2105000",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. MapQuest's listing says Chabad of Flushing 'has been a cornerstone of the Queens Jewish Community for over thirty years' (undated). Director: Shraga Zalmanov. New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'CHABAD OF FLUSHING INC.' (DOS ID 2105000), domestic not-for-profit corporation, Queens County, first filed Jan 22 1997. A state filing, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
+   "source": "https://www.chabadofthegardens.com/templates/articlecco_cdo/aid/593639/jewish/History-of-Chabad-Queens.htm",
+   "note": "Chabad of Queens' history page (on Chabad of the Gardens' site, 'History of Chabad Queens'): 'Chabad of Flushing – Kew Gardens Hills: Established 1980'. Medium: one Chabad page, no report from the time; it fits MapQuest's 'for over thirty years'. Was 1997 (the corporation's filing, kept below). No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. MapQuest's listing says Chabad of Flushing 'has been a cornerstone of the Queens Jewish Community for over thirty years' (undated). Director: Shraga Zalmanov. New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'CHABAD OF FLUSHING INC.' (DOS ID 2105000), domestic not-for-profit corporation, Queens County, first filed Jan 22 1997. A state filing, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
   },
   "117686": {
    "name": "Town of Oyster Bay Chabad",
@@ -18069,7 +18068,7 @@
    "confidence": "range",
    "by": 2004,
    "source": "https://www.chabad.org/api/content/118921/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Chana Katzman."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Chana Katzman. Lead, not checked: a New York State education-department record (SEDREF, via opengovny.com, blocked here) for 'Gan Israel Day Camp of Staten Island' gives an active date of June 27 2003."
   },
   "120254": {
    "name": "Yeshiva Mesivta Menachem",
@@ -21340,7 +21339,7 @@
    "confidence": "range",
    "by": 2004,
    "source": "https://www.chabad.org/api/content/119804/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then."
+   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Lead, not checked (the page would not open here): Firecrawl's research agent quotes the New York Daily News of 23 Nov 1999 ('The School Zone'): 'Shaloh Center II in Napanoch, N.Y., home to our Ivy League Torah Study Program and our Torah Teen Resort', so it may have existed by 1999."
   },
   "120018": {
    "name": "Shaloh Center 1",
@@ -22465,12 +22464,11 @@
    "name": "JRCC Preschool & Daycare",
    "city": "Toronto, ON",
    "shetach": "ontario",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/118938/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Chiena Zaltzman."
+   "year": 1994,
+   "how": "stated",
+   "confidence": "high",
+   "source": "https://jrcc.org/media/pdf/1195/besE11956432.pdf",
+   "note": "Its own information sheet (JRCC Daycare, General Information, PDF on jrcc.org): 'JRCC Daycare is a non-profit day care Centre that was established in 1994 to fill the need for a licensed, kosher day care in Toronto.' info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Chiena Zaltzman."
   },
   "282401": {
    "name": "Chabad Lubavitch of Aurora",

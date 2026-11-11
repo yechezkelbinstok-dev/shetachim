@@ -49,7 +49,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | north-shore-of-massachusetts | 6 | 6 |  |  |  |  |  | 0 | 6 | 0 |
 | northeast-ohio | 27 | 20 | 3 | 3 | 1 |  |  | 1 | 23 | 0 |
 | oklahoma | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
-| ontario | 61 | 20 | 14 | 23 | 4 |  |  | 4 | 56 | 2 |
+| ontario | 61 | 21 | 14 | 23 | 3 |  |  | 3 | 56 | 1 |
 | oregon | 19 | 11 | 6 | 1 | 1 |  |  | 1 | 17 | 1 |
 | ottawa | 11 | 9 |  | 1 | 1 |  |  | 1 | 9 | 0 |
 | pennsylvania | 61 | 30 | 16 | 11 | 4 |  |  | 4 | 57 | 4 |
@@ -70,6 +70,6 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | washington-dc | 5 | 2 | 3 |  |  |  |  | 0 | 5 | 0 |
 | west-coast | 326 | 202 | 92 | 24 | 8 |  |  | 8 | 297 | 3 |
 | western-pennsylvania | 26 | 10 | 10 | 3 | 3 |  |  | 3 | 23 | 3 |
-| wisconsin | 22 | 10 | 5 | 6 | 1 |  |  | 1 | 19 | 1 |
+| wisconsin | 22 | 10 | 6 | 6 |  |  |  | 0 | 19 | 0 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
-| **all** | 1902 | 1013 | 479 | 330 | 73 | 4 | 3 | 80 | 1721 | 49 |
+| **all** | 1902 | 1014 | 480 | 330 | 71 | 4 | 3 | 78 | 1721 | 47 |

@@ -75,6 +75,15 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
 
 .tools { position: absolute; z-index: 6; top: max(12px, env(safe-area-inset-top)); inset-inline-end: 12px; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
 .row { display: flex; gap: 6px; }
+/* settings behind the gear, as on the history page */
+.menu { background: var(--panel); border: 1px solid var(--panel-line); border-radius: 12px; box-shadow: var(--shadow); padding: 4px; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.opt { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 8px 10px; font: 600 13px var(--font); color: var(--ink); cursor: pointer; }
+.opt input { appearance: none; -webkit-appearance: none; flex: none; position: relative; width: 36px; height: 21px; margin: 0; border-radius: 11px; background: var(--panel-line); cursor: pointer; transition: background .2s; }
+.opt input::before { content: ''; position: absolute; top: 2px; left: 2px; width: 17px; height: 17px; border-radius: 50%; background: #fff; box-shadow: 0 1px 2px rgb(0 0 0 / .25); transition: transform .2s; }
+.opt input:checked { background: var(--accent); }
+.opt input:checked::before { transform: translateX(15px); }
+[dir="rtl"] .opt input::before { left: auto; right: 2px; }
+[dir="rtl"] .opt input:checked::before { transform: translateX(-15px); }
 .chip { appearance: none; border: 1px solid var(--panel-line); background: var(--panel); color: var(--ink); font: 600 13px var(--font); height: 34px; min-width: 34px; padding: 0 10px;
   border-radius: 17px; box-shadow: var(--shadow); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; box-sizing: border-box;
   -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
@@ -157,12 +166,13 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   <div class="tools">
     <div class="row">
       <button class="chip" id="theme" type="button" aria-label="Light or dark"><svg viewBox="0 0 24 24"><path id="themeIcon" d=""/></svg></button>
-      <button class="chip" id="hy" type="button"></button>
+      <button class="chip" id="gear" type="button" aria-label="Settings" aria-expanded="false"><svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.31.06-.63.06-.94s-.02-.63-.06-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54A.484.484 0 0 0 14 2h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.49.49 0 0 0-.59.22L2.81 8.47a.49.49 0 0 0 .12.61l2.03 1.58c-.04.31-.06.63-.06.94s.02.63.06.94l-2.03 1.58a.49.49 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32a.49.49 0 0 0-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"/></svg></button>
       <button class="chip" id="lang" type="button"></button>
       <a class="chip" id="home" href="./" aria-label="Map"><svg viewBox="0 0 24 24"><path d="M15 5.1 9 3 3 5v16l6-2.1 6 2.1 6-2V3l-6 2.1zM10 5.4l4 1.4v11.8l-4-1.4V5.4zM5 6.4l3-1v11.8l-3 1V6.4zm14 11.2-3 1V6.8l3-1v11.8z"/></svg></a>
     </div>
     <div class="seg" id="view"><button type="button" data-v="streets"></button><button type="button" data-v="political"></button></div>
     <div class="seg" id="mode"><button type="button" data-m="shetachim"></button><button type="button" data-m="states"></button></div>
+    <div class="menu" id="menu" hidden><label class="opt"><span id="hyLbl"></span><input type="checkbox" id="hySw" role="switch"></label><label class="opt"><span id="msLbl"></span><input type="checkbox" id="msSw" role="switch"></label></div>
   </div>
   <div id="card" hidden></div>
   <div class="bar">
@@ -384,6 +394,9 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
 
   // ---------- state ----------
   // the map under it: the street map (owner, Nov 12: default) or the plain political one
+  // the milestones ("First in …" as a state or province gets its first center): a switch in the menu (owner, Nov 12: "should
+  // be an option to turn off milestones")
+  let MS = (() => { const q = Q.get('ms'); if (q === '1' || q === '0') return q === '1'; try { const v = localStorage.getItem('growth-ms'); return v == null ? true : v === '1'; } catch (e) { return true; } })();
   let VIEW = (() => { const q = Q.get('view'); if (q === 'streets' || q === 'political') return q; try { return localStorage.getItem('growth-view') || 'streets'; } catch (e) { return 'streets'; } })();
   let MODE = (() => { const q = Q.get('base'); if (q === 'states' || q === 'shetachim') return q; try { return localStorage.getItem('growth-base') || 'shetachim'; } catch (e) { return 'shetachim'; } })();
   let Y = (() => { const q = +Q.get('year'); return q >= START && q <= NOW ? q : NOW; })();
@@ -487,7 +500,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       const now = performance.now(), fresh = DOTS.filter((d) => d.y === Y);
       fresh.forEach((d, i) => pops.push({ d, t0: now + Math.min(600, i * (600 / Math.max(1, fresh.length))) }));
       for (const reg of firstsIn.get(Y) || []) regionFlash.set(reg, now);
-      for (const reg of firstsIn.get(Y) || []) addFirst(reg);
+      if (MS) for (const reg of firstsIn.get(Y) || []) addFirst(reg);
       kick();
     }
   }
@@ -573,7 +586,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     if (e.target.closest && e.target.closest('input, button, a') && e.key !== ' ') return;
     if (e.key === ' ') { e.preventDefault(); setPlaying(!playing); }
     else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { setPlaying(false); setYear(Y + ((e.key === 'ArrowRight') !== HE ? 1 : -1), true); }
-    else if (e.key === 'Escape') closeCard();
+    else if (e.key === 'Escape') { closeCard(); closeMenu(); }
   });
 
   // ---------- the backgrounds ----------
@@ -597,8 +610,18 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     setThemeIcon(); palette(); needBase = true; drawHist(); kick(); glTheme();
   });
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { setThemeIcon(); palette(); needBase = true; drawHist(); kick(); glTheme(); });
-  $('#hy').textContent = HY ? L('Ordinary years', 'שנים לועזיות') : L('Hebrew years', 'שנים עבריות');
-  $('#hy').addEventListener('click', () => { try { localStorage.setItem('growth-hy', HY ? '0' : '1'); } catch (e) {} const u = new URL(location.href); u.searchParams.set('hy', HY ? '0' : '1'); u.searchParams.set('year', Y); u.searchParams.set('base', MODE); u.searchParams.set('view', VIEW); location.href = u.toString(); });
+  // settings: a menu behind the gear, as on the history page (Hebrew years, milestones)
+  const gear = $('#gear'), menu = $('#menu');
+  gear.setAttribute('aria-label', L('Settings', 'הגדרות'));
+  const closeMenu = () => { menu.hidden = true; gear.setAttribute('aria-expanded', 'false'); };
+  gear.addEventListener('click', (e) => { e.stopPropagation(); menu.hidden = !menu.hidden; gear.setAttribute('aria-expanded', String(!menu.hidden)); });
+  document.addEventListener('click', (e) => { if (!menu.hidden && !menu.contains(e.target) && !gear.contains(e.target)) closeMenu(); });
+  $('#hyLbl').textContent = L('Hebrew years', 'שנים עבריות');
+  const hySw = $('#hySw'); hySw.checked = HY;
+  hySw.addEventListener('change', () => { try { localStorage.setItem('growth-hy', hySw.checked ? '1' : '0'); } catch (e) {} const u = new URL(location.href); u.searchParams.set('hy', hySw.checked ? '1' : '0'); u.searchParams.set('year', Y); u.searchParams.set('base', MODE); u.searchParams.set('view', VIEW); location.href = u.toString(); });
+  $('#msLbl').textContent = L('Milestones', 'ציוני דרך');
+  const msSw = $('#msSw'); msSw.checked = MS;
+  msSw.addEventListener('change', () => { MS = msSw.checked; try { localStorage.setItem('growth-ms', MS ? '1' : '0'); } catch (e) {} if (!MS) $('#firsts').replaceChildren(); });
   $('#lang').textContent = HE ? 'EN' : 'עב';
   $('#lang').addEventListener('click', () => { const u = new URL(location.href); u.searchParams.set('lang', HE ? 'en' : 'he'); u.searchParams.set('year', Y); u.searchParams.set('base', MODE); u.searchParams.set('view', VIEW); location.href = u.toString(); });
   $('#home').setAttribute('aria-label', L('The map', 'המפה'));

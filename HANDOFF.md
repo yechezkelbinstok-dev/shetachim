@@ -225,10 +225,10 @@ thirteen no better recent photo has been found yet (the list is there, with what
   data/shetach-history.json, read as the history page reads them) and **States & provinces** (all 60 drawn from the
   start, each filling in the year of its first center). A tap opens a card per dot: each listing's year and confidence,
   **no source and no link to it** (owner, Nov 12: "Nooooo absolutely not a link to the data source"). Hebrew (he.json
-  names) and English, light and dark, phones; URL `?year=&base=shetachim|states&view=streets|political&lang=&theme=&hy=&play=1`.
+  names) and English, light and dark, phones; URL `?year=&base=shetachim|states&view=streets|political&lang=&theme=&hy=&ms=&play=1`.
   **Hebrew years by default** (owner, Nov 12: "why isn't this Hebrew dates?????"), counted as on the history page (a
-  dated founding in the Hebrew year it fell in; a year alone = Y+3760), shown תשנ״א / 5751, with a chip for ordinary
-  years; **a year back / a year ahead buttons** by play (owner: "why is it that there isn't a button to only jump ahead
+  dated founding in the Hebrew year it fell in; a year alone = Y+3760), shown תשנ״א / 5751, with a switch for ordinary
+  years in the gear menu; **a year back / a year ahead buttons** by play (owner: "why is it that there isn't a button to only jump ahead
   one year?"). **Street map by default** (owner, Nov 12: "u should be able to zoom in like streets mode also I think that
   should be default but still the current should be an alternative mode"): a **Streets | Political** switch; Streets is
   OpenFreeMap's street map in MapLibre as on the main map (liberty light, dark dark; place names in the page's language,
@@ -239,6 +239,13 @@ thirteen no better recent photo has been found yet (the list is there, with what
   keys step the years). Political is the plain canvas map as before. `?view=streets|political`, remembered per browser.
   (The street styles' own console warnings, "circle-11" in dark and "Expected value to be of type number" when zoomed in,
   come from OpenFreeMap's styles, not the page.)
+  **Gear menu** (as on the history page): Hebrew years, Milestones. **Milestones** = the "★ First in <state>" chips under
+  the year as a state or province gets its first center; owner, Nov 12: "Also should be an option to turn off milestones
+  I don't love how u did it" → the switch is in (on by default, remembered per browser as growth-ms, `?ms=0|1`).
+  **Open, for the next session:** (1) the owner doesn't love how the milestones look: ask what they'd like instead before
+  redoing them (ideas to offer: the state's name shown on the map itself for a moment as it lights up; one quiet line in
+  the year plate; or simply off by default). (2) The street map's screenshots weren't sent to the owner yet. (3) Still
+  unanswered from before: whether the confidence badges stay on the cards.
   Its data: `python3 -I scripts/build-growth.py` writes web/data/growth.json from centers.geojson and
   data/founding-years.json (rerun after founding-year changes; left out as in progress.py: mushrooms, mikvahs, unresearched
   Crown Heights, and dots with no year). Anshei Lubavitch (a 1909 shul) shows from 1940. Not yet: moves (the `earlier`

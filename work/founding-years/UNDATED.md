@@ -1,14 +1,11 @@
 # Founding years: every listing still undated
 
-US + Canada, 63 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
+US + Canada, 49 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
 
-## new-york-city: 10
+## new-york-city: 7
 
-**No year at the dot (4)**
+**No year at the dot (1)**
 - Chabad House of Queens-Kew Gardens, Kew Gardens (Shmuel Tuvel) — by 2004 · 117974
-- Chabad of Bay Ridge, Brooklyn (Tzvi Stroh) — by 2004 · 118501
-- Chabad of Patchogue, Patchogue (Berel Sasonkin) — by 2004 · 118642
-- New York Hebrew, New York (Menachem Shanowitz) — by 2004 · 118826
 
 **On a dated dot (6)**
 - Camp F.R.E.E. - Gan Israel, Brooklyn (Mayer Okunov) — by 2004 · 159405
@@ -18,10 +15,9 @@ US + Canada, 63 listings without a year (mikvahs apart: 19). Per shetach: first 
 - Gan Israel Day Camp, Merrick (Chana Kramer) — by 2004 · 119471
 - Hebrew School, Valley Stream (Itty Goldshmid) — by 2004 · 118924
 
-## florida: 7
+## florida: 6
 
-**No year at the dot (4)**
-- Chabad Center for Jewish Life, Hollywood (Leizer Barash) — by 2004 · 150728
+**No year at the dot (3)**
 - Chabad Chayil - Highland Lakes Jewish Center, Miami (Moishe Kievman) — 1985–1989 · 117601
 - Chabad Day School, Maitland (Devorah Leah Dubov) — nothing found yet · 119969
 - Chabad House of Mid Miami Beach, Miami Beach (Bentzion Korf) — by 2004 · 117943
@@ -36,14 +32,12 @@ US + Canada, 63 listings without a year (mikvahs apart: 19). Per shetach: first 
 - Mikvah Cape Coral, Cape Coral — nothing found yet · 3511251
 - Mikvah, Sarasota (Chaim S. Steinmetz) — by 2004 · 119142
 
-## west-coast: 7
+## west-coast: 5
 
-**No year at the dot (2)**
-- Kolel Tiferet Zkanim Levi Yitzchok, Los Angeles (Yitzchok Arnold) — 1980–2004 · 117532
+**No year at the dot (1)**
 - Mivtzoim, Los Angeles — by 2004 · 119728
 
-**On a dated dot (5)**
-- Kollel Tiferet Menachem - West Coast Rabbinical Seminary, Los Angeles (Dovid Schmukler) — by 2004 · 118776
+**On a dated dot (4)**
 - Talmud Torah, Las Vegas (Dina Harlig) — by 2004 · 119961
 - The Garden School-Chabad Preschools, Los Angeles (Boruch S. Cunin) — by 2004 · 120085
 - The Ryzman Family Hebrew School, Tarzana (Yanky Kahn) — by 2004 · 119940
@@ -53,31 +47,18 @@ US + Canada, 63 listings without a year (mikvahs apart: 19). Per shetach: first 
 - Mikvah Israel, S. Diego (Leah Fradkin) — by 2004 · 120098
 - Mikvah, Reno (Chaya Sara Cunin) — by 2006 · 405427
 
-## new-jersey: 6
+## new-jersey: 4
 
-**No year at the dot (2)**
+**No year at the dot (1)**
 - Chabad House of Vineland, Vineland (Yisroel Rapoport) — 1987–1990 · 117661
-- Hebrew School, Marlboro (Shmuel Volovik) — by 2004 · 119068
 
-**On a dated dot (4)**
+**On a dated dot (3)**
 - Chabad Early Learning Center, Rockaway (Sarah Herson) — 1988–2004 · 118912
 - Congregation Levi Yitzchak, Morristown (Chaim Schapiro) — not researched · 119957
 - David Hoffman Hebrew School, Rockaway (Sarah Herson) — 1988–2004 · 120058
-- The Living Legacy, Paramus (Moshe Grossbaum) — not researched · 150723
 
 **Mikvahs, out of the counts (1)**
 - Mikvah Bais Chana, Morristown — nothing found yet · 119959
-
-## quebec: 5
-
-**No year at the dot (2)**
-- Chabad Chabanel & Maison Belfield, Montreal (Zushe Silberstein) — by 1995 · 117810
-- Chabad V.s.L. & Chabad Bois Franc, Ville S. Laurent (Schneur Silberstein) — by 1995 · 118494
-
-**On a dated dot (3)**
-- Beth Hamedrash Lubavitch, Montreal (Itzchok Hendel) — by 1990 · 119156
-- Chai Friendship Club, Montreal — by 2004 · 119147
-- Torah Fax, Montreal (Zalmen Marozov) — by 2004 · 119154
 
 ## eastern-new-york: 4
 
@@ -93,24 +74,14 @@ US + Canada, 63 listings without a year (mikvahs apart: 19). Per shetach: first 
 - Mikvah Ma'ayan Chaya, Poughkeepsie — by 2004 · 120141
 - Mikvah, Monticello (Rochel Chanowitz) — by 2004 · 119795
 
-## ontario: 3
+## quebec: 3
 
-**No year at the dot (1)**
-- Hebrew School, Richmond Hill — 1997–2004 · 118781
+**No year at the dot (2)**
+- Chabad Chabanel & Maison Belfield, Montreal (Zushe Silberstein) — by 1995 · 117810
+- Chabad V.s.L. & Chabad Bois Franc, Ville S. Laurent (Schneur Silberstein) — by 1995 · 118494
 
-**On a dated dot (2)**
-- Bais Chaya Mushka, Thornhill — by 2004 · 118898
-- Mesivta Lubavitch Toronto, Toronto (Zalman Oster) — by 2004 · 118407
-
-## upper-midwest: 3
-
-**No year at the dot (3)**
-- Chabad Lubavitch Education, West S. Paul (Menachem Mendel Feller) — by 2004 · 118506
-- Chabad Oneg Shabbos V'Yomtov, S. Paul (Yosaif Grossbaum) — by 1995 · 119759
-- Chabad of S. Louis Park, St. Louis Park (Yosef Y. Shagalow) — by 2004 · 118314
-
-**Mikvahs, out of the counts (1)**
-- Chabad-Lubavitch Mikvah Information, S. Paul (Gershon Grossbaum) — by 2004 · 117988
+**On a dated dot (1)**
+- Beth Hamedrash Lubavitch, Montreal (Itzchok Hendel) — by 1990 · 119156
 
 ## western-pennsylvania: 3
 
@@ -122,17 +93,20 @@ US + Canada, 63 listings without a year (mikvahs apart: 19). Per shetach: first 
 **Mikvahs, out of the counts (1)**
 - Mikvah Lubavitch, Pittsburgh — by 2004 · 120027
 
-## pennsylvania: 2
+## ontario: 2
+
+**On a dated dot (2)**
+- Bais Chaya Mushka, Thornhill — by 2004 · 118898
+- Mesivta Lubavitch Toronto, Toronto (Zalman Oster) — by 2004 · 118407
+
+## upper-midwest: 2
 
 **No year at the dot (2)**
-- Lubavitch of Northwest Philadelphia, Philadelphia (Yitzchok Gurevitz) — by 2004 · 155891
-- Va'adah L'dovrei Ivrit Chabad, Philadelphia (Zalman Lipsker) — 1964–2004 · 117718
+- Chabad Oneg Shabbos V'Yomtov, S. Paul (Yosaif Grossbaum) — by 1995 · 119759
+- Chabad of S. Louis Park, St. Louis Park (Yosef Y. Shagalow) — by 2004 · 118314
 
-## connecticut: 2
-
-**No year at the dot (2)**
-- Chabad of Ridgefield, Ridgefield (Sholom Deitsch) — by 2004 · 150725
-- Gan Israel Hebrew School, Weatogue (Blumie Samuels) — by 2004 · 119920
+**Mikvahs, out of the counts (1)**
+- Chabad-Lubavitch Mikvah Information, S. Paul (Gershon Grossbaum) — by 2004 · 117988
 
 ## upstate-new-york: 1
 
@@ -172,6 +146,11 @@ US + Canada, 63 listings without a year (mikvahs apart: 19). Per shetach: first 
 **No year at the dot (1)**
 - Chabad Shul of Potomac, Potomac (Mendel Bluming) — by 1999 · 117637
 
+## pennsylvania: 1
+
+**No year at the dot (1)**
+- Va'adah L'dovrei Ivrit Chabad, Philadelphia (Zalman Lipsker) — 1964–2004 · 117718
+
 ## colorado: 1
 
 **No year at the dot (1)**
@@ -194,6 +173,11 @@ US + Canada, 63 listings without a year (mikvahs apart: 19). Per shetach: first 
 
 **No year at the dot (1)**
 - Congregation Bais Menachem-Chabad, Portland (Moshe Wilhelm) — 1984–2004 · 119776
+
+## connecticut: 1
+
+**No year at the dot (1)**
+- Gan Israel Hebrew School, Weatogue (Blumie Samuels) — by 2004 · 119920
 
 ## michigan: 0
 

@@ -7012,14 +7012,13 @@
    "name": "Kolel Tiferet Zkanim Levi Yitzchok",
    "city": "Los Angeles",
    "shetach": "west-coast",
-   "year": null,
+   "year": 2002,
    "after": 1980,
    "lead": 1975,
-   "how": "range",
-   "confidence": "range",
-   "source": "https://chabadinfo.com/news/kollel-tifereth-zekainim-enriching-the-lives-of-seniors/",
-   "note": "No year found for the LA branch (Rabbi Yitzchok Arnold, 506 N. Alta Vista). The Tiferet Zekeinim program was founded by the Rebbe in 1980 (5740), so not before then; therebbesimpact.com's 1975 can't be right. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
-   "by": 2004
+   "how": "directory",
+   "confidence": "low",
+   "source": "https://www.chabad.org/api/v2/chabadorg/centers/117532?format=jsonapi",
+   "note": "No year found for the LA branch (Rabbi Yitzchok Arnold, 506 N. Alta Vista). The Tiferet Zekeinim program was founded by the Rebbe in 1980 (5740), so not before then; therebbesimpact.com's 1975 can't be right. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Fallback (owner, Nov 12: 'If it's within a year that high, then I guess we can enter it as a low confidence, I suppose'): no source found for its start (the searches above), so the year is when its entry was added to chabad.org's old (pre-2004) directory, read from the entry's number: mosad-id 3525, in the run 3,250-4,030 that was numbered in order as entries were added from about 2001 to July 2004, so about 2002. Entered as LOW. Checked first on the 95 centers in that run with a high-confidence year: the right year 59%, within a year 84%; 15% were older centers added late (four or more years off), so VSL (by 1995) and Beth Hamedrash Lubavitch (by 1990) were left out."
   },
   "3252627": {
    "name": "Beverly Hills Hotel Shabbat Services",
@@ -7241,13 +7240,12 @@
    "name": "Kollel Tiferet Menachem - West Coast Rabbinical Seminary",
    "city": "Los Angeles",
    "shetach": "west-coast",
-   "year": null,
+   "year": 2002,
    "lead": 2000,
-   "how": "range",
-   "confidence": "range",
-   "source": "https://collive.com/kollel-tiferes-menachem-los-angeles-celebrates-smicha/",
-   "note": "No year found (Rabbi Dovid Schmukler). therebbesimpact.com: 2000. Same dot as Yeshiva Ohr Elchonon Chabad (1977), so the dot is dated. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
-   "by": 2004
+   "how": "directory",
+   "confidence": "low",
+   "source": "https://www.chabad.org/api/v2/chabadorg/centers/118776?format=jsonapi",
+   "note": "No year found (Rabbi Dovid Schmukler). therebbesimpact.com: 2000. Same dot as Yeshiva Ohr Elchonon Chabad (1977), so the dot is dated. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Fallback (owner, Nov 12: 'If it's within a year that high, then I guess we can enter it as a low confidence, I suppose'): no source found for its start (the searches above), so the year is when its entry was added to chabad.org's old (pre-2004) directory, read from the entry's number: mosad-id 3594, in the run 3,250-4,030 that was numbered in order as entries were added from about 2001 to July 2004, so about 2002. Entered as LOW. Checked first on the 95 centers in that run with a high-confidence year: the right year 59%, within a year 84%; 15% were older centers added late (four or more years off), so VSL (by 1995) and Beth Hamedrash Lubavitch (by 1990) were left out."
   },
   "119728": {
    "name": "Mivtzoim",
@@ -9684,13 +9682,12 @@
    "name": "Chabad Center for Jewish Life",
    "city": "Hollywood",
    "shetach": "florida",
-   "year": null,
-   "by": 2004,
+   "year": 2003,
    "lead": 2003,
-   "how": "range",
-   "source": "https://projects.propublica.org/nonprofits/organizations/200505441",
-   "note": "IRS (ProPublica): 'Chabad Outreach Center Of Emerald Hills Inc', care of Avraham Eliezer Barash, exempt from 2005-01, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2003. Sunbiz (record page opened Nov 10: work/founding-years/sunbiz/entities/N05000004044.json): CHABAD OF GREATER HOLLYWOOD, INC. (and CHABAD OF HOLLYWOOD, INC., N05000004046, the same day) (document N05000004044), filed 04/19/2005, officers Rabbis Raphael Tennenhaus, Menachem Tennenhaus and Laizer Barash; both dissolved 09/25/2009. Its chabad.org listing went up 2004-07-22, before the filing, so the filing is not the year (HANDOFF 4b). The listing shows it by 2004 (was by 2005). Its site as archived April 20 2005: 'ChabadEmeraldhills.com • 3250 Stirling Road #3 • Hollywood, FL 33021' (now 4001 N Park Road). Its old-directory number (mosad-id 3816) points to an entry made in the first half of 2004 (a lead, not a year).",
-   "confidence": "range",
+   "how": "directory",
+   "source": "https://www.chabad.org/api/v2/chabadorg/centers/150728?format=jsonapi",
+   "note": "IRS (ProPublica): 'Chabad Outreach Center Of Emerald Hills Inc', care of Avraham Eliezer Barash, exempt from 2005-01, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2003. Sunbiz (record page opened Nov 10: work/founding-years/sunbiz/entities/N05000004044.json): CHABAD OF GREATER HOLLYWOOD, INC. (and CHABAD OF HOLLYWOOD, INC., N05000004046, the same day) (document N05000004044), filed 04/19/2005, officers Rabbis Raphael Tennenhaus, Menachem Tennenhaus and Laizer Barash; both dissolved 09/25/2009. Its chabad.org listing went up 2004-07-22, before the filing, so the filing is not the year (HANDOFF 4b). The listing shows it by 2004 (was by 2005). Its site as archived April 20 2005: 'ChabadEmeraldhills.com • 3250 Stirling Road #3 • Hollywood, FL 33021' (now 4001 N Park Road). Its old-directory number (mosad-id 3816) points to an entry made in the first half of 2004 (a lead, not a year). Fallback (owner, Nov 12: 'If it's within a year that high, then I guess we can enter it as a low confidence, I suppose'): no source found for its start (the searches above), so the year is when its entry was added to chabad.org's old (pre-2004) directory, read from the entry's number: mosad-id 3816, in the run 3,250-4,030 that was numbered in order as entries were added from about 2001 to July 2004, so about 2003. Entered as LOW. Checked first on the 95 centers in that run with a high-confidence year: the right year 59%, within a year 84%; 15% were older centers added late (four or more years off), so VSL (by 1995) and Beth Hamedrash Lubavitch (by 1990) were left out.",
+   "confidence": "low",
    "earlier": [
     {
      "where": "3250 Stirling Road #3, Hollywood ('the Chabad Center 3250 Stirling Rd', its site and calendar as archived April 20 2005)",
@@ -12920,13 +12917,12 @@
    "name": "Hebrew School",
    "city": "Marlboro",
    "shetach": "new-jersey",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
+   "year": 2001,
+   "how": "directory",
+   "confidence": "low",
    "lead": 2003,
-   "source": "https://crownheights.info/shlichus/388438/chabad-of-western-monmouth-county-marks-25-years/",
-   "note": "Chabad of Western Monmouth County's 25th-year dinner (CrownHeights.info, 5 June 2013): 'The community Chabad Hebrew School in Marlboro is directed by Rabbi Shmuly Volovick.' So there by 2013; its start not found. Lead: its chabad.org listing (119068) is from about 2003, before the Voloviks (married 2010). Its chabad.org listing went up 2004-07-22, so it existed by 2004 (was 'by 2013')."
+   "source": "https://www.chabad.org/api/v2/chabadorg/centers/119068?format=jsonapi",
+   "note": "Chabad of Western Monmouth County's 25th-year dinner (CrownHeights.info, 5 June 2013): 'The community Chabad Hebrew School in Marlboro is directed by Rabbi Shmuly Volovick.' So there by 2013; its start not found. Lead: its chabad.org listing (119068) is from about 2003, before the Voloviks (married 2010). Its chabad.org listing went up 2004-07-22, so it existed by 2004 (was 'by 2013'). Fallback (owner, Nov 12: 'If it's within a year that high, then I guess we can enter it as a low confidence, I suppose'): no source found for its start (the searches above), so the year is when its entry was added to chabad.org's old (pre-2004) directory, read from the entry's number: mosad-id 3456, in the run 3,250-4,030 that was numbered in order as entries were added from about 2001 to July 2004, so about 2001. Entered as LOW. Checked first on the 95 centers in that run with a high-confidence year: the right year 59%, within a year 84%; 15% were older centers added late (four or more years off), so VSL (by 1995) and Beth Hamedrash Lubavitch (by 1990) were left out."
   },
   "119959": {
    "name": "Mikvah Bais Chana",
@@ -13957,12 +13953,11 @@
    "name": "Lubavitch of Northwest Philadelphia",
    "city": "Philadelphia",
    "shetach": "pennsylvania",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/155891/metadata?tid=7152",
-   "note": "Rabbi Yitzchok and Pessy Gurevitz, 7334 Rural Lane, West Mt. Airy (its site chabadnwp.org, which in Oct 2026 asks people to call for its new Shabbat location). No dated source for its start found. Its chabad.org listing went up July 23 2004, so it existed by then. Pennsylvania Department of State record (data.pa.gov, 'Registered Businesses in PA Current by County'): 'Chabad Lubavitch of Northwest Philadelphia' (filing number 0014105993), created Feb 5 2025 at 7334 Rural Ln (the listing's address). So the filing is after the listing and is not taken as the year. Its site as archived Feb 14 2006: 'We are located at 7009 McCallum Street, #A, in West Mt. Airy, Philadelphia' (now 7334 Rural Lane). Its old-directory number (mosad-id 3818) points to an entry made in the first half of 2004 (a lead, not a year).",
+   "year": 2003,
+   "how": "directory",
+   "confidence": "low",
+   "source": "https://www.chabad.org/api/v2/chabadorg/centers/155891?format=jsonapi",
+   "note": "Rabbi Yitzchok and Pessy Gurevitz, 7334 Rural Lane, West Mt. Airy (its site chabadnwp.org, which in Oct 2026 asks people to call for its new Shabbat location). No dated source for its start found. Its chabad.org listing went up July 23 2004, so it existed by then. Pennsylvania Department of State record (data.pa.gov, 'Registered Businesses in PA Current by County'): 'Chabad Lubavitch of Northwest Philadelphia' (filing number 0014105993), created Feb 5 2025 at 7334 Rural Ln (the listing's address). So the filing is after the listing and is not taken as the year. Its site as archived Feb 14 2006: 'We are located at 7009 McCallum Street, #A, in West Mt. Airy, Philadelphia' (now 7334 Rural Lane). Its old-directory number (mosad-id 3818) points to an entry made in the first half of 2004 (a lead, not a year). Fallback (owner, Nov 12: 'If it's within a year that high, then I guess we can enter it as a low confidence, I suppose'): no source found for its start (the searches above), so the year is when its entry was added to chabad.org's old (pre-2004) directory, read from the entry's number: mosad-id 3818, in the run 3,250-4,030 that was numbered in order as entries were added from about 2001 to July 2004, so about 2003. Entered as LOW. Checked first on the 95 centers in that run with a high-confidence year: the right year 59%, within a year 84%; 15% were older centers added late (four or more years off), so VSL (by 1995) and Beth Hamedrash Lubavitch (by 1990) were left out.",
    "earlier": [
     {
      "where": "7009 McCallum Street #A, West Mt. Airy (its site as archived Feb 2006)",
@@ -14487,12 +14482,11 @@
    "name": "Chabad Lubavitch Education",
    "city": "West St. Paul, MN",
    "shetach": "upper-midwest",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "http://web.archive.org/web/20110908010157/http://lubavitch.com:80/centers/list.html?Country=&City=West%20S.%20Paul",
-   "note": "No year of its own: Rabbi Mendel Feller's education program, a department of Upper Midwest Merkos (117647) on chabad.org; at 270 Sherwood Court, West St. Paul, in the Sept 2011 lubavitch.com directory (Wayback). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then."
+   "year": 2001,
+   "how": "directory",
+   "confidence": "low",
+   "source": "https://www.chabad.org/api/v2/chabadorg/centers/118506?format=jsonapi",
+   "note": "No year of its own: Rabbi Mendel Feller's education program, a department of Upper Midwest Merkos (117647) on chabad.org; at 270 Sherwood Court, West St. Paul, in the Sept 2011 lubavitch.com directory (Wayback). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Fallback (owner, Nov 12: 'If it's within a year that high, then I guess we can enter it as a low confidence, I suppose'): no source found for its start (the searches above), so the year is when its entry was added to chabad.org's old (pre-2004) directory, read from the entry's number: mosad-id 3387, in the run 3,250-4,030 that was numbered in order as entries were added from about 2001 to July 2004, so about 2001. Entered as LOW. Checked first on the 95 centers in that run with a high-confidence year: the right year 59%, within a year 84%; 15% were older centers added late (four or more years off), so VSL (by 1995) and Beth Hamedrash Lubavitch (by 1990) were left out."
   },
   "119759": {
    "name": "Chabad Oneg Shabbos V'Yomtov",
@@ -17993,12 +17987,11 @@
    "name": "Chabad of Bay Ridge",
    "city": "Brooklyn, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/118501/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Tzvi Stroh. New York's register: CHABAD OF BAY RIDGE CORP., filed 2021-06-22, after its chabad.org listing (2004-07-22), so not the year (HANDOFF 4b)."
+   "year": 2001,
+   "how": "directory",
+   "confidence": "low",
+   "source": "https://www.chabad.org/api/v2/chabadorg/centers/118501?format=jsonapi",
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Tzvi Stroh. New York's register: CHABAD OF BAY RIDGE CORP., filed 2021-06-22, after its chabad.org listing (2004-07-22), so not the year (HANDOFF 4b). Fallback (owner, Nov 12: 'If it's within a year that high, then I guess we can enter it as a low confidence, I suppose'): no source found for its start (the searches above), so the year is when its entry was added to chabad.org's old (pre-2004) directory, read from the entry's number: mosad-id 3382, in the run 3,250-4,030 that was numbered in order as entries were added from about 2001 to July 2004, so about 2001. Entered as LOW. Checked first on the 95 centers in that run with a high-confidence year: the right year 59%, within a year 84%; 15% were older centers added late (four or more years off), so VSL (by 1995) and Beth Hamedrash Lubavitch (by 1990) were left out."
   },
   "118551": {
    "name": "Chabad of Brookville",
@@ -18065,23 +18058,21 @@
    "name": "Chabad of Patchogue",
    "city": "Patchogue, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/118642/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Berel Sasonkin."
+   "year": 2003,
+   "how": "directory",
+   "confidence": "low",
+   "source": "https://www.chabad.org/api/v2/chabadorg/centers/118642?format=jsonapi",
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Berel Sasonkin. Fallback (owner, Nov 12: 'If it's within a year that high, then I guess we can enter it as a low confidence, I suppose'): no source found for its start (the searches above), so the year is when its entry was added to chabad.org's old (pre-2004) directory, read from the entry's number: mosad-id 3746, in the run 3,250-4,030 that was numbered in order as entries were added from about 2001 to July 2004, so about 2003. Entered as LOW. Checked first on the 95 centers in that run with a high-confidence year: the right year 59%, within a year 84%; 15% were older centers added late (four or more years off), so VSL (by 1995) and Beth Hamedrash Lubavitch (by 1990) were left out."
   },
   "118826": {
    "name": "New York Hebrew",
    "city": "New York, NY",
    "shetach": "new-york-city",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/118826/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Menachem Shanowitz."
+   "year": 2002,
+   "how": "directory",
+   "confidence": "low",
+   "source": "https://www.chabad.org/api/v2/chabadorg/centers/118826?format=jsonapi",
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Menachem Shanowitz. Fallback (owner, Nov 12: 'If it's within a year that high, then I guess we can enter it as a low confidence, I suppose'): no source found for its start (the searches above), so the year is when its entry was added to chabad.org's old (pre-2004) directory, read from the entry's number: mosad-id 3511, in the run 3,250-4,030 that was numbered in order as entries were added from about 2001 to July 2004, so about 2002. Entered as LOW. Checked first on the 95 centers in that run with a high-confidence year: the right year 59%, within a year 84%; 15% were older centers added late (four or more years off), so VSL (by 1995) and Beth Hamedrash Lubavitch (by 1990) were left out."
   },
   "118921": {
    "name": "Gan Israel School",
@@ -20307,12 +20298,11 @@
    "name": "Chabad of Ridgefield",
    "city": "Ridgefield, CT",
    "shetach": "connecticut",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/150725/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Sholom Deitsch. Connecticut Secretary of the State record (data.ct.gov, 'Connecticut Business Registry - Business Master'): 'CHABAD JEWISH CENTER OF NORTHERN FAIRFIELD COUNTY INC.' (account 1046606, Aug 19 2011; and account 2830875, July 2023, at 27 West Lane, the listing's address). So the filing is after the listing and is not taken as the year. Its site as archived Oct 9 2004: 'Chabad Jewish Center of Ridgefield • 10 Sarah Bishop Road • Ridgefield, CT 06877' (now 27R West Lane; in April 2016 the zoning board let Rabbi Deitsch run it from the two-family house where he lives, CrownHeights.info). Its old-directory number (mosad-id 3813) points to an entry made in the first half of 2004 (a lead, not a year).",
+   "year": 2003,
+   "how": "directory",
+   "confidence": "low",
+   "source": "https://www.chabad.org/api/v2/chabadorg/centers/150725?format=jsonapi",
+   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Sholom Deitsch. Connecticut Secretary of the State record (data.ct.gov, 'Connecticut Business Registry - Business Master'): 'CHABAD JEWISH CENTER OF NORTHERN FAIRFIELD COUNTY INC.' (account 1046606, Aug 19 2011; and account 2830875, July 2023, at 27 West Lane, the listing's address). So the filing is after the listing and is not taken as the year. Its site as archived Oct 9 2004: 'Chabad Jewish Center of Ridgefield • 10 Sarah Bishop Road • Ridgefield, CT 06877' (now 27R West Lane; in April 2016 the zoning board let Rabbi Deitsch run it from the two-family house where he lives, CrownHeights.info). Its old-directory number (mosad-id 3813) points to an entry made in the first half of 2004 (a lead, not a year). Fallback (owner, Nov 12: 'If it's within a year that high, then I guess we can enter it as a low confidence, I suppose'): no source found for its start (the searches above), so the year is when its entry was added to chabad.org's old (pre-2004) directory, read from the entry's number: mosad-id 3813, in the run 3,250-4,030 that was numbered in order as entries were added from about 2001 to July 2004, so about 2003. Entered as LOW. Checked first on the 95 centers in that run with a high-confidence year: the right year 59%, within a year 84%; 15% were older centers added late (four or more years off), so VSL (by 1995) and Beth Hamedrash Lubavitch (by 1990) were left out.",
    "earlier": [
     {
      "where": "10 Sarah Bishop Road, Ridgefield ('Chabad Jewish Center of Ridgefield', its site as archived Oct 9 2004)",
@@ -22481,12 +22471,11 @@
    "name": "Hebrew School",
    "city": "Richmond Hill, ON",
    "shetach": "ontario",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://crownheights.info/general/2209/chabad-richmond-hill-to-get-its-own-building/",
-   "note": "Canadian Jewish News (on CrownHeights.info, 17 May 2006, 'Chabad Richmond Hill to get its own building'): 'The rabbi and his wife, Toby, moved to Richmond Hill in 1997, and got the local Chabad off the ground in their home, using it as synagogue and preschool' (the listing's address, 112 Stave Crescent, is that home); 'The organization also runs a Sunday Hebrew school from senior kindergarten to Grade 7 at Silver Pines Public School, with just over 200 students.' So the Hebrew school began between 1997 and its chabad.org listing (July 22 2004). Lead: its old-directory number (mosad-id 3458) points to an entry made about 2001-02. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "year": 2001,
+   "how": "directory",
+   "confidence": "low",
+   "source": "https://www.chabad.org/api/v2/chabadorg/centers/118781?format=jsonapi",
+   "note": "Canadian Jewish News (on CrownHeights.info, 17 May 2006, 'Chabad Richmond Hill to get its own building'): 'The rabbi and his wife, Toby, moved to Richmond Hill in 1997, and got the local Chabad off the ground in their home, using it as synagogue and preschool' (the listing's address, 112 Stave Crescent, is that home); 'The organization also runs a Sunday Hebrew school from senior kindergarten to Grade 7 at Silver Pines Public School, with just over 200 students.' So the Hebrew school began between 1997 and its chabad.org listing (July 22 2004). Lead: its old-directory number (mosad-id 3458) points to an entry made about 2001-02. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Fallback (owner, Nov 12: 'If it's within a year that high, then I guess we can enter it as a low confidence, I suppose'): no source found for its start (the searches above), so the year is when its entry was added to chabad.org's old (pre-2004) directory, read from the entry's number: mosad-id 3458, in the run 3,250-4,030 that was numbered in order as entries were added from about 2001 to July 2004, so about 2001. Entered as LOW. Checked first on the 95 centers in that run with a high-confidence year: the right year 59%, within a year 84%; 15% were older centers added late (four or more years off), so VSL (by 1995) and Beth Hamedrash Lubavitch (by 1990) were left out.",
    "after": 1997
   },
   "118938": {
@@ -22978,12 +22967,11 @@
    "name": "Chai Friendship Club",
    "city": "Montreal, QC",
    "shetach": "quebec",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/119147/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Quebec enterprise register (Registraire des entreprises, open data 'Registre des entreprises', file of Nov 1 2026): the federal 'CENTRE CHABAD CHAI' / 'CHABAD CHAI CENTER' (NEQ 1163994081, July 27 2006, 6995 Westbury, the listing's address) declared 'CHAI FRIENDSHIP' in Oct 2006, and the umbrella corporation (NEQ 1143241058) 'CLUB D'AMITIÉ CHAI' in May 2005, both after the listing (2004). Nothing in the register is earlier than the listing, so no year from it."
+   "year": 2001,
+   "how": "directory",
+   "confidence": "low",
+   "source": "https://www.chabad.org/api/v2/chabadorg/centers/119147?format=jsonapi",
+   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Quebec enterprise register (Registraire des entreprises, open data 'Registre des entreprises', file of Nov 1 2026): the federal 'CENTRE CHABAD CHAI' / 'CHABAD CHAI CENTER' (NEQ 1163994081, July 27 2006, 6995 Westbury, the listing's address) declared 'CHAI FRIENDSHIP' in Oct 2006, and the umbrella corporation (NEQ 1143241058) 'CLUB D'AMITIÉ CHAI' in May 2005, both after the listing (2004). Nothing in the register is earlier than the listing, so no year from it. Fallback (owner, Nov 12: 'If it's within a year that high, then I guess we can enter it as a low confidence, I suppose'): no source found for its start (the searches above), so the year is when its entry was added to chabad.org's old (pre-2004) directory, read from the entry's number: mosad-id 3409, in the run 3,250-4,030 that was numbered in order as entries were added from about 2001 to July 2004, so about 2001. Entered as LOW. Checked first on the 95 centers in that run with a high-confidence year: the right year 59%, within a year 84%; 15% were older centers added late (four or more years off), so VSL (by 1995) and Beth Hamedrash Lubavitch (by 1990) were left out."
   },
   "119148": {
    "name": "Teenage Social Center",
@@ -23080,12 +23068,11 @@
    "name": "Torah Fax",
    "city": "Montreal, QC",
    "shetach": "quebec",
-   "year": null,
-   "how": "range",
-   "confidence": "range",
-   "by": 2004,
-   "source": "https://www.chabad.org/api/content/119154/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Zalmen Marozov. Quebec enterprise register (Registraire des entreprises, open data 'Registre des entreprises', file of Nov 1 2026): Torah Fax is a name of 'CENTRE EDUCATIF NACHLAS' / 'NACHLAS EDUCATION CENTRE' (NEQ 3343845718), an association at 4710 Carlton Avenue (the listing's address) on the register since March 18 1995, but the name 'TORAH FAX' was declared only on Feb 28 2012. So the filing is after the listing and is not taken as the year."
+   "year": 2001,
+   "how": "directory",
+   "confidence": "low",
+   "source": "https://www.chabad.org/api/v2/chabadorg/centers/119154?format=jsonapi",
+   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Zalmen Marozov. Quebec enterprise register (Registraire des entreprises, open data 'Registre des entreprises', file of Nov 1 2026): Torah Fax is a name of 'CENTRE EDUCATIF NACHLAS' / 'NACHLAS EDUCATION CENTRE' (NEQ 3343845718), an association at 4710 Carlton Avenue (the listing's address) on the register since March 18 1995, but the name 'TORAH FAX' was declared only on Feb 28 2012. So the filing is after the listing and is not taken as the year. Fallback (owner, Nov 12: 'If it's within a year that high, then I guess we can enter it as a low confidence, I suppose'): no source found for its start (the searches above), so the year is when its entry was added to chabad.org's old (pre-2004) directory, read from the entry's number: mosad-id 3416, in the run 3,250-4,030 that was numbered in order as entries were added from about 2001 to July 2004, so about 2001. Entered as LOW. Checked first on the 95 centers in that run with a high-confidence year: the right year 59%, within a year 84%; 15% were older centers added late (four or more years off), so VSL (by 1995) and Beth Hamedrash Lubavitch (by 1990) were left out."
   },
   "4252413": {
    "name": "The Sunshine Club",
@@ -23826,6 +23813,16 @@
    "date": "1998-05",
    "source": "https://projects.propublica.org/nonprofits/organizations/752666081",
    "note": "IRS exempt-organization record (EO Business Master File, irs.gov, Nov 2026): 'FRIENDS OF KESHER FOUNDATION INC' (EIN 75-2666081), 6704 Starbuck Dr, Dallas, ruling May 1998: the earliest record of it found, so the year by the filing rule (HANDOFF 4b; an IRS ruling can lag the start, so low). Rabbi Asher Goldschmidt; its own About page (chabadkesherfoundation.com, a page chabad.org dates Nov 2009, read through WebFetch Nov 11) says only 'Rabbi Asher has been here 30 years.' Its chabad.org listing is in the first online directory (July 22 2004). To check: the Texas Jewish Post on The Portal to Texas History for its first mention."
+  },
+  "150723": {
+   "name": "The Living Legacy",
+   "city": "Paramus",
+   "shetach": "new-jersey",
+   "note": "The Living Legacy (Rabbi Moshe Grossbaum), Paramus. Its chabad.org listing went up July 22 2004 (the first online directory), so it existed by then. A CrownHeights.info item of 22 July 2010 ('The Paramus-based organization, established seven years ago') is about the Friendship Circle of Bergen County, not this listing. Fallback (owner, Nov 12: 'If it's within a year that high, then I guess we can enter it as a low confidence, I suppose'): no source found for its start (the searches above), so the year is when its entry was added to chabad.org's old (pre-2004) directory, read from the entry's number: mosad-id 3811, in the run 3,250-4,030 that was numbered in order as entries were added from about 2001 to July 2004, so about 2003. Entered as LOW. Checked first on the 95 centers in that run with a high-confidence year: the right year 59%, within a year 84%; 15% were older centers added late (four or more years off), so VSL (by 1995) and Beth Hamedrash Lubavitch (by 1990) were left out.",
+   "year": 2003,
+   "how": "directory",
+   "confidence": "low",
+   "source": "https://www.chabad.org/api/v2/chabadorg/centers/150723?format=jsonapi"
   }
  }
 }

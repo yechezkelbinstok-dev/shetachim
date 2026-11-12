@@ -48,7 +48,8 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
 
 .head { position: absolute; top: max(12px, env(safe-area-inset-top)); inset-inline-start: 16px; pointer-events: none; z-index: 3; }
 .year { font: 800 58px/0.95 var(--font); letter-spacing: -.03em; font-variant-numeric: tabular-nums; color: var(--ink);
-  text-shadow: 0 0 10px var(--bg), 0 0 4px var(--bg); direction: ltr; unicode-bidi: isolate; }
+  text-shadow: 0 0 10px var(--bg), 0 0 4px var(--bg); unicode-bidi: isolate; }
+.year[dir="rtl"] { letter-spacing: 0; }
 .count { margin-top: 6px; font: 600 14px/1.3 var(--font); color: var(--muted); text-shadow: 0 0 6px var(--bg), 0 0 2px var(--bg); font-variant-numeric: tabular-nums; }
 .count b { color: var(--ink); font-weight: 750; }
 .firsts { margin-top: 10px; display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
@@ -76,6 +77,9 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
 .bar .play { appearance: none; border: 0; background: var(--accent); color: var(--bg); width: 42px; height: 42px; border-radius: 21px; flex: none; cursor: pointer; display: grid; place-items: center;
   box-shadow: 0 2px 8px rgb(29 79 143 / .25); }
 .bar .play svg { width: 19px; height: 19px; fill: currentColor; }
+.bar .step { appearance: none; border: 0; background: transparent; color: var(--accent); width: 32px; height: 38px; border-radius: 10px; flex: none; cursor: pointer; display: grid; place-items: center; }
+.bar .step svg { width: 18px; height: 18px; fill: currentColor; }
+.bar .step:active { background: var(--accent-soft); }
 .bar .speed { appearance: none; border: 1px solid var(--panel-line); background: transparent; color: var(--muted); font: 700 12px var(--font); height: 28px; min-width: 38px; border-radius: 14px; cursor: pointer; flex: none; font-variant-numeric: tabular-nums; }
 .track { flex: 1; min-width: 0; position: relative; height: 54px; }
 #hist { position: absolute; left: 0; right: 0; top: 2px; height: 26px; width: 100%; display: block; }
@@ -128,6 +132,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   <div class="tools">
     <div class="row">
       <button class="chip" id="theme" type="button" aria-label="Light or dark"><svg viewBox="0 0 24 24"><path id="themeIcon" d=""/></svg></button>
+      <button class="chip" id="hy" type="button"></button>
       <button class="chip" id="lang" type="button"></button>
       <a class="chip" id="home" href="./" aria-label="Map"><svg viewBox="0 0 24 24"><path d="M15 5.1 9 3 3 5v16l6-2.1 6 2.1 6-2V3l-6 2.1zM10 5.4l4 1.4v11.8l-4-1.4V5.4zM5 6.4l3-1v11.8l-3 1V6.4zm14 11.2-3 1V6.8l3-1v11.8z"/></svg></a>
     </div>
@@ -135,7 +140,9 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   </div>
   <div id="card" hidden></div>
   <div class="bar">
+    <button class="step" id="prev" type="button" aria-label="A year back"><svg viewBox="0 0 24 24"><path d="M6 5h2v14H6zM9.5 12 18 18V6z"/></svg></button>
     <button class="play" id="play" type="button" aria-label="Play"><svg viewBox="0 0 24 24"><path id="playIcon" d="M7 5v14l12-7z"/></svg></button>
+    <button class="step" id="next" type="button" aria-label="A year ahead"><svg viewBox="0 0 24 24"><path d="M16 5h2v14h-2zM6 18l8.5-6L6 6z"/></svg></button>
     <button class="speed" id="speed" type="button" aria-label="Speed">1×</button>
     <div class="track"><canvas id="hist"></canvas><input id="slider" type="range" step="1" aria-label="Year"><div class="ticks" id="ticks"></div></div>
   </div>
@@ -179,8 +186,34 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   const pieces = topo.objects.areas.geometries, outside = topo.objects.outside.geometries;
   const isHI = (g) => g.properties && g.properties.state === 'US-HI';
 
+  // ---------- Hebrew years (owner, Nov 12: "why isn't this Hebrew dates?????"), as on the history page: a date counts in the
+  // Hebrew year it fell in and the timeline goes by Hebrew years. A year's slot is its Hebrew year less 3760 (5746's is
+  // 1986: most of 1986 was 5746); a date with only a year is taken to be in that Hebrew year, one with a month mid-month.
+  // On by default; a chip switches to the ordinary years.
+  let HY = (() => { const q = Q.get('hy'); if (q === '1' || q === '0') return q === '1'; try { const v = localStorage.getItem('growth-hy'); return v == null ? true : v === '1'; } catch (e) { return true; } })();
+  const hebYear = (() => {
+    try {
+      const f = new Intl.DateTimeFormat('en-u-ca-hebrew', { year: 'numeric', timeZone: 'UTC' }), of = (d) => +f.formatToParts(d).find((x) => x.type === 'year').value;
+      if (of(new Date(Date.UTC(1986, 0, 1))) !== 5746 || of(new Date(Date.UTC(1975, 8, 20))) !== 5736) throw new Error('no Hebrew calendar');
+      return of;
+    } catch (e) { return (d) => d.getUTCFullYear() + 3760 + (d.getUTCMonth() > 8 || (d.getUTCMonth() === 8 && d.getUTCDate() >= 20) ? 1 : 0); }
+  })();
+  const yr = (s) => {
+    const m = /^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?/.exec(String(s)); if (!m) return NaN;
+    if (!HY || !m[2]) return +m[1];
+    return hebYear(new Date(Date.UTC(+m[1], +m[2] - 1, m[3] ? +m[3] : 15))) - 3760;
+  };
+  // a year as shown: תשנ״א in Hebrew, 5751 in English; 1991 with the ordinary years
+  function gem(n) {
+    const ones = ['', 'א', 'ב', 'ג', 'ד', 'ה', 'ו', 'ז', 'ח', 'ט'], tens = ['', 'י', 'כ', 'ל', 'מ', 'נ', 'ס', 'ע', 'פ', 'צ'], hund = ['', 'ק', 'ר', 'ש', 'ת'];
+    let h = Math.floor(n / 100), s = ''; const r = n % 100;
+    while (h > 4) { s += 'ת'; h -= 4; }
+    s += hund[h] + (r === 15 ? 'טו' : r === 16 ? 'טז' : tens[Math.floor(r / 10)] + ones[r % 10]);
+    return s.length > 1 ? `${s.slice(0, -1)}״${s.slice(-1)}` : `${s}׳`;
+  }
+  const yearText = (y) => (y == null ? '' : !HY ? String(y) : HE ? gem((y + 3760) % 1000) : String(y + 3760));
+
   // ---------- the shetachim by year (data/shetach-history.json, read as the history page reads it) ----------
-  const yr = (s) => { const m = /^(\d{4})/.exec(String(s)); return m ? +m[1] : NaN; };
   function startOf(p) {
     if (!p) return null;
     if (p.from) return { y: yr(p.from) };
@@ -215,11 +248,14 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   }
 
   // ---------- the centers ----------
-  const NOW = new Date().getFullYear();
+  const NOW = HY ? hebYear(new Date()) - 3760 : new Date().getFullYear();
   const START = 1940; // the Frierdiker Rebbe came to America in 1940; the few older (a shul founded earlier, later Lubavitch) are there from the start
-  const DOTS = data.dots.map((d) => ({ lon: d[0], lat: d[1], y: Math.max(START, d[2]), y0: d[2], c: d[3], st: d[4], sh: d[5], L: d[6], x: 0, yy: 0, hi: d[4] === 'US-HI' }));
+  const slotOf = (date, year) => { const t = date ? yr(date) : NaN; return Number.isFinite(t) ? t : year; };
+  const DOTS = data.dots.map((d) => { const s = slotOf(d[7], d[2]); return { lon: d[0], lat: d[1], y: Math.max(START, s), y0: s, c: d[3], st: d[4], sh: d[5], L: d[6], x: 0, yy: 0, hi: d[4] === 'US-HI' }; })
+    .sort((a, b) => a.y - b.y);
   const LIST = data.listings;
-  const FIRST = data.first; // the year each state or province got its first center
+  const FIRST = {}; // the year each state or province got its first center
+  for (const d of DOTS) if (d.st && (FIRST[d.st] == null || d.y0 < FIRST[d.st])) FIRST[d.st] = d.y0;
   const NREG = 60; // 50 states and 10 provinces (Washington DC counted with the states it sits among, not on its own)
   const regionsBy = (Y) => { let n = 0; for (const [r, y] of Object.entries(FIRST)) if (r !== 'US-DC' && Math.max(START, y) <= Y) n++; return n; };
   const perYear = new Map(); for (const d of DOTS) perYear.set(d.y, (perYear.get(d.y) || 0) + 1);
@@ -411,7 +447,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   // ---------- the year: the count, the first in a state or province, the timeline ----------
   const fmt = new Intl.NumberFormat(HE ? 'he' : 'en');
   function showYear(animate) {
-    $('#year').textContent = Y;
+    const ye = $('#year'); ye.textContent = yearText(Y); ye.dir = HE && HY ? 'rtl' : 'ltr';
     const n = cum.get(Y) || 0, r = regionsBy(Y);
     $('#count').innerHTML = HE
       ? `<b>${fmt.format(n)}</b> מוסדות · <b>${r}</b> מתוך ${NREG} מדינות ופרובינציות`
@@ -453,7 +489,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   }
   function ticks() {
     const t = $('#ticks'); t.innerHTML = '';
-    for (let y = 1950; y <= NOW; y += W < 560 ? 20 : 10) { const s = document.createElement('span'); s.textContent = HE ? y : `’${String(y).slice(2)}`; s.style.left = `${(100 * (y - START)) / (NOW - START)}%`; t.appendChild(s); }
+    for (let y = 1950; y <= NOW; y += W < 560 ? 20 : 10) { const s = document.createElement('span'); s.textContent = HY ? (HE ? gem((y + 3760) % 1000) : String(y + 3760)) : HE ? y : `’${String(y).slice(2)}`; s.style.left = `${(100 * (y - START)) / (NOW - START)}%`; t.appendChild(s); }
   }
 
   // ---------- the animation loop: runs only while something moves ----------
@@ -495,6 +531,10 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     timer = setTimeout(step, (n ? 900 : 380) / speed);
   }
   $('#play').addEventListener('click', () => setPlaying(!playing));
+  // a year at a time (owner, Nov 12: "why is it that there isn't a button to only jump ahead one year?")
+  $('#prev').addEventListener('click', () => { setPlaying(false); setYear(Y - 1, false); });
+  $('#next').addEventListener('click', () => { setPlaying(false); setYear(Y + 1, true); });
+  $('#prev').setAttribute('aria-label', L('A year back', 'שנה אחורה')); $('#next').setAttribute('aria-label', L('A year ahead', 'שנה קדימה'));
   const SPEEDS = [1, 2, 4];
   $('#speed').addEventListener('click', () => { speed = SPEEDS[(SPEEDS.indexOf(speed) + 1) % SPEEDS.length]; $('#speed').textContent = `${speed}×`; });
   const slider = $('#slider'); slider.min = START; slider.max = NOW;
@@ -527,6 +567,8 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     setThemeIcon(); palette(); needBase = true; drawHist(); kick();
   });
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { setThemeIcon(); palette(); needBase = true; drawHist(); kick(); });
+  $('#hy').textContent = HY ? L('Ordinary years', 'שנים לועזיות') : L('Hebrew years', 'שנים עבריות');
+  $('#hy').addEventListener('click', () => { try { localStorage.setItem('growth-hy', HY ? '0' : '1'); } catch (e) {} const u = new URL(location.href); u.searchParams.set('hy', HY ? '0' : '1'); u.searchParams.set('year', Y); u.searchParams.set('base', MODE); location.href = u.toString(); });
   $('#lang').textContent = HE ? 'EN' : 'עב';
   $('#lang').addEventListener('click', () => { const u = new URL(location.href); u.searchParams.set('lang', HE ? 'en' : 'he'); u.searchParams.set('year', Y); u.searchParams.set('base', MODE); location.href = u.toString(); });
   $('#home').setAttribute('aria-label', L('The map', 'המפה'));
@@ -541,10 +583,10 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     const first = rows[0];
     let h = `<div class="top"><span class="where">${esc(heCity(first[3]))}${first[3] ? ' · ' : ''}${esc(stateName(d.st))}${d.sh && shetachName(d.sh) ? ` · ${esc(shetachName(d.sh))}` : ''}</span>`
       + `<button class="close" type="button" aria-label="${L('Close', 'סגור')}"><svg viewBox="0 0 24 24"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg></button></div>`;
-    for (const [, name, type, , year, conf] of rows) {
+    for (const [, name, type, , year, conf, date] of rows) {
       h += `<div class="item"><div class="name">${esc(heName(name))}</div>${type ? `<div class="what">${esc(type)}</div>` : ''}<div class="when">`;
       if (year) {
-        h += `<span class="yr">${year}</span>`;
+        h += `<span class="yr">${esc(yearText(slotOf(date, year)))}</span>`;
         if (CONF[conf]) h += `<span class="conf ${CONF[conf][1]}"><i></i>${CONF[conf][0]}</span>`;
       } else h += `<span class="none">${L('Year not known yet', 'השנה עוד לא ידועה')}</span>`;
       h += '</div></div>';

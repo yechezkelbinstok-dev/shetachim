@@ -7,13 +7,30 @@ counts (work/founding-years/progress.py): mushrooms, mikvahs, the Crown Heights 
 with no year yet (owner, Nov 12: "the 16 don't show up for now at all").
 Run from the repository root:  python3 -I scripts/build-growth.py
 """
-import json, os, sys
+import json, os, re, sys
 
 ROOT = os.getcwd()
 CENTERS = os.path.join(ROOT, 'web/data/centers.geojson')
 YEARS = os.path.join(ROOT, 'data/founding-years.json')
 OUT = os.path.join(ROOT, 'web/data/growth.json')
 CONF = {'high': 'h', 'medium': 'm', 'low': 'l'}
+
+
+MONTHS = {m: i + 1 for i, m in enumerate(['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'])}
+
+
+def iso_date(s):
+    """A founding date as 'YYYY-MM' or 'YYYY-MM-DD' for the page's Hebrew years. Most are already; a few are written out
+    ('Aug 2007', '10 May 1972', 'Sept 2008 (Elul 5768)'): those with a month are read, the vaguer ones ('end of 2016') left
+    out, so the year alone counts."""
+    s = str(s or '').strip()
+    if re.match(r'^\d{4}(-\d{2}){0,2}$', s):
+        return s if len(s) > 4 else ''
+    m = re.match(r'^(?:(\d{1,2})\s+)?([A-Za-z]{3,9})\.?\s+(\d{4})\b', s)
+    if m and m.group(2)[:3].lower() in MONTHS:
+        mo = MONTHS[m.group(2)[:3].lower()]
+        return f'{m.group(3)}-{mo:02d}' + (f'-{int(m.group(1)):02d}' if m.group(1) else '')
+    return ''
 
 
 def is_mikvah(c):
@@ -48,10 +65,11 @@ def main():
             idx.append(len(listings))
             # (no sources on the page: owner, Nov 12, "absolutely not a link to the data source")
             listings.append([cid, c.get('name') or '', c.get('type') or '', c.get('city') or '',
-                             e.get('year') or None, CONF.get(e.get('confidence'), '')])
+                             e.get('year') or None, CONF.get(e.get('confidence'), ''), iso_date(e.get('date'))])
         lon, lat = f['geometry']['coordinates'][:2]
         region = p.get('region') or ''
-        dots.append([round(lon, 4), round(lat, 4), year, CONF.get(e0.get('confidence'), ''), region, piece, idx])
+        # (its date where one is known, 'YYYY-MM' or 'YYYY-MM-DD': the page counts it in the Hebrew year it fell in)
+        dots.append([round(lon, 4), round(lat, 4), year, CONF.get(e0.get('confidence'), ''), region, piece, idx, iso_date(e0.get('date'))])
         if region and (region not in first or year < first[region]):
             first[region] = year
     dots.sort(key=lambda d: (d[2], d[1]))

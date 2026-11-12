@@ -313,7 +313,8 @@ thirteen no better recent photo has been found yet (the list is there, with what
     that fit the year, no area-by-area history list). Its shapes: `web/data/history-geo.json`
     (`scripts/build-history-geo.py`; rebuild when geo.json changes). Redrawn on canvases for speed (it was slow and
     crashed on phones), its cards made like the main map's, 770's with the Rebbeim's portraits (README: Drawing, Cards);
-    settings: Hebrew years (default in Hebrew), זצוקללה״ה נבג״מ זי״ע (default in Hebrew), Full provinces.
+    settings: Hebrew years (default in Hebrew), Full provinces. זצוקללה״ה נבג״מ זי״ע is always shown after the Rebbeim, in
+    both languages, with no switch (owner, Nov 12: "Actually no overall just only do it with zekokleleha nivgam Ziyah").
   - **Nov 9 (late): labels.** Heads mode shows whole names only, never a surname alone (owner: "Stop with this last name
     bullshit"); no Rebbe's name on the map at all (owner: "don't put any of the Rebbe's names"; Crown Heights has no
     label in Heads, its star stays); the mode button in Hebrew is "שלוחים" (owner: "Take away roshim just shluchim").

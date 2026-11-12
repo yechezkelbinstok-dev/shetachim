@@ -197,7 +197,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       <a class="chip" id="home" href="./" aria-label="Map"><svg viewBox="0 0 24 24"><path d="M15 5.1 9 3 3 5v16l6-2.1 6 2.1 6-2V3l-6 2.1zM10 5.4l4 1.4v11.8l-4-1.4V5.4zM5 6.4l3-1v11.8l-3 1V6.4zm14 11.2-3 1V6.8l3-1v11.8z"/></svg></a>
     </div>
     <div class="seg" id="mode"><button type="button" data-m="shetachim"></button><button type="button" data-m="heads"></button></div>
-    <div class="menu" id="menu" hidden><label class="opt"><span id="hyLbl"></span><input type="checkbox" id="hy" role="switch"></label><label class="opt"><span id="ttlLbl" lang="he" dir="rtl"></span><input type="checkbox" id="ttl" role="switch"></label><label class="opt"><span id="fullLbl"></span><input type="checkbox" id="full" role="switch"></label></div>
+    <div class="menu" id="menu" hidden><label class="opt"><span id="hyLbl"></span><input type="checkbox" id="hy" role="switch"></label><label class="opt"><span id="fullLbl"></span><input type="checkbox" id="full" role="switch"></label></div>
   </div>
   <div id="card" hidden></div>
   <div class="bar">
@@ -951,11 +951,12 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     return rows.map((r) => `<div class="cc-people" style="--t:${t}">${r}</div>`).join('');
   }
   // 770: the Rebbe its leader, as on the main map; before 10 Shevat 5711 the Frierdiker Rebbe, the Rebbe under him
-  // (no "zy"a" in English: owner, Nov 8; the full זצוקללה״ה נבג״מ זי״ע a setting, on by default in Hebrew)
+  // (no "zy"a" in English: owner, Nov 8; the full זצוקללה״ה נבג״מ זי״ע always, in both languages, with no switch: owner,
+  // Nov 12, "Actually no overall just only do it with zekokleleha nivgam Ziyah")
   const REBBE = { 'frierdiker-rebbe': ['The Frierdiker Rebbe', 'כ״ק אדמו״ר מוהריי״צ'], 'the-rebbe': ['The Lubavitcher Rebbe', 'כ״ק אדמו״ר נשיא דורנו'] };
   const UNDER = { 'the-rebbe': ['The Rebbe', 'כ״ק אדמו״ר נשיא דורנו'] };
   const HONOR = 'זצוקללה״ה נבג״מ זי״ע';
-  let TITLES = (() => { try { const v = localStorage.getItem(`shetachim-history-titles-${HE ? 'he' : 'en'}`); return v == null ? HE : v === '1'; } catch (e) { return HE; } })();
+  const TITLES = true;
   const honor = () => (!TITLES ? '' : HE ? ` <span class="hon">${HONOR}</span>` : ` <bdi class="hon" lang="he">${HONOR}</bdi>`);
   const ALT = { 'frierdiker-rebbe': ['The Frierdiker Rebbe', 'אדמו״ר הריי״צ'], 'the-rebbe': ['The Rebbe', 'נשיא דורנו'] };
   // the Rebbe's picture by the year on the map, as he got older (owner, Nov 9; data/rebbeim-portraits.json says which is which)
@@ -1129,14 +1130,12 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   };
   fullBtn.onchange = () => { setFull(fullBtn.checked); render(cur.Y, false); warm(); };
   setFull(FULL);
-  // Hebrew years, and the Rebbeim's full titles: each kept for the language it was set in (both on by default in Hebrew)
+  // Hebrew years: kept for the language it was set in (on by default in Hebrew)
   const keep = (k, v) => { try { localStorage.setItem(`shetachim-history-${k}-${HE ? 'he' : 'en'}`, v ? '1' : '0'); } catch (e) {} };
-  const hyBtn = $('#hy'), ttlBtn = $('#ttl');
+  const hyBtn = $('#hy');
   $('#hyLbl').textContent = L('Hebrew years', 'שנים עבריות');
-  $('#ttlLbl').textContent = HONOR;
-  hyBtn.checked = HY; ttlBtn.checked = TITLES;
+  hyBtn.checked = HY;
   hyBtn.onchange = () => { keep('hy', hyBtn.checked); setTimeline(hyBtn.checked); slider.min = MIN; slider.max = MAX; render(cur.Y, false); warm(); };
-  ttlBtn.onchange = () => { TITLES = ttlBtn.checked; keep('titles', TITLES); if (selected) showCard(); };
   // settings: a menu behind the gear
   const gear = $('#gear'), menu = $('#menu');
   gear.onclick = (e) => { e.stopPropagation(); menu.hidden = !menu.hidden; gear.setAttribute('aria-expanded', String(!menu.hidden)); };

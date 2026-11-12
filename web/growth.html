@@ -8,6 +8,7 @@
 try { const q = new URLSearchParams(location.search).get('theme'); const t = q || localStorage.getItem('shetachim-theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=Heebo:wght@400..800&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.css">
 <style>
 :root {
   --bg: #e9eef0; --land: #f7f6f1; --land-edge: #b9c3c6; --line: rgb(40 58 70 / .42); --state-line: rgb(40 58 70 / .30);
@@ -45,6 +46,18 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
 #stage { position: absolute; inset: 0; touch-action: none; user-select: none; -webkit-user-select: none; cursor: grab; }
 #stage.dragging { cursor: grabbing; }
 #stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
+#gl { position: absolute; inset: 0; background: var(--bg); }
+#app.streets #stage { display: none; }
+#app:not(.streets) #gl { display: none; }
+.maplibregl-ctrl-bottom-right { bottom: calc(max(12px, env(safe-area-inset-bottom)) + 76px) !important; }
+.maplibregl-ctrl-attrib.maplibregl-compact { font-size: 10px; }
+#gl .maplibregl-ctrl.maplibregl-ctrl-attrib { background: var(--panel); color: var(--muted); }
+#gl .maplibregl-ctrl-attrib a { color: var(--muted); }
+#gl.gl-dark .maplibregl-ctrl-attrib-button { filter: invert(1); background-color: transparent; }
+/* on the street map the year sits on a frosted plate (the map's own names run under it) */
+#app.streets .plate { background: var(--panel); border: 1px solid var(--panel-line); border-radius: 16px; padding: 10px 16px 9px; box-shadow: var(--shadow);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+#app.streets .year, #app.streets .count { text-shadow: none; }
 
 .head { position: absolute; top: max(12px, env(safe-area-inset-top)); inset-inline-start: 16px; pointer-events: none; z-index: 3; }
 .year { font: 800 58px/0.95 var(--font); letter-spacing: -.03em; font-variant-numeric: tabular-nums; color: var(--ink);
@@ -116,9 +129,20 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
 .err { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); }
 
 @media (max-width: 640px) {
-  .year { font-size: 42px; }
+  .year { font-size: 40px; }
+  .chip { height: 32px; min-width: 32px; padding: 0 8px; font-size: 12px; }
+  .row { gap: 5px; }
   .count { font-size: 12.5px; max-width: 58vw; }
   #mode { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(max(12px, env(safe-area-inset-bottom)) + 86px); }
+  /* (a phone: the year across the top on its own plate, the switches tucked into its corner, the street/plain switch under it) */
+  .head { inset-inline-start: 10px; inset-inline-end: 10px; }
+  .plate { padding: 8px 12px 7px; }
+  #app.streets .plate { padding: 8px 12px 7px; border-radius: 14px; }
+  .count { max-width: none; }
+  .tools { top: calc(max(12px, env(safe-area-inset-top)) + 8px); inset-inline-end: 18px; }
+  #view { position: fixed; top: calc(max(12px, env(safe-area-inset-top)) + 92px); inset-inline-end: 10px; }
+  .firsts { max-width: calc(100% - 170px); }
+  .maplibregl-ctrl-bottom-right { bottom: calc(max(12px, env(safe-area-inset-bottom)) + 128px) !important; }
   .seg button { padding: 0 12px; font-size: 12.5px; }
   .bar { padding: 7px 10px 5px 8px; gap: 8px; }
   #card { inset-inline-start: 10px; width: calc(100% - 20px); bottom: calc(max(12px, env(safe-area-inset-bottom)) + 128px); max-height: calc(100% - 300px); }
@@ -127,8 +151,9 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
 </head>
 <body>
 <div id="app">
+  <div id="gl"></div>
   <div id="stage" role="img"><canvas id="map"></canvas><canvas id="over"></canvas></div>
-  <div class="head"><div class="year" id="year"></div><div class="count" id="count"></div><div class="firsts" id="firsts"></div></div>
+  <div class="head"><div class="plate"><div class="year" id="year"></div><div class="count" id="count"></div></div><div class="firsts" id="firsts"></div></div>
   <div class="tools">
     <div class="row">
       <button class="chip" id="theme" type="button" aria-label="Light or dark"><svg viewBox="0 0 24 24"><path id="themeIcon" d=""/></svg></button>
@@ -136,6 +161,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       <button class="chip" id="lang" type="button"></button>
       <a class="chip" id="home" href="./" aria-label="Map"><svg viewBox="0 0 24 24"><path d="M15 5.1 9 3 3 5v16l6-2.1 6 2.1 6-2V3l-6 2.1zM10 5.4l4 1.4v11.8l-4-1.4V5.4zM5 6.4l3-1v11.8l-3 1V6.4zm14 11.2-3 1V6.8l3-1v11.8z"/></svg></a>
     </div>
+    <div class="seg" id="view"><button type="button" data-v="streets"></button><button type="button" data-v="political"></button></div>
     <div class="seg" id="mode"><button type="button" data-m="shetachim"></button><button type="button" data-m="states"></button></div>
   </div>
   <div id="card" hidden></div>
@@ -150,6 +176,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.js"></script>
 <script>
 (async function () {
   'use strict';
@@ -356,6 +383,8 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   }
 
   // ---------- state ----------
+  // the map under it: the street map (owner, Nov 12: default) or the plain political one
+  let VIEW = (() => { const q = Q.get('view'); if (q === 'streets' || q === 'political') return q; try { return localStorage.getItem('growth-view') || 'streets'; } catch (e) { return 'streets'; } })();
   let MODE = (() => { const q = Q.get('base'); if (q === 'states' || q === 'shetachim') return q; try { return localStorage.getItem('growth-base') || 'shetachim'; } catch (e) { return 'shetachim'; } })();
   let Y = (() => { const q = +Q.get('year'); return q >= START && q <= NOW ? q : NOW; })();
   let playing = false, speed = 1, timer = null, selected = null;
@@ -498,6 +527,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   function frame() {
     raf = 0;
     const now = performance.now();
+    if (VIEW === 'streets') { glFrame(now); if (pops.length) kick(); return; }
     let flashing = false; for (const [r, t0] of regionFlash) { if (now - t0 > 1700) regionFlash.delete(r); else flashing = true; }
     if (flashing || needBase) { drawBase(); needBase = false; }
     drawOver();
@@ -511,8 +541,8 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     if (MODE === 'shetachim' && config(prev).key !== config(Y).key) needBase = true;
     if (MODE === 'states') needBase = true;
     showYear(animate && Y === prev + 1);
-    needBase = true; kick();
-    try { history.replaceState(null, '', `?${new URLSearchParams({ ...Object.fromEntries(Q), year: Y, base: MODE })}`); } catch (e) {}
+    needBase = true; kick(); glYear();
+    try { history.replaceState(null, '', `?${new URLSearchParams({ ...Object.fromEntries(Q), year: Y, base: MODE, view: VIEW })}`); } catch (e) {}
   }
 
   // ---------- play ----------
@@ -552,7 +582,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   function setMode(m) {
     MODE = m; segBtns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.m === m)));
     try { localStorage.setItem('growth-base', m); } catch (e) {}
-    needBase = true; kick();
+    needBase = true; kick(); glKey = null; glYear();
   }
   segBtns.forEach((b) => b.addEventListener('click', () => setMode(b.dataset.m)));
 
@@ -564,13 +594,13 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   $('#theme').addEventListener('click', () => {
     const t = isDark() ? 'light' : 'dark'; document.documentElement.dataset.theme = t;
     try { localStorage.setItem('shetachim-theme', t); } catch (e) {}
-    setThemeIcon(); palette(); needBase = true; drawHist(); kick();
+    setThemeIcon(); palette(); needBase = true; drawHist(); kick(); glTheme();
   });
-  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { setThemeIcon(); palette(); needBase = true; drawHist(); kick(); });
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { setThemeIcon(); palette(); needBase = true; drawHist(); kick(); glTheme(); });
   $('#hy').textContent = HY ? L('Ordinary years', 'שנים לועזיות') : L('Hebrew years', 'שנים עבריות');
-  $('#hy').addEventListener('click', () => { try { localStorage.setItem('growth-hy', HY ? '0' : '1'); } catch (e) {} const u = new URL(location.href); u.searchParams.set('hy', HY ? '0' : '1'); u.searchParams.set('year', Y); u.searchParams.set('base', MODE); location.href = u.toString(); });
+  $('#hy').addEventListener('click', () => { try { localStorage.setItem('growth-hy', HY ? '0' : '1'); } catch (e) {} const u = new URL(location.href); u.searchParams.set('hy', HY ? '0' : '1'); u.searchParams.set('year', Y); u.searchParams.set('base', MODE); u.searchParams.set('view', VIEW); location.href = u.toString(); });
   $('#lang').textContent = HE ? 'EN' : 'עב';
-  $('#lang').addEventListener('click', () => { const u = new URL(location.href); u.searchParams.set('lang', HE ? 'en' : 'he'); u.searchParams.set('year', Y); u.searchParams.set('base', MODE); location.href = u.toString(); });
+  $('#lang').addEventListener('click', () => { const u = new URL(location.href); u.searchParams.set('lang', HE ? 'en' : 'he'); u.searchParams.set('year', Y); u.searchParams.set('base', MODE); u.searchParams.set('view', VIEW); location.href = u.toString(); });
   $('#home').setAttribute('aria-label', L('The map', 'המפה'));
   $('#speed').setAttribute('aria-label', L('Speed', 'מהירות'));
 
@@ -593,9 +623,9 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     }
     card.innerHTML = h; card.hidden = false;
     card.querySelector('.close').addEventListener('click', closeCard);
-    kick();
+    kick(); glSel(); glReveal(d);
   }
-  function closeCard() { selected = null; $('#card').hidden = true; kick(); }
+  function closeCard() { selected = null; $('#card').hidden = true; kick(); glSel(); }
 
   // ---------- moving the map: drag, pinch, wheel; a tap picks a center ----------
   const zoom = d3.zoom().scaleExtent([1, 40]).on('start', () => stage.classList.add('dragging'))
@@ -609,12 +639,175 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     if (best) openCard(best); else closeCard();
   });
 
+  // ---------- the street map (owner, Nov 12: "u should be able to zoom in like streets mode also I think that should be
+  // default but still the current should be an alternative mode"): OpenFreeMap's street map, as on the main map, with the
+  // centers, the shetachim's borders of the year or the states reached, and the flagships over it ----------
+  const GL_STYLE = { light: 'https://tiles.openfreemap.org/styles/liberty', dark: 'https://tiles.openfreemap.org/styles/dark' };
+  let gl = null, glReady = false, glDark = null, glKey = null;
+  const ALL = { type: 'GeometryCollection', geometries: [...pieces, ...outside] };
+  const GI = new Map(pieces.map((g, i) => [g, i]));
+  const EMPTY = { type: 'FeatureCollection', features: [] };
+  const feat = (geometry, properties = {}) => ({ type: 'Feature', properties, geometry });
+  const SHL = new Map();
+  function shetachMesh(c) { // a line where two pieces of land are in different shetachim that year (or one in none)
+    let m = SHL.get(c.key); if (m) return m;
+    m = feat(topojson.mesh(topo, ALL, (a, b) => { if (a === b) return false; const ia = GI.get(a), ib = GI.get(b); return (ia != null ? c.s[ia] : null) !== (ib != null ? c.s[ib] : null); }));
+    SHL.set(c.key, m); return m;
+  }
+  let STATE_MESH = null;
+  const stOf = (g) => (g.properties && g.properties.state) || 'XX';
+  const stateMesh = () => STATE_MESH || (STATE_MESH = feat(topojson.mesh(topo, ALL, (a, b) => a !== b && stOf(a) !== stOf(b))));
+  const STATE_SHAPE = new Map();
+  const stateShape = (r) => { let g = STATE_SHAPE.get(r); if (!g) { g = topojson.merge(topo, pieces.filter((x) => x.properties.state === r)); STATE_SHAPE.set(r, g); } return g; };
+  // (states and provinces. Light: those not reached yet under a veil, so the map lights up as they're reached. Dark: those
+  // reached tinted, as a veil doesn't show on a dark map. Either way a state reached this year tinted brighter.)
+  const STATES = [...new Set(pieces.map((g) => g.properties.state).filter(Boolean))];
+  function reachedFC() {
+    const fs = [], dark = isDark();
+    for (const r of STATES) {
+      const k = FIRST[r] == null ? Infinity : Math.max(START, FIRST[r]);
+      if (k === Y) fs.push(feat(stateShape(r), { n: 1 }));
+      else if (dark ? k < Y : k > Y) fs.push(feat(stateShape(r), { n: 0 }));
+    }
+    return { type: 'FeatureCollection', features: fs };
+  }
+  const dotsFC = { type: 'FeatureCollection', features: DOTS.map((d, i) => feat({ type: 'Point', coordinates: [d.lon, d.lat] }, { i, y: d.y })) };
+  function flagsFC() {
+    if (MODE !== 'shetachim') return EMPTY;
+    const c = config(Y), seen = new Set(), fs = [];
+    for (const sid of c.sids) {
+      const f = flagAt(sid, Y); if (!f || f.lon == null) continue;
+      const k = String(f.centerId || `${f.lat},${f.lon}`); if (seen.has(k)) continue; seen.add(k);
+      fs.push(feat({ type: 'Point', coordinates: [f.lon, f.lat] }, { big: k === '117678' ? 1 : 0 }));
+    }
+    return { type: 'FeatureCollection', features: fs };
+  }
+  function starImage(fill, edge) {
+    const n = 64, c = document.createElement('canvas'); c.width = c.height = n; const x = c.getContext('2d');
+    star(x, n / 2, n / 2 + 2, n * 0.42); x.fillStyle = fill; x.fill(); x.lineWidth = 4; x.lineJoin = 'round'; x.strokeStyle = edge; x.stroke();
+    return x.getImageData(0, 0, n, n);
+  }
+  // the street map's names in the page's language, as on the main map: English, the English (or Latin) name; Hebrew,
+  // places only where they have a Hebrew name, streets as they're signed
+  function glLanguage() {
+    const latin = ['coalesce', ['get', 'name:en'], ['get', 'name_en'], ['get', 'name:latin'], ['get', 'name']];
+    for (const l of gl.getStyle().layers) {
+      if (l.type !== 'symbol' || !l.layout || !/"name/.test(JSON.stringify(l.layout['text-field'] || ''))) continue;
+      const street = l['source-layer'] === 'transportation_name';
+      gl.setLayoutProperty(l.id, 'text-field', HE ? (street ? ['coalesce', ['get', 'name:he'], ['get', 'name']] : ['get', 'name:he']) : latin);
+      if (HE && !street) gl.setFilter(l.id, l.filter ? ['all', l.filter, ['has', 'name:he']] : ['has', 'name:he']);
+    }
+  }
+  function glLayers() {
+    if (gl.getSource('dots')) return; // (the style switched twice in a row: its layers are already there)
+    const dark = isDark();
+    glLanguage();
+    if (gl.hasImage('gstar')) gl.removeImage('gstar');
+    gl.addImage('gstar', starImage(dark ? '#fff8e6' : '#c8952a', dark ? '#b8892a' : '#6b4a0f'), { pixelRatio: 2 });
+    for (const id of ['reached', 'lines', 'dots', 'pops', 'flags', 'sel']) gl.addSource(id, { type: 'geojson', data: id === 'dots' ? dotsFC : EMPTY });
+    gl.addLayer({ id: 'reached', type: 'fill', source: 'reached', paint: { 'fill-color': ['case', ['==', ['get', 'n'], 1], dark ? '#6aa2dc' : '#3f7cc4', dark ? '#3b6a96' : '#e9eef0'],
+      'fill-opacity': ['case', ['==', ['get', 'n'], 1], dark ? 0.5 : 0.32, dark ? 0.3 : 0.7] } });
+    gl.addLayer({ id: 'lines', type: 'line', source: 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' },
+      paint: { 'line-color': dark ? 'rgba(225,238,244,0.55)' : 'rgba(35,52,64,0.62)', 'line-width': ['interpolate', ['linear'], ['zoom'], 3, 1, 8, 1.7, 12, 2.6] } });
+    gl.addLayer({ id: 'dots', type: 'circle', source: 'dots', filter: ['<=', ['get', 'y'], Y],
+      paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 2, 2.3, 3, 2.9, 6, 3.8, 10, 5.4, 14, 7.5, 17, 10], 'circle-color': dark ? '#f1cf78' : '#163e74',
+        'circle-stroke-color': dark ? 'rgba(11,17,20,0.9)' : '#ffffff', 'circle-stroke-width': ['interpolate', ['linear'], ['zoom'], 3, 0.9, 12, 1.8] } });
+    gl.addLayer({ id: 'pops', type: 'circle', source: 'pops', paint: { 'circle-radius': ['get', 'r'], 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-color': dark ? '#ffe7a3' : '#d29b2a', 'circle-stroke-width': ['get', 'w'], 'circle-stroke-opacity': ['get', 'a'] } });
+    gl.addLayer({ id: 'flags', type: 'symbol', source: 'flags', layout: { 'icon-image': 'gstar', 'icon-allow-overlap': true, 'icon-ignore-placement': true, 'symbol-sort-key': ['get', 'big'],
+      'icon-size': ['interpolate', ['linear'], ['zoom'], 3, ['case', ['==', ['get', 'big'], 1], 0.46, 0.3], 10, ['case', ['==', ['get', 'big'], 1], 0.75, 0.52]] } });
+    gl.addLayer({ id: 'sel', type: 'circle', source: 'sel', paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 3, 7.5, 14, 13], 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-color': dark ? '#e6edf0' : '#1e2b32', 'circle-stroke-width': 2 } });
+    gl.addLayer({ id: 'hit', type: 'circle', source: 'dots', filter: ['<=', ['get', 'y'], Y], paint: { 'circle-radius': 12, 'circle-opacity': 0 } });
+    glReady = true; glKey = null; glYear(); glSel();
+  }
+  function glYear() {
+    if (!glReady) return;
+    gl.setFilter('dots', ['<=', ['get', 'y'], Y]); gl.setFilter('hit', ['<=', ['get', 'y'], Y]);
+    gl.getSource('flags').setData(flagsFC());
+    const k = `${MODE}|${MODE === 'states' ? Y : config(Y).key}`;
+    if (k !== glKey) {
+      glKey = k;
+      gl.getSource('reached').setData(MODE === 'states' ? reachedFC() : EMPTY);
+      gl.getSource('lines').setData(MODE === 'states' ? stateMesh() : shetachMesh(config(Y)));
+    }
+  }
+  function glFrame(now) {
+    if (!glReady) return;
+    const fs = [], base = 2.6 + 0.3 * Math.max(0, gl.getZoom() - 3);
+    for (let i = pops.length - 1; i >= 0; i--) {
+      const p = pops[i], t = (now - p.t0) / 1300;
+      if (t >= 1) { pops.splice(i, 1); continue; }
+      if (t < 0) continue;
+      fs.push(feat({ type: 'Point', coordinates: [p.d.lon, p.d.lat] }, { r: base + 14 * d3.easeCubicOut(t), a: (1 - t) * 0.9, w: 1.8 * (1 - t) + 0.4 }));
+    }
+    gl.getSource('pops').setData({ type: 'FeatureCollection', features: fs });
+  }
+  // (a center picked under the card, or under the year: the map moves it into the open)
+  function glReveal(d) {
+    if (!glReady || VIEW !== 'streets') return;
+    const p = gl.project([d.lon, d.lat]), c = $('#card').getBoundingClientRect(), h = document.querySelector('.plate').getBoundingClientRect();
+    const under = (r) => p.x > r.left - 14 && p.x < r.right + 14 && p.y > r.top - 14 && p.y < r.bottom + 14;
+    if (!under(c) && !under(h)) return;
+    const phone = innerWidth < 700, top = h.bottom + 12, bottom = phone ? c.top - 12 : innerHeight - 110;
+    const tx = phone ? innerWidth / 2 : (HE ? (c.left - 12) / 2 : (c.right + innerWidth) / 2), ty = (top + bottom) / 2;
+    gl.panBy([p.x - tx, p.y - ty], { duration: 450 });
+  }
+  function glSel() { if (glReady) gl.getSource('sel').setData(selected ? { type: 'FeatureCollection', features: [feat({ type: 'Point', coordinates: [selected.lon, selected.lat] })] } : EMPTY); }
+  function glTheme() {
+    if (!gl) return; const d = isDark(); if (d === glDark) return;
+    glDark = d; glReady = false; $('#gl').classList.toggle('gl-dark', d); gl.setStyle(d ? GL_STYLE.dark : GL_STYLE.light, { diff: false }); gl.once('style.load', glLayers);
+  }
+  // (Hebrew: the map's right-to-left text support, as on the main map, waited for before the map starts)
+  const RTL = HE && window.maplibregl ? Promise.race([Promise.resolve(maplibregl.setRTLTextPlugin(new URL('lib/mapbox-gl-rtl-text.js', location.href).href, false)),
+    new Promise((r) => setTimeout(r, 10000))]).catch(() => {}) : Promise.resolve();
+  let glStarting = false;
+  function glInit() {
+    if (gl || glStarting || !window.maplibregl) return;
+    glStarting = true;
+    RTL.then(glStart);
+  }
+  function glStart() {
+    glDark = isDark(); $('#gl').classList.toggle('gl-dark', glDark);
+    const narrow = innerWidth < 700;
+    gl = new maplibregl.Map({ container: 'gl', style: glDark ? GL_STYLE.dark : GL_STYLE.light,
+      bounds: narrow ? [[-124.8, 24.4], [-66.9, 49.4]] : [[-127, 24.4], [-60, 53]],
+      fitBoundsOptions: { padding: { top: narrow ? 130 : 96, bottom: narrow ? 150 : 104, left: 14, right: 14 } },
+      attributionControl: false, keyboard: false, dragRotate: false, pitchWithRotate: false, touchPitch: false, maxZoom: 18, minZoom: 1.5, fadeDuration: 200,
+      pixelRatio: Math.min(window.devicePixelRatio || 1, 2) });
+    gl.touchZoomRotate.disableRotation();
+    // (a phone held upright: the lower 48 just above the controls, Canada above them, as on the plain map)
+    if (narrow) { const yb = gl.project([-98, 24.4]).y, want = innerHeight - 146; if (yb < want) gl.panBy([0, yb - want], { duration: 0 }); }
+    gl.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
+    gl.once('style.load', glLayers);
+    if (narrow) gl.once('load', () => { const at = document.querySelector('#gl .maplibregl-ctrl-attrib'); if (at) at.classList.remove('maplibregl-compact-show'); });
+    gl.on('click', (e) => {
+      if (!glReady) return;
+      const fs = gl.queryRenderedFeatures([[e.point.x - 12, e.point.y - 12], [e.point.x + 12, e.point.y + 12]], { layers: ['hit'] });
+      let best = null, bd = Infinity;
+      for (const f of fs) { const d = DOTS[f.properties.i]; if (!d) continue; const q = gl.project([d.lon, d.lat]), dd = (q.x - e.point.x) ** 2 + (q.y - e.point.y) ** 2; if (dd < bd) { bd = dd; best = d; } }
+      if (best) openCard(best); else closeCard();
+    });
+    gl.on('mouseenter', 'hit', () => { gl.getCanvas().style.cursor = 'pointer'; });
+    gl.on('mouseleave', 'hit', () => { gl.getCanvas().style.cursor = ''; });
+    if (VIEW !== 'streets') gl.resize();
+  }
+  const viewBtns = [...document.querySelectorAll('#view button')];
+  viewBtns[0].textContent = L('Streets', 'רחובות'); viewBtns[1].textContent = L('Political', 'מדינית');
+  function setView(v) {
+    if (v === 'streets' && !window.maplibregl) v = 'political'; // (the street map's script didn't load: the plain map)
+    VIEW = v; viewBtns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.v === v)));
+    $('#app').classList.toggle('streets', v === 'streets');
+    try { localStorage.setItem('growth-view', v); } catch (e) {}
+    if (v === 'streets') { glInit(); if (gl) gl.resize(); glYear(); glSel(); } else { needBase = true; kick(); }
+    try { history.replaceState(null, '', `?${new URLSearchParams({ ...Object.fromEntries(new URLSearchParams(location.search)), view: VIEW })}`); } catch (e) {}
+  }
+  viewBtns.forEach((b) => b.addEventListener('click', () => setView(b.dataset.v)));
+
   // ---------- start ----------
   palette(); setThemeIcon(); setMode(MODE); ticks();
   addEventListener('resize', () => { layout(); ticks(); });
-  layout(); showYear(false);
+  layout(); showYear(false); setView(VIEW);
   if (Q.get('play') === '1') setPlaying(true);
-  window.__growth = { setYear: (y) => setYear(y, false), setMode, pick: (i) => openCard(DOTS[i]), ready: true };
+  window.__growth = { setYear: (y) => setYear(y, false), setMode, setView, pick: (i) => openCard(DOTS[i]), glReady: () => glReady && gl && gl.loaded(), map: () => gl, ready: true };
 })();
 </script>
 </body>

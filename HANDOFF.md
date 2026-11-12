@@ -225,12 +225,20 @@ thirteen no better recent photo has been found yet (the list is there, with what
   data/shetach-history.json, read as the history page reads them) and **States & provinces** (all 60 drawn from the
   start, each filling in the year of its first center). A tap opens a card per dot: each listing's year and confidence,
   **no source and no link to it** (owner, Nov 12: "Nooooo absolutely not a link to the data source"). Hebrew (he.json
-  names) and English, light and dark, phones; URL `?year=&base=shetachim|states&lang=&theme=&hy=&play=1`.
+  names) and English, light and dark, phones; URL `?year=&base=shetachim|states&view=streets|political&lang=&theme=&hy=&play=1`.
   **Hebrew years by default** (owner, Nov 12: "why isn't this Hebrew dates?????"), counted as on the history page (a
   dated founding in the Hebrew year it fell in; a year alone = Y+3760), shown תשנ״א / 5751, with a chip for ordinary
   years; **a year back / a year ahead buttons** by play (owner: "why is it that there isn't a button to only jump ahead
-  one year?"). **Asked next (owner, Nov 12): a street map, zoomable to the streets, as the default, with this plain map
-  kept as the other mode.**
+  one year?"). **Street map by default** (owner, Nov 12: "u should be able to zoom in like streets mode also I think that
+  should be default but still the current should be an alternative mode"): a **Streets | Political** switch; Streets is
+  OpenFreeMap's street map in MapLibre as on the main map (liberty light, dark dark; place names in the page's language,
+  Hebrew via the same RTL plugin web/lib/mapbox-gl-rtl-text.js), zoomable to street level, with the year's dots, gold
+  rings, flagship stars, the shetachim's borders of that year (topojson.mesh of history-geo.json by the year's shetach of
+  each piece) or, in States & provinces, the states not yet reached under a veil (light) / those reached tinted (dark);
+  the year on a frosted plate; a dot picked under the card is panned into view; the map's own keyboard is off (the arrow
+  keys step the years). Political is the plain canvas map as before. `?view=streets|political`, remembered per browser.
+  (The street styles' own console warnings, "circle-11" in dark and "Expected value to be of type number" when zoomed in,
+  come from OpenFreeMap's styles, not the page.)
   Its data: `python3 -I scripts/build-growth.py` writes web/data/growth.json from centers.geojson and
   data/founding-years.json (rerun after founding-year changes; left out as in progress.py: mushrooms, mikvahs, unresearched
   Crown Heights, and dots with no year). Anshei Lubavitch (a 1909 shul) shows from 1940. Not yet: moves (the `earlier`

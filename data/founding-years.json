@@ -10,7 +10,13 @@
    "source": "https://digital.bentley.umich.edu/djnews/djn.1963.08.09.001/22",
    "note": "First mention as 'Cong. Mishkan Israel - Lubavitcher Center, 14000 W. Nine Mile Road' in Aug 1963 (Jewish News); its building there was dedicated in Dec 1958 under its earlier rabbi, so when it became Lubavitch between 1958 and 1963 is not pinned down. (Corrected: the first pass had 1958, from a 2003 article's '45-year-old Lubavitch congregation'.)",
    "confidence": "medium",
-   "people": []
+   "people": [
+    {
+     "name": "Rabbi Yankel Kranz",
+     "role": "rabbi",
+     "note": "'the newly acquired Congregation Mishkan Israel-Lubavitch Center, led by Rabbi Yankel Kranz' (lubavitch.com, July 2008, on Chabad's first years in Michigan)"
+    }
+   ]
   },
   "119459": {
    "name": "Lubavitch Mikvah",
@@ -3632,7 +3638,20 @@
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/3779106",
    "note": "No dated source found; its own site gives no year. therebbesimpact.com: the center and Schneur & Sari Gansburg, 2017; chabad.org's listing number (3779106) is from about 2017 too. Its IRS registration dates from March 2019. Its chabad.org listing went up on Sep 12 2017 (chabad.org's own record), so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2017-09-12), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
-   "people": []
+   "people": [
+    {
+     "name": "Rabbi Schneur Gansburg",
+     "role": "director",
+     "from": "2017",
+     "note": "therebbesimpact.com"
+    },
+    {
+     "name": "Sari Gansburg",
+     "role": "director",
+     "from": "2017",
+     "note": "therebbesimpact.com"
+    }
+   ]
   },
   "5153625": {
    "name": "Fort Wayne Chabad Jewish Center",
@@ -3765,7 +3784,12 @@
    "source": "https://crownheights.info/shlichus/3439/learning-their-alef-bet-gimels",
    "note": "Knox News (via CrownHeights.info, 19 Oct 2006): 'The school, which opened in August, currently serves a combined kindergarten and first-grade class'; Miriam Esther Wilhelm its head. Named for the father of a donor (seed money $150,000).",
    "confidence": "high",
-   "people": []
+   "people": [
+    {
+     "name": "Miriam Esther Wilhelm",
+     "role": "head"
+    }
+   ]
   },
   "582611": {
    "name": "Rohr Chabad House at Vanderbilt",
@@ -4070,7 +4094,14 @@
    "source": "https://www.jewishrhody.com/stories/for-rabbi-yossi-laufer-its-all-about-lchaim,8096",
    "note": "Its IRS record (Chabad of West Bay Chai Center Inc, Warwick) dates from 1995. Jewish Rhode Island: 'in 1998, Laufer moved back home ... and became the rabbi at the Chabad of West Bay Chai Center', so it existed by 1998.",
    "confidence": "medium",
-   "people": []
+   "people": [
+    {
+     "name": "Rabbi Yossi Laufer",
+     "role": "rabbi",
+     "from": "1998",
+     "note": "'in 1998, Laufer moved back home ... and became the rabbi at the Chabad of West Bay Chai Center' (Jewish Rhode Island); first name from its chabad.org listing"
+    }
+   ]
   },
   "118593": {
    "name": "Chabad of College Hill",
@@ -8176,7 +8207,19 @@
    "confidence": "high",
    "source": "https://en.wikipedia.org/wiki/Chabad_of_Poway",
    "note": "Wikipedia: 'The congregation was founded in 1986'; the center's own site (2026): 'Celebrating 40 years'. Synagogue completed 1997.",
-   "people": []
+   "people": [
+    {
+     "name": "Rabbi Yisroel Goldstein",
+     "role": "founder",
+     "from": "1986",
+     "note": "founded in 1986 by Rabbi Yisroel Goldstein, who came from Brooklyn with his new wife, Devorie (Wikipedia; the Forward)"
+    },
+    {
+     "name": "Devorie Goldstein",
+     "role": "founder",
+     "from": "1986"
+    }
+   ]
   },
   "117568": {
    "name": "Chabad Center of University City",
@@ -10462,7 +10505,14 @@
    "confidence": "high",
    "source": "https://www.simivalleyacorn.com/articles/synagogue-accompanies-all-on-spiritual-journey/",
    "note": "Yelp's business line: 'Established in 1999'. therebbesimpact.com: 1998. Only Yelp, so medium. Checked (Nov 6): the Simi Valley Acorn: 'Chabad of Simi Valley, established in 1999'.",
-   "people": []
+   "people": [
+    {
+     "name": "Rabbi Noson Gurary",
+     "role": "founder",
+     "from": "1999",
+     "note": "Gurary and his family 'moved to Simi Valley seven years ago and began Chabad of Simi Valley' (Ventura County Star, June 2006)"
+    }
+   ]
   },
   "349940": {
    "name": "Chabad @ CSUN",
@@ -12241,7 +12291,18 @@
      "source": "https://web.archive.org/web/20130224175857/http://www.baisbezalel.org/templates/articlecco_cdo/aid/1865351/jewish/About-Us.htm"
     }
    ],
-   "people": []
+   "people": [
+    {
+     "name": "Rabbi Binyomin Lisbon",
+     "role": "rabbi",
+     "note": "its previous rabbi, who asked Rabbi Moshe Levin to take over (Jewish Journal)"
+    },
+    {
+     "name": "Rabbi Moshe Levin",
+     "role": "rabbi",
+     "note": "its rav now"
+    }
+   ]
   },
   "4182118": {
    "name": "Bais Nochum",
@@ -20768,7 +20829,13 @@
    "confidence": "low",
    "source": "https://jewishexponent.com/chabad-of-penn-wynne-continues-to-build-up-community-support-judaism-any-way-it-can/",
    "note": "Jewish Exponent (12 Aug 2025, 'Chabad of Penn Wynne Continues to Build Up Community'): 'Chabad of Penn Wynne began 20 years ago as tenants of the Kaiserman JCC.' Twenty years before 2025 is 2005, but its chabad.org listing was already up on 2004-07-22 (the first online directory), so the year is put at 2004, the first record, which the round '20 years ago' fits. Low: a round number and a first record, no report of the opening. (The Exponent's 'began as tenants of the JCC' differs from Wikipedia's account, below, that it began in Rabbi Gerber's house.) The Jewish Exponent (CrownHeights.info, 8 Feb 2007): 'A new Torah scroll was completed recently for Chabad of Penn Wynne'; the procession went from the Kaiserman JCC in Wynnewood 'to the ark at the Chabad House on the corner of Haverford Road and Indian Creek Drive' (Rabbi Zalman Gerber). So it existed by early 2007; its start is not stated. Wikipedia (Penn Wynne; no citation): it started in Rabbi Gerber's house, moved to a storefront on Manoa Road soon after Congregation Beth Hamedrosh moved in across the street in 2007, left it when the lease ended in late May 2010, held Shabbat services in the JCC's Family Hall from 5 June 2010, and from Rosh Hashana (Sept) 2020 has been across City Line Avenue in Overbrook Park (now 7571 Haverford Ave). Rabbi Moshe and Devorah Brennan have directed it since 2011 (its About page). Pennsylvania Department of State record (data.pa.gov, 'Registered Businesses in PA Current by County'): 'Chabad of Penn Wynne Inc.' (filing number 0007313983), created June 25 2021. So the filing is after the listing and is not taken as the year. Its chabad.org listing went up 2004-07-22, so it existed by 2004 (was 'by 2007').",
-   "people": []
+   "people": [
+    {
+     "name": "Rabbi Zalman Gerber",
+     "role": "founder",
+     "note": "it 'started in Rabbi Gerber's house' (Wikipedia, Penn Wynne); 'Rabbi Zalman Gerber' (Jewish Exponent, 2007)"
+    }
+   ]
   },
   "119652": {
    "name": "Gan Israel Camps & Youth Services",
@@ -33897,7 +33964,14 @@
    "confidence": "medium",
    "source": "https://data.oregon.gov/resource/tckn-sxa6.json?registry_number=4342499",
    "note": "No founding report found (Nov 9 first pass: CrownHeights.info and lubavitch.com searched by name and director, and a web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Devora Wilhelm. Oregon Secretary of State record (data.oregon.gov, 'Active Businesses - ALL'): 'THE MAIMONIDES JEWISH DAY SCHOOL, INC.' (registry number 4342499), domestic nonprofit corporation, registered Oct 5 2001 at 4635 NE 9th Ave, Portland (the listing's address); registered agent Chaim Wilhelm. A state filing of its own corporation, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data').",
-   "people": []
+   "people": [
+    {
+     "name": "Chaim Wilhelm",
+     "role": "head",
+     "seen": "2001",
+     "note": "registered agent of its corporation (Oregon, Oct 2001)"
+    }
+   ]
   },
   "1676554": {
    "name": "Chabad of Northeast Portland",
@@ -37169,7 +37243,13 @@
    "confidence": "high",
    "source": "https://www.saratogachabad.com/about-us.html",
    "note": "Its own site (About Us, read Nov 10 2026): 'Chabad has been serving Saratoga for over 25 years, and a full time Saratoga Chabad center was established in 2001 to serve year-round.' (Saratoga Chabad is a branch of Capital Chabad, which Rabbi Rubin founded in 1974.) Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Lead, not checked: a web search says the Saratoga Chabad House was founded in 2000. Director: Avraham Abba Rubin.",
-   "people": []
+   "people": [
+    {
+     "name": "Rabbi Avraham Abba Rubin",
+     "role": "head",
+     "note": "Saratoga Chabad is a branch of Capital Chabad, 'which Rabbi Rubin founded in 1974' (its About page); first name from its chabad.org listing"
+    }
+   ]
   },
   "119480": {
    "name": "Mikvah Chabad",
@@ -39056,7 +39136,19 @@
    "confidence": "low",
    "source": "https://open.canada.ca/data/en/dataset/9bdf4776-61f2-48f3-9ce9-5efeb2669343",
    "note": "No founding report found (Nov 9 first pass: CrownHeights.info and lubavitch.com searched by name and director, and a web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Mendel Bernstein. Canada Revenue Agency, List of charities (open.canada.ca, one list a year from 1990): 'CHABAD LUBAVITCH OF RICHMOND HILL' (BN 894327816RR0001), 10500 Bathurst St, Maple (the listing's address), first appears in the 2001 list, so it was a registered charity by 2001. A registration record (like an IRS ruling), entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data').",
-   "people": []
+   "people": [
+    {
+     "name": "Rabbi Mendel Bernstein",
+     "role": "founder",
+     "from": "1997",
+     "note": "Chabad Lubavitch of Richmond Hill: 'The rabbi and his wife, Toby, moved to Richmond Hill in 1997, and got the local Chabad off the ground in their home' (The CJN, 2006, 'Chabad Richmond Hill to get its own building'); names from its chabad.org listing"
+    },
+    {
+     "name": "Toby Bernstein",
+     "role": "founder",
+     "from": "1997"
+    }
+   ]
   },
   "118383": {
    "name": "Chabad of Midtown Toronto",

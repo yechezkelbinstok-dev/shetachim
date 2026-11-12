@@ -211,9 +211,16 @@ thirteen no better recent photo has been found yet (the list is there, with what
   listing"; centers from before about 2000 were checked by search first, because the listing often shows the next
   generation: Colorado's 1978 founder is Rabbi Yisroel Meir Popack (the listing has Rabbi Mendel Popack), Markham's
   1985 couple is Rabbi Sholom Ber & Itta Plotkin (the listing's co-directors are Avrohom E. & Goldie). Six stay partial
-  (end of people-followup.txt). **Next:** the 364 `[]` centers (their notes name no one): their sources, then a search
-  by center name; many are programs of a main center (camps, Hebrew schools, Friendship Circles), where the listing's
-  personnel on the card may be all there is.
+  (end of people-followup.txt). **The `[]` centers (Nov 12, batches 27-28):** 7 notes did name someone after all
+  (Penn Wynne began in Rabbi Zalman Gerber's house, West Bay's Laufer from 1998, Richmond Hill's Bernsteins from 1997
+  ...), and a search of the older main centers found Poway (Rabbi Yisroel & Devorie Goldstein, 1986), Simi Valley
+  (Rabbi Noson Gurary, 1999), Bais Bezalel (Rabbi Binyomin Lisbon, then Rabbi Moshe Levin) and Mishkan Israel (Rabbi
+  Yankel Kranz); eight more (Ohel, Valley Stream, Eastern Queens, Sheepshead Bay, Bay Ridge, Bedford, Patchogue, West
+  Sixties) found nothing: they were already searched by name and director in the founding-year round, so a second
+  generic search rarely helps. Now 1,581 named, 353 `[]` (about 120 main centers, the rest programs: schools, camps,
+  mikvahs, Friendship Circles; their cards show the chabad.org listing's staff). If more is wanted: a center's own
+  About page (chabad.org sites refuse plain requests; WebFetch reads them) or its founding announcement on
+  CrownHeights.info / COLlive by the director's name.
 - **▶ Founding years: CONTINUE HERE (Nov 12). 41 listings (16 dots) of 1,902 still have no year**, all from
   chabad.org's first directory (July 2004). Owner (Nov 11): "try very hard to date the remaining ones. Think of all
   possible ways to target each one individually, especially non subsidiaries like primaries"; he wants "a proper

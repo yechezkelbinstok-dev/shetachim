@@ -1,11 +1,8 @@
 # Founding years: every listing still undated
 
-US + Canada, 47 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
+US + Canada, 41 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
 
-## new-york-city: 7
-
-**No year at the dot (1)**
-- Chabad House of Queens-Kew Gardens, Kew Gardens (Shmuel Tuvel) — by 2004 · 117974
+## new-york-city: 6
 
 **On a dated dot (6)**
 - Camp F.R.E.E. - Gan Israel, Brooklyn (Mayer Okunov) — by 2004 · 159405
@@ -15,12 +12,11 @@ US + Canada, 47 listings without a year (mikvahs apart: 19). Per shetach: first 
 - Gan Israel Day Camp, Merrick (Chana Kramer) — by 2004 · 119471
 - Hebrew School, Valley Stream (Itty Goldshmid) — by 2004 · 118924
 
-## florida: 6
+## florida: 5
 
-**No year at the dot (3)**
+**No year at the dot (2)**
 - Chabad Chayil - Highland Lakes Jewish Center, Miami (Moishe Kievman) — 1985–1989 · 117601
 - Chabad Day School, Maitland (Devorah Leah Dubov) — 1985–2004 · 119969
-- Chabad House of Mid Miami Beach, Miami Beach (Bentzion Korf) — by 2004 · 117943
 
 **On a dated dot (3)**
 - Beis Chana School for Girls, Miami (Avrohom Korf) — nothing found yet · 120125
@@ -60,10 +56,9 @@ US + Canada, 47 listings without a year (mikvahs apart: 19). Per shetach: first 
 **Mikvahs, out of the counts (1)**
 - Mikvah Bais Chana, Morristown — nothing found yet · 119959
 
-## eastern-new-york: 4
+## eastern-new-york: 3
 
-**No year at the dot (3)**
-- Chabad of the Catskills, Fallsburg (Yaakov Taubenfliegel) — by 2004 · 117700
+**No year at the dot (2)**
 - Shaloh Center 1, Dairyland — by 2004 · 120018
 - Shaloh Center 2, Napanoch — by 1999 · 119804
 
@@ -74,10 +69,9 @@ US + Canada, 47 listings without a year (mikvahs apart: 19). Per shetach: first 
 - Mikvah Ma'ayan Chaya, Poughkeepsie — by 2004 · 120141
 - Mikvah, Monticello (Rochel Chanowitz) — by 2004 · 119795
 
-## quebec: 3
+## quebec: 2
 
-**No year at the dot (2)**
-- Chabad Chabanel & Maison Belfield, Montreal (Zushe Silberstein) — by 1995 · 117810
+**No year at the dot (1)**
 - Chabad V.s.L. & Chabad Bois Franc, Ville S. Laurent (Schneur Silberstein) — by 1995 · 118494
 
 **On a dated dot (1)**
@@ -88,15 +82,6 @@ US + Canada, 47 listings without a year (mikvahs apart: 19). Per shetach: first 
 **On a dated dot (2)**
 - Bais Chaya Mushka, Thornhill — by 2004 · 118898
 - Mesivta Lubavitch Toronto, Toronto (Zalman Oster) — by 2004 · 118407
-
-## western-pennsylvania: 2
-
-**No year at the dot (2)**
-- Chabad of Squirrel Hill, Pittsburgh (Yisroel Altein) — by 2004 · 119771
-- Lubavitch Yeshiva Girls School, Pittsburgh (Yisroel Rosenfeld) — by 2004 · 120024
-
-**Mikvahs, out of the counts (1)**
-- Mikvah Lubavitch, Pittsburgh — by 2004 · 120027
 
 ## upstate-new-york: 1
 
@@ -136,11 +121,6 @@ US + Canada, 47 listings without a year (mikvahs apart: 19). Per shetach: first 
 **No year at the dot (1)**
 - Chabad Shul of Potomac, Potomac (Mendel Bluming) — by 1999 · 117637
 
-## pennsylvania: 1
-
-**No year at the dot (1)**
-- Va'adah L'dovrei Ivrit Chabad, Philadelphia (Zalman Lipsker) — 1964–2004 · 117718
-
 ## upper-midwest: 1
 
 **No year at the dot (1)**
@@ -176,6 +156,14 @@ US + Canada, 47 listings without a year (mikvahs apart: 19). Per shetach: first 
 
 **No year at the dot (1)**
 - Gan Israel Hebrew School, Weatogue (Blumie Samuels) — 1998–2004 · 119920
+
+## western-pennsylvania: 1
+
+**No year at the dot (1)**
+- Lubavitch Yeshiva Girls School, Pittsburgh (Yisroel Rosenfeld) — by 2004 · 120024
+
+**Mikvahs, out of the counts (1)**
+- Mikvah Lubavitch, Pittsburgh — by 2004 · 120027
 
 ## michigan: 0
 

@@ -189,7 +189,7 @@ thirteen no better recent photo has been found yet (the list is there, with what
   - Where to look: the Jewish Floridian (UF Digital Collections, free) for the Florida ones; Florida's nonprofit
     registry (Sunbiz, behind a bot check, so Firecrawl stealth); California's business registry; local Jewish papers.
   - Replace each placeholder with a sourced end and drop its flag.
-- **▶ Founding years: CONTINUE HERE (Nov 12). 49 listings (24 dots) of 1,902 still have no year**, all from
+- **▶ Founding years: CONTINUE HERE (Nov 12). 41 listings (16 dots) of 1,902 still have no year**, all from
   chabad.org's first directory (July 2004). Owner (Nov 11): "try very hard to date the remaining ones. Think of all
   possible ways to target each one individually, especially non subsidiaries like primaries"; he wants "a proper
   year ... or an actual proper range", from real sources, and more dates, not fewer ("As long as you sourced it
@@ -210,7 +210,11 @@ thirteen no better recent photo has been found yet (the list is there, with what
      Checked on the 95 high years in that run: same year 59%, within a year 84%, 15% older centers added late (4+
      years off), so not where something already shows the center older (VSL by 1995, Beth Hamedrash Lubavitch by
      1990 left out). Entered in `last-04` (14 listings, 10 dots). A real source replaces it.
-  Lists: `work/founding-years/UNDATED.md`; batches so far this round `sweep-01..04`, `last-01..04`. Push to
+  5. **therebbesimpact.com's center years as interim LOW, six only (owner, Nov 12: "All right let's have them as
+     interim low I suppose it's only six it's not the end of the world").** Catskills 1967, Chabanel 1981, Va'adah
+     1989, Mid Miami Beach 1990, Kew Gardens 1993, Squirrel Hill 2003 (`last-08`); its center years on our high ones
+     from 2004 or earlier: same year 62%, within a year 81%. Not a general rule: those six only.
+  Lists: `work/founding-years/UNDATED.md`; batches so far this round `sweep-01..04`, `last-01..08`. Push to
   `claude/bold-albattani-aqfnj9` (owner's OK given Nov 11).
 - **Founding years, two sessions at once (owner, Nov 6, latest: "Put smth in handoff so I can get another session to
   work on a diff part of country").** Who has what (change only your own line):

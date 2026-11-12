@@ -123,26 +123,8 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   overflow: auto; overscroll-behavior: contain; background: var(--panel); border: 1px solid var(--panel-line); border-radius: 14px; box-shadow: var(--shadow); box-sizing: border-box;
   -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); animation: cardIn .25s cubic-bezier(.2, .8, .2, 1) both; }
 @keyframes cardIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
-#card .top { position: sticky; top: 0; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 10px 12px 6px; background: var(--panel); }
-#card .where { font: 650 12px var(--font); color: var(--muted); letter-spacing: .02em; }
 #card .close { appearance: none; border: 0; background: transparent; color: var(--muted); width: 26px; height: 26px; border-radius: 13px; cursor: pointer; display: grid; place-items: center; flex: none; }
 #card .close svg { width: 16px; height: 16px; fill: currentColor; }
-#card .item { padding: 8px 12px 10px; border-top: 1px solid var(--panel-line); }
-#card .item:first-of-type { border-top: 0; }
-#card .name { font: 700 15px/1.3 var(--font); color: var(--ink); }
-#card .what { margin-top: 1px; color: var(--muted); font-size: 12.5px; }
-#card .when { margin-top: 6px; display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
-#card .yr { font: 800 18px/1 var(--font); color: var(--ink); font-variant-numeric: tabular-nums; }
-#card .conf { display: inline-flex; align-items: center; gap: 5px; height: 21px; padding: 0 8px; border-radius: 11px; font: 650 11.5px var(--font); background: var(--accent-soft); color: var(--accent); }
-#card .conf i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; display: inline-block; }
-#card .conf.h { background: rgb(46 125 80 / .12); color: #2e7d50; }
-#card .conf.m { background: rgb(176 120 20 / .13); color: #9a6a10; }
-#card .conf.l { background: rgb(120 130 136 / .16); color: var(--muted); }
-:root[data-theme="dark"] #card .conf.h { color: #79d3a0; } :root[data-theme="dark"] #card .conf.m { color: #e8c06a; }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #card .conf.h { color: #79d3a0; } :root:not([data-theme="light"]) #card .conf.m { color: #e8c06a; } }
-#card .none { color: var(--muted); font-size: 12.5px; }
-.err { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); }
-/* ---- a shetach's card and a flagship's, as on the history page (its CSS, scoped to .hc) ---- */
 #card.hc { padding: 10px 12px; font-size: 14px; line-height: 1.4; }
 #card.hc.world { border-color: var(--accent); box-shadow: var(--shadow), 0 0 0 1px var(--accent); }
 #card.hc .close { position: absolute; top: 6px; inset-inline-end: 6px; z-index: 2; display: grid; place-items: center; width: 26px; height: 26px; padding: 0; border: 0; border-radius: 6px; background: transparent; color: var(--ink); cursor: pointer; }
@@ -262,18 +244,38 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
 #card.hc .cc-head, #card.hc .hc-head { border-radius: 13px 13px 0 0; }
 #card.hc .cc-count { margin: 10px 0 0; padding-top: 9px; border-top: 1px solid var(--panel-line); color: var(--muted); font-size: 13px; }
 #card.hc .cc-count b { color: var(--ink); }
-/* a center's people, as on the main map */
-#card .founders { margin-top: 6px; font-size: 13px; color: var(--ink); }
-#card .founders .fnd { margin: 1px 0 0; }
-#card .founders .lbl { color: var(--muted); }
-#card .founders .meta { color: var(--muted); }
-#card .who { margin-top: 4px; font-size: 13px; color: var(--ink); }
-#card .who .person { margin: 0; }
-#card .who .meta { color: var(--muted); }
-#card details.personnel { margin-top: 2px; }
-#card details.personnel summary { cursor: pointer; font-size: 12px; color: var(--accent); list-style: none; }
-#card details.personnel summary::-webkit-details-marker { display: none; }
-#card details.personnel .pother { font-size: 12.5px; margin-top: 3px; padding-inline-start: 10px; }
+/* a center's card: its header as on the main map; who ran it, year by year, down a line (each year at its dot; today's
+   staff last; what came after the year on the map faded) */
+#card.hc .cc-crumb { margin: 0 0 3px; color: color-mix(in srgb, var(--ink) 60%, transparent); font-size: 11.5px; line-height: 1.35; }
+#card.hc .cc-row { padding: 12px 0; }
+#card.hc .cc-row + .cc-row { border-top: 1px solid var(--panel-line); }
+#card.hc .cc-row:first-child { padding-top: 0; }
+#card.hc .cc-row:last-child { padding-bottom: 2px; }
+#card.hc .cc-row h3 { margin: 0; color: var(--ink); font: 600 14.5px/1.3 var(--font); }
+#card.hc .cc-row .cc-sub { margin: 1px 0 0; }
+#card.hc .tl { --yw: 50px; --gap: 20px; margin: 0; padding: 0; list-style: none; }
+#card.hc .cc-row .tl { margin-top: 9px; }
+#card.hc .tl li { display: grid; grid-template-columns: var(--yw) minmax(0, 1fr); column-gap: var(--gap); padding-bottom: 9px; }
+#card.hc .tl li:last-child { padding-bottom: 0; }
+#card.hc .tl .y { color: var(--ink); font: 700 12.5px/1.5 var(--font); font-variant-numeric: tabular-nums; text-align: end; white-space: nowrap; }
+#card.hc .tl .t { position: relative; min-width: 0; color: var(--ink); font-size: 13.5px; line-height: 1.45; overflow-wrap: anywhere; }
+#card.hc .tl .t::before { content: ''; position: absolute; z-index: 1; inset-inline-start: calc(var(--gap) / -2 - 4px); top: 6px; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent); box-shadow: 0 0 0 2.5px var(--panel); }
+#card.hc .tl li:not(:last-child) .t::after { content: ''; position: absolute; inset-inline-start: calc(var(--gap) / -2 - .75px); top: 10px; bottom: -19px; width: 1.5px; background: var(--panel-line); }
+#card.hc .tl .t .lbl { color: var(--muted); }
+#card.hc .tl .t b { font-weight: 600; }
+#card.hc .tl li.today .y { color: var(--accent); }
+#card.hc .tl li.today .t::before { background: var(--panel); box-shadow: 0 0 0 2.5px var(--panel), inset 0 0 0 2px var(--accent); }
+#card.hc .tl li.later { opacity: .45; }
+#card.hc .tl .person { margin: 0; color: var(--ink); font-weight: 600; }
+#card.hc .tl .person .meta { font-weight: 400; }
+#card.hc .tl .meta { color: var(--muted); font-size: inherit; }
+#card.hc .tl details.personnel { margin-top: 3px; }
+#card.hc .tl details.personnel summary { display: inline-flex; align-items: center; gap: 6px; cursor: pointer; list-style: none; color: var(--accent); font-size: 12.5px; font-weight: 500; }
+#card.hc .tl details.personnel summary::-webkit-details-marker { display: none; }
+#card.hc .tl details.personnel summary::after { content: ''; width: 5px; height: 5px; margin-top: -3px; border-right: 1.4px solid currentColor; border-bottom: 1.4px solid currentColor; transform: rotate(45deg); }
+#card.hc .tl details.personnel[open] summary::after { margin-top: 2px; transform: rotate(-135deg); }
+#card.hc .tl details.personnel .pother { margin-top: 4px; padding: 0; font-size: 13px; }
 
 @media (max-width: 640px) {
   .year { font-size: 40px; }
@@ -283,6 +285,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   #mode { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(max(12px, env(safe-area-inset-bottom)) + 86px); }
   /* (a phone: the year across the top on its own plate, the switches tucked into its corner, the street/plain switch under it) */
   .head { inset-inline-start: 10px; inset-inline-end: 10px; }
+  #card { max-height: min(calc(100% - 220px), 56vh); }
   .plate { padding: 8px 12px 7px; }
   #app.streets .plate { padding: 8px 12px 7px; border-radius: 14px; }
   .count { max-width: none; }
@@ -1025,7 +1028,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     if (MODE === 'states') needBase = true;
     showYear(animate && Y === prev + 1);
     needBase = true; kick(); glYear();
-    if (pick) showPick();
+    if (pick) showPick(); else if (selected) { if (selected.y > Y) closeCard(); else showCenter(); }
     try { history.replaceState(null, '', `?${new URLSearchParams({ ...Object.fromEntries(Q), year: Y, base: MODE, view: VIEW })}`); } catch (e) {}
   }
 
@@ -1099,7 +1102,6 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   $('#speed').setAttribute('aria-label', L('Speed', 'מהירות'));
 
   // ---------- the card: what is at a dot ----------
-  const CONF = { h: [L('High confidence', 'ודאות גבוהה'), 'h'], m: [L('Medium confidence', 'ודאות בינונית'), 'm'], l: [L('Low confidence', 'ודאות נמוכה'), 'l'] };
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   // a center's people, as on the main map (owner, Nov 12: "WHY ISNT THERE PERSONELL WHERE AVAILABLE"): its man (or the
   // family, or the woman), the others under "+N more", those who passed away apart
@@ -1130,26 +1132,62 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   const HE_TITLE = { 'the Lubavitcher Rebbe': 'הרבי', 'the Previous Lubavitcher Rebbe': 'הרבי הריי״צ' };
   const heNameOf = (n) => { if (!HE) return n; if (HE_TITLE[n]) return HE_TITLE[n]; if (!he) return n; const w = n.split(/\s+/), out = []; for (let j = 0; j < w.length; j++) { const x = w[j];
     if (j === 0 && x === 'Rabbi') { out.push('הרב'); continue; } const t = j === w.length - 1 ? he.last && he.last[x] : he.first && he.first[x]; if (!t) return n; out.push(t); } return out.join(' '); };
-  function foundersHTML(list) {
-    if (!list || !list.length) return '';
-    const groups = new Map(); for (const [name, role, from, seen] of list) { const k = `${role}|${from}|${seen}`; (groups.get(k) || groups.set(k, { role, from, seen, names: [] }).get(k)).names.push(name); }
-    const rows = [];
-    for (const g of groups.values()) {
-      // (a couple, side by side: "Rabbi Berel & Batsheva Shemtov"; two couples: "Rabbi Moishe & Nechama New, Rabbi Itchy & Zeldie Treitel")
-      let names = g.names.map(heNameOf);
-      if (!HE) { const out = []; for (let i = 0; i < names.length; i++) { const a = names[i].split(' '), b = (names[i + 1] || '').split(' ');
-        if (a.length > 1 && b.length > 1 && a[0] !== 'the' && a[a.length - 1] === b[b.length - 1]) { out.push(`${a.slice(0, -1).join(' ')} & ${b.slice(0, -1).join(' ')} ${a[a.length - 1]}`); i++; } else out.push(names[i]); }
-        names = out; }
-      const r = ROLE_TXT[g.role] || [g.role, g.role], y = g.from ? yearText(slotOf(g.from, +g.from.slice(0, 4))) : g.seen ? yearText(slotOf(g.seen, +g.seen.slice(0, 4))) : '';
-      const when = y ? (g.from ? ` · ${y}` : ` · ${L('in', 'ב')}${HE ? '' : ' '}${y}`) : '';
-      const lbl = HE && g.role === 'founder' ? (g.names.length > 1 ? 'מייסדים' : 'מייסד') : HE && g.role === 'co-founder' ? 'שותפים בייסוד' : L(r[0], r[1]);
-      rows.push(`<p class="fnd"><span class="lbl">${esc(lbl)}${!HE && (g.role === 'founder' || g.role === 'co-founder' || g.role === 'head') ? '' : ':'}</span> ${esc(names.join(HE && !names.some((n) => /[A-Za-z]/.test(n)) ? ' ו' : ', '))}<span class="meta">${esc(when)}</span></p>`);
-    }
-    return `<div class="founders">${rows.join('')}</div>`;
+  // ---------- a center's card, as on the main map: its shetach and head that year above its name (its flagship's star
+  // when it was the flagship that year), what it is and where; then who ran it, year by year (owner, Nov 12: "would you
+  // have the modern director of it since he's listed currently on chabad.org even though it changed over time or would
+  // you have multiple throughout the years?"): its founders the year they came, those after them the year they came ("in
+  // <year>" where a source only shows them there then), today's staff (chabad.org's listing) last; what came after the
+  // year on the map faded. A year not certain gets a "~" (no confidence badges: owner, Nov 12, "the cards are so
+  // disastrously designed") ----------
+  const namesOf = (names) => {
+    let n = names.map(heNameOf);
+    if (!HE) { const out = []; for (let i = 0; i < n.length; i++) { const a = n[i].split(' '), b = (n[i + 1] || '').split(' ');
+      if (a.length > 1 && b.length > 1 && a[0] !== 'the' && a[a.length - 1] === b[b.length - 1]) { out.push(`${a.slice(0, -1).join(' ')} & ${b.slice(0, -1).join(' ')} ${a[a.length - 1]}`); i++; } else out.push(n[i]); }
+      n = out; }
+    return n.join(HE && !n.some((x) => /[A-Za-z]/.test(x)) ? ' ו' : ', ');
+  };
+  const yearOfStr = (v) => (v ? slotOf(v, +String(v).slice(0, 4)) : null);
+  const FOUND = new Set(['founder', 'co-founder']);
+  const roleText = (g) => {
+    if (HE && g.role === 'founder') return g.names.length > 1 ? 'מייסדים:' : 'מייסד:';
+    const r = ROLE_TXT[g.role] || [g.role, g.role];
+    return HE ? `${r[1]}:` : FOUND.has(g.role) || g.role === 'head' ? r[0] : `${r[0]}:`;
+  };
+  function timelineHTML(r) {
+    const [, , , , year, conf, date, people, founders] = r;
+    const fy = year ? slotOf(date, year) : null, approx = !!conf && conf !== 'h';
+    const groups = new Map();
+    for (const [name, role, from, seen, to] of founders || []) { const k = `${role}|${from}|${seen}|${to || ''}`; (groups.get(k) || groups.set(k, { role, from, seen, to, names: [] }).get(k)).names.push(name); }
+    const gs = [...groups.values()], items = [];
+    const line = (g) => `<span class="lbl">${esc(roleText(g))}</span> <b>${esc(namesOf(g.names))}</b>${g.to ? ` <span class="lbl">${esc(L(`until ${yearText(yearOfStr(g.to))}`, `עד ${yearText(yearOfStr(g.to))}`))}</span>` : ''}`;
+    const fg = gs.filter((g) => FOUND.has(g.role)), fFrom = fg.map((g) => yearOfStr(g.from)).filter((v) => v != null);
+    // its founding, the year it is dated: alone where no founder is named, or where they came over a year after it
+    if (fy != null && (!fg.length || (fFrom.length && Math.min(...fFrom) - fy > 1))) items.push({ y: fy, approx, html: esc(L('Founded', 'נוסד')) });
+    for (const g of fg) { const y = yearOfStr(g.from); items.push({ y: y != null ? y : fy, approx: y == null && approx, html: line(g) }); }
+    for (const g of gs.filter((x) => !FOUND.has(x.role))) items.push({ y: yearOfStr(g.from), seen: g.from ? null : yearOfStr(g.seen), html: line(g) });
+    const at = (it) => (it.y != null ? it.y : it.seen != null ? it.seen : Infinity);
+    items.sort((a, b) => at(a) - at(b));
+    if (people && people.length) items.push({ today: true, html: personnelHTML(people) });
+    if (!items.length) return '';
+    return `<ol class="tl">${items.map((it) => {
+      const when = it.today ? L('Today', 'היום') : it.y != null ? `${it.approx ? '~' : ''}${yearText(it.y)}` : it.seen != null ? `${L('in ', 'ב־')}${yearText(it.seen)}` : '';
+      const later = !it.today && at(it) !== Infinity && at(it) > Y;
+      return `<li class="${[it.today ? 'today' : '', later ? 'later' : ''].filter(Boolean).join(' ')}"><span class="y">${esc(when)}</span><div class="t">${it.html}</div></li>`;
+    }).join('')}</ol>`;
+  }
+  const typeText = (t) => (t ? (HE && TYPE_HE[t]) || t : '');
+  function centerHead(d, rows) {
+    const c = config(Y), sid = d.pi != null ? c.s[d.pi] : null, h = sid ? headAt(sid, Y) : null, one = rows.length === 1, r = rows[0];
+    const f = sid && one ? flagAt(sid, Y) : null, flag = !!f && String(f.centerId) === String(r[0]);
+    const kick = flag ? `<p class="cc-kick flag">${icon('star')}${esc(L(`${nameOf(sid, Y)} flagship center`, `המוסד המרכזי של ${nameOf(sid, Y)}`))}</p>` : '';
+    const crumb = flag ? '' : [sid ? nameOf(sid, Y) : stateName(d.st), h ? headName(sid, h) : ''].filter(Boolean).join(' · ');
+    const title = one ? heName(r[1]) : heCity(r[3]) || L('One address', 'כתובת אחת');
+    const sub = one ? [typeText(r[2]), heCity(r[3])].filter(Boolean).join(' · ') : HE ? `${rows.length} מוסדות בכתובת זו` : `${rows.length} centers at this address`;
+    return `<header class="cc-head" style="--t:var(--tile)"><div class="cc-htext">${kick}${crumb ? `<p class="cc-crumb">${esc(crumb)}</p>` : ''}<h2 class="cc-title">${esc(title)}</h2>${sub ? `<p class="cc-sub">${esc(sub)}</p>` : ''}</div></header>`;
   }
   // a shetach or a flagship: its card as on the history page (its name that year, its head and his photo, its vaad, its
   // flagship or first place; 770's as the world headquarters), and here how many centers it had by then
-  function openPick(sid, flag) { selected = null; pick = { sid, flag }; showPick(); }
+  function openPick(sid, flag) { selected = null; pick = { sid, flag }; $('#card').dataset.html = ''; showPick(); reveal(); }
   function showPick() {
     if (!pick) return;
     const c = config(Y), sid = pick.sid;
@@ -1167,24 +1205,22 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     card.className = world ? 'hc world' : 'hc'; card.hidden = false;
     kick(); glSel();
   }
+  // the listings at a dot that were there in the year on the map, the oldest first (one with no year only today)
+  const sinceOf = (r) => (r[4] ? slotOf(r[6], r[4]) : Infinity);
+  const rowsAt = (d) => d.L.map((i) => LIST[i]).filter((r) => (r[4] ? sinceOf(r) <= Y : Y >= NOW)).sort((a, b) => sinceOf(a) - sinceOf(b));
+  function showCenter() {
+    const d = selected; if (!d) return;
+    const rows = rowsAt(d); if (!rows.length) return closeCard();
+    const body = rows.length === 1 ? timelineHTML(rows[0])
+      : rows.map((r) => `<section class="cc-row"><h3>${esc(heName(r[1]))}</h3>${r[2] ? `<p class="cc-sub">${esc(typeText(r[2]))}</p>` : ''}${timelineHTML(r)}</section>`).join('');
+    const html = centerHead(d, rows) + (body ? `<div class="cc-body">${body}</div>` : '');
+    const card = $('#card');
+    if (card.dataset.html !== html || card.hidden) { card.innerHTML = html + CLOSE; card.dataset.html = html; card.querySelector('.close').addEventListener('click', closeCard); }
+    card.className = 'hc'; card.hidden = false;
+  }
   function openCard(d) {
-    selected = d; pick = null;
-    const card = $('#card'), rows = d.L.map((i) => LIST[i]);
-    card.className = ''; card.dataset.html = '';
-    const first = rows[0];
-    let h = `<div class="top"><span class="where">${esc(heCity(first[3]))}${first[3] ? ' · ' : ''}${esc(stateName(d.st))}${d.sh && shetachName(d.sh) ? ` · ${esc(shetachName(d.sh))}` : ''}</span>`
-      + `<button class="close" type="button" aria-label="${L('Close', 'סגור')}"><svg viewBox="0 0 24 24"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg></button></div>`;
-    for (const [, name, type, , year, conf, date, people, founders] of rows) {
-      h += `<div class="item"><div class="name">${esc(heName(name))}</div>${type ? `<div class="what">${esc(type)}</div>` : ''}<div class="when">`;
-      if (year) {
-        h += `<span class="yr">${esc(yearText(slotOf(date, year)))}</span>`;
-        if (CONF[conf]) h += `<span class="conf ${CONF[conf][1]}"><i></i>${CONF[conf][0]}</span>`;
-      } else h += `<span class="none">${L('Year not known yet', 'השנה עוד לא ידועה')}</span>`;
-      h += `</div>${foundersHTML(founders)}${people && people.length ? `<div class="who">${personnelHTML(people)}</div>` : ''}</div>`;
-    }
-    card.innerHTML = h; card.hidden = false;
-    card.querySelector('.close').addEventListener('click', closeCard);
-    kick(); glSel(); glReveal(d);
+    selected = d; pick = null; $('#card').dataset.html = '';
+    showCenter(); kick(); glSel(); reveal();
   }
   function closeCard() { selected = null; pick = null; const card = $('#card'); card.hidden = true; card.className = ''; card.dataset.html = ''; kick(); glSel(); }
 
@@ -1300,7 +1336,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       paint: { 'line-color': dark ? 'rgba(225,238,244,0.55)' : 'rgba(35,52,64,0.62)', 'line-width': ['interpolate', ['linear'], ['zoom'], 3, 1, 8, 1.7, 12, 2.6] } });
     gl.addLayer({ id: 'area-sel-line', type: 'line', source: 'areas', filter: ['==', ['get', 'sid'], ''], layout: { 'line-join': 'round' }, paint: { 'line-color': accent, 'line-width': 2.2 } });
     gl.addLayer({ id: 'dots', type: 'circle', source: 'dots', filter: ['<=', ['get', 'y'], Y],
-      paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 2, 2.3, 3, 2.9, 6, 3.8, 10, 5.4, 14, 7.5, 17, 10], 'circle-color': dark ? '#f1cf78' : '#163e74',
+      paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 2, 2.7, 3, 3.2, 6, 3.9, 10, 5.4, 14, 7.5, 17, 10], 'circle-color': dark ? '#f1cf78' : '#163e74',
         'circle-stroke-color': dark ? 'rgba(11,17,20,0.9)' : '#ffffff', 'circle-stroke-width': ['interpolate', ['linear'], ['zoom'], 3, 0.9, 12, 1.8] } });
     gl.addLayer({ id: 'pops', type: 'circle', source: 'pops', paint: { 'circle-radius': ['get', 'r'], 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-color': dark ? '#ffe7a3' : '#d29b2a', 'circle-stroke-width': ['get', 'w'], 'circle-stroke-opacity': ['get', 'a'] } });
     // (the shetachim's names, as on the history page: the biggest placed first; gone at street level)
@@ -1308,7 +1344,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       'text-size': ['interpolate', ['linear'], ['zoom'], 3, 11, 6, 14, 8, 16], 'text-max-width': 8, 'text-padding': 4, 'symbol-sort-key': ['-', 0, ['get', 'area']] },
       paint: { 'text-color': dark ? '#e6edf0' : '#1e2b32', 'text-halo-color': dark ? 'rgba(11,17,20,0.9)' : 'rgba(255,255,255,0.92)', 'text-halo-width': 1.6, 'text-opacity': 0.9 } });
     gl.addLayer({ id: 'flags', type: 'symbol', source: 'flags', layout: { 'icon-image': ['case', ['==', ['get', 'kind'], ''], 'gstar', 'gdot'], 'icon-allow-overlap': true, 'icon-ignore-placement': true, 'symbol-sort-key': ['get', 'big'],
-      'icon-size': ['interpolate', ['linear'], ['zoom'], 3, ['case', ['==', ['get', 'big'], 1], 0.56, 0.4], 10, ['case', ['==', ['get', 'big'], 1], 0.85, 0.62]] } });
+      'icon-size': ['interpolate', ['linear'], ['zoom'], 2, ['case', ['==', ['get', 'big'], 1], 0.44, 0.31], 4, ['case', ['==', ['get', 'big'], 1], 0.56, 0.4], 10, ['case', ['==', ['get', 'big'], 1], 0.85, 0.62]] } });
     gl.addLayer({ id: 'sel', type: 'circle', source: 'sel', paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 3, 7.5, 14, 13], 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-color': dark ? '#e6edf0' : '#1e2b32', 'circle-stroke-width': 2 } });
     gl.addLayer({ id: 'hit', type: 'circle', source: 'dots', filter: ['<=', ['get', 'y'], Y], paint: { 'circle-radius': 12, 'circle-opacity': 0 } });
     glReady = true; glKey = null; glNames = null; glYear(); glSel();
@@ -1339,14 +1375,26 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     gl.getSource('pops').setData({ type: 'FeatureCollection', features: fs });
   }
   // (a center picked under the card, or under the year: the map moves it into the open)
-  function glReveal(d) {
-    if (!glReady || VIEW !== 'streets') return;
-    const p = gl.project([d.lon, d.lat]), c = $('#card').getBoundingClientRect(), h = document.querySelector('.plate').getBoundingClientRect();
+  // the place on a card kept in sight, on either map (owner, Nov 12: the card sat on what was tapped): moved into the
+  // open map above the card (a phone) or beside it
+  function revealBy(p) {
+    const c = $('#card').getBoundingClientRect(), hd = document.querySelector('.plate').getBoundingClientRect();
     const under = (r) => p.x > r.left - 14 && p.x < r.right + 14 && p.y > r.top - 14 && p.y < r.bottom + 14;
-    if (!under(c) && !under(h)) return;
-    const phone = innerWidth < 700, top = h.bottom + 12, bottom = phone ? c.top - 12 : innerHeight - 110;
+    if ($('#card').hidden || (!under(c) && !under(hd) && p.y > hd.bottom && p.y < innerHeight - 100)) return null;
+    const phone = innerWidth < 700, top = hd.bottom + 12, bottom = phone ? c.top - 12 : innerHeight - 110;
     const tx = phone ? innerWidth / 2 : (HE ? (c.left - 12) / 2 : (c.right + innerWidth) / 2), ty = (top + bottom) / 2;
-    gl.panBy([p.x - tx, p.y - ty], { duration: 450 });
+    return [p.x - tx, p.y - ty];
+  }
+  function reveal() {
+    let ll = null, hi = false;
+    if (selected) { ll = [selected.lon, selected.lat]; hi = selected.hi; } else if (pick) { const f = flagAt(pick.sid, Y); if (f && f.lon != null) ll = [f.lon, f.lat]; }
+    if (!ll) return;
+    requestAnimationFrame(() => {
+      if (VIEW === 'streets') { if (!glReady) return; const p = gl.project(ll), dl = revealBy(p); if (dl) gl.panBy(dl, { duration: 450 }); return; }
+      const q = (hi ? projHI : proj)(ll); if (!q) return;
+      const r = stage.getBoundingClientRect(), dl = revealBy({ x: r.left + q[0] * T.k + T.x, y: r.top + q[1] * T.k + T.y });
+      if (dl) d3.select(stage).transition().duration(450).call(zoom.translateBy, -dl[0] / T.k, -dl[1] / T.k);
+    });
   }
   function glSel() {
     if (!glReady) return;

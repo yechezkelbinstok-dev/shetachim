@@ -290,9 +290,25 @@ thirteen no better recent photo has been found yet (the list is there, with what
   The owner also said: "WHY ISNT THERE PERSONELL WHERE AVAILABLE THAT WASNT PART OF THE RESEARCH??? NOW WOW I NEED A WHOLE
   NOTHER ROUND" — i.e. the founding research should also have recorded who founded/led each center where the sources say;
   see the personnel round below.
-  **Open, for the next session:** (1) whether the owner wants the milestones redone or just off by default. (2) The
-  street map's screenshots weren't sent to the owner yet. (3) Still unanswered: whether the confidence badges stay on
-  the cards.
+  **A center's card, redone (Nov 12; owner: "the cards are so disastrously designed on this new part of the website
+  and I'm sure there's other parts that are also disastrous"):** as on the main map (its header: the shetach and its
+  head shliach *that year* above the name, the flagship's star when it was the flagship that year, type · town), then
+  **who ran it, year by year** down a line (`timelineHTML`): the founders at the year they came, those after them at the
+  year they came (`in <year>` where a source only shows them there then, "until <year>" where they left), today's
+  chabad.org staff last ("Today"); rows after the year on the map faded. A dot with several listings shows only those
+  that existed that year (undated ones only today), oldest first, a row each. No confidence badges any more: an
+  uncertain year has a "~". The type in Hebrew (TYPE_HE). The card follows the year while it plays (closing when the
+  center isn't there yet), and the tapped place (or a shetach's flagship) is moved into the open map above the card in
+  both maps (`reveal`). Checked at phone size (EN/HE, light/dark, both maps) and on desktop.
+  **Next: the succession (owner, Nov 12: "would you have the modern director of it since he's listed currently on
+  chabad.org even though it changed over time or would you have multiple throughout the years?").** He wants who led
+  each center through the years. The card shows what `people` has; what's missing is the directors between the
+  founders and today: of the centers with a year and a chabad.org director, about 580 have a director today who isn't
+  among their recorded people (107 founded before 1990, 132 in 1990-2004, 160 in 2005-14, 183 since): for each, when
+  today's director came (and who was there between). Oldest first. Record them in `people` with `from` (and `to` for
+  those who left), as the round above did.
+  **Open, for the next session:** (1) whether the owner wants the milestones redone or just off by default. (2) Still
+  unanswered: whether the confidence badges should come back in some form (they're gone; a "~" marks an uncertain year).
   Its data: `python3 -I scripts/build-growth.py` writes web/data/growth.json from centers.geojson and
   data/founding-years.json (rerun after founding-year changes; left out as in progress.py: mushrooms, mikvahs, unresearched
   Crown Heights, and dots with no year). Anshei Lubavitch (a 1909 shul) shows from 1940. Not yet: moves (the `earlier`

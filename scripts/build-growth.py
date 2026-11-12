@@ -77,7 +77,7 @@ def main():
             listings.append([cid, c.get('name') or '', c.get('type') or '', c.get('city') or '',
                              e.get('year') or None, CONF.get(e.get('confidence'), ''), iso_date(e.get('date')), people(c),
                              # (who founded or ran it, as the founding sources name them: work/founding-years/add_people.py)
-                             [[q.get('name') or '', q.get('role') or '', str(q.get('from') or ''), str(q.get('seen') or '')] for q in e.get('people') or []]])
+                             [[q.get('name') or '', q.get('role') or '', str(q.get('from') or ''), str(q.get('seen') or ''), str(q.get('to') or '')] for q in e.get('people') or []]])
         lon, lat = f['geometry']['coordinates'][:2]
         region = p.get('region') or ''
         # (its date where one is known, 'YYYY-MM' or 'YYYY-MM-DD': the page counts it in the Hebrew year it fell in)

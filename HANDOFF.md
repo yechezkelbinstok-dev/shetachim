@@ -224,7 +224,13 @@ thirteen no better recent photo has been found yet (the list is there, with what
   chips. Two backgrounds: **Shetachim** (thin borders that change by year and the flagship stars, both from
   data/shetach-history.json, read as the history page reads them) and **States & provinces** (all 60 drawn from the
   start, each filling in the year of its first center). A tap opens a card per dot: each listing's year and confidence,
-  **no source and no link to it** (owner, Nov 12: "Nooooo absolutely not a link to the data source"). Hebrew (he.json names) and English, light and dark, phones; URL `?year=&base=shetachim|states&lang=&theme=&play=1`.
+  **no source and no link to it** (owner, Nov 12: "Nooooo absolutely not a link to the data source"). Hebrew (he.json
+  names) and English, light and dark, phones; URL `?year=&base=shetachim|states&lang=&theme=&hy=&play=1`.
+  **Hebrew years by default** (owner, Nov 12: "why isn't this Hebrew dates?????"), counted as on the history page (a
+  dated founding in the Hebrew year it fell in; a year alone = Y+3760), shown תשנ״א / 5751, with a chip for ordinary
+  years; **a year back / a year ahead buttons** by play (owner: "why is it that there isn't a button to only jump ahead
+  one year?"). **Asked next (owner, Nov 12): a street map, zoomable to the streets, as the default, with this plain map
+  kept as the other mode.**
   Its data: `python3 -I scripts/build-growth.py` writes web/data/growth.json from centers.geojson and
   data/founding-years.json (rerun after founding-year changes; left out as in progress.py: mushrooms, mikvahs, unresearched
   Crown Heights, and dots with no year). Anshei Lubavitch (a 1909 shul) shows from 1940. Not yet: moves (the `earlier`

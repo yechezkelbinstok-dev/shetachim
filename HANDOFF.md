@@ -300,6 +300,17 @@ thirteen no better recent photo has been found yet (the list is there, with what
   uncertain year has a "~". The type in Hebrew (TYPE_HE). The card follows the year while it plays (closing when the
   center isn't there yet), and the tapped place (or a shetach's flagship) is moved into the open map above the card in
   both maps (`reveal`). Checked at phone size (EN/HE, light/dark, both maps) and on desktop.
+  **Then (Nov 12, the owner on his phone):** only the US and Canada on the street map ("It should only show the US and
+  Canada": the rest of the world, its seas and names, under the sea's colour, Canada's territories included, fading
+  out at city zoom; the map kept from panning away); the count just "<n> מוסדות · <n> מדינות" ("Take away out of 60
+  States and provinces"); every dot the same size, a flagship a gold dot, only 770 a (big) star ("a flagship should still
+  be a dot, just a gold dot ... Besides for the main headquarters that stays a big star"; the cards' flagship mark a dot
+  too); a picked shetach outlined at its edge only ("what the f*** is going on with these internal lines"); a center
+  whose earlier place was its shetach's flagship (the history's `via` "<id> (earlier)": Upper Midwest, Michigan,
+  Kansas-Missouri, Arizona, Texas, Indiana) shows in those years only as the flagship's mark there, its card saying
+  "then at <place>" ("why the fuck is this not a flagship": Feller's center, which also got its date, 1961-12, Teves
+  5722, from the shetach history, so it no longer shows a year before its shetach). Still to do: Hebrew for every name
+  and type on the cards ("what the f*** is English doing here": e.g. "Mindelle Feller", missing from he.json).
   **Next: the succession (owner, Nov 12: "would you have the modern director of it since he's listed currently on
   chabad.org even though it changed over time or would you have multiple throughout the years?").** He wants who led
   each center through the years. The card shows what `people` has; what's missing is the directors between the

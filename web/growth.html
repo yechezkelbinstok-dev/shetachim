@@ -442,6 +442,20 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   const LIST = data.listings;
   const PIDX = new Map(pieces.map((g, i) => [g.properties.id, i]));
   for (const d of DOTS) d.pi = PIDX.get(d.pid);
+  // a center's earlier places that were its shetach's flagship (the history's 'via': "<id> (earlier)"; Feller's father's
+  // house in Minneapolis before the Lubavitch House in St. Paul): in those years the center is its flagship's mark there,
+  // and its own dot (today's place) is not shown (owner, Nov 12: "why the fuck is this not a flagship")
+  const DOT_OF = new Map(); for (const d of DOTS) for (const j of d.L) DOT_OF.set(String(LIST[j][0]), d);
+  const viaId = (f) => { const m = /(\d{5,8}|extra-[\w-]+) \(earlier\)/.exec((f && f.via) || ''); return m ? m[1] : null; };
+  const flagId = (f) => (f ? String(f.centerId || viaId(f) || '') : '');
+  for (const list of Object.values(hist.flagships || {})) list.forEach((f, j) => {
+    const id = viaId(f), d = id && DOT_OF.get(id), st = startOf(f);
+    if (!d || !st || f.lon == null || (f.centerId && String(f.centerId) === id)) return;
+    if (Math.abs(f.lat - d.lat) < 0.004 && Math.abs(f.lon - d.lon) < 0.004) return; // (the same place)
+    const nx = list[j + 1] && startOf(list[j + 1]);
+    (d.away || (d.away = [])).push([st.y, nx ? nx.y : Infinity]);
+  });
+  const awayAt = (d) => !!d.away && d.away.some(([a, b]) => a <= Y && Y < b);
   const FIRST = {}; // the year each state or province got its first center
   for (const d of DOTS) if (d.st && (FIRST[d.st] == null || d.y0 < FIRST[d.st])) FIRST[d.st] = d.y0;
   const NREG = 60; // 50 states and 10 provinces (Washington DC counted with the states it sits among, not on its own)
@@ -628,7 +642,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   // page; the head that year
   function flagCard(sid, Y) {
     const f = flagAt(sid, Y), c = centerOf(f), t = colourOf(sid, Y), h = headAt(sid, Y), sp = flagSpan(sid, Y), nm = nameOf(sid, Y);
-    const kick = `<p class="cc-kick flag">${f.kind ? '' : icon('star')}${esc(f.kind ? kindOf(f) : L(`${nm} flagship center`, `המוסד המרכזי של ${nm}`))}${sp.from != null ? ` · ${esc(yearsOf(sp.from, sp.to))}` : ''}</p>`;
+    const kick = `<p class="cc-kick flag">${f.kind ? '' : icon(String(f.centerId) === WORLD_HQ ? 'star' : 'dot')}${esc(f.kind ? kindOf(f) : L(`${nm} flagship center`, `המוסד המרכזי של ${nm}`))}${sp.from != null ? ` · ${esc(yearsOf(sp.from, sp.to))}` : ''}</p>`;
     const now = isNow(sid, f), url = '' /* (no links on this page: owner, Nov 12) */, act = url ? `<a class="cc-chip cc-icon" href="${esc(url)}" target="_blank" rel="noopener" title="${ON_ORG}" aria-label="${ON_ORG}">${icon('ext')}</a>` : '';
     return `${ccHead({ t, kick, title: esc(flagName(sid, f)), sub: esc([now && c ? cType(c) : '', flagCity(sid, f)].filter(Boolean).join(' · ')), act })}${h ? `<div class="cc-body">${leadHTML(sid, h, t, false, Y)}</div>` : ''}`;
   }
@@ -692,7 +706,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   // a shetach: its colour, its name that year big; its head (and vaad) that year; its flagship
   function shetachCard(sid, Y) {
     const t = colourOf(sid, Y), h = headAt(sid, Y), f = flagAt(sid, Y);
-    const body = `${h ? leadHTML(sid, h, t, true, Y) : ''}${f ?`<div class="cc-flagrow">${f.kind ? icon('dot') : icon('star')}<span><span class="lbl">${f.kind ? kindOf(f) : L('Flagship', 'מוסד מרכזי')}:</span> ${esc([flagName(sid, f), flagCity(sid, f)].filter(Boolean).join(', '))}</span></div>` : ''}`;
+    const body = `${h ? leadHTML(sid, h, t, true, Y) : ''}${f ?`<div class="cc-flagrow">${icon(String(f.centerId) === WORLD_HQ ? 'star' : 'dot')}<span><span class="lbl">${f.kind ? kindOf(f) : L('Flagship', 'מוסד מרכזי')}:</span> ${esc([flagName(sid, f), flagCity(sid, f)].filter(Boolean).join(', '))}</span></div>` : ''}`;
     return `${ccHead({ t, title: esc(nameOf(sid, Y)), big: true })}${body ? `<div class="cc-body">${body}</div>` : ''}`;
   }
 
@@ -755,6 +769,12 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   const stateLines = (l) => cached(`st${l}`, () => { const p = new Path2D(); for (let a = 0; a < NA; a++) { const ga = sideA[a], gb = sideB[a]; if (ga >= 0 && gb >= 0 && stateOf(ga) !== stateOf(gb)) addArc(p, PA[l][a]); } return p; });
   // a shetach's shape that year (picking it, lighting it)
   const shetachPath = (c, sid, l) => cached(`sp${l}|${c.id}|${sid}`, () => { const p = new Path2D(); for (const i of c.groups.get(sid) || []) for (const ring of pieces[i].rings) addRing(p, ring, PA[l]); return p; });
+  // a shetach's edge only: the arcs of its pieces that no other piece of it shares (owner, Nov 12, on the one picked: "what
+  // the f*** is going on with these internal lines")
+  const shetachEdge = (c, sid, l) => cached(`se${l}|${c.id}|${sid}`, () => {
+    const n = new Map(); for (const i of c.groups.get(sid) || []) for (const ring of pieces[i].rings) for (const a of ring) { const j = a < 0 ? ~a : a; n.set(j, (n.get(j) || 0) + 1); }
+    const p = new Path2D(); for (const [j, k] of n) if (k === 1 && PA[l][j] && PA[l][j].length) addArc(p, PA[l][j]); return p;
+  });
   const statePath = (r, l) => cached(`sf${l}|${r}`, () => { const p = new Path2D(); pieces.forEach((g) => { if (g.properties.state === r) for (const ring of g.rings) addRing(p, ring, PA[l]); }); return p; });
 
   function layout() {
@@ -819,9 +839,11 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   function flagList() {
     const c = config(Y), seen = new Set(), list = [];
     for (const sid of [...c.sids].sort((a, b) => (b === 'crown-heights') - (a === 'crown-heights'))) {
-      const f = flagAt(sid, Y); if (!f || f.lon == null) continue;
-      const key = String(f.centerId || `${f.lat},${f.lon}`); if (seen.has(key)) continue; seen.add(key);
-      list.push({ sid, kind: f.kind || '', big: key === WORLD_HQ, lon: f.lon, lat: f.lat });
+      const f = flagAt(sid, Y); if (!f) continue;
+      let lon = f.lon, lat = f.lat;
+      if (lon == null) { const d = DOT_OF.get(flagId(f)); if (!d || d.y > Y) continue; lon = d.lon; lat = d.lat; }
+      const key = String(f.centerId || `${lat},${lon}`); if (seen.has(key)) continue; seen.add(key);
+      list.push({ sid, kind: f.kind || '', big: key === WORLD_HQ, lon, lat });
     }
     return list.sort((a, b) => a.big - b.big);
   }
@@ -908,6 +930,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     octx.beginPath();
     for (const d of DOTS) {
       if (d.y > Y) break;
+      if (d.away && awayAt(d)) continue;
       if (pops.length && d.y === Y && pops.some((p) => p.d === d && now - p.t0 < 700)) continue;
       const x = sx(d), y = sy(d); if (x < -6 || y < -6 || x > W + 6 || y > H + 6) continue;
       octx.moveTo(x + dotR, y); octx.arc(x, y, dotR, 0, 2 * Math.PI);
@@ -931,7 +954,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     if (pick && !pick.flag && MODE === 'shetachim' && config(Y).groups.has(pick.sid)) {
       octx.setTransform(DPR * k, 0, 0, DPR * k, DPR * T.x, DPR * T.y);
       const sp = shetachPath(config(Y), pick.sid, levelFor(k));
-      octx.fillStyle = COL['pick-fill']; octx.fill(sp, 'evenodd'); octx.strokeStyle = COL.accent; octx.lineWidth = 2 / k; octx.lineJoin = 'round'; octx.stroke(sp);
+      octx.fillStyle = COL['pick-fill']; octx.fill(sp, 'evenodd'); octx.strokeStyle = COL.accent; octx.lineWidth = 2 / k; octx.lineJoin = 'round'; octx.stroke(shetachEdge(config(Y), pick.sid, levelFor(k)));
       octx.setTransform(DPR, 0, 0, DPR, 0, 0);
     }
     // the flagships of the shetachim that year, in both backgrounds: a star where the head's own center was, a round dot
@@ -940,7 +963,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       const R0 = small ? 3.4 : 4.6, R = Math.max(R0, Math.min(8.5, R0 + 1.1 * Math.log2(k)));
       FLAGS = flagList().map((f) => { const q = (f.lat < 25 && f.lon < -150 ? projHI : proj)([f.lon, f.lat]); return q ? { ...f, x: q[0] * k + T.x, y: q[1] * k + T.y, r: f.big ? R * 1.55 : R } : null; }).filter(Boolean);
       for (const f of FLAGS) {
-        if (f.kind) { octx.beginPath(); octx.arc(f.x, f.y, f.r * 0.62, 0, 2 * Math.PI); } else star(octx, f.x, f.y, f.r);
+        if (f.big) star(octx, f.x, f.y, f.r); else { octx.beginPath(); octx.arc(f.x, f.y, dotR, 0, 2 * Math.PI); }
         octx.fillStyle = COL.star; octx.strokeStyle = COL['star-edge']; octx.lineWidth = 0.8; octx.lineJoin = 'round'; octx.fill(); octx.stroke();
         if (pick && pick.flag && pick.sid === f.sid) { octx.strokeStyle = COL.ink; octx.lineWidth = 1.6; octx.beginPath(); octx.arc(f.x, f.y, f.r + 4, 0, 2 * Math.PI); octx.stroke(); }
       }
@@ -960,8 +983,8 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     const ye = $('#year'); ye.textContent = yearText(Y); ye.dir = HE && HY ? 'rtl' : 'ltr';
     const n = cum.get(Y) || 0, r = regionsBy(Y);
     $('#count').innerHTML = HE
-      ? `<b>${fmt.format(n)}</b> מוסדות · <b>${r}</b> מתוך ${NREG} מדינות ופרובינציות`
-      : `<b>${fmt.format(n)}</b> ${n === 1 ? 'center' : 'centers'} · <b>${r}</b> of ${NREG} states & provinces`;
+      ? `<b>${fmt.format(n)}</b> מוסדות · <b>${r}</b> מדינות`
+      : `<b>${fmt.format(n)}</b> ${n === 1 ? 'center' : 'centers'} · <b>${r}</b> ${r === 1 ? 'state' : 'states'}`;
     const sl = $('#slider'); sl.value = Y; sl.style.setProperty('--p', `${(100 * (Y - START)) / (NOW - START)}%`);
     drawHist();
     if (animate) {
@@ -969,7 +992,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       // (the milestones: the "First in …" labels and the orange rings round the new centers, both under the menu's switch:
       // owner, Nov 12, "MILESTONES NEED TO BE TURN OFF ABLE THE ORANGE THINGY")
       if (MS) {
-        const fresh = DOTS.filter((d) => d.y === Y);
+        const fresh = DOTS.filter((d) => d.y === Y && !(d.away && awayAt(d)));
         fresh.forEach((d, i) => pops.push({ d, t0: now + Math.min(600, i * (600 / Math.max(1, fresh.length))) }));
         for (const reg of firstsIn.get(Y) || []) addFirst(reg);
       }
@@ -1163,7 +1186,8 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     const fg = gs.filter((g) => FOUND.has(g.role)), fFrom = fg.map((g) => yearOfStr(g.from)).filter((v) => v != null);
     // its founding, the year it is dated: alone where no founder is named, or where they came over a year after it
     if (fy != null && (!fg.length || (fFrom.length && Math.min(...fFrom) - fy > 1))) items.push({ y: fy, approx, html: esc(L('Founded', 'נוסד')) });
-    for (const g of fg) { const y = yearOfStr(g.from); items.push({ y: y != null ? y : fy, approx: y == null && approx, html: line(g) }); }
+    // (a founder's bare year that is the center's year: the center's own, which may know the month: Feller, Teves 5722)
+    for (const g of fg) { const y = g.from && /^\d{4}$/.test(g.from) && +g.from === year ? fy : yearOfStr(g.from); items.push({ y: y != null ? y : fy, approx: y == null && approx, html: line(g) }); }
     for (const g of gs.filter((x) => !FOUND.has(x.role))) items.push({ y: yearOfStr(g.from), seen: g.from ? null : yearOfStr(g.seen), html: line(g) });
     const at = (it) => (it.y != null ? it.y : it.seen != null ? it.seen : Infinity);
     items.sort((a, b) => at(a) - at(b));
@@ -1178,11 +1202,12 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   const typeText = (t) => (t ? (HE && TYPE_HE[t]) || t : '');
   function centerHead(d, rows) {
     const c = config(Y), sid = d.pi != null ? c.s[d.pi] : null, h = sid ? headAt(sid, Y) : null, one = rows.length === 1, r = rows[0];
-    const f = sid && one ? flagAt(sid, Y) : null, flag = !!f && String(f.centerId) === String(r[0]);
-    const kick = flag ? `<p class="cc-kick flag">${icon('star')}${esc(L(`${nameOf(sid, Y)} flagship center`, `המוסד המרכזי של ${nameOf(sid, Y)}`))}</p>` : '';
+    const f = sid && one ? flagAt(sid, Y) : null, flag = !!f && flagId(f) === String(r[0]), then = flag && String(f.centerId || '') !== String(r[0]);
+    const kick = flag ? `<p class="cc-kick flag">${icon(String(r[0]) === WORLD_HQ ? 'star' : 'dot')}${esc(L(`${nameOf(sid, Y)} flagship center`, `המוסד המרכזי של ${nameOf(sid, Y)}`))}</p>` : '';
+    const thenAt = then ? [(HE && f.nameHe) || f.name || f.where, f.city ? (HE && ((he && he.cities && he.cities[f.city]) || f.cityHe)) || f.city : ''].filter(Boolean).join(', ') : '';
     const crumb = flag ? '' : [sid ? nameOf(sid, Y) : stateName(d.st), h ? headName(sid, h) : ''].filter(Boolean).join(' · ');
     const title = one ? heName(r[1]) : heCity(r[3]) || L('One address', 'כתובת אחת');
-    const sub = one ? [typeText(r[2]), heCity(r[3])].filter(Boolean).join(' · ') : HE ? `${rows.length} מוסדות בכתובת זו` : `${rows.length} centers at this address`;
+    const sub = one ? [typeText(r[2]), thenAt ? L(`then at ${thenAt}`, `אז ב${thenAt}`) : heCity(r[3])].filter(Boolean).join(' · ') : HE ? `${rows.length} מוסדות בכתובת זו` : `${rows.length} centers at this address`;
     return `<header class="cc-head" style="--t:var(--tile)"><div class="cc-htext">${kick}${crumb ? `<p class="cc-crumb">${esc(crumb)}</p>` : ''}<h2 class="cc-title">${esc(title)}</h2>${sub ? `<p class="cc-sub">${esc(sub)}</p>` : ''}</div></header>`;
   }
   // a shetach or a flagship: its card as on the history page (its name that year, its head and his photo, its vaad, its
@@ -1243,7 +1268,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     const flagNear = (pad) => { let fl = null, fd = Infinity; for (const f of FLAGS) { const dd = (f.x - mx) ** 2 + (f.y - my) ** 2; if (dd < (f.r + pad) ** 2 && dd < fd) { fd = dd; fl = f; } } return fl; };
     let fl = flagNear(2); if (fl) return openPick(fl.sid, true);
     let best = null, bd = 14 * 14;
-    for (const d of DOTS) { if (d.y > Y) break; const dx = d.x * T.k + T.x - mx, dy = d.yy * T.k + T.y - my, dd = dx * dx + dy * dy; if (dd < bd) { bd = dd; best = d; } }
+    for (const d of DOTS) { if (d.y > Y) break; if (d.away && awayAt(d)) continue; const dx = d.x * T.k + T.x - mx, dy = d.yy * T.k + T.y - my, dd = dx * dx + dy * dy; if (dd < bd) { bd = dd; best = d; } }
     if (best) return openCard(best);
     fl = flagNear(9); if (fl) return openPick(fl.sid, true);
     if (MODE === 'shetachim') { const sid = sidAtPoint(mx, my); if (sid) return openPick(sid, false); }
@@ -1283,6 +1308,8 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     return { type: 'FeatureCollection', features: fs };
   }
   const dotsFC = { type: 'FeatureCollection', features: DOTS.map((d, i) => feat({ type: 'Point', coordinates: [d.lon, d.lat] }, { i, y: d.y })) };
+  const dotFilter = () => { const away = []; DOTS.forEach((d, i) => { if (d.away && d.y <= Y && awayAt(d)) away.push(i); });
+    return away.length ? ['all', ['<=', ['get', 'y'], Y], ['!', ['in', ['get', 'i'], ['literal', away]]]] : ['<=', ['get', 'y'], Y]; };
   const flagsFC = () => ({ type: 'FeatureCollection', features: flagList().map((f) => feat({ type: 'Point', coordinates: [f.lon, f.lat] }, { sid: f.sid, kind: f.kind, big: f.big ? 1 : 0 })) });
   // the year's shetachim as shapes (to tap one, and to light the one picked) and the spots for their names
   const AREAS = new Map();
@@ -1318,6 +1345,16 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       if (HE && !street) gl.setFilter(l.id, l.filter ? ['all', l.filter, ['has', 'name:he']] : ['has', 'name:he']);
     }
   }
+  // the world with the US and Canada cut out of it (their outlines as holes, wound against the world's ring)
+  const DOT_R = ['interpolate', ['linear'], ['zoom'], 2, 2.7, 3, 3.2, 6, 3.9, 10, 5.4, 14, 7.5, 17, 10]; // (every center's dot, a flagship's too)
+  let MASK = null;
+  function maskShape() {
+    if (MASK) return MASK;
+    const m = topojson.merge(topo, [...pieces, ...outside]), polys = m.type === 'MultiPolygon' ? m.coordinates : [m.coordinates];
+    const area = (r) => { let a = 0; for (let i = 0, n = r.length - 1; i < n; i++) a += r[i][0] * r[i + 1][1] - r[i + 1][0] * r[i][1]; return a / 2; };
+    const holes = polys.map((pl) => (area(pl[0]) > 0 ? pl[0].slice().reverse() : pl[0]));
+    return (MASK = feat({ type: 'Polygon', coordinates: [[[-180, -85], [180, -85], [180, 85], [-180, 85], [-180, -85]], ...holes] }));
+  }
   function glLayers() {
     if (gl.getSource('dots')) return; // (the style switched twice in a row: its layers are already there)
     const dark = isDark();
@@ -1326,6 +1363,12 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     gl.addImage('gstar', starImage(dark ? '#fff8e6' : '#c8952a', dark ? '#b8892a' : '#6b4a0f'), { pixelRatio: 2 });
     if (gl.hasImage('gdot')) gl.removeImage('gdot');
     gl.addImage('gdot', dotImage(dark ? '#fff8e6' : '#c8952a', dark ? '#b8892a' : '#6b4a0f'), { pixelRatio: 2 });
+    // only the US and Canada (owner, Nov 12: "It should only show the US and Canada"): the rest of the world, its land,
+    // seas and names, under the sea's own colour, over the street map and under everything of ours; gone by the time a
+    // city fills the screen (the outline is the plain map's, too coarse for a coast up close)
+    gl.addSource('mask', { type: 'geojson', data: maskShape(), tolerance: 0.15 });
+    gl.addLayer({ id: 'mask', type: 'fill', source: 'mask', paint: { 'fill-color': dark ? 'rgb(27,27,29)' : 'rgb(158,189,255)', 'fill-antialias': false,
+      'fill-opacity': ['interpolate', ['linear'], ['zoom'], 7, 1, 9.5, 0] } });
     for (const id of ['reached', 'areas', 'lines', 'dots', 'pops', 'names', 'flags', 'sel']) gl.addSource(id, { type: 'geojson', data: id === 'dots' ? dotsFC : EMPTY });
     const accent = dark ? '#93b8ec' : '#1d4f8f';
     gl.addLayer({ id: 'reached', type: 'fill', source: 'reached', paint: { 'fill-color': ['case', ['==', ['get', 'n'], 1], dark ? '#6aa2dc' : '#3f7cc4', dark ? '#3b6a96' : '#e9eef0'],
@@ -1335,23 +1378,26 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     gl.addLayer({ id: 'lines', type: 'line', source: 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' },
       paint: { 'line-color': dark ? 'rgba(225,238,244,0.55)' : 'rgba(35,52,64,0.62)', 'line-width': ['interpolate', ['linear'], ['zoom'], 3, 1, 8, 1.7, 12, 2.6] } });
     gl.addLayer({ id: 'area-sel-line', type: 'line', source: 'areas', filter: ['==', ['get', 'sid'], ''], layout: { 'line-join': 'round' }, paint: { 'line-color': accent, 'line-width': 2.2 } });
-    gl.addLayer({ id: 'dots', type: 'circle', source: 'dots', filter: ['<=', ['get', 'y'], Y],
-      paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 2, 2.7, 3, 3.2, 6, 3.9, 10, 5.4, 14, 7.5, 17, 10], 'circle-color': dark ? '#f1cf78' : '#163e74',
+    gl.addLayer({ id: 'dots', type: 'circle', source: 'dots', filter: dotFilter(),
+      paint: { 'circle-radius': DOT_R, 'circle-color': dark ? '#f1cf78' : '#163e74',
         'circle-stroke-color': dark ? 'rgba(11,17,20,0.9)' : '#ffffff', 'circle-stroke-width': ['interpolate', ['linear'], ['zoom'], 3, 0.9, 12, 1.8] } });
     gl.addLayer({ id: 'pops', type: 'circle', source: 'pops', paint: { 'circle-radius': ['get', 'r'], 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-color': dark ? '#ffe7a3' : '#d29b2a', 'circle-stroke-width': ['get', 'w'], 'circle-stroke-opacity': ['get', 'a'] } });
     // (the shetachim's names, as on the history page: the biggest placed first; gone at street level)
     gl.addLayer({ id: 'names', type: 'symbol', source: 'names', maxzoom: 9, layout: { 'text-field': ['get', 'name'], 'text-font': ['Noto Sans Bold'],
       'text-size': ['interpolate', ['linear'], ['zoom'], 3, 11, 6, 14, 8, 16], 'text-max-width': 8, 'text-padding': 4, 'symbol-sort-key': ['-', 0, ['get', 'area']] },
       paint: { 'text-color': dark ? '#e6edf0' : '#1e2b32', 'text-halo-color': dark ? 'rgba(11,17,20,0.9)' : 'rgba(255,255,255,0.92)', 'text-halo-width': 1.6, 'text-opacity': 0.9 } });
-    gl.addLayer({ id: 'flags', type: 'symbol', source: 'flags', layout: { 'icon-image': ['case', ['==', ['get', 'kind'], ''], 'gstar', 'gdot'], 'icon-allow-overlap': true, 'icon-ignore-placement': true, 'symbol-sort-key': ['get', 'big'],
-      'icon-size': ['interpolate', ['linear'], ['zoom'], 2, ['case', ['==', ['get', 'big'], 1], 0.44, 0.31], 4, ['case', ['==', ['get', 'big'], 1], 0.56, 0.4], 10, ['case', ['==', ['get', 'big'], 1], 0.85, 0.62]] } });
+    // (the flagships: gold dots the size of every dot; 770 a big star)
+    gl.addLayer({ id: 'flagdots', type: 'circle', source: 'flags', filter: ['!=', ['get', 'big'], 1],
+      paint: { 'circle-radius': DOT_R, 'circle-color': dark ? '#fff8e6' : '#c8952a', 'circle-stroke-color': dark ? '#b8892a' : '#6b4a0f', 'circle-stroke-width': 1 } });
+    gl.addLayer({ id: 'flags', type: 'symbol', source: 'flags', filter: ['==', ['get', 'big'], 1], layout: { 'icon-image': 'gstar', 'icon-allow-overlap': true, 'icon-ignore-placement': true,
+      'icon-size': ['interpolate', ['linear'], ['zoom'], 2, 0.5, 4, 0.62, 10, 0.9] } });
     gl.addLayer({ id: 'sel', type: 'circle', source: 'sel', paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 3, 7.5, 14, 13], 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-color': dark ? '#e6edf0' : '#1e2b32', 'circle-stroke-width': 2 } });
-    gl.addLayer({ id: 'hit', type: 'circle', source: 'dots', filter: ['<=', ['get', 'y'], Y], paint: { 'circle-radius': 12, 'circle-opacity': 0 } });
+    gl.addLayer({ id: 'hit', type: 'circle', source: 'dots', filter: dotFilter(), paint: { 'circle-radius': 12, 'circle-opacity': 0 } });
     glReady = true; glKey = null; glNames = null; glYear(); glSel();
   }
   function glYear() {
     if (!glReady) return;
-    gl.setFilter('dots', ['<=', ['get', 'y'], Y]); gl.setFilter('hit', ['<=', ['get', 'y'], Y]);
+    gl.setFilter('dots', dotFilter()); gl.setFilter('hit', dotFilter());
     gl.getSource('flags').setData(flagsFC());
     const c = config(Y), k = `${MODE}|${MODE === 'states' ? Y : c.id}`;
     if (k !== glKey) {
@@ -1387,7 +1433,8 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   }
   function reveal() {
     let ll = null, hi = false;
-    if (selected) { ll = [selected.lon, selected.lat]; hi = selected.hi; } else if (pick) { const f = flagAt(pick.sid, Y); if (f && f.lon != null) ll = [f.lon, f.lat]; }
+    if (selected) { ll = [selected.lon, selected.lat]; hi = selected.hi; } else if (pick) { const f = flagAt(pick.sid, Y), d = f && f.lon == null ? DOT_OF.get(flagId(f)) : null; if (f && f.lon != null) ll = [f.lon, f.lat]; else if (d) ll = [d.lon, d.lat];
+      else { const idx = config(Y).groups.get(pick.sid); if (idx) ll = d3.geoCentroid(topojson.merge(topo, idx.map((i) => pieces[i]))); } } // (no flagship then: the shetach's middle)
     if (!ll) return;
     requestAnimationFrame(() => {
       if (VIEW === 'streets') { if (!glReady) return; const p = gl.project(ll), dl = revealBy(p); if (dl) gl.panBy(dl, { duration: 450 }); return; }
@@ -1400,7 +1447,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     if (!glReady) return;
     let pt = null;
     if (selected) pt = [selected.lon, selected.lat];
-    else if (pick && pick.flag) { const f = flagAt(pick.sid, Y); if (f) pt = [f.lon, f.lat]; }
+    else if (pick && pick.flag) { const f = flagAt(pick.sid, Y), d = f && f.lon == null ? DOT_OF.get(flagId(f)) : null; if (f && f.lon != null) pt = [f.lon, f.lat]; else if (d) pt = [d.lon, d.lat]; }
     gl.getSource('sel').setData(pt ? { type: 'FeatureCollection', features: [feat({ type: 'Point', coordinates: pt })] } : EMPTY);
     const sid = pick && !pick.flag && MODE === 'shetachim' ? pick.sid : '';
     gl.setFilter('area-sel', ['==', ['get', 'sid'], sid]); gl.setFilter('area-sel-line', ['==', ['get', 'sid'], sid]);
@@ -1424,6 +1471,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     gl = new maplibregl.Map({ container: 'gl', style: glDark ? GL_STYLE.dark : GL_STYLE.light,
       bounds: narrow ? [[-124.8, 24.4], [-66.9, 49.4]] : [[-127, 24.4], [-60, 53]],
       fitBoundsOptions: { padding: { top: narrow ? 130 : 96, bottom: narrow ? 150 : 104, left: 14, right: 14 } },
+      maxBounds: [[-180, 2], [-20, 85]], // (around the US and Canada: nothing else is shown)
       attributionControl: false, keyboard: false, dragRotate: false, pitchWithRotate: false, touchPitch: false, maxZoom: 18, minZoom: 1.5, fadeDuration: 200,
       pixelRatio: Math.min(window.devicePixelRatio || 1, 2) });
     gl.touchZoomRotate.disableRotation();
@@ -1435,9 +1483,9 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     // a tap: a flagship's star right under it, else a center, else a star near it, else the shetach
     gl.on('click', (e) => {
       if (!glReady) return;
-      const near = (layer, r) => gl.queryRenderedFeatures([[e.point.x - r, e.point.y - r], [e.point.x + r, e.point.y + r]], { layers: [layer] });
+      const near = (layer, r) => gl.queryRenderedFeatures([[e.point.x - r, e.point.y - r], [e.point.x + r, e.point.y + r]], { layers: [].concat(layer) });
       const dist = (lon, lat) => { const q = gl.project([lon, lat]); return (q.x - e.point.x) ** 2 + (q.y - e.point.y) ** 2; };
-      const flagNear = (r) => { let fl = null, fd = Infinity; for (const f of near('flags', r)) { const dd = dist(...f.geometry.coordinates); if (dd < fd) { fd = dd; fl = f; } } return fl; };
+      const flagNear = (r) => { let fl = null, fd = Infinity; for (const f of near(['flags', 'flagdots'], r)) { const dd = dist(...f.geometry.coordinates); if (dd < fd) { fd = dd; fl = f; } } return fl; };
       let fl = flagNear(7); if (fl) return openPick(fl.properties.sid, true);
       let best = null, bd = Infinity;
       for (const f of near('hit', 12)) { const d = DOTS[f.properties.i]; if (!d) continue; const dd = dist(d.lon, d.lat); if (dd < bd) { bd = dd; best = d; } }

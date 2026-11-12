@@ -1873,8 +1873,9 @@
    "by": 2004,
    "how": "range",
    "source": "https://www.chabadky.com/templates/section_cdo/aid/1239308/jewish/Camp-Gan-Israel.htm",
-   "note": "No start year found. Its camp page advertises the summer of 2011 (27 June - 22 July); its listing number (119428) is from chabad.org's first directory, so it likely ran well before. Run by Chabad of Kentucky (since 1985). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
-   "confidence": "range"
+   "note": "No start year found. Its camp page advertises the summer of 2011 (27 June - 22 July); its listing number (119428) is from chabad.org's first directory, so it likely ran well before. Run by Chabad of Kentucky (since 1985). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. A department of Chabad of Kentucky on chabad.org, which began when the Litvins moved to Louisville in March 1985 (listing 117621); chabad.org (2016): after its first programs 'Then a Gan Israel Day camp was added'. So the camp began between 1985 and its listing (July 22 2004).",
+   "confidence": "range",
+   "after": 1985
   },
   "1763771": {
    "name": "Chabad of Prospect",
@@ -9662,10 +9663,12 @@
    "shetach": "florida",
    "year": null,
    "lead": 2003,
-   "how": "not-found",
+   "how": "range",
    "source": null,
-   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2003.",
-   "confidence": "open"
+   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2003. A department of Chabad of Greater Orlando on chabad.org (718 Lake Howell Road, Maitland), which began in 1985 (listing 117597), so the school began between 1985 and its listing (July 22 2004).",
+   "confidence": "range",
+   "after": 1985,
+   "by": 2004
   },
   "150715": {
    "name": "Chabad of Sunrise",
@@ -14496,7 +14499,8 @@
    "confidence": "range",
    "by": 1995,
    "source": "http://web.archive.org/web/20160406172613/http://www.ajwnews.com/social-services/",
-   "note": "The AJW community directory (posted March 2013, last changed Dec 2015, archived April 2016): 'For more than 20 years, Oneg Shabbos V'Yom Tov has brought relief to needy families in the Twin Cities' (food packages, help for Russian immigrants, scholarships, needy brides and grooms), at 400 Marie Ave. W. (Lubavitch House), so it began before 1995. Today's directory still has the same words. A department of Upper Midwest Merkos (117647) on chabad.org; its listing is in the first online directory (2004)."
+   "note": "The AJW community directory (posted March 2013, last changed Dec 2015, archived April 2016): 'For more than 20 years, Oneg Shabbos V'Yom Tov has brought relief to needy families in the Twin Cities' (food packages, help for Russian immigrants, scholarships, needy brides and grooms), at 400 Marie Ave. W. (Lubavitch House), so it began before 1995. Today's directory still has the same words. A department of Upper Midwest Merkos (117647) on chabad.org; its listing is in the first online directory (2004). A department of Upper Midwest Merkos on chabad.org (listing 117647, from 1961), so it began between 1961 and 1995.",
+   "after": 1961
   },
   "684361": {
    "name": "It's Good To Know",
@@ -20954,7 +20958,8 @@
    "confidence": "range",
    "by": 2004,
    "source": "https://www.chabad.org/api/content/119717/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Esther Ciment. The Chinuch Office's 2023-24 directory lists New England Hebrew Academy's preschool (9 Prescott St; administrator Mrs. Esther Ciment, this listing's director; 'Co-Ed, Preschool/2Yr- Kindergarten/5Yr') with 'Founded: 1944', the academy's own year; when the preschool at 11 Essex St began is not stated, so 1944 is not taken."
+   "note": "No founding year found yet (Nov 9: first pass only: CrownHeights.info and lubavitch.com searched by name and director, and a web search for the older centres; not dug into yet). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Esther Ciment. The Chinuch Office's 2023-24 directory lists New England Hebrew Academy's preschool (9 Prescott St; administrator Mrs. Esther Ciment, this listing's director; 'Co-Ed, Preschool/2Yr- Kindergarten/5Yr') with 'Founded: 1944', the academy's own year; when the preschool at 11 Essex St began is not stated, so 1944 is not taken. A department of New England Hebrew Academy on chabad.org (listing 117625, founded 1944), so it began between 1944 and its listing.",
+   "after": 1944
   },
   "164086": {
    "name": "Chabad of the South Shore",

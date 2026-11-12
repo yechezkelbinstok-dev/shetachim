@@ -19,7 +19,7 @@ US + Canada, 47 listings without a year (mikvahs apart: 19). Per shetach: first 
 
 **No year at the dot (3)**
 - Chabad Chayil - Highland Lakes Jewish Center, Miami (Moishe Kievman) — 1985–1989 · 117601
-- Chabad Day School, Maitland (Devorah Leah Dubov) — nothing found yet · 119969
+- Chabad Day School, Maitland (Devorah Leah Dubov) — 1985–2004 · 119969
 - Chabad House of Mid Miami Beach, Miami Beach (Bentzion Korf) — by 2004 · 117943
 
 **On a dated dot (3)**
@@ -144,7 +144,7 @@ US + Canada, 47 listings without a year (mikvahs apart: 19). Per shetach: first 
 ## upper-midwest: 1
 
 **No year at the dot (1)**
-- Chabad Oneg Shabbos V'Yomtov, S. Paul (Yosaif Grossbaum) — by 1995 · 119759
+- Chabad Oneg Shabbos V'Yomtov, S. Paul (Yosaif Grossbaum) — 1961–1995 · 119759
 
 **Mikvahs, out of the counts (1)**
 - Chabad-Lubavitch Mikvah Information, S. Paul (Gershon Grossbaum) — by 2004 · 117988
@@ -160,12 +160,12 @@ US + Canada, 47 listings without a year (mikvahs apart: 19). Per shetach: first 
 ## kentucky: 1
 
 **No year at the dot (1)**
-- Camp Gan Israel, Louisville (Avrohom Litvin) — by 2004 · 119428
+- Camp Gan Israel, Louisville (Avrohom Litvin) — 1985–2004 · 119428
 
 ## eastern-massachusetts: 1
 
 **No year at the dot (1)**
-- Lubavitch Pre-School, Brookline (Esther Ciment) — by 2004 · 119717
+- Lubavitch Pre-School, Brookline (Esther Ciment) — 1944–2004 · 119717
 
 ## oregon: 1
 

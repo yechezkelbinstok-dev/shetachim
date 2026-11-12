@@ -21,7 +21,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | delaware | 3 | 3 |  |  |  |  |  | 0 | 3 | 0 |
 | eastern-massachusetts | 35 | 13 | 12 | 9 | 1 |  |  | 1 | 32 | 1 |
 | eastern-new-york | 47 | 11 | 23 | 9 | 4 |  |  | 4 | 44 | 3 |
-| florida | 235 | 138 | 41 | 50 | 2 | 4 |  | 6 | 214 | 3 |
+| florida | 235 | 138 | 41 | 50 | 3 | 3 |  | 6 | 214 | 3 |
 | georgia | 27 | 19 | 5 | 3 |  |  |  | 0 | 24 | 0 |
 | hawaii | 6 | 3 | 1 | 2 |  |  |  | 0 | 6 | 0 |
 | idaho | 1 | 1 |  |  |  |  |  | 0 | 1 | 0 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | western-pennsylvania | 26 | 10 | 11 | 3 | 2 |  |  | 2 | 23 | 2 |
 | wisconsin | 22 | 10 | 6 | 6 |  |  |  | 0 | 19 | 0 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
-| **all** | 1902 | 1017 | 494 | 344 | 42 | 4 | 1 | 47 | 1721 | 22 |
+| **all** | 1902 | 1017 | 494 | 344 | 43 | 3 | 1 | 47 | 1721 | 22 |

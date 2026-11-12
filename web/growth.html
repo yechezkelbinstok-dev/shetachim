@@ -263,6 +263,10 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
 #card.hc .cc-count { margin: 10px 0 0; padding-top: 9px; border-top: 1px solid var(--panel-line); color: var(--muted); font-size: 13px; }
 #card.hc .cc-count b { color: var(--ink); }
 /* a center's people, as on the main map */
+#card .founders { margin-top: 6px; font-size: 13px; color: var(--ink); }
+#card .founders .fnd { margin: 1px 0 0; }
+#card .founders .lbl { color: var(--muted); }
+#card .founders .meta { color: var(--muted); }
 #card .who { margin-top: 4px; font-size: 13px; color: var(--ink); }
 #card .who .person { margin: 0; }
 #card .who .meta { color: var(--muted); }
@@ -1119,6 +1123,27 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     const obm = passed.length ? `<details class="personnel"><summary>${HE ? 'נפטרו' : 'Deceased'} (${passed.length})</summary>${passed.map((p) => `<div class="pother">${personLine(p)}</div>`).join('')}</details>` : '';
     return `${head ? `<p class="person">${head}</p>` : ''}${more}${obm}`;
   }
+  // who founded or ran it, as the founding sources name them (data/founding-years.json 'people'): "Founded by Rabbi Berel &
+  // Batsheva Shemtov", "First director: …", with the year where the source gives it
+  const ROLE_TXT = { founder: ['Founded by', 'ייסדו'], 'co-founder': ['Co-founded by', 'שותפים בייסוד'], 'first director': ['First director', 'מנהל ראשון'],
+    director: ['Director', 'מנהל'], head: ['Headed by', 'בראשו'], principal: ['Principal', 'מנהל/ת'], rabbi: ['Rabbi', 'רב'] };
+  const heNameOf = (n) => { if (!HE || !he) return n; const w = n.split(/\s+/), out = []; for (let j = 0; j < w.length; j++) { const x = w[j];
+    if (j === 0 && x === 'Rabbi') { out.push('הרב'); continue; } const t = j === w.length - 1 ? he.last && he.last[x] : he.first && he.first[x]; if (!t) return n; out.push(t); } return out.join(' '); };
+  function foundersHTML(list) {
+    if (!list || !list.length) return '';
+    const groups = new Map(); for (const [name, role, from, seen] of list) { const k = `${role}|${from}|${seen}`; (groups.get(k) || groups.set(k, { role, from, seen, names: [] }).get(k)).names.push(name); }
+    const rows = [];
+    for (const g of groups.values()) {
+      // (a couple: "Rabbi Berel & Batsheva Shemtov")
+      let names = g.names.map(heNameOf);
+      if (!HE && names.length === 2) { const a = names[0].split(' '), b = names[1].split(' '); if (a.length > 1 && b.length > 1 && a[a.length - 1] === b[b.length - 1]) names = [`${a.slice(0, -1).join(' ')} & ${b.slice(0, -1).join(' ')} ${a[a.length - 1]}`]; }
+      const r = ROLE_TXT[g.role] || [g.role, g.role], y = g.from ? yearText(slotOf(g.from, +g.from.slice(0, 4))) : g.seen ? yearText(slotOf(g.seen, +g.seen.slice(0, 4))) : '';
+      const when = y ? (g.from ? ` · ${y}` : ` · ${L('in', 'ב')}${HE ? '' : ' '}${y}`) : '';
+      const lbl = HE && g.role === 'founder' ? (g.names.length > 1 ? 'מייסדים' : 'מייסד') : HE && g.role === 'co-founder' ? 'שותפים בייסוד' : L(r[0], r[1]);
+      rows.push(`<p class="fnd"><span class="lbl">${esc(lbl)}${!HE && (g.role === 'founder' || g.role === 'co-founder' || g.role === 'head') ? '' : ':'}</span> ${esc(names.join(HE ? ' ו' : ', '))}<span class="meta">${esc(when)}</span></p>`);
+    }
+    return `<div class="founders">${rows.join('')}</div>`;
+  }
   // a shetach or a flagship: its card as on the history page (its name that year, its head and his photo, its vaad, its
   // flagship or first place; 770's as the world headquarters), and here how many centers it had by then
   function openPick(sid, flag) { selected = null; pick = { sid, flag }; showPick(); }
@@ -1146,13 +1171,13 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     const first = rows[0];
     let h = `<div class="top"><span class="where">${esc(heCity(first[3]))}${first[3] ? ' · ' : ''}${esc(stateName(d.st))}${d.sh && shetachName(d.sh) ? ` · ${esc(shetachName(d.sh))}` : ''}</span>`
       + `<button class="close" type="button" aria-label="${L('Close', 'סגור')}"><svg viewBox="0 0 24 24"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg></button></div>`;
-    for (const [, name, type, , year, conf, date, people] of rows) {
+    for (const [, name, type, , year, conf, date, people, founders] of rows) {
       h += `<div class="item"><div class="name">${esc(heName(name))}</div>${type ? `<div class="what">${esc(type)}</div>` : ''}<div class="when">`;
       if (year) {
         h += `<span class="yr">${esc(yearText(slotOf(date, year)))}</span>`;
         if (CONF[conf]) h += `<span class="conf ${CONF[conf][1]}"><i></i>${CONF[conf][0]}</span>`;
       } else h += `<span class="none">${L('Year not known yet', 'השנה עוד לא ידועה')}</span>`;
-      h += `</div>${people && people.length ? `<div class="who">${personnelHTML(people)}</div>` : ''}</div>`;
+      h += `</div>${foundersHTML(founders)}${people && people.length ? `<div class="who">${personnelHTML(people)}</div>` : ''}</div>`;
     }
     card.innerHTML = h; card.hidden = false;
     card.querySelector('.close').addEventListener('click', closeCard);
@@ -1391,7 +1416,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   addEventListener('resize', () => { layout(); ticks(); });
   layout(); showYear(false); setView(VIEW);
   if (Q.get('play') === '1') setPlaying(true);
-  window.__growth = { setYear: (y) => setYear(y, false), setMode, setView, pick: (i) => openCard(DOTS[i]), pickSid: (sid, flag) => openPick(sid, !!flag), flags: () => flagList(), glReady: () => glReady && gl && gl.loaded(), map: () => gl, ready: true };
+  window.__growth = { setYear: (y) => setYear(y, false), setMode, setView, pick: (i) => openCard(DOTS[i]), pickSid: (sid, flag) => openPick(sid, !!flag), pickId: (id) => { const d = DOTS.find((x) => x.L.some((j) => LIST[j][0] === String(id))); if (d) openCard(d); return !!d; }, flags: () => flagList(), glReady: () => glReady && gl && gl.loaded(), map: () => gl, ready: true };
 })();
 </script>
 </body>

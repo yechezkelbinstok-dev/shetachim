@@ -9,7 +9,8 @@
    "how": "first-mention",
    "source": "https://digital.bentley.umich.edu/djnews/djn.1963.08.09.001/22",
    "note": "First mention as 'Cong. Mishkan Israel - Lubavitcher Center, 14000 W. Nine Mile Road' in Aug 1963 (Jewish News); its building there was dedicated in Dec 1958 under its earlier rabbi, so when it became Lubavitch between 1958 and 1963 is not pinned down. (Corrected: the first pass had 1958, from a 2003 article's '45-year-old Lubavitch congregation'.)",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": []
   },
   "119459": {
    "name": "Lubavitch Mikvah",
@@ -20,7 +21,8 @@
    "source": "https://digital.bentley.umich.edu/djnews/djn.2003.09.06.001/36",
    "note": "The men's mikvah at Mishkan Israel, 14000 W. Nine Mile (listed 2002): no year of its own; same place as Mishkan Israel (1958). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
    "confidence": "range",
-   "by": 2004
+   "by": 2004,
+   "people": []
   },
   "160382": {
    "name": "Cheder Oholei Yosef Yitzchak Lubavitch - Boys Division",
@@ -38,7 +40,8 @@
      "until": null,
      "source": "https://digital.bentley.umich.edu/djnews/djn.1972.11.24.001/26"
     }
-   ]
+   ],
+   "people": []
   },
   "118185": {
    "name": "Yeshivas Lubavitch",
@@ -48,7 +51,8 @@
    "how": "list",
    "source": "https://digital.bentley.umich.edu/djnews/djn.2024.07.04.001/7",
    "note": "Detroit Jewish News, 4 July 2024, 'Since the Rebbe's Passing: over the past 30 years, these Chabad institutions have been founded in Michigan': 'Yeshivas Menachem Mendel Lubavitch/Mesivta - 1994' (taken to be this listing, Yeshivas Lubavitch, Oak Park). CrownHeights.info (Feb 2011) dates the high school to 1995; the school it grew from goes back to 1965. Also: a program 'started in Michigan out of the Yeshivas Menachem Mendel Lubavitch eight years ago' (Jewish News, Aug 2002) -> it existed in 1994.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": []
   },
   "119943": {
    "name": "Ganeinu - Pre School",
@@ -66,7 +70,8 @@
      "until": 1992,
      "source": "https://digital.bentley.umich.edu/djnews/djn.1991.04.26.001/63"
     }
-   ]
+   ],
+   "people": []
   },
   "119944": {
    "name": "Ganeinu Day Camp",
@@ -84,7 +89,15 @@
    "how": "anniversary",
    "confidence": "medium",
    "source": "https://www.thejewishnews.com/community/summer-smiles-ganeinu-day-camp-celebrates-30-years/article_2dd2f503-84f0-5ec1-8409-e5fead3de6bc.html",
-   "note": "Detroit Jewish News (1 Feb 2018, 'Summer Smiles - Ganeinu Day Camp Celebrates 30 Years', Judy Greenwald): 'This year, Ganeinu Day Camp, a 5-acre campsite in West Bloomfield ... will celebrate 30 years'; Chaya Bergstein: 'Ganeinu as it is today started when my high school-age daughter Hadassah and a friend started a camp program with kids from the neighborhood at our Bais Chabad. That summer, 40 children came. The next summer, it was 80, and the following year, 120. At that point, we purchased our present property, formerly Bloomfield Nursery and Day Camp'. So 1988 (counted back, medium); a Jewish News article of 31 July 1992 is said to put its first summer 'four years ago' (search excerpt, not opened: the archive now blocks downloads). It shares its place with the Ganeinu preschool (1991). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then."
+   "note": "Detroit Jewish News (1 Feb 2018, 'Summer Smiles - Ganeinu Day Camp Celebrates 30 Years', Judy Greenwald): 'This year, Ganeinu Day Camp, a 5-acre campsite in West Bloomfield ... will celebrate 30 years'; Chaya Bergstein: 'Ganeinu as it is today started when my high school-age daughter Hadassah and a friend started a camp program with kids from the neighborhood at our Bais Chabad. That summer, 40 children came. The next summer, it was 80, and the following year, 120. At that point, we purchased our present property, formerly Bloomfield Nursery and Day Camp'. So 1988 (counted back, medium); a Jewish News article of 31 July 1992 is said to put its first summer 'four years ago' (search excerpt, not opened: the archive now blocks downloads). It shares its place with the Ganeinu preschool (1991). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "people": [
+    {
+     "name": "Hadassah Bergstein",
+     "role": "founder",
+     "from": "1988",
+     "note": "Chaya Bergstein's daughter, then in high school, with a friend (Detroit Jewish News, 2018)"
+    }
+   ]
   },
   "117639": {
    "name": "Chabad House of Ann Arbor",
@@ -94,7 +107,14 @@
    "how": "stated",
    "source": "https://digital.bentley.umich.edu/djnews/djn.1975.05.16.001/22",
    "note": "Founded by Chabad of Michigan in 1975 (Michigan Daily, 2005); a 1975 Detroit Jewish News notice names the director, Rabbi Aaron Y. Goldstein of Brooklyn.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Aaron Y. Goldstein",
+     "role": "first director",
+     "from": "1975"
+    }
+   ]
   },
   "117640": {
    "name": "Chabad Lubavitch of Michigan",
@@ -124,6 +144,24 @@
      "until": null,
      "source": "https://digital.bentley.umich.edu/djnews/djn.1989.01.13.001/5"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Berel Shemtov",
+     "role": "founder",
+     "from": "1958"
+    },
+    {
+     "name": "Batsheva Shemtov",
+     "role": "founder",
+     "from": "1958"
+    },
+    {
+     "name": "Rabbi Yitschak Kagan",
+     "role": "director",
+     "seen": "1989",
+     "note": "director of the Michigan Lubavitch Foundation"
+    }
    ]
   },
   "117643": {
@@ -142,7 +180,8 @@
      "until": null,
      "source": "https://digital.bentley.umich.edu/djnews/djn.1972.11.24.001/26"
     }
-   ]
+   ],
+   "people": []
   },
   "117641": {
    "name": "Chabad House of Farmington Hills",
@@ -166,6 +205,23 @@
      "until": null,
      "source": "https://digital.bentley.umich.edu/djnews/djn.1978.08.25.001/24"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Yitschak Kagan",
+     "role": "head",
+     "from": "1972"
+    },
+    {
+     "name": "Rabbi I. M. Lipszyc",
+     "role": "head",
+     "from": "1972"
+    },
+    {
+     "name": "Rabbi Chaim M. Bergstein",
+     "role": "director",
+     "from": "1977"
+    }
    ]
   },
   "117642": {
@@ -183,6 +239,18 @@
      "from": 1987,
      "until": null,
      "source": "https://digital.bentley.umich.edu/djnews/djn.1990.12.14.001/21"
+    }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Yisroel Weingarten",
+     "role": "founder",
+     "from": "1985"
+    },
+    {
+     "name": "Shainie Weingarten",
+     "role": "founder",
+     "from": "1985"
     }
    ]
   },
@@ -208,6 +276,13 @@
      "until": null,
      "source": "https://web.archive.org/web/20091228124040/http://lubavitch.com/centers/list.html?Country=&City=Southfield"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Yosef Mishulovin",
+     "role": "director",
+     "from": "1990"
+    }
    ]
   },
   "117645": {
@@ -231,6 +306,14 @@
      "from": null,
      "until": null,
      "source": "https://digital.bentley.umich.edu/djnews/djn.1979.10.05.001/28"
+    }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Elimelech Silberberg",
+     "role": "founder",
+     "from": "1975",
+     "note": "with his wife (not named in the source)"
     }
    ]
   },
@@ -263,7 +346,19 @@
      "source": "https://archive.org/details/aalh_historyofthetoledojewishcommunity_r305696noe"
     }
    ],
-   "date": "1987-04"
+   "date": "1987-04",
+   "people": [
+    {
+     "name": "Rabbi Yossi Shemtov",
+     "role": "founder",
+     "from": "1987"
+    },
+    {
+     "name": "Raizel Shemtov",
+     "role": "founder",
+     "from": "1987"
+    }
+   ]
   },
   "117989": {
    "name": "Michigan Jewish Institute",
@@ -281,6 +376,13 @@
      "until": null,
      "source": "https://digital.bentley.umich.edu/djnews/djn.1997.07.25.001/92"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Kasriel Shemtov",
+     "role": "director",
+     "seen": "2009"
+    }
    ]
   },
   "117993": {
@@ -291,7 +393,19 @@
    "how": "list",
    "source": "https://digital.bentley.umich.edu/djnews/djn.2024.07.04.001/7",
    "note": "Detroit Jewish News, 4 July 2024, 'Since the Rebbe's Passing: over the past 30 years, these Chabad institutions have been founded in Michigan': 'Friendship Circle - 1994'. Also: 'the 8-year-old Friendship Circle' (Jewish News, Oct 2002). Its building: the Jewish News, Nov 24 2000, on the Lubavitch Foundation grounds in West Bloomfield, 'Rabbi Levi and Bassie Shemtov's Friendship Circle has unveiled plans for a learning and therapy center ... Ground will be broken this spring on the Meer' center, with the Ferber-Kaufman Life Town Center 'slated to open in 2002' (https://digital.bentley.umich.edu/djnews/djn.2000.11.24.001/37); it is now at 6892 W. Maple Rd. Before that it worked from West Bloomfield on W. Maple Rd. (a Jan 2000 listing; the number is unclear in the scan) as the 'Daniel Sobel Friendship Circle' (1995-98).",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Levi Shemtov",
+     "role": "director",
+     "seen": "2000"
+    },
+    {
+     "name": "Bassie Shemtov",
+     "role": "director",
+     "seen": "2000"
+    }
+   ]
   },
   "118292": {
    "name": "The Shul - Jack & Miriam Shenkman Building",
@@ -308,6 +422,18 @@
      "from": null,
      "until": null,
      "source": "https://digital.bentley.umich.edu/djnews/djn.1999.11.12.001/64"
+    }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Kasriel Shemtov",
+     "role": "founder",
+     "from": "1994"
+    },
+    {
+     "name": "Itty Shemtov",
+     "role": "founder",
+     "from": "1994"
     }
    ]
   },
@@ -326,6 +452,18 @@
      "from": 2002,
      "until": null,
      "source": "https://www.jewishcommerce.org/building-campaign"
+    }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Schneor Greenberg",
+     "role": "founder",
+     "from": "2002"
+    },
+    {
+     "name": "Estie Greenberg",
+     "role": "founder",
+     "from": "2002"
     }
    ]
   },
@@ -352,7 +490,19 @@
      "source": "https://digital.bentley.umich.edu/djnews/djn.1991.06.28.001/49"
     }
    ],
-   "date": "1990-08"
+   "date": "1990-08",
+   "people": [
+    {
+     "name": "Rabbi Yosef Mishulovin",
+     "role": "head",
+     "from": "1990"
+    },
+    {
+     "name": "Rabbi Yehoshua Morozow",
+     "role": "rabbi",
+     "seen": "1991"
+    }
+   ]
   },
   "118632": {
    "name": "Chabad House of Western Michigan",
@@ -376,6 +526,13 @@
      "until": 1991,
      "source": "https://digital.bentley.umich.edu/djnews/djn.1979.12.21.001/28"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Yosef Weingarten",
+     "role": "first director",
+     "from": "1977"
+    }
    ]
   },
   "119457": {
@@ -394,6 +551,20 @@
      "until": null,
      "source": "https://digital.bentley.umich.edu/djnews/djn.2000.08.18.001/16"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Berel Shemtov",
+     "role": "founder",
+     "from": "1961",
+     "note": "'the Shemtovs in their first year here' bought the camp (Jewish News, 2000)"
+    },
+    {
+     "name": "Batsheva Shemtov",
+     "role": "founder",
+     "from": "1961",
+     "note": "'the Shemtovs' (Jewish News, 2000)"
+    }
    ]
   },
   "119721": {
@@ -404,7 +575,8 @@
    "how": "stated",
    "source": "https://digital.bentley.umich.edu/djnews/djn.2011.07.14.001/20",
    "note": "The Detroit Lubavitch Yeshivah and Mesivta: 'Since 1965, the Lubavitch Yeshivah and Mesivta has been providing education for high school and junior college male students' (Detroit Jewish News, 14 July 2011); its middle school was added in the 1980s and the high school (Yeshivas Menachem Mendel) in 1994-95 (CrownHeights.info, Feb 2011; the July 2024 Jewish News list).",
-   "confidence": "high"
+   "confidence": "high",
+   "people": []
   },
   "119974": {
    "name": "Gan Yeladim Preschool",
@@ -414,7 +586,14 @@
    "how": "stated",
    "confidence": "medium",
    "source": "https://archive.org/details/aalh_historyofthetoledojewishcommunity_r305696noe",
-   "note": "David M. Noel, 'A History of the Toledo Jewish Community 1895-2006' (p. 156, from Rabbi Shemtov's own account): 'In 1992, Raizel Shemtov started a preschool program called Gan Yeladim. That afternoon program has grown into a certified preschool'. The Toledo Jewish News (June/July 2025, 'Raizel Shemtov reflects on 35 years at Gan Yeladim Preschool') says 'For over 35 years' and 'When the preschool opened its doors 35 years ago', about 1990, a round count (the same book dates Toledo's Camp Gan Israel, its first children's program, to 1990); the book's stated year is taken. Medium: the two differ. Was 1990 (the 2025 count), source https://cdn.fedweb.org/fed-97/2/June%2520July%25202025%2520TJN-web%25281%2529.pdf."
+   "note": "David M. Noel, 'A History of the Toledo Jewish Community 1895-2006' (p. 156, from Rabbi Shemtov's own account): 'In 1992, Raizel Shemtov started a preschool program called Gan Yeladim. That afternoon program has grown into a certified preschool'. The Toledo Jewish News (June/July 2025, 'Raizel Shemtov reflects on 35 years at Gan Yeladim Preschool') says 'For over 35 years' and 'When the preschool opened its doors 35 years ago', about 1990, a round count (the same book dates Toledo's Camp Gan Israel, its first children's program, to 1990); the book's stated year is taken. Medium: the two differ. Was 1990 (the 2025 count), source https://cdn.fedweb.org/fed-97/2/June%2520July%25202025%2520TJN-web%25281%2529.pdf.",
+   "people": [
+    {
+     "name": "Raizel Shemtov",
+     "role": "founder",
+     "from": "1992"
+    }
+   ]
   },
   "119975": {
    "name": "Food & Learning Center",
@@ -424,7 +603,8 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://archive.org/details/aalh_historyofthetoledojewishcommunity_r305696noe",
-   "note": "David M. Noel, 'A History of the Toledo Jewish Community 1895-2006' (p. 156; its Chabad section is from a document Rabbi Shemtov sent the author): 'In 1993 the \"Food and Learning Center\" opened, catering to the \"financial, emotional and spiritual need of new Americans in our community, although its outreach is available to all those in the Toledo Jewish community.\"' Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then."
+   "note": "David M. Noel, 'A History of the Toledo Jewish Community 1895-2006' (p. 156; its Chabad section is from a document Rabbi Shemtov sent the author): 'In 1993 the \"Food and Learning Center\" opened, catering to the \"financial, emotional and spiritual need of new Americans in our community, although its outreach is available to all those in the Toledo Jewish community.\"' Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "people": []
   },
   "160380": {
    "name": "The Wilmos & Lillian Schwarcz Education Center - Girls Building",
@@ -434,7 +614,8 @@
    "how": "first-mention",
    "source": "https://digital.bentley.umich.edu/djnews/djn.1997.07.25.001/92",
    "note": "The Lubavitch Cheder's girls' building, a former church at 25401 Coolidge Hwy, Oak Park. Its first Lubavitch use found: in 1997 Lubavitch was converting it into its girls' school (Jewish News, 1997), and the Michigan Jewish Institute gave it as its address 'as of August 1997' (Jewish News, July 1997: 'The new address is 25401 Coolidge Highway, Oak Park'). The girls' elementary school and Beis Chaya Mushka Girls High School are there in the Sept 1999 directory. So 1997 (first mention, medium). Named for Lillian Schwarcz, who died in March 1999; enlarged 2007.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": []
   },
   "217615": {
    "name": "Lubavitch Outreach",
@@ -444,7 +625,24 @@
    "how": "first-mention",
    "source": "https://digital.bentley.umich.edu/djnews/djn.1987.05.15.001/61",
    "note": "First mention of the outreach division under its director: Lubavitch of Michigan's staff list in the Jewish News, May 15 1987: 'COMMUNITY OUTREACH Rabbi Yosef Y. Keselman'; again 'Yosef Y. Keselman, outreach director' (Nov 27 1987), 'Rabbi Y. Y. Keselman, Outreach' (Nov 1989, Sept 1990), 'Community Outreach Director Rabbi Yosef Y. Keselman' (Dec 1990, Feb 1991). Later named as a center: 'Rabbi Shneur Keselman of the Chabad Lubavitch Outreach Center in Oak Park' (Jewish News, 21 Jan 2000); 'Oak Park Chabad Lubavitch Outreach, Director: Rabbi Yosef Keselman' (25 May 2001); Rabbi Yitzchok Mann at 23160 Gardner Street by Dec 2009 (lubavitch.com's directory). A first mention of the same work under the same director, not a founding report, so medium. (Rabbi Keselman had earlier opened a Chabad House of Troy/Royal Oak, Sept 1978.) Its chabad.org listing went up on Nov 1 2004.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Rabbi Yosef Y. Keselman",
+     "role": "director",
+     "from": "1987"
+    },
+    {
+     "name": "Rabbi Shneur Keselman",
+     "role": "rabbi",
+     "seen": "2000"
+    },
+    {
+     "name": "Rabbi Yitzchok Mann",
+     "role": "director",
+     "seen": "2009"
+    }
+   ]
   },
   "393834": {
    "name": "Chabad of Novi",
@@ -462,6 +660,18 @@
      "until": null,
      "source": "https://web.archive.org/web/20110901191612/http://lubavitch.com/centers/list.html?Country=&City=Novi"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Avrohom Susskind",
+     "role": "founder",
+     "from": "2005"
+    },
+    {
+     "name": "Leah Susskind",
+     "role": "founder",
+     "from": "2005"
+    }
    ]
   },
   "792116": {
@@ -472,7 +682,14 @@
    "how": "news",
    "source": "https://digital.bentley.umich.edu/djnews/djn.2004.11.12.001/11",
    "note": "The Daniel B. Sobel Friendship House: planned in 2001-2002; by Nov 2004 it had a director (Rabbi Yisrael Pinson) and its 2,500 sq ft building was due to open in spring 2005 (Jewish News). (Corrected: the July 2024 list's '1994' is Friendship Circle's year.)",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Rabbi Yisrael Pinson",
+     "role": "director",
+     "seen": "2004"
+    }
+   ]
   },
   "953328": {
    "name": "Chabad-Lubavitch of Bingham Farms",
@@ -490,7 +707,8 @@
      "until": null,
      "source": "https://web.archive.org/web/20110726185421/http://www.chabad.org:80/centers/default_cdo/aid/953328/jewish/Chabad-Lubavitch-of-Bingham-Farms.htm"
     }
-   ]
+   ],
+   "people": []
   },
   "2435135": {
    "name": "Chabad of Greater Downtown Detroit",
@@ -507,6 +725,13 @@
      "from": 2013,
      "until": 2013,
      "source": "https://digital.bentley.umich.edu/djnews/djn.2016.01.07.001/12"
+    }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Yisrael Pinson",
+     "role": "founder",
+     "from": "2013"
     }
    ]
   },
@@ -526,6 +751,14 @@
      "until": null,
      "source": "https://web.archive.org/web/20170429192209/http://www.chabad.org:80/centers/default_cdo/aid/3393324/jewish/Chabad-Jewish-Center-of-Bloomfield-Hills.htm"
     }
+   ],
+   "people": [
+    {
+     "name": "the Dubovs",
+     "role": "founder",
+     "from": "2016",
+     "note": "first names not in the source"
+    }
    ]
   },
   "3829994": {
@@ -544,6 +777,18 @@
      "until": null,
      "source": "https://web.archive.org/web/20190228054545/https://www.chabad.org/centers/default_cdo/aid/3829994/jewish/Chabad-Student-Center-at-MSU.htm"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Bentzion Shemtov",
+     "role": "founder",
+     "from": "2018"
+    },
+    {
+     "name": "Simi Shemtov",
+     "role": "founder",
+     "from": "2018"
+    }
    ]
   },
   "4040602": {
@@ -554,7 +799,19 @@
    "how": "news",
    "source": "https://myjewishdetroit.org/2018/11/29/building-jewish-community-in-royal-oak/",
    "note": "Nov 2018: the Royal Oak Jewish Center newly opened by Rabbi Moishie and Mushky Glitsenstein (myjewishdetroit.org); the July 2024 Jewish News list also gives 2018. Not the first Chabad there: the Jewish News, Sept 15 1978 ('New Chabad House Opens'): 'Rabbi Joseph I. Keselman will head a new branch of Chabad Lubavitch for residents of Troy and Royal Oak' (at Congregation Beth Achim); listed as Chabad House of Troy/Royal Oak, 1905 W. 14 Mile Rd., in 1980-81 (https://digital.bentley.umich.edu/djnews/djn.1978.09.15.001/21).",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Moishie Glitsenstein",
+     "role": "founder",
+     "from": "2018"
+    },
+    {
+     "name": "Mushky Glitsenstein",
+     "role": "founder",
+     "from": "2018"
+    }
+   ]
   },
   "4428829": {
    "name": "Chabad Jewish Center of Troy",
@@ -564,7 +821,19 @@
    "how": "news",
    "source": "https://digital.bentley.umich.edu/djnews/djn.2020.03.19.001/25",
    "note": "March 2020: Chana Caytak moved back to Metro Detroit 'last year' and opened the Chabad Jewish Center of Troy with her husband, Rabbi Menachem Caytak (Jewish News); Nov 2021: 'more than two years after opening'. Not the first Chabad there: the Jewish News, Sept 15 1978 ('New Chabad House Opens'): 'Rabbi Joseph I. Keselman will head a new branch of Chabad Lubavitch for residents of Troy and Royal Oak' (at Congregation Beth Achim); listed as Chabad House of Troy/Royal Oak, 1905 W. 14 Mile Rd., in 1980-81 (https://digital.bentley.umich.edu/djnews/djn.1978.09.15.001/21).",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Menachem Caytak",
+     "role": "founder",
+     "from": "2019"
+    },
+    {
+     "name": "Chana Caytak",
+     "role": "founder",
+     "from": "2019"
+    }
+   ]
   },
   "5288480": {
    "name": "Chabad of Livonia",
@@ -574,7 +843,15 @@
    "how": "news",
    "source": "https://digital.bentley.umich.edu/djnews/djn.2022.09.22.001/18",
    "note": "Sept 2022: the Shemtovs moved to Livonia about six months earlier and launched the center (Jewish News); the July 2024 list also gives 2022.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "the Shemtovs",
+     "role": "founder",
+     "from": "2022",
+     "note": "first names not in the source"
+    }
+   ]
   },
   "5764141": {
    "name": "Chabad Traverse City",
@@ -584,7 +861,8 @@
    "how": "list",
    "source": "https://digital.bentley.umich.edu/djnews/djn.2024.07.04.001/7",
    "note": "Detroit Jewish News, 4 July 2024, 'Since the Rebbe's Passing: over the past 30 years, these Chabad institutions have been founded in Michigan': 'Chabad Jewish Community Center of Traverse City - 2023'. July 2024: 'a new center in Traverse City, where ... the emissary bought a building in the first year' (Jewish News).",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": []
   },
   "6543662": {
    "name": "Chabad Jewish Center of Waterford",
@@ -594,7 +872,14 @@
    "how": "list",
    "source": "https://digital.bentley.umich.edu/djnews/djn.2024.07.04.001/7",
    "note": "Detroit Jewish News, 4 July 2024, 'Since the Rebbe's Passing: over the past 30 years, these Chabad institutions have been founded in Michigan': 'Chabad Jewish Center of Waterford - 2024'. Jewish News, 4 July 2024: Rabbi Berel Grossbaum 'arrived in Michigan earlier this month ... to launch the Waterford Chabad'.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Berel Grossbaum",
+     "role": "founder",
+     "from": "2024"
+    }
+   ]
   },
   "1851659": {
    "name": "Chabad Jewish Centre of Windsor",
@@ -604,7 +889,19 @@
    "how": "stated",
    "source": "https://www.shaareyzedekwindsor.com/index.php/about-our-synagogue/rabbismessage?start=21",
    "note": "Congregation Shaarey Zedek, Windsor: 'Rabbi Galperin became the rabbi at Congregation Shaarey Zedek in June, 2009.' CrownHeights.info, 2 Aug 2012 (https://crownheights.info/shlichus/45935/canadian-towns-jewish-community-revitalized): local families 'three years ago welcomed Rabbi Sholom and Rivka Galperin into their community'; they 'established a Chabad House separate from the synagogue in their home' (no year given for that). Essex County, Ontario is in the Michigan shetach (owner, Oct 1); the first pass of the pilot left it out.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Sholom Galperin",
+     "role": "founder",
+     "from": "2009"
+    },
+    {
+     "name": "Rivka Galperin",
+     "role": "founder",
+     "from": "2009"
+    }
+   ]
   },
   "117632": {
    "name": "Shaloh House Chabad of the South Area",
@@ -614,7 +911,15 @@
    "how": "stated",
    "source": "https://teacherstrading.com/shop/Torahstudies",
    "note": "His profile: 'In the summer of 1987, Rabbi Gurkow started and led a community Shabbat Service at the Shaloh House in Stoughton, MA ... they moved to Stoughton, MA to start the Shaloh House Lubavitch Educational Center.' Stoughton Journal (COLlive, 'And then I met Chabad'): 'Gurkow first got involved in the mid '80s.' (GuideStar's 1991 is the IRS ruling year.)",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Gurkow",
+     "role": "founder",
+     "from": "1987",
+     "note": "first name not in the source"
+    }
+   ]
   },
   "117651": {
    "name": "Chabad-Lubavitch of Nebraska",
@@ -624,7 +929,15 @@
    "how": "stated",
    "source": "https://building.ochabad.com",
    "note": "The center's own building site: 'Touching Hearts since 1986'; a 2018 feature: the Katzmans were assigned to Omaha in 1986 (chaptzem.blogspot.com, 'Joyful Hasidic couple have spread light'). A 1992 notice spoke of 'five years of consistent programming' and a 2005 article of the 18th anniversary, both 1987: the first programs may be 1987.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "the Katzmans",
+     "role": "founder",
+     "from": "1986",
+     "note": "first names not in the source"
+    }
+   ]
   },
   "117790": {
    "name": "Chabad-Lubavitch of the Maritimes",

@@ -198,8 +198,9 @@ thirteen no better recent photo has been found yet (the list is there, with what
   listed in work/founding-years/people-followup.txt to complete from the source); therebbesimpact.com names get a note.
   Work: `python3 -I work/founding-years/people_todo.py 70 0` (compact: the note's sentences naming people; `--full` for
   whole notes), write work/founding-years/batches/people-NN.json, `python3 work/founding-years/add_people.py < it`, then
-  `python3 -I scripts/build-growth.py` (the growth page's cards show "Founded by …"). Done so far: batches 01-08, 462 of
-  1,934 entries (420 with someone named), Michigan, Maritimes … California (the order of founding-years.json). Next:
+  `python3 -I scripts/build-growth.py` (the growth page's cards show "Founded by …"). Done so far: batches 01-14, 939 of
+  1,934 entries (846 with someone named): Michigan, the Maritimes … California, Nevada, Florida, New Jersey, Pennsylvania,
+  Texas (the order of founding-years.json). Next:
   the rest from the notes; then the follow-ups; then the centers whose notes name no one (their sources, then search).
 - **▶ Founding years: CONTINUE HERE (Nov 12). 41 listings (16 dots) of 1,902 still have no year**, all from
   chabad.org's first directory (July 2004). Owner (Nov 11): "try very hard to date the remaining ones. Think of all

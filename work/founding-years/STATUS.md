@@ -69,7 +69,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | washington | 32 | 17 | 6 | 8 | 1 |  |  | 1 | 31 | 1 |
 | washington-dc | 5 | 2 | 3 |  |  |  |  | 0 | 5 | 0 |
 | west-coast | 326 | 202 | 93 | 26 | 5 |  |  | 5 | 297 | 1 |
-| western-pennsylvania | 26 | 10 | 10 | 3 | 3 |  |  | 3 | 23 | 3 |
+| western-pennsylvania | 26 | 10 | 11 | 3 | 2 |  |  | 2 | 23 | 2 |
 | wisconsin | 22 | 10 | 6 | 6 |  |  |  | 0 | 19 | 0 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
-| **all** | 1902 | 1017 | 492 | 344 | 44 | 4 | 1 | 49 | 1721 | 24 |
+| **all** | 1902 | 1017 | 493 | 344 | 43 | 4 | 1 | 48 | 1721 | 23 |

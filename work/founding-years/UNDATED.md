@@ -1,6 +1,6 @@
 # Founding years: every listing still undated
 
-US + Canada, 49 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
+US + Canada, 48 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
 
 ## new-york-city: 7
 
@@ -83,16 +83,6 @@ US + Canada, 49 listings without a year (mikvahs apart: 19). Per shetach: first 
 **On a dated dot (1)**
 - Beth Hamedrash Lubavitch, Montreal (Itzchok Hendel) — by 1990 · 119156
 
-## western-pennsylvania: 3
-
-**No year at the dot (3)**
-- Chabad of Squirrel Hill, Pittsburgh (Yisroel Altein) — by 2004 · 119771
-- Keren Rachem, Pittsburgh — by 2004 · 120026
-- Lubavitch Yeshiva Girls School, Pittsburgh (Yisroel Rosenfeld) — by 2004 · 120024
-
-**Mikvahs, out of the counts (1)**
-- Mikvah Lubavitch, Pittsburgh — by 2004 · 120027
-
 ## ontario: 2
 
 **On a dated dot (2)**
@@ -107,6 +97,15 @@ US + Canada, 49 listings without a year (mikvahs apart: 19). Per shetach: first 
 
 **Mikvahs, out of the counts (1)**
 - Chabad-Lubavitch Mikvah Information, S. Paul (Gershon Grossbaum) — by 2004 · 117988
+
+## western-pennsylvania: 2
+
+**No year at the dot (2)**
+- Chabad of Squirrel Hill, Pittsburgh (Yisroel Altein) — by 2004 · 119771
+- Lubavitch Yeshiva Girls School, Pittsburgh (Yisroel Rosenfeld) — by 2004 · 120024
+
+**Mikvahs, out of the counts (1)**
+- Mikvah Lubavitch, Pittsburgh — by 2004 · 120027
 
 ## upstate-new-york: 1
 
@@ -177,7 +176,7 @@ US + Canada, 49 listings without a year (mikvahs apart: 19). Per shetach: first 
 ## connecticut: 1
 
 **No year at the dot (1)**
-- Gan Israel Hebrew School, Weatogue (Blumie Samuels) — by 2004 · 119920
+- Gan Israel Hebrew School, Weatogue (Blumie Samuels) — 1998–2004 · 119920
 
 ## michigan: 0
 

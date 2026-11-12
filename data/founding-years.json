@@ -30085,7 +30085,19 @@
    "how": "news",
    "confidence": "high",
    "source": "https://crownheights.info/chabad-news/921430/new-chabad-center-opens-its-doors-in-tottenville-staten-island/",
-   "note": "CrownHeights.info (15 Sept 2025): 'New York's southernmost tip has just welcomed a new Chabad Center'; 'Now, Rabbi Mendel and Esty Katzman have arrived to open Chabad of Tottenville'. Its listing went up July 2 2025."
+   "note": "CrownHeights.info (15 Sept 2025): 'New York's southernmost tip has just welcomed a new Chabad Center'; 'Now, Rabbi Mendel and Esty Katzman have arrived to open Chabad of Tottenville'. Its listing went up July 2 2025.",
+   "people": [
+    {
+     "name": "Rabbi Mendel Katzman",
+     "role": "founder",
+     "from": "2025"
+    },
+    {
+     "name": "Esty Katzman",
+     "role": "founder",
+     "from": "2025"
+    }
+   ]
   },
   "212289": {
    "name": "Chabad of North Brooklyn",
@@ -30095,7 +30107,29 @@
    "how": "stated",
    "confidence": "medium",
    "source": "https://crownheights.info/chabad-news/41913/chabad-of-north-brooklyn-forges-community-ties/",
-   "note": "Lubavitch.com (on CrownHeights.info, 27 Feb 2012): 'Rabbi Kuti and Esty Feldman arrived in North Brooklyn in 2003'; 'Rabbi Shmuly and Devora Leah Lein joined the team in 2005 to open the Gan Chabad Preschool' (the listing names Rabbi Shmuel Lein). Medium: only one later source so far (Nov 9 audit: the file's rule rates one secondary source medium)."
+   "note": "Lubavitch.com (on CrownHeights.info, 27 Feb 2012): 'Rabbi Kuti and Esty Feldman arrived in North Brooklyn in 2003'; 'Rabbi Shmuly and Devora Leah Lein joined the team in 2005 to open the Gan Chabad Preschool' (the listing names Rabbi Shmuel Lein). Medium: only one later source so far (Nov 9 audit: the file's rule rates one secondary source medium).",
+   "people": [
+    {
+     "name": "Rabbi Kuti Feldman",
+     "role": "founder",
+     "from": "2003"
+    },
+    {
+     "name": "Esty Feldman",
+     "role": "founder",
+     "from": "2003"
+    },
+    {
+     "name": "Rabbi Shmuly Lein",
+     "role": "director",
+     "from": "2005"
+    },
+    {
+     "name": "Devora Leah Lein",
+     "role": "director",
+     "from": "2005"
+    }
+   ]
   },
   "268087": {
    "name": "Chabad House Bowery (Serving NYU)",
@@ -30105,7 +30139,15 @@
    "how": "anniversary",
    "confidence": "medium",
    "source": "https://crownheights.info/shlichus/45762/a-synagogue-comes-to-life-on-the-bowery/",
-   "note": "The New York Times (on CrownHeights.info, 26 July 2012): 'The Chabad community at New York University was established about 10 years ago by the Korns' (so about 2002). Medium: a count back. The Bowery building, 52 East Fourth Street, bought about 2010."
+   "note": "The New York Times (on CrownHeights.info, 26 July 2012): 'The Chabad community at New York University was established about 10 years ago by the Korns' (so about 2002). Medium: a count back. The Bowery building, 52 East Fourth Street, bought about 2010.",
+   "people": [
+    {
+     "name": "the Korns",
+     "role": "founder",
+     "from": "2002",
+     "note": "first names not in the note"
+    }
+   ]
   },
   "475066": {
    "name": "Chabad of Bushwick",
@@ -30115,7 +30157,14 @@
    "how": "anniversary",
    "confidence": "medium",
    "source": "https://crownheights.info/shlichus/14032/a-brooklyn-mitzvah-converting-the-hipsters/",
-   "note": "The New York Observer (on CrownHeights.info, 3 Nov 2008): Rabbi Menachem Heller 'moved to the neighborhood three years ago' (so about 2005). Medium: a count back; its listing went up Feb 2007."
+   "note": "The New York Observer (on CrownHeights.info, 3 Nov 2008): Rabbi Menachem Heller 'moved to the neighborhood three years ago' (so about 2005). Medium: a count back; its listing went up Feb 2007.",
+   "people": [
+    {
+     "name": "Rabbi Menachem Heller",
+     "role": "founder",
+     "from": "2005"
+    }
+   ]
   },
   "357153": {
    "name": "Chabad of Long Island City",
@@ -30125,7 +30174,19 @@
    "how": "news",
    "confidence": "high",
    "source": "https://www.chabad.org/news/article_cdo/aid/3709602/jewish/Industrial-Turns-Residential-in-Long-Island-City-and-Jewish-Life-Thrives.htm",
-   "note": "Chabad.org News ('Industrial Turns Residential in Long Island City, and Jewish Life Thrives'): 'Rabbi Zev and Rivka Wineberg moved there in 2006, starting the JCC-Chabad of Long Island City/Astoria.' The chabad.org listing went up Feb 7 2006. (His LinkedIn dates 'Chabad of West Queens', which they founded, from Dec 2003.) The Queens Chronicle (on CrownHeights.info, 2 Oct 2011): 'The Winebergs moved to LIC about four years ago' (about 2007). But its chabad.org listing went up Feb 7 2006, so it existed (at least on paper) by then; the count back does not fit, so only the bound is kept."
+   "note": "Chabad.org News ('Industrial Turns Residential in Long Island City, and Jewish Life Thrives'): 'Rabbi Zev and Rivka Wineberg moved there in 2006, starting the JCC-Chabad of Long Island City/Astoria.' The chabad.org listing went up Feb 7 2006. (His LinkedIn dates 'Chabad of West Queens', which they founded, from Dec 2003.) The Queens Chronicle (on CrownHeights.info, 2 Oct 2011): 'The Winebergs moved to LIC about four years ago' (about 2007). But its chabad.org listing went up Feb 7 2006, so it existed (at least on paper) by then; the count back does not fit, so only the bound is kept.",
+   "people": [
+    {
+     "name": "Rabbi Zev Wineberg",
+     "role": "founder",
+     "from": "2006"
+    },
+    {
+     "name": "Rivka Wineberg",
+     "role": "founder",
+     "from": "2006"
+    }
+   ]
   },
   "4133903": {
    "name": "Chabad West Village",
@@ -30136,7 +30197,19 @@
    "confidence": "high",
    "source": "https://crownheights.info/shlichus/620541/620541/",
    "note": "CrownHeights.info (5 Oct 2018): 'Now the West Village will be home to a new Chabad center, headed and co-directed by Rabbi Berel and Chana Gurevitch, working under the auspices of Tzeirei Agudas Chabad'. Its listing went up Oct 8 2018.",
-   "date": "2018-10"
+   "date": "2018-10",
+   "people": [
+    {
+     "name": "Rabbi Berel Gurevitch",
+     "role": "founder",
+     "from": "2018"
+    },
+    {
+     "name": "Chana Gurevitch",
+     "role": "founder",
+     "from": "2018"
+    }
+   ]
   },
   "2880856": {
    "name": "Chabad of Greenpoint",
@@ -30146,7 +30219,19 @@
    "how": "anniversary",
    "confidence": "medium",
    "source": "https://crownheights.info/chabad-news/676051/greenpoint-brooklyn-gets-first-permanent-center/",
-   "note": "Lubavitch.com (on CrownHeights.info, 13 Aug 2019, 'Greenpoint, Brooklyn Gets First Permanent Center'): 'Rabbi Yisroel and Raizel Nissim have been serving the Greenpoint community for five years from just as many rented apartments' (so about 2014). Medium: a count back; its listing went up May 2015."
+   "note": "Lubavitch.com (on CrownHeights.info, 13 Aug 2019, 'Greenpoint, Brooklyn Gets First Permanent Center'): 'Rabbi Yisroel and Raizel Nissim have been serving the Greenpoint community for five years from just as many rented apartments' (so about 2014). Medium: a count back; its listing went up May 2015.",
+   "people": [
+    {
+     "name": "Rabbi Yisroel Nissim",
+     "role": "founder",
+     "from": "2014"
+    },
+    {
+     "name": "Raizel Nissim",
+     "role": "founder",
+     "from": "2014"
+    }
+   ]
   },
   "3490568": {
    "name": "Chabad of North Fork",
@@ -30156,7 +30241,17 @@
    "how": "first-mention",
    "confidence": "medium",
    "source": "https://crownheights.info/chabad-news/727190/long-island-jewish-newspaper-covers-chabad-titles-lubavitch-conquers-long-island/",
-   "note": "The Long Island Jewish paper (on CrownHeights.info, 22 March 2021): Rabbi Shaya Hurwitz began looking to put down roots on the North Fork at Rabbi Leibel Baumgarten's suggestion; 'It was May 2014'; 'In November 2019, the rabbi and his wife, Mushky, bought a house in Mattituck and moved in with their two young children early last year' (2020). Medium: 2014 is when his work there began, as told; its listing went up Nov 2016; living there from 2020."
+   "note": "The Long Island Jewish paper (on CrownHeights.info, 22 March 2021): Rabbi Shaya Hurwitz began looking to put down roots on the North Fork at Rabbi Leibel Baumgarten's suggestion; 'It was May 2014'; 'In November 2019, the rabbi and his wife, Mushky, bought a house in Mattituck and moved in with their two young children early last year' (2020). Medium: 2014 is when his work there began, as told; its listing went up Nov 2016; living there from 2020.",
+   "people": [
+    {
+     "name": "Rabbi Shaya Hurwitz",
+     "role": "founder"
+    },
+    {
+     "name": "Mushky Hurwitz",
+     "role": "founder"
+    }
+   ]
   },
   "4000162": {
    "name": "Chabad of Montauk",
@@ -30166,7 +30261,15 @@
    "how": "anniversary",
    "confidence": "medium",
    "source": "https://crownheights.info/chabad-news/727190/long-island-jewish-newspaper-covers-chabad-titles-lubavitch-conquers-long-island/",
-   "note": "The Long Island Jewish paper (on CrownHeights.info, 22 March 2021), Musia Baumgarten: 'My husband and I opened up Chabad of Montauk three years ago' (so 2018). Its listing went up April 16 2018, which agrees. Medium: a count back."
+   "note": "The Long Island Jewish paper (on CrownHeights.info, 22 March 2021), Musia Baumgarten: 'My husband and I opened up Chabad of Montauk three years ago' (so 2018). Its listing went up April 16 2018, which agrees. Medium: a count back.",
+   "people": [
+    {
+     "name": "Musia Baumgarten",
+     "role": "founder",
+     "from": "2018",
+     "note": "'My husband and I opened up Chabad of Montauk'"
+    }
+   ]
   },
   "792964": {
    "name": "Chabad Prospect Heights East",
@@ -30177,7 +30280,19 @@
    "confidence": "medium",
    "source": "https://crownheights.info/general/146/new-shluchim-to-prospect-heights/",
    "note": "COL (on CrownHeights.info, 5 May 2005, 'New Shluchim to Prospect Heights'): 'Rabbi Aharon Yosef Kirshenbaum from Crown Heights will be leaving to Prospect Heights for shlichus ... These new shluchim, sent by Tsach, will establish a Chabad House there.' (The listing names Rabbi Ari Kirschenbaum.) Medium: a report of the plan only; the listing went up in Dec 2008, under Rabbi Ari Kirschenbaum (Nov 9 audit).",
-   "date": "2005-05"
+   "date": "2005-05",
+   "people": [
+    {
+     "name": "Rabbi Aharon Yosef Kirshenbaum",
+     "role": "founder",
+     "from": "2005"
+    },
+    {
+     "name": "Rabbi Ari Kirschenbaum",
+     "role": "director",
+     "note": "on the listing"
+    }
+   ]
   },
   "117905": {
    "name": "Chabad Lubavitch of Midtown Manhattan",
@@ -30187,7 +30302,19 @@
    "how": "anniversary",
    "confidence": "medium",
    "source": "https://crownheights.info/general/2513/chabad-midtown-manhattan-celebrates-10th-anniversary/",
-   "note": "COL (on CrownHeights.info, 23 June 2006): a dinner gala 'celebrating the 10th anniversary of Chabad Lubavitch of Midtown Manhattan', Rabbi Yehoshua and Brocha Metzger, 'Shluchim to Midtown' (so 1996). Medium: a count back. Now 509 Fifth Avenue; it also carries on the Radio City Synagogue's older tradition."
+   "note": "COL (on CrownHeights.info, 23 June 2006): a dinner gala 'celebrating the 10th anniversary of Chabad Lubavitch of Midtown Manhattan', Rabbi Yehoshua and Brocha Metzger, 'Shluchim to Midtown' (so 1996). Medium: a count back. Now 509 Fifth Avenue; it also carries on the Radio City Synagogue's older tradition.",
+   "people": [
+    {
+     "name": "Rabbi Yehoshua Metzger",
+     "role": "founder",
+     "from": "1996"
+    },
+    {
+     "name": "Brocha Metzger",
+     "role": "founder",
+     "from": "1996"
+    }
+   ]
   },
   "416302": {
    "name": "Chabad of Forest Hills",
@@ -30197,7 +30324,19 @@
    "how": "news",
    "confidence": "medium",
    "source": "https://crownheights.info/shlichus/4739/new-shluchim-to-new-york-3/",
-   "note": "Shmais (on CrownHeights.info, 30 Jan 2007, 'New Shluchim To New York'): 'Rabbi Mordechai and Sara Hecht have moved on Shlichus to Forest Hills, NY where they have established a new Chabad House', appointed by Rabbi Sholem B. Hecht and Rabbi Shraga Zalmanov of Chabad of Queens. Medium: the report is from Jan 2007 and says they had already moved; the listing went up Aug 21 2006. Chabad of the Gardens: its Forest Hills site opened in 2007; in 2009 it took over 82-52 Abingdon Rd., Kew Gardens."
+   "note": "Shmais (on CrownHeights.info, 30 Jan 2007, 'New Shluchim To New York'): 'Rabbi Mordechai and Sara Hecht have moved on Shlichus to Forest Hills, NY where they have established a new Chabad House', appointed by Rabbi Sholem B. Hecht and Rabbi Shraga Zalmanov of Chabad of Queens. Medium: the report is from Jan 2007 and says they had already moved; the listing went up Aug 21 2006. Chabad of the Gardens: its Forest Hills site opened in 2007; in 2009 it took over 82-52 Abingdon Rd., Kew Gardens.",
+   "people": [
+    {
+     "name": "Rabbi Mordechai Hecht",
+     "role": "founder",
+     "from": "2006"
+    },
+    {
+     "name": "Sara Hecht",
+     "role": "founder",
+     "from": "2006"
+    }
+   ]
   },
   "1263753": {
    "name": "Chabad of South Bay Long Island",
@@ -30208,7 +30347,19 @@
    "confidence": "high",
    "source": "https://crownheights.info/shlichus/28073/new-shluchim-to-new-york-2/",
    "note": "The Shluchim Office (on CrownHeights.info, 5 Aug 2010, 'New Shluchim to New York!'): Rabbi Yona and Devorah Leah Edelkopf 'will be opening up a new location: \"Chabad of Massapequa\" serving the Massapequa and Babylon, NY areas under Rabbis Anchelle Perl and Tuvia Teldon'. Its listing went up Aug 2 2010.",
-   "date": "2010-08"
+   "date": "2010-08",
+   "people": [
+    {
+     "name": "Rabbi Yona Edelkopf",
+     "role": "founder",
+     "from": "2010"
+    },
+    {
+     "name": "Devorah Leah Edelkopf",
+     "role": "founder",
+     "from": "2010"
+    }
+   ]
   },
   "1366529": {
    "name": "Chabad of Battery Park City",
@@ -30219,7 +30370,19 @@
    "confidence": "high",
    "source": "https://crownheights.info/shlichus/30743/new-shluchim-to-new-york/",
    "note": "CrownHeights.info (13 Dec 2010, 'New Shluchim to New York!'): 'Rabbi Chaim and his wife Mushka Zaklos of Crown Heights will IYH be moving out on Shlichus to Battery Park City, NY where they will be establishing a Chabad House', appointed by Rabbi Shmaya and Rochel Katz of Chabad of Wall Street. Its listing went up Nov 25 2010.",
-   "date": "2010-12"
+   "date": "2010-12",
+   "people": [
+    {
+     "name": "Rabbi Chaim Zaklos",
+     "role": "founder",
+     "from": "2010"
+    },
+    {
+     "name": "Mushka Zaklos",
+     "role": "founder",
+     "from": "2010"
+    }
+   ]
   },
   "1684335": {
    "name": "Chabad @ The Medical Centers",
@@ -30229,7 +30392,19 @@
    "how": "news",
    "confidence": "medium",
    "source": "https://crownheights.info/shlichus/44677/new-shluchim-to-long-island-2/",
-   "note": "CrownHeights.info (14 June 2012, 'New Shluchim to Long Island'): 'Rabbi Boruch Sholom and Mushkie Wolf have recently been appointed as the Shluchim to North Shore and Long Island Jewish Medical Centers', appointed by Rabbi Tuvia Teldon. Medium: its listing went up Nov 20 2011, half a year before."
+   "note": "CrownHeights.info (14 June 2012, 'New Shluchim to Long Island'): 'Rabbi Boruch Sholom and Mushkie Wolf have recently been appointed as the Shluchim to North Shore and Long Island Jewish Medical Centers', appointed by Rabbi Tuvia Teldon. Medium: its listing went up Nov 20 2011, half a year before.",
+   "people": [
+    {
+     "name": "Rabbi Boruch Sholom Wolf",
+     "role": "founder",
+     "from": "2012"
+    },
+    {
+     "name": "Mushkie Wolf",
+     "role": "founder",
+     "from": "2012"
+    }
+   ]
   },
   "1971123": {
    "name": "Chabad of Forest Hills North",
@@ -30240,7 +30415,19 @@
    "confidence": "high",
    "source": "https://crownheights.info/shlichus/46524/new-shluchim-to-queens/",
    "note": "CrownHeights.info (27 Aug 2012, 'New Shluchim to Queens'): 'Rabbi Mendy and Chaya Hecht ... have recently been appointed as the Chabad Shluchim to North Forest Hills ... They will be opening and directing a new Chabad House to serve the north side of Forest Hills.' Its listing went up Sept 24 2012.",
-   "date": "2012-08"
+   "date": "2012-08",
+   "people": [
+    {
+     "name": "Rabbi Mendy Hecht",
+     "role": "founder",
+     "from": "2012"
+    },
+    {
+     "name": "Chaya Hecht",
+     "role": "founder",
+     "from": "2012"
+    }
+   ]
   },
   "4103691": {
    "name": "Chabad of Manhasset",
@@ -30250,7 +30437,19 @@
    "how": "directory",
    "confidence": "medium",
    "source": "https://data.ny.gov/resource/n9v6-gdp6.json?dos_id=5457648",
-   "note": "Its chabad.org listing went up Aug 29 2018, so it existed (at least on paper) by then; CrownHeights.info (7 July 2024, 'New Shluchim To Manhasset, Long Island'): Rabbi Levi and Shani Paltiel 'are moving down there' to open it (they found 'over 150 Jewish families living in town'). Who ran it from 2018 is not found (the Paltiels of Port Washington next door are the likely link). New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'CHABAD OF MANHASSET INC.' (DOS ID 5457648), domestic not-for-profit corporation, Nassau County, first filed Dec 12 2018. A state filing, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
+   "note": "Its chabad.org listing went up Aug 29 2018, so it existed (at least on paper) by then; CrownHeights.info (7 July 2024, 'New Shluchim To Manhasset, Long Island'): Rabbi Levi and Shani Paltiel 'are moving down there' to open it (they found 'over 150 Jewish families living in town'). Who ran it from 2018 is not found (the Paltiels of Port Washington next door are the likely link). New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'CHABAD OF MANHASSET INC.' (DOS ID 5457648), domestic not-for-profit corporation, Nassau County, first filed Dec 12 2018. A state filing, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data').",
+   "people": [
+    {
+     "name": "Rabbi Levi Paltiel",
+     "role": "director",
+     "from": "2024"
+    },
+    {
+     "name": "Shani Paltiel",
+     "role": "director",
+     "from": "2024"
+    }
+   ]
   },
   "118272": {
    "name": "Chabad of Park Slope",
@@ -30260,7 +30459,19 @@
    "how": "stated",
    "confidence": "medium",
    "source": "https://www.chabadparkslope.com/templates/articlecco_cdo/aid/634124/jewish/Rabbi-Shimon-and-Sarah-Hecht.htm",
-   "note": "Its own site: founded by Rabbi Shimon and Sarah Hecht in 1987; another feature has them moving to Park Slope in 1987 with two small children. Medium: a Chabad feature says they moved there in 1986 (read through search summaries; the site doesn't answer plain requests). Rabbi Hecht leads Congregation B'nai Jacob, 401 9th St."
+   "note": "Its own site: founded by Rabbi Shimon and Sarah Hecht in 1987; another feature has them moving to Park Slope in 1987 with two small children. Medium: a Chabad feature says they moved there in 1986 (read through search summaries; the site doesn't answer plain requests). Rabbi Hecht leads Congregation B'nai Jacob, 401 9th St.",
+   "people": [
+    {
+     "name": "Rabbi Shimon Hecht",
+     "role": "founder",
+     "from": "1987"
+    },
+    {
+     "name": "Sarah Hecht",
+     "role": "founder",
+     "from": "1987"
+    }
+   ]
   },
   "118339": {
    "name": "Chabad of Rego Park",
@@ -30278,6 +30489,18 @@
      "until": null,
      "source": "https://queensjewishlink.com/index.php/local/26-community-corner/8333-chaya-s-torah-dedicated-with-joy-and-celebration-at-chabad-of-rego-park"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Eli Blokh",
+     "role": "founder",
+     "from": "1997"
+    },
+    {
+     "name": "Shulamis Blokh",
+     "role": "founder",
+     "from": "1997"
+    }
    ]
   },
   "364555": {
@@ -30289,7 +30512,15 @@
    "confidence": "medium",
    "source": "https://qns.com/2008/09/little-neck-chabad-welcomes-all-jews",
    "note": "The Queens Chronicle/QNS (29 Sept 2008): the Shifrins 'moved to Little Neck in the fall of 2005'; 'her husband delivered services to seven people at their first High Holiday services in 2005'. At 254-05 Cullman Ave. Medium: one later source (2008); the listing went up in March 2006 (Nov 9 audit).",
-   "season": "fall"
+   "season": "fall",
+   "people": [
+    {
+     "name": "the Shifrins",
+     "role": "founder",
+     "from": "2005",
+     "note": "first names not in the note"
+    }
+   ]
   },
   "262258": {
    "name": "Chabad of Kings Highway",
@@ -30299,7 +30530,13 @@
    "how": "stated",
    "confidence": "medium",
    "source": "https://collive.com/flatbush-jews-have-a-center/",
-   "note": "Lubavitch.com (on COLlive, 8 Jan 2012, 'Flatbush Jews Have a Center'): 'Chabad of Kings Highway opened its doors in 2006', run by Rabbi Zalman Drizin. Medium: its chabad.org listing went up Feb 20 2005, so the work may have begun in 2005, before the doors opened."
+   "note": "Lubavitch.com (on COLlive, 8 Jan 2012, 'Flatbush Jews Have a Center'): 'Chabad of Kings Highway opened its doors in 2006', run by Rabbi Zalman Drizin. Medium: its chabad.org listing went up Feb 20 2005, so the work may have begun in 2005, before the doors opened.",
+   "people": [
+    {
+     "name": "Rabbi Zalman Drizin",
+     "role": "director"
+    }
+   ]
   },
   "117680": {
    "name": "Chabad Lubavitch of West Brighton",
@@ -30310,7 +30547,14 @@
    "confidence": "medium",
    "source": "https://anash.org/the-rosh-yeshiva-who-wears-many-hats/",
    "note": "Anash.org: 'Rabbi Zushe Winner Shlita was appointed by Tzach Hamerkozis on January 8, 1991 to serve the community of West Brighton.' (COLlive: rabbi of the Sea Breeze Jewish Center in West Brighton; founder of Chabad Neshama.) Medium: only one later source so far (Nov 9 audit: the file's rule rates one secondary source medium).",
-   "date": "1991-01-08"
+   "date": "1991-01-08",
+   "people": [
+    {
+     "name": "Rabbi Zushe Winner",
+     "role": "founder",
+     "from": "1991"
+    }
+   ]
   },
   "314172": {
    "name": "Chabad of Harlem",
@@ -30320,7 +30564,24 @@
    "how": "first-mention",
    "confidence": "medium",
    "source": "https://crownheights.info/shlichus/376446/rabbi-led-jewish-revival-in-harlem",
-   "note": "Chabad.org (on CrownHeights.info, 3 March 2013, Rabbi Shaya Gansbourg's obituary): 'In 2005, they hosted Chabad's first communal Passover seder in Harlem'; Chabad.org elsewhere: Chabad 'first took root in Harlem in 2005'. The NY Daily News (on CrownHeights.info, 15 Sept 2008): the center he and his wife, Goldie, 'opened last year' (2007, the storefront). Their son Rabbi Yossel Gansbourg leads it now. Medium: a first mention, not a founding date (Nov 9 audit)."
+   "note": "Chabad.org (on CrownHeights.info, 3 March 2013, Rabbi Shaya Gansbourg's obituary): 'In 2005, they hosted Chabad's first communal Passover seder in Harlem'; Chabad.org elsewhere: Chabad 'first took root in Harlem in 2005'. The NY Daily News (on CrownHeights.info, 15 Sept 2008): the center he and his wife, Goldie, 'opened last year' (2007, the storefront). Their son Rabbi Yossel Gansbourg leads it now. Medium: a first mention, not a founding date (Nov 9 audit).",
+   "people": [
+    {
+     "name": "Rabbi Shaya Gansbourg",
+     "role": "founder",
+     "from": "2005"
+    },
+    {
+     "name": "Goldie Gansbourg",
+     "role": "founder",
+     "from": "2005"
+    },
+    {
+     "name": "Rabbi Yossel Gansbourg",
+     "role": "director",
+     "note": "leads it now"
+    }
+   ]
   },
   "398217": {
    "name": "Chabad of the Lower East Side",
@@ -30330,7 +30591,15 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.chabadles.com/templates/articlecco_cdo/aid/628143/jewish/About.htm",
-   "note": "Its own About page: 'Following his marriage to Chani in 2001, the couple enlisted as permanent emissaries of the Rebbe and settled on the Lower East Side of Manhattan in 2004'; 'Since 2004, Rabbi Yisrael and Chani ... have been dedicated to building a warm, welcoming Jewish community on the Lower East Side' (read through a search summary; a Chabad.org profile gives the same year). Its listing went up July 2 2006."
+   "note": "Its own About page: 'Following his marriage to Chani in 2001, the couple enlisted as permanent emissaries of the Rebbe and settled on the Lower East Side of Manhattan in 2004'; 'Since 2004, Rabbi Yisrael and Chani ... have been dedicated to building a warm, welcoming Jewish community on the Lower East Side' (read through a search summary; a Chabad.org profile gives the same year). Its listing went up July 2 2006.",
+   "people": [
+    {
+     "name": "Rabbi Yisrael",
+     "role": "founder",
+     "from": "2004",
+     "note": "'Rabbi Yisrael and Chani'; surname not in the note"
+    }
+   ]
   },
   "118002": {
    "name": "Ohel Chabad Lubavitch",
@@ -30340,7 +30609,8 @@
    "how": "stated",
    "confidence": "medium",
    "source": "https://en.wikipedia.org/wiki/Ohel_(Chabad-Lubavitch)",
-   "note": "Wikipedia (Ohel): 'In 1995, Lubavitcher Hasidim bought one of these houses and turned it into a 24-hour visitors center' (226-20 Francis Lewis Blvd., beside the Rebbe's resting place). The IRS recognized Cong Ohel Chabad Lubavitch at that address from August 1998 (ProPublica). Medium: one secondary source for the year."
+   "note": "Wikipedia (Ohel): 'In 1995, Lubavitcher Hasidim bought one of these houses and turned it into a 24-hour visitors center' (226-20 Francis Lewis Blvd., beside the Rebbe's resting place). The IRS recognized Cong Ohel Chabad Lubavitch at that address from August 1998 (ProPublica). Medium: one secondary source for the year.",
+   "people": []
   },
   "118366": {
    "name": "Chabad Lubavitch of Kingsborough College",
@@ -30350,7 +30620,17 @@
    "how": "anniversary",
    "confidence": "medium",
    "source": "https://collive.com/kingsborough-chabad-celebrates-18/",
-   "note": "COLlive (6 Oct 2016, 'Kingsborough Chabad Celebrates 18'): 'Some 18 years ago Chabad at Kingsborough was established at Kingsborough Community College. That summer it held a Day Camp' (so about 1998). Medium: a count back. Rabbi Efraim and Hannah Zaltzman."
+   "note": "COLlive (6 Oct 2016, 'Kingsborough Chabad Celebrates 18'): 'Some 18 years ago Chabad at Kingsborough was established at Kingsborough Community College. That summer it held a Day Camp' (so about 1998). Medium: a count back. Rabbi Efraim and Hannah Zaltzman.",
+   "people": [
+    {
+     "name": "Rabbi Efraim Zaltzman",
+     "role": "director"
+    },
+    {
+     "name": "Hannah Zaltzman",
+     "role": "director"
+    }
+   ]
   },
   "1019019": {
    "name": "Chabad Young Professionals UES",
@@ -30360,7 +30640,19 @@
    "how": "news",
    "confidence": "high",
    "source": "https://www.chabad.org/news/article_cdo/aid/2719307",
-   "note": "Chabad.org, 2 Oct 2014 ('Young Jewish Professionals Can't Get Enough of the Upper East Side'): 'When Rabbi Yosef Wilhelm and his wife, Devora, moved to Manhattan five years ago...' (2009); its chabad.org listing went up 2009-10-26. The two agree. (Chabad.org page read Nov 11 through WebFetch; plain requests are refused there.)"
+   "note": "Chabad.org, 2 Oct 2014 ('Young Jewish Professionals Can't Get Enough of the Upper East Side'): 'When Rabbi Yosef Wilhelm and his wife, Devora, moved to Manhattan five years ago...' (2009); its chabad.org listing went up 2009-10-26. The two agree. (Chabad.org page read Nov 11 through WebFetch; plain requests are refused there.)",
+   "people": [
+    {
+     "name": "Rabbi Yosef Wilhelm",
+     "role": "founder",
+     "from": "2009"
+    },
+    {
+     "name": "Devora Wilhelm",
+     "role": "founder",
+     "from": "2009"
+    }
+   ]
   },
   "118558": {
    "name": "Chabad Lubavitch of Manhattan Beach",
@@ -30370,7 +30662,8 @@
    "how": "directory",
    "confidence": "medium",
    "source": "https://data.ny.gov/resource/ekwr-p59j.json?corpid_num=1670943",
-   "note": "No founding report found (Nov 9 first pass: CrownHeights.info and lubavitch.com searched by name and director, and a web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Avrohom Winner. New York Department of State record (data.ny.gov, 'Corporations and Other Entities: All Filings - Name Status History'): 'CHABAD LUBAVITCH OF WEST BRIGHTON-MANHATTAN BEACH CORP.' (DOS ID 1670943), filed Oct 6 1992 (the name is now inactive). A state filing of its own corporation, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
+   "note": "No founding report found (Nov 9 first pass: CrownHeights.info and lubavitch.com searched by name and director, and a web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Avrohom Winner. New York Department of State record (data.ny.gov, 'Corporations and Other Entities: All Filings - Name Status History'): 'CHABAD LUBAVITCH OF WEST BRIGHTON-MANHATTAN BEACH CORP.' (DOS ID 1670943), filed Oct 6 1992 (the name is now inactive). A state filing of its own corporation, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data').",
+   "people": []
   },
   "519227": {
    "name": "Chabad Hebrew School MB",
@@ -30380,7 +30673,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/519227",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2007-05-13, so it existed by then. Director: Alta Shula Winner. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2007-05-13), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2007-05-13, so it existed by then. Director: Alta Shula Winner. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2007-05-13), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "118923": {
    "name": "Cong. Beth Shalom",
@@ -30390,7 +30684,8 @@
    "how": "stated",
    "confidence": "medium",
    "source": "https://www.chabadli.org/templates/articlecco_cdo/aid/243100/jewish/Chabad-of-Valley-Stream.htm",
-   "note": "Chabad of Long Island's page for Chabad of Valley Stream (read Nov 10 2026): the Chabad Outreach Center (founded 1994) became affiliated with Congregation Beth Shalom in 1998, and 'In 2005, the two successfully united as one.' Medium: the year the congregation joined Chabad; the congregation itself is older. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Yitzchak Goldshmid."
+   "note": "Chabad of Long Island's page for Chabad of Valley Stream (read Nov 10 2026): the Chabad Outreach Center (founded 1994) became affiliated with Congregation Beth Shalom in 1998, and 'In 2005, the two successfully united as one.' Medium: the year the congregation joined Chabad; the congregation itself is older. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Yitzchak Goldshmid.",
+   "people": []
   },
   "118924": {
    "name": "Hebrew School",
@@ -30401,7 +30696,8 @@
    "confidence": "range",
    "by": 2004,
    "source": "https://www.chabad.org/api/content/118924/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Itty Goldshmid."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Itty Goldshmid.",
+   "people": []
   },
   "7438183": {
    "name": "Gan Chabad Preschool",
@@ -30411,7 +30707,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/7438183",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2026-08-12, so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2026-08-12), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2026-08-12, so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2026-08-12), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "1227811": {
    "name": "My Little School",
@@ -30421,7 +30718,19 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.mylittleschoolnyc.com/templates/articlecco_cdo/aid/6621302/jewish/Our-Team.htm",
-   "note": "Its own 'Our Team' page (read through Firecrawl, Nov 11): 'Rabbi Zalman & Chana Paris are the Executive Directors of Chabad of Tribeca, which My Little School is a division of. Recognizing the need for a nurturing & progressive Jewish Preschool in the neighborhood, Rabbi Zalman & Chana founded My Little School in 2010.' Its chabad.org listing went up in 2010 too."
+   "note": "Its own 'Our Team' page (read through Firecrawl, Nov 11): 'Rabbi Zalman & Chana Paris are the Executive Directors of Chabad of Tribeca, which My Little School is a division of. Recognizing the need for a nurturing & progressive Jewish Preschool in the neighborhood, Rabbi Zalman & Chana founded My Little School in 2010.' Its chabad.org listing went up in 2010 too.",
+   "people": [
+    {
+     "name": "Rabbi Zalman Paris",
+     "role": "founder",
+     "from": "2010"
+    },
+    {
+     "name": "Chana Paris",
+     "role": "founder",
+     "from": "2010"
+    }
+   ]
   },
   "1426976": {
    "name": "Mini Gan Summer Camp",
@@ -30431,7 +30740,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/1426976",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2011-02-02, so it existed by then. Director: Chana Paris. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2011-02-02), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2011-02-02, so it existed by then. Director: Chana Paris. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2011-02-02), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "2537617": {
    "name": "Hebrew School",
@@ -30441,7 +30751,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/2537617",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2014-03-26, so it existed by then. Director: Chana Paris. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2014-03-26), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2014-03-26, so it existed by then. Director: Chana Paris. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2014-03-26), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "4422402": {
    "name": "FiDi Hebrew School",
@@ -30451,7 +30762,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/4422402",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2019-07-03, so it existed by then. Director: Chaya Eber. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2019-07-03), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2019-07-03, so it existed by then. Director: Chaya Eber. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2019-07-03), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "5062547": {
    "name": "Gan Accademia",
@@ -30461,7 +30773,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/5062547",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2021-03-10, so it existed by then. Director: Chaya Eber. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2021-03-10), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2021-03-10, so it existed by then. Director: Chaya Eber. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2021-03-10), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "5525492": {
    "name": "The Chabad Jewish Center Of FiDi",
@@ -30471,7 +30784,14 @@
    "how": "stated",
    "confidence": "low",
    "source": "https://www.linkedin.com/in/nissi-eber-5bbaa316",
-   "note": "Rabbi Nissi Eber's own LinkedIn profile: 'Rabbi/Director Chabad Jewish Center of FiDi Jun 2015 - Present'. Its own page: 'After their marriage in 2013, Nissi continued his outreach in the Financial District'; the centre is 'under the auspices of Rabbi Shmaya and Rochel Katz of Chabad of Wall Street'. Its chabad.org listing went up 2022-06-19. Low: one self-reported profile line. Earlier note: No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2022-06-19, so it existed by then. Director: Nissi Eber."
+   "note": "Rabbi Nissi Eber's own LinkedIn profile: 'Rabbi/Director Chabad Jewish Center of FiDi Jun 2015 - Present'. Its own page: 'After their marriage in 2013, Nissi continued his outreach in the Financial District'; the centre is 'under the auspices of Rabbi Shmaya and Rochel Katz of Chabad of Wall Street'. Its chabad.org listing went up 2022-06-19. Low: one self-reported profile line. Earlier note: No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2022-06-19, so it existed by then. Director: Nissi Eber.",
+   "people": [
+    {
+     "name": "Rabbi Nissi Eber",
+     "role": "founder",
+     "from": "2015"
+    }
+   ]
   },
   "1156720": {
    "name": "Kiddie Gan Day Camp",
@@ -30481,7 +30801,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/1156720",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2010-03-10, so it existed by then. Director: Moshe Hecht. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2010-03-10), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2010-03-10, so it existed by then. Director: Moshe Hecht. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2010-03-10), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "159405": {
    "name": "Camp F.R.E.E. - Gan Israel",
@@ -30492,7 +30813,8 @@
    "confidence": "range",
    "by": 2004,
    "source": "https://www.chabad.org/api/content/159405/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2004-08-09, so it existed by then. Director: Mayer Okunov."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2004-08-09, so it existed by then. Director: Mayer Okunov.",
+   "people": []
   },
   "223158": {
    "name": "F.R.E.E. Educational Center - Ohel Dovid",
@@ -30503,7 +30825,8 @@
    "confidence": "range",
    "by": 2004,
    "source": "https://www.chabad.org/api/content/223158/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2004-11-17, so it existed by then. F.R.E.E.'s Yeshivat Ohel Dovid was set up after the murder of Rabbi Dovid Okunov, when the Rebbe announced 'that a yeshiva would be built' in his memory (friendsofrefugees.org); the year is not found. Director: Mayer Okunov."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2004-11-17, so it existed by then. F.R.E.E.'s Yeshivat Ohel Dovid was set up after the murder of Rabbi Dovid Okunov, when the Rebbe announced 'that a yeshiva would be built' in his memory (friendsofrefugees.org); the year is not found. Director: Mayer Okunov.",
+   "people": []
   },
   "120059": {
    "name": "Chabad Hebrew School",
@@ -30514,7 +30837,8 @@
    "confidence": "range",
    "by": 2004,
    "source": "https://www.chabad.org/api/content/120059/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Yoseph Y. Geisinsky."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Yoseph Y. Geisinsky.",
+   "people": []
   },
   "403344": {
    "name": "Silverstein Hebrew Academy",
@@ -30524,7 +30848,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://projects.propublica.org/nonprofits/organizations/134033889",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2006-07-14, so it existed by then. IRS exempt-organization record (EO Business Master File, Nov 2026): 'SONIA AND MAX SILVERSTEIN HEBREW ACADEMY' (EIN 13-4033889), 117 Cuttermill Rd, Great Neck, ruling Feb 1999. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2006-07-14, so it existed by then. IRS exempt-organization record (EO Business Master File, Nov 2026): 'SONIA AND MAX SILVERSTEIN HEBREW ACADEMY' (EIN 13-4033889), 117 Cuttermill Rd, Great Neck, ruling Feb 1999. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start.",
+   "people": []
   },
   "5955538": {
    "name": "JLI - F.R.E.E.",
@@ -30534,7 +30859,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/5955538",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2023-05-15, so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2023-05-15), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2023-05-15, so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2023-05-15), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "469333": {
    "name": "The Institute of American & Talmudic Law",
@@ -30544,7 +30870,8 @@
    "how": "directory",
    "confidence": "medium",
    "source": "https://data.ny.gov/resource/n9v6-gdp6.json?dos_id=3442425",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2007-01-22, so it existed by then. Director: Noach Heber. New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'THE INSTITUTE OF AMERICAN AND TALMUDIC LAW, INC.' (DOS ID 3442425), first filed Nov 28 2006, two months before the listing. A state filing, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2007-01-22, so it existed by then. Director: Noach Heber. New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'THE INSTITUTE OF AMERICAN AND TALMUDIC LAW, INC.' (DOS ID 3442425), first filed Nov 28 2006, two months before the listing. A state filing, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data').",
+   "people": []
   },
   "1012589": {
    "name": "Chabad of the Plaza District",
@@ -30554,7 +30881,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/1012589",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2009-10-19, so it existed by then. Director: Joshua Metzger. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2009-10-19), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2009-10-19, so it existed by then. Director: Joshua Metzger. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2009-10-19), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "2588768": {
    "name": "Chabad of Hamilton Heights",
@@ -30564,7 +30892,8 @@
    "how": "directory",
    "confidence": "medium",
    "source": "https://data.ny.gov/resource/n9v6-gdp6.json?dos_id=4581094",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2014-05-19, so it existed by then. Director: Yudi Shmotkin. New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'CHABAD OF HAMILTON HEIGHTS, INC.' (DOS ID 4581094), domestic not-for-profit corporation, New York County, first filed May 22 2014. A state filing, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2014-05-19, so it existed by then. Director: Yudi Shmotkin. New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'CHABAD OF HAMILTON HEIGHTS, INC.' (DOS ID 4581094), domestic not-for-profit corporation, New York County, first filed May 22 2014. A state filing, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data').",
+   "people": []
   },
   "4861143": {
    "name": "Chabad at CUMC",
@@ -30574,7 +30903,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/4861143",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2020-10-18, so it existed by then. Director: Yudi Shmotkin. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2020-10-18), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2020-10-18, so it existed by then. Director: Yudi Shmotkin. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2020-10-18), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "3737215": {
    "name": "Chabad at Fordham",
@@ -30584,7 +30914,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/3737215",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2017-08-03, so it existed by then. Director: Zev Kugel. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2017-08-03), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2017-08-03, so it existed by then. Director: Zev Kugel. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2017-08-03), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "4912499": {
    "name": "Chabad Pod",
@@ -30594,7 +30925,8 @@
    "how": "directory",
    "confidence": "medium",
    "source": "https://data.ny.gov/resource/n9v6-gdp6.json?dos_id=5810511",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2020-10-18, so it existed by then. Director: Zev Kugel. New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'CHABAD POD INC.' (DOS ID 5810511), domestic not-for-profit corporation, New York County, first filed Aug 12 2020. A state filing, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2020-10-18, so it existed by then. Director: Zev Kugel. New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'CHABAD POD INC.' (DOS ID 5810511), domestic not-for-profit corporation, New York County, first filed Aug 12 2020. A state filing, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data').",
+   "people": []
   },
   "117679": {
    "name": "Chabad-House of Flatbush",
@@ -30604,7 +30936,14 @@
    "how": "directory",
    "confidence": "medium",
    "source": "https://data.ny.gov/resource/n9v6-gdp6.json?dos_id=1381238",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Rabbi Zalman Liberow is called 'the Rebbe's first Shliach to Flatbush'; the center was at 1923 Ocean Avenue, and since Dec 2024 at the Wyckoff-Bennett Homestead (1681 East 22nd St.). Director: Zalman Liberow. New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'CHABAD HOUSE OF FLATBUSH, INC.' (DOS ID 1381238), domestic not-for-profit corporation, Kings County, first filed Aug 29 1989. A state filing, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Rabbi Zalman Liberow is called 'the Rebbe's first Shliach to Flatbush'; the center was at 1923 Ocean Avenue, and since Dec 2024 at the Wyckoff-Bennett Homestead (1681 East 22nd St.). Director: Zalman Liberow. New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'CHABAD HOUSE OF FLATBUSH, INC.' (DOS ID 1381238), domestic not-for-profit corporation, Kings County, first filed Aug 29 1989. A state filing, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data').",
+   "people": [
+    {
+     "name": "Rabbi Zalman Liberow",
+     "role": "founder",
+     "note": "'the Rebbe's first Shliach to Flatbush'"
+    }
+   ]
   },
   "117682": {
    "name": "Lubavitch of the East End",
@@ -30614,7 +30953,19 @@
    "how": "directory",
    "confidence": "medium",
    "source": "https://data.ny.gov/resource/n9v6-gdp6.json?dos_id=1430005",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. The IRS recognized 'Lubavitch Of The East End Inc' (Coram, 87 Mount Sinai Coram Rd) from 1991-04 (ProPublica Nonprofit Explorer). Leads: one search summary says Lubavitch of the East End was 'founded in mid-1984' under Rabbi Leibel Baumgarten (page not found); Rabbi Mendy Goldberg has served on the East End since 2002 (Suffolk County Sheriff's Office). Director: Mendy Goldberg. IRS exempt-organization record (EO Business Master File, Nov 2026): 'LUBAVITCH OF THE EAST END INC' (EIN 11-3021354), 87 Mount Sinai Coram Rd, Coram, ruling Apr 1991. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start. New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'LUBAVITCH OF THE EAST END, INC.' (DOS ID 1430005), domestic not-for-profit corporation, Suffolk County, first filed Mar 13 1990. A state filing, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'). It replaces the later IRS ruling year (1991)."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. The IRS recognized 'Lubavitch Of The East End Inc' (Coram, 87 Mount Sinai Coram Rd) from 1991-04 (ProPublica Nonprofit Explorer). Leads: one search summary says Lubavitch of the East End was 'founded in mid-1984' under Rabbi Leibel Baumgarten (page not found); Rabbi Mendy Goldberg has served on the East End since 2002 (Suffolk County Sheriff's Office). Director: Mendy Goldberg. IRS exempt-organization record (EO Business Master File, Nov 2026): 'LUBAVITCH OF THE EAST END INC' (EIN 11-3021354), 87 Mount Sinai Coram Rd, Coram, ruling Apr 1991. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start. New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'LUBAVITCH OF THE EAST END, INC.' (DOS ID 1430005), domestic not-for-profit corporation, Suffolk County, first filed Mar 13 1990. A state filing, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'). It replaces the later IRS ruling year (1991).",
+   "people": [
+    {
+     "name": "Rabbi Leibel Baumgarten",
+     "role": "founder",
+     "note": "a lead: 'founded in mid-1984' (a search summary)"
+    },
+    {
+     "name": "Rabbi Mendy Goldberg",
+     "role": "director",
+     "from": "2002"
+    }
+   ]
   },
   "117684": {
    "name": "Chabad House of Flushing New York",
@@ -30624,7 +30975,8 @@
    "how": "stated",
    "confidence": "medium",
    "source": "https://www.chabadofthegardens.com/templates/articlecco_cdo/aid/593639/jewish/History-of-Chabad-Queens.htm",
-   "note": "Chabad of Queens' history page (on Chabad of the Gardens' site, 'History of Chabad Queens'): 'Chabad of Flushing – Kew Gardens Hills: Established 1980'. Medium: one Chabad page, no report from the time; it fits MapQuest's 'for over thirty years'. Was 1997 (the corporation's filing, kept below). No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. MapQuest's listing says Chabad of Flushing 'has been a cornerstone of the Queens Jewish Community for over thirty years' (undated). Director: Shraga Zalmanov. New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'CHABAD OF FLUSHING INC.' (DOS ID 2105000), domestic not-for-profit corporation, Queens County, first filed Jan 22 1997. A state filing, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
+   "note": "Chabad of Queens' history page (on Chabad of the Gardens' site, 'History of Chabad Queens'): 'Chabad of Flushing – Kew Gardens Hills: Established 1980'. Medium: one Chabad page, no report from the time; it fits MapQuest's 'for over thirty years'. Was 1997 (the corporation's filing, kept below). No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. MapQuest's listing says Chabad of Flushing 'has been a cornerstone of the Queens Jewish Community for over thirty years' (undated). Director: Shraga Zalmanov. New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'CHABAD OF FLUSHING INC.' (DOS ID 2105000), domestic not-for-profit corporation, Queens County, first filed Jan 22 1997. A state filing, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data').",
+   "people": []
   },
   "117686": {
    "name": "Town of Oyster Bay Chabad",
@@ -30634,7 +30986,15 @@
    "how": "directory",
    "confidence": "medium",
    "source": "https://data.ny.gov/resource/n9v6-gdp6.json",
-   "note": "A filing: New York's corporation register (Department of State, 'Active Corporations' open data, saved in work/founding-years/ny-dos/active-corporations.tsv) has CHABAD-LUBAVITCH OF PLAINVIEW, INC. (DOS ID 1769051), a not-for-profit filed 1993-11-02, care of Rabbi Shmuel Lipszyc, Syosset: this listing's director, and Plainview, Syosset and Woodbury are all in the Town of Oyster Bay. Its chabad.org listing went up 2004-07-22 and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: the center's own corporation, under an earlier name, medium). Earlier note: No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Shmuel Lipszyc."
+   "note": "A filing: New York's corporation register (Department of State, 'Active Corporations' open data, saved in work/founding-years/ny-dos/active-corporations.tsv) has CHABAD-LUBAVITCH OF PLAINVIEW, INC. (DOS ID 1769051), a not-for-profit filed 1993-11-02, care of Rabbi Shmuel Lipszyc, Syosset: this listing's director, and Plainview, Syosset and Woodbury are all in the Town of Oyster Bay. Its chabad.org listing went up 2004-07-22 and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: the center's own corporation, under an earlier name, medium). Earlier note: No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Shmuel Lipszyc.",
+   "people": [
+    {
+     "name": "Rabbi Shmuel Lipszyc",
+     "role": "founder",
+     "from": "1993",
+     "note": "care of him in the 1993 filing"
+    }
+   ]
   },
   "4444340": {
    "name": "CTeen Upper West Side",
@@ -30644,7 +31004,19 @@
    "how": "news",
    "confidence": "high",
    "source": "https://collive.com/new-shluchim-to-manhattans-upper-west-side/",
-   "note": "COLlive, 5 Sept 2019 ('New Shluchim to Manhattan's Upper West Side'): 'Rabbi Eliyahu and Shayna Sapochkinsky, with their son Mendel, have recently moved on Shlichus to the Upper West Side of Manhattan', appointed by Rabbi Shlomo Kugel of Chabad of the West Side; 'Eliyahu and Shayna have extensive experience teaching and working with teens'. Its chabad.org listing went up 14 Nov 2019."
+   "note": "COLlive, 5 Sept 2019 ('New Shluchim to Manhattan's Upper West Side'): 'Rabbi Eliyahu and Shayna Sapochkinsky, with their son Mendel, have recently moved on Shlichus to the Upper West Side of Manhattan', appointed by Rabbi Shlomo Kugel of Chabad of the West Side; 'Eliyahu and Shayna have extensive experience teaching and working with teens'. Its chabad.org listing went up 14 Nov 2019.",
+   "people": [
+    {
+     "name": "Rabbi Eliyahu Sapochkinsky",
+     "role": "founder",
+     "from": "2019"
+    },
+    {
+     "name": "Shayna Sapochkinsky",
+     "role": "founder",
+     "from": "2019"
+    }
+   ]
   },
   "117911": {
    "name": "Chabad of Sheepshead Bay",
@@ -30654,7 +31026,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://projects.propublica.org/nonprofits/organizations/113144148",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. The IRS recognized 'Chabad-Lubavitch Of Sheepshead Bay' (Brooklyn, 1315 Avenue Y) from 2000-08 (ProPublica Nonprofit Explorer). Director: Shlomo Z. Cohen. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD-LUBAVITCH OF SHEEPSHEAD BAY' (EIN 11-3144148), 1315 Avenue Y, Brooklyn, ruling Aug 2000. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. The IRS recognized 'Chabad-Lubavitch Of Sheepshead Bay' (Brooklyn, 1315 Avenue Y) from 2000-08 (ProPublica Nonprofit Explorer). Director: Shlomo Z. Cohen. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD-LUBAVITCH OF SHEEPSHEAD BAY' (EIN 11-3144148), 1315 Avenue Y, Brooklyn, ruling Aug 2000. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start.",
+   "people": []
   },
   "117965": {
    "name": "Chabad of Roslyn",
@@ -30664,7 +31037,13 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://projects.propublica.org/nonprofits/organizations/113235171",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. The IRS recognized 'Chabad Of Roslyn Inc' (Roslyn Heights, 75 Powerhouse Rd) from 1995-08 (ProPublica Nonprofit Explorer). Rabbi Aaron Konikov (who moved to Old Westbury in 1992) heads it. Director: Aaron Konikov. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF ROSLYN INC' (EIN 11-3235171), 75 Powerhouse Rd, Roslyn Hts, ruling Aug 1995. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. The IRS recognized 'Chabad Of Roslyn Inc' (Roslyn Heights, 75 Powerhouse Rd) from 1995-08 (ProPublica Nonprofit Explorer). Rabbi Aaron Konikov (who moved to Old Westbury in 1992) heads it. Director: Aaron Konikov. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF ROSLYN INC' (EIN 11-3235171), 75 Powerhouse Rd, Roslyn Hts, ruling Aug 1995. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start.",
+   "people": [
+    {
+     "name": "Rabbi Aaron Konikov",
+     "role": "director"
+    }
+   ]
   },
   "283100": {
    "name": "Camp Gan Israel",
@@ -30674,7 +31053,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/283100",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2005-05-27, so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2005-05-27), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2005-05-27, so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2005-05-27), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "117974": {
    "name": "Chabad House of Queens-Kew Gardens",
@@ -30684,7 +31064,19 @@
    "how": "list",
    "confidence": "low",
    "source": "https://therebbesimpact.com/",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Shmuel Tuvel. Before the Tuvels: CrownHeights.info (2 Dec 2010, 'Queens Shluchim Meet with Borough President'): 'Rabbi Yitzchak Chaimpour, Chabad of kew Gardens'. Interim (owner, Nov 12: 'All right let's have them as interim low I suppose it's only six it's not the end of the world'): no source found for its start (the searches above), so the year is therebbesimpact.com's: its 'Chabad Center' record 'Chabad House of Queens-Kew Gardens' gives 1993. That site cites no sources (an AI-built atlas); checked on our high-confidence centers from 2004 or earlier, its center years are right 62% of the time, within a year 81%, four or more years off 13%. Entered as LOW, to be replaced by a real source."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Shmuel Tuvel. Before the Tuvels: CrownHeights.info (2 Dec 2010, 'Queens Shluchim Meet with Borough President'): 'Rabbi Yitzchak Chaimpour, Chabad of kew Gardens'. Interim (owner, Nov 12: 'All right let's have them as interim low I suppose it's only six it's not the end of the world'): no source found for its start (the searches above), so the year is therebbesimpact.com's: its 'Chabad Center' record 'Chabad House of Queens-Kew Gardens' gives 1993. That site cites no sources (an AI-built atlas); checked on our high-confidence centers from 2004 or earlier, its center years are right 62% of the time, within a year 81%, four or more years off 13%. Entered as LOW, to be replaced by a real source.",
+   "people": [
+    {
+     "name": "Rabbi Yitzchak Chaimpour",
+     "role": "director",
+     "seen": "2010"
+    },
+    {
+     "name": "the Tuvels",
+     "role": "director",
+     "note": "first names not in the note"
+    }
+   ]
   },
   "117999": {
    "name": "Chabad of Valley Stream",
@@ -30694,7 +31086,8 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.chabadli.org/templates/articlecco_cdo/aid/243100/jewish/Chabad-of-Valley-Stream.htm",
-   "note": "Chabad of Long Island's page for Chabad of Valley Stream (550 Rockaway Ave; read Nov 10 2026): 'Chabad Outreach Center, founded in 1994, is nurtured by concerned members in the Valley Stream area'; in 1998 it affiliated with Congregation Beth Shalom, and 'In 2005, the two successfully united as one.' Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Yitzchak Goldshmid."
+   "note": "Chabad of Long Island's page for Chabad of Valley Stream (550 Rockaway Ave; read Nov 10 2026): 'Chabad Outreach Center, founded in 1994, is nurtured by concerned members in the Valley Stream area'; in 1998 it affiliated with Congregation Beth Shalom, and 'In 2005, the two successfully united as one.' Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Yitzchak Goldshmid.",
+   "people": []
   },
   "118011": {
    "name": "Heichal Menachem",
@@ -30705,7 +31098,13 @@
    "confidence": "low",
    "source": "https://projects.propublica.org/nonprofits/organizations/113202617",
    "date": "1994-05",
-   "note": "IRS exempt-organization record (EO Business Master File, irs.gov, Nov 2026): 'HEICHEL MENACHEM', 1581 52nd Street, Brooklyn (the library's address), ruling May 1994. The earliest record of it found, so the year by the filing rule (HANDOFF 4b: an IRS ruling can lag the start, so low). Rabbi Leib Altein. Its chabad.org listing is in the first online directory (listings published July 22 2004)."
+   "note": "IRS exempt-organization record (EO Business Master File, irs.gov, Nov 2026): 'HEICHEL MENACHEM', 1581 52nd Street, Brooklyn (the library's address), ruling May 1994. The earliest record of it found, so the year by the filing rule (HANDOFF 4b: an IRS ruling can lag the start, so low). Rabbi Leib Altein. Its chabad.org listing is in the first online directory (listings published July 22 2004).",
+   "people": [
+    {
+     "name": "Rabbi Leib Altein",
+     "role": "director"
+    }
+   ]
   },
   "118270": {
    "name": "Chabad of Eastern Queens",
@@ -30715,7 +31114,8 @@
    "how": "directory",
    "confidence": "medium",
    "source": "https://data.ny.gov/resource/n9v6-gdp6.json?dos_id=2148276",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Yerachmiel Zalmanov. New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'CHABAD OF EASTERN QUEENS, INC.' (DOS ID 2148276), domestic not-for-profit corporation, Queens County, first filed May 30 1997. A state filing, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data')."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Yerachmiel Zalmanov. New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'CHABAD OF EASTERN QUEENS, INC.' (DOS ID 2148276), domestic not-for-profit corporation, Queens County, first filed May 30 1997. A state filing, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data').",
+   "people": []
   },
   "118340": {
    "name": "Chabad Lubavitch of Boro Park",
@@ -30726,7 +31126,13 @@
    "confidence": "range",
    "by": 2004,
    "source": "https://www.chabad.org/api/content/118340/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Aron Ginsberg."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Aron Ginsberg.",
+   "people": [
+    {
+     "name": "Rabbi Aron Ginsberg",
+     "role": "director"
+    }
+   ]
   },
   "1439356": {
    "name": "Gan Yisroel School",
@@ -30737,7 +31143,13 @@
    "confidence": "low",
    "source": "https://projects.propublica.org/nonprofits/organizations/113622108",
    "date": "2001-09",
-   "note": "IRS exempt-organization record (EO Business Master File, irs.gov, Nov 2026): 'GAN YISROEL', 3909 15th Ave, Brooklyn (the school's address), ruling September 2001; its chabad.org listing came later (2011-02-16). The earliest record of it found, so the year by the filing rule (HANDOFF 4b: an IRS ruling can lag the start, so low). A department of Chabad Lubavitch of Boro Park (Rabbi Aron Ginsberg)."
+   "note": "IRS exempt-organization record (EO Business Master File, irs.gov, Nov 2026): 'GAN YISROEL', 3909 15th Ave, Brooklyn (the school's address), ruling September 2001; its chabad.org listing came later (2011-02-16). The earliest record of it found, so the year by the filing rule (HANDOFF 4b: an IRS ruling can lag the start, so low). A department of Chabad Lubavitch of Boro Park (Rabbi Aron Ginsberg).",
+   "people": [
+    {
+     "name": "Rabbi Aron Ginsberg",
+     "role": "director"
+    }
+   ]
   },
   "118375": {
    "name": "Chabad at Stony Brook University",
@@ -30747,7 +31159,15 @@
    "how": "anniversary",
    "confidence": "medium",
    "source": "https://www.chabad.org/news/article_cdo/aid/955201",
-   "note": "Chabad.org, 29 July 2009 ('Alumni Celebrate Decade at Stony Brook'): the center 'celebrated its 10th anniversary serving the state university'; 'celebrating a Jewish center's decade of work at Stony Brook University', so 1999. The Stony Brook Press (11 Nov 2011): 'Rabbi Adam has been strolling the halls of Stony Brook for 13 years' (1998). Counted back, a year apart, so medium. (Chabad.org page read Nov 11 through WebFetch; plain requests are refused there.) Its chabad.org listing is in the first online directory (listings published July 22 2004)."
+   "note": "Chabad.org, 29 July 2009 ('Alumni Celebrate Decade at Stony Brook'): the center 'celebrated its 10th anniversary serving the state university'; 'celebrating a Jewish center's decade of work at Stony Brook University', so 1999. The Stony Brook Press (11 Nov 2011): 'Rabbi Adam has been strolling the halls of Stony Brook for 13 years' (1998). Counted back, a year apart, so medium. (Chabad.org page read Nov 11 through WebFetch; plain requests are refused there.) Its chabad.org listing is in the first online directory (listings published July 22 2004).",
+   "people": [
+    {
+     "name": "Rabbi Adam",
+     "role": "founder",
+     "from": "1998",
+     "note": "the name as the Stony Brook Press gives it"
+    }
+   ]
   },
   "118391": {
    "name": "Chabad of Bensonhurst",
@@ -30757,7 +31177,19 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.chabadofbensonhurst.com/templates/articlecco_cdo/aid/6740377/jewish/About-Us.htm",
-   "note": "Its own About Us page: 'Rabbi Avrohom and Chana Hertz came to Bensonhurst in 1991 as emissaries of the Lubavitcher Rebbe'. (Read Nov 11 through WebFetch: the site is on chabad.org's platform, which refuses plain requests; the quote is word for word as the reader returned it.) Its chabad.org listing is in the first online directory (listings published July 22 2004)."
+   "note": "Its own About Us page: 'Rabbi Avrohom and Chana Hertz came to Bensonhurst in 1991 as emissaries of the Lubavitcher Rebbe'. (Read Nov 11 through WebFetch: the site is on chabad.org's platform, which refuses plain requests; the quote is word for word as the reader returned it.) Its chabad.org listing is in the first online directory (listings published July 22 2004).",
+   "people": [
+    {
+     "name": "Rabbi Avrohom Hertz",
+     "role": "founder",
+     "from": "1991"
+    },
+    {
+     "name": "Chana Hertz",
+     "role": "founder",
+     "from": "1991"
+    }
+   ]
   },
   "118489": {
    "name": "Chabad of Watermill",
@@ -30768,7 +31200,15 @@
    "confidence": "high",
    "source": "https://www.chabadli.org/templates/articlecco_cdo/aid/243101/jewish/Chabad-of-Watermill.htm",
    "season": "summer",
-   "note": "Chabad of Long Island's page for Chabad of Watermill (in Firecrawl's search index and read Nov 10 2026): 'In a classic story of Chabad grassroots growth, Chabad of Watermill was founded in 1994 when philanthropist George Rohr requested a Shabbos minyan'; the first season was in a rented house. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Levi Baumgarten."
+   "note": "Chabad of Long Island's page for Chabad of Watermill (in Firecrawl's search index and read Nov 10 2026): 'In a classic story of Chabad grassroots growth, Chabad of Watermill was founded in 1994 when philanthropist George Rohr requested a Shabbos minyan'; the first season was in a rented house. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Levi Baumgarten.",
+   "people": [
+    {
+     "name": "George Rohr",
+     "role": "founder",
+     "from": "1994",
+     "note": "'requested a Shabbos minyan'"
+    }
+   ]
   },
   "118501": {
    "name": "Chabad of Bay Ridge",
@@ -30778,7 +31218,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/api/v2/chabadorg/centers/118501?format=jsonapi",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Tzvi Stroh. New York's register: CHABAD OF BAY RIDGE CORP., filed 2021-06-22, after its chabad.org listing (2004-07-22), so not the year (HANDOFF 4b). Fallback (owner, Nov 12: 'If it's within a year that high, then I guess we can enter it as a low confidence, I suppose'): no source found for its start (the searches above), so the year is when its entry was added to chabad.org's old (pre-2004) directory, read from the entry's number: mosad-id 3382, in the run 3,250-4,030 that was numbered in order as entries were added from about 2001 to July 2004, so about 2001. Entered as LOW. Checked first on the 95 centers in that run with a high-confidence year: the right year 59%, within a year 84%; 15% were older centers added late (four or more years off), so VSL (by 1995) and Beth Hamedrash Lubavitch (by 1990) were left out."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Tzvi Stroh. New York's register: CHABAD OF BAY RIDGE CORP., filed 2021-06-22, after its chabad.org listing (2004-07-22), so not the year (HANDOFF 4b). Fallback (owner, Nov 12: 'If it's within a year that high, then I guess we can enter it as a low confidence, I suppose'): no source found for its start (the searches above), so the year is when its entry was added to chabad.org's old (pre-2004) directory, read from the entry's number: mosad-id 3382, in the run 3,250-4,030 that was numbered in order as entries were added from about 2001 to July 2004, so about 2001. Entered as LOW. Checked first on the 95 centers in that run with a high-confidence year: the right year 59%, within a year 84%; 15% were older centers added late (four or more years off), so VSL (by 1995) and Beth Hamedrash Lubavitch (by 1990) were left out.",
+   "people": []
   },
   "118551": {
    "name": "Chabad of Brookville",
@@ -30789,7 +31230,13 @@
    "confidence": "low",
    "source": "https://projects.propublica.org/nonprofits/organizations/113556790",
    "date": "2003-07",
-   "note": "IRS exempt-organization record (EO Business Master File, irs.gov, Nov 2026): 'CHABAD OF GLEN COVE', now at 1447 Cedar Swamp Rd (this center's address), ruling July 2003. CrownHeights.info (21 Sept 2023): Rabbi Sholom Heber's father (Rabbi Mendy Heber) once led a small group in Sea Cliff / Glen Cove before moving to nearby Brookville. Its own About page (WebFetch): 'Chabad of Brookville was founded, to offer the growing Jewish population in the Brookvilles' (no year). The earliest record of it found, so the year by the filing rule (HANDOFF 4b: an IRS ruling can lag the start, so low). Its chabad.org listing is in the first online directory (listings published July 22 2004)."
+   "note": "IRS exempt-organization record (EO Business Master File, irs.gov, Nov 2026): 'CHABAD OF GLEN COVE', now at 1447 Cedar Swamp Rd (this center's address), ruling July 2003. CrownHeights.info (21 Sept 2023): Rabbi Sholom Heber's father (Rabbi Mendy Heber) once led a small group in Sea Cliff / Glen Cove before moving to nearby Brookville. Its own About page (WebFetch): 'Chabad of Brookville was founded, to offer the growing Jewish population in the Brookvilles' (no year). The earliest record of it found, so the year by the filing rule (HANDOFF 4b: an IRS ruling can lag the start, so low). Its chabad.org listing is in the first online directory (listings published July 22 2004).",
+   "people": [
+    {
+     "name": "Rabbi Mendy Heber",
+     "role": "director"
+    }
+   ]
   },
   "118560": {
    "name": "Chabad of Bedford",
@@ -30799,7 +31246,8 @@
    "how": "directory",
    "confidence": "medium",
    "source": "https://data.ny.gov/resource/n9v6-gdp6.json?dos_id=2777954",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. The IRS recognized 'Chabad Lubavitch Of Bedford And Pound Ridge Townships' (Mount Kisco, 100 S Bedford Rd) from 2003-03 (ProPublica Nonprofit Explorer). Director: Arik Wolf. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD LUBAVITCH BEDFORD AND POUND RIDGE TOWNSHIP INC' (EIN 65-0528012), 133 Railroad Ave, Bedford Hills, ruling Feb 2003. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start. New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'CHABAD OF BEDFORD AND POUND RIDGE, INC.' (DOS ID 2777954), domestic not-for-profit corporation, Westchester County, first filed June 12 2002. A state filing, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'). It replaces the later IRS ruling year (2003)."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. The IRS recognized 'Chabad Lubavitch Of Bedford And Pound Ridge Townships' (Mount Kisco, 100 S Bedford Rd) from 2003-03 (ProPublica Nonprofit Explorer). Director: Arik Wolf. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD LUBAVITCH BEDFORD AND POUND RIDGE TOWNSHIP INC' (EIN 65-0528012), 133 Railroad Ave, Bedford Hills, ruling Feb 2003. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start. New York Department of State record (data.ny.gov, 'Active Corporations: Beginning 1800'): 'CHABAD OF BEDFORD AND POUND RIDGE, INC.' (DOS ID 2777954), domestic not-for-profit corporation, Westchester County, first filed June 12 2002. A state filing, entered as the year with medium confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'). It replaces the later IRS ruling year (2003).",
+   "people": []
   },
   "119471": {
    "name": "Gan Israel Day Camp",
@@ -30810,7 +31258,8 @@
    "confidence": "range",
    "by": 2004,
    "source": "https://www.chabad.org/api/content/119471/metadata?tid=7152",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Chana Kramer."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Chana Kramer.",
+   "people": []
   },
   "118573": {
    "name": "Mayan Yisroel",
@@ -30829,6 +31278,12 @@
      "until": 2006,
      "source": "https://collive.com/clip-promotes-mitzvah-share/"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Yoseph Vigler",
+     "role": "founder"
+    }
    ]
   },
   "118633": {
@@ -30839,7 +31294,19 @@
    "how": "stated",
    "confidence": "medium",
    "source": "https://crownheights.info/notices/619423/milton-kramer-99-a-third-generation-pillar-of-chabad-in-america/",
-   "note": "CrownHeights.info, 3 Sept 2018 (obituary of Milton Kramer): 'When Rabbi Pesach Schmerling and his wife, Devora, arrived in Far Rockaway in 2003 to establish the neighborhood's first Chabad center, one of Schmerling's first visitors was Milton Kramer.' One later source, so medium; its listing is in the first online directory (July 2004), which fits."
+   "note": "CrownHeights.info, 3 Sept 2018 (obituary of Milton Kramer): 'When Rabbi Pesach Schmerling and his wife, Devora, arrived in Far Rockaway in 2003 to establish the neighborhood's first Chabad center, one of Schmerling's first visitors was Milton Kramer.' One later source, so medium; its listing is in the first online directory (July 2004), which fits.",
+   "people": [
+    {
+     "name": "Rabbi Pesach Schmerling",
+     "role": "founder",
+     "from": "2003"
+    },
+    {
+     "name": "Devora Schmerling",
+     "role": "founder",
+     "from": "2003"
+    }
+   ]
   },
   "118642": {
    "name": "Chabad of Patchogue",
@@ -30849,7 +31316,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/api/v2/chabadorg/centers/118642?format=jsonapi",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Berel Sasonkin. Fallback (owner, Nov 12: 'If it's within a year that high, then I guess we can enter it as a low confidence, I suppose'): no source found for its start (the searches above), so the year is when its entry was added to chabad.org's old (pre-2004) directory, read from the entry's number: mosad-id 3746, in the run 3,250-4,030 that was numbered in order as entries were added from about 2001 to July 2004, so about 2003. Entered as LOW. Checked first on the 95 centers in that run with a high-confidence year: the right year 59%, within a year 84%; 15% were older centers added late (four or more years off), so VSL (by 1995) and Beth Hamedrash Lubavitch (by 1990) were left out."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Berel Sasonkin. Fallback (owner, Nov 12: 'If it's within a year that high, then I guess we can enter it as a low confidence, I suppose'): no source found for its start (the searches above), so the year is when its entry was added to chabad.org's old (pre-2004) directory, read from the entry's number: mosad-id 3746, in the run 3,250-4,030 that was numbered in order as entries were added from about 2001 to July 2004, so about 2003. Entered as LOW. Checked first on the 95 centers in that run with a high-confidence year: the right year 59%, within a year 84%; 15% were older centers added late (four or more years off), so VSL (by 1995) and Beth Hamedrash Lubavitch (by 1990) were left out.",
+   "people": []
   },
   "118826": {
    "name": "New York Hebrew",
@@ -30859,7 +31327,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/api/v2/chabadorg/centers/118826?format=jsonapi",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Menachem Shanowitz. Fallback (owner, Nov 12: 'If it's within a year that high, then I guess we can enter it as a low confidence, I suppose'): no source found for its start (the searches above), so the year is when its entry was added to chabad.org's old (pre-2004) directory, read from the entry's number: mosad-id 3511, in the run 3,250-4,030 that was numbered in order as entries were added from about 2001 to July 2004, so about 2002. Entered as LOW. Checked first on the 95 centers in that run with a high-confidence year: the right year 59%, within a year 84%; 15% were older centers added late (four or more years off), so VSL (by 1995) and Beth Hamedrash Lubavitch (by 1990) were left out."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Menachem Shanowitz. Fallback (owner, Nov 12: 'If it's within a year that high, then I guess we can enter it as a low confidence, I suppose'): no source found for its start (the searches above), so the year is when its entry was added to chabad.org's old (pre-2004) directory, read from the entry's number: mosad-id 3511, in the run 3,250-4,030 that was numbered in order as entries were added from about 2001 to July 2004, so about 2002. Entered as LOW. Checked first on the 95 centers in that run with a high-confidence year: the right year 59%, within a year 84%; 15% were older centers added late (four or more years off), so VSL (by 1995) and Beth Hamedrash Lubavitch (by 1990) were left out.",
+   "people": []
   },
   "118921": {
    "name": "Gan Israel School",
@@ -30869,7 +31338,14 @@
    "how": "list",
    "confidence": "medium",
    "source": "https://chinuchoffice.org/media/pdf/1114/WRqC11144199.pdf",
-   "note": "The Chabad Chinuch Office's Directory of Chabad Educational Institutions (2019-20 edition): 'Gan Israel, 275 Martling Avenue, Staten Island, NY 10314, Director: Mrs. Chani Katzman ... Founded: 1996' (the entry runs over a page break; checked on the page images), and its preschool, 'Gan Israel-Torah Tots', same address, Director Mrs. C. Katzman, 'Founded: 1996'. A directory's year, so medium. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Chana Katzman. Lead, not checked: a New York State education-department record (SEDREF, via opengovny.com, blocked here) for 'Gan Israel Day Camp of Staten Island' gives an active date of June 27 2003."
+   "note": "The Chabad Chinuch Office's Directory of Chabad Educational Institutions (2019-20 edition): 'Gan Israel, 275 Martling Avenue, Staten Island, NY 10314, Director: Mrs. Chani Katzman ... Founded: 1996' (the entry runs over a page break; checked on the page images), and its preschool, 'Gan Israel-Torah Tots', same address, Director Mrs. C. Katzman, 'Founded: 1996'. A directory's year, so medium. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Chana Katzman. Lead, not checked: a New York State education-department record (SEDREF, via opengovny.com, blocked here) for 'Gan Israel Day Camp of Staten Island' gives an active date of June 27 2003.",
+   "people": [
+    {
+     "name": "Mrs. Chani Katzman",
+     "role": "director",
+     "seen": "2019"
+    }
+   ]
   },
   "120254": {
    "name": "Yeshiva Mesivta Menachem",
@@ -30879,7 +31355,8 @@
    "how": "list",
    "confidence": "medium",
    "source": "https://www.chinuchoffice.org/media/pdf/1267/szkh12671837.pdf",
-   "note": "The Chabad Chinuch Office's Directory of Chabad Educational Institutions (2023-24 edition): 'Yeshiva Mesivta Menachem- Westchester, 49 Jackson Ave. Hastings-On-Hudson, NY 10706, Director: Rabbi Z. Heller ... Founded: 2002'. A directory's year, so medium. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Zalman Heller."
+   "note": "The Chabad Chinuch Office's Directory of Chabad Educational Institutions (2023-24 edition): 'Yeshiva Mesivta Menachem- Westchester, 49 Jackson Ave. Hastings-On-Hudson, NY 10706, Director: Rabbi Z. Heller ... Founded: 2002'. A directory's year, so medium. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Zalman Heller.",
+   "people": []
   },
   "120268": {
    "name": "Gan Chamesh Early Childhood Center",
@@ -30889,7 +31366,20 @@
    "how": "list",
    "confidence": "medium",
    "source": "https://www.chabad.org/media/pdf/351/rjrx3515618.pdf",
-   "note": "The Chabad Chinuch Office's early-childhood directory (2011-12): 'Gan Chamesh, Dean: Mrs. C. Wolowik, Director: Mrs. Susy Adler; Cedarhurst: 74 Maple Avenue ... Founded 1997, 2-4 yrs.; Woodmere: 748 Central Ave. ... Founded 1997, 2-4 yrs.' The 2019-20 directory also gives Gan Chamesh (74 Maple Ave., Cedarhurst) 'Founded: 1997'. A directory's year, so medium. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Chanie Wolowik."
+   "note": "The Chabad Chinuch Office's early-childhood directory (2011-12): 'Gan Chamesh, Dean: Mrs. C. Wolowik, Director: Mrs. Susy Adler; Cedarhurst: 74 Maple Avenue ... Founded 1997, 2-4 yrs.; Woodmere: 748 Central Ave. ... Founded 1997, 2-4 yrs.' The 2019-20 directory also gives Gan Chamesh (74 Maple Ave., Cedarhurst) 'Founded: 1997'. A directory's year, so medium. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. Director: Chanie Wolowik.",
+   "people": [
+    {
+     "name": "Mrs. C. Wolowik",
+     "role": "head",
+     "seen": "2011",
+     "note": "dean"
+    },
+    {
+     "name": "Mrs. Susy Adler",
+     "role": "director",
+     "seen": "2011"
+    }
+   ]
   },
   "7105371": {
    "name": "Chabad Oceanview Jewish Center",
@@ -30899,7 +31389,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/7105371",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2025-11-10, so it existed by then. Director: David Okunov. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2025-11-10), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2025-11-10, so it existed by then. Director: David Okunov. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2025-11-10), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "216555": {
    "name": "Chabad Israel Center",
@@ -30910,7 +31401,13 @@
    "confidence": "high",
    "source": "https://www.chabadisraelsi.com/",
    "season": "fall",
-   "note": "Its own home page: 'Chabad Israel Center, located in Heartland Village, Staten Island, was established in the fall of 2002.' The same page has a video 'Reflections on 20 Years of Activity'. Rabbi Nachman Segal. (Read Nov 11 through WebFetch: the site is on chabad.org's platform, which refuses plain requests; the quote is word for word as the reader returned it.) Its chabad.org listing went up 2004-10-28."
+   "note": "Its own home page: 'Chabad Israel Center, located in Heartland Village, Staten Island, was established in the fall of 2002.' The same page has a video 'Reflections on 20 Years of Activity'. Rabbi Nachman Segal. (Read Nov 11 through WebFetch: the site is on chabad.org's platform, which refuses plain requests; the quote is word for word as the reader returned it.) Its chabad.org listing went up 2004-10-28.",
+   "people": [
+    {
+     "name": "Rabbi Nachman Segal",
+     "role": "director"
+    }
+   ]
   },
   "221245": {
    "name": "Chabad of the Beaches",
@@ -30920,7 +31417,19 @@
    "how": "directory",
    "confidence": "medium",
    "source": "https://firstliberty.org/cases/chabad-of-the-beaches/",
-   "note": "Its chabad.org listing went up 2004-11-11, so it existed by then. First Liberty's case page (the lawsuit filed July 2022): 'Seventeen years ago, Rabbi Eli Goodman, and his wife Beila, founded Chabad Lubavitch of the Beaches to serve the Jewish population of Long Beach Barrier Island' (about 2005; read with a plain request Nov 11); a court filing of Dec 2024 says nearly 20 years. The listing is earlier, so 2004, medium. Its synagogue merged with Temple Beth El of Long Beach (Chabad of the Beaches Beth El)."
+   "note": "Its chabad.org listing went up 2004-11-11, so it existed by then. First Liberty's case page (the lawsuit filed July 2022): 'Seventeen years ago, Rabbi Eli Goodman, and his wife Beila, founded Chabad Lubavitch of the Beaches to serve the Jewish population of Long Beach Barrier Island' (about 2005; read with a plain request Nov 11); a court filing of Dec 2024 says nearly 20 years. The listing is earlier, so 2004, medium. Its synagogue merged with Temple Beth El of Long Beach (Chabad of the Beaches Beth El).",
+   "people": [
+    {
+     "name": "Rabbi Eli Goodman",
+     "role": "founder",
+     "from": "2005"
+    },
+    {
+     "name": "Beila Goodman",
+     "role": "founder",
+     "from": "2005"
+    }
+   ]
   },
   "223137": {
    "name": "Chabad of Washington Heights",
@@ -30931,7 +31440,14 @@
    "confidence": "high",
    "source": "https://crownheights.info/general/1007/new-shluchim-to-washington-heights/",
    "date": "2005-11",
-   "note": "CrownHeights.info, 22 Nov 2005 ('New Shluchim to Washington Heights'): Rabbi Yackov Kirschenbaum 'will be moving on Shlichus to Washington Heights'. Its chabad.org listing went up earlier the same year (2005-01-05)."
+   "note": "CrownHeights.info, 22 Nov 2005 ('New Shluchim to Washington Heights'): Rabbi Yackov Kirschenbaum 'will be moving on Shlichus to Washington Heights'. Its chabad.org listing went up earlier the same year (2005-01-05).",
+   "people": [
+    {
+     "name": "Rabbi Yackov Kirschenbaum",
+     "role": "founder",
+     "from": "2005"
+    }
+   ]
   },
   "223146": {
    "name": "Chabad of the West Sixties",
@@ -30941,7 +31457,8 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.chabadw60s.com/templates/articlecco_cdo/aid/6491410/jewish/About-Us.htm",
-   "note": "Its own About page (in Firecrawl's search index, Nov 10 2026): 'Chabad of the West Sixties was founded in 2005 with a heartfelt mission'. Its chabad.org listing went up 2005-01-05, so it existed by then. Director: Yehuda Lipskier."
+   "note": "Its own About page (in Firecrawl's search index, Nov 10 2026): 'Chabad of the West Sixties was founded in 2005 with a heartfelt mission'. Its chabad.org listing went up 2005-01-05, so it existed by then. Director: Yehuda Lipskier.",
+   "people": []
   },
   "233897": {
    "name": "Chabad Hebrew Schools of Nassau County",
@@ -30951,7 +31468,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/233897",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2005-01-05, so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2005-01-05), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2005-01-05, so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2005-01-05), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": []
   },
   "259816": {
    "name": "Chabad on Campus - Queens",
@@ -30962,7 +31480,8 @@
    "confidence": "high",
    "source": "https://qchabad.org/about/",
    "season": "fall",
-   "note": "Its own site (About, read Nov 10 2026): 'Chabad of Queens College was established in the Fall of 2004 to meet the needs of the over 4000 Jewish students at Queens College.' Its chabad.org listing went up 2005-02-09, so it existed by then. Director: Shaul Wertheimer."
+   "note": "Its own site (About, read Nov 10 2026): 'Chabad of Queens College was established in the Fall of 2004 to meet the needs of the over 4000 Jewish students at Queens College.' Its chabad.org listing went up 2005-02-09, so it existed by then. Director: Shaul Wertheimer.",
+   "people": []
   },
   "313119": {
    "name": "The Chabad Loft",
@@ -30972,7 +31491,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/313119",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2005-11-14, so it existed by then. Director: Yakov Bankhalter. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2005-11-14), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2005-11-14, so it existed by then. Director: Yakov Bankhalter. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2005-11-14), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": []
   },
   "315565": {
    "name": "Chabad of Howard Beach",
@@ -30982,7 +31502,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://projects.propublica.org/nonprofits/organizations/412104769",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2005-09-23, so it existed by then. The IRS recognized 'Chabad Of Howard Beach Inc' (Howard Beach, 160-35 87th St) from 2004-06 (ProPublica Nonprofit Explorer). Director: Avrohom Richter. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF HOWARD BEACH INC' (EIN 41-2104769), 16035 87Th St, Howard Beach, ruling June 2004. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2005-09-23, so it existed by then. The IRS recognized 'Chabad Of Howard Beach Inc' (Howard Beach, 160-35 87th St) from 2004-06 (ProPublica Nonprofit Explorer). Director: Avrohom Richter. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF HOWARD BEACH INC' (EIN 41-2104769), 16035 87Th St, Howard Beach, ruling June 2004. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start.",
+   "people": []
   },
   "324583": {
    "name": "Chabad Jewish Student Center",
@@ -30992,7 +31513,13 @@
    "how": "news",
    "confidence": "high",
    "source": "https://crownheights.info/general/1064/new-chabad-centers-open-at-university-of-kansas-and-cal-state-northridge/",
-   "note": "Hofstra's Chabad (Rabbi Shmuel Lieberman, Hempstead). Lubavitch News Service (CrownHeights.info, 3 Dec 2005, 'New Chabad Centers Open at University of Kansas and Cal State Northridge'): the Teichtels (Kansas) and Brooks (CSUN) 'are in the same boat as Chabad teams who have gone out to University of Georgia, University of Colorado, UConn, Florida Atlantic/Lynn University, Hofstra University, Einstein Medical School, University of Wisconsin, Clark University, Drake University, Western Washington University, Yale University, City College of New York, UNLV, University of Arizona, Tuscon; and University of Califorina, Riverside', the 19 representatives Chabad on Campus sent to college 'this year'. Its chabad.org listing went up in 2005 too."
+   "note": "Hofstra's Chabad (Rabbi Shmuel Lieberman, Hempstead). Lubavitch News Service (CrownHeights.info, 3 Dec 2005, 'New Chabad Centers Open at University of Kansas and Cal State Northridge'): the Teichtels (Kansas) and Brooks (CSUN) 'are in the same boat as Chabad teams who have gone out to University of Georgia, University of Colorado, UConn, Florida Atlantic/Lynn University, Hofstra University, Einstein Medical School, University of Wisconsin, Clark University, Drake University, Western Washington University, Yale University, City College of New York, UNLV, University of Arizona, Tuscon; and University of Califorina, Riverside', the 19 representatives Chabad on Campus sent to college 'this year'. Its chabad.org listing went up in 2005 too.",
+   "people": [
+    {
+     "name": "Rabbi Shmuel Lieberman",
+     "role": "director"
+    }
+   ]
   },
   "328486": {
    "name": "Chabad of Dumbo",
@@ -31002,7 +31529,19 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.chabadofdumbo.com/templates/articlecco_cdo/aid/5380754/jewish/About-Us.htm",
-   "note": "Its own About page (in Firecrawl's search index, Nov 10 2026): 'Esther and Rabbi Avrom Chakoff moved to Dumbo in 2005 to open Chabad of Dumbo'. The chabad.org listing went up Dec 19 2005. Its chabad.org listing went up 2005-12-19, so it existed by then. Director: Avrom Tov Chakoff."
+   "note": "Its own About page (in Firecrawl's search index, Nov 10 2026): 'Esther and Rabbi Avrom Chakoff moved to Dumbo in 2005 to open Chabad of Dumbo'. The chabad.org listing went up Dec 19 2005. Its chabad.org listing went up 2005-12-19, so it existed by then. Director: Avrom Tov Chakoff.",
+   "people": [
+    {
+     "name": "Rabbi Avrom Chakoff",
+     "role": "founder",
+     "from": "2005"
+    },
+    {
+     "name": "Esther Chakoff",
+     "role": "founder",
+     "from": "2005"
+    }
+   ]
   },
   "335328": {
    "name": "Chabad of the Medical Community",
@@ -31012,7 +31551,13 @@
    "how": "news",
    "confidence": "high",
    "source": "https://crownheights.info/general/1064/new-chabad-centers-open-at-university-of-kansas-and-cal-state-northridge/",
-   "note": "Chabad at the Albert Einstein College of Medicine (Rabbi Shneur Zalman Teitelbaum, the Bronx). Lubavitch News Service (CrownHeights.info, 3 Dec 2005, 'New Chabad Centers Open at University of Kansas and Cal State Northridge'): the Teichtels (Kansas) and Brooks (CSUN) 'are in the same boat as Chabad teams who have gone out to University of Georgia, University of Colorado, UConn, Florida Atlantic/Lynn University, Hofstra University, Einstein Medical School, University of Wisconsin, Clark University, Drake University, Western Washington University, Yale University, City College of New York, UNLV, University of Arizona, Tuscon; and University of Califorina, Riverside', the 19 representatives Chabad on Campus sent to college 'this year'. Its chabad.org listing went up in 2005 too."
+   "note": "Chabad at the Albert Einstein College of Medicine (Rabbi Shneur Zalman Teitelbaum, the Bronx). Lubavitch News Service (CrownHeights.info, 3 Dec 2005, 'New Chabad Centers Open at University of Kansas and Cal State Northridge'): the Teichtels (Kansas) and Brooks (CSUN) 'are in the same boat as Chabad teams who have gone out to University of Georgia, University of Colorado, UConn, Florida Atlantic/Lynn University, Hofstra University, Einstein Medical School, University of Wisconsin, Clark University, Drake University, Western Washington University, Yale University, City College of New York, UNLV, University of Arizona, Tuscon; and University of Califorina, Riverside', the 19 representatives Chabad on Campus sent to college 'this year'. Its chabad.org listing went up in 2005 too.",
+   "people": [
+    {
+     "name": "Rabbi Shneur Zalman Teitelbaum",
+     "role": "director"
+    }
+   ]
   },
   "354284": {
    "name": "Chabad-Sutton",
@@ -31022,7 +31567,19 @@
    "how": "stated",
    "confidence": "medium",
    "source": "https://www.chabadsutton.org/templates/articlecco_cdo/aid/1762794/jewish/About.htm",
-   "note": "Its own pages (in Firecrawl's search index, Nov 10 2026): About and Leadership: 'Sutton Place Chabad was founded in 2005 as a division of Chabad of Midtown'; the home page: 'Founded in 2006 and led by Rabbi Shmuel and Raizy Metzger'. Medium: its pages differ by a year; the chabad.org listing went up Jan 30 2006. Its chabad.org listing went up 2006-01-30, so it existed by then. Director: Shmuel Metzger."
+   "note": "Its own pages (in Firecrawl's search index, Nov 10 2026): About and Leadership: 'Sutton Place Chabad was founded in 2005 as a division of Chabad of Midtown'; the home page: 'Founded in 2006 and led by Rabbi Shmuel and Raizy Metzger'. Medium: its pages differ by a year; the chabad.org listing went up Jan 30 2006. Its chabad.org listing went up 2006-01-30, so it existed by then. Director: Shmuel Metzger.",
+   "people": [
+    {
+     "name": "Rabbi Shmuel Metzger",
+     "role": "founder",
+     "from": "2005"
+    },
+    {
+     "name": "Raizy Metzger",
+     "role": "founder",
+     "from": "2005"
+    }
+   ]
   },
   "362254": {
    "name": "Chabad Jewish Learning Center",
@@ -31032,7 +31589,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/362254",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2006-02-23, so it existed by then. Director: Aaron Shain. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2006-02-23), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2006-02-23, so it existed by then. Director: Aaron Shain. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2006-02-23), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": []
   },
   "393813": {
    "name": "Chabad of Lake Success & University Gardens",
@@ -31042,7 +31600,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/393813",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2006-06-20, so it existed by then. Director: Dovid Ezagui. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2006-06-20), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2006-06-20, so it existed by then. Director: Dovid Ezagui. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2006-06-20), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": []
   },
   "428106": {
    "name": "Belle Harbor Chai Center",
@@ -31052,7 +31611,14 @@
    "how": "stated",
    "confidence": "medium",
    "source": "https://www.chabad.org/news/article_cdo/aid/2364045",
-   "note": "Chabad.org, 17 Oct 2013 ('Mikvah Refurbished, Renamed After Lashing by Hurricane Sandy'): Rabbi Levi Osdoba, 'Chabad representative since 2005 to the Jewish community of several hundred there' (Belle Harbor / Rockaway Park). Its chabad.org listing went up 2006-09-20. One later source, so medium. (Chabad.org page read Nov 11 through WebFetch; plain requests are refused there.)"
+   "note": "Chabad.org, 17 Oct 2013 ('Mikvah Refurbished, Renamed After Lashing by Hurricane Sandy'): Rabbi Levi Osdoba, 'Chabad representative since 2005 to the Jewish community of several hundred there' (Belle Harbor / Rockaway Park). Its chabad.org listing went up 2006-09-20. One later source, so medium. (Chabad.org page read Nov 11 through WebFetch; plain requests are refused there.)",
+   "people": [
+    {
+     "name": "Rabbi Levi Osdoba",
+     "role": "founder",
+     "from": "2005"
+    }
+   ]
   },
   "442309": {
    "name": "Chabad of the South Shore",
@@ -31062,7 +31628,15 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/442309",
-   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2006-11-07, so it existed by then. Director: Levi Katzman. Its own site (About, read Nov 10 2026): 'Rabbi Levi and Freidy moved to Staten Island in 2014 to run Chabad of the South Shore', so the present couple came in 2014; the center is older (listing Nov 2006). Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2006-11-07), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "No founding year found yet (Nov 9: CrownHeights.info and lubavitch.com searched by name and director, web search). Its chabad.org listing went up 2006-11-07, so it existed by then. Director: Levi Katzman. Its own site (About, read Nov 10 2026): 'Rabbi Levi and Freidy moved to Staten Island in 2014 to run Chabad of the South Shore', so the present couple came in 2014; the center is older (listing Nov 2006). Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2006-11-07), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": [
+    {
+     "name": "Rabbi Levi",
+     "role": "director",
+     "from": "2014",
+     "note": "'Rabbi Levi and Freidy'; surname not in the note"
+    }
+   ]
   },
   "449325": {
    "name": "Chabad Israel Center",

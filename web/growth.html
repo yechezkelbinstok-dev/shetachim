@@ -1127,20 +1127,23 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   // Batsheva Shemtov", "First director: …", with the year where the source gives it
   const ROLE_TXT = { founder: ['Founded by', 'ייסדו'], 'co-founder': ['Co-founded by', 'שותפים בייסוד'], 'first director': ['First director', 'מנהל ראשון'],
     director: ['Director', 'מנהל'], head: ['Headed by', 'בראשו'], principal: ['Principal', 'מנהל/ת'], rabbi: ['Rabbi', 'רב'] };
-  const heNameOf = (n) => { if (!HE || !he) return n; const w = n.split(/\s+/), out = []; for (let j = 0; j < w.length; j++) { const x = w[j];
+  const HE_TITLE = { 'the Lubavitcher Rebbe': 'הרבי', 'the Previous Lubavitcher Rebbe': 'הרבי הריי״צ' };
+  const heNameOf = (n) => { if (!HE) return n; if (HE_TITLE[n]) return HE_TITLE[n]; if (!he) return n; const w = n.split(/\s+/), out = []; for (let j = 0; j < w.length; j++) { const x = w[j];
     if (j === 0 && x === 'Rabbi') { out.push('הרב'); continue; } const t = j === w.length - 1 ? he.last && he.last[x] : he.first && he.first[x]; if (!t) return n; out.push(t); } return out.join(' '); };
   function foundersHTML(list) {
     if (!list || !list.length) return '';
     const groups = new Map(); for (const [name, role, from, seen] of list) { const k = `${role}|${from}|${seen}`; (groups.get(k) || groups.set(k, { role, from, seen, names: [] }).get(k)).names.push(name); }
     const rows = [];
     for (const g of groups.values()) {
-      // (a couple: "Rabbi Berel & Batsheva Shemtov")
+      // (a couple, side by side: "Rabbi Berel & Batsheva Shemtov"; two couples: "Rabbi Moishe & Nechama New, Rabbi Itchy & Zeldie Treitel")
       let names = g.names.map(heNameOf);
-      if (!HE && names.length === 2) { const a = names[0].split(' '), b = names[1].split(' '); if (a.length > 1 && b.length > 1 && a[a.length - 1] === b[b.length - 1]) names = [`${a.slice(0, -1).join(' ')} & ${b.slice(0, -1).join(' ')} ${a[a.length - 1]}`]; }
+      if (!HE) { const out = []; for (let i = 0; i < names.length; i++) { const a = names[i].split(' '), b = (names[i + 1] || '').split(' ');
+        if (a.length > 1 && b.length > 1 && a[0] !== 'the' && a[a.length - 1] === b[b.length - 1]) { out.push(`${a.slice(0, -1).join(' ')} & ${b.slice(0, -1).join(' ')} ${a[a.length - 1]}`); i++; } else out.push(names[i]); }
+        names = out; }
       const r = ROLE_TXT[g.role] || [g.role, g.role], y = g.from ? yearText(slotOf(g.from, +g.from.slice(0, 4))) : g.seen ? yearText(slotOf(g.seen, +g.seen.slice(0, 4))) : '';
       const when = y ? (g.from ? ` · ${y}` : ` · ${L('in', 'ב')}${HE ? '' : ' '}${y}`) : '';
       const lbl = HE && g.role === 'founder' ? (g.names.length > 1 ? 'מייסדים' : 'מייסד') : HE && g.role === 'co-founder' ? 'שותפים בייסוד' : L(r[0], r[1]);
-      rows.push(`<p class="fnd"><span class="lbl">${esc(lbl)}${!HE && (g.role === 'founder' || g.role === 'co-founder' || g.role === 'head') ? '' : ':'}</span> ${esc(names.join(HE ? ' ו' : ', '))}<span class="meta">${esc(when)}</span></p>`);
+      rows.push(`<p class="fnd"><span class="lbl">${esc(lbl)}${!HE && (g.role === 'founder' || g.role === 'co-founder' || g.role === 'head') ? '' : ':'}</span> ${esc(names.join(HE && !names.some((n) => /[A-Za-z]/.test(n)) ? ' ו' : ', '))}<span class="meta">${esc(when)}</span></p>`);
     }
     return `<div class="founders">${rows.join('')}</div>`;
   }

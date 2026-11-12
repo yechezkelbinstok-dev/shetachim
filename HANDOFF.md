@@ -198,10 +198,14 @@ thirteen no better recent photo has been found yet (the list is there, with what
   listed in work/founding-years/people-followup.txt to complete from the source); therebbesimpact.com names get a note.
   Work: `python3 -I work/founding-years/people_todo.py 70 0` (compact: the note's sentences naming people; `--full` for
   whole notes), write work/founding-years/batches/people-NN.json, `python3 work/founding-years/add_people.py < it`, then
-  `python3 -I scripts/build-growth.py` (the growth page's cards show "Founded by …"). Done so far: batches 01-14, 939 of
-  1,934 entries (846 with someone named): Michigan, the Maritimes … California, Nevada, Florida, New Jersey, Pennsylvania,
-  Texas (the order of founding-years.json). Next:
-  the rest from the notes; then the follow-ups; then the centers whose notes name no one (their sources, then search).
+  `python3 -I scripts/build-growth.py` (the growth page's cards show "Founded by …"). **Every note is done** (batches
+  01-24, Nov 12): 1,919 of 1,934 entries have `people`, 1,555 with someone named, 364 `[]` (the note names no one; the
+  chabad.org director in a note, "Director: X", is left out because the card already shows the listing's personnel).
+  The 15 without `people` are in work/founding-years/people-followup.txt (93 lines: 62 "done partly" = a surname or a
+  first name missing, e.g. "Rabbi Gurkow", "the Plotkins", "Moishy and Rivky"; the rest not started). The Rebbeim are
+  named as the sources do, "the Lubavitcher Rebbe" / "the Previous Lubavitcher Rebbe" (the card says הרבי / הרבי הריי״צ
+  in Hebrew). **Next:** the follow-ups (complete each name from its source: plain WebSearch/WebFetch first; then update
+  the entry and mark the line done), then the 364 `[]` centers (their sources, then a search by center name).
 - **▶ Founding years: CONTINUE HERE (Nov 12). 41 listings (16 dots) of 1,902 still have no year**, all from
   chabad.org's first directory (July 2004). Owner (Nov 11): "try very hard to date the remaining ones. Think of all
   possible ways to target each one individually, especially non subsidiaries like primaries"; he wants "a proper

@@ -15169,7 +15169,19 @@
    "how": "news",
    "source": "https://www.lubavitch.com/seven-in-the-sunshine-state-new-chabad-families-in-florida/",
    "note": "Lubavitch.com (2 Nov 2018): Rabbi Mendel and Nechama Danow, Chabad of Pensacola, arrived just before Hurricane Michael ('two days behind us'; landfall 10 Oct 2018) and planned Pensacola's first grand menorah lighting that Chanukah.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Mendel Danow",
+     "role": "founder",
+     "from": "2018"
+    },
+    {
+     "name": "Nechama Danow",
+     "role": "founder",
+     "from": "2018"
+    }
+   ]
   },
   "6837101": {
    "name": "Chabad Central Broward",
@@ -15179,7 +15191,19 @@
    "how": "news",
    "source": "https://www.lubavitch.com/seven-in-the-sunshine-state-new-chabad-families-in-florida/",
    "note": "Lubavitch.com (2 Nov 2018): Rabbi Shmuli and Nechama Heidingsfeld, Chabad of Lauderhill, among the seven new Chabad families in Florida. Today the same couple runs Chabad Central Broward in Lauderhill (IRS: 'Chabad Central Broward Inc', care of Shmuel Heidingsfeld, exempt from Aug 2022; the chabad.org listing is from 2025), so it is taken as the same work under a new name.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Rabbi Shmuli Heidingsfeld",
+     "role": "founder",
+     "from": "2018"
+    },
+    {
+     "name": "Nechama Heidingsfeld",
+     "role": "founder",
+     "from": "2018"
+    }
+   ]
   },
   "2292274": {
    "name": "Center for Jewish Life at Chabad of St. Johns County",
@@ -15190,7 +15214,19 @@
    "how": "news",
    "source": "https://crownheights.info/shlichus/398838/new-shluchim-to-northern-florida",
    "note": "CrownHeights.info, 21 Aug 2013: Rabbi Mendel and Dini Sharfstein 'have been appointed by Rabbi Y. Kahanov ... as the directors of the latest Chabad Center on the First Coast to serve as a Center for Jewish Life for St. Johns, Nocatee, and World Golf Village', 'the first Jewish institution in the burgeoning St John's area'.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Mendel Sharfstein",
+     "role": "founder",
+     "from": "2013"
+    },
+    {
+     "name": "Dini Sharfstein",
+     "role": "founder",
+     "from": "2013"
+    }
+   ]
   },
   "4114627": {
    "name": "Chabad of Miami Gardens",
@@ -15200,7 +15236,19 @@
    "how": "news",
    "source": "https://crownheights.info/chabad-news/726864/miami-gardens-inaugurates-first-mikvah",
    "note": "CrownHeights.info, 20 March 2021 (Miami Gardens' first mikvah): 'Not even 3 years have passed since Rabbi Shalom and Mrs. Eliyah Kleinman moved to Miami Gardens and established a shul, kids programs, daily minyanim' (count back: 2018). IRS: 'Chabad Of Miami Gardens Inc', exempt from Dec 2020.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Rabbi Shalom Kleinman",
+     "role": "founder",
+     "from": "2018"
+    },
+    {
+     "name": "Eliyah Kleinman",
+     "role": "founder",
+     "from": "2018"
+    }
+   ]
   },
   "6451555": {
    "name": "Chabad of North Beach",
@@ -15211,7 +15259,19 @@
    "how": "news",
    "source": "https://crownheights.info/chabad-news/915495/new-chabad-house-established-to-serve-the-north-beach-and-biscayne-point-jewish-community-in-miami",
    "note": "CrownHeights.info, 24 July 2025: 'We've just moved to North Beach/Biscayne Point to open a brand new Chabad House' (Rabbi Shneur and Bati Korf).",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Shneur Korf",
+     "role": "founder",
+     "from": "2025"
+    },
+    {
+     "name": "Bati Korf",
+     "role": "founder",
+     "from": "2025"
+    }
+   ]
   },
   "6976084": {
    "name": "Chabad of Citrus and Hernando Counties",
@@ -15222,7 +15282,19 @@
    "how": "news",
    "source": "https://crownheights.info/chabad-news/924854/new-chabad-center-opens-in-citrus-and-hernando-counties-in-florida",
    "note": "CrownHeights.info, 30 Oct 2025: 'Two months ago, Rabbi Moishy and Maryasha Serebryanski moved to Beverly Hills, Florida, to establish Chabad of Citrus and Hernando Counties' (month counted back).",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Moishy Serebryanski",
+     "role": "founder",
+     "from": "2025"
+    },
+    {
+     "name": "Maryasha Serebryanski",
+     "role": "founder",
+     "from": "2025"
+    }
+   ]
   },
   "6674554": {
    "name": "Chabad of Winter Garden",
@@ -15233,7 +15305,19 @@
    "how": "news",
    "source": "https://crownheights.info/chabad-news/920149/new-chabad-center-to-create-roots-in-winter-garden-florida",
    "note": "CrownHeights.info, 3 Sept 2025: Rabbi Mendy Konikov 'moved to Winter Garden a month ago with his wife Sheina and their son to establish the new center' (after two years of visits for Chanukah, Purim and Pesach).",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Mendy Konikov",
+     "role": "founder",
+     "from": "2025"
+    },
+    {
+     "name": "Sheina Konikov",
+     "role": "founder",
+     "from": "2025"
+    }
+   ]
   },
   "6640772": {
    "name": "Chabad of Coastal Palm Beach",
@@ -15244,7 +15328,19 @@
    "how": "news",
    "source": "https://crownheights.info/chabad-news/919257/new-chabad-center-to-open-in-coastal-palm-beach-fl",
    "note": "CrownHeights.info, 28 Aug 2025: 'In late 2024, Rabbi Mendy and Rivka Rotenstreich moved to Lake Worth Beach, Florida to establish a new Chabad presence there'.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Mendy Rotenstreich",
+     "role": "founder",
+     "from": "2024"
+    },
+    {
+     "name": "Rivka Rotenstreich",
+     "role": "founder",
+     "from": "2024"
+    }
+   ]
   },
   "6153769": {
    "name": "Chabad of Key Largo",
@@ -15255,7 +15351,19 @@
    "how": "news",
    "source": "https://crownheights.info/chabad-news/854039/new-chabad-center-in-key-largo-fl",
    "note": "CrownHeights.info, 6 Feb 2024: 'Rabbi Yisrolik and Leah Shur together with their daughter Esther have recently opened the first Chabad center in Key Largo, Florida'; COLlive the same day: appointed 'to establish a full time Chabad Center in the Upper Keys'.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Yisrolik Shur",
+     "role": "founder",
+     "from": "2024"
+    },
+    {
+     "name": "Leah Shur",
+     "role": "founder",
+     "from": "2024"
+    }
+   ]
   },
   "6339625": {
    "name": "Chabad of Southwest Miami",
@@ -15266,7 +15374,19 @@
    "how": "news",
    "source": "https://collive.com/new-shluchim-to-southwest-miami/",
    "note": "COLlive, 26 June 2024: 'Rabbi Ari and Devorah Werbler have relocated from their home and community ... in Chicago, to build a Jewish community center in Southwest Miami.'",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Ari Werbler",
+     "role": "founder",
+     "from": "2024"
+    },
+    {
+     "name": "Devorah Werbler",
+     "role": "founder",
+     "from": "2024"
+    }
+   ]
   },
   "7025189": {
    "name": "Chabad Israeli Center of Fort Myers",
@@ -15277,7 +15397,19 @@
    "how": "news",
    "source": "https://collive.com/new-shluchim-to-israeli-community-in-southwest-florida/",
    "note": "COLlive, 30 June 2025: 'In a moving celebration held on Sunday, June 29, 2025 ... Chabad Lubavitch of Southwest Florida ... officially welcomed new Shluchim to serve the growing Israeli population', Rabbi Shalom and Devorie Katz, 'who have arrived from Israel'.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Shalom Katz",
+     "role": "founder",
+     "from": "2025"
+    },
+    {
+     "name": "Devorie Katz",
+     "role": "founder",
+     "from": "2025"
+    }
+   ]
   },
   "7025214": {
    "name": "Chabad of Margate",
@@ -15288,7 +15420,19 @@
    "how": "news",
    "source": "https://margatetalk.com/new-chabad-of-margate-launches-in-time-for-high-holy-day-services-48167",
    "note": "Margate Talk: Rabbi Mendel and Chaya Denburg moved from Brooklyn to set up the Chabad Jewish Community Center of Margate, launching with High Holiday services on Sept. 22-24 and Oct. 1-2 (Rosh Hashanah and Yom Kippur 5786, 2025); 'about 20 years since the city had its own Chabad'.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Mendel Denburg",
+     "role": "founder",
+     "from": "2025"
+    },
+    {
+     "name": "Chaya Denburg",
+     "role": "founder",
+     "from": "2025"
+    }
+   ]
   },
   "4239647": {
    "name": "Chabad of Panama City Beach",
@@ -15299,7 +15443,19 @@
    "how": "news",
    "source": "https://sjlmag.com/2021/12/29/growing-chabad-at-panama-city-beach-acquiring-building-launching-campaign/",
    "note": "Southern Jewish Life (29 Dec 2021): 'At the start of 2019, the Havlins arrived in Panama City Beach' (Rabbi Mendy and Chaya Havlin), invited by Achdut Israel, a small Sephardic congregation; an earlier SJL item announced the new Chabad. The page itself would not open (its certificate is broken); the quote is from search results. IRS: 'Chabad Of Panama City Beach Inc', exempt from March 2020.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Rabbi Mendy Havlin",
+     "role": "founder",
+     "from": "2019"
+    },
+    {
+     "name": "Chaya Havlin",
+     "role": "founder",
+     "from": "2019"
+    }
+   ]
   },
   "6429432": {
    "name": "Chabad of Amelia Island & Nassau County",
@@ -15310,7 +15466,19 @@
    "source": "https://collive.com/new-shluchim-to-amelia-island-florida/",
    "note": "COLlive, 2 Sept 2024: 'Rabbi Levi and Mindy Katz (née Zucker), along with their son Sholom, are establishing the first Chabad House on Amelia Island', appointed by Rabbi Yosef and Rivkie Kahanov (Northeast Florida). Chabad.org, 18 Sept 2025: a resident got involved 'a year ago' after seeing the 'brand new Chabad of Amelia Island and Nassau County' on Facebook; the storefront center's ribbon-cutting was in August 2025.",
    "confidence": "high",
-   "date": "2024-09"
+   "date": "2024-09",
+   "people": [
+    {
+     "name": "Rabbi Levi Katz",
+     "role": "founder",
+     "from": "2024"
+    },
+    {
+     "name": "Mindy Katz",
+     "role": "founder",
+     "from": "2024"
+    }
+   ]
   },
   "4943603": {
    "name": "Chabad of S. Lake County",
@@ -15321,7 +15489,19 @@
    "how": "news",
    "source": "https://crownheights.info/chabad-news/726025/lake-county-fl-welcomed-its-first-shluchim",
    "note": "CrownHeights.info, 9 March 2021: 'Lake County, FL welcomed its first Shluchim, Rabbi Moshe, Chavi and baby Mendel Dubinsky under the auspices of Rabbi Shalom Ber Dubov'. IRS: 'Chabad Of South Lake County Inc', exempt from Jan 2022.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Moshe Dubinsky",
+     "role": "founder",
+     "from": "2021"
+    },
+    {
+     "name": "Chavi Dubinsky",
+     "role": "founder",
+     "from": "2021"
+    }
+   ]
   },
   "6426867": {
    "name": "Chabad of San Marco and Greater Downtown",
@@ -15332,7 +15512,19 @@
    "how": "news",
    "source": "https://crownheights.info/chabad-news/866303/new-shluchim-to-enhance-jewish-living-in-downtown-jacksonville",
    "note": "CrownHeights.info, 21 May 2024: 'Rabbi Kalman and Miri Ezagui ... have been appointed by Rabbi Yosef and Rivkie Kahanov as Shluchim to Downtown Jacksonville, FL'. IRS: 'Chabad Downtown Jacksonville', exempt from April 2025.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Kalman Ezagui",
+     "role": "founder",
+     "from": "2024"
+    },
+    {
+     "name": "Miri Ezagui",
+     "role": "founder",
+     "from": "2024"
+    }
+   ]
   },
   "5749831": {
    "name": "Chabad of Oviedo-Winter Springs",
@@ -15343,7 +15535,19 @@
    "how": "directory",
    "source": "https://projects.propublica.org/nonprofits/organizations/921670268",
    "note": "COLlive, 24 July 2020: Rabbi Tzviky and Fraidy Dubov 'have moved to Orlando' as Chabad of Greater Orlando's 'newest Shluchim to work with the Maitland, Winter Park, Casselberry, Oviedo, Winter Springs and Orlando areas'. IRS: 'Chabad Of Oviedo-Winter Springs Inc', exempt from Aug 2023, so the center of its own existed by then. When it became a center of its own is not found; lead: the chabad.org listing is from about 2023. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF OVIEDO-WINTER SPRINGS INC' (EIN 92-1670268), 600 Oak Cir, Oviedo, ruling Aug 2023. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start.",
-   "confidence": "low"
+   "confidence": "low",
+   "people": [
+    {
+     "name": "Rabbi Tzviky Dubov",
+     "role": "director",
+     "from": "2020"
+    },
+    {
+     "name": "Fraidy Dubov",
+     "role": "director",
+     "from": "2020"
+    }
+   ]
   },
   "7229313": {
    "name": "Oakland Park Chabad",
@@ -15354,7 +15558,19 @@
    "how": "news",
    "source": "https://crownheights.info/chabad-news/944105/new-chabad-center-established-in-oakland-park-florida/",
    "note": "COLlive announced the new shluchim on 24 March 2026; CrownHeights.info, 16 April 2026: 'the city of Oakland Park is now seeing a Jewish revival with the arrival of Rabbi Sruli and Faigy Mochkin'; they first came for Rosh Hashanah (2025) in a rented clubhouse, returned for Chanukah and Purim, then moved.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Sruli Mochkin",
+     "role": "founder",
+     "from": "2026"
+    },
+    {
+     "name": "Faigy Mochkin",
+     "role": "founder",
+     "from": "2026"
+    }
+   ]
   },
   "436834": {
    "name": "Chabad at UCF",
@@ -15372,6 +15588,18 @@
      "from": 2006,
      "until": 2023,
      "source": "https://www.chabad.org/news/article_cdo/aid/6146502"
+    }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Chaim Lipskier",
+     "role": "founder",
+     "from": "2006"
+    },
+    {
+     "name": "Rivkie Lipskier",
+     "role": "founder",
+     "from": "2006"
     }
    ]
   },
@@ -15391,6 +15619,18 @@
      "until": 2013,
      "source": "https://gotowncrier.com/?p=31809"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Nachman Zeev (Zevi) Schtroks",
+     "role": "founder",
+     "from": "2007"
+    },
+    {
+     "name": "Leah Schtroks",
+     "role": "founder",
+     "from": "2007"
+    }
    ]
   },
   "577190": {
@@ -15409,6 +15649,18 @@
      "until": null,
      "source": "https://lakerlutznews.com/jewish-community-has-a-new-place-to-worship-in-wiregrass"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Mendy Yarmush",
+     "role": "founder",
+     "from": "2008"
+    },
+    {
+     "name": "Chanie Yarmush",
+     "role": "founder",
+     "from": "2008"
+    }
    ]
   },
   "577765": {
@@ -15419,7 +15671,19 @@
    "how": "stated",
    "source": "https://www.chabadchaicenter.com/templates/articlecco_cdo/aid/7042760/jewish/About.htm",
    "note": "Its own site ('Our Story'): 'Chabad Chai - South Tampa was established in 2008 to serve the Jewish community of South Tampa.' Rabbi Mendy and Nechama Dina Dubrowski (he grew up in Tampa, son of Rabbi Yossie Dubrowski of Chabad of Tampa Bay).",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Mendy Dubrowski",
+     "role": "founder",
+     "from": "2008"
+    },
+    {
+     "name": "Nechama Dina Dubrowski",
+     "role": "founder",
+     "from": "2008"
+    }
+   ]
   },
   "581876": {
    "name": "Chabad-Lubavitch of S. Augustine",
@@ -15430,7 +15694,19 @@
    "how": "stated",
    "source": "https://firstcoastchabad.blogspot.com/2011/04/in-focus.html",
    "note": "First Coast Chabad blog (8 April 2011): 'Rabbi Levi and his wife, Fraidy, moved to St. Augustine in October of 2007 to establish the Chabad Center for Jewish Life.' St. Augustine Record (CrownHeights.info, 19 Feb 2008): 'The worldwide Chabad Lubavitch movement has organized a new center in St. Augustine'; Rabbi Levi Vogel 'recently moved from Brooklyn'.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Levi Vogel",
+     "role": "founder",
+     "from": "2007"
+    },
+    {
+     "name": "Fraidy Vogel",
+     "role": "founder",
+     "from": "2007"
+    }
+   ]
   },
   "682678": {
    "name": "Chabad of Cutler Bay & Homestead",
@@ -15455,6 +15731,18 @@
      "until": null,
      "source": "https://crownheights.info/shlichus/30905/vintage-torah-gets-a-home"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Yossi Wolff",
+     "role": "founder",
+     "from": "2008"
+    },
+    {
+     "name": "Mindy Wolff",
+     "role": "founder",
+     "from": "2008"
+    }
    ]
   },
   "823538": {
@@ -15474,6 +15762,18 @@
      "until": null,
      "source": "https://heritagefl.com/story/2016/04/15/news/chabad-of-north-orlando-dedicates-nates-shul/6062.html"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Yanky Majesky",
+     "role": "founder",
+     "from": "2009"
+    },
+    {
+     "name": "Chanshy Majesky",
+     "role": "founder",
+     "from": "2009"
+    }
    ]
   },
   "117942": {
@@ -15491,6 +15791,22 @@
      "from": 2007,
      "until": 2014,
      "source": "https://www.chabad.org/article.asp?aid=2498485"
+    }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Sholom Lipskar",
+     "role": "founder",
+     "from": "1985"
+    },
+    {
+     "name": "Rabbi Chaim Lipskar",
+     "role": "director",
+     "note": "took it over about 2004"
+    },
+    {
+     "name": "Deenie Lipskar",
+     "role": "director"
     }
    ]
   },
@@ -15511,6 +15827,14 @@
      "until": 2019,
      "source": "https://www.heritagefl.com/story/2017/03/24/news/meet-the-new-rabbi-in-town/7688.html"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Mendy Bronstein",
+     "role": "founder",
+     "from": "2016",
+     "note": "with his wife"
+    }
    ]
   },
   "3612343": {
@@ -15521,7 +15845,14 @@
    "how": "news",
    "source": "https://www.heritagefl.com/story/2015/07/31/news/chabad-north-orlando-has-a-new-shul-and-its-only-the-beginning/4751.html",
    "note": "Heritage Florida Jewish News, 31 July 2015: 'Rabbi Levik Dubov recently opened Chabad of Downtown for young professionals.' ('Recently': 2015, perhaps late 2014.)",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Rabbi Levik Dubov",
+     "role": "founder",
+     "from": "2015"
+    }
+   ]
   },
   "118352": {
    "name": "Chabad Lubavitch of Wellington",
@@ -15546,6 +15877,14 @@
      "until": 2003,
      "source": "https://www.lubavitch.com/palm-beach-mayor-cuts-ribbon-at-opening-of-wellington-jewish-center/"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Mendy Muskal",
+     "role": "founder",
+     "from": "1999",
+     "note": "'the Muskals'"
+    }
    ]
   },
   "1008423": {
@@ -15556,7 +15895,19 @@
    "how": "news",
    "source": "https://umdmitzpeh.com/2025/09/29/opportunities-are-endless-new-chabad-family-joins-campus-community/",
    "note": "The Diamondback/Mitzpeh (University of Maryland, 29 Sept 2025): Rabbi Pinny Backman 'and his family helped out for two years before moving to the University of South Florida in 2009'; he and his wife Chava direct Chabad at USF. IRS: 'Chabad At Usf Inc', exempt from Sept 2014.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Rabbi Pinny Backman",
+     "role": "founder",
+     "from": "2009"
+    },
+    {
+     "name": "Chava Backman",
+     "role": "founder",
+     "from": "2009"
+    }
+   ]
   },
   "937893": {
    "name": "Chabad Lubavitch of Ocala, The Villages and Tri County",
@@ -15574,6 +15925,18 @@
      "until": null,
      "source": "https://www.chabad.org/news/article_cdo/aid/1353768"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Yossi Hecht",
+     "role": "founder",
+     "from": "2009"
+    },
+    {
+     "name": "Chanie Hecht",
+     "role": "founder",
+     "from": "2009"
+    }
    ]
   },
   "994623": {
@@ -15584,7 +15947,13 @@
    "how": "news",
    "source": "https://crownheights.info/shlichus/49176/video-latino-chanukah-celebration-in-florida",
    "note": "CrownHeights.info (19 Dec 2012): 'The Habbad Spanish Center has been serving the community of Coral Springs for the past seven years' (count back: about 2005); Rabbi Mordechai Lichy, about 200 members; an offshoot of Chabad of Coral Springs, at 1819 N University Dr.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Rabbi Mordechai Lichy",
+     "role": "rabbi"
+    }
+   ]
   },
   "1479894": {
    "name": "Chabad of West Davie",
@@ -15594,7 +15963,19 @@
    "how": "stated",
    "source": "https://www.chabadofwestdavie.com/templates/articlecco_cdo/aid/4024114/jewish/Faculty.htm",
    "note": "Its own site: 'since founding Chabad of West Davie in 2014 Rabbi Mendel and Mushky Spalter' (he was ordained in 2011). IRS: 'Chabad Lubavitch Of West Davie Inc', exempt from Dec 2015. (The chabad.org listing number is from about 2011, perhaps reused.)",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Mendel Spalter",
+     "role": "founder",
+     "from": "2014"
+    },
+    {
+     "name": "Mushky Spalter",
+     "role": "founder",
+     "from": "2014"
+    }
+   ]
   },
   "1011128": {
    "name": "Camp Gan Israel Florida Overnight Camp",
@@ -15618,6 +15999,12 @@
      "until": null,
      "source": "https://crownheights.info/shlichus/420419/chabad-opens-jewish-retreat-center-in-south-florida"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Yosef Biston",
+     "role": "founder"
+    }
    ]
   },
   "117533": {
@@ -15629,7 +16016,15 @@
    "how": "directory",
    "source": "https://projects.propublica.org/nonprofits/organizations/592374415",
    "note": "IRS (ProPublica): 'Anshei Lubavitch Inc', care of David Shapiro, exempt from 1987-07, so it existed by then. Start year not found yet; lead: therebbesimpact.com 1991. IRS exempt-organization record (EO Business Master File, Nov 2026): 'ANSHEI LUBAVITCH INC' (EIN 59-2374415), 1340 Michigan Ave, Miami Beach, ruling July 1987. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start.",
-   "confidence": "low"
+   "confidence": "low",
+   "people": [
+    {
+     "name": "David Shapiro",
+     "role": "head",
+     "seen": "1987",
+     "note": "named in its IRS record"
+    }
+   ]
   },
   "117600": {
    "name": "Congregation Lubavitch Russian Immigrant Center",
@@ -15640,7 +16035,14 @@
    "how": "directory",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-740596-515356c4-021e-4b7f-8dba-f9d46e6b8386&directionType=Initial&searchNameOrder=CONGREGATIONLUBAVITCH%207405960&searchTerm=740596",
    "note": "A filing: Florida's registry (Sunbiz) has CONGREGATION LUBAVITCH, INC. (document 740596), filed 10/31/1977, 1423 Lenox Avenue, Miami Beach (address since at least 07/03/1986), vice-president Sheldon (Sholom) Blank, this listing's director (record page opened Nov 10: work/founding-years/sunbiz/entities/740596.json). The map has the listing at Lenox Avenue. Its chabad.org listing went up 2004-07-22 (the directory's first day), and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: the center's own corporation, medium). Owner, Nov 10: enter the Florida business records, 'not high confidence but better than nothing'. Earlier note: No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 1994.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Sheldon (Sholom) Blank",
+     "role": "director",
+     "note": "vice-president in the 1977 filing; this listing's director"
+    }
+   ]
   },
   "117605": {
    "name": "Chabad Lubavitch of Tampa Bay",
@@ -15658,7 +16060,19 @@
      "source": "https://www.reaganlibrary.gov/sites/default/files/2025-09/40-219-6927379-032-026-2025.pdf (AFL list of centres, about 1984, p. 44-47)"
     }
    ],
-   "note": "Chabad.org, 13 July 2011 ('Tampa Suburb Awaits First-Ever Synagogue'): Rabbi Yossi and Sulha Dubrowski 'have directed Chabad-Lubavitch of Tampa Bay for more than 30 years', so 1981 or a little before (counted back, medium). The AFL list of about 1984 (data/centers-1984.json) has its 'Chabad House' at 1314 No. 52nd St., Tampa; Sunbiz has CHABAD LUBAVITCH OF TAMPA, INC. (filed 22 Jan 1985) and CHABAD LUBAVITCH OF TAMPA BAY, INC. (14 March 1988), both with the Dubrowskis; today it is in Carrollwood (14908 Pennington Road)."
+   "note": "Chabad.org, 13 July 2011 ('Tampa Suburb Awaits First-Ever Synagogue'): Rabbi Yossi and Sulha Dubrowski 'have directed Chabad-Lubavitch of Tampa Bay for more than 30 years', so 1981 or a little before (counted back, medium). The AFL list of about 1984 (data/centers-1984.json) has its 'Chabad House' at 1314 No. 52nd St., Tampa; Sunbiz has CHABAD LUBAVITCH OF TAMPA, INC. (filed 22 Jan 1985) and CHABAD LUBAVITCH OF TAMPA BAY, INC. (14 March 1988), both with the Dubrowskis; today it is in Carrollwood (14908 Pennington Road).",
+   "people": [
+    {
+     "name": "Rabbi Yossi Dubrowski",
+     "role": "founder",
+     "from": "1981"
+    },
+    {
+     "name": "Sulha Dubrowski",
+     "role": "founder",
+     "from": "1981"
+    }
+   ]
   },
   "117701": {
    "name": "Chabad Lubavitch of Coconut Creek & W Pompano Beach",
@@ -15668,7 +16082,20 @@
    "how": "directory",
    "confidence": "medium",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n95000002556-c4e609d3-531b-47a9-970a-cbd8ffde209b&directionType=Initial&searchNameOrder=CHABADLUBAVITCHCOCONUTCREEKPOM%20N950000025560&searchTerm=N95000002556",
-   "note": "A filing: Florida's registry (Sunbiz) has CHABAD LUBAVITCH OF COCONUT CREEK/POMPANO, INC. (document N95000002556, Active), filed 05/31/1995 (record page opened Nov 10: work/founding-years/sunbiz/entities/N95000002556.json; president Baila Gansburg and Rabbi Joseph Gansburg, Coconut Creek). Its chabad.org listing went up 2004-07-22 (the first online directory), after the filing, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: a state incorporation of the center's own corporation is medium). Earlier note: Sun-Sentinel (CrownHeights.info, 21 Jan 2007): Chabad 'has several synagogues in the county, including ones in Coconut Creek, Plantation and Weston'. Chabad.org (CrownHeights.info, 27 Aug 2007): Chabad-Lubavitch of Coconut Creek & West Pompano Beach bought the former South Florida Academy of Learning building in April 2007. Start year not found yet; lead: therebbesimpact.com 1993."
+   "note": "A filing: Florida's registry (Sunbiz) has CHABAD LUBAVITCH OF COCONUT CREEK/POMPANO, INC. (document N95000002556, Active), filed 05/31/1995 (record page opened Nov 10: work/founding-years/sunbiz/entities/N95000002556.json; president Baila Gansburg and Rabbi Joseph Gansburg, Coconut Creek). Its chabad.org listing went up 2004-07-22 (the first online directory), after the filing, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: a state incorporation of the center's own corporation is medium). Earlier note: Sun-Sentinel (CrownHeights.info, 21 Jan 2007): Chabad 'has several synagogues in the county, including ones in Coconut Creek, Plantation and Weston'. Chabad.org (CrownHeights.info, 27 Aug 2007): Chabad-Lubavitch of Coconut Creek & West Pompano Beach bought the former South Florida Academy of Learning building in April 2007. Start year not found yet; lead: therebbesimpact.com 1993.",
+   "people": [
+    {
+     "name": "Rabbi Joseph Gansburg",
+     "role": "founder",
+     "from": "1995",
+     "note": "president, with Baila Gansburg, in the 1995 filing"
+    },
+    {
+     "name": "Baila Gansburg",
+     "role": "founder",
+     "from": "1995"
+    }
+   ]
   },
   "117892": {
    "name": "Chabad of Delray Beach",
@@ -15679,7 +16106,20 @@
    "how": "directory",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n49856-234d5587-c322-4b77-bc7d-40997d375112&directionType=Initial&searchNameOrder=CHABADLUBAVITCHDELRAYBEACH%20N498560&searchTerm=N49856",
    "note": "A filing: Florida's registry (Sunbiz) has CHABAD LUBAVITCH OF DELRAY BEACH, INC. (document N49856), filed 07/13/1992, president Rabbi Sholom B. Korf, with Rivka Korf and Rabbi Joseph Biston, 7271 W Atlantic Ave, Delray Beach (record page opened Nov 10: work/founding-years/sunbiz/entities/N49856.json). Its chabad.org listing went up 2004-07-22 and the IRS ruling below is from 2003, both after the filing, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: the center's own corporation, medium). That corporation was dissolved on 08/26/1994 for a missed annual report; the IRS-registered body of 2003 may be a re-registration. Year was 2003 (low, IRS ruling) until Nov 10. Earlier note: IRS (ProPublica): 'Chabad Lubavitch Of Delray Beach', care of Sholom Ber Korf, exempt from 2003-07, so it existed by then. Start year not found yet; lead: the chabad.org listing is from about 2003. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD LUBAVITCH OF DELRAY BEACH' (EIN 62-1628885), 7495 West Atlantic Avenue, Delray Beach, ruling July 2003. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Rabbi Sholom B. Korf",
+     "role": "founder",
+     "from": "1992",
+     "note": "president in the 1992 filing, with Rivka Korf"
+    },
+    {
+     "name": "Rivka Korf",
+     "role": "founder",
+     "from": "1992"
+    }
+   ]
   },
   "117943": {
    "name": "Chabad House of Mid Miami Beach",
@@ -15689,7 +16129,14 @@
    "how": "list",
    "source": "https://therebbesimpact.com/",
    "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 1990. Sunbiz (record page opened Nov 10: work/founding-years/sunbiz/entities/N11000006436.json): CHABAD OF MID MIAMI BEACH INC (document N11000006436), filed 07/06/2011, president Rabbi Benzion Korf, 5401 Collins Avenue. Its chabad.org listing went up 2004-07-22, before the filing, so the filing is not the year (HANDOFF 4b). The listing shows it by 2004 (was no bound). Interim (owner, Nov 12: 'All right let's have them as interim low I suppose it's only six it's not the end of the world'): no source found for its start (the searches above), so the year is therebbesimpact.com's: its 'Chabad Center' record 'Chabad House of Mid Miami Beach' gives 1990. That site cites no sources (an AI-built atlas); checked on our high-confidence centers from 2004 or earlier, its center years are right 62% of the time, within a year 81%, four or more years off 13%. Entered as LOW, to be replaced by a real source.",
-   "confidence": "low"
+   "confidence": "low",
+   "people": [
+    {
+     "name": "Rabbi Benzion Korf",
+     "role": "director",
+     "note": "president in a 2011 filing"
+    }
+   ]
   },
   "118013": {
    "name": "Chabad Center of Kendall & Pinecrest",
@@ -15707,6 +16154,18 @@
      "until": null,
      "source": "https://voyagemia.com/?p=407620"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Yossi Harlig",
+     "role": "founder",
+     "from": "1995"
+    },
+    {
+     "name": "Nechama Harlig",
+     "role": "founder",
+     "from": "1995"
+    }
    ]
   },
   "118271": {
@@ -15718,7 +16177,28 @@
    "how": "directory",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n98000000012-b80ae301-3056-44e9-8961-1e02159d84dd&directionType=Initial&searchNameOrder=JEWISHLEARNINGCENTEROHRMENACHE%20N980000000120&searchTerm=N98000000012",
    "note": "A filing: Florida's registry (Sunbiz) has JEWISH LEARNING CENTER/OHR MENACHEM MENDEL, INC. (document N98000000012), filed 01/02/1998, 411 41st Street, Miami Beach; directors Joseph Yossi Duchman, Yossi Bortunk and Yisroel Duchman (record page opened Nov 10: work/founding-years/sunbiz/entities/N98000000012.json): the listing's exact name, though not its director today (Aron Rabin). Its chabad.org listing went up 2004-07-22 and the earliest other source is from 2006, so nothing earlier shows the center, so the filing is the year (HANDOFF 4b: the center's own corporation, medium). Owner, Nov 10: enter the Florida business records, 'not high confidence but better than nothing'. Earlier note: CrownHeights.info, 5 June 2006: a Shavuot-night lecture 'at the Jewish Learning Center of Miami Beach'; 'The JLC is headed by Rabbi Yossi and Rochel Gordon.' Today's listing (JLConline.org; 411 West 41st Street, the Captain Hyman P. Galbut Jewish Learning Center) has Rabbi Aron Rabin as program director. So there by June 2006; its start not found (therebbesimpact.com says 1998: a lead only).",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Joseph Yossi Duchman",
+     "role": "founder",
+     "from": "1998",
+     "note": "a director in the 1998 filing, with Yossi Bortunk and Yisroel Duchman"
+    },
+    {
+     "name": "Rabbi Yossi Gordon",
+     "role": "head"
+    },
+    {
+     "name": "Rochel Gordon",
+     "role": "head"
+    },
+    {
+     "name": "Aron Rabin",
+     "role": "director",
+     "note": "today's listing"
+    }
+   ]
   },
   "118290": {
    "name": "Chabad of Golden Beach",
@@ -15728,7 +16208,14 @@
    "how": "news",
    "source": "https://collive.com/open-ear-advice-to-singles/",
    "note": "Miami Herald (COLlive, 15 Sept 2009): Rabbi Chay Amar's 'Live with Chay Amar' chats, given 'for the past five years at Chabad of Golden Beach, the small synagogue he founded 11 years ago' (so 1998), in the basement of the Ramada in Sunny Isles Beach. IRS: 'Me-yad Jewish Outreach Program Chabad Of Golden Beach Inc', exempt from Sept 1998, which agrees.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Chay Amar",
+     "role": "founder",
+     "from": "1998"
+    }
+   ]
   },
   "118293": {
    "name": "Chabad Lubavitch of the Venetian",
@@ -15738,7 +16225,14 @@
    "how": "stated",
    "source": "https://www.chabadvenetian.com/templates/articlecco_cdo/aid/5405341/jewish/About.htm",
    "note": "Its own About page: 'Chabad of Venetian & Sunset Islands was founded in 1998, with the guidance and blessing of the Lubavitcher Rebbe.' IRS: 'Chabad Lubavitch Of Venetian Causeway And Surrounding Islands' (Abraham Shmuel Mann), exempt from May 1999, which agrees.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Abraham Shmuel Mann",
+     "role": "head",
+     "note": "named in its IRS record"
+    }
+   ]
   },
   "118294": {
    "name": "Bais Menachem of N. Miami Beach",
@@ -15749,7 +16243,15 @@
    "how": "directory",
    "source": "https://projects.propublica.org/nonprofits/organizations/650588673",
    "note": "Its own 'The Shul' page: 'Our Rabbi & Rebbitzin are now on their 29th year here in the community' (undated page; chabad.org page no. 1599571 is from about 2011, which would point to about 1983, but the text may have been updated since). Rabbi and Mrs. Laufer joined in 2017. Not a year: lead only. therebbesimpact.com: 1995. IRS exempt-organization record (EO Business Master File, Nov 2026): 'BAIS MENACHEM OF NORTH MIAMI BEACH' (EIN 65-0588673), 17299 Ne 10Th Ave, Miami, ruling Jan 1996. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start. Its chabad.org listing went up 2004-07-22, after the ruling.",
-   "confidence": "low"
+   "confidence": "low",
+   "people": [
+    {
+     "name": "Rabbi Laufer",
+     "role": "rabbi",
+     "from": "2017",
+     "note": "'Rabbi and Mrs. Laufer joined in 2017'"
+    }
+   ]
   },
   "118484": {
    "name": "Chabad Lubavitch of North Miami",
@@ -15760,7 +16262,15 @@
    "how": "directory",
    "source": "https://projects.propublica.org/nonprofits/organizations/651124450",
    "note": "IRS (ProPublica): 'Chabad Lubavitch Of North Miami Inc', care of Abraham Lipszyc Pres, exempt from 2002-02, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2001. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD LUBAVITCH OF NORTH MIAMI INC' (EIN 65-1124450), 11855 Ne 19Th Dr Apt 3, North Miami, ruling Feb 2002. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start.",
-   "confidence": "low"
+   "confidence": "low",
+   "people": [
+    {
+     "name": "Abraham Lipszyc",
+     "role": "head",
+     "seen": "2002",
+     "note": "president, in its IRS record"
+    }
+   ]
   },
   "118605": {
    "name": "Chabad of North West Dade /Miami Lakes & ST. Thomas University",
@@ -15770,7 +16280,19 @@
    "how": "news",
    "source": "https://collive.com/shluchim-solving-housing-crisis/",
    "note": "COLlive, 1 Dec 2017: Rabbi Mendy and Tzippy Weiss, Hialeah/Miami Lakes: 'We have been here for 14 years' (so 2003). Their corporation Congregation Tehillat Hashem Inc has an IRS exemption from Nov 2003, which agrees. COLlive, 1 April 2022 (Tzippy Weiss): after years in Cooper City (home bought 1995) they landed 'in Miami Lakes ... and wanted to establish this Chabad house ... For nearly 18 years, that's what it was'.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Mendy Weiss",
+     "role": "founder",
+     "from": "2003"
+    },
+    {
+     "name": "Tzippy Weiss",
+     "role": "founder",
+     "from": "2003"
+    }
+   ]
   },
   "119142": {
    "name": "Mikvah",
@@ -15782,7 +16304,8 @@
    "source": "https://crownheights.info/general/1648/200-at-dinner-for-chabad-in-sarasota/",
    "note": "CrownHeights.info, 28 Feb 2006 (Chabad of Sarasota's dinner): 'Compared to the small guest room in Rabbi Steinmetz' apartment which served as Chabad headquarters when he first arrived to the city 15 years ago, the Chabad house currently boasts three centers, an elegant Mikvah, a preschool and a school for Jewish studies.' So the mikvah existed by early 2006; when it opened is not found. Lead: the chabad.org listing is from about 2003. Its chabad.org listing went up 2004-07-22, so it existed by 2004 (was by 2006).",
    "confidence": "range",
-   "by": 2004
+   "by": 2004,
+   "people": []
   },
   "119969": {
    "name": "Chabad Day School",
@@ -15795,7 +16318,8 @@
    "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2003. A department of Chabad of Greater Orlando on chabad.org (718 Lake Howell Road, Maitland), which began in 1985 (listing 117597), so the school began between 1985 and its listing (July 22 2004).",
    "confidence": "range",
    "after": 1985,
-   "by": 2004
+   "by": 2004,
+   "people": []
   },
   "150715": {
    "name": "Chabad of Sunrise",
@@ -15806,7 +16330,30 @@
    "how": "directory",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n97000006230-a781988e-1c1c-4ed6-9176-2bd7f35d882b&directionType=Initial&searchNameOrder=CHABADSUNRISEATSAWGRASS%20N970000062300&searchTerm=N97000006230",
    "note": "A filing: Florida's registry (Sunbiz) has CHABAD OF SUNRISE AT SAWGRASS, INC. (document N97000006230), filed 11/03/1997, officers Joseph and Chana Lebovics and Rabbi Aron Lieberman, Lauderhill (record page opened Nov 10: work/founding-years/sunbiz/entities/N97000006230.json); the same officers (with Levi Chanowitz) filed CHABAD LUBAVITCH OF SUNRISE, INC. on 11/12/2004 (N04000010628), and the Thalers filed their own CHABAD OF SUNRISE, INC. on 05/13/2014 (N14000004624) when they took the center over that summer. The listing went up 2004-07-22. Low: the earliest Chabad of Sunrise corporation, but under other rabbis, so that it is this center is not shown (HANDOFF 4b: unclear body). Owner, Nov 10: enter the Florida business records, 'not high confidence but better than nothing'. Earlier note: Its own About page: 'Rabbi Dov Ber and Devora Leah Thaler arrived in Sunrise in the summer of 2014' to take over leadership of the center, so it is older. Existed by 2006 (earlier bound); its start is not stated. Sunbiz (record page opened Nov 10: work/founding-years/sunbiz/entities/N04000010628.json): CHABAD LUBAVITCH OF SUNRISE, INC. (document N04000010628), filed 11/12/2004, officers Levi Chanowitz, Joseph Lebovics and Rabbi Aron Lieberman, Lauderhill (reinstated 2018). Its chabad.org listing went up 2004-07-22, before the filing, so the filing is not the year (HANDOFF 4b). The listing shows it by 2004 (was by 2006).",
-   "confidence": "low"
+   "confidence": "low",
+   "people": [
+    {
+     "name": "Joseph Lebovics",
+     "role": "founder",
+     "from": "1997",
+     "note": "officer in the 1997 filing, with Chana Lebovics and Rabbi Aron Lieberman"
+    },
+    {
+     "name": "Chana Lebovics",
+     "role": "founder",
+     "from": "1997"
+    },
+    {
+     "name": "Rabbi Dov Ber Thaler",
+     "role": "director",
+     "from": "2014"
+    },
+    {
+     "name": "Devora Leah Thaler",
+     "role": "director",
+     "from": "2014"
+    }
+   ]
   },
   "150728": {
    "name": "Chabad Center for Jewish Life",
@@ -15825,6 +16372,14 @@
      "until": null,
      "source": "https://web.archive.org/web/20050420093052/http://www.chabademeraldhills.com:80/"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Raphael Tennenhaus",
+     "role": "head",
+     "seen": "2005",
+     "note": "officer in the 2005 filing, with Rabbis Menachem Tennenhaus and Laizer Barash"
+    }
    ]
   },
   "170160": {
@@ -15836,7 +16391,13 @@
    "confidence": "low",
    "source": "https://projects.propublica.org/nonprofits/organizations/592374415",
    "date": "1987-07",
-   "note": "IRS exempt-organization record (EO Business Master File, irs.gov, Nov 2026): 'ANSHEI LUBAVITCH INC', 1340 Michigan Ave, Miami Beach (this center's address; its site is ansheilubavitch.com), ruling July 1987. The earliest record of it found, so the year by the filing rule (HANDOFF 4b: an IRS ruling can lag the start, so low). Rabbi Yitzchok Teitelbaum."
+   "note": "IRS exempt-organization record (EO Business Master File, irs.gov, Nov 2026): 'ANSHEI LUBAVITCH INC', 1340 Michigan Ave, Miami Beach (this center's address; its site is ansheilubavitch.com), ruling July 1987. The earliest record of it found, so the year by the filing rule (HANDOFF 4b: an IRS ruling can lag the start, so low). Rabbi Yitzchok Teitelbaum.",
+   "people": [
+    {
+     "name": "Rabbi Yitzchok Teitelbaum",
+     "role": "director"
+    }
+   ]
   },
   "269232": {
    "name": "Chabad in South Beach",
@@ -15846,7 +16407,15 @@
    "how": "stated",
    "source": "https://www.chabadinsouthbeach.com/306913",
    "note": "Its own About page (Shragi and his wife): 'In the vibrant year of 2005, our journey led us to the golden shores of South Beach', where 'we took the bold step of opening a Chabad house'. IRS: Chabad of South Beach Inc (Shraga Mann, Meridian Avenue), ruling 2007, which agrees. 320 Meridian Avenue.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Shragi",
+     "role": "founder",
+     "from": "2005",
+     "note": "'Shragi and his wife'; the name as its page gives it"
+    }
+   ]
   },
   "302934": {
    "name": "Chabad of West Parkland",
@@ -15856,7 +16425,19 @@
    "how": "stated",
    "source": "https://www.chabadofwestparkland.com/templates/articlecco_cdo/aid/5285626/jewish/About-Us.htm",
    "note": "Its own About page: Rabbi Mendy and Rebbetzin Estie Gutnick and their family 'have been serving West Parkland since 2002'. The center's own founding is not worded separately; taken as 2002.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Mendy Gutnick",
+     "role": "founder",
+     "from": "2002"
+    },
+    {
+     "name": "Estie Gutnick",
+     "role": "founder",
+     "from": "2002"
+    }
+   ]
   },
   "306844": {
    "name": "Chabad of Eastern Shores",
@@ -15867,7 +16448,15 @@
    "how": "directory",
    "source": "https://projects.propublica.org/nonprofits/organizations/202626670",
    "note": "IRS (ProPublica): 'Chabad Of Eastern Shores', care of Elimelech David Rosenfeld, exempt from 2005-10, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2005. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF EASTERN SHORES' (EIN 20-2626670), 960 Ne 176Th St, Miami, ruling Oct 2005. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start.",
-   "confidence": "low"
+   "confidence": "low",
+   "people": [
+    {
+     "name": "Elimelech David Rosenfeld",
+     "role": "head",
+     "seen": "2005",
+     "note": "named in its IRS record"
+    }
+   ]
   },
   "308007": {
    "name": "Chabad Israeli Center of Miami",
@@ -15877,7 +16466,19 @@
    "how": "stated",
    "source": "https://www.chabadisraeli.info/337898",
    "note": "Its own About page (in Hebrew): 'הארגון נוסד בשנת תשס\"ה (2005)' - the organization was founded in 5765 (2005). Rabbi Mendy and Chaya Cheruty. Existed by 2012 (earlier bound), which agrees.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Mendy Cheruty",
+     "role": "founder",
+     "from": "2005"
+    },
+    {
+     "name": "Chaya Cheruty",
+     "role": "founder",
+     "from": "2005"
+    }
+   ]
   },
   "312423": {
    "name": "Skylake Chabad",
@@ -15888,7 +16489,19 @@
    "how": "directory",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n05000000163-8a9fdbfd-5b8f-46c3-aeff-4e294d0634f7&directionType=Initial&searchNameOrder=CHABADSKYLAKE%20N050000001630&searchTerm=N05000000163",
    "note": "A filing: Florida's registry (Sunbiz) has CHABAD OF SKYLAKE INC. (document N05000000163), filed 01/05/2005, president Rabbi Jonas (Rafi) Rosenberg and Hinda Rosenberg, 2045 NE 186 Dr, North Miami Beach (record page opened Nov 10: work/founding-years/sunbiz/entities/N05000000163.json). Its chabad.org listing went up 2005-09-14, after the filing, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: the center's own corporation, medium). That corporation was dissolved on 09/15/2006 for a missed annual report. Earlier note: Rabbi Rafi Rosenberg named as co-director of Chabad-Lubavitch of Skylake in a Dec 2007 report on the Skylake Synagogue fire. Start year not found yet; lead: therebbesimpact.com 2004.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Rabbi Jonas (Rafi) Rosenberg",
+     "role": "founder",
+     "from": "2005"
+    },
+    {
+     "name": "Hinda Rosenberg",
+     "role": "founder",
+     "from": "2005"
+    }
+   ]
   },
   "337117": {
    "name": "Chabad of Walnut Creek",
@@ -15898,7 +16511,19 @@
    "how": "stated",
    "source": "https://collive.com/chabad-walnut-creek-sets-for-new/",
    "note": "COLlive, 17 Oct 2017: 'Chabad of Walnut Creek was founded in 2003 to service the religious and community needs of a small and burgeoning Jewish population on the border of Hollywood, Pembroke Pines and East Davie', under Rabbi Zalman and Shana Korf. Its corporation CHABAD OF WALNUT CREEK, INC. (Sunbiz N05000010609) was filed in 2005, which agrees. 7561 Sheridan Street.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Zalman Korf",
+     "role": "founder",
+     "from": "2003"
+    },
+    {
+     "name": "Shana Korf",
+     "role": "founder",
+     "from": "2003"
+    }
+   ]
   },
   "347421": {
    "name": "Chabad of Palmetto Bay",
@@ -15908,7 +16533,8 @@
    "how": "directory",
    "confidence": "medium",
    "source": "https://www.linkedin.com/company/chabad-of-palmetto-bay-inc",
-   "note": "IRS (ProPublica): 'Chabad Of Palmetto Bay Inc', exempt from 2009-10, so it existed by then (a later re-registration is possible). Start year not found yet; lead: therebbesimpact.com 2003. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF PALMETTO BAY INC' (EIN 26-1368692), 16721 Sw 78Th Ct, Palmetto Bay, ruling Oct 2009. Its chabad.org listing went up Jan 10 2006, so it existed by then. Its LinkedIn company page (Chabad of Palmetto Bay & Deering Bay, 16721 SW 78th Ct) gives 'Founded: 2006'; the chabad.org listing went up Jan 10 2006. Medium: a self-written profile, but it agrees with the listing."
+   "note": "IRS (ProPublica): 'Chabad Of Palmetto Bay Inc', exempt from 2009-10, so it existed by then (a later re-registration is possible). Start year not found yet; lead: therebbesimpact.com 2003. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF PALMETTO BAY INC' (EIN 26-1368692), 16721 Sw 78Th Ct, Palmetto Bay, ruling Oct 2009. Its chabad.org listing went up Jan 10 2006, so it existed by then. Its LinkedIn company page (Chabad of Palmetto Bay & Deering Bay, 16721 SW 78th Ct) gives 'Founded: 2006'; the chabad.org listing went up Jan 10 2006. Medium: a self-written profile, but it agrees with the listing.",
+   "people": []
   },
   "350911": {
    "name": "Chabad of North Bay Village",
@@ -15919,7 +16545,29 @@
    "source": "https://www.chabadnorthbayvillage.com/templates/articlecco_cdo/aid/582031/jewish/About-Us.htm",
    "note": "Its own About page: 'Founded in the Fall of 2003, Ohr Menachem Chabad of North Bay Village'; 'We established Ohr Menachem Chabad in North Bay Village in 2003.' Rabbi Faivish and Chaya Sara Dalfin had moved to Florida from Brooklyn in 1990; 'In 2015 Rabbi Mendy & Mushka Dalfin joined our Congregation.' 1580 79th Street Causeway.",
    "confidence": "high",
-   "season": "fall"
+   "season": "fall",
+   "people": [
+    {
+     "name": "Rabbi Faivish Dalfin",
+     "role": "founder",
+     "from": "2003"
+    },
+    {
+     "name": "Chaya Sara Dalfin",
+     "role": "founder",
+     "from": "2003"
+    },
+    {
+     "name": "Rabbi Mendy Dalfin",
+     "role": "director",
+     "from": "2015"
+    },
+    {
+     "name": "Mushka Dalfin",
+     "role": "director",
+     "from": "2015"
+    }
+   ]
   },
   "360204": {
    "name": "Chabad @ the Civic Center",
@@ -15930,7 +16578,15 @@
    "how": "directory",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n06000008695-6e69d263-e90c-45d9-976f-121a20272bbf&directionType=Initial&searchNameOrder=CHABADATCIVICCENTER%20N060000086950&searchTerm=N06000008695",
    "note": "Low: its chabad.org listing went up 2006-06-20 and its own corporation was filed 08/16/2006 (record page opened Nov 10: work/founding-years/sunbiz/entities/N06000008695.json), months apart in the same year, which marks a new center; nothing earlier shows it. The listing is the earlier of the two, so the year rests on the listing (a 'by') with the filing agreeing. Owner, Nov 10: enter the Florida business records, 'not high confidence but better than nothing'. Earlier note: IRS (ProPublica): 'Chabad At The Civic Center', care of Yochanon Klein, exempt from 2007-08, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2006. Sunbiz (record page opened Nov 10: work/founding-years/sunbiz/entities/N06000008695.json): CHABAD AT THE CIVIC CENTER, INC. (document N06000008695), filed 08/16/2006, president Yochanon Klein. Its chabad.org listing went up 2006-06-20, before the filing, so the filing is not the year (HANDOFF 4b). The listing shows it by 2006 (was by 2007).",
-   "confidence": "low"
+   "confidence": "low",
+   "people": [
+    {
+     "name": "Yochanon Klein",
+     "role": "head",
+     "seen": "2006",
+     "note": "president of its 2006 corporation"
+    }
+   ]
   },
   "374003": {
    "name": "Jewish Community Council",
@@ -15940,7 +16596,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/374003",
-   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2005. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2006-03-30), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2005. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2006-03-30), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": []
   },
   "395367": {
    "name": "Chabad Student Center",
@@ -15950,7 +16607,14 @@
    "how": "news",
    "source": "https://crownheights.info/general/1064/new-chabad-centers-open-at-university-of-kansas-and-cal-state-northridge/",
    "note": "Lubavitch News Service (CrownHeights.info, 3 Dec 2005): of the 19 representatives Chabad on Campus sent to colleges 'this year', teams 'have gone out to ... Florida Atlantic/Lynn University'. Chabad.org (19 March 2025): Rabbi Boruch Shmuel Liberow 'has served as a Chabad emissary at FAU for 20 years'. Both give 2005. Chabad.org (5 Oct 2011): its free-mezuzah drive was in its fourth year. The Chabad Student Center also serves Lynn University and Palm Beach State College.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Boruch Shmuel Liberow",
+     "role": "founder",
+     "from": "2005"
+    }
+   ]
   },
   "405403": {
    "name": "Mikvah",
@@ -15961,7 +16625,17 @@
    "source": "https://lubavitch.com/chabad-of-ft-lauderdale-plans-to-reopen-mikvah-by-rosh-hashana",
    "note": "Lubavitch.com, 4 June 2007: a 165-ton crane from a neighboring construction site fell at about 4 a.m. on the Saturday (2 June 2007) onto 'a magnificent mikveh building completed only a year and a half earlier' (count back: about late 2005), a few doors from the shul of Chabad Lubavitch of Fort Lauderdale (Rabbi Moishe Meir and Penina Lipszyc); the rabbi hoped to reopen by Rosh Hashana. The chabad.org listing (405403) is also from about 2005. Count-back only: medium.",
    "confidence": "medium",
-   "date": "about late 2005 (count back)"
+   "date": "about late 2005 (count back)",
+   "people": [
+    {
+     "name": "Rabbi Moishe Meir Lipszyc",
+     "role": "head"
+    },
+    {
+     "name": "Penina Lipszyc",
+     "role": "head"
+    }
+   ]
   },
   "405421": {
    "name": "Mikvah Shulamit",
@@ -15972,7 +16646,14 @@
    "source": "https://jewishjournal.com/community/7304/",
    "note": "The Jewish Week (Lisa Keys, 16 Jan 2003; on jewishjournal.com): 'Since it opened at the beginning of last year, Mikveh Shulamit has been the talk of the Florida town'; Rabbi Mendy Posner of Chabad oversees it; the same building houses the Contour Day Spa. Lubavitch.com (30 Dec 2002, 'A Perfect Package at Contour Day Spa') agrees: some eight years after the Posners came to Plantation it still had no mikveh, until the spa's owner proposed one; it was completed 18 months later and its opening drew nearly seventy women.",
    "confidence": "high",
-   "date": "beginning of 2002"
+   "date": "beginning of 2002",
+   "people": [
+    {
+     "name": "Rabbi Mendy Posner",
+     "role": "head",
+     "note": "oversees it"
+    }
+   ]
   },
   "427841": {
    "name": "Chabad of South Palm Beach",
@@ -15982,7 +16663,19 @@
    "how": "stated",
    "source": "https://www.chabadspb.org/",
    "note": "Its own home page: Chabad of South Palm Beach 'was founded in 2006 by Rabbi Leibel and Shaina Stolik'. IRS: existed by 2007 (earlier bound), which agrees. Lantana.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Leibel Stolik",
+     "role": "founder",
+     "from": "2006"
+    },
+    {
+     "name": "Shaina Stolik",
+     "role": "founder",
+     "from": "2006"
+    }
+   ]
   },
   "440099": {
    "name": "Beit Chabad",
@@ -15992,7 +16685,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/440099",
-   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 1996. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2006-10-30), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 1996. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2006-10-30), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": []
   },
   "463071": {
    "name": "Chabad Israeli Center",
@@ -16002,7 +16696,19 @@
    "how": "news",
    "source": "https://www.chabad.org/news/article_cdo/aid/640509",
    "note": "Chabad.org, 20 Feb 2008 ('Israelis Find Spiritual Homes in America'): 'the new Chabad Israeli Center directed by Rabbi Naftali and Henya Hertzel opened in 2006'; a caption calls him 'co-director of the two-year-old Chabad Israeli Center in Boca Raton, Fla.' On West Palmetto Park Road (chabad.org, 15 June 2017).",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Naftali Hertzel",
+     "role": "founder",
+     "from": "2006"
+    },
+    {
+     "name": "Henya Hertzel",
+     "role": "founder",
+     "from": "2006"
+    }
+   ]
   },
   "527023": {
    "name": "YJP Las Olas",
@@ -16013,7 +16719,17 @@
    "how": "directory",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n07000001809-5d99db27-4f74-45ad-940c-ea2f03293312&directionType=Initial&searchNameOrder=CHABADLASOLAS%20N070000018090&searchTerm=N07000001809",
    "note": "A filing: Florida's registry (Sunbiz) has YJP LAS OLAS INC (document N07000001809), filed 02/20/2007 as CHABAD OF LAS OLAS, INC. (an amendment on 12/03/2007; reinstated 2009, 2011, 2012 and 2020), 520 NE 8th Ave, Fort Lauderdale, president Rochel Estreicher (record page opened Nov 10: work/founding-years/sunbiz/entities/N07000001809.json). Its chabad.org listing (Sholom Meir and Rochel Holzkenner) went up 2007-06-06, after the filing, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: the center's own corporation, medium: the same name; its officers are not named Holzkenner, so that is not confirmed by the officers). Earlier note: No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 2007.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Rabbi Sholom Meir Holzkenner",
+     "role": "director"
+    },
+    {
+     "name": "Rochel Holzkenner",
+     "role": "director"
+    }
+   ]
   },
   "570754": {
    "name": "Jewish Recovery Center",
@@ -16023,7 +16739,15 @@
    "how": "news",
    "source": "https://www.chabad.org/news/article_cdo/aid/687118",
    "note": "Chabad.org, 11 June 2008 ('Helping Those in Recovery'): Rabbi Meir and his wife Kessler 'moved to South Florida three years ago' (2005); 'Soon after, they founded the city's Jewish Recovery Center'; its women's halfway house was 'established by the center two years ago' (2006). So 2005, or early 2006.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Rabbi Meir Kessler",
+     "role": "founder",
+     "from": "2005",
+     "note": "with his wife"
+    }
+   ]
   },
   "588762": {
    "name": "Tiferes Zekeinim Chabad",
@@ -16034,7 +16758,14 @@
    "how": "directory",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n07000010446-f1428ce9-0346-412e-a089-96d2ef6fb495&directionType=Initial&searchNameOrder=TIFERESZEKEINIMCHABAD%20N070000104460&searchTerm=N07000010446",
    "note": "A filing: Florida's registry (Sunbiz) has TIFERES ZEKEINIM CHABAD, INC. (document N07000010446), filed 10/26/2007, president Isaac H. Jalusi (this listing's director), 3851 NW 99 Ave, Coral Springs; dissolved 09/27/2019 for a missed annual report (record page opened Nov 10: work/founding-years/sunbiz/entities/N07000010446.json). Its chabad.org listing went up 2007-11-02, a week later, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: the center's own corporation, medium). Owner, Nov 10: enter the Florida business records, 'not high confidence but better than nothing'. Earlier note: No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 2007.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Isaac H. Jalusi",
+     "role": "director",
+     "note": "president of its corporation; this listing's director"
+    }
+   ]
   },
   "593562": {
    "name": "Chabad of Downtown Coral Gables",
@@ -16044,7 +16775,20 @@
    "how": "directory",
    "confidence": "medium",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n03000009253-1ed8d94d-c5b6-4b12-a8e3-c4d38fbe4b64&directionType=Initial&searchNameOrder=CHABADDOWNTOWNCORALGABLES%20N030000092530&searchTerm=N03000009253",
-   "note": "A filing: Florida's registry (Sunbiz) has CHABAD OF DOWNTOWN CORAL GABLES INC. (document N03000009253, Active), filed 10/24/2003 (record page opened Nov 10: work/founding-years/sunbiz/entities/N03000009253.json; president Abraham Stolik and Chana Stolik, 1827 Ponce de Leon Blvd). Its chabad.org listing went up 2007-11-24, after the filing, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: a state incorporation of the center's own corporation is medium). Earlier note: IRS (ProPublica): 'Chabad Of Downtown Coral Gables Inc', care of Rabbi Abraham Stolik, exempt from 2020-09, so it existed by then (a later re-registration is possible). Start year not found yet; lead: therebbesimpact.com 2007. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF DOWNTOWN CORAL GABLES INC' (EIN 20-0364898), 1827 Ponce De Leon Blvd, Coral Gables, ruling Sept 2020. Its chabad.org listing went up Nov 24 2007, so it existed by then. The IRS ruling (Sept 2020) comes after the listing, so it is not the year (Nov 10 re-check of the filings sweep)."
+   "note": "A filing: Florida's registry (Sunbiz) has CHABAD OF DOWNTOWN CORAL GABLES INC. (document N03000009253, Active), filed 10/24/2003 (record page opened Nov 10: work/founding-years/sunbiz/entities/N03000009253.json; president Abraham Stolik and Chana Stolik, 1827 Ponce de Leon Blvd). Its chabad.org listing went up 2007-11-24, after the filing, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: a state incorporation of the center's own corporation is medium). Earlier note: IRS (ProPublica): 'Chabad Of Downtown Coral Gables Inc', care of Rabbi Abraham Stolik, exempt from 2020-09, so it existed by then (a later re-registration is possible). Start year not found yet; lead: therebbesimpact.com 2007. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF DOWNTOWN CORAL GABLES INC' (EIN 20-0364898), 1827 Ponce De Leon Blvd, Coral Gables, ruling Sept 2020. Its chabad.org listing went up Nov 24 2007, so it existed by then. The IRS ruling (Sept 2020) comes after the listing, so it is not the year (Nov 10 re-check of the filings sweep).",
+   "people": [
+    {
+     "name": "Rabbi Abraham Stolik",
+     "role": "founder",
+     "from": "2003",
+     "note": "president in the 2003 filing"
+    },
+    {
+     "name": "Chana Stolik",
+     "role": "founder",
+     "from": "2003"
+    }
+   ]
   },
   "604076": {
    "name": "The Gan Frida",
@@ -16055,7 +16799,19 @@
    "source": "https://crownheights.info/shlichus/9592/jewish-russian-congregation-expanding-in-sunny-isles-beach/",
    "note": "Sun-Sentinel (CrownHeights.info, 17 Dec 2007), on Rabbi Alexander Kaller's Chabad Russian Center in Sunny Isles Beach: 'In August, the center opened a Jewish-Russian preschool in North Miami.' The Gan Frida (2221 NE 171st Street, North Miami Beach) is that preschool, run by Chanie and Rabbi Alexander Kaller; directory profiles agree it was founded in 2007, by the Chabad Russian Center. The chabad.org listing (604076) is from about 2007.",
    "confidence": "high",
-   "date": "Aug 2007"
+   "date": "Aug 2007",
+   "people": [
+    {
+     "name": "Chanie Kaller",
+     "role": "founder",
+     "from": "2007"
+    },
+    {
+     "name": "Rabbi Alexander Kaller",
+     "role": "founder",
+     "from": "2007"
+    }
+   ]
   },
   "683804": {
    "name": "Chabad Lauderdale By The Sea",
@@ -16066,7 +16822,15 @@
    "how": "directory",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n08000007711-f91a64bf-8db1-489a-bd50-597964275b0b&directionType=Initial&searchNameOrder=CHABADLUBAVITCHWESTLAKEWORTH%20N080000077110&searchTerm=N08000007711",
    "note": "Low: its chabad.org listing went up 2008-07-02 and its own corporation was filed 08/14/2008 (record page opened Nov 10: work/founding-years/sunbiz/entities/N08000007711.json), months apart in the same year, which marks a new center; nothing earlier shows it. The listing is the earlier of the two, so the year rests on the listing (a 'by') with the filing agreeing. Owner, Nov 10: enter the Florida business records, 'not high confidence but better than nothing'. Earlier note: IRS (ProPublica): 'Chabad Lubavitch Lauderdale By The Sea Inc', exempt from 2010-08, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2008. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD LUBAVITCH LAUDERDALE BY THE SEA INC' (EIN 26-3259946), 1950 Coral Reef Dr, Pompano Beach, ruling Aug 2010. Its chabad.org listing went up Jul 2 2008, so it existed by then. The IRS ruling (Aug 2010) comes after the listing, so it is not the year (Nov 10 re-check of the filings sweep). Sunbiz (record page opened Nov 10: work/founding-years/sunbiz/entities/N08000007711.json): CHABAD LUBAVITCH LAUDERDALE BY THE SEA, INC. (document N08000007711), filed 08/14/2008, filed under the name CHABAD LUBAVITCH WEST LAKE WORTH, INC. and renamed 01/05/2009; president Bentzion Singer. Its chabad.org listing went up 2008-07-02, before the filing, so the filing is not the year (HANDOFF 4b).",
-   "confidence": "low"
+   "confidence": "low",
+   "people": [
+    {
+     "name": "Bentzion Singer",
+     "role": "head",
+     "seen": "2008",
+     "note": "president of its 2008 corporation"
+    }
+   ]
   },
   "711390": {
    "name": "Chabad Jewish Center",
@@ -16076,7 +16840,19 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/711390",
-   "note": "Its own site's photo galleries include 'Chanukah 2008' and 'Grand Opening Purim Party 2009', and a 'Ten Year Gala Dinner' (undated), so it existed by Dec 2008 (Rabbi Yankie and Chana Denburg, Chabad of Southwest Coral Springs). chabad.org (12 Sept 2011): its new Hebrew school opened 31 Aug 2011. Start year not stated; lead 2008. Sunbiz: CHABAD OF SW CORAL SPRINGS INC (N09000008576), filed 09/01/2009, president Yaakov Denburg, 11325 W Atlantic Blvd (record page opened Nov 10: work/founding-years/sunbiz/entities/N09000008576.json): after the listing (2008-08-13), so not the year. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2008-08-13), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "Its own site's photo galleries include 'Chanukah 2008' and 'Grand Opening Purim Party 2009', and a 'Ten Year Gala Dinner' (undated), so it existed by Dec 2008 (Rabbi Yankie and Chana Denburg, Chabad of Southwest Coral Springs). chabad.org (12 Sept 2011): its new Hebrew school opened 31 Aug 2011. Start year not stated; lead 2008. Sunbiz: CHABAD OF SW CORAL SPRINGS INC (N09000008576), filed 09/01/2009, president Yaakov Denburg, 11325 W Atlantic Blvd (record page opened Nov 10: work/founding-years/sunbiz/entities/N09000008576.json): after the listing (2008-08-13), so not the year. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2008-08-13), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": [
+    {
+     "name": "Rabbi Yankie Denburg",
+     "role": "founder",
+     "from": "2008"
+    },
+    {
+     "name": "Chana Denburg",
+     "role": "founder",
+     "from": "2008"
+    }
+   ]
   },
   "741144": {
    "name": "Chabad Youth Network of Florida",
@@ -16086,7 +16862,13 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/741144",
-   "note": "Its own 'About us - Location' page was published 16 July 2009 (page metadata), so the Chabad Youth Network of Florida (Rabbi Shmuly Gutnick) existed by then; chabad.org news from Sept 2011 and Sept 2014. Its start is not stated. Its chabad.org listing went up 2008-09-17, so it existed by 2008 (was by 2009). Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2008-09-17), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "Its own 'About us - Location' page was published 16 July 2009 (page metadata), so the Chabad Youth Network of Florida (Rabbi Shmuly Gutnick) existed by then; chabad.org news from Sept 2011 and Sept 2014. Its start is not stated. Its chabad.org listing went up 2008-09-17, so it existed by 2008 (was by 2009). Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2008-09-17), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": [
+    {
+     "name": "Rabbi Shmuly Gutnick",
+     "role": "director"
+    }
+   ]
   },
   "765096": {
    "name": "United Jewish Generations",
@@ -16096,7 +16878,19 @@
    "how": "stated",
    "source": "https://www.unitedjewishgenerations.com/templates/articlecco_cdo/aid/828127/jewish/About-Us.htm",
    "note": "Its own About page: 'United Jewish Generations was established in 2004 by Rabbi Menachem & Devorah Leah Smith' ('also known as Chabad for Seniors'). Chabad.org, 8 Sept 2016, agrees: 'The 12-year-old United Jewish Generations'.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Menachem Smith",
+     "role": "founder",
+     "from": "2004"
+    },
+    {
+     "name": "Devorah Leah Smith",
+     "role": "founder",
+     "from": "2004"
+    }
+   ]
   },
   "821426": {
    "name": "Mesivta of Coral Springs",
@@ -16107,7 +16901,14 @@
    "source": "https://collive.com/coral-springs-mesivta-opens-year/",
    "note": "COLlive, 2 Sept 2008 (2 Elul 5768): 'Coral Springs, Florida newest Mesivta opened with bochurim making a good impression on locals'. CrownHeights.info, 14 April 2009, the Mesivta's own notice: 'Due to the amazing hatzlacha of our first year ... we are opening a Shiur Beis' (Rabbis Chaim Dovid Janowski, Rosh Yeshiva; Yankie Denburg; Yankie Sheinberger). Against: Chabad.org (Feb 2012) has it celebrating 'its fifth year' (its first graduating class in 2011). The chabad.org listing (821426) is from about 2008.",
    "confidence": "high",
-   "date": "Sept 2008 (Elul 5768)"
+   "date": "Sept 2008 (Elul 5768)",
+   "people": [
+    {
+     "name": "Rabbi Chaim Dovid Janowski",
+     "role": "head",
+     "note": "Rosh Yeshiva"
+    }
+   ]
   },
   "887237": {
    "name": "Chabad of North Broward Beaches",
@@ -16117,7 +16918,19 @@
    "how": "news",
    "source": "https://crownheights.info/shlichus/16893/new-shluchim-to-florida-3/",
    "note": "CrownHeights.info, 26 March 2009 ('New Shluchim to Florida!'): 'Rabbi Tzvi and his wife Shana (nee Biston) Dechter ... will IYH be moving out on Shlichus to Lighthouse Point, FL where they will establish a new Chabad House serving the local Jewish residents in East Deerfield Beach, East Pompano Beach, and Hillsboro Beach'; appointed by Rabbi Yossi Biston of Chabad of North Broward and South Palm Beach. Its own undated About page ('serving the Broward Beaches community for almost 2 years') fits text written about 2011.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Tzvi Dechter",
+     "role": "founder",
+     "from": "2009"
+    },
+    {
+     "name": "Shana Dechter",
+     "role": "founder",
+     "from": "2009"
+    }
+   ]
   },
   "924472": {
    "name": "Chabad Outreach of Margate",
@@ -16127,7 +16940,15 @@
    "how": "directory",
    "confidence": "medium",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n09000000412-7b5c605c-f35d-488d-b035-c480cdd222da&directionType=Initial&searchNameOrder=CHABADLUBAVITCHOUTREACHMARGATE%20N090000004120&searchTerm=N09000000412",
-   "note": "A filing: Florida's registry (Sunbiz) has CHABAD LUBAVITCH OUTREACH OF MARGATE, INC. (document N09000000412, Active), filed 01/14/2009 (record page opened Nov 10: work/founding-years/sunbiz/entities/N09000000412.json; president Rabbi Yechezkel Y. Unsdorfer, 4485 NW 65th Ave, Lauderhill). Its chabad.org listing went up 2009-08-12, after the filing, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: a state incorporation of the center's own corporation is medium). Earlier note: IRS (ProPublica): 'Chabad Lubavitch Outreach Of Margate Inc', care of Yechezkel Unsdorfer, exempt from 2021-06, so it existed by then (a later re-registration is possible). Start year not found yet; lead: therebbesimpact.com 2009. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD LUBAVITCH OUTREACH OF MARGATE INC' (EIN 26-4051119), 4485 Nw 65Th Ave, Lauderhill, ruling June 2021. Its chabad.org listing went up Aug 12 2009, so it existed by then. The IRS ruling (June 2021) comes after the listing, so it is not the year (Nov 10 re-check of the filings sweep)."
+   "note": "A filing: Florida's registry (Sunbiz) has CHABAD LUBAVITCH OUTREACH OF MARGATE, INC. (document N09000000412, Active), filed 01/14/2009 (record page opened Nov 10: work/founding-years/sunbiz/entities/N09000000412.json; president Rabbi Yechezkel Y. Unsdorfer, 4485 NW 65th Ave, Lauderhill). Its chabad.org listing went up 2009-08-12, after the filing, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: a state incorporation of the center's own corporation is medium). Earlier note: IRS (ProPublica): 'Chabad Lubavitch Outreach Of Margate Inc', care of Yechezkel Unsdorfer, exempt from 2021-06, so it existed by then (a later re-registration is possible). Start year not found yet; lead: therebbesimpact.com 2009. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD LUBAVITCH OUTREACH OF MARGATE INC' (EIN 26-4051119), 4485 Nw 65Th Ave, Lauderhill, ruling June 2021. Its chabad.org listing went up Aug 12 2009, so it existed by then. The IRS ruling (June 2021) comes after the listing, so it is not the year (Nov 10 re-check of the filings sweep).",
+   "people": [
+    {
+     "name": "Rabbi Yechezkel Y. Unsdorfer",
+     "role": "founder",
+     "from": "2009",
+     "note": "president in the 2009 filing"
+    }
+   ]
   },
   "1019035": {
    "name": "Friendship Circle",
@@ -16137,7 +16958,14 @@
    "how": "stated",
    "source": "https://www.givemiamiday.org/organization/fcmiamibeach",
    "note": "Its own Give Miami Day profile (Friendship Circle Miami Beach North Dade, 260 95th St., Surfside): 'Founded in 2009'. Contact Mendy Dechter. The chabad.org listing (1019035) is from about 2009, which agrees. (The separate Friendship Circle of Miami, Kendall, dates from 2004.)",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Mendy Dechter",
+     "role": "director",
+     "note": "its contact"
+    }
+   ]
   },
   "1333035": {
    "name": "Jewish Learning Center of Fisher Island",
@@ -16147,7 +16975,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/1333035",
-   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 2010. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2010-10-21), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 2010. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2010-10-21), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": []
   },
   "1529462": {
    "name": "Chabad of N Palm Beach Island",
@@ -16158,7 +16987,17 @@
    "how": "directory",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n06000011101-c4806f48-cd05-4aa5-9d0a-b04c6febfe3e&directionType=Initial&searchNameOrder=CHABADPALMBEACHISLAND%20N060000111010&searchTerm=N06000011101",
    "note": "A filing: Florida's registry (Sunbiz) has CHABAD OF PALM BEACH ISLAND, INC. (document N06000011101), filed 10/24/2006, president Shneur Z. Levitin and vice-president Hindel Levitin, 234 Australian Ave, Palm Beach (record page opened Nov 10: work/founding-years/sunbiz/entities/N06000011101.json). Its chabad.org listing went up 2011-05-24, after the filing, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: the center's own corporation, medium). That corporation was dissolved on 09/25/2009 for a missed annual report, so whether the work ran without a break from 2006 is not shown. Earlier note: Palm Beach Daily News (CrownHeights.info, 21 June 2012): Rabbi Zalman Levitin got council approval for a synagogue at 361 S. County Road; 'The synagogue had been holding services at The Chesterfield.' Start year not found yet; lead: the chabad.org listing is from about 2011.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Rabbi Zalman Levitin",
+     "role": "director"
+    },
+    {
+     "name": "Hindel Levitin",
+     "role": "director"
+    }
+   ]
   },
   "1788265": {
    "name": "Chabad Jewish Center",
@@ -16168,7 +17007,19 @@
    "how": "anniversary",
    "source": "https://collive.com/new-shluchim-to-central-florida/",
    "note": "COLlive, 11 March 2015 ('New Shluchim to Central Florida'): the Friedmans 'were recruited by Rabbi Moshe and Libby Lazaros, who established Chabad in Lakeland 5 years ago' (count back: about 2010). The chabad.org listing (1788265) is from about 2012. Count-back only: medium.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Rabbi Moshe Lazaros",
+     "role": "founder",
+     "from": "2010"
+    },
+    {
+     "name": "Libby Lazaros",
+     "role": "founder",
+     "from": "2010"
+    }
+   ]
   },
   "1806684": {
    "name": "Chabad of Northeast Coral Springs",
@@ -16178,7 +17029,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/1806684",
-   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 2012. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2012-03-19), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 2012. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2012-03-19), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": []
   },
   "2018455": {
    "name": "Chabad of Palm Aire in West Pompano Beach",
@@ -16188,7 +17040,15 @@
    "how": "news",
    "source": "https://www.chabad.org/news/article_cdo/aid/2732927",
    "note": "Chabad.org, 15 Oct 2014 ('Par for the Course: A Florida Sukkah Fitted on a Golf Cart'): Rabbi Lipa and his wife Benjaminson's Chabad of Palm Aire, in West Pompano Beach, 'where the couple has lived for the past two years' (so about 2012). When the center itself began is not stated; the chabad.org listing (2018455) is from about 2012-13.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Rabbi Lipa Benjaminson",
+     "role": "founder",
+     "from": "2012",
+     "note": "with his wife"
+    }
+   ]
   },
   "2113715": {
    "name": "Chabad of Dadeland & West Kendall",
@@ -16199,7 +17059,15 @@
    "source": "https://www.chabad.org/news/article_cdo/aid/2795221",
    "note": "Chabad.org, 14 Dec 2014 ('Timing Is Everything'): Rabbi Getzy Rubashkin and his wife have directed Chabad of West Kendall & The Falls 'since last December' (Dec 2013). It does not say they founded it; the chabad.org listing (2113715) is from about 2013.",
    "confidence": "medium",
-   "date": "2013-12"
+   "date": "2013-12",
+   "people": [
+    {
+     "name": "Rabbi Getzy Rubashkin",
+     "role": "director",
+     "from": "2013",
+     "note": "with his wife"
+    }
+   ]
   },
   "2301323": {
    "name": "Beis Menachem",
@@ -16209,7 +17077,15 @@
    "how": "stated",
    "source": "https://www.baismenachem.org/",
    "note": "Its own home page: 'The Community Shul Since 1989'; 'For over 35 years, Bais Menachem has stood as a cornerstone of the Chabad-Lubavitch community in Miami Beach'. Mikvah.org (news item now removed; from the search index) agrees: it 'was established in 1989, when the Chabad community in the 41st Street area of Miami Beach had grown sufficiently in size to require its own shul', with Rabbi Yehuda Leib Schapiro as rav. Now at 444 West 40th Street. therebbesimpact.com says 1987. Sunbiz (record page opened Nov 10: work/founding-years/sunbiz/entities/N19797.json): CHABAD HOUSE OF MIAMI BEACH, INC. (document N19797), filed 03/24/1987; directors Yehudah L. Schapiro, Tsiffion Cohen and Avrohom Brodie, dissolved 10/13/1989: perhaps where therebbesimpact.com's 1987 comes from, but not shown to be this shul, whose own 1989 stands.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Yehuda Leib Schapiro",
+     "role": "rabbi",
+     "from": "1989",
+     "note": "its rav"
+    }
+   ]
   },
   "2756669": {
    "name": "Chabad of Harbor Beach",
@@ -16220,7 +17096,21 @@
    "how": "directory",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n09000001345-8091248a-ba57-4333-9a6e-e6f02a74c3c1&directionType=Initial&searchNameOrder=CHABADLUBAVITCHHARBORBEACH%20N090000013450&searchTerm=N09000001345",
    "note": "A filing: Florida's registry (Sunbiz) has CHABAD LUBAVITCH OF HARBOR BEACH INC. (document N09000001345), filed 02/10/2009, president Rabbi Moishe M. Lipszyc (Chabad Lubavitch of Fort Lauderdale) and vice-president Rabbi Yehoshua Naparstek, 2008 SE 26th Terrace, Fort Lauderdale; dissolved 09/28/2012 (record page opened Nov 10: work/founding-years/sunbiz/entities/N09000001345.json). The Perlsteins' own CHABAD OF HARBOR BEACH, INC. (N15000000575) was filed 01/20/2015 with Rabbi Lipszyc again as vice-president (record page opened Nov 10: work/founding-years/sunbiz/entities/N15000000575.json), two months after the listing went up (2014-11-18). Low: the earliest Harbor Beach corporation, but under an earlier rabbi, so that it is this center is not shown (HANDOFF 4b: unclear body). Owner, Nov 10: enter the Florida business records, 'not high confidence but better than nothing'. Earlier note: No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 2014.",
-   "confidence": "low"
+   "confidence": "low",
+   "people": [
+    {
+     "name": "Rabbi Moishe M. Lipszyc",
+     "role": "head",
+     "seen": "2009",
+     "note": "president of its 2009 corporation, with Rabbi Yehoshua Naparstek"
+    },
+    {
+     "name": "the Perlsteins",
+     "role": "director",
+     "from": "2015",
+     "note": "their own corporation, 2015"
+    }
+   ]
   },
   "2757063": {
    "name": "Chabad of Vero Beach",
@@ -16230,7 +17120,19 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/2757063",
-   "note": "IRS (ProPublica): 'Chabad Of Vero Beach Inc', care of Raizel Konikov, exempt from 2024-05, so it existed by then (a later re-registration is possible). Florida Sunbiz: 'CHABAD OF VERO BEACH INC', document N20000011924 (filed 2020). Start year not found yet; lead: therebbesimpact.com 2014. Sunbiz (record page opened Nov 10: work/founding-years/sunbiz/entities/N20000011924.json): CHABAD OF VERO BEACH INC (document N20000011924), filed 10/22/2020, president Mordechai Rosenfeld. Its chabad.org listing went up 2014-11-13, before the filing, so the filing is not the year (HANDOFF 4b). The listing shows it by 2014 (was by 2020). Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2014-11-13), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "IRS (ProPublica): 'Chabad Of Vero Beach Inc', care of Raizel Konikov, exempt from 2024-05, so it existed by then (a later re-registration is possible). Florida Sunbiz: 'CHABAD OF VERO BEACH INC', document N20000011924 (filed 2020). Start year not found yet; lead: therebbesimpact.com 2014. Sunbiz (record page opened Nov 10: work/founding-years/sunbiz/entities/N20000011924.json): CHABAD OF VERO BEACH INC (document N20000011924), filed 10/22/2020, president Mordechai Rosenfeld. Its chabad.org listing went up 2014-11-13, before the filing, so the filing is not the year (HANDOFF 4b). The listing shows it by 2014 (was by 2020). Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2014-11-13), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": [
+    {
+     "name": "Raizel Konikov",
+     "role": "head",
+     "note": "named in its IRS record"
+    },
+    {
+     "name": "Mordechai Rosenfeld",
+     "role": "head",
+     "note": "president in its Florida record"
+    }
+   ]
   },
   "2781552": {
    "name": "Jewish Learning Center",
@@ -16240,7 +17142,24 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/2781552",
-   "note": "COLlive, 11 March 2015: Rabbi Mendel and Chaya Friedman 'have been appointed as the new Shluchim and directors of the recently opened Jewish Learning Center in Winter Haven, Florida', moving there after Pesach 2015, recruited by Rabbi Moshe and Libby Lazaros of Chabad of Lakeland; today Rabbi Moshe Lazaros directs it. So open by March 2015 ('recently'); the chabad.org listing (2781552) is from about 2014. Its chabad.org listing went up 2014-12-05, so it existed by 2014 (was by 2015). Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2014-12-05), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "COLlive, 11 March 2015: Rabbi Mendel and Chaya Friedman 'have been appointed as the new Shluchim and directors of the recently opened Jewish Learning Center in Winter Haven, Florida', moving there after Pesach 2015, recruited by Rabbi Moshe and Libby Lazaros of Chabad of Lakeland; today Rabbi Moshe Lazaros directs it. So open by March 2015 ('recently'); the chabad.org listing (2781552) is from about 2014. Its chabad.org listing went up 2014-12-05, so it existed by 2014 (was by 2015). Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2014-12-05), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": [
+    {
+     "name": "Rabbi Mendel Friedman",
+     "role": "director",
+     "from": "2015"
+    },
+    {
+     "name": "Chaya Friedman",
+     "role": "director",
+     "from": "2015"
+    },
+    {
+     "name": "Rabbi Moshe Lazaros",
+     "role": "director",
+     "note": "directs it today"
+    }
+   ]
   },
   "2782670": {
    "name": "Chabad of Normandy Isle",
@@ -16251,7 +17170,17 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/2782670",
-   "note": "Chabad of North Bay Village's About page: 'In 2015 Rabbi Mendy & Mushka Dalfin joined our Congregation'; their own Chabad of Normandy Isle/Biscayne Point About page says only that 'our family moved to the 71st Street area of Miami', with no year. So it began in 2015 or later, and existed by 2022. 7556 Bounty Avenue. Sunbiz (record page opened Nov 10: work/founding-years/sunbiz/entities/N21000000520.json): CHABAD OF NORMANDY AND BISCAYNE POINT INC. (document N21000000520), filed 01/12/2021, president Menachem M. Dalfin, 7556 Bounty Ave, North Bay Village. Its chabad.org listing went up 2015-01-20, before the filing, so the filing is not the year (HANDOFF 4b). The filing shows it by 2021 (was 'by 2022'); the listing of 2015 may have begun as the North Bay Village congregation, so it is not used as the bound. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2015-01-20), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "Chabad of North Bay Village's About page: 'In 2015 Rabbi Mendy & Mushka Dalfin joined our Congregation'; their own Chabad of Normandy Isle/Biscayne Point About page says only that 'our family moved to the 71st Street area of Miami', with no year. So it began in 2015 or later, and existed by 2022. 7556 Bounty Avenue. Sunbiz (record page opened Nov 10: work/founding-years/sunbiz/entities/N21000000520.json): CHABAD OF NORMANDY AND BISCAYNE POINT INC. (document N21000000520), filed 01/12/2021, president Menachem M. Dalfin, 7556 Bounty Ave, North Bay Village. Its chabad.org listing went up 2015-01-20, before the filing, so the filing is not the year (HANDOFF 4b). The filing shows it by 2021 (was 'by 2022'); the listing of 2015 may have begun as the North Bay Village congregation, so it is not used as the bound. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2015-01-20), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": [
+    {
+     "name": "Rabbi Mendy Dalfin",
+     "role": "director"
+    },
+    {
+     "name": "Mushka Dalfin",
+     "role": "director"
+    }
+   ]
   },
   "2840579": {
    "name": "Chabad of Miami Shores",
@@ -16261,7 +17190,17 @@
    "how": "directory",
    "confidence": "medium",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n14000010401-36a4934c-5b77-41bd-b6f2-455193344316&directionType=Initial&searchNameOrder=CHABADMIAMISHORES%20N140000104010&searchTerm=N14000010401",
-   "note": "A filing: Florida's registry (Sunbiz) has CHABAD OF MIAMI SHORES, INC. (document N14000010401, Active), filed 11/12/2014 (record page opened Nov 10: work/founding-years/sunbiz/entities/N14000010401.json; Asher and Rochel Mushka Sossonko, 10626 NE 11th Ct, Miami Shores). Its chabad.org listing went up 2015-01-26, after the filing, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: a state incorporation of the center's own corporation is medium). Earlier note: IRS (ProPublica): 'Chabad Of Miami Shores Inc', care of Asher Sossonko, exempt from 2017-11, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2014. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF MIAMI SHORES INC' (EIN 47-2320404), 10626 Ne 11Th Ct, Miami Shores, ruling Nov 2017. Its chabad.org listing went up Jan 26 2015, so it existed by then. The IRS ruling (Nov 2017) comes after the listing, so it is not the year (Nov 10 re-check of the filings sweep)."
+   "note": "A filing: Florida's registry (Sunbiz) has CHABAD OF MIAMI SHORES, INC. (document N14000010401, Active), filed 11/12/2014 (record page opened Nov 10: work/founding-years/sunbiz/entities/N14000010401.json; Asher and Rochel Mushka Sossonko, 10626 NE 11th Ct, Miami Shores). Its chabad.org listing went up 2015-01-26, after the filing, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: a state incorporation of the center's own corporation is medium). Earlier note: IRS (ProPublica): 'Chabad Of Miami Shores Inc', care of Asher Sossonko, exempt from 2017-11, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2014. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF MIAMI SHORES INC' (EIN 47-2320404), 10626 Ne 11Th Ct, Miami Shores, ruling Nov 2017. Its chabad.org listing went up Jan 26 2015, so it existed by then. The IRS ruling (Nov 2017) comes after the listing, so it is not the year (Nov 10 re-check of the filings sweep).",
+   "people": [
+    {
+     "name": "Asher Sossonko",
+     "role": "director"
+    },
+    {
+     "name": "Rochel Mushka Sossonko",
+     "role": "director"
+    }
+   ]
   },
   "3050865": {
    "name": "Chabad Jewish Center of Palm Coast",
@@ -16272,7 +17211,14 @@
    "how": "news",
    "source": "https://www.observerlocalnews.com/news/2015/oct/29/chabad-palm-coast-hosts-its-first-shabbat/",
    "note": "Palm Coast Observer, 29 Oct 2015, 'Chabad of Palm Coast hosts its first Shabbat': Rabbi Levi Ezagui (son of Rabbi Pinchas Ezagui of Ormond Beach) is 'opening this Chabad house starting with the Shabbat meal this weekend', at 1 Faraday Drive.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Levi Ezagui",
+     "role": "founder",
+     "from": "2015"
+    }
+   ]
   },
   "3118947": {
    "name": "Chabad of East Plantation",
@@ -16282,7 +17228,19 @@
    "how": "stated",
    "source": "https://www.chabadeastplantation.com/",
    "note": "Its own home page: Chabad of East Plantation 'was established in 2015 to share the teachings of Judaism', directed by Rabbi Aron and Rochel Pink (earlier youth director at Chabad of Plantation). 241 Holly Lane.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Aron Pink",
+     "role": "founder",
+     "from": "2015"
+    },
+    {
+     "name": "Rochel Pink",
+     "role": "founder",
+     "from": "2015"
+    }
+   ]
   },
   "3229121": {
    "name": "Chabad at St. Thomas University",
@@ -16292,7 +17250,19 @@
    "how": "news",
    "confidence": "high",
    "source": "https://www.lubavitch.com/a-model-seder-at-a-catholic-university/",
-   "note": "Lubavitch.com, 17 Apr 2016 ('A Model Seder at A Catholic University', also on CrownHeights.info, 20 Apr 2016): 'After meeting the students on their turf for the first time last week, Rabbi Mendy and Tzippy Weiss wasted no time engaging those attending St. Thomas University'; 'For the past 21 years, the Weisses have worked with the South Florida community nearby the university, but struggled trying to establish a Chabad presence on the campus'; the first model Seder on campus was on 14 April 2016. Its chabad.org listing went up 29 Mar 2016."
+   "note": "Lubavitch.com, 17 Apr 2016 ('A Model Seder at A Catholic University', also on CrownHeights.info, 20 Apr 2016): 'After meeting the students on their turf for the first time last week, Rabbi Mendy and Tzippy Weiss wasted no time engaging those attending St. Thomas University'; 'For the past 21 years, the Weisses have worked with the South Florida community nearby the university, but struggled trying to establish a Chabad presence on the campus'; the first model Seder on campus was on 14 April 2016. Its chabad.org listing went up 29 Mar 2016.",
+   "people": [
+    {
+     "name": "Rabbi Mendy Weiss",
+     "role": "founder",
+     "from": "2016"
+    },
+    {
+     "name": "Tzippy Weiss",
+     "role": "founder",
+     "from": "2016"
+    }
+   ]
   },
   "3316775": {
    "name": "Chabad of East Delray Beach",
@@ -16303,7 +17273,19 @@
    "source": "https://www.jewisheastdelray.com/about-6",
    "note": "Its own About page: 'Rabbi Shmuli and Sari Biston established Chabad of East Delray and Chabad Young Professionals of Delray in January 2016.' 101 SE 2nd Avenue.",
    "confidence": "high",
-   "date": "2016-01"
+   "date": "2016-01",
+   "people": [
+    {
+     "name": "Rabbi Shmuli Biston",
+     "role": "founder",
+     "from": "2016"
+    },
+    {
+     "name": "Sari Biston",
+     "role": "founder",
+     "from": "2016"
+    }
+   ]
   },
   "3329590": {
    "name": "Beit Chabad Israeli Center",
@@ -16313,7 +17295,13 @@
    "how": "stated",
    "source": "https://www.chabadisraelim.org/templates/articlecco_cdo/aid/3737308/jewish/About-Us.htm",
    "note": "Its own site: 'Beit Chabad was established in 2016, and we are here to make an impact where we are needed most' (Beit Chabad Israeli Center, Hollywood; footer address 7575 NW 19th Dr, Pembroke Pines). Rabbi Yosef Raskin. Existed by 2016 (earlier bound), which agrees.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Yosef Raskin",
+     "role": "director"
+    }
+   ]
   },
   "3336340": {
    "name": "Ligrom Arichus Yomim - Chabad Chaplaincy Network",
@@ -16323,7 +17311,15 @@
    "how": "directory",
    "confidence": "medium",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n16000003438-3fc3374f-7a65-40a9-a6c7-e77b58a1f3ff&directionType=Initial&searchNameOrder=CHABADCHAPLAINCYNETWORK%20N160000034380&searchTerm=N16000003438",
-   "note": "A filing: Florida's registry (Sunbiz) has CHABAD CHAPLAINCY NETWORK INC. (document N16000003438, Active), filed 04/04/2016 (record page opened Nov 10: work/founding-years/sunbiz/entities/N16000003438.json; director Mendel Levy (this listing's Mendy Levy), 3168 Prairie Ave, Miami Beach). Its chabad.org listing went up 2016-05-24, after the filing, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: a state incorporation of the center's own corporation is medium). The IRS record names the same body ('Chabad Chaplaincy Network Inc', care of Mendel Levy, this listing's director). Earlier note: IRS (ProPublica): 'Chabad Chaplaincy Network Inc', care of Mendel Levy, exempt from 2024-01, so it existed by then (a later re-registration is possible). Start year not found yet; lead: therebbesimpact.com 2016."
+   "note": "A filing: Florida's registry (Sunbiz) has CHABAD CHAPLAINCY NETWORK INC. (document N16000003438, Active), filed 04/04/2016 (record page opened Nov 10: work/founding-years/sunbiz/entities/N16000003438.json; director Mendel Levy (this listing's Mendy Levy), 3168 Prairie Ave, Miami Beach). Its chabad.org listing went up 2016-05-24, after the filing, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: a state incorporation of the center's own corporation is medium). The IRS record names the same body ('Chabad Chaplaincy Network Inc', care of Mendel Levy, this listing's director). Earlier note: IRS (ProPublica): 'Chabad Chaplaincy Network Inc', care of Mendel Levy, exempt from 2024-01, so it existed by then (a later re-registration is possible). Start year not found yet; lead: therebbesimpact.com 2016.",
+   "people": [
+    {
+     "name": "Mendy Levy",
+     "role": "founder",
+     "from": "2016",
+     "note": "director in the 2016 filing"
+    }
+   ]
   },
   "3351756": {
    "name": "Chabad at Rollins College",
@@ -16334,7 +17330,19 @@
    "source": "https://www.chabad.org/news/article_cdo/aid/3831481/jewish/Doubling-Presence-in-a-Decade-14-New-Chabad-Campus-Centers-Opened-This-Year.htm",
    "note": "Chabad.org, 31 Oct 2017 ('Doubling Presence in a Decade, 14 New Chabad Campus Centers Opened This Year'): 'The Sasonkins arrived in Winter Park, Fla., at the end of 2016 to establish a new Chabad House for the more than 1,000 Jewish college students in this area just outside of Orlando'; they also serve Full Sail University (Rabbi Shmuli and Chayala Sasonkin).",
    "confidence": "high",
-   "date": "end of 2016"
+   "date": "end of 2016",
+   "people": [
+    {
+     "name": "Rabbi Shmuli Sasonkin",
+     "role": "founder",
+     "from": "2016"
+    },
+    {
+     "name": "Chayala Sasonkin",
+     "role": "founder",
+     "from": "2016"
+    }
+   ]
   },
   "3439472": {
    "name": "Chabad of West Bradenton",
@@ -16344,7 +17352,17 @@
    "how": "stated",
    "source": "https://www.chabadofwestbradenton.com/about/about-us-old/",
    "note": "Its own About page: 'Chabad of West Bradenton was founded in 2016.' Rabbi Zev and Shaina Steinmetz, 4501 Manatee Avenue W. Existed by 2016 (earlier bound), which agrees.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Zev Steinmetz",
+     "role": "director"
+    },
+    {
+     "name": "Shaina Steinmetz",
+     "role": "director"
+    }
+   ]
   },
   "3511251": {
    "name": "Mikvah Cape Coral",
@@ -16355,7 +17373,8 @@
    "how": "not-found",
    "source": null,
    "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2016.",
-   "confidence": "open"
+   "confidence": "open",
+   "people": []
   },
   "3798706": {
    "name": "Chabad on Campus",
@@ -16365,7 +17384,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/3798706",
-   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2017. Its chabad.org listing went up 2017-09-27, so it existed by 2017 (was no upper bound). Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2017-09-27), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2017. Its chabad.org listing went up 2017-09-27, so it existed by 2017 (was no upper bound). Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2017-09-27), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": []
   },
   "3965721": {
    "name": "Chabad at NSU",
@@ -16375,7 +17395,13 @@
    "how": "stated",
    "source": "https://www.jewishnsu.com/",
    "note": "Its own home page (Chabad at NSU, Davie): 'The Chabad Jewish Center was established in 2018.' Rabbi Aryeh Schwartz. Existed by 2019 (IRS), which agrees.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Aryeh Schwartz",
+     "role": "director"
+    }
+   ]
   },
   "4045086": {
    "name": "Chabad of Nocatee",
@@ -16386,7 +17412,19 @@
    "source": "https://crownheights.info/shlichus/398838/new-shluchim-to-northern-florida",
    "note": "CrownHeights.info, 21 Aug 2013, 'New Shluchim to Northern Florida': Rabbi Mendel and Dini Sharfstein 'have been appointed by Rabbi Y. Kahanov ... as the directors of the latest Chabad Center on the First Coast to serve as a Center for Jewish Life for St. John's' (St. Johns, Nocatee, World Golf Village; the sixth center in greater Jacksonville). Now Chabad at St. Johns County, 1571 Lemonwood Rd.",
    "confidence": "high",
-   "date": "2013-08"
+   "date": "2013-08",
+   "people": [
+    {
+     "name": "Rabbi Mendel Sharfstein",
+     "role": "founder",
+     "from": "2013"
+    },
+    {
+     "name": "Dini Sharfstein",
+     "role": "founder",
+     "from": "2013"
+    }
+   ]
   },
   "4051234": {
    "name": "Chabad at the Waterways",
@@ -16397,7 +17435,17 @@
    "how": "directory",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n18000009309-c251a2c0-4138-4562-8da6-c58cff7cf47e&directionType=Initial&searchNameOrder=CHABADATWATERWAYS%20N180000093090&searchTerm=N18000009309",
    "note": "Low: its chabad.org listing went up 2018-06-05 and its own corporation was filed 08/27/2018 (record page opened Nov 10: work/founding-years/sunbiz/entities/N18000009309.json), months apart in the same year, which marks a new center; nothing earlier shows it. The listing is the earlier of the two, so the year rests on the listing (a 'by') with the filing agreeing. Owner, Nov 10: enter the Florida business records, 'not high confidence but better than nothing'. Earlier note: Its own About page: Rabbi Yisroel and Devora Leah Brusowankin 'In 2008 ... moved to Aventura, Fl to continue in the footsteps of their parents'; 'In the Waterways area where they have lived for over 10 years' (undated). When Chabad at the Waterways itself began is not stated; existed by 2019 (earlier bound). IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD AT WATERWAYS INC' (EIN 83-1748885), 3585 Ne 207Th St Ste C6, Miami, ruling June 2019. Its chabad.org listing went up Jun 5 2018, so it existed by then. The IRS ruling (June 2019) comes after the listing, so it is not the year (Nov 10 re-check of the filings sweep). Sunbiz (record page opened Nov 10: work/founding-years/sunbiz/entities/N18000009309.json): CHABAD AT WATERWAYS INC. (document N18000009309), filed 08/27/2018, president Yisroel Brusowankin. Its chabad.org listing went up 2018-06-05, before the filing, so the filing is not the year (HANDOFF 4b).",
-   "confidence": "low"
+   "confidence": "low",
+   "people": [
+    {
+     "name": "Rabbi Yisroel Brusowankin",
+     "role": "director"
+    },
+    {
+     "name": "Devora Leah Brusowankin",
+     "role": "director"
+    }
+   ]
   },
   "4266412": {
    "name": "Chabad at University of Miami Undergraduate",
@@ -16407,7 +17455,19 @@
    "how": "stated",
    "source": "https://www.uchabadundergrad.com/about",
    "note": "Its own About page ('Who We Are'): 'The Lipskiers moved to Coral Gables in 2019' (Rabbi Shmuly and Mushka Lipskier), building on 'the twenty years of work' of Rabbi Mendy and Henchi Fellig (Chabad @ University of Miami, 2001). The undergraduate branch's own start is not stated; taken as the Lipskiers' arrival. chabad.org listing (4266412) from about 2018-19.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Rabbi Shmuly Lipskier",
+     "role": "director",
+     "from": "2019"
+    },
+    {
+     "name": "Mushka Lipskier",
+     "role": "director",
+     "from": "2019"
+    }
+   ]
   },
   "4364240": {
    "name": "Chabad of Bayshore, Miami Beach",
@@ -16418,7 +17478,19 @@
    "source": "https://collive.com/new-shluchim-to-miami-beach/",
    "note": "COLlive, 18 June 2019: 'Rabbi Shmuli and Sara Basya Lezak ... will be moving in the coming weeks to the neighborhood of Bayshore in Miami Beach, Florida. The Lezaks will be establishing a Chabad center there'; appointed by Rabbi Avrohom Korf. IRS: 'Chabad Of Bayshore', exempt from May 2021.",
    "confidence": "high",
-   "season": "summer"
+   "season": "summer",
+   "people": [
+    {
+     "name": "Rabbi Shmuli Lezak",
+     "role": "founder",
+     "from": "2019"
+    },
+    {
+     "name": "Sara Basya Lezak",
+     "role": "founder",
+     "from": "2019"
+    }
+   ]
   },
   "4450646": {
    "name": "Chabad at FGCU",
@@ -16428,7 +17500,15 @@
    "how": "directory",
    "confidence": "medium",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n19000004038-cea2637a-047b-411a-9511-9556e8e99a11&directionType=Initial&searchNameOrder=CHABADATFGCU%20N190000040380&searchTerm=N19000004038",
-   "note": "A filing: Florida's registry (Sunbiz) has CHABAD AT FGCU, INC (document N19000004038, Active), filed 04/11/2019 (record page opened Nov 10: work/founding-years/sunbiz/entities/N19000004038.json; president Menachem Gordon, with Rabbi Menachem Greenberg (Bonita Springs) as a director). Its chabad.org listing went up 2019-08-08, after the filing, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: a state incorporation of the center's own corporation is medium). Its own staff page has the Gordons joining as on-site directors in 2019, which agrees. Earlier note: Its own staff page: Rabbi Mendel and Shternie Gordon 'joined the team as on-site directors in 2019'; Chabad at FGCU is 'a division of Chabad of Bonita Springs and Estero'. So it existed by 2019; whether it began then or earlier under Bonita Springs is not stated."
+   "note": "A filing: Florida's registry (Sunbiz) has CHABAD AT FGCU, INC (document N19000004038, Active), filed 04/11/2019 (record page opened Nov 10: work/founding-years/sunbiz/entities/N19000004038.json; president Menachem Gordon, with Rabbi Menachem Greenberg (Bonita Springs) as a director). Its chabad.org listing went up 2019-08-08, after the filing, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: a state incorporation of the center's own corporation is medium). Its own staff page has the Gordons joining as on-site directors in 2019, which agrees. Earlier note: Its own staff page: Rabbi Mendel and Shternie Gordon 'joined the team as on-site directors in 2019'; Chabad at FGCU is 'a division of Chabad of Bonita Springs and Estero'. So it existed by 2019; whether it began then or earlier under Bonita Springs is not stated.",
+   "people": [
+    {
+     "name": "Menachem Gordon",
+     "role": "founder",
+     "from": "2019",
+     "note": "president in the 2019 filing; the Gordons its on-site directors"
+    }
+   ]
   },
   "4540021": {
    "name": "Cheder Chabad Florida",
@@ -16439,7 +17519,20 @@
    "how": "directory",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n19000006640-c4f06d65-1438-43d2-ae0c-c4852b8ff9e6&directionType=Initial&searchNameOrder=CHEDERCHABAD%20N190000066400&searchTerm=N19000006640",
    "note": "A filing: Florida's registry (Sunbiz) has CHEDER CHABAD, INC. (document N19000006640), filed 06/27/2019, president Aharon Matusof (this listing's director), with Chaya Matusof and Yosef Gluckowsky (record page opened Nov 10: work/founding-years/sunbiz/entities/N19000006640.json). Its chabad.org listing went up 2019-11-14, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: the center's own corporation, medium). Owner, Nov 10: enter the Florida business records, 'not high confidence but better than nothing'. Earlier note: IRS (ProPublica): 'Cheder Chabad Inc', care of Chaya Krinsky, exempt from 2020-03, so it existed by then. Start year not found yet; lead: the chabad.org listing is from about 2019.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Aharon Matusof",
+     "role": "founder",
+     "from": "2019",
+     "note": "president in the 2019 filing, with Chaya Matusof and Yosef Gluckowsky"
+    },
+    {
+     "name": "Chaya Matusof",
+     "role": "founder",
+     "from": "2019"
+    }
+   ]
   },
   "4544860": {
    "name": "Chabad at the City of Delray Beach",
@@ -16450,7 +17543,19 @@
    "source": "https://collive.com/new-shluchim-to-delray-beach-florida/",
    "note": "COLlive, 18 Dec 2019: 'Rabbi Mendy and Mirel Heber, together with their daughter Rochel Leah, are the new Shluchim to Delray Beach, Florida' (delrayjewish.com). IRS: 'Chabad At The City Of Delray Beach Inc', exempt from Aug 2020.",
    "confidence": "high",
-   "date": "2019-12"
+   "date": "2019-12",
+   "people": [
+    {
+     "name": "Rabbi Mendy Heber",
+     "role": "founder",
+     "from": "2019"
+    },
+    {
+     "name": "Mirel Heber",
+     "role": "founder",
+     "from": "2019"
+    }
+   ]
   },
   "4564217": {
    "name": "Chabad of West Delray Beach",
@@ -16461,7 +17566,19 @@
    "source": "https://www.jewishwestdelray.com/about-us",
    "note": "Its own About page: Rabbi Yossi and Leah Schapiro 'established Chabad of West Delray in September of 2019' (he was ordained in 2013).",
    "confidence": "high",
-   "date": "2019-09"
+   "date": "2019-09",
+   "people": [
+    {
+     "name": "Rabbi Yossi Schapiro",
+     "role": "founder",
+     "from": "2019"
+    },
+    {
+     "name": "Leah Schapiro",
+     "role": "founder",
+     "from": "2019"
+    }
+   ]
   },
   "4629871": {
    "name": "Mikvah Beit Yosef",
@@ -16474,7 +17591,14 @@
    "note": "The mikvah of Chabad of Panama City Beach (mikvah.org: 4117 Thomas Drive; supervised by Rabbi Mendel Havlin). COLlive, 24 Dec 2018: Rabbi Mendy and Chaya Havlin 'are moving to Panama City Beach ... and will establish a Chabad House there'; COLlive (31 Aug 2020): the community was helping them buy a home and Chabad center. So the mikvah came after 2018; when it opened is not found. (Achdut Israel's mikvah in Panama City Beach, about 2014-15, is a different one.) Lead: the chabad.org listing is from about 2019. Its chabad.org listing went up 2020-01-28, so it existed by 2020 (was no upper bound).",
    "confidence": "range",
    "after": 2018,
-   "by": 2020
+   "by": 2020,
+   "people": [
+    {
+     "name": "Rabbi Mendel Havlin",
+     "role": "head",
+     "note": "supervises it"
+    }
+   ]
   },
   "4732397": {
    "name": "Chabad of North Beach",
@@ -16484,7 +17608,19 @@
    "how": "stated",
    "source": "https://www.chabadoceandrive.com/templates/articlecco_cdo/aid/4798130/jewish/Our-Rabbis-Rebbetzins.htm",
    "note": "Chabad Ocean Drive (Hollywood/Hallandale Beach), 'Our Rabbis & Rebbetzins': in 2019 Chabad expanded 'with the arrival of Rabbi Sholom Ber & Malka Kudan who moved from Jerusalem, Israel'; 'They provide a Chabad presence on Hollywood's North Beach.' The chabad.org listing (4732397) is from about 2019, which agrees.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Sholom Ber Kudan",
+     "role": "director",
+     "from": "2019"
+    },
+    {
+     "name": "Malka Kudan",
+     "role": "director",
+     "from": "2019"
+    }
+   ]
   },
   "4736592": {
    "name": "Chabad of Aventura Isles",
@@ -16494,7 +17630,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/4736592",
-   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2020. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2020-05-05), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2020. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2020-05-05), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": []
   },
   "4921114": {
    "name": "Chabad at FIU Student Center",
@@ -16505,7 +17642,15 @@
    "how": "directory",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n20000012486-c294346d-ec2f-41fb-8433-34832a0963cc&directionType=Initial&searchNameOrder=CHABADJEWISHSTUDENTSCENTERATFL%20N200000124860&searchTerm=N20000012486",
    "note": "A filing: Florida's registry (Sunbiz) has CHABAD JEWISH STUDENTS CENTER AT FLORIDA INTERNATIONAL UNIVERSITY INC. (document N20000012486), filed 11/05/2020, president Dovber Garelik, 11211 SW 7th Terrace, Miami, by FIU's Modesto Maidique campus where the map has this listing (record page opened Nov 10: work/founding-years/sunbiz/entities/N20000012486.json). Its chabad.org listing went up 2020-11-12, a week after the filing, and nothing earlier shows this center (Chabad at FIU, listing 169223, from 2004, is a separate listing at its own house), so the filing is the year (HANDOFF 4b: the center's own corporation, medium). Earlier note: IRS (ProPublica): 'Chabad Jewish Students Center At Florida International University I', care of Dovber Garelik, exempt from 2022-06, so it existed by then. Start year not found yet; lead: the chabad.org listing is from about 2020.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Dovber Garelik",
+     "role": "head",
+     "seen": "2020",
+     "note": "president of its 2020 corporation"
+    }
+   ]
   },
   "5105695": {
    "name": "Chabad of Lakeview",
@@ -16516,7 +17661,15 @@
    "how": "directory",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n21000009996-1b6cadf9-1119-4efb-aa66-97d0874f86ee&directionType=Initial&searchNameOrder=CHABADLAKEVIEW%20N210000099960&searchTerm=N21000009996",
    "note": "Low: its chabad.org listing went up 2021-06-02 and its own corporation was filed 08/23/2021 (record page opened Nov 10: work/founding-years/sunbiz/entities/N21000009996.json), months apart in the same year, which marks a new center; nothing earlier shows it. The listing is the earlier of the two, so the year rests on the listing (a 'by') with the filing agreeing. Owner, Nov 10: enter the Florida business records, 'not high confidence but better than nothing'. Earlier note: IRS (ProPublica): 'Chabad Of Lakeview Inc', care of Benzion Korf, exempt from 2022-05, so it existed by then. Start year not found yet; lead: the chabad.org listing is from about 2021. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF LAKEVIEW INC' (EIN 87-2295205), 5025 Cherokee Ave, Miami Beach, ruling May 2022. Its chabad.org listing went up Jun 2 2021, so it existed by then. The IRS ruling (May 2022) comes after the listing, so it is not the year (Nov 10 re-check of the filings sweep). Sunbiz (record page opened Nov 10: work/founding-years/sunbiz/entities/N21000009996.json): CHABAD OF LAKEVIEW INC. (document N21000009996), filed 08/23/2021, vice-president Rabbi Sholom Dov Ber Korf. Its chabad.org listing went up 2021-06-02, before the filing, so the filing is not the year (HANDOFF 4b).",
-   "confidence": "low"
+   "confidence": "low",
+   "people": [
+    {
+     "name": "Rabbi Sholom Dov Ber Korf",
+     "role": "head",
+     "seen": "2021",
+     "note": "vice-president in its 2021 filing"
+    }
+   ]
   },
   "5151499": {
    "name": "Camp Gan Izzy",
@@ -16527,7 +17680,17 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/5151499",
-   "note": "Camp Gan Izzy of Rabbi Mendy and Mirel Heber, who became the shluchim to Delray Beach in Dec 2019 (COLlive): so it began after 2019. Its own start year not found yet; lead: the chabad.org listing is from about 2021. Its chabad.org listing went up 2021-06-04, so it existed by 2021 (was by 2026). Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2021-06-04), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "Camp Gan Izzy of Rabbi Mendy and Mirel Heber, who became the shluchim to Delray Beach in Dec 2019 (COLlive): so it began after 2019. Its own start year not found yet; lead: the chabad.org listing is from about 2021. Its chabad.org listing went up 2021-06-04, so it existed by 2021 (was by 2026). Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2021-06-04), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": [
+    {
+     "name": "Rabbi Mendy Heber",
+     "role": "director"
+    },
+    {
+     "name": "Mirel Heber",
+     "role": "director"
+    }
+   ]
   },
   "5215397": {
    "name": "Chabad of Golden Isles",
@@ -16538,7 +17701,15 @@
    "how": "directory",
    "source": "https://projects.propublica.org/nonprofits/organizations/832134594",
    "note": "IRS (ProPublica): 'Chabad Of Golden Isles Inc', care of Rabbi Mordechai Feiner, exempt from 2018-12, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2018. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF GOLDEN ISLES INC' (EIN 83-2134594), 425 Layne Blvd, Hallandle Bch, ruling Dec 2018. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start.",
-   "confidence": "low"
+   "confidence": "low",
+   "people": [
+    {
+     "name": "Rabbi Mordechai Feiner",
+     "role": "head",
+     "seen": "2018",
+     "note": "named in its IRS record"
+    }
+   ]
   },
   "5228249": {
    "name": "Chabad of Dania Beach",
@@ -16549,7 +17720,20 @@
    "how": "directory",
    "source": "https://projects.propublica.org/nonprofits/organizations/873099289",
    "note": "Merkos 'New Shluchim' grant (Nov 2022) to Eli and Mushka Eckstein, Dania Beach: a grant for couples in their first years. Start year not found yet; lead: therebbesimpact.com 2021. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF DANIA BEACH INC' (EIN 87-3099289), 215 Se 2Nd St, Dania Beach, ruling Jan 2022. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start.",
-   "confidence": "low"
+   "confidence": "low",
+   "people": [
+    {
+     "name": "Eli Eckstein",
+     "role": "founder",
+     "from": "2022",
+     "note": "a new-shluchim grant (Merkos)"
+    },
+    {
+     "name": "Mushka Eckstein",
+     "role": "founder",
+     "from": "2022"
+    }
+   ]
   },
   "5248499": {
    "name": "Chabad West Lake Worth",
@@ -16560,7 +17744,18 @@
    "how": "directory",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n21000012826-3ae64cdd-278b-4c74-9542-62f1d9530804&directionType=Initial&searchNameOrder=CHABADWESTLAKEWORTH%20N210000128260&searchTerm=N21000012826",
    "note": "Low: its chabad.org listing went up 2021-09-12 and its own corporation was filed 11/03/2021 (record page opened Nov 10: work/founding-years/sunbiz/entities/N21000012826.json), months apart in the same year, which marks a new center; nothing earlier shows it. The listing is the earlier of the two, so the year rests on the listing (a 'by') with the filing agreeing. Owner, Nov 10: enter the Florida business records, 'not high confidence but better than nothing'. Earlier note: Merkos 'New Shluchim' grant (Nov 2022) to Zalmen and Malky Itkin, West Lake Worth: a grant for couples in their first years. Start year not found yet; lead: therebbesimpact.com 2021. Sunbiz (record page opened Nov 10: work/founding-years/sunbiz/entities/N21000012826.json): CHABAD OF WEST LAKE WORTH INC. (document N21000012826), filed 11/03/2021, president Zalmen S. Itkin. Its chabad.org listing went up 2021-09-12, before the filing, so the filing is not the year (HANDOFF 4b). The listing shows it by 2021 (was by 2022).",
-   "confidence": "low"
+   "confidence": "low",
+   "people": [
+    {
+     "name": "Zalmen Itkin",
+     "role": "founder",
+     "note": "a new-shluchim grant (Merkos, 2022)"
+    },
+    {
+     "name": "Malky Itkin",
+     "role": "founder"
+    }
+   ]
   },
   "5305261": {
    "name": "Chabad of Plantation Acres",
@@ -16570,7 +17765,19 @@
    "how": "stated",
    "source": "https://www.chabadoftheacres.com/about",
    "note": "Its own About page: 'Rabbi Yossi and Riki moved to Plantation Acres, Florida in 2022' (Rabbi Yossi and Riki Posner, who direct Chabad of the Acres). Its corporation existed by 2022 (earlier bound), which agrees.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Yossi Posner",
+     "role": "founder",
+     "from": "2022"
+    },
+    {
+     "name": "Riki Posner",
+     "role": "founder",
+     "from": "2022"
+    }
+   ]
   },
   "5407765": {
    "name": "Skylake Chabad Shul",
@@ -16580,7 +17787,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/5407765",
-   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2022. Sunbiz: CHABAD OF SKYLAKE INC. (N05000000163), the Rosenbergs', was filed 01/05/2005 (the year of listing 312423, Skylake Chabad); nothing ties it to this shul listing, which went up 2022-02-19, so it is not this one's year. Sunbiz: CHABAD LUBAVITCH OF SKYLAKE, INC. (N11000004403), filed 05/04/2011, the Rosenbergs at 2045 NE 186th Dr (record page opened Nov 10: work/founding-years/sunbiz/entities/N11000004403.json): the Chabad House's corporation (as is the 2005 one), not shown to be this shul's. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2022-02-19), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2022. Sunbiz: CHABAD OF SKYLAKE INC. (N05000000163), the Rosenbergs', was filed 01/05/2005 (the year of listing 312423, Skylake Chabad); nothing ties it to this shul listing, which went up 2022-02-19, so it is not this one's year. Sunbiz: CHABAD LUBAVITCH OF SKYLAKE, INC. (N11000004403), filed 05/04/2011, the Rosenbergs at 2045 NE 186th Dr (record page opened Nov 10: work/founding-years/sunbiz/entities/N11000004403.json): the Chabad House's corporation (as is the 2005 one), not shown to be this shul's. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2022-02-19), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": []
   },
   "5505778": {
    "name": "Chabad Shul",
@@ -16590,7 +17798,14 @@
    "how": "directory",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n18000001122-e5bf0341-6a1a-4410-9852-ff4055e74c35&directionType=Initial&searchNameOrder=CHABADMIAMIGARDENS%20N180000011220&searchTerm=N18000001122",
    "note": "A filing: Florida's registry (Sunbiz) has CHABAD OF MIAMI GARDENS, INC. (document N18000001122), filed 01/30/2018, president Rabbi Shalom Kleinman, 1048 NW 204th St, Miami Gardens, with Rabbis Benzion Korf and Obadia Schochet as directors (record page opened Nov 10: work/founding-years/sunbiz/entities/N18000001122.json). Its chabad.org listing went up 2022-06-16, after the filing, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: the center's own corporation, medium). CrownHeights.info (March 2021, below) agrees: the Kleinmans moved to Miami Gardens and established the shul under three years before. Earlier note: CrownHeights.info, 20 March 2021: 'Not even 3 years have passed since Rabbi Shalom and Mrs. Eliyah Kleinman moved to Miami Gardens and established a shul': the shul began after their 2018 arrival and by March 2021.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Rabbi Shalom Kleinman",
+     "role": "founder",
+     "from": "2018"
+    }
+   ]
   },
   "5527594": {
    "name": "Chabad Young Professionals DoBo",
@@ -16600,7 +17815,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/5527594",
-   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 2022. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2022-06-13), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 2022. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2022-06-13), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": []
   },
   "5583706": {
    "name": "Alef Preschool of Palm Beach",
@@ -16611,7 +17827,21 @@
    "how": "directory",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n21000008700-060855f7-c62c-43ca-84a3-f60cf30cbafe&directionType=Initial&searchNameOrder=ALEFPRESCHOOLPALMBEACH%20N210000087000&searchTerm=N21000008700",
    "note": "A filing: Florida's registry (Sunbiz) has ALEF PRESCHOOL OF PALM BEACH INC. (document N21000008700), filed 07/20/2021, president Shneur Z. Levitin, now 165 Bradley Place (record page opened Nov 10: work/founding-years/sunbiz/entities/N21000008700.json). Low: the body was formed in 2021, but the school itself was to open for the 2022-23 year (below), so its first classes may be later. Owner, Nov 10: enter the Florida business records, 'not high confidence but better than nothing'. Earlier note: CrownHeights.info (from the Palm Beach Daily News), 19 May 2021: Eric and Svetlana Silverman gave $1 million to the Alef Preschool of Palm Beach (Rabbi Zalman and Hindel Levitin); 'The new preschool is already planning on opening for the 2022-2023 school year, and is in the process of leasing a space', director Shterny Schochet. A child-care directory had it licensed at 165 Bradley Place by Aug 2024. The actual opening is not confirmed: after May 2021, by 2024.",
-   "confidence": "low"
+   "confidence": "low",
+   "people": [
+    {
+     "name": "Rabbi Zalman Levitin",
+     "role": "head"
+    },
+    {
+     "name": "Hindel Levitin",
+     "role": "head"
+    },
+    {
+     "name": "Shterny Schochet",
+     "role": "director"
+    }
+   ]
   },
   "5612453": {
    "name": "Chabad Stadium",
@@ -16622,7 +17852,13 @@
    "how": "news",
    "source": "https://jewishmiami.info/a-new-chabad-house-on-wheels-makes-its-maiden-voyage-from-canada-to-miami/",
    "note": "JewishMiami.info, 21 Nov 2023: 'As of Chof Av 2022, at the Florida regional Kinnus Hashluchim ... Chabad of Florida announced a new dedicated Shliach to all activities in and around the Hardrock Stadium. Rabbi Yakov Menaker jumped right in'; the Chabad 'House' at the stadium opened at the start of that football season.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Yakov Menaker",
+     "role": "director"
+    }
+   ]
   },
   "5682707": {
    "name": "Chabad of Coral Way",
@@ -16633,7 +17869,15 @@
    "how": "directory",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n22000013798-459c5121-f456-4472-9a06-724f1039beea&directionType=Initial&searchNameOrder=CHABADCORALWAY%20N220000137980&searchTerm=N22000013798",
    "note": "Low: its chabad.org listing went up 2022-11-07 and its own corporation was filed 12/12/2022 (record page opened Nov 10: work/founding-years/sunbiz/entities/N22000013798.json), months apart in the same year, which marks a new center; nothing earlier shows it. The listing is the earlier of the two, so the year rests on the listing (a 'by') with the filing agreeing. Owner, Nov 10: enter the Florida business records, 'not high confidence but better than nothing'. Earlier note: IRS (ProPublica): 'Chabad Of Coral Way Inc', exempt from 2023-06, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2022. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF CORAL WAY INC' (EIN 92-1331003), 2410 Sw 21St Ave, Miami, ruling June 2023. Its chabad.org listing went up Nov 7 2022, so it existed by then. The IRS ruling (June 2023) comes after the listing, so it is not the year (Nov 10 re-check of the filings sweep). Sunbiz (record page opened Nov 10: work/founding-years/sunbiz/entities/N22000013798.json): CHABAD OF CORAL WAY, INC. (document N22000013798), filed 12/12/2022, president Mendel Klein. Its chabad.org listing went up 2022-11-07, before the filing, so the filing is not the year (HANDOFF 4b).",
-   "confidence": "low"
+   "confidence": "low",
+   "people": [
+    {
+     "name": "Mendel Klein",
+     "role": "head",
+     "seen": "2022",
+     "note": "president of its 2022 corporation"
+    }
+   ]
   },
   "5688600": {
    "name": "Chabad NMB East",
@@ -16644,7 +17888,15 @@
    "how": "directory",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n21000012191-3f86e12f-573d-4090-9b77-d9de3fb48dc2&directionType=Initial&searchNameOrder=CHABADCHAICENTERNORTHMIAMIBEAC%20N210000121910&searchTerm=N21000012191",
    "note": "A filing: Florida's registry (Sunbiz) has CHABAD CHAI CENTER OF NORTH MIAMI BEACH INC (document N21000012191), filed 10/14/2021, president Rabbi Yehoshua Karp (this listing's director), 1999 NE 178 Street, North Miami Beach (record page opened Nov 10: work/founding-years/sunbiz/entities/N21000012191.json). Its chabad.org listing went up 2022-11-02, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: the center's own corporation, medium). Owner, Nov 10: enter the Florida business records, 'not high confidence but better than nothing'. Earlier note: No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 2021.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Rabbi Yehoshua Karp",
+     "role": "founder",
+     "from": "2021",
+     "note": "president in the 2021 filing"
+    }
+   ]
   },
   "5698886": {
    "name": "Chabad of Westlake and Loxahatchee",
@@ -16654,7 +17906,19 @@
    "how": "stated",
    "source": "https://www.chabadwestlake.org/templates/articlecco_cdo/aid/6574875/jewish/About-Us.htm",
    "note": "Its own About page has both: 'Chabad Lubavitch of Westlake and Loxahatchee Inc. was established in 2023 to serve the Jewish community' (Our Story) and 'Rabbi Zalmy and Shaina Muskal founded Chabad of Westlake and Loxahatchee in 2024' (Meet the Muskals). The earlier year is used; the two disagree, so medium.",
-   "confidence": "medium"
+   "confidence": "medium",
+   "people": [
+    {
+     "name": "Rabbi Zalmy Muskal",
+     "role": "founder",
+     "from": "2023"
+    },
+    {
+     "name": "Shaina Muskal",
+     "role": "founder",
+     "from": "2023"
+    }
+   ]
   },
   "5813979": {
    "name": "Chabad Israeli Center of Tampa",
@@ -16664,7 +17928,15 @@
    "how": "directory",
    "confidence": "medium",
    "source": "https://search.sunbiz.org/Inquiry/CorporationSearch/SearchResultDetail?inquiryType=DocumentNumber&aggregateId=domnp-n21000006108-ff7b9be0-865c-4d85-8946-6e82370bca7d&directionType=Initial&searchNameOrder=CHABADISRAELICENTERTAMPA%20N210000061080&searchTerm=N21000006108",
-   "note": "A filing: Florida's registry (Sunbiz) has CHABAD ISRAELI CENTER OF TAMPA, INC (document N21000006108, Active), filed 05/21/2021 (record page opened Nov 10: work/founding-years/sunbiz/entities/N21000006108.json; president Yossef Y. Alon, 5016 Melrow Ct, Tampa). Its chabad.org listing went up 2023-02-06, after the filing, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: a state incorporation of the center's own corporation is medium). The IRS exemption from Aug 2021 agrees. Earlier note: IRS (ProPublica): 'Chabad Israeli Center Of Tampa Inc', care of Yossef Y Alon, exempt from 2021-08, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2023."
+   "note": "A filing: Florida's registry (Sunbiz) has CHABAD ISRAELI CENTER OF TAMPA, INC (document N21000006108, Active), filed 05/21/2021 (record page opened Nov 10: work/founding-years/sunbiz/entities/N21000006108.json; president Yossef Y. Alon, 5016 Melrow Ct, Tampa). Its chabad.org listing went up 2023-02-06, after the filing, and nothing earlier shows the center, so the filing is the year (HANDOFF 4b: a state incorporation of the center's own corporation is medium). The IRS exemption from Aug 2021 agrees. Earlier note: IRS (ProPublica): 'Chabad Israeli Center Of Tampa Inc', care of Yossef Y Alon, exempt from 2021-08, so it existed by then. Start year not found yet; lead: therebbesimpact.com 2023.",
+   "people": [
+    {
+     "name": "Yossef Y. Alon",
+     "role": "head",
+     "seen": "2021",
+     "note": "president of its 2021 corporation"
+    }
+   ]
   },
   "5940415": {
    "name": "Downtown Jewish Preschool",
@@ -16674,7 +17946,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/5940415",
-   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2023. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2023-05-04), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2023. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2023-05-04), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": []
   },
   "6164749": {
    "name": "Chabad of Forest Lakes Estates",
@@ -16684,7 +17957,19 @@
    "how": "stated",
    "source": "https://www.chabadfle.com/templates/articlecco_cdo/aid/6972443/jewish/About-Us.htm",
    "note": "Its own About page: 'Chabad of Forest Lakes Estates was established in 2019, to serve the Jewish community of Lauderhill'; 'Rabbi Elazar and Sara Gedj moved to Lauderhill and founded Chabad of Forest Lakes Estates in 2019.'",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Elazar Gedj",
+     "role": "founder",
+     "from": "2019"
+    },
+    {
+     "name": "Sara Gedj",
+     "role": "founder",
+     "from": "2019"
+    }
+   ]
   },
   "6184526": {
    "name": "Jewish Community Synagogue",
@@ -16695,7 +17980,15 @@
    "how": "directory",
    "source": "https://projects.propublica.org/nonprofits/organizations/844962676",
    "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2023. IRS exempt-organization record (EO Business Master File, Nov 2026): 'JEWISH COMMUNITY SYNAGOGUE INC' (EIN 84-4962676), 844 Prosperity Farms Rd, N Palm Beach, ruling Aug 2021. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start. Its chabad.org listing went up 2024-01-16, after the ruling. Sunbiz (opened Nov 10): the Ezagui family's CHABAD HOUSE-LUBAVITCH OF PALM BEACH, INC. (N25303), filed 03/09/1988, and LUBAVITCH CENTER OF THE PALM BEACHES, INC. (N43125), filed 04/24/1991, both list Shloime (Sal), Chana and Isaac Ezagui at 844 Prosperity Farms Rd, North Palm Beach, this synagogue's address today. They are other corporations, and nothing found yet says the synagogue is their continuation, so they do not set its year (lead only).",
-   "confidence": "low"
+   "confidence": "low",
+   "people": [
+    {
+     "name": "Shloime (Sal) Ezagui",
+     "role": "head",
+     "seen": "1991",
+     "note": "with Chana and Isaac Ezagui, in its 1991 filing"
+    }
+   ]
   },
   "6516255": {
    "name": "Chabad of Port Orange",
@@ -16706,7 +17999,8 @@
    "how": "directory",
    "source": "https://projects.propublica.org/nonprofits/organizations/920369408",
    "note": "IRS (ProPublica): 'Chabad Of Port Orange Inc', exempt from 2023-02, so it existed by then. Start year not found yet; lead: the chabad.org listing is from about 2024. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD OF PORT ORANGE INC' (EIN 92-0369408), 5800 Spruce Creek Woods Dr, Port Orange, ruling Feb 2023. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start.",
-   "confidence": "low"
+   "confidence": "low",
+   "people": []
   },
   "6531223": {
    "name": "Chabad of Babcock Ranch - Charlotte County",
@@ -16716,7 +18010,19 @@
    "how": "news",
    "confidence": "high",
    "source": "https://crownheights.info/chabad-news/889580/chabad-responds-to-tragedy-by-expanding-global-outreach-100-new-centers-to-be-established/",
-   "note": "CrownHeights.info, 4 Dec 2024 ('Chabad Responds to Tragedy by Expanding Global Outreach: 100 New Centers To Be Established'): Keren Hashluchim seed funding 'for one hundred new Chabad centers in underserved areas'; among 'The Fifty New Shluchim': 'Rabbi Mendel and Malky Jacobson at Chabad of Babcock Ranch, FL' (a new community Chabad House). Its chabad.org listing went up 1 Oct 2024; IRS (ProPublica): 'Chabad Of Babcock Ranch - Charlotte County Inc', care of Menachem Mendel Jacobson, exempt from 2025-06."
+   "note": "CrownHeights.info, 4 Dec 2024 ('Chabad Responds to Tragedy by Expanding Global Outreach: 100 New Centers To Be Established'): Keren Hashluchim seed funding 'for one hundred new Chabad centers in underserved areas'; among 'The Fifty New Shluchim': 'Rabbi Mendel and Malky Jacobson at Chabad of Babcock Ranch, FL' (a new community Chabad House). Its chabad.org listing went up 1 Oct 2024; IRS (ProPublica): 'Chabad Of Babcock Ranch - Charlotte County Inc', care of Menachem Mendel Jacobson, exempt from 2025-06.",
+   "people": [
+    {
+     "name": "Rabbi Mendel Jacobson",
+     "role": "founder",
+     "from": "2024"
+    },
+    {
+     "name": "Malky Jacobson",
+     "role": "founder",
+     "from": "2024"
+    }
+   ]
   },
   "6533668": {
    "name": "Centro Judaico De Miami",
@@ -16727,7 +18033,8 @@
    "how": "directory",
    "source": "https://projects.propublica.org/nonprofits/organizations/852470305",
    "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2024. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CENTRO JUDAICO DE MIAMI INC' (EIN 85-2470305), 2375 Ne 187Th St, Miami, ruling May 2021. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start. Its chabad.org listing went up 2024-12-12, after the ruling.",
-   "confidence": "low"
+   "confidence": "low",
+   "people": []
   },
   "6660858": {
    "name": "Chabad Business District",
@@ -16737,7 +18044,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/6660858",
-   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2025. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2024-11-20), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2025. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2024-11-20), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": []
   },
   "6668826": {
    "name": "JUDA - Hebrew School",
@@ -16747,7 +18055,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/6668826",
-   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2025. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2024-12-12), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2025. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2024-12-12), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": []
   },
   "6788826": {
    "name": "Chabad of East Tampa",
@@ -16757,7 +18066,23 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/6788826",
-   "note": "St. Petersburg Times (CrownHeights.info, 12 June 2007): 'Rabbi Uriel Rivkin runs a Chabad house in Temple Terrace near the University of South Florida'; COL (16 Oct 2007) has Uriel Rivkin, 31, overseeing Young Israel of Tampa's USF branch. Today's Chabad of East Tampa (Young Israel – Chabad East Tampa, 13207 N 52nd Street, Temple Terrace) is the Rivkins' (Rabbi Uriel and Dvora); the chabad.org listing (6788826) is new, about 2025. So there by 2007; its start not found. Lead (not a year): Sunbiz has a CHABAD HOUSE, INC. (document 758590), filed 06/02/1981, president Rabbi Eliezer Rivkin, 13104 N 52nd Street, Tampa (by USF), dissolved 12/14/1982 (record page opened Nov 10: work/founding-years/sunbiz/entities/758590.json). Today's center is at 13207 N 52nd Street with Rabbi Uriel Rivkin; nothing found yet ties the two. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2025-03-06), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "St. Petersburg Times (CrownHeights.info, 12 June 2007): 'Rabbi Uriel Rivkin runs a Chabad house in Temple Terrace near the University of South Florida'; COL (16 Oct 2007) has Uriel Rivkin, 31, overseeing Young Israel of Tampa's USF branch. Today's Chabad of East Tampa (Young Israel – Chabad East Tampa, 13207 N 52nd Street, Temple Terrace) is the Rivkins' (Rabbi Uriel and Dvora); the chabad.org listing (6788826) is new, about 2025. So there by 2007; its start not found. Lead (not a year): Sunbiz has a CHABAD HOUSE, INC. (document 758590), filed 06/02/1981, president Rabbi Eliezer Rivkin, 13104 N 52nd Street, Tampa (by USF), dissolved 12/14/1982 (record page opened Nov 10: work/founding-years/sunbiz/entities/758590.json). Today's center is at 13207 N 52nd Street with Rabbi Uriel Rivkin; nothing found yet ties the two. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2025-03-06), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": [
+    {
+     "name": "Rabbi Uriel Rivkin",
+     "role": "director"
+    },
+    {
+     "name": "Dvora Rivkin",
+     "role": "director"
+    },
+    {
+     "name": "Rabbi Eliezer Rivkin",
+     "role": "head",
+     "seen": "1981",
+     "note": "president in a 1981 filing"
+    }
+   ]
   },
   "7307637": {
    "name": "Chabad of North Port",
@@ -16767,7 +18092,19 @@
    "how": "news",
    "source": "https://collive.com/new-shluchim-to-floridas-west-coast/",
    "note": "COLlive, 14 June 2026 ('New Shluchim to Florida's West Coast'): 'Rabbi Srolik and Nechama Sputz, together with their son Levi, will be establishing Chabad of North Port, Florida' (south Sarasota County). IRS: Chabad Of North Port Inc (care of Yisroel Sputz), exempt from July 2026. Both give 2026.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Srolik Sputz",
+     "role": "founder",
+     "from": "2026"
+    },
+    {
+     "name": "Nechama Sputz",
+     "role": "founder",
+     "from": "2026"
+    }
+   ]
   },
   "7361269": {
    "name": "Chabad at University of Tampa",
@@ -16777,7 +18114,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/7361269",
-   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2026. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2026-06-15), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2026. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2026-06-15), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": []
   },
   "7368606": {
    "name": "Chabad Oakland Park East",
@@ -16788,7 +18126,19 @@
    "source": "https://www.chabadoaklandpark.com/7402701",
    "note": "Its own About page: 'Rabbi Yitzchok and Nina Naparstek launched Chabad of Oakland Park East in the summer of 2026'; 'Since 2006, Rabbi Yitzchok and Nina have been actively building Jewish community throughout the Fort Lauderdale area' (a division of Chabad Lubavitch of Fort Lauderdale). Not the Mochkins' Chabad of Oakland Park (COLlive, 24 March 2026).",
    "confidence": "high",
-   "season": "summer"
+   "season": "summer",
+   "people": [
+    {
+     "name": "Rabbi Yitzchok Naparstek",
+     "role": "founder",
+     "from": "2026"
+    },
+    {
+     "name": "Nina Naparstek",
+     "role": "founder",
+     "from": "2026"
+    }
+   ]
   },
   "3031418": {
    "name": "CTeen of Boca Raton",
@@ -16798,7 +18148,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/3031418",
-   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 2015. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2015-10-14), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 2015. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2015-10-14), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "4630191": {
    "name": "Chabad of Boca Raton",
@@ -16808,7 +18159,19 @@
    "how": "anniversary",
    "confidence": "medium",
    "source": "https://crownheights.info/shlichus/390202/a-new-chabad-house-planned-for-west-boca/",
-   "note": "Sun Sentinel (on CrownHeights.info, 18 June 2013, 'A New Chabad House Planned for West Boca'): 'Chabad's rabbi, Zalman Bukiet, remembers moving to Boca Raton 24 years ago with Rabbi Moshe Denburg and their wives', so 1989; the same paper a year earlier (CrownHeights.info, 11 June 2012): 'Denburg and Bukiet moved to the area about a quarter of a century ago, establishing a Chabad-Lubavitch center that has since expanded to five individual branches across Boca Raton.' Counted back, so medium. Its chabad.org listing went up 2020-01-28."
+   "note": "Sun Sentinel (on CrownHeights.info, 18 June 2013, 'A New Chabad House Planned for West Boca'): 'Chabad's rabbi, Zalman Bukiet, remembers moving to Boca Raton 24 years ago with Rabbi Moshe Denburg and their wives', so 1989; the same paper a year earlier (CrownHeights.info, 11 June 2012): 'Denburg and Bukiet moved to the area about a quarter of a century ago, establishing a Chabad-Lubavitch center that has since expanded to five individual branches across Boca Raton.' Counted back, so medium. Its chabad.org listing went up 2020-01-28.",
+   "people": [
+    {
+     "name": "Rabbi Zalman Bukiet",
+     "role": "founder",
+     "from": "1989"
+    },
+    {
+     "name": "Rabbi Moshe Denburg",
+     "role": "founder",
+     "from": "1989"
+    }
+   ]
   },
   "120125": {
    "name": "Beis Chana School for Girls",
@@ -16819,7 +18182,8 @@
    "how": "not-found",
    "source": null,
    "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2003.",
-   "confidence": "open"
+   "confidence": "open",
+   "people": []
   },
   "120127": {
    "name": "Gan Israel Day Camp",
@@ -16830,7 +18194,8 @@
    "how": "not-found",
    "source": null,
    "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2003.",
-   "confidence": "open"
+   "confidence": "open",
+   "people": []
   },
   "4250167": {
    "name": "My Yeshiva",
@@ -16840,7 +18205,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/4250167",
-   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 2018. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2019-01-06), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 2018. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2019-01-06), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "297715": {
    "name": "Chabad of North East Broward",
@@ -16850,7 +18216,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/297715",
-   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2004. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2005-07-22), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2004. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2005-07-22), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "4951069": {
    "name": "Ckids Gan Israel Florida",
@@ -16861,7 +18228,17 @@
    "confidence": "high",
    "source": "https://collive.com/new-gan-izzy-overnight-camp-to-open-in-florida/",
    "note": "COLlive, 10 June 2020 ('New \"Gan Izzy Overnight Camp\" to Open in Florida'): 'the brand new CKids Gan Israel is launching a magnificent ten-day camp session for boys from grades four to seven', a Merkos 302 pilot overnight camp in South Florida, hosted that year at Camp Gan Israel Florida's campsite in Lake Worth; 'The professional and experienced staff, led by directors Rabbi Levi and Chaya Plotkin'. COLlive, 14 Jan 2021: Rabbi Levi Plotkin 'is camp director alongside his wife Chaya'. Its chabad.org listing went up 6 Jan 2021.",
-   "season": "summer"
+   "season": "summer",
+   "people": [
+    {
+     "name": "Rabbi Levi Plotkin",
+     "role": "director"
+    },
+    {
+     "name": "Chaya Plotkin",
+     "role": "director"
+    }
+   ]
   },
   "120130": {
    "name": "Chabad Hebrew School",
@@ -16872,7 +18249,8 @@
    "how": "not-found",
    "source": null,
    "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2003.",
-   "confidence": "open"
+   "confidence": "open",
+   "people": []
   },
   "449759": {
    "name": "Chabad of Tamarac",
@@ -16882,7 +18260,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/449759",
-   "note": "Florida Sunbiz: 'CHABAD OF TAMARAC, INC', document N07000010120 (filed 2007). Start year not found yet; lead: therebbesimpact.com 2003. Its chabad.org listing went up 2006-11-28, so it existed by 2006 (was 'by 2007'). Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2006-11-28), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "Florida Sunbiz: 'CHABAD OF TAMARAC, INC', document N07000010120 (filed 2007). Start year not found yet; lead: therebbesimpact.com 2003. Its chabad.org listing went up 2006-11-28, so it existed by 2006 (was 'by 2007'). Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2006-11-28), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "6540531": {
    "name": "CKids Hebrew School",
@@ -16892,7 +18271,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/6540531",
-   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2024. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2024-08-28), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2024. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2024-08-28), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "4120344": {
    "name": "Beit Chabad South Beach",
@@ -16902,7 +18282,14 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/4120344",
-   "note": "IRS (ProPublica): 'Beit Chabad South Beach Inc', care of Chagai Meffi, exempt from 2024-08, so it existed by then (a later re-registration is possible). Start year not found yet; lead: therebbesimpact.com 2018. IRS exempt-organization record (EO Business Master File, Nov 2026): 'BEIT CHABAD SOUTH BEACH INC' (EIN 93-4454173), 36 Island Ave Apt 43, Miami Beach, ruling Aug 2024. Its chabad.org listing went up Aug 29 2018, so it existed by then. The IRS ruling (Aug 2024) comes after the listing, so it is not the year (Nov 10 re-check of the filings sweep). Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2018-08-29), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "IRS (ProPublica): 'Beit Chabad South Beach Inc', care of Chagai Meffi, exempt from 2024-08, so it existed by then (a later re-registration is possible). Start year not found yet; lead: therebbesimpact.com 2018. IRS exempt-organization record (EO Business Master File, Nov 2026): 'BEIT CHABAD SOUTH BEACH INC' (EIN 93-4454173), 36 Island Ave Apt 43, Miami Beach, ruling Aug 2024. Its chabad.org listing went up Aug 29 2018, so it existed by then. The IRS ruling (Aug 2024) comes after the listing, so it is not the year (Nov 10 re-check of the filings sweep). Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2018-08-29), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": [
+    {
+     "name": "Chagai Meffi",
+     "role": "head",
+     "note": "named in its IRS record"
+    }
+   ]
   },
   "3372691": {
    "name": "Chabad Lubavitch of South Coconut Creek and Wynmoor",
@@ -16912,7 +18299,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/3372691",
-   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 1993. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2016-07-13), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 1993. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2016-07-13), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "6724874": {
    "name": "Chabad Lubavitch Jewish Community Center of Lake City",
@@ -16922,7 +18310,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/6724874",
-   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2025. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2025-01-16), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No dated source found yet (Nov 2026 searches). Lead: the chabad.org listing is from about 2025. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2025-01-16), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "4999951": {
    "name": "Congregation Magen David",
@@ -16932,7 +18321,8 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/4999951",
-   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 1967. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2021-01-05), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No dated source found yet (Nov 2026 searches). Lead: therebbesimpact.com 1967. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2021-01-05), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": []
   },
   "425138": {
    "name": "Rabbinical College of America",
@@ -16950,7 +18340,8 @@
      "until": 1971,
      "source": "https://www.rca.edu/templates/articlecco_cdo/aid/1815539/jewish/VisionHistory.htm"
     }
-   ]
+   ],
+   "people": []
   },
   "118533": {
    "name": "Chabad of Paramus",
@@ -16960,7 +18351,19 @@
    "how": "news",
    "source": "https://crownheights.info/shlichus/832211/new-shluchim-set-out-to-transform-paramus-nj",
    "note": "CrownHeights.info and Anash (on new shluchim joining them): 'In 2002, Shluchim Rabbi Moshe and Zeesy Grossbaum made Paramus their home'; they direct Chabad of Paramus.",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Moshe Grossbaum",
+     "role": "founder",
+     "from": "2002"
+    },
+    {
+     "name": "Zeesy Grossbaum",
+     "role": "founder",
+     "from": "2002"
+    }
+   ]
   },
   "117654": {
    "name": "Chabad Lubavitch of Western Monmouth County",
@@ -16970,7 +18373,19 @@
    "how": "anniversary",
    "source": "https://crownheights.info/general/2264/chabad-to-mark-20-years-of-service-to-community",
    "note": "News Transcripts (CrownHeights.info, 23 May 2006): 'Celebration 20 will offer an opportunity to reflect on the accomplishments of Chabad of Western Monmouth County' over 20 years (so 1986); its own site (2026): 'creating meaningful Jewish experiences ... for forty years'. Founded by Rabbi Boruch and Tova Chazanow; its Gan Israel day camp from 1990. (A March 2012 piece spoke of its 25th year.)",
-   "confidence": "high"
+   "confidence": "high",
+   "people": [
+    {
+     "name": "Rabbi Boruch Chazanow",
+     "role": "founder",
+     "from": "1986"
+    },
+    {
+     "name": "Tova Chazanow",
+     "role": "founder",
+     "from": "1986"
+    }
+   ]
   },
   "698690": {
    "name": "Chabad Ventnor Shul",

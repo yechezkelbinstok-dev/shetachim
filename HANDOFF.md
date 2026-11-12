@@ -189,6 +189,18 @@ thirteen no better recent photo has been found yet (the list is there, with what
   - Where to look: the Jewish Floridian (UF Digital Collections, free) for the Florida ones; Florida's nonprofit
     registry (Sunbiz, behind a bot check, so Firecrawl stealth); California's business registry; local Jewish papers.
   - Replace each placeholder with a sourced end and drop its flag.
+- **▶ PEOPLE ROUND (Nov 12, in progress; owner: "WHY ISNT THERE PERSONELL WHERE AVAILABLE THAT WASNT PART OF THE
+  RESEARCH??? NOW WOW I NEED A WHOLE NOTHER ROUND").** Each center's founders / first directors / later directors, as
+  its founding sources name them, in data/founding-years.json `people`: `[{name, role, from?, to?, seen?, note?}]`, roles
+  founder | co-founder | first director | director | head | principal | rabbi; `from` only where the source dates the
+  start, `seen` for a year someone is merely documented in; `[]` = checked, no one named. Rules: names exactly as the
+  source gives them (no first names supplied from memory; a couple's wife only if named; "the Katzmans" kept as is and
+  listed in work/founding-years/people-followup.txt to complete from the source); therebbesimpact.com names get a note.
+  Work: `python3 -I work/founding-years/people_todo.py 70 0` (compact: the note's sentences naming people; `--full` for
+  whole notes), write work/founding-years/batches/people-NN.json, `python3 work/founding-years/add_people.py < it`, then
+  `python3 -I scripts/build-growth.py` (the growth page's cards show "Founded by …"). Done so far: batches 01-08, 462 of
+  1,934 entries (420 with someone named), Michigan, Maritimes … California (the order of founding-years.json). Next:
+  the rest from the notes; then the follow-ups; then the centers whose notes name no one (their sources, then search).
 - **▶ Founding years: CONTINUE HERE (Nov 12). 41 listings (16 dots) of 1,902 still have no year**, all from
   chabad.org's first directory (July 2004). Owner (Nov 11): "try very hard to date the remaining ones. Think of all
   possible ways to target each one individually, especially non subsidiaries like primaries"; he wants "a proper

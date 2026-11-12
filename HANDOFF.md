@@ -241,11 +241,26 @@ thirteen no better recent photo has been found yet (the list is there, with what
   come from OpenFreeMap's styles, not the page.)
   **Gear menu** (as on the history page): Hebrew years, Milestones. **Milestones** = the "★ First in <state>" chips under
   the year as a state or province gets its first center; owner, Nov 12: "Also should be an option to turn off milestones
-  I don't love how u did it" → the switch is in (on by default, remembered per browser as growth-ms, `?ms=0|1`).
-  **Open, for the next session:** (1) the owner doesn't love how the milestones look: ask what they'd like instead before
-  redoing them (ideas to offer: the state's name shown on the map itself for a moment as it lights up; one quiet line in
-  the year plate; or simply off by default). (2) The street map's screenshots weren't sent to the owner yet. (3) Still
-  unanswered from before: whether the confidence badges stay on the cards.
+  I don't love how u did it" → the switch is in (on by default, remembered per browser as growth-ms, `?ms=0|1`). Then
+  (Nov 12, angry): "MILESTONES NEED TO BE TURN OFF ABLE THE ORANGE THINGY" → the same switch now also turns off the orange
+  rings round the new centers (it isn't certain which orange thing was meant; both are under it).
+  **The shetach history integrated (Nov 12)** — owner, very angry: "THERES SO MUCH STUFF IN THE SHETACHIM YEAR BY YEAR LIKE
+  THOSE ORIGINAL YESHIVAS FOR EXAMPLE THAT ARENT FUCKING HERE ... WHY DIDNT YOU FUCKING INTEGRATE THE DATA? ALSO WHY ARENT
+  SHETACHIM TAPPABBLE IN THIS ONE?" Lesson: a new page over the same data must carry everything the other pages show of it.
+  Now: the history's flagships and first places in both backgrounds (a star; a round dot for a lone yeshiva, school or
+  shul, e.g. the 1940s Achei Tmimim in Worcester and Pittsburgh, Tomchei Tmimim in Montreal), tappable; every shetach
+  tappable (its shape lit) with the history page's card (its name that year, head shliach with photo and years, vaad with
+  faces, flagship; 770's world card) plus "N centers by <year>"; the shetachim's names on both maps (Shetachim). The
+  card code is **copied from web/history.html** (the helpers and cards, CSS scoped to `#card.hc`): a change to the
+  history page's cards wants the same change here. It loads ../data/head-photos.json and data/history-centers.json too.
+  **Personnel** on a center's card as on the main map (its man or family, "+N more", deceased apart), from
+  centers.geojson's chabad.org personnel (build-growth.py puts them in growth.json; 1,836 of 1,886 listings have some).
+  The owner also said: "WHY ISNT THERE PERSONELL WHERE AVAILABLE THAT WASNT PART OF THE RESEARCH??? NOW WOW I NEED A WHOLE
+  NOTHER ROUND" — i.e. the founding research should also have recorded who founded/led each center where the sources say;
+  see the personnel round below.
+  **Open, for the next session:** (1) whether the owner wants the milestones redone or just off by default. (2) The
+  street map's screenshots weren't sent to the owner yet. (3) Still unanswered: whether the confidence badges stay on
+  the cards.
   Its data: `python3 -I scripts/build-growth.py` writes web/data/growth.json from centers.geojson and
   data/founding-years.json (rerun after founding-year changes; left out as in progress.py: mushrooms, mikvahs, unresearched
   Crown Heights, and dots with no year). Anshei Lubavitch (a 1909 shul) shows from 1940. Not yet: moves (the `earlier`

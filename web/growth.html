@@ -16,6 +16,8 @@ try { const q = new URLSearchParams(location.search).get('theme'); const t = q |
   --dot: #163e74; --dot-halo: rgb(255 255 255 / .9); --pop: #d29b2a; --star: #c8952a; --star-edge: #6b4a0f;
   --panel: rgb(251 252 251 / .94); --panel-line: #d2d9dc; --accent: #1d4f8f; --accent-soft: #e3ebf5;
   --bar-past: #1d4f8f; --bar-future: #c9d2d7; --chip: #fff7e4; --chip-ink: #6b4a0f; --chip-line: #ecd59c;
+  --tile: #eef1f3; --honor: #8a6a1e; --honor-line: #c39a3e; --honor-soft: #f6efdc;
+  --pick-fill: rgb(29 79 143 / .10); --name-ink: rgb(30 43 50 / .85);
   --font: "Inter", "Heebo", "Segoe UI", system-ui, -apple-system, sans-serif;
   --shadow: 0 1px 2px rgb(20 35 45 / .08), 0 6px 20px rgb(20 35 45 / .10);
 }
@@ -26,6 +28,8 @@ try { const q = new URLSearchParams(location.search).get('theme'); const t = q |
     --dot: #f1cf78; --dot-halo: rgb(11 17 20 / .85); --pop: #ffe7a3; --star: #fff8e6; --star-edge: #b8892a;
     --panel: rgb(21 32 37 / .94); --panel-line: #2b3a41; --accent: #93b8ec; --accent-soft: #22344a;
     --bar-past: #f1cf78; --bar-future: #33434a; --chip: #2c2716; --chip-ink: #f3dc9a; --chip-line: #5a4a1e;
+    --tile: #1e2b31; --honor: #e0c278; --honor-line: #c9a24a; --honor-soft: #2b2a20;
+    --pick-fill: rgb(147 184 236 / .13); --name-ink: rgb(230 237 240 / .88);
     --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 8px 24px rgb(0 0 0 / .35);
     color-scheme: dark;
   }
@@ -36,6 +40,8 @@ try { const q = new URLSearchParams(location.search).get('theme'); const t = q |
   --dot: #f1cf78; --dot-halo: rgb(11 17 20 / .85); --pop: #ffe7a3; --star: #fff8e6; --star-edge: #b8892a;
   --panel: rgb(21 32 37 / .94); --panel-line: #2b3a41; --accent: #93b8ec; --accent-soft: #22344a;
   --bar-past: #f1cf78; --bar-future: #33434a; --chip: #2c2716; --chip-ink: #f3dc9a; --chip-line: #5a4a1e;
+  --tile: #1e2b31; --honor: #e0c278; --honor-line: #c9a24a; --honor-soft: #2b2a20;
+  --pick-fill: rgb(147 184 236 / .13); --name-ink: rgb(230 237 240 / .88);
   --shadow: 0 1px 2px rgb(0 0 0 / .3), 0 8px 24px rgb(0 0 0 / .35);
   color-scheme: dark;
 }
@@ -136,6 +142,134 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #card .conf.h { color: #79d3a0; } :root:not([data-theme="light"]) #card .conf.m { color: #e8c06a; } }
 #card .none { color: var(--muted); font-size: 12.5px; }
 .err { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); }
+/* ---- a shetach's card and a flagship's, as on the history page (its CSS, scoped to .hc) ---- */
+#card.hc { padding: 10px 12px; font-size: 14px; line-height: 1.4; }
+#card.hc.world { border-color: var(--accent); box-shadow: var(--shadow), 0 0 0 1px var(--accent); }
+#card.hc .close { position: absolute; top: 6px; inset-inline-end: 6px; z-index: 2; display: grid; place-items: center; width: 26px; height: 26px; padding: 0; border: 0; border-radius: 6px; background: transparent; color: var(--ink); cursor: pointer; }
+#card.hc .close:hover { background: var(--accent-soft); }
+#card.hc h2 { margin: 0 0 4px; margin-inline-end: 22px; font: 700 16px/1.25 var(--font); text-wrap: balance; }
+#card.hc p, #card .meta { margin: 0; color: var(--muted); font-size: 13px; }
+#card.hc a { color: var(--accent); font-size: 13px; }
+#card.hc .kicker { display: block; margin-bottom: 2px; color: var(--muted); font: 600 10px var(--font); letter-spacing: .08em; text-transform: uppercase; }
+#card.hc .kicker-world { color: var(--accent); font-weight: 700; }
+#card.world .kicker-world { font-size: 14px; letter-spacing: .06em; margin-bottom: 2px; }
+:root[lang="he"] #card.hc .kicker { letter-spacing: 0; }
+#card.hc h2.honor-h { font-size: 30px; line-height: 1.1; margin-bottom: 6px; }
+#card.hc .hc-head { margin: -10px -12px 12px; padding: 13px 14px 12px; border-bottom: 1px solid var(--panel-line); border-radius: 9px 9px 0 0; background: linear-gradient(180deg, var(--honor-soft), var(--panel) 92%); }
+#card.hc .hc-head .kicker { padding-inline-end: 22px; color: var(--honor); font-weight: 700; margin-bottom: 3px; }
+#card.hc .hc-head h2 { margin-bottom: 0; letter-spacing: -.01em; }
+#card.hc .rebbe { margin: 4px 0 2px; color: var(--ink); font: 700 18px/1.25 var(--font); }
+#card.hc .rebbe .role { white-space: nowrap; font-weight: 600; color: var(--muted); }
+#card.hc .rebbe.sm { font-size: 15.5px; }
+#card.hc .rebbe .hon { white-space: nowrap; }
+:root:not([lang="he"]) #card.hc .rebbe .hon { font-size: .88em; }
+#card.hc .rb-pic { flex: none; display: block; width: var(--w, 50px); aspect-ratio: 4 / 5; box-sizing: border-box; padding: 3px; border-radius: 2px;
+  background: linear-gradient(135deg, #f7e8bb 0%, #c99e47 24%, #f2d998 46%, #9b7428 72%, #dcbb6e 100%);
+  box-shadow: 0 2px 6px -1px rgba(60, 40, 8, .45), inset 0 0 0 1px rgba(255, 244, 210, .55); }
+#card.hc .rb-pic img { display: block; width: 100%; height: 100%; object-fit: cover; box-shadow: 0 0 0 1px rgba(70, 48, 10, .7); }
+#card.hc .rebbe-row { display: flex; flex-direction: row; align-items: center; gap: 12px; margin: 4px 0 2px; }
+#card.hc .rebbe-row .rebbe { margin: 0; }
+#card.hc .rebbe-row.under { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--panel-line); }
+#card.hc .rb-txt { min-width: 0; }
+#card.hc .rb-txt .meta { margin-top: 2px; }
+#card.hc .hc-city { margin-top: 10px; }
+#card.hc .foot { margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--panel-line); }
+#card.hc .cc-head { --t: var(--tile); position: relative; display: flex; align-items: center; gap: 13px; margin: -10px -12px 0; padding: 14px; border-radius: 9px 9px 0 0;
+  background: var(--tile); background: linear-gradient(150deg, color-mix(in srgb, var(--t) 52%, var(--panel)) 0%, color-mix(in srgb, var(--t) 18%, var(--panel)) 100%);
+  border-bottom: 1px solid color-mix(in srgb, var(--t) 45%, var(--panel-line)); }
+#card.hc .cc-htext { flex: 1; min-width: 0; padding-inline-end: 22px; }
+#card.hc .cc-kick { margin: 0 0 4px; color: color-mix(in srgb, var(--ink) 58%, transparent); font: 700 10px/1.35 var(--font); letter-spacing: .09em; text-transform: uppercase; }
+:root[lang="he"] #card.hc .cc-kick { font-size: 11px; letter-spacing: 0; }
+#card.hc .cc-kick.flag { color: var(--accent); }
+#card.hc .cc-kick .ic { display: inline-block; width: 10px; height: 10px; margin-inline-end: 4px; vertical-align: -1px; }
+#card.hc h2.cc-title { margin: 0; color: var(--ink); font: 650 17.5px/1.22 var(--font); letter-spacing: -.01em; text-wrap: balance; }
+#card.hc h2.cc-title.big { font-size: 22px; line-height: 1.12; }
+#card.hc .cc-sub { margin: 3px 0 0; color: var(--muted); font-size: 12.5px; line-height: 1.35; }
+#card.hc .cc-subrow { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-top: 3px; }
+#card.hc .cc-subrow .cc-sub { flex: 1 1 auto; min-width: 0; margin: 0; }
+#card.hc .cc-chip { flex: none; display: inline-flex; align-items: center; gap: 5px; height: 26px; margin: 0; margin-inline-start: auto; padding: 0 10px;
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--panel-line)); border-radius: 999px; background: color-mix(in srgb, var(--panel) 82%, transparent);
+  color: var(--accent); font: 600 12px/1 var(--font); text-decoration: none; white-space: nowrap; cursor: pointer; }
+#card.hc .cc-chip:hover { background: var(--accent-soft); }
+#card.hc .cc-chip .ic { flex: none; width: 12px; height: 12px; }
+#card.hc .cc-head .cc-chip.cc-icon { position: absolute; top: 6px; inset-inline-end: 34px; justify-content: center; width: 26px; height: 26px; margin: 0; padding: 0; border: 0; border-radius: 6px; background: transparent; color: var(--accent); }
+#card.hc .cc-head .cc-chip.cc-icon:hover { background: var(--accent-soft); }
+#card.hc .cc-head .cc-chip.cc-icon .ic { width: 14px; height: 14px; }
+#card.hc .cc-head:has(.cc-icon) .cc-htext > :first-child { padding-inline-end: 34px; }
+#card.hc .cc-body { padding: 13px 2px 0; }
+#card.hc .cc-body > :first-child { margin-top: 0; }
+#card.hc .cc-people + .cc-people { margin-top: 10px; }
+#card.hc .cc-person { display: flex; align-items: center; gap: 11px; }
+#card.hc .cc-person.has-ph { gap: 13px; }
+#card.hc .cc-av { --t: var(--tile); flex: none; display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: color-mix(in srgb, var(--t) 50%, var(--panel)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--t) 70%, var(--panel-line)); color: color-mix(in srgb, var(--ink) 85%, var(--t)); font: 650 12.5px/1 var(--font); letter-spacing: .03em; }
+#card.hc .cc-av.big { width: 44px; height: 44px; font-size: 14.5px; }
+#card.hc .cc-ph { flex: none; width: 48px; height: 48px; border-radius: 50%; object-fit: cover; background: var(--panel);
+  box-shadow: 0 0 0 2px var(--panel), 0 0 0 3.5px color-mix(in srgb, var(--t, var(--tile)) 75%, var(--ink) 25%), 0 2px 6px rgba(0,0,0,.18); }
+#card.hc .cc-person.big .cc-ph { width: 66px; height: 66px; }
+#card.hc .cc-ptext { min-width: 0; }
+#card.hc .cc-ptext .lbl { display: block; margin-bottom: 1px; color: var(--muted); font: 700 10px/1.4 var(--font); letter-spacing: .08em; text-transform: uppercase; }
+:root[lang="he"] #card.hc .cc-ptext .lbl { font-size: 11px; letter-spacing: 0; }
+#card.hc .cc-ptext b { display: block; color: var(--ink); font: 600 14.5px/1.25 var(--font); }
+#card.hc .cc-person.big .cc-ptext b { font-size: 16px; }
+#card.hc .cc-ptext .pos { display: block; margin-top: 1px; color: var(--muted); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+#card.hc .cc-flagrow { display: flex; align-items: flex-start; gap: 9px; margin-top: 12px; color: var(--ink); font-size: 13px; line-height: 1.4; }
+#card.hc .cc-flagrow .ic { flex: none; width: 14px; height: 14px; margin-top: 2px; color: var(--accent); }
+#card.hc .cc-flagrow .lbl { color: var(--muted); }
+/* a vaad, as on the main map: where it leads (Florida, New Jersey) its faces in a honeycomb, "Leadership", its name, and
+   its members (a row each, with his photo); the head shliach on a line under it */
+#card.hc .cc-vaad { display: flex; align-items: center; gap: 15px; margin-bottom: 4px; }
+#card.hc .cc-hive { position: relative; flex: none; }
+#card.hc .cc-hive img { position: absolute; width: 34px; height: 34px; border-radius: 50%; object-fit: cover; background: var(--panel);
+  box-shadow: 0 0 0 2px var(--panel), 0 1px 4px rgba(0,0,0,.22); }
+#card.hc .cc-hive img.hd { box-shadow: 0 0 0 2px var(--panel), 0 0 0 3.5px color-mix(in srgb, var(--t) 75%, var(--ink) 25%), 0 1px 4px rgba(0,0,0,.22); }
+#card.hc .cc-vtext { min-width: 0; }
+#card.hc .cc-vtext > .lbl { display: block; margin-bottom: 1px; color: var(--muted); font: 700 10px/1.4 var(--font); letter-spacing: .08em; text-transform: uppercase; }
+:root[lang="he"] #card.hc .cc-vtext > .lbl { font-size: 11px; letter-spacing: 0; }
+#card.hc .cc-vtext > b { display: block; color: var(--ink); font: 600 16px/1.25 var(--font); }
+#card.hc .cc-vtext > .pos { display: block; margin-top: 1px; color: var(--muted); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+#card.hc details.vaad { margin-top: 4px; color: var(--muted); font-size: 13px; }
+#card.hc details.vaad > summary { cursor: pointer; color: var(--accent); font-size: 13px; }
+#card.hc details.vaad > summary::marker { color: var(--accent); }
+#card.hc .cc-vaad:has(details.vaad[open]) { align-items: flex-start; }
+#card.hc .cc-vaad:has(details.vaad[open]) .cc-hive { display: none; }
+#card.hc .cc-vaad:has(details.vaad[open]) .cc-vtext { flex: 1; }
+#card.hc details.vaad ul { display: grid; gap: 8px; margin: 10px 0 2px; padding: 0; list-style: none; }
+#card.hc details.vaad li.vm { display: flex; flex-direction: row; align-items: center; gap: 10px; color: var(--ink); animation: vm-in .2s ease-out both; }
+#card.hc details.vaad .vm-ph { flex: none; width: 32px; height: 32px; border-radius: 50%; object-fit: cover; background: var(--tile);
+  box-shadow: 0 0 0 2px var(--panel), 0 1px 3px rgba(0,0,0,.2); }
+#card.hc details.vaad .vm-av { display: grid; place-items: center; color: var(--ink); font: 600 12px/1 var(--font); background: color-mix(in srgb, var(--t) 40%, var(--panel)); }
+#card.hc details.vaad li.hd .vm-ph { box-shadow: 0 0 0 2px var(--panel), 0 0 0 3.5px color-mix(in srgb, var(--t) 75%, var(--ink) 25%), 0 1px 3px rgba(0,0,0,.2); }
+#card.hc details.vaad .vm-t { display: flex; flex-direction: column; min-width: 0; line-height: 1.3; }
+#card.hc details.vaad .vm-n { display: flex; flex-wrap: wrap; align-items: center; gap: 0 7px; }
+#card.hc details.vaad .vm-n b { color: var(--ink); font-size: 14px; font-weight: 600; }
+#card.hc details.vaad .vm-role { padding: 0 7px; border-radius: 999px; background: color-mix(in srgb, var(--t) 42%, var(--panel)); color: var(--ink); font-size: 11px; font-weight: 600; line-height: 18px; }
+#card.hc details.vaad .vm-town { color: var(--muted); font-size: 12.5px; }
+#card.hc details.vaad li.vm.alt { margin-top: 2px; padding-top: 10px; border-top: 1px dashed var(--panel-line); }
+#card.hc details.vaad li.alt .vm-ph { width: 26px; height: 26px; margin-inline: 3px; }
+#card.hc details.vaad li.alt .vm-n b { color: var(--muted); font-size: 13px; font-weight: 500; }
+#card.hc details.vaad li.alt .vm-town { font-size: 12px; }
+@keyframes vm-in { from { opacity: 0; transform: translateY(-3px); } }
+@media (prefers-reduced-motion: reduce) { #card.hc details.vaad li.vm { animation: none; } }
+#card.hc .cc-headrow .pi { flex: none; width: 16px; height: 16px; margin: 1px -1px 0; color: var(--muted); }
+#card.hc .cc-headrow .pos { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+#card.hc .cc-vline { margin-top: 11px; }
+#card.hc .cc-grp { margin: 0 0 8px; }
+#card.hc .cc-grp .lbl { color: var(--muted); font: 700 10px/1.4 var(--font); letter-spacing: .08em; text-transform: uppercase; }
+:root[lang="he"] #card.hc .cc-grp .lbl { font-size: 11px; letter-spacing: 0; }
+#card.hc .cc-grp .pos { color: var(--muted); font-size: 12.5px; }
+#card.hc .cc-grp ~ .cc-people + .cc-people { margin-top: 7px; }
+#card.hc .cc-vline .lbl { color: var(--muted); }
+#card.hc .cc-head, #card.hc .hc-head { border-radius: 13px 13px 0 0; }
+#card.hc .cc-count { margin: 10px 0 0; padding-top: 9px; border-top: 1px solid var(--panel-line); color: var(--muted); font-size: 13px; }
+#card.hc .cc-count b { color: var(--ink); }
+/* a center's people, as on the main map */
+#card .who { margin-top: 4px; font-size: 13px; color: var(--ink); }
+#card .who .person { margin: 0; }
+#card .who .meta { color: var(--muted); }
+#card details.personnel { margin-top: 2px; }
+#card details.personnel summary { cursor: pointer; font-size: 12px; color: var(--accent); list-style: none; }
+#card details.personnel summary::-webkit-details-marker { display: none; }
+#card details.personnel .pother { font-size: 12.5px; margin-top: 3px; padding-inline-start: 10px; }
 
 @media (max-width: 640px) {
   .year { font-size: 40px; }
@@ -195,10 +329,11 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   const L = (en, hb) => (HE ? hb : en);
   const Q = new URLSearchParams(location.search);
   const get = (u) => fetch(u, { cache: 'no-cache' }).then((r) => { if (!r.ok) throw new Error(`${u}: ${r.status}`); return r.json(); });
-  let topo, sfile, hist, data, he = null;
+  let topo, sfile, hist, data, he = null, photos = { photos: [] }, centers = {};
   try {
-    [topo, sfile, hist, data, he] = await Promise.all([get('data/history-geo.json'), get('data/shetachim.json'), get('../data/shetach-history.json'),
-      get('data/growth.json'), HE ? get('data/he.json').catch(() => null) : null]);
+    [topo, sfile, hist, data, he, photos, centers] = await Promise.all([get('data/history-geo.json'), get('data/shetachim.json'), get('../data/shetach-history.json'),
+      get('data/growth.json'), HE ? get('data/he.json').catch(() => null) : null, get('../data/head-photos.json').catch(() => ({ photos: [] })),
+      get('data/history-centers.json').catch(() => ({}))]);
   } catch (err) {
     const e = $('#err'); e.hidden = false; e.textContent = L("The data didn't load", 'הנתונים לא נטענו'); return;
   }
@@ -262,25 +397,32 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   const areaKeys = Object.keys(hist.areas);
   const P = pieces.map((g) => {
     const id = g.properties.id, sid = g.properties.shetach;
-    if (g.properties.north) return { north: true, periods: [] };
+    if (g.properties.north) return { north: true, sliver: false, periods: [] };
     const key = hist.areas[id] ? id : areaKeys.find((k) => k.split(':')[1] === sid);
     const list = key ? hist.areas[key] : [];
-    return { periods: list.map((p) => ({ sid: p.shetach || null, st: startOf(p) })).filter((q) => q.st) };
+    // ('sliver': the bit of New York the borders give to Southern Ontario's piece, left out of names, as on the history page)
+    return { sliver: !!key && key !== id && key.slice(0, 2) !== id.slice(0, 2), periods: list.map((p) => ({ sid: p.shetach || null, st: startOf(p) })).filter((q) => q.st) };
   });
+  const sidStart = new Map();
+  for (const a of P) for (const q of a.periods) if (q.sid && (!sidStart.has(q.sid) || q.st.y < sidStart.get(q.sid))) sidStart.set(q.sid, q.st.y);
   const headsOf = (sid) => hist.heads[sid] || [];
+  // the head that year, as on the history page: { x: the history's entry, last, from, to }
   function headAt(sid, Y) {
-    let k = -1;
-    headsOf(sid).forEach((x, j) => { const st = startOf(x); const y = st ? st.y : (j === 0 ? -Infinity : null); if (y != null && y <= Y) k = j; });
-    return k >= 0;
+    const hs = headsOf(sid); let k = -1;
+    hs.forEach((x, j) => { const st = startOf(x); const y = st ? st.y : (j === 0 ? -Infinity : null); if (y != null && y <= Y) k = j; });
+    if (k < 0) return null;
+    const next = hs[k + 1] && startOf(hs[k + 1]), st = startOf(hs[k]);
+    return { x: hs[k], last: k === hs.length - 1, from: st ? st.y : sidStart.get(sid), to: next ? next.y : null };
   }
   const sidAt = (i, Y) => { if (P[i].north) return null; let s = null; for (const q of P[i].periods) if (q.st.y <= Y) s = q.sid; return s && headAt(s, Y) ? s : null; };
   function flagAt(sid, Y) { let f = null; for (const x of (hist.flagships || {})[sid] || []) { const st = startOf(x); if (st && st.y <= Y) f = x; } return f; }
-  const CFG = new Map();
+  const CFG = new Map(); let nCfg = 0;
   function config(Y) {
     let c = CFG.get(Y); if (c) return c;
     const s = pieces.map((_, i) => sidAt(i, Y)), key = s.join('|');
     for (const v of CFG.values()) if (v.key === key) { CFG.set(Y, v); return v; }
-    c = { key, s, sids: [...new Set(s.filter(Boolean))] }; CFG.set(Y, c);
+    const groups = new Map(); s.forEach((sid, i) => { if (sid) (groups.get(sid) || groups.set(sid, []).get(sid)).push(i); });
+    c = { id: nCfg++, key, s, sids: [...groups.keys()], groups }; CFG.set(Y, c);
     return c;
   }
 
@@ -288,9 +430,11 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   const NOW = HY ? hebYear(new Date()) - 3760 : new Date().getFullYear();
   const START = 1940; // the Frierdiker Rebbe came to America in 1940; the few older (a shul founded earlier, later Lubavitch) are there from the start
   const slotOf = (date, year) => { const t = date ? yr(date) : NaN; return Number.isFinite(t) ? t : year; };
-  const DOTS = data.dots.map((d) => { const s = slotOf(d[7], d[2]); return { lon: d[0], lat: d[1], y: Math.max(START, s), y0: s, c: d[3], st: d[4], sh: d[5], L: d[6], x: 0, yy: 0, hi: d[4] === 'US-HI' }; })
+  const DOTS = data.dots.map((d) => { const s = slotOf(d[7], d[2]); return { lon: d[0], lat: d[1], y: Math.max(START, s), y0: s, c: d[3], st: d[4], sh: d[5], L: d[6], pid: d[8] || '', x: 0, yy: 0, hi: d[4] === 'US-HI' }; })
     .sort((a, b) => a.y - b.y);
   const LIST = data.listings;
+  const PIDX = new Map(pieces.map((g, i) => [g.properties.id, i]));
+  for (const d of DOTS) d.pi = PIDX.get(d.pid);
   const FIRST = {}; // the year each state or province got its first center
   for (const d of DOTS) if (d.st && (FIRST[d.st] == null || d.y0 < FIRST[d.st])) FIRST[d.st] = d.y0;
   const NREG = 60; // 50 states and 10 provinces (Washington DC counted with the states it sits among, not on its own)
@@ -303,6 +447,247 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   const heCity = (n) => (HE && he && he.cities && he.cities[n]) || n;
   const SH = new Map(sfile.shetachim.map((s) => [s.id, s]));
   const shetachName = (sid) => { const t = HE && he && he.shetachim && he.shetachim[sid]; return (t && t.name) || (SH.get(sid) || {}).name || ''; };
+
+  // ---------- the shetachim's history, as the history page reads and shows it (owner, Nov 12: "THERES SO MUCH STUFF IN THE
+  // SHETACHIM YEAR BY YEAR LIKE THOSE ORIGINAL YESHIVAS ... WHY DIDNT YOU FUCKING INTEGRATE THE DATA?"): the year's name, head
+  // (his photo), vaad and flagship or first place (a yeshiva, a school, a shul), on cards as there. (Copied from
+  // web/history.html: a change to its cards wants the same change here.) ----------
+  // the flagship that year and its years at that place
+  function flagSpan(sid, Y) {
+    const list = (hist.flagships || {})[sid];
+    if (!list) return { from: null, to: null };
+    let k = -1; list.forEach((x, j) => { const st = startOf(x); if (st && st.y <= Y) k = j; });
+    const nx = list[k + 1] && startOf(list[k + 1]);
+    return { from: startOf(list[k]).y, to: nx ? nx.y : null };
+  }
+  // the vaad that year (hist.vaads: Florida's, New Jersey's) and its years; each lasts until the next
+  const vaadsOf = (sid) => (hist.vaads || {})[sid] || [];
+  function vaadAt(sid, Y) {
+    const vs = vaadsOf(sid); let k = -1;
+    vs.forEach((v, j) => { const st = startOf(v); if (st && st.y <= Y) k = j; });
+    if (k < 0) return null;
+    const nx = vs[k + 1] && startOf(vs[k + 1]);
+    return { v: vs[k], n: k, from: startOf(vs[k]).y, to: nx ? nx.y : null };
+  }
+  // ---------- names: what the shetach covered that year ----------
+  const PART = { 'US-NJ:south-jersey': ['South Jersey', 'דרום ניו ג׳רזי'], 'US-OH:southeast-ohio': ['Southeast Ohio', 'דרום־מזרח אוהיו'],
+    'US-PA:pittsburgh': ['Pittsburgh', 'פיטסבורג'], 'CA-QC:montreal': ['Montreal', 'מונטריאול'], 'US-MA:worcester': ['Worcester', 'ווסטר'] };
+  const partNames = sfile.partNames || {};
+  const stName = (st, i) => {
+    if (st === 'US-DC') return HE ? 'וושינגטון הבירה' : 'DC';
+    if (HE && he && he.areas && he.areas[st]) return he.areas[st];
+    return pieces[i].properties.name;
+  };
+  const piecesOfState = new Map();
+  pieces.forEach((g, i) => { if (!P[i].sliver && !P[i].north) (piecesOfState.get(g.properties.state) || piecesOfState.set(g.properties.state, []).get(g.properties.state)).push(i); });
+  const todayOf = new Map();
+  pieces.forEach((g, i) => { if (!P[i].sliver) (todayOf.get(g.properties.shetach) || todayOf.set(g.properties.shetach, new Set()).get(g.properties.shetach)).add(i); });
+  const todayName = (sid) => { const t = HE && he && he.shetachim && he.shetachim[sid]; return (t && t.name) || (SH.get(sid) || {}).name || sid; };
+  const join = (list) => { if (list.length < 2) return list[0]; const last = list[list.length - 1]; return HE ? `${list.slice(0, -1).join(', ')} ${last.startsWith('ו') ? 'ו־' : 'ו'}${last}` : `${list.slice(0, -1).join(', ')} & ${last}`; };
+  // a name a shetach had in its years (hist.names: Alevsky's 'Cleveland' until the shetach grew, owner, Nov 9)
+  const namedAt = (sid, Y) => { let n = null; for (const x of (hist.names || {})[sid] || []) { const st = startOf(x); if (st && st.y <= Y) n = x; } return n && n.name ? L(n.name, n.nameHe || n.name) : null; };
+  function nameOf(sid, Y) {
+    const named = namedAt(sid, Y); if (named) return named;
+    const c = config(Y);
+    const idx = (c.groups.get(sid) || []).filter((i) => !P[i].sliver && !P[i].north);
+    if (!idx.length) return todayName(sid);
+    const ids = new Set(idx.map((i) => pieces[i].properties.id));
+    const states = new Map(); for (const i of idx) (states.get(pieces[i].properties.state) || states.set(pieces[i].properties.state, []).get(pieces[i].properties.state)).push(i);
+    const whole = (st) => (piecesOfState.get(st) || []).every((i) => c.s[i] === sid);
+    if (sid === 'washington' && states.size > 1) return L('Pacific Northwest', 'צפון מערב האוקיינוס השקט');
+    if (sid === 'virginia' && states.has('US-WV')) return L('The Virginias', 'וירג׳יניה ומערב וירג׳יניה');
+    if (sid === 'southern-ohio' && states.size === 1 && ids.has('US-OH:central-ohio')) return L('Southern & Central Ohio', 'דרום ומרכז אוהיו');
+    if (sid === 'southern-ohio' && states.size > 1) return join(['US-OH', 'US-IN', 'US-KY'].filter((st) => states.has(st)).map((st) => stName(st, states.get(st)[0])));
+    const today = todayOf.get(sid) || new Set();
+    if (today.size === idx.length && idx.every((i) => today.has(i))) return todayName(sid);
+    // all it had was one state (Minnesota for the Upper Midwest, California for the West Coast) or one part with a name
+    if (states.size === 1) {
+      const [st, list] = [...states][0];
+      if (whole(st)) return stName(st, list[0]);
+      if (list.length === 1) { const id = pieces[list[0]].properties.id, pn = PART[id] || (partNames[st] && partNames[st][pieces[list[0]].properties.shetach]); if (pn) return HE ? pn[1] : pn[0]; }
+    }
+    // otherwise its name (Nebraska with Katzman's South Dakota visits is still Nebraska)
+    return todayName(sid);
+  }
+
+  // ---------- heads ----------
+  const NAME_FORMS = [['avrohom', 'avraham', 'avremel', 'avremi'], ['yisroel', 'yisrael'], ['sheya', 'shea'], ['mendel', 'mendy', 'menachem'], ['yaakov', 'yakov', 'jacob', 'yankel'],
+    ['boruch', 'baruch'], ['sholom', 'shalom'], ['yosef', 'joseph', 'yossi', 'yossel'], ['yitzchok', 'yitzchak'], ['moshe', 'moishe'], ['bentzion', 'benjy'], ['zushe', 'zusha']];
+  const form = (w) => { const n = String(w || '').toLowerCase().normalize('NFD').replace(/[^a-z]/g, ''); const f = NAME_FORMS.find((g) => g.includes(n)); return f ? f[0] : n; };
+  const tokens = (name) => String(name || '').replace(/[()]/g, ' ').split(/\s+/).filter(Boolean);
+  const sameMan = (a, b) => {
+    const x = tokens(a), y = tokens(b); if (!x.length || !y.length) return false;
+    if (form(x[x.length - 1]) !== form(y[y.length - 1])) return false;
+    const gx = new Set(x.slice(0, -1).map(form)); return y.slice(0, -1).some((w) => gx.has(form(w)));
+  };
+  const WORLD_HQ = '117678'; // 770
+  const PHOTO = new Map(); for (const p of photos.photos || []) (PHOTO.get(p.id) || PHOTO.set(p.id, []).get(p.id)).push(p);
+  const photoOf = (sid, h) => { const p = (PHOTO.get(sid) || []).find((r) => sameMan(r.head, h.x.head)); return p ? p.file : ''; };
+  const CAP = new Map(); for (const s of sfile.shetachim) for (const c of (s.capitals || (s.capital ? [s.capital] : []))) if (c && c.centerId) CAP.set(String(c.centerId), c);
+  const heWords = (name) => { const w = tokens(name), last = w.pop(); if (!he) return name;
+    return [...w.map((x) => (he.first && he.first[x]) || x), (he.last && he.last[last]) || last].join(' '); };
+  // a group with no one over them (Pittsburgh's first kevutzah of three bochurim: owner, Nov 9, "three bochurim, no
+  // hanholo"; "Name it ... kevutzah"): its role is its name, its members' names under it
+  const groupOf = (h) => (h.x.group || []).map((n, j) => (HE && h.x.groupHe && h.x.groupHe[j]) || n);
+  const headName = (sid, h) => {
+    if (h.x.group) return roleOf(h);
+    if (!HE) return h.x.head;
+    if (h.x.he) return h.x.he;
+    const t = he && he.shetachim && he.shetachim[sid];
+    return h.last && t && t.headShliach && sameMan(h.x.head, (SH.get(sid) || {}).headShliach) ? t.headShliach : heWords(h.x.head);
+  };
+  // a head's surname (Heads, where the whole name has no room): in Hebrew as the dictionary has it (שם טוב, not טוב)
+  const surnameOf = (sid, h) => { if (h.x.group) return roleOf(h); const w = tokens(h.x.head), last = w[w.length - 1] || '';
+    if (!HE) return last;
+    const d = he && he.last && he.last[last]; if (d) return d;
+    const hn = headName(sid, h).split(/\s+/); return hn[hn.length - 1] || last; };
+  const initialsOf = (name) => { const w = tokens(name).filter((x) => !/^(family|משפחת)$/i.test(x)); return w.length ? (w[0][0] + (w.length > 1 ? w[w.length - 1][0] : '')).toUpperCase() : ''; };
+
+  // (no colour per shetach on this map: the cards take a plain one)
+  const colourOf = () => 'var(--tile)';
+  const TYPE_HE = { 'Chabad House': 'בית חב״ד', 'Day School': 'בית ספר', 'Jewish Community Center': 'מרכז קהילתי יהודי', 'Social Services': 'שירותי רווחה', Synagogue: 'בית כנסת' };
+  const STAR_D = d3.symbol(d3.symbolStar, 55)();
+  const icon = (k) => (k === 'dot' ? '<svg class="ic" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><circle r="3.6" fill="currentColor"/></svg>' : k === 'star' ? `<svg class="ic" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path d="${STAR_D}" fill="currentColor"/></svg>`
+    : '<svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 3.5h-3v9h9v-3M9.5 3.5h3v3M12.5 3.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  const CLOSE = `<button type="button" class="close" aria-label="${L('Close', 'סגירה')}"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>`;
+  const ON_ORG = L('Open on chabad.org', 'לעמוד ב-chabad.org');
+  // a flagship's center: its listing (web/data/history-centers.json), else today's capital's line in web/data/shetachim.json
+  const centerOf = (f) => (f && f.centerId && (centers[String(f.centerId)] || CAP.get(String(f.centerId)))) || null;
+  const cName = (c) => (HE && he && he.centers && he.centers[c.name]) || c.name;
+  const cCity = (c) => (c.city ? (HE && he && he.cities && he.cities[c.city]) || c.city : '');
+  const cType = (c) => (c.type ? (HE && TYPE_HE[c.type]) || c.type : '');
+  const pageOf = (f, c) => (c && c.slug ? `https://www.chabad.org/jewish-centers/${encodeURIComponent(String(f.centerId))}/${c.slug.split('/').map(encodeURIComponent).join('/')}` : '');
+  // a flagship as it was then: its name and town in the history; today's listing (its Hebrew name, what it is, its page)
+  // only for the one that is still the flagship
+  const isNow = (sid, f) => { const list = (hist.flagships || {})[sid] || []; return !!f && !!f.centerId && list[list.length - 1] === f; };
+  const flagName = (sid, f) => { const c = isNow(sid, f) && centerOf(f); return c ? cName(c) : (HE && f.nameHe) || f.name || f.where; };
+  const flagCity = (sid, f) => { const c = isNow(sid, f) && centerOf(f), city = c ? c.city : f.city; return city ? (HE && ((!c && f.cityHe) || (he && he.cities && he.cities[city]))) || city : ''; };
+  const yearsOf = (from, to) => (from == null ? '' : to != null ? `${yearText(from)}–${yearText(to)}` : L(`Since ${yearText(from)}`, `מאז ${yearText(from)}`));
+  const ccHead = ({ t, kick = '', title, sub = '', big = false, act = '' }) => `<header class="cc-head" style="--t:${t}"><div class="cc-htext">${kick}<h2 class="cc-title${big ? ' big' : ''}">${title}</h2>${
+    act ? `<div class="cc-subrow">${sub ? `<p class="cc-sub">${sub}</p>` : ''}${act}</div>` : sub ? `<p class="cc-sub">${sub}</p>` : ''}</div></header>`;
+  const personRow = ({ ini, name, pos = '', t, label = '', big = false, photo = '' }) => {
+    const txt = `<span class="cc-ptext">${label ? `<span class="lbl">${label}</span>` : ''}<b>${name}</b>${pos ? `<span class="pos">${esc(pos)}</span>` : ''}</span>`;
+    return photo ? `<div class="cc-person has-ph${big ? ' big' : ''}"><img class="cc-ph" src="${esc(photo)}" alt="">${txt}</div>`
+      : `<div class="cc-person${big ? ' big' : ''}"><span class="cc-av${big ? ' big' : ''}" style="--t:${t}">${esc(ini)}</span>${txt}</div>`;
+  };
+  // who he was: 'Head shliach', or what he really was where he was not one (owner, Nov 9: "The guy was running a yeshiva,
+  // the Kramer guy, right? That's not a head shliach"): heads' 'role' (Yeshiva director, Rav ...)
+  const roleOf = (h) => (h.x.role ? (HE && h.x.roleHe) || h.x.role : L('Head shliach', 'שליח ראשי'));
+  // what a centre that is not a flagship was (flagships' 'kind')
+  const KIND = { yeshiva: ['Yeshiva', 'ישיבה'], school: ['School', 'בית ספר'], shul: ['Shul', 'בית כנסת'] };
+  const kindOf = (f) => { const k = KIND[f.kind]; return k ? L(k[0], k[1]) : f.kind; };
+  // the head that year, his photo where there is one (his initials otherwise), his years
+  function headBlock(sid, h, t, big, Y) {
+    if (h.x.group) return `<p class="cc-grp"><span class="lbl">${esc(roleOf(h))}</span> <span class="pos">${esc(yearsOf(h.from, h.to))}</span></p>${
+      groupOf(h).map((n) => `<div class="cc-people" style="--t:${t}">${personRow({ ini: initialsOf(n), name: esc(n), t })}</div>`).join('')}`;
+    const name = headName(sid, h);
+    const rows = [personRow({ ini: initialsOf(name), name: esc(name), pos: yearsOf(h.from, h.to), t, label: esc(roleOf(h)), big, photo: photoOf(sid, h) })];
+    for (const w of h.x.with || []) {
+      const st = startOf(w); if (st && st.y > Y) continue;
+      const n = HE && w.he ? w.he : w.name;
+      rows.push(personRow({ ini: initialsOf(n), name: esc(n), t, label: esc(HE && w.roleHe ? w.roleHe : w.role || '') }));
+    }
+    return rows.map((r) => `<div class="cc-people" style="--t:${t}">${r}</div>`).join('');
+  }
+  // 770: the Rebbe its leader, as on the main map; before 10 Shevat 5711 the Frierdiker Rebbe, the Rebbe under him
+  // (no "zy"a" in English: owner, Nov 8; the full זצוקללה״ה נבג״מ זי״ע always, in both languages, with no switch: owner,
+  // Nov 12, "Actually no overall just only do it with zekokleleha nivgam Ziyah")
+  const REBBE = { 'frierdiker-rebbe': ['The Frierdiker Rebbe', 'כ״ק אדמו״ר מוהריי״צ'], 'the-rebbe': ['The Lubavitcher Rebbe', 'כ״ק אדמו״ר נשיא דורנו'] };
+  const UNDER = { 'the-rebbe': ['The Rebbe', 'כ״ק אדמו״ר נשיא דורנו'] };
+  const HONOR = 'זצוקללה״ה נבג״מ זי״ע';
+  const TITLES = true;
+  const honor = () => (!TITLES ? '' : HE ? ` <span class="hon">${HONOR}</span>` : ` <bdi class="hon" lang="he">${HONOR}</bdi>`);
+  const ALT = { 'frierdiker-rebbe': ['The Frierdiker Rebbe', 'אדמו״ר הריי״צ'], 'the-rebbe': ['The Rebbe', 'נשיא דורנו'] };
+  // the Rebbe's picture by the year on the map, as he got older (owner, Nov 9; data/rebbeim-portraits.json says which is which)
+  const agedPic = (k, Y) => k !== 'the-rebbe' ? k : Y < 1960 ? 'the-rebbe-1950s' : Y < 1972 ? 'the-rebbe-1960s' : Y < 1984 ? 'the-rebbe-1970s' : Y < 1990 ? 'the-rebbe-1980s' : k;
+  const rbPic = (k, w, Y) => { const a = ALT[k]; return `<span class="rb-pic" style="--w:${w}px"><img src="img/rebbeim/${esc(agedPic(k, Y))}.jpg" alt="${esc(a ? L(a[0], a[1]) : '')}"></span>`; };
+  function worldCard(sid, Y) {
+    const h = headAt(sid, Y), f = flagAt(sid, Y), c = centerOf(f), rows = [];
+    if (h) {
+      const t = REBBE[h.x.portrait];
+      rows.push(`<div class="rebbe-row">${h.x.portrait ? rbPic(h.x.portrait, 64, Y) : ''}<p class="rebbe"><span class="role">${L('Leader:', 'נשיא הדור:')}</span> ${esc(t ? L(t[0], t[1]) : headName(sid, h))}${t ? honor() : ''}</p></div>`);
+      for (const w of h.x.with || []) {
+        const st = startOf(w); if (st && st.y > Y) continue;
+        const n = UNDER[w.portrait];
+        rows.push(`<div class="rebbe-row under">${w.portrait ? rbPic(w.portrait, 48, Y) : ''}<div class="rb-txt"><p class="rebbe sm">${esc(n ? L(n[0], n[1]) : HE && w.he ? w.he : w.name)}${n ? honor() : ''}</p>${
+          w.role ? `<p class="meta">${esc(HE && w.roleHe ? w.roleHe : w.role)}</p>` : ''}</div></div>`);
+      }
+    }
+    // (no chabad.org link on 770's card: owner, Nov 8)
+    return `<header class="hc-head"><span class="kicker kicker-world">${L('World Headquarters', 'המטה העולמי')}</span><h2 class="honor-h">${esc(c ? cName(c) : L('Chabad Lubavitch Headquarters', 'בית אגודת חסידי חב״ד'))}</h2></header>${rows.join('')}${
+      c && c.city ? `<p class="hc-city">${esc(cCity(c))}</p>` : ''}<div class="foot"><span class="meta">${esc(nameOf(sid, Y))}</span></div>`;
+  }
+  // a flagship: its shetach's colour, "<shetach> flagship center" and its years there, its name, what it is and where, its
+  // page; the head that year
+  function flagCard(sid, Y) {
+    const f = flagAt(sid, Y), c = centerOf(f), t = colourOf(sid, Y), h = headAt(sid, Y), sp = flagSpan(sid, Y), nm = nameOf(sid, Y);
+    const kick = `<p class="cc-kick flag">${f.kind ? '' : icon('star')}${esc(f.kind ? kindOf(f) : L(`${nm} flagship center`, `המוסד המרכזי של ${nm}`))}${sp.from != null ? ` · ${esc(yearsOf(sp.from, sp.to))}` : ''}</p>`;
+    const now = isNow(sid, f), url = '' /* (no links on this page: owner, Nov 12) */, act = url ? `<a class="cc-chip cc-icon" href="${esc(url)}" target="_blank" rel="noopener" title="${ON_ORG}" aria-label="${ON_ORG}">${icon('ext')}</a>` : '';
+    return `${ccHead({ t, kick, title: esc(flagName(sid, f)), sub: esc([now && c ? cType(c) : '', flagCity(sid, f)].filter(Boolean).join(' · ')), act })}${h ? `<div class="cc-body">${leadHTML(sid, h, t, false, Y)}</div>` : ''}`;
+  }
+  // ---------- a vaad on a card, as on the main map ----------
+  const memberName = (m) => { const n = `${m.firstName} ${m.lastName}`; return HE ? heWords(n) : n; };
+  const townOf = (m) => (m.town ? (HE && he && he.cities && (he.cities[`${m.town}|${m.state || ''}`] || he.cities[m.town])) || m.town : '');
+  const ROLE = { Head: ['Head', 'ראש הוועד'], Alternate: ['Alternate', 'ממלא מקום'] }; // owner, Nov 9: "Rosh HaVaad", not Yor
+  const memberRole = (m) => { const r = ROLE[m.role]; return r ? L(r[0], r[1]) : m.role || ''; };
+  // its members, a row each (his photo or his initials, his name, his town); the chairman's role a tag by his name; an
+  // alternate after the rest, apart and smaller (owner, Oct 13: "shouldn't have the same prominence")
+  function membersHTML(list, line, t) {
+    const alt = (m) => m.role === 'Alternate';
+    const row = (m) => { const sub = [alt(m) ? memberRole(m) : '', townOf(m)].filter(Boolean).map(esc).join(' · ');
+      const face = m.photo ? `<img class="vm-ph" src="${esc(m.photo)}" alt="">` : `<span class="vm-ph vm-av" style="--t:${t}">${esc(initialsOf(memberName(m)))}</span>`;
+      return `<li class="vm${alt(m) ? ' alt' : ''}${m.role === 'Head' ? ' hd' : ''}">${face}<span class="vm-t"><span class="vm-n"><b>${esc(memberName(m))}</b>${
+        m.role && !alt(m) ? `<span class="vm-role">${esc(memberRole(m))}</span>` : ''}</span>${sub ? `<span class="vm-town">${sub}</span>` : ''}</span></li>`; };
+    return `<details class="vaad"><summary>${line}</summary><ul>${[...list.filter((m) => !alt(m)), ...list.filter(alt)].map(row).join('')}</ul></details>`;
+  }
+  // its faces in rows of a honeycomb (each row offset half a face from the next), its chairman in the middle; only where
+  // every member's face is known
+  const HIVE_ROWS = { 1: [1], 2: [2], 3: [2, 1], 4: [2, 2], 5: [2, 3], 6: [3, 3], 7: [2, 3, 2], 8: [3, 2, 3], 9: [3, 3, 3], 10: [3, 4, 3] };
+  function hiveHTML(list, t) {
+    const rows = HIVE_ROWS[list.length] || [list.length], F = 34, P = 39, V = 34;
+    const widest = Math.max(...rows), even = rows.every((r) => r === widest);
+    const W = F + (widest - 1) * P + (even ? P / 2 : 0), H = F + (rows.length - 1) * V;
+    const spots = [];
+    rows.forEach((r, ri) => { for (let i = 0; i < r; i++) spots.push({ x: even ? i * P + (ri % 2 ? P / 2 : 0) : (W - (F + (r - 1) * P)) / 2 + i * P, y: ri * V }); });
+    const d = (p) => Math.hypot(p.x - (W - F) / 2, p.y - (H - F) / 2);
+    const mid = spots.reduce((b, p, i) => (d(p) < d(spots[b]) ? i : b), 0), hi = list.findIndex((m) => m.role === 'Head');
+    const order = hi >= 0 ? [hi, ...list.map((_, i) => i).filter((i) => i !== hi)] : list.map((_, i) => i);
+    const at = hi >= 0 ? [mid, ...spots.map((_, i) => i).filter((i) => i !== mid)] : spots.map((_, i) => i);
+    return `<div class="cc-hive" style="width:${W}px;height:${H}px;--t:${t}">${order.map((mi, k) => { const m = list[mi], sp = spots[at[k]];
+      return `<img class="${mi === hi ? 'hd' : ''}" src="${esc(m.photo)}" alt="${esc(memberName(m))}" title="${esc(memberName(m))}" style="inset-inline-start:${sp.x}px;top:${sp.y}px">`; }).join('')}</div>`;
+  }
+  const vaadName = (v) => esc((HE && v.nameHe) || v.name);
+  // which vaad it is (owner, Nov 9: "add like first or second to show diff sessions"), and its years
+  const ORD = [['First', 'ראשון'], ['Second', 'שני'], ['Third', 'שלישי'], ['Fourth', 'רביעי']];
+  const vaadWhen = (vz) => { const o = ORD[vz.n]; return [o ? L(`${o[0]} vaad`, `ועד ${o[1]}`) : '', yearsOf(vz.from, vz.to)].filter(Boolean).join(' · '); };
+  // a vaad that leads: its faces, "Leadership", its name and years, its members
+  function vaadBlock(vz, t) {
+    const list = vz.v.membersKnown === false ? [] : vz.v.members || [], full = list.filter((m) => m.role !== 'Alternate');
+    const hive = full.length && full.every((m) => m.photo) ? hiveHTML(full, t) : '';
+    return `<div class="cc-vaad" style="--t:${t}">${hive}<div class="cc-vtext"><span class="lbl">${L('Leadership', 'הנהלה')}</span><b>${vaadName(vz.v)}</b><span class="pos">${esc(vaadWhen(vz))}</span>${
+      list.length ? membersHTML(list, full.length ? L(`${full.length} members`, `${full.length} חברים`) : L('Members', 'חברים'), t) : ''}</div></div>`;
+  }
+  // the head shliach under a vaad that leads: one line, his mark a fedora over a bearded face (the main map's)
+  const HEAD_ICON = '<svg class="pi" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.8 6.2C4.9 5.3 11.1 5.3 14.2 6.2M4.9 5.6C4.8 3.6 5.4 2 6.6 1.9C7.3 1.8 7.6 2.4 8 2.4S8.7 1.8 9.4 1.9C10.6 2 11.2 3.6 11.1 5.6M4.9 7.4C4.9 10.6 6 13.1 7.3 14C7.7 14.3 8.3 14.3 8.7 14C10 13.1 11.1 10.6 11.1 7.4M6.6 10C7.5 10.6 8.5 10.6 9.4 10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const headRow = (sid, h) => `<div class="cc-flagrow cc-headrow">${HEAD_ICON}<span><span class="lbl">${esc(roleOf(h))}:</span> ${esc(headName(sid, h))} <span class="pos">· ${esc(yearsOf(h.from, h.to))}</span></span></div>`;
+  // the head and the vaad that year: a vaad that leads above him (vaadFirst), any other under him
+  function leadHTML(sid, h, t, big, Y) {
+    // an organisation that leads (Greater New York's Tzach): as the main map shows it, "Leadership" (הנהלה), its name, its
+    // years; its members' faces only in the present year (today's, from the main map: when each joined is not known)
+    if (h.x.org) return vaadBlock({ v: { name: h.x.head, nameHe: h.x.he, members: Y >= NOW ? h.x.members || [] : [] }, n: -1, from: h.from, to: h.to }, t);
+    const vz = vaadAt(sid, Y);
+    if (vz && vz.v.vaadFirst) return `${vaadBlock(vz, t)}${headRow(sid, h)}`;
+    if (!vz) return headBlock(sid, h, t, big, Y);
+    const list = vz.v.membersKnown === false ? [] : vz.v.members || [];
+    const line = `<span class="lbl">${L('Leadership', 'הנהלה')}:</span> ${vaadName(vz.v)} <span class="pos">· ${esc(vaadWhen(vz))}</span>`;
+    return `${headBlock(sid, h, t, big, Y)}<div class="cc-vline">${list.length ? membersHTML(list, line, t) : `<div class="cc-flagrow cc-headrow" style="margin-top:0"><span>${line}</span></div>`}</div>`;
+  }
+  // a shetach: its colour, its name that year big; its head (and vaad) that year; its flagship
+  function shetachCard(sid, Y) {
+    const t = colourOf(sid, Y), h = headAt(sid, Y), f = flagAt(sid, Y);
+    const body = `${h ? leadHTML(sid, h, t, true, Y) : ''}${f ?`<div class="cc-flagrow">${f.kind ? icon('dot') : icon('star')}<span><span class="lbl">${f.kind ? kindOf(f) : L('Flagship', 'מוסד מרכזי')}:</span> ${esc([flagName(sid, f), flagCity(sid, f)].filter(Boolean).join(', '))}</span></div>` : ''}`;
+    return `${ccHead({ t, title: esc(nameOf(sid, Y)), big: true })}${body ? `<div class="cc-body">${body}</div>` : ''}`;
+  }
 
   // ---------- drawing ----------
   const stage = $('#stage'), base = $('#map'), over = $('#over');
@@ -320,7 +705,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   let T = d3.zoomIdentity;
   const css = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
   let COL = {};
-  const palette = () => { COL = Object.fromEntries(['--bg', '--land', '--land-edge', '--line', '--state-line', '--reached', '--reached-new', '--dot', '--dot-halo', '--pop', '--star', '--star-edge', '--bar-past', '--bar-future', '--muted', '--ink'].map((n) => [n.slice(2), css(n)])); };
+  const palette = () => { COL = Object.fromEntries(['--bg', '--land', '--land-edge', '--line', '--state-line', '--reached', '--reached-new', '--dot', '--dot-halo', '--pop', '--star', '--star-edge', '--bar-past', '--bar-future', '--muted', '--ink', '--accent', '--halo', '--pick-fill', '--name-ink'].map((n) => [n.slice(2), css(n)])); };
 
   function thin(r, tol) {
     const n = r.length >> 1; if (n <= 2) return r;
@@ -361,6 +746,8 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     return p;
   });
   const stateLines = (l) => cached(`st${l}`, () => { const p = new Path2D(); for (let a = 0; a < NA; a++) { const ga = sideA[a], gb = sideB[a]; if (ga >= 0 && gb >= 0 && stateOf(ga) !== stateOf(gb)) addArc(p, PA[l][a]); } return p; });
+  // a shetach's shape that year (picking it, lighting it)
+  const shetachPath = (c, sid, l) => cached(`sp${l}|${c.id}|${sid}`, () => { const p = new Path2D(); for (const i of c.groups.get(sid) || []) for (const ring of pieces[i].rings) addRing(p, ring, PA[l]); return p; });
   const statePath = (r, l) => cached(`sf${l}|${r}`, () => { const p = new Path2D(); pieces.forEach((g) => { if (g.properties.state === r) for (const ring of g.rings) addRing(p, ring, PA[l]); }); return p; });
 
   function layout() {
@@ -392,6 +779,70 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     drawHist(); drawBase(); drawOver();
   }
 
+  // ---------- the shetachim's names and their flagships, the year's ----------
+  // where a shetach's name goes: inside its biggest part (its pieces less the north and New York's sliver), at its middle,
+  // or the inside point nearest the middle where the middle falls outside it
+  const SPOT = new Map();
+  function spotOf(c, sid) {
+    const k = `${c.id}#${sid}`; if (SPOT.has(k)) return SPOT.get(k);
+    const idx = (c.groups.get(sid) || []).filter((i) => !P[i].sliver && !P[i].north);
+    let best = null;
+    if (idx.length) {
+      const m = topojson.merge(topo, idx.map((i) => pieces[i])), polys = m.type === 'MultiPolygon' ? m.coordinates : m.type === 'Polygon' ? [m.coordinates] : [];
+      let bp = null, ba = -1;
+      for (const poly of polys) {
+        let f = { type: 'Polygon', coordinates: poly }, a = d3.geoArea(f);
+        if (a > 2 * Math.PI) { f = { type: 'Polygon', coordinates: poly.map((r) => r.slice().reverse()) }; a = d3.geoArea(f); }
+        if (a > ba) { ba = a; bp = f; }
+      }
+      if (bp) {
+        let q = d3.geoCentroid(bp);
+        if (!d3.geoContains(bp, q)) {
+          const [[x0, y0], [x1, y1]] = d3.geoBounds(bp); let bd = Infinity, t = null;
+          for (let a = 1; a < 16; a++) for (let b = 1; b < 16; b++) { const u = [x0 + (x1 - x0) * a / 16, y0 + (y1 - y0) * b / 16]; if (d3.geoContains(bp, u)) { const dd = (u[0] - q[0]) ** 2 + (u[1] - q[1]) ** 2; if (dd < bd) { bd = dd; t = u; } } }
+          if (t) q = t;
+        }
+        best = { lon: q[0], lat: q[1], area: ba };
+      }
+    }
+    SPOT.set(k, best); return best;
+  }
+  // the year's flagships, as the history has them: one per place (770 Crown Heights', bigger); 'kind' where it was a lone
+  // yeshiva, school or shul, not a flagship (a round dot)
+  function flagList() {
+    const c = config(Y), seen = new Set(), list = [];
+    for (const sid of [...c.sids].sort((a, b) => (b === 'crown-heights') - (a === 'crown-heights'))) {
+      const f = flagAt(sid, Y); if (!f || f.lon == null) continue;
+      const key = String(f.centerId || `${f.lat},${f.lon}`); if (seen.has(key)) continue; seen.add(key);
+      list.push({ sid, kind: f.kind || '', big: key === WORLD_HQ, lon: f.lon, lat: f.lat });
+    }
+    return list.sort((a, b) => a.big - b.big);
+  }
+  const FONT = '"Inter", "Heebo", "Segoe UI", system-ui, sans-serif';
+  // the names on the plain map: the biggest shetachim first, each where it has room
+  function drawNames(ctx, k) {
+    const c = config(Y), placed = [], small = W < 700, items = [];
+    for (const sid of c.groups.keys()) { const sp = spotOf(c, sid); if (sp) items.push({ sid, sp }); }
+    items.sort((a, b) => b.sp.area - a.sp.area);
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle'; ctx.lineJoin = 'round';
+    for (const { sid, sp } of items) {
+      const q = (sp.lat < 25 && sp.lon < -150 ? projHI : proj)([sp.lon, sp.lat]); if (!q) continue;
+      const x = q[0] * k + T.x, y = q[1] * k + T.y; if (x < -60 || y < -20 || x > W + 60 || y > H + 20) continue;
+      const fs = Math.min(15, (small ? 9.5 : 10.5) + 12 * Math.sqrt(sp.area) + Math.min(2.5, Math.log2(Math.max(1, k))));
+      const text = nameOf(sid, Y); ctx.font = `650 ${fs.toFixed(1)}px ${FONT}`;
+      const w = ctx.measureText(text).width, hh = fs * 1.2;
+      let yy = y;
+      const clash = (cy) => placed.some((b) => x - w / 2 - 3 < b[2] && x + w / 2 + 3 > b[0] && cy - hh / 2 < b[3] && cy + hh / 2 > b[1]);
+      const onFlag = (cy) => FLAGS.some((f) => Math.abs(f.x - x) < w / 2 + f.r && Math.abs(f.y - cy) < hh / 2 + f.r);
+      const tries = [y, y + hh * 0.9, y - hh * 0.9].filter((cy) => !clash(cy));
+      if (!tries.length) continue;
+      yy = tries.find((cy) => !onFlag(cy)) ?? tries[0];
+      placed.push([x - w / 2 - 3, yy - hh / 2, x + w / 2 + 3, yy + hh / 2]);
+      ctx.font = `650 ${fs.toFixed(1)}px ${FONT}`; ctx.lineWidth = 3; ctx.strokeStyle = COL.halo; ctx.strokeText(text, x, yy);
+      ctx.fillStyle = COL['name-ink']; ctx.fillText(text, x, yy);
+    }
+  }
+
   // ---------- state ----------
   // the map under it: the street map (owner, Nov 12: default) or the plain political one
   // the milestones ("First in …" as a state or province gets its first center): a switch in the menu (owner, Nov 12: "should
@@ -401,6 +852,8 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   let MODE = (() => { const q = Q.get('base'); if (q === 'states' || q === 'shetachim') return q; try { return localStorage.getItem('growth-base') || 'shetachim'; } catch (e) { return 'shetachim'; } })();
   let Y = (() => { const q = +Q.get('year'); return q >= START && q <= NOW ? q : NOW; })();
   let playing = false, speed = 1, timer = null, selected = null;
+  let pick = null; // a shetach or a flagship picked (its card as on the history page): { sid, flag }
+  let FLAGS = []; // the flagships (or first places) on the plain map, where they were drawn
   const pops = []; // the centers appearing: { d, t0 }
   const regionFlash = new Map(); // a state or province reached: its fill eases in
 
@@ -467,18 +920,26 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
       octx.beginPath(); octx.arc(x, y, r * d3.easeBackOut(g), 0, 2 * Math.PI); octx.stroke(); octx.fill();
     }
     octx.globalAlpha = 1;
-    // the flagships of the shetachim that year (Shetachim): a star where the head's own center was
-    if (MODE === 'shetachim') {
-      const c = config(Y), R0 = small ? 3.4 : 4.6, R = Math.max(R0, Math.min(8.5, R0 + 1.1 * Math.log2(k))), seen = new Set(), list = [];
-      for (const sid of c.sids) {
-        const f = flagAt(sid, Y); if (!f || f.lon == null) continue;
-        const key = String(f.centerId || `${f.lat},${f.lon}`); if (seen.has(key)) continue; seen.add(key);
-        const q = (f.lat < 25 && f.lon < -150 ? projHI : proj)([f.lon, f.lat]); if (!q) continue;
-        list.push({ x: q[0] * k + T.x, y: q[1] * k + T.y, big: key === '117678' }); // 770, the Rebbe's, bigger
-      }
-      list.sort((a, b) => a.big - b.big);
-      for (const s of list) { star(octx, s.x, s.y, s.big ? R * 1.55 : R); octx.fillStyle = COL.star; octx.strokeStyle = COL['star-edge']; octx.lineWidth = 0.8; octx.lineJoin = 'round'; octx.fill(); octx.stroke(); }
+    // a shetach picked (Shetachim): its shape lit
+    if (pick && !pick.flag && MODE === 'shetachim' && config(Y).groups.has(pick.sid)) {
+      octx.setTransform(DPR * k, 0, 0, DPR * k, DPR * T.x, DPR * T.y);
+      const sp = shetachPath(config(Y), pick.sid, levelFor(k));
+      octx.fillStyle = COL['pick-fill']; octx.fill(sp, 'evenodd'); octx.strokeStyle = COL.accent; octx.lineWidth = 2 / k; octx.lineJoin = 'round'; octx.stroke(sp);
+      octx.setTransform(DPR, 0, 0, DPR, 0, 0);
     }
+    // the flagships of the shetachim that year, in both backgrounds: a star where the head's own center was, a round dot
+    // where it was a lone yeshiva, school or shul (the first yeshivas of the 1940s), as on the history page
+    {
+      const R0 = small ? 3.4 : 4.6, R = Math.max(R0, Math.min(8.5, R0 + 1.1 * Math.log2(k)));
+      FLAGS = flagList().map((f) => { const q = (f.lat < 25 && f.lon < -150 ? projHI : proj)([f.lon, f.lat]); return q ? { ...f, x: q[0] * k + T.x, y: q[1] * k + T.y, r: f.big ? R * 1.55 : R } : null; }).filter(Boolean);
+      for (const f of FLAGS) {
+        if (f.kind) { octx.beginPath(); octx.arc(f.x, f.y, f.r * 0.62, 0, 2 * Math.PI); } else star(octx, f.x, f.y, f.r);
+        octx.fillStyle = COL.star; octx.strokeStyle = COL['star-edge']; octx.lineWidth = 0.8; octx.lineJoin = 'round'; octx.fill(); octx.stroke();
+        if (pick && pick.flag && pick.sid === f.sid) { octx.strokeStyle = COL.ink; octx.lineWidth = 1.6; octx.beginPath(); octx.arc(f.x, f.y, f.r + 4, 0, 2 * Math.PI); octx.stroke(); }
+      }
+    }
+    // the shetachim's names that year (Shetachim), as on the history page
+    if (MODE === 'shetachim') drawNames(octx, k);
     // the one picked
     if (selected) {
       const x = sx(selected), y = sy(selected);
@@ -497,10 +958,15 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     const sl = $('#slider'); sl.value = Y; sl.style.setProperty('--p', `${(100 * (Y - START)) / (NOW - START)}%`);
     drawHist();
     if (animate) {
-      const now = performance.now(), fresh = DOTS.filter((d) => d.y === Y);
-      fresh.forEach((d, i) => pops.push({ d, t0: now + Math.min(600, i * (600 / Math.max(1, fresh.length))) }));
+      const now = performance.now();
+      // (the milestones: the "First in …" labels and the orange rings round the new centers, both under the menu's switch:
+      // owner, Nov 12, "MILESTONES NEED TO BE TURN OFF ABLE THE ORANGE THINGY")
+      if (MS) {
+        const fresh = DOTS.filter((d) => d.y === Y);
+        fresh.forEach((d, i) => pops.push({ d, t0: now + Math.min(600, i * (600 / Math.max(1, fresh.length))) }));
+        for (const reg of firstsIn.get(Y) || []) addFirst(reg);
+      }
       for (const reg of firstsIn.get(Y) || []) regionFlash.set(reg, now);
-      if (MS) for (const reg of firstsIn.get(Y) || []) addFirst(reg);
       kick();
     }
   }
@@ -555,6 +1021,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     if (MODE === 'states') needBase = true;
     showYear(animate && Y === prev + 1);
     needBase = true; kick(); glYear();
+    if (pick) showPick();
     try { history.replaceState(null, '', `?${new URLSearchParams({ ...Object.fromEntries(Q), year: Y, base: MODE, view: VIEW })}`); } catch (e) {}
   }
 
@@ -595,7 +1062,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   function setMode(m) {
     MODE = m; segBtns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.m === m)));
     try { localStorage.setItem('growth-base', m); } catch (e) {}
-    needBase = true; kick(); glKey = null; glYear();
+    needBase = true; kick(); glKey = null; glYear(); glSel();
   }
   segBtns.forEach((b) => b.addEventListener('click', () => setMode(b.dataset.m)));
 
@@ -621,7 +1088,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   hySw.addEventListener('change', () => { try { localStorage.setItem('growth-hy', hySw.checked ? '1' : '0'); } catch (e) {} const u = new URL(location.href); u.searchParams.set('hy', hySw.checked ? '1' : '0'); u.searchParams.set('year', Y); u.searchParams.set('base', MODE); u.searchParams.set('view', VIEW); location.href = u.toString(); });
   $('#msLbl').textContent = L('Milestones', 'ציוני דרך');
   const msSw = $('#msSw'); msSw.checked = MS;
-  msSw.addEventListener('change', () => { MS = msSw.checked; try { localStorage.setItem('growth-ms', MS ? '1' : '0'); } catch (e) {} if (!MS) $('#firsts').replaceChildren(); });
+  msSw.addEventListener('change', () => { MS = msSw.checked; try { localStorage.setItem('growth-ms', MS ? '1' : '0'); } catch (e) {} if (!MS) { $('#firsts').replaceChildren(); pops.length = 0; kick(); } });
   $('#lang').textContent = HE ? 'EN' : 'עב';
   $('#lang').addEventListener('click', () => { const u = new URL(location.href); u.searchParams.set('lang', HE ? 'en' : 'he'); u.searchParams.set('year', Y); u.searchParams.set('base', MODE); u.searchParams.set('view', VIEW); location.href = u.toString(); });
   $('#home').setAttribute('aria-label', L('The map', 'המפה'));
@@ -630,36 +1097,93 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   // ---------- the card: what is at a dot ----------
   const CONF = { h: [L('High confidence', 'ודאות גבוהה'), 'h'], m: [L('Medium confidence', 'ודאות בינונית'), 'm'], l: [L('Low confidence', 'ודאות נמוכה'), 'l'] };
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  // a center's people, as on the main map (owner, Nov 12: "WHY ISNT THERE PERSONELL WHERE AVAILABLE"): its man (or the
+  // family, or the woman), the others under "+N more", those who passed away apart
+  const FEMALE = /^(mrs|ms|miss|rebbetzin|rebbitzen|mme|madame|sra|frau)\.?$/i;
+  const isMale = (p) => !FEMALE.test((p.title || '').trim());
+  const heFirst = (n) => (n || '').trim().split(/\s+/).filter(Boolean).map((w) => (he && he.first && he.first[w]) || w).join(' ');
+  const heLast = (n) => (he && he.last && he.last[(n || '').trim()]) || n;
+  const firstOf = (p) => (HE ? heFirst(p.firstName) : p.firstName);
+  const lastOf = (p) => (HE ? heLast(p.lastName) : p.lastName);
+  const positionOf = (p) => { const pos = (p.position || '').trim(); if (!HE || !pos) return pos; const h = he && he.positions && he.positions[pos]; if (h === undefined) return pos; return Array.isArray(h) ? h[isMale(p) ? 0 : 1] : h; };
+  const personName = (p) => `${[firstOf(p), lastOf(p)].filter(Boolean).join(' ')}${p.isDeceased ? (p.hyd ? (HE ? ' הי״ד' : ' HY"D') : HE ? ' ע״ה' : ' obm') : ''}`;
+  const personLine = (p) => { const pos = positionOf(p); return `${esc(personName(p))}${pos ? ` <span class="meta">· ${esc(pos)}</span>` : ''}`; };
+  const personOf = (r) => ({ title: r[0], firstName: r[1], lastName: r[2], position: r[3], isDirector: r[4].includes('d'), isDeceased: r[4].includes('x'), hyd: r[4].includes('h') });
+  function personnelHTML(rows) {
+    if (!rows || !rows.length) return '';
+    const list = rows.map(personOf), living = list.filter((p) => !p.isDeceased), passed = list.filter((p) => p.isDeceased);
+    const primary = living.find(isMale), woman = !primary && living.find((p) => !isMale(p) && p.lastName), widowed = woman && passed.some(isMale);
+    const head = primary ? personLine(primary) : widowed ? esc(HE ? `משפחת ${lastOf(woman)}` : `${woman.lastName} family`) : woman ? personLine(woman) : '';
+    const others = living.filter((p) => p !== primary && !(woman && !widowed && p === woman));
+    const more = others.length ? `<details class="personnel"><summary>+${others.length} ${HE ? 'נוספים' : 'more'}</summary>${others.map((p) => `<div class="pother">${personLine(p)}</div>`).join('')}</details>` : '';
+    const obm = passed.length ? `<details class="personnel"><summary>${HE ? 'נפטרו' : 'Deceased'} (${passed.length})</summary>${passed.map((p) => `<div class="pother">${personLine(p)}</div>`).join('')}</details>` : '';
+    return `${head ? `<p class="person">${head}</p>` : ''}${more}${obm}`;
+  }
+  // a shetach or a flagship: its card as on the history page (its name that year, its head and his photo, its vaad, its
+  // flagship or first place; 770's as the world headquarters), and here how many centers it had by then
+  function openPick(sid, flag) { selected = null; pick = { sid, flag }; showPick(); }
+  function showPick() {
+    if (!pick) return;
+    const c = config(Y), sid = pick.sid;
+    if (!c.groups.has(sid)) return closeCard();
+    const h = headAt(sid, Y), f = pick.flag ? flagAt(sid, Y) : null;
+    if (pick.flag && !f) return closeCard();
+    const world = pick.flag ? String(f.centerId) === WORLD_HQ : !!(h && h.x.portrait);
+    let html = world ? worldCard(sid, Y) : pick.flag ? flagCard(sid, Y) : shetachCard(sid, Y);
+    if (!world && !pick.flag) {
+      const n = DOTS.reduce((a, d) => a + (d.y <= Y && d.pi != null && c.s[d.pi] === sid ? 1 : 0), 0);
+      html += `<p class="cc-count">${HE ? (n === 1 ? `מוסד <b>אחד</b> עד ${esc(yearText(Y))}` : `<b>${fmt.format(n)}</b> מוסדות עד ${esc(yearText(Y))}`) : `<b>${fmt.format(n)}</b> ${n === 1 ? 'center' : 'centers'} by ${esc(yearText(Y))}`}</p>`;
+    }
+    const card = $('#card');
+    if (card.dataset.html !== html || card.hidden) { card.innerHTML = html + CLOSE; card.dataset.html = html; card.querySelector('.close').addEventListener('click', closeCard); }
+    card.className = world ? 'hc world' : 'hc'; card.hidden = false;
+    kick(); glSel();
+  }
   function openCard(d) {
-    selected = d;
+    selected = d; pick = null;
     const card = $('#card'), rows = d.L.map((i) => LIST[i]);
+    card.className = ''; card.dataset.html = '';
     const first = rows[0];
     let h = `<div class="top"><span class="where">${esc(heCity(first[3]))}${first[3] ? ' · ' : ''}${esc(stateName(d.st))}${d.sh && shetachName(d.sh) ? ` · ${esc(shetachName(d.sh))}` : ''}</span>`
       + `<button class="close" type="button" aria-label="${L('Close', 'סגור')}"><svg viewBox="0 0 24 24"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg></button></div>`;
-    for (const [, name, type, , year, conf, date] of rows) {
+    for (const [, name, type, , year, conf, date, people] of rows) {
       h += `<div class="item"><div class="name">${esc(heName(name))}</div>${type ? `<div class="what">${esc(type)}</div>` : ''}<div class="when">`;
       if (year) {
         h += `<span class="yr">${esc(yearText(slotOf(date, year)))}</span>`;
         if (CONF[conf]) h += `<span class="conf ${CONF[conf][1]}"><i></i>${CONF[conf][0]}</span>`;
       } else h += `<span class="none">${L('Year not known yet', 'השנה עוד לא ידועה')}</span>`;
-      h += '</div></div>';
+      h += `</div>${people && people.length ? `<div class="who">${personnelHTML(people)}</div>` : ''}</div>`;
     }
     card.innerHTML = h; card.hidden = false;
     card.querySelector('.close').addEventListener('click', closeCard);
     kick(); glSel(); glReveal(d);
   }
-  function closeCard() { selected = null; $('#card').hidden = true; kick(); glSel(); }
+  function closeCard() { selected = null; pick = null; const card = $('#card'); card.hidden = true; card.className = ''; card.dataset.html = ''; kick(); glSel(); }
 
   // ---------- moving the map: drag, pinch, wheel; a tap picks a center ----------
   const zoom = d3.zoom().scaleExtent([1, 40]).on('start', () => stage.classList.add('dragging'))
     .on('zoom', (e) => { T = e.transform; needBase = true; kick(); })
     .on('end', () => stage.classList.remove('dragging'));
   d3.select(stage).call(zoom).on('dblclick.zoom', null);
+  // the shetach under a point (Shetachim)
+  function sidAtPoint(mx, my) {
+    const c = config(Y), l = levelFor(T.k), px = (mx - T.x) / T.k, py = (my - T.y) / T.k;
+    bctx.save(); bctx.setTransform(1, 0, 0, 1, 0, 0);
+    let hit = null; for (const sid of c.groups.keys()) if (bctx.isPointInPath(shetachPath(c, sid, l), px, py, 'evenodd')) { hit = sid; break; }
+    bctx.restore(); return hit;
+  }
+  // a tap: a flagship's star right under it, else a center, else a star near it, else the shetach (owner, Nov 12: "WHY
+  // ARENT SHETACHIM TAPPABBLE IN THIS ONE?")
   stage.addEventListener('click', (e) => {
     const r = stage.getBoundingClientRect(), mx = e.clientX - r.left, my = e.clientY - r.top;
+    const flagNear = (pad) => { let fl = null, fd = Infinity; for (const f of FLAGS) { const dd = (f.x - mx) ** 2 + (f.y - my) ** 2; if (dd < (f.r + pad) ** 2 && dd < fd) { fd = dd; fl = f; } } return fl; };
+    let fl = flagNear(2); if (fl) return openPick(fl.sid, true);
     let best = null, bd = 14 * 14;
     for (const d of DOTS) { if (d.y > Y) break; const dx = d.x * T.k + T.x - mx, dy = d.yy * T.k + T.y - my, dd = dx * dx + dy * dy; if (dd < bd) { bd = dd; best = d; } }
-    if (best) openCard(best); else closeCard();
+    if (best) return openCard(best);
+    fl = flagNear(9); if (fl) return openPick(fl.sid, true);
+    if (MODE === 'shetachim') { const sid = sidAtPoint(mx, my); if (sid) return openPick(sid, false); }
+    closeCard();
   });
 
   // ---------- the street map (owner, Nov 12: "u should be able to zoom in like streets mode also I think that should be
@@ -695,15 +1219,24 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     return { type: 'FeatureCollection', features: fs };
   }
   const dotsFC = { type: 'FeatureCollection', features: DOTS.map((d, i) => feat({ type: 'Point', coordinates: [d.lon, d.lat] }, { i, y: d.y })) };
-  function flagsFC() {
-    if (MODE !== 'shetachim') return EMPTY;
-    const c = config(Y), seen = new Set(), fs = [];
-    for (const sid of c.sids) {
-      const f = flagAt(sid, Y); if (!f || f.lon == null) continue;
-      const k = String(f.centerId || `${f.lat},${f.lon}`); if (seen.has(k)) continue; seen.add(k);
-      fs.push(feat({ type: 'Point', coordinates: [f.lon, f.lat] }, { big: k === '117678' ? 1 : 0 }));
-    }
+  const flagsFC = () => ({ type: 'FeatureCollection', features: flagList().map((f) => feat({ type: 'Point', coordinates: [f.lon, f.lat] }, { sid: f.sid, kind: f.kind, big: f.big ? 1 : 0 })) });
+  // the year's shetachim as shapes (to tap one, and to light the one picked) and the spots for their names
+  const AREAS = new Map();
+  function areasFC(c) {
+    let fc = AREAS.get(c.id);
+    if (!fc) { fc = { type: 'FeatureCollection', features: [...c.groups.keys()].map((sid) => feat(topojson.merge(topo, c.groups.get(sid).map((i) => pieces[i])), { sid })) }; AREAS.set(c.id, fc); }
+    return fc;
+  }
+  function namesFC(c) {
+    const fs = [];
+    for (const sid of c.groups.keys()) { const sp = spotOf(c, sid); if (sp) fs.push(feat({ type: 'Point', coordinates: [sp.lon, sp.lat] }, { name: nameOf(sid, Y), area: sp.area })); }
     return { type: 'FeatureCollection', features: fs };
+  }
+  let glNames = null;
+  function dotImage(fill, edge) {
+    const n = 64, c = document.createElement('canvas'); c.width = c.height = n; const x = c.getContext('2d');
+    x.beginPath(); x.arc(n / 2, n / 2, n * 0.3, 0, 2 * Math.PI); x.fillStyle = fill; x.fill(); x.lineWidth = 4; x.strokeStyle = edge; x.stroke();
+    return x.getImageData(0, 0, n, n);
   }
   function starImage(fill, edge) {
     const n = 64, c = document.createElement('canvas'); c.width = c.height = n; const x = c.getContext('2d');
@@ -727,31 +1260,44 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     glLanguage();
     if (gl.hasImage('gstar')) gl.removeImage('gstar');
     gl.addImage('gstar', starImage(dark ? '#fff8e6' : '#c8952a', dark ? '#b8892a' : '#6b4a0f'), { pixelRatio: 2 });
-    for (const id of ['reached', 'lines', 'dots', 'pops', 'flags', 'sel']) gl.addSource(id, { type: 'geojson', data: id === 'dots' ? dotsFC : EMPTY });
+    if (gl.hasImage('gdot')) gl.removeImage('gdot');
+    gl.addImage('gdot', dotImage(dark ? '#fff8e6' : '#c8952a', dark ? '#b8892a' : '#6b4a0f'), { pixelRatio: 2 });
+    for (const id of ['reached', 'areas', 'lines', 'dots', 'pops', 'names', 'flags', 'sel']) gl.addSource(id, { type: 'geojson', data: id === 'dots' ? dotsFC : EMPTY });
+    const accent = dark ? '#93b8ec' : '#1d4f8f';
     gl.addLayer({ id: 'reached', type: 'fill', source: 'reached', paint: { 'fill-color': ['case', ['==', ['get', 'n'], 1], dark ? '#6aa2dc' : '#3f7cc4', dark ? '#3b6a96' : '#e9eef0'],
       'fill-opacity': ['case', ['==', ['get', 'n'], 1], dark ? 0.5 : 0.32, dark ? 0.3 : 0.7] } });
+    gl.addLayer({ id: 'area-hit', type: 'fill', source: 'areas', paint: { 'fill-color': '#000', 'fill-opacity': 0 } });
+    gl.addLayer({ id: 'area-sel', type: 'fill', source: 'areas', filter: ['==', ['get', 'sid'], ''], paint: { 'fill-color': accent, 'fill-opacity': dark ? 0.16 : 0.11 } });
     gl.addLayer({ id: 'lines', type: 'line', source: 'lines', layout: { 'line-join': 'round', 'line-cap': 'round' },
       paint: { 'line-color': dark ? 'rgba(225,238,244,0.55)' : 'rgba(35,52,64,0.62)', 'line-width': ['interpolate', ['linear'], ['zoom'], 3, 1, 8, 1.7, 12, 2.6] } });
+    gl.addLayer({ id: 'area-sel-line', type: 'line', source: 'areas', filter: ['==', ['get', 'sid'], ''], layout: { 'line-join': 'round' }, paint: { 'line-color': accent, 'line-width': 2.2 } });
     gl.addLayer({ id: 'dots', type: 'circle', source: 'dots', filter: ['<=', ['get', 'y'], Y],
       paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 2, 2.3, 3, 2.9, 6, 3.8, 10, 5.4, 14, 7.5, 17, 10], 'circle-color': dark ? '#f1cf78' : '#163e74',
         'circle-stroke-color': dark ? 'rgba(11,17,20,0.9)' : '#ffffff', 'circle-stroke-width': ['interpolate', ['linear'], ['zoom'], 3, 0.9, 12, 1.8] } });
     gl.addLayer({ id: 'pops', type: 'circle', source: 'pops', paint: { 'circle-radius': ['get', 'r'], 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-color': dark ? '#ffe7a3' : '#d29b2a', 'circle-stroke-width': ['get', 'w'], 'circle-stroke-opacity': ['get', 'a'] } });
-    gl.addLayer({ id: 'flags', type: 'symbol', source: 'flags', layout: { 'icon-image': 'gstar', 'icon-allow-overlap': true, 'icon-ignore-placement': true, 'symbol-sort-key': ['get', 'big'],
-      'icon-size': ['interpolate', ['linear'], ['zoom'], 3, ['case', ['==', ['get', 'big'], 1], 0.46, 0.3], 10, ['case', ['==', ['get', 'big'], 1], 0.75, 0.52]] } });
+    // (the shetachim's names, as on the history page: the biggest placed first; gone at street level)
+    gl.addLayer({ id: 'names', type: 'symbol', source: 'names', maxzoom: 9, layout: { 'text-field': ['get', 'name'], 'text-font': ['Noto Sans Bold'],
+      'text-size': ['interpolate', ['linear'], ['zoom'], 3, 11, 6, 14, 8, 16], 'text-max-width': 8, 'text-padding': 4, 'symbol-sort-key': ['-', 0, ['get', 'area']] },
+      paint: { 'text-color': dark ? '#e6edf0' : '#1e2b32', 'text-halo-color': dark ? 'rgba(11,17,20,0.9)' : 'rgba(255,255,255,0.92)', 'text-halo-width': 1.6, 'text-opacity': 0.9 } });
+    gl.addLayer({ id: 'flags', type: 'symbol', source: 'flags', layout: { 'icon-image': ['case', ['==', ['get', 'kind'], ''], 'gstar', 'gdot'], 'icon-allow-overlap': true, 'icon-ignore-placement': true, 'symbol-sort-key': ['get', 'big'],
+      'icon-size': ['interpolate', ['linear'], ['zoom'], 3, ['case', ['==', ['get', 'big'], 1], 0.56, 0.4], 10, ['case', ['==', ['get', 'big'], 1], 0.85, 0.62]] } });
     gl.addLayer({ id: 'sel', type: 'circle', source: 'sel', paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 3, 7.5, 14, 13], 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-color': dark ? '#e6edf0' : '#1e2b32', 'circle-stroke-width': 2 } });
     gl.addLayer({ id: 'hit', type: 'circle', source: 'dots', filter: ['<=', ['get', 'y'], Y], paint: { 'circle-radius': 12, 'circle-opacity': 0 } });
-    glReady = true; glKey = null; glYear(); glSel();
+    glReady = true; glKey = null; glNames = null; glYear(); glSel();
   }
   function glYear() {
     if (!glReady) return;
     gl.setFilter('dots', ['<=', ['get', 'y'], Y]); gl.setFilter('hit', ['<=', ['get', 'y'], Y]);
     gl.getSource('flags').setData(flagsFC());
-    const k = `${MODE}|${MODE === 'states' ? Y : config(Y).key}`;
+    const c = config(Y), k = `${MODE}|${MODE === 'states' ? Y : c.id}`;
     if (k !== glKey) {
       glKey = k;
       gl.getSource('reached').setData(MODE === 'states' ? reachedFC() : EMPTY);
-      gl.getSource('lines').setData(MODE === 'states' ? stateMesh() : shetachMesh(config(Y)));
+      gl.getSource('lines').setData(MODE === 'states' ? stateMesh() : shetachMesh(c));
+      gl.getSource('areas').setData(MODE === 'states' ? EMPTY : areasFC(c));
     }
+    const nk = MODE === 'states' ? '' : `${c.id}#${[...c.groups.keys()].map((sid) => nameOf(sid, Y)).join('|')}`;
+    if (nk !== glNames) { glNames = nk; gl.getSource('names').setData(MODE === 'states' ? EMPTY : namesFC(c)); }
   }
   function glFrame(now) {
     if (!glReady) return;
@@ -774,7 +1320,15 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     const tx = phone ? innerWidth / 2 : (HE ? (c.left - 12) / 2 : (c.right + innerWidth) / 2), ty = (top + bottom) / 2;
     gl.panBy([p.x - tx, p.y - ty], { duration: 450 });
   }
-  function glSel() { if (glReady) gl.getSource('sel').setData(selected ? { type: 'FeatureCollection', features: [feat({ type: 'Point', coordinates: [selected.lon, selected.lat] })] } : EMPTY); }
+  function glSel() {
+    if (!glReady) return;
+    let pt = null;
+    if (selected) pt = [selected.lon, selected.lat];
+    else if (pick && pick.flag) { const f = flagAt(pick.sid, Y); if (f) pt = [f.lon, f.lat]; }
+    gl.getSource('sel').setData(pt ? { type: 'FeatureCollection', features: [feat({ type: 'Point', coordinates: pt })] } : EMPTY);
+    const sid = pick && !pick.flag && MODE === 'shetachim' ? pick.sid : '';
+    gl.setFilter('area-sel', ['==', ['get', 'sid'], sid]); gl.setFilter('area-sel-line', ['==', ['get', 'sid'], sid]);
+  }
   function glTheme() {
     if (!gl) return; const d = isDark(); if (d === glDark) return;
     glDark = d; glReady = false; $('#gl').classList.toggle('gl-dark', d); gl.setStyle(d ? GL_STYLE.dark : GL_STYLE.light, { diff: false }); gl.once('style.load', glLayers);
@@ -802,12 +1356,19 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     gl.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
     gl.once('style.load', glLayers);
     if (narrow) gl.once('load', () => { const at = document.querySelector('#gl .maplibregl-ctrl-attrib'); if (at) at.classList.remove('maplibregl-compact-show'); });
+    // a tap: a flagship's star right under it, else a center, else a star near it, else the shetach
     gl.on('click', (e) => {
       if (!glReady) return;
-      const fs = gl.queryRenderedFeatures([[e.point.x - 12, e.point.y - 12], [e.point.x + 12, e.point.y + 12]], { layers: ['hit'] });
+      const near = (layer, r) => gl.queryRenderedFeatures([[e.point.x - r, e.point.y - r], [e.point.x + r, e.point.y + r]], { layers: [layer] });
+      const dist = (lon, lat) => { const q = gl.project([lon, lat]); return (q.x - e.point.x) ** 2 + (q.y - e.point.y) ** 2; };
+      const flagNear = (r) => { let fl = null, fd = Infinity; for (const f of near('flags', r)) { const dd = dist(...f.geometry.coordinates); if (dd < fd) { fd = dd; fl = f; } } return fl; };
+      let fl = flagNear(7); if (fl) return openPick(fl.properties.sid, true);
       let best = null, bd = Infinity;
-      for (const f of fs) { const d = DOTS[f.properties.i]; if (!d) continue; const q = gl.project([d.lon, d.lat]), dd = (q.x - e.point.x) ** 2 + (q.y - e.point.y) ** 2; if (dd < bd) { bd = dd; best = d; } }
-      if (best) openCard(best); else closeCard();
+      for (const f of near('hit', 12)) { const d = DOTS[f.properties.i]; if (!d) continue; const dd = dist(d.lon, d.lat); if (dd < bd) { bd = dd; best = d; } }
+      if (best) return openCard(best);
+      fl = flagNear(11); if (fl) return openPick(fl.properties.sid, true);
+      if (MODE === 'shetachim') { const a = gl.queryRenderedFeatures(e.point, { layers: ['area-hit'] })[0]; if (a) return openPick(a.properties.sid, false); }
+      closeCard();
     });
     gl.on('mouseenter', 'hit', () => { gl.getCanvas().style.cursor = 'pointer'; });
     gl.on('mouseleave', 'hit', () => { gl.getCanvas().style.cursor = ''; });
@@ -830,7 +1391,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   addEventListener('resize', () => { layout(); ticks(); });
   layout(); showYear(false); setView(VIEW);
   if (Q.get('play') === '1') setPlaying(true);
-  window.__growth = { setYear: (y) => setYear(y, false), setMode, setView, pick: (i) => openCard(DOTS[i]), glReady: () => glReady && gl && gl.loaded(), map: () => gl, ready: true };
+  window.__growth = { setYear: (y) => setYear(y, false), setMode, setView, pick: (i) => openCard(DOTS[i]), pickSid: (sid, flag) => openPick(sid, !!flag), flags: () => flagList(), glReady: () => glReady && gl && gl.loaded(), map: () => gl, ready: true };
 })();
 </script>
 </body>

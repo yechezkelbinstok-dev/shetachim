@@ -33,6 +33,16 @@ def iso_date(s):
     return ''
 
 
+def people(c):
+    """Its personnel as the main map has them (chabad.org's listing): [title, first name, last name, position, flags], flags
+    'd' director, 'x' deceased, 'h' HY"D (owner, Nov 12: "WHY ISNT THERE PERSONELL WHERE AVAILABLE")."""
+    out = []
+    for q in c.get('personnel') or []:
+        flags = ('d' if q.get('isDirector') else '') + ('x' if q.get('isDeceased') else '') + ('h' if q.get('hyd') else '')
+        out.append([q.get('title') or '', q.get('firstName') or '', q.get('lastName') or '', q.get('position') or '', flags])
+    return out
+
+
 def is_mikvah(c):
     return (c.get('type') or '').lower().startswith('mik') or 'mikv' in (c.get('name') or '').lower()
 
@@ -65,11 +75,12 @@ def main():
             idx.append(len(listings))
             # (no sources on the page: owner, Nov 12, "absolutely not a link to the data source")
             listings.append([cid, c.get('name') or '', c.get('type') or '', c.get('city') or '',
-                             e.get('year') or None, CONF.get(e.get('confidence'), ''), iso_date(e.get('date'))])
+                             e.get('year') or None, CONF.get(e.get('confidence'), ''), iso_date(e.get('date')), people(c)])
         lon, lat = f['geometry']['coordinates'][:2]
         region = p.get('region') or ''
         # (its date where one is known, 'YYYY-MM' or 'YYYY-MM-DD': the page counts it in the Hebrew year it fell in)
-        dots.append([round(lon, 4), round(lat, 4), year, CONF.get(e0.get('confidence'), ''), region, piece, idx, iso_date(e0.get('date'))])
+        dots.append([round(lon, 4), round(lat, 4), year, CONF.get(e0.get('confidence'), ''), region, piece, idx, iso_date(e0.get('date')),
+                     p.get('piece') or ''])
         if region and (region not in first or year < first[region]):
             first[region] = year
     dots.sort(key=lambda d: (d[2], d[1]))

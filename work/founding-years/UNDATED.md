@@ -1,6 +1,6 @@
 # Founding years: every listing still undated
 
-US + Canada, 48 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
+US + Canada, 47 listings without a year (mikvahs apart: 19). Per shetach: first the listings on dots with no year at all, then those sharing a dot that is already dated (the dot shows the earliest year there). After each: what we have ('by' = the latest it could have started; 'by 2004' is mostly only the directory's first day) and the chabad.org id. Regenerate: `python3 work/founding-years/undated.py`.
 
 ## new-york-city: 7
 
@@ -89,15 +89,6 @@ US + Canada, 48 listings without a year (mikvahs apart: 19). Per shetach: first 
 - Bais Chaya Mushka, Thornhill — by 2004 · 118898
 - Mesivta Lubavitch Toronto, Toronto (Zalman Oster) — by 2004 · 118407
 
-## upper-midwest: 2
-
-**No year at the dot (2)**
-- Chabad Oneg Shabbos V'Yomtov, S. Paul (Yosaif Grossbaum) — by 1995 · 119759
-- Chabad of S. Louis Park, St. Louis Park (Yosef Y. Shagalow) — by 2004 · 118314
-
-**Mikvahs, out of the counts (1)**
-- Chabad-Lubavitch Mikvah Information, S. Paul (Gershon Grossbaum) — by 2004 · 117988
-
 ## western-pennsylvania: 2
 
 **No year at the dot (2)**
@@ -149,6 +140,14 @@ US + Canada, 48 listings without a year (mikvahs apart: 19). Per shetach: first 
 
 **No year at the dot (1)**
 - Va'adah L'dovrei Ivrit Chabad, Philadelphia (Zalman Lipsker) — 1964–2004 · 117718
+
+## upper-midwest: 1
+
+**No year at the dot (1)**
+- Chabad Oneg Shabbos V'Yomtov, S. Paul (Yosaif Grossbaum) — by 1995 · 119759
+
+**Mikvahs, out of the counts (1)**
+- Chabad-Lubavitch Mikvah Information, S. Paul (Gershon Grossbaum) — by 2004 · 117988
 
 ## colorado: 1
 

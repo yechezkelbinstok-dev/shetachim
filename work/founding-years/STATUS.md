@@ -61,7 +61,7 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | tennessee | 7 | 7 |  |  |  |  |  | 0 | 7 | 0 |
 | texas | 56 | 37 | 11 | 8 |  |  |  | 0 | 47 | 0 |
 | the-carolinas | 25 | 16 | 5 | 4 |  |  |  | 0 | 23 | 0 |
-| upper-midwest | 18 | 10 | 4 | 2 | 2 |  |  | 2 | 18 | 2 |
+| upper-midwest | 18 | 10 | 5 | 2 | 1 |  |  | 1 | 18 | 1 |
 | upstate-new-york | 22 | 12 | 6 | 3 | 1 |  |  | 1 | 21 | 0 |
 | utah | 4 | 3 | 1 |  |  |  |  | 0 | 4 | 0 |
 | vermont | 7 | 5 | 2 |  |  |  |  | 0 | 7 | 0 |
@@ -72,4 +72,4 @@ year of its listings, so `Dots missing` counts the points with no listing dated 
 | western-pennsylvania | 26 | 10 | 11 | 3 | 2 |  |  | 2 | 23 | 2 |
 | wisconsin | 22 | 10 | 6 | 6 |  |  |  | 0 | 19 | 0 |
 | wyoming | 2 | 2 |  |  |  |  |  | 0 | 2 | 0 |
-| **all** | 1902 | 1017 | 493 | 344 | 43 | 4 | 1 | 48 | 1721 | 23 |
+| **all** | 1902 | 1017 | 494 | 344 | 42 | 4 | 1 | 47 | 1721 | 22 |

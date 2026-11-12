@@ -26197,7 +26197,13 @@
    "after": 1980,
    "by": 2004,
    "source": "https://www.lubavitch.com/in-the-footsteps-of-their-parents/",
-   "note": "No year found for the mikvah of Chabad Madison (Mrs. Faygie Matusof; 225 Campbell Street). Lubavitch.com (28 July 2015) lists 'services and a mikveh' among what the Matusofs (arrived 1980) built. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then."
+   "note": "No year found for the mikvah of Chabad Madison (Mrs. Faygie Matusof; 225 Campbell Street). Lubavitch.com (28 July 2015) lists 'services and a mikveh' among what the Matusofs (arrived 1980) built. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "people": [
+    {
+     "name": "Faygie Matusof",
+     "role": "head"
+    }
+   ]
   },
   "304247": {
    "name": "Chabad at the University of Wisconsin",
@@ -26216,6 +26222,14 @@
      "until": null,
      "source": "https://www.dailycardinal.com/article/2006/02/jewish-org-unites-all-faiths-over-traditional-friday-dinners"
     }
+   ],
+   "people": [
+    {
+     "name": "the Matusofs' son, with Henya",
+     "role": "director",
+     "from": "2005",
+     "note": "'he and his wife Henya'; his name not in the note"
+    }
    ]
   },
   "1792807": {
@@ -26226,7 +26240,14 @@
    "how": "anniversary",
    "confidence": "medium",
    "source": "https://www.lubavitch.com/in-the-footsteps-of-their-parents/",
-   "note": "Lubavitch.com (28 July 2015): Rabbi Yona and Faygie Matusof's son Avremel 'joined his parents four years ago to expand programming for young Jewish professionals' (count back: 2011). Its chabad.org listing went up March 6 2012. Medium: counted back."
+   "note": "Lubavitch.com (28 July 2015): Rabbi Yona and Faygie Matusof's son Avremel 'joined his parents four years ago to expand programming for young Jewish professionals' (count back: 2011). Its chabad.org listing went up March 6 2012. Medium: counted back.",
+   "people": [
+    {
+     "name": "Avremel Matusof",
+     "role": "founder",
+     "from": "2011"
+    }
+   ]
   },
   "117739": {
    "name": "Chabad of Downtown",
@@ -26236,7 +26257,18 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.jewishchronicle.org/2009/02/17/peltz-center-to-honor-samuels-couple-on-30-years/",
-   "note": "Wisconsin Jewish Chronicle (17 Feb 2009, 'Peltz Center to honor Samuels couple on 30 years'): 'when Shmotkin asked Samuels to come to Milwaukee in 1980, the Rebbe gave his blessing. At first, Samuels was education director and taught at a community high school that didn't last. In 1990, he opened Chabad of Downtown'. Rabbi Yoseph and Chashy Samuels; now 1301 N Astor Street."
+   "note": "Wisconsin Jewish Chronicle (17 Feb 2009, 'Peltz Center to honor Samuels couple on 30 years'): 'when Shmotkin asked Samuels to come to Milwaukee in 1980, the Rebbe gave his blessing. At first, Samuels was education director and taught at a community high school that didn't last. In 1990, he opened Chabad of Downtown'. Rabbi Yoseph and Chashy Samuels; now 1301 N Astor Street.",
+   "people": [
+    {
+     "name": "Rabbi Yoseph Samuels",
+     "role": "director",
+     "note": "came to Milwaukee in 1980"
+    },
+    {
+     "name": "Chashy Samuels",
+     "role": "director"
+    }
+   ]
   },
   "315558": {
    "name": "Chabad of the East Side",
@@ -26246,7 +26278,24 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/315558",
-   "note": "No start date found. Wisconsin Jewish Chronicle (about June 2004, filed 31 March 2008, 'Ten years after Rebbe's passing'): 'Lubavitch of Wisconsin now has centers downtown, on the East Side, in Bayside and Mequon', with 'The Shul-East' and Rabbi Yerachmiel Kittner. The Chronicle (7 July 2019) also names 'Chabad of the East Side' among the outposts of 1970, which is not confirmed. Rabbi Yisroel and Mushka Lein lead it now; the Chronicle (6 March 2019): they 'moved from New York to Milwaukee more than six years ago'. Now 3030 East Kenwood Boulevard; its chabad.org listing went up Sept 23 2005. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2005-09-23), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No start date found. Wisconsin Jewish Chronicle (about June 2004, filed 31 March 2008, 'Ten years after Rebbe's passing'): 'Lubavitch of Wisconsin now has centers downtown, on the East Side, in Bayside and Mequon', with 'The Shul-East' and Rabbi Yerachmiel Kittner. The Chronicle (7 July 2019) also names 'Chabad of the East Side' among the outposts of 1970, which is not confirmed. Rabbi Yisroel and Mushka Lein lead it now; the Chronicle (6 March 2019): they 'moved from New York to Milwaukee more than six years ago'. Now 3030 East Kenwood Boulevard; its chabad.org listing went up Sept 23 2005. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2005-09-23), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": [
+    {
+     "name": "Rabbi Yerachmiel Kittner",
+     "role": "rabbi",
+     "seen": "2004"
+    },
+    {
+     "name": "Rabbi Yisroel Lein",
+     "role": "director",
+     "from": "2012"
+    },
+    {
+     "name": "Mushka Lein",
+     "role": "director",
+     "from": "2012"
+    }
+   ]
   },
   "117920": {
    "name": "Jewish Reach - Russian Education & Aid Center",
@@ -26256,7 +26305,13 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.jewishchronicle.org/2008/03/31/rabbis-reach-out-to-next-generation-of-fsu-jews/",
-   "note": "Wisconsin Jewish Chronicle (undated, filed 31 March 2008, 'Rabbis reach out to next generation of FSU Jews'): Rabbi Yaacov Elman, 'director of Jewish REACH Synagogue for Russian Jews at 3510 N. Oakland Ave.', 'has served as a spiritual leader to the Russian-speaking Jews of Milwaukee in a program underwritten by Lubavitch of Wisconsin since 1991.' IRS: Jewish Reach Inc, ruling Jan 1994."
+   "note": "Wisconsin Jewish Chronicle (undated, filed 31 March 2008, 'Rabbis reach out to next generation of FSU Jews'): Rabbi Yaacov Elman, 'director of Jewish REACH Synagogue for Russian Jews at 3510 N. Oakland Ave.', 'has served as a spiritual leader to the Russian-speaking Jews of Milwaukee in a program underwritten by Lubavitch of Wisconsin since 1991.' IRS: Jewish Reach Inc, ruling Jan 1994.",
+   "people": [
+    {
+     "name": "Rabbi Yaacov Elman",
+     "role": "director"
+    }
+   ]
   },
   "119683": {
    "name": "Jewish Beginnings - Lubavitch Preschool",
@@ -26266,7 +26321,8 @@
    "how": "list",
    "confidence": "medium",
    "source": "https://www.chinuchoffice.org/media/pdf/1267/szkh12671837.pdf",
-   "note": "Chinuch Office directory of Chabad schools (2023-24): Jewish Beginnings Lubavitch Preschool, 6401 N. Santa Monica Blvd., 'Founded: 1975'. Not confirmed elsewhere; the Wisconsin Jewish Chronicle (27 Aug 2018): 'The school's first accreditation from the nonprofit was in 1998.' IRS: Jewish Beginnings Lubavitch Preschool Inc, ruling May 1993. Medium: one list."
+   "note": "Chinuch Office directory of Chabad schools (2023-24): Jewish Beginnings Lubavitch Preschool, 6401 N. Santa Monica Blvd., 'Founded: 1975'. Not confirmed elsewhere; the Wisconsin Jewish Chronicle (27 Aug 2018): 'The school's first accreditation from the nonprofit was in 1998.' IRS: Jewish Beginnings Lubavitch Preschool Inc, ruling May 1993. Medium: one list.",
+   "people": []
   },
   "316577": {
    "name": "Bader Hillel Academy",
@@ -26277,7 +26333,13 @@
    "how": "news",
    "confidence": "medium",
    "source": "https://www.jewishchronicle.org/2008/03/31/lubavitch-to-administer-hillel-academy/",
-   "note": "An older school that Lubavitch took over. Wisconsin Jewish Chronicle (undated, filed 31 March 2008, 'Lubavitch to administer Hillel Academy'; it gives the federation's allocation 'for fiscal year 2004-2005' and 'the new school year begins on Sept. 1', so summer 2004): 'Beginning this school year, Lubavitch of Wisconsin will take over the management of the school'; B. Devorah Shmotkin, 'director of the Children's Lubavitch Living and Learning Center, will be the school's principal'. The school itself: 'Since its founding in 1960, Bader Hillel Academy has served as a cornerstone of Jewish education in Milwaukee' (its site, baderhillel.org); the Chronicle (2 Sept 2011) on its 50th anniversary. Medium: the article's date is inferred, and the Chinuch Office directory (2023-24) gives 'Founded: 1996'. Its chabad.org listing went up Sept 27 2005, at the preschool's address (6401 N Santa Monica Blvd)."
+   "note": "An older school that Lubavitch took over. Wisconsin Jewish Chronicle (undated, filed 31 March 2008, 'Lubavitch to administer Hillel Academy'; it gives the federation's allocation 'for fiscal year 2004-2005' and 'the new school year begins on Sept. 1', so summer 2004): 'Beginning this school year, Lubavitch of Wisconsin will take over the management of the school'; B. Devorah Shmotkin, 'director of the Children's Lubavitch Living and Learning Center, will be the school's principal'. The school itself: 'Since its founding in 1960, Bader Hillel Academy has served as a cornerstone of Jewish education in Milwaukee' (its site, baderhillel.org); the Chronicle (2 Sept 2011) on its 50th anniversary. Medium: the article's date is inferred, and the Chinuch Office directory (2023-24) gives 'Founded: 1996'. Its chabad.org listing went up Sept 27 2005, at the preschool's address (6401 N Santa Monica Blvd).",
+   "people": [
+    {
+     "name": "Devorah Shmotkin",
+     "role": "principal"
+    }
+   ]
   },
   "150714": {
    "name": "The Shul",
@@ -26307,7 +26369,14 @@
    "how": "stated",
    "confidence": "medium",
    "source": "https://www.lubavitchofwi.org/templates/articlecco_cdo/aid/431954/jewish/Rabbi-Mendel-Shmotkin.htm",
-   "note": "Lubavitch of Wisconsin's biography of Rabbi Mendel Shmotkin (also on Hillel High's site): 'He also co-founded the Milwaukee Community Cheder (1997), The Shul in Bayside (2002), Bader Hillel High School (2012), and Chabad Lubavitch Torah Center in Glendale (2014).' Medium: the 2010 Chronicle's member of 'about 10 years' points to about 2000. Wisconsin Jewish Chronicle (31 Jan 2010): Jeff Langer 'has been a member of Congregation Ahavat Yisrael' for 'about 10 years' (so it existed by about 2000), and it had moved 'four or five times'. The Chronicle (undated, filed 31 March 2008, 'Handy volunteers'): 'The Shul actually began in the basement of Shmotkin's Bayside home, and then rented the Bayside Community Center every week'; 'About two years ago, it began renting two non-adjoining spaces' at the Audubon Court shopping center. On Dec. 17 (2009) the Bayside village board approved its move into the former Pandl's in Bayside restaurant, now 8825 N Lake Dr."
+   "note": "Lubavitch of Wisconsin's biography of Rabbi Mendel Shmotkin (also on Hillel High's site): 'He also co-founded the Milwaukee Community Cheder (1997), The Shul in Bayside (2002), Bader Hillel High School (2012), and Chabad Lubavitch Torah Center in Glendale (2014).' Medium: the 2010 Chronicle's member of 'about 10 years' points to about 2000. Wisconsin Jewish Chronicle (31 Jan 2010): Jeff Langer 'has been a member of Congregation Ahavat Yisrael' for 'about 10 years' (so it existed by about 2000), and it had moved 'four or five times'. The Chronicle (undated, filed 31 March 2008, 'Handy volunteers'): 'The Shul actually began in the basement of Shmotkin's Bayside home, and then rented the Bayside Community Center every week'; 'About two years ago, it began renting two non-adjoining spaces' at the Audubon Court shopping center. On Dec. 17 (2009) the Bayside village board approved its move into the former Pandl's in Bayside restaurant, now 8825 N Lake Dr.",
+   "people": [
+    {
+     "name": "Rabbi Mendel Shmotkin",
+     "role": "co-founder",
+     "from": "2002"
+    }
+   ]
   },
   "213095": {
    "name": "The Peltz Center for Jewish Life",
@@ -26325,6 +26394,18 @@
      "until": 1988,
      "source": "https://www.jewishchronicle.org/2008/06/11/peltz-center-to-celebrate-25-years-of-north-shore-growth/"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Dovid Rapoport",
+     "role": "founder",
+     "from": "1983"
+    },
+    {
+     "name": "Fagie Rapoport",
+     "role": "founder",
+     "from": "1983"
+    }
    ]
   },
   "213104": {
@@ -26335,7 +26416,18 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://projects.propublica.org/nonprofits/organizations/391966107",
-   "note": "No start date found. Wisconsin Jewish Chronicle (11 June 2008): Rivkie and Rabbi Motty Spalter were honored for their '20 years of dedication and hard work' for the Peltz Center, 'which among other things included founding what is now the Mequon Jewish Preschool', so after about 1988. The Chinuch Office directory (2023-24) gives 'Founded: 1969', before Chabad came to Wisconsin (1968) and to the North Shore (1983), so not used. Its chabad.org listing went up Oct 14 2004. Now 11112 Crown Court. IRS exempt-organization record (EO Business Master File, Nov 2026): 'MEQUON JEWISH PRESCHOOL INC' (EIN 39-1966107), 11112 N Crown Ct, Mequon, ruling Oct 1999. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start."
+   "note": "No start date found. Wisconsin Jewish Chronicle (11 June 2008): Rivkie and Rabbi Motty Spalter were honored for their '20 years of dedication and hard work' for the Peltz Center, 'which among other things included founding what is now the Mequon Jewish Preschool', so after about 1988. The Chinuch Office directory (2023-24) gives 'Founded: 1969', before Chabad came to Wisconsin (1968) and to the North Shore (1983), so not used. Its chabad.org listing went up Oct 14 2004. Now 11112 Crown Court. IRS exempt-organization record (EO Business Master File, Nov 2026): 'MEQUON JEWISH PRESCHOOL INC' (EIN 39-1966107), 11112 N Crown Ct, Mequon, ruling Oct 1999. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start.",
+   "people": [
+    {
+     "name": "Rabbi Motty Spalter",
+     "role": "founder",
+     "note": "'founding what is now the Mequon Jewish Preschool'"
+    },
+    {
+     "name": "Rivkie Spalter",
+     "role": "founder"
+    }
+   ]
   },
   "540234": {
    "name": "Chabad of Kenosha",
@@ -26346,7 +26438,14 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.jewishchronicle.org/2008/04/30/police-investigating-kenosha-torah-theft/",
-   "note": "Wisconsin Jewish Chronicle (30 April 2008): Rabbi Tzali Wilschanski, 'spiritual leader of the shul since September 2007', of Congregation B'nei Tzedek Chabad in Kenosha. Its chabad.org listing went up Aug 15 2007. IRS: Chabad Lubavitch of Kenosha Inc, ruling Sept 2010. Now 6520 67th Street."
+   "note": "Wisconsin Jewish Chronicle (30 April 2008): Rabbi Tzali Wilschanski, 'spiritual leader of the shul since September 2007', of Congregation B'nei Tzedek Chabad in Kenosha. Its chabad.org listing went up Aug 15 2007. IRS: Chabad Lubavitch of Kenosha Inc, ruling Sept 2010. Now 6520 67th Street.",
+   "people": [
+    {
+     "name": "Rabbi Tzali Wilschanski",
+     "role": "rabbi",
+     "from": "2007"
+    }
+   ]
   },
   "768432": {
    "name": "Friendship Circle",
@@ -26357,7 +26456,13 @@
    "how": "news",
    "confidence": "medium",
    "source": "https://www.jewishchronicle.org/2008/03/31/special-needs-children-volunteers-both-enjoy-new-friendship-circle/",
-   "note": "Wisconsin Jewish Chronicle (undated, filed 31 March 2008, 'Special needs children, volunteers both enjoy new Friendship Circle'): 'a new Lubavitch of Wisconsin program, the Friendship Circle, which began this past summer.' The Chronicle's 'Ten years after Rebbe's passing' (about June 2004) already calls it Lubavitch's 'new youth volunteer program', so the summer is 2003 (or, at the latest, 2004). Medium: the article is undated. Rabbi Levi Stein runs it now; the Chronicle (5 Sept 2025): 'When Rabbi Levi Stein started operating Friendship Circle of Wisconsin in 2017'. IRS: The Friendship Circle Inc, Fox Point, ruling Aug 1995 (unexplained). Its chabad.org listing went up Nov 18 2008. Now 8649 N Port Washington Road."
+   "note": "Wisconsin Jewish Chronicle (undated, filed 31 March 2008, 'Special needs children, volunteers both enjoy new Friendship Circle'): 'a new Lubavitch of Wisconsin program, the Friendship Circle, which began this past summer.' The Chronicle's 'Ten years after Rebbe's passing' (about June 2004) already calls it Lubavitch's 'new youth volunteer program', so the summer is 2003 (or, at the latest, 2004). Medium: the article is undated. Rabbi Levi Stein runs it now; the Chronicle (5 Sept 2025): 'When Rabbi Levi Stein started operating Friendship Circle of Wisconsin in 2017'. IRS: The Friendship Circle Inc, Fox Point, ruling Aug 1995 (unexplained). Its chabad.org listing went up Nov 18 2008. Now 8649 N Port Washington Road.",
+   "people": [
+    {
+     "name": "Rabbi Levi Stein",
+     "role": "director"
+    }
+   ]
   },
   "1113327": {
    "name": "Chabad of the Bay Area",
@@ -26367,7 +26472,19 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.jewishchronicle.org/2020/12/23/jews-of-green-bay-work-to-continue-traditions/",
-   "note": "Wisconsin Jewish Chronicle (23 Dec 2020): Rabbi Michoel Feinstein and his wife Esther 'moved to Green Bay in 2010'. Its chabad.org listing went up Feb 3 2010. The Chronicle (25 Nov 2013): a new home in 'a former church' being converted for Chabad of the Bay Area, now 3607 Libal Street."
+   "note": "Wisconsin Jewish Chronicle (23 Dec 2020): Rabbi Michoel Feinstein and his wife Esther 'moved to Green Bay in 2010'. Its chabad.org listing went up Feb 3 2010. The Chronicle (25 Nov 2013): a new home in 'a former church' being converted for Chabad of the Bay Area, now 3607 Libal Street.",
+   "people": [
+    {
+     "name": "Rabbi Michoel Feinstein",
+     "role": "founder",
+     "from": "2010"
+    },
+    {
+     "name": "Esther Feinstein",
+     "role": "founder",
+     "from": "2010"
+    }
+   ]
   },
   "1471811": {
    "name": "Rohr Chabad Jewish Student Center",
@@ -26377,7 +26494,24 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/1471811",
-   "note": "No start date found for Chabad at UW-Milwaukee. Wisconsin Jewish Chronicle (29 March 2012): 'Rabbi Yecheskel Thaler (director of UWM Chabad on Campus)'. Its chabad.org listing went up March 21 2011, so it existed by then. IRS: Chabad Lubavitch of UWM Inc, ruling Oct 2014. Rabbi Lev and Talia Voskoboynik lead it now; their site (chabadoncampusmke.com): 'In 2024, after gaining experience serving at the Chabad at the University of Kansas, we moved from Lawrence, Kansas to Milwaukee'. Now 3054 N Hackett Avenue. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2011-03-21), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "No start date found for Chabad at UW-Milwaukee. Wisconsin Jewish Chronicle (29 March 2012): 'Rabbi Yecheskel Thaler (director of UWM Chabad on Campus)'. Its chabad.org listing went up March 21 2011, so it existed by then. IRS: Chabad Lubavitch of UWM Inc, ruling Oct 2014. Rabbi Lev and Talia Voskoboynik lead it now; their site (chabadoncampusmke.com): 'In 2024, after gaining experience serving at the Chabad at the University of Kansas, we moved from Lawrence, Kansas to Milwaukee'. Now 3054 N Hackett Avenue. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2011-03-21), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": [
+    {
+     "name": "Rabbi Yecheskel Thaler",
+     "role": "director",
+     "seen": "2012"
+    },
+    {
+     "name": "Rabbi Lev Voskoboynik",
+     "role": "director",
+     "from": "2024"
+    },
+    {
+     "name": "Talia Voskoboynik",
+     "role": "director",
+     "from": "2024"
+    }
+   ]
   },
   "1899937": {
    "name": "Chabad of Waukesha - Brookfield",
@@ -26395,6 +26529,18 @@
      "from": 2012,
      "until": 2020,
      "source": "https://www.jewishchronicle.org/2013/01/30/lubavitch-of-wisconsin-has-waukesha-home/"
+    }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Levi Brook",
+     "role": "founder",
+     "from": "2012"
+    },
+    {
+     "name": "Fraidy Brook",
+     "role": "founder",
+     "from": "2012"
     }
    ]
   },
@@ -26415,6 +26561,13 @@
      "until": null,
      "source": "https://www.jewishchronicle.org/2013/08/01/new-and-expanded-programs-make-back-to-school-news/"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Mendel Shmotkin",
+     "role": "co-founder",
+     "note": "co-founded Bader Hillel High (2012)"
+    }
    ]
   },
   "2901465": {
@@ -26425,7 +26578,13 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/2901465",
-   "note": "No start date found: Rabbi Mendel Shmotkin's 'Chabad of Glendale & River Hills' (its site, read through Firecrawl, gives no year; the Wisconsin Jewish Chronicle has no opening story). Its chabad.org listing went up March 26 2015, so it existed by then. IRS: Chabad Of Glendale Inc, ruling April 2018. Now 6791 N Green Bay Ave. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2015-03-26), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "No start date found: Rabbi Mendel Shmotkin's 'Chabad of Glendale & River Hills' (its site, read through Firecrawl, gives no year; the Wisconsin Jewish Chronicle has no opening story). Its chabad.org listing went up March 26 2015, so it existed by then. IRS: Chabad Of Glendale Inc, ruling April 2018. Now 6791 N Green Bay Ave. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2015-03-26), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": [
+    {
+     "name": "Rabbi Mendel Shmotkin",
+     "role": "director"
+    }
+   ]
   },
   "4441729": {
    "name": "Ovation Senior Home",
@@ -26435,7 +26594,14 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/4441729",
-   "note": "Rabbi Levi Emmer at Ovation (the old Jewish Home and Care Center, 1414 N Prospect Avenue; the home itself dates from 1906). No start date found. Wisconsin Jewish Chronicle (30 May 2012): 'Rabbi Levi Emmer of the Jewish Home and Care Center', so he was there by then; the Chronicle (1 Aug 2013): 'Rabbi Levi Emmer is the JHCC Director of Traditions and Spiritual Life'. Its chabad.org listing went up July 23 2019. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2019-07-23), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "Rabbi Levi Emmer at Ovation (the old Jewish Home and Care Center, 1414 N Prospect Avenue; the home itself dates from 1906). No start date found. Wisconsin Jewish Chronicle (30 May 2012): 'Rabbi Levi Emmer of the Jewish Home and Care Center', so he was there by then; the Chronicle (1 Aug 2013): 'Rabbi Levi Emmer is the JHCC Director of Traditions and Spiritual Life'. Its chabad.org listing went up July 23 2019. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2019-07-23), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": [
+    {
+     "name": "Rabbi Levi Emmer",
+     "role": "rabbi",
+     "seen": "2012"
+    }
+   ]
   },
   "6490794": {
    "name": "Chabad of Wauwatosa",
@@ -26445,7 +26611,19 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.chabadoftosa.com/meet-the-shmotkin-s",
-   "note": "Its own 'Meet the Shmotkins' page: 'Rabbi Levi & Chani Shmotkin moved to Wauwatosa in July 2024 to establish and open the Wauwatosa Chabad Jewish Community Center'. Earlier note: No start date found: Rabbi Levi Shmotkin's Chabad of Tosa (its site gives no year; no news found). Its chabad.org listing went up Aug 5 2024, so it existed by then. IRS: Chabad Lubavitch Of Wauwatosa Inc, ruling April 2025."
+   "note": "Its own 'Meet the Shmotkins' page: 'Rabbi Levi & Chani Shmotkin moved to Wauwatosa in July 2024 to establish and open the Wauwatosa Chabad Jewish Community Center'. Earlier note: No start date found: Rabbi Levi Shmotkin's Chabad of Tosa (its site gives no year; no news found). Its chabad.org listing went up Aug 5 2024, so it existed by then. IRS: Chabad Lubavitch Of Wauwatosa Inc, ruling April 2025.",
+   "people": [
+    {
+     "name": "Rabbi Levi Shmotkin",
+     "role": "founder",
+     "from": "2024"
+    },
+    {
+     "name": "Chani Shmotkin",
+     "role": "founder",
+     "from": "2024"
+    }
+   ]
   },
   "7429629": {
    "name": "Chabad Lubavitch Bay View",
@@ -26455,7 +26633,13 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://projects.propublica.org/nonprofits/organizations/422911602",
-   "note": "No start date found: Rabbi Yisroel Bresinger's center for Bay View, Milwaukee (the listing gives Lubavitch of Wisconsin's Glendale address, 6789 N. Green Bay Ave). IRS: Chabad Lubavitch Of Bay View Inc, ruling July 2026. Its chabad.org listing went up Sept 9 2026, so it existed by then. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD LUBAVITCH OF BAY VIEW INC' (EIN 42-2911602), 6789 North Green Bay Avenue, Glendale, ruling July 2026. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start."
+   "note": "No start date found: Rabbi Yisroel Bresinger's center for Bay View, Milwaukee (the listing gives Lubavitch of Wisconsin's Glendale address, 6789 N. Green Bay Ave). IRS: Chabad Lubavitch Of Bay View Inc, ruling July 2026. Its chabad.org listing went up Sept 9 2026, so it existed by then. IRS exempt-organization record (EO Business Master File, Nov 2026): 'CHABAD LUBAVITCH OF BAY VIEW INC' (EIN 42-2911602), 6789 North Green Bay Avenue, Glendale, ruling July 2026. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start.",
+   "people": [
+    {
+     "name": "Rabbi Yisroel Bresinger",
+     "role": "director"
+    }
+   ]
   },
   "117707": {
    "name": "Congregation Tzemach Tzedek",
@@ -26465,7 +26649,14 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.clevelandjewishnews.com/archives/local-chabad-leader-rabbi-zalman-kazen-dies-at-92/article_b1b018b8-840e-5386-8787-cbadbdf4498e.html",
-   "note": "Cleveland Jewish News (13 July 2011, Rabbi Zalman Kazen's obituary): 'The couple came to Cleveland in 1953 at the request of Lubavicher Rebbe Menachem Mendel Schneerson. While applying for a High Holiday position at what would become Zemach Zedek, he realized he was related to the Madorsky family, who founded the congregation (then known commonly as Nusach Ari Shul). Shortly after Zemach Zedek moved to Cleveland Heights in 1957, Rabbi Kazen bought his home on Glenmont Road, which served as Cleveland's original Chabad house. When Zemach Zedek's rabbi moved to Wickliffe, Rabbi Kazen was chosen to lead the congregation.' The CJN (3 July 2014): the Kazens 'brought the Chabad-Lubavitch movement to Cleveland in 1953'; Rabbi Kazen 'served as spiritual leader for more than 50 years'; Rabbi Mordechai Mendelson 'took over as Congregation Zemach Zedek's spiritual leader after the passing of Rabbi Kazen in 2011'. The year is the Kazens' arrival; the congregation itself (the Nusach Ari Shul) is older, its founding year not found. Now 1922 Lee Road; the listing still names Rabbi Zalman Kazen."
+   "note": "Cleveland Jewish News (13 July 2011, Rabbi Zalman Kazen's obituary): 'The couple came to Cleveland in 1953 at the request of Lubavicher Rebbe Menachem Mendel Schneerson. While applying for a High Holiday position at what would become Zemach Zedek, he realized he was related to the Madorsky family, who founded the congregation (then known commonly as Nusach Ari Shul). Shortly after Zemach Zedek moved to Cleveland Heights in 1957, Rabbi Kazen bought his home on Glenmont Road, which served as Cleveland's original Chabad house. When Zemach Zedek's rabbi moved to Wickliffe, Rabbi Kazen was chosen to lead the congregation.' The CJN (3 July 2014): the Kazens 'brought the Chabad-Lubavitch movement to Cleveland in 1953'; Rabbi Kazen 'served as spiritual leader for more than 50 years'; Rabbi Mordechai Mendelson 'took over as Congregation Zemach Zedek's spiritual leader after the passing of Rabbi Kazen in 2011'. The year is the Kazens' arrival; the congregation itself (the Nusach Ari Shul) is older, its founding year not found. Now 1922 Lee Road; the listing still names Rabbi Zalman Kazen.",
+   "people": [
+    {
+     "name": "Rabbi Zalman Kazen",
+     "role": "rabbi",
+     "from": "1953"
+    }
+   ]
   },
   "117708": {
    "name": "Chabad of Cleveland",
@@ -26484,6 +26675,18 @@
      "until": null,
      "source": "https://www.clevelandjewishnews.com/news/local/chabad-extends-outreach-from-eight-northeast-ohio-locations/article_f26a80a6-0144-11e4-bb9d-001a4bcf887a.html"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Leibel Alevsky",
+     "role": "founder",
+     "from": "1972"
+    },
+    {
+     "name": "Devorah Alevsky",
+     "role": "founder",
+     "from": "1972"
+    }
    ]
   },
   "6057204": {
@@ -26501,6 +26704,16 @@
      "from": 1974,
      "until": null,
      "source": "https://www.clevelandjewishnews.com/news/local/chabad-extends-outreach-from-eight-northeast-ohio-locations/article_f26a80a6-0144-11e4-bb9d-001a4bcf887a.html"
+    }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Zalman Kazen",
+     "role": "founder"
+    },
+    {
+     "name": "Shula Kazen",
+     "role": "founder"
     }
    ]
   },
@@ -26522,6 +26735,17 @@
      "until": null,
      "source": "https://www.clevelandjewishnews.com/archives/storefront-synagogue-cares-for-local-jewish-poor/article_5cee906e-7682-5996-8d4d-3d1c3fbab906.html"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Zalman Kazen",
+     "role": "founder",
+     "note": "the Kazens' Russian Immigrant Aid Society"
+    },
+    {
+     "name": "Shula Kazen",
+     "role": "founder"
+    }
    ]
   },
   "117537": {
@@ -26532,7 +26756,14 @@
    "how": "stated",
    "confidence": "medium",
    "source": "https://www.clevelandjewishnews.com/news/local/chabad-extends-outreach-from-eight-northeast-ohio-locations/article_f26a80a6-0144-11e4-bb9d-001a4bcf887a.html",
-   "note": "Rabbi Sholom Ber Chaikin's congregation. Cleveland Jewish News (3 July 2014): 'In 1981, Rabbi Alevsky decided the Chabad House needed a pulpit rabbi, as the community had grown to more than 50 people. So Rabbi Sholom Ber Chaikin was brought in from London to serve as the Chabad's spiritual leader and halachic authority – a position he still holds.' The CJN's list the same day: 'Waxman Chabad Center, Beachwood Rabbi Sholom Ber and Sheindl Chaikin'. The CJN (15 March 2001): 'Chabad of Beachwood program director Yossi Marozov'; 'The current Beachwood structure will be demolished and a brand new building put in its place'; the CJN (26 April 2001) calls the Beachwood project 'a difficult 20-year campaign'. Medium: the year is Rabbi Chaikin's start; when the Beachwood branch itself began is not stated. Listing address 2480 Beachwood Boulevard."
+   "note": "Rabbi Sholom Ber Chaikin's congregation. Cleveland Jewish News (3 July 2014): 'In 1981, Rabbi Alevsky decided the Chabad House needed a pulpit rabbi, as the community had grown to more than 50 people. So Rabbi Sholom Ber Chaikin was brought in from London to serve as the Chabad's spiritual leader and halachic authority – a position he still holds.' The CJN's list the same day: 'Waxman Chabad Center, Beachwood Rabbi Sholom Ber and Sheindl Chaikin'. The CJN (15 March 2001): 'Chabad of Beachwood program director Yossi Marozov'; 'The current Beachwood structure will be demolished and a brand new building put in its place'; the CJN (26 April 2001) calls the Beachwood project 'a difficult 20-year campaign'. Medium: the year is Rabbi Chaikin's start; when the Beachwood branch itself began is not stated. Listing address 2480 Beachwood Boulevard.",
+   "people": [
+    {
+     "name": "Rabbi Sholom Ber Chaikin",
+     "role": "rabbi",
+     "from": "1981"
+    }
+   ]
   },
   "117702": {
    "name": "Chabad of Akron & Canton",
@@ -26542,7 +26773,24 @@
    "how": "stated",
    "confidence": "medium",
    "source": "https://www.clevelandjewishnews.com/news/local/chabad-extends-outreach-from-eight-northeast-ohio-locations/article_f26a80a6-0144-11e4-bb9d-001a4bcf887a.html",
-   "note": "Cleveland Jewish News (3 July 2014): 'Chabad of Akron-Canton opened in 1981. The Sasonkins arrived in 1989 to serve as shluchim to the Akron-Canton community.' Medium: the CJN (3 Oct 2018, Rabbi Mendel Sasonkin's obituary) says 'In 1989, the couple relocated to Summit County to form Chabad of Akron & Canton', and who ran it from 1981 is not found. Since October 2018 his son Rabbi Moshe Sasonkin directs it. Listing address 599 Pebble Beach Drive."
+   "note": "Cleveland Jewish News (3 July 2014): 'Chabad of Akron-Canton opened in 1981. The Sasonkins arrived in 1989 to serve as shluchim to the Akron-Canton community.' Medium: the CJN (3 Oct 2018, Rabbi Mendel Sasonkin's obituary) says 'In 1989, the couple relocated to Summit County to form Chabad of Akron & Canton', and who ran it from 1981 is not found. Since October 2018 his son Rabbi Moshe Sasonkin directs it. Listing address 599 Pebble Beach Drive.",
+   "people": [
+    {
+     "name": "Rabbi Mendel Sasonkin",
+     "role": "director",
+     "from": "1989"
+    },
+    {
+     "name": "Kaila Sasonkin",
+     "role": "director",
+     "from": "1989"
+    },
+    {
+     "name": "Rabbi Moshe Sasonkin",
+     "role": "director",
+     "from": "2018"
+    }
+   ]
   },
   "526300": {
    "name": "Anshe Sfard Synagogue",
@@ -26552,7 +26800,14 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.clevelandjewishnews.com/news/local_news/rabbi-sasonkin-recalled-as-the-glue-of-akron-jewish-community/article_5712ba80-c70e-11e8-9fba-d7fdc404011c.html",
-   "note": "An older Akron congregation led by Chabad's rabbi since 1995. Cleveland Jewish News (3 Oct 2018): 'Since 1995, he served Anshe Sfard Congregation-Revere Road Synagogue, where Kaila has served as education director.' The CJN (3 July 2014): Rabbi Mendy Sasonkin 'was also spiritual leader of Agudas Achim, an Orthodox synagogue in Canton, from 1990 to 1995 and was named to lead Revere Road Synagogue in 1995.' The CJN (1 July 2020): Rabbi Moshe Sasonkin was appointed 'rabbi at Anshe Sfard Revere Road Synagogue in Bath Township in October 2018'. Its chabad.org listing went up June 6 2007. Now 646 N Revere Road."
+   "note": "An older Akron congregation led by Chabad's rabbi since 1995. Cleveland Jewish News (3 Oct 2018): 'Since 1995, he served Anshe Sfard Congregation-Revere Road Synagogue, where Kaila has served as education director.' The CJN (3 July 2014): Rabbi Mendy Sasonkin 'was also spiritual leader of Agudas Achim, an Orthodox synagogue in Canton, from 1990 to 1995 and was named to lead Revere Road Synagogue in 1995.' The CJN (1 July 2020): Rabbi Moshe Sasonkin was appointed 'rabbi at Anshe Sfard Revere Road Synagogue in Bath Township in October 2018'. Its chabad.org listing went up June 6 2007. Now 646 N Revere Road.",
+   "people": [
+    {
+     "name": "Rabbi Mendy Sasonkin",
+     "role": "rabbi",
+     "from": "1995"
+    }
+   ]
   },
   "613999": {
    "name": "Hebrew School",
@@ -26563,7 +26818,13 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/613999",
-   "note": "No start date found: the Hebrew school of Chabad of Akron & Canton (Mrs. Kaila Sasonkin), at Anshe Sfard, 646 N Revere Road. The Sasonkins came in 1989; the Cleveland Jewish News (3 Oct 2018): at Anshe Sfard 'Kaila has served as education director'. Its chabad.org listing went up Dec 18 2007, so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2007-12-18), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No start date found: the Hebrew school of Chabad of Akron & Canton (Mrs. Kaila Sasonkin), at Anshe Sfard, 646 N Revere Road. The Sasonkins came in 1989; the Cleveland Jewish News (3 Oct 2018): at Anshe Sfard 'Kaila has served as education director'. Its chabad.org listing went up Dec 18 2007, so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2007-12-18), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": [
+    {
+     "name": "Kaila Sasonkin",
+     "role": "director"
+    }
+   ]
   },
   "117709": {
    "name": "Chabad of Cleveland Heights",
@@ -26573,7 +26834,14 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.clevelandjewishnews.com/news/local/chabad-extends-outreach-from-eight-northeast-ohio-locations/article_f26a80a6-0144-11e4-bb9d-001a4bcf887a.html",
-   "note": "Cleveland Jewish News (3 July 2014): 'Rabbi Mordechai Mendelson has been director of Chabad of Cleveland Heights since 1984.' Now 3499 Bainbridge Road."
+   "note": "Cleveland Jewish News (3 July 2014): 'Rabbi Mordechai Mendelson has been director of Chabad of Cleveland Heights since 1984.' Now 3499 Bainbridge Road.",
+   "people": [
+    {
+     "name": "Rabbi Mordechai Mendelson",
+     "role": "director",
+     "from": "1984"
+    }
+   ]
   },
   "117710": {
    "name": "Chabad Jewish Center of Solon",
@@ -26598,6 +26866,18 @@
      "until": 2004,
      "source": "https://www.clevelandjewishnews.com/archives/building-their-congregation-one-family-at-a-time/article_34ccb83a-8a45-58d1-a554-4b8602605056.html"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Zushe Greenberg",
+     "role": "founder",
+     "from": "1991"
+    },
+    {
+     "name": "Miriam Greenberg",
+     "role": "founder",
+     "from": "1991"
+    }
    ]
   },
   "118540": {
@@ -26608,7 +26888,13 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.clevelandjewishnews.com/news/local/chabad-extends-outreach-from-eight-northeast-ohio-locations/article_f26a80a6-0144-11e4-bb9d-001a4bcf887a.html",
-   "note": "Cleveland Jewish News (3 July 2014): 'Friendship Circle of Cleveland was established in 2003.' The CJN (5 Feb 2004): 'This girls club came about through The Friendship Circle, a group that matches special-needs children with teenagers'; 'Estie Marozov, youth coordinator for The Friendship Circle'. Rabbi Yossi Marozov directs it; now 27900 Gates Mills Boulevard."
+   "note": "Cleveland Jewish News (3 July 2014): 'Friendship Circle of Cleveland was established in 2003.' The CJN (5 Feb 2004): 'This girls club came about through The Friendship Circle, a group that matches special-needs children with teenagers'; 'Estie Marozov, youth coordinator for The Friendship Circle'. Rabbi Yossi Marozov directs it; now 27900 Gates Mills Boulevard.",
+   "people": [
+    {
+     "name": "Rabbi Yossi Marozov",
+     "role": "director"
+    }
+   ]
   },
   "658716": {
    "name": "Chabad's Enrichment Programs",
@@ -26618,7 +26904,13 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/658716",
-   "note": "No start date found: Rabbi Shmuli Friedman's programs (a department of Chabad of Cleveland), at 25400 Fairmount Blvd. CrownHeights.info (5 Feb 2020, from the Cleveland Jewish News): 'The Friedmans will continue directing the Jewish Learning Institute and Camp Gan Israel, which are currently housed in the former Cleveland Hebrew School building on Fairmount Boulevard'. The Friedmans ran Camp Gan Israel of Beachwood from summer 2008. Its chabad.org listing went up April 2 2008, so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2008-04-02), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year."
+   "note": "No start date found: Rabbi Shmuli Friedman's programs (a department of Chabad of Cleveland), at 25400 Fairmount Blvd. CrownHeights.info (5 Feb 2020, from the Cleveland Jewish News): 'The Friedmans will continue directing the Jewish Learning Institute and Camp Gan Israel, which are currently housed in the former Cleveland Hebrew School building on Fairmount Boulevard'. The Friedmans ran Camp Gan Israel of Beachwood from summer 2008. Its chabad.org listing went up April 2 2008, so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its own start (its dot is dated by the center beside it), so the year is the one its chabad.org listing went up (2008-04-02), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year.",
+   "people": [
+    {
+     "name": "Rabbi Shmuli Friedman",
+     "role": "director"
+    }
+   ]
   },
   "4736058": {
    "name": "Camp Gan Israel of Beachwood",
@@ -26636,6 +26928,13 @@
      "from": 2008,
      "until": null,
      "source": "https://www.clevelandjewishnews.com/archives/summer-camps-carried-on-as-parents-budget/article_0b5b700e-a7ea-5a04-b96d-c99bbc83f118.html"
+    }
+   ],
+   "people": [
+    {
+     "name": "Rivky Friedman",
+     "role": "director",
+     "seen": "2009"
     }
    ]
   },
@@ -26655,6 +26954,16 @@
      "until": null,
      "source": "https://www.clevelandjewishnews.com/news/local/chabad-extends-outreach-from-eight-northeast-ohio-locations/article_f26a80a6-0144-11e4-bb9d-001a4bcf887a.html"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Moshe Gancz",
+     "role": "director"
+    },
+    {
+     "name": "Rivky Gancz",
+     "role": "director"
+    }
    ]
   },
   "1338841": {
@@ -26665,7 +26974,24 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.clevelandjewishnews.com/news/local/chabad-extends-outreach-from-eight-northeast-ohio-locations/article_f26a80a6-0144-11e4-bb9d-001a4bcf887a.html",
-   "note": "Cleveland Jewish News (3 July 2014): 'Chabad at Oberlin College, led by Rabbi Shlomo and Devorah Elkan, was established in 2010.' Its chabad.org listing went up Oct 28 2010 (Chabad.org news, 19 Nov 2010: 'New Centers Cater to Art Students, Suburbanites'). Rabbi Yisroel Pinson leads it now; 214 W College Street."
+   "note": "Cleveland Jewish News (3 July 2014): 'Chabad at Oberlin College, led by Rabbi Shlomo and Devorah Elkan, was established in 2010.' Its chabad.org listing went up Oct 28 2010 (Chabad.org news, 19 Nov 2010: 'New Centers Cater to Art Students, Suburbanites'). Rabbi Yisroel Pinson leads it now; 214 W College Street.",
+   "people": [
+    {
+     "name": "Rabbi Shlomo Elkan",
+     "role": "founder",
+     "from": "2010"
+    },
+    {
+     "name": "Devorah Elkan",
+     "role": "founder",
+     "from": "2010"
+    },
+    {
+     "name": "Rabbi Yisroel Pinson",
+     "role": "director",
+     "note": "leads it now"
+    }
+   ]
   },
   "2112170": {
    "name": "Chabad of Downtown Cleveland",
@@ -26675,7 +27001,19 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.clevelandjewishnews.com/news/local/chabad-extends-outreach-from-eight-northeast-ohio-locations/article_f26a80a6-0144-11e4-bb9d-001a4bcf887a.html",
-   "note": "Cleveland Jewish News (3 July 2014): 'Chabad of Downtown, which operates out of a rented office in Cleveland, followed in 2011 under the direction of Rabbi Yossi and Chaya Freedman.' Its chabad.org listing went up Jan 20 2013. Now 1111 Superior Avenue E, Suite 1320."
+   "note": "Cleveland Jewish News (3 July 2014): 'Chabad of Downtown, which operates out of a rented office in Cleveland, followed in 2011 under the direction of Rabbi Yossi and Chaya Freedman.' Its chabad.org listing went up Jan 20 2013. Now 1111 Superior Avenue E, Suite 1320.",
+   "people": [
+    {
+     "name": "Rabbi Yossi Freedman",
+     "role": "founder",
+     "from": "2011"
+    },
+    {
+     "name": "Chaya Freedman",
+     "role": "founder",
+     "from": "2011"
+    }
+   ]
   },
   "6892760": {
    "name": "CYP Cleveland",
@@ -26686,7 +27024,19 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://www.chabad.org/jewish-centers/6892760",
-   "note": "No start date found: the young professionals arm of Chabad of Downtown Cleveland (2112170, from 2011). CrownHeights.info (27 Jan 2022): Rabbi Yossi Freedman, 'who together with his wife Chaya co-directs Chabad Young Professionals of Cleveland', so it existed by then. Its chabad.org listing went up May 20 2025. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2025-05-20), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later."
+   "note": "No start date found: the young professionals arm of Chabad of Downtown Cleveland (2112170, from 2011). CrownHeights.info (27 Jan 2022): Rabbi Yossi Freedman, 'who together with his wife Chaya co-directs Chabad Young Professionals of Cleveland', so it existed by then. Its chabad.org listing went up May 20 2025. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'; subsidiaries after the main centers): no source found for its start (the searches above), so the year is the one its chabad.org listing went up (2025-05-20), entered as LOW. Checked first on the 685 centers that have a high-confidence year and a listing made after July 2004: 71% were listed the same year they began, 79% within a year, 10% three or more years later.",
+   "people": [
+    {
+     "name": "Rabbi Yossi Freedman",
+     "role": "director",
+     "seen": "2022"
+    },
+    {
+     "name": "Chaya Freedman",
+     "role": "director",
+     "seen": "2022"
+    }
+   ]
   },
   "2045594": {
    "name": "Chabad at CWRU",
@@ -26696,7 +27046,19 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.clevelandjewishnews.com/news/local/chabad-extends-outreach-from-eight-northeast-ohio-locations/article_f26a80a6-0144-11e4-bb9d-001a4bcf887a.html",
-   "note": "Cleveland Jewish News (3 July 2014): 'Chabad at CWRU, which opened in 2012, is run from the home of Rabbi Mendy and Sara Alevsky in University Circle.' Its chabad.org listing went up Nov 23 2012. Now 1524 E 115th Street."
+   "note": "Cleveland Jewish News (3 July 2014): 'Chabad at CWRU, which opened in 2012, is run from the home of Rabbi Mendy and Sara Alevsky in University Circle.' Its chabad.org listing went up Nov 23 2012. Now 1524 E 115th Street.",
+   "people": [
+    {
+     "name": "Rabbi Mendy Alevsky",
+     "role": "founder",
+     "from": "2012"
+    },
+    {
+     "name": "Sara Alevsky",
+     "role": "founder",
+     "from": "2012"
+    }
+   ]
   },
   "2357326": {
    "name": "Lyndhurst Chabad Family Center",
@@ -26707,7 +27069,19 @@
    "how": "news",
    "confidence": "high",
    "source": "https://www.clevelandjewishnews.com/news/local/chabad-extends-outreach-from-eight-northeast-ohio-locations/article_f26a80a6-0144-11e4-bb9d-001a4bcf887a.html",
-   "note": "Cleveland Jewish News (3 July 2014): 'The newest Chabad location in Greater Cleveland is the Chabad Family Center in Lyndhurst, which opened in January. It is led by Rabbi Mendy and Chaya Freedman.' Its chabad.org listing went up Oct 24 2013, before the opening. Now 5120 Ridgebury Blvd."
+   "note": "Cleveland Jewish News (3 July 2014): 'The newest Chabad location in Greater Cleveland is the Chabad Family Center in Lyndhurst, which opened in January. It is led by Rabbi Mendy and Chaya Freedman.' Its chabad.org listing went up Oct 24 2013, before the opening. Now 5120 Ridgebury Blvd.",
+   "people": [
+    {
+     "name": "Rabbi Mendy Freedman",
+     "role": "founder",
+     "from": "2014"
+    },
+    {
+     "name": "Chaya Freedman",
+     "role": "founder",
+     "from": "2014"
+    }
+   ]
   },
   "2842082": {
    "name": "Chabad of Athens and Ohio University",
@@ -26725,6 +27099,18 @@
      "from": 2015,
      "until": null,
      "source": "https://www.clevelandjewishnews.com/news/local_news/chabad-expands-reach-to-westlake-ohio-university/article_eb709be4-56fe-11e5-afd9-4379320d1e86.html"
+    }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Levi Raichik",
+     "role": "founder",
+     "from": "2015"
+    },
+    {
+     "name": "Chanee Raichik",
+     "role": "founder",
+     "from": "2015"
     }
    ]
   },
@@ -26745,6 +27131,18 @@
      "until": null,
      "source": "https://www.clevelandjewishnews.com/news/local_news/chabad-expands-reach-to-westlake-ohio-university/article_eb709be4-56fe-11e5-afd9-4379320d1e86.html"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Mendel Jacobs",
+     "role": "founder",
+     "from": "2015"
+    },
+    {
+     "name": "Devorah Jacobs",
+     "role": "founder",
+     "from": "2015"
+    }
    ]
   },
   "3547107": {
@@ -26755,7 +27153,29 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.clevelandjewishnews.com/news/local_news/kent-state-chabad-gains-new-co-directors-continues-sasonkin-family-legacy/article_916ae3e0-bbce-11ea-a5f5-53dea4291ab8.html",
-   "note": "Cleveland Jewish News (1 July 2020): Rabbi Moshe Sasonkin 'and his wife, Mussie, had just founded their own Chabad center at Kent State University in Kent in 2017.' Rabbi Berel and Rochel Sasonkin took over in May 2020 ('He and Rochel began the position in May'). Its chabad.org listing went up Jan 30 2017. Now 486 S Marigold Lane."
+   "note": "Cleveland Jewish News (1 July 2020): Rabbi Moshe Sasonkin 'and his wife, Mussie, had just founded their own Chabad center at Kent State University in Kent in 2017.' Rabbi Berel and Rochel Sasonkin took over in May 2020 ('He and Rochel began the position in May'). Its chabad.org listing went up Jan 30 2017. Now 486 S Marigold Lane.",
+   "people": [
+    {
+     "name": "Rabbi Moshe Sasonkin",
+     "role": "founder",
+     "from": "2017"
+    },
+    {
+     "name": "Mussie Sasonkin",
+     "role": "founder",
+     "from": "2017"
+    },
+    {
+     "name": "Rabbi Berel Sasonkin",
+     "role": "director",
+     "from": "2020"
+    },
+    {
+     "name": "Rochel Sasonkin",
+     "role": "director",
+     "from": "2020"
+    }
+   ]
   },
   "3596832": {
    "name": "Twinsburg Chabad",
@@ -26766,7 +27186,19 @@
    "how": "news",
    "confidence": "high",
    "source": "https://www.clevelandjewishnews.com/news/local_news/chabad-jewish-center-to-open-in-twinsburg/article_0d94c6ca-7df2-11e7-a347-eb697d9e2e56.html",
-   "note": "Cleveland Jewish News (15 Aug 2017): 'A Chabad Jewish Center is scheduled to open in Twinsburg and will offer its first services during the High Holy Days.' Rabbi Mendy and Mussie Greenberg; 'This will be the first Jewish institution in Twinsburg.' The CJN's Rosh Hashanah list (19 Sept 2017) has the Twinsburg Chabad Jewish Center at the Twinsburg Community Center. Its chabad.org listing went up March 13 2017. Now 9945 Vail Drive, Suite 2."
+   "note": "Cleveland Jewish News (15 Aug 2017): 'A Chabad Jewish Center is scheduled to open in Twinsburg and will offer its first services during the High Holy Days.' Rabbi Mendy and Mussie Greenberg; 'This will be the first Jewish institution in Twinsburg.' The CJN's Rosh Hashanah list (19 Sept 2017) has the Twinsburg Chabad Jewish Center at the Twinsburg Community Center. Its chabad.org listing went up March 13 2017. Now 9945 Vail Drive, Suite 2.",
+   "people": [
+    {
+     "name": "Rabbi Mendy Greenberg",
+     "role": "founder",
+     "from": "2017"
+    },
+    {
+     "name": "Mussie Greenberg",
+     "role": "founder",
+     "from": "2017"
+    }
+   ]
   },
   "5435870": {
    "name": "The Jewish Discovery Center",
@@ -26777,7 +27209,18 @@
    "how": "news",
    "confidence": "high",
    "source": "https://www.clevelandjewishnews.com/news/local_news/chabad-of-the-west-side-opens-storefront-first-for-lakewood/article_f3991372-5f59-11ec-b784-fb37d6c29273.html",
-   "note": "Cleveland Jewish News (19 Dec 2021): 'Chabad of the West Side opened its new Jewish Discovery Center Dec. 15 in front of a crowd of Jewish supporters at 15618 Madison Ave., near Wagar Park in Lakewood.' Its chabad.org listing went up March 15 2022."
+   "note": "Cleveland Jewish News (19 Dec 2021): 'Chabad of the West Side opened its new Jewish Discovery Center Dec. 15 in front of a crowd of Jewish supporters at 15618 Madison Ave., near Wagar Park in Lakewood.' Its chabad.org listing went up March 15 2022.",
+   "people": [
+    {
+     "name": "Rabbi Mendel Jacobs",
+     "role": "head",
+     "note": "of Chabad of the West Side"
+    },
+    {
+     "name": "Devorah Jacobs",
+     "role": "head"
+    }
+   ]
   },
   "5333495": {
    "name": "Chabad Jewish Center of Chagrin Falls",
@@ -26788,7 +27231,19 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://www.clevelandjewishnews.com/features/special_sections/destination/chabad-of-chagrin-falls-reflects-on-first-nine-months/article_1a99a63a-faf4-11ed-89bc-8b80105b83da.html",
-   "note": "Cleveland Jewish News (25 May 2023, 'Chabad of Chagrin Falls reflects on first nine months'): 'Chabad of Chagrin Falls opened in August 2022', ahead of its first holiday event on Rosh Hashanah; 'Operated by Itzinger and his wife, Simi, out of their home'. The CJN (24 Aug 2022): 'Rabbi Shneur and Simi Itzinger are preparing to open a Chabad in Chagrin Falls.' Its chabad.org listing went up Jan 18 2022. Listing address 100 N Main Street, Suite 100."
+   "note": "Cleveland Jewish News (25 May 2023, 'Chabad of Chagrin Falls reflects on first nine months'): 'Chabad of Chagrin Falls opened in August 2022', ahead of its first holiday event on Rosh Hashanah; 'Operated by Itzinger and his wife, Simi, out of their home'. The CJN (24 Aug 2022): 'Rabbi Shneur and Simi Itzinger are preparing to open a Chabad in Chagrin Falls.' Its chabad.org listing went up Jan 18 2022. Listing address 100 N Main Street, Suite 100.",
+   "people": [
+    {
+     "name": "Rabbi Shneur Itzinger",
+     "role": "founder",
+     "from": "2022"
+    },
+    {
+     "name": "Simi Itzinger",
+     "role": "founder",
+     "from": "2022"
+    }
+   ]
   },
   "6933480": {
    "name": "Anash Youth Club",
@@ -26799,7 +27254,19 @@
    "how": "news",
    "confidence": "high",
    "source": "https://crownheights.info/chabad-news/917571/new-shluchim-to-serve-the-anash-youth-in-cleveland-ohio/",
-   "note": "CrownHeights.info (17 Aug 2025, 'New Shluchim To Serve The Anash Youth In Cleveland, Ohio'): 'Meet Rabbi Itche and Chaya Chein who together with their daughter Chana are moving out on Shlichus to Cleveland, Ohio.' They will serve the Anash community 'through programs, events and a starting a Youth Club'. Its chabad.org listing went up July 22 2025. Listing address 2479 S Green Rd (the Waxman Chabad Center)."
+   "note": "CrownHeights.info (17 Aug 2025, 'New Shluchim To Serve The Anash Youth In Cleveland, Ohio'): 'Meet Rabbi Itche and Chaya Chein who together with their daughter Chana are moving out on Shlichus to Cleveland, Ohio.' They will serve the Anash community 'through programs, events and a starting a Youth Club'. Its chabad.org listing went up July 22 2025. Listing address 2479 S Green Rd (the Waxman Chabad Center).",
+   "people": [
+    {
+     "name": "Rabbi Itche Chein",
+     "role": "founder",
+     "from": "2025"
+    },
+    {
+     "name": "Chaya Chein",
+     "role": "founder",
+     "from": "2025"
+    }
+   ]
   },
   "6940306": {
    "name": "Shaker Chabad",
@@ -26810,7 +27277,15 @@
    "how": "news",
    "confidence": "high",
    "source": "https://www.clevelandjewishnews.com/news/local_news/chabad-expands-with-opening-in-shaker-heights/article_ded2a5c2-48cd-44f2-a35a-23fd565bcbd8.html",
-   "note": "Cleveland Jewish News (24 March 2026): 'Nearly six months after trading the fast pace of New York City for the quieter, tree-lined streets of Shaker Heights, the Mishulovin family of eight is finding its rhythm in Cleveland with the launch of the new Shaker Chabad in Shaker Heights.' Since moving, they have hosted 'a picnic for Rosh Hashanah' (Sept 2025). Its chabad.org listing went up July 22 2025. Chabad had shelved an earlier plan for a Shaker Heights branch (the CJN, 15 March 2001: 'Plans to expand Chabad House of Cleveland to Shaker Heights have been shelved')."
+   "note": "Cleveland Jewish News (24 March 2026): 'Nearly six months after trading the fast pace of New York City for the quieter, tree-lined streets of Shaker Heights, the Mishulovin family of eight is finding its rhythm in Cleveland with the launch of the new Shaker Chabad in Shaker Heights.' Since moving, they have hosted 'a picnic for Rosh Hashanah' (Sept 2025). Its chabad.org listing went up July 22 2025. Chabad had shelved an earlier plan for a Shaker Heights branch (the CJN, 15 March 2001: 'Plans to expand Chabad House of Cleveland to Shaker Heights have been shelved').",
+   "people": [
+    {
+     "name": "the Mishulovin family",
+     "role": "founder",
+     "from": "2025",
+     "note": "first names not in the note"
+    }
+   ]
   },
   "117610": {
    "name": "Lubavitch Chabad of Illinois",
@@ -26828,6 +27303,18 @@
      "until": null,
      "source": "https://crownheights.info/chabad-news/6773/chabad-of-illinois-celebrates-thirty-years/"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Daniel Moscowitz",
+     "role": "director",
+     "from": "1977",
+     "note": "sent in 1975 (Chabad.org); led it from 1977"
+    },
+    {
+     "name": "Esther Rochel Moscowitz",
+     "role": "director"
+    }
    ]
   },
   "118199": {
@@ -26838,7 +27325,15 @@
    "how": "stated",
    "confidence": "medium",
    "source": "https://www.lubavitch.com/mrs-chava-devorah-shusterman-pioneer-chabad-emissary-89/",
-   "note": "An old Chicago congregation led by the Rebbe's shluchim since 1958. Lubavitch.com (April 2010, Mrs. Chava Devorah Shusterman's obituary): 'In 1947, the sixth Rebbe instructed the Shustermans to move to Chicago', first to the Agudas Chabad synagogue in Uptown-Edgewater; 'In 1958, the Bnei Reuven synagogue, one of the oldest congregations in Chicago, invited Rabbi Shusterman to serve as its rabbi.' The new building was a long project ('the synagogue was finally built'; in 1969 it 'was awarded a prize for its unique architectural design'). Chabad.org (on CrownHeights.info, 12 July 2022): B'nei Ruven 'eventually became the city's largest Orthodox congregation'; 'Rabbi Shusterman, who was joined at B'nei Ruven by Rabbi Baruch and Chanie Hertz in 1990, led B'nei Ruven as senior rabbi until his passing in 2001.' Medium: the congregation itself is older (its founding year not found) and the 2022 article lists it among Chicago's Chabad congregations from before the shluchim. Now 6350 N Whipple Street."
+   "note": "An old Chicago congregation led by the Rebbe's shluchim since 1958. Lubavitch.com (April 2010, Mrs. Chava Devorah Shusterman's obituary): 'In 1947, the sixth Rebbe instructed the Shustermans to move to Chicago', first to the Agudas Chabad synagogue in Uptown-Edgewater; 'In 1958, the Bnei Reuven synagogue, one of the oldest congregations in Chicago, invited Rabbi Shusterman to serve as its rabbi.' The new building was a long project ('the synagogue was finally built'; in 1969 it 'was awarded a prize for its unique architectural design'). Chabad.org (on CrownHeights.info, 12 July 2022): B'nei Ruven 'eventually became the city's largest Orthodox congregation'; 'Rabbi Shusterman, who was joined at B'nei Ruven by Rabbi Baruch and Chanie Hertz in 1990, led B'nei Ruven as senior rabbi until his passing in 2001.' Medium: the congregation itself is older (its founding year not found) and the 2022 article lists it among Chicago's Chabad congregations from before the shluchim. Now 6350 N Whipple Street.",
+   "people": [
+    {
+     "name": "Rabbi Shusterman",
+     "role": "rabbi",
+     "from": "1958",
+     "note": "first name not in the note"
+    }
+   ]
   },
   "117612": {
    "name": "F.R.E.E.",
@@ -26856,6 +27351,17 @@
      "until": null,
      "source": "https://crownheights.info/chabad-news/719458/obituary-reitza-kosofsky-88-founded-an-empire-of-kindness-in-chicago/"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Shmuel Notik",
+     "role": "director"
+    },
+    {
+     "name": "Rabbi Levi Notik",
+     "role": "director",
+     "note": "now"
+    }
    ]
   },
   "117614": {
@@ -26866,7 +27372,19 @@
    "how": "stated",
    "confidence": "medium",
    "source": "https://collive.com/50th-chabad-center-opens-in-illinois/",
-   "note": "Chabad.org (on COLlive, 21 Nov 2019): 'Forty years ago, in 1979, the first Chabad House in Illinois, serving students at Northwestern University, was established by Rabbi Shlomo Zalman (Solomon S.) Hecht and Rabbi Daniel Moscowitz.' Medium: JUF News (2 Dec 2016) says a new appointment 'coincides with the 40th anniversary of the opening of the first Chabad House in Illinois' (so 1976). The Daily Northwestern (1 Oct 2005): 'When Rabbi Dov Hillel Klein moved to Evanston 20 years ago to serve Northwestern's Tannenbaum Chabad House'."
+   "note": "Chabad.org (on COLlive, 21 Nov 2019): 'Forty years ago, in 1979, the first Chabad House in Illinois, serving students at Northwestern University, was established by Rabbi Shlomo Zalman (Solomon S.) Hecht and Rabbi Daniel Moscowitz.' Medium: JUF News (2 Dec 2016) says a new appointment 'coincides with the 40th anniversary of the opening of the first Chabad House in Illinois' (so 1976). The Daily Northwestern (1 Oct 2005): 'When Rabbi Dov Hillel Klein moved to Evanston 20 years ago to serve Northwestern's Tannenbaum Chabad House'.",
+   "people": [
+    {
+     "name": "Rabbi Shlomo Zalman (Solomon S.) Hecht",
+     "role": "founder",
+     "from": "1979"
+    },
+    {
+     "name": "Rabbi Daniel Moscowitz",
+     "role": "founder",
+     "from": "1979"
+    }
+   ]
   },
   "117618": {
    "name": "Seymour J. Abrams Cheder Lubavitch Hebrew Day School",
@@ -26876,7 +27394,8 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://collive.com/50th-chabad-center-opens-in-illinois/",
-   "note": "Chabad.org (on COLlive, 21 Nov 2019): 'That same year, Cheder Lubavitch Hebrew Day School was founded' (1979). Chabad.org (12 July 2022): 'Then, in 1979, five families with young girls pioneered the first class of Cheder Lubavitch Hebrew Day School' The Chinuch Office directory (2023-24): Seymour J. Abrams Cheder Lubavitch Hebrew Day School (boys), 'Founded: 1979'. Now 5201 West Howard Street, Skokie."
+   "note": "Chabad.org (on COLlive, 21 Nov 2019): 'That same year, Cheder Lubavitch Hebrew Day School was founded' (1979). Chabad.org (12 July 2022): 'Then, in 1979, five families with young girls pioneered the first class of Cheder Lubavitch Hebrew Day School' The Chinuch Office directory (2023-24): Seymour J. Abrams Cheder Lubavitch Hebrew Day School (boys), 'Founded: 1979'. Now 5201 West Howard Street, Skokie.",
+   "people": []
   },
   "119645": {
    "name": "Philip and Rebecca Esformes Cheder Lubavitch Girls",
@@ -26886,7 +27405,8 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://crownheights.info/chabad-news/782147/growth-of-chicagos-jewish-communities-a-study-in-chabads-broad-impact/",
-   "note": "The girls' school of Cheder Lubavitch. Chabad.org (on CrownHeights.info, 12 July 2022): 'Then, in 1979, five families with young girls pioneered the first class of Cheder Lubavitch Hebrew Day School' The Chinuch Office directory (2023-24): Philip & Rebecca Esformes Cheder Lubavitch Girls' School, 2809 West Jarvis Avenue, 'Founded: 1979'."
+   "note": "The girls' school of Cheder Lubavitch. Chabad.org (on CrownHeights.info, 12 July 2022): 'Then, in 1979, five families with young girls pioneered the first class of Cheder Lubavitch Hebrew Day School' The Chinuch Office directory (2023-24): Philip & Rebecca Esformes Cheder Lubavitch Girls' School, 2809 West Jarvis Avenue, 'Founded: 1979'.",
+   "people": []
   },
   "117615": {
    "name": "North Suburban Lubavitch Chabad - Central Avenue Synagogue",
@@ -26896,7 +27416,19 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://collive.com/50th-chabad-center-opens-in-illinois/",
-   "note": "Chabad.org (on COLlive, 21 Nov 2019): 'in 1981, the first satellite Chabad center was founded in Highland Park to serve the northern suburbs by Rabbi Yosef and Michla Schanowitz'. CrownHeights.info (15 July 2019): 'The Schanowitz's have been serving the Northern Suburbs of Chicago since the Rebbe sent them there in 1981.' Now 874 Central Avenue."
+   "note": "Chabad.org (on COLlive, 21 Nov 2019): 'in 1981, the first satellite Chabad center was founded in Highland Park to serve the northern suburbs by Rabbi Yosef and Michla Schanowitz'. CrownHeights.info (15 July 2019): 'The Schanowitz's have been serving the Northern Suburbs of Chicago since the Rebbe sent them there in 1981.' Now 874 Central Avenue.",
+   "people": [
+    {
+     "name": "Rabbi Yosef Schanowitz",
+     "role": "founder",
+     "from": "1981"
+    },
+    {
+     "name": "Michla Schanowitz",
+     "role": "founder",
+     "from": "1981"
+    }
+   ]
   },
   "117617": {
    "name": "Lubavitch Chabad of Skokie",
@@ -26906,7 +27438,19 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://crownheights.info/chabad-news/782147/growth-of-chicagos-jewish-communities-a-study-in-chabads-broad-impact/",
-   "note": "Chabad.org (on CrownHeights.info, 12 July 2022): 'In 1982, Lubavitch Chabad of Skokie was established by Rabbi Yosef and Zeesy Posner.' Chabad.org (on COLlive, 21 Nov 2019), after Highland Park in 1981: 'It was followed by a Chabad House in Skokie the following year.' Now 4059 Dempster Street."
+   "note": "Chabad.org (on CrownHeights.info, 12 July 2022): 'In 1982, Lubavitch Chabad of Skokie was established by Rabbi Yosef and Zeesy Posner.' Chabad.org (on COLlive, 21 Nov 2019), after Highland Park in 1981: 'It was followed by a Chabad House in Skokie the following year.' Now 4059 Dempster Street.",
+   "people": [
+    {
+     "name": "Rabbi Yosef Posner",
+     "role": "founder",
+     "from": "1982"
+    },
+    {
+     "name": "Zeesy Posner",
+     "role": "founder",
+     "from": "1982"
+    }
+   ]
   },
   "117611": {
    "name": "Chabad of the Loop and Gold Coast",
@@ -26931,6 +27475,18 @@
      "until": null,
      "source": "https://www.lubavitch.com/an-anchor-for-jewish-life-downtown-chicago/"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Meir Chai Benhiyoun",
+     "role": "founder",
+     "from": "1987"
+    },
+    {
+     "name": "Rivka Benhiyoun",
+     "role": "founder",
+     "from": "1987"
+    }
    ]
   },
   "117613": {
@@ -26949,6 +27505,13 @@
      "until": 1991,
      "source": "https://crownheights.info/shlichus/400913/chicago-area-f-r-e-e-celebrates-26-years/"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Binyomin Scheiman",
+     "role": "founder",
+     "from": "1987"
+    }
    ]
   },
   "118634": {
@@ -26966,6 +27529,14 @@
      "from": 1990,
      "until": null,
      "source": "https://collive.com/14-million-building-for-chicago-shul-and-high-school/"
+    }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Daniel Moscowitz",
+     "role": "founder",
+     "from": "1990",
+     "note": "with a group of parents"
     }
    ]
   },
@@ -26991,6 +27562,18 @@
      "until": 2015,
      "source": "https://crownheights.info/shlichus/40404/from-storefront-to-brand-new-synagogue-building/"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Dovid Flinkenstein",
+     "role": "founder",
+     "from": "1992"
+    },
+    {
+     "name": "Rivke Flinkenstein",
+     "role": "founder",
+     "from": "1992"
+    }
    ]
   },
   "118214": {
@@ -27001,7 +27584,8 @@
    "how": "list",
    "confidence": "medium",
    "source": "https://www.chinuchoffice.org/media/pdf/1267/szkh12671837.pdf",
-   "note": "The Chinuch Office directory of Chabad schools (2023-24): Yeshivas Ohr Eliyahu-Lubavitch Mesivta of Chicago, 2756 West Morse Ave., 'Founded: 1996'. Not confirmed elsewhere. Medium: one list."
+   "note": "The Chinuch Office directory of Chabad schools (2023-24): Yeshivas Ohr Eliyahu-Lubavitch Mesivta of Chicago, 2756 West Morse Ave., 'Founded: 1996'. Not confirmed elsewhere. Medium: one list.",
+   "people": []
   },
   "118519": {
    "name": "Chabad of East Lakeview",
@@ -27019,6 +27603,26 @@
      "until": null,
      "source": "https://www.juf.org/chabad-seeks-permanent-homes-in-lakeview-and-lincoln-square/"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Baruch Hertz",
+     "role": "founder",
+     "from": "2000"
+    },
+    {
+     "name": "Chanie Hertz",
+     "role": "founder",
+     "from": "2000"
+    },
+    {
+     "name": "Rabbi Dovid Kotlarsky",
+     "role": "director"
+    },
+    {
+     "name": "Devorah Leah Kotlarsky",
+     "role": "director"
+    }
    ]
   },
   "118486": {
@@ -27029,7 +27633,19 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://collive.com/50th-chabad-center-opens-in-illinois/",
-   "note": "Chabad.org (on COLlive, 21 Nov 2019): 'In 2001, the 20th Chabad House in Illinois was established in Peoria.' CrownHeights.info (24 Nov 2011): 'Chabad of Peoria Celebrates Decade of Outreach' (Rabbi Eli and Sara Langsam). Now 804 Country Meadows Lane."
+   "note": "Chabad.org (on COLlive, 21 Nov 2019): 'In 2001, the 20th Chabad House in Illinois was established in Peoria.' CrownHeights.info (24 Nov 2011): 'Chabad of Peoria Celebrates Decade of Outreach' (Rabbi Eli and Sara Langsam). Now 804 Country Meadows Lane.",
+   "people": [
+    {
+     "name": "Rabbi Eli Langsam",
+     "role": "founder",
+     "from": "2001"
+    },
+    {
+     "name": "Sara Langsam",
+     "role": "founder",
+     "from": "2001"
+    }
+   ]
   },
   "118418": {
    "name": "Rohr Chabad at the University of Chicago and Hyde Park",
@@ -27047,6 +27663,18 @@
      "until": 2010,
      "source": "https://chicagomaroon.com/9281/news/chabad-moves-from-rabbi-s-house-to-its-own-home/"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Yossi Brackman",
+     "role": "founder",
+     "from": "2002"
+    },
+    {
+     "name": "Baila Brackman",
+     "role": "founder",
+     "from": "2002"
+    }
    ]
   },
   "118600": {
@@ -27058,7 +27686,19 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://crownheights.info/shlichus/17775/parents-and-alumni-organize-salute-of-campus-centers-fifth-year-celebration/",
-   "note": "Chabad.edu (on CrownHeights.info, 26 April 2009): the freshman class that came to the University of Illinois at Urbana-Champaign in 2003 was met by 'Rabbi Dovid and Goldie Tiechtel, who had just arrived to open the Chabad-Lubavitch Center for Jewish Student Life.' Lubavitch.com (28 Aug 2023): Champaign named 'Honorary Chabad Way', 'recognizing the twentieth anniversary of the founding of the Chabad Center for Jewish Life and Living at U of Illinois at Urbana-Champaign'. Now 209 E Armory Avenue."
+   "note": "Chabad.edu (on CrownHeights.info, 26 April 2009): the freshman class that came to the University of Illinois at Urbana-Champaign in 2003 was met by 'Rabbi Dovid and Goldie Tiechtel, who had just arrived to open the Chabad-Lubavitch Center for Jewish Student Life.' Lubavitch.com (28 Aug 2023): Champaign named 'Honorary Chabad Way', 'recognizing the twentieth anniversary of the founding of the Chabad Center for Jewish Life and Living at U of Illinois at Urbana-Champaign'. Now 209 E Armory Avenue.",
+   "people": [
+    {
+     "name": "Rabbi Dovid Tiechtel",
+     "role": "founder",
+     "from": "2003"
+    },
+    {
+     "name": "Goldie Tiechtel",
+     "role": "founder",
+     "from": "2003"
+    }
+   ]
   },
   "278539": {
    "name": "Chabad Lubavitch of Quad Cities",
@@ -27068,7 +27708,19 @@
    "how": "news",
    "confidence": "high",
    "source": "https://qctimes.com/lifestyles/faith-and-values/article_1aeb3d39-2342-500d-b003-fea92e70e2bb.html",
-   "note": "Quad-City Times (17 Sept 2005, 'New Jewish center is founded in the Q-C'), its photo caption: 'Rabbi Shneur Cadaner and his wife, Chana, have founded a new Jewish center in the Quad-Cities.' COLlive (16 Dec 2021): the Cadaners 'have dedicated the past 16 years to building Jewish life' there. Its chabad.org listing went up May 10 2005. Bettendorf, Iowa, in the Illinois shetach (the Quad Cities). Now 2504 53rd Ave."
+   "note": "Quad-City Times (17 Sept 2005, 'New Jewish center is founded in the Q-C'), its photo caption: 'Rabbi Shneur Cadaner and his wife, Chana, have founded a new Jewish center in the Quad-Cities.' COLlive (16 Dec 2021): the Cadaners 'have dedicated the past 16 years to building Jewish life' there. Its chabad.org listing went up May 10 2005. Bettendorf, Iowa, in the Illinois shetach (the Quad Cities). Now 2504 53rd Ave.",
+   "people": [
+    {
+     "name": "Rabbi Shneur Cadaner",
+     "role": "founder",
+     "from": "2005"
+    },
+    {
+     "name": "Chana Cadaner",
+     "role": "founder",
+     "from": "2005"
+    }
+   ]
   },
   "325763": {
    "name": "Chabad Jewish Center of Naperville",
@@ -27098,6 +27750,24 @@
      "until": 2021,
      "source": "https://crownheights.info/shlichus/37264/chabad-of-naperville-expands-to-new-site/"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Mendy Goldstein",
+     "role": "founder",
+     "from": "2005"
+    },
+    {
+     "name": "Alta Goldstein",
+     "role": "founder",
+     "from": "2005"
+    },
+    {
+     "name": "Rabbi Avrohom Wolowik",
+     "role": "founder",
+     "from": "2002",
+     "note": "of an earlier Chabad in Naperville"
+    }
    ]
   },
   "344169": {
@@ -27108,7 +27778,19 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://collive.com/50th-chabad-center-opens-in-illinois/",
-   "note": "Chabad.org (on COLlive, 21 Nov 2019): 'the Bucktown Wicker Park Chabad Jewish Center, which was founded by Rabbi Yosef and Sara Moscowitz in 2005'. Its chabad.org listing went up Jan 3 2006. Now 1630 North Milwaukee Avenue."
+   "note": "Chabad.org (on COLlive, 21 Nov 2019): 'the Bucktown Wicker Park Chabad Jewish Center, which was founded by Rabbi Yosef and Sara Moscowitz in 2005'. Its chabad.org listing went up Jan 3 2006. Now 1630 North Milwaukee Avenue.",
+   "people": [
+    {
+     "name": "Rabbi Yosef Moscowitz",
+     "role": "founder",
+     "from": "2005"
+    },
+    {
+     "name": "Sara Moscowitz",
+     "role": "founder",
+     "from": "2005"
+    }
+   ]
   },
   "417955": {
    "name": "The Friendship Circle of Illinois",
@@ -27119,7 +27801,14 @@
    "how": "news",
    "confidence": "high",
    "source": "https://crownheights.info/shlichus/7241/friendship-circle-draws-volunteers-who-help-kids-with-special-needs/",
-   "note": "CrownHeights.info (5 July 2007): the Friendship Circle 'came to the Chicago area 10 months ago when Rabbi Zelik Moscowitz came to Northbrook to build the program' (about Sept 2006). Its chabad.org listing went up Aug 24 2006."
+   "note": "CrownHeights.info (5 July 2007): the Friendship Circle 'came to the Chicago area 10 months ago when Rabbi Zelik Moscowitz came to Northbrook to build the program' (about Sept 2006). Its chabad.org listing went up Aug 24 2006.",
+   "people": [
+    {
+     "name": "Rabbi Zelik Moscowitz",
+     "role": "founder",
+     "from": "2006"
+    }
+   ]
   },
   "437054": {
    "name": "Chabad Israeli Center",
@@ -27129,7 +27818,22 @@
    "how": "anniversary",
    "confidence": "high",
    "source": "https://collive.com/two-torahs-for-chicago-shul/",
-   "note": "COLlive (23 Nov 2011): 'Chabad Israeli Center was established five years ago by Rabbi Daniel Moscowitz of Lubavitch Chabad of Illinois, to serve the large Israeli population in the greater Chicago area', led by Rabbi Menachem and Feige Slavaticki; its minyan met at the Chabad shul in Skokie. Its chabad.org listing went up Oct 19 2006, the same year. Now 8750 Keeler Avenue, Skokie."
+   "note": "COLlive (23 Nov 2011): 'Chabad Israeli Center was established five years ago by Rabbi Daniel Moscowitz of Lubavitch Chabad of Illinois, to serve the large Israeli population in the greater Chicago area', led by Rabbi Menachem and Feige Slavaticki; its minyan met at the Chabad shul in Skokie. Its chabad.org listing went up Oct 19 2006, the same year. Now 8750 Keeler Avenue, Skokie.",
+   "people": [
+    {
+     "name": "Rabbi Daniel Moscowitz",
+     "role": "founder",
+     "from": "2006"
+    },
+    {
+     "name": "Rabbi Menachem Slavaticki",
+     "role": "director"
+    },
+    {
+     "name": "Feige Slavaticki",
+     "role": "director"
+    }
+   ]
   },
   "582057": {
    "name": "Chabad UIC & West Loop",
@@ -27148,6 +27852,18 @@
      "until": null,
      "source": "https://www.lubavitch.com/at-uic-chabad-restores-jewish-pride-to-chicagos-maxwell-st/"
     }
+   ],
+   "people": [
+    {
+     "name": "Rabbi Bentzion Shemtov",
+     "role": "founder",
+     "from": "2007"
+    },
+    {
+     "name": "Chani Shemtov",
+     "role": "founder",
+     "from": "2007"
+    }
    ]
   },
   "582052": {
@@ -27158,7 +27874,19 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://crownheights.info/shlichus/35354/oak-park-rabbi-with-a-mission/",
-   "note": "CrownHeights.info (10 June 2011): Rabbi Yitzchok Bergstein, 'who moved to Oak Park in 2008 with his wife Nechama Dina and their family'. Its chabad.org listing went up March 14 2008. Now 711 South Blvd, Suite 5."
+   "note": "CrownHeights.info (10 June 2011): Rabbi Yitzchok Bergstein, 'who moved to Oak Park in 2008 with his wife Nechama Dina and their family'. Its chabad.org listing went up March 14 2008. Now 711 South Blvd, Suite 5.",
+   "people": [
+    {
+     "name": "Rabbi Yitzchok Bergstein",
+     "role": "founder",
+     "from": "2008"
+    },
+    {
+     "name": "Nechama Dina Bergstein",
+     "role": "founder",
+     "from": "2008"
+    }
+   ]
   },
   "1024111": {
    "name": "Chabad Jewish Center of Vernon Hills",
@@ -27168,7 +27896,19 @@
    "how": "anniversary",
    "confidence": "high",
    "source": "https://www.lubavitch.com/it-takes-a-community-vernon-hills-jewish-residents-renovate-new-chabad-house/",
-   "note": "Lubavitch.com (9 Sept 2016): 'Ever since they moved to Vernon Hills nearly seven years ago, Rabbi Shimmy and Rochel Susskind have been renting spaces' (a Montessori school, the Doubletree Hotel, their living room) until a permit in 2016 for 8000 square feet of office space. Its chabad.org listing went up Nov 1 2009, which fits. Now 204 US Highway 45."
+   "note": "Lubavitch.com (9 Sept 2016): 'Ever since they moved to Vernon Hills nearly seven years ago, Rabbi Shimmy and Rochel Susskind have been renting spaces' (a Montessori school, the Doubletree Hotel, their living room) until a permit in 2016 for 8000 square feet of office space. Its chabad.org listing went up Nov 1 2009, which fits. Now 204 US Highway 45.",
+   "people": [
+    {
+     "name": "Rabbi Shimmy Susskind",
+     "role": "founder",
+     "from": "2009"
+    },
+    {
+     "name": "Rochel Susskind",
+     "role": "founder",
+     "from": "2009"
+    }
+   ]
   },
   "1992267": {
    "name": "Chabad of Lincoln Park",
@@ -27179,7 +27919,25 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://collive.com/new-shluchim-to-chicago/",
-   "note": "COLlive (20 July 2016): 'Recently, in September of 2012 Chabad Lincoln Park was re-established by Rabbi Eliyahu Benhiyoun and his family'; Rabbi Mendy and Brocha Benhiyoun took over from August 2016. (The Benhiyouns' downtown Chabad had run a townhouse in Lincoln Park from the late 1980s.) Its chabad.org listing went up Oct 18 2012. Now 1962 N Bissel Street."
+   "note": "COLlive (20 July 2016): 'Recently, in September of 2012 Chabad Lincoln Park was re-established by Rabbi Eliyahu Benhiyoun and his family'; Rabbi Mendy and Brocha Benhiyoun took over from August 2016. (The Benhiyouns' downtown Chabad had run a townhouse in Lincoln Park from the late 1980s.) Its chabad.org listing went up Oct 18 2012. Now 1962 N Bissel Street.",
+   "people": [
+    {
+     "name": "Rabbi Eliyahu Benhiyoun",
+     "role": "founder",
+     "from": "2012",
+     "note": "'re-established'"
+    },
+    {
+     "name": "Rabbi Mendy Benhiyoun",
+     "role": "director",
+     "from": "2016"
+    },
+    {
+     "name": "Brocha Benhiyoun",
+     "role": "director",
+     "from": "2016"
+    }
+   ]
   },
   "2309042": {
    "name": "Chabad of East Rogers Park",
@@ -27190,7 +27948,15 @@
    "how": "news",
    "confidence": "high",
    "source": "https://crownheights.info/shlichus/421900/new-judaic-1-stop-shop-in-chicagos-e-rogers-park/",
-   "note": "Chabad.org (on CrownHeights.info, 19 Jan 2014): Rabbi Yoel Wolf and his wife; 'when the Wolfs arrived five months ago, they knew only one person in East Rogers Park' (about Aug 2013). Its chabad.org listing went up Aug 25 2013."
+   "note": "Chabad.org (on CrownHeights.info, 19 Jan 2014): Rabbi Yoel Wolf and his wife; 'when the Wolfs arrived five months ago, they knew only one person in East Rogers Park' (about Aug 2013). Its chabad.org listing went up Aug 25 2013.",
+   "people": [
+    {
+     "name": "Rabbi Yoel Wolf",
+     "role": "founder",
+     "from": "2013",
+     "note": "with his wife"
+    }
+   ]
   },
   "2496485": {
    "name": "Chabad of Carbondale and SIU",
@@ -27200,7 +27966,19 @@
    "how": "news",
    "confidence": "high",
    "source": "https://crownheights.info/shlichus/426019/new-shluchim-to-illinois-2/",
-   "note": "CrownHeights.info (19 Feb 2014): 'Rabbi Mendel and Yocheved Scheiman will be joining' the shluchim in Illinois; 'They will be opening a new Chabad center at Southern Illinois University, located in Carbondale.' Chabad.org (on COLlive, 21 Nov 2019): Rabbi Daniel Moscowitz died in March 2014 'shortly after presiding over the opening of the Chabad House in Carbondale'. Its chabad.org listing went up March 2 2014. Now 821 S Illinois Avenue."
+   "note": "CrownHeights.info (19 Feb 2014): 'Rabbi Mendel and Yocheved Scheiman will be joining' the shluchim in Illinois; 'They will be opening a new Chabad center at Southern Illinois University, located in Carbondale.' Chabad.org (on COLlive, 21 Nov 2019): Rabbi Daniel Moscowitz died in March 2014 'shortly after presiding over the opening of the Chabad House in Carbondale'. Its chabad.org listing went up March 2 2014. Now 821 S Illinois Avenue.",
+   "people": [
+    {
+     "name": "Rabbi Mendel Scheiman",
+     "role": "founder",
+     "from": "2014"
+    },
+    {
+     "name": "Yocheved Scheiman",
+     "role": "founder",
+     "from": "2014"
+    }
+   ]
   },
   "2155232": {
    "name": "Chabad of River North and Fulton Market",
@@ -27210,7 +27988,19 @@
    "how": "stated",
    "confidence": "medium",
    "source": "https://crownheights.info/chabad-news/684360/traveling-ark-carries-the-torah-to-hip-chicago-district/",
-   "note": "Chabad.org (on CrownHeights.info, 5 Nov 2019): 'When Rabbi Avraham and Chava Kagan established Chabad-Lubavitch of River North and Fulton Market in 2015'. Medium: its chabad.org listing went up Aug 22 2013, earlier. Now 405 W Superior Street."
+   "note": "Chabad.org (on CrownHeights.info, 5 Nov 2019): 'When Rabbi Avraham and Chava Kagan established Chabad-Lubavitch of River North and Fulton Market in 2015'. Medium: its chabad.org listing went up Aug 22 2013, earlier. Now 405 W Superior Street.",
+   "people": [
+    {
+     "name": "Rabbi Avraham Kagan",
+     "role": "founder",
+     "from": "2015"
+    },
+    {
+     "name": "Chava Kagan",
+     "role": "founder",
+     "from": "2015"
+    }
+   ]
   },
   "3431548": {
    "name": "Chabad at Illinois State University & Bloomington Normal",
@@ -27221,7 +28011,19 @@
    "how": "news",
    "confidence": "high",
    "source": "https://collive.com/chicago-opens-normal-chabad/",
-   "note": "Chabad.edu (on COLlive, 27 Sept 2016): 'Rabbi Chaim and Rochel Telsner (nee Raices) are relocating to Normal to serve the Illinois State University.' JUF News (2 Dec 2016): 'Lubavitch Chabad of Illinois has established its newest branch, Chabad of Bloomington/Normal, under the direction of Rabbi Chaim Moshe and Rochel Telsner.' Its chabad.org listing went up Sept 26 2016. Now 214 S. Linden Street."
+   "note": "Chabad.edu (on COLlive, 27 Sept 2016): 'Rabbi Chaim and Rochel Telsner (nee Raices) are relocating to Normal to serve the Illinois State University.' JUF News (2 Dec 2016): 'Lubavitch Chabad of Illinois has established its newest branch, Chabad of Bloomington/Normal, under the direction of Rabbi Chaim Moshe and Rochel Telsner.' Its chabad.org listing went up Sept 26 2016. Now 214 S. Linden Street.",
+   "people": [
+    {
+     "name": "Rabbi Chaim Moshe Telsner",
+     "role": "founder",
+     "from": "2016"
+    },
+    {
+     "name": "Rochel Telsner",
+     "role": "founder",
+     "from": "2016"
+    }
+   ]
   },
   "4164548": {
    "name": "Chabad Jewish Center of Arlington Heights",
@@ -27232,7 +28034,19 @@
    "how": "stated",
    "confidence": "medium",
    "source": "https://www.lubavitch.com/chabad-opens-in-chicago-suburb/",
-   "note": "Lubavitch.com (25 March 2019, 'Chabad Opens in Chicago Suburb'): 'Since moving to the area at the beginning of this year', Rabbi Yaakov and Chaikie Kotlarsky have held their first events; 'Chabad will be the first Jewish presence there.' Chabad.org (12 July 2022): the Kotlarskys 'moved to the area with their young family three years ago'. Medium: the 2019 story says they had already 'hosted Chanukah events' (December 2018), and its chabad.org listing went up Oct 24 2018. Now 1616 W Plymouth Drive."
+   "note": "Lubavitch.com (25 March 2019, 'Chabad Opens in Chicago Suburb'): 'Since moving to the area at the beginning of this year', Rabbi Yaakov and Chaikie Kotlarsky have held their first events; 'Chabad will be the first Jewish presence there.' Chabad.org (12 July 2022): the Kotlarskys 'moved to the area with their young family three years ago'. Medium: the 2019 story says they had already 'hosted Chanukah events' (December 2018), and its chabad.org listing went up Oct 24 2018. Now 1616 W Plymouth Drive.",
+   "people": [
+    {
+     "name": "Rabbi Yaakov Kotlarsky",
+     "role": "founder",
+     "from": "2019"
+    },
+    {
+     "name": "Chaikie Kotlarsky",
+     "role": "founder",
+     "from": "2019"
+    }
+   ]
   },
   "4481382": {
    "name": "Chabad of Norwood Park",
@@ -27242,7 +28056,19 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://collive.com/50th-chabad-center-opens-in-illinois/",
-   "note": "Chabad.org (on COLlive, 21 Nov 2019): 'The third Chabad House founded this year is in the middle-class neighborhood of Norwood Park'; 'Rabbi Mendel and Sara Perlstein volunteered to take the challenge.' Its chabad.org listing went up Sept 17 2019. Now 5676 N Neva Avenue."
+   "note": "Chabad.org (on COLlive, 21 Nov 2019): 'The third Chabad House founded this year is in the middle-class neighborhood of Norwood Park'; 'Rabbi Mendel and Sara Perlstein volunteered to take the challenge.' Its chabad.org listing went up Sept 17 2019. Now 5676 N Neva Avenue.",
+   "people": [
+    {
+     "name": "Rabbi Mendel Perlstein",
+     "role": "founder",
+     "from": "2019"
+    },
+    {
+     "name": "Sara Perlstein",
+     "role": "founder",
+     "from": "2019"
+    }
+   ]
   },
   "4484385": {
    "name": "Chabad of Glencoe",
@@ -27252,7 +28078,19 @@
    "how": "stated",
    "confidence": "high",
    "source": "https://collive.com/50th-chabad-center-opens-in-illinois/",
-   "note": "Chabad.org (on COLlive, 21 Nov 2019): 'the Chabad center recently established in the tony suburb of Glencoe by Rabbi Sholom Ber and Deena Wolberg', one of three 'founded this year'. CrownHeights.info (15 July 2019): 'Glencoe, IL is Getting Ready to Welcome New Shluchim'. Its chabad.org listing went up Sept 17 2019. Now 976 Oak Drive."
+   "note": "Chabad.org (on COLlive, 21 Nov 2019): 'the Chabad center recently established in the tony suburb of Glencoe by Rabbi Sholom Ber and Deena Wolberg', one of three 'founded this year'. CrownHeights.info (15 July 2019): 'Glencoe, IL is Getting Ready to Welcome New Shluchim'. Its chabad.org listing went up Sept 17 2019. Now 976 Oak Drive.",
+   "people": [
+    {
+     "name": "Rabbi Sholom Ber Wolberg",
+     "role": "founder",
+     "from": "2019"
+    },
+    {
+     "name": "Deena Wolberg",
+     "role": "founder",
+     "from": "2019"
+    }
+   ]
   },
   "5633245": {
    "name": "Chabad of Lake Forest, IL",
@@ -27262,7 +28100,19 @@
    "how": "news",
    "confidence": "high",
    "source": "https://crownheights.info/chabad-news/782147/growth-of-chicagos-jewish-communities-a-study-in-chabads-broad-impact/",
-   "note": "Chabad.org (on CrownHeights.info, 12 July 2022): after the Highland Park shooting, Rabbi Meir Shimon Moscowitz announced 'a new Chabad center in Lake Forest', 'a full-time Chabad center that will join the 50 centers throughout the state'. COLlive (19 Nov 2022), the Merkos grants for new shluchim: 'Rabbi and Mrs. Moshe and Sarah Spalter, Lake Forest, IL'. Its chabad.org listing went up Oct 28 2022. Now 248 Niles Avenue."
+   "note": "Chabad.org (on CrownHeights.info, 12 July 2022): after the Highland Park shooting, Rabbi Meir Shimon Moscowitz announced 'a new Chabad center in Lake Forest', 'a full-time Chabad center that will join the 50 centers throughout the state'. COLlive (19 Nov 2022), the Merkos grants for new shluchim: 'Rabbi and Mrs. Moshe and Sarah Spalter, Lake Forest, IL'. Its chabad.org listing went up Oct 28 2022. Now 248 Niles Avenue.",
+   "people": [
+    {
+     "name": "Rabbi Moshe Spalter",
+     "role": "founder",
+     "from": "2022"
+    },
+    {
+     "name": "Sarah Spalter",
+     "role": "founder",
+     "from": "2022"
+    }
+   ]
   },
   "6838448": {
    "name": "Chabad of Schaumburg",
@@ -27273,7 +28123,19 @@
    "how": "news",
    "confidence": "high",
    "source": "https://crownheights.info/chabad-news/928067/new-chabad-center-to-schaumburg-illinois/",
-   "note": "CrownHeights.info (25 Nov 2025): 'Five months ago, Rabbi Mendel and Miriam Greenberg moved in to establish Chabad's first presence in the area' (about June 2025). Its chabad.org listing went up May 9 2025."
+   "note": "CrownHeights.info (25 Nov 2025): 'Five months ago, Rabbi Mendel and Miriam Greenberg moved in to establish Chabad's first presence in the area' (about June 2025). Its chabad.org listing went up May 9 2025.",
+   "people": [
+    {
+     "name": "Rabbi Mendel Greenberg",
+     "role": "founder",
+     "from": "2025"
+    },
+    {
+     "name": "Miriam Greenberg",
+     "role": "founder",
+     "from": "2025"
+    }
+   ]
   },
   "6811559": {
    "name": "Chabad Libertyville",
@@ -27284,7 +28146,19 @@
    "how": "news",
    "confidence": "high",
    "source": "https://crownheights.info/chabad-news/924767/new-shluchim-welcomed-in-libertyville-illinois/",
-   "note": "CrownHeights.info (29 Oct 2025): 'Rabbi Levi and Mushka Krinsky have embarked on their journey of Shlichus' to Libertyville; 'This is Libertyville's first Chabad Center.' CrownHeights.info (8 Dec 2025): Libertyville's first-ever Chabad Chanukah celebration. Its chabad.org listing went up May 14 2025."
+   "note": "CrownHeights.info (29 Oct 2025): 'Rabbi Levi and Mushka Krinsky have embarked on their journey of Shlichus' to Libertyville; 'This is Libertyville's first Chabad Center.' CrownHeights.info (8 Dec 2025): Libertyville's first-ever Chabad Chanukah celebration. Its chabad.org listing went up May 14 2025.",
+   "people": [
+    {
+     "name": "Rabbi Levi Krinsky",
+     "role": "founder",
+     "from": "2025"
+    },
+    {
+     "name": "Mushka Krinsky",
+     "role": "founder",
+     "from": "2025"
+    }
+   ]
   },
   "7244555": {
    "name": "Chabad of Lincolnshire",
@@ -27294,7 +28168,19 @@
    "how": "news",
    "confidence": "high",
    "source": "https://collive.com/shluchim-to-open-new-center-in-lincolnshire-illinois/",
-   "note": "COLlive (20 Feb 2026): 'After more than a decade of service in Northwest Suburban, Rabbi Mendel and Esther Katz are embarking on a new chapter in shlichus with the establishment of Chabad of Lincolnshire, Illinois.' Its chabad.org listing went up June 15 2026 (Buffalo Grove address)."
+   "note": "COLlive (20 Feb 2026): 'After more than a decade of service in Northwest Suburban, Rabbi Mendel and Esther Katz are embarking on a new chapter in shlichus with the establishment of Chabad of Lincolnshire, Illinois.' Its chabad.org listing went up June 15 2026 (Buffalo Grove address).",
+   "people": [
+    {
+     "name": "Rabbi Mendel Katz",
+     "role": "founder",
+     "from": "2026"
+    },
+    {
+     "name": "Esther Katz",
+     "role": "founder",
+     "from": "2026"
+    }
+   ]
   },
   "118576": {
    "name": "Lubavitch Chabad of Northbrook",
@@ -27304,7 +28190,19 @@
    "how": "anniversary",
    "confidence": "medium",
    "source": "https://www.chabadnorthbrook.com/64475",
-   "note": "Its own About Us page (chabad.org dates the page 22 Nov 2002): 'Thirty years ago, Lubavitch Chabad of Northbrook (a Chicago suburb) began with a successful Chavurah study group', so about 1972; 'In 1998, a full time presence was established with the leasing of an office as a Jewish learning center.' Counted back from the page's date (if its text is later than 2002, the start is later in the 1970s), so medium. Rabbi Daniel Moscowitz was its senior rabbi (JUF News, 2014); Rabbi Meir Shimon Moscowitz now. (Read Nov 11 through WebFetch: the site is on chabad.org's platform, which refuses plain requests; the quote is word for word as the reader returned it.) Its chabad.org listing is in the first online directory (listings published July 22 2004)."
+   "note": "Its own About Us page (chabad.org dates the page 22 Nov 2002): 'Thirty years ago, Lubavitch Chabad of Northbrook (a Chicago suburb) began with a successful Chavurah study group', so about 1972; 'In 1998, a full time presence was established with the leasing of an office as a Jewish learning center.' Counted back from the page's date (if its text is later than 2002, the start is later in the 1970s), so medium. Rabbi Daniel Moscowitz was its senior rabbi (JUF News, 2014); Rabbi Meir Shimon Moscowitz now. (Read Nov 11 through WebFetch: the site is on chabad.org's platform, which refuses plain requests; the quote is word for word as the reader returned it.) Its chabad.org listing is in the first online directory (listings published July 22 2004).",
+   "people": [
+    {
+     "name": "Rabbi Daniel Moscowitz",
+     "role": "rabbi",
+     "note": "its senior rabbi"
+    },
+    {
+     "name": "Rabbi Meir Shimon Moscowitz",
+     "role": "rabbi",
+     "note": "now"
+    }
+   ]
   },
   "117616": {
    "name": "Northwest Suburban Chabad",
@@ -27314,7 +28212,18 @@
    "how": "directory",
    "confidence": "low",
    "source": "https://projects.propublica.org/nonprofits/organizations/364140957",
-   "note": "No start date found yet: Rabbi Shmuel Katz's Northwest Suburban Chabad (16296 West Aptakisic Road, Lincolnshire). COLlive (20 Feb 2026): his son Rabbi Mendel Katz served there 'more than a decade'. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. IRS exempt-organization record (EO Business Master File, Nov 2026): 'NORTHWEST SUBURBAN CHABAD LUBAVITCH INC' (EIN 36-4140957), 16296 W Aptakisic Rd, Lincolnshire, ruling Apr 1999. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start."
+   "note": "No start date found yet: Rabbi Shmuel Katz's Northwest Suburban Chabad (16296 West Aptakisic Road, Lincolnshire). COLlive (20 Feb 2026): his son Rabbi Mendel Katz served there 'more than a decade'. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then. IRS exempt-organization record (EO Business Master File, Nov 2026): 'NORTHWEST SUBURBAN CHABAD LUBAVITCH INC' (EIN 36-4140957), 16296 W Aptakisic Rd, Lincolnshire, ruling Apr 1999. A filing, entered as the year with low confidence (owner, Nov 10: 'Filing date is either low or medium confidence, but it's data and data is data'); a ruling can come years after the start.",
+   "people": [
+    {
+     "name": "Rabbi Shmuel Katz",
+     "role": "director"
+    },
+    {
+     "name": "Rabbi Mendel Katz",
+     "role": "director",
+     "note": "more than a decade"
+    }
+   ]
   },
   "118628": {
    "name": "Rohr Chabad Center of Glenview",
@@ -27324,7 +28233,14 @@
    "how": "news",
    "confidence": "medium",
    "source": "https://www.chicagotribune.com/2004/12/13/lighting-the-holiday-spirit/",
-   "note": "Chicago Tribune (13 Dec 2004, 'Lighting the holiday spirit'; reprinted on chabadillinois.com as 'Religious displays are Glenview's first'): '\"We asked the village to help publicize our diversity,\" said Benjaminson, who moved to Glenview last year as an emissary of the Brooklyn-based Jewish movement responsible for more than 1,000 menorah displays nationwide.' So Rabbi Yishaya Benjaminson came in 2003. Medium: counted back from 'last year'. TribLocal (on CrownHeights.info, 22 Feb 2011): 'Lubavitch Chabad of Glenview, which has operated out of a storefront on Glenview Road for more than five years', moving to the former Glenkirk school building at 701 Harlem Ave. Rabbi Yishaya Benjaminson. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then."
+   "note": "Chicago Tribune (13 Dec 2004, 'Lighting the holiday spirit'; reprinted on chabadillinois.com as 'Religious displays are Glenview's first'): '\"We asked the village to help publicize our diversity,\" said Benjaminson, who moved to Glenview last year as an emissary of the Brooklyn-based Jewish movement responsible for more than 1,000 menorah displays nationwide.' So Rabbi Yishaya Benjaminson came in 2003. Medium: counted back from 'last year'. TribLocal (on CrownHeights.info, 22 Feb 2011): 'Lubavitch Chabad of Glenview, which has operated out of a storefront on Glenview Road for more than five years', moving to the former Glenkirk school building at 701 Harlem Ave. Rabbi Yishaya Benjaminson. Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "people": [
+    {
+     "name": "Rabbi Yishaya Benjaminson",
+     "role": "founder",
+     "from": "2003"
+    }
+   ]
   },
   "118488": {
    "name": "Chabad Jewish Center of Gurnee",
@@ -27335,7 +28251,14 @@
    "confidence": "high",
    "source": "https://www.chabadofgurnee.com/templates/section_cdo/aid/7503324/jewish/Kabbalah-and-the-Hidden-Architecture-of-You.htm",
    "date": "2001-09",
-   "note": "Its own site (a JLI course page, in Firecrawl's search index, Nov 10 2026): 'Rabbi Tenenbaum has served as founder and director of Chabad of Gurnee since September 2001.' No start date found yet: Rabbi Sholom Ber Tenenbaum's Chabad Jewish Center of Gurnee (17684 W. Gages Lake Road, Grayslake). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then."
+   "note": "Its own site (a JLI course page, in Firecrawl's search index, Nov 10 2026): 'Rabbi Tenenbaum has served as founder and director of Chabad of Gurnee since September 2001.' No start date found yet: Rabbi Sholom Ber Tenenbaum's Chabad Jewish Center of Gurnee (17684 W. Gages Lake Road, Grayslake). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "people": [
+    {
+     "name": "Rabbi Sholom Ber Tenenbaum",
+     "role": "founder",
+     "from": "2001"
+    }
+   ]
   },
   "119646": {
    "name": "Shalom Hebrew School",
@@ -27346,7 +28269,13 @@
    "confidence": "range",
    "by": 2004,
    "source": "https://crownheights.info/general/2610/hachnosas-sefer-torah-at-free-of-illinois/",
-   "note": "No start date found yet: the Hebrew school of F.R.E.E. (Rabbi Shmuel Notik, Riverwoods), a department of F.R.E.E. (117612). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then."
+   "note": "No start date found yet: the Hebrew school of F.R.E.E. (Rabbi Shmuel Notik, Riverwoods), a department of F.R.E.E. (117612). Its chabad.org listing is in the first online directory (listings published July 22 2004), so it existed by then.",
+   "people": [
+    {
+     "name": "Rabbi Shmuel Notik",
+     "role": "director"
+    }
+   ]
   },
   "280522": {
    "name": "F.R.E.E.",

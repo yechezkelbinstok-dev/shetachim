@@ -46,8 +46,9 @@ def main():
         idx = []
         for y, cid, c, e in rows:
             idx.append(len(listings))
+            # (no sources on the page: owner, Nov 12, "absolutely not a link to the data source")
             listings.append([cid, c.get('name') or '', c.get('type') or '', c.get('city') or '',
-                             e.get('year') or None, CONF.get(e.get('confidence'), ''), e.get('how') or '', e.get('source') or ''])
+                             e.get('year') or None, CONF.get(e.get('confidence'), '')])
         lon, lat = f['geometry']['coordinates'][:2]
         region = p.get('region') or ''
         dots.append([round(lon, 4), round(lat, 4), year, CONF.get(e0.get('confidence'), ''), region, piece, idx])

@@ -108,8 +108,6 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
 #card .conf.l { background: rgb(120 130 136 / .16); color: var(--muted); }
 :root[data-theme="dark"] #card .conf.h { color: #79d3a0; } :root[data-theme="dark"] #card .conf.m { color: #e8c06a; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #card .conf.h { color: #79d3a0; } :root:not([data-theme="light"]) #card .conf.m { color: #e8c06a; } }
-#card .src { font: 600 12px var(--font); color: var(--accent); text-decoration: none; margin-inline-start: auto; white-space: nowrap; }
-#card .src:hover { text-decoration: underline; }
 #card .none { color: var(--muted); font-size: 12.5px; }
 .err { position: absolute; inset: 0; display: grid; place-items: center; color: var(--muted); }
 
@@ -537,19 +535,17 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   // ---------- the card: what is at a dot ----------
   const CONF = { h: [L('High confidence', 'ודאות גבוהה'), 'h'], m: [L('Medium confidence', 'ודאות בינונית'), 'm'], l: [L('Low confidence', 'ודאות נמוכה'), 'l'] };
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-  const host = (u) => { try { return new URL(u).hostname.replace(/^www\./, ''); } catch (e) { return ''; } };
   function openCard(d) {
     selected = d;
     const card = $('#card'), rows = d.L.map((i) => LIST[i]);
     const first = rows[0];
     let h = `<div class="top"><span class="where">${esc(heCity(first[3]))}${first[3] ? ' · ' : ''}${esc(stateName(d.st))}${d.sh && shetachName(d.sh) ? ` · ${esc(shetachName(d.sh))}` : ''}</span>`
       + `<button class="close" type="button" aria-label="${L('Close', 'סגור')}"><svg viewBox="0 0 24 24"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg></button></div>`;
-    for (const [, name, type, , year, conf, , src] of rows) {
+    for (const [, name, type, , year, conf] of rows) {
       h += `<div class="item"><div class="name">${esc(heName(name))}</div>${type ? `<div class="what">${esc(type)}</div>` : ''}<div class="when">`;
       if (year) {
         h += `<span class="yr">${year}</span>`;
         if (CONF[conf]) h += `<span class="conf ${CONF[conf][1]}"><i></i>${CONF[conf][0]}</span>`;
-        if (src && /^https?:/.test(src)) h += `<a class="src" href="${esc(src)}" target="_blank" rel="noopener">${esc(host(src))} ↗</a>`;
       } else h += `<span class="none">${L('Year not known yet', 'השנה עוד לא ידועה')}</span>`;
       h += '</div></div>';
     }

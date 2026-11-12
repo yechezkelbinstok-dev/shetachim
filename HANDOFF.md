@@ -216,6 +216,19 @@ thirteen no better recent photo has been found yet (the list is there, with what
      from 2004 or earlier: same year 62%, within a year 81%. Not a general rule: those six only.
   Lists: `work/founding-years/UNDATED.md`; batches so far this round `sweep-01..04`, `last-01..08`. Push to
   `claude/bold-albattani-aqfnj9` (owner's OK given Nov 11).
+- **▶ The growth page (Nov 12): `web/growth.html`** (live: https://yechezkelbinstok-dev.github.io/shetachim/web/growth.html).
+  Owner: "No no this is a new thing ... we shouldn't build this fresh? Wdyt?" (built fresh, not on the history page);
+  "the 16 don't show up for now at all"; "do this properly make this very nice". The US and Canada, 1940 to today: each
+  center appears in its founding year (a gold ring as it comes), a running count ("1,705 centers · 58 of 60 states &
+  provinces"; DC not counted), a timeline of new centers per year over the slider, play at 1×/2×/4×, "First in <state>"
+  chips. Two backgrounds: **Shetachim** (thin borders that change by year and the flagship stars, both from
+  data/shetach-history.json, read as the history page reads them) and **States & provinces** (all 60 drawn from the
+  start, each filling in the year of its first center). A tap opens a card per dot: each listing's year, confidence and
+  source. Hebrew (he.json names) and English, light and dark, phones; URL `?year=&base=shetachim|states&lang=&theme=&play=1`.
+  Its data: `python3 -I scripts/build-growth.py` writes web/data/growth.json from centers.geojson and
+  data/founding-years.json (rerun after founding-year changes; left out as in progress.py: mushrooms, mikvahs, unresearched
+  Crown Heights, and dots with no year). Anshei Lubavitch (a 1909 shul) shows from 1940. Not yet: moves (the `earlier`
+  places have no coordinates), the milestone video, a link from the main map.
 - **Founding years, two sessions at once (owner, Nov 6, latest: "Put smth in handoff so I can get another session to
   work on a diff part of country").** Who has what (change only your own line):
   - *The West Coast window:* the hard round on California + Nevada, the 35 small shetachim and the 9 dots in no

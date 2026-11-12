@@ -16,7 +16,7 @@ for k, e in todo[off:off + n]:
     note = (e.get('note') or '').strip()
     if full: body = note
     else:
-        sents = re.split(r'(?<!\b(?:Dr|Mr|Mrs|St|Mt|Ft))(?<=[.;])\s+(?=[A-Z(\'"])', note)
+        sents = re.split(r'(?<!Dr\.)(?<!Mr\.)(?<!Mrs\.)(?<!St\.)(?<=[.;])\s+(?=[A-Z(\'"])', note)
         hits = [s for s in sents if PERSON.search(s)]
         body = ' '.join(hits)[:420] if hits else '(no one named?) ' + note[:200]
     print(f"\n{k} | {e.get('name')} | {e.get('city')} | {e.get('year')}\n  {body}")

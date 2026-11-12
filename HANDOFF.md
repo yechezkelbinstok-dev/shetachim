@@ -204,8 +204,16 @@ thirteen no better recent photo has been found yet (the list is there, with what
   The 15 without `people` are in work/founding-years/people-followup.txt (93 lines: 62 "done partly" = a surname or a
   first name missing, e.g. "Rabbi Gurkow", "the Plotkins", "Moishy and Rivky"; the rest not started). The Rebbeim are
   named as the sources do, "the Lubavitcher Rebbe" / "the Previous Lubavitcher Rebbe" (the card says הרבי / הרבי הריי״צ
-  in Hebrew). **Next:** the follow-ups (complete each name from its source: plain WebSearch/WebFetch first; then update
-  the entry and mark the line done), then the 364 `[]` centers (their sources, then a search by center name).
+  in Hebrew). **Follow-ups done (Nov 12, batches 25-26):** every center now has `people` (1,570 named, 364 `[]`). A
+  partial name ("the Plotkins", "Rabbi Gurkow", "Mrs. Fuss") was completed from the center's own chabad.org listing
+  (web/data/centers.geojson `personnel`) only when the source's part matches it (the same first name, or the wife's
+  name) or the center is recent with one couple of that surname, and the note says "full names from its chabad.org
+  listing"; centers from before about 2000 were checked by search first, because the listing often shows the next
+  generation: Colorado's 1978 founder is Rabbi Yisroel Meir Popack (the listing has Rabbi Mendel Popack), Markham's
+  1985 couple is Rabbi Sholom Ber & Itta Plotkin (the listing's co-directors are Avrohom E. & Goldie). Six stay partial
+  (end of people-followup.txt). **Next:** the 364 `[]` centers (their notes name no one): their sources, then a search
+  by center name; many are programs of a main center (camps, Hebrew schools, Friendship Circles), where the listing's
+  personnel on the card may be all there is.
 - **▶ Founding years: CONTINUE HERE (Nov 12). 41 listings (16 dots) of 1,902 still have no year**, all from
   chabad.org's first directory (July 2004). Owner (Nov 11): "try very hard to date the remaining ones. Think of all
   possible ways to target each one individually, especially non subsidiaries like primaries"; he wants "a proper

@@ -243,10 +243,13 @@ thirteen no better recent photo has been found yet (the list is there, with what
   Anash.org is out: the safety check refused even its Wayback copies through Firecrawl. Batch `latam-01`, notes `work/founding-years/latin-america.md`, count
   `python3 work/founding-years/progress.py GTM NIC CRI PAN COL VEN ECU PER CHL URY PRY`.
 - **▶ Founding years, Argentina (Nov 15; owner: "Research Argentina").** 72 listings at 63 dots (no mikvahs, no
-  mushrooms; 7 of them from Jabad Argentina's own list). First round: 23 with a year (17 high), 49 left. The best
-  source was AMIA's Vaad Hakehilot directory of the interior's communities (each kehilá's own text, with its year:
-  Tucumán 4 July 1982, Córdoba 30 Dec 1989, Rosario Feb 1987, La Plata Dec 2003, Bahía Blanca 1985). Chabadpedia-only
-  years are low (Kehot 5742, Leoded 5759, Comedor Flores 5761). Batch `argentina-01`, notes and what's open
+  mushrooms; 7 of them from Jabad Argentina's own list). Four rounds: 46 with a year (32 high), 26 left, each
+  entered as `range` with its listing year as `by`. Best sources: **Jabad Argentina's own list of its centers**, with
+  an 'Establecido' date for most houses (its old site is still up at archivo.jabad.org.ar/batei-jabad; the July 2010
+  copy on the Wayback Machine, through Firecrawl, has a few more); **AMIA's Vaad Hakehilot directory** of the
+  interior's communities (each kehilá's own text and year); Itón Gadol, Radio Jai and jabad.tv (open WordPress
+  APIs). Chabadpedia-only years are low (Leoded 5759, Comedor Flores 5761). The HQ is 1957 (5718: Baumgarten
+  toured in 1955 and settled in 1957). Batches `argentina-01` to `-04`, notes and what's open
   `work/founding-years/argentina.md`, count `python3 work/founding-years/progress.py ARG`.
 - **▶ Hebrew years in the data (Nov 15).** Owner: "if it's a Hebrew year that's better because I mostly use Hebrew years
   option anyways so log Hebrew year in data as well if that's what the source said rather than logging an English year

@@ -3,6 +3,8 @@
 #   python3 work/founding-years/progress.py west-coast michigan small     (small = the shetachim with 10 dots or fewer)
 #   python3 work/founding-years/progress.py western-pennsylvania georgia
 #   python3 work/founding-years/progress.py                                 (every US + Canada shetach)
+#   python3 work/founding-years/progress.py MEX                             (a country outside the US and Canada, by its
+#                                                                            code in centers.geojson: all its dots, any shetach)
 # A dot (a map point) counts as done when any of its listings has a year; listings = blue dots' listings, no mushrooms.
 import json, collections, sys
 # Mikvahs are left out of the counts (owner, Nov 10: "only mikvaos out - def don't delete data tho"): their data stays.
@@ -11,15 +13,21 @@ def is_mikvah(c): return (c.get('type') or '').lower().startswith('mik') or 'mik
 # cheshbon"): a crown-heights listing with no entry in data/founding-years.json is skipped; the 12 central mosdos stay in.
 g = json.load(open('web/data/centers.geojson')); fy = json.load(open('data/founding-years.json'))['centers']
 dots = collections.defaultdict(list)
+# Countries past the US and Canada are counted on their own (owner, Nov 15: "Start on Mexico please"; "No mikvaos and no
+# mushrooms"): a country code (MEX) counts that country's dots, whichever shetach they are in (Baja is the West Coast's).
+countries = [a for a in sys.argv[1:] if a.isupper()]
 for f in g['features']:
     p = f['properties']
-    if p.get('country') not in ('US', 'CA'): continue   # US and Canada only (owner, Nov 6: "Not Mexico!!!!!")
+    if countries:
+        if p.get('country') not in countries: continue
+    elif p.get('country') not in ('US', 'CA'): continue   # US and Canada only (owner, Nov 6: "Not Mexico!!!!!")
     ids = [str(c['id']) for c in p.get('centers') or [] if not c.get('mushroom') and not is_mikvah(c) and not (((p.get('piece') or ':none').split(':')[-1] == 'crown-heights') and str(c['id']) not in fy)]
-    if ids: dots[(p.get('piece') or ':none').split(':')[-1]].append(ids)
+    if ids: dots[p.get('country') if countries else (p.get('piece') or ':none').split(':')[-1]].append(ids)
 started = {s for s, ds in dots.items() if any(fy.get(i) for d in ds for i in d)}
 groups = collections.OrderedDict()
 for a in sys.argv[1:] or ['all']:
-    if a == 'small': groups['small shetachim'] = sorted(s for s in started if len(dots[s]) <= 10)
+    if a in countries: groups[a] = [a] if a in dots else []
+    elif a == 'small': groups['small shetachim'] = sorted(s for s in started if len(dots[s]) <= 10)
     elif a == 'all': groups['all US + Canada'] = sorted(dots)
     elif a in dots: groups[a] = [a]
     else: sys.exit(f'unknown shetach: {a} (ids as in STATUS.md)')

@@ -18,11 +18,11 @@ Canada counts and STATUS.md are unchanged, they still leave Mexico out). Batch: 
 | Cabo San Lucas (Hershcovich) | March 2009 high | lubavitch.com, Jan 2010 |
 | Playa del Carmen (Goldberg) | Sept 2010 high | Chabad.org, Oct 2010 ("established just last month") |
 | Chiapas, San Cristobal (Raz) | 2011 medium | "five years" in a March 2016 profile |
+| La Paz, Beth Yona (Hershcovich, Piekarski, Gutierrez) | 2012 medium | COLlive, Dec 2012: first menorah in La Paz, a beginning community led by Hershcovich; the shul built 2012 |
 | Puerto Vallarta (Hecht) | late Sept 2016 high | Chabad.org, Jan 2017 |
 | San Miguel de Allende (Huebner) | Nov 2018 high | lubavitch.com, March 2019 |
 | Tulum (Binyamini) | 2019 high | its own About page |
 | Mazatlan (Raitport) | 2026 medium | COLlive, Aug 2026 (Purim visit, move announced Chof Av) |
-| La Paz, Beth Yona (Piekarski, then Gutierrez) | by 2014 | Chabad.org, Sept 2014; the shul was built in 2012 |
 | Guadalajara (Srugo) | by 2012 | Guadalajara Reporter, July 2012 |
 | Mexico City, Polanco (Mendel Mayzlesh) | by 2018 | Pulse News Mexico: first yeshiva, Aug 2018 |
 | Lake Chapala, Ajijic (Srugo, Suares) | by 2026 | COLlive, Feb 2026 |
@@ -49,7 +49,7 @@ Canada counts and STATUS.md are unchanged, they still leave Mexico out). Batch: 
   Dec 2024 piece naming Mexico's 11 Chabad rabbis) and anash.org sit behind bot checks: not tried, not to be forced.
   Worth asking the owner: he may know when the Mayzleshes came.
 - **Guadalajara:** when the Srugos came (by July 2012; the old center number points to about 2010-2011).
-- **La Paz:** which year between 2012 (the Beth Yona shul) and 2014 the Piekarskis began.
+- **La Paz:** anything before Chanukah 2012 (the first report); when the Piekarskis came (by Sept 2014).
 - **Lake Chapala, Monterrey, CTeen Cancun:** new (listings 2025-2026); a "new shluchim" notice would date them.
 - **Chiapas:** a report from 2010-2011 would make it high; ChabadInfo's "New Shluchim to Chiapas, Mexico" (18 Feb 2020)
   is photos only, so who it was about is unknown.

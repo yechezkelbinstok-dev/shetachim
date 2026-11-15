@@ -41558,13 +41558,18 @@
    "name": "Jewish La Paz - Beth Yonah Chabad",
    "city": "La Paz",
    "shetach": "west-coast",
-   "year": null,
-   "by": 2014,
-   "how": "range",
-   "source": "https://www.chabad.org/2706844",
-   "note": "No start year found. 'Rabbi Alexander and Esther Piekarski, co-directors of Beth Yona-Chabad Jewish Community of La Paz' in Sept 2014 (Chabad.org, Hurricane Odile) and May 2015 (Chabad.org); its chabad.org listing was made about Feb 2014. The Beth Yona synagogue 'was built in 2012 by Daniel Berrebi in memory of his brother, Yona' (Jewish News, 14 Apr 2019; 'financed in 2013 with contributions from local merchants', San Diego Jewish World, 2023), so the center is from 2012-2014, but which year it became Chabad's is not said. Rabbi Mendel Polichenco's Chabad Without Borders set up the La Paz branch (2014). Rabbi Yosef Gutierrez has led it since he returned to La Paz in 2016 (Jewish News, 2019). A Baja California Sur dot of the West Coast shetach (Mexico).",
-   "confidence": "range",
+   "year": 2012,
+   "how": "news",
+   "source": "https://collive.com/jewish-pride-for-mexicos-jews/",
+   "note": "Chanukah 2012 brought the 'Grand Menorah Lighting for the first time ever right in the heart of La Paz, where, thanks to the efforts of businessman Daniel Berrebi and Yoel Goldshein, a 3 meter Menorah was built'; 'The small group of La Paz Jews are beginning to develop a Jewish Community, led by Shliach Benny Hershcovich, and this was the largest event that they had so far' (COLlive, 19 Dec 2012). The Beth Yona synagogue 'was built in 2012 by Daniel Berrebi in memory of his brother, Yona' (Jewish News, 14 Apr 2019; 'financed in 2013 with contributions from local merchants', San Diego Jewish World, 2023). Medium: the earliest report found, and smaller beginnings may be older. 'Rabbi Alexander and Esther Piekarski, co-directors of Beth Yona-Chabad Jewish Community of La Paz' in Sept 2014 (Chabad.org, Hurricane Odile, https://www.chabad.org/2706844) and May 2015; its chabad.org listing was made about Feb 2014. Rabbi Mendel Polichenco's Chabad Without Borders set up the La Paz branch (2014). Rabbi Yosef Gutierrez has led it since he returned to La Paz in 2016 (Jewish News, 2019). A Baja California Sur dot of the West Coast shetach (Mexico).",
+   "confidence": "medium",
    "people": [
+    {
+     "name": "Rabbi Benny Hershcovich",
+     "role": "rabbi",
+     "seen": "2012",
+     "note": "the shliach in Cabo, leading La Paz's beginning community (Dec 2012)"
+    },
     {
      "name": "Daniel Berrebi",
      "role": "founder",
@@ -41576,12 +41581,14 @@
      "name": "Rabbi Alexander Piekarski",
      "role": "director",
      "seen": "2014",
-     "note": "co-director with Esther Piekarski (Sept 2014, May 2015)"
+     "note": "co-director with Esther Piekarski (Sept 2014, May 2015)",
+     "source": "https://www.chabad.org/2706844"
     },
     {
      "name": "Esther Piekarski",
      "role": "director",
-     "seen": "2014"
+     "seen": "2014",
+     "source": "https://www.chabad.org/2706844"
     },
     {
      "name": "Rabbi Yosef Gutierrez",

@@ -223,7 +223,7 @@ thirteen no better recent photo has been found yet (the list is there, with what
   CrownHeights.info / COLlive by the director's name.
 - **▶ Founding years, Mexico (Nov 15; owner: "we're going down the continent to more countries", "Start on Mexico
   please", "No mikvaos and no mushrooms").** All 17 Mexican listings (the Mexico shetach's 14 and Baja's 3, which
-  stay in the West Coast shetach): 10 with a year (8 high), 5 ranges, 2 open; the Mexico City and Bosques centers (the
+  stay in the West Coast shetach): 11 with a year (8 high), 4 ranges, 2 open; the Mexico City and Bosques centers (the
   Mayzleshes) have no dated source yet. Batch `mexico-01`, notes and next steps `work/founding-years/mexico.md`, count
   `python3 work/founding-years/progress.py MEX`. Same rules and fields as the US (year, date, earlier, people).
 - **▶ Founding years: CONTINUE HERE (Nov 12). 41 listings (16 dots) of 1,902 still have no year**, all from

@@ -4,9 +4,9 @@ Owner, Nov 15: "Research Argentina" (after Central and South America, `latin-ame
 no mikvahs, no mushrooms: 72 listings at 63 dots (65 chabad.org listings and 7 from Jabad Argentina's own list,
 jabad.org.ar/centros). Chabadpedia alone is LOW (owner: "chabadpedia can be used unsourced but only as low").
 
-Count: `python3 work/founding-years/progress.py ARG`. Batches: `batches/argentina-01.json` to `argentina-04.json`.
+Count: `python3 work/founding-years/progress.py ARG`. Batches: `batches/argentina-01.json` to `argentina-05.json`.
 
-## Where it stands (fourth round): 46 of 72 with a year (32 high), 26 left (all recorded as `range`, by their listing year)
+## Where it stands (fifth round): 55 of 72 with a year (33 high), 17 left (all recorded as `range`)
 
 | Dated | Year |
 |---|---|
@@ -31,6 +31,7 @@ Count: `python3 work/founding-years/progress.py ARG`. Batches: `batches/argentin
 | Leoded | 5759 low (Chabadpedia) |
 | Villa Urquiza (Winner) | Cheshvan 5761, Nov 2000 |
 | Comedor Flores | 5761 low (Chabadpedia) |
+| Etz Hajaim (Villa Crespo's annex) | 2001 medium (first in Jabad Argentina's list, Aug-Dec 2001) |
 | Recoleta (Hendel) | 2-3-2001, 5761 |
 | Zona Oeste (Ludman) | 2001 (Radio Jai) |
 | Olleros (Yanki Birman) | about 2001 medium (jabad.tv: 17 years in Feb 2018) |
@@ -39,8 +40,10 @@ Count: `python3 work/founding-years/progress.py ARG`. Batches: `batches/argentin
 | La Plata (Serber) | Dec 2003, 5764 (AMIA) |
 | Salta (Rafael Tawil) | Elul 5764, Sept 2004 |
 | Puerto Madero (Oirechman) | 2005, 5765 (his own words; appointed Oct 2004) |
+| Kehot's showroom & Judaica | 2004 low (first in the list Feb 2004; not in Oct 2003) |
 | Wolfsohn (Chabad's) | 7 March 2005, 5765 |
 | ISEJ (central) | 2006, 5766 (Itón Gadol, April 2006) |
+| Palermo Soho (Tzvi Lipinski) | early 2006, 5766 medium (first in the list Feb-April 2006) |
 | Bariloche | 2006 (backpackers' center; Klein from 2009) |
 | Congreso, the tourists' house (Lametayel) | 2006 medium (lubavitch.com: a Buenos Aires backpackers' house opened) |
 | MitzvahTank | about 2015 medium (its third tour was Aug 2017) |
@@ -49,16 +52,31 @@ Count: `python3 work/founding-years/progress.py ARG`. Batches: `batches/argentin
 | Beit Jana | late 2008 |
 | Lamas, Flores (Shiele Plotka) | June 2009, 5769 |
 | Floresta (Cervantes 1034) | July 2011, 5771 medium |
+| San Fernando - Tigre (Abudarham) | 2013 medium (first in the list Nov 2012-March 2013; 'nueva comunidad', 2014) |
+| Barracas (Shneor Mizrahi) | 2013 medium (Barracas' first public Chanukah, Dec 2013) |
 | Ieshiva Anoji | 27 July 2013, 21 Av 5773 |
 | Concordia (Soriano) | about 2016 medium (the Kapeluschniks' 1982-2000 shlichus had ended) |
+| Caballito Sur (Shloime Setton) | 27 Sept 2016, 5776 (its opening, Periodismo Kosher) |
+| Beit Menajem Belgrano (Mizrahi) | 2017 low (a Sefer Torah there, Aug 2017) |
 | Mar del Plata (Lipinski) | Feb 2017, 5777 |
-| Resistencia (Nochum Freedman) | summer 2024, 5784 |
+| Resistencia (Nochum Freedman) | 9 July 2024, 3 Tammuz 5784 (Esencia 51) |
 | Tigre (Yacov Abudraham) | 2022 medium (New Shluchim grant, Nov 2022) |
+| Bajo Belgrano (Chanina Grunblatt) | 2022 medium (Merkos library and New Shluchim grant, Nov 2022) |
+| ISEJ Belgrano (Migdal) | 2023 medium (Merkos library list, April 2023) |
 | Paternal (Polichenco) | June 2025, 5785 (Chabad.org: 'exactly one year ago', June 2026) |
 | Santa Fe (Chein) | 2026 |
 
 ## What worked
 
+- **Jabad Argentina's older list of its houses, 2001-2009** (jabad.org.ar/beitjabad.asp, 130 Wayback copies from 5 Feb 2001):
+  Firecrawl with `includeTags: ["b","strong"]` returns just the bold house names, about 1 credit a copy, so the copies
+  can be compared to see when each house first appears (Etz Hajaim, Soho, the Kehot showroom, Córdoba Centro).
+  The later list (batei-jabad/, 2010-2017) did the same for San Fernando - Tigre. Lists lag openings by months.
+- **Periodismo Kosher** (periodismokosher.com.ar, a Buenos Aires Jewish community blog since 2012): its Blogspot feed
+  is searchable with plain curl (`/feeds/posts/default?q=...&alt=json`; scratchpad tool pk.py). Caballito Sur's opening
+  (27 Sept 2016), Barracas' first Chanukah (2013), Beit Menajem Belgrano (2017), Ieshiva Anoji.
+- Merkos' lists on COLlive (WordPress API, `?include=`): its new libraries (Nov 2022, April 2023) name each house, and
+  its 'New Shluchim Grants' (Nov 2022, April 2025) go only to new shluchim (Bajo Belgrano, Tigre, Resistencia).
 - **Jabad Argentina's own list of its centers** ('Batei Jabad en Argentina y en el mundo'), with an 'Establecido' date
   for most houses: its old site is still up at archivo.jabad.org.ar/batei-jabad (plain curl), and the July 2010 copy
   on the Wayback Machine (through Firecrawl) has a few more (Zona Norte, the old Belgrano, Concordia and Santa Fe).
@@ -79,11 +97,9 @@ Count: `python3 work/founding-years/progress.py ARG`. Batches: `batches/argentin
 
 ## Open, and where to look next
 
-26 listings, each entered as `range` with its listing year as `by` (no fallback yet: the owner's rule):
-the schools' preschool, Tzivos Hashem, Beit Menachem, Lavalle, Córdoba Centro, the soup kitchen (by 2004);
-Palermo Soho, Etz Hajaim, Once - Litvische Shul, Palermo Nuevo, the Kehot showroom (by 2007); Centro Médico
-Maimónides (by 2011); Barrio Norte - Agüero (2016), Nordelta (2017), Chacarita (2018), Caballito Sur (2019),
-Pilar and Bajo Belgrano (2024), ISEJ Belgrano (2025); San Fernando - Tigre (2010-2014), Barracas (by 2015, maybe
-2013), Aieka (by 2015); Jabad Argentina's own four (Vicente López, Avellaneda, Yerba Buena, Beit Menajem Belgrano).
-Next: the houses' Instagram/Facebook pages through search excerpts (dates from the post IDs), COL's Hebrew news,
-the 'New Shluchim' grant lists (CrownHeights.info) for 2023-2025, and jabad.tv's videos themselves.
+17 listings, each entered as `range` (no fallback yet: the owner's rule): Tzivos Hashem, Lavalle (Iarjo) and Once -
+Litvische Shul (all three already in the first archived list, Feb 2001); the schools' preschool, Beit Menachem (shul),
+Córdoba Centro, the soup kitchen (by 2004); Palermo Nuevo (by 2007); Centro Médico Maimónides (by 2011); Aieka (by
+2015); Barrio Norte - Agüero (2016), Nordelta (2017), Chacarita (2018), Yerba Buena (2023), Pilar (2024); and Jabad
+Argentina's Vicente López and Avellaneda (Beit Iaacov). Not to use: Esencia's directory as a first mention (it listed
+Beit Menajem Belgrano six years late). CrownHeights.info starts refusing after many API calls in a row: go slowly.

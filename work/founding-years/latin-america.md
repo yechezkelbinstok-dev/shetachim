@@ -7,7 +7,7 @@ Bolivia have only mushrooms. The Caribbean islands (16 listings) are not part of
 
 Count: `python3 work/founding-years/progress.py GTM NIC CRI PAN COL VEN ECU PER CHL URY PRY`. Batch: `batches/latam-01.json`.
 
-## Where it stands (Nov 15, third round): 26 of 40 with a year (21 high), 14 left (10 of them fallback, no year until the research is done)
+## Where it stands (Nov 15, fourth round): 29 of 40 with a year (23 high), 11 left (6 of them fallback, no year until the research is done)
 
 | Country | Dated | Left |
 |---|---|---|
@@ -67,3 +67,22 @@ in ages from now when we push this stuff to the growth page for now they should 
 the chabad.org fallback or whatever". So the listing-date years are out: confidence `fallback`, `year` null, the listing date
 in `listed` (Panama: Chabad Panama, Ohaley Chinuch, Kolel Torah, Tora Or, the Boquete bakery; Colombia: Cali, Cartagena,
 Salento; Guatemala: Antigua; Chile: Pucon). They count as left (progress.py prints them apart). Each still wants a real source.
+
+## Fourth round (Nov 15, batch `latam-04`)
+
+- Pucon: COL, 10 Kislev 5769 (7 Dec 2008, https://col.org.il/news/43154): Chabad of Chile "מקים כעת בית חב"ד נוסף בעיר פוקון", in
+  memory of the Holtzbergs, "יחל לתפקד באופן מלא בחנוכה" under Rabbi Elimelech and Goldi Perman: 2008, 5769, high.
+- Or Jabad (Caracas): Jabad Venezuela's article of 10 Jan 2008 (chabad.org 624166): founded by Chaya Perman, "tiene 30 años
+  abierto": about 1978, medium. Encyclopaedia Judaica (2007): "In 1984, a congregation of Lubavitch Chabad was established in
+  Caracas; it came to possess an impressive synagogue" (which center not said; Altamira's Hogar Jabad José y Sara Lerner,
+  under Rabbi Yehoshua (Shui) Rosenblum, director of Jabad Lubavitch del Este, by Dec 2008).
+- Playa Venao: Jüdische Allgemeine, 12 May 2023 ("Surfen im Paradies"): "Vor zwei Jahren ... in Playa Venao", under Rabbi
+  Yariv Klein: with COLlive's Pesach 2021, high. The same article: Klein's first house was Bocas del Toro, opened after his 2013
+  decision (no year), so Bocas may be older than its 2020 first report.
+- Kolel Torah Panama: first mention ChabadInfo, 19 Dec 2022 (yeshiva gedola "Kollel Torah", Rosh Yeshiva Shuchat): 2022, medium.
+- Monterrey: first mention COLlive, 13 July 2026: 2026, medium.
+- Cartagena: range 2015-2017 (no house in March 2015; listed Oct 2017). The Boquete bakery: range 2016-2018 (the bakery opened
+  about 27 Oct 2013, Panama Prattle; under Chabad after Aug 2016; listed Aug 2018).
+- Not found: Chabad Panama (Karniel; a NY Jewish Travel Guide interview, undated: "over eight years ago"), Ohaley Chinuch, Tora
+  Or, Cali, Salento, Antigua; Spalter (a Detroit Jewish News piece of 15 Dec 1995 has Chabad in Costa Rica "less than a decade",
+  per a search summary; the archive answers 403).

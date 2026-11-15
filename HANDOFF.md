@@ -223,8 +223,8 @@ thirteen no better recent photo has been found yet (the list is there, with what
   CrownHeights.info / COLlive by the director's name.
 - **▶ Founding years, Mexico (Nov 15; owner: "we're going down the continent to more countries", "Start on Mexico
   please", "No mikvaos and no mushrooms").** All 17 Mexican listings (the Mexico shetach's 14 and Baja's 3, which
-  stay in the West Coast shetach): 12 with a year (8 high), 5 left (Guadalajara, Lake Chapala, Monterrey and CTeen Cancun
-  are `fallback`, no year yet; Bosques open). Mexico City (Jabad Lubavitch México's own center) is **5760, תש"ס** (medium), from
+  stay in the West Coast shetach): 13 with a year (8 high), 4 left (Guadalajara, Lake Chapala and CTeen Cancun are
+  `fallback`, no year yet; Bosques open). Monterrey 2026 (first mention, COLlive, July 2026). Mexico City (Jabad Lubavitch México's own center) is **5760, תש"ס** (medium), from
   Chabadpedia; Bosques (the father's branch) is open. The owner sent Chabadpedia's Mexico page ("Assfuck idiot"):
   it had been read on Nov 3 for another job and the line missed. **Lesson: read Chabadpedia (Hebrew) for every country
   and every shliach** (how: the next bullet but one). Batches `mexico-01`, `mexico-02`, `latam-03`, notes and next steps
@@ -232,8 +232,10 @@ thirteen no better recent photo has been found yet (the list is there, with what
   (year, hebrewYear, date, earlier, people).
 - **▶ Founding years, Central and South America without Argentina and Brazil (Nov 15; owner: "Central and South sans
   Argentina and Brazil now").** 40 listings in 11 countries (no mikvahs, no mushrooms; the Caribbean not included):
-  26 with a year (21 high), 14 left: two Caracas centers and the Costa Rica camp (by 2004), Punta del Este (by 2011),
-  and 10 `fallback` (no year until the research is done). Second round (owner: "That's horrible why so much sans year"): mexico-02, latam-02.
+  29 with a year (23 high), 11 left: Altamira and the Costa Rica camp (by 2004), Punta del Este (by 2011), Cartagena
+  (2015-2017), the Boquete bakery (2016-2018), and 6 `fallback` (no year until the research is done). Fourth round
+  (`latam-04`): Pucon Chanukah 5769 (COL, 7 Dec 2008), Or Jabad about 1978 (Jabad Venezuela, Jan 2008: "30 años abierto"),
+  Playa Venao high (Jüdische Allgemeine, May 2023), Kolel Torah 2022 (first mention). Second round (owner: "That's horrible why so much sans year"): mexico-02, latam-02.
   Third round (Nov 15, owner: "come on try harder I assume you looked in Spanish?"): Chabadpedia's pages on the shluchim
   (`latam-03`) gave Hebrew years: Guatemala City 5760, Lima 16 Cheshvan 5748 (8 Nov 1987), Santiago 5742, Asuncion 5749,
   Cusco Adar 5766, Caracas 5735, Medellin 5776 (Bigio), Cancun 5767, Cozumel 5770 (over a resident's "January 2009").

@@ -8,7 +8,7 @@ no mikvahs, no mushrooms: the Mexico shetach's 14 listings and the three Baja do
 Count: `python3 work/founding-years/progress.py MEX` (a country code counts that country's dots, any shetach; the US and
 Canada counts and STATUS.md are unchanged, they still leave Mexico out). Batch: `batches/mexico-01.json`.
 
-## Where it stands (Nov 15, third round): 12 of 17 with a year, 5 left (4 of them fallback: no year until the research is done; Bosques open)
+## Where it stands (Nov 15, fourth round): 13 of 17 with a year, 4 left (3 of them fallback: no year until the research is done; Bosques open)
 
 | Listing | Year | How |
 |---|---|---|
@@ -26,7 +26,7 @@ Canada counts and STATUS.md are unchanged, they still leave Mexico out). Batch: 
 | Guadalajara (Srugo) | fallback (no year) | its first chabad.org listing about Jan 2011 (center number 8935; remade 2025) kept as the fallback; in charge by July 2012 (Guadalajara Reporter) |
 | Mexico City, Polanco (Jabad Lubavitch México; today Mendel Mayzlesh) | 5760 (2000) medium | Chabadpedia: Rabbi Yosef Yitzchak Mayzlesh founded the Chabad House in 5760 and works in Mexico City; this is the organization's own center (chabadofmexico.com) |
 | Lake Chapala, Ajijic (Srugo, Suares) | fallback (no year) | listing date 6 Nov 2025 kept as the fallback |
-| Monterrey (Zalmy Srugo) | fallback (no year) | listing date 9 July 2026 kept as the fallback; Zalman Leib Liberzon is a shliach in Monterrey too (Chabadpedia, no year) |
+| Monterrey (Zalmy Srugo) | 2026 medium | first mention: COLlive, 13 July 2026 (World Cup); Zalman Leib Liberzon is a shliach in Monterrey too (Chabadpedia, no year) |
 | CTeen Cancun | fallback (no year) | listing date 19 Aug 2026 kept as the fallback |
 | Bosques (Yosef Y. Mayzlesh) | open | the father's branch today; when it began is not found (the 5760 founding is on Mexico City; if Bosques was the first house, it belongs here) |
 

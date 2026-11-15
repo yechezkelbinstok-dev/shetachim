@@ -1,5 +1,5 @@
 {
- "about": "The year each center started, for the growth-of-Chabad video (the owner's idea, Nov 6). Keyed by the center's chabad.org id (web/data/centers.geojson). 'year' is when the shluchim began there (their arrival or first activity); when the opening came later, the note says so. 'how': stated (the center or a paper says the year), list (a published list of institutions with years; therebbesimpact.com, unsourced, counts only as a lead, so 'low'), news (a report from that year), anniversary (\"N years ago\" counted back), directory (a dated directory listing or IRS record; as a last resort, when its chabad.org listing was made: the listing numbers run in order of creation, so a number dates the listing to within about a year, which bounds the start but is not it); first-mention (the year of the earliest mention found, used as the year); range ('after'/'by' bound it, no exact year); same-place (no year of its own, at the same spot as a dated one); not-found. 'confidence': high (a report from that year, or the center itself, and nothing against it), medium (counted back from 'N years ago', a first mention, one secondary source, or sources a year apart), low (one weak source, unconfirmed); range (no year: 'after'/'by' bound it from dated sources); open (no real source yet: 'year' is null and 'lead' holds a guess from therebbesimpact.com or the chabad.org listing number, only to check, never to use as a year. Owner, Nov 6: \"basically a guess is ridiculous how can I use that in an expansion map\"). A dot on the map takes the earliest year of its listings. Pilot: the Michigan shetach, Nov 6 (work/founding-years/michigan-pilot.md). 'date' (when one turns up, owner, Nov 6: \"More data never hurt nobody\"): the month or the day, 'YYYY-MM' or 'YYYY-MM-DD', of the same event as 'year'. 'shetach': the shetach id (data/shetachim.json); 'none' = Monsey, left blank on the map. 'earlier' (when found): the places a center used to be, oldest first, each {where, from, until, source} (years when known, else null); the map's dot is where it is now. Owner, Nov 6: \"if you ever realize a center used to be located somewhere else then take note for the data\". 'season' (owner, Nov 6: \"or season which equates to a range ofc\"): when only a season turns up for the same event as 'year' ('winter', 'spring', 'summer', 'fall'; or 'High Holidays', 'Chanukah' and the like). 'hebrewYear' (owner, Nov 15: \"if it's a Hebrew year that's better because I mostly use Hebrew years option anyways so log Hebrew year in data as well if that's what the source said rather than logging an English year range\"): the Hebrew year of the same event as 'year', where the source gives the year in Hebrew (5760 for תש\"ס) or a Jewish date in it fixes the year (Sukkos 5735; Chanukah of Dec 2022, 5783; just before Rosh Hashanah 2018, 5778). The growth page's Hebrew years show it as it is. 'year' stays the ordinary year where the source shows one (October 1972 for Kislev 5733); with only the Hebrew year, 'year' is that year less 3760 (5760 gives 2000: most of 5760 was in 2000), and no English range is made of it.",
+ "about": "The year each center started, for the growth-of-Chabad video (the owner's idea, Nov 6). Keyed by the center's chabad.org id (web/data/centers.geojson). 'year' is when the shluchim began there (their arrival or first activity); when the opening came later, the note says so. 'how': stated (the center or a paper says the year), list (a published list of institutions with years; therebbesimpact.com, unsourced, counts only as a lead, so 'low'), news (a report from that year), anniversary (\"N years ago\" counted back), directory (a dated directory listing or IRS record; as a last resort, when its chabad.org listing was made: the listing numbers run in order of creation, so a number dates the listing to within about a year, which bounds the start but is not it); first-mention (the year of the earliest mention found, used as the year); range ('after'/'by' bound it, no exact year); same-place (no year of its own, at the same spot as a dated one); not-found. 'confidence': high (a report from that year, or the center itself, and nothing against it), medium (counted back from 'N years ago', a first mention, one secondary source, or sources a year apart), low (one weak source, unconfirmed); range (no year: 'after'/'by' bound it from dated sources); open (no real source yet: 'year' is null and 'lead' holds a guess from therebbesimpact.com or the chabad.org listing number, only to check, never to use as a year. Owner, Nov 6: \"basically a guess is ridiculous how can I use that in an expansion map\"). A dot on the map takes the earliest year of its listings. Pilot: the Michigan shetach, Nov 6 (work/founding-years/michigan-pilot.md). 'date' (when one turns up, owner, Nov 6: \"More data never hurt nobody\"): the month or the day, 'YYYY-MM' or 'YYYY-MM-DD', of the same event as 'year'. 'shetach': the shetach id (data/shetachim.json); 'none' = Monsey, left blank on the map. 'earlier' (when found): the places a center used to be, oldest first, each {where, from, until, source} (years when known, else null); the map's dot is where it is now. Owner, Nov 6: \"if you ever realize a center used to be located somewhere else then take note for the data\". 'season' (owner, Nov 6: \"or season which equates to a range ofc\"): when only a season turns up for the same event as 'year' ('winter', 'spring', 'summer', 'fall'; or 'High Holidays', 'Chanukah' and the like). 'hebrewYear' (owner, Nov 15: \"if it's a Hebrew year that's better because I mostly use Hebrew years option anyways so log Hebrew year in data as well if that's what the source said rather than logging an English year range\"): the Hebrew year of the same event as 'year', where the source gives the year in Hebrew (5760 for תש\"ס) or a Jewish date in it fixes the year (Sukkos 5735; Chanukah of Dec 2022, 5783; just before Rosh Hashanah 2018, 5778). The growth page's Hebrew years show it as it is. 'year' stays the ordinary year where the source shows one (October 1972 for Kislev 5733); with only the Hebrew year, 'year' is that year less 3760 (5760 gives 2000: most of 5760 was in 2000), and no English range is made of it. 'fallback' (owner, Nov 15: \"the fallback is meant to be only applied once the research is done and we haven't found anything ... for now they should be in their seperate category of being from the chabad.org fallback\"): no source found for its start yet, so 'year' is null; 'listed' is the date its chabad.org listing went up, the LOW year to use only once the research is finished (Latin America; the US and Canada's Nov 11 fallback years, set after their research, stay LOW).",
  "centers": {
   "119458": {
    "name": "Congregation Mishkan Israel",
@@ -41697,24 +41697,25 @@
    "name": "Chabad Lubavitch Mexico City",
    "city": "Mexico City",
    "shetach": "mexico",
-   "year": null,
-   "by": 2018,
-   "how": "range",
-   "source": "https://pulsenewsmexico.com/2018/09/02/first-chabad-yeshiva-opens-in-mexico/",
-   "note": "No start year found (Nov 2026 searches in English, Spanish and Hebrew; the family name is also spelled Meislish). By Aug 2018 it was running: Chabad-Lubavitch opened Mexico's first yeshiva on 26 Aug 2018 'under the direction of Rabbi Mendel Mayzlesh, son of Rabbi Yossef Mayzlesh, director of Chabad in Mexico' (Pulse News Mexico, 2 Sept 2018). Its site says only 'Founded in the mid-20th century' (chabadofmexico.com). Its chabad.org listing (Calderon de la Barca 339, Polanco) went up on 2023-12-26, after it was running, so the listing-year fallback is not used. Not in lubavitch.com's Mexico directory of Aug 2011 (Tijuana and Cancun only). His father's Chabad House in Mexico began in 5760 (1999-2000; Chabadpedia: see Chabad of Bosques, 6342563); this listing, his son Mendel's, has no year of its own (Chabadpedia: 'a shliach of the Rebbe in Mexico').",
-   "confidence": "range",
+   "year": 2000,
+   "hebrewYear": 5760,
+   "how": "stated",
+   "source": "https://chabadpedia.co.il/index.php?title=%D7%99%D7%95%D7%A1%D7%A3_%D7%99%D7%A6%D7%97%D7%A7_%D7%9E%D7%99%D7%99%D7%96%D7%9C%D7%99%D7%A9",
+   "note": "Chabadpedia: Rabbi Yosef Yitzchak Mayzlesh 'בשנת תש\"ס יצא בשליחות הרבי למקסיקו, שם פועל בעיר מקסיקו סיטי' (in 5760 he went on the Rebbe's shlichus to Mexico, where he works in Mexico City; his page), and 'בשנת תש\"ס החלה לראשונה פעילות קבועה וממוסדת של חב\"ד במדינה, עם הקמת בית חב\"ד על ידי הרב יוסף יצחק מייזליש' (in 5760 Chabad's permanent activity in the country began, with the founding of a Chabad House by Rabbi Yosef Yitzchak Mayzlesh; its Mexico page, https://chabadpedia.co.il/index.php?title=%D7%9E%D7%A7%D7%A1%D7%99%D7%A7%D7%95). 5760 ran from Sept 1999 to Sept 2000. Entered here, on Jabad Lubavitch México's own center: this listing's site is chabadofmexico.com (Calderon de la Barca 339, Polanco), and he was 'director of Chabad in Mexico' (Pulse News Mexico, 2 Sept 2018) and 'el Rabino de la Jabad México' (Diario Judío, March 2018). Today his son Rabbi Mendel Mayzlesh leads it ('Mandy Mazlish, son of Rabbi Yosef Mayzlesh' at the Ángel's Chanukah lighting, Dec 2019, Enlace Judío); Mendel opened Mexico's first yeshiva on 26 Aug 2018. Where the first house stood in 2000 is not found. Medium: one secondary source (two of its pages), the listing not named, and its 'first in the country' is not right (Chabad of Baja California, Tijuana, began in 1993). Its site says only 'Founded in the mid-20th century'. Its chabad.org listing went up only on 2023-12-26.",
+   "confidence": "medium",
    "people": [
     {
-     "name": "Rabbi Yossef Mayzlesh",
-     "role": "head",
-     "seen": "2018",
-     "note": "'director of Chabad in Mexico' (Pulse News Mexico, 2018)"
+     "name": "Rabbi Yosef Yitzchak Mayzlesh",
+     "role": "founder",
+     "from": "2000",
+     "note": "'in 5760 he went out on the Rebbe's shlichus to Mexico' (Chabadpedia); 'director of Chabad in Mexico' (2018)",
+     "source": "https://chabadpedia.co.il/index.php?title=%D7%99%D7%95%D7%A1%D7%A3_%D7%99%D7%A6%D7%97%D7%A7_%D7%9E%D7%99%D7%99%D7%96%D7%9C%D7%99%D7%A9"
     },
     {
      "name": "Rabbi Mendel Mayzlesh",
      "role": "director",
      "seen": "2018",
-     "note": "directed the yeshiva opened 26 Aug 2018"
+     "note": "directed the yeshiva opened 26 Aug 2018; on its chabad.org listing"
     }
    ]
   },
@@ -41722,19 +41723,17 @@
    "name": "Chabad of Bosques",
    "city": "Estado de Mexico",
    "shetach": "mexico",
-   "year": 2000,
-   "hebrewYear": 5760,
-   "how": "stated",
-   "source": "https://chabadpedia.co.il/index.php?title=%D7%99%D7%95%D7%A1%D7%A3_%D7%99%D7%A6%D7%97%D7%A7_%D7%9E%D7%99%D7%99%D7%96%D7%9C%D7%99%D7%A9",
-   "note": "Chabadpedia, his page: 'בשנת תש\"ס יצא בשליחות הרבי למקסיקו, שם פועל בעיר מקסיקו סיטי. ובמשך השנים הביא מספר שלוחים שיעבדו תחתיו' (in 5760 he went out on the Rebbe's shlichus to Mexico, where he works in Mexico City, and over the years brought shluchim to work under him). Its Mexico page: 'בשנת תש\"ס החלה לראשונה פעילות קבועה וממוסדת של חב\"ד במדינה, עם הקמת בית חב\"ד על ידי הרב יוסף יצחק מייזליש' (in 5760 Chabad's permanent activity in the country began, with the founding of a Chabad House by Rabbi Yosef Yitzchak Mayzlesh; https://chabadpedia.co.il/index.php?title=%D7%9E%D7%A7%D7%A1%D7%99%D7%A7%D7%95). 5760 ran from Sept 1999 to Sept 2000. This is his listing today (Rabbi Yosef Y. and Tova Mayzlesh, with their son Rabbi Sholom Dov Ber); Chabadpedia does not say where in the city the first house was. Medium: one secondary source (two of its pages), the listing not named, and its 'first in the country' is not right (Chabad of Baja California, Tijuana, began in 1993). He was 'director of Chabad in Mexico' in 2018 (Pulse News Mexico) and 'el Rabino de la Jabad México' (Diario Judío, March 2018); Jabad Lubavitch México lit its Chanukah menorah at the Ángel de la Independencia in Dec 2013 (Diario Judío). Its chabad.org listing went up only on 2024-02-28 (Mexico City's, his son's, on 2023-12-26).",
-   "confidence": "medium",
+   "year": null,
+   "how": "not-found",
+   "source": null,
+   "note": "Rabbi Yosef Y. and Tova Mayzlesh, with their son Rabbi Sholom Dov Ber (Avenida de los Bosques 50, Estado de México). The family's 5760 founding (Chabadpedia) is entered on Chabad Lubavitch Mexico City (6260059), Jabad Lubavitch México's own center (chabadofmexico.com); when this branch in Bosques began is not found (Nov 2026 searches in English, Spanish and Hebrew). If it is in fact the first house, the 5760 belongs here. Its chabad.org listing went up only on 2024-02-28 (the family's centers were listed late: Mexico City's on 2023-12-26).",
+   "confidence": "open",
+   "listed": "2024-02-28",
    "people": [
     {
      "name": "Rabbi Yosef Yitzchak Mayzlesh",
-     "role": "founder",
-     "from": "2000",
-     "note": "'in 5760 he went out on the Rebbe's shlichus to Mexico' (Chabadpedia)",
-     "source": "https://chabadpedia.co.il/index.php?title=%D7%99%D7%95%D7%A1%D7%A3_%D7%99%D7%A6%D7%97%D7%A7_%D7%9E%D7%99%D7%99%D7%96%D7%9C%D7%99%D7%A9"
+     "role": "director",
+     "note": "on its chabad.org listing; head shliach of Mexico"
     }
    ]
   },
@@ -41772,11 +41771,11 @@
    "name": "Chabad of Guadalajara",
    "city": "Guadalajara",
    "shetach": "mexico",
-   "year": 2011,
-   "how": "directory",
+   "year": null,
+   "how": "listing",
    "source": "https://www.chabad.org/jewish-centers/7011671",
-   "note": "Its listing was remade on 2025-09-10, but it keeps its first listing's old center number (mosad-id 8935), which falls between listings that went up on 2010-12-23 (8910, The Shul of Bellaire) and 2011-01-21 (8956, Anshei Lubavitch, Fair Lawn): so its first chabad.org listing went up about January 2011. Its site jabadmx.com has a page made then (chabad.org article 1420832, Jan 2011). 'Rabbi Abraham Srugo is leader of the Chabad of Guadalajara movement'; he 'lived for a brief time in Mexico City where his father was a Rabbi 30 years ago' (Guadalajara Reporter, published 6 July 2012); Rabbi Abraham and Elisheva Srugo co-directors (Chabad.org, Dec 2016). Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start, so the year is the one its chabad.org listing went up (about January 2011), entered as LOW. Checked first on the 685 centers with a high-confidence year and a listing made after July 2004: 71% were listed the year they began, 79% within a year.",
-   "confidence": "low",
+   "note": "Its listing was remade on 2025-09-10, but it keeps its first listing's old center number (mosad-id 8935), which falls between listings that went up on 2010-12-23 (8910, The Shul of Bellaire) and 2011-01-21 (8956, Anshei Lubavitch, Fair Lawn): so its first chabad.org listing went up about January 2011. Its site jabadmx.com has a page made then (chabad.org article 1420832, Jan 2011). 'Rabbi Abraham Srugo is leader of the Chabad of Guadalajara movement'; he 'lived for a brief time in Mexico City where his father was a Rabbi 30 years ago' (Guadalajara Reporter, published 6 July 2012); Rabbi Abraham and Elisheva Srugo co-directors (Chabad.org, Dec 2016). Fallback category (owner, Nov 15: \"the fallback is meant to be only applied once the research is done and we haven't found anything ... for now they should be in their seperate category of being from the chabad.org fallback\"): no source found for its start yet, so no year; the date its chabad.org listing went up is kept in 'listed' (about January 2011, its first listing, by its old center number; the remade listing went up on 2025-09-10), for when the research is finished.",
+   "confidence": "fallback",
    "people": [
     {
      "name": "Rabbi Abraham Srugo",
@@ -41789,7 +41788,8 @@
      "role": "director",
      "seen": "2015"
     }
-   ]
+   ],
+   "listed": "2011-01"
   },
   "7022006": {
    "name": "Chabad Of Chiapas",
@@ -41825,11 +41825,11 @@
    "name": "Chabad of Lake Chapala",
    "city": "Ajijic",
    "shetach": "mexico",
-   "year": 2025,
-   "how": "directory",
+   "year": null,
+   "how": "listing",
    "source": "https://www.chabad.org/jewish-centers/7097150",
-   "note": "'Rabbi Abraham and Elisheva Srugo, who direct Chabad of Lake Chapala in Jalisco' (COLlive, 22 Feb 2026). Its co-director Yossi Suares 'completed his training as a Community Rav in 2024' (chabadajijic.com). (The Lake Chapala Jewish Congregation, from 2000, is a separate, non-Chabad shul.) Its chabad.org listing went up on 2025-11-06 (chabad.org's own record), so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start, so the year is the one its chabad.org listing went up (2025-11-06), entered as LOW. Checked first on the 685 centers with a high-confidence year and a listing made after July 2004: 71% were listed the year they began, 79% within a year.",
-   "confidence": "low",
+   "note": "'Rabbi Abraham and Elisheva Srugo, who direct Chabad of Lake Chapala in Jalisco' (COLlive, 22 Feb 2026). Its co-director Yossi Suares 'completed his training as a Community Rav in 2024' (chabadajijic.com). (The Lake Chapala Jewish Congregation, from 2000, is a separate, non-Chabad shul.) Its chabad.org listing went up on 2025-11-06 (chabad.org's own record), so it existed by then. Fallback category (owner, Nov 15: \"the fallback is meant to be only applied once the research is done and we haven't found anything ... for now they should be in their seperate category of being from the chabad.org fallback\"): no source found for its start yet, so no year; the date its chabad.org listing went up is kept in 'listed' (2025-11-06), for when the research is finished.",
+   "confidence": "fallback",
    "people": [
     {
      "name": "Rabbi Abraham Srugo",
@@ -41841,17 +41841,18 @@
      "role": "director",
      "seen": "2026"
     }
-   ]
+   ],
+   "listed": "2025-11-06"
   },
   "7338776": {
    "name": "Jabad Monterrey",
    "city": "Monterrey",
    "shetach": "mexico",
-   "year": 2026,
-   "how": "directory",
+   "year": null,
+   "how": "listing",
    "source": "https://www.chabad.org/jewish-centers/7338776",
-   "note": "World Cup activities in July 2026 were led 'by Zalmy Srugo in Monterrey', a city 'home to active Chabad centers' (COLlive, 13 July 2026). Its chabad.org listing went up on 2026-07-09 (chabad.org's own record), so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start, so the year is the one its chabad.org listing went up (2026-07-09), entered as LOW. Checked first on the 685 centers with a high-confidence year and a listing made after July 2004: 71% were listed the year they began, 79% within a year.",
-   "confidence": "low",
+   "note": "World Cup activities in July 2026 were led 'by Zalmy Srugo in Monterrey', a city 'home to active Chabad centers' (COLlive, 13 July 2026). Its chabad.org listing went up on 2026-07-09 (chabad.org's own record), so it existed by then. Fallback category (owner, Nov 15: \"the fallback is meant to be only applied once the research is done and we haven't found anything ... for now they should be in their seperate category of being from the chabad.org fallback\"): no source found for its start yet, so no year; the date its chabad.org listing went up is kept in 'listed' (2026-07-09), for when the research is finished.",
+   "confidence": "fallback",
    "people": [
     {
      "name": "Zalmy Srugo",
@@ -41859,18 +41860,20 @@
      "seen": "2026",
      "note": "Rabbi Shneor Zalmen Srugo on its chabad.org listing"
     }
-   ]
+   ],
+   "listed": "2026-07-09"
   },
   "7423203": {
    "name": "CTEEN Cancun",
    "city": "Cancun",
    "shetach": "mexico",
-   "year": 2026,
-   "how": "directory",
+   "year": null,
+   "how": "listing",
    "source": "https://www.chabad.org/jewish-centers/7423203",
-   "note": "The CTeen chapter of Chabad of Cancun (Rabbi Mendel Druk). Its chabad.org listing went up on 2026-08-19 (chabad.org's own record), so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start, so the year is the one its chabad.org listing went up (2026-08-19), entered as LOW. Checked first on the 685 centers with a high-confidence year and a listing made after July 2004: 71% were listed the year they began, 79% within a year.",
-   "confidence": "low",
-   "people": []
+   "note": "The CTeen chapter of Chabad of Cancun (Rabbi Mendel Druk). Its chabad.org listing went up on 2026-08-19 (chabad.org's own record), so it existed by then. Fallback category (owner, Nov 15: \"the fallback is meant to be only applied once the research is done and we haven't found anything ... for now they should be in their seperate category of being from the chabad.org fallback\"): no source found for its start yet, so no year; the date its chabad.org listing went up is kept in 'listed' (2026-08-19), for when the research is finished.",
+   "confidence": "fallback",
+   "people": [],
+   "listed": "2026-08-19"
   },
   "extra-mexico-mazatlan": {
    "name": "Chabad Lubavitch of Mazatlán",
@@ -41929,11 +41932,11 @@
    "name": "Beit Chabad Lubavitch Antigua Lametayel",
    "city": "Antigua",
    "shetach": "guatemala",
-   "year": 2017,
-   "how": "directory",
+   "year": null,
+   "how": "listing",
    "source": "https://www.chabad.org/jewish-centers/3798141",
-   "note": "Its own site: 'Rabbi Chaim, together with his wife Daria, came to Antigua Guatemala to continue the mission of the Rebbe' (no year). 'the wonderful Chabad of Antigua run with love by the dynamic couple, Rabbi Chaim Silber and his wife Daria' (ReVista, Harvard, 12 Oct 2023). Its chabad.org listing went up on 2017-09-27 (chabad.org's own record), so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start, so the year is the one its chabad.org listing went up (2017-09-27), entered as LOW. Checked first on the 685 centers with a high-confidence year and a listing made after July 2004: 71% were listed the year they began, 79% within a year.",
-   "confidence": "low",
+   "note": "Its own site: 'Rabbi Chaim, together with his wife Daria, came to Antigua Guatemala to continue the mission of the Rebbe' (no year). 'the wonderful Chabad of Antigua run with love by the dynamic couple, Rabbi Chaim Silber and his wife Daria' (ReVista, Harvard, 12 Oct 2023). Its chabad.org listing went up on 2017-09-27 (chabad.org's own record), so it existed by then. Fallback category (owner, Nov 15: \"the fallback is meant to be only applied once the research is done and we haven't found anything ... for now they should be in their seperate category of being from the chabad.org fallback\"): no source found for its start yet, so no year; the date its chabad.org listing went up is kept in 'listed' (2017-09-27), for when the research is finished.",
+   "confidence": "fallback",
    "people": [
     {
      "name": "Rabbi Chaim Silber",
@@ -41946,7 +41949,8 @@
      "seen": "2023",
      "note": "'Dalia Daria Silber' on its chabad.org listing"
     }
-   ]
+   ],
+   "listed": "2017-09-27"
   },
   "5544455": {
    "name": "Chabad Nicaragua",
@@ -42125,22 +42129,23 @@
    "name": "Tora Or",
    "city": "Panama",
    "shetach": "panama",
-   "year": 2023,
-   "how": "directory",
+   "year": null,
+   "how": "listing",
    "source": "https://www.chabad.org/jewish-centers/5961265",
-   "note": "A cheder at the Beth El synagogue (Rabbi Yechezkel Ravel). Its chabad.org listing went up on 2023-06-08 (chabad.org's own record), so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start, so the year is the one its chabad.org listing went up (2023-06-08), entered as LOW. Checked first on the 685 centers with a high-confidence year and a listing made after July 2004: 71% were listed the year they began, 79% within a year.",
-   "confidence": "low",
-   "people": []
+   "note": "A cheder at the Beth El synagogue (Rabbi Yechezkel Ravel). Its chabad.org listing went up on 2023-06-08 (chabad.org's own record), so it existed by then. Fallback category (owner, Nov 15: \"the fallback is meant to be only applied once the research is done and we haven't found anything ... for now they should be in their seperate category of being from the chabad.org fallback\"): no source found for its start yet, so no year; the date its chabad.org listing went up is kept in 'listed' (2023-06-08), for when the research is finished.",
+   "confidence": "fallback",
+   "people": [],
+   "listed": "2023-06-08"
   },
   "2871262": {
    "name": "Chabad Panama",
    "city": "Panama City",
    "shetach": "panama",
-   "year": 2015,
-   "how": "directory",
+   "year": null,
+   "how": "listing",
    "source": "https://www.chabad.org/jewish-centers/2871262",
-   "note": "Its own site: 'Founded by Rabbi Mendi Karniel and Mrs. Braha Karniel' (chabadpanama.com/about, no year). 'the Shliach for the Israeli community in Panama City, Rabbi Mendy Karniel' (COLlive, 2 Apr 2021). Today an Israeli center in Paitilla (Calle Gil Colunge 9B) with a kosher restaurant and mikvah. Its chabad.org listing went up on 2015-02-24 (chabad.org's own record), so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start, so the year is the one its chabad.org listing went up (2015-02-24), entered as LOW. Checked first on the 685 centers with a high-confidence year and a listing made after July 2004: 71% were listed the year they began, 79% within a year.",
-   "confidence": "low",
+   "note": "Its own site: 'Founded by Rabbi Mendi Karniel and Mrs. Braha Karniel' (chabadpanama.com/about, no year). 'the Shliach for the Israeli community in Panama City, Rabbi Mendy Karniel' (COLlive, 2 Apr 2021). Today an Israeli center in Paitilla (Calle Gil Colunge 9B) with a kosher restaurant and mikvah. Its chabad.org listing went up on 2015-02-24 (chabad.org's own record), so it existed by then. Fallback category (owner, Nov 15: \"the fallback is meant to be only applied once the research is done and we haven't found anything ... for now they should be in their seperate category of being from the chabad.org fallback\"): no source found for its start yet, so no year; the date its chabad.org listing went up is kept in 'listed' (2015-02-24), for when the research is finished.",
+   "confidence": "fallback",
    "people": [
     {
      "name": "Rabbi Mendi Karniel",
@@ -42151,7 +42156,8 @@
      "name": "Braha Karniel",
      "role": "founder"
     }
-   ]
+   ],
+   "listed": "2015-02-24"
   },
   "3370507": {
    "name": "Chabad Boquete",
@@ -42188,23 +42194,25 @@
    "name": "Kosher Bakery - Morton's Bake house",
    "city": "Boquete",
    "shetach": "panama",
-   "year": 2018,
-   "how": "directory",
+   "year": null,
+   "how": "listing",
    "source": "https://www.chabad.org/jewish-centers/4085561",
-   "note": "A kosher bakery in Plaza San Francisco, Alto Boquete, listed under Chabad of Boquete (2016). Its chabad.org listing went up on 2018-08-21 (chabad.org's own record), so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start, so the year is the one its chabad.org listing went up (2018-08-21), entered as LOW. Checked first on the 685 centers with a high-confidence year and a listing made after July 2004: 71% were listed the year they began, 79% within a year.",
-   "confidence": "low",
-   "people": []
+   "note": "A kosher bakery in Plaza San Francisco, Alto Boquete, listed under Chabad of Boquete (2016). Its chabad.org listing went up on 2018-08-21 (chabad.org's own record), so it existed by then. Fallback category (owner, Nov 15: \"the fallback is meant to be only applied once the research is done and we haven't found anything ... for now they should be in their seperate category of being from the chabad.org fallback\"): no source found for its start yet, so no year; the date its chabad.org listing went up is kept in 'listed' (2018-08-21), for when the research is finished.",
+   "confidence": "fallback",
+   "people": [],
+   "listed": "2018-08-21"
   },
   "4923516": {
    "name": "Ohaley Chinuch",
    "city": "Panama City",
    "shetach": "panama",
-   "year": 2020,
-   "how": "directory",
+   "year": null,
+   "how": "listing",
    "source": "https://www.chabad.org/jewish-centers/4923516",
-   "note": "A cheder (Rabbi Yosef Yitzchak Shaingarten). Its chabad.org listing went up on 2020-11-10 (chabad.org's own record), so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start, so the year is the one its chabad.org listing went up (2020-11-10), entered as LOW. Checked first on the 685 centers with a high-confidence year and a listing made after July 2004: 71% were listed the year they began, 79% within a year.",
-   "confidence": "low",
-   "people": []
+   "note": "A cheder (Rabbi Yosef Yitzchak Shaingarten). Its chabad.org listing went up on 2020-11-10 (chabad.org's own record), so it existed by then. Fallback category (owner, Nov 15: \"the fallback is meant to be only applied once the research is done and we haven't found anything ... for now they should be in their seperate category of being from the chabad.org fallback\"): no source found for its start yet, so no year; the date its chabad.org listing went up is kept in 'listed' (2020-11-10), for when the research is finished.",
+   "confidence": "fallback",
+   "people": [],
+   "listed": "2020-11-10"
   },
   "4946171": {
    "name": "Mitzva Tank Panama",
@@ -42273,18 +42281,19 @@
    "name": "Kolel Torah Panama",
    "city": "Panama City",
    "shetach": "panama",
-   "year": 2022,
-   "how": "directory",
+   "year": null,
+   "how": "listing",
    "source": "https://www.chabad.org/jewish-centers/5604369",
-   "note": "The talmidim of the yeshiva gedola 'Kollel Torah' with Rosh Yeshiva Rabbi Menachem Mendel Shuchat by Dec 2022 (ChabadInfo, 19 Dec 2022, https://chabadinfo.com/news/rabbi-hershel-schachter-visits-chabad-yeshiva-of-panama/). 'Kolel Torah Panama published its first edition of Seder Pesach Illuminated' (COLlive, 31 Mar 2026), under Rabbi Menachem Mendel Shuchat, overseen by Head Shliach Rabbi Ari Laine; it hosted a Siyum HaShas in June 2026. Its chabad.org listing went up on 2022-10-25 (chabad.org's own record), so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start, so the year is the one its chabad.org listing went up (2022-10-25), entered as LOW. Checked first on the 685 centers with a high-confidence year and a listing made after July 2004: 71% were listed the year they began, 79% within a year.",
-   "confidence": "low",
+   "note": "The talmidim of the yeshiva gedola 'Kollel Torah' with Rosh Yeshiva Rabbi Menachem Mendel Shuchat by Dec 2022 (ChabadInfo, 19 Dec 2022, https://chabadinfo.com/news/rabbi-hershel-schachter-visits-chabad-yeshiva-of-panama/). 'Kolel Torah Panama published its first edition of Seder Pesach Illuminated' (COLlive, 31 Mar 2026), under Rabbi Menachem Mendel Shuchat, overseen by Head Shliach Rabbi Ari Laine; it hosted a Siyum HaShas in June 2026. Its chabad.org listing went up on 2022-10-25 (chabad.org's own record), so it existed by then. Fallback category (owner, Nov 15: \"the fallback is meant to be only applied once the research is done and we haven't found anything ... for now they should be in their seperate category of being from the chabad.org fallback\"): no source found for its start yet, so no year; the date its chabad.org listing went up is kept in 'listed' (2022-10-25), for when the research is finished.",
+   "confidence": "fallback",
    "people": [
     {
      "name": "Rabbi Menachem Mendel Shuchat",
      "role": "head",
      "seen": "2026"
     }
-   ]
+   ],
+   "listed": "2022-10-25"
   },
   "extra-panama-beth-el": {
    "name": "Beth El Synagogue",
@@ -42378,35 +42387,37 @@
    "name": "Lubavitch of Cali",
    "city": "Cali",
    "shetach": "colombia",
-   "year": 2014,
-   "how": "directory",
+   "year": null,
+   "how": "listing",
    "source": "https://www.chabad.org/jewish-centers/2562626",
-   "note": "Rabbi Yehuda Slonim 'of Cali, Colombia' at the Latin America Kinus, April 2023 (COLlive, 24 Apr 2023, https://collive.com/latin-american-shluchim-kinus-begins-in-panama/); Colombia had Chabad Houses in five cities in Feb 2022 (COLlive). Rabbi Yehudah and Chaya Slonim on its chabad.org listing. Its chabad.org listing went up on 2014-05-19 (chabad.org's own record), so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start, so the year is the one its chabad.org listing went up (2014-05-19), entered as LOW. Checked first on the 685 centers with a high-confidence year and a listing made after July 2004: 71% were listed the year they began, 79% within a year.",
-   "confidence": "low",
+   "note": "Rabbi Yehuda Slonim 'of Cali, Colombia' at the Latin America Kinus, April 2023 (COLlive, 24 Apr 2023, https://collive.com/latin-american-shluchim-kinus-begins-in-panama/); Colombia had Chabad Houses in five cities in Feb 2022 (COLlive). Rabbi Yehudah and Chaya Slonim on its chabad.org listing. Its chabad.org listing went up on 2014-05-19 (chabad.org's own record), so it existed by then. Fallback category (owner, Nov 15: \"the fallback is meant to be only applied once the research is done and we haven't found anything ... for now they should be in their seperate category of being from the chabad.org fallback\"): no source found for its start yet, so no year; the date its chabad.org listing went up is kept in 'listed' (2014-05-19), for when the research is finished.",
+   "confidence": "fallback",
    "people": [
     {
      "name": "Rabbi Yehuda Slonim",
      "role": "director",
      "seen": "2023"
     }
-   ]
+   ],
+   "listed": "2014-05-19"
   },
   "3764606": {
    "name": "Casa Lubavitch Cartagena",
    "city": "Cartagena",
    "shetach": "colombia",
-   "year": 2017,
-   "how": "directory",
+   "year": null,
+   "how": "listing",
    "source": "https://www.chabad.org/jewish-centers/3764606",
-   "note": "In March 2015 there was no Chabad house yet: rabbinical students came for Pesach for the fifth year running and 'Since no kosher catering facilities exist in Cartagena, all of the food is prepared in Barranquilla' (Chabad.org, 31 Mar 2015). By Dec 2024 'the longer established Chabad house' (San Diego Jewish World, 25 Dec 2024). Today Carrera 1 #8-210, Bocagrande (Rabbi Saadia and Esti Globerman). Its chabad.org listing went up on 2017-10-25 (chabad.org's own record), so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start, so the year is the one its chabad.org listing went up (2017-10-25), entered as LOW. Checked first on the 685 centers with a high-confidence year and a listing made after July 2004: 71% were listed the year they began, 79% within a year.",
-   "confidence": "low",
+   "note": "In March 2015 there was no Chabad house yet: rabbinical students came for Pesach for the fifth year running and 'Since no kosher catering facilities exist in Cartagena, all of the food is prepared in Barranquilla' (Chabad.org, 31 Mar 2015). By Dec 2024 'the longer established Chabad house' (San Diego Jewish World, 25 Dec 2024). Today Carrera 1 #8-210, Bocagrande (Rabbi Saadia and Esti Globerman). Its chabad.org listing went up on 2017-10-25 (chabad.org's own record), so it existed by then. Fallback category (owner, Nov 15: \"the fallback is meant to be only applied once the research is done and we haven't found anything ... for now they should be in their seperate category of being from the chabad.org fallback\"): no source found for its start yet, so no year; the date its chabad.org listing went up is kept in 'listed' (2017-10-25), for when the research is finished.",
+   "confidence": "fallback",
    "people": [
     {
      "name": "Rabbi Saadia Globerman",
      "role": "director",
      "note": "on its chabad.org listing, with Esti Globerman; start not found"
     }
-   ]
+   ],
+   "listed": "2017-10-25"
   },
   "5578732": {
    "name": "Chabad Lubavitch San Andres",
@@ -42437,11 +42448,11 @@
    "name": "Beth Chabad Salento",
    "city": "Salento",
    "shetach": "colombia",
-   "year": 2022,
-   "how": "directory",
+   "year": null,
+   "how": "listing",
    "source": "https://www.chabad.org/jewish-centers/5590453",
-   "note": "Its own site: 'נוסד על ידי הרב שמואל הכהן פרידמן והרבנית לאה הודי׳ה פרידמן' (founded by Rabbi Shmuel HaKohen Friedman and Rebbetzin Leah Hodia Friedman; chabadsalento770.com/about, no year). Colombia's first kinus (Feb 2022) announced two new shluchim for the country (COLlive). A Colombian consul met 'the Rebbe's Shliach to Salento' (ChabadInfo, 10 Feb 2026); the Chabad house was damaged in the Aug 2026 earthquake (COLlive; JNS names Rabbi Shmuel Friedman). Its chabad.org listing went up on 2022-08-11 (chabad.org's own record), so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start, so the year is the one its chabad.org listing went up (2022-08-11), entered as LOW. Checked first on the 685 centers with a high-confidence year and a listing made after July 2004: 71% were listed the year they began, 79% within a year.",
-   "confidence": "low",
+   "note": "Its own site: 'נוסד על ידי הרב שמואל הכהן פרידמן והרבנית לאה הודי׳ה פרידמן' (founded by Rabbi Shmuel HaKohen Friedman and Rebbetzin Leah Hodia Friedman; chabadsalento770.com/about, no year). Colombia's first kinus (Feb 2022) announced two new shluchim for the country (COLlive). A Colombian consul met 'the Rebbe's Shliach to Salento' (ChabadInfo, 10 Feb 2026); the Chabad house was damaged in the Aug 2026 earthquake (COLlive; JNS names Rabbi Shmuel Friedman). Its chabad.org listing went up on 2022-08-11 (chabad.org's own record), so it existed by then. Fallback category (owner, Nov 15: \"the fallback is meant to be only applied once the research is done and we haven't found anything ... for now they should be in their seperate category of being from the chabad.org fallback\"): no source found for its start yet, so no year; the date its chabad.org listing went up is kept in 'listed' (2022-08-11), for when the research is finished.",
+   "confidence": "fallback",
    "people": [
     {
      "name": "Rabbi Shmuel HaKohen Friedman",
@@ -42452,7 +42463,8 @@
      "name": "Leah Hodia Friedman",
      "role": "founder"
     }
-   ]
+   ],
+   "listed": "2022-08-11"
   },
   "5603886": {
    "name": "Chabad Lubavitch Medellin",
@@ -42711,18 +42723,19 @@
    "name": "Chabad Pucon",
    "city": "Pucon",
    "shetach": "chile",
-   "year": 2009,
-   "how": "directory",
+   "year": null,
+   "how": "listing",
    "source": "https://www.chabad.org/jewish-centers/868615",
-   "note": "Chaya Perman 'mentions a Chabad House in Pucon, about 500 miles south, that is popular with Israeli backpackers' (CrownHeights.info, 11 May 2011); its 'annual mega-seder' by 2014 (Chabad.org, 8 May 2014). A Dec 2008 Hebrew Chabad report (COL, cited by Powerbase, not checked) said a Chabad House in Pucon, in memory of the Holtzbergs, was to open by Chanukah 2008 under Rabbi Elimelech and Goldi Perman. Today General Urrutia 636. Its chabad.org listing went up on 2009-04-01 (chabad.org's own record), so it existed by then. Fallback (owner, Nov 11: 'I guess they can be low but obviously it must be noted'): no source found for its start, so the year is the one its chabad.org listing went up (2009-04-01), entered as LOW. Checked first on the 685 centers with a high-confidence year and a listing made after July 2004: 71% were listed the year they began, 79% within a year.",
-   "confidence": "low",
+   "note": "Chaya Perman 'mentions a Chabad House in Pucon, about 500 miles south, that is popular with Israeli backpackers' (CrownHeights.info, 11 May 2011); its 'annual mega-seder' by 2014 (Chabad.org, 8 May 2014). A Dec 2008 Hebrew Chabad report (COL, cited by Powerbase, not checked) said a Chabad House in Pucon, in memory of the Holtzbergs, was to open by Chanukah 2008 under Rabbi Elimelech and Goldi Perman. Today General Urrutia 636. Its chabad.org listing went up on 2009-04-01 (chabad.org's own record), so it existed by then. Fallback category (owner, Nov 15: \"the fallback is meant to be only applied once the research is done and we haven't found anything ... for now they should be in their seperate category of being from the chabad.org fallback\"): no source found for its start yet, so no year; the date its chabad.org listing went up is kept in 'listed' (2009-04-01), for when the research is finished.",
+   "confidence": "fallback",
    "people": [
     {
      "name": "Rabbi Elimelech Perman",
      "role": "director",
      "note": "on its chabad.org listing, with Goldi Perman"
     }
-   ]
+   ],
+   "listed": "2009-04-01"
   },
   "117878": {
    "name": "Beit Jabad Uruguay",

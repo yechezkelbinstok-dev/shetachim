@@ -39,9 +39,13 @@ for name, sids in groups.items():
             k['d'] += 1; k['dl'] += not any((fy.get(i) or {}).get('year') for i in ids)
             k['l'] += len(ids); k['ll'] += sum(1 for i in ids if not (fy.get(i) or {}).get('year'))
             k['h'] += sum(1 for i in ids if (fy.get(i) or {}).get('year') and fy[i].get('confidence') == 'high')
+            # the chabad.org-listing fallback, kept apart with no year until the research is done (owner, Nov 15)
+            k['f'] += sum(1 for i in ids if (fy.get(i) or {}).get('confidence') == 'fallback')
+            k['df'] += not any((fy.get(i) or {}).get('year') for i in ids) and any((fy.get(i) or {}).get('confidence') == 'fallback' for i in ids)
     T.update(k); lines.append(f"  {name}: high {k['h']} of {k['l']} listings ({100*k['h']/k['l']:.0f}%); {k['dl']} of {k['d']} dots left ({100*k['dl']/k['d']:.0f}%), {k['ll']} of {k['l']} listings")
 # The owner's metric (Nov 8): the share of listings that are HIGH ("the goal is 100% high. Or let's say like 90-95% high").
 y = T['l'] - T['ll']
 print(f"HIGH: {T['h']} of {T['l']} listings ({100*T['h']/T['l']:.1f}%); {100*T['h']/max(y,1):.0f}% of the {y} with a year")
 print(f"LEFT: {T['dl']} of {T['d']} dots ({100*T['dl']/T['d']:.1f}%), {T['ll']} of {T['l']} listings ({100*T['ll']/T['l']:.1f}%)")
+if T['f']: print(f"  of them FALLBACK (only the chabad.org listing date, kept apart until the research is done): {T['f']} listings, {T['df']} dots")
 if len(lines) > 1: print('\n'.join(lines))

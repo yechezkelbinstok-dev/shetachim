@@ -223,17 +223,17 @@ thirteen no better recent photo has been found yet (the list is there, with what
   CrownHeights.info / COLlive by the director's name.
 - **▶ Founding years, Mexico (Nov 15; owner: "we're going down the continent to more countries", "Start on Mexico
   please", "No mikvaos and no mushrooms").** All 17 Mexican listings (the Mexico shetach's 14 and Baja's 3, which
-  stay in the West Coast shetach): 16 with a year (8 high; Guadalajara, Lake Chapala, Monterrey and CTeen Cancun LOW by the
-  owner's listing-year fallback), 1 left (Mexico City, Mendel Mayzlesh's: by 2018). Bosques (his father Rabbi Yosef
-  Yitzchak Mayzlesh's) is **5760, תש"ס** (medium), from Chabadpedia: the owner sent its Mexico page ("Assfuck idiot"):
+  stay in the West Coast shetach): 12 with a year (8 high), 5 left (Guadalajara, Lake Chapala, Monterrey and CTeen Cancun
+  are `fallback`, no year yet; Bosques open). Mexico City (Jabad Lubavitch México's own center) is **5760, תש"ס** (medium), from
+  Chabadpedia; Bosques (the father's branch) is open. The owner sent Chabadpedia's Mexico page ("Assfuck idiot"):
   it had been read on Nov 3 for another job and the line missed. **Lesson: read Chabadpedia (Hebrew) for every country
   and every shliach** (how: the next bullet but one). Batches `mexico-01`, `mexico-02`, `latam-03`, notes and next steps
   `work/founding-years/mexico.md`, count `python3 work/founding-years/progress.py MEX`. Same rules and fields as the US
   (year, hebrewYear, date, earlier, people).
 - **▶ Founding years, Central and South America without Argentina and Brazil (Nov 15; owner: "Central and South sans
   Argentina and Brazil now").** 40 listings in 11 countries (no mikvahs, no mushrooms; the Caribbean not included):
-  36 with a year (20 high; 11 LOW by the listing-year fallback), 4 left (two Caracas centers, the Costa Rica camp: 2004
-  listings; Punta del Este). Second round (owner: "That's horrible why so much sans year"): mexico-02, latam-02.
+  26 with a year (21 high), 14 left: two Caracas centers and the Costa Rica camp (by 2004), Punta del Este (by 2011),
+  and 10 `fallback` (no year until the research is done). Second round (owner: "That's horrible why so much sans year"): mexico-02, latam-02.
   Third round (Nov 15, owner: "come on try harder I assume you looked in Spanish?"): Chabadpedia's pages on the shluchim
   (`latam-03`) gave Hebrew years: Guatemala City 5760, Lima 16 Cheshvan 5748 (8 Nov 1987), Santiago 5742, Asuncion 5749,
   Cusco Adar 5766, Caracas 5735, Medellin 5776 (Bigio), Cancun 5767, Cozumel 5770 (over a resident's "January 2009").
@@ -249,6 +249,13 @@ thirteen no better recent photo has been found yet (the list is there, with what
   21 of them now show the right Hebrew year (they showed one year early: Seattle 5733, Tzivos Hashem 5741, the Montreal
   yeshivas 5702, Lima 5748, ...). Not done: about 100 year-only entries whose notes name an autumn holiday or "fall"
   (a season alone, e.g. a campus opening in September, can fall either side of Rosh Hashanah, so they were left).
+- **The listing-date fallback is for the very end (owner, Nov 15: "u idiot the fallback is meant to be only applied once the
+  research is done and we haven't found anything like meaning in ages from now when we push this stuff to the growth page for
+  now they should be in their seperate category of being from the chabad.org fallback or whatever").** Latin America's 14
+  listing-date years are out: confidence `fallback`, `year` null, the date in `listed`; progress.py shows them apart and counts
+  them as left. Don't give a fallback year to anything new until the research there is finished. (The US and Canada's Nov 11
+  fallback years, set after their research, are still LOW years; not asked to change.) Mexico City now has the Mayzleshes'
+  5760 (owner: "I'm shocked Mexico City is not found wtf bro"); Bosques is open.
 - **The growth page stays USA and Canada (owner, Nov 15: "I hope ur not updating the growth page I want that kept to USA
   and Canada rn").** The Latin America years go into data/founding-years.json only; build-growth.py keeps its US/CA filter.
   A medium whose only doubt was the English year of a Hebrew-year source is high now (Panama's Beth El 5746, Deerfield 5774).

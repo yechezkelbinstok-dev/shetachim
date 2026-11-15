@@ -7,7 +7,7 @@ Bolivia have only mushrooms. The Caribbean islands (16 listings) are not part of
 
 Count: `python3 work/founding-years/progress.py GTM NIC CRI PAN COL VEN ECU PER CHL URY PRY`. Batch: `batches/latam-01.json`.
 
-## Where it stands (Nov 15, second round): 36 of 40 with a year (20 high), 4 left
+## Where it stands (Nov 15, third round): 26 of 40 with a year (21 high), 14 left (10 of them fallback, no year until the research is done)
 
 | Country | Dated | Left |
 |---|---|---|
@@ -59,3 +59,11 @@ Chabad House in Quito before Purim 5764 (2004): not a listing on the map. The ce
 patterns too) gave no years: chabadpanama.com, chabadbocas.org ("founded by Rabbi Moti and Sarit Cohen"),
 chabadsalento770.com, chabadajijic.com, chabadcozumel.com; jabadve.com, ChabadCostaRica.com, ChabadGuatemala.com,
 ChabadCartegena.com, ChabadAntiguaGuatemala.com, jabadmx.com, jewishcancun.com answer 403 to plain requests.
+
+## The fallback taken out (Nov 15)
+
+Owner: "u idiot the fallback is meant to be only applied once the research is done and we haven't found anything like meaning
+in ages from now when we push this stuff to the growth page for now they should be in their seperate category of being from
+the chabad.org fallback or whatever". So the listing-date years are out: confidence `fallback`, `year` null, the listing date
+in `listed` (Panama: Chabad Panama, Ohaley Chinuch, Kolel Torah, Tora Or, the Boquete bakery; Colombia: Cali, Cartagena,
+Salento; Guatemala: Antigua; Chile: Pucon). They count as left (progress.py prints them apart). Each still wants a real source.

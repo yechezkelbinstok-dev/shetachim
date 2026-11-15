@@ -8,7 +8,7 @@ no mikvahs, no mushrooms: the Mexico shetach's 14 listings and the three Baja do
 Count: `python3 work/founding-years/progress.py MEX` (a country code counts that country's dots, any shetach; the US and
 Canada counts and STATUS.md are unchanged, they still leave Mexico out). Batch: `batches/mexico-01.json`.
 
-## Where it stands (Nov 15, third round): 16 of 17 with a year, 1 left
+## Where it stands (Nov 15, third round): 12 of 17 with a year, 5 left (4 of them fallback: no year until the research is done; Bosques open)
 
 | Listing | Year | How |
 |---|---|---|
@@ -23,12 +23,12 @@ Canada counts and STATUS.md are unchanged, they still leave Mexico out). Batch: 
 | San Miguel de Allende (Huebner) | Nov 2018 high | lubavitch.com, March 2019 |
 | Tulum (Binyamini) | 2019 high | its own About page |
 | Mazatlan (Raitport) | 2026 medium | COLlive, Aug 2026 (Purim visit, move announced Chof Av) |
-| Guadalajara (Srugo) | 2011 low | its first chabad.org listing (center number 8935, about Jan 2011; remade 2025); in charge by July 2012 (Guadalajara Reporter) |
-| Mexico City, Polanco (Mendel Mayzlesh) | by 2018 | Pulse News Mexico: first yeshiva, Aug 2018 |
-| Lake Chapala, Ajijic (Srugo, Suares) | 2025 low | listing date, 6 Nov 2025 (owner's fallback) |
-| Monterrey (Zalmy Srugo) | 2026 low | listing date, 9 July 2026 |
-| CTeen Cancun | 2026 low | listing date, 19 Aug 2026 |
-| Bosques (Yosef Y. Mayzlesh) | 5760 (2000) medium | Chabadpedia: "בשנת תש\"ס יצא בשליחות הרבי למקסיקו" (his page) and "בשנת תש\"ס ... הקמת בית חב\"ד על ידי הרב יוסף יצחק מייזליש" (its Mexico page); the listing not named |
+| Guadalajara (Srugo) | fallback (no year) | its first chabad.org listing about Jan 2011 (center number 8935; remade 2025) kept as the fallback; in charge by July 2012 (Guadalajara Reporter) |
+| Mexico City, Polanco (Jabad Lubavitch México; today Mendel Mayzlesh) | 5760 (2000) medium | Chabadpedia: Rabbi Yosef Yitzchak Mayzlesh founded the Chabad House in 5760 and works in Mexico City; this is the organization's own center (chabadofmexico.com) |
+| Lake Chapala, Ajijic (Srugo, Suares) | fallback (no year) | listing date 6 Nov 2025 kept as the fallback |
+| Monterrey (Zalmy Srugo) | fallback (no year) | listing date 9 July 2026 kept as the fallback; Zalman Leib Liberzon is a shliach in Monterrey too (Chabadpedia, no year) |
+| CTeen Cancun | fallback (no year) | listing date 19 Aug 2026 kept as the fallback |
+| Bosques (Yosef Y. Mayzlesh) | open | the father's branch today; when it began is not found (the 5760 founding is on Mexico City; if Bosques was the first house, it belongs here) |
 
 ## What worked
 
@@ -77,3 +77,9 @@ Canada counts and STATUS.md are unchanged, they still leave Mexico out). Batch: 
 - Spanish: Diario Judío (its WordPress search): Jabad Lubavitch México's Chanukah at the Ángel (Dec 2013); "el Rabino de
   la Jabad México, Josef Itzhak Mayzlesh" (March 2018). Nothing earlier found in nmidigital, tribuna.org.mx, itongadol,
   jabad.org.ar.
+
+- Owner, Nov 15: "I'm shocked Mexico City is not found wtf bro": the 5760 founding moved from Bosques to Chabad Lubavitch Mexico City
+  (Jabad Lubavitch México's own center, chabadofmexico.com, Calderón de la Barca 339); Bosques is open again. Owner: "the
+  fallback is meant to be only applied once the research is done ... for now they should be in their seperate category": the
+  listing-date years are out (confidence `fallback`, `year` null, the date in `listed`): Guadalajara, Lake Chapala, Monterrey,
+  CTeen Cancun.

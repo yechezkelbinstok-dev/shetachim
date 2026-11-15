@@ -262,6 +262,12 @@ thirteen no better recent photo has been found yet (the list is there, with what
 - **The growth page stays USA and Canada (owner, Nov 15: "I hope ur not updating the growth page I want that kept to USA
   and Canada rn").** The Latin America years go into data/founding-years.json only; build-growth.py keeps its US/CA filter.
   A medium whose only doubt was the English year of a Hebrew-year source is high now (Panama's Beth El 5746, Deerfield 5774).
+- **Chabadpedia alone is LOW (owner, Nov 15: "chabadpedia - is it sourced? What do the sources say? In general if it's
+  just chabadpedia that's low confidence").** Check each line's own footnote (`{{הערה|...}}`) and the links at the bottom of
+  the page, read those sources, and date from them; a Chabadpedia line with no source behind it is `low`. Most of its
+  Argentina lines have no footnote (only Grunblatt's start, to his own podcast, and Flores, to COL, Jan 2004). Earlier
+  rounds: Mexico City (5760) rested on Chabadpedia alone and is now low; 770's yeshiva (1940) cites only Chabadpedia and
+  wants a second source; Santiago's and Asuncion's Hebrew years are Chabadpedia's (their years are lubavitch.com's).
 - **Chabadpedia, how (Nov 15).** Its pages answer 403 to WebFetch; read them through Firecrawl's scrape (basic proxy) of
   its MediaWiki API, many pages per credit: `https://chabadpedia.co.il/api.php?action=query&format=json&prop=revisions&rvprop=content&rvslots=main&redirects=1&titles=A|B|C`
   (up to 50 titles), or a category's pages: `generator=categorymembers&gcmtitle=קטגוריה:שלוחים_באמריקה_הדרומית&gcmlimit=50`

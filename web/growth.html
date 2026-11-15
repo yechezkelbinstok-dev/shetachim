@@ -436,8 +436,10 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   // ---------- the centers ----------
   const NOW = HY ? hebYear(new Date()) - 3760 : new Date().getFullYear();
   const START = 1940; // the Frierdiker Rebbe came to America in 1940; the few older (a shul founded earlier, later Lubavitch) are there from the start
-  const slotOf = (date, year) => { const t = date ? yr(date) : NaN; return Number.isFinite(t) ? t : year; };
-  const DOTS = data.dots.map((d) => { const s = slotOf(d[7], d[2]); return { lon: d[0], lat: d[1], y: Math.max(START, s), y0: s, c: d[3], st: d[4], sh: d[5], L: d[6], pid: d[8] || '', x: 0, yy: 0, hi: d[4] === 'US-HI' }; })
+  // (with the Hebrew years, the Hebrew year the source gives, where it gives one: 5760 is the slot 2000; owner, Nov 15:
+  // "if it's a Hebrew year that's better because I mostly use Hebrew years option anyways")
+  const slotOf = (date, year, heb) => { if (HY && heb) return heb - 3760; const t = date ? yr(date) : NaN; return Number.isFinite(t) ? t : year; };
+  const DOTS = data.dots.map((d) => { const s = slotOf(d[7], d[2], d[9]); return { lon: d[0], lat: d[1], y: Math.max(START, s), y0: s, c: d[3], st: d[4], sh: d[5], L: d[6], pid: d[8] || '', x: 0, yy: 0, hi: d[4] === 'US-HI' }; })
     .sort((a, b) => a.y - b.y);
   const LIST = data.listings;
   const PIDX = new Map(pieces.map((g, i) => [g.properties.id, i]));
@@ -1177,8 +1179,8 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     return HE ? `${r[1]}:` : FOUND.has(g.role) || g.role === 'head' ? r[0] : `${r[0]}:`;
   };
   function timelineHTML(r) {
-    const [, , , , year, conf, date, people, founders] = r;
-    const fy = year ? slotOf(date, year) : null, approx = !!conf && conf !== 'h';
+    const [, , , , year, conf, date, people, founders, heb] = r;
+    const fy = year ? slotOf(date, year, heb) : null, approx = !!conf && conf !== 'h';
     const groups = new Map();
     for (const [name, role, from, seen, to] of founders || []) { const k = `${role}|${from}|${seen}|${to || ''}`; (groups.get(k) || groups.set(k, { role, from, seen, to, names: [] }).get(k)).names.push(name); }
     const gs = [...groups.values()], items = [];
@@ -1231,7 +1233,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     kick(); glSel();
   }
   // the listings at a dot that were there in the year on the map, the oldest first (one with no year only today)
-  const sinceOf = (r) => (r[4] ? slotOf(r[6], r[4]) : Infinity);
+  const sinceOf = (r) => (r[4] ? slotOf(r[6], r[4], r[9]) : Infinity);
   const rowsAt = (d) => d.L.map((i) => LIST[i]).filter((r) => (r[4] ? sinceOf(r) <= Y : Y >= NOW)).sort((a, b) => sinceOf(a) - sinceOf(b));
   function showCenter() {
     const d = selected; if (!d) return;

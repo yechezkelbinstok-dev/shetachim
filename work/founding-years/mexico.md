@@ -8,13 +8,13 @@ no mikvahs, no mushrooms: the Mexico shetach's 14 listings and the three Baja do
 Count: `python3 work/founding-years/progress.py MEX` (a country code counts that country's dots, any shetach; the US and
 Canada counts and STATUS.md are unchanged, they still leave Mexico out). Batch: `batches/mexico-01.json`.
 
-## Where it stands (Nov 15, second round): 15 of 17 with a year, 2 left
+## Where it stands (Nov 15, third round): 16 of 17 with a year, 1 left
 
 | Listing | Year | How |
 |---|---|---|
 | Tijuana, Chabad Baja California (Polichenco) | 1993 high | the Rebbe's consent before Yom Kippur 1993 (Chabad of Chula Vista's About page); Jewish Journal 2014 |
-| Cancun (Druk) | 2 July 2007 high | Chabad.org, 6 July 2007 |
-| Cozumel (Caplin, Peleg) | 2009 high | "until January 2009, when Chabad opened its doors" (Dec 2010); 10 years in Dec 2019; 16 years in Aug 2025 |
+| Cancun (Druk) | 2 July 2007 high (5767) | Chabad.org, 6 July 2007; Chabadpedia: 5767 |
+| Cozumel (Caplin, Peleg) | 2009 high (5770) | Chabadpedia and ChabadInfo (2024): 5770, from Sept 2009; 10 years in Dec 2019; 16 years in Aug 2025; against: "until January 2009" (a resident, Dec 2010) |
 | Cabo San Lucas (Hershcovich) | March 2009 high | lubavitch.com, Jan 2010 |
 | Playa del Carmen (Goldberg) | Sept 2010 high | Chabad.org, Oct 2010 ("established just last month") |
 | Chiapas, San Cristobal (Raz) | 2011 medium | "five years" in a March 2016 profile |
@@ -28,7 +28,7 @@ Canada counts and STATUS.md are unchanged, they still leave Mexico out). Batch: 
 | Lake Chapala, Ajijic (Srugo, Suares) | 2025 low | listing date, 6 Nov 2025 (owner's fallback) |
 | Monterrey (Zalmy Srugo) | 2026 low | listing date, 9 July 2026 |
 | CTeen Cancun | 2026 low | listing date, 19 Aug 2026 |
-| Bosques (Yosef Y. Mayzlesh) | open | nothing dated; its listing (Feb 2024) is a late one, as the family's Mexico City listing (Dec 2023) came after that center was running (2018), so no fallback |
+| Bosques (Yosef Y. Mayzlesh) | 5760 (2000) medium | Chabadpedia: "בשנת תש\"ס יצא בשליחות הרבי למקסיקו" (his page) and "בשנת תש\"ס ... הקמת בית חב\"ד על ידי הרב יוסף יצחק מייזליש" (its Mexico page); the listing not named |
 
 ## What worked
 
@@ -44,7 +44,7 @@ Canada counts and STATUS.md are unchanged, they still leave Mexico out). Batch: 
 
 ## Open, and where to look next
 
-- **Mexico City and Bosques (the Mayzlesh family, the head shliach's centers).** No dated source in English, Spanish or
+- **Mexico City (Mendel Mayzlesh's; Bosques now 5760 from Chabadpedia).** Was: **Mexico City and Bosques (the Mayzlesh family, the head shliach's centers).** No dated source in English, Spanish or
   Hebrew (also spelled Meislish). chabadofmexico.com says only "Founded in the mid-20th century". Diario Judio (it has a
   Dec 2024 piece naming Mexico's 11 Chabad rabbis) and anash.org sit behind bot checks: not tried, not to be forced.
   Worth asking the owner: he may know when the Mayzleshes came.
@@ -63,3 +63,17 @@ Canada counts and STATUS.md are unchanged, they still leave Mexico out). Batch: 
 - Anash.org (which has many of these "new shluchim" stories) answers 403 and Claude Code's safety check refused reading
   its Wayback copies through Firecrawl ("Unauthorized Access"), so it is out; its stories usually also run on COLlive
   or CrownHeights.info, which were searched.
+
+## Third round (Nov 15; owner: "come on try harder I assume you looked in Spanish?", then Chabadpedia's Mexico page: "Assfuck idiot")
+
+- Chabadpedia's Mexico page (read on Nov 3 for the sub-shetachim, the founding line missed): "בשנת תש\"ס החלה לראשונה פעילות
+  קבועה וממוסדת של חב\"ד במדינה, עם הקמת בית חב\"ד על ידי הרב יוסף יצחק מייזליש". His own page: "בשנת תש\"ס יצא בשליחות הרבי
+  למקסיקו, שם פועל בעיר מקסיקו סיטי". Entered on Bosques (his listing) as 5760 (`hebrewYear`), medium. Its "first in the
+  country" is wrong (Tijuana 1993).
+- The page lists Mexico's shluchim as of 5786: Mexico City (Mayzlesh), Playa (Chaim Brod and Baruch Kraus), Cozumel (Caplin
+  and Peleg), Isla Mujeres (Moti Cohen), San Cristobal (Oren Raz), Puerto Escondido (Dani Winderbaum). Brod's page: he
+  opened a Chabad House in Playa del Carmen in 5771 (for Israeli travelers; the Playa listing on the map is Goldberg's,
+  Sept 2010). Zalman Leib Liberzon: shochet and shliach in Monterrey's community (no year), earlier in Mexico City.
+- Spanish: Diario Judío (its WordPress search): Jabad Lubavitch México's Chanukah at the Ángel (Dec 2013); "el Rabino de
+  la Jabad México, Josef Itzhak Mayzlesh" (March 2018). Nothing earlier found in nmidigital, tribuna.org.mx, itongadol,
+  jabad.org.ar.

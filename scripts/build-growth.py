@@ -33,6 +33,18 @@ def iso_date(s):
     return ''
 
 
+def hebrew_year(e):
+    """The Hebrew year of the founding where the source gives one ('hebrewYear', e.g. 5760 for תש"ס; owner, Nov 15: "log
+    Hebrew year in data as well if that's what the source said"), else 0. Its 'year' is the Hebrew year less 3760 (most
+    of 5760 was in 2000), so the page's Hebrew years show the source's own year."""
+    h = e.get('hebrewYear')
+    if h is None:
+        return 0
+    if not (isinstance(h, int) and 5600 <= h <= 5900):
+        sys.exit(f"bad hebrewYear {h!r} for {e.get('name')}")
+    return h
+
+
 def people(c):
     """Its personnel as the main map has them (chabad.org's listing): [title, first name, last name, position, flags], flags
     'd' director, 'x' deceased, 'h' HY"D (owner, Nov 12: "WHY ISNT THERE PERSONELL WHERE AVAILABLE")."""
@@ -77,12 +89,14 @@ def main():
             listings.append([cid, c.get('name') or '', c.get('type') or '', c.get('city') or '',
                              e.get('year') or None, CONF.get(e.get('confidence'), ''), iso_date(e.get('date')), people(c),
                              # (who founded or ran it, as the founding sources name them: work/founding-years/add_people.py)
-                             [[q.get('name') or '', q.get('role') or '', str(q.get('from') or ''), str(q.get('seen') or ''), str(q.get('to') or '')] for q in e.get('people') or []]])
+                             [[q.get('name') or '', q.get('role') or '', str(q.get('from') or ''), str(q.get('seen') or ''), str(q.get('to') or '')] for q in e.get('people') or []],
+                             # (the Hebrew year where the source gives one: the page's Hebrew years count it there, owner, Nov 15)
+                             hebrew_year(e)])
         lon, lat = f['geometry']['coordinates'][:2]
         region = p.get('region') or ''
         # (its date where one is known, 'YYYY-MM' or 'YYYY-MM-DD': the page counts it in the Hebrew year it fell in)
         dots.append([round(lon, 4), round(lat, 4), year, CONF.get(e0.get('confidence'), ''), region, piece, idx, iso_date(e0.get('date')),
-                     p.get('piece') or ''])
+                     p.get('piece') or '', hebrew_year(e0)])
         if region and (region not in first or year < first[region]):
             first[region] = year
     dots.sort(key=lambda d: (d[2], d[1]))

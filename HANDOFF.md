@@ -223,16 +223,38 @@ thirteen no better recent photo has been found yet (the list is there, with what
   CrownHeights.info / COLlive by the director's name.
 - **▶ Founding years, Mexico (Nov 15; owner: "we're going down the continent to more countries", "Start on Mexico
   please", "No mikvaos and no mushrooms").** All 17 Mexican listings (the Mexico shetach's 14 and Baja's 3, which
-  stay in the West Coast shetach): 15 with a year (8 high; Guadalajara, Lake Chapala, Monterrey and CTeen Cancun LOW by the
-  owner's listing-year fallback), 2 left; the Mexico City and Bosques centers (the
-  Mayzleshes) have no dated source yet. Batch `mexico-01`, notes and next steps `work/founding-years/mexico.md`, count
-  `python3 work/founding-years/progress.py MEX`. Same rules and fields as the US (year, date, earlier, people).
+  stay in the West Coast shetach): 16 with a year (8 high; Guadalajara, Lake Chapala, Monterrey and CTeen Cancun LOW by the
+  owner's listing-year fallback), 1 left (Mexico City, Mendel Mayzlesh's: by 2018). Bosques (his father Rabbi Yosef
+  Yitzchak Mayzlesh's) is **5760, תש"ס** (medium), from Chabadpedia: the owner sent its Mexico page ("Assfuck idiot"):
+  it had been read on Nov 3 for another job and the line missed. **Lesson: read Chabadpedia (Hebrew) for every country
+  and every shliach** (how: the next bullet but one). Batches `mexico-01`, `mexico-02`, `latam-03`, notes and next steps
+  `work/founding-years/mexico.md`, count `python3 work/founding-years/progress.py MEX`. Same rules and fields as the US
+  (year, hebrewYear, date, earlier, people).
 - **▶ Founding years, Central and South America without Argentina and Brazil (Nov 15; owner: "Central and South sans
   Argentina and Brazil now").** 40 listings in 11 countries (no mikvahs, no mushrooms; the Caribbean not included):
   36 with a year (20 high; 11 LOW by the listing-year fallback), 4 left (two Caracas centers, the Costa Rica camp: 2004
   listings; Punta del Este). Second round (owner: "That's horrible why so much sans year"): mexico-02, latam-02.
+  Third round (Nov 15, owner: "come on try harder I assume you looked in Spanish?"): Chabadpedia's pages on the shluchim
+  (`latam-03`) gave Hebrew years: Guatemala City 5760, Lima 16 Cheshvan 5748 (8 Nov 1987), Santiago 5742, Asuncion 5749,
+  Cusco Adar 5766, Caracas 5735, Medellin 5776 (Bigio), Cancun 5767, Cozumel 5770 (over a resident's "January 2009").
   Anash.org is out: the safety check refused even its Wayback copies through Firecrawl. Batch `latam-01`, notes `work/founding-years/latin-america.md`, count
   `python3 work/founding-years/progress.py GTM NIC CRI PAN COL VEN ECU PER CHL URY PRY`.
+- **▶ Hebrew years in the data (Nov 15).** Owner: "if it's a Hebrew year that's better because I mostly use Hebrew years
+  option anyways so log Hebrew year in data as well if that's what the source said rather than logging an English year
+  range". So `hebrewYear` (5760 for תש"ס) next to `year` in data/founding-years.json, where the source gives the year in
+  Hebrew or a Jewish date in it fixes the year (Sukkos 5735; Chanukah of Dec 2022 = 5783; just before Rosh Hashanah 2018 =
+  5778). `year` stays the ordinary year where the source shows one; with only the Hebrew year it is that year less 3760
+  (5760 → 2000), never an English range. The growth page's Hebrew years use it (scripts/build-growth.py: column 9 of dots
+  and listings); `node work/founding-years/check-hebrew.mjs` checks every one against its year and date. 52 have one;
+  21 of them now show the right Hebrew year (they showed one year early: Seattle 5733, Tzivos Hashem 5741, the Montreal
+  yeshivas 5702, Lima 5748, ...). Not done: about 100 year-only entries whose notes name an autumn holiday or "fall"
+  (a season alone, e.g. a campus opening in September, can fall either side of Rosh Hashanah, so they were left).
+- **Chabadpedia, how (Nov 15).** Its pages answer 403 to WebFetch; read them through Firecrawl's scrape (basic proxy) of
+  its MediaWiki API, many pages per credit: `https://chabadpedia.co.il/api.php?action=query&format=json&prop=revisions&rvprop=content&rvslots=main&redirects=1&titles=A|B|C`
+  (up to 50 titles), or a category's pages: `generator=categorymembers&gcmtitle=קטגוריה:שלוחים_באמריקה_הדרומית&gcmlimit=50`
+  (categories: `list=allcategories&acprefix=שלוחים_ב`). Its search API returns nothing (0 hits even for פנמה). Country
+  pages exist only for some (מקסיקו yes; גואטמלה, פנמה, קוסטה ריקה ... no); Central America has only Shalom Pelman's
+  page (category שלוחים בצפון אמריקה).
 - **▶ Founding years: CONTINUE HERE (Nov 12). 41 listings (16 dots) of 1,902 still have no year**, all from
   chabad.org's first directory (July 2004). Owner (Nov 11): "try very hard to date the remaining ones. Think of all
   possible ways to target each one individually, especially non subsidiaries like primaries"; he wants "a proper

@@ -4,9 +4,9 @@ Owner, Nov 15: "Research Argentina" (after Central and South America, `latin-ame
 no mikvahs, no mushrooms: 72 listings at 63 dots (65 chabad.org listings and 7 from Jabad Argentina's own list,
 jabad.org.ar/centros). Chabadpedia alone is LOW (owner: "chabadpedia can be used unsourced but only as low").
 
-Count: `python3 work/founding-years/progress.py ARG`. Batches: `batches/argentina-01.json` to `argentina-05.json`.
+Count: `python3 work/founding-years/progress.py ARG`. Batches: `batches/argentina-01.json` to `argentina-06.json`.
 
-## Where it stands (fifth round): 55 of 72 with a year (33 high), 17 left (all recorded as `range`)
+## Where it stands (sixth round): 56 of 72 with a year (35 high), 16 left (all recorded as `range`)
 
 | Dated | Year |
 |---|---|
@@ -32,6 +32,7 @@ Count: `python3 work/founding-years/progress.py ARG`. Batches: `batches/argentin
 | Villa Urquiza (Winner) | Cheshvan 5761, Nov 2000 |
 | Comedor Flores | 5761 low (Chabadpedia) |
 | Etz Hajaim (Villa Crespo's annex) | 2001 medium (first in Jabad Argentina's list, Aug-Dec 2001) |
+| Once - Litvishe Shul (Aharon Stawsky) | 5760, 2000 (Beis Moshiach: 'In 5760 ... the official shluchim of the Beis Chabad of Once') |
 | Recoleta (Hendel) | 2-3-2001, 5761 |
 | Zona Oeste (Ludman) | 2001 (Radio Jai) |
 | Olleros (Yanki Birman) | about 2001 medium (jabad.tv: 17 years in Feb 2018) |
@@ -45,7 +46,7 @@ Count: `python3 work/founding-years/progress.py ARG`. Batches: `batches/argentin
 | ISEJ (central) | 2006, 5766 (Itón Gadol, April 2006) |
 | Palermo Soho (Tzvi Lipinski) | early 2006, 5766 medium (first in the list Feb-April 2006) |
 | Bariloche | 2006 (backpackers' center; Klein from 2009) |
-| Congreso, the tourists' house (Lametayel) | 2006 medium (lubavitch.com: a Buenos Aires backpackers' house opened) |
+| Congreso, the tourists' house (Sharabi) | 2006 (COL, April 2016: 'founded a decade ago'; lubavitch.com, Nov 2006) |
 | MitzvahTank | about 2015 medium (its third tour was Aug 2017) |
 | Or Sinai (Sudry) | Nov 2007, 5768 medium |
 | Beit Levi Yitzjak (Abraham Levy) | 2008 |
@@ -97,9 +98,10 @@ Count: `python3 work/founding-years/progress.py ARG`. Batches: `batches/argentin
 
 ## Open, and where to look next
 
-17 listings, each entered as `range` (no fallback yet: the owner's rule): Tzivos Hashem, Lavalle (Iarjo) and Once -
-Litvische Shul (all three already in the first archived list, Feb 2001); the schools' preschool, Beit Menachem (shul),
-Córdoba Centro, the soup kitchen (by 2004); Palermo Nuevo (by 2007); Centro Médico Maimónides (by 2011); Aieka (by
-2015); Barrio Norte - Agüero (2016), Nordelta (2017), Chacarita (2018), Yerba Buena (2023), Pilar (2024); and Jabad
-Argentina's Vicente López and Avellaneda (Beit Iaacov). Not to use: Esencia's directory as a first mention (it listed
+16 listings, each entered as `range` (no fallback yet: the owner's rule): Tzivos Hashem and Lavalle (Iarjo) (both
+already in the first archived list, Feb 2001); the schools' preschool, Beit Menachem (shul), Córdoba Centro, the soup
+kitchen (by 2004); Palermo Nuevo (by 2007); Centro Médico Maimónides (by 2011); Aieka (by 2014); Barrio Norte - Agüero
+(2016), Nordelta (2017), Chacarita (2018), Yerba Buena (2023), Pilar (2024); and Jabad Argentina's Vicente López and
+Avellaneda (Beit Iaacov). Beis Moshiach (beismoshiach.org, plain curl, a sitemap but no search) has shliach profiles
+with years (Stawsky, Sharabi, Klein, Freedman). Not to use: Esencia's directory as a first mention (it listed
 Beit Menajem Belgrano six years late). CrownHeights.info starts refusing after many API calls in a row: go slowly.

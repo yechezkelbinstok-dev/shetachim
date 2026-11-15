@@ -8,7 +8,7 @@ no mikvahs, no mushrooms: the Mexico shetach's 14 listings and the three Baja do
 Count: `python3 work/founding-years/progress.py MEX` (a country code counts that country's dots, any shetach; the US and
 Canada counts and STATUS.md are unchanged, they still leave Mexico out). Batch: `batches/mexico-01.json`.
 
-## Where it stands (Nov 15)
+## Where it stands (Nov 15, second round): 15 of 17 with a year, 2 left
 
 | Listing | Year | How |
 |---|---|---|
@@ -23,12 +23,12 @@ Canada counts and STATUS.md are unchanged, they still leave Mexico out). Batch: 
 | San Miguel de Allende (Huebner) | Nov 2018 high | lubavitch.com, March 2019 |
 | Tulum (Binyamini) | 2019 high | its own About page |
 | Mazatlan (Raitport) | 2026 medium | COLlive, Aug 2026 (Purim visit, move announced Chof Av) |
-| Guadalajara (Srugo) | by 2012 | Guadalajara Reporter, July 2012 |
+| Guadalajara (Srugo) | 2011 low | its first chabad.org listing (center number 8935, about Jan 2011; remade 2025); in charge by July 2012 (Guadalajara Reporter) |
 | Mexico City, Polanco (Mendel Mayzlesh) | by 2018 | Pulse News Mexico: first yeshiva, Aug 2018 |
-| Lake Chapala, Ajijic (Srugo, Suares) | by 2026 | COLlive, Feb 2026 |
-| Monterrey (Zalmy Srugo) | by 2026 | COLlive, July 2026 |
-| Bosques (Yosef Y. Mayzlesh) | open | nothing dated |
-| CTeen Cancun | open | nothing dated |
+| Lake Chapala, Ajijic (Srugo, Suares) | 2025 low | listing date, 6 Nov 2025 (owner's fallback) |
+| Monterrey (Zalmy Srugo) | 2026 low | listing date, 9 July 2026 |
+| CTeen Cancun | 2026 low | listing date, 19 Aug 2026 |
+| Bosques (Yosef Y. Mayzlesh) | open | nothing dated; its listing (Feb 2024) is a late one, as the family's Mexico City listing (Dec 2023) came after that center was running (2018), so no fallback |
 
 ## What worked
 
@@ -48,8 +48,18 @@ Canada counts and STATUS.md are unchanged, they still leave Mexico out). Batch: 
   Hebrew (also spelled Meislish). chabadofmexico.com says only "Founded in the mid-20th century". Diario Judio (it has a
   Dec 2024 piece naming Mexico's 11 Chabad rabbis) and anash.org sit behind bot checks: not tried, not to be forced.
   Worth asking the owner: he may know when the Mayzleshes came.
-- **Guadalajara:** when the Srugos came (by July 2012; the old center number points to about 2010-2011).
+- **Guadalajara:** a real source for when the Srugos came (now LOW 2011 from its first listing).
 - **La Paz:** anything before Chanukah 2012 (the first report); when the Piekarskis came (by Sept 2014).
-- **Lake Chapala, Monterrey, CTeen Cancun:** new (listings 2025-2026); a "new shluchim" notice would date them.
+- **Lake Chapala, Monterrey, CTeen Cancun:** LOW from their listing dates; a "new shluchim" notice would replace them.
 - **Chiapas:** a report from 2010-2011 would make it high; ChabadInfo's "New Shluchim to Chiapas, Mexico" (18 Feb 2020)
   is photos only, so who it was about is unknown.
+
+## Second round (Nov 15; owner: "That's horrible why so much sans year", "Remember u do have firecrawl")
+
+- The owner's listing-year fallback (Nov 11, HANDOFF 4e) used where nothing else dates a center: the exact date its chabad.org
+  listing went up (`https://www.chabad.org/api/content/<id>/metadata?tid=7152`, `publicationDate`), entered LOW. Not used
+  where the listing is known to be late (the Mayzlesh centers) or remade (Guadalajara: its old center number dates its
+  first listing instead, by its neighbours' listing dates).
+- Anash.org (which has many of these "new shluchim" stories) answers 403 and Claude Code's safety check refused reading
+  its Wayback copies through Firecrawl ("Unauthorized Access"), so it is out; its stories usually also run on COLlive
+  or CrownHeights.info, which were searched.

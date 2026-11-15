@@ -223,12 +223,15 @@ thirteen no better recent photo has been found yet (the list is there, with what
   CrownHeights.info / COLlive by the director's name.
 - **▶ Founding years, Mexico (Nov 15; owner: "we're going down the continent to more countries", "Start on Mexico
   please", "No mikvaos and no mushrooms").** All 17 Mexican listings (the Mexico shetach's 14 and Baja's 3, which
-  stay in the West Coast shetach): 11 with a year (8 high), 4 ranges, 2 open; the Mexico City and Bosques centers (the
+  stay in the West Coast shetach): 15 with a year (8 high; Guadalajara, Lake Chapala, Monterrey and CTeen Cancun LOW by the
+  owner's listing-year fallback), 2 left; the Mexico City and Bosques centers (the
   Mayzleshes) have no dated source yet. Batch `mexico-01`, notes and next steps `work/founding-years/mexico.md`, count
   `python3 work/founding-years/progress.py MEX`. Same rules and fields as the US (year, date, earlier, people).
 - **▶ Founding years, Central and South America without Argentina and Brazil (Nov 15; owner: "Central and South sans
   Argentina and Brazil now").** 40 listings in 11 countries (no mikvahs, no mushrooms; the Caribbean not included):
-  24 with a year (18 high), 16 ranges or open. Batch `latam-01`, notes `work/founding-years/latin-america.md`, count
+  36 with a year (20 high; 11 LOW by the listing-year fallback), 4 left (two Caracas centers, the Costa Rica camp: 2004
+  listings; Punta del Este). Second round (owner: "That's horrible why so much sans year"): mexico-02, latam-02.
+  Anash.org is out: the safety check refused even its Wayback copies through Firecrawl. Batch `latam-01`, notes `work/founding-years/latin-america.md`, count
   `python3 work/founding-years/progress.py GTM NIC CRI PAN COL VEN ECU PER CHL URY PRY`.
 - **▶ Founding years: CONTINUE HERE (Nov 12). 41 listings (16 dots) of 1,902 still have no year**, all from
   chabad.org's first directory (July 2004). Owner (Nov 11): "try very hard to date the remaining ones. Think of all

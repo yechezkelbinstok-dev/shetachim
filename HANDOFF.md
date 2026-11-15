@@ -226,6 +226,10 @@ thirteen no better recent photo has been found yet (the list is there, with what
   stay in the West Coast shetach): 11 with a year (8 high), 4 ranges, 2 open; the Mexico City and Bosques centers (the
   Mayzleshes) have no dated source yet. Batch `mexico-01`, notes and next steps `work/founding-years/mexico.md`, count
   `python3 work/founding-years/progress.py MEX`. Same rules and fields as the US (year, date, earlier, people).
+- **▶ Founding years, Central and South America without Argentina and Brazil (Nov 15; owner: "Central and South sans
+  Argentina and Brazil now").** 40 listings in 11 countries (no mikvahs, no mushrooms; the Caribbean not included):
+  24 with a year (18 high), 16 ranges or open. Batch `latam-01`, notes `work/founding-years/latin-america.md`, count
+  `python3 work/founding-years/progress.py GTM NIC CRI PAN COL VEN ECU PER CHL URY PRY`.
 - **▶ Founding years: CONTINUE HERE (Nov 12). 41 listings (16 dots) of 1,902 still have no year**, all from
   chabad.org's first directory (July 2004). Owner (Nov 11): "try very hard to date the remaining ones. Think of all
   possible ways to target each one individually, especially non subsidiaries like primaries"; he wants "a proper

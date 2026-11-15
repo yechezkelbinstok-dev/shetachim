@@ -232,10 +232,11 @@ thirteen no better recent photo has been found yet (the list is there, with what
   (year, hebrewYear, date, earlier, people).
 - **▶ Founding years, Central and South America without Argentina and Brazil (Nov 15; owner: "Central and South sans
   Argentina and Brazil now").** 40 listings in 11 countries (no mikvahs, no mushrooms; the Caribbean not included):
-  29 with a year (23 high), 11 left: Altamira and the Costa Rica camp (by 2004), Punta del Este (by 2011), Cartagena
-  (2015-2017), the Boquete bakery (2016-2018), and 6 `fallback` (no year until the research is done). Fourth round
+  30 with a year (24 high), 10 left: Altamira and the Costa Rica camp (by 2004), Cartagena (2015-2017), the Boquete bakery (2016-2018), and 6 `fallback` (no year until the research is done). Fourth round
   (`latam-04`): Pucon Chanukah 5769 (COL, 7 Dec 2008), Or Jabad about 1978 (Jabad Venezuela, Jan 2008: "30 años abierto"),
-  Playa Venao high (Jüdische Allgemeine, May 2023), Kolel Torah 2022 (first mention). Second round (owner: "That's horrible why so much sans year"): mexico-02, latam-02.
+  Playa Venao high (Jüdische Allgemeine, May 2023), Kolel Torah 2022 (first mention). Punta del Este 5746 (summer 1985-86): Beit Jabad Uruguay's
+  magazine (Kesher, Pesach 5770) calls the 2009-10 summer "la 25 temporada de Jabad de Punta" (its PDFs on jabad.org.uy are
+  readable: `media/pdf/...`, grep them with pdftotext). Second round (owner: "That's horrible why so much sans year"): mexico-02, latam-02.
   Third round (Nov 15, owner: "come on try harder I assume you looked in Spanish?"): Chabadpedia's pages on the shluchim
   (`latam-03`) gave Hebrew years: Guatemala City 5760, Lima 16 Cheshvan 5748 (8 Nov 1987), Santiago 5742, Asuncion 5749,
   Cusco Adar 5766, Caracas 5735, Medellin 5776 (Bigio), Cancun 5767, Cozumel 5770 (over a resident's "January 2009").

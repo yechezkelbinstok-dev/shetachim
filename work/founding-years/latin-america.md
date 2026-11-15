@@ -7,7 +7,7 @@ Bolivia have only mushrooms. The Caribbean islands (16 listings) are not part of
 
 Count: `python3 work/founding-years/progress.py GTM NIC CRI PAN COL VEN ECU PER CHL URY PRY`. Batch: `batches/latam-01.json`.
 
-## Where it stands (Nov 15, fourth round): 29 of 40 with a year (23 high), 11 left (6 of them fallback, no year until the research is done)
+## Where it stands (Nov 15, fourth round): 30 of 40 with a year (24 high), 10 left (6 of them fallback, no year until the research is done)
 
 | Country | Dated | Left |
 |---|---|---|
@@ -86,3 +86,6 @@ Salento; Guatemala: Antigua; Chile: Pucon). They count as left (progress.py prin
 - Not found: Chabad Panama (Karniel; a NY Jewish Travel Guide interview, undated: "over eight years ago"), Ohaley Chinuch, Tora
   Or, Cali, Salento, Antigua; Spalter (a Detroit Jewish News piece of 15 Dec 1995 has Chabad in Costa Rica "less than a decade",
   per a search summary; the archive answers 403).
+- Punta del Este (batch `latam-05`): Beit Jabad Uruguay's Kesher (Pesach 5770, https://www.jabad.org.uy/media/pdf/401/ipFF4016550.pdf):
+  "En ocasión de la 25 temporada de Jabad de Punta" (a Tanya printed in its office, 10 Jan 2010): first season summer 1985-86,
+  5746, high. The Kesher PDFs (2005 on) answer plain requests; pdftotext reads them.

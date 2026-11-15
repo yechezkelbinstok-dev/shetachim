@@ -42790,17 +42790,19 @@
    "name": "Jabad Punta del Este",
    "city": "Punta del Este",
    "shetach": "uruguay",
-   "year": null,
-   "by": 2011,
-   "how": "range",
-   "source": "https://www.chabad.org/article.asp?aid=1564398",
-   "note": "No start year found. 'Chabad-Lubavitch Rabbi Eliezer Shemtov welcomes thousands of Jews to the resort town of Punta del Este every summer' (December to March), with Shabbat meals for 150 and a youth center planned (Chabad.org, 6 July 2011).",
-   "confidence": "range",
+   "year": 1986,
+   "hebrewYear": 5746,
+   "season": "summer 1985-86 (December to March)",
+   "how": "anniversary",
+   "source": "https://www.jabad.org.uy/media/pdf/401/ipFF4016550.pdf",
+   "note": "Beit Jabad Uruguay's own magazine (Kesher, Pesach 5770, 2010): 'También este año Beit Jabad dijo \"presente\" en Punta del Este ... los servicios de Shabat dirigidos por el Rabino Shemtov en la sinagoga de la calle Montevideo (Parada 13 ½)', and 'En ocasión de la 25 temporada de Jabad de Punta' a Tanya was printed 'en la oficina del Beit Jabad de Punta' on Sunday 10 Jan 2010 (24 Teves 5770). The summer of 2009-10 being its 25th season, the first was the summer of 1985-86, Rabbi Eliezer Shemtov's first in Uruguay (he came in 1985; Chabadpedia: married in 5744, then went to Uruguay): December 1985 to March 1986 is all within 5746. High: the center's own count of its seasons. Its synagogue is Ajdut Israel (founded by Matiu Eisenberg), run by Beit Jabad. 'Chabad-Lubavitch Rabbi Eliezer Shemtov welcomes thousands of Jews to the resort town of Punta del Este every summer' (Chabad.org, 6 July 2011, https://www.chabad.org/article.asp?aid=1564398).",
+   "confidence": "high",
    "people": [
     {
      "name": "Rabbi Eliezer Shemtov",
-     "role": "rabbi",
-     "seen": "2011"
+     "role": "founder",
+     "from": "1986",
+     "note": "leads the Punta del Este seasons (Kesher 2010; Chabad.org 2011)"
     }
    ]
   },

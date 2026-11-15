@@ -4,9 +4,9 @@ Owner, Nov 15: "Research Argentina" (after Central and South America, `latin-ame
 no mikvahs, no mushrooms: 72 listings at 63 dots (65 chabad.org listings and 7 from Jabad Argentina's own list,
 jabad.org.ar/centros). Chabadpedia alone is LOW (owner: "chabadpedia can be used unsourced but only as low").
 
-Count: `python3 work/founding-years/progress.py ARG`. Batches: `batches/argentina-01.json` to `argentina-06.json`.
+Count: `python3 work/founding-years/progress.py ARG`. Batches: `batches/argentina-01.json` to `argentina-07.json`.
 
-## Where it stands (sixth round): 56 of 72 with a year (35 high), 16 left (all recorded as `range`)
+## Where it stands (seventh round): 57 of 72 with a year (34 high), 15 left (all recorded as `range`)
 
 | Dated | Year |
 |---|---|
@@ -31,8 +31,8 @@ Count: `python3 work/founding-years/progress.py ARG`. Batches: `batches/argentin
 | Leoded | 5759 low (Chabadpedia) |
 | Villa Urquiza (Winner) | Cheshvan 5761, Nov 2000 |
 | Comedor Flores | 5761 low (Chabadpedia) |
-| Etz Hajaim (Villa Crespo's annex) | 2001 medium (first in Jabad Argentina's list, Aug-Dec 2001) |
-| Once - Litvishe Shul (Aharon Stawsky) | 5760, 2000 (Beis Moshiach: 'In 5760 ... the official shluchim of the Beis Chabad of Once') |
+| Etz Hajaim (Villa Crespo's annex) | about 1986 low (City guide: 'a mediados de la década del ’80 el templo fue asumido por ... Jabad'; in Jabad's list from Dec 2001) |
+| Once - Litvishe Shul (Aharon Stawsky) | 5760, 2000 medium (Beis Moshiach; Rabbi Shaul Elituv was its rabbi in the 2001 list) |
 | Recoleta (Hendel) | 2-3-2001, 5761 |
 | Zona Oeste (Ludman) | 2001 (Radio Jai) |
 | Olleros (Yanki Birman) | about 2001 medium (jabad.tv: 17 years in Feb 2018) |
@@ -51,6 +51,7 @@ Count: `python3 work/founding-years/progress.py ARG`. Batches: `batches/argentin
 | Or Sinai (Sudry) | Nov 2007, 5768 medium |
 | Beit Levi Yitzjak (Abraham Levy) | 2008 |
 | Beit Jana | late 2008 |
+| Centro Médico Maimónides (Tucumán) | about 2010 medium (dedicated with Manzur as national health minister; Itón Gadol, Nov 2010) |
 | Lamas, Flores (Shiele Plotka) | June 2009, 5769 |
 | Floresta (Cervantes 1034) | July 2011, 5771 medium |
 | San Fernando - Tigre (Abudarham) | 2013 medium (first in the list Nov 2012-March 2013; 'nueva comunidad', 2014) |
@@ -98,10 +99,12 @@ Count: `python3 work/founding-years/progress.py ARG`. Batches: `batches/argentin
 
 ## Open, and where to look next
 
-16 listings, each entered as `range` (no fallback yet: the owner's rule): Tzivos Hashem and Lavalle (Iarjo) (both
+15 listings, each entered as `range` (no fallback yet: the owner's rule): Tzivos Hashem and Lavalle (Iarjo) (both
 already in the first archived list, Feb 2001); the schools' preschool, Beit Menachem (shul), Córdoba Centro, the soup
-kitchen (by 2004); Palermo Nuevo (by 2007); Centro Médico Maimónides (by 2011); Aieka (by 2014); Barrio Norte - Agüero
-(2016), Nordelta (2017), Chacarita (2018), Yerba Buena (2023), Pilar (2024); and Jabad Argentina's Vicente López and
-Avellaneda (Beit Iaacov). Beis Moshiach (beismoshiach.org, plain curl, a sitemap but no search) has shliach profiles
+kitchen (by 2004); Palermo Nuevo (by 2007); Aieka (by 2014); Barrio Norte - Agüero (2016), Nordelta (2017), Chacarita
+(2018), Yerba Buena (2023), Pilar (2024); and Jabad Argentina's Vicente López and Avellaneda (Beit Iaacov).
+The City of Buenos Aires' guides to places of worship (cdn2.buenosaires.gob.ar/cultos/guiatemp1-4.pdf, 2015-2017;
+tomo 4 covers Palermo, Belgrano, Villa Crespo, Chacarita; tomo 3 the west) give short histories; tomos 1-2 are images.
+Beis Moshiach's /search page holds its whole archive as gzip+base64 JSON (decoded offline: 3541 articles). Beis Moshiach (beismoshiach.org, plain curl, a sitemap but no search) has shliach profiles
 with years (Stawsky, Sharabi, Klein, Freedman). Not to use: Esencia's directory as a first mention (it listed
 Beit Menajem Belgrano six years late). CrownHeights.info starts refusing after many API calls in a row: go slowly.

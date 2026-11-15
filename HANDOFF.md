@@ -243,7 +243,7 @@ thirteen no better recent photo has been found yet (the list is there, with what
   Anash.org is out: the safety check refused even its Wayback copies through Firecrawl. Batch `latam-01`, notes `work/founding-years/latin-america.md`, count
   `python3 work/founding-years/progress.py GTM NIC CRI PAN COL VEN ECU PER CHL URY PRY`.
 - **▶ Founding years, Argentina (Nov 15; owner: "Research Argentina").** 72 listings at 63 dots (no mikvahs, no
-  mushrooms; 7 of them from Jabad Argentina's own list). Six rounds: 56 with a year (35 high), 16 left, each
+  mushrooms; 7 of them from Jabad Argentina's own list). Seven rounds: 57 with a year (34 high), 15 left, each
   entered as `range` with its best `by`. Best sources: **Jabad Argentina's own list of its centers**, with
   an 'Establecido' date for most houses (its old site is still up at archivo.jabad.org.ar/batei-jabad; the July 2010
   copy on the Wayback Machine, through Firecrawl, has a few more); **AMIA's Vaad Hakehilot directory** of the
@@ -251,7 +251,8 @@ thirteen no better recent photo has been found yet (the list is there, with what
   APIs). Chabadpedia-only years are low (Leoded 5759, Comedor Flores 5761). The HQ is 1957 (5718: Baumgarten
   toured in 1955 and settled in 1957). Round five: the same list's 2001-2009 copies (jabad.org.ar/beitjabad.asp on
   the Wayback Machine) give first appearances; the community blog Periodismo Kosher (Blogspot feed, plain curl) and
-  Merkos' library and New Shluchim grant lists on COLlive; Beis Moshiach's profiles. Batches `argentina-01` to `-06`, notes and what's open
+  Merkos' library and New Shluchim grant lists on COLlive; Beis Moshiach's profiles; the City's guides to places of
+  worship. Batches `argentina-01` to `-07`, notes and what's open
   `work/founding-years/argentina.md`, count `python3 work/founding-years/progress.py ARG`.
 - **▶ Hebrew years in the data (Nov 15).** Owner: "if it's a Hebrew year that's better because I mostly use Hebrew years
   option anyways so log Hebrew year in data as well if that's what the source said rather than logging an English year

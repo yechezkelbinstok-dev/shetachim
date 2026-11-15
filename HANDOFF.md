@@ -249,6 +249,9 @@ thirteen no better recent photo has been found yet (the list is there, with what
   21 of them now show the right Hebrew year (they showed one year early: Seattle 5733, Tzivos Hashem 5741, the Montreal
   yeshivas 5702, Lima 5748, ...). Not done: about 100 year-only entries whose notes name an autumn holiday or "fall"
   (a season alone, e.g. a campus opening in September, can fall either side of Rosh Hashanah, so they were left).
+- **The growth page stays USA and Canada (owner, Nov 15: "I hope ur not updating the growth page I want that kept to USA
+  and Canada rn").** The Latin America years go into data/founding-years.json only; build-growth.py keeps its US/CA filter.
+  A medium whose only doubt was the English year of a Hebrew-year source is high now (Panama's Beth El 5746, Deerfield 5774).
 - **Chabadpedia, how (Nov 15).** Its pages answer 403 to WebFetch; read them through Firecrawl's scrape (basic proxy) of
   its MediaWiki API, many pages per credit: `https://chabadpedia.co.il/api.php?action=query&format=json&prop=revisions&rvprop=content&rvslots=main&redirects=1&titles=A|B|C`
   (up to 50 titles), or a category's pages: `generator=categorymembers&gcmtitle=קטגוריה:שלוחים_באמריקה_הדרומית&gcmlimit=50`

@@ -1347,8 +1347,7 @@
       "territory": [
         "ITA",
         "SMR",
-        "VAT",
-        "SVN"
+        "VAT"
       ],
       "capital": {
         "centerId": "117862"
@@ -1515,6 +1514,18 @@
       ],
       "capital": {
         "centerId": "117972"
+      }
+    },
+    {
+      "id": "slovenia",
+      "name": "Slovenia",
+      "short": "Slvn.",
+      "headShliach": "Yossi Krinsky",
+      "territory": [
+        "SVN"
+      ],
+      "capital": {
+        "centerId": "extra-slovenia-ljubljana"
       }
     },
     {

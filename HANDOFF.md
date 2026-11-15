@@ -264,6 +264,13 @@ thirteen no better recent photo has been found yet (the list is there, with what
   21 of them now show the right Hebrew year (they showed one year early: Seattle 5733, Tzivos Hashem 5741, the Montreal
   yeshivas 5702, Lima 5748, ...). Not done: about 100 year-only entries whose notes name an autumn holiday or "fall"
   (a season alone, e.g. a campus opening in September, can fall either side of Rosh Hashanah, so they were left).
+- **Slovenia is its own shetach (owner, Nov 15: "add new shluchim to slovenia announced and make its own shetach").** Rabbi Yossi
+  and Rochele Krinsky (he grew up in Lithuania, she in Gothenburg; under Merkos) were announced at the Kinus banquet on 8 Nov 2026 as
+  Slovenia's first resident shluchim (Chabad.org on CrownHeights.info, COLlive, ChabadInfo, 9 Nov 2026); they held a barbecue for 60 in
+  Ljubljana in summer 2026 and Rosh Hashanah programs. New dot `extra-slovenia-ljubljana` (Chabad of Slovenia, at the city centre:
+  no address yet), new shetach `slovenia` (Slvn., capital that dot), SVN out of Italy's territory and the owner's list, Slovenia's
+  country-head line (Haddad from Trieste, `servedFrom`) dropped, Hebrew names (סלובניה, יוסי קרינסקי, ליובליאנה, רחלי). The posters
+  (SVG/PNG) still have Slovenia in Italy (the owner stopped poster work).
 - **The listing-date fallback is for the very end (owner, Nov 15: "u idiot the fallback is meant to be only applied once the
   research is done and we haven't found anything like meaning in ages from now when we push this stuff to the growth page for
   now they should be in their seperate category of being from the chabad.org fallback or whatever").** Latin America's 14

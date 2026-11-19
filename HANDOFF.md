@@ -18,6 +18,16 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
 a page, go to Firecrawl at once (its image search finds photos with their pages; a page screenshot shows a blocked
 site's picture), don't keep retrying with curl (the classifier also blocks that as bot-check circumvention).
 
+## ▶ Nov 19: Luxembourg a sub-shetach; Herzog taken out of Saudi Arabia (LIVE)
+- Owner: "Luxomberg should also be a tat shetach" → data/sub-shetachim.json `luxembourg` (parent belgium, Rabbi
+  Mendel Edelman, capital 321552, `areas: ["LUX"]`, outline the country). Belgium's shetach still covers BEL and LUX.
+- Owner: "take herzog out of Saudi Arabia because they banned him from the country" → the mushroom listing
+  `extra-saudi-riyadh-herzog` (Yaakov Israel Herzog, Riyadh) is removed from data/extra-centers.json. Saudi Arabia's
+  head stays Rabbi Peretz Garelik.
+- Open: the owner also said "krinsky is under Italy but it's a tat shetach now". chabad.org has no Krinsky in Italy
+  (Sholom Ber Krinsky is Lithuania's own shetach); asked the owner who they meant (Slovenia's Ariel Haddad, in
+  Trieste, is the one country folded into Italy).
+
 ## ▶ START HERE (the only one; updated Nov 6)
 
 **How this file works** (owner, Nov 6: "I hate how you update the handoff sometimes with too much specificity to lock

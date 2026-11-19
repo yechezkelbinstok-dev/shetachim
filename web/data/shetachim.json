@@ -30,7 +30,8 @@
   "KHM": "992232",
   "BLR": "117882",
   "AND": "6518150",
-  "MCO": "1949364"
+  "MCO": "1949364",
+  "SVN": "extra-slovenia-ljubljana"
  },
  "partNames": {
   "CA-ON": {
@@ -2374,28 +2375,6 @@
      "city": "Bratislava",
      "lat": 48.16327,
      "lon": 17.13938
-    }
-   ]
-  },
-  {
-   "id": "slovenia",
-   "name": "Slovenia",
-   "short": "Slvn.",
-   "headShliach": "Yossi Krinsky",
-   "capital": {
-    "centerId": "extra-slovenia-ljubljana",
-    "name": "Chabad of Slovenia",
-    "city": "Ljubljana",
-    "lat": 46.0514,
-    "lon": 14.5062
-   },
-   "capitals": [
-    {
-     "centerId": "extra-slovenia-ljubljana",
-     "name": "Chabad of Slovenia",
-     "city": "Ljubljana",
-     "lat": 46.0514,
-     "lon": 14.5062
     }
    ]
   },

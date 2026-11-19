@@ -18,15 +18,16 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
 a page, go to Firecrawl at once (its image search finds photos with their pages; a page screenshot shows a blocked
 site's picture), don't keep retrying with curl (the classifier also blocks that as bot-check circumvention).
 
-## ▶ Nov 19: Luxembourg a sub-shetach; Herzog taken out of Saudi Arabia (LIVE)
-- Owner: "Luxomberg should also be a tat shetach" → data/sub-shetachim.json `luxembourg` (parent belgium, Rabbi
-  Mendel Edelman, capital 321552, `areas: ["LUX"]`, outline the country). Belgium's shetach still covers BEL and LUX.
+## ▶ Nov 19: Slovenia and Luxembourg sub-shetachim; Herzog taken out of Saudi Arabia (LIVE)
+- Owner: "I change my mind krinsky is under Italy but it's a tat shetach now" → the Nov 15 Slovenia shetach is undone
+  (SVN back in Italy's territory and the owner's list, the `slovenia` shetach and its Hebrew entry gone) and
+  data/sub-shetachim.json has `slovenia` (parent italy, Rabbi Yossi Krinsky, capital `extra-slovenia-ljubljana`,
+  `areas: ["SVN"]`, outline the country). Slovenia's country card names him too (country-heads SVN → his house).
+- Owner: "Luxomberg should also be a tat shetach" → `luxembourg` (parent belgium, Rabbi Mendel Edelman, capital 321552,
+  `areas: ["LUX"]`). Belgium's shetach still covers BEL and LUX.
 - Owner: "take herzog out of Saudi Arabia because they banned him from the country" → the mushroom listing
   `extra-saudi-riyadh-herzog` (Yaakov Israel Herzog, Riyadh) is removed from data/extra-centers.json. Saudi Arabia's
   head stays Rabbi Peretz Garelik.
-- Open: the owner also said "krinsky is under Italy but it's a tat shetach now". chabad.org has no Krinsky in Italy
-  (Sholom Ber Krinsky is Lithuania's own shetach); asked the owner who they meant (Slovenia's Ariel Haddad, in
-  Trieste, is the one country folded into Italy).
 
 ## ▶ START HERE (the only one; updated Nov 6)
 
@@ -274,7 +275,7 @@ thirteen no better recent photo has been found yet (the list is there, with what
   21 of them now show the right Hebrew year (they showed one year early: Seattle 5733, Tzivos Hashem 5741, the Montreal
   yeshivas 5702, Lima 5748, ...). Not done: about 100 year-only entries whose notes name an autumn holiday or "fall"
   (a season alone, e.g. a campus opening in September, can fall either side of Rosh Hashanah, so they were left).
-- **Slovenia is its own shetach (owner, Nov 15: "add new shluchim to slovenia announced and make its own shetach").** Rabbi Yossi
+- **(Undone Nov 19: Slovenia is now a sub-shetach under Italy, see the top.) Slovenia was its own shetach (owner, Nov 15: "add new shluchim to slovenia announced and make its own shetach").** Rabbi Yossi
   and Rochele Krinsky (he grew up in Lithuania, she in Gothenburg; under Merkos) were announced at the Kinus banquet on 8 Nov 2026 as
   Slovenia's first resident shluchim (Chabad.org on CrownHeights.info, COLlive, ChabadInfo, 9 Nov 2026); they held a barbecue for 60 in
   Ljubljana in summer 2026 and Rosh Hashanah programs. New dot `extra-slovenia-ljubljana` (Chabad of Slovenia, at the city centre:

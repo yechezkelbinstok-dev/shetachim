@@ -56,6 +56,12 @@ New rarely-used options go in the More options group they belong to.
 **A Photos switch** (owner, Nov 8: "Make an option please to turn off pictures of head shluchim and stuff"): in More
 options, under Cards (`#show-photos`, `photosOn`, on by default, remembered as `shetachim-photos`). Off, the cards show no
 photos at all: a head his initials, a vaad its plain list of names (no honeycomb), the Rebbeim's cards no portraits.
+**Victoria is no longer "disputed": two heads, Groner and Gutnick** (owner, Nov 20: "Take away disputed for Australia
+Melbourne but keep it at two people"). Its head is "Chaim Tzvi Groner; Yoselle Gutnick" (no "Disputed —"): the map label
+reads "Chaim Tzvi Groner & Yoselle Gutnick" (Hebrew "... ויוסל׳ה גוטניק"), the card "Head shluchim" / "שלוחים ראשיים" with
+each on his own line and photo (`headsIn`, `headText`, `HEADS_PHOTOS` in web/index.html; a "Disputed — A; B" head still
+works as before), and both flagships stay. (Nov 20 the container was fresh, without node_modules or the 1.3 GB .cache,
+so web/data/shetachim.json and data/report.md were patched by hand to what the build writes: one text field.) Earlier:
 **Victoria's dispute is Groner and Gutnick only** (owner, Nov 7: "get rid of hendel he's not a actual claimant it's just
 groner and gutnick"; this replaces the Nov 4 "Nvm keep hendel for now" below). **ACT is part of Victoria** (owner, Nov 7: "ACT should be part of
 Victoria also"): the `act` shetach (Shmueli Feldman) and its Hebrew entry are gone; Victoria's territory has AU-ACT, an

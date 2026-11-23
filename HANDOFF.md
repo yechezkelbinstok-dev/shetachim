@@ -26,9 +26,9 @@ site's picture), don't keep retrying with curl (the classifier also blocks that 
   (not under Merkos, not on chabad.org), like Kalmanson's office there; told the owner they can be shown as plain
   unlisted mosdos instead if wanted.
 - Staff: the mesivta's own staff page (ylcincinnati.com/our-staff) and, for the Zal, COLlive (Apr 5, 2026; Feb 23, 2026)
-  and Chabadpedia (ישיבה גדולה סינסינטי). The owner: "menahel gashmi is Levi Teitelbaum" — the site and COLlive (Feb 2026)
-  still have Rabbi Eliyahu Morrison as Menahel Gashmi (Teitelbaum: Development), so Morrison is left out and the owner
-  was told. COLlive's "Levik Raksin" is Levi Raskin (Chabadpedia ראסקין), listed without a title (Chabadpedia calls him
+  and Chabadpedia (ישיבה גדולה סינסינטי). Menahel Gashmi: Rabbi Eliyahu Morrison, as the site and COLlive (2017, Feb
+  2026) have it; Rabbi Levi Teitelbaum is listed under Development, as the site has him (the owner first wrote "menahel
+  gashmi is Levi Teitelbaum", then: "you can fix my Teitelbaum Morrison thing according to u"). COLlive's "Levik Raksin" is Levi Raskin (Chabadpedia ראסקין), listed without a title (Chabadpedia calls him
   Rosh Yeshiva in one place and a ram in another). Hebrew: new surnames, titles and the two names in data/hebrew.
 
 ## ▶ Nov 19: Slovenia and Luxembourg sub-shetachim; Herzog taken out of Saudi Arabia (LIVE)

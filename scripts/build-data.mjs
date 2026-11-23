@@ -363,6 +363,7 @@ function normalize(raw, extra = false) {
     network: (extra && raw.mushroom && raw.network) || undefined, // a mushroom's network, both languages (its card says whose it is)
     networkHe: (extra && raw.mushroom && raw.networkHe) || undefined,
     networkFlagship: (extra && raw.mushroom && raw.network && raw.networkFlagship) || undefined, // the network's flagship (its head's own house): starred when the network is shown
+    apart: (extra && raw.mushroom && raw.apart) || undefined, // a mushroom that's a case apart: its own label [English, Hebrew] in place of "Mushroom", its own colour (owner, Nov 23, of two yeshivas: "it's unique situation")
     note: raw.note || undefined,
     personnel: extra && raw.personnel ? raw.personnel : undefined, // an unlisted center's rabbi, from its own listing
     pageId: raw.pageId || undefined, // an unlisted dot that shares a chabad.org page with a listed one

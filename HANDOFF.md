@@ -23,8 +23,12 @@ site's picture), don't keep retrying with curl (the classifier also blocks that 
   `extra-us-cincinnati-yeshivas-lubavitch`) and **Yeshiva Gedolah Lubavitch Cincinnati** (2209 Losantiville Ave;
   `extra-us-cincinnati-yeshiva-gedolah`), each with its hanhala and chabad.org's types (Yeshivah Ketanah/Mesivtah,
   Yeshivah Gedolah). "They're both mushroom moisdois ... they're not under merkoz so idk how to do it": made mushrooms
-  (not under Merkos, not on chabad.org), like Kalmanson's office there; told the owner they can be shown as plain
-  unlisted mosdos instead if wanted.
+  (not under Merkos, not on chabad.org), like Kalmanson's office there. **Then (owner): "I don't like that it's just
+  mushroom ... it's unique situation"** → a new field, `apart: [English, Hebrew]` in data/extra-centers.json (passed by
+  `normalize` in scripts/build-data.mjs): both yeshivas carry "Not under Merkos" / "לא תחת מרכז". They stay in the
+  mushroom layer (shown and counted only with Mushrooms on), but their card says that label in a teal of its own
+  (`--apart`, an open-book icon) instead of "Mushroom", and their dots are teal (`mOf(d)` = 2 in web/index.html; amber
+  when the centers' dots are green), never drawn as little mushrooms.
 - Staff: the mesivta's own staff page (ylcincinnati.com/our-staff) and, for the Zal, COLlive (Apr 5, 2026; Feb 23, 2026)
   and Chabadpedia (ישיבה גדולה סינסינטי). Menahel Gashmi: Rabbi Eliyahu Morrison, as the site and COLlive (2017, Feb
   2026) have it; Rabbi Levi Teitelbaum is listed under Development, as the site has him (the owner first wrote "menahel

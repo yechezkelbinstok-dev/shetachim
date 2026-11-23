@@ -57,6 +57,7 @@ window.EARLY = (() => {
   --empty: #dcdfdb; /* land with no shetach, when shown */
   --honor: #8a6a1e; --honor-line: #c39a3e; --honor-soft: #f6efdc; /* the honorary cards' gold: its text, its rules and dots, its panels */
   --mush: #b3261e; --mush-av: #f1cfcb; --tile: #eef1f3; --sub: #7b5fc4; /* the everyday cards: a mushroom's red (and its people's badge), a quiet tile, a sub-shetach's lilac */
+  --apart: #0f766e; --apart-av: #cdeae6; /* a mushroom that's a case apart (extra-centers.json "apart": the Cincinnati yeshivas, not under Merkos): its teal and its people's badge */
   /* what the map draws with: the theme's colors, except on the physical map, which is always light */
   --map-ink: var(--ink); --map-halo: var(--halo); --map-dot: var(--dot); --map-accent: var(--accent); --map-missing: var(--missing); --map-secondary: #3d5f8f;
   --font-ui: "Inter", "Heebo", "Segoe UI", system-ui, -apple-system, sans-serif;
@@ -70,6 +71,7 @@ window.EARLY = (() => {
     --map-secondary: #a8c3ea;
     --honor: #e0c278; --honor-line: #c9a24a; --honor-soft: #2b2a20;
     --mush: #f08a7f; --mush-av: #5a2c28; --tile: #1e2b31; --sub: #b49be8;
+    --apart: #5fc4b8; --apart-av: #1f4743;
     --c1: #5a5026; --c2: #394e30; --c3: #5c3a36; --c4: #2e435f;
     --c5: #5c4228; --c6: #473957; --c7: #294c45; --c8: #494434;
     --plain: #223036;
@@ -85,6 +87,7 @@ window.EARLY = (() => {
   --map-secondary: #a8c3ea;
   --honor: #e0c278; --honor-line: #c9a24a; --honor-soft: #2b2a20;
   --mush: #f08a7f; --mush-av: #5a2c28; --tile: #1e2b31; --sub: #b49be8;
+  --apart: #5fc4b8; --apart-av: #1f4743;
   --c1: #5a5026; --c2: #394e30; --c3: #5c3a36; --c4: #2e435f;
   --c5: #5c4228; --c6: #473957; --c7: #294c45; --c8: #494434;
   --plain: #223036;
@@ -338,6 +341,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   background: var(--tile); background: linear-gradient(150deg, color-mix(in srgb, var(--t) 52%, var(--panel)) 0%, color-mix(in srgb, var(--t) 18%, var(--panel)) 100%);
   border-bottom: 1px solid color-mix(in srgb, var(--t) 45%, var(--panel-line)); }
 #card .cc-head.mush { background: linear-gradient(150deg, color-mix(in srgb, var(--mush) 15%, var(--panel)) 0%, color-mix(in srgb, var(--mush) 5%, var(--panel)) 100%); border-bottom-color: color-mix(in srgb, var(--mush) 24%, var(--panel-line)); }
+#card .cc-head.apart { background: linear-gradient(150deg, color-mix(in srgb, var(--apart) 15%, var(--panel)) 0%, color-mix(in srgb, var(--apart) 5%, var(--panel)) 100%); border-bottom-color: color-mix(in srgb, var(--apart) 26%, var(--panel-line)); }
 #card .cc-head.sub { background: linear-gradient(150deg, color-mix(in srgb, var(--sub) 20%, var(--panel)) 0%, color-mix(in srgb, var(--sub) 6%, var(--panel)) 100%); border-bottom-color: color-mix(in srgb, var(--sub) 30%, var(--panel-line)); }
 #card .cc-mini { flex: none; width: 62px; height: 62px; padding: 4px; border-radius: 13px; background: var(--panel); box-shadow: 0 0 0 1px color-mix(in srgb, var(--ink) 8%, transparent), 0 4px 12px -3px color-mix(in srgb, var(--ink) 22%, transparent); }
 #card .cc-mini.big { width: 76px; height: 76px; padding: 5px; border-radius: 15px; }
@@ -350,6 +354,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 :root[lang="he"] #card .cc-kick { font-size: 11px; letter-spacing: 0; }
 #card .cc-kick.flag { color: var(--accent); }
 #card .cc-kick.mush { color: var(--mush); }
+#card .cc-kick.apart { color: var(--apart); }
 #card .cc-kick.sub { color: var(--sub); }
 #card .cc-kick .ic { display: inline-block; width: 10px; height: 10px; margin-inline-end: 4px; vertical-align: -1px; }
 #card h2.cc-title { margin: 0; color: var(--ink); font: 650 17.5px/1.22 var(--font-ui); letter-spacing: -.01em; text-wrap: balance; }
@@ -424,13 +429,15 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 #card .cc-tag { font-style: normal; display: inline-flex; align-items: center; gap: 5px; margin-top: 7px; padding: 2px 9px 2px 7px; border-radius: 999px; font-size: 11.5px; font-weight: 600; }
 #card .cc-tag.flag { background: var(--accent-soft); color: var(--accent); }
 #card .cc-tag.mush { background: color-mix(in srgb, var(--mush) 12%, var(--panel)); color: var(--mush); }
+#card .cc-tag.apart { background: color-mix(in srgb, var(--apart) 12%, var(--panel)); color: var(--apart); }
 #card .cc-tag .ic { width: 10px; height: 10px; }
 #card .cc-row .cc-net { margin: 8px 0 0; }
 #card .cc-go { flex: none; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: color-mix(in srgb, var(--tile) 80%, var(--panel)); color: var(--accent); pointer-events: auto; }
 #card .cc-go:hover { background: var(--accent-soft); }
 #card .cc-go .ic { width: 13px; height: 13px; }
-#card .cc-row.mush { position: relative; padding-inline-start: 13px; }
-#card .cc-row.mush::before { content: ''; position: absolute; inset-inline-start: 0; top: 13px; bottom: 13px; width: 3px; border-radius: 3px; background: var(--mush); }
+#card .cc-row.mush, #card .cc-row.apart { position: relative; padding-inline-start: 13px; }
+#card .cc-row.mush::before, #card .cc-row.apart::before { content: ''; position: absolute; inset-inline-start: 0; top: 13px; bottom: 13px; width: 3px; border-radius: 3px; background: var(--mush); }
+#card .cc-row.apart::before { background: var(--apart); }
 /* a shetach's card (a sub-shetach's, a country's) */
 #card .cc-lead details.vaad { margin: 0 0 11px; }
 #card .cc-lead details.vaad > summary { color: var(--ink); }
@@ -2369,7 +2376,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   function dotData(S) {
     // (a center that is an honorary place — the Heichel Admur Hazaken, the Ohel — is that place's marker, not a dot)
     return within(S, () => fc(V.dots.map((d, i) => (d.centers.every((c) => HONOR_BY_CENTER.has(c.id)) ? null
-      : feature({ type: 'Point', coordinates: P(d.lon, d.lat) }, { l: Math.log2(d.centers.length), i, m: d.centers.every((c) => c.mushroom) ? 1 : 0 }))).filter((f) => f && f.geometry.coordinates)));
+      : feature({ type: 'Point', coordinates: P(d.lon, d.lat) }, { l: Math.log2(d.centers.length), i, m: mOf(d) }))).filter((f) => f && f.geometry.coordinates)));
   }
   // The seas and oceans (a flat view has no street map to name them), each from when it has room.
   const SEAS = [
@@ -2573,6 +2580,10 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // colours the map draws with: the theme's (CSS), except on the physical map, which is always light
   const PHYS_TINTS = ['#e6c84a', '#8fc46a', '#e48a7e', '#7fa8de', '#eea25a', '#ad8fd0', '#5fbfae', '#c9b27e'];
   const MUSHROOM_DOT = '#c0392b'; // mushrooms' dots (owner, Oct 12: "clearly singled out")
+  // a dot's kind on the map: 1 its centers all mushrooms, 2 all mushrooms that are a case apart ("apart": drawn in their own
+  // teal, never as a little mushroom; amber when the centers' dots are green), 0 any other
+  function mOf(d) { return d.centers.every((c) => c.mushroom) ? (d.centers.every((c) => c.apart) ? 2 : 1) : 0; }
+  const apartDot = () => (state.dotColor === 'green' ? '#b7791f' : '#0f8a80');
   // the Mushrooms legend's mushroom (a 16-unit box): its cap and its stem
   const MUSHROOM_CAP = 'M1.5 8.2C1.5 4.6 4.4 2 8 2s6.5 2.6 6.5 6.2c0 .5-.4.8-.9.8H2.4c-.5 0-.9-.3-.9-.8z';
   const MUSHROOM_STEM = 'M6.2 9h3.6l.5 4.6c.1.8-.5 1.4-1.3 1.4H7c-.8 0-1.4-.6-1.3-1.4z';
@@ -3268,7 +3279,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       const radius = ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], zf - 2, r(-2), zf + Math.log2(60), r(Math.log2(60))];
       show(id('dots'), on && state.dots);
       paint(id('dots'), 'circle-radius', radius);
-      paint(id('dots'), 'circle-color', ['case', ['==', ['get', 'm'], 1], state.dotColor === 'red' ? '#e67e22' : MUSHROOM_DOT, ds.color === 'dot' ? pal.dot : pal.dotSolid]); // a mushroom's dot stands out
+      paint(id('dots'), 'circle-color', ['match', ['get', 'm'], 1, state.dotColor === 'red' ? '#e67e22' : MUSHROOM_DOT, 2, apartDot(), ds.color === 'dot' ? pal.dot : pal.dotSolid]); // a mushroom's dot stands out
       // a mushroom as a little mushroom: 8 px tall when the view is framed, up to 18 close in; its dot unseen
       const mushIcon = mushroomsOn && state.mushroomLook === 'icon', isM = ['==', ['get', 'm'], 1];
       const iconPx = (dz) => ['min', 18, ['max', 8, ['*', 3.2, r(dz)]]];
@@ -3467,7 +3478,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const dot = hit && (hit.dot || (hit.capital && dotOfCenter.get(hit.capital.centerId)));
     const area = hit && hit.shetach ? shetachArea(S, hit.shetach) : hit && hit.sub ? { geometry: subLine(S, hit.sub, true) }
       : hit && hit.piece && V.mainIds.has(hit.piece.id) ? areaOf(S, hit.piece.id) : null;
-    map.getSource(`hover-dot${S.sfx}`).setData(dot && state.dots && V.mainIds.has(dot.piece) ? feature({ type: 'Point', coordinates: within(S, () => P(dot.lon, dot.lat)) }, { l: Math.log2(dot.centers.length), m: dot.centers.every((c) => c.mushroom) ? 1 : 0 }) : EMPTY);
+    map.getSource(`hover-dot${S.sfx}`).setData(dot && state.dots && V.mainIds.has(dot.piece) ? feature({ type: 'Point', coordinates: within(S, () => P(dot.lon, dot.lat)) }, { l: Math.log2(dot.centers.length), m: mOf(dot) }) : EMPTY);
     map.getSource(`hover-area${S.sfx}`).setData(area && area.geometry ? feature(area.geometry) : EMPTY);
   }
   // The mushroom networks on the map (with Mushrooms on): each network's houses, a network with one house on the map
@@ -3650,6 +3661,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // ---- the everyday cards (owner, Nov 4: "very, very nice and beautifully made, like well done") ----
   const icon = (k) => (k === 'star' ? `<svg class="ic" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path d="${STAR}" fill="currentColor"/></svg>`
     : k === 'mush' ? `<svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="${MUSHROOM_CAP}" fill="currentColor"/><path d="${MUSHROOM_STEM}" fill="currentColor" opacity=".55"/></svg>`
+    : k === 'book' ? '<svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 4.4C6.5 3.3 4.4 2.9 1.6 3.1v9.5c2.8-.2 4.9.2 6.4 1.3 1.5-1.1 3.6-1.5 6.4-1.3V3.1c-2.8-.2-4.9.2-6.4 1.3z" fill="currentColor"/><path d="M8 4.6v9" stroke="var(--panel)" stroke-width="1.2"/></svg>'
     : k === 'zoom' ? '<svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.4 10.4l3.6 3.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>'
     : '<svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 3.5h-3v9h9v-3M9.5 3.5h3v3M12.5 3.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>');
   // a shetach's own colour on the map (grey on the plain map)
@@ -3811,27 +3823,31 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // shetach and its head above the name (a mushroom's area only: it isn't under the shetach's head, owner, Oct 12; a
   // flagship's star badge instead, its shetach under its people), what it is and where; its network (a mushroom's),
   // its people; the bar of actions. Several at one address: the address in the header, a row each.
+  // a mushroom that's a case apart ("apart": the Cincinnati yeshivas, not under Merkos; owner, Nov 23: "I don't like that
+  // it's just mushroom ... it's unique situation"): its own label, in its own teal, instead of "Mushroom"
+  const apartLabel = (c) => esc(HE ? c.apart[1] : c.apart[0]);
+  const apartKick = (c) => `<p class="cc-kick apart">${icon('book')}${apartLabel(c)}</p>`;
   const mushKick = (c) => `<p class="cc-kick mush">${icon('mush')}${tr('Mushroom')}${c.networkFlagship && networks().has(c.network) ? ` · ${HE ? 'המוסד המרכזי של הרשת' : 'Network flagship'}` : ''}</p>`;
   function dotHTML(d) {
     const n = d.centers.length, g = pieceById.get(d.piece), s = g && shetachOf(g);
-    const mushy = d.centers.some((c) => c.mushroom), allMush = d.centers.every((c) => c.mushroom);
+    const mushy = d.centers.some((c) => c.mushroom), allMush = d.centers.every((c) => c.mushroom), allApart = d.centers.every((c) => c.apart);
     const cap1 = n === 1 ? capitalOfCenter.get(d.centers[0].id) : null, flag = cap1 && !cap1.world;
-    const t = allMush ? 'var(--mush)' : tintOf(s);
+    const t = allApart ? 'var(--apart)' : allMush ? 'var(--mush)' : tintOf(s);
     const mini = miniMap(s ? s.pieces : g ? [g] : [], s ? `s:${s.id}` : `g:${d.piece}`, allMush || !s ? 'var(--empty)' : tintOf(s), [{ lon: d.lon, lat: d.lat, kind: allMush ? 'mush' : flag ? 'star' : 'dot' }]);
     const crumb = shetachLine(d.piece, !mushy);
     if (n === 1) {
       const c = d.centers[0];
-      return `${ccHead({ cls: c.mushroom ? 'mush' : '', t, mini, kick: c.mushroom ? mushKick(c) : flag ? `<p class="cc-kick flag">${icon('star')}${capKicker(cap1)}</p>` : '', crumb: flag ? '' : crumb,
+      return `${ccHead({ cls: c.apart ? 'apart' : c.mushroom ? 'mush' : '', t, mini, kick: c.apart ? apartKick(c) : c.mushroom ? mushKick(c) : flag ? `<p class="cc-kick flag">${icon('star')}${capKicker(cap1)}</p>` : '', crumb: flag ? '' : crumb,
         title: esc(c.name), sub: esc([c.type, c.city].filter(Boolean).join(' · ')), act: pageChip(c) })}
-        <div class="cc-body">${c.mushroom && c.network ? netBox(c) : ''}${memorialHTML(c)}${peopleBlock(c.personnel, c.mushroom ? 'var(--mush-av)' : t, flag ? photoIf(s, c.personnel) : '')}${flag ? ctxRow(s, shetachLine(d.piece, true)) : ''}</div>`;
+        <div class="cc-body">${c.mushroom && c.network ? netBox(c) : ''}${memorialHTML(c)}${peopleBlock(c.personnel, c.apart ? 'var(--apart-av)' : c.mushroom ? 'var(--mush-av)' : t, flag ? photoIf(s, c.personnel) : '')}${flag ? ctxRow(s, shetachLine(d.piece, true)) : ''}</div>`;
     }
     const rows = d.centers.map((c) => {
       const cap = capitalOfCenter.get(c.id);
-      const tag = c.mushroom ? `<span class="cc-tag mush">${icon('mush')}${tr('Mushroom')}</span>` : cap && !cap.world ? `<span class="cc-tag flag">${icon('star')}${capKicker(cap)}</span>` : '';
-      return `<section class="cc-row${c.mushroom ? ' mush' : ''}"><div class="cc-rtext"><h3>${esc(c.name)}</h3>${c.type ? `<p class="cc-sub">${esc(c.type)}</p>` : ''}<div class="who">${personnelHTML(c.personnel)}</div>${tag}${
+      const tag = c.apart ? `<span class="cc-tag apart">${icon('book')}${apartLabel(c)}</span>` : c.mushroom ? `<span class="cc-tag mush">${icon('mush')}${tr('Mushroom')}</span>` : cap && !cap.world ? `<span class="cc-tag flag">${icon('star')}${capKicker(cap)}</span>` : '';
+      return `<section class="cc-row${c.apart ? ' apart' : c.mushroom ? ' mush' : ''}"><div class="cc-rtext"><h3>${esc(c.name)}</h3>${c.type ? `<p class="cc-sub">${esc(c.type)}</p>` : ''}<div class="who">${personnelHTML(c.personnel)}</div>${tag}${
         c.mushroom && c.network ? netBox(c) : ''}</div>${pageGo(c)}</section>`;
     }).join('');
-    return `${ccHead({ cls: allMush ? 'mush' : '', t, mini, crumb, title: esc(d.centers[0].city || tr('Same address')), sub: HE ? `${n} מוסדות בכתובת זו` : `${n} listings at this address` })}<div class="cc-body">${rows}</div>`;
+    return `${ccHead({ cls: allApart ? 'apart' : allMush ? 'mush' : '', t, mini, crumb, title: esc(d.centers[0].city || tr('Same address')), sub: HE ? `${n} מוסדות בכתובת זו` : `${n} listings at this address` })}<div class="cc-body">${rows}</div>`;
   }
 
   // The Rebbeim who led from Lubavitch, on its card (owner, Oct 13): the Mitteler Rebbe came in 1813, the Rebbe Rashab
@@ -4624,7 +4640,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     for (const T of [V.M, V.F]) {
       if (!T || !map.getSource(`mark${T.sfx}`)) continue;
       const ds = marked && T === V.cur ? [...marked.dots].filter((d) => V.mainIds.has(d.piece)) : [];
-      map.getSource(`mark${T.sfx}`).setData({ type: 'FeatureCollection', features: ds.map((d) => feature({ type: 'Point', coordinates: within(T, () => P(d.lon, d.lat)) }, { l: Math.log2(d.centers.length), m: d.centers.every((c) => c.mushroom) ? 1 : 0 })) });
+      map.getSource(`mark${T.sfx}`).setData({ type: 'FeatureCollection', features: ds.map((d) => feature({ type: 'Point', coordinates: within(T, () => P(d.lon, d.lat)) }, { l: Math.log2(d.centers.length), m: mOf(d) })) });
     }
   }
   function clearMark() { marked = null; $('#mark-chip').hidden = true; showMark(); if (netPinned) { netPinned = null; paintNet(); syncNet(); } }

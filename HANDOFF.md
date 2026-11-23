@@ -18,7 +18,7 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
 a page, go to Firecrawl at once (its image search finds photos with their pages; a page screenshot shows a blocked
 site's picture), don't keep retrying with curl (the classifier also blocks that as bot-check circumvention).
 
-## ▶ Nov 23: a new category, "Formerly under Merkos"; two Cincinnati yeshivas added (LIVE)
+## ▶ Nov 23: a new category, the Asparagus (formerly under Merkos); two Cincinnati yeshivas added (LIVE)
 - Owner: "Make two new moisdois": **Yeshivas Lubavitch Cincinnati** (the mesivta, 1863 Section Rd;
   `extra-us-cincinnati-yeshivas-lubavitch`) and **Yeshiva Gedolah Lubavitch Cincinnati** (2209 Losantiville Ave;
   `extra-us-cincinnati-yeshiva-gedolah`), each with its hanhala and chabad.org's types (Yeshivah Ketanah/Mesivtah,
@@ -32,15 +32,16 @@ site's picture), don't keep retrying with curl (the classifier also blocks that 
   then "I don't like that it's just mushroom ... it's unique situation"; a "Not under Merkos" label inside the mushrooms
   was rejected ("this implies you can be a mushroom and not be called a mushroom"); then the owner's answer: **"I want a
   new kicked off category ... like that originally was under merkoz".**
-- **The category: Formerly under Merkos / לשעבר תחת מרכז** (the name is ours; the owner had none). Field `formerly`
+- **The category: Asparagus / אספרגוס** (owner: "You can call them Asparagus instead of mushroom ... The kicked off
+  merkoz ones"; it was "Formerly under Merkos" for a few minutes). Field `formerly`
   (why) in data/extra-centers.json, in place of `mushroom`; `normalize` passes `formerly: true`; cities.json counts
   them per city (`formerly`). Neither centers nor mushrooms: their own switch under Mushrooms (off by default,
-  remembered: `shetachim-formerly`), a **hollow ring** on the map in the centers' colour (`mOf(d)` = 2: an official dot
-  emptied), a slate card with "◯ Formerly under Merkos" and the area only (not under the shetach's head), and their own
-  count on the shetach, sub-shetach and country cards ("3 formerly under Merkos"); not shluchim in the counts; left out
+  remembered: `shetachim-formerly`), a **hollow green ring** on the map (`mOf(d)` = 2, `ASPARAGUS_RING`), a green card
+  with an asparagus spear and "Asparagus" (the area only, not under the shetach's head), and their own count on the
+  shetach, sub-shetach and country cards ("3 asparagus" / "3 אספרגוסים"); not shluchim in the counts; left out
   of sub-shetachim, the growth page and the founding-years scripts, as mushrooms are. Members: the two yeshivas and
   **Kalmanson's office** (`extra-chabad-southern-ohio`: the Rebbe's shliach to Cincinnati from 5735, its founder; it was
-  a mushroom since Nov 1). Southern Ohio's card: 6 centers, 3 formerly under Merkos.
+  a mushroom since Nov 1). Southern Ohio's card: 6 centers, 3 asparagus. (Internal names stay `formerly`/`former`.)
 
 ## ▶ Nov 19: Slovenia and Luxembourg sub-shetachim; Herzog taken out of Saudi Arabia (LIVE)
 - Owner: "I change my mind krinsky is under Italy but it's a tat shetach now" → the Nov 15 Slovenia shetach is undone

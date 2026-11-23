@@ -509,7 +509,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 :root[data-ps="icon"] #card .cc-more { margin-inline-start: 26px; }
 #card .flag-world { color: var(--accent); font-weight: 600; font-style: normal; }
 .legend-mushroom { vertical-align: -2px; flex: none; }
-.legend-asp { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #4d9a2a; }
+.legend-asp { vertical-align: -2px; flex: none; color: #4d9a2a; }
 #card .kicker-mushroom { color: #b3261e; font-weight: 700; letter-spacing: 0.06em; }
 #sub-row { margin-top: 8px; }
 .legend-sub { display: inline-block; width: 15px; border-top: 3px dotted #59408f; vertical-align: middle; } /* the sub-shetachim's outline */
@@ -671,7 +671,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
         <div class="checks">
           <label class="check" for="show-dots"><input type="checkbox" id="show-dots" checked> <span class="legend-dot" aria-hidden="true"></span> Chabad centers</label>
           <label class="check" for="show-mushrooms"><input type="checkbox" id="show-mushrooms"> <svg class="legend-mushroom" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M1.5 8.2C1.5 4.6 4.4 2 8 2s6.5 2.6 6.5 6.2c0 .5-.4.8-.9.8H2.4c-.5 0-.9-.3-.9-.8z" fill="#c0392b"/><circle cx="5.2" cy="5.6" r="1.1" fill="#fff"/><circle cx="9.4" cy="4.4" r="0.9" fill="#fff"/><circle cx="11.4" cy="7" r="0.8" fill="#fff"/><path d="M6.2 9h3.6l.5 4.6c.1.8-.5 1.4-1.3 1.4H7c-.8 0-1.4-.6-1.3-1.4z" fill="#efe3cf" stroke="#8a7a62" stroke-width=".6"/></svg> Mushrooms</label>
-          <label class="check" for="show-formerly"><input type="checkbox" id="show-formerly"> <span class="legend-asp" aria-hidden="true"></span> Asparagus</label>
+          <label class="check" for="show-formerly"><input type="checkbox" id="show-formerly"> <svg class="legend-asp" viewBox="0 0 16 16" width="15" height="15" aria-hidden="true"><path d="M7 6.9h2v8c0 .55-.45 1-1 1s-1-.45-1-1z" fill="currentColor" opacity=".8"/><path d="M8 1.1c1.6 1.3 2.2 3.1 1.9 4.9L8 7.5 6.1 6C5.8 4.2 6.4 2.4 8 1.1z" fill="currentColor"/><path d="M9 8.6l2.1-1.5-.5 2.5zM7 11l-2.1-1.5.5 2.5z" fill="currentColor"/></svg> Asparagus</label>
         </div>
       </fieldset>
       <!-- everything not needed day to day, in named groups (owner, Nov 8: "a lot of options that are absolutely not needed on a day-to-day basis those can be tucked away") -->
@@ -2604,6 +2604,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // a dot's kind on the map: 2 its places all asparagus, formerly under Merkos (a green dot), 1 all outside official
   // Chabad with a mushroom among them (a red one), 0 any other
   function mOf(d) { return d.centers.every((c) => c.formerly) ? 2 : d.centers.every((c) => c.mushroom || c.formerly) ? 1 : 0; }
+  // the asparagus's spear (a 16-unit box; owner, Nov 23: "where TF is the asparagus symbol"): its tip, its two scales, its stalk
+  const ASPARAGUS_TIP = 'M8 1.1c1.6 1.3 2.2 3.1 1.9 4.9L8 7.5 6.1 6C5.8 4.2 6.4 2.4 8 1.1z', ASPARAGUS_SCALES = 'M9 8.6l2.1-1.5-.5 2.5zM7 11l-2.1-1.5.5 2.5z', ASPARAGUS_STALK = 'M7 6.9h2v8c0 .55-.45 1-1 1s-1-.45-1-1z';
   // the Mushrooms legend's mushroom (a 16-unit box): its cap and its stem
   const MUSHROOM_CAP = 'M1.5 8.2C1.5 4.6 4.4 2 8 2s6.5 2.6 6.5 6.2c0 .5-.4.8-.9.8H2.4c-.5 0-.9-.3-.9-.8z';
   const MUSHROOM_STEM = 'M6.2 9h3.6l.5 4.6c.1.8-.5 1.4-1.3 1.4H7c-.8 0-1.4-.6-1.3-1.4z';
@@ -2686,6 +2688,18 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     make('star-net', 24, (g) => { const p = new Path2D(NET_STAR); g.lineJoin = 'round'; g.lineWidth = 2.6; g.strokeStyle = pal.halo; g.stroke(p); g.fillStyle = capColor; g.fill(p); }, capColor);
     const aspColor = asparagusDot(); // (an asparagus network's flagship: its star in green)
     make('star-net-asp', 24, (g) => { const p = new Path2D(NET_STAR); g.lineJoin = 'round'; g.lineWidth = 2.6; g.strokeStyle = pal.halo; g.stroke(p); g.fillStyle = aspColor; g.fill(p); }, aspColor);
+    // an asparagus (Mushroom marker: Mushroom, as a mushroom is drawn): its spear in green, with a rim
+    make('asparagus', 24, (g) => {
+      g.scale(1.25, 1.25);
+      g.translate(-8, -8.5);
+      const parts = [ASPARAGUS_STALK, ASPARAGUS_TIP, ASPARAGUS_SCALES].map((d) => new Path2D(d));
+      g.lineJoin = 'round';
+      g.lineWidth = 2;
+      g.strokeStyle = pal.halo;
+      for (const q of parts) g.stroke(q);
+      g.fillStyle = aspColor;
+      for (const q of parts) g.fill(q);
+    }, aspColor);
     make('mushroom', 24, (g) => {
       g.scale(1.25, 1.25);
       g.translate(-8, -8.5);
@@ -2858,6 +2872,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     add({ id: 'dots', type: 'circle', source: 'dots' });
     // a mushroom as a little mushroom (Mushroom marker): over its dot, which stays (unseen) for taps and hovers
     add({ id: 'mush', type: 'symbol', source: 'dots', filter: ['==', ['get', 'm'], 1], layout: { 'icon-image': 'mushroom', 'icon-allow-overlap': true, 'icon-ignore-placement': true } });
+    add({ id: 'asp', type: 'symbol', source: 'dots', filter: ['==', ['get', 'm'], 2], layout: { 'icon-image': 'asparagus', 'icon-allow-overlap': true, 'icon-ignore-placement': true } }); // (an asparagus as a little asparagus, with that marker)
     add({ id: 'hover-dot', type: 'circle', source: 'hover-dot', paint: { 'circle-color': 'rgba(0,0,0,0)', 'circle-stroke-width': 2 } });
     // a family's houses picked in the search (owner, Oct 13): a bright ring round each
     add({ id: 'mark', type: 'circle', source: 'mark', paint: { 'circle-stroke-width': 2.5, 'circle-opacity': 0.35 } });
@@ -2917,7 +2932,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const dotStyle = () => DOT_STYLES[state.dotStyle] || DOT_STYLES.solid;
   const DOT_COLORS = { gold: ['#e0a400', '#ffc531'], red: ['#c8102e', '#ff6b5e'], black: ['#1a1a1a', '#f2f2f2'], navy: ['#163e74', '#8db5ee'], green: ['#16784a', '#5fd38f'], purple: ['#6b2fa3', '#c89cff'] };
   function setLegendDot(pal) {
-    const la = $('.legend-asp'); if (la) la.style.background = asparagusDot();
+    const la = $('.legend-asp'); if (la) la.style.color = asparagusDot();
     const lg = $('.legend-dot');
     if (lg) { lg.style.background = pal.dotSolid; lg.style.boxShadow = `0 0 0 1px ${theme() === 'dark' && !isPhysical() ? '#0f1518' : state.dotColor === 'gold' ? '#4a3500' : 'transparent'}`; }
   }
@@ -3305,18 +3320,22 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       paint(id('dots'), 'circle-color', ['match', ['get', 'm'], 1, state.dotColor === 'red' ? '#e67e22' : MUSHROOM_DOT, 2, asparagusDot(), ds.color === 'dot' ? pal.dot : pal.dotSolid]); // a mushroom's dot stands out in red, an asparagus's in green
       // a mushroom as a little mushroom: 8 px tall when the view is framed, up to 18 close in; its dot unseen
       const mushIcon = mushroomsOn && state.mushroomLook === 'icon', isM = ['==', ['get', 'm'], 1];
+      const aspIcon = formerOn && state.mushroomLook === 'icon', isA = ['==', ['get', 'm'], 2]; // (an asparagus the same way)
+      const iconed = [...(mushIcon ? [isM] : []), ...(aspIcon ? [isA] : [])], asIcon = iconed.length > 1 ? ['any', ...iconed] : iconed[0];
       const iconPx = (dz) => ['min', 18, ['max', 8, ['*', 3.2, r(dz)]]];
-      T.dotOp = [mushIcon ? ['case', isM, 0, ds.alpha === 1 ? 1 : ds.alpha + 0.1] : ds.alpha === 1 ? 1 : ds.alpha + 0.1, mushIcon ? ['case', isM, 0, 1] : 1];
+      T.dotOp = [asIcon ? ['case', asIcon, 0, ds.alpha === 1 ? 1 : ds.alpha + 0.1] : ds.alpha === 1 ? 1 : ds.alpha + 0.1, asIcon ? ['case', asIcon, 0, 1] : 1];
       paint(id('dots'), 'circle-opacity', netFade(T.dotOp[0]));
       paint(id('dots'), 'circle-stroke-width', ds.alpha === 1 ? 0.6 : 0);
       paint(id('dots'), 'circle-stroke-opacity', netFade(T.dotOp[1]));
       paint(id('mush'), 'icon-opacity', netFade(1));
+      paint(id('asp'), 'icon-opacity', netFade(1));
       paint(id('dots'), 'circle-stroke-color', pal.dotEdge);
       show(id('mush'), on && state.dots && mushIcon);
-      if (map.getLayer(id('mush'))) map.setLayoutProperty(id('mush'), 'icon-size', ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], zf - 2, ['/', iconPx(-2), 20], zf + Math.log2(60), ['/', iconPx(Math.log2(60)), 20]]);
+      show(id('asp'), on && state.dots && aspIcon);
+      for (const L of ['mush', 'asp']) if (map.getLayer(id(L))) map.setLayoutProperty(id(L), 'icon-size', ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], zf - 2, ['/', iconPx(-2), 20], zf + Math.log2(60), ['/', iconPx(Math.log2(60)), 20]]);
       show(id('hover-dot'), on);
       show(id('hover-area'), on);
-      const ring = (dz, gap) => (mushIcon ? ['case', isM, ['+', ['/', iconPx(dz), 2], gap], ['+', r(dz), gap]] : ['+', r(dz), gap]);
+      const ring = (dz, gap) => (asIcon ? ['case', asIcon, ['+', ['/', iconPx(dz), 2], gap], ['+', r(dz), gap]] : ['+', r(dz), gap]);
       paint(id('hover-dot'), 'circle-radius', ['interpolate', ['exponential', 2 ** 0.35], ['zoom'], zf - 2, ring(-2, 2.5), zf + Math.log2(60), ring(Math.log2(60), 2.5)]);
       paint(id('hover-dot'), 'circle-stroke-color', pal.accent);
       show(id('mark'), on);
@@ -3416,7 +3435,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     const ds = dotStyle(), dz = Math.max(-2, Math.min(Math.log2(60), map.getZoom() - (V.cur.zFit ?? 2)));
     const dotR0 = (x) => (ds.a + ds.b * x.properties.l) * 2 ** (0.35 * dz);
     // (a mushroom drawn as a little mushroom: half its height, 8–18 px, as in its icon-size)
-    const dotR = (x) => (mushroomsOn && state.mushroomLook === 'icon' && x.properties.m === 1 ? Math.min(18, Math.max(8, 3.2 * dotR0(x))) / 2 : dotR0(x));
+    const dotR = (x) => (state.mushroomLook === 'icon' && ((mushroomsOn && x.properties.m === 1) || (formerOn && x.properties.m === 2)) ? Math.min(18, Math.max(8, 3.2 * dotR0(x))) / 2 : dotR0(x));
     f = nearest(q(['dots']).filter((x) => dist(x) <= Math.max(dotR(x) + slop, near)));
     if (f) return { dot: V.dots[f.properties.i] };
     // a city: on its name only (a big city's name too) — not its little ring or round it, where its centers are, which
@@ -3576,6 +3595,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     map.setPaintProperty(id('dots'), 'circle-opacity', netFade(S.dotOp[0]));
     map.setPaintProperty(id('dots'), 'circle-stroke-opacity', netFade(S.dotOp[1]));
     if (map.getLayer(id('mush'))) map.setPaintProperty(id('mush'), 'icon-opacity', netFade(1));
+    if (map.getLayer(id('asp'))) map.setPaintProperty(id('asp'), 'icon-opacity', netFade(1));
   }
   // the options' list of the networks (the biggest first), each framing its network
   function netListUI() {
@@ -3687,7 +3707,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // ---- the everyday cards (owner, Nov 4: "very, very nice and beautifully made, like well done") ----
   const icon = (k) => (k === 'star' ? `<svg class="ic" viewBox="-7.5 -7.5 15 15" aria-hidden="true"><path d="${STAR}" fill="currentColor"/></svg>`
     : k === 'mush' ? `<svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="${MUSHROOM_CAP}" fill="currentColor"/><path d="${MUSHROOM_STEM}" fill="currentColor" opacity=".55"/></svg>`
-    : k === 'asparagus' ? '<svg class="ic asp" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="4.6" fill="currentColor"/></svg>'
+    : k === 'asparagus' ? `<svg class="ic asp" viewBox="0 0 16 16" aria-hidden="true"><path d="${ASPARAGUS_STALK}" fill="currentColor" opacity=".75"/><path d="${ASPARAGUS_TIP}" fill="currentColor"/><path d="${ASPARAGUS_SCALES}" fill="currentColor"/></svg>`
     : k === 'zoom' ? '<svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><circle cx="7" cy="7" r="4.6" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M10.4 10.4l3.6 3.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>'
     : '<svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 3.5h-3v9h9v-3M9.5 3.5h3v3M12.5 3.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>');
   // a shetach's own colour on the map (grey on the plain map)

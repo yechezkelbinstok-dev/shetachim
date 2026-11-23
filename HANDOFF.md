@@ -24,8 +24,10 @@ site's picture), don't keep retrying with curl (the classifier also blocks that 
   `mushroom`; `normalize` passes `formerly: true` (and its network); cities.json counts them per city (`formerly`).
   Neither centers nor mushrooms: their own switch under Mushrooms (off by default, remembered: `shetachim-formerly`),
   **a green dot** (owner: "it can just be a green dot like the shrooms is red"; `mOf(d)` = 2, `asparagusDot()`, a
-  lighter green when the centers' dots are green), a green card "● Asparagus" (the area only, not under the shetach's
-  head), their own count on shetach, sub-shetach and country cards ("3 asparagus" / "3 אספרגוסים"), never shluchim;
+  lighter green when the centers' dots are green), and **its symbol, an asparagus spear** (owner: "where TF is the
+  asparagus symbol"; `ASPARAGUS_TIP/SCALES/STALK`) wherever a mushroom has its mushroom: the switch, the card ("Asparagus"),
+  the counts, and, with the Mushroom marker set to Mushroom, a little spear on the map (layer `asp`). The card shows the
+  area only, not the shetach's head; their own count on shetach, sub-shetach and country cards ("3 asparagus" / "3 אספרגוסים"), never shluchim;
   their networks work as mushrooms' do, in green (a card's Show network; not in the options' "Mushroom networks"
   list). Left out of sub-shetachim, the growth page and the founding-years scripts, as mushrooms are. Internal names
   stay `formerly` / `former`.
@@ -39,7 +41,8 @@ site's picture), don't keep retrying with curl (the classifier also blocks that 
   each with its hanhala and chabad.org's types. Staff: the mesivta's staff page (ylcincinnati.com/our-staff); for the
   Zal, COLlive (Apr 5 and Feb 23, 2026) and Chabadpedia (ישיבה גדולה סינסינטי). Menahel Gashmi Rabbi Eliyahu Morrison and
   Rabbi Levi Teitelbaum under Development, as the site has them (owner: "you can fix my Teitelbaum Morrison thing
-  according to u"). COLlive's "Levik Raksin" is Levi Raskin (Chabadpedia ראסקין), no title (Chabadpedia gives two).
+  according to u"). COLlive's "Levik Raksin" is Levi Raskin (Chabadpedia ראסקין), a maggid shiur (owner: "Raksin is a Maggie shiur"); Rabbi
+  Yitzchak Meir Lifshitz, COLlive's Rav of the Yeshiva, taken off (owner: "take off").
 
 ## ▶ Nov 19: Slovenia and Luxembourg sub-shetachim; Herzog taken out of Saudi Arabia (LIVE)
 - Owner: "I change my mind krinsky is under Italy but it's a tat shetach now" → the Nov 15 Slovenia shetach is undone

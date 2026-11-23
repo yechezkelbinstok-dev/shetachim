@@ -459,6 +459,8 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
 :root[data-theme="dark"] #card .cc-countrow .ic.who { color: #8db5ee; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) #card .cc-countrow .ic.who { color: #8db5ee; } }
 #card .cc-gap { width: 6px; }
+#card .cc-counts { flex-wrap: wrap; gap: 6px 14px; }
+#card .cc-cnt { display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; }
 #card .cc-vaad { display: flex; align-items: center; gap: 15px; margin-bottom: 4px; }
 #card .cc-hive { position: relative; flex: none; }
 #card .cc-hive img { position: absolute; width: 34px; height: 34px; border-radius: 50%; object-fit: cover; background: var(--panel);
@@ -3795,9 +3797,13 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   const WHO = '<svg class="ic who" viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="5" r="2.9" fill="currentColor"/><path d="M2.6 14.4c0-3.1 2.4-5.2 5.4-5.2s5.4 2.1 5.4 5.2z" fill="currentColor"/></svg>';
   const shlWord = (k) => (HE ? (k === 1 ? 'שליח' : 'שלוחים') : k === 1 ? 'shliach' : 'shluchim');
   const formerWord = (f) => (HE ? (f === 1 ? 'אספרגוס' : 'אספרגוסים') : 'asparagus');
+  // the centers, the mushrooms and the asparagus on one line (owner, Nov 23: "Why is it not next to mushroom? There's
+  // space there"), each with its mark kept together if a narrow card has to wrap them
+  const cntItem = (mark, b, cls, word) => `<span class="cc-cnt">${mark}<span><b${cls ? ` class="${cls}"` : ''}>${b}</b> ${word}</span></span>`;
   const countLine = (n, m, k, f = 0) => { const c = n - m - f;
-    return `<div class="cc-flagrow cc-countrow">${DOTMARK}<span><b>${fmt(c)}</b> ${HE ? (c === 1 ? 'מוסד' : 'מוסדות') : c === 1 ? 'center' : 'centers'}</span>${m ? `<span class="cc-gap"></span>${icon('mush')}<span><b class="mu">${fmt(m)}</b> ${HE ? (m === 1 ? 'פטרייה' : 'פטריות') : m === 1 ? 'mushroom' : 'mushrooms'}</span>` : ''}</div>${
-      f ? `<div class="cc-flagrow cc-countrow">${icon('asparagus')}<span><b class="fo">${fmt(f)}</b> ${formerWord(f)}</span></div>` : ''}${
+    return `<div class="cc-flagrow cc-countrow cc-counts">${cntItem(DOTMARK, fmt(c), '', HE ? (c === 1 ? 'מוסד' : 'מוסדות') : c === 1 ? 'center' : 'centers')}${
+      m ? cntItem(icon('mush'), fmt(m), 'mu', HE ? (m === 1 ? 'פטרייה' : 'פטריות') : m === 1 ? 'mushroom' : 'mushrooms') : ''}${
+      f ? cntItem(icon('asparagus'), fmt(f), 'fo', formerWord(f)) : ''}</div>${
       k ? `<div class="cc-flagrow cc-countrow">${WHO}<span><b>${fmt(k)}</b> ${shlWord(k)}</span></div>` : ''}`; };
   const PIN = '<svg class="ic" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.6a4.6 4.6 0 0 0-4.6 4.6c0 3.5 4.6 8.3 4.6 8.3s4.6-4.8 4.6-8.3A4.6 4.6 0 0 0 8 1.6zm0 6.3a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4z" fill="currentColor"/></svg>';
   const countText = (n, m, k, f = 0) => { const c = n - m - f;

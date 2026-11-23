@@ -26,7 +26,9 @@ site's picture), don't keep retrying with curl (the classifier also blocks that 
   **a green dot** (owner: "it can just be a green dot like the shrooms is red"; `mOf(d)` = 2, `asparagusDot()`, a
   lighter green when the centers' dots are green), and **its symbol, an asparagus spear** (owner: "where TF is the
   asparagus symbol"; `ASPARAGUS_TIP/SCALES/STALK`) wherever a mushroom has its mushroom: the switch, the card ("Asparagus"),
-  the counts, and, with the Mushroom marker set to Mushroom, a little spear on the map (layer `asp`). The card shows the
+  the counts (on the centers' and mushrooms' line: owner, "Why is it not next to mushroom? There's space there"; `cntItem`,
+  `.cc-counts` wraps whole items on a narrow card), and, with the Mushroom marker set to Mushroom, a little spear on the
+  map (layer `asp`). The card shows the
   area only, not the shetach's head; their own count on shetach, sub-shetach and country cards ("3 asparagus" / "3 אספרגוסים"), never shluchim;
   their networks work as mushrooms' do, in green (a card's Show network; not in the options' "Mushroom networks"
   list). Left out of sub-shetachim, the growth page and the founding-years scripts, as mushrooms are. Internal names

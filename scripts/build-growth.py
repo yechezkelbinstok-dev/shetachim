@@ -68,7 +68,7 @@ def main():
         if p.get('country') not in ('US', 'CA'):
             continue
         piece = (p.get('piece') or ':none').split(':')[-1]
-        cs = [c for c in p.get('centers') or [] if not c.get('mushroom') and not is_mikvah(c)
+        cs = [c for c in p.get('centers') or [] if not c.get('mushroom') and not c.get('formerly') and not is_mikvah(c)
               and not (piece == 'crown-heights' and str(c['id']) not in fy)]
         if not cs:
             continue

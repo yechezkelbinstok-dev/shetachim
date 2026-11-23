@@ -363,7 +363,7 @@ function normalize(raw, extra = false) {
     network: (extra && raw.mushroom && raw.network) || undefined, // a mushroom's network, both languages (its card says whose it is)
     networkHe: (extra && raw.mushroom && raw.networkHe) || undefined,
     networkFlagship: (extra && raw.mushroom && raw.network && raw.networkFlagship) || undefined, // the network's flagship (its head's own house): starred when the network is shown
-    apart: (extra && raw.mushroom && raw.apart) || undefined, // a mushroom that's a case apart: its own label [English, Hebrew] in place of "Mushroom", its own colour (owner, Nov 23, of two yeshivas: "it's unique situation")
+    formerly: (extra && !raw.mushroom && raw.formerly && true) || undefined, // formerly under Merkos ("kicked off": owner, Nov 23): neither a center nor a mushroom, shown with its own switch
     note: raw.note || undefined,
     personnel: extra && raw.personnel ? raw.personnel : undefined, // an unlisted center's rabbi, from its own listing
     pageId: raw.pageId || undefined, // an unlisted dot that shares a chabad.org page with a listed one
@@ -487,6 +487,7 @@ function buildCities(dots) {
       groups.get(key).names.push(pg ? pg.name : c.city);
       groups.get(key).at.push(d);
       if (c.mushroom) groups.get(key).mushrooms = (groups.get(key).mushrooms || 0) + 1;
+      if (c.formerly) groups.get(key).formerly = (groups.get(key).formerly || 0) + 1; // (formerly under Merkos: left off with its switch, as mushrooms are)
     }
   }
   const median = (xs) => {
@@ -543,18 +544,18 @@ function buildCities(dots) {
   const cities = [], byPlace = new Map(); // one city for "S. Diego" and "San Diego" listings
   for (const g of groups.values()) {
     if (g.place) { // (a place known by one name: at its own spot, with its own people)
-      cities.push({ name: g.place.name, region: g.region, country: g.country, lat: g.place.lat, lon: g.place.lon, pop: g.place.pop, centers: g.names.length, mushrooms: g.mushrooms });
+      cities.push({ name: g.place.name, region: g.region, country: g.country, lat: g.place.lat, lon: g.place.lon, pop: g.place.pop, centers: g.names.length, mushrooms: g.mushrooms, formerly: g.formerly });
       continue;
     }
     const mid = { lat: median(g.at.map((d) => d.lat)), lon: median(g.at.map((d) => d.lon)) };
     let p = match(g, mid), keepName = false;
     if (!p) { const f = fallback(g, mid); if (f) ({ p, keepName } = f); }
-    if (p && byPlace.has(p.cityId)) { const b = byPlace.get(p.cityId); b.centers += g.names.length; if (g.mushrooms) b.mushrooms = (b.mushrooms || 0) + g.mushrooms; continue; }
+    if (p && byPlace.has(p.cityId)) { const b = byPlace.get(p.cityId); b.centers += g.names.length; if (g.mushrooms) b.mushrooms = (b.mushrooms || 0) + g.mushrooms; if (g.formerly) b.formerly = (b.formerly || 0) + g.formerly; continue; }
     const [lon, lat] = p ? p.loc.coordinates : [mid.lon, mid.lat];
     const city = {
       name: p && !keepName ? (CITY_NAMES[p.name] || p.name).replace(/ Township$| \(.*\)$/, '') : count(g.names, (n) => n)[0][0],
       region: g.region, country: g.country, lat: +lat.toFixed(5), lon: +lon.toFixed(5),
-      pop: p ? p.population : 0, centers: g.names.length, mushrooms: g.mushrooms, unmatched: p ? undefined : true,
+      pop: p ? p.population : 0, centers: g.names.length, mushrooms: g.mushrooms, formerly: g.formerly, unmatched: p ? undefined : true,
     };
     if (p) byPlace.set(p.cityId, city);
     cities.push(city);

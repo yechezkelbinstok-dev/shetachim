@@ -13,7 +13,7 @@ for f in g['features']:
     p = f['properties']
     if p.get('country') not in ('US', 'CA'): continue   # US and Canada only (owner, Nov 6: "Not Mexico!!!!!")
     sid = (p.get('piece') or ':none').split(':')[-1]
-    ids = [str(c['id']) for c in p.get('centers') or [] if not c.get('mushroom') and not is_mikvah(c) and not (((p.get('piece') or ':none').split(':')[-1] == 'crown-heights') and str(c['id']) not in fy)]
+    ids = [str(c['id']) for c in p.get('centers') or [] if not c.get('mushroom') and not c.get('formerly') and not is_mikvah(c) and not (((p.get('piece') or ':none').split(':')[-1] == 'crown-heights') and str(c['id']) not in fy)]
     listings[sid] += ids
     if ids: dots[sid].append(ids)
 rows = []; tot = collections.Counter()

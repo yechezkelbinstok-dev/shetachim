@@ -586,7 +586,7 @@ for (const s of data.subShetachim) {
   // its members: listed, or its shetach's houses in its areas (those whole areas too); never a mushroom
   const areas = await memberAreas(s), listed = new Set(s.members || []), out = new Set(s.exclude || []);
   const zone = [...areas, ...whole.flat()];
-  const isMember = (c, d) => !c.mushroom && !out.has(c.id) && (listed.has(c.id) || (d.shetach === s.parent && zone.length > 0 && inPolys(d.lon, d.lat, zone)));
+  const isMember = (c, d) => !c.mushroom && !c.formerly && !out.has(c.id) && (listed.has(c.id) || (d.shetach === s.parent && zone.length > 0 && inPolys(d.lon, d.lat, zone)));
   const memberDots = dots.filter((d) => d.centers.some((c) => isMember(c, d)));
   const missing = [...listed].filter((id) => !dots.some((d) => d.centers.some((c) => c.id === id)));
   if (missing.length) throw new Error(`${s.id}: no center ${missing.join(', ')}`);
@@ -597,7 +597,7 @@ for (const s of data.subShetachim) {
   const core = memberDots.filter((d) => !inWhole(d));
   const seeds = core.length ? [...core, ...memberDots.filter((d) => inWhole(d) && core.some((c) => kmApart(c, d) <= LINKED))] : memberDots;
   // its shetach's other houses (no member there, and not only mushrooms): each keeps the land nearer to it
-  const others = dots.filter((d) => d.shetach === s.parent && !memberDots.includes(d) && d.centers.some((c) => !c.mushroom));
+  const others = dots.filter((d) => d.shetach === s.parent && !memberDots.includes(d) && d.centers.some((c) => !c.mushroom && !c.formerly));
   // its shetach's land in the states its members are in (and its whole areas'): it never crosses a state line
   const states = new Set([...memberDots.map((d) => d.state), ...(s.areas || [])]);
   const lands = new Map([...states].map((st) => [st, polys(topojson.merge(topo, own.filter((g) => g.properties.state === st)))]).filter(([, ps]) => ps.length));
@@ -641,7 +641,7 @@ for (const s of data.subShetachim) {
   // (the shetach's other houses that fall inside it, to look at: in the region but not its members)
   const drawn = features.filter((f) => f.properties.id === s.id).flatMap((f) => f.geometry.coordinates);
   const strays = dots.filter((d) => d.shetach === s.parent && inPolys(d.lon, d.lat, drawn))
-    .flatMap((d) => d.centers.filter((c) => !c.mushroom && !isMember(c, d)).map((c) => `${c.name} (${c.city || ''}, ${c.id})`));
+    .flatMap((d) => d.centers.filter((c) => !c.mushroom && !c.formerly && !isMember(c, d)).map((c) => `${c.name} (${c.city || ''}, ${c.id})`));
   const lost = memberDots.filter((d) => !inPolys(d.lon, d.lat, drawn)).flatMap((d) => d.centers.filter((c) => isMember(c, d)).map((c) => `${c.name} (${c.id})`));
   console.log(`${s.id}: ${memberDots.length} spots, longest link ${drawRegion.longest.toFixed(0)} km, ${parts} part${parts === 1 ? '' : 's'}${bits.length ? ` — NOT ONE PIECE: ${bits.join(', ')}` : ''}${lost.length ? `; members outside it (off the coast?): ${lost.join('; ')}` : ''}${strays.length ? `; inside but not members: ${strays.join('; ')}` : ''}`);
 }

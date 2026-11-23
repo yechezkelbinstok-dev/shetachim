@@ -21,7 +21,7 @@ for f in g['features']:
     if countries:
         if p.get('country') not in countries: continue
     elif p.get('country') not in ('US', 'CA'): continue   # US and Canada only (owner, Nov 6: "Not Mexico!!!!!")
-    ids = [str(c['id']) for c in p.get('centers') or [] if not c.get('mushroom') and not is_mikvah(c) and not (((p.get('piece') or ':none').split(':')[-1] == 'crown-heights') and str(c['id']) not in fy)]
+    ids = [str(c['id']) for c in p.get('centers') or [] if not c.get('mushroom') and not c.get('formerly') and not is_mikvah(c) and not (((p.get('piece') or ':none').split(':')[-1] == 'crown-heights') and str(c['id']) not in fy)]
     if ids: dots[p.get('country') if countries else (p.get('piece') or ':none').split(':')[-1]].append(ids)
 started = {s for s, ds in dots.items() if any(fy.get(i) for d in ds for i in d)}
 groups = collections.OrderedDict()

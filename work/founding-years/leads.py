@@ -26,7 +26,7 @@ for f in g['features']:
     if not (p.get('piece') or '').endswith(':' + sid): continue
     lon, lat = f['geometry']['coordinates'][:2]
     for c in p.get('centers') or []:
-        if c.get('mushroom'): continue
+        if c.get('mushroom') or c.get('formerly'): continue
         last = [x.get('lastName') for x in (c.get('personnel') or []) if x.get('lastName')]
         cand = []
         for la, ln, yr, cat, title in recs:

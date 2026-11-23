@@ -16,7 +16,7 @@ for f in g['features']:
     p = f['properties']
     if p.get('country') not in ('US', 'CA'): continue
     sid = (p.get('piece') or ':none').split(':')[-1]
-    cs = [c for c in p.get('centers') or [] if not c.get('mushroom') and not is_mikvah(c) and not (((p.get('piece') or ':none').split(':')[-1] == 'crown-heights') and str(c['id']) not in fy)]
+    cs = [c for c in p.get('centers') or [] if not c.get('mushroom') and not c.get('formerly') and not is_mikvah(c) and not (((p.get('piece') or ':none').split(':')[-1] == 'crown-heights') and str(c['id']) not in fy)]
     dated = any((fy.get(str(c['id'])) or {}).get('year') for c in cs)
     for c in cs:
         e = fy.get(str(c['id']))

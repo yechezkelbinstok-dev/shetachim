@@ -360,9 +360,9 @@ function normalize(raw, extra = false) {
     approx: !!raw['location-is-approximate'] || undefined,
     unlisted: extra || undefined,
     mushroom: (extra && raw.mushroom && true) || undefined, // not under the country's official Chabad: shown only with Mushrooms on
-    network: (extra && raw.mushroom && raw.network) || undefined, // a mushroom's network, both languages (its card says whose it is)
-    networkHe: (extra && raw.mushroom && raw.networkHe) || undefined,
-    networkFlagship: (extra && raw.mushroom && raw.network && raw.networkFlagship) || undefined, // the network's flagship (its head's own house): starred when the network is shown
+    network: (extra && (raw.mushroom || raw.formerly) && raw.network) || undefined, // a mushroom's (or an asparagus's) network, both languages (its card says whose it is)
+    networkHe: (extra && (raw.mushroom || raw.formerly) && raw.networkHe) || undefined,
+    networkFlagship: (extra && (raw.mushroom || raw.formerly) && raw.network && raw.networkFlagship) || undefined, // the network's flagship (its head's own house): starred when the network is shown
     formerly: (extra && !raw.mushroom && raw.formerly && true) || undefined, // formerly under Merkos ("kicked off": owner, Nov 23): neither a center nor a mushroom, shown with its own switch
     note: raw.note || undefined,
     personnel: extra && raw.personnel ? raw.personnel : undefined, // an unlisted center's rabbi, from its own listing

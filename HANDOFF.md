@@ -18,30 +18,28 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
 a page, go to Firecrawl at once (its image search finds photos with their pages; a page screenshot shows a blocked
 site's picture), don't keep retrying with curl (the classifier also blocks that as bot-check circumvention).
 
-## ▶ Nov 23: a new category, the Asparagus (formerly under Merkos); two Cincinnati yeshivas added (LIVE)
-- Owner: "Make two new moisdois": **Yeshivas Lubavitch Cincinnati** (the mesivta, 1863 Section Rd;
-  `extra-us-cincinnati-yeshivas-lubavitch`) and **Yeshiva Gedolah Lubavitch Cincinnati** (2209 Losantiville Ave;
-  `extra-us-cincinnati-yeshiva-gedolah`), each with its hanhala and chabad.org's types (Yeshivah Ketanah/Mesivtah,
-  Yeshivah Gedolah). Staff: the mesivta's own staff page (ylcincinnati.com/our-staff) and, for the Zal, COLlive (Apr 5,
-  2026; Feb 23, 2026) and Chabadpedia (ישיבה גדולה סינסינטי). Menahel Gashmi: Rabbi Eliyahu Morrison, as the site and
-  COLlive (2017, Feb 2026) have it; Rabbi Levi Teitelbaum under Development, as the site has him (the owner first wrote
-  "menahel gashmi is Levi Teitelbaum", then: "you can fix my Teitelbaum Morrison thing according to u"). COLlive's
-  "Levik Raksin" is Levi Raskin (Chabadpedia ראסקין), listed without a title (Chabadpedia calls him Rosh Yeshiva in one
-  place and a ram in another). Hebrew: new surnames, titles and the two names in data/hebrew.
-- How to class them took four rounds. Mushrooms ("They're both mushroom moisdois ... they're not under merkoz so idk");
-  then "I don't like that it's just mushroom ... it's unique situation"; a "Not under Merkos" label inside the mushrooms
-  was rejected ("this implies you can be a mushroom and not be called a mushroom"); then the owner's answer: **"I want a
-  new kicked off category ... like that originally was under merkoz".**
-- **The category: Asparagus / אספרגוס** (owner: "You can call them Asparagus instead of mushroom ... The kicked off
-  merkoz ones"; it was "Formerly under Merkos" for a few minutes). Field `formerly`
-  (why) in data/extra-centers.json, in place of `mushroom`; `normalize` passes `formerly: true`; cities.json counts
-  them per city (`formerly`). Neither centers nor mushrooms: their own switch under Mushrooms (off by default,
-  remembered: `shetachim-formerly`), a **hollow green ring** on the map (`mOf(d)` = 2, `ASPARAGUS_RING`), a green card
-  with an asparagus spear and "Asparagus" (the area only, not under the shetach's head), and their own count on the
-  shetach, sub-shetach and country cards ("3 asparagus" / "3 אספרגוסים"); not shluchim in the counts; left out
-  of sub-shetachim, the growth page and the founding-years scripts, as mushrooms are. Members: the two yeshivas and
-  **Kalmanson's office** (`extra-chabad-southern-ohio`: the Rebbe's shliach to Cincinnati from 5735, its founder; it was
-  a mushroom since Nov 1). Southern Ohio's card: 6 centers, 3 asparagus. (Internal names stay `formerly`/`former`.)
+## ▶ Nov 23: a new category, the Asparagus (kicked off from Merkos); two Cincinnati yeshivas as mushrooms (LIVE)
+- **Asparagus / אספרגוס** (owner: "You can call them Asparagus instead of mushroom ... The kicked off merkoz ones"):
+  places that were under Merkos and were kicked off. Field `formerly` (why) in data/extra-centers.json, in place of
+  `mushroom`; `normalize` passes `formerly: true` (and its network); cities.json counts them per city (`formerly`).
+  Neither centers nor mushrooms: their own switch under Mushrooms (off by default, remembered: `shetachim-formerly`),
+  **a green dot** (owner: "it can just be a green dot like the shrooms is red"; `mOf(d)` = 2, `asparagusDot()`, a
+  lighter green when the centers' dots are green), a green card "● Asparagus" (the area only, not under the shetach's
+  head), their own count on shetach, sub-shetach and country cards ("3 asparagus" / "3 אספרגוסים"), never shluchim;
+  their networks work as mushrooms' do, in green (a card's Show network; not in the options' "Mushroom networks"
+  list). Left out of sub-shetachim, the growth page and the founding-years scripts, as mushrooms are. Internal names
+  stay `formerly` / `former`.
+- **Who is asparagus (12):** the Carlebach network (6: Rutgers and its houses), Kanelsky's Bris Avrohom (Hillside and its
+  mikvah; his sons' houses are official), Maon Noam in Toronto (3: "the network of three", the map's only network of
+  three — confirm if the owner meant another), and Kalmanson's office in Amberley Village (made asparagus by us, the
+  owner didn't object).
+- **The two Cincinnati yeshivas are plain mushrooms** (owner: "Since when did I say those yeshivos used to be under
+  merkoz ... Just put them as mushrooms"; earlier rounds tried a "Not under Merkos" label and the asparagus): **Yeshivas
+  Lubavitch Cincinnati** (mesivta, 1863 Section Rd) and **Yeshiva Gedolah Lubavitch Cincinnati** (2209 Losantiville Ave),
+  each with its hanhala and chabad.org's types. Staff: the mesivta's staff page (ylcincinnati.com/our-staff); for the
+  Zal, COLlive (Apr 5 and Feb 23, 2026) and Chabadpedia (ישיבה גדולה סינסינטי). Menahel Gashmi Rabbi Eliyahu Morrison and
+  Rabbi Levi Teitelbaum under Development, as the site has them (owner: "you can fix my Teitelbaum Morrison thing
+  according to u"). COLlive's "Levik Raksin" is Levi Raskin (Chabadpedia ראסקין), no title (Chabadpedia gives two).
 
 ## ▶ Nov 19: Slovenia and Luxembourg sub-shetachim; Herzog taken out of Saudi Arabia (LIVE)
 - Owner: "I change my mind krinsky is under Italy but it's a tat shetach now" → the Nov 15 Slovenia shetach is undone

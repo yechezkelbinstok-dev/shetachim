@@ -1,5 +1,5 @@
 {
-  "about": "Centers that exist but are not listed on chabad.org. precision: 'exact' = real location, 'area' = rough spot in the right neighbourhood, 'city' = city centre (address unknown). note is shown on the dot's card. url, site, siteHe: the center's own page elsewhere (a center not on chabad.org), linked on its card as \"Open on <site>\" / \"לדף ב<siteHe>\". center-type: {name} as chabad.org's types (Mikveh, Jewish Community Center…), shown on the card. fixes: corrections to chabad.org's own listings, by center id (city, lat, lon; or personnel where chabad.org lists no one — a fix without lat keeps the listing's approx flag, and one that only moves a listing to the right town says approx: true). hyd: shluchim murdered al kiddush Hashem, by center id: each person is marked passed away with HY\"D / הי״ד instead of obm / ע״ה (added to the center's people if chabad.org doesn't list them), and shown at the top of the center's card with memorial / memorialHe. review (not shown): why a center is flagged for the owner's review — a possible \"mushroom\", a network outside the country's official Chabad, or a shliach that couldn't be confirmed; the owner decides whether it stays. mushroom: why a center is outside the country's official Chabad (shown only with Mushrooms on); network / networkHe: the mushroom network it belongs to (its houses joined by lines on the map); networkFlagship: the network's flagship (its head's own house), starred with the network's name when the network is shown. formerly: why a place is formerly under Merkos (\"kicked off\": owner, Nov 23, 2026, \"like that originally was under merkoz\"): it was part of official Chabad, under Merkos and the shetach's head, and no longer is. Neither an official center nor a mushroom, it is an asparagus (owner, Nov 23: \"You can call them Asparagus instead of mushroom\"): shown only with its own switch (Asparagus / אספרגוס), as a hollow green ring, with its own label on its card and its own count; not a shliach in the counts; left out of sub-shetachim and the founding-years work, as mushrooms are.",
+  "about": "Centers that exist but are not listed on chabad.org. precision: 'exact' = real location, 'area' = rough spot in the right neighbourhood, 'city' = city centre (address unknown). note is shown on the dot's card. url, site, siteHe: the center's own page elsewhere (a center not on chabad.org), linked on its card as \"Open on <site>\" / \"לדף ב<siteHe>\". center-type: {name} as chabad.org's types (Mikveh, Jewish Community Center…), shown on the card. fixes: corrections to chabad.org's own listings, by center id (city, lat, lon; or personnel where chabad.org lists no one — a fix without lat keeps the listing's approx flag, and one that only moves a listing to the right town says approx: true). hyd: shluchim murdered al kiddush Hashem, by center id: each person is marked passed away with HY\"D / הי״ד instead of obm / ע״ה (added to the center's people if chabad.org doesn't list them), and shown at the top of the center's card with memorial / memorialHe. review (not shown): why a center is flagged for the owner's review — a possible \"mushroom\", a network outside the country's official Chabad, or a shliach that couldn't be confirmed; the owner decides whether it stays. mushroom: why a center is outside the country's official Chabad (shown only with Mushrooms on); network / networkHe: the mushroom network it belongs to (its houses joined by lines on the map); networkFlagship: the network's flagship (its head's own house), starred with the network's name when the network is shown. formerly: why a place is formerly under Merkos (\"kicked off\": owner, Nov 23, 2026, \"like that originally was under merkoz\"): it was part of official Chabad, under Merkos and the shetach's head, and no longer is. Neither an official center nor a mushroom, it is an asparagus (owner, Nov 23: \"You can call them Asparagus instead of mushroom\"): shown only with its own switch (Asparagus / אספרגוס), as a green dot (owner: \"it can just be a green dot like the shrooms is red\"), with its own label on its card and its own count, its network (network, networkHe, networkFlagship) shown from its card as a mushroom network is, in green; not a shliach in the counts; left out of sub-shetachim and the founding-years work, as mushrooms are.",
   "centers": [
     {
       "id": "extra-us-oxford-ct",
@@ -59,7 +59,7 @@
           "lastName": "Kalmanson"
         }
       ],
-      "formerly": "Formerly under Merkos (owner, Nov 23, 2026: \"I want a new kicked off category idk what to call it like that originally was under merkoz\"; first a mushroom, then labelled apart inside the mushrooms, which the owner rejected: \"this implies you can be a mushroom and not be called a mushroom\"). The owner, Nov 1, 2026: \"Yisroel Mangel is head shliach of Southern Ohio not kalmanson - in fact kalmansons moised is mushroom\". It had been Southern Ohio's capital, under Rabbi Sholom DovBer Kalmanson as head shliach; Rabbi Mangel's Chabad Jewish Center in Cincinnati is the capital now. Neither Rabbi Kalmanson nor this office is on chabad.org's directory (a chabad.org bio of him existed in 2008); his son's Jewish Discovery Center in Mason is, and stays as it is. Against: Chabadpedia still calls him the Rebbe's shliach in Cincinnati and a member of Merkos's Kinus HaShluchim committee."
+      "formerly": "An asparagus: formerly under Merkos (owner, Nov 23, 2026: \"I want a new kicked off category ... like that originally was under merkoz\"; \"You can call them Asparagus instead of mushroom\"). The owner, Nov 1, 2026: \"Yisroel Mangel is head shliach of Southern Ohio not kalmanson - in fact kalmansons moised is mushroom\". It had been Southern Ohio's capital, under Rabbi Sholom DovBer Kalmanson as head shliach; Rabbi Mangel's Chabad Jewish Center in Cincinnati is the capital now. Neither Rabbi Kalmanson nor this office is on chabad.org's directory (a chabad.org bio of him existed in 2008); his son's Jewish Discovery Center in Mason is, and stays as it is. Against: Chabadpedia still calls him the Rebbe's shliach in Cincinnati and a member of Merkos's Kinus HaShluchim committee."
     },
     {
       "id": "extra-us-westborough",
@@ -265,7 +265,7 @@
       "url": "https://chabadnj.org/",
       "site": "Chabad at Rutgers",
       "siteHe": "חב״ד בראטגרס",
-      "mushroom": "NJ Jewish News (Debra Rubin, Mar 27, 2019) on Rabbi Yosef Carlebach's network, the Rutgers Chabad House and its affiliates: \"They are not affiliated with the several dozen other Chabad-Lubavitch centers in New Jersey\", \"which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown\" (the head shliach's headquarters). None of its houses is on chabad.org, not even Rutgers. Against: Carlebach says the Rebbe sent him to Rutgers in 1978 (Jewish Link, 2018), and ChabadInfo calls him a shliach.",
+      "formerly": "An asparagus: formerly under Merkos (owner, Nov 23, 2026: \"Also the carlebach network\" is asparagus, \"the kicked off merkoz ones\"). It was a mushroom: NJ Jewish News (Debra Rubin, Mar 27, 2019) on Rabbi Yosef Carlebach's network, the Rutgers Chabad House and its affiliates: \"They are not affiliated with the several dozen other Chabad-Lubavitch centers in New Jersey\", \"which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown\" (the head shliach's headquarters). None of its houses is on chabad.org, not even Rutgers. Against: Carlebach says the Rebbe sent him to Rutgers in 1978 (Jewish Link, 2018), and ChabadInfo calls him a shliach.",
       "network": "Yosef Carlebach",
       "networkHe": "יוסף קרליבך",
       "networkFlagship": true
@@ -285,7 +285,7 @@
       "url": "https://jewishmonroe.com/",
       "site": "Chabad House of Monroe",
       "siteHe": "בית חב״ד מונרו",
-      "mushroom": "NJ Jewish News (Debra Rubin, Mar 27, 2019) on Rabbi Yosef Carlebach's network, the Rutgers Chabad House and its affiliates: \"They are not affiliated with the several dozen other Chabad-Lubavitch centers in New Jersey\", \"which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown\" (the head shliach's headquarters). None of its houses is on chabad.org, not even Rutgers. And Monroe's official Chabad (Rabbi Eliezer Zaklikovsky, chabad.org 118587), on its own site: \"There is only one authorized Chabad center in Monroe\"; \"Anyone else using the 'Chabad' name is sadly operating in direct defiance of Chabad's structure.\" Against: Carlebach says the Rebbe sent him to Rutgers in 1978 (Jewish Link, 2018), and ChabadInfo calls him a shliach.",
+      "formerly": "An asparagus: formerly under Merkos (owner, Nov 23, 2026: \"Also the carlebach network\" is asparagus, \"the kicked off merkoz ones\"). It was a mushroom: NJ Jewish News (Debra Rubin, Mar 27, 2019) on Rabbi Yosef Carlebach's network, the Rutgers Chabad House and its affiliates: \"They are not affiliated with the several dozen other Chabad-Lubavitch centers in New Jersey\", \"which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown\" (the head shliach's headquarters). None of its houses is on chabad.org, not even Rutgers. And Monroe's official Chabad (Rabbi Eliezer Zaklikovsky, chabad.org 118587), on its own site: \"There is only one authorized Chabad center in Monroe\"; \"Anyone else using the 'Chabad' name is sadly operating in direct defiance of Chabad's structure.\" Against: Carlebach says the Rebbe sent him to Rutgers in 1978 (Jewish Link, 2018), and ChabadInfo calls him a shliach.",
       "network": "Yosef Carlebach",
       "networkHe": "יוסף קרליבך"
     },
@@ -304,7 +304,7 @@
       "url": "https://southbrunswickchabad.com/",
       "site": "Chabad of North & South Brunswick",
       "siteHe": "חב״ד צפון ודרום ברנזוויק",
-      "mushroom": "NJ Jewish News (Debra Rubin, Mar 27, 2019) on Rabbi Yosef Carlebach's network, the Rutgers Chabad House and its affiliates: \"They are not affiliated with the several dozen other Chabad-Lubavitch centers in New Jersey\", \"which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown\" (the head shliach's headquarters). None of its houses is on chabad.org, not even Rutgers. The area's official Chabad is Rabbi Levi Azimov's Chabad of South Brunswick (chabad.org 118527). Against: Carlebach says the Rebbe sent him to Rutgers in 1978 (Jewish Link, 2018), and ChabadInfo calls him a shliach.",
+      "formerly": "An asparagus: formerly under Merkos (owner, Nov 23, 2026: \"Also the carlebach network\" is asparagus, \"the kicked off merkoz ones\"). It was a mushroom: NJ Jewish News (Debra Rubin, Mar 27, 2019) on Rabbi Yosef Carlebach's network, the Rutgers Chabad House and its affiliates: \"They are not affiliated with the several dozen other Chabad-Lubavitch centers in New Jersey\", \"which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown\" (the head shliach's headquarters). None of its houses is on chabad.org, not even Rutgers. The area's official Chabad is Rabbi Levi Azimov's Chabad of South Brunswick (chabad.org 118527). Against: Carlebach says the Rebbe sent him to Rutgers in 1978 (Jewish Link, 2018), and ChabadInfo calls him a shliach.",
       "network": "Yosef Carlebach",
       "networkHe": "יוסף קרליבך"
     },
@@ -324,7 +324,7 @@
       "url": "https://chabadgmc.com/",
       "site": "Chabad of Greater Monmouth County",
       "siteHe": "חב״ד מחוז מונמות׳ רבתי",
-      "mushroom": "NJ Jewish News (Debra Rubin, Mar 27, 2019) on Rabbi Yosef Carlebach's network, the Rutgers Chabad House and its affiliates: \"They are not affiliated with the several dozen other Chabad-Lubavitch centers in New Jersey\", \"which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown\" (the head shliach's headquarters). None of its houses is on chabad.org, not even Rutgers. Against: Carlebach says the Rebbe sent him to Rutgers in 1978 (Jewish Link, 2018), and ChabadInfo calls him a shliach.",
+      "formerly": "An asparagus: formerly under Merkos (owner, Nov 23, 2026: \"Also the carlebach network\" is asparagus, \"the kicked off merkoz ones\"). It was a mushroom: NJ Jewish News (Debra Rubin, Mar 27, 2019) on Rabbi Yosef Carlebach's network, the Rutgers Chabad House and its affiliates: \"They are not affiliated with the several dozen other Chabad-Lubavitch centers in New Jersey\", \"which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown\" (the head shliach's headquarters). None of its houses is on chabad.org, not even Rutgers. Against: Carlebach says the Rebbe sent him to Rutgers in 1978 (Jewish Link, 2018), and ChabadInfo calls him a shliach.",
       "network": "Yosef Carlebach",
       "networkHe": "יוסף קרליבך"
     },
@@ -345,7 +345,7 @@
       "url": "https://chabadshore.com/",
       "site": "Chabad of the Shore",
       "siteHe": "חב״ד החוף",
-      "mushroom": "NJ Jewish News (Debra Rubin, Mar 27, 2019) on Rabbi Yosef Carlebach's network, the Rutgers Chabad House and its affiliates: \"They are not affiliated with the several dozen other Chabad-Lubavitch centers in New Jersey\", \"which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown\" (the head shliach's headquarters). None of its houses is on chabad.org, not even Rutgers. Against: Carlebach says the Rebbe sent him to Rutgers in 1978 (Jewish Link, 2018), and ChabadInfo calls him a shliach.",
+      "formerly": "An asparagus: formerly under Merkos (owner, Nov 23, 2026: \"Also the carlebach network\" is asparagus, \"the kicked off merkoz ones\"). It was a mushroom: NJ Jewish News (Debra Rubin, Mar 27, 2019) on Rabbi Yosef Carlebach's network, the Rutgers Chabad House and its affiliates: \"They are not affiliated with the several dozen other Chabad-Lubavitch centers in New Jersey\", \"which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown\" (the head shliach's headquarters). None of its houses is on chabad.org, not even Rutgers. Against: Carlebach says the Rebbe sent him to Rutgers in 1978 (Jewish Link, 2018), and ChabadInfo calls him a shliach.",
       "network": "Yosef Carlebach",
       "networkHe": "יוסף קרליבך"
     },
@@ -364,7 +364,7 @@
       "url": "https://chabadcn.com/",
       "site": "Chabad of Colts Neck",
       "siteHe": "חב״ד קולטס נק",
-      "mushroom": "NJ Jewish News (Debra Rubin, Mar 27, 2019) on Rabbi Yosef Carlebach's network, the Rutgers Chabad House and its affiliates: \"They are not affiliated with the several dozen other Chabad-Lubavitch centers in New Jersey\", \"which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown\" (the head shliach's headquarters). None of its houses is on chabad.org, not even Rutgers. Against: Carlebach says the Rebbe sent him to Rutgers in 1978 (Jewish Link, 2018), and ChabadInfo calls him a shliach.",
+      "formerly": "An asparagus: formerly under Merkos (owner, Nov 23, 2026: \"Also the carlebach network\" is asparagus, \"the kicked off merkoz ones\"). It was a mushroom: NJ Jewish News (Debra Rubin, Mar 27, 2019) on Rabbi Yosef Carlebach's network, the Rutgers Chabad House and its affiliates: \"They are not affiliated with the several dozen other Chabad-Lubavitch centers in New Jersey\", \"which are aligned with the Lubavitch movement's Rabbinical College of America in Morristown\" (the head shliach's headquarters). None of its houses is on chabad.org, not even Rutgers. Against: Carlebach says the Rebbe sent him to Rutgers in 1978 (Jewish Link, 2018), and ChabadInfo calls him a shliach.",
       "network": "Yosef Carlebach",
       "networkHe": "יוסף קרליבך"
     },
@@ -386,7 +386,7 @@
       "url": "https://www.brisavrohom.org/",
       "site": "Bris Avrohom",
       "siteHe": "ברית אברהם",
-      "mushroom": "Rabbi Mordechai (Mottel) Kanelsky's Bris Avrohom, founded in 1979 (its site: \"Founded by the Lubavitcher Rebbe\"), with its headquarters here (its Fair Lawn and Jersey City branches are official now, and the rest of the Kanelsky family is under Merkos: owner, Nov 10, 2026, \"Only hillside and Elizabeth is still shrooms\"): none of its houses or rabbis is on chabad.org, and New Jersey's official Chabad is the Rabbinical College of America's network (head shliach Rabbi Mendy Herson); the owner counts it as a mushroom network (Oct 26, 2026). In 2011 the Central Committee of Chabad-Lubavitch Rabbis settled a challenge by Rabbi Boruch Chazanow and Rabbi Moshe Herson to his son Rabbi Yossi Kanelsky's new Marlboro center: it \"will not be associated with Chabad-Lubavitch or its affiliates, such as Bris Avrohom\" (NJ Jewish News, Jun 8, 2011). Against: the same article calls Bris Avrohom \"affiliated with Chabad-Lubavitch\"; its own site and the Jewish Link's reports never call it Chabad.",
+      "formerly": "An asparagus: formerly under Merkos (owner, Nov 23, 2026: \"Also kanelsky\" is asparagus, \"the kicked off merkoz ones\"). It was a mushroom: Rabbi Mordechai (Mottel) Kanelsky's Bris Avrohom, founded in 1979 (its site: \"Founded by the Lubavitcher Rebbe\"), with its headquarters here (its Fair Lawn and Jersey City branches are official now, and the rest of the Kanelsky family is under Merkos: owner, Nov 10, 2026, \"Only hillside and Elizabeth is still shrooms\"): none of its houses or rabbis is on chabad.org, and New Jersey's official Chabad is the Rabbinical College of America's network (head shliach Rabbi Mendy Herson); the owner counts it as a mushroom network (Oct 26, 2026). In 2011 the Central Committee of Chabad-Lubavitch Rabbis settled a challenge by Rabbi Boruch Chazanow and Rabbi Moshe Herson to his son Rabbi Yossi Kanelsky's new Marlboro center: it \"will not be associated with Chabad-Lubavitch or its affiliates, such as Bris Avrohom\" (NJ Jewish News, Jun 8, 2011). Against: the same article calls Bris Avrohom \"affiliated with Chabad-Lubavitch\"; its own site and the Jewish Link's reports never call it Chabad.",
       "network": "Bris Avrohom",
       "networkHe": "ברית אברהם",
       "networkFlagship": true
@@ -404,7 +404,7 @@
       "url": "https://www.mikvahhillside.com/",
       "site": "Mikvah Hillside",
       "siteHe": "מקווה הילסייד",
-      "mushroom": "Bris Avrohom's mikvah, dedicated in 2006 by Rabbi and Mrs. Mordechai Kanelsky (Jewish Link, Aug 28, 2019); see Bris Avrohom's headquarters, 250 m away, for why the network is a mushroom. Not on chabad.org.",
+      "formerly": "An asparagus: formerly under Merkos (owner, Nov 23, 2026: \"Also kanelsky\" is asparagus, \"the kicked off merkoz ones\"). It was a mushroom: Bris Avrohom's mikvah, dedicated in 2006 by Rabbi and Mrs. Mordechai Kanelsky (Jewish Link, Aug 28, 2019); see Bris Avrohom's headquarters, 250 m away, for why the network is a mushroom. Not on chabad.org.",
       "network": "Bris Avrohom",
       "networkHe": "ברית אברהם"
     },
@@ -3954,7 +3954,7 @@
       "url": "https://www.maonnoam.ca/",
       "site": "Maon Noam",
       "siteHe": "מעון נועם",
-      "mushroom": "Maon Noam Congregation, three shuls run by the Rabiski and Fridman families, with classes in Likutei Sichos and Tanya: none of them or their rabbis is on chabad.org; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists the network as unofficial (\"4 locations around Toronto\" then). Its site doesn't use the Chabad name.",
+      "formerly": "An asparagus: formerly under Merkos (owner, Nov 23, 2026: \"Also the three shrooms like the network of three is asparagus\": Maon Noam is the map's only network of three). It was a mushroom: Maon Noam Congregation, three shuls run by the Rabiski and Fridman families, with classes in Likutei Sichos and Tanya: none of them or their rabbis is on chabad.org; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists the network as unofficial (\"4 locations around Toronto\" then). Its site doesn't use the Chabad name.",
       "network": "Maon Noam",
       "networkHe": "מעון נועם",
       "networkFlagship": true
@@ -3975,7 +3975,7 @@
       "url": "https://www.maonnoam.ca/",
       "site": "Maon Noam",
       "siteHe": "מעון נועם",
-      "mushroom": "Maon Noam Congregation, three shuls run by the Rabiski and Fridman families, with classes in Likutei Sichos and Tanya: none of them or their rabbis is on chabad.org; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists the network as unofficial (\"4 locations around Toronto\" then). Its site doesn't use the Chabad name.",
+      "formerly": "An asparagus: formerly under Merkos (owner, Nov 23, 2026: \"Also the three shrooms like the network of three is asparagus\": Maon Noam is the map's only network of three). It was a mushroom: Maon Noam Congregation, three shuls run by the Rabiski and Fridman families, with classes in Likutei Sichos and Tanya: none of them or their rabbis is on chabad.org; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists the network as unofficial (\"4 locations around Toronto\" then). Its site doesn't use the Chabad name.",
       "network": "Maon Noam",
       "networkHe": "מעון נועם"
     },
@@ -3995,7 +3995,7 @@
       "url": "https://www.maonnoam.ca/",
       "site": "Maon Noam",
       "siteHe": "מעון נועם",
-      "mushroom": "Maon Noam Congregation, three shuls run by the Rabiski and Fridman families, with classes in Likutei Sichos and Tanya: none of them or their rabbis is on chabad.org; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists the network as unofficial (\"4 locations around Toronto\" then). Its site doesn't use the Chabad name.",
+      "formerly": "An asparagus: formerly under Merkos (owner, Nov 23, 2026: \"Also the three shrooms like the network of three is asparagus\": Maon Noam is the map's only network of three). It was a mushroom: Maon Noam Congregation, three shuls run by the Rabiski and Fridman families, with classes in Likutei Sichos and Tanya: none of them or their rabbis is on chabad.org; the DansDeals \"Master List Of Unofficial Chabad Houses\" (forums.dansdeals.com, topic 102660, edited Oct 7, 2026) lists the network as unofficial (\"4 locations around Toronto\" then). Its site doesn't use the Chabad name.",
       "network": "Maon Noam",
       "networkHe": "מעון נועם"
     },
@@ -4057,7 +4057,7 @@
         { "title": "Rabbi", "firstName": "Mendel", "lastName": "Weber", "position": "Maggid Shiur, Shiur Gimmel" },
         { "title": "Rabbi", "firstName": "Levi", "lastName": "Teitelbaum", "position": "Development" }
       ],
-      "formerly": "Formerly under Merkos (owner, Nov 23, 2026: \"I want a new kicked off category idk what to call it like that originally was under merkoz\"; first a mushroom, then labelled apart inside the mushrooms, which the owner rejected: \"this implies you can be a mushroom and not be called a mushroom\"). The owner, Nov 23, 2026: \"They're both mushroom moisdois tho but idk about mushrooms since they're yeshivas just they're not under merkoz\": not under Merkos, and not on chabad.org's directory. Its site calls it \"a proud branch of the global Tomchei Tmimim Lubavitch network\". Chabadpedia names Rabbi Sholom DovBer Kalmanson as its founder; his own office here (extra-chabad-southern-ohio) is a mushroom too (owner, Nov 1)."
+      "mushroom": "The owner, Nov 23, 2026: \"They're both mushroom moisdois tho but idk about mushrooms since they're yeshivas just they're not under merkoz\"; made asparagus for a moment, then: \"Since when did I say those yeshivos used to be under merkoz ... Just put them as mushrooms\": not under Merkos, and not on chabad.org's directory. Its site calls it \"a proud branch of the global Tomchei Tmimim Lubavitch network\". Chabadpedia names Rabbi Sholom DovBer Kalmanson as its founder; his own office here (extra-chabad-southern-ohio) was a mushroom (owner, Nov 1) and is an asparagus now (formerly under Merkos)."
     },
     {
       "id": "extra-us-cincinnati-yeshiva-gedolah",
@@ -4081,7 +4081,7 @@
         { "title": "Rabbi", "firstName": "Levi", "lastName": "Raskin" },
         { "title": "Rabbi", "firstName": "Gershon", "lastName": "Avtzon", "position": "Rosh Yeshiva, Yeshivas Lubavitch Cincinnati" }
       ],
-      "formerly": "Formerly under Merkos (owner, Nov 23, 2026: \"I want a new kicked off category idk what to call it like that originally was under merkoz\"; first a mushroom, then labelled apart inside the mushrooms, which the owner rejected: \"this implies you can be a mushroom and not be called a mushroom\"). The owner, Nov 23, 2026: \"They're both mushroom moisdois tho but idk about mushrooms since they're yeshivas just they're not under merkoz\": not under Merkos, and not on chabad.org's directory. It is Yeshivas Lubavitch Cincinnati's Zal (applications through ylcincinnati.com/zal). Chabadpedia names Rabbi Sholom DovBer Kalmanson as its founder; his own office here (extra-chabad-southern-ohio) is a mushroom too (owner, Nov 1)."
+      "mushroom": "The owner, Nov 23, 2026: \"They're both mushroom moisdois tho but idk about mushrooms since they're yeshivas just they're not under merkoz\"; made asparagus for a moment, then: \"Since when did I say those yeshivos used to be under merkoz ... Just put them as mushrooms\": not under Merkos, and not on chabad.org's directory. It is Yeshivas Lubavitch Cincinnati's Zal (applications through ylcincinnati.com/zal). Chabadpedia names Rabbi Sholom DovBer Kalmanson as its founder; his own office here (extra-chabad-southern-ohio) was a mushroom (owner, Nov 1) and is an asparagus now (formerly under Merkos)."
     }
   ],
   "fixes": {

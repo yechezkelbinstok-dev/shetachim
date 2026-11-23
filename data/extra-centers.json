@@ -4030,6 +4030,57 @@
         { "title": "Rabbi", "firstName": "Yossi", "lastName": "Krinsky" },
         { "title": "Mrs.", "firstName": "Rochele", "lastName": "Krinsky" }
       ]
+    },
+    {
+      "id": "extra-us-cincinnati-yeshivas-lubavitch",
+      "name": "Yeshivas Lubavitch Cincinnati",
+      "center-type": {"name": "Yeshivah Ketanah/Mesivtah"},
+      "city": "Cincinnati",
+      "lat": 39.19708,
+      "lon": -84.45448,
+      "precision": "exact",
+      "note": "1863 Section Rd; a mesivta since Elul 5766 (2006)",
+      "source": "Its own site, ylcincinnati.com (the address; \"Meet Our Staff\", read Nov 23, 2026: Rosh Yeshiva Rabbi Gershon Avtzon, Menahel Rabbi Menachem Benarousse, Menahel Gashmi Rabbi Eliyahu Morrison, Mashpia Shiur Aleph Rabbi Levi Fuss, Mashpia Shiur Beis Rabbi Eli Landa, Senior Maggid Shiur Rabbi Eli Simpson, Maggidei Shiur Rabbi Shmuel Granovetter and Rabbi Zusman Oster (Aleph), Rabbi Levi Simpson (Beis), Rabbi Mendel Weber (Gimmel), and Rabbi Levi Teitlebaum, Development). The owner, Nov 23, 2026: \"menahel gashmi is Levi Teitelbaum\", so he is listed as Menahel Gashmi and Rabbi Morrison (Menahel Gashmi on the site and in COLlive, Feb 23, 2026) is left out; Chabadpedia (תומכי תמימים סינסינטי) puts both in its הנהלה גשמית. Founded: ChabadInfo (Mar 6, 2021: \"Founded 15 years ago\"); Chabadpedia: a yeshiva ketana from Elul 5766 under Rabbi Avtzon (Rabbi Sholom DovBer Kalmanson's yeshiva of 5737 had closed; reopened in 5764 as a semichah program). Location: OpenStreetMap's house at 1863 Section Road, Roselawn (the US Census geocoder agrees within 10 m). Not on chabad.org.",
+      "url": "https://www.ylcincinnati.com/",
+      "site": "ylcincinnati.com",
+      "siteHe": "אתר הישיבה",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Gershon", "lastName": "Avtzon", "position": "Rosh Yeshiva" },
+        { "title": "Rabbi", "firstName": "Menachem", "lastName": "Benarousse", "position": "Menahel" },
+        { "title": "Rabbi", "firstName": "Levi", "lastName": "Teitelbaum", "position": "Menahel Gashmi" },
+        { "title": "Rabbi", "firstName": "Levi", "lastName": "Fuss", "position": "Mashpia, Shiur Aleph" },
+        { "title": "Rabbi", "firstName": "Eli", "lastName": "Landa", "position": "Mashpia, Shiur Beis" },
+        { "title": "Rabbi", "firstName": "Eli", "lastName": "Simpson", "position": "Senior Maggid Shiur" },
+        { "title": "Rabbi", "firstName": "Shmuel", "lastName": "Granovetter", "position": "Maggid Shiur, Shiur Aleph" },
+        { "title": "Rabbi", "firstName": "Zusman", "lastName": "Oster", "position": "Maggid Shiur, Shiur Aleph" },
+        { "title": "Rabbi", "firstName": "Levi", "lastName": "Simpson", "position": "Maggid Shiur, Shiur Beis" },
+        { "title": "Rabbi", "firstName": "Mendel", "lastName": "Weber", "position": "Maggid Shiur, Shiur Gimmel" }
+      ],
+      "mushroom": "The owner, Nov 23, 2026: \"They're both mushroom moisdois tho but idk about mushrooms since they're yeshivas just they're not under merkoz\": not under Merkos, and not on chabad.org's directory. Its site calls it \"a proud branch of the global Tomchei Tmimim Lubavitch network\". Chabadpedia names Rabbi Sholom DovBer Kalmanson as its founder; his own office here (extra-chabad-southern-ohio) is a mushroom too (owner, Nov 1)."
+    },
+    {
+      "id": "extra-us-cincinnati-yeshiva-gedolah",
+      "name": "Yeshiva Gedolah Lubavitch Cincinnati",
+      "center-type": {"name": "Yeshivah Gedolah"},
+      "city": "Cincinnati",
+      "lat": 39.19099,
+      "lon": -84.45155,
+      "precision": "exact",
+      "note": "2209 Losantiville Ave; reopened in Elul 5785 (2025), fifty years after the Rebbe founded a Yeshiva Gedolah in Cincinnati (5736)",
+      "source": "The owner, Nov 23, 2026 (\"yeshiva Gedolah Lubavitch Cincinnati which is at 2209 losantiville ... yanky Kaplan menahel Mendel Levin Mashpia\"). Ohio's Department of Education directory (OEDS, IRN 014701): \"Rabbinical Yeshiva of Cincinnati\", physical address 2209 Losantiville Ave, web ylcincinnati.com, administrator Gershon Avtzon. COLlive (Apr 5, 2026, \"Yeshiva Gedolah in Cincinnati is Expanding With New Staff\"): in 5736 the Rebbe established a Yeshiva Gedolah in Cincinnati, closed shortly after; \"Fifty years later, the Yeshiva was reopened under the leadership of Rabbi Gershon Avtzon\"; Rabbi Mendel Levin hired as mashpia of Shiur Aleph and Rabbi Mendel Weber as maggid shiur, joining Rabbi Levik Raksin [Levi Raskin] and Rabbi Zalman Simpson; the new Menahel is Rabbi Yaakov Kaplan; the Rav of the Yeshiva is Rabbi Yitzchak Meir Lifshitz, the original Rosh Yeshiva of 5736. COLlive (Feb 23, 2026): Rabbi Levin to join as Mashpia Klali; a melave malkah \"in the building of the new Yeshiva Gedolah\". Chabadpedia (ישיבה גדולה סינסינטי): reopened in Elul 5785 for 5786 with Shiur Aleph (about 20 bochurim; about 30 in 5787); founder Rabbi Sholom DovBer Kalmanson; Rabbi Zalman Simpson a mashpia; Rabbi Levi Raskin (ראסקין) Rosh Yeshiva in its infobox but a ram in its staff list, so no title here. Location: OpenStreetMap's house at 2209 Losantiville Avenue (Golf Manor; postal city Cincinnati). Not on chabad.org.",
+      "url": "https://www.ylcincinnati.com/zal",
+      "site": "ylcincinnati.com",
+      "siteHe": "אתר הישיבה",
+      "personnel": [
+        { "title": "Rabbi", "firstName": "Yaakov", "lastName": "Kaplan", "position": "Menahel" },
+        { "title": "Rabbi", "firstName": "Mendel", "lastName": "Levin", "position": "Mashpia" },
+        { "title": "Rabbi", "firstName": "Yitzchak Meir", "lastName": "Lifshitz", "position": "Rav of the Yeshiva" },
+        { "title": "Rabbi", "firstName": "Zalman", "lastName": "Simpson", "position": "Mashpia" },
+        { "title": "Rabbi", "firstName": "Mendel", "lastName": "Weber", "position": "Maggid Shiur" },
+        { "title": "Rabbi", "firstName": "Levi", "lastName": "Raskin" },
+        { "title": "Rabbi", "firstName": "Gershon", "lastName": "Avtzon", "position": "Rosh Yeshiva, Yeshivas Lubavitch Cincinnati" }
+      ],
+      "mushroom": "The owner, Nov 23, 2026: \"They're both mushroom moisdois tho but idk about mushrooms since they're yeshivas just they're not under merkoz\": not under Merkos, and not on chabad.org's directory. It is Yeshivas Lubavitch Cincinnati's Zal (applications through ylcincinnati.com/zal). Chabadpedia names Rabbi Sholom DovBer Kalmanson as its founder; his own office here (extra-chabad-southern-ohio) is a mushroom too (owner, Nov 1)."
     }
   ],
   "fixes": {

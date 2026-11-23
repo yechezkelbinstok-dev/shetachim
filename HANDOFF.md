@@ -18,6 +18,19 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
 a page, go to Firecrawl at once (its image search finds photos with their pages; a page screenshot shows a blocked
 site's picture), don't keep retrying with curl (the classifier also blocks that as bot-check circumvention).
 
+## ▶ Nov 23: two Cincinnati yeshivas, as mushrooms (LIVE)
+- Owner: "Make two new moisdois": **Yeshivas Lubavitch Cincinnati** (the mesivta, 1863 Section Rd;
+  `extra-us-cincinnati-yeshivas-lubavitch`) and **Yeshiva Gedolah Lubavitch Cincinnati** (2209 Losantiville Ave;
+  `extra-us-cincinnati-yeshiva-gedolah`), each with its hanhala and chabad.org's types (Yeshivah Ketanah/Mesivtah,
+  Yeshivah Gedolah). "They're both mushroom moisdois ... they're not under merkoz so idk how to do it": made mushrooms
+  (not under Merkos, not on chabad.org), like Kalmanson's office there; told the owner they can be shown as plain
+  unlisted mosdos instead if wanted.
+- Staff: the mesivta's own staff page (ylcincinnati.com/our-staff) and, for the Zal, COLlive (Apr 5, 2026; Feb 23, 2026)
+  and Chabadpedia (ישיבה גדולה סינסינטי). The owner: "menahel gashmi is Levi Teitelbaum" — the site and COLlive (Feb 2026)
+  still have Rabbi Eliyahu Morrison as Menahel Gashmi (Teitelbaum: Development), so Morrison is left out and the owner
+  was told. COLlive's "Levik Raksin" is Levi Raskin (Chabadpedia ראסקין), listed without a title (Chabadpedia calls him
+  Rosh Yeshiva in one place and a ram in another). Hebrew: new surnames, titles and the two names in data/hebrew.
+
 ## ▶ Nov 19: Slovenia and Luxembourg sub-shetachim; Herzog taken out of Saudi Arabia (LIVE)
 - Owner: "I change my mind krinsky is under Italy but it's a tat shetach now" → the Nov 15 Slovenia shetach is undone
   (SVN back in Italy's territory and the owner's list, the `slovenia` shetach and its Hebrew entry gone) and

@@ -339,7 +339,7 @@
 {"name":"Brest","region":"BLR","country":"BLR","lat":52.09755,"lon":23.68775,"pop":300715,"centers":1,"piece":"BLR:russia"},
 {"name":"Anchorage","region":"US-AK","country":"US","lat":61.21806,"lon":-149.90028,"pop":298695,"centers":2,"piece":"US-AK:alaska"},
 {"name":"Cherkassy","region":"UKR","country":"UKR","lat":49.42854,"lon":32.06207,"pop":297568,"centers":4,"piece":"UKR:ukraine"},
-{"name":"Cincinnati","region":"US-OH","country":"US","lat":39.12711,"lon":-84.51439,"pop":296943,"centers":3,"piece":"US-OH:southern-ohio"},
+{"name":"Cincinnati","region":"US-OH","country":"US","lat":39.12711,"lon":-84.51439,"pop":296943,"centers":5,"mushrooms":2,"piece":"US-OH:southern-ohio"},
 {"name":"Southend-on-Sea","region":"GBR","country":"GBR","lat":51.53782,"lon":0.71433,"pop":295310,"centers":1,"piece":"GBR:united-kingdom"},
 {"name":"Sumy","region":"UKR","country":"UKR","lat":50.9216,"lon":34.80029,"pop":294456,"centers":1,"piece":"UKR:ukraine"},
 {"name":"Utrecht","region":"NLD","country":"NLD","lat":52.09083,"lon":5.12222,"pop":290529,"centers":3,"piece":"NLD:netherlands"},

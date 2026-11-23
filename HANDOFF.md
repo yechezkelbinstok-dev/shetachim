@@ -31,10 +31,18 @@ site's picture), don't keep retrying with curl (the classifier also blocks that 
   their networks work as mushrooms' do, in green (a card's Show network; not in the options' "Mushroom networks"
   list). Left out of sub-shetachim, the growth page and the founding-years scripts, as mushrooms are. Internal names
   stay `formerly` / `former`.
-- **Who is asparagus (12):** the Carlebach network (6: Rutgers and its houses), Kanelsky's Bris Avrohom (Hillside and its
-  mikvah; his sons' houses are official), Maon Noam in Toronto (3: "the network of three", the map's only network of
-  three — confirm if the owner meant another), and Kalmanson's office in Amberley Village (made asparagus by us, the
-  owner didn't object).
+- **Who is asparagus (20):** the owner's: the Carlebach network (6: Rutgers and its houses), Kanelsky's Bris Avrohom
+  (Hillside and its mikvah; his sons' houses are official), Maon Noam in Toronto (3: "the network of three", the map's
+  only network of three); ours: Kalmanson's office in Amberley Village. Then (owner: "Find out more to change to
+  asparagus", "Limit it to northern America"; Japan, India, the Philippines, Sri Lanka, the Kupchiks and Mexico stay
+  mushrooms, no research): Westborough (Rabbi Michoel Green, dismissed 2021), Poughkeepsie and Goshen (Rabbi Yacov
+  Borenstein's network, fired), Buffalo's Jewish Discovery Center (Rabbi Heschel Greenberg, Gurary's shliach until the
+  1993 split) and the Labkovskis' two houses (its network since 1995), Overland Park's Torah Learning Center (Rabbi Ben
+  Zion Friedman, second-in-command of Kansas City's Chabad House until a 1998 dispute: Jewish Post), and the Chai Center
+  in Los Angeles (Schwartzie: Chabad rabbi at UCLA for 16 years, "split with the Chabad movement in the late 1980s":
+  Jewish Journal 2017). Checked and left mushrooms (no sign they were ever under Merkos): Pil (San Francisco: "not
+  affiliated with Chabad", J. 2000), Engel (Cherry Creek), Zaltzman (Niagara), Lerman (Sag Harbor), Hendel (Marine Park:
+  Chabad news calls him a shliach), Illulian (Beverly Hills); not looked at: the meshichist houses, the shuls, Mill Basin.
 - **The two Cincinnati yeshivas are plain mushrooms** (owner: "Since when did I say those yeshivos used to be under
   merkoz ... Just put them as mushrooms"; earlier rounds tried a "Not under Merkos" label and the asparagus): **Yeshivas
   Lubavitch Cincinnati** (mesivta, 1863 Section Rd) and **Yeshiva Gedolah Lubavitch Cincinnati** (2209 Losantiville Ave),

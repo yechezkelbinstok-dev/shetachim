@@ -101,9 +101,11 @@ each on his own line and photo (`headsIn`, `headText`, `HEADS_PHOTOS` in web/ind
 works as before), and both flagships stay. (Nov 20 the container was fresh, without node_modules or the 1.3 GB .cache,
 so web/data/shetachim.json and data/report.md were patched by hand to what the build writes: one text field.) Earlier:
 **Victoria's dispute is Groner and Gutnick only** (owner, Nov 7: "get rid of hendel he's not a actual claimant it's just
-groner and gutnick"; this replaces the Nov 4 "Nvm keep hendel for now" below). **ACT is part of Victoria** (owner, Nov 7: "ACT should be part of
-Victoria also"): the `act` shetach (Shmueli Feldman) and its Hebrew entry are gone; Victoria's territory has AU-ACT, an
-island inside New South Wales like the Gold Coast exclave.
+groner and gutnick"; this replaces the Nov 4 "Nvm keep hendel for now" below). **ACT is part of New South Wales, the Sydney shetach (Pinchus Feldman)**
+(owner, Nov 24: "ACT part of Sydney shetach pls"): AU-ACT moved from Victoria's territory to `new-south-wales`'s, and the
+owner's list matches (no separate ACT shetach; Victoria's head as the map has it). Before (owner, Nov 7: "ACT should be part
+of Victoria also") it was an island of Victoria inside New South Wales; the `act` shetach (Shmueli Feldman) and its Hebrew
+entry were removed then.
 **Australia's head photos** (owner, Nov 7: "Australia now for the photos", then "just use the ones besides tasmania"):
 live for New South Wales (Pinchus Feldman, COLlive Jan 2025), North Queensland (Ari Rubin, Cairns Post Dec 2025), South
 Australia (Yossi Engel, ABC Dec 2025) and Western Australia (Shalom White, his Instagram Mar 2026; his Nov 2026 post is

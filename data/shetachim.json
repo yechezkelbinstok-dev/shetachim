@@ -1955,7 +1955,8 @@
       "name": "New South Wales",
       "headShliach": "Pinchus Feldman",
       "territory": [
-        "AU-NSW"
+        "AU-NSW",
+        "AU-ACT"
       ],
       "capital": {
         "centerId": "117752"
@@ -1967,7 +1968,6 @@
       "headShliach": "Chaim Tzvi Groner; Yoselle Gutnick",
       "territory": [
         "AU-VIC",
-        "AU-ACT",
         {
           "state": "AU-QLD",
           "shape": "gold-coast-lga",

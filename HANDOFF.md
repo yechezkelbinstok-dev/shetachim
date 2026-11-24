@@ -537,10 +537,10 @@ thirteen no better recent photo has been found yet (the list is there, with what
     that fit the year, no area-by-area history list). Its shapes: `web/data/history-geo.json`
     (`scripts/build-history-geo.py`; rebuild when geo.json changes). Redrawn on canvases for speed (it was slow and
     crashed on phones), its cards made like the main map's, 770's with the Rebbeim's portraits (README: Drawing, Cards);
-    settings: Hebrew years (default in Hebrew), Full provinces. זצוקללה״ה נבג״מ זי״ע is always shown after the Frierdiker
-    Rebbe, in both languages, with no switch (owner, Nov 12: "Actually no overall just only do it with zekokleleha nivgam
-    Ziyah"); **the Rebbe is just כ״ק אדמו״ר זי״ע** (owner, Nov 24: "Rebbe is just chak admur ziyyah": `honorOf` on the
-    history and growth pages, and everywhere on the main map).
+    settings: Hebrew years (default in Hebrew), Full provinces. **Both Rebbeim just זי״ע**: the Rebbe is כ״ק אדמו״ר זי״ע and
+    the Frierdiker Rebbe כ״ק אדמו״ר מוהריי״צ זי״ע, in both languages, with no switch (owner, Nov 24: "Rebbe is just chak admur
+    ziyyah", then "also ziyyah for friederker he doesn't keep full that's stupid"; this replaces Nov 12's full
+    זצוקללה״ה נבג״מ זי״ע), on the history and growth pages and everywhere on the main map.
   - **Nov 9 (late): labels.** Heads mode shows whole names only, never a surname alone (owner: "Stop with this last name
     bullshit"); no Rebbe's name on the map at all (owner: "don't put any of the Rebbe's names"; Crown Heights has no
     label in Heads, its star stays); the mode button in Hebrew is "שלוחים" (owner: "Take away roshim just shluchim").

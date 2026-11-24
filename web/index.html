@@ -174,8 +174,6 @@ button:focus-visible, input:focus-visible, a:focus-visible, summary:focus-visibl
 }
 .p-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 14px 16px 10px; }
 .p-head h1 { margin: 0; font: 700 20px/1.1 var(--font-map); letter-spacing: -.01em; white-space: nowrap; }
-/* (taps on the title are the secret switch: no text selection, copy menu or double-tap zoom on phones) */
-.p-head h1 { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
 .p-head .sub { margin: 3px 0 0; color: var(--muted); font-size: 13px; }
 #panel-toggle { display: none; }
 .p-actions { display: flex; align-items: center; gap: 6px; flex: none; }
@@ -840,8 +838,9 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   }
   // A secret switch (owner, Nov 24: "Make a secret way to turn The six situation on or off"): the people marked `secret`
   // in data/extra-centers.json (the six bochurim shluchim of Yeshiva Gedolah Lubavitch Cincinnati) show only while it's
-  // on. Five quick taps on the panel's title switch it (a moment's "6 on" / "6 off" says which), remembered per browser;
-  // ?six=1 or ?six=0 in the address sets it too. On unless switched off.
+  // on. Typing "six" (or "שש") in the search box and pressing Enter switches it (a moment's "6 on" / "6 off" says which;
+  // owner, Nov 24: not taps on the title, "think of something else"), remembered per browser; ?six=1 or ?six=0 in the
+  // address sets it too. On unless switched off.
   const SECRET_KEY = 'shetachim-six';
   let secretOn = true;
   try {
@@ -852,20 +851,17 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   for (const f of centersGeo.features) for (const c of f.properties.centers || []) if ((c.personnel || []).some((p) => p.secret)) secretHolders.push([c, c.personnel.slice()]);
   const applySecret = () => { for (const [c, all] of secretHolders) c.personnel = secretOn ? all.slice() : all.filter((p) => !p.secret); };
   applySecret();
-  {
-    let taps = [];
-    const title = document.querySelector('#panel h1');
-    if (title) title.addEventListener('click', () => {
-      const now = Date.now(); taps = taps.filter((t) => now - t < 2500); taps.push(now);
-      if (taps.length < 5) return;
-      taps = []; secretOn = !secretOn; applySecret();
+  const SECRET_WORDS = new Set(['six', 'שש']);
+  function toggleSecret() {
+    {
+      secretOn = !secretOn; applySecret();
       try { localStorage.setItem(SECRET_KEY, secretOn ? 'on' : 'off'); } catch (e) {}
       if (typeof hideCard === 'function') hideCard();
       const n = document.createElement('div');
       n.textContent = secretOn ? '6 on' : '6 off';
       n.style.cssText = 'position:fixed;left:50%;top:14px;transform:translateX(-50%);z-index:9999;padding:4px 10px;border-radius:12px;font:600 12px/1.4 system-ui,sans-serif;background:rgba(0,0,0,.72);color:#fff;pointer-events:none';
       document.body.appendChild(n); setTimeout(() => n.remove(), 1200);
-    });
+    }
   }
   // Mushrooms (owner, Oct 12): centers outside the country's official Chabad (extra-centers.json "mushroom") are left
   // off unless the Mushrooms option is on (remembered). The data is kept whole and the map's centers are worked out
@@ -4794,6 +4790,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
       if (searchHits.length) selectHit((searchSel + (e.key === 'ArrowDown' ? 1 : searchHits.length - 1) + (searchSel < 0 && e.key === 'ArrowUp' ? 1 : 0)) % searchHits.length);
     } else if (e.key === 'Enter') {
       e.preventDefault();
+      if (SECRET_WORDS.has(sq.value.trim().toLowerCase())) { sq.value = ''; closeSearch(); sq.blur(); toggleSecret(); return; } // (the secret switch)
       if (searchHits.length) goToHit(searchHits[Math.max(0, searchSel)]);
     } else if (e.key === 'Escape') { e.stopPropagation(); closeSearch(); sq.blur(); }
   });

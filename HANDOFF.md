@@ -33,8 +33,10 @@ site's picture), don't keep retrying with curl (the classifier also blocks that 
   their networks work as mushrooms' do, in green (a card's Show network; not in the options' "Mushroom networks"
   list). Left out of sub-shetachim, the growth page and the founding-years scripts, as mushrooms are. Internal names
   stay `formerly` / `former`.
-- **Who is asparagus (20):** the owner's: the Carlebach network (6: Rutgers and its houses), Kanelsky's Bris Avrohom
-  (Hillside and its mikvah; his sons' houses are official), Maon Noam in Toronto (3: "the network of three", the map's
+- **Who is asparagus (23):** the owner's: the Carlebach network (6: Rutgers and its houses), Kanelsky's Bris Avrohom
+  (Hillside and its mikvah; and, Nov 24, "the kanelskys that I made under merkoz ... asparagus for now": Bris Avrohom of
+  Fair Lawn and of Jersey City, back in the Bris Avrohom network, and Yossi Kanelsky's Center for Jewish Life in Marlboro;
+  they leave the growth page, 1,886 → 1,883 listings), Maon Noam in Toronto (3: "the network of three", the map's
   only network of three); ours: Kalmanson's office in Amberley Village. Then (owner: "Find out more to change to
   asparagus", "Limit it to northern America"; Japan, India, the Philippines, Sri Lanka, the Kupchiks and Mexico stay
   mushrooms, no research): Westborough (Rabbi Michoel Green, dismissed 2021), Poughkeepsie and Goshen (Rabbi Yacov

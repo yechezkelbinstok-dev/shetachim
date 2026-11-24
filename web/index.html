@@ -3844,7 +3844,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
   // 770, Chabad Lubavitch Headquarters: the Rebbe as its leader, first and bigger than any shliach's line (owner,
   // Oct 13: "the Rebbe as the leader … def bigger than other shluchim", not in a box of his own)
   const WORLD_HQ = '117678';
-  const rebbeHTML = (c) => (c && c.id === WORLD_HQ ? `<p class="rebbe"><span class="role">${HE ? 'נשיא הדור:' : 'Leader:'}</span> ${HE ? 'כ״ק אדמו״ר נשיא דורנו זצוקללה״ה נבג״מ זי״ע' : 'The Lubavitcher Rebbe, zy"a'}</p>` : '');
+  const rebbeHTML = (c) => (c && c.id === WORLD_HQ ? `<p class="rebbe"><span class="role">${HE ? 'נשיא הדור:' : 'Leader:'}</span> ${HE ? 'כ״ק אדמו״ר זי״ע' : 'The Lubavitcher Rebbe, zy"a'}</p>` : '');
   function personnelHTML(list) {
     if (!list || !list.length) return '';
     const living = list.filter((p) => !p.isDeceased), passed = list.filter((p) => p.isDeceased);
@@ -3951,7 +3951,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'haditch-ohel': { ...HADITCH_BURIAL, roles: { Deutsh: ['In charge of the Heichal', 'אחראי על ההיכל'] } },
     'nezhin-ohel': { ...NEZHIN_BURIAL, people: [{ title: 'Rabbi', firstName: 'Shneor Zalman', lastName: 'Deutsh', role: ['In charge of the Ohel', 'אחראי על האוהל'], isDirector: true, isDeceased: false }] },
     // (the Rebbe with his whole title, as on 770's card; owner, Oct 26)
-    ohel: { portraits: ['frierdiker-rebbe', 'the-rebbe'], burial: ['Burial place of the Frierdiker Rebbe, zy"a, and the Lubavitcher Rebbe, zy"a', 'ציוני כ״ק אדמו״ר הריי״צ זי״ע וכ״ק אדמו״ר נשיא דורנו זצוקללה״ה נבג״מ זי״ע'], yahrzeit: ['Histalkus: 10 Shevat 5710 (1950) · 3 Tammuz 5754 (1994)', 'הסתלקות: י׳ שבט תש״י · ג׳ תמוז תשנ״ד'] },
+    ohel: { portraits: ['frierdiker-rebbe', 'the-rebbe'], burial: ['Burial place of the Frierdiker Rebbe, zy"a, and the Lubavitcher Rebbe, zy"a', 'ציוני כ״ק אדמו״ר הריי״צ זי״ע וכ״ק אדמו״ר זי״ע'], yahrzeit: ['Histalkus: 10 Shevat 5710 (1950) · 3 Tammuz 5754 (1994)', 'הסתלקות: י׳ שבט תש״י · ג׳ תמוז תשנ״ד'] },
   };
   // The honorary cards, designed (owner, Nov 4: "designed nicely and properly not just a bunch of ugly text"): a header
   // (the town above a mosad's name, the title, its seat or place under it), the Rebbeim as a timeline (each Rebbe's years
@@ -3974,7 +3974,7 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     'rebbe-maharash': { en: 'The Rebbe Maharash', he: 'אדמו״ר מהר״ש', img: true, book: ['Likkutei Torah – Toras Shmuel', 'לקוטי תורה – תורת שמואל'] },
     'rebbe-rashab': { en: 'The Rebbe Rashab', he: 'אדמו״ר הרש״ב', img: true },
     'frierdiker-rebbe': { en: 'The Frierdiker Rebbe', he: 'אדמו״ר הריי״צ', img: true },
-    'the-rebbe': { en: 'The Rebbe', he: 'נשיא דורנו', img: true },
+    'the-rebbe': { en: 'The Rebbe', he: 'כ״ק אדמו״ר', img: true }, // (owner, Nov 24: "Rebbe is just chak admur ziyyah": כ״ק אדמו״ר זי״ע)
   };
   const REBBE_KEY = Object.fromEntries(Object.entries(REBBE).map(([k, r]) => [r.en, k]));
   const rebbePic = (k, w) => { const r = REBBE[k]; if (!photosOn) return '';

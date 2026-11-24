@@ -537,12 +537,14 @@ thirteen no better recent photo has been found yet (the list is there, with what
     that fit the year, no area-by-area history list). Its shapes: `web/data/history-geo.json`
     (`scripts/build-history-geo.py`; rebuild when geo.json changes). Redrawn on canvases for speed (it was slow and
     crashed on phones), its cards made like the main map's, 770's with the Rebbeim's portraits (README: Drawing, Cards);
-    settings: Hebrew years (default in Hebrew), Full provinces. זצוקללה״ה נבג״מ זי״ע is always shown after the Rebbeim, in
-    both languages, with no switch (owner, Nov 12: "Actually no overall just only do it with zekokleleha nivgam Ziyah").
+    settings: Hebrew years (default in Hebrew), Full provinces. זצוקללה״ה נבג״מ זי״ע is always shown after the Frierdiker
+    Rebbe, in both languages, with no switch (owner, Nov 12: "Actually no overall just only do it with zekokleleha nivgam
+    Ziyah"); **the Rebbe is just כ״ק אדמו״ר זי״ע** (owner, Nov 24: "Rebbe is just chak admur ziyyah": `honorOf` on the
+    history and growth pages, and everywhere on the main map).
   - **Nov 9 (late): labels.** Heads mode shows whole names only, never a surname alone (owner: "Stop with this last name
     bullshit"); no Rebbe's name on the map at all (owner: "don't put any of the Rebbe's names"; Crown Heights has no
     label in Heads, its star stays); the mode button in Hebrew is "שלוחים" (owner: "Take away roshim just shluchim").
-    The Rebbeim's Hebrew in the data: כ״ק אדמו״ר מוהריי״צ / כ״ק אדמו״ר נשיא דורנו (for the cards).
+    The Rebbeim's Hebrew in the data: כ״ק אדמו״ר מוהריי״צ / כ״ק אדמו״ר זי״ע (for the cards; owner, Nov 24).
     **Portraits (Nov 9, done):** the Rebbe's picture now changes with his age on the history page's 770 card (owner:
     "Make the Rebbe's picture change as he got older"; "They need to be proper, nice portraits"; a small corner
     watermark is fine, crop it off): the-rebbe-1950s (chabad.org gallery, "early 1950's") until 1959, the-rebbe-1960s
@@ -2381,7 +2383,8 @@ fetching can't reach.
   - **Wording (owner, firmly):** no address or "region" line at the foot ("address slop"); no "Buried here:" list
     ("more respect, burial place of …"); no "His resting place is here" ("horrible"); a name never twice. Hebrew:
     ציון / ציוני, not מקום מנוחתו ("is that really a used word in chabad?"): "ציוני כ״ק אדמו״ר הריי״צ זי״ע וכ״ק אדמו״ר
-    נשיא דורנו זצוקללה״ה נבג״מ זי״ע" — **the Rebbe always with his whole title, as on 770's card**, never just זי״ע.
+    זי״ע" — since Nov 24 **the Rebbe is just כ״ק אדמו״ר זי״ע** everywhere (owner: "Rebbe is just chak admur ziyyah"; it
+    had been the whole title, כ״ק אדמו״ר נשיא דורנו זצוקללה״ה נבג״מ זי״ע, as on 770's card).
 - With **Mushrooms** on, a card's count shows the centers and the mushrooms apart — "120 centers · 3 mushrooms" /
   "120 מוסדות · 3 פטריות" (shetach, country/state cards, city search results; `counts`, `mushroomsIn`).
 - **City cards off** (owner: "get rid of that useless card", kept switchable): `CITY_CARDS = false` in web/index.html;

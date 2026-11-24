@@ -615,12 +615,14 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   // 770: the Rebbe its leader, as on the main map; before 10 Shevat 5711 the Frierdiker Rebbe, the Rebbe under him
   // (no "zy"a" in English: owner, Nov 8; the full זצוקללה״ה נבג״מ זי״ע always, in both languages, with no switch: owner,
   // Nov 12, "Actually no overall just only do it with zekokleleha nivgam Ziyah")
-  const REBBE = { 'frierdiker-rebbe': ['The Frierdiker Rebbe', 'כ״ק אדמו״ר מוהריי״צ'], 'the-rebbe': ['The Lubavitcher Rebbe', 'כ״ק אדמו״ר נשיא דורנו'] };
-  const UNDER = { 'the-rebbe': ['The Rebbe', 'כ״ק אדמו״ר נשיא דורנו'] };
+  const REBBE = { 'frierdiker-rebbe': ['The Frierdiker Rebbe', 'כ״ק אדמו״ר מוהריי״צ'], 'the-rebbe': ['The Lubavitcher Rebbe', 'כ״ק אדמו״ר'] };
+  const UNDER = { 'the-rebbe': ['The Rebbe', 'כ״ק אדמו״ר'] };
   const HONOR = 'זצוקללה״ה נבג״מ זי״ע';
   const TITLES = true;
-  const honor = () => (!TITLES ? '' : HE ? ` <span class="hon">${HONOR}</span>` : ` <bdi class="hon" lang="he">${HONOR}</bdi>`);
-  const ALT = { 'frierdiker-rebbe': ['The Frierdiker Rebbe', 'אדמו״ר הריי״צ'], 'the-rebbe': ['The Rebbe', 'נשיא דורנו'] };
+  // the Rebbe is just כ״ק אדמו״ר זי״ע (owner, Nov 24: "Rebbe is just chak admur ziyyah"); the Frierdiker Rebbe keeps the full title
+  const honorOf = (k) => (k === 'the-rebbe' ? 'זי״ע' : HONOR);
+  const honor = (k) => (!TITLES ? '' : HE ? ` <span class="hon">${honorOf(k)}</span>` : ` <bdi class="hon" lang="he">${honorOf(k)}</bdi>`);
+  const ALT = { 'frierdiker-rebbe': ['The Frierdiker Rebbe', 'אדמו״ר הריי״צ'], 'the-rebbe': ['The Rebbe', 'כ״ק אדמו״ר'] };
   // the Rebbe's picture by the year on the map, as he got older (owner, Nov 9; data/rebbeim-portraits.json says which is which)
   const agedPic = (k, Y) => k !== 'the-rebbe' ? k : Y < 1960 ? 'the-rebbe-1950s' : Y < 1972 ? 'the-rebbe-1960s' : Y < 1984 ? 'the-rebbe-1970s' : Y < 1990 ? 'the-rebbe-1980s' : k;
   const rbPic = (k, w, Y) => { const a = ALT[k]; return `<span class="rb-pic" style="--w:${w}px"><img src="img/rebbeim/${esc(agedPic(k, Y))}.jpg" alt="${esc(a ? L(a[0], a[1]) : '')}"></span>`; };
@@ -628,11 +630,11 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
     const h = headAt(sid, Y), f = flagAt(sid, Y), c = centerOf(f), rows = [];
     if (h) {
       const t = REBBE[h.x.portrait];
-      rows.push(`<div class="rebbe-row">${h.x.portrait ? rbPic(h.x.portrait, 64, Y) : ''}<p class="rebbe"><span class="role">${L('Leader:', 'נשיא הדור:')}</span> ${esc(t ? L(t[0], t[1]) : headName(sid, h))}${t ? honor() : ''}</p></div>`);
+      rows.push(`<div class="rebbe-row">${h.x.portrait ? rbPic(h.x.portrait, 64, Y) : ''}<p class="rebbe"><span class="role">${L('Leader:', 'נשיא הדור:')}</span> ${esc(t ? L(t[0], t[1]) : headName(sid, h))}${t ? honor(h.x.portrait) : ''}</p></div>`);
       for (const w of h.x.with || []) {
         const st = startOf(w); if (st && st.y > Y) continue;
         const n = UNDER[w.portrait];
-        rows.push(`<div class="rebbe-row under">${w.portrait ? rbPic(w.portrait, 48, Y) : ''}<div class="rb-txt"><p class="rebbe sm">${esc(n ? L(n[0], n[1]) : HE && w.he ? w.he : w.name)}${n ? honor() : ''}</p>${
+        rows.push(`<div class="rebbe-row under">${w.portrait ? rbPic(w.portrait, 48, Y) : ''}<div class="rb-txt"><p class="rebbe sm">${esc(n ? L(n[0], n[1]) : HE && w.he ? w.he : w.name)}${n ? honor(w.portrait) : ''}</p>${
           w.role ? `<p class="meta">${esc(HE && w.roleHe ? w.roleHe : w.role)}</p>` : ''}</div></div>`);
       }
     }
@@ -1154,7 +1156,7 @@ body { background: var(--bg); color: var(--ink); font: 14px/1.35 var(--font); ov
   // Batsheva Shemtov", "First director: …", with the year where the source gives it
   const ROLE_TXT = { founder: ['Founded by', 'ייסדו'], 'co-founder': ['Co-founded by', 'שותפים בייסוד'], 'first director': ['First director', 'מנהל ראשון'],
     director: ['Director', 'מנהל'], head: ['Headed by', 'בראשו'], principal: ['Principal', 'מנהל/ת'], rabbi: ['Rabbi', 'רב'] };
-  const HE_TITLE = { 'the Lubavitcher Rebbe': 'הרבי', 'the Previous Lubavitcher Rebbe': 'הרבי הריי״צ' };
+  const HE_TITLE = { 'the Lubavitcher Rebbe': 'כ״ק אדמו״ר זי״ע', 'the Previous Lubavitcher Rebbe': 'הרבי הריי״צ' };
   const heNameOf = (n) => { if (!HE) return n; if (HE_TITLE[n]) return HE_TITLE[n]; if (!he) return n; const w = n.split(/\s+/), out = []; for (let j = 0; j < w.length; j++) { const x = w[j];
     if (j === 0 && x === 'Rabbi') { out.push('הרב'); continue; } const t = j === w.length - 1 ? he.last && he.last[x] : he.first && he.first[x]; if (!t) return n; out.push(t); } return out.join(' '); };
   // ---------- a center's card, as on the main map: its shetach and head that year above its name (its flagship's star

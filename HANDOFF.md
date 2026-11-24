@@ -328,6 +328,10 @@ thirteen no better recent photo has been found yet (the list is there, with what
   no address yet), new shetach `slovenia` (Slvn., capital that dot), SVN out of Italy's territory and the owner's list, Slovenia's
   country-head line (Haddad from Trieste, `servedFrom`) dropped, Hebrew names (סלובניה, יוסי קרינסקי, ליובליאנה, רחלי). The posters
   (SVG/PNG) still have Slovenia in Italy (the owner stopped poster work).
+- **A secret switch for the Cincinnati Yeshiva Gedolah's six bochurim shluchim** (owner, Nov 24: "Make a secret way to
+  turn The six situation on or off"): five quick taps on the panel's title ("Chabad Shetachim" / "שטחי חב״ד") switch them on
+  or off ("6 on" / "6 off" flashes), remembered per browser (`shetachim-six`); `?six=1` / `?six=0` set it too. On by default.
+  They are the personnel with `"secret": "six"` in data/extra-centers.json (`applySecret` in web/index.html).
 - **The listing-date fallback is for the very end (owner, Nov 15: "u idiot the fallback is meant to be only applied once the
   research is done and we haven't found anything like meaning in ages from now when we push this stuff to the growth page for
   now they should be in their seperate category of being from the chabad.org fallback or whatever").** Latin America's 14

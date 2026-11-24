@@ -836,6 +836,35 @@ fieldset.ctl legend { padding: 0; margin-bottom: 7px; font: 600 10.5px var(--fon
     $('#load-error').textContent = document.documentElement.lang === 'he' ? `נתוני המפה לא נטענו (${err.message}). נסו לטעון את הדף מחדש.` : `The map data didn't load (${err.message}). Reload the page to try again.`;
     return;
   }
+  // A secret switch (owner, Nov 24: "Make a secret way to turn The six situation on or off"): the people marked `secret`
+  // in data/extra-centers.json (the six bochurim shluchim of Yeshiva Gedolah Lubavitch Cincinnati) show only while it's
+  // on. Five quick taps on the panel's title switch it (a moment's "6 on" / "6 off" says which), remembered per browser;
+  // ?six=1 or ?six=0 in the address sets it too. On unless switched off.
+  const SECRET_KEY = 'shetachim-six';
+  let secretOn = true;
+  try {
+    const q = new URLSearchParams(location.search).get('six');
+    if (q === '0' || q === '1') { secretOn = q === '1'; localStorage.setItem(SECRET_KEY, secretOn ? 'on' : 'off'); } else secretOn = localStorage.getItem(SECRET_KEY) !== 'off';
+  } catch (e) {}
+  const secretHolders = [];
+  for (const f of centersGeo.features) for (const c of f.properties.centers || []) if ((c.personnel || []).some((p) => p.secret)) secretHolders.push([c, c.personnel.slice()]);
+  const applySecret = () => { for (const [c, all] of secretHolders) c.personnel = secretOn ? all.slice() : all.filter((p) => !p.secret); };
+  applySecret();
+  {
+    let taps = [];
+    const title = document.querySelector('#panel h1');
+    if (title) title.addEventListener('click', () => {
+      const now = Date.now(); taps = taps.filter((t) => now - t < 2500); taps.push(now);
+      if (taps.length < 5) return;
+      taps = []; secretOn = !secretOn; applySecret();
+      try { localStorage.setItem(SECRET_KEY, secretOn ? 'on' : 'off'); } catch (e) {}
+      if (typeof hideCard === 'function') hideCard();
+      const n = document.createElement('div');
+      n.textContent = secretOn ? '6 on' : '6 off';
+      n.style.cssText = 'position:fixed;left:50%;top:14px;transform:translateX(-50%);z-index:9999;padding:4px 10px;border-radius:12px;font:600 12px/1.4 system-ui,sans-serif;background:rgba(0,0,0,.72);color:#fff;pointer-events:none';
+      document.body.appendChild(n); setTimeout(() => n.remove(), 1200);
+    });
+  }
   // Mushrooms (owner, Oct 12): centers outside the country's official Chabad (extra-centers.json "mushroom") are left
   // off unless the Mushrooms option is on (remembered). The data is kept whole and the map's centers are worked out
   // from it either way (useCenters), so switching is instant (owner, Oct 26: it used to reload the page).

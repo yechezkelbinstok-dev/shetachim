@@ -18,6 +18,12 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
 a page, go to Firecrawl at once (its image search finds photos with their pages; a page screenshot shows a blocked
 site's picture), don't keep retrying with curl (the classifier also blocks that as bot-check circumvention).
 
+## ▶ Nov 25: the Asparagus renamed "Kicked off Merkos" (LIVE)
+- Owner: "Change asparagus to kicked off merkoz". Every word on the page now says **Kicked off Merkos** / **סולקו ממרכז**
+  (one place, its card and a count of 1: **סולק ממרכז**): the switch, a card's label, the counts and the search's city
+  lines ("1 kicked off Merkos"). Not changed: the green dot, the spear symbol, and the internal names (`formerly`,
+  `asparagus`, `ASPARAGUS_*`). The notes below still say "asparagus" for the category.
+
 ## ▶ Nov 23: a new category, the Asparagus (kicked off from Merkos); two Cincinnati yeshivas as mushrooms (LIVE)
 - **Asparagus / אספרגוס** (owner: "You can call them Asparagus instead of mushroom ... The kicked off merkoz ones"):
   places that were under Merkos and were kicked off. Field `formerly` (why) in data/extra-centers.json, in place of

@@ -18,13 +18,17 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
 a page, go to Firecrawl at once (its image search finds photos with their pages; a page screenshot shows a blocked
 site's picture), don't keep retrying with curl (the classifier also blocks that as bot-check circumvention).
 
-## ▶ Nov 26: Kicked off Merkos gets its own symbol, a boot kicking a house (LIVE)
+## ▶ Nov 26: Kicked off Merkos gets its own symbol, a boot mid-kick (LIVE; the owner may pick another)
 - Owner: "Design some sort of like shoe kicking something or someone ... some sort of little icon ... since they're
-  kicked off". The asparagus spear is gone: **a boot kicking a little house off** (a Chabad house kicked off Merkos), two
-  speed lines behind the house, the house's door cut out (even-odd). Paths `KICK_BOOT/CUFF/SOLE/HOUSE/LINES` and
-  `kickSVG()` in web/index.html; `icon('kick')` on cards and counts; the map's image `kick` (layer `asp`, with the
-  Mushroom marker set to Mushroom) is drawn a quarter bigger than a mushroom (finer, a blur at a mushroom's size); on a
-  card's label and tag 13 px, not 10. The switch's copy is static HTML (line ~676): change both if the symbol changes.
+  kicked off". The asparagus spear is gone. **First try, hand-drawn (a boot kicking a little house): "It looks horrible on
+  so many levels"** (clunky boot, a broken-looking house, pill-shaped speed lines, a blob when small). **Don't hand-draw
+  icons: start from a professional set.** Now **#1: Phosphor Icons' boot-fill** (MIT; npm @phosphor-icons/core,
+  assets/fill/boot-fill.svg), turned 30 degrees, toe up, with three round speed lines behind it (`KICK_BOOT`, `KICK_T`,
+  `KICK_LINES`, `kickSVG()` in web/index.html). The owner was sent work/kicked-off-options.png: #1 (live), #2 Phosphor's
+  sneaker-move-fill as is, #3 the boot kicking Phosphor's house-simple-fill, #4 kicking its soccer-ball-fill.
+  `icon('kick')` on cards and counts; the map's image `kick` (layer `asp`, with the Mushroom marker set to Mushroom) is
+  drawn a quarter bigger than a mushroom; on a card's label and tag 13 px, not 10. The switch's copy is static HTML
+  (line ~676): change both if the symbol changes.
 
 ## ▶ Nov 25: the Asparagus renamed "Kicked off Merkos" (LIVE)
 - Owner: "Change asparagus to kicked off merkoz". Every word on the page now says **Kicked off Merkos** / **סולקו ממרכז**

@@ -18,10 +18,18 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
 a page, go to Firecrawl at once (its image search finds photos with their pages; a page screenshot shows a blocked
 site's picture), don't keep retrying with curl (the classifier also blocks that as bot-check circumvention).
 
+## ▶ Nov 26: Kicked off Merkos gets its own symbol, a boot kicking a house (LIVE)
+- Owner: "Design some sort of like shoe kicking something or someone ... some sort of little icon ... since they're
+  kicked off". The asparagus spear is gone: **a boot kicking a little house off** (a Chabad house kicked off Merkos), two
+  speed lines behind the house, the house's door cut out (even-odd). Paths `KICK_BOOT/CUFF/SOLE/HOUSE/LINES` and
+  `kickSVG()` in web/index.html; `icon('kick')` on cards and counts; the map's image `kick` (layer `asp`, with the
+  Mushroom marker set to Mushroom) is drawn a quarter bigger than a mushroom (finer, a blur at a mushroom's size); on a
+  card's label and tag 13 px, not 10. The switch's copy is static HTML (line ~676): change both if the symbol changes.
+
 ## ▶ Nov 25: the Asparagus renamed "Kicked off Merkos" (LIVE)
 - Owner: "Change asparagus to kicked off merkoz". Every word on the page now says **Kicked off Merkos** / **סולקו ממרכז**
   (one place, its card and a count of 1: **סולק ממרכז**): the switch, a card's label, the counts and the search's city
-  lines ("1 kicked off Merkos"). Not changed: the green dot, the spear symbol, and the internal names (`formerly`,
+  lines ("1 kicked off Merkos"). Not changed: the green dot, the spear symbol (replaced Nov 26, above), the internal names (`formerly`,
   `asparagus`, `ASPARAGUS_*`). The notes below still say "asparagus" for the category.
 
 ## ▶ Nov 23: a new category, the Asparagus (kicked off from Merkos); two Cincinnati yeshivas as mushrooms (LIVE)

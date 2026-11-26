@@ -255,7 +255,7 @@
 {"name":"Lyon","region":"FRA","country":"FRA","lat":45.74846,"lon":4.84671,"pop":472317,"centers":5,"piece":"FRA:france"},
 {"name":"Mesa","region":"US-AZ","country":"US","lat":33.42227,"lon":-111.82264,"pop":471825,"centers":1,"piece":"US-AZ:arizona"},
 {"name":"Tula","region":"RUS","country":"RUS","lat":54.19609,"lon":37.61822,"pop":468825,"centers":1,"piece":"RUS:russia"},
-{"name":"Staten Island","region":"US-NY","country":"US","lat":40.56233,"lon":-74.13986,"pop":468730,"centers":6,"piece":"US-NY:new-york-city"},
+{"name":"Staten Island","region":"US-NY","country":"US","lat":40.56233,"lon":-74.13986,"pop":468730,"centers":7,"mushrooms":1,"piece":"US-NY:new-york-city"},
 {"name":"Edinburgh","region":"GBR","country":"GBR","lat":55.95206,"lon":-3.19648,"pop":464990,"centers":1,"piece":"GBR:united-kingdom"},
 {"name":"Atlanta","region":"US-GA","country":"US","lat":33.749,"lon":-84.38798,"pop":463878,"centers":13,"piece":"US-GA:georgia"},
 {"name":"Antwerp","region":"BEL","country":"BEL","lat":51.22047,"lon":4.40026,"pop":459805,"centers":4,"piece":"BEL:belgium"},

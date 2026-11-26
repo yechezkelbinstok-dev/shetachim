@@ -18,6 +18,14 @@ fucking firecrawl idiot for when web fetch doesn't work" — anash.org answers W
 a page, go to Firecrawl at once (its image search finds photos with their pages; a page screenshot shows a blocked
 site's picture), don't keep retrying with curl (the classifier also blocks that as bot-check circumvention).
 
+## ▶ Nov 26: a mushroom on Staten Island's South Shore, Rabbi Eli Kogan's (LIVE)
+- Owner: "There's a kogan mushroom in South Staten island I don't think on the map so find". **Jewish Russian Learning
+  Center** (`extra-us-staten-island-kogan`; Hebrew מרכז הלימוד היהודי־רוסי), 44 Oswald Place, Prince's Bay: Rabbi Eli
+  Kogan its executive director (SI Live 2012, COLlive 2014: also "rabbi of Congregation Shaarei Teshuvah"); the IRS has
+  Jewish Russian Learning Center Inc at that address, returns through 2024 (EIN 77-0623554; its president Eugene Kogan).
+  Not on chabad.org. His wife's name not found (not added). Its 2012-14 branch, the JRLC of South Beach (Rosebank,
+  Rabbi Zeev and Esther Kushnirsky), not added: nothing newer found.
+
 ## ▶ Nov 26: Kicked off Merkos gets its own symbol, a boot mid-kick (LIVE; the owner may pick another)
 - Owner: "Design some sort of like shoe kicking something or someone ... some sort of little icon ... since they're
   kicked off". The asparagus spear is gone. **First try, hand-drawn (a boot kicking a little house): "It looks horrible on
